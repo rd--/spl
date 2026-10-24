@@ -15,6 +15,10 @@
 		answer
 	}
 
+	patienceSort { :self |
+		self.patienceSortPiles.mergeSortedLists!(max/1, addFirst!/2)
+	}
+
 	patienceSortPiles { :self |
 		let piles = [];
 		let answer = [];
@@ -29,10 +33,6 @@
 			}
 		};
 		piles
-	}
-
-	patienceSort { :self |
-		self.patienceSortPiles.mergeSortedLists!(max/1, addFirst!/2)
 	}
 
 }

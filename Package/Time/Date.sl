@@ -1,7 +1,19 @@
 Date! : [Object, Store, Equal, Compare] {
 
-	[isLess, <] { :self :aDate |
-		isLessOn(self, aDate, absoluteTime/1)
+	Date { :self |
+		self
+	}
+
+	DateAndTime { :self |
+		DateAndTime(self.absoluteTime)
+	}
+
+	Time { :self |
+		Time(self.absoluteTime)
+	}
+
+	TimeStamp { :self |
+		TimeStamp(self.absoluteTime)
 	}
 
 	absoluteTime { :self |
@@ -16,14 +28,6 @@ Date! : [Object, Store, Equal, Compare] {
 		]
 	}
 
-	Date { :self |
-		self
-	}
-
-	DateAndTime { :self |
-		DateAndTime(self.absoluteTime)
-	}
-
 	dateString { :self |
 		[
 			self.year.printString,
@@ -32,12 +36,12 @@ Date! : [Object, Store, Equal, Compare] {
 		].stringJoin('-')
 	}
 
-	dayOfWeek { :self |
-		<primitive: return _self.getUTCDay() + 1;>
-	}
-
 	dayOfMonth { :self |
 		<primitive: return _self.getUTCDate();>
+	}
+
+	dayOfWeek { :self |
+		<primitive: return _self.getUTCDay() + 1;>
 	}
 
 	dayOfYear { :self |
@@ -53,6 +57,10 @@ Date! : [Object, Store, Equal, Compare] {
 		anObject.isDate & {
 			aBlock(self.absoluteTime, anObject.absoluteTime)
 		}
+	}
+
+	[isLess, <] { :self :aDate |
+		isLessOn(self, aDate, absoluteTime/1)
 	}
 
 	julianDate { :self |
@@ -88,14 +96,6 @@ Date! : [Object, Store, Equal, Compare] {
 		)
 	}
 
-	Time { :self |
-		Time(self.absoluteTime)
-	}
-
-	TimeStamp { :self |
-		TimeStamp(self.absoluteTime)
-	}
-
 	year { :self |
 		<primitive: return _self.getUTCFullYear();>
 	}
@@ -126,17 +126,17 @@ Date! : [Object, Store, Equal, Compare] {
 		>
 	}
 
-	fromJulianDay { :self |
-		let [year, month, day] = self.julianDayToGregorian;
-		Date(year, month, day.ceiling)
-	}
-
 	JulianDate { :year :month :day |
 		julianToJulianDay(
 			year,
 			month,
 			day
 		).fromJulianDay
+	}
+
+	fromJulianDay { :self |
+		let [year, month, day] = self.julianDayToGregorian;
+		Date(year, month, day.ceiling)
 	}
 
 }
@@ -188,6 +188,34 @@ Date! : [Object, Store, Equal, Compare] {
 
 +SmallFloat {
 
+	gregorianToJulianDay { :year :month :day |
+		/* https://www.fourmilab.ch/documents/calendar/calendar.js */
+		let gregorianEpoch = 1_721_425.5;
+		(
+			(gregorianEpoch - 1)
+			+
+			(365 * (year - 1))
+			+
+			floor((year - 1) / 4)
+			+
+			(0 - floor((year - 1) / 100))
+			+
+			floor((year - 1) / 400)
+			+
+			floor(
+				(((367 * month) - 362) / 12)
+				+
+				(month <= 2).if {
+					0
+				} {
+					year.isGregorianLeapYear.if { -1 } { -2 }
+				}
+				+
+				day
+			)
+		).ceiling
+	}
+
 	isGregorianLeapYear { :year |
 		/* https://www.fourmilab.ch/documents/calendar/calendar.js */
 		(year % 4 = 0) & {
@@ -197,23 +225,6 @@ Date! : [Object, Store, Equal, Compare] {
 				}
 			).not
 		}
-	}
-
-	julianDayToJulian { :self |
-		/* https://www.fourmilab.ch/documents/calendar/calendar.js */
-		<primitive:
-		let td = _self + 0.5;
-		let z = Math.floor(td);
-		let a = z;
-		let b = a + 1524;
-		let c = Math.floor((b - 122.1) / 365.25);
-		let d = Math.floor(365.25 * c);
-		let e = Math.floor((b - d) / 30.6001);
-		let month = Math.floor((e < 14) ? (e - 1) : (e - 13));
-		let year = Math.floor((month > 2) ? (c - 4716) : (c - 4715));
-		let day = b - d - Math.floor(30.6001 * e);
-		return [year, month, day];
-		>
 	}
 
 	julianDayToGregorian { :self |
@@ -247,32 +258,21 @@ Date! : [Object, Store, Equal, Compare] {
 		>
 	}
 
-	gregorianToJulianDay { :year :month :day |
+	julianDayToJulian { :self |
 		/* https://www.fourmilab.ch/documents/calendar/calendar.js */
-		let gregorianEpoch = 1_721_425.5;
-		(
-			(gregorianEpoch - 1)
-			+
-			(365 * (year - 1))
-			+
-			floor((year - 1) / 4)
-			+
-			(0 - floor((year - 1) / 100))
-			+
-			floor((year - 1) / 400)
-			+
-			floor(
-				(((367 * month) - 362) / 12)
-				+
-				(month <= 2).if {
-					0
-				} {
-					year.isGregorianLeapYear.if { -1 } { -2 }
-				}
-				+
-				day
-			)
-		).ceiling
+		<primitive:
+		let td = _self + 0.5;
+		let z = Math.floor(td);
+		let a = z;
+		let b = a + 1524;
+		let c = Math.floor((b - 122.1) / 365.25);
+		let d = Math.floor(365.25 * c);
+		let e = Math.floor((b - d) / 30.6001);
+		let month = Math.floor((e < 14) ? (e - 1) : (e - 13));
+		let year = Math.floor((month > 2) ? (c - 4716) : (c - 4715));
+		let day = b - d - Math.floor(30.6001 * e);
+		return [year, month, day];
+		>
 	}
 
 	julianToJulianDay { :year :month :day |

@@ -1,5 +1,15 @@
 Headers! : [Object] {
 
+	Record { :self |
+		<primitive:
+		const answer = {};
+		_self.forEach(function(value, key) {
+			answer[key] = value;
+		});
+		return answer;
+		>
+	}
+
 	at { :self :name |
 		<primitive: return _self.get(_name);>
 	}
@@ -24,16 +34,6 @@ Headers! : [Object] {
 
 	put! { :self :name :value |
 		<primitive: return _self.set(_name, _value);>
-	}
-
-	Record { :self |
-		<primitive:
-		const answer = {};
-		_self.forEach(function(value, key) {
-			answer[key] = value;
-		});
-		return answer;
-		>
 	}
 
 	removeKey! { :self :name |

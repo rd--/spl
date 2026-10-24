@@ -259,15 +259,6 @@
 		r
 	}
 
-	gaussianElimination { :m :v |
-		let a = m.deepCopy;
-		a.withIndexDo { :each :i |
-			each.add!(v[i])
-		};
-		a.reducedRowEchelonForm;
-		a.collect(last/1)
-	}
-
 	gaussSeidelMethod { :a :b :x :epsilon :maximumIterations |
 		let n = a.size;
 		withReturn { :return/1 |
@@ -304,6 +295,15 @@
 		let epsilon = 1E-9;
 		let maximumIterations = 100;
 		a.gaussSeidelMethod(b, x, epsilon, maximumIterations)
+	}
+
+	gaussianElimination { :m :v |
+		let a = m.deepCopy;
+		a.withIndexDo { :each :i |
+			each.add!(v[i])
+		};
+		a.reducedRowEchelonForm;
+		a.collect(last/1)
 	}
 
 	gramMatrix { :self |
@@ -347,13 +347,6 @@
 				r[k - m + 1]
 			}
 		}.table(1.to(m), 1.to(n))
-	}
-
-	hilbertMatrix { :self |
-		let [m, n] = self;
-		{ :i :j |
-			1 / (i + j - 1)
-		}.table(m.one.to(m), n.one.to(n))
 	}
 
 	heldKarpAlgorithm { :self |
@@ -409,6 +402,13 @@
 		tour.push(1);
 		return [minCost, tour];
 		>
+	}
+
+	hilbertMatrix { :self |
+		let [m, n] = self;
+		{ :i :j |
+			1 / (i + j - 1)
+		}.table(m.one.to(m), n.one.to(n))
 	}
 
 	homogeneousTranslationMatrix { :self |
@@ -522,6 +522,26 @@
 		self.isUpperTriangularMatrix(0)
 	}
 
+	kroneckerProduct { :a :b |
+		let m = a.size;
+		let n = a[1].size;
+		let p = b.size;
+		let q = b[1].size;
+		let r = m * p;
+		let c = n * q;
+		let answer = { List(c, 0) } ! r;
+		1.toDo(m) { :i |
+			1.toDo(n) { :j |
+				1.toDo(p) { :k |
+					1.toDo(q) { :l |
+						answer[p * (i - 1) + k][q * (j - 1) + l] := a[i][j] * b[k][l]
+					}
+				}
+			}
+		};
+		answer
+	}
+
 	kuhnMunkresAlgorithm { :self |
 		<primitive:
 		const C = _self;
@@ -592,26 +612,6 @@
 		>
 	}
 
-	kroneckerProduct { :a :b |
-		let m = a.size;
-		let n = a[1].size;
-		let p = b.size;
-		let q = b[1].size;
-		let r = m * p;
-		let c = n * q;
-		let answer = { List(c, 0) } ! r;
-		1.toDo(m) { :i |
-			1.toDo(n) { :j |
-				1.toDo(p) { :k |
-					1.toDo(q) { :l |
-						answer[p * (i - 1) + k][q * (j - 1) + l] := a[i][j] * b[k][l]
-					}
-				}
-			}
-		};
-		answer
-	}
-
 	liftplanMatrix { :m1 :m2 |
 		m2.isVector.ifTrue {
 			m2 := m2.integerSequenceMatrix('Column')
@@ -632,26 +632,6 @@
 
 	lowerTriangularize { :self |
 		self.lowerTriangularize(0)
-	}
-
-	luDecompositionPivotMatrix { :m |
-		let n = m.size;
-		let p = n.identityMatrix;
-		1.toDo(n) { :i |
-			let max = m[i][i];
-			let row = i;
-			i.toDo(n) { :j |
-				let e = m[j][i];
-				(e > max).ifTrue {
-					max := e;
-					row := j
-				}
-			};
-			(i != row).ifTrue {
-				p.swapWith!(i, row)
-			}
-		};
-		p
 	}
 
 	luDecomposition { :self |
@@ -678,6 +658,26 @@
 			}
 		};
 		[l, u, p]
+	}
+
+	luDecompositionPivotMatrix { :m |
+		let n = m.size;
+		let p = n.identityMatrix;
+		1.toDo(n) { :i |
+			let max = m[i][i];
+			let row = i;
+			i.toDo(n) { :j |
+				let e = m[j][i];
+				(e > max).ifTrue {
+					max := e;
+					row := j
+				}
+			};
+			(i != row).ifTrue {
+				p.swapWith!(i, row)
+			}
+		};
+		p
 	}
 
 	matchPairs { :self |
@@ -965,48 +965,6 @@
 		self.deepCopy.reducedRowEchelonForm
 	}
 
-	singularValueDecompositionQr { :self :tolerance |
-		let a = self;
-		let [m, n] = a.shape;
-		let loopMax = 100 * m.max(n);
-		let loopCount = 0;
-		let u = m.identityMatrix;
-		let s = a.conjugateTranspose;
-		let v = n.identityMatrix;
-		let err = Infinity;
-		{
-			err > tolerance & {
-				loopCount < loopMax
-			}
-		}.whileTrue {
-			let q = nil;
-			[q, s] := qrDecomposition(s.conjugateTranspose);
-			u := u.dot(q);
-			[q, s] := qrDecomposition(s.conjugateTranspose);
-			v := v.dot(q);
-			let e = s.deepCopy.upperTriangularize(1).catenate.norm;
-			let f = s.diagonal.norm;
-			err := (f = 0 || (f = 1)).if {
-				0
-			} {
-				e / f
-			};
-			loopCount := loopCount + 1
-		};
-		let ss = s.diagonal;
-		s := [0].reshape([m, n]);
-		1.toDo(ss.size) { :n |
-			let ssn = ss[n];
-			s[n][n] := ssn.abs;
-			(ssn < 0).ifTrue {
-				1.toDo(m) { :i |
-					u[i][n] := u[i][n].negate
-				}
-			}
-		};
-		[u, s, v]
-	}
-
 	/*
 	singularValueDecomposition { :self |
 		let a = self;
@@ -1050,6 +1008,12 @@
 		[u, s, v]
 	}
 	*/
+
+	singularValueDecomposition { :self |
+		let [u, q, v] = self.singularValueDecompositionGolubReinsch;
+		let s = q.diagonalMatrix(0, self.shape);
+		[u, s, v]
+	}
 
 	singularValueDecompositionGolubReinsch { :self |
 		<primitive:
@@ -1325,9 +1289,45 @@
 		>
 	}
 
-	singularValueDecomposition { :self |
-		let [u, q, v] = self.singularValueDecompositionGolubReinsch;
-		let s = q.diagonalMatrix(0, self.shape);
+	singularValueDecompositionQr { :self :tolerance |
+		let a = self;
+		let [m, n] = a.shape;
+		let loopMax = 100 * m.max(n);
+		let loopCount = 0;
+		let u = m.identityMatrix;
+		let s = a.conjugateTranspose;
+		let v = n.identityMatrix;
+		let err = Infinity;
+		{
+			err > tolerance & {
+				loopCount < loopMax
+			}
+		}.whileTrue {
+			let q = nil;
+			[q, s] := qrDecomposition(s.conjugateTranspose);
+			u := u.dot(q);
+			[q, s] := qrDecomposition(s.conjugateTranspose);
+			v := v.dot(q);
+			let e = s.deepCopy.upperTriangularize(1).catenate.norm;
+			let f = s.diagonal.norm;
+			err := (f = 0 || (f = 1)).if {
+				0
+			} {
+				e / f
+			};
+			loopCount := loopCount + 1
+		};
+		let ss = s.diagonal;
+		s := [0].reshape([m, n]);
+		1.toDo(ss.size) { :n |
+			let ssn = ss[n];
+			s[n][n] := ssn.abs;
+			(ssn < 0).ifTrue {
+				1.toDo(m) { :i |
+					u[i][n] := u[i][n].negate
+				}
+			}
+		};
 		[u, s, v]
 	}
 

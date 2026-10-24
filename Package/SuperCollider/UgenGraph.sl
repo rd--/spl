@@ -1,11 +1,11 @@
 UgenGraph! : [Object] {
 
-	controlList { :self |
-		<primitive: return _self.controlArray>
-	}
-
 	constantList { :self |
 		<primitive: return _self.constantArray>
+	}
+
+	controlList { :self |
+		<primitive: return _self.controlArray>
 	}
 
 	encode { :self |
@@ -33,15 +33,15 @@ UgenGraph! : [Object] {
 
 +String {
 
-	ugenGraphAt { :self :bus :ugen |
-		<primitive: return sc.makeUgenGraph(_self, sc.wrapOut(_bus, _ugen));>
-	}
-
 	UgenGraph { :self :ugen |
 		self.ugenGraphAt(
 			ugen.busOffset,
 			ugen
 		)
+	}
+
+	ugenGraphAt { :self :bus :ugen |
+		<primitive: return sc.makeUgenGraph(_self, sc.wrapOut(_bus, _ugen));>
 	}
 
 }

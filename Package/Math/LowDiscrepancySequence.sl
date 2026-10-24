@@ -1,9 +1,5 @@
 +SmallFloat {
 
-	sobolSequenceData { :d |
-		system.sobolSequenceData.at(d - 1)
-	}
-
 	sobolSequence { :n :d |
 		let l = n.bitLength;
 		let v = List(l, nil);
@@ -36,6 +32,10 @@
 			x[i] := x[i - 1].bitXor(v[j])
 		};
 		(x / (2 ^ 32))
+	}
+
+	sobolSequenceData { :d |
+		system.sobolSequenceData.at(d - 1)
 	}
 
 }

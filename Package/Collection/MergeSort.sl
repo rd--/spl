@@ -30,6 +30,18 @@
 		}
 	}
 
+	mergeSort { :self |
+		self.copy.mergeSort!
+	}
+
+	mergeSort! { :self :sortBlock/2 |
+		self.mergeSortFromToBy(1, self.size, sortBlock/2)
+	}
+
+	mergeSort! { :self |
+		self.mergeSort!(isLess/2)
+	}
+
 	mergeSortFromToBy { :self :startIndex :stopIndex :sortBlock/2 |
 		let size = self.size;
 		(
@@ -78,18 +90,6 @@
 		}
 	}
 
-	mergeSort! { :self :sortBlock/2 |
-		self.mergeSortFromToBy(1, self.size, sortBlock/2)
-	}
-
-	mergeSort! { :self |
-		self.mergeSort!(isLess/2)
-	}
-
-	mergeSort { :self |
-		self.copy.mergeSort!
-	}
-
 	mergeSortWithIndices { :self :sortBlock/2 |
 		self.ifEmpty {
 			[]
@@ -109,6 +109,12 @@
 }
 
 +List {
+
+	mergeSortMatrix { :self |
+		self.sortTracingState(
+			mergeSortWithMonitor/2
+		)
+	}
 
 	mergeSortWithMonitor { :self :left :right :monitorBlock/1 |
 		(left < right).ifTrue {
@@ -139,12 +145,6 @@
 
 	mergeSortWithMonitor { :self :monitorBlock/1 |
 		mergeSortWithMonitor(self, 1, self.size, monitorBlock/1)
-	}
-
-	mergeSortMatrix { :self |
-		self.sortTracingState(
-			mergeSortWithMonitor/2
-		)
 	}
 
 }

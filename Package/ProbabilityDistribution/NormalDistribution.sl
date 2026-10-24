@@ -108,16 +108,16 @@ NormalDistribution : [Object, Equal, ProbabilityDistribution] {
 		} ! shape
 	}
 
+	standardDeviation { :self |
+		self.sigma
+	}
+
 	survivalFunction { :self |
 		let mu = self.mu;
 		let sigma = self.sigma;
 		{ :x |
 			0.5 * ((x - mu) / (2.sqrt * sigma)).erfc
 		}
-	}
-
-	standardDeviation { :self |
-		self.sigma
 	}
 
 	variance { :self |

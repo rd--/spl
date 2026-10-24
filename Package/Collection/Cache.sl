@@ -31,6 +31,12 @@ Cache! : [Object] {
 		self.atIfPresentIfAbsent(key, identity/1, ifAbsent/0)
 	}
 
+	atIfPresent { :self :key :ifPresent/1 |
+		self.atIfPresentIfAbsent(key, ifPresent/1) {
+			self.error('atIfPresent: key not present')
+		}
+	}
+
 	atIfPresentIfAbsent { :self :key :ifPresent/1 :ifAbsent/0 |
 		let validKey = self.validateKey(key);
 		self.uncheckedMatch(validKey).then { :answer |
@@ -39,12 +45,6 @@ Cache! : [Object] {
 			} {
 				ifAbsent()
 			}
-		}
-	}
-
-	atIfPresent { :self :key :ifPresent/1 |
-		self.atIfPresentIfAbsent(key, ifPresent/1) {
-			self.error('atIfPresent: key not present')
 		}
 	}
 

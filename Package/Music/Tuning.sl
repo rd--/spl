@@ -12,10 +12,6 @@
 		self.typeResponsibility('@Tuning>>isRational')
 	}
 
-	ratios { :self |
-		self.typeResponsibility('@Tuning>>ratios')
-	}
-
 	isTuning { :self |
 		true
 	}
@@ -32,6 +28,10 @@
 				each.primeFactors.max
 			}
 		}.max
+	}
+
+	ratios { :self |
+		self.typeResponsibility('@Tuning>>ratios')
 	}
 
 	size { :self |
@@ -58,12 +58,12 @@
 		2 ^ (n / 1000)
 	}
 
-	ratioToMillioctaves { :n |
-		n.log(2) * 1000
-	}
-
 	ratioToCents { :self |
 		(12 * self.log2) * 100
+	}
+
+	ratioToMillioctaves { :n |
+		n.log(2) * 1000
 	}
 
 	ratioToSavarts { :n |

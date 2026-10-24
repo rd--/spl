@@ -2,6 +2,20 @@ Scale : [Object, Store] {
 
 	| intervals description startIndex |
 
+	LineDrawing { :self |
+		let i = [0] ++ self.intervals.prefixSum * 3;
+		[
+			i.collect { :x |
+				Line([x -1; x 1])
+			},
+			Line([[i.min, 0], [i.max, 0]])
+		].LineDrawing(
+			(
+				height: 50
+			)
+		)
+	}
+
 	degreeToKey { :self :scaleDegree |
 		scaleDegree.isCollection.if {
 			scaleDegree.collect { :each |
@@ -35,20 +49,6 @@ Scale : [Object, Store] {
 		}
 	}
 
-	intervalsBy { :self :anInteger |
-		anInteger.isBetween(1, self.size).if {
-			let intervals = self.intervals;
-			let k = anInteger - 1;
-			1.toCollect(self.size) { :i |
-				i.to(i + k).sum { :j |
-					intervals.atWrap(j)
-				}
-			}
-		} {
-			self.error('intervalsBy: invalid step size')
-		}
-	}
-
 	intervalClass { :self :anInteger |
 		self.intervalsBy(anInteger).nub.sort
 	}
@@ -62,6 +62,20 @@ Scale : [Object, Store] {
 	intervalVariety { :self :operand |
 		operand.atIntegerOrElementwise { :anInteger |
 			self.intervalClass(anInteger).size
+		}
+	}
+
+	intervalsBy { :self :anInteger |
+		anInteger.isBetween(1, self.size).if {
+			let intervals = self.intervals;
+			let k = anInteger - 1;
+			1.toCollect(self.size) { :i |
+				i.to(i + k).sum { :j |
+					intervals.atWrap(j)
+				}
+			}
+		} {
+			self.error('intervalsBy: invalid step size')
 		}
 	}
 
@@ -103,20 +117,6 @@ Scale : [Object, Store] {
 
 	isTernary { :self |
 		self.stepArity = 3
-	}
-
-	LineDrawing { :self |
-		let i = [0] ++ self.intervals.prefixSum * 3;
-		[
-			i.collect { :x |
-				Line([x -1; x 1])
-			},
-			Line([[i.min, 0], [i.max, 0]])
-		].LineDrawing(
-			(
-				height: 50
-			)
-		)
 	}
 
 	nameList { :self |

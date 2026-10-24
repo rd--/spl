@@ -2,18 +2,18 @@ ChordDiagram : [Object, Store] {
 
 	| lengthVector |
 
+	[Graph, chordDiagramToGraph] { :self |
+		Graph(
+			self.vertexList,
+			self.edgeList
+		)
+	}
+
 	chordDiagramPlot { :self |
 		self.Graph.circularGraphPlot(
 			(
 				drawCircle: true
 			)
-		)
-	}
-
-	[Graph, chordDiagramToGraph] { :self |
-		Graph(
-			self.vertexList,
-			self.edgeList
 		)
 	}
 
@@ -38,6 +38,14 @@ ChordDiagram : [Object, Store] {
 
 +List {
 
+	ChordDiagram { :self |
+		self.isVector.if {
+			self.lengthVectorToChordDiagram
+		} {
+			self.edgeListToChordDiagram
+		}
+	}
+
 	chordDiagramPlot { :self |
 		ChordDiagram(self).chordDiagramPlot
 	}
@@ -55,14 +63,6 @@ ChordDiagram : [Object, Store] {
 
 	lengthVectorToChordDiagram { :self |
 		newChordDiagram().initializeSlots(self)
-	}
-
-	ChordDiagram { :self |
-		self.isVector.if {
-			self.lengthVectorToChordDiagram
-		} {
-			self.edgeListToChordDiagram
-		}
 	}
 
 }
@@ -93,6 +93,14 @@ ChordDiagram : [Object, Store] {
 				alpha(p, q) * eulerPhi(q)
 			} / (2 * n)
 		}
+	}
+
+	chordDiagrams { :n |
+		let answer = [];
+		n.chordDiagramsDo { :each |
+			answer.add!(each)
+		};
+		answer
 	}
 
 	chordDiagramsDo { :n :f/1 |
@@ -132,14 +140,6 @@ ChordDiagram : [Object, Store] {
 		};
 		a[1] := 0;
 		simpleChords(1, 1)
-	}
-
-	chordDiagrams { :n |
-		let answer = [];
-		n.chordDiagramsDo { :each |
-			answer.add!(each)
-		};
-		answer
 	}
 
 }

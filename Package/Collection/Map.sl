@@ -19,6 +19,28 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collect, Collecti
 		nil
 	}
 
+	listSubstitutionSystem { :self :aList :anInteger |
+		let rules = self.associations;
+		let answer = [aList];
+		anInteger.timesRepeat {
+			answer.add!(
+				sequenceReplace(answer.last, rules)
+			)
+		};
+		answer
+	}
+
+	matrixSubstitutionSystem { :self :aMatrix :anInteger |
+		let answer = [aMatrix];
+		anInteger.timesRepeat {
+			let next = answer.last.deepCollect { :each |
+				self[each]
+			}.arrayFlatten;
+			answer.add!(next)
+		};
+		answer
+	}
+
 	put! { :self :key :value |
 		key.isImmediate.ifFalse {
 			self.error('Map>>put!: non-immediate key', [key])
@@ -57,28 +79,6 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collect, Collecti
 
 	storeStringLiteral { :self |
 		self.storeStringLiteral('[:]', '[', ']', storeString/1, ': ', storeString/1)
-	}
-
-	listSubstitutionSystem { :self :aList :anInteger |
-		let rules = self.associations;
-		let answer = [aList];
-		anInteger.timesRepeat {
-			answer.add!(
-				sequenceReplace(answer.last, rules)
-			)
-		};
-		answer
-	}
-
-	matrixSubstitutionSystem { :self :aMatrix :anInteger |
-		let answer = [aMatrix];
-		anInteger.timesRepeat {
-			let next = answer.last.deepCollect { :each |
-				self[each]
-			}.arrayFlatten;
-			answer.add!(next)
-		};
-		answer
 	}
 
 	stringSubstitutionSystem { :self :aString :anInteger |
@@ -126,6 +126,22 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collect, Collecti
 
 +List {
 
+	[Map, listToMap] { :self |
+		self.isEmpty.if {
+			Map()
+		} {
+			self.anyOne.isAssociation.if {
+				self.associationListToMap
+			} {
+				self.isMatrix.if {
+					self.matrixToMap
+				} {
+					self.error('Map: invalid list')
+				}
+			}
+		}
+	}
+
 	associationListToMap { :self |
 		self.isAssociationList.if {
 			self.collect(keyAndValue/1).uncheckedMatrixToMap
@@ -140,22 +156,6 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collect, Collecti
 			self.uncheckedMatrixToMap
 		} {
 			self.error('List>>matrixToMap')
-		}
-	}
-
-	[Map, listToMap] { :self |
-		self.isEmpty.if {
-			Map()
-		} {
-			self.anyOne.isAssociation.if {
-				self.associationListToMap
-			} {
-				self.isMatrix.if {
-					self.matrixToMap
-				} {
-					self.error('Map: invalid list')
-				}
-			}
 		}
 	}
 

@@ -41,30 +41,6 @@ Body : [Object] {
 		)
 	}
 
-	Saturn {
-		Body(
-			8.34336671824458,
-			4.124798564124305,
-			-0.4035234171143214,
-			-0.002767425107268624,
-			0.004998528012349172,
-			0.000023041729757376393,
-			0.0002858859806661308
-		)
-	}
-
-	Uranus {
-		Body(
-			12.894369562139131,
-			-15.111151401698631,
-			-0.22330757889265573,
-			0.002964601375647616,
-			0.0023784717395948095,
-			-0.000029658956854023756,
-			0.00004366244043351563
-		)
-	}
-
 	Neptune {
 		Body(
 			15.379697114850917,
@@ -77,8 +53,32 @@ Body : [Object] {
 		)
 	}
 
+	Saturn {
+		Body(
+			8.34336671824458,
+			4.124798564124305,
+			-0.4035234171143214,
+			-0.002767425107268624,
+			0.004998528012349172,
+			0.000023041729757376393,
+			0.0002858859806661308
+		)
+	}
+
 	Sun {
 		Body(0, 0, 0, 0, 0, 0, 1)
+	}
+
+	Uranus {
+		Body(
+			12.894369562139131,
+			-15.111151401698631,
+			-0.22330757889265573,
+			0.002964601375647616,
+			0.0023784717395948095,
+			-0.000029658956854023756,
+			0.00004366244043351563
+		)
 	}
 
 }
@@ -141,20 +141,6 @@ NBodySystem : [Object] {
 
 +Void {
 
-	NBodySystem {
-		let px = 0;
-		let py = 0;
-		let pz = 0;
-		let bodies = [Sun(), Jupiter(), Saturn(), Uranus(), Neptune()];
-		bodies.do { :b |
-			px := px + (b.vx * b.mass);
-			py := py + (b.vy * b.mass);
-			pz := pz + (b.vz * b.mass)
-		};
-		bodies[1].offsetMomentumXyz(px, py, pz);
-		newNBodySystem().initializeSlots(bodies)
-	}
-
 	NBodyBenchmark {
 		Benchmark(
 			'NBody',
@@ -169,6 +155,20 @@ NBodySystem : [Object] {
 			};
 			system.energy
 		}
+	}
+
+	NBodySystem {
+		let px = 0;
+		let py = 0;
+		let pz = 0;
+		let bodies = [Sun(), Jupiter(), Saturn(), Uranus(), Neptune()];
+		bodies.do { :b |
+			px := px + (b.vx * b.mass);
+			py := py + (b.vy * b.mass);
+			pz := pz + (b.vz * b.mass)
+		};
+		bodies[1].offsetMomentumXyz(px, py, pz);
+		newNBodySystem().initializeSlots(bodies)
 	}
 
 }

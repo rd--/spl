@@ -2,6 +2,10 @@ LineDrawing : [Object] {
 
 	| geometryList metadata |
 
+	LineDrawing { :self |
+		self
+	}
+
 	boundingBox { :self |
 		self.geometryList.collect(boundingBox/1).boundingBoxMerging
 	}
@@ -25,10 +29,6 @@ LineDrawing : [Object] {
 		let svgEncoded = svgText.asciiByteArray.base64Encode;
 		let svgEncodedPretty = svgEncoded.chunksOf(76).unlines;
 		'<img src="data:image/svg+xml;base64,\n%">'.format([svgEncodedPretty])
-	}
-
-	LineDrawing { :self |
-		self
 	}
 
 	objectUrl { :self |

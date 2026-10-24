@@ -4,30 +4,30 @@ Tuple : [Object, Copy, Store, Equal] {
 
 	| collection |
 
-	at { :self :index |
-		self.collection.at(index)
+	[List, tupleToList] { :self |
+		self.collection.copy
 	}
 
 	assertIsOfSize { :self :anInteger |
 		self.collection.assertIsOfSize(anInteger)
 	}
 
-	concisePrintString { :self |
-		self.storeStringLiteral(concisePrintString/1)
+	at { :self :index |
+		self.collection.at(index)
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
-		anObject.isTuple & {
-			aBlock(self.collection, anObject.collection)
-		}
+	concisePrintString { :self |
+		self.storeStringLiteral(concisePrintString/1)
 	}
 
 	indices { :self |
 		self.collection.indices
 	}
 
-	[List, tupleToList] { :self |
-		self.collection.copy
+	isEqualBy { :self :anObject :aBlock/2 |
+		anObject.isTuple & {
+			aBlock(self.collection, anObject.collection)
+		}
 	}
 
 	postCopy { :self |
@@ -42,12 +42,12 @@ Tuple : [Object, Copy, Store, Equal] {
 		self.collection.size
 	}
 
-	storeStringLiteral { :self :aBlock/1 |
-		'(' ++ self.collection.collect(aBlock/1).commaSeparated ++ ')'
-	}
-
 	storeString { :self |
 		self.storeStringLiteral(storeString/1)
+	}
+
+	storeStringLiteral { :self :aBlock/1 |
+		'(' ++ self.collection.collect(aBlock/1).commaSeparated ++ ')'
 	}
 
 }

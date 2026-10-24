@@ -1,5 +1,9 @@
 +List {
 
+	NcsColour { :self |
+		RgbColour(self.ncsToRgb, 1)
+	}
+
 	ncsToRgb { :self |
 		/* https://github.com/m90/ncs-color/ */
 		<primitive:
@@ -67,10 +71,6 @@
 			return [v, v, v];
 		}
 		>
-	}
-
-	NcsColour { :self |
-		RgbColour(self.ncsToRgb, 1)
 	}
 
 }

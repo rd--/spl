@@ -28,6 +28,10 @@
 		<primitive: return host.modificationTimeSync(_fileName);>
 	}
 
+	readBinaryFile { :unused :aString |
+		<primitive: return host.readBinaryFileSync(_aString);>
+	}
+
 	readDirectory { :unused :fileName |
 		<primitive: return host.readDirectorySync(_fileName);>
 	}
@@ -52,10 +56,6 @@
 				[aString, each['name']].pathJoin
 			}
 		}
-	}
-
-	readBinaryFile { :unused :aString |
-		<primitive: return host.readBinaryFileSync(_aString);>
 	}
 
 	readTextFile { :unused :aString |

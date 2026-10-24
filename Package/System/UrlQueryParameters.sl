@@ -8,10 +8,8 @@
 
 URLSearchParams! : [Object, Do, UrlQueryParameters] {
 
-	[isEqual, =] { :self :anObject |
-		anObject.isUrlQueryParameters & {
-			isEqualOn(self, anObject, queryString/1)
-		}
+	UrlQueryParameters { :self |
+		self
 	}
 
 	add! { :self :anAssociation |
@@ -47,10 +45,6 @@ URLSearchParams! : [Object, Do, UrlQueryParameters] {
 		<primitive: return _self.has(_name);>
 	}
 
-	isUrlQueryParameters { :self |
-		true
-	}
-
 	[indices, keys] { :self |
 		<primitive:
 		const answer = [];
@@ -59,6 +53,16 @@ URLSearchParams! : [Object, Do, UrlQueryParameters] {
 		}
 		return answer;
 		>
+	}
+
+	[isEqual, =] { :self :anObject |
+		anObject.isUrlQueryParameters & {
+			isEqualOn(self, anObject, queryString/1)
+		}
+	}
+
+	isUrlQueryParameters { :self |
+		true
 	}
 
 	keysAndValuesDo { :self :aBlock/2 |
@@ -96,10 +100,6 @@ URLSearchParams! : [Object, Do, UrlQueryParameters] {
 
 	uncheckedAppend { :self :name :value |
 		<primitive: return _self.append(_name, _value);>
-	}
-
-	UrlQueryParameters { :self |
-		self
 	}
 
 	values { :self |

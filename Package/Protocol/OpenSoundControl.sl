@@ -8,7 +8,7 @@ OscParameter : [Object, Store] {
 		self
 	}
 
-	Record { :self |
+	encodeRecord { :self |
 		(
 			type: self.typeLetter,
 			value: self.value
@@ -53,15 +53,15 @@ OscMessage : [Object, Store] {
 
 	| address parameterList |
 
-	encode { :self |
-		self.Record.basicEncodeOscMessage
-	}
-
-	Record { :self |
+	encodeRecord { :self |
 		(
 			address: self.address,
-			args: self.parameterList.collect(Record/1)
+			args: self.parameterList.collect(encodeRecord/1)
 		)
+	}
+
+	encode { :self |
+		self.encodeRecord.basicEncodeOscMessage
 	}
 
 }
@@ -81,15 +81,15 @@ OscBundle : [Object, Store] {
 
 	| time messageList |
 
-	Record { :self |
+	encodeRecord { :self |
 		(
 			timeTag: (native: self.time * 1000),
-			packets: self.messageList.collect(Record/1)
+			packets: self.messageList.collect(encodeRecord/1)
 		)
 	}
 
 	encode { :self |
-		self.Record.basicEncodeOscBundle
+		self.encodeRecord.basicEncodeOscBundle
 	}
 
 }
@@ -104,12 +104,12 @@ OscBundle : [Object, Store] {
 
 +Record {
 
-	basicEncodeOscMessage { :self |
-		<primitive: return osc.writeMessage(_self, { metadata: true });>
-	}
-
 	basicEncodeOscBundle { :self |
 		<primitive: return osc.writeBundle(_self, { metadata: true });>
+	}
+
+	basicEncodeOscMessage { :self |
+		<primitive: return osc.writeMessage(_self, { metadata: true });>
 	}
 
 }

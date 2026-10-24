@@ -115,16 +115,16 @@ Line : [Object, Store, Equal, Geometry] {
 
 +List {
 
-	closedLine { :self |
-		Line(self ++ [self.first])
-	}
-
 	Line { :self |
 		(self.rank > 2).if {
 			self.collect(Line/1)
 		} {
 			newLine().initializeSlots(self)
 		}
+	}
+
+	closedLine { :self |
+		Line(self ++ [self.first])
 	}
 
 }
@@ -259,7 +259,6 @@ Line : [Object, Store, Equal, Geometry] {
 	}
 
 }
-
 
 +SmallFloat {
 

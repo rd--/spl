@@ -2,6 +2,10 @@ Rectangle : [Object, Store, Equal, Geometry] {
 
 	| lowerLeft upperRight |
 
+	[Polygon, rectangleToPolygon] { :self |
+		self.vertexCoordinates.Polygon
+	}
+
 	arcLength { :self |
 		self.perimeter
 	}
@@ -72,14 +76,6 @@ Rectangle : [Object, Store, Equal, Geometry] {
 		)
 	}
 
-	isEqualBy { :self :anObject :aBlock/2|
-		anObject.isRectangle & {
-			aBlock(self.lowerLeft, anObject.lowerLeft) & {
-				aBlock(self.upperRight, anObject.upperRight)
-			}
-		}
-	}
-
 	extent { :self |
 		self.upperRight - self.lowerLeft
 	}
@@ -90,16 +86,6 @@ Rectangle : [Object, Store, Equal, Geometry] {
 
 	faceIndices { :self |
 		[[1 .. 4]]
-	}
-
-	svgFragment { :self :options |
-		let precision = options['precision'];
-		'<rect x="%" y="%" width="%" height="%" />'.format([
-			self.left.printStringToFixed(precision),
-			self.lower.printStringToFixed(precision),
-			self.width.printStringToFixed(precision),
-			self.height.printStringToFixed(precision)
-		])
 	}
 
 	height { :self |
@@ -151,6 +137,14 @@ Rectangle : [Object, Store, Equal, Geometry] {
 				}
 			};
 			false
+		}
+	}
+
+	isEqualBy { :self :anObject :aBlock/2|
+		anObject.isRectangle & {
+			aBlock(self.lowerLeft, anObject.lowerLeft) & {
+				aBlock(self.upperRight, anObject.upperRight)
+			}
 		}
 	}
 
@@ -208,10 +202,6 @@ Rectangle : [Object, Store, Equal, Geometry] {
 		self.lowerLeft + (self.extent * relativePoint)
 	}
 
-	[Polygon, rectangleToPolygon] { :self |
-		self.vertexCoordinates.Polygon
-	}
-
 	randomPoint { :self :rng :shape |
 		{
 			self.pointAtFraction(
@@ -239,6 +229,16 @@ Rectangle : [Object, Store, Equal, Geometry] {
 		let c = self.center;
 		let e = self.extent * m;
 		centeredRectangle(c, e)
+	}
+
+	svgFragment { :self :options |
+		let precision = options['precision'];
+		'<rect x="%" y="%" width="%" height="%" />'.format([
+			self.left.printStringToFixed(precision),
+			self.lower.printStringToFixed(precision),
+			self.width.printStringToFixed(precision),
+			self.height.printStringToFixed(precision)
+		])
 	}
 
 	swallow { :self :aRectangle |
@@ -301,6 +301,21 @@ Rectangle : [Object, Store, Equal, Geometry] {
 
 +List {
 
+	Rectangle { :lowerLeft :upperRight |
+		(lowerLeft.rank > 1).if {
+			lowerLeft.withCollect(upperRight.nest, Rectangle/2)
+		} {
+			newRectangle().initializeSlots(lowerLeft, upperRight)
+		}
+	}
+
+	[Rectangle, listToRectangle] { :self |
+		self.atMatrixOrElementwise { :m |
+			let [lowerLeft, upperRight] = m;
+			Rectangle(lowerLeft, upperRight)
+		}
+	}
+
 	boundingBoxMerging { :self |
 		let lowerLeft = self[1][1];
 		let upperRight = self[1][2];
@@ -326,21 +341,6 @@ Rectangle : [Object, Store, Equal, Geometry] {
 
 	rectangleMerging { :self |
 		self.boundingBoxMerging.Rectangle
-	}
-
-	Rectangle { :lowerLeft :upperRight |
-		(lowerLeft.rank > 1).if {
-			lowerLeft.withCollect(upperRight.nest, Rectangle/2)
-		} {
-			newRectangle().initializeSlots(lowerLeft, upperRight)
-		}
-	}
-
-	[Rectangle, listToRectangle] { :self |
-		self.atMatrixOrElementwise { :m |
-			let [lowerLeft, upperRight] = m;
-			Rectangle(lowerLeft, upperRight)
-		}
 	}
 
 	unitSquare { :center |

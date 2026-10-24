@@ -77,16 +77,29 @@ SVGPathElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsEl
 
 SVGPointList! : [Object] {
 
-	clear { :self | <primitive: return _self.clear();> }
-	getItem { :self :index | <primitive: return _self.getItem(_index);> }
-	length { :self | <primitive: return _self.length;> }
-	numberOfItems { :self | <primitive: return _self.numberOfItems;> }
+	clear { :self |
+		<primitive: return _self.clear();>
+	}
+
+	getItem { :self :index |
+		<primitive: return _self.getItem(_index);>
+	}
+
+	length { :self |
+		<primitive: return _self.length;>
+	}
+
+	numberOfItems { :self |
+		<primitive: return _self.numberOfItems;>
+	}
 
 }
 
 SVGPolygonElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement, SVGGeometryElement] {
 
-	points { :self | <primitive: return _self.points;> }
+	points { :self |
+		<primitive: return _self.points;>
+	}
 
 }
 
@@ -100,10 +113,21 @@ SVGRectElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsEl
 
 SVGSVGElement! : [Object, EventTarget, Node, Element, SVGElement, SVGGraphicsElement] {
 
-	createSVGMatrix { :self | <primitive: return _self.createSVGMatrix();> }
-	createSVGRect { :self | <primitive: return _self.createSVGRect();> }
-	createSVGTransform { :self | <primitive: return _self.createSVGTransform();> }
-	createSVGTransformFromMatrix { :self :aMatrix | <primitive: return _self.createSVGTransformFromMatrix(_aMatrix);> }
+	createSVGMatrix { :self |
+		<primitive: return _self.createSVGMatrix();>
+	}
+
+	createSVGRect { :self |
+		<primitive: return _self.createSVGRect();>
+	}
+
+	createSVGTransform { :self |
+		<primitive: return _self.createSVGTransform();>
+	}
+
+	createSVGTransformFromMatrix { :self :aMatrix |
+		<primitive: return _self.createSVGTransformFromMatrix(_aMatrix);>
+	}
 
 }
 
@@ -125,24 +149,29 @@ SVGTransform! : [Object] {
 		<primitive: _self.setMatrix(_aMatrix);>
 	}
 
-	setTranslate { :self :x :y |
-		<primitive: _self.setTranslate(_x, _y);>
+	setRotate { :self :angle :x :y |
+		<primitive: _self.setMatrix(_angle, _x, _y);>
 	}
 
 	setScale { :self :x :y |
 		<primitive: _self.setScale(_x, _y);>
 	}
 
-	setRotate { :self :angle :x :y |
-		<primitive: _self.setMatrix(_angle, _x, _y);>
+	setTranslate { :self :x :y |
+		<primitive: _self.setTranslate(_x, _y);>
 	}
 
 }
 
 SVGTransformList! : [Object] {
 
-	appendItem { :self :aTransform | <primitive: return _self.appendItem(_aTransform);> }
-	getItem { :self :index | <primitive: return _self.getItem(_index);> }
+	appendItem { :self :aTransform |
+		<primitive: return _self.appendItem(_aTransform);>
+	}
+
+	getItem { :self :index |
+		<primitive: return _self.getItem(_index);>
+	}
 
 }
 

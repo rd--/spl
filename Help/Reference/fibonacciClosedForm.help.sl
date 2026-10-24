@@ -62,4 +62,3 @@ Plot over a subset of the reals:
 See also: fibonacci, fibonacciNumber, fibonacciSequence
 
 Guides: Integer Functions, Integer Sequence Functions
-

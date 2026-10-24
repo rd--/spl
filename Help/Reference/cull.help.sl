@@ -8,7 +8,7 @@ Apply the block _f_ with up to _n_ arguments.
 `cull` calls `argumentCount` to ask how many arguments are required by _f_,
 and passes only the required number of arguments.
 
-A no-argument block with one and two arguments:
+A no-argument block with one, two or three arguments:
 
 ```
 >>> { }.cull(23)
@@ -16,15 +16,21 @@ nil
 
 >>> { }.cull(23, 3.141)
 nil
+
+>>> { }.cull(23, 3.141, 'text')
+nil
 ```
 
-A one-argument block with one and two arguments:
+A one-argument block with one, two or three arguments:
 
 ```
 >>> { :x | 0 - x }.cull(23)
 -23
 
 >>> { :x | 0 - x }.cull(23, 3.141)
+-23
+
+>>> { :x | 0 - x }.cull(23, 3.141, 'text')
 -23
 ```
 
@@ -59,7 +65,7 @@ true
 
 * * *
 
-See also: apply, argumentCount
+See also: Block, apply, argumentCount
 
 Guides: Block Functions, Block Semantics
 

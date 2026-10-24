@@ -131,21 +131,21 @@ Method! : [Object, Equal] {
 		}
 	}
 
-	parseQualifiedMethodName { :self |
-		let parts = self.splitOn('/');
-		(parts.size = 2).if {
-			[parts[1], parts[2].parseSmallInteger(10)]
-		} {
-			self.error('parseQualifiedMethodName')
-		}
-	}
-
 	parseMethodSignature { :self |
 		let parts = self.splitOn('>>');
 		(parts.size = 2).if {
 			parts
 		} {
 			self.error('parseMethodSignature')
+		}
+	}
+
+	parseQualifiedMethodName { :self |
+		let parts = self.splitOn('/');
+		(parts.size = 2).if {
+			[parts[1], parts[2].parseSmallInteger(10)]
+		} {
+			self.error('parseQualifiedMethodName')
 		}
 	}
 

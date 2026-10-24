@@ -1,10 +1,10 @@
 @View {
 
-	frameMutate! { :self :aFrame |
-	}
-
 	frameMenuItems { :self |
 		[]
+	}
+
+	frameMutate! { :self :aFrame |
 	}
 
 	name { :self |

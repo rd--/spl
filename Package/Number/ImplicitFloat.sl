@@ -11,12 +11,6 @@
 		)
 	}
 
-	nthRoot { :self :aNumber |
-		SmallFloat(self).nthRoot(
-			SmallFloat(aNumber)
-		)
-	}
-
 	log { :self :base |
 		SmallFloat(self).log(
 			SmallFloat(base)
@@ -27,12 +21,18 @@
 		SmallFloat(self).log
 	}
 
+	log10 { :self |
+		SmallFloat(self).log10
+	}
+
 	log2 { :self |
 		SmallFloat(self).log2
 	}
 
-	log10 { :self |
-		SmallFloat(self).log10
+	nthRoot { :self :aNumber |
+		SmallFloat(self).nthRoot(
+			SmallFloat(aNumber)
+		)
 	}
 
 	printStringToFixed { :self :anInteger |

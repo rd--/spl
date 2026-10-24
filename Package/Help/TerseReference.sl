@@ -28,6 +28,14 @@
 		[testCount, passCount, errorCount].printLine
 	}
 
+	terseReferenceSummary { :directoryName :options |
+		directoryName.terseReferenceSummaryDo(
+			options,
+			'Documentation Tests',
+			terseReferenceEntry/2
+		)
+	}
+
 	terseReferenceSummaryDo { :directoryName :options :testName :aBlock/2 |
 		let totalTestCount = 0;
 		let totalPassCount = 0;
@@ -62,14 +70,6 @@
 				totalErrorCount
 			]
 		).printLine
-	}
-
-	terseReferenceSummary { :directoryName :options |
-		directoryName.terseReferenceSummaryDo(
-			options,
-			'Documentation Tests',
-			terseReferenceEntry/2
-		)
 	}
 
 	terseSuperColliderGraphSummary { :directoryName :options |

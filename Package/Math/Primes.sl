@@ -282,6 +282,14 @@
 		}
 	}
 
+	isStrongPrime { :n |
+		(n >= 3) & {
+			n.isPrime & {
+				n.primeBalance > 0
+			}
+		}
+	}
+
 	isStrongPseudoprime { :n :b |
 		n.isEven.not & {
 			n.isPrime.not & {
@@ -293,14 +301,6 @@
 						powerMod(b, z, n) = (n - 1)
 					}
 				}
-			}
-		}
-	}
-
-	isStrongPrime { :n |
-		(n >= 3) & {
-			n.isPrime & {
-				n.primeBalance > 0
 			}
 		}
 	}
@@ -594,10 +594,6 @@
 		(n - n.nearestPrime).abs
 	}
 
-	primeGap { :self |
-		(self + 1).prime - self.prime
-	}
-
 	primeDivisors { :self |
 		self.factorInteger.column(1)
 	}
@@ -691,6 +687,18 @@
 		factors
 	}
 
+	primeGap { :self |
+		(self + 1).prime - self.prime
+	}
+
+	primeLimit { :self |
+		(self < 2).if {
+			0
+		} {
+			self.uncheckedPrimeFactors.max
+		}
+	}
+
 	primeNu { :self |
 		self.primeFactorization.valuesAndCounts.size
 	}
@@ -705,14 +713,6 @@
 			answer := answer + 1
 		};
 		answer
-	}
-
-	primeLimit { :self |
-		(self < 2).if {
-			0
-		} {
-			self.uncheckedPrimeFactors.max
-		}
 	}
 
 	primeSignature { :self |
@@ -737,65 +737,6 @@
 
 	primesList { :self |
 		system.cachedPrimesListExtendedToIndex(self).take(self)
-	}
-
-	wheelSieveDo { :limit :aBlock/1 |
-		(limit >= 2).ifTrue {
-			let c = List(limit + 1, false);
-			let k = 9;
-			let p1 = 11;
-			let p2 = 121;
-			/* First differences of 11-rough numbers: not divisible by 2, 3, 5 or 7. https://oeis.org/A049296 */
-			let z = [2 4 2 4 6 2 6 4 2 4 6 6 2 6 4 2 6 4 6 8 4 2 4 2 4 8 6 4 6 2 4 6 2 6 6 4 2 4 6 2 6 4 2 4 2 10 2 10];
-			let w = 0;
-			let j = 3;
-			c[1] := true;
-			c[2] := true;
-			{ k <= limit }.whileTrue {
-				c[k + 1] := true;
-				k := k + 6
-			};
-			k := 25;
-			{ k <= limit }.whileTrue {
-				c[k + 1] := true;
-				k := k + 10
-			};
-			k := 49;
-			{ k <= limit }.whileTrue {
-				c[k + 1] := true;
-				k := k + 14
-			};
-			{ p2 <= limit }.whileTrue {
-				let i = p2;
-				let ok = true;
-				{ i <= limit }.whileTrue {
-					c[i + 1] := true;
-					i := i + (2 * p1)
-				};
-				{ ok }.whileTrue {
-					p1 := p1 + z[w + 1];
-					w := (w + 1) % 48;
-					ok := c[p1 + 1]
-				};
-				p2 := p1 * p1
-			};
-			aBlock(2);
-			{ j <= limit }.whileTrue {
-				c[j + 1].ifFalse {
-					aBlock(j)
-				};
-				j := j + 2
-			};
-			nil
-		}
-	}
-
-	wheelSieve { :limit |
-		let p = [];
-		limit.wheelSieveDo { :i |
-			p.add!(i)
-		};
-		p
 	}
 
 	primesUpTo { :self |
@@ -833,6 +774,14 @@
 
 	radical { :self |
 		self.primeDivisors.product
+	}
+
+	sieveOfAtkin { :limit |
+		let p = [];
+		limit.sieveOfAtkinDo { :i |
+			p.add!(i)
+		};
+		p
 	}
 
 	sieveOfAtkinDo { :limit :aBlock/1 |
@@ -875,12 +824,12 @@
 		nil
 	}
 
-	sieveOfAtkin { :limit |
-		let p = [];
-		limit.sieveOfAtkinDo { :i |
-			p.add!(i)
+	sieveOfEratosthenes { :self |
+		let answer = [];
+		self.sieveOfEratosthenesDo { :each |
+			answer.add!(each)
 		};
-		p
+		answer
 	}
 
 	sieveOfEratosthenesDo { :self :aBlock/1 |
@@ -898,14 +847,6 @@
 				}
 			}
 		}
-	}
-
-	sieveOfEratosthenes { :self |
-		let answer = [];
-		self.sieveOfEratosthenesDo { :each |
-			answer.add!(each)
-		};
-		answer
 	}
 
 	sieveOfPritchard { :limit |
@@ -1007,6 +948,65 @@
 				index := index + 1
 			}.repeatForever;
 			answer
+		}
+	}
+
+	wheelSieve { :limit |
+		let p = [];
+		limit.wheelSieveDo { :i |
+			p.add!(i)
+		};
+		p
+	}
+
+	wheelSieveDo { :limit :aBlock/1 |
+		(limit >= 2).ifTrue {
+			let c = List(limit + 1, false);
+			let k = 9;
+			let p1 = 11;
+			let p2 = 121;
+			/* First differences of 11-rough numbers: not divisible by 2, 3, 5 or 7. https://oeis.org/A049296 */
+			let z = [2 4 2 4 6 2 6 4 2 4 6 6 2 6 4 2 6 4 6 8 4 2 4 2 4 8 6 4 6 2 4 6 2 6 6 4 2 4 6 2 6 4 2 4 2 10 2 10];
+			let w = 0;
+			let j = 3;
+			c[1] := true;
+			c[2] := true;
+			{ k <= limit }.whileTrue {
+				c[k + 1] := true;
+				k := k + 6
+			};
+			k := 25;
+			{ k <= limit }.whileTrue {
+				c[k + 1] := true;
+				k := k + 10
+			};
+			k := 49;
+			{ k <= limit }.whileTrue {
+				c[k + 1] := true;
+				k := k + 14
+			};
+			{ p2 <= limit }.whileTrue {
+				let i = p2;
+				let ok = true;
+				{ i <= limit }.whileTrue {
+					c[i + 1] := true;
+					i := i + (2 * p1)
+				};
+				{ ok }.whileTrue {
+					p1 := p1 + z[w + 1];
+					w := (w + 1) % 48;
+					ok := c[p1 + 1]
+				};
+				p2 := p1 * p1
+			};
+			aBlock(2);
+			{ j <= limit }.whileTrue {
+				c[j + 1].ifFalse {
+					aBlock(j)
+				};
+				j := j + 2
+			};
+			nil
 		}
 	}
 
@@ -1211,19 +1211,6 @@
 
 +@Cache {
 
-	isCachedPrime { :self :anInteger |
-		let p = self.cachedPrimesList;
-		(p.last >= anInteger) & {
-			p.binarySearch(anInteger) != 0
-		}
-	}
-
-	isMultipleOfCachedPrime { :self :anInteger |
-		self.cachedPrimesList.anySatisfy { :p |
-			anInteger.divisible(p)
-		}
-	}
-
 	cachedPrimesList { :self |
 		self.cached('primesList') {
 			200.wheelSieve
@@ -1247,6 +1234,19 @@
 			self.cache.put!('primesList', primesList)
 		};
 		primesList
+	}
+
+	isCachedPrime { :self :anInteger |
+		let p = self.cachedPrimesList;
+		(p.last >= anInteger) & {
+			p.binarySearch(anInteger) != 0
+		}
+	}
+
+	isMultipleOfCachedPrime { :self :anInteger |
+		self.cachedPrimesList.anySatisfy { :p |
+			anInteger.divisible(p)
+		}
 	}
 
 	smallPrimes { :self |

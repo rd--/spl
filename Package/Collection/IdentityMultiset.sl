@@ -4,13 +4,6 @@ IdentityMultiset : [Object, New, Copy, Store, Equal, Do, Collect, Collection, Ad
 
 	| valuesAndCounts |
 
-	addWithOccurrences! { :self :anObject :anInteger |
-		anObject.isImmediate.ifFalse {
-			'IdentityMultiset>>addWithOccurrences!: non-immediate entry'.error
-		};
-		self.uncheckedAddWithOccurrences(anObject, anInteger)
-	}
-
 	IdentityMultiset { :self |
 		self
 	}
@@ -21,6 +14,13 @@ IdentityMultiset : [Object, New, Copy, Store, Equal, Do, Collect, Collection, Ad
 
 	[Map, identityMultisetToMap] { :self |
 		self.valuesAndCounts
+	}
+
+	addWithOccurrences! { :self :anObject :anInteger |
+		anObject.isImmediate.ifFalse {
+			'IdentityMultiset>>addWithOccurrences!: non-immediate entry'.error
+		};
+		self.uncheckedAddWithOccurrences(anObject, anInteger)
 	}
 
 	postCopy { :self |

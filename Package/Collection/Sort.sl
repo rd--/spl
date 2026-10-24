@@ -122,12 +122,12 @@
 		self.isSortedBetween(1, self.size)
 	}
 
-	isSortedBetween { :self :startIndex :endIndex |
-		self.isSortedByBetween(<=|, startIndex, endIndex)
-	}
-
 	[isSorted, isSortedBy] { :self :aBlock/2 |
 		self.isSortedByBetween(aBlock/2, 1, self.size)
+	}
+
+	isSortedBetween { :self :startIndex :endIndex |
+		self.isSortedByBetween(<=|, startIndex, endIndex)
 	}
 
 	isSortedByBetween { :self :aBlock/2 :startIndex :endIndex |
@@ -186,6 +186,15 @@
 		self.ordering(precedes/2)
 	}
 
+	ranking { :self :mode |
+		mode.caseOf(
+			[
+				'Fractional' -> { self.rankingFractional },
+				'Ordinal' -> { self.rankingOrdinal }
+			]
+		)
+	}
+
 	rankingFractional { :self |
 		let i = 1;
 		let u = self.sortWithIndices;
@@ -207,15 +216,6 @@
 		self.ordering.ordering
 	}
 
-	ranking { :self :mode |
-		mode.caseOf(
-			[
-				'Fractional' -> { self.rankingFractional },
-				'Ordinal' -> { self.rankingOrdinal }
-			]
-		)
-	}
-
 	reverseColexicographicCompare { :self :operand |
 		self.colexicographicCompare(operand).negate
 	}
@@ -230,6 +230,14 @@
 
 	reverseSort! { :self |
 		self.sortBy!(succeeds/2)
+	}
+
+	sort { :self :sortBlock/2 |
+		self.copyList.sort!(sortBlock/2)
+	}
+
+	sort { :self |
+		self.copy.sort!
 	}
 
 	sort! { :self :sortBlock/2 :keyBlock/1 |
@@ -280,14 +288,6 @@
 		self.sortByOn!(precedes/2, keyBlock/1)
 	}
 
-	sort { :self :sortBlock/2 |
-		self.copyList.sort!(sortBlock/2)
-	}
-
-	sort { :self |
-		self.copy.sort!
-	}
-
 	sortWithIndices { :self :sortBlock/2 |
 		self.ifEmpty {
 			[]
@@ -323,6 +323,10 @@
 		}
 	}
 
+	canonicalOrder { :self :operand |
+		self.canonicalCompare(operand).negate
+	}
+
 	canonicalPrecedes { :self :operand |
 		self.canonicalCompare(operand) = -1
 	}
@@ -343,10 +347,6 @@
 
 	lexicographicOrder { :self :operand |
 		self.lexicographicCompare(operand).negate
-	}
-
-	canonicalOrder { :self :operand |
-		self.canonicalCompare(operand).negate
 	}
 
 }
@@ -458,24 +458,24 @@
 		self.lexicographicSort.collect(reverse/1)
 	}
 
+	reverseColexicographicSort { :self |
+		self.copy.reverseColexicographicSort!
+	}
+
 	reverseColexicographicSort! { :self |
 		self.sortComparing!(
 			reverseColexicographicCompare/2
 		)
 	}
 
-	reverseColexicographicSort { :self |
-		self.copy.reverseColexicographicSort!
+	reverseLexicographicSort { :self |
+		self.copy.reverseLexicographicSort!
 	}
 
 	reverseLexicographicSort! { :self |
 		self.sortComparing!(
 			reverseLexicographicCompare/2
 		)
-	}
-
-	reverseLexicographicSort { :self |
-		self.copy.reverseLexicographicSort!
 	}
 
 	reverseReflectedColexicographicSort { :self |
@@ -489,6 +489,24 @@
 }
 
 +List {
+
+	bubbleSort { :self |
+		self.copy.bubbleSort!
+	}
+
+	bubbleSort! { :self :sortBlock/2 |
+		self.bubbleSortWithMonitor(sortBlock/2, nil.constant)
+	}
+
+	bubbleSort! { :self |
+		self.bubbleSort!(isLess/2)
+	}
+
+	bubbleSortMatrix { :self |
+		self.sortTracingState(
+			bubbleSortWithMonitor/2
+		)
+	}
 
 	bubbleSortWithMonitor { :self :sortBlock/2 :monitorBlock/1 |
 		let n = self.size - 1;
@@ -512,27 +530,27 @@
 		self.bubbleSortWithMonitor(<, monitorBlock/1)
 	}
 
-	bubbleSort! { :self :sortBlock/2 |
-		self.bubbleSortWithMonitor(sortBlock/2, nil.constant)
-	}
-
-	bubbleSort! { :self |
-		self.bubbleSort!(isLess/2)
-	}
-
-	bubbleSort { :self |
-		self.copy.bubbleSort!
-	}
-
-	bubbleSortMatrix { :self |
-		self.sortTracingState(
-			bubbleSortWithMonitor/2
-		)
-	}
-
 }
 
 +List {
+
+	insertionSort { :self |
+		self.copy.insertionSort!
+	}
+
+	insertionSort! { :self :sortBlock/2 |
+		self.insertionSortWithMonitor(sortBlock/2, nil.constant)
+	}
+
+	insertionSort! { :self |
+		self.insertionSort!(isLess/2)
+	}
+
+	insertionSortMatrix { :self |
+		self.sortTracingState(
+			insertionSortWithMonitor/2
+		)
+	}
 
 	insertionSortWithMonitor { :self :sortBlock/2 :monitorBlock/1 |
 		let n = self.size;
@@ -552,27 +570,33 @@
 		self.insertionSortWithMonitor(<, monitorBlock/1)
 	}
 
-	insertionSort! { :self :sortBlock/2 |
-		self.insertionSortWithMonitor(sortBlock/2, nil.constant)
-	}
-
-	insertionSort! { :self |
-		self.insertionSort!(isLess/2)
-	}
-
-	insertionSort { :self |
-		self.copy.insertionSort!
-	}
-
-	insertionSortMatrix { :self |
-		self.sortTracingState(
-			insertionSortWithMonitor/2
-		)
-	}
-
 }
 
 +List {
+
+	shellSort { :self |
+		self.copy.shellSort!
+	}
+
+	shellSort! { :self :t :sortBlock/2 |
+		self.shellSortWithMonitor(t, sortBlock/2, nil.constant)
+	}
+
+	shellSort! { :self |
+		self.shellSort!([5, 3, 1], <)
+	}
+
+	shellSortMatrix { :self :t |
+		let m = [self.copy];
+		self.shellSortWithMonitor(t, <) { :x |
+			m.add!(x.copy)
+		};
+		m
+	}
+
+	shellSortMatrix { :self |
+		self.shellSortMatrix([5, 3, 1])
+	}
 
 	shellSortWithMonitor { :self :t :sortBlock/2 :monitorBlock/1 |
 		let n = self.size;
@@ -604,33 +628,27 @@
 		self.shellSortWithMonitor([5, 3, 1], <, monitorBlock/1)
 	}
 
-	shellSort! { :self :t :sortBlock/2 |
-		self.shellSortWithMonitor(t, sortBlock/2, nil.constant)
-	}
-
-	shellSort! { :self |
-		self.shellSort!([5, 3, 1], <)
-	}
-
-	shellSort { :self |
-		self.copy.shellSort!
-	}
-
-	shellSortMatrix { :self :t |
-		let m = [self.copy];
-		self.shellSortWithMonitor(t, <) { :x |
-			m.add!(x.copy)
-		};
-		m
-	}
-
-	shellSortMatrix { :self |
-		self.shellSortMatrix([5, 3, 1])
-	}
-
 }
 
 +List {
+
+	combSort { :self |
+		self.copy.combSort!
+	}
+
+	combSort! { :self :sortBlock/2 |
+		self.combSortWithMonitor(sortBlock/2, nil.constant)
+	}
+
+	combSort! { :self |
+		self.combSort!(isLess/2)
+	}
+
+	combSortMatrix { :self |
+		self.sortTracingState(
+			combSortWithMonitor/2
+		)
+	}
 
 	combSortWithMonitor { :self :sortBlock/2 :monitorBlock/1 |
 		let n = self.size;
@@ -657,27 +675,23 @@
 		self.combSortWithMonitor(<, monitorBlock/1)
 	}
 
-	combSort! { :self :sortBlock/2 |
-		self.combSortWithMonitor(sortBlock/2, nil.constant)
-	}
-
-	combSort! { :self |
-		self.combSort!(isLess/2)
-	}
-
-	combSort { :self |
-		self.copy.combSort!
-	}
-
-	combSortMatrix { :self |
-		self.sortTracingState(
-			combSortWithMonitor/2
-		)
-	}
-
 }
 
 +List {
+
+	selectionSort { :self |
+		self.copy.selectionSort!
+	}
+
+	selectionSort! { :self |
+		self.selectionSortWithMonitor(nil.constant)
+	}
+
+	selectionSortMatrix { :self |
+		self.sortTracingState(
+			selectionSortWithMonitor/2
+		)
+	}
 
 	selectionSortWithMonitor { :self :monitorBlock/1 |
 		let n = self.size;
@@ -691,23 +705,23 @@
 		self
 	}
 
-	selectionSort! { :self |
-		self.selectionSortWithMonitor(nil.constant)
-	}
-
-	selectionSort { :self |
-		self.copy.selectionSort!
-	}
-
-	selectionSortMatrix { :self |
-		self.sortTracingState(
-			selectionSortWithMonitor/2
-		)
-	}
-
 }
 
 +List {
+
+	cycleSort { :self |
+		self.copy.cycleSort!
+	}
+
+	cycleSort! { :self |
+		self.cycleSortWithMonitor(nil.constant)
+	}
+
+	cycleSortMatrix { :self |
+		self.sortTracingState(
+			cycleSortWithMonitor/2
+		)
+	}
 
 	cycleSortWithMonitor { :self :monitorBlock/1 |
 		self.isPermutationList.ifFalse {
@@ -735,20 +749,6 @@
 		self
 	}
 
-	cycleSort! { :self |
-		self.cycleSortWithMonitor(nil.constant)
-	}
-
-	cycleSort { :self |
-		self.copy.cycleSort!
-	}
-
-	cycleSortMatrix { :self |
-		self.sortTracingState(
-			cycleSortWithMonitor/2
-		)
-	}
-
 }
 
 +List {
@@ -769,6 +769,28 @@
 			bitonicMergeWithMonitor(a, low, k, direction, sortBlock/2, monitorBlock/1);
 			bitonicMergeWithMonitor(a, low + k, k, direction, sortBlock/2, monitorBlock/1)
 		}
+	}
+
+	bitonicSort { :self :sortBlock/2 |
+		self.copy.bitonicSort!(sortBlock/2)
+	}
+
+	bitonicSort { :self |
+		self.copy.bitonicSort!
+	}
+
+	bitonicSort! { :self :sortBlock/2 |
+		self.bitonicSortWithMonitor(sortBlock/2, nil.constant)
+	}
+
+	bitonicSort! { :self |
+		self.bitonicSort!(isLess/2)
+	}
+
+	bitonicSortMatrix { :self |
+		self.sortTracingState(
+			bitonicSortWithMonitor/2
+		)
 	}
 
 	bitonicSortWithMonitor { :a :low :count :direction :sortBlock/2 :monitorBlock/1 |
@@ -794,31 +816,23 @@
 		self.bitonicSortWithMonitor(<, monitorBlock/1)
 	}
 
-	bitonicSort { :self :sortBlock/2 |
-		self.copy.bitonicSort!(sortBlock/2)
-	}
-
-	bitonicSort { :self |
-		self.copy.bitonicSort!
-	}
-
-	bitonicSort! { :self :sortBlock/2 |
-		self.bitonicSortWithMonitor(sortBlock/2, nil.constant)
-	}
-
-	bitonicSort! { :self |
-		self.bitonicSort!(isLess/2)
-	}
-
-	bitonicSortMatrix { :self |
-		self.sortTracingState(
-			bitonicSortWithMonitor/2
-		)
-	}
-
 }
 
 +List {
+
+	radixSort { :self |
+		self.copy.radixSort!
+	}
+
+	radixSort! { :self |
+		self.radixSortWithMonitor(nil.constant)
+	}
+
+	radixSortMatrix { :self |
+		self.sortTracingState(
+			radixSortWithMonitor/2
+		)
+	}
 
 	radixSortWithMonitor { :self :monitorBlock/1 |
 		let shift = 1;
@@ -848,23 +862,27 @@
 		self
 	}
 
-	radixSort! { :self |
-		self.radixSortWithMonitor(nil.constant)
-	}
-
-	radixSort { :self |
-		self.copy.radixSort!
-	}
-
-	radixSortMatrix { :self |
-		self.sortTracingState(
-			radixSortWithMonitor/2
-		)
-	}
-
 }
 
 +List {
+
+	oddEvenSort { :self |
+		self.copy.oddEvenSort!
+	}
+
+	oddEvenSort! { :self :sortBlock/2 |
+		self.oddEvenSortWithMonitor(sortBlock/2, nil.constant)
+	}
+
+	oddEvenSort! { :self |
+		self.oddEvenSort!(isLess/2)
+	}
+
+	oddEvenSortMatrix { :self |
+		self.sortTracingState(
+			oddEvenSortWithMonitor/2
+		)
+	}
 
 	oddEvenSortWithMonitor { :self :sortBlock/2 :monitorBlock/1 |
 		let n = self.size;
@@ -888,27 +906,27 @@
 		self.oddEvenSortWithMonitor(<, monitorBlock/1)
 	}
 
-	oddEvenSort! { :self :sortBlock/2 |
-		self.oddEvenSortWithMonitor(sortBlock/2, nil.constant)
-	}
-
-	oddEvenSort! { :self |
-		self.oddEvenSort!(isLess/2)
-	}
-
-	oddEvenSort { :self |
-		self.copy.oddEvenSort!
-	}
-
-	oddEvenSortMatrix { :self |
-		self.sortTracingState(
-			oddEvenSortWithMonitor/2
-		)
-	}
-
 }
 
 +List {
+
+	gnomeSort { :self |
+		self.copy.gnomeSort!
+	}
+
+	gnomeSort! { :self :sortBlock/2 |
+		self.gnomeSortWithMonitor(sortBlock/2, nil.constant)
+	}
+
+	gnomeSort! { :self |
+		self.gnomeSort!(isLess/2)
+	}
+
+	gnomeSortMatrix { :self |
+		self.sortTracingState(
+			gnomeSortWithMonitor/2
+		)
+	}
 
 	gnomeSortWithMonitor { :self :sortBlock/2 :monitorBlock/1 |
 		let n = self.size;
@@ -933,27 +951,27 @@
 		self.gnomeSortWithMonitor(<, monitorBlock/1)
 	}
 
-	gnomeSort! { :self :sortBlock/2 |
-		self.gnomeSortWithMonitor(sortBlock/2, nil.constant)
-	}
-
-	gnomeSort! { :self |
-		self.gnomeSort!(isLess/2)
-	}
-
-	gnomeSort { :self |
-		self.copy.gnomeSort!
-	}
-
-	gnomeSortMatrix { :self |
-		self.sortTracingState(
-			gnomeSortWithMonitor/2
-		)
-	}
-
 }
 
 +List {
+
+	shuffleSort { :self |
+		self.copy.shuffleSort!
+	}
+
+	shuffleSort! { :self :sortBlock/2 |
+		self.shuffleSortWithMonitor(sortBlock/2, nil.constant)
+	}
+
+	shuffleSort! { :self |
+		self.shuffleSort!(isLess/2)
+	}
+
+	shuffleSortMatrix { :self |
+		self.sortTracingState(
+			shuffleSortWithMonitor/2
+		)
+	}
 
 	shuffleSortWithMonitor { :self :sortBlock/2 :monitorBlock/1 |
 		let begin = 1;
@@ -986,24 +1004,6 @@
 
 	shuffleSortWithMonitor { :self :monitorBlock/1 |
 		self.shuffleSortWithMonitor(<, monitorBlock/1)
-	}
-
-	shuffleSort! { :self :sortBlock/2 |
-		self.shuffleSortWithMonitor(sortBlock/2, nil.constant)
-	}
-
-	shuffleSort! { :self |
-		self.shuffleSort!(isLess/2)
-	}
-
-	shuffleSort { :self |
-		self.copy.shuffleSort!
-	}
-
-	shuffleSortMatrix { :self |
-		self.sortTracingState(
-			shuffleSortWithMonitor/2
-		)
 	}
 
 }

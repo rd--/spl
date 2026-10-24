@@ -406,20 +406,20 @@
 		'GoldenRatio'.namedConstant(n, s)
 	}
 
-	pi { :n :s |
-		'Pi'.namedConstant(n, s)
-	}
-
-	pythagorasConstant { :n :s |
-		'PythagorasConstant'.namedConstant(n, s)
-	}
-
 	levysConstant { :n :s |
 		'LevysConstant'.namedConstant(n, s)
 	}
 
 	meisselMertensConstant { :n :s |
 		'MeisselMertensConstant'.namedConstant(n, s)
+	}
+
+	pi { :n :s |
+		'Pi'.namedConstant(n, s)
+	}
+
+	pythagorasConstant { :n :s |
+		'PythagorasConstant'.namedConstant(n, s)
 	}
 
 	rabbitConstant { :n :s |

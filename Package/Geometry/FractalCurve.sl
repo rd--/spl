@@ -55,6 +55,31 @@
 		.last
 	}
 
+	[dragonCurve, heighwayDragonCurve] { :self :method |
+		method.caseOf(
+			[
+				'A' -> {
+					'F'.simpleLindenmayerSystem(
+						[1/2.pi -1/2.pi],
+						[
+							'F' -> 'F',
+							'X' -> 'X+YF+',
+							'Y' -> '-FX-Y'
+						],
+						'FX',
+						self
+					)
+				},
+				'B' -> {
+					let a = { :x |
+						x ++ x.i.reverse
+					}.iterate([1], self);
+					([0] ++ a.prefixSum).realImaginary
+				}
+			]
+		)
+	}
+
 	fibonacciCurve { :self |
 		let p = [0 0];
 		let answer = [p];
@@ -102,31 +127,6 @@
 		]
 		.substitutionSystem([[1]], self)
 		.last
-	}
-
-	[dragonCurve, heighwayDragonCurve] { :self :method |
-		method.caseOf(
-			[
-				'A' -> {
-					'F'.simpleLindenmayerSystem(
-						[1/2.pi -1/2.pi],
-						[
-							'F' -> 'F',
-							'X' -> 'X+YF+',
-							'Y' -> '-FX-Y'
-						],
-						'FX',
-						self
-					)
-				},
-				'B' -> {
-					let a = { :x |
-						x ++ x.i.reverse
-					}.iterate([1], self);
-					([0] ++ a.prefixSum).realImaginary
-				}
-			]
-		)
 	}
 
 	hilbertCurve { :self |

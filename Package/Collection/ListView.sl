@@ -2,6 +2,22 @@ ListView : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Coll
 
 	| collection startIndex endIndex referenceIndex |
 
+	[List, listViewToList] { :self |
+		self
+		.collection
+		.copyFromTo(self.startIndex, self.endIndex)
+		.List
+	}
+
+	[ListView, listViewToListView] { :self :startIndex :endIndex :referenceIndex |
+		ListView(
+			self.collection,
+			self.startIndex + startIndex - 1,
+			self.startIndex + endIndex - 1,
+			referenceIndex
+		)
+	}
+
 	atIfAbsent { :self :index :ifAbsent/0 |
 		self.includesIndex(index).if {
 			self.collection[index + self.startIndex - self.referenceIndex]
@@ -28,6 +44,12 @@ ListView : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Coll
 		}
 	}
 
+	indexOf { :self :anObject |
+		self.indexOfIfAbsent(anObject) {
+			self.referenceIndex - 1
+		}
+	}
+
 	indexOfIfAbsent { :self :anObject :aBlock/0 |
 		self.indices.detectIfNone { :i |
 			self.at(i) = anObject
@@ -36,31 +58,9 @@ ListView : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Coll
 		}
 	}
 
-	indexOf { :self :anObject |
-		self.indexOfIfAbsent(anObject) {
-			self.referenceIndex - 1
-		}
-	}
-
 	indices { :self |
 		let i = self.referenceIndex;
 		i.to(i + self.size - 1)
-	}
-
-	[List, listViewToList] { :self |
-		self
-		.collection
-		.copyFromTo(self.startIndex, self.endIndex)
-		.List
-	}
-
-	[ListView, listViewToListView] { :self :startIndex :endIndex :referenceIndex |
-		ListView(
-			self.collection,
-			self.startIndex + startIndex - 1,
-			self.startIndex + endIndex - 1,
-			referenceIndex
-		)
 	}
 
 	postCopy { :self |

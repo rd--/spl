@@ -37,7 +37,6 @@ Disk : [Object, Equal, Geometry] {
 
 }
 
-
 +List {
 
 	Disk { :center :radius |

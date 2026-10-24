@@ -2,28 +2,6 @@ GeneralisedCircle : [Object, Store, Equal, Geometry] {
 
 	| c alpha d |
 
-	[generalisedCircleToCircle, asCircle] { :self |
-		let [c, alpha, _] = self.assertIsCircle.coefficientList;
-		let [a, b] = alpha.realImaginary;
-		Circle(
-			[a.negate, b] / c,
-			(self.discriminant / c.square).sqrt
-		)
-	}
-
-	[generalisedCircleToLine, asLine] { :self |
-		let [a, b, c] = self.lineEquation;
-		InfiniteLine(a, b, c)
-	}
-
-	[generalisedCircleToPoint, asPoint] { :self |
-		let [c, alpha, _] = self.assertIsPoint.coefficientList;
-		let [r, i] = alpha.realImaginary;
-		Point(
-			[r.negate, i] / c
-		)
-	}
-
 	assertIsCircle { :self |
 		self.assert('GeneralisedCircle: not circle') { self.isCircle }
 	}
@@ -56,6 +34,28 @@ GeneralisedCircle : [Object, Store, Equal, Geometry] {
 
 	embeddingDimension { :unused |
 		2
+	}
+
+	[generalisedCircleToCircle, asCircle] { :self |
+		let [c, alpha, _] = self.assertIsCircle.coefficientList;
+		let [a, b] = alpha.realImaginary;
+		Circle(
+			[a.negate, b] / c,
+			(self.discriminant / c.square).sqrt
+		)
+	}
+
+	[generalisedCircleToLine, asLine] { :self |
+		let [a, b, c] = self.lineEquation;
+		InfiniteLine(a, b, c)
+	}
+
+	[generalisedCircleToPoint, asPoint] { :self |
+		let [c, alpha, _] = self.assertIsPoint.coefficientList;
+		let [r, i] = alpha.realImaginary;
+		Point(
+			[r.negate, i] / c
+		)
 	}
 
 	implicitEquation { :self |

@@ -177,6 +177,24 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collect, Collecti
 
 +List {
 
+	SparseArray { :self :shape :unspecifiedValue |
+		let map = Map();
+		self.do { :each |
+			let index = each.key;
+			let linearIndex = index.isNumber.if { index } { shape.linearIndex(index) };
+			map.put!(
+				SmallInteger(linearIndex),
+				each.value
+			)
+		};
+		SparseArray(map, shape, unspecifiedValue)
+	}
+
+	SparseArray { :self |
+		let shape = self.collect(key/1).max;
+		SparseArray(self, shape, 0)
+	}
+
 	asSparseArray { :self :unspecifiedValue |
 		SparseArray(
 			self.arrayRules(unspecifiedValue),
@@ -198,24 +216,6 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collect, Collecti
 
 	booleanSparseArray { :indices :shape |
 		booleanSparseArray(indices, shape, [0 1])
-	}
-
-	SparseArray { :self :shape :unspecifiedValue |
-		let map = Map();
-		self.do { :each |
-			let index = each.key;
-			let linearIndex = index.isNumber.if { index } { shape.linearIndex(index) };
-			map.put!(
-				SmallInteger(linearIndex),
-				each.value
-			)
-		};
-		SparseArray(map, shape, unspecifiedValue)
-	}
-
-	SparseArray { :self |
-		let shape = self.collect(key/1).max;
-		SparseArray(self, shape, 0)
 	}
 
 	sparseIdentityMatrix { :self |

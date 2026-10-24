@@ -21,6 +21,14 @@
 		}
 	}
 
+	bellStrings { :n |
+		let answer = [];
+		bellStringsDo(n) { :each |
+			answer.add!(each.copy)
+		};
+		answer
+	}
+
 	bellStringsDo { :n :receive/1 |
 		let word = List(n, 0);
 		let focus = (n + 1).iota;
@@ -69,12 +77,12 @@
 		nil
 	}
 
-	bellStrings { :n |
-		let answer = [];
-		bellStringsDo(n) { :each |
-			answer.add!(each.copy)
+	binaryCombinations { :s :t |
+		let r = [];
+		binaryCombinationsDo(s, t) { :b |
+			r.add!(b.copy)
 		};
-		answer
+		r
 	}
 
 	binaryCombinationsDo { :s :t :visit/1 |
@@ -100,14 +108,6 @@
 		}
 	}
 
-	binaryCombinations { :s :t |
-		let r = [];
-		binaryCombinationsDo(s, t) { :b |
-			r.add!(b.copy)
-		};
-		r
-	}
-
 	braceletCount { :n :k |
 		let t1 = 0;
 		1.toDo(n) { :d |
@@ -120,6 +120,14 @@
 		} {
 			(t1 + (n * (k ^ ((n + 1) / 2)))) / (2 * n)
 		}
+	}
+
+	bracelets { :n :k |
+		let answer = [];
+		braceletsDo(n, k) { :each |
+			answer.add!(each)
+		};
+		answer
 	}
 
 	braceletsDo { :n :k :receive/1 |
@@ -186,10 +194,10 @@
 		>
 	}
 
-	bracelets { :n :k |
+	catalanStrings { :n :k |
 		let answer = [];
-		braceletsDo(n, k) { :each |
-			answer.add!(each)
+		catalanStringsDo(n, k) { :each |
+			answer.add!(each.copy)
 		};
 		answer
 	}
@@ -223,14 +231,6 @@
 			}
 		};
 		nil
-	}
-
-	catalanStrings { :n :k |
-		let answer = [];
-		catalanStringsDo(n, k) { :each |
-			answer.add!(each.copy)
-		};
-		answer
 	}
 
 	eulerianNumber { :n :m |
@@ -329,6 +329,18 @@
 		m
 	}
 
+	motzkinWords { :t :s |
+		(s = 0).if {
+			[List(t, 1)]
+		} {
+			let r = [];
+			motzkinWordsDo(t, s) { :b |
+				r.add!(b.copy)
+			};
+			r
+		}
+	}
+
 	motzkinWordsDo { :t :s :visit/1 |
 		let n = (2 * s) + t;
 		let b = List(s, 2) ++ List(t, 1) ++ List(s, 0);
@@ -377,18 +389,6 @@
 				x := 2
 			};
 			visit(b)
-		}
-	}
-
-	motzkinWords { :t :s |
-		(s = 0).if {
-			[List(t, 1)]
-		} {
-			let r = [];
-			motzkinWordsDo(t, s) { :b |
-				r.add!(b.copy)
-			};
-			r
 		}
 	}
 
@@ -451,6 +451,22 @@
 		(1 / 2) * n * (n * (r - 2) - r + 4)
 	}
 
+	restrictedGrowthStrings { :n |
+		let answer = [];
+		n.restrictedGrowthStringsDo { :each |
+			answer.add!(each.copy)
+		};
+		answer
+	}
+
+	restrictedGrowthStrings { :n :k |
+		let answer = [];
+		restrictedGrowthStringsDo(n, k) { :each |
+			answer.add!(each.copy)
+		};
+		answer
+	}
+
 	restrictedGrowthStringsDo { :n :f/1 |
 		/* https://github.com/gstamatelat/partitions-enumeration/blob/master/v.cpp */
 		let a = List(n, 1);
@@ -474,14 +490,6 @@
 			}
 		};
 		nil
-	}
-
-	restrictedGrowthStrings { :n |
-		let answer = [];
-		n.restrictedGrowthStringsDo { :each |
-			answer.add!(each.copy)
-		};
-		answer
 	}
 
 	restrictedGrowthStringsDo { :n :k :f/1 |
@@ -521,18 +529,18 @@
 		nil
 	}
 
-	restrictedGrowthStrings { :n :k |
-		let answer = [];
-		restrictedGrowthStringsDo(n, k) { :each |
-			answer.add!(each.copy)
-		};
-		answer
-	}
-
 	secondOrderEulerianTriangle { :self |
 		1.to(self).triangularArray(
 			eulerianNumberSecondOrder/2
 		)
+	}
+
+	setPartitions { :n :k |
+		restrictedGrowthStrings(n, k).collect(setPartition/1)
+	}
+
+	setPartitions { :n |
+		restrictedGrowthStrings(n).collect(setPartition/1)
 	}
 
 	setPartitionsDo { :n :k :f/1 |
@@ -545,14 +553,6 @@
 		restrictedGrowthStringsDo(n) { :x |
 			f(x.setPartition)
 		}
-	}
-
-	setPartitions { :n :k |
-		restrictedGrowthStrings(n, k).collect(setPartition/1)
-	}
-
-	setPartitions { :n |
-		restrictedGrowthStrings(n).collect(setPartition/1)
 	}
 
 	stirlingS1 { :n :k |
@@ -752,6 +752,14 @@
 
 +@Sequence {
 
+	combinations { :self :m |
+		let answer = [];
+		self.combinationsAtATimeDo(m) { :each |
+			answer.add!(each.copy)
+		};
+		answer
+	}
+
 	combinationsAtATimeDo { :self :kk :aBlock/1 |
 		let aCollection = List(kk, nil);
 		self.combinationsAtInAfterDo(1, aCollection, 0, aBlock/1)
@@ -766,14 +774,6 @@
 				self.combinationsAtInAfterDo(j + 1, aCollection, index, aBlock/1)
 			}
 		}
-	}
-
-	combinations { :self :m |
-		let answer = [];
-		self.combinationsAtATimeDo(m) { :each |
-			answer.add!(each.copy)
-		};
-		answer
 	}
 
 	deBruijnSequence { :self :anInteger |

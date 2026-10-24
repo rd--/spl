@@ -2,6 +2,17 @@
 
 +@Number {
 
+	bartlettHannWindow { :self |
+		(self.abs > 0.5).if {
+			0
+		} {
+			let a0 = 0.62;
+			let a1 = 0.48;
+			let a2 = 0.38;
+			a0 - (a1 * self.abs) + (a2 * (2.pi * self).cos)
+		}
+	}
+
 	bartlettWindow { :self |
 		(self.abs > 0.5).if {
 			0
@@ -14,14 +25,15 @@
 		}
 	}
 
-	bartlettHannWindow { :self |
-		(self.abs > 0.5).if {
+	blackmanHarrisWindow { :x |
+		(x.abs > 0.5).if {
 			0
 		} {
-			let a0 = 0.62;
-			let a1 = 0.48;
-			let a2 = 0.38;
-			a0 - (a1 * self.abs) + (a2 * (2.pi * self).cos)
+			let a0 = 0.35875;
+			let a1 = 0.48829;
+			let a2 = 0.14128;
+			let a3 = 0.01168;
+			a0 + (a1 * (2.pi * x).cos) + (a2 * (4.pi * x).cos) + (a3 * (6.pi * x).cos)
 		}
 	}
 
@@ -38,18 +50,6 @@
 			0
 		} {
 			a0 + (a1 * (2.pi * x).cos) + (a2 * (4.pi * x).cos)
-		}
-	}
-
-	blackmanHarrisWindow { :x |
-		(x.abs > 0.5).if {
-			0
-		} {
-			let a0 = 0.35875;
-			let a1 = 0.48829;
-			let a2 = 0.14128;
-			let a3 = 0.01168;
-			a0 + (a1 * (2.pi * x).cos) + (a2 * (4.pi * x).cos) + (a3 * (6.pi * x).cos)
 		}
 	}
 
@@ -271,16 +271,12 @@
 
 +@Collect {
 
-	bartlettWindow { :self |
-		self.collect(bartlettWindow/1)
-	}
-
 	bartlettHannWindow { :self |
 		self.collect(bartlettHannWindow/1)
 	}
 
-	blackmanWindow { :self |
-		self.collect(blackmanWindow/1)
+	bartlettWindow { :self |
+		self.collect(bartlettWindow/1)
 	}
 
 	blackmanHarrisWindow { :self |
@@ -289,6 +285,10 @@
 
 	blackmanNuttallWindow { :self |
 		self.collect(blackmanNuttallWindow/1)
+	}
+
+	blackmanWindow { :self |
+		self.collect(blackmanWindow/1)
 	}
 
 	bohmanWindow { :self |

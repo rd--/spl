@@ -1,13 +1,19 @@
 @Multiset {
 
-	[isEqual, =] { :self :aMultiset |
-		(self.typeName = aMultiset.typeName) & {
-			self.size = aMultiset.size & {
-				self.valuesAndCounts.associationsAllSatisfy { :each |
-					aMultiset.occurrencesOf(each.key) = each.value
-				}
-			}
-		}
+	[List, multitsetToList] { :self |
+		let answer = [];
+		self.do { :each |
+			answer.add!(each)
+		};
+		answer
+	}
+
+	Multiset { :self |
+		self
+	}
+
+	[Set, multisetToSet] { :self |
+		self.valuesAndCounts.indices.Set
 	}
 
 	add! { :self :anObject |
@@ -73,16 +79,18 @@
 		answer
 	}
 
-	keySort { :self |
-		self.sortedElements
+	[isEqual, =] { :self :aMultiset |
+		(self.typeName = aMultiset.typeName) & {
+			self.size = aMultiset.size & {
+				self.valuesAndCounts.associationsAllSatisfy { :each |
+					aMultiset.occurrencesOf(each.key) = each.value
+				}
+			}
+		}
 	}
 
-	[List, multitsetToList] { :self |
-		let answer = [];
-		self.do { :each |
-			answer.add!(each)
-		};
-		answer
+	keySort { :self |
+		self.sortedElements
 	}
 
 	[maximum, max] { :self |
@@ -91,10 +99,6 @@
 
 	[minimum, min] { :self |
 		self.valuesAndCounts.indices.reduce(min/2)
-	}
-
-	Multiset { :self |
-		self
 	}
 
 	occurrencesOf { :self :anObject |
@@ -113,6 +117,10 @@
 		r.randomWeightedChoice(e, w, shape)
 	}
 
+	removeAll! { :self |
+		self.valuesAndCounts.removeAll!
+	}
+
 	removeIfAbsent! { :self :oldObject :whenAbsent/0 |
 		self.includes(oldObject).if {
 			let count = self.valuesAndCounts[oldObject];
@@ -125,14 +133,6 @@
 			whenAbsent()
 		};
 		oldObject
-	}
-
-	removeAll! { :self |
-		self.valuesAndCounts.removeAll!
-	}
-
-	[Set, multisetToSet] { :self |
-		self.valuesAndCounts.indices.Set
 	}
 
 	/*

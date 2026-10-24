@@ -2,6 +2,22 @@ Tetrahedron : [Object, Store, Equal] {
 
 	| vertexCoordinates |
 
+	PerspectiveDrawing { :self |
+		self.Polyhedron.PerspectiveDrawing
+	}
+
+	Polyhedron { :self |
+		Polyhedron(
+			self.vertexCoordinates,
+			[
+				2 3 4;
+				3 2 1;
+				4 1 2;
+				1 4 3
+			]
+		)
+	}
+
 	circumcenter { :self |
 		self.circumsphere.center
 	}
@@ -41,32 +57,8 @@ Tetrahedron : [Object, Store, Equal] {
 		}
 	}
 
-	PerspectiveDrawing { :self |
-		self.Polyhedron.PerspectiveDrawing
-	}
-
-	Polyhedron { :self |
-		Polyhedron(
-			self.vertexCoordinates,
-			[
-				2 3 4;
-				3 2 1;
-				4 1 2;
-				1 4 3
-			]
-		)
-	}
-
 	project { :self :projection |
 		self.Polyhedron.project(projection)
-	}
-
-	translate { :self :v |
-		Tetrahedron(
-			self.vertexCoordinates.collect { :each |
-				each + v
-			}
-		)
 	}
 
 	toBarycentricCoordinates { :self :c |
@@ -77,6 +69,14 @@ Tetrahedron : [Object, Store, Equal] {
 	toBarycentricCoordinates { :self |
 		let [a, b, c, d] = self.vertexCoordinates;
 		toBarycentricCoordinates(a, b, c, d)
+	}
+
+	translate { :self :v |
+		Tetrahedron(
+			self.vertexCoordinates.collect { :each |
+				each + v
+			}
+		)
 	}
 
 }

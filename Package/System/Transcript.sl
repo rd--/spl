@@ -41,11 +41,6 @@ Transcript : [Object] {
 		}
 	}
 
-	removeAll! { :self |
-		system.consoleClear;
-		self.entries.removeAll!
-	}
-
 	errorMessages { :self |
 		self.messages('error')
 	}
@@ -60,6 +55,11 @@ Transcript : [Object] {
 
 	notificationMessages { :self |
 		self.messages('notification')
+	}
+
+	removeAll! { :self |
+		system.consoleClear;
+		self.entries.removeAll!
 	}
 
 	size { :self |

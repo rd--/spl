@@ -61,6 +61,22 @@ TextEditor : [Object, UserEventTarget, View] {
 		self.editorPane
 	}
 
+	setEditorText { :self :aString |
+		self.mimeType.caseOf([
+			'text/html' -> {
+				self.editorText.innerHtml := aString
+			},
+			'text/markdown' -> {
+				self.editorText.innerHtml := aString.markdownToHtml
+			},
+			'text/plain' -> {
+				self.editorText.textContent := aString
+			}
+		]) {
+			self.warning('setEditorText: unkown mimeType: ' ++ self.mimeType)
+		}
+	}
+
 	setEventHandlers { :self |
 		self.editorText.addEventListener('contextmenu') { :event |
 			event.preventDefault;
@@ -81,22 +97,6 @@ TextEditor : [Object, UserEventTarget, View] {
 		}
 	}
 
-	setEditorText { :self :aString |
-		self.mimeType.caseOf([
-			'text/html' -> {
-				self.editorText.innerHtml := aString
-			},
-			'text/markdown' -> {
-				self.editorText.innerHtml := aString.markdownToHtml
-			},
-			'text/plain' -> {
-				self.editorText.textContent := aString
-			}
-		]) {
-			self.warning('setEditorText: unkown mimeType: ' ++ self.mimeType)
-		}
-	}
-
 	textEditorMenu { :self :event |
 		self.smallKansas.menu(
 			'Text Editor Menu',
@@ -109,6 +109,10 @@ TextEditor : [Object, UserEventTarget, View] {
 }
 
 +SmallKansas {
+
+	TextEditor { :self :title :mimeType :contents |
+		newTextEditor().initialize(self, title, mimeType, contents)
+	}
 
 	standardTextEditorMenuItems { :self :subject |
 		[
@@ -181,10 +185,6 @@ TextEditor : [Object, UserEventTarget, View] {
 				system.scSynth.reset
 			}
 		]
-	}
-
-	TextEditor { :self :title :mimeType :contents |
-		newTextEditor().initialize(self, title, mimeType, contents)
 	}
 
 }

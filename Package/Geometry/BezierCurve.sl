@@ -18,12 +18,6 @@ BezierCurve : [Object, Equal, Cache, Geometry] {
 		self.controlPoints.coordinateBoundingBox
 	}
 
-	componentArcLengthList { :self |
-		self.cached('componentArcLengthList') {
-			self.componentDistanceList.collect(last/1)
-		}
-	}
-
 	componentApproximationList { :self |
 		self.cached('componentApproximationList') {
 			let n = self.componentApproximationSize;
@@ -35,6 +29,12 @@ BezierCurve : [Object, Equal, Cache, Geometry] {
 
 	componentApproximationSize { :self |
 		self.splineDegree * 64
+	}
+
+	componentArcLengthList { :self |
+		self.cached('componentArcLengthList') {
+			self.componentDistanceList.collect(last/1)
+		}
 	}
 
 	componentCoordinatesList { :self |
@@ -82,6 +82,24 @@ BezierCurve : [Object, Equal, Cache, Geometry] {
 		2
 	}
 
+	isComposite { :self |
+		self.isValid & {
+			self.isSimple.not
+		}
+	}
+
+	isSimple { :self |
+		self.controlPoints.size = (self.splineDegree + 1)
+	}
+
+	isValid { :self |
+		self.componentCount.isInteger
+	}
+
+	size { :self |
+		self.controlPoints.size
+	}
+
 	svgFragment { :self :options |
 		let n = self.splineDegree;
 		(n = 1).if {
@@ -112,27 +130,19 @@ BezierCurve : [Object, Equal, Cache, Geometry] {
 		}
 	}
 
-	isComposite { :self |
-		self.isValid & {
-			self.isSimple.not
-		}
-	}
-
-	isSimple { :self |
-		self.controlPoints.size = (self.splineDegree + 1)
-	}
-
-	isValid { :self |
-		self.componentCount.isInteger
-	}
-
-	size { :self |
-		self.controlPoints.size
-	}
-
 }
 
 +List {
+
+	BezierCurve { :self :degree |
+		(self.rank > 2).if {
+			self.collect { :each |
+				BezierCurve(each, degree)
+			}
+		} {
+			newBezierCurve().initializeSlots(self, degree, Record())
+		}
+	}
 
 	approximateCircularArc { :self |
 		let [c, u, v] = self;
@@ -158,16 +168,6 @@ BezierCurve : [Object, Equal, Cache, Geometry] {
 		let u = [r a1].fromPolarCoordinates;
 		let v = [r a2].fromPolarCoordinates;
 		[c, u, v].approximateCircularArc
-	}
-
-	BezierCurve { :self :degree |
-		(self.rank > 2).if {
-			self.collect { :each |
-				BezierCurve(each, degree)
-			}
-		} {
-			newBezierCurve().initializeSlots(self, degree, Record())
-		}
 	}
 
 	bezierApproximation { :self :size |

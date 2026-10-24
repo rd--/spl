@@ -16,10 +16,6 @@ Nil! : [Object, Copy, Store, Equal, Compare, Json] {
 		self.uncheckedEncodeJson
 	}
 
-	[isEqual, =] { :self :anObject |
-		anObject.isNil
-	}
-
 	[evaluatingIfNil, ??] { :unused :anObject |
 		anObject
 	}
@@ -40,6 +36,10 @@ Nil! : [Object, Copy, Store, Equal, Compare, Json] {
 		nil
 	}
 
+	[isEqual, =] { :self :anObject |
+		anObject.isNil
+	}
+
 	isImmediate { :unused |
 		true
 	}
@@ -56,16 +56,16 @@ Nil! : [Object, Copy, Store, Equal, Compare, Json] {
 		false
 	}
 
+	[isSimilar, ~] { :self :anObject |
+		self = anObject
+	}
+
 	replaceNil { :unused :anObject |
 		anObject
 	}
 
 	shallowCopy { :unused |
 		nil
-	}
-
-	[isSimilar, ~] { :self :anObject |
-		self = anObject
 	}
 
 	storeString { :self |
@@ -84,11 +84,11 @@ Nil! : [Object, Copy, Store, Equal, Compare, Json] {
 		self
 	}
 
-	[ifNotNil, !?] { :self :whenNotNil/1 |
+	ifNil { :self :whenNil/0 :whenNotNil/1 |
 		whenNotNil/1.cull(self)
 	}
 
-	ifNil { :self :whenNil/0 :whenNotNil/1 |
+	[ifNotNil, !?] { :self :whenNotNil/1 |
 		whenNotNil/1.cull(self)
 	}
 

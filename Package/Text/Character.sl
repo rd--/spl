@@ -98,12 +98,12 @@
 		self.codePoint = 1
 	}
 
-	isUpperCase { :self |
-		self.codePoint.isBetween(65, 90)
-	}
-
 	isTab { :self |
 		self.codePoint = 9
+	}
+
+	isUpperCase { :self |
+		self.codePoint.isBetween(65, 90)
 	}
 
 	isVowel { :self |
@@ -140,14 +140,14 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 		}
 	}
 
-	shallowCopy { :self |
-		self
-	}
-
 	[isSimilar, ~] { :self :anObject |
 		anObject.isCharacter & {
 			self.characterString = anObject.characterString
 		}
+	}
+
+	shallowCopy { :self |
+		self
 	}
 
 	toLowerCase { :self |

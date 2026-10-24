@@ -98,12 +98,12 @@ DocumentationTest : [Object, Store, Equal] {
 
 +String {
 
-	isDocumentationTestString { :self |
-		self.beginsWith('>>')
-	}
-
 	DocumentationTest { :prefix :program :expectedAnswer |
 		newDocumentationTest().initializeSlots(prefix, program, expectedAnswer)
+	}
+
+	isDocumentationTestString { :self |
+		self.beginsWith('>>')
 	}
 
 }

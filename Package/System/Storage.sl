@@ -30,6 +30,11 @@ Storage! : [Object, Collect, Collection, Dictionary] {
 		self.uncheckedPut!(key, value)
 	}
 
+	removeAll! { :self |
+		<primitive: _self.clear();>
+		nil
+	}
+
 	removeKey! { :self :key |
 		self.removeKeyIfAbsent!(key) {
 			self.error('removeKey!: invalid key')
@@ -42,11 +47,6 @@ Storage! : [Object, Collect, Collection, Dictionary] {
 		} {
 			aBlock()
 		}
-	}
-
-	removeAll! { :self |
-		<primitive: _self.clear();>
-		nil
 	}
 
 	size { :self |

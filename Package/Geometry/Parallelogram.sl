@@ -2,6 +2,10 @@ Parallelogram : [Object, Equal, Geometry] {
 
 	| origin vectorList |
 
+	Polygon { :self |
+		Polygon(self.vertexCoordinates)
+	}
+
 	area { :self |
 		let o = self.origin;
 		let [u, v] = self.vectorList;
@@ -26,10 +30,6 @@ Parallelogram : [Object, Equal, Geometry] {
 		let o = self.origin;
 		let [_, v] = self.vectorList;
 		v[2] - o[2]
-	}
-
-	Polygon { :self |
-		Polygon(self.vertexCoordinates)
 	}
 
 	svgFragment { :self :options |

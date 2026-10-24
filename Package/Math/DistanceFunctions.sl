@@ -12,12 +12,12 @@
 		((self - aList).abs / (self.abs + aList.abs)).sum
 	}
 
-	chessboardDistance { :self :aList |
-		(self - aList).abs.max
-	}
-
 	chebyshevDistance { :self :operand |
 		(self - operand).abs.max
+	}
+
+	chessboardDistance { :self :aList |
+		(self - aList).abs.max
 	}
 
 	cosineDistance { :u :v |
@@ -147,16 +147,16 @@
 		}
 	}
 
+	manhattanDistance { :self :aList |
+		(self - aList).abs.sum
+	}
+
 	matchingDissimilarity { :u :v |
 		(u.size = v.size).if {
 			u.withCollect(v, isEqual/2).occurrencesOf(false) / u.size
 		} {
 			[u, v].error('matchingDissimilarity: invalid input')
 		}
-	}
-
-	manhattanDistance { :self :aList |
-		(self - aList).abs.sum
 	}
 
 	normalizedSquaredEuclideanDistance { :u :v |
@@ -210,6 +210,10 @@
 }
 
 +String {
+
+	damerauLevenshteinDistance { :self :aString |
+		self.characters.damerauLevenshteinDistance(aString.characters)
+	}
 
 	editDistance { :self :aString |
 		self.characters.editDistance(aString.characters)
@@ -290,23 +294,9 @@
 		self.characters.levenshteinDistance(aString.characters)
 	}
 
-	damerauLevenshteinDistance { :self :aString |
-		self.characters.damerauLevenshteinDistance(aString.characters)
-	}
-
 }
 
 +@Collection {
-
-	nearestBy { :self :anObject :aBlock/2 |
-		let distanceList = self.collect { :each |
-			aBlock(each, anObject)
-		};
-		let leastDistance = distanceList.min;
-		self.select { :each |
-			aBlock(each, anObject) = leastDistance
-		}
-	}
 
 	nearest { :self :anObject |
 		self.nearestBy(anObject, euclideanDistance/2)
@@ -318,6 +308,16 @@
 		};
 		let indexList = distanceList.ordering.first(anInteger);
 		self.atAll(indexList)
+	}
+
+	nearestBy { :self :anObject :aBlock/2 |
+		let distanceList = self.collect { :each |
+			aBlock(each, anObject)
+		};
+		let leastDistance = distanceList.min;
+		self.select { :each |
+			aBlock(each, anObject) = leastDistance
+		}
 	}
 
 }

@@ -28,12 +28,12 @@ SoundFile! : [Object, Equal] {
 		<primitive: return _self.numberOfFrames;>
 	}
 
-	sampleRate { :self |
-		<primitive: return _self.sampleRate;>
-	}
-
 	pseudoSlotNameList { :self |
 		['interleavedData', 'numberOfChannels', 'numberOfFrames', 'sampleRate', 'url']
+	}
+
+	sampleRate { :self |
+		<primitive: return _self.sampleRate;>
 	}
 
 	url { :self |

@@ -11,10 +11,12 @@ The type letters are:
 - _s_: string
 
 ```
->>> OscParameter('i', 23).Record
+>>> OscParameter('i', 23)
+>>> .encodeRecord
 (type: 'i', value: 23)
 
->>> OscParameter('f', 3.141).Record
+>>> OscParameter('f', 3.141)
+>>> .encodeRecord
 (type: 'f', value: 3.141)
 ```
 
@@ -29,21 +31,24 @@ The type letter _t_ can be inferred for numbers, strings and byte arrays.
 At `Integer`:
 
 ```
->>> OscParameter(23).Record
+>>> OscParameter(23)
+>>> .encodeRecord
 (type: 'i', value: 23)
 ```
 
 At `SmallFloat`:
 
 ```
->>> OscParameter(3.141).Record
+>>> OscParameter(3.141)
+>>> .encodeRecord
 (type: 'f', value: 3.141)
 ```
 
 At `String`:
 
 ```
->>> OscParameter'text'.Record
+>>> OscParameter'text'
+>>> .encodeRecord
 (type: 's', value: 'text')
 ```
 
@@ -52,7 +57,7 @@ At `ByteArray`:
 ```
 >>> ByteArray[1 3 5]
 >>> .OscParameter
->>> .Record
+>>> .encodeRecord
 (type: 'b', value: ByteArray[1 3 5])
 ```
 

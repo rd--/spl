@@ -79,6 +79,13 @@
 		self.randomIntegerExcluding(range, isZero/1, shape)
 	}
 
+	randomLargeInteger { :self :range :shape |
+		let [a, b] = range;
+		{
+			a + self.randomLargeIntegerUpTo(b - a)
+		} ! shape
+	}
+
 	randomLargeIntegerUpTo { :self :u |
 		let k = u.digitLength;
 		let h = u.highBitOfInteger;
@@ -90,13 +97,6 @@
 			x <= 0 || (x > u)
 		}.whileTrue;
 		x
-	}
-
-	randomLargeInteger { :self :range :shape |
-		let [a, b] = range;
-		{
-			a + self.randomLargeIntegerUpTo(b - a)
-		} ! shape
 	}
 
 	randomPermutation { :self :anInteger :shape |
@@ -125,21 +125,8 @@
 		} ! shape
 	}
 
-	randomSampleSmallPool { :self :aCollection :count |
-		let pool = aCollection.List;
-		let answer = [];
-		(count > aCollection.size).ifTrue {
-			count := aCollection.size
-		};
-		{
-			count > 0
-		}.whileTrue {
-			let next = pool.randomChoice(self, []);
-			answer.add!(next);
-			pool.remove!(next);
-			count := count - 1
-		};
-		answer
+	randomSample { :self :aCollection :count |
+		self.randomSampleLargePool(aCollection, count)
 	}
 
 	randomSampleLargePool { :self :aCollection :count |
@@ -159,8 +146,21 @@
 		answer
 	}
 
-	randomSample { :self :aCollection :count |
-		self.randomSampleLargePool(aCollection, count)
+	randomSampleSmallPool { :self :aCollection :count |
+		let pool = aCollection.List;
+		let answer = [];
+		(count > aCollection.size).ifTrue {
+			count := aCollection.size
+		};
+		{
+			count > 0
+		}.whileTrue {
+			let next = pool.randomChoice(self, []);
+			answer.add!(next);
+			pool.remove!(next);
+			count := count - 1
+		};
+		answer
 	}
 
 	randomSubsequence { :self :aSequence :aNumber |

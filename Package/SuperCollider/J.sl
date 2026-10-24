@@ -53,16 +53,16 @@
 		}
 	}
 
-	shapeIndicesDo { :self :aBlock/1 |
-		self.collect { :each |
-			1.to(each)
-		}.tuplesDo(aBlock/1)
-	}
-
 	shapeIndices { :self |
 		self.collect { :each |
 			1.to(each)
 		}.tuples
+	}
+
+	shapeIndicesDo { :self :aBlock/1 |
+		self.collect { :each |
+			1.to(each)
+		}.tuplesDo(aBlock/1)
 	}
 
 	slice { :self :cuts |

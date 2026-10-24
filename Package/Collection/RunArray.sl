@@ -2,6 +2,36 @@ RunArray : [Object, Equal, Store, At, Indices] {
 
 	| runLengths values cachedIndex cachedRun cachedOffset |
 
+	IdentityMultiset { :self |
+		let answer = IdentityMultiset();
+		self.runLengthsAndValuesDo { :run :value |
+			answer.addWithOccurrences!(value, run)
+		};
+		answer
+	}
+
+	IdentitySet { :self |
+		self.values.IdentitySet
+	}
+
+	[List, runArrayToList] { :self |
+		let answer = List(self.size, nil);
+		self.withIndexDo { :each :index |
+			answer[index] := each
+		};
+		answer
+	}
+
+	allocatedSize { :self |
+		self.runLengths.size * 2 + 3
+	}
+
+	associations { :self |
+		self.runLengthsAndValuesCollect { :key :value |
+			key -> value
+		}
+	}
+
 	at { :self :index |
 		self.atSetRunOffsetAndValue(index) { :run :offset :value |
 			(offset < 0).ifTrue {
@@ -12,16 +42,6 @@ RunArray : [Object, Equal, Store, At, Indices] {
 			};
 			value
 		}
-	}
-
-	associations { :self |
-		self.runLengthsAndValuesCollect { :key :value |
-			key -> value
-		}
-	}
-
-	allocatedSize { :self |
-		self.runLengths.size * 2 + 3
 	}
 
 	atSetRunOffsetAndValue { :self :index :aBlock/3 |
@@ -68,6 +88,18 @@ RunArray : [Object, Equal, Store, At, Indices] {
 		}
 	}
 
+	first { :self |
+		self.values[1]
+	}
+
+	includes { :self :anObject |
+		self.values.includes(anObject)
+	}
+
+	indices { :self |
+		1.to(self.size)
+	}
+
 	isEqualBy { :self :anObject :aBlock/2 |
 		(self == anObject).if {
 			true
@@ -80,30 +112,6 @@ RunArray : [Object, Equal, Store, At, Indices] {
 		}
 	}
 
-	first { :self |
-		self.values[1]
-	}
-
-	IdentityMultiset { :self |
-		let answer = IdentityMultiset();
-		self.runLengthsAndValuesDo { :run :value |
-			answer.addWithOccurrences!(value, run)
-		};
-		answer
-	}
-
-	IdentitySet { :self |
-		self.values.IdentitySet
-	}
-
-	includes { :self :anObject |
-		self.values.includes(anObject)
-	}
-
-	indices { :self |
-		1.to(self.size)
-	}
-
 	isSorted { :self |
 		self.values.isSorted
 	}
@@ -114,14 +122,6 @@ RunArray : [Object, Equal, Store, At, Indices] {
 
 	last { :self |
 		self.values[self.values.size]
-	}
-
-	[List, runArrayToList] { :self |
-		let answer = List(self.size, nil);
-		self.withIndexDo { :each :index |
-			answer[index] := each
-		};
-		answer
 	}
 
 	postCopy { :self |
@@ -203,6 +203,14 @@ RunArray : [Object, Equal, Store, At, Indices] {
 
 +List {
 
+	RunArray { :self |
+		self.runArrayWith(identity/1)
+	}
+
+	RunArray { :self :values |
+		newRunArray().initializeSlots(self, values, nil, nil, nil)
+	}
+
 	associationListToRunArray { :self |
 		RunArray(
 			self.collect(key/1),
@@ -234,14 +242,6 @@ RunArray : [Object, Equal, Store, At, Indices] {
 			values.add!(lastValue)
 		};
 		RunArray(runLengths, values)
-	}
-
-	RunArray { :self |
-		self.runArrayWith(identity/1)
-	}
-
-	RunArray { :self :values |
-		newRunArray().initializeSlots(self, values, nil, nil, nil)
 	}
 
 }

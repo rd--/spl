@@ -157,7 +157,6 @@ ColourGradient : [Object, Store] {
 
 }
 
-
 +SmallFloat {
 
 	parula { :self |

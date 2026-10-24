@@ -15,6 +15,10 @@
 		answer
 	}
 
+	isDuplicateFree { :unused |
+		true
+	}
+
 	isEqualBy { :self :anObject :aBlock/2 |
 		anObject.isSet & {
 			self.size = anObject.size & {
@@ -23,10 +27,6 @@
 				}
 			}
 		}
-	}
-
-	isDuplicateFree { :unused |
-		true
 	}
 
 	isSet { :unused |
@@ -47,13 +47,13 @@
 		}
 	}
 
+	uncheckedInclude! { :self :anObject |
+		self.include!(anObject)
+	}
+
 	without! { :self :anObject |
 		self.removeIfAbsent!(anObject) { };
 		self
-	}
-
-	uncheckedInclude! { :self :anObject |
-		self.include!(anObject)
 	}
 
 }

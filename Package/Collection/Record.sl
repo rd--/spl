@@ -1,5 +1,13 @@
 Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collect, Collection, Add, Remove, Dictionary] {
 
+	Dictionary { :self |
+		Dictionary(self.associations)
+	}
+
+	Record { :self |
+		self
+	}
+
 	atIfAbsent { :self :aString :ifAbsent/0 |
 		<primitive:
 		if(Object.hasOwn(_self, _aString)) {
@@ -11,10 +19,6 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collect,
 
 	comparator { :self |
 		==
-	}
-
-	Dictionary { :self |
-		Dictionary(self.associations)
 	}
 
 	encodeIni { :self |
@@ -80,10 +84,6 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collect,
 		}
 		>
 		self.error('put!: key not a string', [aString.typeName])
-	}
-
-	Record { :self |
-		self
 	}
 
 	removeKeyIfAbsent! { :self :key :aBlock |
@@ -154,6 +154,14 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collect,
 
 +List {
 
+	Record { :self |
+		self.isAssociationList.if {
+			self.collect(keyAndValue/1).matrixToRecord
+		} {
+			self.matrixToRecord
+		}
+	}
+
 	matrixToRecord { :self |
 		self.allSatisfy { :each |
 			each.isList & {
@@ -165,14 +173,6 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collect,
 			self.uncheckedMatrixToRecord
 		} {
 			self.error('List>>matrixToRecord')
-		}
-	}
-
-	Record { :self |
-		self.isAssociationList.if {
-			self.collect(keyAndValue/1).matrixToRecord
-		} {
-			self.matrixToRecord
 		}
 	}
 

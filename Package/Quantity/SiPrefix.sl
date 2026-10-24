@@ -34,20 +34,20 @@
 		self * 1E-1
 	}
 
-	hecto { :self |
-		self * 1E2
-	}
-
 	giga { :self |
 		self * 1E9
 	}
 
-	mega { :self |
-		self * 1E6
+	hecto { :self |
+		self * 1E2
 	}
 
 	kilo { :self |
 		self * 1E3
+	}
+
+	mega { :self |
+		self * 1E6
 	}
 
 	micro { :self |

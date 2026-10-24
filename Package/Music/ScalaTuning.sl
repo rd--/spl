@@ -4,6 +4,10 @@ ScalaTuning : [Object, Tuning] {
 
 	| tuningRecord |
 
+	RatioTuning { :self |
+		self.ratios.RatioTuning
+	}
+
 	cents { :self |
 		let answer = self.pitches;
 		answer.addFirst!(0);
@@ -57,10 +61,6 @@ ScalaTuning : [Object, Tuning] {
 
 	primeLimit { :self |
 		self.tuningRecord['limit']
-	}
-
-	RatioTuning { :self |
-		self.ratios.RatioTuning
 	}
 
 	ratios { :self |

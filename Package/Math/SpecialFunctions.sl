@@ -1,18 +1,5 @@
 +SmallFloat {
 
-	erfAbramowitzStegun { :x |
-		(x >= 0).if {
-			let p = 0.47047;
-			let t = 1 / (1 + (p * x));
-			let a1 = 0.3480242 * t;
-			let a2 = -0.0958798 * t * t;
-			let a3 = 0.7478556 * t * t * t;
-			1 - ((a1 + a2 + a3) * x.square.negate.exp)
-		} {
-			x.negate.erf.negate
-		}
-	}
-
 	erf { :x |
 		(x >= 0).if {
 			let p = 0.3275911;
@@ -23,6 +10,19 @@
 			let a4 = -1.453152027 * t * t * t * t;
 			let a5 = 1.061405429 * t * t * t * t * t;
 			1 - ((a1 + a2 + a3 + a4 + a5) * x.square.negate.exp)
+		} {
+			x.negate.erf.negate
+		}
+	}
+
+	erfAbramowitzStegun { :x |
+		(x >= 0).if {
+			let p = 0.47047;
+			let t = 1 / (1 + (p * x));
+			let a1 = 0.3480242 * t;
+			let a2 = -0.0958798 * t * t;
+			let a3 = 0.7478556 * t * t * t;
+			1 - ((a1 + a2 + a3) * x.square.negate.exp)
 		} {
 			x.negate.erf.negate
 		}
@@ -173,7 +173,6 @@
 	}
 }
 
-
 +[SmallFloat, Complex] {
 
 	hypergeometric2F1 { :a :b :c :z |
@@ -236,6 +235,10 @@
 		}
 	}
 
+	ellipticK { :m |
+		1.pi / (2 * arithmeticGeometricMean(1, (1 - m).sqrt))
+	}
+
 	ellipticKFukushima { :m |
 		/* https://observablehq.com/@dan-reznik/jacobi-elliptic-functions */
 		<primitive:
@@ -292,10 +295,6 @@
 		const mx = m - 0.875;
 		return 2.47359617 + mx * (3.72762424 + mx * (15.6073930 + mx * (84.1285084 + mx * (506.981820 + mx * (3252.27706 + mx * (21713.2424 + mx * 149037.045))))));
 		>
-	}
-
-	ellipticK { :m |
-		1.pi / (2 * arithmeticGeometricMean(1, (1 - m).sqrt))
 	}
 
 	ellipticNomeQ { :m |
@@ -372,6 +371,30 @@
 		ellipticTheta(a, u, q, k)
 	}
 
+	jacobiCn { :u :m |
+		let r = jacobianEllipticFunctions(u, m);
+		let cn = r['cn'];
+		cn
+	}
+
+	jacobiDn { :u :m |
+		let r = jacobianEllipticFunctions(u, m);
+		let dn = r['dn'];
+		dn
+	}
+
+	jacobiSn { :u :m |
+		let modulo = { :v :d | (v > 0).if { v % d } { d - (-v % d) } };
+		let r = jacobianEllipticFunctions(u, m);
+		let sn = r['sn'];
+		let k = m.ellipticKFukushima;
+		(modulo(u / k, 4) >= 2).if {
+			sn * -1
+		} {
+			sn
+		}
+	}
+
 	jacobianEllipticFunctions { :u :m |
 		/* https://observablehq.com/@dan-reznik/jacobi-elliptic-functions */
 		<primitive:
@@ -431,30 +454,6 @@
 		let x = c * c;
 		return { u: u, m: m, sn: Math.sqrt(1.0 - x), cn: c, dn: Math.sqrt(mc + m * x) };
 		>
-	}
-
-	jacobiCn { :u :m |
-		let r = jacobianEllipticFunctions(u, m);
-		let cn = r['cn'];
-		cn
-	}
-
-	jacobiDn { :u :m |
-		let r = jacobianEllipticFunctions(u, m);
-		let dn = r['dn'];
-		dn
-	}
-
-	jacobiSn { :u :m |
-		let modulo = { :v :d | (v > 0).if { v % d } { d - (-v % d) } };
-		let r = jacobianEllipticFunctions(u, m);
-		let sn = r['sn'];
-		let k = m.ellipticKFukushima;
-		(modulo(u / k, 4) >= 2).if {
-			sn * -1
-		} {
-			sn
-		}
 	}
 
 }

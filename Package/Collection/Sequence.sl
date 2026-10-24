@@ -6,30 +6,6 @@
 		self ++.each aList
 	}
 
-	[catenate, ++] { :self |
-		self.isEmpty.if {
-			self
-		} {
-			self.catenateValuesSeparatedBy([], self.anyOne.species)
-		}
-	}
-
-	[concatenation, ++] { :self :aList |
-		self.copyReplaceFromToWith(
-			self.size + 1,
-			self.size,
-			aList
-		)
-	}
-
-	[evaluatingAnd, &&] { :self :other |
-		self.withCollect(other, &&)
-	}
-
-	[evaluatingOr, ||] { :self :other |
-		self.withCollect(other, ||)
-	}
-
 	adaptToCollectionAndApply { :self :anObject :aBlock/2 |
 		anObject.isSequence.if {
 			anObject.withCollect(self, aBlock/2)
@@ -50,12 +26,6 @@
 		}
 	}
 
-	adjacentPairsDo { :self :aBlock/2 |
-		1.toDo(self.size - 1) { :i |
-			aBlock(self[i], self[i + 1])
-		}
-	}
-
 	adjacentPairsCollect { :self :aBlock/2 |
 		let answer = self.new(self.size - 1);
 		let index = 1;
@@ -64,6 +34,12 @@
 			index := index + 1
 		};
 		answer
+	}
+
+	adjacentPairsDo { :self :aBlock/2 |
+		1.toDo(self.size - 1) { :i |
+			aBlock(self[i], self[i + 1])
+		}
 	}
 
 	adjacentTriplesDo { :self :aBlock/3 |
@@ -174,14 +150,6 @@
 		}
 	}
 
-	atAllUsing { :self :indexList :aBlock/2 |
-		let answer = self.newOfSize(indexList.size);
-		indexList.indicesDo { :index |
-			answer[index] := aBlock(self, indexList[index])
-		};
-		answer
-	}
-
 	[atAll, selectIndices] { :self :indexList |
 		self.atAllUsing(indexList, at/2)
 	}
@@ -226,6 +194,14 @@
 		self.atAllUsing(indexList, atSymmetrical/2)
 	}
 
+	atAllUsing { :self :indexList :aBlock/2 |
+		let answer = self.newOfSize(indexList.size);
+		indexList.indicesDo { :index |
+			answer[index] := aBlock(self, indexList[index])
+		};
+		answer
+	}
+
 	atAllValid { :self :indexList |
 		self.atOrMissingAll(indexList).deleteMissing
 	}
@@ -263,6 +239,10 @@
 		self[self.pinnedIndex(index)]
 	}
 
+	atRandom { :self |
+		self.randomChoice(system, [])
+	}
+
 	atSymmetrical { :self :index |
 		index.isInteger.ifFalse {
 			self.error('atSymmetrical: invalid index')
@@ -289,10 +269,6 @@
 	atWrap { :self :index |
 		let k = index.wrapExclusive(1, self.size + 1);
 		self[k]
-	}
-
-	atRandom { :self |
-		self.randomChoice(system, [])
 	}
 
 	before { :self :target |
@@ -410,11 +386,23 @@
 		(anInteger - 1).mixedRadixEncode(shape) + 1
 	}
 
+	[catenate, ++] { :self |
+		self.isEmpty.if {
+			self
+		} {
+			self.catenateValuesSeparatedBy([], self.anyOne.species)
+		}
+	}
+
 	catenateStrict { :self |
 		(self.elementType = self.typeName).ifFalse {
 			self.error('@Sequence>>catenateStrict: invalid element type')
 		};
 		self.catenate
+	}
+
+	catenateValues { :self |
+		self.catenateValuesSeparatedBy([], self.species)
 	}
 
 	catenateValuesSeparatedBy { :self :aList :new/1 |
@@ -441,20 +429,12 @@
 		}
 	}
 
-	catenateValues { :self |
-		self.catenateValuesSeparatedBy([], self.species)
-	}
-
 	chineseRemainder { :r :m |
 		let p = m.product;
 		let q = m.withCollect(r) { :i :j |
 			j * (p / i).modularInverse(i) * (p / i)
 		}.sum;
 		q % p
-	}
-
-	compare { :self :operand |
-		self.lexicographicCompare(operand)
 	}
 
 	collect { :self :aBlock/1 |
@@ -470,6 +450,18 @@
 			self[index] := aBlock(self[index])
 		};
 		self
+	}
+
+	compare { :self :operand |
+		self.lexicographicCompare(operand)
+	}
+
+	[concatenation, ++] { :self :aList |
+		self.copyReplaceFromToWith(
+			self.size + 1,
+			self.size,
+			aList
+		)
 	}
 
 	constantArray { :self :anObject |
@@ -811,16 +803,16 @@
 		}
 	}
 
-	dotProduct { :self :aList |
-		(self *.e aList).sum
-	}
-
 	doWithout { :self :aBlock/1 :anItem |
 		self.indicesDo { :index |
 			(anItem = self[index]).ifFalse {
 				aBlock(self[index])
 			}
 		}
+	}
+
+	dotProduct { :self :aList |
+		(self *.e aList).sum
 	}
 
 	drop { :self :count |
@@ -922,14 +914,6 @@
 		}
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
-		(self == anObject) | {
-			(self.typeName = anObject.typeName) & {
-				self.hasEqualElements(anObject, aBlock/2)
-			}
-		}
-	}
-
 	equispacedTriples { :self |
 		let answer = [];
 		self.size.equispacedTriplesDo { :i :j :k |
@@ -946,6 +930,14 @@
 			[(cb * cc * sa) + (ca * sc), (ca * cc) - (cb * sa * sc), sa * sb],
 			[0 - (cc * sb), sb * sc, cb]
 		]
+	}
+
+	[evaluatingAnd, &&] { :self :other |
+		self.withCollect(other, &&)
+	}
+
+	[evaluatingOr, ||] { :self :other |
+		self.withCollect(other, ||)
 	}
 
 	exponentialMovingAverage { :self :alpha |
@@ -1103,9 +1095,16 @@
 		}
 	}
 
-
 	firstHalf { :self |
 		self.first(self.size // 2)
+	}
+
+	flatten { :self |
+		self.flattenTo(Infinity)
+	}
+
+	flatten { :self :depth |
+		self.flattenTo(depth)
 	}
 
 	flattenTo { :self :depth |
@@ -1124,16 +1123,8 @@
 		}
 	}
 
-	flatten { :self |
-		self.flattenTo(Infinity)
-	}
-
-	flatten { :self :depth |
-		self.flattenTo(depth)
-	}
-
-	foldedIndex { :self :index |
-		index.fold(1, self.size)
+	foldLeft { :self :aBlock/2 |
+		self.foldLeftPrefix(self.size, aBlock/2)
 	}
 
 	foldLeftPrefix { :self :count :aBlock/2 |
@@ -1148,10 +1139,6 @@
 		}
 	}
 
-	foldLeft { :self :aBlock/2 |
-		self.foldLeftPrefix(self.size, aBlock/2)
-	}
-
 	foldList { :self :anObject :aBlock/2 |
 		let answer = [anObject];
 		let accumulator = anObject;
@@ -1160,6 +1147,10 @@
 			answer.add!(accumulator)
 		};
 		answer
+	}
+
+	foldRight { :self :aBlock/2 |
+		self.foldRightPrefix(self.size, aBlock/2)
 	}
 
 	foldRightPrefix { :self :count :aBlock/2 |
@@ -1174,8 +1165,8 @@
 		}
 	}
 
-	foldRight { :self :aBlock/2 |
-		self.foldRightPrefix(self.size, aBlock/2)
+	foldedIndex { :self :index |
+		index.fold(1, self.size)
 	}
 
 	forceToPaddingWith { :self :length :anObject |
@@ -1192,7 +1183,6 @@
 	fourth { :self :n |
 		self.copyFromTo(n * 3 + 1, n * 4)
 	}
-
 
 	from { :self |
 		{ :aCollection |
@@ -1514,6 +1504,14 @@
 		self.isEqualBy(anObject, isClose/2)
 	}
 
+	isEqualBy { :self :anObject :aBlock/2 |
+		(self == anObject) | {
+			(self.typeName = anObject.typeName) & {
+				self.hasEqualElements(anObject, aBlock/2)
+			}
+		}
+	}
+
 	isGeometricProgression { :self |
 		(self.size <= 1).if {
 			true
@@ -1730,6 +1728,32 @@
 		}
 	}
 
+	leastSquares { :m :b |
+		let x = m.transpose;
+		let y = [b];
+		let cx = m;
+		let cy = y.transpose;
+		x.dot(cx).inverse.dot(x).dot(cy).transpose.first
+	}
+
+	lengthWhile { :x :f/1 |
+		let n = x.size;
+		let i = 1;
+		{
+			i <= n & {
+				f(x[i])
+			}
+		}.whileTrue {
+			i := i + 1
+		};
+		i - 1
+	}
+
+	lexicographicallyLeastRotation { :self |
+		let i = self.lexicographicallyLeastRotationStartIndex;
+		self.rotateLeft(i - 1)
+	}
+
 	lexicographicallyLeastRotationStartIndex { :self |
 		let n = self.size;
 		let f = List(2 * n, -1);
@@ -1765,11 +1789,6 @@
 		k - 1 % n + 1
 	}
 
-	lexicographicallyLeastRotation { :self |
-		let i = self.lexicographicallyLeastRotationStartIndex;
-		self.rotateLeft(i - 1)
-	}
-
 	lexicographicallyLeastSquareFreeWord { :word :n |
 		(n - word.size).timesRepeat {
 			let letter = 0;
@@ -1779,27 +1798,6 @@
 			word := word ++ [letter]
 		};
 		word
-	}
-
-	leastSquares { :m :b |
-		let x = m.transpose;
-		let y = [b];
-		let cx = m;
-		let cy = y.transpose;
-		x.dot(cx).inverse.dot(x).dot(cy).transpose.first
-	}
-
-	lengthWhile { :x :f/1 |
-		let n = x.size;
-		let i = 1;
-		{
-			i <= n & {
-				f(x[i])
-			}
-		}.whileTrue {
-			i := i + 1
-		};
-		i - 1
 	}
 
 	linearCombination { :v :c |
@@ -1902,16 +1900,16 @@
 		self[self.size // 2 + 1]
 	}
 
+	minimumDifference { :self |
+		self.minimumDifferenceBy(identity/1)
+	}
+
 	minimumDifferenceBy { :self :aBlock/1 |
 		let answer = Infinity;
 		self.adjacentPairsDo { :p :q |
 			answer := answer.min(aBlock(q) - aBlock(p))
 		};
 		answer
-	}
-
-	minimumDifference { :self |
-		self.minimumDifferenceBy(identity/1)
 	}
 
 	mirror { :self :m :n |
@@ -2049,10 +2047,6 @@
 		}
 	}
 
-	partIndex { :self :operand |
-		operand.atAllSymmetrical(self)
-	}
-
 	part { :self :indices |
 		let k = indices.size;
 		let i = indices[1];
@@ -2069,6 +2063,18 @@
 				a.part(j)
 			}
 		}
+	}
+
+	partIndex { :self :operand |
+		operand.atAllSymmetrical(self)
+	}
+
+	partition { :self :windowSize :stepSize |
+		self.partitionCollect(windowSize, stepSize, copy/1)
+	}
+
+	partition { :self :windowSize |
+		self.partition(windowSize, windowSize)
 	}
 
 	partitionCollect { :self :windowSize :stepSize :aBlock/1 |
@@ -2092,14 +2098,6 @@
 			}
 		};
 		nil
-	}
-
-	partition { :self :windowSize :stepSize |
-		self.partitionCollect(windowSize, stepSize, copy/1)
-	}
-
-	partition { :self :windowSize |
-		self.partition(windowSize, windowSize)
 	}
 
 	periodicFunction { :a :d |
@@ -2141,20 +2139,6 @@
 		}
 	}
 
-	prefixesDo { :self :aBlock/1 |
-		1.toDo(self.size) { :each |
-			aBlock(self.copyFromTo(1, each))
-		}
-	}
-
-	prefixes { :self |
-		let answer = [];
-		self.prefixesDo { :each |
-			answer.add!(each)
-		};
-		answer
-	}
-
 	prefixProduct { :self |
 		self.scan(*)
 	}
@@ -2165,6 +2149,20 @@
 
 	[prefixSum, accumulate] { :self |
 		self.scan(+)
+	}
+
+	prefixes { :self |
+		let answer = [];
+		self.prefixesDo { :each |
+			answer.add!(each)
+		};
+		answer
+	}
+
+	prefixesDo { :self :aBlock/1 |
+		1.toDo(self.size) { :each |
+			aBlock(self.copyFromTo(1, each))
+		}
 	}
 
 	projection { :u :v |
@@ -2439,6 +2437,28 @@
 		}
 	}
 
+	second { :self |
+		self[1 + 1]
+	}
+
+	second { :self :n |
+		self.copyFromTo(n + 1, n * 2)
+	}
+
+	secondLast { :self |
+		self[self.size - 1]
+	}
+
+	select { :self :aBlock/1 |
+		let answer = [];
+		self.indicesDo { :index |
+			aBlock(self[index]).ifTrue {
+				answer.add!(self[index])
+			}
+		};
+		self.newFrom(answer)
+	}
+
 	selfClassify { :self |
 		self.nub.collect { :a |
 			self.collect { :b |
@@ -2517,28 +2537,6 @@
 
 	sequenceReplace { :list :rules |
 		sequenceReplace(list, rules, Infinity)
-	}
-
-	second { :self |
-		self[1 + 1]
-	}
-
-	second { :self :n |
-		self.copyFromTo(n + 1, n * 2)
-	}
-
-	secondLast { :self |
-		self[self.size - 1]
-	}
-
-	select { :self :aBlock/1 |
-		let answer = [];
-		self.indicesDo { :index |
-			aBlock(self[index]).ifTrue {
-				answer.add!(self[index])
-			}
-		};
-		self.newFrom(answer)
 	}
 
 	shiftRegisterSequence { :initialState :taps :count |
@@ -2643,6 +2641,29 @@
 		}
 	}
 
+	suffixProduct { :self |
+		self.scanRight(*)
+	}
+
+	[suffixSum, reverseAccumulate] { :self |
+		self.scanRight(+)
+	}
+
+	suffixes { :self |
+		let answer = [];
+		self.suffixesDo { :each |
+			answer.add!(each)
+		};
+		answer
+	}
+
+	suffixesDo { :self :aBlock/1 |
+		let size = self.size;
+		1.toDo(size) { :each |
+			aBlock(self.copyFromTo(each, size))
+		}
+	}
+
 	suffixesStream { :self |
 		let n = self.size;
 		let i = 0;
@@ -2656,29 +2677,6 @@
 		} {
 			i := 0
 		}
-	}
-
-	suffixesDo { :self :aBlock/1 |
-		let size = self.size;
-		1.toDo(size) { :each |
-			aBlock(self.copyFromTo(each, size))
-		}
-	}
-
-	suffixes { :self |
-		let answer = [];
-		self.suffixesDo { :each |
-			answer.add!(each)
-		};
-		answer
-	}
-
-	suffixProduct { :self |
-		self.scanRight(*)
-	}
-
-	[suffixSum, reverseAccumulate] { :self |
-		self.scanRight(+)
 	}
 
 	swapAllWith! { :self :indices |
@@ -2830,6 +2828,19 @@
 		a.triangularDifferenceTable(-)
 	}
 
+	tuples { :self |
+		self.tuplesCollect(copy/1)
+	}
+
+	tuples { :self :count |
+		List(count, self).tuples
+	}
+
+	tuplesArray { :self |
+		let shape = self.collect(size/1) ++ [self.size];
+		self.tuples.reshape(shape)
+	}
+
 	tuplesCollect { :self :aBlock/1 |
 		let answer = [];
 		self.tuplesDo { :each |
@@ -2852,23 +2863,14 @@
 		}
 	}
 
-	tuples { :self |
-		self.tuplesCollect(copy/1)
-	}
-
-	tuples { :self :count |
-		List(count, self).tuples
-	}
-
-	tuplesArray { :self |
-		let shape = self.collect(size/1) ++ [self.size];
-		self.tuples.reshape(shape)
-	}
-
 	unaryBlock { :self |
 		{ :index |
 			self.at(index)
 		}
+	}
+
+	unique { :self |
+		self.nub.sort!
 	}
 
 	uniqueElements { :self |
@@ -2891,10 +2893,6 @@
 		}
 	}
 
-	unique { :self |
-		self.nub.sort!
-	}
-
 	which { :self |
 		withReturn { :return/1 |
 			self.do { :each |
@@ -2908,9 +2906,15 @@
 		}
 	}
 
-
 	withCollect { :self :aSequence :aBlock/2 |
 		self.withCollectWrapping(aSequence, aBlock/2)
+	}
+
+	withCollect! { :self :otherCollection :aBlock/2 |
+		self.isOfSameSizeCheck(otherCollection);
+		self.indicesDo { :index |
+			self[index] := aBlock(self[index], otherCollection[index])
+		}
 	}
 
 	withCollectCrossed { :self :aList :aBlock/2 |
@@ -2936,13 +2940,6 @@
 		let maximumSize = self.size.max(aCollection.size);
 		1.toAsCollect(maximumSize, self) { :index |
 			aBlock(self.atFold(index), aCollection.atFold(index))
-		}
-	}
-
-	withCollect! { :self :otherCollection :aBlock/2 |
-		self.isOfSameSizeCheck(otherCollection);
-		self.indicesDo { :index |
-			self[index] := aBlock(self[index], otherCollection[index])
 		}
 	}
 
@@ -3003,6 +3000,21 @@
 		self
 	}
 
+	withWithCollect { :self :aSequence :anotherSequence :aBlock/3 |
+		let maximumSize = [self, aSequence, anotherSequence].collect(size/1).max;
+		1.toAsCollect(maximumSize, self) { :index |
+			aBlock(self.atWrap(index), aSequence.atWrap(index), anotherSequence.atWrap(index))
+		}
+	}
+
+	withWithDo { :self :aList :anotherList :aBlock/3 |
+		self.isOfSameSizeCheck(aList);
+		self.isOfSameSizeCheck(anotherList);
+		self.indicesDo { :index |
+			aBlock(self[index], aList[index], anotherList[index])
+		}
+	}
+
 	withoutLeadingZeroes { :self |
 		let n = self.size;
 		(n = 0).if {
@@ -3034,21 +3046,6 @@
 			self
 		} {
 			self.copyFromTo(1, n)
-		}
-	}
-
-	withWithCollect { :self :aSequence :anotherSequence :aBlock/3 |
-		let maximumSize = [self, aSequence, anotherSequence].collect(size/1).max;
-		1.toAsCollect(maximumSize, self) { :index |
-			aBlock(self.atWrap(index), aSequence.atWrap(index), anotherSequence.atWrap(index))
-		}
-	}
-
-	withWithDo { :self :aList :anotherList :aBlock/3 |
-		self.isOfSameSizeCheck(aList);
-		self.isOfSameSizeCheck(anotherList);
-		self.indicesDo { :index |
-			aBlock(self[index], aList[index], anotherList[index])
 		}
 	}
 
@@ -3104,6 +3101,14 @@
 		}
 	}
 
+	equispacedTriples { :self |
+		let answer = [];
+		self.equispacedTriplesDo { :i :j :k |
+			answer.add!([i, j, k])
+		};
+		answer
+	}
+
 	equispacedTriplesDo { :self :aBlock/3 |
 		1.toDo(self // 2) { :m |
 			let n = self - (2 * m);
@@ -3113,14 +3118,6 @@
 				aBlock(i, j, k)
 			}
 		}
-	}
-
-	equispacedTriples { :self |
-		let answer = [];
-		self.equispacedTriplesDo { :i :j :k |
-			answer.add!([i, j, k])
-		};
-		answer
 	}
 
 	from { :self :operand |

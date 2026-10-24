@@ -4,32 +4,19 @@ ResidueSet : [Object, New, Store, Equal, Do, Collect, Collection, Add, Remove] {
 
 	| commonResidueSet modulus |
 
-	[plus, +] { :self :anInteger |
-		ResidueSet(
-			self.commonResidueSet + anInteger,
-			self.modulus
-		)
-	}
-
-	[subtract, -] { :self :anInteger |
-		ResidueSet(
-			self.commonResidueSet - anInteger,
-			self.modulus
-		)
-	}
-
-	[times, *] { :self :anInteger |
-		ResidueSet(
-			self.commonResidueSet * anInteger,
-			self.modulus
-		)
-	}
-
 	BitSet { :self |
 		BitSet(
 			self.commonResidueSet,
 			self.modulus
 		)
+	}
+
+	IdentitySet { :self |
+		self.commonResidueSet.copy
+	}
+
+	[List, residueSetToList] { :self |
+		self.positionVector
 	}
 
 	bitString { :self |
@@ -55,16 +42,15 @@ ResidueSet : [Object, New, Store, Equal, Do, Collect, Collection, Add, Remove] {
 		self.commonResidueSet.do(aBlock/1)
 	}
 
-	IdentitySet { :self |
-		self.commonResidueSet.copy
-	}
-
 	include! { :self :anInteger |
 		self.commonResidueSet.include!(anInteger % self.modulus)
 	}
 
-	[List, residueSetToList] { :self |
-		self.positionVector
+	[plus, +] { :self :anInteger |
+		ResidueSet(
+			self.commonResidueSet + anInteger,
+			self.modulus
+		)
 	}
 
 	positionVector { :self |
@@ -73,6 +59,12 @@ ResidueSet : [Object, New, Store, Equal, Do, Collect, Collection, Add, Remove] {
 
 	size { :self |
 		self.commonResidueSet.size
+	}
+
+	species { :self |
+		{
+			ResidueSet([], self.modulus)
+		}
 	}
 
 	storeString { :self |
@@ -84,10 +76,18 @@ ResidueSet : [Object, New, Store, Equal, Do, Collect, Collection, Add, Remove] {
 		)
 	}
 
-	species { :self |
-		{
-			ResidueSet([], self.modulus)
-		}
+	[subtract, -] { :self :anInteger |
+		ResidueSet(
+			self.commonResidueSet - anInteger,
+			self.modulus
+		)
+	}
+
+	[times, *] { :self :anInteger |
+		ResidueSet(
+			self.commonResidueSet * anInteger,
+			self.modulus
+		)
 	}
 
 }

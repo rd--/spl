@@ -32,14 +32,6 @@ CacheStorage! : [Object] {
 		}
 	}
 
-	validateKey { :self :key |
-		key.isString.if {
-			key
-		} {
-			self.error('CacheStorage>>validateKey: key not String')
-		}
-	}
-
 	uncheckedDelete { :self :key |
 		<primitive: return _self.delete(_key);>
 	}
@@ -50,6 +42,14 @@ CacheStorage! : [Object] {
 
 	uncheckedOpen { :self :key |
 		<primitive: return _self.open(_key);>
+	}
+
+	validateKey { :self :key |
+		key.isString.if {
+			key
+		} {
+			self.error('CacheStorage>>validateKey: key not String')
+		}
 	}
 
 }

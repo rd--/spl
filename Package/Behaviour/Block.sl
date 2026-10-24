@@ -225,7 +225,6 @@ Block! : [Object, Equal] {
 		answer
 	}
 
-
 	[duplicate, !] { :self/0 :shape |
 		{ :unused |
 			self()
@@ -338,10 +337,6 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	isLiteral { :unused |
-		true
-	}
-
 	inner { :f/2 :p :q :g/2 |
 		let h/2 = f/2.e;
 		p.isVector.if {
@@ -382,6 +377,10 @@ Block! : [Object, Equal] {
 	}
 
 	isImmediate { :unused |
+		true
+	}
+
+	isLiteral { :unused |
 		true
 	}
 
@@ -432,6 +431,26 @@ Block! : [Object, Equal] {
 		}
 	}
 
+	memoize { :self :requireImmediate |
+		self.argumentCount.caseOf(
+			[
+				0 -> {
+					self.memoizeNilary
+				},
+				1 -> {
+					self.memoizeUnary(requireImmediate)
+				},
+				2 -> {
+					self.memoizeBinary(requireImmediate)
+				}
+			]
+		)
+	}
+
+	memoize { :self |
+		self.memoize(false)
+	}
+
 	memoizeBinary { :self/2 :requireImmediate |
 		let f/1 = { :x |
 			{ :y |
@@ -465,26 +484,6 @@ Block! : [Object, Equal] {
 				answer
 			}
 		}
-	}
-
-	memoize { :self :requireImmediate |
-		self.argumentCount.caseOf(
-			[
-				0 -> {
-					self.memoizeNilary
-				},
-				1 -> {
-					self.memoizeUnary(requireImmediate)
-				},
-				2 -> {
-					self.memoizeBinary(requireImmediate)
-				}
-			]
-		)
-	}
-
-	memoize { :self |
-		self.memoize(false)
 	}
 
 	movingMap { :self/1 :sequence :windowSize |
@@ -631,23 +630,6 @@ Block! : [Object, Equal] {
 		<primitive: return _self.name.split('/')[0];>
 	}
 
-	withReturn { :self/1 |
-		<primitive:
-		const returnBlock = function(returnValue) {
-			throw returnValue;
-		};
-		try {
-			return _self_1(returnBlock);
-		} catch (returnedValue) {
-			if(returnedValue instanceof Error) {
-				throw returnedValue;
-			} {
-				return returnedValue;
-			}
-		}
-		>
-	}
-
 	whileFalse { :self/0 |
 		{
 			self()
@@ -687,6 +669,23 @@ Block! : [Object, Equal] {
 		};
 		>
 		nil
+	}
+
+	withReturn { :self/1 |
+		<primitive:
+		const returnBlock = function(returnValue) {
+			throw returnValue;
+		};
+		try {
+			return _self_1(returnBlock);
+		} catch (returnedValue) {
+			if(returnedValue instanceof Error) {
+				throw returnedValue;
+			} {
+				return returnedValue;
+			}
+		}
+		>
 	}
 
 	yCombinator { :self/1 |

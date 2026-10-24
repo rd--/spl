@@ -23,6 +23,10 @@ MersenneTwister : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 +@Integer {
 
+	MersenneTwister { :self |
+		newMersenneTwister().initialize(self)
+	}
+
 	mt53RandomNumberGenerator { :self |
 		<primitive:
 		const mt = new sl.MersenneTwister(_self);
@@ -30,10 +34,6 @@ MersenneTwister : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 			return mt.genrand_res53();
 		};
 		>
-	}
-
-	MersenneTwister { :self |
-		newMersenneTwister().initialize(self)
 	}
 
 }

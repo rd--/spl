@@ -37,12 +37,6 @@ GeometryCollection : [Object, Equal, Geometry] {
 		n
 	}
 
-	svgFragment { :self :options |
-		self.geometryList.collect { :each |
-			each.svgFragment(options)
-		}
-	}
-
 	project { :self :projection |
 		let projectionBlock = projection.unaryBlock;
 		GeometryCollection(
@@ -50,6 +44,12 @@ GeometryCollection : [Object, Equal, Geometry] {
 				each.project(projectionBlock)
 			}
 		)
+	}
+
+	svgFragment { :self :options |
+		self.geometryList.collect { :each |
+			each.svgFragment(options)
+		}
 	}
 
 }

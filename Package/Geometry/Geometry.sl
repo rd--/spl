@@ -1,22 +1,5 @@
 @Geometry {
 
-	boundingBox { :self |
-		self.typeResponsibility('boundingBox')
-	}
-
-	drawing { :self |
-		let d = self.embeddingDimension;
-		(d = 2).if {
-			self.LineDrawing.drawing
-		} {
-			self.PerspectiveDrawing.drawing
-		}
-	}
-
-	embeddingDimension { :self |
-		self.typeResponsibility('embeddingDimension')
-	}
-
 	LineDrawing { :self |
 		LineDrawing([self])
 	}
@@ -33,6 +16,23 @@
 
 	PerspectiveDrawing { :self |
 		PerspectiveDrawing([self])
+	}
+
+	boundingBox { :self |
+		self.typeResponsibility('boundingBox')
+	}
+
+	drawing { :self |
+		let d = self.embeddingDimension;
+		(d = 2).if {
+			self.LineDrawing.drawing
+		} {
+			self.PerspectiveDrawing.drawing
+		}
+	}
+
+	embeddingDimension { :self |
+		self.typeResponsibility('embeddingDimension')
 	}
 
 	svgFragment { :self :options |

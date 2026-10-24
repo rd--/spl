@@ -2,24 +2,16 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 
 	| absoluteTime |
 
-	[isLess, <] { :self :aTimeStamp |
-		isLessOn(self, aTimeStamp, absoluteTime/1)
-	}
-
-	[plus, +] { :self :operand |
-		TimeStamp(self.absoluteTime + operand.inSeconds)
-	}
-
-	[subtract, -] { :self :operand |
-		TimeStamp(self.absoluteTime - operand.inSeconds)
-	}
-
 	[Date, timeStampToDate] { :self |
 		Date(self.absoluteTime)
 	}
 
 	DateAndTime { :self |
 		DateAndTime(self.absoluteTime)
+	}
+
+	TimeStamp { :self |
+		self
 	}
 
 	dateAndTimeString { :self |
@@ -32,13 +24,21 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 		}
 	}
 
+	[isLess, <] { :self :aTimeStamp |
+		isLessOn(self, aTimeStamp, absoluteTime/1)
+	}
+
+	[plus, +] { :self :operand |
+		TimeStamp(self.absoluteTime + operand.inSeconds)
+	}
+
 	round { :self :operand |
 		self.absoluteTime := self.absoluteTime.round(operand.inSeconds);
 		self
 	}
 
-	TimeStamp { :self |
-		self
+	[subtract, -] { :self :operand |
+		TimeStamp(self.absoluteTime - operand.inSeconds)
 	}
 
 }
@@ -61,12 +61,12 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 
 +@Collection {
 
-	absoluteTime { :self |
-		self.collect(absoluteTime/1)
-	}
-
 	TimeStamp { :self |
 		self.collect(TimeStamp/1)
+	}
+
+	absoluteTime { :self |
+		self.collect(absoluteTime/1)
 	}
 
 }

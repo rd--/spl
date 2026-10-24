@@ -2,6 +2,40 @@ ColourGrid : [Object] {
 
 	| colourMatrix |
 
+	LineDrawing { :self |
+		let matrix = self.colourMatrix;
+		let [height, width] = self.shape;
+		let cellSize = self.cellSize;
+		let yMax = height * cellSize;
+		AnnotatedGeometry(
+			{ :x :y |
+				let colour = Colour(matrix[y][x]);
+				colour.isTransparent.if {
+					nil
+				} {
+					let x0 = (x - 1) * cellSize;
+					let y0 = yMax - ((y - 1) * cellSize);
+					AnnotatedGeometry(
+						Rectangle(
+							[x0, y0],
+							[x0 + cellSize, y0 + cellSize]
+						),
+						(
+							fillColour: colour
+						)
+					)
+				}
+			}.table(
+				1.to(width),
+				1.to(height)
+			).collect(deleteMissing/1).GeometryCollection,
+			(
+				strokeColour: nil,
+				strokeWidth: nil
+			)
+		).LineDrawing
+	}
+
 	cellSize { :self |
 		let [m, n] = self.shape;
 		(100 / m.max(n / 1.goldenRatio)).round.max(1)
@@ -48,40 +82,6 @@ ColourGrid : [Object] {
 			items,
 			'</svg>'
 		].joinSvg
-	}
-
-	LineDrawing { :self |
-		let matrix = self.colourMatrix;
-		let [height, width] = self.shape;
-		let cellSize = self.cellSize;
-		let yMax = height * cellSize;
-		AnnotatedGeometry(
-			{ :x :y |
-				let colour = Colour(matrix[y][x]);
-				colour.isTransparent.if {
-					nil
-				} {
-					let x0 = (x - 1) * cellSize;
-					let y0 = yMax - ((y - 1) * cellSize);
-					AnnotatedGeometry(
-						Rectangle(
-							[x0, y0],
-							[x0 + cellSize, y0 + cellSize]
-						),
-						(
-							fillColour: colour
-						)
-					)
-				}
-			}.table(
-				1.to(width),
-				1.to(height)
-			).collect(deleteMissing/1).GeometryCollection,
-			(
-				strokeColour: nil,
-				strokeWidth: nil
-			)
-		).LineDrawing
 	}
 
 	shape { :self |

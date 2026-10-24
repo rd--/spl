@@ -32,6 +32,11 @@ SiUnit : [Object, Store, Equal] {
 
 +String {
 
+	SiUnit { :name :symbol :quantity :dimension |
+		uncheckedSiUnit(name, symbol, quantity, dimension)
+		.assertIsValid
+	}
+
 	isSiBaseUnit { :self |
 		self.siUnitIfPresentIfAbsent { :u |
 			u.isBaseUnit
@@ -54,11 +59,6 @@ SiUnit : [Object, Store, Equal] {
 		}
 	}
 
-	SiUnit { :name :symbol :quantity :dimension |
-		uncheckedSiUnit(name, symbol, quantity, dimension)
-		.assertIsValid
-	}
-
 	siBaseUnitIfPresentIfAbsent { :self :whenPresent/1 :whenAbsent/0 |
 		system.siBaseUnitList.detectIfFoundIfNone { :each |
 			each.isNamedBy(self)
@@ -66,6 +66,12 @@ SiUnit : [Object, Store, Equal] {
 			whenPresent(u)
 		} {
 			whenAbsent()
+		}
+	}
+
+	siUnit { :self |
+		self.siUnitIfPresentIfAbsent(identity/1) {
+			self.error('siUnit: not SI unit name')
 		}
 	}
 
@@ -80,12 +86,6 @@ SiUnit : [Object, Store, Equal] {
 			} {
 				whenAbsent()
 			}
-		}
-	}
-
-	siUnit { :self |
-		self.siUnitIfPresentIfAbsent(identity/1) {
-			self.error('siUnit: not SI unit name')
 		}
 	}
 

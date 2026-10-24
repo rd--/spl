@@ -58,6 +58,15 @@ HelpFileViewer : [Object, UserEventTarget, View] {
 
 +SmallKansas {
 
+	helpFileViewer { :self :event |
+		self.frameSet.detectIfNone { :each |
+			each.title = 'Help File Viewer'
+		} {
+			let viewer = newHelpFileViewer().initialize(self);
+			self.addFrame(viewer, event)
+		}
+	}
+
 	helpFor { :self :topic :event |
 		system.requestLibraryItem(
 			'HelpIndex'
@@ -69,15 +78,6 @@ HelpFileViewer : [Object, UserEventTarget, View] {
 					subject.showHelpFile(helpFile)
 				}
 			}
-		}
-	}
-
-	helpFileViewer { :self :event |
-		self.frameSet.detectIfNone { :each |
-			each.title = 'Help File Viewer'
-		} {
-			let viewer = newHelpFileViewer().initialize(self);
-			self.addFrame(viewer, event)
 		}
 	}
 

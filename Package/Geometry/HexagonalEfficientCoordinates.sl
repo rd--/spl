@@ -2,7 +2,24 @@ HexagonalEfficientCoordinates : [Object, Equal] {
 
 	| coordinates |
 
-	[negate, -] { :self |
+	CartesianCoordinates { :self |
+		self
+		.coordinates
+		.fromHexagonalEfficientCoordinates
+		.CartesianCoordinates
+	}
+
+	nearestNeighbours { :self |
+		let [a, c, r] = self.coordinates;
+		[
+			[a, r, c + 1],
+			[1 - a, r - (1 - a), c + a],
+			[1 - a, r - (1 - a), c - (1 - a)],
+			[a, r, c - 1],
+			[1 - a, r + a, c - (1 - a)],
+			[1 - a, r + a, c + a]
+		].collect(HexagonalEfficientCoordinates/1)
+	}	[negate, -] { :self |
 		let [a, r, c] = self.coordinates;
 		HexagonalEfficientCoordinates(
 			a,
@@ -40,28 +57,14 @@ HexagonalEfficientCoordinates : [Object, Equal] {
 
 	}
 
-	CartesianCoordinates { :self |
-		self
-		.coordinates
-		.fromHexagonalEfficientCoordinates
-		.CartesianCoordinates
-	}
-
-	nearestNeighbours { :self |
-		let [a, c, r] = self.coordinates;
-		[
-			[a, r, c + 1],
-			[1 - a, r - (1 - a), c + a],
-			[1 - a, r - (1 - a), c - (1 - a)],
-			[a, r, c - 1],
-			[1 - a, r + a, c - (1 - a)],
-			[1 - a, r + a, c + a]
-		].collect(HexagonalEfficientCoordinates/1)
-	}
-
 }
 
 +List {
+
+	HexagonalEfficientCoordinates { :self |
+		let [a, r, c] = self;
+		newHexagonalEfficientCoordinates().initializeSlots([a, r, c])
+	}
 
 	fromHexagonalEfficientCoordinates { :self |
 		let [a, r, c] = self;
@@ -69,11 +72,6 @@ HexagonalEfficientCoordinates : [Object, Equal] {
 			(a / 2) + c,
 			3.sqrt * ((a / 2) + r)
 		]
-	}
-
-	HexagonalEfficientCoordinates { :self |
-		let [a, r, c] = self;
-		newHexagonalEfficientCoordinates().initializeSlots([a, r, c])
 	}
 
 }

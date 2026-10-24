@@ -1,11 +1,11 @@
 @Json {
 
-	isJson { :self |
-		true
-	}
-
 	encodeJson { :self |
 		self.typeResponsibility('encodeJson')
+	}
+
+	isJson { :self |
+		true
 	}
 
 	uncheckedEncodeJson { :self |

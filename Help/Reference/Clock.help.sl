@@ -12,7 +12,8 @@ Start printing a message once per second using the system clock:
 
 ~~~spl scheduler
 let k = 1;
-system.clock.scheduleBlock(0) { :t |
+system.clock
+.scheduleBlock(0) { :t |
 	[t k].printLine;
 	k := k + 1;
 	1
@@ -22,7 +23,8 @@ system.clock.scheduleBlock(0) { :t |
 Schedule for the system clock to be cleared in nine seconds time:
 
 ~~~spl scheduler
-system.clock.scheduleBlock(9) { :t |
+system.clock
+.scheduleBlock(9) { :t |
 	system.clock.removeAll!
 }
 ~~~
@@ -30,7 +32,8 @@ system.clock.scheduleBlock(9) { :t |
 Print random numbers at random intervals until the interval is less than a tenth of a second:
 
 ~~~spl scheduler
-system.clock.scheduleBlock(0) { :t |
+system.clock
+.scheduleBlock(0) { :t |
 	let x = system.nextRandomFloat;
 	[t, x].printLine;
 	(x > 0.1).if {
@@ -45,7 +48,8 @@ system.clock.scheduleBlock(0) { :t |
 A scheduling process that passes an object between iterations:
 
 ~~~spl scheduler
-system.clock.scheduleBlockInjecting(0, 1) { :t :i |
+system.clock
+.scheduleBlockInjecting(0, 1) { :t :i |
 	let x = system.nextRandomFloat;
 	[t, i, x].printLine;
 	(x > 0.1).if {

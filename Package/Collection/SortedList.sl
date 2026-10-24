@@ -2,10 +2,8 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 
 	| collection sortBlock |
 
-	[concatenation, ++] { :self :aCollection |
-		let answer = self.copy;
-		answer.addAll!(aCollection);
-		answer
+	[List, sortedListToList] { :self |
+		self.collection.copy
 	}
 
 	add! { :self :item |
@@ -38,6 +36,12 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 		.collection
 		.collect(aBlock/1)
 		.SortedList(self.sortBlock)
+	}
+
+	[concatenation, ++] { :self :aCollection |
+		let answer = self.copy;
+		answer.addAll!(aCollection);
+		answer
 	}
 
 	do { :self :aBlock/1 |
@@ -73,10 +77,6 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 		} {
 			0
 		}
-	}
-
-	[List, sortedListToList] { :self |
-		self.collection.copy
 	}
 
 	median { :self |

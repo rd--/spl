@@ -1,5 +1,9 @@
 ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Collect, Collection, Sequence, PrimitiveArray] {
 
+	[String, utf8String] { :self |
+		<primitive: return new TextDecoder('utf-8').decode(_self).normalize('NFC');>
+	}
+
 	asciiString { :self |
 		<primitive: return new TextDecoder('ascii').decode(_self);>
 	}
@@ -109,10 +113,6 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		'Byte'
 	}
 
-	[String, utf8String] { :self |
-		<primitive: return new TextDecoder('utf-8').decode(_self).normalize('NFC');>
-	}
-
 	utf16String { :self |
 		<primitive: return new TextDecoder('utf-16').decode(_self).normalize('NFC');>
 	}
@@ -125,12 +125,12 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		ByteArray(self).asciiString
 	}
 
-	utf8String { :self |
-		ByteArray(self).utf8String
-	}
-
 	utf16String { :self |
 		<primitive: return String.fromCodePoint(..._self);>
+	}
+
+	utf8String { :self |
+		ByteArray(self).utf8String
 	}
 
 }
@@ -151,7 +151,6 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 	zeroByteArray { :n |
 		ByteArray(n, 0)
 	}
-
 
 }
 
@@ -189,6 +188,12 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 
 +String {
 
+	[base16Decode, parseBase16] { :self |
+		self.base16DecodeInto(
+			ByteArray(self.size / 2, 0)
+		)
+	}
+
 	base16DecodeInto { :self :where |
 		<primitive:
 		for(let i = 0; i < _self.length; i++) {
@@ -196,12 +201,6 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		};
 		return _where;
 		>
-	}
-
-	[base16Decode, parseBase16] { :self |
-		self.base16DecodeInto(
-			ByteArray(self.size / 2, 0)
-		)
 	}
 
 	[base64Decode, parseBase64] { :self |

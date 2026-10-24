@@ -39,17 +39,17 @@ Image : [Object] {
 		self.imageArray.anyOne.size
 	}
 
+	writePng { :self :fileName |
+		let ppmFileName = '/tmp/image.ppm';
+		self.writePpm(ppmFileName);
+		system.systemCommand('convert', [ppmFileName, '-transparent', 'white', '-strip', fileName])
+	}
+
 	writePpm { :self :fileName |
 		system.writeTextFile(
 			fileName,
 			self.encodePpm(255)
 		)
-	}
-
-	writePng { :self :fileName |
-		let ppmFileName = '/tmp/image.ppm';
-		self.writePpm(ppmFileName);
-		system.systemCommand('convert', [ppmFileName, '-transparent', 'white', '-strip', fileName])
 	}
 
 }

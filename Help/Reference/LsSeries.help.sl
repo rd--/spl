@@ -18,7 +18,8 @@ With infinite length:
 [1 4 7 10 3 8 13 18]
 ```
 
-Non-cubical squares:
+Non-cubical squares,
+OEIS [A179126](https://oeis.org/A179126):
 
 ```
 >>> let powers = { :m |
@@ -26,16 +27,14 @@ Non-cubical squares:
 >>> };
 >>> let squares = powers(2);
 >>> let cubes = powers(3);
->>> let uncubicalSquares = squares.reject { :each |
+>>> squares.reject { :each |
 >>> 	{
 >>> 		each <= cubes.peek
 >>> 	}.whileFalse {
 >>> 		cubes.next
 >>> 	};
 >>> 	each = cubes.peek
->>> };
->>> uncubicalSquares
->>> .drop(20)
+>>> }.drop(20)
 >>> .take(9)
 >>> .upToEnd
 [529 576 625 676 784 841 900 961 1024]

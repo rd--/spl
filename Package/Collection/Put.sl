@@ -47,14 +47,14 @@
 		}
 	}
 
-	put! { :self :index :anObject |
-		self.typeResponsibility('@Put>>put!')
-	}
-
 	put { :self :index :anObject |
 		let answer = self.copy;
 		answer.put!(index, anObject);
 		answer
+	}
+
+	put! { :self :index :anObject |
+		self.typeResponsibility('@Put>>put!')
 	}
 
 	/*

@@ -67,11 +67,12 @@ false
 At `LargeInteger`:
 
 ```
->>> (10L ^ 3000 + 1).divisible(16001L)
+>>> (10L ^ 3000 + 1)
+>>> .divisible(16001L)
 true
 
->>> (10L ^ 3000 + 1) % 16001L = 0L
-true
+>>> (10L ^ 3000 + 1) % 16001L
+0L
 ```
 
 Divisible threads elementwise over lists:
@@ -172,7 +173,7 @@ OEIS [A387662](https://oeis.org/A387662):
 	15 16 33  4 49  8  7 12 11 43
 	22  3 51  8 21
 ]
-~~~
+```
 
 Matrix plot of divisor table:
 

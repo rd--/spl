@@ -1,5 +1,27 @@
 List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, Collect, Collection, Add, Remove, Sequence, PrimitiveArray, Ordered] {
 
+	[List, listToList] { :self |
+		self
+	}
+
+	addFirst { :self :anObject |
+		[anObject] ++ self
+	}
+
+	addFirst! { :self :anObject |
+		<primitive: _self.unshift(_anObject);>
+		anObject
+	}
+
+	addLast { :self :anObject |
+		self ++ [anObject]
+	}
+
+	addLast! { :self :anObject |
+		<primitive: _self.push(_anObject);>
+		anObject
+	}
+
 	addListFirst { :self :aList |
 		<primitive:
 		_self.unshift(..._aList);
@@ -12,24 +34,6 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		_self.push(..._aList);
 		return _aList;
 		>
-	}
-
-	addFirst! { :self :anObject |
-		<primitive: _self.unshift(_anObject);>
-		anObject
-	}
-
-	addFirst { :self :anObject |
-		[anObject] ++ self
-	}
-
-	addLast! { :self :anObject |
-		<primitive: _self.push(_anObject);>
-		anObject
-	}
-
-	addLast { :self :anObject |
-		self ++ [anObject]
 	}
 
 	atAllPut! { :self :anObject |
@@ -99,6 +103,21 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		}
 	}
 
+	gather { :self :aBlock/2 |
+		let answer = [];
+		self.do { :x |
+			let i = answer.detectIndex { :y |
+				aBlock(x, y.anyOne)
+			};
+			i.ifNil {
+				answer.add!([x])
+			} {
+				answer[i].add!(x)
+			}
+		};
+		answer
+	}
+
 	gatherBy { :self :aBlock/1 |
 		let a = [];
 		self.do { :x |
@@ -113,21 +132,6 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 			}
 		};
 		a.collect(value/1)
-	}
-
-	gather { :self :aBlock/2 |
-		let answer = [];
-		self.do { :x |
-			let i = answer.detectIndex { :y |
-				aBlock(x, y.anyOne)
-			};
-			i.ifNil {
-				answer.add!([x])
-			} {
-				answer[i].add!(x)
-			}
-		};
-		answer
 	}
 
 	interleave { :self |
@@ -162,10 +166,6 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		self.sortOn!(key/1)
 	}
 
-	[List, listToList] { :self |
-		self
-	}
-
 	normalArray { :self |
 		self.isArray.if {
 			self
@@ -192,6 +192,14 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		self.recordPositions(isGreater/2)
 	}
 
+	recordValues { :self :aBlock/2 |
+		self.recordValuesAndPositions(aBlock/2).first
+	}
+
+	recordValues { :self |
+		self.recordValues(isGreater/2)
+	}
+
 	recordValuesAndPositions { :self :aBlock/2 |
 		let k = self.size;
 		let m = self.first;
@@ -206,14 +214,6 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 			}
 		};
 		[r, p]
-	}
-
-	recordValues { :self :aBlock/2 |
-		self.recordValuesAndPositions(aBlock/2).first
-	}
-
-	recordValues { :self |
-		self.recordValues(isGreater/2)
 	}
 
 	reflectionMatrix { :self |
@@ -256,16 +256,16 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		nil
 	}
 
-	removeAt! { :self :index |
-		let removed = self[index];
-		self.uncheckedRemoveAt(index);
-		removed
-	}
-
 	removeAt { :self :index |
 		let answer = self.copy;
 		answer.removeAt!(index);
 		answer
+	}
+
+	removeAt! { :self :index |
+		let removed = self[index];
+		self.uncheckedRemoveAt(index);
+		removed
 	}
 
 	removeAtAll! { :self :indices |
@@ -336,9 +336,19 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 
 +@Integer {
 
+	[List, constantList] { :size :anObject |
+		<primitive: return Array(Number(_size)).fill(_anObject);>
+	}
+
 	alternatingHarmonicSeries { :n |
 		1.to(n).collect { :n |
 			Fraction(-1 ^ (n + 1), n)
+		}
+	}
+
+	arithmeticProgression { :self :start :step |
+		1.toCollect(self) { :each |
+			(step * (each - 1)) + start
 		}
 	}
 
@@ -346,12 +356,6 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		let i = arithmeticProgression(n, a, d);
 		let j = geometricProgression(n, b, r);
 		i * j
-	}
-
-	arithmeticProgression { :self :start :step |
-		1.toCollect(self) { :each |
-			(step * (each - 1)) + start
-		}
 	}
 
 	geometricProgression { :self :start :grow |
@@ -370,10 +374,6 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 
 	harmonicSeries { :self |
 		Fraction(1, 1.to(self))
-	}
-
-	[List, constantList] { :size :anObject |
-		<primitive: return Array(Number(_size)).fill(_anObject);>
 	}
 
 	nilList { :size |

@@ -17,8 +17,13 @@ Winding number given a simple convex polygon:
 Count how many times a closed curve winds around a point:
 
 ```
->>> [0.35 0.2; 0.9 0.75; 0.1 0.55; 0.9 0.35; 0.42 0.9]
->>> .windingNumber([0.55 0.6])
+>>> [
+>>> 	0.35 0.2;
+>>> 	0.9 0.75;
+>>> 	0.1 0.55;
+>>> 	0.9 0.35;
+>>> 	0.42 0.9
+>>> ].windingNumber([0.55 0.6])
 2
 ```
 

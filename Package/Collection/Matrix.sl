@@ -32,14 +32,14 @@
 		}
 	}
 
-	numberOfRows { :self |
-		let [m, _] = self.dimensions(2);
-		m
-	}
-
 	numberOfColumns { :self |
 		let [_, n] = self.dimensions(2);
 		n
+	}
+
+	numberOfRows { :self |
+		let [m, _] = self.dimensions(2);
+		m
 	}
 
 	rowCount { :self |
@@ -66,15 +66,6 @@
 		}
 	}
 
-	arnoldsCatMapInto! { :a :b |
-		let [h, w] = a.shape;
-		{ :x :y |
-			let p = (2 * x + y).mod(w, 1);
-			let q = (x + y).mod(h, 1);
-			b[q][p] := a[y][x]
-		}.table(1:w, 1:h)
-	}
-
 	arnoldsCatMap { :a :k |
 		let b = a.shape.zeroes;
 		k.timesRepeat {
@@ -86,6 +77,15 @@
 
 	arnoldsCatMap { :a |
 		a.arnoldsCatMap(1)
+	}
+
+	arnoldsCatMapInto! { :a :b |
+		let [h, w] = a.shape;
+		{ :x :y |
+			let p = (2 * x + y).mod(w, 1);
+			let q = (x + y).mod(h, 1);
+			b[q][p] := a[y][x]
+		}.table(1:w, 1:h)
 	}
 
 	assertIsMatrix { :self :context |
@@ -134,6 +134,14 @@
 		}
 	}
 
+	columnVector { :self |
+		self.isVector.if {
+			self.collect(enclose/1)
+		} {
+			self.error('columnVector')
+		}
+	}
+
 	columns { :self :aList |
 		let [m, n] = self.shape;
 		aList.allSatisfy { :each |
@@ -156,14 +164,6 @@
 		}
 	}
 
-	columnVector { :self |
-		self.isVector.if {
-			self.collect(enclose/1)
-		} {
-			self.error('columnVector')
-		}
-	}
-
 	cyclicDiagonals { :m |
 		let [r, c] = m.shape;
 		1:c.collect { :i |
@@ -183,19 +183,6 @@
 		}
 	}
 
-	diagonalOrAntidiagonal { :self :k :antidiagonal |
-		let [r, c] = self.shape;
-		let u = min(r, c);
-		let v = min(k, 0);
-		let w = max(k, 0);
-		let l = (k < 0).if { r + k } { c - k }.min(u);
-		1.to(l).collect { :i |
-			let j = i + w;
-			let k = antidiagonal.if { c - j + 1 } { j };
-			self.atPath([i - v, k])
-		}
-	}
-
 	diagonal { :self :k |
 		diagonalOrAntidiagonal(self, k, false)
 	}
@@ -207,6 +194,19 @@
 	diagonalIrregular { :self |
 		1.toCollect(self.size) { :i |
 			self[i][i]
+		}
+	}
+
+	diagonalOrAntidiagonal { :self :k :antidiagonal |
+		let [r, c] = self.shape;
+		let u = min(r, c);
+		let v = min(k, 0);
+		let w = max(k, 0);
+		let l = (k < 0).if { r + k } { c - k }.min(u);
+		1.to(l).collect { :i |
+			let j = i + w;
+			let k = antidiagonal.if { c - j + 1 } { j };
+			self.atPath([i - v, k])
 		}
 	}
 
@@ -471,6 +471,14 @@
 		}
 	}
 
+	rowVector { :self |
+		self.isVector.if {
+			[self]
+		} {
+			self.error('rowVector')
+		}
+	}
+
 	rows { :self :aList |
 		let [m, n] = self.shape;
 		aList.allSatisfy { :each |
@@ -479,14 +487,6 @@
 			self.atAll(aList)
 		} {
 			self.error('List>>rows: illegal index')
-		}
-	}
-
-	rowVector { :self |
-		self.isVector.if {
-			[self]
-		} {
-			self.error('rowVector')
 		}
 	}
 
@@ -606,19 +606,6 @@
 		k / k.deepSum
 	}
 
-	helicalScanMatrixData { :self :step |
-		let shape = self.shape;
-		let a = List(shape.product, nil);
-		shape.helicalScanIndicesDo(step) { :i :j :k |
-			a[k] := self[i][j]
-		};
-		a
-	}
-
-	helicalScanMatrixData { :self |
-		self.helicalScanMatrixData([1 1])
-	}
-
 	helicalScanIndicesDo { :shape :step :aBlock/3 |
 		let [r, c] = shape;
 		let [p, q] = step;
@@ -643,6 +630,19 @@
 
 	helicalScanMatrix { :self :shape |
 		self.helicalScanMatrix(shape, [1 1])
+	}
+
+	helicalScanMatrixData { :self :step |
+		let shape = self.shape;
+		let a = List(shape.product, nil);
+		shape.helicalScanIndicesDo(step) { :i :j :k |
+			a[k] := self[i][j]
+		};
+		a
+	}
+
+	helicalScanMatrixData { :self |
+		self.helicalScanMatrixData([1 1])
 	}
 
 	identityMatrix { :shape |
@@ -747,16 +747,16 @@
 		(x + y - 2) * (x + y - 1) / 2 + y
 	}
 
+	antidiagonalUnrank { :k |
+		(k - 1).antidiagonalUnrankZeroIndexed + 1
+	}
+
 	antidiagonalUnrankZeroIndexed { :k |
 		let s = (((8 * k + 1).sqrt - 1) // 2);
 		let t = (s * (s + 1)) // 2;
 		let r = k - t;
 		let c = s - r;
 		[r, c]
-	}
-
-	antidiagonalUnrank { :k |
-		(k - 1).antidiagonalUnrankZeroIndexed + 1
 	}
 
 	identityMatrix { :self |

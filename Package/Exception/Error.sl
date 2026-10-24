@@ -1,15 +1,15 @@
 @Exception {
 
-	hasCause { :self |
-		self.cause.isNotNil
-	}
-
 	description { :self |
 		self.hasCause.if {
 			[self.name, self.messageText, self.causeText]
 		} {
 			[self.name, self.messageText]
 		}.stringIntercalate(': ')
+	}
+
+	hasCause { :self |
+		self.cause.isNotNil
 	}
 
 	isError { :self |
@@ -52,12 +52,12 @@
 		<primitive: return _self.message;>
 	}
 
-	pseudoSlotNameList { :self |
-		['cause', 'messageText', 'name']
-	}
-
 	name { :self |
 		<primitive: return _self.name;>
+	}
+
+	pseudoSlotNameList { :self |
+		['cause', 'messageText', 'name']
 	}
 
 	signal { :self |

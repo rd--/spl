@@ -32,12 +32,6 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	isBetween { :self :min :max |
-		min <= self.min & {
-			self.max <= max
-		}
-	}
-
 	[center, midpoint] { :self |
 		(self.min + self.max) / 2
 	}
@@ -62,14 +56,6 @@ Interval : [Object, Store, Equal, Compare, Number] {
 
 	[divide, /] { :self :operand |
 		self * operand.reciprocal
-	}
-
-	isEqualBy { :self :operand :aBlock/2 |
-		operand.isInterval & {
-			aBlock(self.min, operand.min) & {
-				aBlock(self.max, operand.max)
-			}
-		}
 	}
 
 	findDivisions { :self :dx :n |
@@ -112,6 +98,12 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
+	isBetween { :self :min :max |
+		min <= self.min & {
+			self.max <= max
+		}
+	}
+
 	isCloseBy { :self :anInterval :epsilon |
 		self.min.isCloseBy(anInterval.min, epsilon) & {
 			self.max.isCloseBy(anInterval.max, epsilon)
@@ -125,6 +117,14 @@ Interval : [Object, Store, Equal, Compare, Number] {
 	isDisjoint { :self :anInterval |
 		self.max < anInterval.min | {
 			anInterval.max < self.min
+		}
+	}
+
+	isEqualBy { :self :operand :aBlock/2 |
+		operand.isInterval & {
+			aBlock(self.min, operand.min) & {
+				aBlock(self.max, operand.max)
+			}
 		}
 	}
 
@@ -198,7 +198,6 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		self.discretize(n + 1)
 	}
 
-
 	[subtract, -] { :self :operand |
 		operand.isInterval.if {
 			Interval(
@@ -250,20 +249,20 @@ Interval : [Object, Store, Equal, Compare, Number] {
 
 +@Number {
 
-	adaptToIntervalAndApply { :self :anInterval :aBlock/2 |
-		aBlock(anInterval, self.numberToInterval)
-	}
-
-	centeredInterval { :center :range |
-		Interval(center - range, center + range)
-	}
-
 	[Interval, --] { :min :max |
 		max.isNumber.if {
 			uncheckedInterval(min, max).checkInterval
 		} {
 			max.adaptToNumberAndApply(min, Interval/2)
 		}
+	}
+
+	adaptToIntervalAndApply { :self :anInterval :aBlock/2 |
+		aBlock(anInterval, self.numberToInterval)
+	}
+
+	centeredInterval { :center :range |
+		Interval(center - range, center + range)
 	}
 
 	[toInterval, numberToInterval] { :self |
@@ -278,12 +277,12 @@ Interval : [Object, Store, Equal, Compare, Number] {
 
 +List {
 
-	centeredInterval { :center :range |
-		range.adaptToCollectionAndApply(center, centeredInterval/2)
-	}
-
 	[Interval, --] { :self :operand |
 		operand.adaptToCollectionAndApply(self, Interval/2)
+	}
+
+	centeredInterval { :center :range |
+		range.adaptToCollectionAndApply(center, centeredInterval/2)
 	}
 
 }

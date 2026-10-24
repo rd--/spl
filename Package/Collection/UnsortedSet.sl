@@ -2,6 +2,10 @@ UnsortedSet : [Object, New, Store, Equal, Do, Collect, Collection, Add, Remove, 
 
 	| unsortedList comparator |
 
+	[List, unsortedSetToList] { :self |
+		self.unsortedList.copy
+	}
+
 	do { :self :aBlock/1 |
 		self.unsortedList.do(aBlock/1)
 	}
@@ -16,10 +20,6 @@ UnsortedSet : [Object, New, Store, Equal, Do, Collect, Collection, Add, Remove, 
 
 	includes { :self :anObject |
 		self.unsortedList.includesBy(anObject, self.comparator)
-	}
-
-	[List, unsortedSetToList] { :self |
-		self.unsortedList.copy
 	}
 
 	removeAll! { :self |
@@ -69,8 +69,15 @@ UnsortedSet : [Object, New, Store, Equal, Do, Collect, Collection, Add, Remove, 
 
 }
 
-
 +List {
+
+	union { :self |
+		self.unionBy(isEqual/2)
+	}
+
+	union { :self :aCollection |
+		[self, aCollection].unionBy(isEqual/2)
+	}
 
 	unionBy { :self :aBlock/2 |
 		let set = UnsortedSet();
@@ -83,14 +90,6 @@ UnsortedSet : [Object, New, Store, Equal, Do, Collect, Collection, Add, Remove, 
 
 	unionBy { :self :aCollection :aBlock/2 |
 		[self, aCollection].unionBy(aBlock/2)
-	}
-
-	union { :self |
-		self.unionBy(isEqual/2)
-	}
-
-	union { :self :aCollection |
-		[self, aCollection].unionBy(isEqual/2)
 	}
 
 }

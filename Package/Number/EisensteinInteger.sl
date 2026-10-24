@@ -2,8 +2,16 @@ EisensteinInteger : [Object, Store, Equal] {
 
 	| a b |
 
+	[absoluteValue, abs] { :self |
+		self.toComplex.abs
+	}
+
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
 		aBlock(aComplexNumber, self.toComplex)
+	}
+
+	components { :self |
+		[self.a, self.b]
 	}
 
 	conjugate { :self |
@@ -11,27 +19,6 @@ EisensteinInteger : [Object, Store, Equal] {
 			0 - self.a - 1,
 			0 - self.b
 		)
-	}
-
-	[times, *] { :self :operand |
-		operand.isEisensteinInteger.if {
-			let [a, b] = self.components;
-			let [c, d] = operand.components;
-			EisensteinInteger(
-				(a * c) - (b * d),
-				(b * c) + (a * d) - (b * d)
-			)
-		} {
-			self.toComplex * operand
-		}
-	}
-
-	[absoluteValue, abs] { :self |
-		self.toComplex.abs
-	}
-
-	components { :self |
-		[self.a, self.b]
 	}
 
 	imaginary { :self |
@@ -54,6 +41,19 @@ EisensteinInteger : [Object, Store, Equal] {
 
 	realImaginary { :self |
 		[self.real, self.imaginary]
+	}
+
+	[times, *] { :self :operand |
+		operand.isEisensteinInteger.if {
+			let [a, b] = self.components;
+			let [c, d] = operand.components;
+			EisensteinInteger(
+				(a * c) - (b * d),
+				(b * c) + (a * d) - (b * d)
+			)
+		} {
+			self.toComplex * operand
+		}
 	}
 
 	[toComplex, eisensteinIntegerToComplex] { :self |

@@ -65,7 +65,8 @@ Find quantiles of elements in each column:
 Find multiple quantiles of elements in each column:
 
 ```
->>> [1 2.pi; 2 1.pi; 3 3.pi].quantile([1 / 3, 4 / 5])
+>>> [1 2.pi; 2 1.pi; 3 3.pi]
+>>> .quantile([1 / 3, 4 / 5])
 [1 3; 1.pi 3.pi]
 ```
 

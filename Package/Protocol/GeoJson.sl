@@ -2,6 +2,10 @@ GeoJson : [Object, Store] {
 
 	| jsonRecord |
 
+	Record { :self |
+		self.jsonRecord.copy
+	}
+
 	coordinates { :self |
 		self.isGeometry.if {
 			self.field('coordinates')
@@ -143,10 +147,6 @@ GeoJson : [Object, Store] {
 		}
 	}
 
-	polygons { :self |
-		self.geometries.select(isPolygon/1)
-	}
-
 	polygonList { :self :projectionName |
 		let answer = [];
 		self.geometryValues(projectionName).collect { :each |
@@ -158,6 +158,10 @@ GeoJson : [Object, Store] {
 			}
 		};
 		answer
+	}
+
+	polygons { :self |
+		self.geometries.select(isPolygon/1)
 	}
 
 	properties { :self |
@@ -174,14 +178,6 @@ GeoJson : [Object, Store] {
 		} { :aRecord |
 			aRecord.at(key)
 		}
-	}
-
-	Record { :self |
-		self.jsonRecord.copy
-	}
-
-	simplyConnectedPolygons { :self |
-		self.geometries.select(isSimplyConnectedPolygon/1)
 	}
 
 	simplyConnectedPolygonCoordinates { :self |
@@ -201,6 +197,10 @@ GeoJson : [Object, Store] {
 				)
 			}
 		}
+	}
+
+	simplyConnectedPolygons { :self |
+		self.geometries.select(isSimplyConnectedPolygon/1)
 	}
 
 	type { :self |

@@ -1,5 +1,9 @@
 RegExp! : [Object, Store, Equal] {
 
+	RegularExpression { :self |
+		self
+	}
+
 	exec { :self :aString |
 		aString.assertIsString;
 		self.uncheckedExec(aString)
@@ -55,19 +59,9 @@ RegExp! : [Object, Store, Equal] {
 		['flags', 'isGlobal', 'hasIndices', 'source']
 	}
 
-	RegularExpression { :self |
-		self
-	}
-
-	replaceWith { :self :aString :replacementString |
+	replaceAllModifying { :self :aString :aBlock/1 |
 		aString.assertIsString;
-		replacementString.assertIsString;
-		self.uncheckedReplaceWith(aString, replacementString)
-	}
-
-	replaceModifying { :self :aString :aBlock/1 |
-		aString.assertIsString;
-		self.uncheckedReplaceWith(aString) { :match :offset :string |
+		self.uncheckedReplaceAllWith(aString) { :match :offset :string |
 			aBlock(match)
 		}
 	}
@@ -78,11 +72,17 @@ RegExp! : [Object, Store, Equal] {
 		self.uncheckedReplaceAllWith(aString, replacementString)
 	}
 
-	replaceAllModifying { :self :aString :aBlock/1 |
+	replaceModifying { :self :aString :aBlock/1 |
 		aString.assertIsString;
-		self.uncheckedReplaceAllWith(aString) { :match :offset :string |
+		self.uncheckedReplaceWith(aString) { :match :offset :string |
 			aBlock(match)
 		}
+	}
+
+	replaceWith { :self :aString :replacementString |
+		aString.assertIsString;
+		replacementString.assertIsString;
+		self.uncheckedReplaceWith(aString, replacementString)
 	}
 
 	search { :self :aString |
@@ -90,13 +90,13 @@ RegExp! : [Object, Store, Equal] {
 		self.uncheckedSearch(aString)
 	}
 
+	source { :self |
+		<primitive: return _self.source;>
+	}
+
 	split { :self :aString |
 		aString.assertIsString;
 		self.uncheckedSplit(aString)
-	}
-
-	source { :self |
-		<primitive: return _self.source;>
 	}
 
 	storeString { :self |
@@ -133,12 +133,12 @@ RegExp! : [Object, Store, Equal] {
 		});>
 	}
 
-	uncheckedReplaceWith { :self :aString :replacementString |
-		<primitive: return _aString.replace(_self, _replacementString);>
-	}
-
 	uncheckedReplaceAllWith { :self :aString :replacementString |
 		<primitive: return _aString.replaceAll(_self, _replacementString);>
+	}
+
+	uncheckedReplaceWith { :self :aString :replacementString |
+		<primitive: return _aString.replace(_self, _replacementString);>
 	}
 
 	uncheckedSearch { :self :aString |
@@ -152,6 +152,14 @@ RegExp! : [Object, Store, Equal] {
 }
 
 +String {
+
+	RegularExpression { :self :flags |
+		<primitive: return new RegExp(_self, _flags);>
+	}
+
+	RegularExpression { :self |
+		<primitive: return new RegExp(_self, 'd');>
+	}
 
 	allRegularExpressionMatches { :self :regexp |
 		RegularExpression(regexp).matchAll(self)
@@ -218,18 +226,6 @@ RegExp! : [Object, Store, Equal] {
 		self.camelCaseToWords.allButFirst
 	}
 
-	RegularExpression { :self :flags |
-		<primitive: return new RegExp(_self, _flags);>
-	}
-
-	RegularExpression { :self |
-		<primitive: return new RegExp(_self, 'd');>
-	}
-
-	replaceRegularExpression { :self :regExpToFind :stringToReplaceWith |
-		RegularExpression(regExpToFind).replaceWith(self, stringToReplaceWith)
-	}
-
 	replaceAllRegularExpression { :self :regExpToFind :stringToReplaceWith |
 		RegularExpression(regExpToFind).replaceAllWith(self, stringToReplaceWith)
 	}
@@ -244,12 +240,12 @@ RegExp! : [Object, Store, Equal] {
 		>
 	}
 
-	searchRegularExpression { :self :regexp |
-		RegularExpression(regexp).search(self)
+	replaceRegularExpression { :self :regExpToFind :stringToReplaceWith |
+		RegularExpression(regExpToFind).replaceWith(self, stringToReplaceWith)
 	}
 
-	stringSplitRegularExpression { :self :regexp |
-		RegularExpression(regexp).split(self)
+	searchRegularExpression { :self :regexp |
+		RegularExpression(regexp).search(self)
 	}
 
 	stringDelete { :self :operand |
@@ -272,6 +268,10 @@ RegExp! : [Object, Store, Equal] {
 				}
 			}
 		}
+	}
+
+	stringSplitRegularExpression { :self :regexp |
+		RegularExpression(regexp).split(self)
 	}
 
 	wordAtIndex { :self :index |
@@ -306,12 +306,6 @@ RegExp! : [Object, Store, Equal] {
 		}
 	}
 
-	wordsBy { :self :separators |
-		self.stringSplitRegularExpression(
-			separators.characters.stringIntercalate('|')
-		).reject(isEmpty/1)
-	}
-
 	words { :self |
 		let trimmed = self.trim;
 		trimmed.isEmpty.if {
@@ -319,6 +313,12 @@ RegExp! : [Object, Store, Equal] {
 		} {
 			trimmed.stringSplitRegularExpression('\\s+')
 		}
+	}
+
+	wordsBy { :self :separators |
+		self.stringSplitRegularExpression(
+			separators.characters.stringIntercalate('|')
+		).reject(isEmpty/1)
 	}
 
 }

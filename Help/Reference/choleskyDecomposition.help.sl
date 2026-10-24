@@ -1,8 +1,8 @@
 # choleskyDecomposition
 
-- _choleskyDecomposition(aMatrix)_
+- _choleskyDecomposition(n)_
 
-Answer the Cholesky decomposition of _aMatrix_.
+Answer the Cholesky decomposition of the matrix _m_.
 The matrix must be Hermitian and positive definite.
 
 Compute the Cholesky decomposition of a 2×2 integer matrix:
@@ -81,12 +81,23 @@ Find the Cholesky decomposition of a 6×6 real matrix:
 
 ```
 >>> let m = [
->>> 	1.0000   0.5000   0.3333   0.2500   0.2000   0.1667;
->>> 	0.5000   1.0000   0.6667   0.5000   0.4000   0.3333;
->>> 	0.3333   0.6667   1.0000   0.7500   0.6000   0.5000;
->>> 	0.2500   0.5000   0.7500   1.0000   0.8000   0.6667;
->>> 	0.2000   0.4000   0.6000   0.8000   1.0000   0.8333;
->>> 	0.1667   0.3333   0.5000   0.6667   0.8333   1.0000
+>>> 	1.0000 0.5000 0.3333
+>>> 	0.2500 0.2000 0.1667
+>>> 	;
+>>> 	0.5000 1.0000 0.6667
+>>> 	0.5000 0.4000 0.3333
+>>> 	;
+>>> 	0.3333 0.6667 1.0000
+>>> 	0.7500 0.6000 0.5000
+>>> 	;
+>>> 	0.2500 0.5000 0.7500
+>>> 	1.0000 0.8000 0.6667
+>>> 	;
+>>> 	0.2000 0.4000 0.6000
+>>> 	0.8000 1.0000 0.8333
+>>> 	;
+>>> 	0.1667 0.3333 0.5000
+>>> 	0.6667 0.8333 1.0000
 >>> ];
 >>> let l = m.choleskyDecomposition;
 >>> (
@@ -96,12 +107,23 @@ Find the Cholesky decomposition of a 6×6 real matrix:
 >>> )
 (
 	[
-		1      0      0      0      0      0;
-		0.5    0.8660 0      0      0      0;
-		0.3333 0.5774 0.7453 0      0      0;
-		0.25   0.4330 0.5590 0.6614 0      0;
-		0.2    0.3464 0.4472 0.5291 0.6    0;
-		0.1667 0.2886 0.3727 0.4410 0.4999 0.5528
+		1      0      0
+		0      0      0
+		;
+		0.5    0.8660 0
+		0      0      0
+		;
+		0.3333 0.5774 0.7453
+		0      0      0
+		;
+		0.25   0.4330 0.5590
+		0.6614 0      0
+		;
+		0.2    0.3464 0.4472
+		0.5291 0.6    0
+		;
+		0.1667 0.2886 0.3727
+		0.4410 0.4999 0.5528
 	],
 	true,
 	true
@@ -111,6 +133,8 @@ Find the Cholesky decomposition of a 6×6 real matrix:
 * * *
 
 See also: luDecomposition, qrDecomposition
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

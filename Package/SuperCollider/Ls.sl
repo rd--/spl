@@ -394,6 +394,27 @@
 
 +Record {
 
+	LsBind { :self |
+		let isAtEnd = false;
+		self.collect!(LsConstant/1);
+		BlockStream {
+			isAtEnd.if {
+				nil
+			} {
+				let nextList = self.collect(next/1);
+				nextList.anySatisfy(isNil/1).if {
+					isAtEnd := true;
+					nil
+				} {
+					nextList
+				}
+			}
+		} {
+			self.do(reset!/1);
+			isAtEnd := false
+		}
+	}
+
 	asPatternEventMessages { :self :currentTime |
 		let latency = 0.2; /* Preferences */
 		let instrument = self['instrument'];
@@ -426,27 +447,6 @@
 		}
 	}
 
-	LsBind { :self |
-		let isAtEnd = false;
-		self.collect!(LsConstant/1);
-		BlockStream {
-			isAtEnd.if {
-				nil
-			} {
-				let nextList = self.collect(next/1);
-				nextList.anySatisfy(isNil/1).if {
-					isAtEnd := true;
-					nil
-				} {
-					nextList
-				}
-			}
-		} {
-			self.do(reset!/1);
-			isAtEnd := false
-		}
-	}
-
 }
 
 +[@Number, @Stream] {
@@ -468,6 +468,16 @@
 		}.take(length)
 	}
 
+	LsBrown { :low :high :step :length :randomNumberGenerator |
+		LsBrownUsing(
+			low,
+			high,
+			step,
+			randomNumberGenerator,
+			randomReal/3
+		).take(length)
+	}
+
 	LsBrownUsing { :low :high :step :randomNumberGenerator :aBlock/3 |
 		low := LsConstant(low);
 		high := LsConstant(high);
@@ -478,16 +488,6 @@
 			nextItem := (nextItem + aBlock(randomNumberGenerator, [step.negate, step], [])).fold(low, high);
 			answer
 		}
-	}
-
-	LsBrown { :low :high :step :length :randomNumberGenerator |
-		LsBrownUsing(
-			low,
-			high,
-			step,
-			randomNumberGenerator,
-			randomReal/3
-		).take(length)
 	}
 
 	LsCauchy { :mean :spread :length :randomNumberGenerator |

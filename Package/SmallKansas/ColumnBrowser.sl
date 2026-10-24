@@ -8,6 +8,21 @@ ColumnBrowser : [Object, View] {
 		self.textEditor.addKeyBindings(self.textEditor.aBlock)
 	}
 
+	columnEdited { :self :index :onChange/2 |
+		let next = self.onChange(self.pathUpTo(index));
+		(index = self.numberOfColumns).if {
+			next.then { :view |
+				self.textEditor.setEditorText(view.displayString)
+			}
+		} {
+			self.textEditor.setEditorText('');
+			1.toDo(self.numberOfColumns - index - 1) { :each |
+				self.columnLists[index + each + 1].select.removeAll!
+			};
+			self.setColumnEntries(index + 1, next)
+		}
+	}
+
 	createElements { :self :mimeType :withFilter :withStatus :columnProportions :listSize |
 		self.browserPane := 'div'.createElement(
 			(
@@ -91,21 +106,6 @@ ColumnBrowser : [Object, View] {
 	pathUpTo { :self :size |
 		1.toCollect(size) { :each |
 			self.columnLists[each].select.value
-		}
-	}
-
-	columnEdited { :self :index :onChange/2 |
-		let next = self.onChange(self.pathUpTo(index));
-		(index = self.numberOfColumns).if {
-			next.then { :view |
-				self.textEditor.setEditorText(view.displayString)
-			}
-		} {
-			self.textEditor.setEditorText('');
-			1.toDo(self.numberOfColumns - index - 1) { :each |
-				self.columnLists[index + each + 1].select.removeAll!
-			};
-			self.setColumnEntries(index + 1, next)
 		}
 	}
 

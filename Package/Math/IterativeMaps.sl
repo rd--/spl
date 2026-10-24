@@ -54,7 +54,6 @@
 		}
 	}
 
-
 	gaussIteratedMap { :alpha :beta |
 		{ :x |
 			(-alpha * x.square).exp + beta
@@ -135,14 +134,6 @@
 		}
 	}
 
-	standardMap { :k |
-		{ :v |
-			let [p, theta] = v;
-			let pPrime = (p + (k * theta.sin)) % 2.pi;
-			[pPrime, (theta + pPrime) % 2.pi]
-		}
-	}
-
 	rulkovMap { :alpha :mu :sigma |
 		{ :v |
 			let [x, y] = v;
@@ -177,6 +168,14 @@
 					-1
 				}
 			}
+		}
+	}
+
+	standardMap { :k |
+		{ :v |
+			let [p, theta] = v;
+			let pPrime = (p + (k * theta.sin)) % 2.pi;
+			[pPrime, (theta + pPrime) % 2.pi]
 		}
 	}
 

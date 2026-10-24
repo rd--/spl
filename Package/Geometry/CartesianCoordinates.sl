@@ -1,9 +1,5 @@
 @CartesianCoordinates {
 
-	[negate, -] { :self |
-		self.coordinates := self.coordinates.negate
-	}
-
 	assertIsCompatibleOperand { :self :operand |
 		(
 			(self.typeName = operand.typeName) & {
@@ -55,6 +51,10 @@
 
 	isPlanar { :self |
 		self.coordinates.size = 2
+	}
+
+	[negate, -] { :self |
+		self.coordinates := self.coordinates.negate
 	}
 
 	norm { :self |
@@ -117,6 +117,18 @@ CartesianCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, C
 		self
 	}
 
+	Record { :self |
+		self.size.caseOf(
+			[
+				2 -> { (x: self.x, y: self.y) },
+				3 -> { (x: self.x, y: self.y, z: self.z) },
+				4 -> { (x: self.x, y: self.y, z: self.z, w: self.w) }
+			]
+		) {
+			self.error('Record: not x,y or x,y,z or x,z,y,w')
+		}
+	}
+
 	cross { :u :v |
 		CartesianCoordinates(
 			u.coordinates.cross(
@@ -131,18 +143,6 @@ CartesianCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, C
 
 	postCopy { :self |
 		self.coordinates := self.coordinates.copy
-	}
-
-	Record { :self |
-		self.size.caseOf(
-			[
-				2 -> { (x: self.x, y: self.y) },
-				3 -> { (x: self.x, y: self.y, z: self.z) },
-				4 -> { (x: self.x, y: self.y, z: self.z, w: self.w) }
-			]
-		) {
-			self.error('Record: not x,y or x,y,z or x,z,y,w')
-		}
 	}
 
 	second { :self |

@@ -52,8 +52,10 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		>
 	}
 
-	evaluateOrSignalError { :unused :aString |
-		<primitive: return sl.evaluateForSignalling('*Interactive*', _aString);>
+	evaluate { :self :aString |
+		self.evaluateNotifying(aString) { :err |
+			self.consoleError(err)
+		}
 	}
 
 	evaluateNotifying { :self :aString :aBlock/1 |
@@ -64,10 +66,8 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		}
 	}
 
-	evaluate { :self :aString |
-		self.evaluateNotifying(aString) { :err |
-			self.consoleError(err)
-		}
+	evaluateOrSignalError { :unused :aString |
+		<primitive: return sl.evaluateForSignalling('*Interactive*', _aString);>
 	}
 
 	homeDirectory { :self |
@@ -115,12 +115,12 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		<primitive: return _self.methodDictionary;>
 	}
 
-	packageDictionary { :self |
-		<primitive: return _self.packageDictionary;>
+	nextRandomFloat { :self |
+		self.randomNumberGenerator.next
 	}
 
-	[printLine, postLine] { :self :aString |
-		self.consoleNotification(aString)
+	packageDictionary { :self |
+		<primitive: return _self.packageDictionary;>
 	}
 
 	preference { :self :path :defaultValue |
@@ -157,6 +157,10 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		}
 	}
 
+	[printLine, postLine] { :self :aString |
+		self.consoleNotification(aString)
+	}
+
 	pseudoSlotNameList { :unused |
 		[
 			'cache',
@@ -168,10 +172,6 @@ System! : [Object, Cache, RandomNumberGenerator] {
 			'library', /* Package */
 			'transcript' /* Package */
 		]
-	}
-
-	nextRandomFloat { :self |
-		self.randomNumberGenerator.next
 	}
 
 	randomByteArray { :unused :anInteger |
@@ -194,6 +194,14 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 	sessionStorage { :self |
 		self.window.sessionStorage
+	}
+
+	sessionTime { :unused |
+		<primitive: return performance.now() / 1000.0;>
+	}
+
+	sessionTimeInMilliseconds { :unused |
+		<primitive: return performance.now();>
 	}
 
 	smallFloatEpsilon { :unused |
@@ -300,14 +308,6 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 	typeDictionary { :self |
 		<primitive: return _self.typeDictionary;>
-	}
-
-	sessionTimeInMilliseconds { :unused |
-		<primitive: return performance.now();>
-	}
-
-	sessionTime { :unused |
-		<primitive: return performance.now() / 1000.0;>
 	}
 
 	uniqueIdentifier { :self |

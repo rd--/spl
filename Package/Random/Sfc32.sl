@@ -23,20 +23,20 @@ Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 +List {
 
-	sfc32State { :self |
-		(self.size = 4).if {
-			self
-		} {
-			'List>>sfc32State: invalid list'.error
-		}
+	Sfc32 { :self |
+		newSfc32().initialize(self.sfc32State)
 	}
 
 	sfc32RandomNumberGeneratorBlock { :self |
 		self.sfc32State.uncheckedSfc32RandomNumberGenerator
 	}
 
-	Sfc32 { :self |
-		newSfc32().initialize(self.sfc32State)
+	sfc32State { :self |
+		(self.size = 4).if {
+			self
+		} {
+			'List>>sfc32State: invalid list'.error
+		}
 	}
 
 	uncheckedSfc32RandomNumberGenerator { :self |
@@ -66,6 +66,10 @@ Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 +String {
 
+	Sfc32 { :self |
+		Sfc32(self.sfc32State(2166136261))
+	}
+
 	sfc32State { :self :seed |
 		let generator/0 = self.murmurHashGenerator(seed);
 		[
@@ -80,20 +84,16 @@ Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 		self.sfc32State(2166136261)
 	}
 
-	Sfc32 { :self |
-		Sfc32(self.sfc32State(2166136261))
-	}
-
 }
 
 +@Integer {
 
-	sfc32State { :self |
-		self.truncate.inEnglishWords.sfc32State
-	}
-
 	Sfc32 { :self |
 		Sfc32(self.sfc32State)
+	}
+
+	sfc32State { :self |
+		self.truncate.inEnglishWords.sfc32State
 	}
 
 }

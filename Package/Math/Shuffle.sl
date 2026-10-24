@@ -136,20 +136,20 @@
 		system.sattoloShuffle!(self)
 	}
 
-	shuffle! { :self :rng |
-		self.fisherYatesShuffle!(rng)
-	}
-
-	shuffle! { :self |
-		self.fisherYatesShuffle!
-	}
-
 	shuffle { :self :rng |
 		self.copy.fisherYatesShuffle!(rng)
 	}
 
 	shuffle { :self |
 		self.copy.fisherYatesShuffle!
+	}
+
+	shuffle! { :self :rng |
+		self.fisherYatesShuffle!(rng)
+	}
+
+	shuffle! { :self |
+		self.fisherYatesShuffle!
 	}
 
 	spiralShuffle { :self |

@@ -16,32 +16,12 @@ TowersBenchmark : [Object] {
 
 	| piles movesDone |
 
-	pushDiskOnPile { :self :disk :pile |
-		let top = self.piles[pile];
-		(
-			top.isNotNil & {
-				disk.size >= top.size
-			}
-		).ifTrue {
-			'Cannot put a big disk on a smaller one'.error
-		};
-		disk.next := top;
-		self.piles[pile] := disk
-	}
-
-	popDiskFrom { :self :pile |
-		let top = self.piles[pile];
-		top.isNil.ifTrue {
-			'Attempting to remove a disk from an empty pile'.error
-		};
-		self.piles[pile] := top.next;
-		top.next := nil;
-		top
-	}
-
-	moveTopDiskFromTo { :self :fromPile :toPile |
-		self.pushDiskOnPile((self.popDiskFrom(fromPile)), toPile);
-		self.movesDone := self.movesDone + 1
+	benchmark { :self |
+		self.piles := List(3, nil);
+		self.buildTowerAtDisks(1, 13);
+		self.movesDone := 0;
+		self.moveDisksFromTo(13, 1, 2);
+		self.movesDone
 	}
 
 	buildTowerAtDisks { :self :pile :disks |
@@ -61,12 +41,32 @@ TowersBenchmark : [Object] {
 		}
 	}
 
-	benchmark { :self |
-		self.piles := List(3, nil);
-		self.buildTowerAtDisks(1, 13);
-		self.movesDone := 0;
-		self.moveDisksFromTo(13, 1, 2);
-		self.movesDone
+	moveTopDiskFromTo { :self :fromPile :toPile |
+		self.pushDiskOnPile((self.popDiskFrom(fromPile)), toPile);
+		self.movesDone := self.movesDone + 1
+	}
+
+	popDiskFrom { :self :pile |
+		let top = self.piles[pile];
+		top.isNil.ifTrue {
+			'Attempting to remove a disk from an empty pile'.error
+		};
+		self.piles[pile] := top.next;
+		top.next := nil;
+		top
+	}
+
+	pushDiskOnPile { :self :disk :pile |
+		let top = self.piles[pile];
+		(
+			top.isNotNil & {
+				disk.size >= top.size
+			}
+		).ifTrue {
+			'Cannot put a big disk on a smaller one'.error
+		};
+		disk.next := top;
+		self.piles[pile] := disk
 	}
 
 	verifyResult { :self :result |

@@ -77,49 +77,6 @@
 		}
 	}
 
-	inEnglishWords { :self |
-		let mils = [
-			'',
-			' thousand',
-			' million', ' billion',
-			' trillion', ' quadrillion',
-			' quintillion', ' sextillion',
-			' septillion', ' octillion',
-			' nonillion', ' decillion',
-			' undecillion', ' duodecillion',
-			' tredecillion', ' quattuordecillion',
-			' quindecillion', ' sexdecillion',
-			' septendecillion', ' octodecillion',
-			' novemdecillion', ' vigintillion'
-		];
-		(self = 0).if {
-			'zero'
-		} {
-			let minus = '';
-			let num = self;
-			let answer = '';
-			let milCount = 1;
-			(self < 0).ifTrue {
-				minus := 'negative ';
-				num := self.negate
-			};
-			{
-				num > 0
-			}.whileTrue {
-				let three = (num % 1000).threeDigitName;
-				num := num // 1000;
-				three.isEmpty.ifFalse {
-					answer.isEmpty.ifFalse {
-						answer := ', ' ++ answer
-					};
-					answer := three ++ mils[milCount] ++ answer
-				};
-				milCount := milCount + 1
-			};
-			minus ++ answer
-		}
-	}
-
 	balancedTernaryDigits { :self |
 		let f = { :n |
 			(n = 0).if {
@@ -202,6 +159,10 @@
 		(1 - d).fromDigits(2)
 	}
 
+	bjorklundsAlgorithm { :k :n |
+		k.bjorklundsAlgorithmDo(n) { :each | nil }
+	}
+
 	bjorklundsAlgorithmDo { :k :n :aBlock/1 |
 		let s = 1.toCollect(n) { :i |
 			(i <= k).if {
@@ -231,10 +192,6 @@
 			k := k.min(d)
 		};
 		s.flatten
-	}
-
-	bjorklundsAlgorithm { :k :n |
-		k.bjorklundsAlgorithmDo(n) { :each | nil }
 	}
 
 	bjorklundsAlgorithmSequence { :k :n |
@@ -322,21 +279,6 @@
 		(k * 2).jordanTotient(n) / k.jordanTotient(n)
 	}
 
-	digitalRootSet { :x :b :f/1 |
-		let seen = Set();
-		{
-			seen.includes(x)
-		}.whileFalse {
-			seen.add!(x);
-			x := x.integerDigits(b).f
-		};
-		[x, seen]
-	}
-
-	digitalRoot { :x :b |
-		x.digitalRootSet(b, sum/1).first
-	}
-
 	digitCount { :n :b :d |
 		n.integerDigits(b).count { :each |
 			each = d
@@ -372,8 +314,19 @@
 		self.digitSum(10)
 	}
 
-	dividesImmediately { :self :aNumber |
-		Fraction(self, 1).dividesImmediately(Fraction(aNumber, 1))
+	digitalRoot { :x :b |
+		x.digitalRootSet(b, sum/1).first
+	}
+
+	digitalRootSet { :x :b :f/1 |
+		let seen = Set();
+		{
+			seen.includes(x)
+		}.whileFalse {
+			seen.add!(x);
+			x := x.integerDigits(b).f
+		};
+		[x, seen]
 	}
 
 	divideOutAll { :n :d |
@@ -388,6 +341,10 @@
 			a.add!(n)
 		}.repeatForeverWithBreak;
 		a
+	}
+
+	dividesImmediately { :self :aNumber |
+		Fraction(self, 1).dividesImmediately(Fraction(aNumber, 1))
 	}
 
 	divisorSum { :self :aBlock/1 |
@@ -571,14 +528,47 @@
 		'0123456789ABCDEF'.at(self + 1)
 	}
 
-	integerCompositionsDo { :n :kList :aBlock/1 |
-		kList.do { :k |
-			n.integerCompositionsExactlyDo(k, aBlock/1)
+	inEnglishWords { :self |
+		let mils = [
+			'',
+			' thousand',
+			' million', ' billion',
+			' trillion', ' quadrillion',
+			' quintillion', ' sextillion',
+			' septillion', ' octillion',
+			' nonillion', ' decillion',
+			' undecillion', ' duodecillion',
+			' tredecillion', ' quattuordecillion',
+			' quindecillion', ' sexdecillion',
+			' septendecillion', ' octodecillion',
+			' novemdecillion', ' vigintillion'
+		];
+		(self = 0).if {
+			'zero'
+		} {
+			let minus = '';
+			let num = self;
+			let answer = '';
+			let milCount = 1;
+			(self < 0).ifTrue {
+				minus := 'negative ';
+				num := self.negate
+			};
+			{
+				num > 0
+			}.whileTrue {
+				let three = (num % 1000).threeDigitName;
+				num := num // 1000;
+				three.isEmpty.ifFalse {
+					answer.isEmpty.ifFalse {
+						answer := ', ' ++ answer
+					};
+					answer := three ++ mils[milCount] ++ answer
+				};
+				milCount := milCount + 1
+			};
+			minus ++ answer
 		}
-	}
-
-	integerCompositionsDo { :n :aBlock/1 |
-		integerCompositionsDo(n, 1.to(n), aBlock/1)
 	}
 
 	integerCompositions { :n |
@@ -592,6 +582,24 @@
 	integerCompositions { :n :k |
 		let answer = [];
 		n.integerCompositionsDo(k) { :each |
+			answer.add!(each.copy)
+		};
+		answer
+	}
+
+	integerCompositionsDo { :n :kList :aBlock/1 |
+		kList.do { :k |
+			n.integerCompositionsExactlyDo(k, aBlock/1)
+		}
+	}
+
+	integerCompositionsDo { :n :aBlock/1 |
+		integerCompositionsDo(n, 1.to(n), aBlock/1)
+	}
+
+	integerCompositionsExactly { :n :k |
+		let answer = [];
+		n.integerCompositionsExactlyDo(k) { :each |
 			answer.add!(each.copy)
 		};
 		answer
@@ -620,9 +628,23 @@
 		}
 	}
 
-	integerCompositionsExactly { :n :k |
+	integerCompositionsWeak { :n |
+		integerCompositionsWeak(n, 1.to(n))
+	}
+
+	integerCompositionsWeak { :n :kList |
 		let answer = [];
-		n.integerCompositionsExactlyDo(k) { :each |
+		kList.do { :k |
+			n.integerCompositionsWeakExactlyDo(k) { :each |
+				answer.add!(each.copy)
+			}
+		};
+		answer
+	}
+
+	integerCompositionsWeakExactly { :n :k |
+		let answer = [];
+		n.integerCompositionsWeakExactlyDo(k) { :each |
 			answer.add!(each.copy)
 		};
 		answer
@@ -649,42 +671,12 @@
 		}
 	}
 
-	integerCompositionsWeak { :n |
-		integerCompositionsWeak(n, 1.to(n))
-	}
-
-	integerCompositionsWeak { :n :kList |
-		let answer = [];
-		kList.do { :k |
-			n.integerCompositionsWeakExactlyDo(k) { :each |
-				answer.add!(each.copy)
-			}
-		};
-		answer
-	}
-
-	integerCompositionsWeakExactly { :n :k |
-		let answer = [];
-		n.integerCompositionsWeakExactlyDo(k) { :each |
-			answer.add!(each.copy)
-		};
-		answer
-	}
-
 	integerConcatenation { :m :n :b |
 		(m * (b ^ n.integerLength(b))) + n
 	}
 
 	integerConcatenation { :m :n |
 		integerConcatenation(m, n, 10)
-	}
-
-	integerDigitsReverseDo { :self :base :numDigits :aBlock/1 |
-		let num = self.abs;
-		numDigits.timesRepeat {
-			aBlock(num % base);
-			num := num // base
-		}
 	}
 
 	integerDigits { :self :base :numDigits |
@@ -721,6 +713,14 @@
 
 	integerDigits { :self |
 		self.integerDigits(10)
+	}
+
+	integerDigitsReverseDo { :self :base :numDigits :aBlock/1 |
+		let num = self.abs;
+		numDigits.timesRepeat {
+			aBlock(num % base);
+			num := num // base
+		}
 	}
 
 	integerExponent { :n :b |
@@ -1148,6 +1148,7 @@
 			[n, m].error('jacobiSymbol: even m?')
 		}
 	}
+
 	jordanTotient { :k :n |
 		n.isCollection.if {
 			n.collect { :i |
@@ -1412,6 +1413,22 @@
 			2658455991569831744654692615953842176L,
 			191561942608236107294793378084303638130997321548169216L
 		].at(n)
+	}
+
+	perfectPower { :self |
+		(self < 4).if {
+			nil
+		} {
+			let a = self.factorInteger;
+			let b = a.column(2);
+			let c = b.gcd;
+			(c > 1).if {
+				let d = a.column(1);
+				[d.product, c]
+			} {
+				nil
+			}
+		}
 	}
 
 	positiveResidue { :self :modulus |
@@ -1702,6 +1719,16 @@
 		self
 	}
 
+	twosComplement { :self :wordSize |
+		let m = 2 ^ wordSize;
+		let u = self % m;
+		(u >= (m / 2)).if {
+			u - m
+		} {
+			u
+		}
+	}
+
 	twosComplementBitwise { :self :wordSize |
 		let bitMask = (1 << wordSize) - 1;
 		let signBit = 1 << (wordSize - 1);
@@ -1710,16 +1737,6 @@
 			n - (1 << wordSize)
 		} {
 			n
-		}
-	}
-
-	twosComplement { :self :wordSize |
-		let m = 2 ^ wordSize;
-		let u = self % m;
-		(u >= (m / 2)).if {
-			u - m
-		} {
-			u
 		}
 	}
 
@@ -1921,7 +1938,6 @@
 	}
 
 }
-
 
 +@Cache {
 

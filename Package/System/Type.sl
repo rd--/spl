@@ -21,12 +21,12 @@ Type! : [Object, Equal] {
 		self.name.endsWith('^')
 	}
 
-	methodList { :self |
-		self.methodDictionary.values
-	}
-
 	methodDictionary { :self |
 		<primitive: return _self.methodDictionary;>
+	}
+
+	methodList { :self |
+		self.methodDictionary.values
 	}
 
 	name { :self |

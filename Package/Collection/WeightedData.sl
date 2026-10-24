@@ -56,7 +56,6 @@ WeightedData : [Object, Equal] {
 		(wSum / (wSum.square - v)) * (w * ((x - mu) ^ 2)).sum
 	}
 
-
 }
 
 +List {

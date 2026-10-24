@@ -6,12 +6,20 @@ AsciiString : [Object, New, Store, Copy, Equal, Do, At, Indices, Put, Collect, C
 		self.copy
 	}
 
-	atIfAbsent { :self :anInteger :ifAbsent/0 |
-		self.byteArray.atIfAbsent(anInteger, ifAbsent/0).Character
-	}
-
 	[ByteArray, asciiStringToByteArray] { :self |
 		self.byteArray.copy
+	}
+
+	[List, asciiStringToList] { :self |
+		let answer = List(self.size, nil);
+		self.withIndexDo { :each :index |
+			answer[index] := each.Character
+		};
+		answer
+	}
+
+	atIfAbsent { :self :anInteger :ifAbsent/0 |
+		self.byteArray.atIfAbsent(anInteger, ifAbsent/0).Character
 	}
 
 	codePoints { :self |
@@ -28,14 +36,6 @@ AsciiString : [Object, New, Store, Copy, Equal, Do, At, Indices, Put, Collect, C
 		AsciiString(
 			self.byteArray.base16Encode
 		)
-	}
-
-	[List, asciiStringToList] { :self |
-		let answer = List(self.size, nil);
-		self.withIndexDo { :each :index |
-			answer[index] := each.Character
-		};
-		answer
 	}
 
 	postCopy { :self |

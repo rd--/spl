@@ -4,6 +4,25 @@ SuperColliderProgramIndex : [Object] {
 
 	| programList |
 
+	[Tree, superColliderProgramIndexToTree] { :self |
+		Tree(
+			'SuperColliderProgramIndex',
+			self.categories.collect { :category |
+				Tree(
+					category,
+					self.authors(category).collect { :author |
+						Tree(
+							author,
+							self.names(category, author).collect { :name |
+								Tree(name, [])
+							}
+						)
+					}
+				)
+			}
+		)
+	}
+
 	atRandom { :self |
 		self.programList.randomChoice(system, [])
 	}
@@ -35,25 +54,6 @@ SuperColliderProgramIndex : [Object] {
 
 	size { :self |
 		self.programList.size
-	}
-
-	[Tree, superColliderProgramIndexToTree] { :self |
-		Tree(
-			'SuperColliderProgramIndex',
-			self.categories.collect { :category |
-				Tree(
-					category,
-					self.authors(category).collect { :author |
-						Tree(
-							author,
-							self.names(category, author).collect { :name |
-								Tree(name, [])
-							}
-						)
-					}
-				)
-			}
-		)
 	}
 
 }

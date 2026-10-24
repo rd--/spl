@@ -38,6 +38,24 @@ GrayCode : [Object, Equal] {
 
 +@Binary {
 
+	GrayCode { :self |
+		let n = 2 ^ self;
+		GrayCode(
+			0.to(n - 1).grayEncode.integerDigits(2, self)
+		)
+	}
+
+	grayDecode { :n |
+		let answer = n;
+		{
+			n := n.bitShiftRight(1);
+			n != 0
+		}.whileTrue {
+			answer := answer.bitXor(n)
+		};
+		answer
+	}
+
 	grayEncode { :n :b |
 		let d = n.integerDigits(b);
 		let k = d.size;
@@ -52,24 +70,6 @@ GrayCode : [Object, Equal] {
 
 	grayEncode { :n |
 		n.bitXor(n.bitShiftRight(1))
-	}
-
-	grayDecode { :n |
-		let answer = n;
-		{
-			n := n.bitShiftRight(1);
-			n != 0
-		}.whileTrue {
-			answer := answer.bitXor(n)
-		};
-		answer
-	}
-
-	GrayCode { :self |
-		let n = 2 ^ self;
-		GrayCode(
-			0.to(n - 1).grayEncode.integerDigits(2, self)
-		)
 	}
 
 }
@@ -119,6 +119,12 @@ GrayCode : [Object, Equal] {
 		}
 	}
 
+	isBinaryCyclicGrayCode { :self |
+		self.isBinaryGrayCode & {
+			(self.last - self.first).sum.abs = 1
+		}
+	}
+
 	isBinaryGrayCode { :self |
 		let [m, n] = self.shape;
 		(m = (2 ^ n)) & {
@@ -127,12 +133,6 @@ GrayCode : [Object, Equal] {
 					(self[i] - self[i - 1]).sum.abs = 1
 				}
 			}
-		}
-	}
-
-	isBinaryCyclicGrayCode { :self |
-		self.isBinaryGrayCode & {
-			(self.last - self.first).sum.abs = 1
 		}
 	}
 
@@ -167,6 +167,15 @@ GrayCode : [Object, Equal] {
 }
 
 +@Integer {
+
+	savageWinklerAlgorithm { :n |
+		(n < 0).ifTrue {
+			n.error('savageWinklerAlgorithm')
+		};
+		0.to(n - 1).collect { :j |
+			savageWinklerAlgorithmSubpath(n, j)
+		}.catenate
+	}
 
 	savageWinklerAlgorithmSubpath { :n :j |
 		let pi = { :n |
@@ -222,15 +231,6 @@ GrayCode : [Object, Equal] {
 		}
 	}
 
-	savageWinklerAlgorithm { :n |
-		(n < 0).ifTrue {
-			n.error('savageWinklerAlgorithm')
-		};
-		0.to(n - 1).collect { :j |
-			savageWinklerAlgorithmSubpath(n, j)
-		}.catenate
-	}
-
 }
 
 +@Integer {
@@ -244,6 +244,14 @@ GrayCode : [Object, Equal] {
 }
 
 +List {
+
+	mixedRadixGrayCode { :bases |
+		let answer = [];
+		bases.mixedRadixGrayCodeDo { :each :unused |
+			answer.add!(each.copy)
+		};
+		answer
+	}
 
 	mixedRadixGrayCodeDo { :bases :receive/2 |
 		/* https://www.socs.uoguelph.ca/~sawada/papers/RSG.pdf */
@@ -275,14 +283,6 @@ GrayCode : [Object, Equal] {
 				focus[index + 1] := index + 1
 			}
 		}
-	}
-
-	mixedRadixGrayCode { :bases |
-		let answer = [];
-		bases.mixedRadixGrayCodeDo { :each :unused |
-			answer.add!(each.copy)
-		};
-		answer
 	}
 
 }

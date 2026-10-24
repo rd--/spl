@@ -2,6 +2,10 @@
 
 @Url {
 
+	Url { :self |
+		self.typeResponsibility('Url')
+	}
+
 	directory { :self |
 		self.pathName.pathDirectory
 	}
@@ -54,13 +58,13 @@
 		<primitive: return _self.search;>
 	}
 
-	Url { :self |
-		self.typeResponsibility('Url')
-	}
-
 }
 
 URL! : [Object, Store, Equal, Url] {
+
+	Url { :self |
+		self
+	}
 
 	password { :self |
 		<primitive: return _self.password;>
@@ -70,16 +74,12 @@ URL! : [Object, Store, Equal, Url] {
 		<primitive: return _self.searchParams;>
 	}
 
-	userName { :self |
-		<primitive: return _self.username;>
-	}
-
 	storeString { :self |
 		'Url(%)'.format([self.href.storeString])
 	}
 
-	Url { :self |
-		self
+	userName { :self |
+		<primitive: return _self.username;>
 	}
 
 }
@@ -94,8 +94,12 @@ URL! : [Object, Store, Equal, Url] {
 
 +String {
 
-	fileUrl { :self |
-		Url('file://' ++ self)
+	Url { :self |
+		<primitive: return new URL(_self);>
+	}
+
+	Url { :self :base |
+		<primitive: return new URL(_self, _base);>
 	}
 
 	decodeUri { :self |
@@ -114,16 +118,12 @@ URL! : [Object, Store, Equal, Url] {
 		<primitive: return encodeURIComponent(_self);>
 	}
 
+	fileUrl { :self |
+		Url('file://' ++ self)
+	}
+
 	revokeObjectUrl { :self |
 		<primitive: return URL.revokeObjectURL(_self);>
-	}
-
-	Url { :self |
-		<primitive: return new URL(_self);>
-	}
-
-	Url { :self :base |
-		<primitive: return new URL(_self, _base);>
 	}
 
 }
@@ -224,7 +224,6 @@ URL! : [Object, Store, Equal, Url] {
 	}
 
 }
-
 
 +String {
 

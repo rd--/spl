@@ -2,114 +2,28 @@
 
 LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, ImplicitFloat] {
 
-	[isLess, <] { :self :anObject |
-		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self < BigInt(_anObject);
-		}
-		>
-		anObject.adaptToIntegerAndApply(self, isLess/2)
-	}
-
-	[bitShiftLeft, <<] { :self :anObject |
-		<primitive:
-		if(sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self << BigInt(_anObject);
-		}
-		>
-		self.error('bitShiftLeft: operand not a LargeInteger or SmallInteger')
-	}
-
-	[bitShiftRight, >>] { :self :anObject |
-		<primitive:
-		if(sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self >> BigInt(_anObject);
-		}
-		>
-		self.error('bitShiftRight: operand not a LargeInteger or SmallInteger')
-	}
-
-	[divide, /] { :self :anObject |
-		anObject.isInteger.if {
-			let fraction = Fraction(
-				self,
-				LargeInteger(anObject)
-			);
-			fraction.isInteger.if {
-				fraction.numerator
-			} {
-				fraction
-			}
+	[Integer, normalInteger] { :self |
+		self.isSmallInteger.if {
+			SmallFloat(self)
 		} {
-			anObject.adaptToIntegerAndApply(self, divide/2)
+			self
 		}
 	}
 
-	[isEqual, =] { :self :anObject |
-		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self === BigInt(_anObject);
-		};
-		>
-		false
+	[LargeInteger, L] { :self |
+		self
 	}
 
-	[mod, %] { :self :anObject |
-		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			const i = BigInt(_anObject);
-			return ((_self % i) + i) % i;
-		}
-		>
-		anObject.adaptToIntegerAndApply(self, mod/2)
+	[SmallFloat, Float, largeIntegerToSmallFloat] { :self |
+		<primitive: return Number(_self);>
 	}
 
-	[plus, +] { :self :anObject |
-		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self + BigInt(_anObject);
-		}
-		>
-		anObject.adaptToIntegerAndApply(self, plus/2)
-	}
-
-	[power, ^] { :self :anObject |
-		anObject.isInteger.if {
-			self.raisedToInteger(anObject)
+	[SmallInteger, largeIntegerToSmallInteger]  { :self |
+		self.isSmallInteger.if {
+			SmallFloat(self)
 		} {
-			anObject.adaptToIntegerAndApply(self, power/2)
+			self.error('LargeInteger>>SmallInteger: not small integer')
 		}
-	}
-
-	[quotient, //] { :self :anObject |
-		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self / BigInt(_anObject);
-		};
-		>
-		anObject.adaptToIntegerAndApply(self, quotient/2)
-	}
-
-	[isSimilar, ~] { :self :anObject |
-		SmallFloat(self) ~ anObject
-	}
-
-	[subtract, -] { :self :anObject |
-		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self - BigInt(_anObject);
-		}
-		>
-		anObject.adaptToIntegerAndApply(self, subtract/2)
-	}
-
-	[times, *] { :self :anObject |
-		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self * BigInt(_anObject);
-		}
-		>
-		anObject.adaptToIntegerAndApply(self, times/2)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
@@ -135,6 +49,10 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		self.error('bitAnd: operand not a LargeInteger or SmallFloat')
 	}
 
+	bitNot { :self |
+		<primitive: return ~_self;>
+	}
+
 	bitOr { :self :anObject |
 		<primitive:
 		if(sl.isLargeInteger(_anObject)) {
@@ -146,8 +64,22 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		self.error('bitOr: operand not a LargeInteger or SmallFloat')
 	}
 
-	bitNot { :self |
-		<primitive: return ~_self;>
+	[bitShiftLeft, <<] { :self :anObject |
+		<primitive:
+		if(sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self << BigInt(_anObject);
+		}
+		>
+		self.error('bitShiftLeft: operand not a LargeInteger or SmallInteger')
+	}
+
+	[bitShiftRight, >>] { :self :anObject |
+		<primitive:
+		if(sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self >> BigInt(_anObject);
+		}
+		>
+		self.error('bitShiftRight: operand not a LargeInteger or SmallInteger')
 	}
 
 	bitXor { :self :anObject |
@@ -171,6 +103,22 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 
 	denominator { :self |
 		1
+	}
+
+	[divide, /] { :self :anObject |
+		anObject.isInteger.if {
+			let fraction = Fraction(
+				self,
+				LargeInteger(anObject)
+			);
+			fraction.isInteger.if {
+				fraction.numerator
+			} {
+				fraction
+			}
+		} {
+			anObject.adaptToIntegerAndApply(self, divide/2)
+		}
 	}
 
 	floorLog { :self :radix |
@@ -204,14 +152,6 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 				}
 			};
 			SmallFloat(lastDigit).highBitOfByte + (8 * (realLength - 1))
-		}
-	}
-
-	[Integer, normalInteger] { :self |
-		self.isSmallInteger.if {
-			SmallFloat(self)
-		} {
-			self
 		}
 	}
 
@@ -255,6 +195,15 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		>
 	}
 
+	[isEqual, =] { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self === BigInt(_anObject);
+		};
+		>
+		false
+	}
+
 	isEven { :self |
 		(self % 2L) = 0L
 	}
@@ -279,6 +228,15 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		true
 	}
 
+	[isLess, <] { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self < BigInt(_anObject);
+		}
+		>
+		anObject.adaptToIntegerAndApply(self, isLess/2)
+	}
+
 	isLiteral { :unused |
 		true
 	}
@@ -299,6 +257,10 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		false
 	}
 
+	[isSimilar, ~] { :self :anObject |
+		SmallFloat(self) ~ anObject
+	}
+
 	isSmallInteger { :self |
 		self.abs <= (2L ^ 53 - 1)
 	}
@@ -316,8 +278,18 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		self = aNumber
 	}
 
-	[LargeInteger, L] { :self |
-		self
+	isZero { :self |
+		self = 0L
+	}
+
+	[mod, %] { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			const i = BigInt(_anObject);
+			return ((_self % i) + i) % i;
+		}
+		>
+		anObject.adaptToIntegerAndApply(self, mod/2)
 	}
 
 	numberOfDigitsInBase { :self :radix |
@@ -328,12 +300,25 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		self
 	}
 
-	isZero { :self |
-		self = 0L
-	}
-
 	one { :unused |
 		1L
+	}
+
+	[plus, +] { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self + BigInt(_anObject);
+		}
+		>
+		anObject.adaptToIntegerAndApply(self, plus/2)
+	}
+
+	[power, ^] { :self :anObject |
+		anObject.isInteger.if {
+			self.raisedToInteger(anObject)
+		} {
+			anObject.adaptToIntegerAndApply(self, power/2)
+		}
 	}
 
 	printString { :self |
@@ -342,6 +327,15 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 
 	promoteBinary { :self |
 		self
+	}
+
+	[quotient, //] { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self / BigInt(_anObject);
+		};
+		>
+		anObject.adaptToIntegerAndApply(self, quotient/2)
 	}
 
 	raisedToInteger { :self :anInteger |
@@ -362,32 +356,38 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		self.error('remainder: not integer')
 	}
 
-	signedInteger { :self :bitCount |
-		<primitive: return BigInt.asIntN(_bitCount, _self);>
-	}
-
 	shallowCopy { :self |
 		self
 	}
 
-	[SmallInteger, largeIntegerToSmallInteger]  { :self |
-		self.isSmallInteger.if {
-			SmallFloat(self)
-		} {
-			self.error('LargeInteger>>SmallInteger: not small integer')
-		}
+	signedInteger { :self :bitCount |
+		<primitive: return BigInt.asIntN(_bitCount, _self);>
 	}
 
-	[SmallFloat, Float, largeIntegerToSmallFloat] { :self |
-		<primitive: return Number(_self);>
+	storeString { :self |
+		self.storeStringLiteral
 	}
 
 	storeStringLiteral { :self |
 		self.uncheckedPrintString(10) ++ 'L'
 	}
 
-	storeString { :self |
-		self.storeStringLiteral
+	[subtract, -] { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self - BigInt(_anObject);
+		}
+		>
+		anObject.adaptToIntegerAndApply(self, subtract/2)
+	}
+
+	[times, *] { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self * BigInt(_anObject);
+		}
+		>
+		anObject.adaptToIntegerAndApply(self, times/2)
 	}
 
 	uncheckedGcd { :self :anInteger |

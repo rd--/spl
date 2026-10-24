@@ -38,6 +38,18 @@ RelativeRange : [Object, New, Store, Equal, Compare] {
 
 +@Integer {
 
+	RelativeRange { :start :stop :step |
+		(
+			isRelativeRange(start, stop, step) & {
+				isIntegerRange(start, stop, step)
+			}
+		).if {
+			newRelativeRange().initializeSlots(start, stop, step)
+		} {
+			[start, stop, step].error('RelativeRange')
+		}
+	}
+
 	isIntegerRange { :start :stop :step |
 		[start stop step].allSatisfy(isInteger/1)
 	}
@@ -61,18 +73,6 @@ RelativeRange : [Object, New, Store, Equal, Compare] {
 			RelativeRange(start, stop, step)
 		} {
 			Range(start, stop, step)
-		}
-	}
-
-	RelativeRange { :start :stop :step |
-		(
-			isRelativeRange(start, stop, step) & {
-				isIntegerRange(start, stop, step)
-			}
-		).if {
-			newRelativeRange().initializeSlots(start, stop, step)
-		} {
-			[start, stop, step].error('RelativeRange')
 		}
 	}
 

@@ -61,7 +61,7 @@
 
 }
 
-/* csound naming */
+/* Csound naming */
 +@Frequency {
 
 	cps { :self |
@@ -72,16 +72,15 @@
 		self.midiNoteNumber
 	}
 
-	pch { :self |
-		self.octavePitchClass
-	}
-
 	oct { :self |
 		self.linearOctave
 	}
 
-}
+	pch { :self |
+		self.octavePitchClass
+	}
 
+}
 
 +@Number {
 
@@ -117,16 +116,16 @@
 		self - 0.1
 	}
 
-	sharp { :self |
-		self + 0.1
-	}
-
 	quarterToneFlat { :self |
 		self - 0.05
 	}
 
 	quarterToneSharp { :self |
 		self + 0.05
+	}
+
+	sharp { :self |
+		self + 0.1
 	}
 
 }

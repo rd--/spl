@@ -2,14 +2,6 @@ PolarCoordinates : [Object, Copy, Store, Equal] {
 
 	| rho phi |
 
-	coordinates { :self |
-		[self.rho, self.phi]
-	}
-
-	isOrigin { :self |
-		self.rho.isZero
-	}
-
 	[List, polarCoordinatesToList] { :self |
 		self.coordinates
 	}
@@ -24,6 +16,14 @@ PolarCoordinates : [Object, Copy, Store, Equal] {
 
 	Record { :self |
 		(rho: self.rho, phi: self.phi)
+	}
+
+	coordinates { :self |
+		[self.rho, self.phi]
+	}
+
+	isOrigin { :self |
+		self.rho.isZero
 	}
 
 	x { :self |

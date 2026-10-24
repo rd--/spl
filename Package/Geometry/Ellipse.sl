@@ -84,10 +84,6 @@ Ellipse : [Object, Equal, Geometry] {
 		self.vertexCoordinates.at(1)
 	}
 
-	vertices { :self |
-		self.vertexCoordinates.first(2)
-	}
-
 	vertexCoordinates { :self |
 		let [x, y] = self.center;
 		let [a, b] = self.radii;
@@ -99,14 +95,13 @@ Ellipse : [Object, Equal, Geometry] {
 		]
 	}
 
+	vertices { :self |
+		self.vertexCoordinates.first(2)
+	}
+
 }
 
 +List {
-
-	ellipseAxisAlignedBoundingBox { :c :u :v |
-		let e = (u.dot(u) + v.dot(v)).sqrt;
-		[c - e, c + e]
-	}
 
 	Ellipse { :center :radii |
 		(center.rank > 1).if {
@@ -118,6 +113,11 @@ Ellipse : [Object, Equal, Geometry] {
 				'Sequence>>Ellipse: invalid radii'.error
 			}
 		}
+	}
+
+	ellipseAxisAlignedBoundingBox { :c :u :v |
+		let e = (u.dot(u) + v.dot(v)).sqrt;
+		[c - e, c + e]
 	}
 
 }

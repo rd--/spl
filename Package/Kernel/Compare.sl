@@ -20,12 +20,12 @@
 		isLess(operand, self)
 	}
 
-	[isGreaterOrEqual, >=] { :self :operand |
-		isLessOrEqual(operand, self)
-	}
-
 	isGreaterOn { :self :operand :f/1 |
 		isGreater(f(self), f(operand))
+	}
+
+	[isGreaterOrEqual, >=] { :self :operand |
+		isLessOrEqual(operand, self)
 	}
 
 	[isLess, <] { :self :operand |
@@ -33,14 +33,14 @@
 		self.typeResponsibility('@Compare>><')
 	}
 
+	isLessOn { :self :operand :f/1 |
+		isLess(f(self), f(operand))
+	}
+
 	[isLessOrEqual, <=] { :self :operand |
 		self < operand | {
 			self = operand
 		}
-	}
-
-	isLessOn { :self :operand :f/1 |
-		isLess(f(self), f(operand))
 	}
 
 	maxOn { :self :operand :f/1 |
@@ -67,12 +67,12 @@
 		}
 	}
 
-	[minimum, min] { :self :operand |
-		minBy(self, operand, isLess/2)
-	}
-
 	minThenMax { :self :aMin :aMax |
 		self.min(aMin).max(aMax)
+	}
+
+	[minimum, min] { :self :operand |
+		minBy(self, operand, isLess/2)
 	}
 
 	[precedes, <|] { :self :anObject |

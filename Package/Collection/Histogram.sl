@@ -10,6 +10,19 @@
 		}
 	}
 
+	binLists { :self :b |
+		self.binListsFor(
+			Range(b[1], b[2], b[3]).List
+		)
+	}
+
+	binLists { :self :b1 :b2 |
+		self.binListsFor(
+			Range(b1[1], b1[2], b1[3]).List,
+			Range(b2[1], b2[2], b2[3]).List
+		)
+	}
+
 	binListsFor { :self :b |
 		let n = b.size;
 		let c = { [] } ! (n - 1);
@@ -44,32 +57,9 @@
 		c
 	}
 
-	binLists { :self :b |
-		self.binListsFor(
-			Range(b[1], b[2], b[3]).List
-		)
-	}
-
-	binLists { :self :b1 :b2 |
-		self.binListsFor(
-			Range(b1[1], b1[2], b1[3]).List,
-			Range(b2[1], b2[2], b2[3]).List
-		)
-	}
-
 	freedmanDiaconisRule { :self |
 		let n = self.size;
 		2 * (self.interquartileRange / (n ^ (1 / 3)))
-	}
-
-	histogramOf { :self |
-		self.histogramOf { :each |
-			each
-		}
-	}
-
-	histogramListFor { :self :b |
-		[b, self.binListsFor(b).collect(size/1)]
 	}
 
 	histogramList { :self :b |
@@ -84,6 +74,16 @@
 		let [min, max] = self.minMax;
 		let b = (min -- max).findDivisions(k);
 		self.histogramListFor(b.List)
+	}
+
+	histogramListFor { :self :b |
+		[b, self.binListsFor(b).collect(size/1)]
+	}
+
+	histogramOf { :self |
+		self.histogramOf { :each |
+			each
+		}
 	}
 
 	scottsRule { :self |

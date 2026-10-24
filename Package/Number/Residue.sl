@@ -6,22 +6,6 @@ Residue : [Object, Store, Equal, Compare, Number] {
 		self.commonResidue < self.assertIsCompatibleOperand(aNumber).commonResidue
 	}
 
-	[divide, /] { :self :aNumber |
-		self * aNumber.inverse
-	}
-
-	[plus, +] { :self :aNumber |
-		self.binaryOperator(aNumber, plus/2)
-	}
-
-	[subtract, -] { :self :aNumber |
-		self.binaryOperator(aNumber, subtract/2)
-	}
-
-	[times, *] { :self :aNumber |
-		self.binaryOperator(aNumber, times/2)
-	}
-
 	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
 		aBlock(
 			Residue(anInteger, self.modulus),
@@ -62,6 +46,10 @@ Residue : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
+	[divide, /] { :self :aNumber |
+		self * aNumber.inverse
+	}
+
 	inverse { :self |
 		Residue(
 			self.commonResidue.modularInverse(self.modulus),
@@ -81,6 +69,10 @@ Residue : [Object, Store, Equal, Compare, Number] {
 		true
 	}
 
+	[plus, +] { :self :aNumber |
+		self.binaryOperator(aNumber, plus/2)
+	}
+
 	positiveResidue { :self |
 		let n = self.commonResidue;
 		n.isZero.if {
@@ -90,12 +82,20 @@ Residue : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
+	storeString { :self |
+		self.storeStringLiteral
+	}
+
 	storeStringLiteral { :self |
 		self.commonResidue.storeString ++ 'Z' ++ self.modulus.storeString
 	}
 
-	storeString { :self |
-		self.storeStringLiteral
+	[subtract, -] { :self :aNumber |
+		self.binaryOperator(aNumber, subtract/2)
+	}
+
+	[times, *] { :self :aNumber |
+		self.binaryOperator(aNumber, times/2)
 	}
 
 }

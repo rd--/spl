@@ -8,6 +8,10 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 		}
 	}
 
+	Boolean { :self |
+		self
+	}
+
 	always { :self :aBlock/0 |
 		aBlock()
 	}
@@ -24,10 +28,6 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 		self.if { 1 } { 0 }
 	}
 
-	Boolean { :self |
-		self
-	}
-
 	compare { :self :operand |
 		compareOn(self, operand, boole/1)
 	}
@@ -38,10 +38,6 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 
 	[encodeJson, booleanToJson] { :self |
 		self.uncheckedEncodeJson
-	}
-
-	isEqualBy { :self :anObject :aBlock/2 |
-		self == anObject
 	}
 
 	[evaluatingAnd, &&] { :self :anObject |
@@ -82,6 +78,10 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 
 	implies { :p :q/0 |
 		p.not | { q() }
+	}
+
+	isEqualBy { :self :anObject :aBlock/2 |
+		self == anObject
 	}
 
 	isImmediate { :unused |

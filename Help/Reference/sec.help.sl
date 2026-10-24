@@ -108,7 +108,6 @@ Plot `sec` at integer points:
 
 ![](Help/Image/sec-F.svg)
 
-
 * * *
 
 See also: cos, cosec, sin

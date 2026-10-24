@@ -14,21 +14,21 @@ CylindricalCoordinates : [Object, Equal] {
 		self.coordinates.copy
 	}
 
-	radius { :self |
-		self.rho
-	}
-
 	[Record, cylindricalCoordinatesToRecord] { :self |
 		let [rho, phi, z] = self.coordinates;
 		(rho: rho, phi: phi, z: z)
 	}
 
-	rho { :self |
-		self.coordinates[1]
-	}
-
 	phi { :self |
 		self.coordinates[2]
+	}
+
+	radius { :self |
+		self.rho
+	}
+
+	rho { :self |
+		self.coordinates[1]
 	}
 
 	theta { :self |

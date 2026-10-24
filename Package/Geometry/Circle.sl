@@ -2,20 +2,20 @@ Circle : [Object, Store, Equal, Geometry] {
 
 	| center radius |
 
-	asGeneralisedCircle { :self |
-		let c = 1;
-		let [r, i] = self.center;
-		let alpha = Complex(r.negate, i);
-		let d = alpha.abs.square - self.radius.square;
-		GeneralisedCircle(c, alpha, d)
-	}
-
 	arcLength { :self |
 		self.circumference
 	}
 
 	area { :self |
 		self.radius.square.pi
+	}
+
+	asGeneralisedCircle { :self |
+		let c = 1;
+		let [r, i] = self.center;
+		let alpha = Complex(r.negate, i);
+		let d = alpha.abs.square - self.radius.square;
+		GeneralisedCircle(c, alpha, d)
 	}
 
 	boundingBox { :self |
@@ -86,17 +86,6 @@ Circle : [Object, Store, Equal, Geometry] {
 		)
 	}
 
-	svgFragment { :self :options |
-		let precision = options['precision'];
-		'<circle cx="%" cy="%" r="%" />'.format(
-			[
-				self.center[1].printStringToFixed(precision),
-				self.center[2].printStringToFixed(precision),
-				self.radius.printStringToFixed(precision)
-			]
-		)
-	}
-
 	perimeter { :self |
 		self.circumference
 	}
@@ -112,6 +101,17 @@ Circle : [Object, Store, Equal, Geometry] {
 
 	scale { :self :m |
 		Circle(self.center, self.radius * m)
+	}
+
+	svgFragment { :self :options |
+		let precision = options['precision'];
+		'<circle cx="%" cy="%" r="%" />'.format(
+			[
+				self.center[1].printStringToFixed(precision),
+				self.center[2].printStringToFixed(precision),
+				self.radius.printStringToFixed(precision)
+			]
+		)
 	}
 
 	translate { :self :factor |
@@ -257,7 +257,6 @@ UnitCircle : [Object] {
 
 }
 
-
 +Circle {
 
 	circleInversion { :self |
@@ -320,7 +319,6 @@ UnitCircle : [Object] {
 	}
 
 }
-
 
 +SmallFloat {
 

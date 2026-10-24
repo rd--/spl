@@ -16,6 +16,18 @@
 
 +@Link {
 
+	[List, linkToList] { :self |
+		let h = self;
+		let answer = [];
+		{
+			h.isNotNil
+		}.whileTrue {
+			answer.add!(h.value);
+			h := h.nextLink
+		};
+		answer
+	}
+
 	do { :self :aBlock/1 |
 		self.linksDo { :each |
 			aBlock(each.value)
@@ -74,18 +86,6 @@
 			aBlock(aLink);
 			aLink := aLink.nextLink
 		}
-	}
-
-	[List, linkToList] { :self |
-		let h = self;
-		let answer = [];
-		{
-			h.isNotNil
-		}.whileTrue {
-			answer.add!(h.value);
-			h := h.nextLink
-		};
-		answer
 	}
 
 }

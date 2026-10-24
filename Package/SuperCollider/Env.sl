@@ -1,13 +1,5 @@
 Env! : [Object] {
 
-	[envToEnvGen, asEnvGenWithDoneAction] { :self :gate :doneAction |
-		EnvGen(gate, 1, 0, 1, doneAction, self)
-	}
-
-	[envToEnvGen, asEnvGen] { :self :gate |
-		EnvGen(gate, 1, 0, 1, 0, self)
-	}
-
 	circle { :self :timeFromLastToFirst :curve |
 		let first0Then1 = Latch(Dc(1), Impulse(0, 0));
 		self.releaseNode.isNil.if {
@@ -29,20 +21,56 @@ Env! : [Object] {
 		<primitive: return sc.envCoord(_self);>
 	}
 
-	levels { :self | <primitive: return _self.levels;> }
-	times { :self | <primitive: return _self.times;> }
-	curves { :self | <primitive: return _self.curves;> }
-	releaseNode { :self | <primitive: return _self.releaseNode;> }
-	loopNode { :self | <primitive: return _self.loopNode;> }
+	curves { :self |
+		<primitive: return _self.curves;>
+	}
 
-	levelsMutate! { :self :anObject | <primitive: _self.levels = _anObject; return _anObject;> }
-	timesMutate! { :self :anObject | <primitive: _self.times = _anObject; return _anObject;> }
-	curvesMutate! { :self :anObject | <primitive: _self.curves = _anObject; return _anObject;> }
-	releaseNodeMutate! { :self :anObject | <primitive: _self.releaseNode = _anObject; return _anObject;> }
-	loopNodeMutate! { :self :anObject | <primitive: _self.loopNode = _anObject; return _anObject;> }
+	curvesMutate! { :self :anObject |
+		<primitive: _self.curves = _anObject; return _anObject;>
+	}
+
+	[envToEnvGen, asEnvGenWithDoneAction] { :self :gate :doneAction |
+		EnvGen(gate, 1, 0, 1, doneAction, self)
+	}
+
+	[envToEnvGen, asEnvGen] { :self :gate |
+		EnvGen(gate, 1, 0, 1, 0, self)
+	}
+
+	levels { :self |
+		<primitive: return _self.levels;>
+	}
+
+	levelsMutate! { :self :anObject |
+		<primitive: _self.levels = _anObject; return _anObject;>
+	}
+
+	loopNode { :self |
+		<primitive: return _self.loopNode;>
+	}
+
+	loopNodeMutate! { :self :anObject |
+		<primitive: _self.loopNode = _anObject; return _anObject;>
+	}
 
 	pseudoSlotNameList { :self |
 		['levels', 'times', 'curves', 'releaseNode', 'loopNode', 'offset']
+	}
+
+	releaseNode { :self |
+		<primitive: return _self.releaseNode;>
+	}
+
+	releaseNodeMutate! { :self :anObject |
+		<primitive: _self.releaseNode = _anObject; return _anObject;>
+	}
+
+	times { :self |
+		<primitive: return _self.times;>
+	}
+
+	timesMutate! { :self :anObject |
+		<primitive: _self.times = _anObject; return _anObject;>
 	}
 
 }

@@ -1,5 +1,9 @@
 @Collection {
 
+	[allEqual, =] { :self |
+		self.allEqualBy(isEqual/2)
+	}
+
 	allEqualBy { :self :aBlock/2 |
 		self.isEmpty.if {
 			true
@@ -9,10 +13,6 @@
 				aBlock(each, item)
 			}
 		}
-	}
-
-	[allEqual, =] { :self |
-		self.allEqualBy(isEqual/2)
 	}
 
 	allEqualTo { :self :anObject |
@@ -150,18 +150,6 @@
 		}
 	}
 
-	[deleteDuplicatesIdentical, nubIdentical] { :self |
-		let seen = IdentitySet();
-		self.select { :each |
-			seen.includes(each).if {
-				false
-			} {
-				seen.include!(each);
-				true
-			}
-		}
-	}
-
 	[deleteDuplicates, nub] { :self |
 		self.deleteDuplicates(isEqual/2)
 	}
@@ -178,6 +166,18 @@
 					seen.add!(each);
 					true
 				}
+			}
+		}
+	}
+
+	[deleteDuplicatesIdentical, nubIdentical] { :self |
+		let seen = IdentitySet();
+		self.select { :each |
+			seen.includes(each).if {
+				false
+			} {
+				seen.include!(each);
+				true
 			}
 		}
 	}
@@ -304,26 +304,6 @@
 		result
 	}
 
-	intersection { :self :aCollection |
-		self.select { :each |
-			aCollection.includes(each)
-		}
-	}
-
-	intersection { :self |
-		let answer = self.new;
-		self.isEmpty.ifFalse {
-			self.anyOne.do { :x |
-				self.allSatisfy { :c |
-					c.includes(x)
-				}.ifTrue {
-					answer.add!(x)
-				}
-			}
-		};
-		answer
-	}
-
 	ifEmpty { :self :aBlock/0 |
 		self.isEmpty.if {
 			aBlock()
@@ -366,6 +346,26 @@
 		self.isEmpty.ifFalse {
 			self.do(f/1)
 		}
+	}
+
+	intersection { :self :aCollection |
+		self.select { :each |
+			aCollection.includes(each)
+		}
+	}
+
+	intersection { :self |
+		let answer = self.new;
+		self.isEmpty.ifFalse {
+			self.anyOne.do { :x |
+				self.allSatisfy { :c |
+					c.includes(x)
+				}.ifTrue {
+					answer.add!(x)
+				}
+			}
+		};
+		answer
 	}
 
 	isAtom { :self |
@@ -484,6 +484,14 @@
 		}
 	}
 
+	powerSet { :self |
+		let answer = [];
+		self.powerSetDo { :each |
+			answer.add!(each)
+		};
+		answer
+	}
+
 	powerSetDo { :self :aBlock/1 |
 		let size = 2 ^ self.size;
 		let powersOfTwo = 2 ^ 0.to(self.size - 1);
@@ -497,14 +505,6 @@
 			};
 			aBlock(subset)
 		}
-	}
-
-	powerSet { :self |
-		let answer = [];
-		self.powerSetDo { :each |
-			answer.add!(each)
-		};
-		answer
 	}
 
 	pseudoSlotNameList { :self |

@@ -2,6 +2,10 @@
 
 IdentitySet! : [Object, New, Copy, Store, Equal, Do, Collect, Collection, Add, Remove, Unordered, Set] {
 
+	[List, identitySetToList] { :self |
+		<primitive: return Array.from(_self);>
+	}
+
 	do { :self :aBlock |
 		<primitive:
 		_self.forEach(function(item) {
@@ -20,10 +24,6 @@ IdentitySet! : [Object, New, Copy, Store, Equal, Do, Collect, Collection, Add, R
 
 	includes { :self :anObject |
 		<primitive: return _self.has(_anObject);>
-	}
-
-	[List, identitySetToList] { :self |
-		<primitive: return Array.from(_self);>
 	}
 
 	pseudoSlotNameList { :self |

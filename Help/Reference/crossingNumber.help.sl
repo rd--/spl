@@ -18,8 +18,13 @@ Crossing number given a simple convex polygon:
 Count how many times a ray starting from the point crosses the closed-curve contour:
 
 ```
->>> [0.35 0.2; 0.9 0.75; 0.1 0.55; 0.9 0.35; 0.42 0.9]
->>> .crossingNumber([0.5 0.7])
+>>> [
+>>> 	0.35 0.2;
+>>> 	0.9 0.75;
+>>> 	0.1 0.55;
+>>> 	0.9 0.35;
+>>> 	0.42 0.9
+>>> ].crossingNumber([0.5 0.7])
 3
 ```
 

@@ -84,24 +84,20 @@
 		}
 	}
 
-	gammaLanczosFormulaLeadingFactor { :self |
-		let z = self + 5.5;
-		z.log * (self + 0.5) - z
-	}
-
-	gammaLanczosFormulaSeries { :self |
-		let term = self;
-		let coefficients = [
-			76.18009172947146,
-			-86.50532032941677,
-			24.01409824083091,
-			-1.231739572450155,
-			0.001208650973866179,
-			-0.000005395239384953
-		];
-		coefficients.injectInto(1.000000000190015) { :sum :each |
-			term := term + 1;
-			each / term + sum
+	gamma { :self |
+		(
+			self.isInteger & {
+				(self >= 1)
+			}
+		).if {
+			(self - 1).factorial
+		} {
+			(self < 0).if {
+				1.pi / (self.pi.sin * (1 - self).gamma)
+			} {
+				/*self.gammaLanczosFormulaPrimitive*/
+				(self + 1).gammaLanczosFormula / self
+			}
 		}
 	}
 
@@ -109,6 +105,11 @@
 		let leadingFactor = self.gammaLanczosFormulaLeadingFactor;
 		let series = self.gammaLanczosFormulaSeries;
 		(leadingFactor.exp * series) * 2.pi.sqrt / self
+	}
+
+	gammaLanczosFormulaLeadingFactor { :self |
+		let z = self + 5.5;
+		z.log * (self + 0.5) - z
 	}
 
 	gammaLanczosFormulaPrimitive { :self |
@@ -173,20 +174,19 @@
 		>
 	}
 
-	gamma { :self |
-		(
-			self.isInteger & {
-				(self >= 1)
-			}
-		).if {
-			(self - 1).factorial
-		} {
-			(self < 0).if {
-				1.pi / (self.pi.sin * (1 - self).gamma)
-			} {
-				/*self.gammaLanczosFormulaPrimitive*/
-				(self + 1).gammaLanczosFormula / self
-			}
+	gammaLanczosFormulaSeries { :self |
+		let term = self;
+		let coefficients = [
+			76.18009172947146,
+			-86.50532032941677,
+			24.01409824083091,
+			-1.231739572450155,
+			0.001208650973866179,
+			-0.000005395239384953
+		];
+		coefficients.injectInto(1.000000000190015) { :sum :each |
+			term := term + 1;
+			each / term + sum
 		}
 	}
 
@@ -298,13 +298,6 @@
 		self.logGamma + aNumber.logGamma - (self + aNumber).logGamma
 	}
 
-	logGammaLanczosFormula { :self |
-		let sqrtTwoPi = 2.pi.sqrt;
-		let leadingFactor = self.gammaLanczosFormulaLeadingFactor;
-		let series = self.gammaLanczosFormulaSeries;
-		leadingFactor + (series * sqrtTwoPi / self).log
-	}
-
 	logGamma { :self |
 		(self > 1).if {
 			self.logGammaLanczosFormula
@@ -315,6 +308,13 @@
 				'@Number>>logGamma: non-positive'.error
 			}
 		}
+	}
+
+	logGammaLanczosFormula { :self |
+		let sqrtTwoPi = 2.pi.sqrt;
+		let leadingFactor = self.gammaLanczosFormulaLeadingFactor;
+		let series = self.gammaLanczosFormulaSeries;
+		leadingFactor + (series * sqrtTwoPi / self).log
 	}
 
 	lowerIncompleteGamma { :x :s |

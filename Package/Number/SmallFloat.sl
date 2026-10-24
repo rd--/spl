@@ -2,6 +2,22 @@
 
 SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 
+	[Integer, normalInteger] { :self |
+		SmallInteger(self)
+	}
+
+	[SmallFloat, Float] { :self |
+		self
+	}
+
+	[SmallInteger, smallFloatToSmallInteger] { :self |
+		self.isSmallInteger.if {
+			self
+		} {
+			self.error('SmallFloat>>SmallInteger: not integer')
+		}
+	}
+
 	[absoluteValue, abs] { :self |
 		<primitive: return Math.abs(_self)>
 	}
@@ -246,16 +262,16 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive: return sc.encodeFloat64(_self, _littleEndian);>
 	}
 
-	encodeInt8 { :self |
-		<primitive: return sc.encodeInt8(_self);>
-	}
-
 	encodeInt16 { :self :littleEndian |
 		<primitive: return sc.encodeInt16(_self, _littleEndian);>
 	}
 
 	encodeInt32 { :self :littleEndian |
 		<primitive: return sc.encodeInt32(_self, _littleEndian);>
+	}
+
+	encodeInt8 { :self |
+		<primitive: return sc.encodeInt8(_self);>
 	}
 
 	[encodeJson, smallFloatToJson] { :self |
@@ -364,10 +380,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		} {
 			whenNotNaN(self)
 		}
-	}
-
-	[Integer, normalInteger] { :self |
-		SmallInteger(self)
 	}
 
 	integerChop { :self :epsilon |
@@ -535,12 +547,12 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive: return Math.log(_self) / Math.log(_base)>
 	}
 
-	log2 { :self |
-		<primitive: return Math.log2(_self)>
-	}
-
 	log10 { :self |
 		<primitive: return Math.log10(_self)>
+	}
+
+	log2 { :self |
+		<primitive: return Math.log2(_self)>
 	}
 
 	mantissaExponent { :x :b |
@@ -692,7 +704,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		1
 	}
 
-
 	[plus, +] { :self :operand |
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
@@ -754,16 +765,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	ramanujansSum { :q :n |
-		1.to(q).sum { :a |
-			(a.gcd(q) = 1).if {
-				(2I.pi * (a / q) * n).exp
-			} {
-				0
-			}
-		}.real.round
-	}
-
 	raisedToPositiveSmallInteger { :self :operand |
 		self.uncheckedPower(operand)
 	}
@@ -779,8 +780,14 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		'SmallFloat>>raisedToSmallFloat: not SmallFloat'.error
 	}
 
-	realExponent { :x :b |
-		x.abs.log(b)
+	ramanujansSum { :q :n |
+		1.to(q).sum { :a |
+			(a.gcd(q) = 1).if {
+				(2I.pi * (a / q) * n).exp
+			} {
+				0
+			}
+		}.real.round
 	}
 
 	realDigits { :self :base :size |
@@ -798,6 +805,10 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 				]
 			}
 		}
+	}
+
+	realExponent { :x :b |
+		x.abs.log(b)
 	}
 
 	reduce { :self |
@@ -869,24 +880,16 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		>
 	}
 
-	[SmallFloat, Float] { :self |
-		self
-	}
-
-	[SmallInteger, smallFloatToSmallInteger] { :self |
-		self.isSmallInteger.if {
-			self
-		} {
-			self.error('SmallFloat>>SmallInteger: not integer')
-		}
-	}
-
 	[squareRoot, sqrt] { :self |
 		self.isNegative.if {
 			Complex(self, 0).sqrt
 		} {
 			self.uncheckedSquareRoot
 		}
+	}
+
+	storeString { :self |
+		self.printString(10)
 	}
 
 	[subtract, -] { :self :operand |
@@ -906,10 +909,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		} {
 			x ^ (1 / n)
 		}
-	}
-
-	storeString { :self |
-		self.printString(10)
 	}
 
 	[times, *] { :self :operand |

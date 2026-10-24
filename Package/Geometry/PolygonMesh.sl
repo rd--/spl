@@ -8,6 +8,13 @@
 		self.embeddingDimension
 	}
 
+	edgeCoordinates { :self |
+		let vertexCoordinates = self.vertexCoordinates;
+		self.edgeList.collect { :each |
+			vertexCoordinates.atAll(each)
+		}
+	}
+
 	edgeCount { :self |
 		self.faceIndices.collect(size/1).sum / 2
 	}
@@ -31,13 +38,6 @@
 			}
 		};
 		answer.nub
-	}
-
-	edgeCoordinates { :self |
-		let vertexCoordinates = self.vertexCoordinates;
-		self.edgeList.collect { :each |
-			vertexCoordinates.atAll(each)
-		}
 	}
 
 	embeddingDimension { :self |

@@ -1,5 +1,9 @@
 @PrimitiveArray {
 
+	[List, arrayToList] { :self |
+		List(self.size, nil).fillFrom!(self)
+	}
+
 	atIfAbsent { :self :index :ifAbsent/0 |
 		<primitive:
 		if(sl.arrayCheckIndex(_self, _index)) {
@@ -38,15 +42,6 @@
 		nil
 	}
 
-	findFirstElement { :self :aBlock/1 |
-		<primitive:
-		const item = _self.find(function(element) {
-			return _aBlock_1(element);
-		});
-		return (item === undefined) ? null : item;
-		>
-	}
-
 	findFirst { :self :aBlock/1 |
 		<primitive:
 		const index = _self.findIndex(function(element) {
@@ -56,11 +51,13 @@
 		>
 	}
 
-	insertAt! { :self :anObject :index |
+	findFirstElement { :self :aBlock/1 |
 		<primitive:
-		_self.splice(_index - 1, 0, _anObject);
+		const item = _self.find(function(element) {
+			return _aBlock_1(element);
+		});
+		return (item === undefined) ? null : item;
 		>
-		anObject
 	}
 
 	includesIndex { :self :index |
@@ -69,8 +66,11 @@
 		>
 	}
 
-	[List, arrayToList] { :self |
-		List(self.size, nil).fillFrom!(self)
+	insertAt! { :self :anObject :index |
+		<primitive:
+		_self.splice(_index - 1, 0, _anObject);
+		>
+		anObject
 	}
 
 	put! { :self :index :anObject |
@@ -91,14 +91,14 @@
 		<primitive: return _self.length;>
 	}
 
-	sortBy! { :self :sortBlock/2 |
-		self.uncheckedSortComparing!(
+	sortBy { :self :sortBlock/2 |
+		self.uncheckedSortComparing(
 			sortBlockToTypeCheckedCompareBlock(sortBlock/2)
 		)
 	}
 
-	sortBy { :self :sortBlock/2 |
-		self.uncheckedSortComparing(
+	sortBy! { :self :sortBlock/2 |
+		self.uncheckedSortComparing!(
 			sortBlockToTypeCheckedCompareBlock(sortBlock/2)
 		)
 	}
@@ -111,14 +111,14 @@
 		>
 	}
 
-	sortComparing! { :self :compareBlock/2 |
-		self.uncheckedSortComparing!(
+	sortComparing { :self :compareBlock/2 |
+		self.uncheckedSortComparing(
 			typeCheckedCompareBlock(compareBlock/2)
 		)
 	}
 
-	sortComparing { :self :compareBlock/2 |
-		self.uncheckedSortComparing(
+	sortComparing! { :self :compareBlock/2 |
+		self.uncheckedSortComparing!(
 			typeCheckedCompareBlock(compareBlock/2)
 		)
 	}

@@ -4,12 +4,16 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, Collection, Add, Remove] {
 
 	| capacity bytes tally |
 
-	[isEqual, =] { :self :anObject |
-		anObject.isBitSet & {
-			anObject.size = self.tally & {
-				anObject.bytes = self.bytes
-			}
-		}
+	[List, bitSetToList] { :self |
+		self.positionVector
+	}
+
+	String { :self |
+		let ascii = ByteArray(self.capacity, 0);
+		self.bitsWithIndexDo { :each :index |
+			ascii[index + 1] := 48 + each
+		};
+		ascii.asciiString
 	}
 
 	add! { :self :anInteger |
@@ -52,6 +56,10 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, Collection, Add, Remove] {
 		aBit
 	}
 
+	bitVector { :self |
+		self.items(bitsDo/2)
+	}
+
 	bitsDo { :self :aBlock/1 |
 		self.indices.do { :index |
 			aBlock(self.bitAt(index))
@@ -62,10 +70,6 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, Collection, Add, Remove] {
 		self.indices.do { :index |
 			aBlock(self.bitAt(index), index)
 		}
-	}
-
-	bitVector { :self |
-		self.items(bitsDo/2)
 	}
 
 	boxNotation { :self :zeroOne |
@@ -132,8 +136,12 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, Collection, Add, Remove] {
 		self.tally = 0
 	}
 
-	[List, bitSetToList] { :self |
-		self.positionVector
+	[isEqual, =] { :self :anObject |
+		anObject.isBitSet & {
+			anObject.size = self.tally & {
+				anObject.bytes = self.bytes
+			}
+		}
 	}
 
 	occurrencesOf { :self :anObject |
@@ -142,6 +150,10 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, Collection, Add, Remove] {
 		} {
 			0
 		}
+	}
+
+	positionVector { :self |
+		self.items(positionsDo/2)
 	}
 
 	positionsDo { :self :aBlock/1 |
@@ -165,20 +177,8 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, Collection, Add, Remove] {
 		}
 	}
 
-	positionVector { :self |
-		self.items(positionsDo/2)
-	}
-
 	postCopy { :self |
 		self.bytes := self.bytes.copy
-	}
-
-	removeIfAbsent! { :self :anInteger :absentBlock/0 |
-		self.clearBitAt(anInteger).if {
-			anInteger
-		} {
-			absentBlock()
-		}
 	}
 
 	removeAll! { :self |
@@ -187,6 +187,14 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, Collection, Add, Remove] {
 			self.tally := 0
 		};
 		nil
+	}
+
+	removeIfAbsent! { :self :anInteger :absentBlock/0 |
+		self.clearBitAt(anInteger).if {
+			anInteger
+		} {
+			absentBlock()
+		}
 	}
 
 	setBitAt { :self :anInteger |
@@ -213,14 +221,6 @@ BitSet : [Object, Copy, Store, Equal, Do, Collect, Collection, Add, Remove] {
 				self.capacity
 			]
 		)
-	}
-
-	String { :self |
-		let ascii = ByteArray(self.capacity, 0);
-		self.bitsWithIndexDo { :each :index |
-			ascii[index + 1] := 48 + each
-		};
-		ascii.asciiString
 	}
 
 }

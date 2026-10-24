@@ -1,5 +1,32 @@
 @Graph {
 
+	GeometryCollection { :self |
+		let vertexCoordinates = self.vertexCoordinates;
+		let geometries = [PointCloud(vertexCoordinates)];
+		self.edgeList.do { :each |
+			let [i, j] = each;
+			geometries.add!(
+				LineSegment(
+					vertexCoordinates[i],
+					vertexCoordinates[j]
+				)
+			)
+		};
+		GeometryCollection(geometries)
+	}
+
+	LineDrawing { :self |
+		self.GeometryCollection.LineDrawing
+	}
+
+	PerspectiveDrawing { :self :projection |
+		self.GeometryCollection.PerspectiveDrawing(projection)
+	}
+
+	PerspectiveDrawing { :self |
+		self.GeometryCollection.PerspectiveDrawing
+	}
+
 	adjacencyList { :self |
 		self.vertexList.collect { :each |
 			self.adjacencyList(each)
@@ -186,21 +213,6 @@
 		g.graphDistanceMatrix.heldKarpAlgorithm
 	}
 
-	GeometryCollection { :self |
-		let vertexCoordinates = self.vertexCoordinates;
-		let geometries = [PointCloud(vertexCoordinates)];
-		self.edgeList.do { :each |
-			let [i, j] = each;
-			geometries.add!(
-				LineSegment(
-					vertexCoordinates[i],
-					vertexCoordinates[j]
-				)
-			)
-		};
-		GeometryCollection(geometries)
-	}
-
 	graphComplement { :self |
 		let m = self.adjacencyMatrix;
 		(1 - m.size.identityMatrix - m).adjacencyGraph
@@ -292,6 +304,16 @@
 		}
 	}
 
+	inEdgeListOf { :self :vertex |
+		self.edgeList.select { :edge |
+			(edge[2] = vertex) | {
+				edge.isUndirected & {
+					edge[1] = vertex
+				}
+			}
+		}
+	}
+
 	incidenceGraph { :self :vertex |
 		self.incidenceList(vertex).Graph
 	}
@@ -352,16 +374,6 @@
 
 	includesVertex { :self :vertex |
 		self.vertexList.includes(vertex)
-	}
-
-	inEdgeListOf { :self :vertex |
-		self.edgeList.select { :edge |
-			(edge[2] = vertex) | {
-				edge.isUndirected & {
-					edge[1] = vertex
-				}
-			}
-		}
 	}
 
 	isDirected { :self |
@@ -429,39 +441,6 @@
 		}
 	}
 
-	linearGraphPlot { :self |
-		let k = self.vertexCount;
-		let p = 1.toCollect(k) { :i | [i 0] };
-		let e = self.edgeList.collect { :each |
-			let [i, j] = each;
-			let y = (j - i) / 2;
-			let x = i + y;
-			Line([i 0; x y; j 0])
-		};
-		[
-			Line([1 0; k 0]),
-			PointCloud(p),
-			Point([1, k / 2]),
-			e
-		].LineDrawing
-	}
-
-	LineDrawing { :self |
-		self.GeometryCollection.LineDrawing
-	}
-
-	PerspectiveDrawing { :self :projection |
-		self.GeometryCollection.PerspectiveDrawing(projection)
-	}
-
-	PerspectiveDrawing { :self |
-		self.GeometryCollection.PerspectiveDrawing
-	}
-
-	[plus, +] { :self :aGraph |
-		self.graphSum(aGraph)
-	}
-
 	lineGraph { :self |
 		let k = self.edgeCount;
 		let v = [1 .. k];
@@ -496,6 +475,23 @@
 		Graph(v, e)
 	}
 
+	linearGraphPlot { :self |
+		let k = self.vertexCount;
+		let p = 1.toCollect(k) { :i | [i 0] };
+		let e = self.edgeList.collect { :each |
+			let [i, j] = each;
+			let y = (j - i) / 2;
+			let x = i + y;
+			Line([i 0; x y; j 0])
+		};
+		[
+			Line([1 0; k 0]),
+			PointCloud(p),
+			Point([1, k / 2]),
+			e
+		].LineDrawing
+	}
+
 	meanGraphDistance { :self |
 		let m = self.graphDistanceMatrix;
 		m.offDiagonalMean
@@ -525,6 +521,10 @@
 				}
 			}
 		}
+	}
+
+	[plus, +] { :self :aGraph |
+		self.graphSum(aGraph)
 	}
 
 	seidelAdjacencyMatrix { :self |
@@ -946,6 +946,10 @@ Graph : [Object, Graph] {
 		Graph(v, e)
 	}
 
+	hararyGraph { :k :n |
+		hararyGraphEdgeList(k, n).Graph
+	}
+
 	hararyGraphEdgeList { :k :n |
 		k.isEven.if {
 			let m = k / 2;
@@ -975,10 +979,6 @@ Graph : [Object, Graph] {
 				e
 			}
 		}
-	}
-
-	hararyGraph { :k :n |
-		hararyGraphEdgeList(k, n).Graph
 	}
 
 	kingGraph { :m :n |
@@ -1203,8 +1203,17 @@ Graph : [Object, Graph] {
 
 }
 
-
 +List {
+
+	Graph { :self |
+		let edgeList = self.edgeList;
+		let vertexList = [];
+		edgeList.do { :each |
+			vertexList.add!(each[1]);
+			vertexList.add!(each[2])
+		};
+		Graph(vertexList.unique, edgeList)
+	}
 
 	adjacencyGraph { :self |
 		self.isSquareMatrix.if {
@@ -1215,16 +1224,6 @@ Graph : [Object, Graph] {
 		} {
 			self.error('List>>adjacencyGraph: not a square matrix')
 		}
-	}
-
-	Graph { :self |
-		let edgeList = self.edgeList;
-		let vertexList = [];
-		edgeList.do { :each |
-			vertexList.add!(each[1]);
-			vertexList.add!(each[2])
-		};
-		Graph(vertexList.unique, edgeList)
 	}
 
 	incidenceGraph { :self |

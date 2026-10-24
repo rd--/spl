@@ -75,11 +75,6 @@
 		n.max(d)
 	}
 
-	octaveReduceLogRule { :self :octaveRatio |
-		let exponent = self.log(octaveRatio).floor.negate;
-		self * (2/1 ^ exponent)
-	}
-
 	octaveReduce { :self :octaveRatio |
 		{ self < 1 }.whileTrue {
 			self := self * octaveRatio
@@ -92,6 +87,11 @@
 
 	octaveReduce { :self |
 		self.octaveReduce(2)
+	}
+
+	octaveReduceLogRule { :self :octaveRatio |
+		let exponent = self.log(octaveRatio).floor.negate;
+		self * (2/1 ^ exponent)
 	}
 
 	tenneyHeight { :self :base |
@@ -220,12 +220,12 @@
 		Fraction(3L ^ 53, 2L ^ 84) ^ self
 	}
 
-	pythagoreanComma { :self |
-		531441/524288 ^ self
-	}
-
 	pythagoreanChroma { :self |
 		2187/2048 ^ self
+	}
+
+	pythagoreanComma { :self |
+		531441/524288 ^ self
 	}
 
 	pythagoreanLimma { :self |

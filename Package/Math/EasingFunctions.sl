@@ -1,199 +1,5 @@
 +SmallFloat {
 
-	easeNone { :t |
-		t
-	}
-
-	easeInQuadratic { :t |
-		t * t
-	}
-
-	easeOutQuadratic { :t |
-		(0 - t) * (t - 2)
-	}
-
-	easeInOutQuadratic { :t |
-		t := t * 2;
-		if(t < 1) {
-			0.5 * t * t
-		} {
-			-0.5 * (t - 1 * (t - 3) - 1)
-		}
-	}
-
-	easeOutInQuadratic { :t |
-		if(t < 0.5) {
-			easeOutQuadratic(t * 2) * 0.5
-		} {
-			easeInQuadratic(2 * t - 1) * 0.5 + 0.5
-		}
-	}
-
-	easeInCubic { :t |
-		t * t * t
-	}
-
-	easeOutCubic { :t |
-		t := t - 1;
-		(t * t * t) + 1
-	}
-
-	easeInOutCubic { :t |
-		t := t * 2;
-		if(t < 1) {
-			0.5 * t * t * t
-		} {
-			t := t - 2;
-			0.5 * (t * t * t + 2)
-		}
-	}
-
-	easeOutInCubic { :t |
-		if(t < 0.5) {
-			easeOutCubic(2 * t) / 2
-		} {
-			easeInCubic(2 * t - 1) / 2 + 0.5
-		}
-	}
-
-	easeInQuartic { :t |
-		t * t * t * t
-	}
-
-	easeOutQuartic { :t |
-		t := t - 1;
-		0 - (t * t * t * t - 1)
-	}
-
-	easeInOutQuartic { :t |
-		t := t * 2;
-		if(t < 1) {
-			0.5 * t * t * t * t
-		} {
-			let z = t - 2;
-			-0.5 * (z * z * z * z - 2)
-		}
-	}
-
-	easeOutInQuartic { :t |
-		if(t < 0.5) {
-			easeOutQuartic(2 * t) / 2
-		} {
-			easeInQuartic(2 * t - 1) / 2 + 0.5
-		}
-	}
-
-	easeInQuintic { :t |
-		t * t * t * t * t
-	}
-
-	easeOutQuintic { :t |
-		t := t - 1;
-		t * t * t * t * t + 1
-	}
-
-	easeInOutQuintic { :t |
-		t := t * 2;
-		if(t < 1) {
-			0.5 * t * t * t * t * t
-		} {
-			let z = t - 2;
-			0.5 * (z * z * z * z * z + 2)
-		}
-	}
-
-	easeOutInQuintic { :t |
-		if(t < 0.5) {
-			easeOutQuintic(2 * t) / 2
-		} {
-			easeInQuintic(2 * t - 1) / 2 + 0.5
-		}
-	}
-
-	easeInSine { :t |
-		0 - cos(t.pi / 2) + 1
-	}
-
-	easeOutSine { :t |
-		sin(t.pi / 2)
-	}
-
-	easeInOutSine { :t |
-		-0.5 * (cos(t.pi) - 1)
-	}
-
-	easeOutInSine { :t |
-		if(t < 0.5) {
-			easeOutSine(2 * t) / 2
-		} {
-			easeInSine(2 * t - 1) / 2 + 0.5
-		}
-	}
-
-	easeInExponential { :t |
-		2 ^ (10 * (t - 1))
-	}
-
-	easeOutExponential { :t |
-		if(t = 1) {
-			1
-		} {
-			0 - (2 ^ (-10 * t)) + 1
-		}
-	}
-
-	easeInOutExponential { :t |
-		if(t = 0) {
-			0
-		} {
-			if(t = 1) {
-				1
-			} {
-				t := t * 2;
-				if(t < 1) {
-					0.5 * (2 ^ (10 * (t - 1)))
-				} {
-					0.5 * (0 - (2 ^ (-10 * (t - 1))) + 2)
-				}
-			}
-		}
-	}
-
-	easeOutInExponential { :t |
-		if(t < 0.5) {
-			easeOutExponential(2 * t) / 2
-		} {
-			easeInExponential(2 * t - 1) / 2 + 0.5
-		}
-	}
-
-	easeInCircular { :t |
-		0 - (sqrt(1 - (t * t)) - 1)
-	}
-
-	easeOutCircular { :t |
-		t := t - 1;
-		sqrt(1 - (t * t))
-	}
-
-	easeInOutCircular { :t |
-		t := t * 2;
-		if(t < 1) {
-			-0.5 * (sqrt(1 - (t * t)) - 1)
-		} {
-			let z = t - 2;
-			0.5 * (sqrt(1 - (z * z)) + 1)
-		}
-	}
-
-	easeOutInCircular { :t |
-		if(t < 0.5) {
-			easeOutCircular(2 * t) / 2
-		} {
-			easeInCircular(2 * t - 1) / 2 + 0.5
-		}
-	}
-
 	easeBounceFunction { :t :c :a |
 		if(t = 1) {
 			c
@@ -217,41 +23,9 @@
 		}
 	}
 
-	easeInBounce { :a |
+	easeInArcTan { :a |
 		{ :t |
-			1 - easeBounceFunction(1 - t, 1, a)
-		}
-	}
-
-	easeOutBounce { :a |
-		{ :t |
-			easeBounceFunction(t, 1, a)
-		}
-	}
-
-	easeInOutBounce { :a |
-		let in/1 = a.easeInBounce;
-		let out/1 = a.easeOutBounce;
-		{ :t |
-			if(t < 0.5) {
-				in(2 * t) / 2
-			} {
-				if(t =1) {
-					1
-				} {
-					out(2 * t - 1) / 2 + 0.5
-				}
-			}
-		}
-	}
-
-	easeOutInBounce { :a |
-		{ :t |
-			if(t < 0.5) {
-				easeBounceFunction(t * 2, 0.5, a)
-			} {
-				1 - easeBounceFunction(2 - (2 * t), 0.5, a)
-			}
+			arcTan((t - 1) * a) / arcTan(a) + 1
 		}
 	}
 
@@ -261,36 +35,18 @@
 		}
 	}
 
-	easeOutBack { :a |
+	easeInBounce { :a |
 		{ :t |
-			t := t - 1;
-			t * t * ((a + 1) * t + a) + 1
+			1 - easeBounceFunction(1 - t, 1, a)
 		}
 	}
 
-	easeInOutBack { :a |
-		{ :t |
-			let a2 = a * 1.525;
-			t := t * 2;
-			if(t < 1) {
-				0.5 * (t * t * ((a2 + 1) * t - a2))
-			} {
-				let t2 = t - 2;
-				0.5 * (t2 * t2 * ((a2 + 1) * t2 + a2) + 2)
-			}
-		}
+	easeInCircular { :t |
+		0 - (sqrt(1 - (t * t)) - 1)
 	}
 
-	easeOutInBack { :a |
-		let in/1 = a.easeInBack;
-		let out/1 = a.easeOutBack;
-		{ :t |
-			if(t < 0.5) {
-				out(2 * t) / 2
-			} {
-				in(2 * t - 1) / 2 + 0.5
-			}
-		}
+	easeInCubic { :t |
+		t * t * t
 	}
 
 	easeInElastic { :t :b :c :d :a :p |
@@ -319,27 +75,62 @@
 		}
 	}
 
-	easeOutElastic { :t :b :c :d :a :p |
-		if(t = 0) {
-			0
-		} {
-			if(t = 1) {
-				c
+	easeInExponential { :t |
+		2 ^ (10 * (t - 1))
+	}
+
+	easeInOutArcTan { :a |
+		{ :t |
+			arcTan((t - 0.5) * a) / (2 * arcTan(0.5 * a)) + 0.5
+		}
+	}
+
+	easeInOutBack { :a |
+		{ :t |
+			let a2 = a * 1.525;
+			t := t * 2;
+			if(t < 1) {
+				0.5 * (t * t * ((a2 + 1) * t - a2))
 			} {
-				let s = if(a < c) {
-					a := c;
-					p / 4
-				} {
-					p / 2.pi * arcSin(c / a)
-				};
-				a * (2 ^ (-10 * t)) * sin((t - s) * 2.pi / p) + c
+				let t2 = t - 2;
+				0.5 * (t2 * t2 * ((a2 + 1) * t2 + a2) + 2)
 			}
 		}
 	}
 
-	easeOutElastic { :a :p |
+	easeInOutBounce { :a |
+		let in/1 = a.easeInBounce;
+		let out/1 = a.easeOutBounce;
 		{ :t |
-			easeOutElastic(t, 0, 1, 1, a, p)
+			if(t < 0.5) {
+				in(2 * t) / 2
+			} {
+				if(t =1) {
+					1
+				} {
+					out(2 * t - 1) / 2 + 0.5
+				}
+			}
+		}
+	}
+
+	easeInOutCircular { :t |
+		t := t * 2;
+		if(t < 1) {
+			-0.5 * (sqrt(1 - (t * t)) - 1)
+		} {
+			let z = t - 2;
+			0.5 * (sqrt(1 - (z * z)) + 1)
+		}
+	}
+
+	easeInOutCubic { :t |
+		t := t * 2;
+		if(t < 1) {
+			0.5 * t * t * t
+		} {
+			t := t - 2;
+			0.5 * (t * t * t + 2)
 		}
 	}
 
@@ -368,6 +159,175 @@
 		}
 	}
 
+	easeInOutExponential { :t |
+		if(t = 0) {
+			0
+		} {
+			if(t = 1) {
+				1
+			} {
+				t := t * 2;
+				if(t < 1) {
+					0.5 * (2 ^ (10 * (t - 1)))
+				} {
+					0.5 * (0 - (2 ^ (-10 * (t - 1))) + 2)
+				}
+			}
+		}
+	}
+
+	easeInOutQuadratic { :t |
+		t := t * 2;
+		if(t < 1) {
+			0.5 * t * t
+		} {
+			-0.5 * (t - 1 * (t - 3) - 1)
+		}
+	}
+
+	easeInOutQuartic { :t |
+		t := t * 2;
+		if(t < 1) {
+			0.5 * t * t * t * t
+		} {
+			let z = t - 2;
+			-0.5 * (z * z * z * z - 2)
+		}
+	}
+
+	easeInOutQuintic { :t |
+		t := t * 2;
+		if(t < 1) {
+			0.5 * t * t * t * t * t
+		} {
+			let z = t - 2;
+			0.5 * (z * z * z * z * z + 2)
+		}
+	}
+
+	easeInOutSine { :t |
+		-0.5 * (cos(t.pi) - 1)
+	}
+
+	easeInQuadratic { :t |
+		t * t
+	}
+
+	easeInQuartic { :t |
+		t * t * t * t
+	}
+
+	easeInQuintic { :t |
+		t * t * t * t * t
+	}
+
+	easeInSine { :t |
+		0 - cos(t.pi / 2) + 1
+	}
+
+	easeNone { :t |
+		t
+	}
+
+	easeOutArcTan { :a |
+		{ :t |
+			arcTan(t * a) / arcTan(a)
+		}
+	}
+
+	easeOutBack { :a |
+		{ :t |
+			t := t - 1;
+			t * t * ((a + 1) * t + a) + 1
+		}
+	}
+
+	easeOutBounce { :a |
+		{ :t |
+			easeBounceFunction(t, 1, a)
+		}
+	}
+
+	easeOutCircular { :t |
+		t := t - 1;
+		sqrt(1 - (t * t))
+	}
+
+	easeOutCubic { :t |
+		t := t - 1;
+		(t * t * t) + 1
+	}
+
+	easeOutElastic { :t :b :c :d :a :p |
+		if(t = 0) {
+			0
+		} {
+			if(t = 1) {
+				c
+			} {
+				let s = if(a < c) {
+					a := c;
+					p / 4
+				} {
+					p / 2.pi * arcSin(c / a)
+				};
+				a * (2 ^ (-10 * t)) * sin((t - s) * 2.pi / p) + c
+			}
+		}
+	}
+
+	easeOutElastic { :a :p |
+		{ :t |
+			easeOutElastic(t, 0, 1, 1, a, p)
+		}
+	}
+
+	easeOutExponential { :t |
+		if(t = 1) {
+			1
+		} {
+			0 - (2 ^ (-10 * t)) + 1
+		}
+	}
+
+	easeOutInBack { :a |
+		let in/1 = a.easeInBack;
+		let out/1 = a.easeOutBack;
+		{ :t |
+			if(t < 0.5) {
+				out(2 * t) / 2
+			} {
+				in(2 * t - 1) / 2 + 0.5
+			}
+		}
+	}
+
+	easeOutInBounce { :a |
+		{ :t |
+			if(t < 0.5) {
+				easeBounceFunction(t * 2, 0.5, a)
+			} {
+				1 - easeBounceFunction(2 - (2 * t), 0.5, a)
+			}
+		}
+	}
+
+	easeOutInCircular { :t |
+		if(t < 0.5) {
+			easeOutCircular(2 * t) / 2
+		} {
+			easeInCircular(2 * t - 1) / 2 + 0.5
+		}
+	}
+
+	easeOutInCubic { :t |
+		if(t < 0.5) {
+			easeOutCubic(2 * t) / 2
+		} {
+			easeInCubic(2 * t - 1) / 2 + 0.5
+		}
+	}
+
 	easeOutInElastic { :a :p |
 		{ :t |
 			if(t < 0.5) {
@@ -378,22 +338,62 @@
 		}
 	}
 
-	easeInArcTan { :a |
-		{ :t |
-			arcTan((t - 1) * a) / arcTan(a) + 1
+	easeOutInExponential { :t |
+		if(t < 0.5) {
+			easeOutExponential(2 * t) / 2
+		} {
+			easeInExponential(2 * t - 1) / 2 + 0.5
 		}
 	}
 
-	easeOutArcTan { :a |
-		{ :t |
-			arcTan(t * a) / arcTan(a)
+	easeOutInQuadratic { :t |
+		if(t < 0.5) {
+			easeOutQuadratic(t * 2) * 0.5
+		} {
+			easeInQuadratic(2 * t - 1) * 0.5 + 0.5
 		}
 	}
 
-	easeInOutArcTan { :a |
-		{ :t |
-			arcTan((t - 0.5) * a) / (2 * arcTan(0.5 * a)) + 0.5
+	easeOutInQuartic { :t |
+		if(t < 0.5) {
+			easeOutQuartic(2 * t) / 2
+		} {
+			easeInQuartic(2 * t - 1) / 2 + 0.5
 		}
+	}
+
+	easeOutInQuintic { :t |
+		if(t < 0.5) {
+			easeOutQuintic(2 * t) / 2
+		} {
+			easeInQuintic(2 * t - 1) / 2 + 0.5
+		}
+	}
+
+	easeOutInSine { :t |
+		if(t < 0.5) {
+			easeOutSine(2 * t) / 2
+		} {
+			easeInSine(2 * t - 1) / 2 + 0.5
+		}
+	}
+
+	easeOutQuadratic { :t |
+		(0 - t) * (t - 2)
+	}
+
+	easeOutQuartic { :t |
+		t := t - 1;
+		0 - (t * t * t * t - 1)
+	}
+
+	easeOutQuintic { :t |
+		t := t - 1;
+		t * t * t * t * t + 1
+	}
+
+	easeOutSine { :t |
+		sin(t.pi / 2)
 	}
 
 }

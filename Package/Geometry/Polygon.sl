@@ -189,6 +189,14 @@ Polygon : [Object, Store, Equal, Geometry] {
 
 +List {
 
+	Polygon { :self |
+		(self.depth > 3).if {
+			self.collect(Polygon/1)
+		} {
+			newPolygon().initializeSlots(self)
+		}
+	}
+
 	crossingNumber { :self :aPoint |
 		self.includes(aPoint).if {
 			0
@@ -246,14 +254,6 @@ Polygon : [Object, Store, Equal, Geometry] {
 
 	pentagram { :center :radius :theta |
 		starPolygon(5, 2, center, radius, theta)
-	}
-
-	Polygon { :self |
-		(self.depth > 3).if {
-			self.collect(Polygon/1)
-		} {
-			newPolygon().initializeSlots(self)
-		}
 	}
 
 	polygonArcLength { :self |

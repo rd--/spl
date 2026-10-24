@@ -9,10 +9,6 @@ PermuteBenchmark : [Object] {
 		self.count
 	}
 
-	verifyResult { :self :result |
-		result = 8660
-	}
-
 	permute { :self :n |
 		self.count := self.count + 1;
 		(n != 0).ifTrue {
@@ -29,6 +25,10 @@ PermuteBenchmark : [Object] {
 		let tmp = self.v[i];
 		self.v[i] := self.v[j];
 		self.v[j] := tmp
+	}
+
+	verifyResult { :self :result |
+		result = 8660
 	}
 
 }

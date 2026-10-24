@@ -11,6 +11,10 @@ ExponentialDistribution : [Object, Equal, ProbabilityDistribution] {
 
 	| lambda |
 
+	beta { :self |
+		1 / self.lambda
+	}
+
 	cdf { :self |
 		let lambda = self.lambda;
 		{ :x |
@@ -20,10 +24,6 @@ ExponentialDistribution : [Object, Equal, ProbabilityDistribution] {
 				0
 			}
 		}
-	}
-
-	beta { :self |
-		1 / self.lambda
 	}
 
 	hazardFunction { :self |

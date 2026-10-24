@@ -1,5 +1,17 @@
 @PrimitiveMap {
 
+	Map { :self |
+		self
+	}
+
+	Record { :self |
+		self.keys.allSatisfy(isString/1).if {
+			self.uncheckedMapToRecord
+		} {
+			self.error('@PrimitiveMap>>Record: not all keys are strings')
+		}
+	}
+
 	atIfAbsent { :self :key :ifAbsent/0 |
 		<primitive:
 		if(_self.has(_key)) {
@@ -11,18 +23,6 @@
 
 	includesKey { :self :key |
 		<primitive: return _self.has(_key);>
-	}
-
-	Map { :self |
-		self
-	}
-
-	Record { :self |
-		self.keys.allSatisfy(isString/1).if {
-			self.uncheckedMapToRecord
-		} {
-			self.error('@PrimitiveMap>>Record: not all keys are strings')
-		}
 	}
 
 	removeKeyIfAbsent! { :self :key :aBlock/0 |

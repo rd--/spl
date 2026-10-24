@@ -68,6 +68,14 @@
 		self.printString
 	}
 
+	error { :self :message :parameters |
+		self.errorValue(message, parameters).signal
+	}
+
+	error { :self :message |
+		self.error(message, [])
+	}
+
 	errorMessage { :self :message :parameters |
 		'%: %: %: (%)'.format(
 			[
@@ -82,14 +90,6 @@
 	errorValue { :self :message :parameters |
 		let description = self.errorMessage(message, parameters);
 		Error(description)
-	}
-
-	error { :self :message :parameters |
-		self.errorValue(message, parameters).signal
-	}
-
-	error { :self :message |
-		self.error(message, [])
 	}
 
 	identity { :self |
@@ -232,7 +232,6 @@
 	typeName { :self |
 		<primitive: return sl.splTypeName(_self);>
 	}
-
 
 	uncheckedSlotRead { :self :key |
 		<primitive: return _self[_key];>

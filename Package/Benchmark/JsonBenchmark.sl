@@ -7,6 +7,10 @@ HashIndexTable : [Object, At, Put] {
 		self.hashTable[slot].bitAnd(255) - 1
 	}
 
+	hashSlotFor { :self :element |
+		((self.stringHash(element)).bitAnd(self.hashTable.size - 1)) + 1
+	}
+
 	put! { :self :name :index |
 		let slot = self.hashSlotFor(name);
 		(index < 255).if {
@@ -18,10 +22,6 @@ HashIndexTable : [Object, At, Put] {
 
 	stringHash { :self :s |
 		s.size * 1402589
-	}
-
-	hashSlotFor { :self :element |
-		((self.stringHash(element)).bitAnd(self.hashTable.size - 1)) + 1
 	}
 
 }
@@ -36,16 +36,45 @@ HashIndexTable : [Object, At, Put] {
 
 @JsonValue {
 
-	isObject { :self | false }
-	isList { :self | false }
-	isNumber { :self | false }
-	isString { :self | false }
-	isBoolean { :self | false }
-	isTrue { :self | false }
-	isFalse { :self | false }
-	isNull { :self | false }
-	asObject { :self | ('Unsupported operation, not an object: ' ++ self.asString).error }
-	asList { :self | ('Unsupported operation, not an array: ' ++ self.asString).error }
+	asList { :self |
+		('Unsupported operation, not an array: ' ++ self.printString).error
+	}
+
+	asObject { :self |
+		('Unsupported operation, not an object: ' ++ self.printString).error
+	}
+
+	isBoolean { :self |
+		false
+	}
+
+	isFalse { :self |
+		false
+	}
+
+	isList { :self |
+		false
+	}
+
+	isNull { :self |
+		false
+	}
+
+	isNumber { :self |
+		false
+	}
+
+	isObject { :self |
+		false
+	}
+
+	isString { :self |
+		false
+	}
+
+	isTrue { :self |
+		false
+	}
 
 }
 
@@ -90,11 +119,28 @@ JsonLiteral : [Object, JsonValue] {
 
 	| value isNull isTrue isFalse |
 
-	asString { :self | self.value }
-	isNull { :self | self.isNull }
-	isTrue { :self | self.isTrue }
-	isFalse { :self | self.isFalse }
-	isBoolean { :self | self.isTrue | { self.isFalse } }
+	asString { :self |
+		self.value
+	}
+
+	isBoolean { :self |
+		self.isTrue |
+		{
+			self.isFalse
+		}
+	}
+
+	isFalse { :self |
+		self.isFalse
+	}
+
+	isNull { :self |
+		self.isNull
+	}
+
+	isTrue { :self |
+		self.isTrue
+	}
 
 }
 
@@ -104,14 +150,23 @@ JsonLiteral : [Object, JsonValue] {
 		newJsonLiteral().initializeSlots(self, self = 'null', self = 'true', self = 'false')
 	}
 
+	asString { :self |
+		self
+	}
+
 }
 
 JsonNumber : [Object, JsonValue] {
 
 	| string |
 
-	asString { :self | self.string }
-	isNumber { :self | true }
+	asString { :self |
+		self.string
+	}
+
+	isNumber { :self |
+		true
+	}
 
 }
 
@@ -139,6 +194,10 @@ JsonObject : [Object, At, Put, JsonValue] {
 		self.values.add!(aJsonValue)
 	}
 
+	asObject { :self |
+		self
+	}
+
 	at { :self :name |
 		name.ifNil {
 			'name is null'.error
@@ -152,8 +211,15 @@ JsonObject : [Object, At, Put, JsonValue] {
 		}
 	}
 
-	size { :self |
-		self.names.size
+	indexOf { :self :name |
+		let index = self.table[name];
+		(index != 0 & {
+			name = self.names[index]
+		}).if {
+			index
+		} {
+			self.unimplementedCase('indexOf')
+		}
 	}
 
 	isEmpty { :self |
@@ -164,19 +230,8 @@ JsonObject : [Object, At, Put, JsonValue] {
 		true
 	}
 
-	asObject { :self |
-		self
-	}
-
-	indexOf { :self :name |
-		let index = self.table[name];
-		(index != 0 & {
-			name = self.names[index]
-		}).if {
-			index
-		} {
-			self.unimplementedCase('indexOf')
-		}
+	size { :self |
+		self.names.size
 	}
 
 	uncheckedAt { :self :name |
@@ -215,6 +270,44 @@ JsonParser : [Object] {
 
 	| input index line column current captureBuffer captureStart exceptionBlock |
 
+	endCapture { :self |
+		let captured = nil;
+		('' = self.captureBuffer).if {
+			captured := self.input.copyFromTo(self.captureStart, self.index - 1)
+		} {
+			self.pauseCapture;
+			captured := self.captureBuffer;
+			self.captureBuffer := ''
+		};
+		self.captureStart := 0;
+		captured
+	}
+
+	error { :self :message |
+		let f/1 = self.exceptionBlock;
+		let e = ParseException(message, self.index, self.line, self.column);
+		f(e)
+	}
+
+	expected { :self :expected |
+		self.isEndOfText.ifTrue {
+			self.error('Unexpected end of input, expected ' ++ expected)
+		};
+		self.error('Expected ' ++ expected)
+	}
+
+	isDigit { :self |
+		['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(self.current)
+	}
+
+	isEndOfText { :self |
+		self.current.isNil
+	}
+
+	isWhiteSpace { :self |
+		[' ', '\t', '\n', '\r'].includes(self.current)
+	}
+
 	parse { :self |
 		let result = nil;
 		self.read;
@@ -227,40 +320,112 @@ JsonParser : [Object] {
 		result
 	}
 
-	readValue { :self |
-		withReturn { :return/1 |
-			(self.current = 'n').ifTrue {
-				self.readNull.return
-			};
-			(self.current = 't').ifTrue {
-				self.readTrue.return
-			};
-			(self.current = 'f').ifTrue {
-				self.readFalse.return
-			};
-			(self.current = '"').ifTrue {
-				self.readString.return
-			};
-			(self.current = '[').ifTrue {
-				self.readList.return
-			};
-			(self.current = '{').ifTrue {
-				self.readObject.return
-			};
-			(self.current = '-').ifTrue {
-				self.readNumber.return
-			};
-			self.isDigit.ifTrue {
-				self.readNumber.return
-			};
-			self.expected('value')
+	pauseCapture { :self |
+		self.captureBuffer := self.captureBuffer.concatenate(
+			self.input.copyFromTo(self.captureStart, self.index - 1)
+		);
+		self.captureStart := 0
+	}
+
+	read { :self |
+		(self.current = '\n').ifTrue {
+			self.line := self.line + 1;
+			self.column := 0
+		};
+		self.index := self.index + 1;
+		self.column := self.column + 1;
+		self.input.ifNil {
+			self.error('input nil')
+		};
+		(self.index <= self.input.size).if {
+			self.current := self.input[self.index].asString
+		} {
+			self.current := nil
 		}
 	}
 
-	readListElement { :self :array |
-		self.skipWhiteSpace;
-		array.append(self.readValue);
-		self.skipWhiteSpace
+	readChar { :self :ch |
+		(self.current = ch).if {
+			self.read;
+			true
+		} {
+			false
+		}
+	}
+
+	readDigit { :self |
+		self.isDigit.if {
+			self.read;
+			true
+		} {
+			false
+		}
+	}
+
+	readEscape { :self |
+		self.read;
+		self.captureBuffer := self.captureBuffer.concatenate(self.readEscapeChar);
+		self.read
+	}
+
+	readEscapeChar { :self |
+		withReturn { :return/1 |
+			(self.current = '"').ifTrue { '"'.return };
+			(self.current = '/').ifTrue { '/'.return };
+			(self.current = '\\').ifTrue { '\\'.return };
+			(self.current = 'b').ifTrue { '\b'.return };
+			(self.current = 'f').ifTrue { '\f'.return };
+			(self.current = 'n').ifTrue { '\n'.return };
+			(self.current = 'r').ifTrue { '\r'.return };
+			(self.current = 't').ifTrue { '\t'.return };
+			self.expected('valid escape sequence. note, some are not supported')
+		}
+	}
+
+	readExponent { :self |
+		(
+			self.readChar('e') | {
+				self.readChar('E')
+			}
+		).if {
+			self.readChar('+').ifFalse {
+				self.readChar('-')
+			};
+			self.readDigit.ifFalse {
+				self.expected('digit')
+			};
+			{
+				self.readDigit
+			}.whileTrue {
+			};
+			true
+		} {
+			false
+		}
+	}
+
+	readFalse { :self |
+		self.read;
+		self.readRequiredChar('a');
+		self.readRequiredChar('l');
+		self.readRequiredChar('s');
+		self.readRequiredChar('e');
+		'false'.JsonLiteral
+	}
+
+	readFraction { :self |
+		(self.readChar('.')).if {
+			self.readDigit.ifFalse {
+				self.expected('digit')
+			};
+			{
+				self.readDigit
+			}.whileTrue {
+			};
+			true
+		} {
+			false
+		}
 	}
 
 	readList { :self |
@@ -283,17 +448,44 @@ JsonParser : [Object] {
 		}
 	}
 
-	readObjectKeyValuePair { :self :object |
-		let name = nil;
+	readListElement { :self :array |
 		self.skipWhiteSpace;
-		name := self.readName;
-		self.skipWhiteSpace;
-		(self.readChar(':')).ifFalse {
-			self.expected(':')
-		};
-		self.skipWhiteSpace;
-		object.addWith(name, self.readValue);
+		array.append(self.readValue);
 		self.skipWhiteSpace
+	}
+
+	readName { :self |
+		(self.current = '"').ifFalse {
+			self.expected('name')
+		};
+		self.readStringInternal
+	}
+
+	readNull { :self |
+		self.read;
+		self.readRequiredChar('u');
+		self.readRequiredChar('l');
+		self.readRequiredChar('l');
+		'null'.JsonLiteral
+	}
+
+	readNumber { :self |
+		let firstDigit = nil;
+		self.startCapture;
+		self.readChar('-');
+		firstDigit := self.current;
+		self.readDigit.ifFalse {
+			self.expected('digit')
+		};
+		(firstDigit != '0').ifTrue {
+			{
+				self.readDigit
+			}.whileTrue {
+			}
+		};
+		self.readFraction;
+		self.readExponent;
+		JsonNumber(self.endCapture)
 	}
 
 	readObject { :self |
@@ -316,36 +508,17 @@ JsonParser : [Object] {
 		}
 	}
 
-	readName { :self |
-		(self.current = '"').ifFalse {
-			self.expected('name')
+	readObjectKeyValuePair { :self :object |
+		let name = nil;
+		self.skipWhiteSpace;
+		name := self.readName;
+		self.skipWhiteSpace;
+		(self.readChar(':')).ifFalse {
+			self.expected(':')
 		};
-		self.readStringInternal
-	}
-
-	readNull { :self |
-		self.read;
-		self.readRequiredChar('u');
-		self.readRequiredChar('l');
-		self.readRequiredChar('l');
-		'null'.JsonLiteral
-	}
-
-	readTrue { :self |
-		self.read;
-		self.readRequiredChar('r');
-		self.readRequiredChar('u');
-		self.readRequiredChar('e');
-		'true'.JsonLiteral
-	}
-
-	readFalse { :self |
-		self.read;
-		self.readRequiredChar('a');
-		self.readRequiredChar('l');
-		self.readRequiredChar('s');
-		self.readRequiredChar('e');
-		'false'.JsonLiteral
+		self.skipWhiteSpace;
+		object.addWith(name, self.readValue);
+		self.skipWhiteSpace
 	}
 
 	readRequiredChar { :self :ch |
@@ -378,95 +551,41 @@ JsonParser : [Object] {
 		string
 	}
 
-	readEscapeChar { :self |
-		withReturn { :return/1 |
-			(self.current = '"').ifTrue { '"'.return };
-			(self.current = '/').ifTrue { '/'.return };
-			(self.current = '\\').ifTrue { '\\'.return };
-			(self.current = 'b').ifTrue { '\b'.return };
-			(self.current = 'f').ifTrue { '\f'.return };
-			(self.current = 'n').ifTrue { '\n'.return };
-			(self.current = 'r').ifTrue { '\r'.return };
-			(self.current = 't').ifTrue { '\t'.return };
-			self.expected('valid escape sequence. note, some are not supported')
-		}
-	}
-
-	readEscape { :self |
+	readTrue { :self |
 		self.read;
-		self.captureBuffer := self.captureBuffer.concatenate(self.readEscapeChar);
-		self.read
+		self.readRequiredChar('r');
+		self.readRequiredChar('u');
+		self.readRequiredChar('e');
+		'true'.JsonLiteral
 	}
 
-	readNumber { :self |
-		let firstDigit = nil;
-		self.startCapture;
-		self.readChar('-');
-		firstDigit := self.current;
-		self.readDigit.ifFalse {
-			self.expected('digit')
-		};
-		(firstDigit != '0').ifTrue {
-			{
-				self.readDigit
-			}.whileTrue {
-			}
-		};
-		self.readFraction;
-		self.readExponent;
-		JsonNumber(self.endCapture)
-	}
-
-	readFraction { :self |
-		(self.readChar('.')).if {
-			self.readDigit.ifFalse {
-				self.expected('digit')
+	readValue { :self |
+		withReturn { :return/1 |
+			(self.current = 'n').ifTrue {
+				self.readNull.return
 			};
-			{
-				self.readDigit
-			}.whileTrue {
+			(self.current = 't').ifTrue {
+				self.readTrue.return
 			};
-			true
-		} {
-			false
-		}
-	}
-
-	readExponent { :self |
-		(self.readChar('e') | {
-			self.readChar('E')
-		}).if {
-			self.readChar('+').ifFalse {
-				self.readChar('-')
+			(self.current = 'f').ifTrue {
+				self.readFalse.return
 			};
-			self.readDigit.ifFalse {
-				self.expected('digit')
+			(self.current = '"').ifTrue {
+				self.readString.return
 			};
-			{
-				self.readDigit
-			}.whileTrue {
+			(self.current = '[').ifTrue {
+				self.readList.return
 			};
-			true
-		} {
-			false
-		}
-	}
-
-	readChar { :self :ch |
-		(self.current = ch).if {
-			self.read;
-			true
-		} {
-			false
-		}
-	}
-
-	readDigit { :self |
-		self.isDigit.if {
-			self.read;
-			true
-		} {
-			false
+			(self.current = '{').ifTrue {
+				self.readObject.return
+			};
+			(self.current = '-').ifTrue {
+				self.readNumber.return
+			};
+			self.isDigit.ifTrue {
+				self.readNumber.return
+			};
+			self.expected('value')
 		}
 	}
 
@@ -478,68 +597,8 @@ JsonParser : [Object] {
 		}
 	}
 
-	read { :self |
-		(self.current = '\n').ifTrue {
-			self.line := self.line + 1;
-			self.column := 0
-		};
-		self.index := self.index + 1;
-		self.column := self.column + 1;
-		self.input.ifNil {
-			self.error('input nil')
-		};
-		(self.index <= self.input.size).if {
-			self.current := self.input[self.index].asString
-		} {
-			self.current := nil
-		}
-	}
-
 	startCapture { :self |
 		self.captureStart := self.index
-	}
-
-	pauseCapture { :self |
-		self.captureBuffer := self.captureBuffer.concatenate(self.input.copyFromTo(self.captureStart, self.index - 1));
-		self.captureStart := 0
-	}
-
-	endCapture { :self |
-		let captured = nil;
-		('' = self.captureBuffer).if {
-			captured := self.input.copyFromTo(self.captureStart, self.index - 1)
-		} {
-			self.pauseCapture;
-			captured := self.captureBuffer;
-			self.captureBuffer := ''
-		};
-		self.captureStart := 0;
-		captured
-	}
-
-	expected { :self :expected |
-		self.isEndOfText.ifTrue {
-			self.error('Unexpected end of input, expected ' ++ expected)
-		};
-		self.error('Expected ' ++ expected)
-	}
-
-	error { :self :message |
-		let f/1 = self.exceptionBlock;
-		let e = ParseException(message, self.index, self.line, self.column);
-		f(e)
-	}
-
-	isWhiteSpace { :self |
-		[' ', '\t', '\n', '\r'].includes(self.current)
-	}
-
-	isDigit { :self |
-		['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(self.current)
-	}
-
-	isEndOfText { :self |
-		self.current.isNil
 	}
 
 }

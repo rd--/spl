@@ -4,12 +4,12 @@
 		self.collect(ampDb/1)
 	}
 
-	dbAmp { :self |
-		self.collect(dbAmp/1)
-	}
-
 	cpsMidi { :self |
 		self.collect(cpsMidi/1)
+	}
+
+	dbAmp { :self |
+		self.collect(dbAmp/1)
 	}
 
 	linLin { :self :inMin :inMax :outMin :outMax |
@@ -53,6 +53,53 @@
 
 +@Number {
 
+	/*
+	Cube { :self |
+		self * self * self
+	}
+	*/
+
+	DifSqr { :self :aNumber |
+		(self * self) - (aNumber * aNumber)
+	}
+
+	Distort { :self |
+		self / (1 + self.abs)
+	}
+
+	Hypotenuse { :self :aNumber |
+		((self * self) + (aNumber * aNumber)).sqrt
+	}
+
+	HypotenuseApproximate { :self :aNumber |
+		self.abs + aNumber.abs - ((2.sqrt - 1) * self.abs.min(aNumber.abs))
+	}
+
+	MulAdd { :self :mul :add |
+		self * mul + add
+	}
+
+	Negate { :self |
+		0 - self
+	}
+
+	OctCps { :self |
+		440 * (2 ^ (self - 4.75))
+	}
+
+	Reciprocal { :self |
+		1 / self
+	}
+
+	Square { :self |
+		self * self
+	}
+
+	nextPowerOf { :self :base |
+		let exponent = self.log(base).ceiling;
+		base ^ exponent
+	}
+
 	ampComp { :freq :root :exp |
 		(root / freq) ^ exp
 	}
@@ -72,12 +119,6 @@
 	[cpsOct, CpsOct] { :self |
 		(self / 440).log2 + 4.75
 	}
-
-	/*
-	Cube { :self |
-		self * self * self
-	}
-	*/
 
 	curveLin { :self :inMin :inMax :outMin :outMax :curve |
 		(self <= inMin).if {
@@ -100,14 +141,6 @@
 
 	dbAmp { :self |
 		10 ^ (self * 0.05)
-	}
-
-	DifSqr { :self :aNumber |
-		(self * self) - (aNumber * aNumber)
-	}
-
-	Distort { :self |
-		self / (1 + self.abs)
 	}
 
 	expExp { :self :inMin :inMax :outMin :outMax |
@@ -134,22 +167,6 @@
 		}
 	}
 
-	foldOnce { :self :lo :hi |
-		(self >= hi).if {
-			hi + hi - self
-		} {
-			(self < lo).if {
-				lo + lo - self
-			} {
-				(self = hi).if {
-					lo
-				} {
-					self
-				}
-			}
-		}
-	}
-
 	fold { :self :lo :hi |
 		(self >= lo & {
 			self < hi
@@ -167,12 +184,20 @@
 		}
 	}
 
-	Hypotenuse { :self :aNumber |
-		((self * self) + (aNumber * aNumber)).sqrt
-	}
-
-	HypotenuseApproximate { :self :aNumber |
-		self.abs + aNumber.abs - ((2.sqrt - 1) * self.abs.min(aNumber.abs))
+	foldOnce { :self :lo :hi |
+		(self >= hi).if {
+			hi + hi - self
+		} {
+			(self < lo).if {
+				lo + lo - self
+			} {
+				(self = hi).if {
+					lo
+				} {
+					self
+				}
+			}
+		}
 	}
 
 	isExclusivelyBetween { :self :lo :hi |
@@ -243,38 +268,15 @@
 		2 ^ (self / 12)
 	}
 
-	MulAdd { :self :mul :add |
-		self * mul + add
-	}
-
-	Negate { :self |
-		0 - self
-	}
-
-	/*nextPowerOfTwo { :self |
+	/*
+	nextPowerOfTwo { :self |
 		self.nextPowerOf(2)
-	}*/
-
-	nextPowerOf { :self :base |
-		let exponent = self.log(base).ceiling;
-		base ^ exponent
 	}
-
-	OctCps { :self |
-		440 * (2 ^ (self - 4.75))
-	}
+	*/
 
 	previousPowerOf { :self :base |
 		base ^ (self.log(base).ceiling - 1)
 	}
-
-	/*previousPowerOfTwo { :self |
-		self.isPowerOfTwo.if {
-			self
-		} {
-			self.previousPowerOf(2)
-		}
-	}*/
 
 	[ratioCents, RatioCents] { :self |
 		self.ratioMidi * 100
@@ -284,13 +286,15 @@
 		12 * self.log2
 	}
 
-	Reciprocal { :self |
-		1 / self
+	/*
+	previousPowerOfTwo { :self |
+		self.isPowerOfTwo.if {
+			self
+		} {
+			self.previousPowerOf(2)
+		}
 	}
-
-	Square { :self |
-		self * self
-	}
+	*/
 
 }
 
@@ -431,16 +435,16 @@
 		}
 	}
 
+	instill { :self :index :item :default |
+		self.copy.instill!(index, item, default)
+	}
+
 	instill! { :self :index :item :default |
 		(index - self.size).timesRepeat {
 			self.add!(default)
 		};
 		self[index] := item;
 		self
-	}
-
-	instill { :self :index :item :default |
-		self.copy.instill!(index, item, default)
 	}
 
 	integrate { :self |
@@ -536,7 +540,6 @@
 		};
 		answer
 	}
-
 
 	randomTable { :self :size |
 		let a = (size = self.size).if {
@@ -705,6 +708,14 @@
 
 +SmallFloat {
 
+	SoftClip { :self |
+		(self.abs <= 0.5).if {
+			self
+		} {
+			(self.abs - 0.25) / self
+		}
+	}
+
 	degreeToKey { :self :scale :stepsPerOctave |
 		let scaleDegree = self.round;
 		let accidental = (self - scaleDegree) * 10;
@@ -718,14 +729,6 @@
 
 	geom { :self :start :grow |
 		self.geometricProgression(start, grow)
-	}
-
-	SoftClip { :self |
-		(self.abs <= 0.5).if {
-			self
-		} {
-			(self.abs - 0.25) / self
-		}
 	}
 
 }

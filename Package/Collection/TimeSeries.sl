@@ -2,6 +2,12 @@ TimeSeries : [Object, Store, Equal, Do, At, Indices, Put, Collect, Collection] {
 
 	| values times |
 
+	akimaInterpolator { :self |
+		self.times.akimaInterpolator(
+			self.values
+		)
+	}
+
 	associations { :self |
 		let answer = [];
 		self.associationsDo { :each |
@@ -14,12 +20,6 @@ TimeSeries : [Object, Store, Equal, Do, At, Indices, Put, Collect, Collection] {
 		self.keysAndValuesDo { :t :v |
 			aBlock(t -> v)
 		}
-	}
-
-	akimaInterpolator { :self |
-		self.times.akimaInterpolator(
-			self.values
-		)
 	}
 
 	atIfAbsent { :self :time :ifAbsent/0 |
@@ -76,12 +76,12 @@ TimeSeries : [Object, Store, Equal, Do, At, Indices, Put, Collect, Collection] {
 		self.times.isRegularlySpaced
 	}
 
-	keysDo { :self :aBlock/1 |
-		self.times.do(aBlock/1)
-	}
-
 	keysAndValuesDo { :self :aBlock/2 |
 		self.times.withDo(self.values, aBlock/2)
+	}
+
+	keysDo { :self :aBlock/1 |
+		self.times.do(aBlock/1)
 	}
 
 	lastTime { :self |
@@ -92,14 +92,14 @@ TimeSeries : [Object, Store, Equal, Do, At, Indices, Put, Collect, Collection] {
 		self.values.last
 	}
 
+	linePlot { :self |
+		self.path.linePlot
+	}
+
 	linearInterpolator { :self |
 		self.times.linearInterpolator(
 			self.values
 		)
-	}
-
-	linePlot { :self |
-		self.path.linePlot
 	}
 
 	merge { :self :aTimeSeries :resolveConflict/2 |

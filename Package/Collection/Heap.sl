@@ -9,17 +9,17 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 		anObject
 	}
 
+	at { :self :index |
+		self.atIfAbsent(index) {
+			self.error('at: invalid index')
+		}
+	}
+
 	atIfAbsent { :self :index :ifAbsent/0 |
 		(index > self.size).if {
 			ifAbsent()
 		} {
 			self.array.at(index)
-		}
-	}
-
-	at { :self :index |
-		self.atIfAbsent(index) {
-			self.error('at: invalid index')
 		}
 	}
 
@@ -71,21 +71,6 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 		self.indexUpdate(value, index)
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
-		self == anObject | {
-			anObject.isHeap & {
-				anObject.size = self.size & {
-					anObject.sortBlock = self.sortBlock & {
-						self.array.sort(self.sortBlock).isEqualBy(
-							anObject.array.sort(self.sortBlock),
-							aBlock/2
-						)
-					}
-				}
-			}
-		}
-	}
-
 	first { :self |
 		self.array[1]
 	}
@@ -99,6 +84,21 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 
 	isEmpty { :self |
 		self.size = 0
+	}
+
+	isEqualBy { :self :anObject :aBlock/2 |
+		self == anObject | {
+			anObject.isHeap & {
+				anObject.size = self.size & {
+					anObject.sortBlock = self.sortBlock & {
+						self.array.sort(self.sortBlock).isEqualBy(
+							anObject.array.sort(self.sortBlock),
+							aBlock/2
+						)
+					}
+				}
+			}
+		}
 	}
 
 	isValid { :self |
@@ -125,18 +125,6 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 		self.array := self.array.copy
 	}
 
-	removeIfAbsent! { :self :oldObject :aBlock/0 |
-		let array = self.array;
-		withReturn { :return/1 |
-			1.toDo(self.size) { :i |
-				(array[i] = oldObject).ifTrue {
-					self.uncheckedRemoveAt(i).return
-				}
-			};
-			aBlock()
-		}
-	}
-
 	removeAll! { :self |
 		self.array.removeAll!
 	}
@@ -151,6 +139,18 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 
 	removeFirst! { :self |
 		self.removeAt!(1)
+	}
+
+	removeIfAbsent! { :self :oldObject :aBlock/0 |
+		let array = self.array;
+		withReturn { :return/1 |
+			1.toDo(self.size) { :i |
+				(array[i] = oldObject).ifTrue {
+					self.uncheckedRemoveAt(i).return
+				}
+			};
+			aBlock()
+		}
 	}
 
 	size { :self |

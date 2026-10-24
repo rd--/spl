@@ -2,10 +2,6 @@ PerspectiveDrawing : [Object] {
 
 	| geometryList metadata |
 
-	drawing { :self |
-		self.LineDrawing.drawing
-	}
-
 	LineDrawing { :self |
 		let projection = self.metadata['projection'];
 		LineDrawing(
@@ -14,6 +10,10 @@ PerspectiveDrawing : [Object] {
 			},
 			self.metadata
 		)
+	}
+
+	drawing { :self |
+		self.LineDrawing.drawing
 	}
 
 }

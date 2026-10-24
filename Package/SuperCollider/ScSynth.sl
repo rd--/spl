@@ -15,16 +15,16 @@ ScSynth! : [Object] {
 		<primitive: return _self.isConnected();>
 	}
 
-	mainOutputs { :self |
-		system.preference('ScSynth/Outputs/Main/NumberOfChannels', 2)
-	}
-
 	mainOrientation { :self |
 		system.preference('ScSynth/Outputs/Main/FrontIsVertex', false).if {
 			0
 		} {
 			0.5
 		}
+	}
+
+	mainOutputs { :self |
+		system.preference('ScSynth/Outputs/Main/NumberOfChannels', 2)
 	}
 
 	options { :self |
@@ -53,7 +53,7 @@ ScSynth! : [Object] {
 	}
 
 	sendOsc { :self :oscPacket |
-		<primitive: return _self.sendOsc(_Record_1(_oscPacket));>
+		<primitive: return _self.sendOsc(_encodeRecord_1(_oscPacket));>
 	}
 
 	setControl { :self :index :value |
@@ -85,9 +85,11 @@ ScSynth! : [Object] {
 +[List, Ugen] {
 
 	<! { :self :aUgen |
-		(aUgen.isUgen & {
-			aUgen.scUgen.numberOfChannels = 0
-		}).if {
+		(
+			aUgen.isUgen & {
+				aUgen.scUgen.numberOfChannels = 0
+			}
+		).if {
 			self.multipleRootGraph(aUgen)
 		} {
 			FirstArg(self, aUgen)
@@ -204,12 +206,12 @@ ScSynth! : [Object] {
 
 +Block {
 
-	OverlapTextureList { :self :sustainTime :transitionTime :overlap |
-		<primitive: return sc.OverlapTextureArray(_self, _sustainTime, _transitionTime, _overlap);>
-	}
-
 	OverlapTexture { :self :sustainTime :transitionTime :overlap |
 		self.OverlapTextureList(sustainTime, transitionTime, overlap)
+	}
+
+	OverlapTextureList { :self :sustainTime :transitionTime :overlap |
+		<primitive: return sc.OverlapTextureArray(_self, _sustainTime, _transitionTime, _overlap);>
 	}
 
 	XFadeTexture { :self :sustainTime :transitionTime |
@@ -244,15 +246,15 @@ ScSynth! : [Object] {
 		self.atVectorOrElementwise(uncheckedLocalBuf/1)
 	}
 
-	uncheckedLocalBuf { :self |
-		<primitive: return sc.asLocalBuf(_self);>
-	}
-
 	/*
 	Mix { :self |
 		self.sum
 	}
 	*/
+
+	uncheckedLocalBuf { :self |
+		<primitive: return sc.asLocalBuf(_self);>
+	}
 
 }
 

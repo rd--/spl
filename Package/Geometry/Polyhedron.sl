@@ -276,7 +276,6 @@ Polyhedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 
 }
 
-
 +System {
 
 	fradinPolyhedraCatalogue { :self |

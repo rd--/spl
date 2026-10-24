@@ -2,14 +2,14 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 	| coefficientList |
 
-	at { :self :x |
-		self.coefficientList.evaluateUnivariatePolynomial(x)
-	}
-
 	assertIsNormal { :self |
 		self.isNormal.ifFalse {
 			self.error('assertIsNormal: not normal')
 		}
+	}
+
+	at { :self :x |
+		self.coefficientList.evaluateUnivariatePolynomial(x)
 	}
 
 	atAll { :self :aCollection |
@@ -33,16 +33,6 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		self.coefficientList.discriminant
 	}
 
-	isEqualBy { :self :operand :aBlock/2 |
-		operand.isUnivariatePolynomial & {
-			aBlock(self.coefficientList, operand.coefficientList)
-		}
-	}
-
-	exponent { :self |
-		self.degree
-	}
-
 	euclideanAlgorithm { :self :operand |
 		let a = self;
 		let b = operand;
@@ -56,8 +46,18 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		a
 	}
 
+	exponent { :self |
+		self.degree
+	}
+
 	gcd { :self :operand |
 		self.euclideanAlgorithm(operand).monicPolynomial
+	}
+
+	isEqualBy { :self :operand :aBlock/2 |
+		operand.isUnivariatePolynomial & {
+			aBlock(self.coefficientList, operand.coefficientList)
+		}
 	}
 
 	isNormal { :self |
@@ -228,6 +228,10 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 +List {
 
+	UnivariatePolynomial { :self |
+		newUnivariatePolynomial().initializeSlots(self).normalize
+	}
+
 	discriminant { :self |
 		(self.size - 1).caseOf([
 			1 -> { 1 },
@@ -338,10 +342,6 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 	resultant { :p :q |
 		p.sylvesterMatrix(q).determinant
-	}
-
-	UnivariatePolynomial { :self |
-		newUnivariatePolynomial().initializeSlots(self).normalize
 	}
 
 }

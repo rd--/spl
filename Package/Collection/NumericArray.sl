@@ -62,16 +62,6 @@ NumericArray : [Object, Store, Equal, Compare, Do, At, Indices, Put, Collect, Co
 		'SmallFloat'
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
-		anObject.isNumericArray & {
-			(self.shape = anObject.shape) & {
-				(self.storageType = anObject.storageType) & {
-					aBlock(self.array, anObject.array)
-				}
-			}
-		}
-	}
-
 	isArray { :unused |
 		true
 	}
@@ -79,6 +69,16 @@ NumericArray : [Object, Store, Equal, Compare, Do, At, Indices, Put, Collect, Co
 	isCommensurate { :self :other |
 		self.shape = other.shape & {
 			self.storageType = other.storageType
+		}
+	}
+
+	isEqualBy { :self :anObject :aBlock/2 |
+		anObject.isNumericArray & {
+			(self.shape = anObject.shape) & {
+				(self.storageType = anObject.storageType) & {
+					aBlock(self.array, anObject.array)
+				}
+			}
 		}
 	}
 
@@ -121,6 +121,24 @@ NumericArray : [Object, Store, Equal, Compare, Do, At, Indices, Put, Collect, Co
 		self.storeStringAsInitializeSlotsOmitting(['storageType'])
 	}
 
+	transpose { :self |
+		self.isMatrix.if {
+			let [m, n] = self.shape;
+			let c = self.array;
+			let a = c.new(m * n);
+			let k = 1;
+			1.toDo(n) { :i |
+				1.toDo(m) { :j |
+					a[k] := c[((j - 1) * n) + i];
+					k := k + 1
+				}
+			};
+			NumericArray(a, [n, m])
+		} {
+			self.error('NumericArray>>transpose: not matrix')
+		}
+	}
+
 	transpose! { :self |
 		(self.rank = 2).if {
 			let [m, n] = self.shape;
@@ -161,24 +179,6 @@ NumericArray : [Object, Store, Equal, Compare, Do, At, Indices, Put, Collect, Co
 			}
 		} {
 			self.error('NumericArray>>transpose!: not matrix')
-		}
-	}
-
-	transpose { :self |
-		self.isMatrix.if {
-			let [m, n] = self.shape;
-			let c = self.array;
-			let a = c.new(m * n);
-			let k = 1;
-			1.toDo(n) { :i |
-				1.toDo(m) { :j |
-					a[k] := c[((j - 1) * n) + i];
-					k := k + 1
-				}
-			};
-			NumericArray(a, [n, m])
-		} {
-			self.error('NumericArray>>transpose: not matrix')
 		}
 	}
 

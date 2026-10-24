@@ -37,7 +37,6 @@
 		self.size / self.reciprocal.sum
 	}
 
-
 	[integerMean, integerAverage] { :self |
 		Fraction(self.sum, self.size)
 	}
@@ -377,12 +376,6 @@
 		}.neighbourhoodMap(x, r)
 	}
 
-	medianFilter { :x :r |
-		{ :y :i |
-			y.median
-		}.neighbourhoodMap(x, r)
-	}
-
 	meanShiftFilter { :self :r :d |
 		{ :each :i |
 			let a = self[i];
@@ -390,6 +383,12 @@
 				a.euclideanDistance(b) <= d
 			}.mean
 		}.neighbourhoodMap(self, r)
+	}
+
+	medianFilter { :x :r |
+		{ :y :i |
+			y.median
+		}.neighbourhoodMap(x, r)
 	}
 
 	nadarayaWatsonEstimator { :i :x :y :h :k/1 |

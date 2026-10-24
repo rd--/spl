@@ -4,6 +4,21 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, Cart
 
 	| x y |
 
+	PlanarCoordinates { :self |
+		self.copy
+	}
+
+	PolarCoordinates { :self |
+		PolarCoordinates(
+			self.rho,
+			self.phi
+		)
+	}
+
+	Record { :self |
+		(x: self.x, y: self.y)
+	}
+
 	abscissa { :self |
 		self.x
 	}
@@ -16,10 +31,6 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, Cart
 		aBlock(PlanarCoordinates(aNumber, aNumber), self)
 	}
 
-	applyUnaryOperator { :self :aBlock/1 |
-		PlanarCoordinates(aBlock(self.x), aBlock(self.y))
-	}
-
 	applyBinaryOperator { :self :anObject :aBlock/2 |
 		anObject.isPlanarCoordinates.if {
 			PlanarCoordinates(
@@ -29,6 +40,10 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, Cart
 		} {
 			anObject.adaptToPlanarCoordinatesAndApply(self, aBlock/2)
 		}
+	}
+
+	applyUnaryOperator { :self :aBlock/1 |
+		PlanarCoordinates(aBlock(self.x), aBlock(self.y))
 	}
 
 	coordinates { :self |
@@ -79,27 +94,12 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, Cart
 		atan2(self.y, self.x)
 	}
 
-	PlanarCoordinates { :self |
-		self.copy
-	}
-
 	[plus, +] { :self :anObject |
 		self.applyBinaryOperator(anObject, plus/2)
 	}
 
-	PolarCoordinates { :self |
-		PolarCoordinates(
-			self.rho,
-			self.phi
-		)
-	}
-
 	[quotient, //] { :self :anObject |
 		self.applyBinaryOperator(anObject, quotient/2)
-	}
-
-	Record { :self |
-		(x: self.x, y: self.y)
 	}
 
 	rho { :self |

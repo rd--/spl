@@ -8,14 +8,6 @@
 		)
 	}
 
-	trilinearInterpolation { :c000 :c100 :c010 :c110 :c001 :c101 :c011 :c111 :mu1 :mu2 :mu3 |
-		linearInterpolation(
-			bilinearInterpolation(c000, c100, c010, c110, mu1, mu2),
-			bilinearInterpolation(c001, c101, c011, c111, mu1, mu2),
-			mu3
-		)
-	}
-
 	blend { :y1 :y2 :mu |
 		y1.blend(y2, mu) { :y1 :y2 :mu |
 			y1 + (mu * (y2 - y1))
@@ -87,9 +79,25 @@
 		(y1 * (1 - mu)) + (y2 * mu)
 	}
 
+	trilinearInterpolation { :c000 :c100 :c010 :c110 :c001 :c101 :c011 :c111 :mu1 :mu2 :mu3 |
+		linearInterpolation(
+			bilinearInterpolation(c000, c100, c010, c110, mu1, mu2),
+			bilinearInterpolation(c001, c101, c011, c111, mu1, mu2),
+			mu3
+		)
+	}
+
 }
 
 +[List, Range] {
+
+	akimaInterpolator { :x :y |
+		let c = x.akimaInterpolatorCoefficientList(y);
+		let xCopy = x.copy;
+		{ :mu |
+			xCopy.evaluateInterpolatorSegment(c, mu)
+		}
+	}
 
 	akimaInterpolatorCoefficientList { :x :y |
 		/* https://github.com/chdh/commons-math-interpolation */
@@ -135,14 +143,6 @@
 		hermiteInterpolatorCoefficientList(x, y, firstDerivative)
 	}
 
-	akimaInterpolator { :x :y |
-		let c = x.akimaInterpolatorCoefficientList(y);
-		let xCopy = x.copy;
-		{ :mu |
-			xCopy.evaluateInterpolatorSegment(c, mu)
-		}
-	}
-
 	assertIsValidInterpolatorData { :x :y :n |
 		(x.size != y.size).ifTrue {
 			x.error('Interpolator: dimension mismatch')
@@ -152,6 +152,14 @@
 		};
 		x.isStrictlyIncreasing.ifFalse {
 			x.error('Interpolator: x not strictly increasing')
+		}
+	}
+
+	cubicSplineInterpolator { :x :y |
+		let c = x.cubicSplineInterpolatorCoefficientList(y);
+		let xCopy = x.copy;
+		{ :mu |
+			xCopy.evaluateInterpolatorSegment(c, mu)
 		}
 	}
 
@@ -186,14 +194,6 @@
 		};
 		1.toCollect(n) { :i |
 			[y[i], b[i], c[i], d[i]].withoutTrailing(isOrigin/1)
-		}
-	}
-
-	cubicSplineInterpolator { :x :y |
-		let c = x.cubicSplineInterpolatorCoefficientList(y);
-		let xCopy = x.copy;
-		{ :mu |
-			xCopy.evaluateInterpolatorSegment(c, mu)
 		}
 	}
 
@@ -264,6 +264,14 @@
 		self.interpolation('CubicSpline')
 	}
 
+	linearInterpolator { :x :y |
+		let c = x.linearInterpolatorCoefficientList(y);
+		let xCopy = x.copy;
+		{ :mu |
+			xCopy.evaluateInterpolatorSegment(c, mu)
+		}
+	}
+
 	linearInterpolatorCoefficientList { :x :y |
 		let n = x.size - 1;
 		assertIsValidInterpolatorData(x, y, 2);
@@ -272,14 +280,6 @@
 			let dy = y[i + 1] - y[i];
 			let m = dy / dx;
 			[y[i], m].withoutTrailing(isOrigin/1)
-		}
-	}
-
-	linearInterpolator { :x :y |
-		let c = x.linearInterpolatorCoefficientList(y);
-		let xCopy = x.copy;
-		{ :mu |
-			xCopy.evaluateInterpolatorSegment(c, mu)
 		}
 	}
 
@@ -496,6 +496,10 @@
 
 +[SmallFloat, Fraction] {
 
+	smoothStep { :x |
+		x * x * (3 - (2 * x))
+	}
+
 	smoothStepFunction { :n |
 		{ :x |
 			let answer = 0;
@@ -507,10 +511,6 @@
 			};
 			answer
 		}
-	}
-
-	smoothStep { :x |
-		x * x * (3 - (2 * x))
 	}
 
 	smootherStep { :x |
@@ -726,6 +726,15 @@
 
 +List {
 
+	bSplineFunction { :self :d |
+		let n = self.size;
+		let m = n - d;
+		let k = List(d, 0) ++ [0 .. m] ++ List(d, m);
+		{ :t |
+			self.bSplineFunctionPrimitive(d, k, nil, t)
+		}
+	}
+
 	bSplineFunctionPrimitive { :p :d :k :w :t |
 		<primitive:
 		/* https://github.com/thibauts/b-spline/ */
@@ -798,18 +807,20 @@
 		>
 	}
 
-	bSplineFunction { :self :d |
-		let n = self.size;
-		let m = n - d;
-		let k = List(d, 0) ++ [0 .. m] ++ List(d, m);
-		{ :t |
-			self.bSplineFunctionPrimitive(d, k, nil, t)
-		}
-	}
-
 }
 
 +List {
+
+	cubicHermiteFunction { :self :tangents |
+		{ :t |
+			(t >= 1).if {
+				self.last
+			} {
+				self.cubicHermiteFunctionPrimitive(tangents, nil, t)
+			}
+		}
+
+	}
 
 	cubicHermiteFunctionPrimitive { :points :tangents :knots :t |
 		<primitive:
@@ -876,17 +887,6 @@
 		}
 		return v;
 		>
-	}
-
-	cubicHermiteFunction { :self :tangents |
-		{ :t |
-			(t >= 1).if {
-				self.last
-			} {
-				self.cubicHermiteFunctionPrimitive(tangents, nil, t)
-			}
-		}
-
 	}
 
 }

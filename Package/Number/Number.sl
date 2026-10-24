@@ -1,7 +1,15 @@
 @Number {
 
-	[absoluteValueArgument, absArg] { :self |
-		Complex(self, 0).absoluteValueArgument
+	E { :self :aNumber |
+		self * (10 ^ aNumber)
+	}
+
+	Integer { :self |
+		self.typeResponsibility('@Number>>Integer')
+	}
+
+	Number { :self |
+		self
 	}
 
 	[absoluteDifference, absDif] { :self :operand |
@@ -16,6 +24,10 @@
 		}
 	}
 
+	[absoluteValueArgument, absArg] { :self |
+		Complex(self, 0).absoluteValueArgument
+	}
+
 	[absoluteValueSquare, absSquare] { :self |
 		self.absoluteValue.square
 	}
@@ -26,16 +38,16 @@
 		}
 	}
 
+	angleVector { :self |
+		[self.cos, self.sin]
+	}
+
 	arcMinute { :self |
 		self * 0.0002908882086657216
 	}
 
 	arcSecond { :self |
 		self * 0.00000484813681109536
-	}
-
-	angleVector { :self |
-		[self.cos, self.sin]
 	}
 
 	[argument, arg] { :self |
@@ -104,18 +116,6 @@
 		[r, k]
 	}
 
-	isBetween { :self :interval |
-		interval.min <= self & {
-			self <= interval.max
-		}
-	}
-
-	isBetween { :self :min :max |
-		min <= self & {
-			self <= max
-		}
-	}
-
 	ceiling { :self |
 		let truncation = self.truncate;
 		(self <= 0).if {
@@ -133,12 +133,12 @@
 		self.min(high).max(low)
 	}
 
-	clampLow { :self :low |
-		self.max(low)
-	}
-
 	clampHigh { :self :high |
 		self.min(high)
+	}
+
+	clampLow { :self :low |
+		self.max(low)
 	}
 
 	clip { :self :u :v |
@@ -264,16 +264,12 @@
 		}
 	}
 
-	downToDo { :self :anInteger :aBlock/1 |
-		self.toByDo(anInteger, -1, aBlock/1)
-	}
-
 	double { :self |
 		self * 2
 	}
 
-	E { :self :aNumber |
-		self * (10 ^ aNumber)
+	downToDo { :self :anInteger :aBlock/1 |
+		self.toByDo(anInteger, -1, aBlock/1)
 	}
 
 	egyptianFraction { :x :n |
@@ -289,7 +285,6 @@
 	epanechnikovKernel { :u |
 		0.75 * (1 - (u * u))
 	}
-
 
 	[factorialOrGamma, !] { :self |
 		self.isNonNegativeInteger.if {
@@ -389,14 +384,6 @@
 		self.zero
 	}
 
-	increment { :self |
-		self + 1
-	}
-
-	infinity { :self |
-		self * Infinity
-	}
-
 	inRangeOfAnd { :self :first :second |
 		(first < second).if {
 			self.isBetween(first, second)
@@ -405,8 +392,12 @@
 		}
 	}
 
-	Integer { :self |
-		self.typeResponsibility('@Number>>Integer')
+	increment { :self |
+		self + 1
+	}
+
+	infinity { :self |
+		self * Infinity
 	}
 
 	integerPart { :self |
@@ -440,15 +431,27 @@
 		}
 	}
 
-	inverseErfc { :self |
-		(self / 2).standardNormalDistributionInverseCdf.- / 2.sqrt
-	}
-
 	inverseErfWinitzki { :x |
 		let a = 0.147;
 		let b = (2 / a.pi);
 		let c = (1 - x.square).log;
 		(((b + (c / 2)).square - (c / a)).sqrt - (b + (c / 2))).sqrt * x.sign
+	}
+
+	inverseErfc { :self |
+		(self / 2).standardNormalDistributionInverseCdf.- / 2.sqrt
+	}
+
+	isBetween { :self :interval |
+		interval.min <= self & {
+			self <= interval.max
+		}
+	}
+
+	isBetween { :self :min :max |
+		min <= self & {
+			self <= max
+		}
 	}
 
 	isBit { :self |
@@ -457,12 +460,12 @@
 		}
 	}
 
-	isCloseBy { :self :aNumber :epsilon |
-		self.typeResponsibility('isCloseBy')
-	}
-
 	isClose { :self :aNumber |
 		self.isCloseBy(aNumber, 0.0001)
+	}
+
+	isCloseBy { :self :aNumber :epsilon |
+		self.typeResponsibility('isCloseBy')
 	}
 
 	[isDissimilar, !~] { :self :aNumber |
@@ -515,16 +518,20 @@
 		true
 	}
 
-	isPositive { :self |
-		self > self.zero
-	}
-
 	isOne { :self |
 		self = 1
 	}
 
+	isPositive { :self |
+		self > self.zero
+	}
+
 	isScalar { :self |
 		true
+	}
+
+	[isSimilar, ~] { :self :aNumber |
+		self.isClose(aNumber)
 	}
 
 	isVeryClose { :self :aNumber |
@@ -547,9 +554,18 @@
 		}
 	}
 
-
 	log2 { :self |
 		SmallFloat(self).log2
+	}
+
+	logScale { :self :c |
+		let x = SmallFloat(self);
+		x.sign * (1 + (x / c).abs).log10
+	}
+
+	logScale { :self |
+		let c = 1 / 10.log;
+		self.logScale(c)
 	}
 
 	logarithmicChange { :x :y |
@@ -562,6 +578,10 @@
 		}
 	}
 
+	logarithmicIntegral { :self |
+		self.logarithmicIntegralRamanujan(9)
+	}
+
 	logarithmicIntegralRamanujan { :self :limit |
 		self.isZero.if {
 			self
@@ -570,20 +590,6 @@
 				(self.log ^ k) / (k.factorial * k)
 			}.sum
 		}
-	}
-
-	logarithmicIntegral { :self |
-		self.logarithmicIntegralRamanujan(9)
-	}
-
-	logScale { :self :c |
-		let x = SmallFloat(self);
-		x.sign * (1 + (x / c).abs).log10
-	}
-
-	logScale { :self |
-		let c = 1 / 10.log;
-		self.logScale(c)
 	}
 
 	logisticSigmoid { :l :k :x0 |
@@ -662,10 +668,6 @@
 		}
 	}
 
-	Number { :self |
-		self
-	}
-
 	percent { :n |
 		n * 0.01
 	}
@@ -705,11 +707,11 @@
 		(rho ^ n) + (2 * (n * theta).cos * (rho ^ n.-).sqrt)
 	}
 
-	plancksRadiationFunction { :x |
-		(x <= 0).if {
-			0
+	planckRadiationLaw { :nuOrLambda :t |
+		(nuOrLambda > 1).if {
+			nuOrLambda.planckRadiationLawFrequency(t)
 		} {
-			(15 / (1.pi ^ 4)) * (1 / ((x ^ 5) * ((1.e ^ (1 / x)) - 1)))
+			nuOrLambda.planckRadiationLawWavelength(t)
 		}
 	}
 
@@ -727,11 +729,11 @@
 		((2 * h * c.square) / (lambda ^ 5)) * (1 / (((h * c) / (lambda * k * t)).exp - 1))
 	}
 
-	planckRadiationLaw { :nuOrLambda :t |
-		(nuOrLambda > 1).if {
-			nuOrLambda.planckRadiationLawFrequency(t)
+	plancksRadiationFunction { :x |
+		(x <= 0).if {
+			0
 		} {
-			nuOrLambda.planckRadiationLawWavelength(t)
+			(15 / (1.pi ^ 4)) * (1 / ((x ^ 5) * ((1.e ^ (1 / x)) - 1)))
 		}
 	}
 
@@ -896,13 +898,8 @@
 		[self, self.zero]
 	}
 
-
 	[reciprocal, /] { :self |
 		self.one / self
-	}
-
-	[remainder, \\] { :self :aNumber |
-		self.remainderBy(aNumber, truncate/1)
 	}
 
 	relativeChange { :x :y :f/2 |
@@ -911,6 +908,10 @@
 
 	relativeChange { :x :y |
 		relativeChange(x, y) { :x :y | x }
+	}
+
+	[remainder, \\] { :self :aNumber |
+		self.remainderBy(aNumber, truncate/1)
 	}
 
 	remainderBy { :self :aNumber :aBlock/1 |
@@ -934,14 +935,6 @@
 		}
 	}
 
-	roundDown { :self :aNumber |
-		(self / aNumber).floor * aNumber
-	}
-
-	roundDown { :self |
-		self.floor
-	}
-
 	round { :self :aNumber |
 		(self / aNumber).round * aNumber
 	}
@@ -950,16 +943,12 @@
 		(self + (self.sign / 2)).truncate
 	}
 
-	roundedPercentageAllocation { :total :proportions :multiple |
-		let scaledData = (proportions / proportions.sum) * total;
-		let roundedData = scaledData.round(multiple);
-		let roundingError = total - roundedData.sum;
-		roundingError.isZero.ifFalse {
-			let maxItem = roundedData.max;
-			let maxIndex = roundedData.indexOf(maxItem);
-			roundedData[maxIndex] := maxItem + roundingError
-		};
-		roundedData
+	roundDown { :self :aNumber |
+		(self / aNumber).floor * aNumber
+	}
+
+	roundDown { :self |
+		self.floor
 	}
 
 	roundToPrecision { :self :aNumber |
@@ -985,6 +974,18 @@
 
 	roundUp { :self |
 		self.ceiling
+	}
+
+	roundedPercentageAllocation { :total :proportions :multiple |
+		let scaledData = (proportions / proportions.sum) * total;
+		let roundedData = scaledData.round(multiple);
+		let roundingError = total - roundedData.sum;
+		roundingError.isZero.ifFalse {
+			let maxItem = roundedData.max;
+			let maxIndex = roundedData.indexOf(maxItem);
+			roundedData[maxIndex] := maxItem + roundingError
+		};
+		roundedData
 	}
 
 	scaleNegative { :self :operand |
@@ -1062,10 +1063,6 @@
 		}
 	}
 
-	[isSimilar, ~] { :self :aNumber |
-		self.isClose(aNumber)
-	}
-
 	smallFloatEpsilon { :self |
 		self * system.smallFloatEpsilon
 	}
@@ -1093,7 +1090,6 @@
 	strictlyPositive { :self |
 		self > 0
 	}
-
 
 	swishFunction { :beta |
 		{ :x |
@@ -1128,6 +1124,16 @@
 		}
 	}
 
+	toDo { :self :end :aBlock/1 |
+		let index = self;
+		{
+			index <= end
+		}.whileTrue {
+			aBlock(index);
+			index := index + 1
+		}
+	}
+
 	toDoWithBreak { :self :end :aBlock/2 |
 		let index = self;
 		withReturn { :return/1 |
@@ -1141,16 +1147,6 @@
 		self
 	}
 
-	toDo { :self :end :aBlock/1 |
-		let index = self;
-		{
-			index <= end
-		}.whileTrue {
-			aBlock(index);
-			index := index + 1
-		}
-	}
-
 	truncate { :self :aNumber |
 		self.quotient(aNumber) * aNumber
 	}
@@ -1159,38 +1155,8 @@
 		self * 2
 	}
 
-	unitaryDivisorSigma { :k :n |
-		(n = 1).if {
-			1
-		} {
-			let a = n.factorInteger;
-			let b = a.collect { :x |
-				x[1] ^ x[2]
-			};
-			let c = b ^ k;
-			let d = 1 + c;
-			d.product
-		}
-	}
-
 	unitBox { :self |
 		(self.abs <= 0.5).boole
-	}
-
-	unitize { :self :dx |
-		(self.abs < dx).if {
-			self.zero
-		} {
-			self.one
-		}
-	}
-
-	unitize { :self |
-		self.isZero.if {
-			self.zero
-		} {
-			self.one
-		}
 	}
 
 	unitStep { :self |
@@ -1213,6 +1179,36 @@
 		let answer = List(n, 0);
 		answer[k] := 1;
 		answer
+	}
+
+	unitaryDivisorSigma { :k :n |
+		(n = 1).if {
+			1
+		} {
+			let a = n.factorInteger;
+			let b = a.collect { :x |
+				x[1] ^ x[2]
+			};
+			let c = b ^ k;
+			let d = 1 + c;
+			d.product
+		}
+	}
+
+	unitize { :self :dx |
+		(self.abs < dx).if {
+			self.zero
+		} {
+			self.one
+		}
+	}
+
+	unitize { :self |
+		self.isZero.if {
+			self.zero
+		} {
+			self.one
+		}
 	}
 
 	upOrDownToDo { :self :end :aBlock/1 |

@@ -20,6 +20,24 @@
 		}
 	}
 
+	oeisA004718 { :n |
+		let b = n.binaryExpansion.reverse;
+		let z = 0;
+		let [p, q] = [0, 0];
+		b.do { :i |
+			(i = 0).if {
+				z := z + 1
+			} {
+				z.isEven.if {
+					p := p + 1
+				} {
+					q := q + 1
+				}
+			}
+		};
+		p - q
+	}
+
 	oeisA005940 { :n |
 		(n - 1).doudnaSequenceFunction
 	}
@@ -146,24 +164,6 @@
 		} {
 			(j - 1)
 		}
-	}
-
-	oeisA004718 { :n |
-		let b = n.binaryExpansion.reverse;
-		let z = 0;
-		let [p, q] = [0, 0];
-		b.do { :i |
-			(i = 0).if {
-				z := z + 1
-			} {
-				z.isEven.if {
-					p := p + 1
-				} {
-					q := q + 1
-				}
-			}
-		};
-		p - q
 	}
 
 	oeisA071156 { :n |
@@ -304,6 +304,20 @@
 		a[1 .. k]
 	}
 
+	oeisA051135Terms { :k |
+		let m = (k + 2) * 2;
+		let a = m.oeisA004001Terms;
+		(k + 1 > a.max).if {
+			k.error('oeisA051135Terms')
+		} {
+			let b = List(a.max, 0);
+			a.do { :i |
+				b[i] := b[i] + 1
+			};
+			b.first(k)
+		}
+	}
+
 	oeisA306246Terms { :m |
 		let o = List(m, 0);
 		let p = nil;
@@ -317,20 +331,6 @@
 			q := p;
 			p := o[1 + v] := o[1 + v] + 1;
 			v
-		}
-	}
-
-	oeisA051135Terms { :k |
-		let m = (k + 2) * 2;
-		let a = m.oeisA004001Terms;
-		(k + 1 > a.max).if {
-			k.error('oeisA051135Terms')
-		} {
-			let b = List(a.max, 0);
-			a.do { :i |
-				b[i] := b[i] + 1
-			};
-			b.first(k)
 		}
 	}
 
@@ -497,15 +497,21 @@ OeisEntry : [Object, Store, Equal, OeisSequence] {
 		self.lookupField('data')
 	}
 
-	isEqualBy { :self :operand :aBlock/2 |
-		aBlock(self.identifier, operand.identifier)
-	}
-
 	fetch { :self |
 		[
 			self.fetchEntryRecord,
 			self.fetchBFile
 		].allFulfilled.then { :unused |
+			self
+		}
+	}
+
+	fetchBFile { :self |
+		self.bFileUrl.cachedFetchMimeType(
+			'OnlineEncyclopediaOfIntegerSequences',
+			'text/plain'
+		).then { :data |
+			self.bFileCache := data.oeisParseBFile;
 			self
 		}
 	}
@@ -524,14 +530,8 @@ OeisEntry : [Object, Store, Equal, OeisSequence] {
 		}
 	}
 
-	fetchBFile { :self |
-		self.bFileUrl.cachedFetchMimeType(
-			'OnlineEncyclopediaOfIntegerSequences',
-			'text/plain'
-		).then { :data |
-			self.bFileCache := data.oeisParseBFile;
-			self
-		}
+	isEqualBy { :self :operand :aBlock/2 |
+		aBlock(self.identifier, operand.identifier)
 	}
 
 	keywords { :self |
@@ -609,12 +609,12 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 		}
 	}
 
-	name { :self |
-		self.uniqueField('%N')
-	}
-
 	keywords { :self |
 		self.uniqueField('%K').splitOn(',')
+	}
+
+	name { :self |
+		self.uniqueField('%N')
 	}
 
 	number { :self |
@@ -676,6 +676,10 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 		}
 	}
 
+	oeisNumber { :self |
+		self.allButFirst.parseDecimalInteger
+	}
+
 	oeisParseBFile { :self |
 		self.lines.reject { :s |
 			s.isEmpty | {
@@ -686,10 +690,6 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 				n.parseLargeInteger.normalInteger
 			}
 		}
-	}
-
-	oeisNumber { :self |
-		self.allButFirst.parseDecimalInteger
 	}
 
 }
@@ -707,19 +707,6 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 }
 
 +System {
-
-	splOeisReferences { :self |
-		self.cached('splOeisReferences') {
-			self.helpIndex.names('Reference').collect { :n |
-				let r = self.readHelpFile(n).oeisReferences;
-				r.ifEmpty {
-					nil
-				} {
-					n -> r
-				}
-			}.deleteMissing.Record
-		}
-	}
 
 	splOeisEntryListing { :self |
 		let r = self.splOeisReferences;
@@ -755,18 +742,31 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 		}
 	}
 
+	splOeisReferences { :self |
+		self.cached('splOeisReferences') {
+			self.helpIndex.names('Reference').collect { :n |
+				let r = self.readHelpFile(n).oeisReferences;
+				r.ifEmpty {
+					nil
+				} {
+					n -> r
+				}
+			}.deleteMissing.Record
+		}
+	}
+
 }
 
 +System {
+
+	oeisBFileData { :self |
+		self.requireLibraryItem('OeisBFileData')
+	}
 
 	oeisEntries { :self |
 		self.cached('oeisEntries') {
 			Map()
 		}
-	}
-
-	oeisBFileData { :self |
-		self.requireLibraryItem('OeisBFileData')
 	}
 
 }
@@ -781,15 +781,15 @@ LibraryItem(
 
 +List {
 
+	oeisFunction { :self |
+		self.collect(oeisFunction/1)
+	}
+
 	withoutUnstableOeisKeywords { :self |
 		let unstable = ['changed', 'new'];
 		self.reject { :each |
 			unstable.includes(each)
 		}
-	}
-
-	oeisFunction { :self |
-		self.collect(oeisFunction/1)
 	}
 
 }

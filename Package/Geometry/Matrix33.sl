@@ -23,10 +23,12 @@ Matrix33 : [Object, Equal] {
 		(a * e * i) + (b * f * g) + (c * d * h) - (c * e * g) - (b * d * i) - (a * f * h)
 	}
 
-	isEqualBy { :self :aMatrix :aBlock/2 |
-		aMatrix.isMatrix33 & {
-			aBlock(self.elements, aMatrix.elements)
-		}
+	identity! { :self |
+		self.elements := [
+			1, 0, 0,
+			0, 1, 0,
+			0, 0, 1
+		]
 	}
 
 	[inverseMatrix, inverse] { :self |
@@ -43,12 +45,10 @@ Matrix33 : [Object, Equal] {
 		self
 	}
 
-	identity! { :self |
-		self.elements := [
-			1, 0, 0,
-			0, 1, 0,
-			0, 0, 1
-		]
+	isEqualBy { :self :aMatrix :aBlock/2 |
+		aMatrix.isMatrix33 & {
+			aBlock(self.elements, aMatrix.elements)
+		}
 	}
 
 	xy { :self |

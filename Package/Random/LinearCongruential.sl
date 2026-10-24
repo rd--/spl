@@ -15,13 +15,13 @@ LinearCongruential : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 		self.parameters.at(3)
 	}
 
+	nextRandomFloat { :self |
+		self.nextState / self.modulus
+	}
+
 	nextState { :self |
 		let [a, c, m] = self.parameters;
 		self.state := (self.state * a + c) \\ m
-	}
-
-	nextRandomFloat { :self |
-		self.nextState / self.modulus
 	}
 
 	reset! { :self |
@@ -71,18 +71,18 @@ LinearCongruential : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 		lehmerGenerator(p, s).next(n)
 	}
 
-	linearCongruentialFunction { :self |
-		let [a, c, m] = self;
-		{ :n |
-			((n * a) + c) \\ m
-		}
-	}
-
 	linearCongruential { :self :n :shape |
 		let k = shape.product;
 		self.linearCongruentialFunction
 		.nestList(n, k - 1)
 		.reshape(shape)
+	}
+
+	linearCongruentialFunction { :self |
+		let [a, c, m] = self;
+		{ :n |
+			((n * a) + c) \\ m
+		}
 	}
 
 }

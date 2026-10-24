@@ -16,12 +16,6 @@ PolygonWithHoles : [Object, Equal, Geometry] {
 		self.outerVertexCoordinates.anyOne.size
 	}
 
-	svgFragment { :self :options |
-		GeometryCollection(
-			self.vertexCoordinatesList.collect(Polygon/1)
-		).svgFragment(options)
-	}
-
 	innerPolygons { :self |
 		self.innerVertexCoordinatesList.collect(Polygon/1)
 	}
@@ -38,6 +32,12 @@ PolygonWithHoles : [Object, Equal, Geometry] {
 				each.collect(f/1)
 			}
 		)
+	}
+
+	svgFragment { :self :options |
+		GeometryCollection(
+			self.vertexCoordinatesList.collect(Polygon/1)
+		).svgFragment(options)
 	}
 
 	vertexCoordinatesList { :self |

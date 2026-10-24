@@ -313,6 +313,10 @@
 		a[1 .. self]
 	}
 
+	doudnaSequence { :n |
+		0.toCollect(n - 1, doudnaSequenceFunction/1)
+	}
+
 	doudnaSequenceFunction { :n |
 		let a = n.integerDigits(2);
 		let b = a.reverse;
@@ -320,10 +324,6 @@
 		let d = 1.to(n.digitCount(2, 1));
 		let e = c - d + 1;
 		e.prime.product
-	}
-
-	doudnaSequence { :n |
-		0.toCollect(n - 1, doudnaSequenceFunction/1)
 	}
 
 	ehrenfeuchtMycielskiSequence { :n |
@@ -360,6 +360,10 @@
 		l
 	}
 
+	entringerNumber { :n :k |
+		(n + 1).entringerTriangle.last.at(k + 1)
+	}
+
 	entringerTriangle { :self |
 		let f/2 = { :n :k |
 			k.isZero.if {
@@ -369,10 +373,6 @@
 			}
 		}.memoize(true);
 		0.to(self - 1).triangularArray(f/2)
-	}
-
-	entringerNumber { :n :k |
-		(n + 1).entringerTriangle.last.at(k + 1)
 	}
 
 	erdosSelfridgeFunction { :n |
@@ -398,6 +398,14 @@
 		}
 	}
 
+	fareySequence { :n |
+		let answer = [];
+		n.fareySequenceDo { :each |
+			answer.add!(each)
+		};
+		answer
+	}
+
 	fareySequenceDo { :n :visit/1 |
 		let [a, b, c, d] = [0, 1, 1, n];
 		visit(Fraction(a, b));
@@ -408,14 +416,6 @@
 			[a, b, c, d] := [c, d, k * c - a, k * d - b];
 			visit(Fraction(a, b))
 		}
-	}
-
-	fareySequence { :n |
-		let answer = [];
-		n.fareySequenceDo { :each |
-			answer.add!(each)
-		};
-		answer
 	}
 
 	finesSequence { :self |
@@ -433,64 +433,6 @@
 	genocchiNumber { :n |
 		let b = n.bernoulliNumber;
 		(2 * (1 - (2 ^ n)) * b).Integer
-	}
-
-	grahlSequenceStanely { :self |
-		let answer = [];
-		0.toDo(self - 1) { :n |
-			let i = 1;
-			let j = 1;
-			let b = IdentitySet();
-			{ n - (2 * i) >= 0 }.whileTrue {
-				let x = answer[n - (2 * i) + 1];
-				let y = answer[n - i + 1];
-				let z = (y * 2) - x;
-				i := i + 1;
-				(
-					x <= y & {
-						y <= z
-					}
-				).ifTrue {
-					b.include!(z);
-					{ b.includes(j) }.whileTrue {
-						j := j + 1
-					}
-				}
-			};
-			answer.add!(j)
-		};
-		answer
-	}
-
-	grahlSequence { :self |
-		let answer = [];
-		0.toDo(self - 1) { :n |
-			let i = 1;
-			let j = 1;
-			let b = IdentitySet();
-			{ n - (2 * i) >= 0 }.whileTrue {
-				let x = answer[n - (2 * i) + 1];
-				let y = answer[n - i + 1];
-				let z = (y * 2) - x;
-				b.include!(z);
-				i := i + 1;
-				{ b.includes(j) }.whileTrue {
-					b.remove!(j);
-					j := j + 1
-				}
-			};
-			answer.add!(j)
-		};
-		answer
-	}
-
-	grahlSequence { :self :kind |
-		kind.caseOf(
-			[
-				'Stanley' -> { self.grahlSequenceStanely },
-				'Grahl' -> { self.grahlSequence }
-			]
-		)
 	}
 
 	gijswijtsSequence { :n |
@@ -554,6 +496,64 @@
 		0.to(k - 1).collect(gouldsNumber/1)
 	}
 
+	grahlSequence { :self |
+		let answer = [];
+		0.toDo(self - 1) { :n |
+			let i = 1;
+			let j = 1;
+			let b = IdentitySet();
+			{ n - (2 * i) >= 0 }.whileTrue {
+				let x = answer[n - (2 * i) + 1];
+				let y = answer[n - i + 1];
+				let z = (y * 2) - x;
+				b.include!(z);
+				i := i + 1;
+				{ b.includes(j) }.whileTrue {
+					b.remove!(j);
+					j := j + 1
+				}
+			};
+			answer.add!(j)
+		};
+		answer
+	}
+
+	grahlSequence { :self :kind |
+		kind.caseOf(
+			[
+				'Stanley' -> { self.grahlSequenceStanely },
+				'Grahl' -> { self.grahlSequence }
+			]
+		)
+	}
+
+	grahlSequenceStanely { :self |
+		let answer = [];
+		0.toDo(self - 1) { :n |
+			let i = 1;
+			let j = 1;
+			let b = IdentitySet();
+			{ n - (2 * i) >= 0 }.whileTrue {
+				let x = answer[n - (2 * i) + 1];
+				let y = answer[n - i + 1];
+				let z = (y * 2) - x;
+				i := i + 1;
+				(
+					x <= y & {
+						y <= z
+					}
+				).ifTrue {
+					b.include!(z);
+					{ b.includes(j) }.whileTrue {
+						j := j + 1
+					}
+				}
+			};
+			answer.add!(j)
+		};
+		answer
+	}
+
 	hammersleyPointSet { :d :n |
 		(d = 2).if {
 			1.to(n).collect { :i |
@@ -595,51 +595,6 @@
 			}
 		}.memoize(true);
 		1.to(self).collect(f/1)
-	}
-
-	josephusProblem { :n :k |
-		(k = 2).if {
-			fromDigits(rotateLeft(integerDigits(n, 2), 1), 2)
-		} {
-			(n <= 1).if {
-				n
-			} {
-				let m = mod(josephusProblem(n - 1, k) + k, n);
-				(m != 0).if {
-					m
-				} {
-					n
-				}
-			}
-		}
-	}
-
-	josephusSequence { :n :k |
-		let z = [];
-		{ :x |
-			let y = x.rotateLeft(k);
-			z.add!(y.removeLast!);
-			y
-		}.iterate([1 .. n], n);
-		z
-	}
-
-	jugglerMap { :n |
-		let e = n.isEven.if { 0.5 } { 1.5 };
-		(n ^ e).floor
-	}
-
-	jugglerSequence { :n |
-		(n < 1).if {
-			[]
-		} {
-			let a = [n];
-			{ n != 1 }.whileTrue {
-				n := n.jugglerMap;
-				a.add!(n)
-			};
-			a
-		}
 	}
 
 	inventorySequence { :terms |
@@ -721,6 +676,51 @@
 
 	jacobsthalNumber { :n |
 		((2 ^ n) - (-1 ^ n)) / 3
+	}
+
+	josephusProblem { :n :k |
+		(k = 2).if {
+			fromDigits(rotateLeft(integerDigits(n, 2), 1), 2)
+		} {
+			(n <= 1).if {
+				n
+			} {
+				let m = mod(josephusProblem(n - 1, k) + k, n);
+				(m != 0).if {
+					m
+				} {
+					n
+				}
+			}
+		}
+	}
+
+	josephusSequence { :n :k |
+		let z = [];
+		{ :x |
+			let y = x.rotateLeft(k);
+			z.add!(y.removeLast!);
+			y
+		}.iterate([1 .. n], n);
+		z
+	}
+
+	jugglerMap { :n |
+		let e = n.isEven.if { 0.5 } { 1.5 };
+		(n ^ e).floor
+	}
+
+	jugglerSequence { :n |
+		(n < 1).if {
+			[]
+		} {
+			let a = [n];
+			{ n != 1 }.whileTrue {
+				n := n.jugglerMap;
+				a.add!(n)
+			};
+			a
+		}
 	}
 
 	kaprekarMap { :self :base :fixedLength |
@@ -1196,23 +1196,6 @@
 		}
 	}
 
-	toothpickSequence { :self |
-		let a/1 = { :n |
-			(n = 0).if {
-				0
-			} {
-				let m = 2 ^ (n.integerDigits(2).size - 1);
-				let k = (2 * (m ^ 2) + 1) / 3;
-				(n = m).if {
-					k
-				} {
-					k + (2 * a(n - m)) + a(n - m + 1) - 1
-				}
-			}
-		}.memoize;
-		0.toCollect(self - 1, a/1)
-	}
-
 	thueMorse { :index |
 		index.digitCount(2, 1) % 2
 	}
@@ -1240,6 +1223,23 @@
 			};
 			answer
 		}
+	}
+
+	toothpickSequence { :self |
+		let a/1 = { :n |
+			(n = 0).if {
+				0
+			} {
+				let m = 2 ^ (n.integerDigits(2).size - 1);
+				let k = (2 * (m ^ 2) + 1) / 3;
+				(n = m).if {
+					k
+				} {
+					k + (2 * a(n - m)) + a(n - m + 1) - 1
+				}
+			}
+		}.memoize;
+		0.toCollect(self - 1, a/1)
 	}
 
 	ulamSequence { :self :initialTerms |
@@ -1581,11 +1581,6 @@
 		self.square.sum = (3 * self.product)
 	}
 
-	nextMarkovTriple { :self |
-		let [x, y, z] = self;
-		[x, y, 3 * x * y - z].sort
-	}
-
 	markovTripleNeighbours { :self |
 		let [x, y, z] = self;
 		[
@@ -1593,6 +1588,11 @@
 			[x, z, y].nextMarkovTriple,
 			[z, y, x].nextMarkovTriple
 		].nub
+	}
+
+	nextMarkovTriple { :self |
+		let [x, y, z] = self;
+		[x, y, 3 * x * y - z].sort
 	}
 
 }
@@ -1847,6 +1847,10 @@
 		}.SparseArray([r, c], 0)
 	}
 
+	integerSequenceMatrix { :v :kind |
+		v.integerSequenceSparseArray(kind).normalArray
+	}
+
 	integerSequenceRowSparseArray { :y :reverse |
 		let c = y.size;
 		let [m, n] = y.minMax;
@@ -1878,10 +1882,6 @@
 				}
 			]
 		)
-	}
-
-	integerSequenceMatrix { :v :kind |
-		v.integerSequenceSparseArray(kind).normalArray
 	}
 
 }

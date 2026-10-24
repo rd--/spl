@@ -1,5 +1,9 @@
 @ArithmeticProgression {
 
+	[List, arithmeticProgressionToList] { :self |
+		self.collect(identity/1)
+	}
+
 	adaptToCollectionAndApply { :self :aCollection :aBlock/2 |
 		aBlock(aCollection, self.List)
 	}
@@ -124,10 +128,6 @@
 		} {
 			self.end
 		}
-	}
-
-	[List, arithmeticProgressionToList] { :self |
-		self.collect(identity/1)
 	}
 
 	[maximum, max] { :self |

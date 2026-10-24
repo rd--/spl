@@ -2,6 +2,24 @@
 
 String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character] {
 
+	[ByteArray, stringToByteArray, utf8ByteArray] { :self |
+		<primitive:
+		return new TextEncoder().encode(_self.normalize('NFC'));
+		>
+	}
+
+	IdentitySet { :self |
+		IdentitySet(self.characters)
+	}
+
+	[List, characters] { :self |
+		self.primitiveCollectInto(identity/1, [])
+	}
+
+	[Set, stringToSet] { :self |
+		Set(self.characters)
+	}
+
 	abbreviateTo { :self :anInteger |
 		self.truncateTo(anInteger - 8) ++ '... &etc'
 	}
@@ -37,6 +55,18 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
+	asHaskellComment { :self |
+		self.asBracketedComment('{-', '-}')
+	}
+
+	asMlComment { :self |
+		self.asBracketedComment('(*', '*)')
+	}
+
+	asPliComment { :self |
+		self.asBracketedComment('/*', '*/')
+	}
+
 	asciiByteArray { :self |
 		let answer = self.utf8ByteArray;
 		answer.allSatisfy(isAsciiCodePoint/1).if {
@@ -58,18 +88,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
-	asHaskellComment { :self |
-		self.asBracketedComment('{-', '-}')
-	}
-
-	asMlComment { :self |
-		self.asBracketedComment('(*', '*)')
-	}
-
-	asPliComment { :self |
-		self.asBracketedComment('/*', '*/')
-	}
-
 	assertIsCharacter { :self |
 		(self.size = 1).ifFalse {
 			self.error('assertIsCharacter')
@@ -80,8 +98,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self
 	}
 
-	displayString { :self |
-		self
+	atAll { :self :indices |
+		self.onCharacters { :c |
+			c.atAll(indices)
+		}
 	}
 
 	atIfAbsent { :self :index :ifAbsent/0 |
@@ -102,12 +122,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
-	atAll { :self :indices |
-		self.onCharacters { :c |
-			c.atAll(indices)
-		}
-	}
-
 	beginsWith { :self :aString |
 		<primitive:
 		if(typeof _aString === 'string') {
@@ -121,12 +135,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		aCollection.anySatisfy { :prefix |
 			self.beginsWith(prefix)
 		}
-	}
-
-	[ByteArray, stringToByteArray, utf8ByteArray] { :self |
-		<primitive:
-		return new TextEncoder().encode(_self.normalize('NFC'));
-		>
 	}
 
 	caesarCipher { :self :n |
@@ -167,16 +175,16 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		.sort!(succeedsOrEqualTo/2, value/1)
 	}
 
+	characterList { :self |
+		self.collectInto(identity/1, [])
+	}
+
 	characterString { :self |
 		self.isCharacter.if {
 			self
 		} {
 			self.error('String>>characterString: not single character string')
 		}
-	}
-
-	characterList { :self |
-		self.collectInto(identity/1, [])
 	}
 
 	codePoint { :self |
@@ -290,6 +298,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		).stringCatenate
 	}
 
+	displayString { :self |
+		self
+	}
+
 	do { :self :aBlock/1 |
 		self.primitiveDo { :each |
 			aBlock(each)
@@ -352,12 +364,12 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		<primitive: return _self.lastIndexOf(_subString, _start - 1) + 1;>
 	}
 
-	findStringStartingAt { :self :aString :anInteger |
-		self.indexOfSubstringStartingAt(aString, anInteger)
-	}
-
 	findString { :self :aString |
 		self.indexOfSubstring(aString)
+	}
+
+	findStringStartingAt { :self :aString :anInteger |
+		self.indexOfSubstringStartingAt(aString, anInteger)
 	}
 
 	first { :self |
@@ -366,6 +378,12 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 	first { :self :anInteger |
 		self.copyFromTo(1, 1 + anInteger - 1)
+	}
+
+	firstBracketedComment { :self :open :close |
+		self.firstBracketedCommentIfAbsent(open, close) {
+			self.error('String>>firstBracketedComment: no comment found')
+		}
 	}
 
 	firstBracketedCommentIfAbsent { :self :open :close :aBlock/0 |
@@ -380,24 +398,14 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
-	firstBracketedComment { :self :open :close |
-		self.firstBracketedCommentIfAbsent(open, close) {
-			self.error('String>>firstBracketedComment: no comment found')
-		}
-	}
-
-	firstHsCommentIfAbsent { :self :aBlock/0 |
-		self.firstBracketedCommentIfAbsent('{-', '-}', aBlock/0)
-	}
-
 	firstHsComment { :self |
 		self.firstHsCommentIfAbsent {
 			self.error('String>>firstHsComment: no comment found')
 		}
 	}
 
-	firstMlCommentIfAbsent { :self :aBlock/0 |
-		self.firstBracketedCommentIfAbsent('(*', '*)', aBlock/0)
+	firstHsCommentIfAbsent { :self :aBlock/0 |
+		self.firstBracketedCommentIfAbsent('{-', '-}', aBlock/0)
 	}
 
 	firstMlComment { :self |
@@ -406,14 +414,18 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
-	firstPliCommentIfAbsent { :self :aBlock/0 |
-		self.firstBracketedCommentIfAbsent('/*', '*/', aBlock/0)
+	firstMlCommentIfAbsent { :self :aBlock/0 |
+		self.firstBracketedCommentIfAbsent('(*', '*)', aBlock/0)
 	}
 
 	firstPliComment { :self |
 		self.firstPliCommentIfAbsent {
 			self.error('String>>firstPliComment: no comment found')
 		}
+	}
+
+	firstPliCommentIfAbsent { :self :aBlock/0 |
+		self.firstBracketedCommentIfAbsent('/*', '*/', aBlock/0)
 	}
 
 	format { :self :arguments |
@@ -452,10 +464,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.asciiByteArray.base16Encode
 	}
 
-	IdentitySet { :self |
-		IdentitySet(self.characters)
-	}
-
 	includesBy { :self :letter :aBlock/2 |
 		self.characters.includesBy(letter.characterString, aBlock/2)
 	}
@@ -492,12 +500,12 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
-	isAscii { :self |
-		self.utf8ByteArray.allSatisfy(isAsciiCodePoint/1)
-	}
-
 	isAllWhiteSpace { :self |
 		<primitive: return !/[^\t\n\r ]/.test(_self);>
+	}
+
+	isAscii { :self |
+		self.utf8ByteArray.allSatisfy(isAsciiCodePoint/1)
 	}
 
 	isAscii { :self |
@@ -528,10 +536,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
-	isInBasicMultilingualPlane { :self |
-		self.countUtf16CodeUnits = self.countCharacters
-	}
-
 	isEmpty { :self |
 		self.size = 0
 	}
@@ -548,6 +552,16 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		['Nil', 'Boolean', 'Block', 'SmallFloat', 'LargeInteger', 'String']
 		.includes(self)
 	}
+
+	isInBasicMultilingualPlane { :self |
+		self.countUtf16CodeUnits = self.countCharacters
+	}
+
+	/*
+	[isLess, <] { :self :operand |
+		localeCompare(self, operand) = -1
+	}
+	*/
 
 	isLiteral { :unused |
 		true
@@ -587,6 +601,16 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
+	[isSimilar, ~] { :self :anObject |
+		self.isCharacter.if {
+			anObject.isCharacter & {
+				self.codePoint == anObject.codePoint
+			}
+		} {
+			self == anObject
+		}
+	}
+
 	isUpperCase { :self |
 		<primitive: return /^[A-Z]+$/.test(_self);>
 	}
@@ -602,12 +626,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	last { :self :count |
 		self.copyFromTo(self.size - count + 1, self.size)
 	}
-
-	/*
-	[isLess, <] { :self :operand |
-		localeCompare(self, operand) = -1
-	}
-	*/
 
 	letterCounts { :self |
 		self
@@ -665,10 +683,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		} {
 			self.withoutTrailingLineFeed.splitOn('\n')
 		}
-	}
-
-	[List, characters] { :self |
-		self.primitiveCollectInto(identity/1, [])
 	}
 
 	localeCompare { :self :operand :locale |
@@ -828,10 +842,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.List.prefixes.collect(String/1)
 	}
 
-	[printLine, postLine] { :self |
-		system.printLine(self)
-	}
-
 	primitiveCollectInto { :self :aBlock/1 :aCollection |
 		self.primitiveDo { :each |
 			aCollection.add!(aBlock(each))
@@ -846,6 +856,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		};
 		>
 		nil
+	}
+
+	[printLine, postLine] { :self |
+		system.printLine(self)
 	}
 
 	pseudoSlotNameList { :self |
@@ -916,20 +930,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 	shallowCopy { :self |
 		self
-	}
-
-	[Set, stringToSet] { :self |
-		Set(self.characters)
-	}
-
-	[isSimilar, ~] { :self :anObject |
-		self.isCharacter.if {
-			anObject.isCharacter & {
-				self.codePoint == anObject.codePoint
-			}
-		} {
-			self == anObject
-		}
 	}
 
 	sortCharacterCode { :self :encoding |
@@ -1084,8 +1084,8 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self ++ system.uniqueIdentifier.printString
 	}
 
-	utf8List { :self |
-		self.utf8ByteArray.List
+	utf16CodePointAt { :self :index |
+		<primitive: return _self.charCodeAt(_index - 1);>
 	}
 
 	utf16List { :self |
@@ -1096,8 +1096,8 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		answer
 	}
 
-	utf16CodePointAt { :self :index |
-		<primitive: return _self.charCodeAt(_index - 1);>
+	utf8List { :self |
+		self.utf8ByteArray.List
 	}
 
 	whiteSpaceDelimitedWordAtIndex { :self :index |
@@ -1174,6 +1174,15 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 +SmallFloat {
 
+	String { :self :letter |
+		letter.assertIsCharacter;
+		letter.repeat(self)
+	}
+
+	String { :self |
+		String(self, ' ')
+	}
+
 	fromCharacterCode { :self :encoding |
 		[self].fromCharacterCode(encoding)
 	}
@@ -1191,18 +1200,16 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.isBetween(55296, 57343)
 	}
 
-	String { :self :letter |
-		letter.assertIsCharacter;
-		letter.repeat(self)
-	}
-
-	String { :self |
-		String(self, ' ')
-	}
-
 }
 
 +List {
+
+	[String, fromCharacters] { :self |
+		self.atVectorOrElementwise { :each |
+			each.do(assertIsCharacter/1);
+			each.uncheckedStringIntercalate('')
+		}
+	}
 
 	camelCase { :self |
 		[self.first] ++ self.allButFirst.collect(capitalize/1)
@@ -1263,11 +1270,12 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
-	[String, fromCharacters] { :self |
-		self.atVectorOrElementwise { :each |
-			each.do(assertIsCharacter/1);
-			each.uncheckedStringIntercalate('')
-		}
+	pascalCase { :self |
+		self.collect(capitalize/1)
+	}
+
+	removeDiacritics { :self |
+		self.collect(removeDiacritics/1)
 	}
 
 	stringCatenate { :self |
@@ -1306,14 +1314,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 	stringReverse { :self |
 		self.collect(stringReverse/1)
-	}
-
-	pascalCase { :self |
-		self.collect(capitalize/1)
-	}
-
-	removeDiacritics { :self |
-		self.collect(removeDiacritics/1)
 	}
 
 	toCharacterCode { :self :encoding |

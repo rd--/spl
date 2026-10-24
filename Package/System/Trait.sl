@@ -6,12 +6,12 @@ Trait! : [Object, Equal] {
 		}
 	}
 
-	methodList { :self |
-		self.methodDictionary.values
-	}
-
 	methodDictionary { :self |
 		<primitive: return _self.methodDictionary;>
+	}
+
+	methodList { :self |
+		self.methodDictionary.values
 	}
 
 	name { :self |
@@ -22,12 +22,12 @@ Trait! : [Object, Equal] {
 		<primitive: return _self.packageName;>
 	}
 
-	pseudoSlotNameList { :self |
-		['methodDictionary', 'name', 'packageName']
-	}
-
 	printString { :self |
 		self.name
+	}
+
+	pseudoSlotNameList { :self |
+		['methodDictionary', 'name', 'packageName']
 	}
 
 	unqualifiedName { :self |

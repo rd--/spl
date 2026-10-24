@@ -81,15 +81,6 @@ Frame : [Object, UserEventTarget] {
 		self
 	}
 
-	onClose { :self :aBlock/1 |
-		self.addEventListener('close', aBlock/1);
-		self
-	}
-
-	outerElement { :self |
-		self.framePane
-	}
-
 	menuItems { :self |
 		[
 			MenuItem('Help', nil) { :event |
@@ -112,6 +103,15 @@ Frame : [Object, UserEventTarget] {
 		self.y := y;
 		self.framePane.style.setProperty('left', x.printString ++ 'px', '');
 		self.framePane.style.setProperty('top', y.printString ++ 'px', '')
+	}
+
+	onClose { :self :aBlock/1 |
+		self.addEventListener('close', aBlock/1);
+		self
+	}
+
+	outerElement { :self |
+		self.framePane
 	}
 
 	setEventHandlers { :self |

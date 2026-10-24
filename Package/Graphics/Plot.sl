@@ -4,6 +4,35 @@ Plot : [Object] {
 
 	| pageList format options |
 
+	LineDrawing { :self |
+		self.format.caseOf(
+			[
+				'array' -> {
+					self.arrayColourGrid.LineDrawing
+				},
+				'matrix' -> {
+					self.matrixColourGrid.LineDrawing
+				}
+			]
+		) {
+			self.columnCount.caseOf(
+				[
+					1 -> {
+						self.lineDrawingY
+					},
+					2 -> {
+						self.lineDrawingXy
+					},
+					3 -> {
+						self.lineDrawingXyz
+					}
+				]
+			) {
+				self.unimplementedCase('LineDrawing')
+			}
+		}
+	}
+
 	arrayColourGrid { :self |
 		let [contents] = self.pageList;
 		self.assertScaleIsLinear;
@@ -158,35 +187,6 @@ Plot : [Object] {
 		).LineDrawing
 	}
 
-	LineDrawing { :self |
-		self.format.caseOf(
-			[
-				'array' -> {
-					self.arrayColourGrid.LineDrawing
-				},
-				'matrix' -> {
-					self.matrixColourGrid.LineDrawing
-				}
-			]
-		) {
-			self.columnCount.caseOf(
-				[
-					1 -> {
-						self.lineDrawingY
-					},
-					2 -> {
-						self.lineDrawingXy
-					},
-					3 -> {
-						self.lineDrawingXyz
-					}
-				]
-			) {
-				self.unimplementedCase('LineDrawing')
-			}
-		}
-	}
-
 	log { :self |
 		self.options['scale'] := 'log';
 		self
@@ -273,6 +273,15 @@ Plot : [Object] {
 		self.flatten.realImaginary.scatterPlot
 	}
 
+	complexPlot { :self :k :aBlock/1 |
+		complexPlotBy(self, k, arg/1, aBlock/1)
+	}
+
+	complexPlot { :self :aBlock/1 |
+		let k = 100;
+		complexPlot(self, k, aBlock/1)
+	}
+
 	complexPlotBy { :self :k :aspect/1 :aBlock/1 |
 		let [min, max] = self;
 		let colourFunction/1 = (
@@ -287,15 +296,6 @@ Plot : [Object] {
 			let z = Complex(y, x);
 			colourFunction(aBlock(z).aspect / 2.pi + 0.5)
 		}.table(i, r).reverse.Image
-	}
-
-	complexPlot { :self :k :aBlock/1 |
-		complexPlotBy(self, k, arg/1, aBlock/1)
-	}
-
-	complexPlot { :self :aBlock/1 |
-		let k = 100;
-		complexPlot(self, k, aBlock/1)
 	}
 
 	densityHistogramPlot { :d :b1 :b2 |
@@ -446,21 +446,6 @@ Plot : [Object] {
 		}
 	}
 
-	polarPlot { :self |
-		let k = self.rank;
-		(k = 2).if {
-			self.collect(fromPolarCoordinates/1).linePlot
-		} {
-			(k = 3).if {
-				self.collect { :each |
-					each.collect(fromPolarCoordinates/1)
-				}.linePlot
-			} {
-				self.error('polarPlot')
-			}
-		}
-	}
-
 	poincarePlot { :x :n |
 		let m = x.size - n;
 		1.toCollect(m) { :i |
@@ -476,6 +461,25 @@ Plot : [Object] {
 		self.typedSwitchingPlot('pointLine')
 	}
 
+	polarPlot { :self |
+		let k = self.rank;
+		(k = 2).if {
+			self.collect(fromPolarCoordinates/1).linePlot
+		} {
+			(k = 3).if {
+				self.collect { :each |
+					each.collect(fromPolarCoordinates/1)
+				}.linePlot
+			} {
+				self.error('polarPlot')
+			}
+		}
+	}
+
+	quantilePlot { :self :aProbabilityDistribution |
+		self.quantilePlotData(aProbabilityDistribution).scatterPlot
+	}
+
 	quantilePlotData { :self :aProbabilityDistribution |
 		let k = self.size;
 		let y = self.sort;
@@ -487,10 +491,6 @@ Plot : [Object] {
 			[x, y].transpose,
 			[i, i].transpose
 		]
-	}
-
-	quantilePlot { :self :aProbabilityDistribution |
-		self.quantilePlotData(aProbabilityDistribution).scatterPlot
 	}
 
 	reliefPlot { :self :options |
@@ -583,6 +583,10 @@ Plot : [Object] {
 		data.linePlot
 	}
 
+	stepPlot { :self |
+		self.stepPlotLineData.linePlot
+	}
+
 	stepPlotLineData { :self |
 		self.isVector.if {
 			let answer = [];
@@ -611,10 +615,6 @@ Plot : [Object] {
 				self.collect(stepPlotLineData/1)
 			}
 		}
-	}
-
-	stepPlot { :self |
-		self.stepPlotLineData.linePlot
 	}
 
 	surfacePlot { :self :k :aBlock/2 |
@@ -669,6 +669,28 @@ Plot : [Object] {
 		}
 	}
 
+	typedPlot { :self :format |
+		self := SmallFloat(self);
+		self.isVector.if {
+			[self].typedVectorPlot(format)
+		} {
+			self.isColumnVector.if {
+				[self.catenate].typedVectorPlot(format)
+			} {
+				self.isSmallFloatMatrix.if {
+					let [m, n] = self.shape;
+					(n <= 3).if {
+						[self].Plot(format)
+					} {
+						self.typedVectorPlot(format)
+					}
+				} {
+					self.Plot(format)
+				}
+			}
+		}
+	}
+
 	typedSwitchingPlot { :self :format |
 		self.isArray.if {
 			self.typedPlot(format)
@@ -690,28 +712,6 @@ Plot : [Object] {
 			}.Plot(format)
 		} {
 			self.error('typedVectorPlot: invalid data')
-		}
-	}
-
-	typedPlot { :self :format |
-		self := SmallFloat(self);
-		self.isVector.if {
-			[self].typedVectorPlot(format)
-		} {
-			self.isColumnVector.if {
-				[self.catenate].typedVectorPlot(format)
-			} {
-				self.isSmallFloatMatrix.if {
-					let [m, n] = self.shape;
-					(n <= 3).if {
-						[self].Plot(format)
-					} {
-						self.typedVectorPlot(format)
-					}
-				} {
-					self.Plot(format)
-				}
-			}
 		}
 	}
 
@@ -965,7 +965,6 @@ Plot : [Object] {
 		}.LineDrawing
 	}
 
-
 }
 
 +Association {
@@ -1052,7 +1051,6 @@ Plot : [Object] {
 	}
 
 }
-
 
 +List {
 
@@ -1312,6 +1310,20 @@ Plot : [Object] {
 
 +List {
 
+	murasakiDiagram { :p |
+		let c = p.murasakiDiagramConfiguration;
+		let g = [];
+		c.do { :each |
+			let [y, xList] = each;
+			y := y * 3.5;
+			xList.do { :x |
+				g.add!(Line([x 0; x y]))
+			};
+			g.add!(Line([xList.first y; xList.last y]))
+		};
+		GeometryCollection(g)
+	}
+
 	murasakiDiagramConfiguration { :p |
 		/* https://github.com/olooney/genjiko */
 		let intervalsOverlap = { :a :b |
@@ -1361,23 +1373,10 @@ Plot : [Object] {
 		bestDiagram
 	}
 
-	murasakiDiagram { :p |
-		let c = p.murasakiDiagramConfiguration;
-		let g = [];
-		c.do { :each |
-			let [y, xList] = each;
-			y := y * 3.5;
-			xList.do { :x |
-				g.add!(Line([x 0; x y]))
-			};
-			g.add!(Line([xList.first y; xList.last y]))
-		};
-		GeometryCollection(g)
-	}
-
 }
 
 +[List, Range] {
+
 	divisorPlot { :xRange :yRange |
 		let xMin = xRange.min;
 		yRange.collect { :y |

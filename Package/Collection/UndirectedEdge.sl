@@ -2,17 +2,21 @@ UndirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 
 	| vertexList |
 
+	DirectedEdge { :self |
+		let [i, j] = self.vertexList;
+		DirectedEdge(i, j)
+	}
+
+	[UndirectedEdge, Edge] { :self |
+		self
+	}
+
 	at { :self :index |
 		self.vertexList.at(index)
 	}
 
 	compare { :self :anEdge |
 		compareOn(self, anEdge, vertexList/1)
-	}
-
-	DirectedEdge { :self |
-		let [i, j] = self.vertexList;
-		DirectedEdge(i, j)
 	}
 
 	forDot { :self :isMixed |
@@ -72,10 +76,6 @@ UndirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 
 	size { :unused |
 		2
-	}
-
-	[UndirectedEdge, Edge] { :self |
-		self
 	}
 
 }

@@ -2,6 +2,17 @@ Parallelepiped : [Object, Geometry] {
 
 	| origin vectorList |
 
+	PerspectiveDrawing { :self |
+		self.Polyhedron.PerspectiveDrawing
+	}
+
+	Polyhedron { :self |
+		Polyhedron(
+			self.vertexCoordinates,
+			self.faceIndices
+		)
+	}
+
 	dimension { :self |
 		self.vectorList.size
 	}
@@ -19,17 +30,6 @@ Parallelepiped : [Object, Geometry] {
 			4 1 6 7;
 			6 5 8 7
 		]
-	}
-
-	PerspectiveDrawing { :self |
-		self.Polyhedron.PerspectiveDrawing
-	}
-
-	Polyhedron { :self |
-		Polyhedron(
-			self.vertexCoordinates,
-			self.faceIndices
-		)
 	}
 
 	project { :self :projection |

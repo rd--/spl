@@ -54,7 +54,7 @@ BounceBall : [Object] {
 		Benchmark('Bounce', Map([100 -> 1331])) { :ballCount |
 			let random = SomRandom();
 			let bounces = 0;
-			let balls = { BounceBall(random) }.array([ballCount]);
+			let balls = { :i | BounceBall(random) }.array([ballCount]);
 			1.toDo(50) { :i |
 				balls.do { :ball |
 					ball.bounce.ifTrue {

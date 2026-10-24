@@ -61,6 +61,12 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 
 +List {
 
+	Point { :self |
+		self.atVectorOrElementwise { :each |
+			newPoint().initializeSlots(each)
+		}
+	}
+
 	anglePath { :angles :distances :origin :initialAngle |
 		let answer = [origin];
 		let theta = initialAngle;
@@ -197,12 +203,6 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 		let d = (x2 - x0).square + (y2 - y0).square;
 		let e = (a + b) / (c.sqrt * d.sqrt);
 		e.arcCos
-	}
-
-	Point { :self |
-		self.atVectorOrElementwise { :each |
-			newPoint().initializeSlots(each)
-		}
 	}
 
 	pointLineDistance { :aLine :aPoint |

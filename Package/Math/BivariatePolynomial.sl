@@ -13,14 +13,14 @@ BivariatePolynomial : [Object, Copy, Store, Equal] {
 		self.coefficientMatrix.shape - 1
 	}
 
+	evaluate { :self :x :y |
+		self.coefficientMatrix.evaluateBivariatePolynomial(x, y)
+	}
+
 	isEqualBy { :self :operand :aBlock/2 |
 		operand.isBivariatePolynomial & {
 			aBlock(self.coefficientMatrix, operand.coefficientMatrix)
 		}
-	}
-
-	evaluate { :self :x :y |
-		self.coefficientMatrix.evaluateBivariatePolynomial(x, y)
 	}
 
 	isZero { :self |
@@ -34,6 +34,10 @@ BivariatePolynomial : [Object, Copy, Store, Equal] {
 }
 
 +List {
+
+	BivariatePolynomial { :self |
+		newBivariatePolynomial().initializeSlots(self)
+	}
 
 	evaluateBivariatePolynomial { :coefficientMatrix :x :y |
 		coefficientMatrix.ifEmpty {
@@ -60,10 +64,6 @@ BivariatePolynomial : [Object, Copy, Store, Equal] {
 			};
 			answer
 		}
-	}
-
-	BivariatePolynomial { :self |
-		newBivariatePolynomial().initializeSlots(self)
 	}
 
 }

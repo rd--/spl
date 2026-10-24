@@ -1,5 +1,42 @@
 +SmallFloat {
 
+	doyleSpiral { :p :q :l |
+		let [a, b, r] = doyleSpiralParameters(p, q);
+		let z = a;
+		let answer = [];
+		1.toDo(q) { :i |
+			answer.addAll!(doyleSpiralArm(r, z, a, l));
+			z := z * b
+		};
+		answer
+	}
+
+	doyleSpiralArm { :r :z :delta :limit |
+		let recipDelta = 1 / delta;
+		let modDelta = delta.abs;
+		let modRecipDelta = 1 / modDelta;
+		let [minD, maxD] = limit;
+		let q = z;
+		let modQ = q.abs;
+		let answer = [];
+		let count = 0;
+		{ modQ < maxD }.whileTrue {
+			answer.add!(Circle(q.realImaginary, modQ * r));
+			q := q * delta;
+			modQ := modQ * modDelta;
+			count := count + 1
+		};
+		q := z * recipDelta;
+		modQ := q.abs;
+		{ modQ > minD }.whileTrue {
+			answer.add!(Circle(q.realImaginary, modQ * r));
+			q := q * recipDelta;
+			modQ := modQ * modRecipDelta;
+			count := count + 1
+		};
+		answer
+	}
+
 	doyleSpiralParameters { :p :q |
 		<primitive:
 		/* https://gist.github.com/robinhouston/6096950 */
@@ -107,43 +144,6 @@
 		let b = [coroot.z * cos(coroot.t), coroot.z * sin(coroot.t) ];
 		return [_Complex_1(a), _Complex_1(b), root.r];
 		>
-	}
-
-	doyleSpiralArm { :r :z :delta :limit |
-		let recipDelta = 1 / delta;
-		let modDelta = delta.abs;
-		let modRecipDelta = 1 / modDelta;
-		let [minD, maxD] = limit;
-		let q = z;
-		let modQ = q.abs;
-		let answer = [];
-		let count = 0;
-		{ modQ < maxD }.whileTrue {
-			answer.add!(Circle(q.realImaginary, modQ * r));
-			q := q * delta;
-			modQ := modQ * modDelta;
-			count := count + 1
-		};
-		q := z * recipDelta;
-		modQ := q.abs;
-		{ modQ > minD }.whileTrue {
-			answer.add!(Circle(q.realImaginary, modQ * r));
-			q := q * recipDelta;
-			modQ := modQ * modRecipDelta;
-			count := count + 1
-		};
-		answer
-	}
-
-	doyleSpiral { :p :q :l |
-		let [a, b, r] = doyleSpiralParameters(p, q);
-		let z = a;
-		let answer = [];
-		1.toDo(q) { :i |
-			answer.addAll!(doyleSpiralArm(r, z, a, l));
-			z := z * b
-		};
-		answer
 	}
 
 }

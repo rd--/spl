@@ -1,5 +1,17 @@
 +@Sequence {
 
+	quickSort { :self |
+		self.copy.quickSort!
+	}
+
+	quickSort! { :self :sortBlock/2 |
+		self.quickSortFromToBy(1, self.size, sortBlock/2)
+	}
+
+	quickSort! { :self |
+		self.quickSort!(isLessOrEqual/2)
+	}
+
 	quickSortFromToBy { :self :from :to :sortBlock/2 |
 		withReturn { :return/1 |
 			let i = from;
@@ -80,21 +92,13 @@
 		}
 	}
 
-	quickSort! { :self :sortBlock/2 |
-		self.quickSortFromToBy(1, self.size, sortBlock/2)
-	}
-
-	quickSort! { :self |
-		self.quickSort!(isLessOrEqual/2)
-	}
-
-	quickSort { :self |
-		self.copy.quickSort!
-	}
-
 }
 
 +List {
+
+	quickSortHoare { :self |
+		self.quickSortHoareWithMonitor(nil.constant)
+	}
 
 	quickSortHoareWithMonitor { :self :l :r :monitorBlock/1 |
 		let partition = { :s :l :r |
@@ -132,10 +136,6 @@
 
 	quickSortHoareWithMonitor { :self :monitorBlock/1 |
 		self.quickSortHoareWithMonitor(1, self.size, monitorBlock/1)
-	}
-
-	quickSortHoare { :self |
-		self.quickSortHoareWithMonitor(nil.constant)
 	}
 
 	quickSortMatrix { :self |

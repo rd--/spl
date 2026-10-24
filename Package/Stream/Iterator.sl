@@ -8,6 +8,10 @@
 
 +@Iterator {
 
+	Iterator { :self |
+		self
+	}
+
 	any { :self :numberOfElements |
 		self.next(numberOfElements)
 	}
@@ -24,10 +28,6 @@
 
 	isIterator { :self |
 		true
-	}
-
-	Iterator { :self |
-		self
 	}
 
 	next { :self :anInteger |

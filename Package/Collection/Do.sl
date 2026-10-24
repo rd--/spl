@@ -1,22 +1,5 @@
 @Do {
 
-	[and, &] { :self |
-		self.allSatisfy(nullaryApply/1)
-	}
-
-	[evaluatingAnd, &&] { :self |
-		self.allSatisfy(identity/1)
-	}
-
-
-	[evaluatingOr, ||] { :self |
-		self.anySatisfy(identity/1)
-	}
-
-	[or, |] { :self |
-		self.anySatisfy(nullaryApply/1)
-	}
-
 	absMax { :self |
 		self.injectInto(self.anyOne.abs) { :answer :each |
 			answer.max(each.abs)
@@ -53,6 +36,10 @@
 		self.allTrue(identity/1)
 	}
 
+	[and, &] { :self |
+		self.allSatisfy(nullaryApply/1)
+	}
+
 	anyOne { :self |
 		withReturn { :return/1 |
 			self.do { :each |
@@ -77,20 +64,20 @@
 		self.anyTrue(identity/1)
 	}
 
-	cartesianProductDo { :self :operand :aBlock/2 |
-		self.do { :x |
-			operand.do { :y |
-				aBlock(x, y)
-			}
-		}
-	}
-
 	cartesianProduct { :self :operand |
 		let answer = [];
 		self.cartesianProductDo(operand) { :i :j |
 			answer.add!([i, j])
 		};
 		answer
+	}
+
+	cartesianProductDo { :self :operand :aBlock/2 |
+		self.do { :x |
+			operand.do { :y |
+				aBlock(x, y)
+			}
+		}
 	}
 
 	containsOnly { :x :y |
@@ -243,14 +230,6 @@
 		self.detectIfFoundIfNone(aBlock/1, identity/1, whenAbsent/0)
 	}
 
-	detectSum { :self :aBlock/1 |
-		let sum = 0;
-		self.do { :each |
-			sum := sum + aBlock(each)
-		};
-		sum
-	}
-
 	detectMax { :self :aBlock/1 |
 		let maxElement = nil;
 		let maxValue = nil;
@@ -285,6 +264,14 @@
 			}
 		};
 		minElement
+	}
+
+	detectSum { :self :aBlock/1 |
+		let sum = 0;
+		self.do { :each |
+			sum := sum + aBlock(each)
+		};
+		sum
 	}
 
 	do { :self :aBlock/1 |
@@ -335,14 +322,27 @@
 		b
 	}
 
-	includesBy { :self :anObject :aBlock/2 |
-		self.anySatisfy { :each |
-			aBlock(each, anObject)
-		}
+	[evaluatingAnd, &&] { :self |
+		self.allSatisfy(identity/1)
+	}
+
+	[evaluatingOr, ||] { :self |
+		self.anySatisfy(identity/1)
 	}
 
 	includes { :self :anObject |
 		self.includesBy(anObject, isEqual/2)
+	}
+
+	includesAll { :self :aCollection |
+		withReturn { :return/1 |
+			aCollection.do { :elem |
+				self.includes(elem).ifFalse {
+					false.return
+				}
+			};
+			true
+		}
 	}
 
 	includesAny { :self :aCollection |
@@ -356,14 +356,9 @@
 		}
 	}
 
-	includesAll { :self :aCollection |
-		withReturn { :return/1 |
-			aCollection.do { :elem |
-				self.includes(elem).ifFalse {
-					false.return
-				}
-			};
-			true
+	includesBy { :self :anObject :aBlock/2 |
+		self.anySatisfy { :each |
+			aBlock(each, anObject)
 		}
 	}
 
@@ -381,16 +376,16 @@
 		aCollection.includesAll(self)
 	}
 
+	injectInto { :self :initialValue :aBlock/2 |
+		self.injectIntoBy(initialValue, aBlock/2, do/2)
+	}
+
 	injectIntoBy { :self :initialValue :aBlock/2 :doBlock/2 |
 		let nextValue = initialValue;
 		doBlock(self) { :each |
 			nextValue := aBlock(nextValue, each)
 		};
 		nextValue
-	}
-
-	injectInto { :self :initialValue :aBlock/2 |
-		self.injectIntoBy(initialValue, aBlock/2, do/2)
 	}
 
 	isDuplicateFree { :self :aBlock/2 |
@@ -432,6 +427,12 @@
 		self.items(do/2)
 	}
 
+	level { :self :aList |
+		self.levelBy { :level |
+			aList.includes(level)
+		}
+	}
+
 	levelBy { :self :aBlock/1 |
 		let answer = [];
 		self.withLevelDo { :each :level |
@@ -442,20 +443,10 @@
 		answer
 	}
 
-	level { :self :aList |
-		self.levelBy { :level |
-			aList.includes(level)
-		}
-	}
-
 	maxOn { :self :f/1 |
 		self.minBy { :a :b |
 			isGreaterOn(a, b, f/1)
 		}
-	}
-
-	[maximum, max] { :self |
-		self.reduce(max/2)
 	}
 
 	maximalBy { :self :aBlock/1 |
@@ -464,8 +455,8 @@
 		self.selectIndices(i)
 	}
 
-	[minimum, min] { :self |
-		self.reduce(min/2)
+	[maximum, max] { :self |
+		self.reduce(max/2)
 	}
 
 	minBy { :self :aBlock/2 |
@@ -490,14 +481,12 @@
 		self.selectIndices(i)
 	}
 
-	[minimumMaximum, minMax] { :self |
-		let min = self.anyOne;
-		let max = min;
-		self.do { :each |
-			min := min.min(each);
-			max := max.max(each)
-		};
-		[min, max]
+	[minimum, min] { :self |
+		self.reduce(min/2)
+	}
+
+	minimumExcludedPositiveInteger { :x |
+		x.minimumExcludedValue(1.to(Infinity))
 	}
 
 	minimumExcludedValue { :x :u |
@@ -510,8 +499,14 @@
 		x.minimumExcludedValue(0.to(Infinity))
 	}
 
-	minimumExcludedPositiveInteger { :x |
-		x.minimumExcludedValue(1.to(Infinity))
+	[minimumMaximum, minMax] { :self |
+		let min = self.anyOne;
+		let max = min;
+		self.do { :each |
+			min := min.min(each);
+			max := max.max(each)
+		};
+		[min, max]
 	}
 
 	neumaierSum { :self |
@@ -547,6 +542,10 @@
 		self.count(aBlock/1) = 1
 	}
 
+	[or, |] { :self |
+		self.anySatisfy(nullaryApply/1)
+	}
+
 	product { :self :aBlock/1 |
 		self.isEmpty.if {
 			1
@@ -571,6 +570,10 @@
 		self.max - self.min
 	}
 
+	reduce { :self :aBlock/2 |
+		self.reduceBy(aBlock/2, do/2)
+	}
+
 	reduceBy { :self :aBlock/2 :iterationBlock/2 |
 		let isFirst = true;
 		let nextValue = nil;
@@ -586,10 +589,6 @@
 			self.error('@Do>>reduceBy: empty collection')
 		};
 		nextValue
-	}
-
-	reduce { :self :aBlock/2 |
-		self.reduceBy(aBlock/2, do/2)
 	}
 
 	rejectThenDo { :self :rejectBlock/1 :doBlock/1 |

@@ -1,15 +1,15 @@
 @Remove {
 
-	remove! { :self :oldObject |
-		self.removeIfAbsent!(oldObject) {
-			self.errorNotFound(oldObject)
-		}
-	}
-
 	remove { :self :oldObject |
 		let answer = self.copy;
 		answer.remove!(oldObject);
 		answer
+	}
+
+	remove! { :self :oldObject |
+		self.removeIfAbsent!(oldObject) {
+			self.errorNotFound(oldObject)
+		}
 	}
 
 	removeAll! { :self |

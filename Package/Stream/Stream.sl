@@ -8,6 +8,10 @@
 
 +@Stream {
 
+	Stream { :self |
+		self
+	}
+
 	equalToOnReset { :self :places |
 		let initialAnswer = self.next(places);
 		self.reset!;
@@ -22,10 +26,6 @@
 
 	isStream { :self |
 		true
-	}
-
-	Stream { :self |
-		self
 	}
 
 }

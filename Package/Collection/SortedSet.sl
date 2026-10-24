@@ -2,6 +2,10 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collect, Collection, Add, Remo
 
 	| sortedList |
 
+	[List, sortedSetToList] { :self |
+		self.sortedList.List
+	}
+
 	add! { :self :anObject |
 		let sortedList = self.sortedList;
 		sortedList.includes(anObject).if {
@@ -29,8 +33,8 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collect, Collection, Add, Remo
 		self.sortedList.includes(anObject)
 	}
 
-	[List, sortedSetToList] { :self |
-		self.sortedList.List
+	postCopy { :self |
+		self.sortedList := self.sortedList.copy
 	}
 
 	removeAll! { :self |
@@ -39,10 +43,6 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collect, Collection, Add, Remo
 
 	removeIfAbsent! { :self :anObject :aBlock/0 |
 		self.sortedList.removeIfAbsent!(anObject, aBlock/0)
-	}
-
-	postCopy { :self |
-		self.sortedList := self.sortedList.copy
 	}
 
 	size { :self |
@@ -89,13 +89,6 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collect, Collection, Add, Remo
 
 +List {
 
-	unionInto { :self :aCollection |
-		self.do { :each |
-			aCollection.includeAll!(each)
-		};
-		aCollection
-	}
-
 	union { :self |
 		self.unionInto(
 			SortedSet()
@@ -104,6 +97,13 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collect, Collection, Add, Remo
 
 	union { :self :aCollection |
 		[self, aCollection].union
+	}
+
+	unionInto { :self :aCollection |
+		self.do { :each |
+			aCollection.includeAll!(each)
+		};
+		aCollection
 	}
 
 }

@@ -85,7 +85,6 @@ EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-
 +List {
 
 	EmpiricalDistribution { :d |

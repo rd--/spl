@@ -75,19 +75,19 @@ The sorted indices of a method dictionary:
 [
 	'addInPlace/2'
 	'collect/2'
-	'isEqualBy/3'
 	'isDuplicateFree/1'
+	'isEqualBy/3'
 	'isSet/1'
 	'occurrencesOf/2'
 	'removeInPlace/2'
-	'withoutInPlace/2'
 	'uncheckedIncludeInPlace/2'
+	'withoutInPlace/2'
 ]
 ```
 
 * * *
 
-See also: methodLookupAtType, packageDictionary, System, traitDictionary, typeDictionary
+See also: Method, System, methodLookupAtType, packageDictionary, traitDictionary, typeDictionary
 
 Guides: Method Dictionary, Reflection Functions
 

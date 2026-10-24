@@ -284,6 +284,14 @@
 		self
 	}
 
+	shape { :self |
+		self.shapeOrNil.ifNil {
+			self.error('shape: irregular arrays do not have shape')
+		} { :answer |
+			answer
+		}
+	}
+
 	shapeOrNil { :self |
 		(self.size = 0).if {
 			[0]
@@ -306,14 +314,6 @@
 					[self.size]
 				}
 			}
-		}
-	}
-
-	shape { :self |
-		self.shapeOrNil.ifNil {
-			self.error('shape: irregular arrays do not have shape')
-		} { :answer |
-			answer
 		}
 	}
 
@@ -631,15 +631,6 @@
 		}
 	}
 
-	triangularArrayDo { :self :aBlock/2 :k |
-		let a = self[1];
-		self.do { :n |
-			a.toDo(max(a, n + k)) { :m |
-				aBlock(n, m)
-			}
-		}
-	}
-
 	triangularArray { :self :aBlock/2 :k |
 		let a = self[1];
 		self.collect { :n |
@@ -651,6 +642,15 @@
 
 	triangularArray { :self :aBlock/2 |
 		triangularArray(self, aBlock/2, 0)
+	}
+
+	triangularArrayDo { :self :aBlock/2 :k |
+		let a = self[1];
+		self.do { :n |
+			a.toDo(max(a, n + k)) { :m |
+				aBlock(n, m)
+			}
+		}
 	}
 
 }

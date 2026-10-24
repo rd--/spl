@@ -85,7 +85,6 @@
 
 }
 
-
 +@Integer {
 
 	bernoulliTriangle { :self |
@@ -393,22 +392,12 @@
 		}
 	}
 
-	qBinomialDirect { :n :m |
-		let a = 0.to(m - 1).product { :i |
-			Polynomial(
-				Map(
-					[0 -> 1, (n - i) -> -1]
-				)
-			)
-		};
-		let b = 0.to(m - 1).product { :i |
-			Polynomial(
-				Map(
-					[0 -> 1, (i + 1) -> -1]
-				)
-			)
-		};
-		a.polynomialQuotient(b)
+	qBinomial { :n :m |
+		qBinomialCyclotomic(n, m)
+	}
+
+	qBinomial { :n :m :q |
+		qBinomial(n, m).at(q)
 	}
 
 	qBinomialCyclotomic { :n :m |
@@ -433,12 +422,22 @@
 		}
 	}
 
-	qBinomial { :n :m |
-		qBinomialCyclotomic(n, m)
-	}
-
-	qBinomial { :n :m :q |
-		qBinomial(n, m).at(q)
+	qBinomialDirect { :n :m |
+		let a = 0.to(m - 1).product { :i |
+			Polynomial(
+				Map(
+					[0 -> 1, (n - i) -> -1]
+				)
+			)
+		};
+		let b = 0.to(m - 1).product { :i |
+			Polynomial(
+				Map(
+					[0 -> 1, (i + 1) -> -1]
+				)
+			)
+		};
+		a.polynomialQuotient(b)
 	}
 
 	qFactorial { :n |

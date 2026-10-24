@@ -1,4 +1,8 @@
-/* Are-we-fast-yet micro benchmarks */
+# Package/Benchmark
+
+Are-we-fast-yet micro benchmarks:
+
+~~~spl
 let b = BounceBenchmark(); b.run(100) /* 10-35ms */
 { listBenchmark().length = 10 }.timing /* 10-35ms */
 { PermuteBenchmark() = 8660 }.timing /* 15-40ms */
@@ -6,14 +10,21 @@ let b = BounceBenchmark(); b.run(100) /* 10-35ms */
 { 5000.sieveBenchmark = 669 }.timing /* 5-20ms */
 { StorageBenchark() = 5461 }.timing /* 10-30ms */
 { TowersBenchmark() = 8191 }.timing /* 20-50ms */
+~~~
 
-/* Are-we-fast-yet benchmarks */
+Are-we-fast-yet benchmarks:
+
+~~~spl
 { let o = JsonBenchmark(); o.isObject & { o['head'].isObject & { o['operations'].isList & { o['operations'].size = 156 } } } }.timing /* 250-300ms */
 let h = HavlakBenchmark(); [1, 15, 150, 1500, 15000].do { :each | h.run(each) } /* 4920 4800 5084 5336 7858ms */
 let m = MandelbrotBenchmark(); [1, 500, 750].do { :each | m.run(each) } /* 0 5990 13606ms */
 let n = NBodyBenchmark(); [1, 250000].do { :each | n.run(each) } /* 0 5386ms */
+~~~
 
-/* Squeak benchmarks */
+Squeak benchmarks:
+
+~~~spl
 let [t, r] = { 26.squeakBenchFib }.timing; r = 392835 & { t < 0.25 }
 let [t, r] = { 10.squeakTinyBenchmarks }.timing; r = 1028 & { t < 0.25 } /* c.f tinyBenchmarks */
 let [t, r] = { 23.squeakBenchFib }.repeatedTiming(0.25); t < 0.05 & { r = 92735 }
+~~~

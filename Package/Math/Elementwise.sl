@@ -2,32 +2,32 @@
 
 +@Collect {
 
-	conjugate { :self |
-		self.collect(conjugate/1)
+	Boolean { :self |
+		self.collect(Boolean/1)
 	}
 
-	[doubleFactorial, !!] { :self |
-		self.collect(doubleFactorial/1)
+	E { :self :aNumber |
+		self * (10 ^ aNumber)
 	}
 
-	exp { :self |
-		self.collect(exp/1)
+	I { :self |
+		self.collect(I/1)
 	}
 
-	[factorialOrGamma, !] { :self |
-		self.collect(factorialOrGamma/1)
+	Integer { :self |
+		self.collect(Integer/1)
 	}
 
-	[negate, -] { :self |
-		self.collect(negate/1)
+	Number { :self |
+		self.collect(Number/1)
 	}
 
-	[reciprocal, /] { :self |
-		self.collect(reciprocal/1)
+	[SmallFloat, Float] { :self |
+		self.collect(SmallFloat/1)
 	}
 
-	sign { :self |
-		self.collect(sign/1)
+	SmallInteger { :self |
+		self.collect(SmallInteger/1)
 	}
 
 	[absoluteValue, abs] { :self |
@@ -68,16 +68,6 @@
 
 	bernoulliNumber { :self |
 		self.collect(bernoulliNumber/1)
-	}
-
-	isBetween { :self :interval |
-		self.collect(
-			interval.between
-		)
-	}
-
-	isBetween { :self :min :max |
-		self.isBetween(min -- max)
 	}
 
 	binaryExpansion { :self :k |
@@ -124,20 +114,16 @@
 		self.collect(boole/1)
 	}
 
-	Boolean { :self |
-		self.collect(Boolean/1)
-	}
-
-	catalanNumber { :self |
-		self.collect(catalanNumber/1)
-	}
-
 	cantorStaircase { :self |
 		self.collect(cantorStaircase/1)
 	}
 
 	carmichaelLambda { :self |
 		self.collect(carmichaelLambda/1)
+	}
+
+	catalanNumber { :self |
+		self.collect(catalanNumber/1)
 	}
 
 	ceiling { :self |
@@ -148,16 +134,16 @@
 		self.collect(chop/1)
 	}
 
+	conjugate { :self |
+		self.collect(conjugate/1)
+	}
+
 	continuedFraction { :self |
 		self.collect(continuedFraction/1)
 	}
 
 	cube { :self |
 		self.collect(cube/1)
-	}
-
-	degree { :self |
-		self.collect(degree/1)
 	}
 
 	decimalExpansion { :self |
@@ -176,6 +162,10 @@
 
 	dedekindPsi { :self |
 		self.collect(dedekindPsi/1)
+	}
+
+	degree { :self |
+		self.collect(degree/1)
 	}
 
 	degreesToRadians { :self |
@@ -214,12 +204,12 @@
 		self.collect(double/1)
 	}
 
-	e { :self |
-		self.collect(e/1)
+	[doubleFactorial, !!] { :self |
+		self.collect(doubleFactorial/1)
 	}
 
-	E { :self :aNumber |
-		self * (10 ^ aNumber)
+	e { :self |
+		self.collect(e/1)
 	}
 
 	ellipticE { :self |
@@ -258,12 +248,20 @@
 		self.collect(eulerPhiInverse/1)
 	}
 
-	factorial { :self |
-		self.collect(factorial/1)
+	exp { :self |
+		self.collect(exp/1)
 	}
 
 	factorInteger { :self |
 		self.collect(factorInteger/1)
+	}
+
+	factorial { :self |
+		self.collect(factorial/1)
+	}
+
+	[factorialOrGamma, !] { :self |
+		self.collect(factorialOrGamma/1)
 	}
 
 	fibonacci { :self |
@@ -336,6 +334,10 @@
 		self.collect(greatestPrimeFactor/1)
 	}
 
+	halve { :self |
+		self.collect(halve/1)
+	}
+
 	hammingWeight { :self |
 		self.collect(hammingWeight/1)
 	}
@@ -350,10 +352,6 @@
 		self.collect(harmonicNumber/1)
 	}
 
-	halve { :self |
-		self.collect(halve/1)
-	}
-
 	hexagonalNumber { :self |
 		self.collect(hexagonalNumber/1)
 	}
@@ -366,20 +364,12 @@
 		self.collect(i/1)
 	}
 
-	I { :self |
-		self.collect(I/1)
-	}
-
 	imaginary { :self |
 		self.collect(imaginary/1)
 	}
 
 	increment { :self |
 		self.collect(increment/1)
-	}
-
-	Integer { :self |
-		self.collect(Integer/1)
 	}
 
 	integerChop { :self |
@@ -446,6 +436,16 @@
 
 	inverseTriangularNumber { :self |
 		self.collect(inverseTriangularNumber/1)
+	}
+
+	isBetween { :self :interval |
+		self.collect(
+			interval.between
+		)
+	}
+
+	isBetween { :self :min :max |
+		self.isBetween(min -- max)
 	}
 
 	isBit { :self |
@@ -524,14 +524,14 @@
 		self.reduce(lcm/2)
 	}
 
-	leastPrimeFactor { :self |
-		self.collect(leastPrimeFactor/1)
-	}
-
 	leadingDigit { :self :base |
 		self.collect { :each |
 			each.leadingDigit(base)
 		}
+	}
+
+	leastPrimeFactor { :self |
+		self.collect(leastPrimeFactor/1)
 	}
 
 	liouvilleLambda { :self |
@@ -561,6 +561,16 @@
 		self.collect(log2/1)
 	}
 
+	logScale { :self :c |
+		self.collect { :each |
+			each.logScale(c)
+		}
+	}
+
+	logScale { :self |
+		self.logScale(1 / 10.log)
+	}
+
 	logarithmicIntegral { :self |
 		self.collect(logarithmicIntegral/1)
 	}
@@ -571,16 +581,6 @@
 
 	logit { :self |
 		self.collect(logit/1)
-	}
-
-	logScale { :self :c |
-		self.collect { :each |
-			each.logScale(c)
-		}
-	}
-
-	logScale { :self |
-		self.logScale(1 / 10.log)
 	}
 
 	lucasL { :self |
@@ -623,16 +623,20 @@
 		self.collect(motzkinNumber/1)
 	}
 
-	muLawEncode { :self |
-		self.collect(muLawEncode/1)
-	}
-
 	muLawDecode { :self |
 		self.collect(muLawDecode/1)
 	}
 
+	muLawEncode { :self |
+		self.collect(muLawEncode/1)
+	}
+
 	negabinaryExpansion { :self |
 		self.collect(negabinaryExpansion/1)
+	}
+
+	[negate, -] { :self |
+		self.collect(negate/1)
 	}
 
 	negate! { :self |
@@ -653,10 +657,6 @@
 
 	nimSquareRoot { :self |
 		self.collect(nimSquareRoot/1)
-	}
-
-	Number { :self |
-		self.collect(Number/1)
 	}
 
 	numerator { :self |
@@ -687,6 +687,10 @@
 		self.collect(pellNumber/1)
 	}
 
+	pentagonalNumber { :self |
+		self.collect(pentagonalNumber/1)
+	}
+
 	percent { :self |
 		self.collect(percent/1)
 	}
@@ -697,10 +701,6 @@
 
 	pisanoPeriod { :self |
 		self.collect(pisanoPeriod/1)
-	}
-
-	pentagonalNumber { :self |
-		self.collect(pentagonalNumber/1)
 	}
 
 	powerMod { :self :exponent :modulo |
@@ -733,16 +733,22 @@
 		self.collect(primePi/1)
 	}
 
-	radical { :self |
-		self.collect(radical/1)
-	}
-
 	radiansToDegrees { :self |
 		self.collect(radiansToDegrees/1)
 	}
 
+	radical { :self |
+		self.collect(radical/1)
+	}
+
 	ramp { :self |
 		self.collect(ramp/1)
+	}
+
+	rationalUnrank { :self :m |
+		self.collect { :n |
+			n.rationalUnrank(m)
+		}
 	}
 
 	rationalize { :self :epsilon |
@@ -755,18 +761,16 @@
 		self.collect(rationalize/1)
 	}
 
-	rationalUnrank { :self :m |
-		self.collect { :n |
-			n.rationalUnrank(m)
-		}
-	}
-
 	real { :self |
 		self.collect(real/1)
 	}
 
 	realImaginary { :self |
 		self.collect(realImaginary/1)
+	}
+
+	[reciprocal, /] { :self |
+		self.collect(reciprocal/1)
 	}
 
 	replaceNaN { :x :y |
@@ -811,28 +815,24 @@
 		self.collect(schroderNumber/1)
 	}
 
-	[SmallFloat, Float] { :self |
-		self.collect(SmallFloat/1)
-	}
-
-	SmallInteger { :self |
-		self.collect(SmallInteger/1)
-	}
-
-	[squareRoot, sqrt] { :self |
-		self.collect(squareRoot/1)
+	sign { :self |
+		self.collect(sign/1)
 	}
 
 	square { :self |
 		self.collect(square/1)
 	}
 
+	squareFreePart { :self |
+		self.collect(squareFreePart/1)
+	}
+
 	squarePyramidalNumber { :self |
 		self.collect(squarePyramidalNumber/1)
 	}
 
-	squareFreePart { :self |
-		self.collect(squareFreePart/1)
+	[squareRoot, sqrt] { :self |
+		self.collect(squareRoot/1)
 	}
 
 	stirlingS1 { :self :k |
@@ -853,16 +853,16 @@
 		self.collect(tau/1)
 	}
 
-	thueMorse { :self |
-		self.collect(thueMorse/1)
-	}
-
 	ternaryExpansion { :self |
 		self.collect(ternaryExpansion/1)
 	}
 
 	tetrahedralNumber { :self |
 		self.collect(tetrahedralNumber/1)
+	}
+
+	thueMorse { :self |
+		self.collect(thueMorse/1)
 	}
 
 	triangularNumber { :self |
@@ -883,16 +883,16 @@
 		}
 	}
 
-	unitize { :self |
-		self.collect(unitize/1)
-	}
-
 	unitDegree { :self |
 		self.collect(unitDegree/1)
 	}
 
 	unitStep { :self |
 		self.collect(unitStep/1)
+	}
+
+	unitize { :self |
+		self.collect(unitize/1)
 	}
 
 	vanDerCorputNumber { :self :base |

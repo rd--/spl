@@ -2,6 +2,16 @@ DelaunayTriangulation : [Object] {
 
 	| vertexCoordinates triangulation |
 
+	LineDrawing { :self |
+		let v = self.vertexCoordinates;
+		[
+			v.PointCloud,
+			self.edgeList.collect { :each |
+				v.atAll(each).Line
+			}
+		].LineDrawing
+	}
+
 	convexHull { :self |
 		self.vertexCoordinates.atAll(self.convexHullIndices)
 	}
@@ -42,16 +52,6 @@ DelaunayTriangulation : [Object] {
 		answer
 	}
 
-	LineDrawing { :self |
-		let v = self.vertexCoordinates;
-		[
-			v.PointCloud,
-			self.edgeList.collect { :each |
-				v.atAll(each).Line
-			}
-		].LineDrawing
-	}
-
 	polygonMesh { :self |
 		PolygonMesh(
 			self.vertexCoordinates,
@@ -59,13 +59,12 @@ DelaunayTriangulation : [Object] {
 		)
 	}
 
+	uncheckedConvexHullIndices { :self |
+		<primitive: return Array.from(_self.triangulation.hull);>
+	}
 
 	uncheckedCoordinates { :self |
 		<primitive: return _self.triangulation.coords;>
-	}
-
-	uncheckedConvexHullIndices { :self |
-		<primitive: return Array.from(_self.triangulation.hull);>
 	}
 
 	uncheckedEdgeList { :self |
@@ -83,12 +82,12 @@ DelaunayTriangulation : [Object] {
 		>
 	}
 
-	uncheckedHalfEdges { :self |
-		<primitive: return Array.from(_self.triangulation.halfedges);>
-	}
-
 	uncheckedFaceIndices { :self |
 		<primitive: return Array.from(_self.triangulation.triangles);>
+	}
+
+	uncheckedHalfEdges { :self |
+		<primitive: return Array.from(_self.triangulation.halfedges);>
 	}
 
 	uncheckedVoronoiEdgeList { :self |
@@ -118,14 +117,6 @@ DelaunayTriangulation : [Object] {
 		self.uncheckedVoronoiEdgeList + 1
 	}
 
-
-	voronoiVertexCoordinates { :self |
-		let vertices = self.vertexCoordinates;
-		self.faceIndices.collect { :each |
-			vertices.atAll(each).Triangle.circumcenter
-		}
-	}
-
 	voronoiExteriorCellRays { :self |
 		let answer = [self.vertexCount, 2].zeroes;
 		let hull = self.convexHullIndices;
@@ -149,25 +140,16 @@ DelaunayTriangulation : [Object] {
 		answer
 	}
 
+	voronoiVertexCoordinates { :self |
+		let vertices = self.vertexCoordinates;
+		self.faceIndices.collect { :each |
+			vertices.atAll(each).Triangle.circumcenter
+		}
+	}
+
 }
 
 +List {
-
-	convexHull { :self |
-		self.atAll(
-			self.convexHullIndices
-		)
-	}
-
-	convexHullIndices { :self |
-		self.DelaunayTriangulation.convexHullIndices
-	}
-
-	delaunayMesh { :self |
-		self
-		.DelaunayTriangulation
-		.polygonMesh
-	}
 
 	DelaunayTriangulation { :self |
 		let [m, n] = self.shape;
@@ -188,6 +170,22 @@ DelaunayTriangulation : [Object] {
 		} {
 			self.error('DelaunayTriangulation: not two column matrix')
 		}
+	}
+
+	convexHull { :self |
+		self.atAll(
+			self.convexHullIndices
+		)
+	}
+
+	convexHullIndices { :self |
+		self.DelaunayTriangulation.convexHullIndices
+	}
+
+	delaunayMesh { :self |
+		self
+		.DelaunayTriangulation
+		.polygonMesh
 	}
 
 }

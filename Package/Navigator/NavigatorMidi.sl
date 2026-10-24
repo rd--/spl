@@ -23,15 +23,11 @@
 
 @MidiPort {
 
-	connection { :self | <primitive: return _self.connection;> }
-	id { :self | <primitive: return _self.id;> }
-	manufacturer { :self | <primitive: return _self.manufacturer;> }
-	name { :self | <primitive: return _self.name;> }
-	state { :self | <primitive: return _self.state;> }
-	type { :self | <primitive: return _self.type;> }
-	version { :self | <primitive: return _self.version;> }
+	connection { :self |
+		<primitive: return _self.connection;>
+	}
 
-	Record { :self |
+	encodeRecord { :self |
 		(
 			type: self.type,
 			id: self.id,
@@ -43,24 +39,52 @@
 		)
 	}
 
+	id { :self |
+		<primitive: return _self.id;>
+	}
+
+	manufacturer { :self |
+		<primitive: return _self.manufacturer;>
+	}
+
+	name { :self |
+		<primitive: return _self.name;>
+	}
+
 	printString { :self |
-		self.Record.encodeJson(nil, '	')
+		self.encodeRecord.encodeJson
 	}
 
 	pseudoSlotNameList { :self |
 		['type', 'id', 'manufacturer', 'name', 'version', 'state', 'connection']
 	}
 
+	state { :self |
+		<primitive: return _self.state;>
+	}
+
+	type { :self |
+		<primitive: return _self.type;>
+	}
+
+	version { :self |
+		<primitive: return _self.version;>
+	}
+
 }
 
 MIDIAccess! : [Object, EventTarget] {
 
-	inputs { :self | <primitive: return _self.inputs;> }
-	outputs { :self | <primitive: return _self.outputs;> }
-	sysexEnabled { :self | <primitive: return _self.sysexEnabled;> }
+	inputs { :self |
+		<primitive: return _self.inputs;>
+	}
 
 	onstatechange { :self :aBlock |
 		<primitive: return _self.onstatechange = _aBlock;>
+	}
+
+	outputs { :self |
+		<primitive: return _self.outputs;>
 	}
 
 	portByName { :self :type :manufacturer :name |
@@ -81,6 +105,10 @@ MIDIAccess! : [Object, EventTarget] {
 
 	pseudoSlotNameList { :self |
 		['inputs', 'outputs', 'sysexEnabled']
+	}
+
+	sysexEnabled { :self |
+		<primitive: return _self.sysexEnabled;>
 	}
 
 }

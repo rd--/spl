@@ -4,18 +4,6 @@ CrystalStructure : [Object] {
 
 	| name description vertexCount edges vertexLabels vertexCoordinates |
 
-	atoms { :self |
-		self.vertexLabels.withCollect(
-			self.vertexCoordinates
-		) { :label :coordinates |
-			[label, coordinates]
-		}
-	}
-
-	bonds { :self |
-		self.edges
-	}
-
 	[Graph, crystalStructureToGraph] { :self |
 		let answer = Graph(
 			self.vertexList,
@@ -32,6 +20,18 @@ CrystalStructure : [Object] {
 
 	PerspectiveDrawing { :self |
 		self.Graph.PerspectiveDrawing
+	}
+
+	atoms { :self |
+		self.vertexLabels.withCollect(
+			self.vertexCoordinates
+		) { :label :coordinates |
+			[label, coordinates]
+		}
+	}
+
+	bonds { :self |
+		self.edges
 	}
 
 	vertexList { :self |

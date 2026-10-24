@@ -89,6 +89,10 @@
 		Env(levels, times, curves, nil, nil, 0).asEnvGen(gate)
 	}
 
+	DemandImpulseSequencer { :self :trig |
+		DemandSequencer(self, trig) * Trig(trig, SampleDur())
+	}
+
 	DemandSequencer { :self :trig |
 		Demand(trig, 0, Dseq(Infinity, self))
 	}
@@ -99,10 +103,6 @@
 
 	DurationSequencer { :self :dur |
 		Duty(dur, 0, Dseq(Infinity, self))
-	}
-
-	DemandImpulseSequencer { :self :trig |
-		DemandSequencer(self, trig) * Trig(trig, SampleDur())
 	}
 
 	EnvBreakPoint { :breakPointList :curves |
@@ -149,10 +149,6 @@
 		Latch(Select(index, inList), trig) /* Multiplexer */
 	}
 
-	ImpulseSequencer { :self :trig |
-		Sequencer(self, trig) * Trig(trig, SampleDur())
-	}
-
 	IRand0 { :self |
 		IRand(0, self)
 	}
@@ -163,6 +159,10 @@
 
 	IRand2 { :self |
 		IRand(0 - self, self)
+	}
+
+	ImpulseSequencer { :self :trig |
+		Sequencer(self, trig) * Trig(trig, SampleDur())
 	}
 
 	KNearest { :numChannels :x :y :z :coordinateList |
@@ -270,11 +270,6 @@
 		PanAz(numChannels, inList, pos, level, width, orientation).flop.collect(sum/1)
 	}
 
-	TableWindow { :trig :dur :bufNum |
-		let phase = TLine(0, BufFrames(bufNum), dur, trig);
-		BufRd(1, bufNum, phase, 0, 4) /* 4 = Cubic Interpolation */
-	}
-
 	TBufChoose { :tr :buf |
 		BufRd(
 			1,
@@ -285,12 +280,17 @@
 		)
 	}
 
+	TDurationSequencer { :self :dur |
+		TDuty(dur, 0, Dseq(Infinity, self))
+	}
+
 	THoldSequence { :inList :dur |
 		HoldSequence(inList, dur).Trig1(SampleDur())
 	}
 
-	TDurationSequencer { :self :dur |
-		TDuty(dur, 0, Dseq(Infinity, self))
+	TableWindow { :trig :dur :bufNum |
+		let phase = TLine(0, BufFrames(bufNum), dur, trig);
+		BufRd(1, bufNum, phase, 0, 4) /* 4 = Cubic Interpolation */
 	}
 
 	Tr { :self |
@@ -309,7 +309,10 @@
 		self <! ClearBuf(self)
 	}
 
-	/*
+}
+
+/*
++[List, SmallFloat, Ugen] {
 	ExpRand { :tr :lo :hi | TExpRand(lo, hi, tr) }
 	IRand { :tr :lo :hi | TiRand(lo, hi, tr) }
 	LinRand { :tr :lo :hi :minmax | TLinRand(lo, hi, minmax, tr) }
@@ -317,15 +320,10 @@
 	Rand { :tr :lo :hi | TRand(lo, hi, tr) }
 	Scramble { :tr :inList | TScramble(tr, inList) }
 	XLine { :tr :start :end :dur | TxLine(start, end, dur, tr) }
-	*/
-
 }
-
+*/
 
 +[List, SmallFloat, Ugen] {
-
-	Env { :levels :times :curves :releaseNode :loopNode :offset | <primitive: return new sc.Env(_levels, _times, _curves, _releaseNode, _loopNode, _offset);> }
-
 	Adsr { :gate :attackTime :decayTime :sustainLevel :releaseTime :curve | <primitive: return sc.Adsr(_gate, _attackTime, _decayTime, _sustainLevel, _releaseTime, _curve);> }
 	Asr { :gate :attackTime :releaseTime :curve | <primitive: return sc.Asr(_gate, _attackTime, _releaseTime, _curve);> }
 	AudioIn { :channelsList | <primitive: return sc.AudioIn(_channelsList);> }
@@ -343,6 +341,7 @@
 	DelayTap { :bufnum :delayTime | <primitive: return sc.DelayTap(_bufnum, _delayTime);> }
 	DelayWrite { :bufnum :input | <primitive: return sc.DelayWrite(_bufnum, _input);> }
 	DynRingzBank { :input :freq :amp :time | <primitive: return sc.DynRingzBank(_input, _freq, _amp, _time);> }
+	Env { :levels :times :curves :releaseNode :loopNode :offset | <primitive: return new sc.Env(_levels, _times, _curves, _releaseNode, _loopNode, _offset);> }
 	InFb { :numChannels :bus | <primitive: return sc.InFb(_numChannels, _bus);> }
 	LinSeg { :gate :coordList | <primitive: return sc.LinSeg(_gate, _coordList);> }
 	Line { :start :end :dur | <primitive: return sc.Line(_start, _end, _dur, 0);> }
@@ -367,11 +366,10 @@
 	Splay2 { :inList :spread :level :center :levelComp | <primitive: return sc.Splay(_inList, _spread, _level, _center, _levelComp);> }
 	Splay2 { :inList | <primitive: return sc.Splay2(_inList);> }
 	TChoose { :trig :array | <primitive: return sc.TChoose(_trig, _array);> }
-	TwChoose { :trig :array :weights :normalize | <primitive: return sc.TwChoose(_trig, _array, _weights, _normalize);> }
 	TLine { :start :end :dur :trig | <primitive: return sc.TLine(_start, _end, _dur, _trig);> }
+	TwChoose { :trig :array :weights :normalize | <primitive: return sc.TwChoose(_trig, _array, _weights, _normalize);> }
 	TxLine { :start :end :dur :trig | <primitive: return sc.TxLine(_start, _end, _dur, _trig);> }
 	VarLag { :input :time :curve | <primitive: return sc.VarLag(_input, _time, _curve);> }
 	XChoose { :repeats :list | <primitive: return sc.XChoose(_repeats, _list);> }
 	XLine { :start :end :dur | <primitive: return sc.XLine(_start, _end, _dur, 0);> }
-
 }

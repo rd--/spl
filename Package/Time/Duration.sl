@@ -2,12 +2,46 @@ Duration : [Object, Store, Equal, Compare] {
 
 	| magnitude |
 
-	[isLess, <] { :self :aDuration |
-		self.magnitude < aDuration.inSeconds
+	Duration { :self |
+		self
+	}
+
+	Frequency { :self |
+		Frequency(self.magnitude.reciprocal)
+	}
+
+	Quantity { :self |
+		Quantity(self.magnitude, 'second')
+	}
+
+	[absoluteValue, abs] { :self |
+		Duration(self.magnitude.abs)
+	}
+
+	components { :self |
+		let b = [24 60 60];
+		self.magnitude.mixedRadixEncode(b).padLeft([4], 0)
 	}
 
 	[divide, /] { :self :aNumber |
 		Duration(self.magnitude / aNumber)
+	}
+
+	durationString { :self |
+		let [d, h, m, s] = self.components;
+		'P%DT%H%M%S'.format([d, h, m, s])
+	}
+
+	[inSeconds, durationInSeconds] { :self |
+		self.magnitude
+	}
+
+	[isLess, <] { :self :aDuration |
+		self.magnitude < aDuration.inSeconds
+	}
+
+	isZero { :self |
+		self.magnitude = 0
 	}
 
 	[plus, +] { :self :aDuration |
@@ -20,40 +54,6 @@ Duration : [Object, Store, Equal, Compare] {
 
 	[times, *] { :self :aNumber |
 		Duration(self.magnitude * aNumber)
-	}
-
-	[absoluteValue, abs] { :self |
-		Duration(self.magnitude.abs)
-	}
-
-	components { :self |
-		let b = [24 60 60];
-		self.magnitude.mixedRadixEncode(b).padLeft([4], 0)
-	}
-
-	Duration { :self |
-		self
-	}
-
-	durationString { :self |
-		let [d, h, m, s] = self.components;
-		'P%DT%H%M%S'.format([d, h, m, s])
-	}
-
-	Frequency { :self |
-		Frequency(self.magnitude.reciprocal)
-	}
-
-	[inSeconds, durationInSeconds] { :self |
-		self.magnitude
-	}
-
-	isZero { :self |
-		self.magnitude = 0
-	}
-
-	Quantity { :self |
-		Quantity(self.magnitude, 'second')
 	}
 
 	unit { :unused |

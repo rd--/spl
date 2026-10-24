@@ -214,6 +214,20 @@
 		n.moduloFibonacciSequence(m, [0, 1])
 	}
 
+	pellLucasSequence { :self |
+		[2 1].linearRecurrence([2 2], self)
+	}
+
+	pellNumber { :self |
+		let n = self;
+		let x = 2.sqrt;
+		((((1 + x) ^ n) - ((1 - x) ^ n)) / (2 * x)).real
+	}
+
+	pellSequence { :self |
+		[2L 1].linearRecurrence([0L 1], self)
+	}
+
 	pellianArray { :n :k |
 		(n = 0).if {
 			k.isEven.if {
@@ -228,20 +242,6 @@
 				pellianArray(n, k - 1) + pellianArray(n - 1,k - 1)
 			}
 		}
-	}
-
-	pellLucasSequence { :self |
-		[2 1].linearRecurrence([2 2], self)
-	}
-
-	pellNumber { :self |
-		let n = self;
-		let x = 2.sqrt;
-		((((1 + x) ^ n) - ((1 - x) ^ n)) / (2 * x)).real
-	}
-
-	pellSequence { :self |
-		[2L 1].linearRecurrence([0L 1], self)
 	}
 
 	semiFibonacciSequence { :m |
@@ -321,16 +321,16 @@
 		k
 	}
 
+	tribonacciWord { :n |
+		(n + 1).tribonacciWords.at(n + 1)
+	}
+
 	tribonacciWords { :n |
 		let t = [1; 1 2; 1 2 1 3];
 		4.toDo(n) { :i |
 			t.add!(t[i - 1] ++ t[i - 2] ++ t[i - 3])
 		};
 		t
-	}
-
-	tribonacciWord { :n |
-		(n + 1).tribonacciWords.at(n + 1)
 	}
 
 	wythoffArray { :m :n |
@@ -388,6 +388,16 @@
 
 +@Integer {
 
+	pisanoPeriod { :n |
+		n.isPrime.if {
+			n.pisanoPeriodDirectForm
+		} {
+			n.factorInteger.collect { :f |
+				pisanoPeriodPrimePower(f[1], f[2])
+			}.lcm
+		}.normalInteger
+	}
+
 	pisanoPeriodDirectForm { :n |
 		(n <= 1).if {
 			1
@@ -409,16 +419,6 @@
 
 	pisanoPeriodPrimePower { :n :k |
 		(n ^ (k - 1L)) * pisanoPeriodDirectForm(n)
-	}
-
-	pisanoPeriod { :n |
-		n.isPrime.if {
-			n.pisanoPeriodDirectForm
-		} {
-			n.factorInteger.collect { :f |
-				pisanoPeriodPrimePower(f[1], f[2])
-			}.lcm
-		}.normalInteger
 	}
 
 }

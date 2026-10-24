@@ -60,10 +60,6 @@
 		self.methodDictionary[methodName].indices
 	}
 
-	methodList { :self |
-		self.allMethods
-	}
-
 	methodDo { :self :aBlock/1 |
 		self.traitDictionary.do { :aTrait |
 			aTrait.methodDictionary.do { :aMethod |
@@ -95,6 +91,10 @@
 
 	methodImplementors { :self :methodName |
 		system.methodImplementations(methodName).collect(origin/1)
+	}
+
+	methodList { :self |
+		self.allMethods
 	}
 
 	methodLookupAtSignature { :self :signature |
@@ -165,16 +165,6 @@
 		}
 	}
 
-	splOperatorPrecedenceTable { :self |
-		(
-			'^': 3,
-			'*': 2,
-			'/': 2,
-			'+': 1,
-			'-': 1
-		)
-	}
-
 	onlyZeroArityMethodList { :self |
 		/* Methods implemented by typeName. */
 		self.methodDictionary.indices.select { :methodName |
@@ -192,12 +182,6 @@
 		answer
 	}
 
-	packageTypes { :self :packageName |
-		self.typeDictionary.select { :each |
-			each.packageName = packageName
-		}
-	}
-
 	packageTraits { :self :packageName |
 		self.traitDictionary.select { :each |
 			each.packageName = packageName
@@ -207,7 +191,23 @@
 	packageTypes { :self :packageName |
 		self.typeDictionary.select { :each |
 			each.packageName = packageName
+		}
+	}
+
+	packageTypes { :self :packageName |
+		self.typeDictionary.select { :each |
+			each.packageName = packageName
 		}.values
+	}
+
+	splOperatorPrecedenceTable { :self |
+		(
+			'^': 3,
+			'*': 2,
+			'/': 2,
+			'+': 1,
+			'-': 1
+		)
 	}
 
 	traitLookup { :self :traitName |

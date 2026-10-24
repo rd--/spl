@@ -58,16 +58,16 @@
 		self.keys.do(aBlock/1)
 	}
 
+	valueType { :self |
+		self.values.elementType
+	}
+
 	values { :self |
 		self.assertIsAssociationList.collect(value/1)
 	}
 
 	valuesDo { :self :aBlock/1 |
 		self.values.do(aBlock/1)
-	}
-
-	valueType { :self |
-		self.values.elementType
 	}
 
 }

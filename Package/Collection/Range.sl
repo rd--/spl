@@ -2,6 +2,10 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 
 	| start stop step size |
 
+	Range { :self |
+		self
+	}
+
 	concisePrintString { :self |
 		self.rangeLiteralSyntaxString
 	}
@@ -44,7 +48,6 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 		}
 	}
 
-
 	[negate, -] { :self |
 		Range(
 			self.start.negate,
@@ -65,10 +68,6 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 		} {
 			operand.adaptToCollectionAndApply(self, +)
 		}
-	}
-
-	Range { :self |
-		self
 	}
 
 	rangeLiteralSyntaxString { :self |
@@ -116,6 +115,10 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 		}
 	}
 
+	reverse { :self |
+		self.copy.reverse!
+	}
+
 	reverse! { :self |
 		let start = self.start;
 		self.start := self.last;
@@ -124,8 +127,8 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 		self
 	}
 
-	reverse { :self |
-		self.copy.reverse!
+	sort { :self |
+		self.copy.sort!
 	}
 
 	sort! { :self |
@@ -133,10 +136,6 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 			self.reverse!
 		};
 		self
-	}
-
-	sort { :self |
-		self.copy.sort!
 	}
 
 	species { :self |
@@ -159,6 +158,29 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 }
 
 +@Number {
+
+	Range { :start :stop :step :size |
+		step.isZero.ifTrue {
+			start.error('@Number>>Range: step is zero')
+		};
+		start.isFinite.ifFalse {
+			start.error('@Number>>Range: start is not finite')
+		};
+		newRange().initializeSlots(start, stop, step, size)
+	}
+
+	[Range, to, toBy] { :start :stop :step |
+		stop.isSequence.if {
+			Range([start], stop, step)
+		} {
+			let size = inferredRangeSize(start, stop, step);
+			Range(start, stop, step, size)
+		}
+	}
+
+	[Range, to] { :from :to |
+		Range(from, to, 1)
+	}
 
 	inferredRangeSize { :start :stop :step |
 		let k = (stop - start).quotient(step) + 1;
@@ -213,29 +235,6 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 		nonEmptyRange(start, stop, then - start)
 	}
 
-	Range { :start :stop :step :size |
-		step.isZero.ifTrue {
-			start.error('@Number>>Range: step is zero')
-		};
-		start.isFinite.ifFalse {
-			start.error('@Number>>Range: start is not finite')
-		};
-		newRange().initializeSlots(start, stop, step, size)
-	}
-
-	[Range, to, toBy] { :start :stop :step |
-		stop.isSequence.if {
-			Range([start], stop, step)
-		} {
-			let size = inferredRangeSize(start, stop, step);
-			Range(start, stop, step, size)
-		}
-	}
-
-	[Range, to] { :from :to |
-		Range(from, to, 1)
-	}
-
 	thenTo { :from :then :to |
 		Range(from, to, then - from)
 	}
@@ -255,6 +254,16 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 }
 
 +[List, Range] {
+
+	[Range, to] { :start :stop :step |
+		stop.adaptToCollectionAndApply(start) { :i :j |
+			Range(i, j, step)
+		}
+	}
+
+	[Range, to] { :start :stop |
+		Range(start, stop, 1)
+	}
 
 	listRange { :from :to :by |
 		to.adaptToCollectionAndApply(from) { :i :j |
@@ -279,16 +288,6 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collect, Collection, At, 
 
 	nonEmptyRange { :start :stop |
 		nonEmptyRange(start, stop, 1)
-	}
-
-	[Range, to] { :start :stop :step |
-		stop.adaptToCollectionAndApply(start) { :i :j |
-			Range(i, j, step)
-		}
-	}
-
-	[Range, to] { :start :stop |
-		Range(start, stop, 1)
 	}
 
 	upOrDownTo { :start :stop |

@@ -23,6 +23,14 @@ BasicBlock : [Object] {
 		self.name = other.name
 	}
 
+	addInEdge { :self :from |
+		self.inEdges.addLast!(from)
+	}
+
+	addOutEdge { :self :to |
+		self.outEdges.addLast!(to)
+	}
+
 	initialize { :self :name |
 		self.inEdges := [];
 		self.outEdges := [];
@@ -36,14 +44,6 @@ BasicBlock : [Object] {
 
 	numPred { :self |
 		self.inEdges.size
-	}
-
-	addOutEdge { :self :to |
-		self.outEdges.addLast!(to)
-	}
-
-	addInEdge { :self :from |
-		self.inEdges.addLast!(from)
 	}
 
 }
@@ -60,10 +60,12 @@ ControlFlowGraph : [Object] {
 
 	| basicBlockMap startNode edgeList |
 
-	initialize { :self |
-		self.basicBlockMap := [];
-		self.edgeList := [];
-		self
+	addEdge { :self :edge |
+		self.edgeList.addLast!(edge)
+	}
+
+	basicBlocks { :self |
+		self.basicBlockMap
 	}
 
 	createNode { :self :name |
@@ -81,8 +83,10 @@ ControlFlowGraph : [Object] {
 		node
 	}
 
-	addEdge { :self :edge |
-		self.edgeList.addLast!(edge)
+	initialize { :self |
+		self.basicBlockMap := [];
+		self.edgeList := [];
+		self
 	}
 
 	numNodes { :self |
@@ -91,10 +95,6 @@ ControlFlowGraph : [Object] {
 
 	startBasicBlock { :self |
 		self.startNode
-	}
-
-	basicBlocks { :self |
-		self.basicBlockMap
 	}
 
 }
@@ -119,30 +119,6 @@ HavlakLoopFinder : [Object] {
 
 	| cfg lsg nonBackPreds backPreds number maxSize header type last nodes |
 
-	initialize { :self :cfg :lsg |
-		self.cfg := cfg;
-		self.lsg := lsg;
-		self.nonBackPreds := [];
-		self.backPreds := [];
-		self.number := Map();
-		self.maxSize := 0;
-		self
-	}
-
-	unvisited { :self |
-		2147483647
-	}
-
-	maxNonBackPreds { :self |
-		32 * 1024
-	}
-
-	isAncestorV { :self :w :v |
-		w <= v & {
-			v <= self.last[w]
-		}
-	}
-
 	doDFSCurrent { :self :currentNode :current |
 		let lastId = nil;
 		let outerBlocks = nil;
@@ -158,41 +134,6 @@ HavlakLoopFinder : [Object] {
 		};
 		self.last[current] := lastId;
 		lastId
-	}
-
-	initAllNodes { :self |
-		self.cfg.basicBlocks.do { :bb |
-			self.number[bb] := self.unvisited
-		};
-		self.doDFSCurrent(self.cfg.startBasicBlock, 1)
-	}
-
-	identifyEdges { :self :size |
-		1.toDo(size) { :w |
-			let nodeW = self.nodes[w].bb;
-			self.header[w] := 1;
-			self.type[w] := 'BBNonHeader';
-			nodeW.isNil.if {
-				self.type[w] := 'BBDead'
-			} {
-				self.processEdgesW(nodeW, w)
-			}
-		}
-	}
-
-	processEdgesW { :self :nodeW :w |
-		(nodeW.numPred > 0 ).ifTrue {
-			nodeW.inEdges.do { :nodeV |
-				let v = self.number[nodeV];
-				(v != self.unvisited).ifTrue {
-					self.isAncestorV(w, v).if {
-						self.backPreds[w].addLast!(v)
-					} {
-						self.nonBackPreds[w].include!(v)
-					}
-				}
-			}
-		}
 	}
 
 	findLoops { :self |
@@ -253,20 +194,55 @@ HavlakLoopFinder : [Object] {
 		}
 	}
 
-	stepEProcessNonBackPredsNodePoolWorkListX { :self :w :nodePool :workList :x |
-		self.nonBackPreds[x.dfsNumber].do { :iter |
-			let y = self.nodes[iter];
-			let ydash = y.findSet;
-			self.isAncestorV(w, ydash. dfsNumber).not.if {
-				self.type[w] := 'BBIrreducible';
-				self.nonBackPreds[w].include!(ydash.dfsNumber)
+	identifyEdges { :self :size |
+		1.toDo(size) { :w |
+			let nodeW = self.nodes[w].bb;
+			self.header[w] := 1;
+			self.type[w] := 'BBNonHeader';
+			nodeW.isNil.if {
+				self.type[w] := 'BBDead'
 			} {
-				(ydash.dfsNumber != w).ifTrue {
-					nodePool.anySatisfy { :each |
-						each == ydash
-					}.ifFalse {
-						workList.addLast!(ydash);
-						nodePool.addLast!(ydash)
+				self.processEdgesW(nodeW, w)
+			}
+		}
+	}
+
+	initAllNodes { :self |
+		self.cfg.basicBlocks.do { :bb |
+			self.number[bb] := self.unvisited
+		};
+		self.doDFSCurrent(self.cfg.startBasicBlock, 1)
+	}
+
+	initialize { :self :cfg :lsg |
+		self.cfg := cfg;
+		self.lsg := lsg;
+		self.nonBackPreds := [];
+		self.backPreds := [];
+		self.number := Map();
+		self.maxSize := 0;
+		self
+	}
+
+	isAncestorV { :self :w :v |
+		w <= v & {
+			v <= self.last[w]
+		}
+	}
+
+	maxNonBackPreds { :self |
+		32 * 1024
+	}
+
+	processEdgesW { :self :nodeW :w |
+		(nodeW.numPred > 0 ).ifTrue {
+			nodeW.inEdges.do { :nodeV |
+				let v = self.number[nodeV];
+				(v != self.unvisited).ifTrue {
+					self.isAncestorV(w, v).if {
+						self.backPreds[w].addLast!(v)
+					} {
+						self.nonBackPreds[w].include!(v)
 					}
 				}
 			}
@@ -296,6 +272,30 @@ HavlakLoopFinder : [Object] {
 		}
 	}
 
+	stepEProcessNonBackPredsNodePoolWorkListX { :self :w :nodePool :workList :x |
+		self.nonBackPreds[x.dfsNumber].do { :iter |
+			let y = self.nodes[iter];
+			let ydash = y.findSet;
+			self.isAncestorV(w, ydash. dfsNumber).not.if {
+				self.type[w] := 'BBIrreducible';
+				self.nonBackPreds[w].include!(ydash.dfsNumber)
+			} {
+				(ydash.dfsNumber != w).ifTrue {
+					nodePool.anySatisfy { :each |
+						each == ydash
+					}.ifFalse {
+						workList.addLast!(ydash);
+						nodePool.addLast!(ydash)
+					}
+				}
+			}
+		}
+	}
+
+	unvisited { :self |
+		2147483647
+	}
+
 }
 
 +ControlFlowGraph {
@@ -309,25 +309,6 @@ HavlakLoopFinder : [Object] {
 LoopStructureGraph : [Object] {
 
 	| root loops loopCounter |
-
-	initialize { :self |
-		self.root := SimpleLoop(nil, false);
-		self.loops := [];
-		self.loopCounter := 0;
-		self.root.setNestingLevel(0);
-		self.root.counter := self.loopCounter;
-		self.loopCounter := self.loopCounter + 1;
-		self.loops.addLast!(self.root);
-		self
-	}
-
-	createNewLoopReducible { :self :bb :isReducible |
-		let loop = SimpleLoop(bb, isReducible);
-		loop.counter := self.loopCounter;
-		self.loopCounter := self.loopCounter + 1;
-		self.loops.addLast!(loop);
-		loop
-	}
 
 	calculateNestingLevel { :self |
 		self.loops.do { :liter |
@@ -348,6 +329,25 @@ LoopStructureGraph : [Object] {
 		}
 	}
 
+	createNewLoopReducible { :self :bb :isReducible |
+		let loop = SimpleLoop(bb, isReducible);
+		loop.counter := self.loopCounter;
+		self.loopCounter := self.loopCounter + 1;
+		self.loops.addLast!(loop);
+		loop
+	}
+
+	initialize { :self |
+		self.root := SimpleLoop(nil, false);
+		self.loops := [];
+		self.loopCounter := 0;
+		self.root.setNestingLevel(0);
+		self.root.counter := self.loopCounter;
+		self.loopCounter := self.loopCounter + 1;
+		self.loops.addLast!(self.root);
+		self
+	}
+
 	numLoops { :self |
 		self.loops.size
 	}
@@ -366,31 +366,10 @@ LoopTesterApp : [Object] {
 
 	| cfg lsg |
 
-	initialize { :self |
-		self.cfg := ControlFlowGraph();
-		self.lsg := LoopStructureGraph();
-		self.cfg.createNode(1);
-		self
-	}
-
-	buildDiamond { :self :start |
-		let bb0 = start;
-		BasicBlockEdge(self.cfg, bb0, bb0 + 1);
-		BasicBlockEdge(self.cfg, bb0, bb0 + 2);
-		BasicBlockEdge(self.cfg, bb0 + 1, bb0 + 3);
-		BasicBlockEdge(self.cfg, bb0 + 2, bb0 + 3);
-		bb0 + 3
-	}
-
-	buildConnectEnd { :self :start :end |
-		BasicBlockEdge(self.cfg, start, end)
-	}
-
-	buildStraightN { :self :start :n |
-		0.toDo(n - 1) { :i |
-			self.buildConnectEnd(start + i, start + i + 1)
-		};
-		start + n
+	addDummyLoops { :self :numDummyLoops |
+		numDummyLoops.timesRepeat {
+			self.findLoops(self.lsg)
+		}
 	}
 
 	buildBaseLoop { :self :from |
@@ -406,16 +385,24 @@ LoopTesterApp : [Object] {
 		footer
 	}
 
-	mainLoopPPP { :self :numDummyLoops :findLoopIterations :parLoop :pparLoops :ppparLoops |
-		self.constructSimpleCFG;
-		self.addDummyLoops(numDummyLoops);
-		self.constructCFGPP(parLoop, pparLoops, ppparLoops);
-		self.findLoops(self.lsg);
-		findLoopIterations.timesRepeat {
-			self.findLoops(LoopStructureGraph())
+	buildConnectEnd { :self :start :end |
+		BasicBlockEdge(self.cfg, start, end)
+	}
+
+	buildDiamond { :self :start |
+		let bb0 = start;
+		BasicBlockEdge(self.cfg, bb0, bb0 + 1);
+		BasicBlockEdge(self.cfg, bb0, bb0 + 2);
+		BasicBlockEdge(self.cfg, bb0 + 1, bb0 + 3);
+		BasicBlockEdge(self.cfg, bb0 + 2, bb0 + 3);
+		bb0 + 3
+	}
+
+	buildStraightN { :self :start :n |
+		0.toDo(n - 1) { :i |
+			self.buildConnectEnd(start + i, start + i + 1)
 		};
-		self.lsg.calculateNestingLevel;
-		[self.lsg.numLoops, self.cfg.numNodes]
+		start + n
 	}
 
 	constructCFGPP { :self :parLoops :pparLoops :ppparLoops |
@@ -439,10 +426,11 @@ LoopTesterApp : [Object] {
 		}
 	}
 
-	addDummyLoops { :self :numDummyLoops |
-		numDummyLoops.timesRepeat {
-			self.findLoops(self.lsg)
-		}
+	constructSimpleCFG { :self |
+		self.cfg.createNode(1);
+		self.buildBaseLoop(1);
+		self.cfg.createNode(2);
+		BasicBlockEdge(self.cfg, 1, 3)
 	}
 
 	findLoops { :self :loopStructure |
@@ -450,11 +438,23 @@ LoopTesterApp : [Object] {
 		finder.findLoops
 	}
 
-	constructSimpleCFG { :self |
+	initialize { :self |
+		self.cfg := ControlFlowGraph();
+		self.lsg := LoopStructureGraph();
 		self.cfg.createNode(1);
-		self.buildBaseLoop(1);
-		self.cfg.createNode(2);
-		BasicBlockEdge(self.cfg, 1, 3)
+		self
+	}
+
+	mainLoopPPP { :self :numDummyLoops :findLoopIterations :parLoop :pparLoops :ppparLoops |
+		self.constructSimpleCFG;
+		self.addDummyLoops(numDummyLoops);
+		self.constructCFGPP(parLoop, pparLoops, ppparLoops);
+		self.findLoops(self.lsg);
+		findLoopIterations.timesRepeat {
+			self.findLoops(LoopStructureGraph())
+		};
+		self.lsg.calculateNestingLevel;
+		[self.lsg.numLoops, self.cfg.numNodes]
 	}
 
 }
@@ -471,6 +471,14 @@ SimpleLoop : [Object] {
 
 	| counter depthLevel parent isRoot nestingLevel header isReducible basicBlocks children |
 
+	addChildLoop { :self :loop |
+		self.children.uncheckedInclude!(loop)
+	}
+
+	addNode { :self :bb |
+		self.basicBlocks.uncheckedInclude!(bb)
+	}
+
 	initialize { :self :aBB :aBool |
 		self.counter := 0;
 		self.depthLevel := 0;
@@ -486,24 +494,16 @@ SimpleLoop : [Object] {
 		self
 	}
 
-	addNode { :self :bb |
-		self.basicBlocks.uncheckedInclude!(bb)
-	}
-
-	addChildLoop { :self :loop |
-		self.children.uncheckedInclude!(loop)
-	}
-
-	setParent { :self :value |
-		self.parent := value;
-		self.parent.addChildLoop(self)
-	}
-
 	setNestingLevel { :self :level |
 		self.nestingLevel := level;
 		(level = 0).ifTrue {
 			self.isRoot := true
 		}
+	}
+
+	setParent { :self :value |
+		self.parent := value;
+		self.parent.addChildLoop(self)
 	}
 
 }
@@ -520,17 +520,6 @@ UnionFindNode : [Object] {
 
 	| parent bb dfsNumber loop |
 
-	initialize { :self |
-		self.dfsNumber := 0;
-		self
-	}
-
-	initNodeDfs { :self :bb :dfsNumber |
-		self.parent := self;
-		self.bb := bb;
-		self.dfsNumber := dfsNumber
-	}
-
 	findSet { :self |
 		let nodeList = [];
 		let node = self;
@@ -546,6 +535,17 @@ UnionFindNode : [Object] {
 			iter.union(self.parent)
 		};
 		node
+	}
+
+	initNodeDfs { :self :bb :dfsNumber |
+		self.parent := self;
+		self.bb := bb;
+		self.dfsNumber := dfsNumber
+	}
+
+	initialize { :self |
+		self.dfsNumber := 0;
+		self
 	}
 
 	union { :self :basicBlock |

@@ -203,6 +203,18 @@ DyckWord : [Object, Store] {
 
 +@Integer {
 
+	dyckWords { :t :letters |
+		let r = [];
+		dyckWordsDo(t, letters) { :b |
+			r.add!(b.copy)
+		};
+		r
+	}
+
+	dyckWords { :self |
+		self.dyckWords([1 0])
+	}
+
 	dyckWordsDo { :t :letters :visit/1 |
 		let [one, zero] = letters;
 		let n = 2 * t;
@@ -227,18 +239,6 @@ DyckWord : [Object, Store] {
 			};
 			visit(b)
 		}
-	}
-
-	dyckWords { :t :letters |
-		let r = [];
-		dyckWordsDo(t, letters) { :b |
-			r.add!(b.copy)
-		};
-		r
-	}
-
-	dyckWords { :self |
-		self.dyckWords([1 0])
 	}
 
 	dyckWordsRecursiveAlgorithm { :n :letters |

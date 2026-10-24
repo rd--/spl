@@ -32,6 +32,10 @@ Inspector : [Object, View] {
 		self
 	}
 
+	outerElement { :self |
+		self.inspectorPane
+	}
+
 	removeInspectorsFrom { :self :index |
 		(index <= self.inspectorList.size).ifTrue {
 			self.inspectorList.removeLast!(
@@ -40,10 +44,6 @@ Inspector : [Object, View] {
 				each.listChooserPane.remove
 			}
 		}
-	}
-
-	outerElement { :self |
-		self.inspectorPane
 	}
 
 }

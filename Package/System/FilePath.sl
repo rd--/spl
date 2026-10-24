@@ -2,6 +2,10 @@ FilePath : [Object, Store, Equal] {
 
 	| pathString |
 
+	Url { :self |
+		self.pathString.fileUrl
+	}
+
 	absolutePathString { :self |
 		let path = self.pathString;
 		path.pathIsAbsolute.if {
@@ -73,10 +77,6 @@ FilePath : [Object, Store, Equal] {
 
 	stem { :self |
 		self.pathString.pathStem
-	}
-
-	Url { :self |
-		self.pathString.fileUrl
 	}
 
 	writeBinaryFile { :self :data |

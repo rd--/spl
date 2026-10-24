@@ -41,13 +41,6 @@ Package! : [Object, Equal, Compare] {
 		self == anObject
 	}
 
-	require { :self |
-		self.isLoaded.ifFalse {
-			let requirements = self.dependencies.reject(isLoaded/1).collect(name/1);
-			(requirements ++ [self.name]).primitiveLoadPackageSequence
-		}
-	}
-
 	isLoaded { :self |
 		<primitive: return _self.isLoaded;>
 	}
@@ -62,6 +55,13 @@ Package! : [Object, Equal, Compare] {
 
 	pseudoSlotNameList { :self |
 		['category', 'isLoaded', 'name', 'requires', 'text', 'url']
+	}
+
+	require { :self |
+		self.isLoaded.ifFalse {
+			let requirements = self.dependencies.reject(isLoaded/1).collect(name/1);
+			(requirements ++ [self.name]).primitiveLoadPackageSequence
+		}
 	}
 
 	requires { :self |
@@ -80,15 +80,6 @@ Package! : [Object, Equal, Compare] {
 
 +Record {
 
-	derivePackageUrl { :self |
-		[
-			self['Category'],
-			'/',
-			self['Name'],
-			'.sl'
-		].stringCatenate
-	}
-
 	Package { :self |
 		Package(
 			self.atIfAbsentPut!('Category') {
@@ -105,16 +96,25 @@ Package! : [Object, Equal, Compare] {
 		)
 	}
 
+	derivePackageUrl { :self |
+		[
+			self['Category'],
+			'/',
+			self['Name'],
+			'.sl'
+		].stringCatenate
+	}
+
 }
 
 +String {
 
-	isQualifiedPackageName { :self |
-		self.includesSubstring('-')
-	}
-
 	Package { :self :name :requires :url :text |
 		<primitive: return new sl.Package(_self, _name, _requires, _url, _text);>
+	}
+
+	isQualifiedPackageName { :self |
+		self.includesSubstring('-')
 	}
 
 	parsePackageHeader { :self |
@@ -161,22 +161,22 @@ Package! : [Object, Equal, Compare] {
 		self.indexedPackages.difference(self.loadedPackages)
 	}
 
-	indexedPackages { :self |
-		self.packageDictionary.values
-	}
-
 	includesPackage { :self :name |
 		self.packageDictionary.includesIndex(name)
 	}
 
-	loadedPackages { :self |
-		self.packageDictionary.values.select(isLoaded/1)
+	indexedPackages { :self |
+		self.packageDictionary.values
 	}
 
 	loadPackage { :self :package |
 		[
 			package.categorisedName
 		].loadLocalPackageSequence
+	}
+
+	loadedPackages { :self |
+		self.packageDictionary.values.select(isLoaded/1)
 	}
 
 	package { :self :name |

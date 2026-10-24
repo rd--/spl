@@ -2,6 +2,10 @@ ContinuousEvent : [Object] {
 
 	| signalList |
 
+	[List, continuousEventToList] { :self |
+		self.signalList.copy
+	}
+
 	i { :self |
 		self.signalList[5]
 	}
@@ -12,10 +16,6 @@ ContinuousEvent : [Object] {
 
 	k { :self |
 		self.signalList[7]
-	}
-
-	[List, continuousEventToList] { :self |
-		self.signalList.copy
 	}
 
 	p { :self |
@@ -82,13 +82,6 @@ ContinuousEvent : [Object] {
 
 +@Integer {
 
-	voicerVoiceAddress { :part :voice |
-		let addrZero = 13000;
-		let maxEventParam = 10;
-		let maxVoices = 24;
-		addrZero + (part - 1 * maxVoices * maxEventParam) + (voice - 1 * maxEventParam)
-	}
-
 	Voicer { :part :voice :voiceBlock/1 |
 		1.toCollect(voice) { :each |
 			let bus = part.voicerVoiceAddress(each);
@@ -96,6 +89,13 @@ ContinuousEvent : [Object] {
 				ControlIn(8, bus)
 			).voiceBlock
 		}
+	}
+
+	voicerVoiceAddress { :part :voice |
+		let addrZero = 13000;
+		let maxEventParam = 10;
+		let maxVoices = 24;
+		addrZero + (part - 1 * maxVoices * maxEventParam) + (voice - 1 * maxEventParam)
 	}
 
 }
@@ -117,17 +117,48 @@ ContinuousEvent : [Object] {
 
 +[SmallFloat, List] {
 
-	KeyDown { :voiceNumber | <primitive: return sc.KeyDown(_voiceNumber);> }
-	KeyTimbre { :voiceNumber | <primitive: return sc.KeyTimbre(_voiceNumber);> }
-	KeyPressure { :voiceNumber | <primitive: return sc.KeyPressure(_voiceNumber);> }
-	KeyVelocity { :voiceNumber | <primitive: return sc.KeyVelocity(_voiceNumber);> }
-	KeyPitch { :voiceNumber | <primitive: return sc.KeyPitch(_voiceNumber);> }
+	KeyDown { :voiceNumber |
+		<primitive: return sc.KeyDown(_voiceNumber);>
+	}
 
-	PenDown { :voiceNumber | <primitive: return sc.PenDown(_voiceNumber);> }
-	PenX { :voiceNumber | <primitive: return sc.PenX(_voiceNumber);> }
-	PenY { :voiceNumber | <primitive: return sc.PenY(_voiceNumber);> }
-	PenZ { :voiceNumber | <primitive: return sc.PenZ(_voiceNumber);> }
-	PenAngle { :voiceNumber | <primitive: return sc.PenAngle(_voiceNumber);> }
-	PenRadius { :voiceNumber | <primitive: return sc.PenRadius(_voiceNumber);> }
+	KeyPitch { :voiceNumber |
+		<primitive: return sc.KeyPitch(_voiceNumber);>
+	}
+
+	KeyPressure { :voiceNumber |
+		<primitive: return sc.KeyPressure(_voiceNumber);>
+	}
+
+	KeyTimbre { :voiceNumber |
+		<primitive: return sc.KeyTimbre(_voiceNumber);>
+	}
+
+	KeyVelocity { :voiceNumber |
+		<primitive: return sc.KeyVelocity(_voiceNumber);>
+	}
+
+	PenAngle { :voiceNumber |
+		<primitive: return sc.PenAngle(_voiceNumber);>
+	}
+
+	PenDown { :voiceNumber |
+		<primitive: return sc.PenDown(_voiceNumber);>
+	}
+
+	PenRadius { :voiceNumber |
+		<primitive: return sc.PenRadius(_voiceNumber);>
+	}
+
+	PenX { :voiceNumber |
+		<primitive: return sc.PenX(_voiceNumber);>
+	}
+
+	PenY { :voiceNumber |
+		<primitive: return sc.PenY(_voiceNumber);>
+	}
+
+	PenZ { :voiceNumber |
+		<primitive: return sc.PenZ(_voiceNumber);>
+	}
 
 }

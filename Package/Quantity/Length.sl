@@ -92,10 +92,6 @@
 		(self * (1.495978707 * (10 ^ 11))).metres
 	}
 
-	millimetres { :self |
-		(self * 1E-3).metres
-	}
-
 	centimetres { :self |
 		(self * 1E-2).metres
 	}
@@ -120,6 +116,10 @@
 		(self * 1609.344).metres
 	}
 
+	millimetres { :self |
+		(self * 1E-3).metres
+	}
+
 	nanometres { :self |
 		(self * 1E-9).metres
 	}
@@ -132,12 +132,12 @@
 		(self * (3.0857 * (10 ^ 16))).metres
 	}
 
-	picometres { :self |
-		(self * 1E-12).metres
-	}
-
 	picas { :self |
 		(self * 4.2333).millimetres
+	}
+
+	picometres { :self |
+		(self * 1E-12).metres
 	}
 
 	point { :self |

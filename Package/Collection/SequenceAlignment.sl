@@ -51,6 +51,34 @@
 		}
 	}
 
+	increasingSubsequenceList { :self :aBlock/2 |
+		(self.size < 2).if {
+			[self]
+		} {
+			let increasing = { :done :remaining |
+				remaining.isEmpty.if {
+					[done]
+				} {
+					aBlock(done.last, remaining.first).if {
+						increasing(
+							done ++ [remaining.first],
+							remaining.allButFirst
+						)
+					} {
+						[]
+					} ++ increasing(done, remaining.allButFirst)
+				}
+			};
+			1.to(self.size).collectCatenate { :i |
+				increasing(self.first(i).last(1), self.drop(i))
+			}
+		}
+	}
+
+	increasingSubsequenceList { :self |
+		self.increasingSubsequenceList(precedes/2)
+	}
+
 	indexOfSubstring { :self :aList |
 		self.indexOfSubstringStartingAt(aList, 1)
 	}
@@ -92,6 +120,10 @@
 		answer
 	}
 
+	indicesOfSubstring { :self :aList |
+		self.indicesOfSubstringStartingAt(aList, 1)
+	}
+
 	indicesOfSubstringStartingAt { :self :aList :initialIndex |
 		let answer = [];
 		let index = initialIndex - 1;
@@ -104,36 +136,8 @@
 		answer
 	}
 
-	indicesOfSubstring { :self :aList |
-		self.indicesOfSubstringStartingAt(aList, 1)
-	}
-
-	increasingSubsequenceList { :self :aBlock/2 |
-		(self.size < 2).if {
-			[self]
-		} {
-			let increasing = { :done :remaining |
-				remaining.isEmpty.if {
-					[done]
-				} {
-					aBlock(done.last, remaining.first).if {
-						increasing(
-							done ++ [remaining.first],
-							remaining.allButFirst
-						)
-					} {
-						[]
-					} ++ increasing(done, remaining.allButFirst)
-				}
-			};
-			1.to(self.size).collectCatenate { :i |
-				increasing(self.first(i).last(1), self.drop(i))
-			}
-		}
-	}
-
-	increasingSubsequenceList { :self |
-		self.increasingSubsequenceList(precedes/2)
+	longestCommonPrefix { :u :v |
+		u.copyFromTo(1, longestCommonPrefixSize(u, v))
 	}
 
 	longestCommonPrefixSize { :u :v |
@@ -143,10 +147,6 @@
 			k := k + 1
 		};
 		k - 1
-	}
-
-	longestCommonPrefix { :u :v |
-		u.copyFromTo(1, longestCommonPrefixSize(u, v))
 	}
 
 	longestCommonSubsequence { :a :b |
@@ -184,6 +184,15 @@
 		answer
 	}
 
+	longestCommonSubstring { :self :aList |
+		let common = self.longestCommonSubstringList(aList);
+		common.isEmpty.if {
+			[]
+		} {
+			common.first
+		}
+	}
+
 	longestCommonSubstringList { :self :aList |
 		let find = { :k |
 			self.partition(k, 1).intersection(aList.partition(k, 1))
@@ -200,13 +209,9 @@
 		}
 	}
 
-	longestCommonSubstring { :self :aList |
-		let common = self.longestCommonSubstringList(aList);
-		common.isEmpty.if {
-			[]
-		} {
-			common.first
-		}
+	longestCommonSuffix { :u :v |
+		let n = u.size;
+		u.copyFromTo(n - longestCommonSuffixSize(u, v) + 1, n)
 	}
 
 	longestCommonSuffixSize { :u :v |
@@ -218,11 +223,6 @@
 			k := k + 1
 		};
 		k
-	}
-
-	longestCommonSuffix { :u :v |
-		let n = u.size;
-		u.copyFromTo(n - longestCommonSuffixSize(u, v) + 1, n)
 	}
 
 	longestIncreasingSubsequence { :self |
@@ -264,6 +264,22 @@
 		}
 	}
 
+	noncontiguousSubsequences { :self |
+		let answer = [];
+		[1 .. self.size].powerSetDo { :each |
+			(
+				each.size > 1 & {
+					each.adjacentPairsAllSatisfy { :i :j |
+						(j - i) = 1
+					}.not
+				}
+			).ifTrue {
+				answer.add!(self.atAll(each))
+			}
+		};
+		answer
+	}
+
 	orderedSubstrings { :self :aBlock/2 |
 		self.isEmpty.if {
 			[]
@@ -285,22 +301,6 @@
 		}
 	}
 
-	noncontiguousSubsequences { :self |
-		let answer = [];
-		[1 .. self.size].powerSetDo { :each |
-			(
-				each.size > 1 & {
-					each.adjacentPairsAllSatisfy { :i :j |
-						(j - i) = 1
-					}.not
-				}
-			).ifTrue {
-				answer.add!(self.atAll(each))
-			}
-		};
-		answer
-	}
-
 	orderedSubstrings { :self |
 		self.orderedSubstrings(precedes/2)
 	}
@@ -313,17 +313,6 @@
 		let k = subsequence.size - 1;
 		self.indicesOfSubstring(subsequence).collect { :each |
 			[each, each + k]
-		}
-	}
-
-	subsequencesDo { :self :aBlock/1 |
-		self.isEmpty.if {
-			[]
-		} {
-			let k = self.size;
-			[1 .. k].powerSetDo { :each |
-				aBlock(self.atAll(each))
-			}
 		}
 	}
 
@@ -341,9 +330,14 @@
 		self.subsequences(true.constant)
 	}
 
-	substringsDo { :self :aBlock/1 |
-		0.toDo(self.size) { :each |
-			self.partitionDo(each, 1, aBlock/1)
+	subsequencesDo { :self :aBlock/1 |
+		self.isEmpty.if {
+			[]
+		} {
+			let k = self.size;
+			[1 .. k].powerSetDo { :each |
+				aBlock(self.atAll(each))
+			}
 		}
 	}
 
@@ -359,6 +353,12 @@
 
 	substrings { :self |
 		self.substrings(true.constant)
+	}
+
+	substringsDo { :self :aBlock/1 |
+		0.toDo(self.size) { :each |
+			self.partitionDo(each, 1, aBlock/1)
+		}
 	}
 
 	substringsInCommon { :self :aList :k |
@@ -387,12 +387,12 @@
 		<primitive: return _self.includes(_aString);>
 	}
 
-	indexOfSubstringStartingAt { :self :aString :anInteger |
-		<primitive: return _self.indexOf(_aString, _anInteger - 1) + 1;>
-	}
-
 	indexOfSubstring { :self :aString |
 		<primitive: return _self.indexOf(_aString) + 1;>
+	}
+
+	indexOfSubstringStartingAt { :self :aString :anInteger |
+		<primitive: return _self.indexOf(_aString, _anInteger - 1) + 1;>
 	}
 
 	lastIndexOfSubstring { :self :subString |
@@ -407,19 +407,19 @@
 		}
 	}
 
-	longestCommonSubstringList { :self :aString |
-		self
-		.characters
-		.longestCommonSubstringList(aString.characters)
-		.collect(stringCatenate/1)
-	}
-
 	longestCommonSubstring { :self :aString |
 		self.onCharacters { :c |
 			c.longestCommonSubstring(
 				aString.characters
 			)
 		}
+	}
+
+	longestCommonSubstringList { :self :aString |
+		self
+		.characters
+		.longestCommonSubstringList(aString.characters)
+		.collect(stringCatenate/1)
 	}
 
 	longestIncreasingSubsequence { :self |

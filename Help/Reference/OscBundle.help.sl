@@ -4,13 +4,21 @@
 
 An _Open Sound Control_ bundle consists of a time _t_ and a (possibly empty) message list _m_.
 
+The `encodeRecord` method answers the `Record` encoding of the bundle:
+
 ```
 >>> let t = 0;
 >>> let m = OscMessage('/x', []);
->>> OscBundle(t, [m]).Record
+>>> let b = OscBundle(t, [m]);
+>>> let r = b.encodeRecord;
+>>> let j = r.encodeJson;
+>>> (r, r = j.parseJson)
 (
-	timeTag: (native: 0),
-	packets: [(address: '/x', args: [])]
+	(
+		timeTag: (native: 0),
+		packets: [(address: '/x', args: [])]
+	),
+	true
 )
 ```
 
@@ -28,7 +36,7 @@ ByteArray[
 
 * * *
 
-See also: encode, OscMessage, OscParameter
+See also: OscMessage, OscParameter, encode
 
 Guides: Protocol Functions
 

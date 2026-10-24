@@ -2,68 +2,6 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 
 	| value subTrees |
 
-	addChild { :self :child |
-		child.isTree.if {
-			self.subTrees.add!(child)
-		} {
-			self.error('Tree>>addChild: not tree')
-		}
-	}
-
-	atIfAbsent { :self :index :ifAbsent/0 |
-		self.subTrees.atIfAbsent(index, ifAbsent/0)
-	}
-
-	collect { :self :aBlock/1 |
-		Tree(
-			aBlock(self.value),
-			self.subTrees.collect { :each |
-				each.collect(aBlock/1)
-			}
-		)
-	}
-
-	deepWithIndicesDoStartingAt { :self :i :aBlock/2 |
-		self.subTrees.withIndexDo { :each :j |
-			let index = i ++ [j];
-			aBlock(each, index);
-			each.deepWithIndicesDoStartingAt(index, aBlock/2)
-		}
-	}
-
-	deepWithIndicesDo { :self :aBlock/2 |
-		self.deepWithIndicesDoStartingAt([], aBlock/2)
-	}
-
-	deepIndices { :self |
-		let answer = [];
-		self.deepWithIndicesDo { :unused :index |
-			answer.add!(index)
-		};
-		answer
-	}
-
-	depthStartingAt { :self :depth |
-		(self.size = 0).if {
-			depth
-		} {
-			self.subTrees.collect { :each |
-				each.depthStartingAt(depth + 1)
-			}.max
-		}
-	}
-
-	depth { :self |
-		self.depthStartingAt(1)
-	}
-
-	do { :self :aBlock/1 |
-		aBlock(self);
-		self.subTrees.do { :each |
-			each.do(aBlock/1)
-		}
-	}
-
 	[Graph, treeToGraph] { :self |
 		let nodeId = 1;
 		let vertexLabels = [];
@@ -89,11 +27,80 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		graph
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
-		anObject.isTree & {
-			aBlock(self.value, anObject.value) & {
-				isEqualBy(self.subTrees, anObject.subTrees, aBlock/2)
+	[List, treeToList] { :self |
+		let subLists = self.subTrees.collect { :each |
+			each.isLeaf.if {
+				each.value
+			} {
+				each.List
 			}
+		};
+		self.value.ifNil {
+			subLists
+		} {
+			[self.value] ++ subLists
+		}
+	}
+
+	addChild { :self :child |
+		child.isTree.if {
+			self.subTrees.add!(child)
+		} {
+			self.error('Tree>>addChild: not tree')
+		}
+	}
+
+	atIfAbsent { :self :index :ifAbsent/0 |
+		self.subTrees.atIfAbsent(index, ifAbsent/0)
+	}
+
+	collect { :self :aBlock/1 |
+		Tree(
+			aBlock(self.value),
+			self.subTrees.collect { :each |
+				each.collect(aBlock/1)
+			}
+		)
+	}
+
+	deepIndices { :self |
+		let answer = [];
+		self.deepWithIndicesDo { :unused :index |
+			answer.add!(index)
+		};
+		answer
+	}
+
+	deepWithIndicesDo { :self :aBlock/2 |
+		self.deepWithIndicesDoStartingAt([], aBlock/2)
+	}
+
+	deepWithIndicesDoStartingAt { :self :i :aBlock/2 |
+		self.subTrees.withIndexDo { :each :j |
+			let index = i ++ [j];
+			aBlock(each, index);
+			each.deepWithIndicesDoStartingAt(index, aBlock/2)
+		}
+	}
+
+	depth { :self |
+		self.depthStartingAt(1)
+	}
+
+	depthStartingAt { :self :depth |
+		(self.size = 0).if {
+			depth
+		} {
+			self.subTrees.collect { :each |
+				each.depthStartingAt(depth + 1)
+			}.max
+		}
+	}
+
+	do { :self :aBlock/1 |
+		aBlock(self);
+		self.subTrees.do { :each |
+			each.do(aBlock/1)
 		}
 	}
 
@@ -123,6 +130,14 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		}
 	}
 
+	isEqualBy { :self :anObject :aBlock/2 |
+		anObject.isTree & {
+			aBlock(self.value, anObject.value) & {
+				isEqualBy(self.subTrees, anObject.subTrees, aBlock/2)
+			}
+		}
+	}
+
 	isLeaf { :self |
 		self.subTrees.isEmpty
 	}
@@ -145,20 +160,20 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		answer
 	}
 
-	leavesDo { :self :aBlock/1 |
-		self.do { :each |
-			each.isLeaf.ifTrue {
-				aBlock(each.value)
-			}
-		}
-	}
-
 	leaves { :self |
 		let answer = [];
 		self.leavesDo { :each |
 			answer.add!(each)
 		};
 		answer
+	}
+
+	leavesDo { :self :aBlock/1 |
+		self.do { :each |
+			each.isLeaf.ifTrue {
+				aBlock(each.value)
+			}
+		}
 	}
 
 	levelOrderDo { :self :aBlock/1 |
@@ -185,21 +200,6 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 			answer.addAll!(self.level([each]).collect(value/1))
 		};
 		answer
-	}
-
-	[List, treeToList] { :self |
-		let subLists = self.subTrees.collect { :each |
-			each.isLeaf.if {
-				each.value
-			} {
-				each.List
-			}
-		};
-		self.value.ifNil {
-			subLists
-		} {
-			[self.value] ++ subLists
-		}
 	}
 
 	matulaGoebelNumber { :self |
@@ -348,6 +348,13 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		f(n, k).expressionTree(nil)
 	}
 
+	fareyTree { :self |
+		(self + 1)
+		.sternBrocotTree
+		.subTrees
+		.first
+	}
+
 	karyTree { :n :k |
 		let t = Tree(nil, []);
 		let f = { :l :i |
@@ -396,13 +403,6 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 
 	sternBrocotTree { :n |
 		n.sternBrocotTree(1/1)
-	}
-
-	fareyTree { :self |
-		(self + 1)
-		.sternBrocotTree
-		.subTrees
-		.first
 	}
 
 	unfoldTree { :anInteger :anObject :aBlock/1 |
@@ -491,12 +491,12 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 
 +@Collect {
 
-	matulaGoebelTree { :self |
-		self.collect(matulaGoebelTree/1)
-	}
-
 	matulaGoebelNumber { :self |
 		self.collect(matulaGoebelNumber/1)
+	}
+
+	matulaGoebelTree { :self |
+		self.collect(matulaGoebelTree/1)
 	}
 
 }

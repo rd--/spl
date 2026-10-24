@@ -97,26 +97,6 @@
 		}
 	}
 
-	squareSpiralDo { :self :f/2 |
-		let [x, y, i, j, m, n, c] = [0, 0, 0, 0, 0, 0, 0];
-		0.toDo(self - 1) { :k |
-			f(x, y);
-			(n = 0).ifTrue {
-				c := c + 1;
-				(c > 3).ifTrue { c := 0 };
-				(c = 0).ifTrue { i := 0; j := 1 };
-				(c = 1).ifTrue { i := 1; j := 0 };
-				(c = 2).ifTrue { i := 0; j := -1 };
-				(c = 3).ifTrue { i := -1; j := 0 };
-				[1 3].includes(c).ifTrue { m := m + 1 };
-				n := m
-			};
-			n := n - 1;
-			x := x + i;
-			y := y + j
-		}
-	}
-
 	squareSpiral { :n :k |
 		k.caseOf(
 			[
@@ -163,6 +143,26 @@
 			answer.add!([x, y])
 		};
 		answer
+	}
+
+	squareSpiralDo { :self :f/2 |
+		let [x, y, i, j, m, n, c] = [0, 0, 0, 0, 0, 0, 0];
+		0.toDo(self - 1) { :k |
+			f(x, y);
+			(n = 0).ifTrue {
+				c := c + 1;
+				(c > 3).ifTrue { c := 0 };
+				(c = 0).ifTrue { i := 0; j := 1 };
+				(c = 1).ifTrue { i := 1; j := 0 };
+				(c = 2).ifTrue { i := 0; j := -1 };
+				(c = 3).ifTrue { i := -1; j := 0 };
+				[1 3].includes(c).ifTrue { m := m + 1 };
+				n := m
+			};
+			n := n - 1;
+			x := x + i;
+			y := y + j
+		}
 	}
 
 	squareSpiralRank { :x :y :o |

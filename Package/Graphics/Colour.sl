@@ -1,5 +1,9 @@
 @Colour {
 
+	Colour { :self |
+		self
+	}
+
 	alpha { :self |
 		self.typeResponsibility('alpha')
 	}
@@ -23,10 +27,6 @@
 				}
 			]
 		)
-	}
-
-	Colour { :self |
-		self
 	}
 
 	drawing { :self |
@@ -131,6 +131,10 @@
 		self.alpha = 0
 	}
 
+	isValid { :self |
+		self.rgba.isValidRgba
+	}
+
 	isWhite { :self |
 		self.isGreyOf(1)
 	}
@@ -143,10 +147,6 @@
 		}
 	}
 
-	isValid { :self |
-		self.rgba.isValidRgba
-	}
-
 	linearRgb { :self |
 		self.rgb
 	}
@@ -157,10 +157,6 @@
 
 	relativeLuminance { :self |
 		(self.rgb * [0.2126 0.7152 0.0722]).sum
-	}
-
-	rgba { :self |
-		self.rgb ++ [self.alpha]
 	}
 
 	rgb { :self |
@@ -181,22 +177,26 @@
 		}
 	}
 
+	rgba { :self |
+		self.rgb ++ [self.alpha]
+	}
+
 }
 
 RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	| rgb alpha |
 
-	[negate, -] { :self |
+	lighten { :self :aNumber |
 		RgbColour(
-			1 - self.rgb,
+			self.rgb.linearInterpolation([1 1 1], aNumber),
 			self.alpha
 		)
 	}
 
-	lighten { :self :aNumber |
+	[negate, -] { :self |
 		RgbColour(
-			self.rgb.linearInterpolation([1 1 1], aNumber),
+			1 - self.rgb,
 			self.alpha
 		)
 	}
@@ -220,7 +220,6 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 }
-
 
 +List {
 
@@ -249,6 +248,29 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 		HsvColour(self, 1)
 	}
 
+	RgbColour { :self :alpha |
+		self.atVectorOrElementwise { :v |
+			let [r, g, b] = v;
+			newRgbColour().initializeSlots([r, g, b], alpha)
+		}
+	}
+
+	RgbColour { :self |
+		self.atVectorOrElementwise { :v |
+			RgbColour(v, 1)
+		}
+	}
+
+	RybColour { :ryb :alpha |
+		ryb.atVectorOrElementwise { :v |
+			RgbColour(v.rybToRgb, alpha)
+		}
+	}
+
+	RybColour { :ryb |
+		RybColour(ryb, 1)
+	}
+
 	isBlue { :self |
 		self.Colour.isBlue
 	}
@@ -275,29 +297,6 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	isYellow { :self |
 		self.Colour.isYellow
-	}
-
-	RgbColour { :self :alpha |
-		self.atVectorOrElementwise { :v |
-			let [r, g, b] = v;
-			newRgbColour().initializeSlots([r, g, b], alpha)
-		}
-	}
-
-	RgbColour { :self |
-		self.atVectorOrElementwise { :v |
-			RgbColour(v, 1)
-		}
-	}
-
-	RybColour { :ryb :alpha |
-		ryb.atVectorOrElementwise { :v |
-			RgbColour(v.rybToRgb, alpha)
-		}
-	}
-
-	RybColour { :ryb |
-		RybColour(ryb, 1)
 	}
 
 }
@@ -725,6 +724,19 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 		self.collect(srgbEncode/1)
 	}
 
+	xyyToXyz { :self |
+		let [x, y1, y2] = self;
+		(y1 = 0).if {
+			[0 0 0]
+		} {
+			[
+				(x * y2) / y1,
+				y2,
+				((1 - x - y1) * y2) / y1
+			]
+		}
+	}
+
 	xyzToAdobeRgb { :self |
 		let m = [
 			+2.0413690 -0.5649464 -0.3446944;
@@ -816,19 +828,6 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 			[ 0.0557101, -0.2040211,  1.0569959]
 		];
 		m.dot(self)
-	}
-
-	xyyToXyz { :self |
-		let [x, y1, y2] = self;
-		(y1 = 0).if {
-			[0 0 0]
-		} {
-			[
-				(x * y2) / y1,
-				y2,
-				((1 - x - y1) * y2) / y1
-			]
-		}
 	}
 
 	xyzToXyy { :self |
@@ -1000,12 +999,12 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 		self.collect(namedColour/1)
 	}
 
-	rgba { :self |
-		self.collect(rgba/1)
-	}
-
 	rgb { :self |
 		self.collect(rgb/1)
+	}
+
+	rgba { :self |
+		self.collect(rgba/1)
 	}
 
 }

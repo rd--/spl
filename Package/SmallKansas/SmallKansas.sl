@@ -12,15 +12,6 @@ SmallKansas : [Object, Cache] {
 
 	| container frameSet cache history where |
 
-	addFrameWithAnimator { :self :subject :event :delay :aBlock/0 |
-		let timerId = aBlock/0.scheduleEvery(delay);
-		let frame = self.addFrame(subject, event);
-		frame.addEventListener('close') { :unusedEvent |
-			timerId.cancel
-		};
-		frame
-	}
-
 	addFrame { :self :subject :event |
 		let frame = Frame(self, subject);
 		subject.frame := frame;
@@ -30,6 +21,15 @@ SmallKansas : [Object, Cache] {
 		};
 		self.frameSet.uncheckedInclude!(frame);
 		self.container.appendChild(frame.outerElement);
+		frame
+	}
+
+	addFrameWithAnimator { :self :subject :event :delay :aBlock/0 |
+		let timerId = aBlock/0.scheduleEvery(delay);
+		let frame = self.addFrame(subject, event);
+		frame.addEventListener('close') { :unusedEvent |
+			timerId.cancel
+		};
 		frame
 	}
 
@@ -72,10 +72,6 @@ SmallKansas : [Object, Cache] {
 		self.container.style.getPropertyValue('--font-family')
 	}
 
-	fontMutate! { :self :fontName |
-		self.container.style.setProperty('--font-family', fontName, '')
-	}
-
 	fontMenuEntriesOn { :self :subject |
 		[
 			'APL 333' -> 'APL333',
@@ -97,8 +93,8 @@ SmallKansas : [Object, Cache] {
 		self.menu('Font Menu', self.fontMenuEntriesOn(subject), isTransient, event)
 	}
 
-	fontSizeMutate! { :self :fontSize |
-		self.container.style.setProperty('--font-size', fontSize, '')
+	fontMutate! { :self :fontName |
+		self.container.style.setProperty('--font-family', fontName, '')
 	}
 
 	fontSizeMenuEntriesOn { :self :subject |
@@ -116,6 +112,10 @@ SmallKansas : [Object, Cache] {
 			isTransient,
 			event
 		)
+	}
+
+	fontSizeMutate! { :self :fontSize |
+		self.container.style.setProperty('--font-size', fontSize, '')
 	}
 
 	implementorsOf { :self :subject :event |
@@ -140,6 +140,12 @@ SmallKansas : [Object, Cache] {
 		self
 	}
 
+	midiAccess { :self |
+		self.whenCached('midiAccess') {
+			system.window.navigator.requestMidiAccess
+		}
+	}
+
 	referencesTo { :self :subject :event |
 		self.addFrame(
 			self.MethodSignatureBrowser(
@@ -153,12 +159,6 @@ SmallKansas : [Object, Cache] {
 	removeFrame { :self :frame |
 		frame.outerElement.remove;
 		self.frameSet.remove!(frame)
-	}
-
-	midiAccess { :self |
-		self.whenCached('midiAccess') {
-			system.window.navigator.requestMidiAccess
-		}
 	}
 
 	withMidiAccess { :self :aBlock/1 |

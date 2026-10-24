@@ -19,18 +19,6 @@ Matrix22 : [Object, Equal] {
 		(self.a * self.d) - (self.b * self.c)
 	}
 
-	isEqualBy { :self :aMatrix :aBlock/2 |
-		aMatrix.isMatrix22 & {
-			aBlock(self.a, aMatrix.a) & {
-				aBlock(self.b, aMatrix.b) & {
-					aBlock(self.c, aMatrix.c) & {
-						aBlock(self.d, aMatrix.d)
-					}
-				}
-			}
-		}
-	}
-
 	identity! { :self |
 		self.initializeSlots(
 			1, 0,
@@ -50,6 +38,18 @@ Matrix22 : [Object, Equal] {
 		)
 	}
 
+	isEqualBy { :self :aMatrix :aBlock/2 |
+		aMatrix.isMatrix22 & {
+			aBlock(self.a, aMatrix.a) & {
+				aBlock(self.b, aMatrix.b) & {
+					aBlock(self.c, aMatrix.c) & {
+						aBlock(self.d, aMatrix.d)
+					}
+				}
+			}
+		}
+	}
+
 	rotation! { :self :n |
 		self.initializeSlots(
 			n.cos, n.sin,
@@ -57,15 +57,15 @@ Matrix22 : [Object, Equal] {
 		)
 	}
 
+	transpose { :self |
+		Matrix22(self.a, self.c, self.b, self.d)
+	}
+
 	transpose! { :self |
 		let b = self.b;
 		let c = self.c;
 		self.b := c;
 		self.c := b
-	}
-
-	transpose { :self |
-		Matrix22(self.a, self.c, self.b, self.d)
 	}
 
 }

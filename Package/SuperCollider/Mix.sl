@@ -165,6 +165,18 @@
 		self.mixByAvailableNamedRule(derivedPrefix, ruleTable)
 	}
 
+	lowFrequencySendsSparseMatrix { :self |
+		let lowFrequencySends = system.preference('ScSynth/Outputs/Mixer/LowFrequency/Sends', []);
+		let lowFrequencyGain = system.preference('ScSynth/Outputs/Mixer/LowFrequency/Gain', 1);
+		1.toCollect(self.shape.sum) { :input |
+			[
+				input,
+				lowFrequencySends.atWrap(input),
+				lowFrequencyGain
+			]
+		}
+	}
+
 	mixByAvailableNamedRule { :self :prefix :ruleTable |
 		let sparseMatrixTable = system.mixRuleSparseMatrixTable;
 		withReturn { :return/1 |
@@ -190,18 +202,6 @@
 				}
 			};
 			self.sum
-		}
-	}
-
-	lowFrequencySendsSparseMatrix { :self |
-		let lowFrequencySends = system.preference('ScSynth/Outputs/Mixer/LowFrequency/Sends', []);
-		let lowFrequencyGain = system.preference('ScSynth/Outputs/Mixer/LowFrequency/Gain', 1);
-		1.toCollect(self.shape.sum) { :input |
-			[
-				input,
-				lowFrequencySends.atWrap(input),
-				lowFrequencyGain
-			]
 		}
 	}
 

@@ -2,18 +2,6 @@
 
 @Dictionary {
 
-	at { :self :key |
-		self.atIfAbsent(key) {
-			self.error('@Dictionary>>at: unknown key', [key])
-		}
-	}
-
-	[concatenation, ++] { :self :aDictionary |
-		let answer = self.copy;
-		answer.includeAll!(aDictionary);
-		answer
-	}
-
 	add! { :self :anAssociation |
 		self.includesKey(anAssociation.key).if {
 			self.error('@Dictionary>>add: key exists', [anAssociation.key])
@@ -108,8 +96,10 @@
 		answer
 	}
 
-	atIfAbsent { :self :key :ifAbsent/0 |
-		self.typeResponsibility('@Dictionary>>atIfAbsent')
+	at { :self :key |
+		self.atIfAbsent(key) {
+			self.error('@Dictionary>>at: unknown key', [key])
+		}
 	}
 
 	atAll { :self :keys |
@@ -123,8 +113,8 @@
 		self.atAll(keys)
 	}
 
-	put! { :self :key :value |
-		self.typeResponsibility('@Dictionary>>put!')
+	atIfAbsent { :self :key :ifAbsent/0 |
+		self.typeResponsibility('@Dictionary>>atIfAbsent')
 	}
 
 	collect { :self :aBlock/1 |
@@ -140,6 +130,12 @@
 			self[key] := aBlock(self[key])
 		};
 		self
+	}
+
+	[concatenation, ++] { :self :aDictionary |
+		let answer = self.copy;
+		answer.includeAll!(aDictionary);
+		answer
 	}
 
 	declareFrom { :self :key :aDictionary |
@@ -160,12 +156,6 @@
 
 	do { :self :aBlock/1 |
 		self.valuesDo(aBlock/1)
-	}
-
-	isEqualBy { :self :aDictionary :aBlock/2 |
-		self.typeName = aDictionary.typeName & {
-			self.hasEqualElements(aDictionary, aBlock/2)
-		}
 	}
 
 	errorValueNotFound { :self |
@@ -251,6 +241,18 @@
 		true
 	}
 
+	isEqualBy { :self :aDictionary :aBlock/2 |
+		self.typeName = aDictionary.typeName & {
+			self.hasEqualElements(aDictionary, aBlock/2)
+		}
+	}
+
+	keyAtValue { :self :value |
+		self.keyAtValueIfAbsent(value) {
+			self.errorValueNotFound
+		}
+	}
+
 	keyAtValueIfAbsent { :self :value :exceptionBlock/0 |
 		withReturn { :return/1 |
 			self.associationsDo { :association |
@@ -262,10 +264,30 @@
 		}
 	}
 
-	keyAtValue { :self :value |
-		self.keyAtValueIfAbsent(value) {
-			self.errorValueNotFound
-		}
+	keySelect { :self :aBlock/1 |
+		let answer = self.new;
+		self.associationsDo { :each |
+			each.key.aBlock.ifTrue {
+				answer.add!(each.copy)
+			}
+		};
+		answer
+	}
+
+	keySort { :self |
+		self.associations.sortOn!(key/1)
+	}
+
+	keyType { :self |
+		self.keys.elementType
+	}
+
+	keysAndEachValue { :self |
+		let answer = [];
+		self.keysAndEachValueDo { :key :value |
+			answer.add!([key, value])
+		};
+		answer
 	}
 
 	keysAndEachValueDo { :self :aBlock/2 |
@@ -278,14 +300,6 @@
 				self.error('keysAndEachValueDo: value not a collection')
 			}
 		}
-	}
-
-	keysAndEachValue { :self |
-		let answer = [];
-		self.keysAndEachValueDo { :key :value |
-			answer.add!([key, value])
-		};
-		answer
 	}
 
 	keysAndValues { :self |
@@ -320,24 +334,6 @@
 		}
 	}
 
-	keySelect { :self :aBlock/1 |
-		let answer = self.new;
-		self.associationsDo { :each |
-			each.key.aBlock.ifTrue {
-				answer.add!(each.copy)
-			}
-		};
-		answer
-	}
-
-	keySort { :self |
-		self.associations.sortOn!(key/1)
-	}
-
-	keyType { :self |
-		self.keys.elementType
-	}
-
 	lookup { :self :key :defaultAnswer |
 		key.isList.if {
 			key.collect { :each |
@@ -348,6 +344,10 @@
 				defaultAnswer
 			}
 		}
+	}
+
+	put! { :self :key :value |
+		self.typeResponsibility('@Dictionary>>put!')
 	}
 
 	remove! { :self :anAssociation |
@@ -367,23 +367,17 @@
 		}
 	}
 
-	removeAssociationIfAbsent! { :self :oldObject :anExceptionBlock/0 |
-		self.includesAssociation(oldObject).if {
-			self.removeKey!(oldObject.key)
-		} {
-			anExceptionBlock()
-		}
-	}
-
 	removeAssociation! { :self :oldObject |
 		self.removeAssociationIfAbsent!(oldObject) {
 			self.error('removeAssociation!: not present')
 		}
 	}
 
-	[removeAt!, removeKey!] { :self :key |
-		self.removeKeyIfAbsent!(key) {
-			self.error('@Dictionary>>removeKey!')
+	removeAssociationIfAbsent! { :self :oldObject :anExceptionBlock/0 |
+		self.includesAssociation(oldObject).if {
+			self.removeKey!(oldObject.key)
+		} {
+			anExceptionBlock()
 		}
 	}
 
@@ -393,10 +387,20 @@
 		answer
 	}
 
+	[removeAt!, removeKey!] { :self :key |
+		self.removeKeyIfAbsent!(key) {
+			self.error('@Dictionary>>removeKey!')
+		}
+	}
+
 	[removeAtAll!, removeAllKeys!] { :self :keys |
 		self.associationsRemove! { :each |
 			keys.includes(each.key)
 		}
+	}
+
+	removeIfAbsent! { :self :oldObject :anExceptionBlock/0 |
+		self.shouldNotImplement('removeIfAbsent!')
 	}
 
 	removeKeyIfAbsent! { :self :key :ifAbsent/0 |
@@ -407,10 +411,6 @@
 			self.keys.removeAt!(index);
 			self.values.removeAt!(index)
 		}
-	}
-
-	removeIfAbsent! { :self :oldObject :anExceptionBlock/0 |
-		self.shouldNotImplement('removeIfAbsent!')
 	}
 
 	select { :self :aBlock/1 |
@@ -431,6 +431,15 @@
 
 	size { :self |
 		self.typeResponsibility('@Dictionary>>size')
+	}
+
+	storeStringExpression { :self |
+		'%.as%'.format(
+			[
+				self.associations.storeString,
+				self.typeName
+			]
+		)
 	}
 
 	storeStringLiteral { :self :empty :open :close :formatKey/1 :join :formatValue/1 |
@@ -455,24 +464,9 @@
 		}
 	}
 
-	storeStringExpression { :self |
-		'%.as%'.format(
-			[
-				self.associations.storeString,
-				self.typeName
-			]
-		)
-	}
-
 	unaryBlock { :self |
 		{ :key |
 			self.at(key)
-		}
-	}
-
-	valuesDo { :self :aBlock/1 |
-		self.keysAndValuesDo { :key :value |
-			aBlock(value)
 		}
 	}
 
@@ -482,6 +476,12 @@
 
 	valueType { :self |
 		self.values.elementType
+	}
+
+	valuesDo { :self :aBlock/1 |
+		self.keysAndValuesDo { :key :value |
+			aBlock(value)
+		}
 	}
 
 	withIndexCollect { :self :aBlock/2 |

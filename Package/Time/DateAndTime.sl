@@ -2,8 +2,26 @@ DateAndTime : [Object, Store, Equal, Compare] {
 
 	| hiddenRepresentation |
 
-	[isLess, <] { :self :aDate |
-		self.absoluteTime < aDate.absoluteTime
+	[Date, dateAndTimeToDate] { :self |
+		Date(
+			[
+				self.year,
+				self.month,
+				self.dayOfMonth
+			]
+		)
+	}
+
+	DateAndTime { :self |
+		self
+	}
+
+	Time { :self |
+		Time(self.absoluteTime)
+	}
+
+	TimeStamp { :self |
+		TimeStamp(self.absoluteTime)
 	}
 
 	absoluteTime { :self |
@@ -25,36 +43,16 @@ DateAndTime : [Object, Store, Equal, Compare] {
 		]
 	}
 
-	[Date, dateAndTimeToDate] { :self |
-		Date(
-			[
-				self.year,
-				self.month,
-				self.dayOfMonth
-			]
-		)
-	}
-
-	DateAndTime { :self |
-		self
-	}
-
 	dateAndTimeString { :self |
 		<primitive: return _self.hiddenRepresentation.toISOString();>
-	}
-
-	dayOfWeek { :self |
-		<primitive: return _self.hiddenRepresentation.getUTCDay() + 1;>
 	}
 
 	dayOfMonth { :self |
 		<primitive: return _self.hiddenRepresentation.getUTCDate();>
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
-		anObject.isDateAndTime & {
-			aBlock(self.absoluteTime, anObject.absoluteTime)
-		}
+	dayOfWeek { :self |
+		<primitive: return _self.hiddenRepresentation.getUTCDay() + 1;>
 	}
 
 	fractionalSecond { :self |
@@ -63,6 +61,16 @@ DateAndTime : [Object, Store, Equal, Compare] {
 
 	hour { :self |
 		<primitive: return _self.hiddenRepresentation.getUTCHours();>
+	}
+
+	isEqualBy { :self :anObject :aBlock/2 |
+		anObject.isDateAndTime & {
+			aBlock(self.absoluteTime, anObject.absoluteTime)
+		}
+	}
+
+	[isLess, <] { :self :aDate |
+		self.absoluteTime < aDate.absoluteTime
 	}
 
 	localeTimeString { :self :localeName |
@@ -91,14 +99,6 @@ DateAndTime : [Object, Store, Equal, Compare] {
 				self.components
 			]
 		)
-	}
-
-	Time { :self |
-		Time(self.absoluteTime)
-	}
-
-	TimeStamp { :self |
-		TimeStamp(self.absoluteTime)
 	}
 
 	wholeSecond { :self |

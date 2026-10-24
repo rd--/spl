@@ -4,6 +4,22 @@ Triangle : [Object, Store, Equal, Geometry] {
 
 	| vertexCoordinates |
 
+	[Polygon, triangleToPolygon] { :self |
+		(self.embeddingDimension = 2).if {
+			self.vertexCoordinates.Polygon
+		} {
+			self.error('Polygon: embeddingDimension not two')
+		}
+	}
+
+	[Polyhedron, triangleToPolyhedron] { :self |
+		(self.embeddingDimension = 3).if {
+			self.vertexCoordinates.Polyhedron
+		} {
+			self.error('Polyhedron: embeddingDimension not three')
+		}
+	}
+
 	altitudes { :self |
 		let [a, b, c] = self.sideLengths;
 		let [p, q, r] = self.interiorAngles;
@@ -141,7 +157,6 @@ Triangle : [Object, Store, Equal, Geometry] {
 	contactTriangle { :self |
 		self.cevianTriangle(self.gergonnePoint)
 	}
-
 
 	cosineCircle { :self |
 		let l = self.sideLengths;
@@ -561,22 +576,6 @@ Triangle : [Object, Store, Equal, Geometry] {
 		}
 	}
 
-	[Polygon, triangleToPolygon] { :self |
-		(self.embeddingDimension = 2).if {
-			self.vertexCoordinates.Polygon
-		} {
-			self.error('Polygon: embeddingDimension not two')
-		}
-	}
-
-	[Polyhedron, triangleToPolyhedron] { :self |
-		(self.embeddingDimension = 3).if {
-			self.vertexCoordinates.Polyhedron
-		} {
-			self.error('Polyhedron: embeddingDimension not three')
-		}
-	}
-
 	powerCircles { :self |
 		let [a, b, c] = self.vertexCoordinates;
 		let [p, q, r] = [a, b, c].medialTriangle;
@@ -691,12 +690,6 @@ Triangle : [Object, Store, Equal, Geometry] {
 		self.Polygon.svgFragment(options)
 	}
 
-	symmedianPoint { :self |
-		self.triangleCentreL { :a :b :c |
-			a
-		}
-	}
-
 	symmedialTriangle { :self |
 		let [a, b, c] = self.sideLengths;
 		self.fromTrilinearVertexMatrix(
@@ -706,6 +699,12 @@ Triangle : [Object, Store, Equal, Geometry] {
 				a b 0
 			]
 		)
+	}
+
+	symmedianPoint { :self |
+		self.triangleCentreL { :a :b :c |
+			a
+		}
 	}
 
 	tangentCircles { :self |
@@ -773,17 +772,33 @@ Triangle : [Object, Store, Equal, Geometry] {
 		self.triangleCentre(sideLengths/1, f/3)
 	}
 
-	vertexCount { :self |
-		3
-	}
-
 	unitNormal { :self |
 		self.surfaceNormal.normalize
+	}
+
+	vertexCount { :self |
+		3
 	}
 
 }
 
 +List {
+
+	Triangle { :self |
+		(
+			self.size = 3 & {
+				self.isMatrix
+			}
+		).if {
+			newTriangle().initializeSlots(self)
+		} {
+			self.error('Triangle: invalid matrix')
+		}
+	}
+
+	Triangle { :a :b :c |
+		Triangle([a b c])
+	}
 
 	angleBisector { :self |
 		let [_, p, _] = self;
@@ -829,22 +844,6 @@ Triangle : [Object, Store, Equal, Geometry] {
 
 	ninePointCircle { :self |
 		self.medialTriangle.circleThrough
-	}
-
-	Triangle { :self |
-		(
-			self.size = 3 & {
-				self.isMatrix
-			}
-		).if {
-			newTriangle().initializeSlots(self)
-		} {
-			self.error('Triangle: invalid matrix')
-		}
-	}
-
-	Triangle { :a :b :c |
-		Triangle([a b c])
 	}
 
 }

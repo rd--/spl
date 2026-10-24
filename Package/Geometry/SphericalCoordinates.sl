@@ -10,6 +10,15 @@ SphericalCoordinates : [Object, Store, Equal] {
 		)
 	}
 
+	Record { :self |
+		let [rho, theta, phi] = self.coordinates;
+		(rho: rho, theta: theta, phi: phi)
+	}
+
+	SphericalCoordinates { :self |
+		self
+	}
+
 	elevation { :self |
 		(self.phi - 0.5.pi).negate
 	}
@@ -18,17 +27,8 @@ SphericalCoordinates : [Object, Store, Equal] {
 		self.coordinates[3]
 	}
 
-	Record { :self |
-		let [rho, theta, phi] = self.coordinates;
-		(rho: rho, theta: theta, phi: phi)
-	}
-
 	[rho, radius] { :self |
 		self.coordinates[1]
-	}
-
-	SphericalCoordinates { :self |
-		self
 	}
 
 	[theta, azimuth] { :self |

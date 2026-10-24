@@ -86,11 +86,6 @@
 		((z + 1).log - (1 - z).log) / 2
 	}
 
-	coth { :z |
-		let n = (2 * z).exp;
-		(n + 1) / (n - 1)
-	}
-
 	cosh { :z |
 		let i = z.imaginary;
 		let r = z.real;
@@ -98,6 +93,11 @@
 			r.cosh * i.cos,
 			r.sinh * i.sin
 		)
+	}
+
+	coth { :z |
+		let n = (2 * z).exp;
+		(n + 1) / (n - 1)
 	}
 
 	sinh { :z |

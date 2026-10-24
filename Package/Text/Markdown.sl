@@ -4,6 +4,26 @@ Markdown : [Object, Equal, Cache, Do] {
 
 	| source cache |
 
+	[Tree, markdownToTree] { :self |
+		let items = [];
+		self.do { :each |
+			items.add!(Tree(each, []))
+		};
+		items.withIndexDo { :each :index |
+			let value = each.value;
+			{
+				value['id'] = index
+			}.assert;
+			value.includesKey('parent').ifTrue {
+				items[value['parent']].addChild(each)
+			}
+		};
+		items.first.do { :each |
+			each.value.removeAllKeys!(['id' 'parent'])
+		};
+		items.first
+	}
+
 	codeBlocks { :self |
 		let answer = [];
 		self.do { :each |
@@ -127,6 +147,12 @@ Markdown : [Object, Equal, Cache, Do] {
 		}
 	}
 
+	lines { :self |
+		self.cached('lines') {
+			self.source.lines
+		}
+	}
+
 	markdownString { :self |
 		self.source
 	}
@@ -137,34 +163,8 @@ Markdown : [Object, Equal, Cache, Do] {
 		}
 	}
 
-	lines { :self |
-		self.cached('lines') {
-			self.source.lines
-		}
-	}
-
 	printString { :self |
 		'<Markdown>'
-	}
-
-	[Tree, markdownToTree] { :self |
-		let items = [];
-		self.do { :each |
-			items.add!(Tree(each, []))
-		};
-		items.withIndexDo { :each :index |
-			let value = each.value;
-			{
-				value['id'] = index
-			}.assert;
-			value.includesKey('parent').ifTrue {
-				items[value['parent']].addChild(each)
-			}
-		};
-		items.first.do { :each |
-			each.value.removeAllKeys!(['id' 'parent'])
-		};
-		items.first
 	}
 
 	uncheckedAsHtml { :self |
@@ -185,6 +185,10 @@ Markdown : [Object, Equal, Cache, Do] {
 
 +String {
 
+	Markdown { :self |
+		newMarkdown().initializeSlots(self, Record())
+	}
+
 	isCodeFence { :self |
 		self.beginsWith('~~~') | {
 			self.beginsWith('```')
@@ -193,10 +197,6 @@ Markdown : [Object, Equal, Cache, Do] {
 
 	isCodeFence { :self :letter |
 		self.beginsWith(letter.repeat(3))
-	}
-
-	Markdown { :self |
-		newMarkdown().initializeSlots(self, Record())
 	}
 
 	markdownToHtml { :self |

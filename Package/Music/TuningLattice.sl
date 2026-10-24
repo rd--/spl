@@ -86,6 +86,20 @@
 
 +RatioTuning {
 
+	tuningLatticeDerivedPrimesVector { :self :primes |
+		let upperLimit = primes.last;
+		(self.primeLimit <= upperLimit).if {
+			primes
+		} {
+			let tuningPrimes = self.tuningLatticePrimes(false);
+			(tuningPrimes.size <= primes.size).if {
+				tuningPrimes
+			} {
+				nil
+			}
+		}
+	}
+
 	tuningLatticeEdges { :self :vertexCoordinates |
 		let indices = self.size.iota;
 		let answer = [];
@@ -129,20 +143,6 @@
 			answer.includeAll!(each.tuningLatticePrimes(includeOctave))
 		};
 		answer.List.sort
-	}
-
-	tuningLatticeDerivedPrimesVector { :self :primes |
-		let upperLimit = primes.last;
-		(self.primeLimit <= upperLimit).if {
-			primes
-		} {
-			let tuningPrimes = self.tuningLatticePrimes(false);
-			(tuningPrimes.size <= primes.size).if {
-				tuningPrimes
-			} {
-				nil
-			}
-		}
 	}
 
 	tuningLatticeVertexCoordinates { :self :primes |

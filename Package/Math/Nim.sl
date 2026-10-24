@@ -60,12 +60,6 @@
 
 +@Integer {
 
-	nimPowerNaive { :n :k |
-		{ :x |
-			nimMultiplication(x, n)
-		}.iterate(1, k)
-	}
-
 	nimPower { :n :k |
 		let v = 1;
 		let p = n;
@@ -82,6 +76,12 @@
 			i := i + 1
 		}.repeatForeverWithBreak;
 		v
+	}
+
+	nimPowerNaive { :n :k |
+		{ :x |
+			nimMultiplication(x, n)
+		}.iterate(1, k)
 	}
 
 	nimSquare { :x |

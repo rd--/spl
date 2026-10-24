@@ -48,20 +48,20 @@
 
 @SymbolicCompare {
 
-	[isLess, <] { :self :operand |
-		'less'.symbolicPrimitive([self, operand])
-	}
-
-	[isLessOrEqual, <=] { :self :operand |
-		'lessEqual'.symbolicPrimitive([self, operand])
-	}
-
 	[isGreater, >] { :self :operand |
 		'greater'.symbolicPrimitive([self, operand])
 	}
 
 	[isGreaterOrEqual, >=] { :self :operand |
 		'greaterEqual'.symbolicPrimitive([self, operand])
+	}
+
+	[isLess, <] { :self :operand |
+		'less'.symbolicPrimitive([self, operand])
+	}
+
+	[isLessOrEqual, <=] { :self :operand |
+		'lessEqual'.symbolicPrimitive([self, operand])
 	}
 
 	[maximum, max] { :self :operand |
@@ -76,8 +76,31 @@
 
 @SymbolicNumber {
 
+	[absoluteValue, abs] { :self |
+		'abs'.symbolicPrimitive([self])
+	}
+
+	adaptToNumberAndApply { :self :receiver :aBlock/2 |
+		SymbolicExpression(
+			aBlock/2.unqualifiedName,
+			[receiver, self]
+		).simplifyConstantMath
+	}
+
 	conjugate { :self |
 		'conjugate'.symbolicPrimitive([self])
+	}
+
+	cos { :self |
+		'cos'.symbolicPrimitive([self])
+	}
+
+	cot { :self |
+		'cot'.symbolicPrimitive([self])
+	}
+
+	[csc, cosecant] { :self |
+		'csc'.symbolicPrimitive([self])
 	}
 
 	[divide, /] { :self :operand |
@@ -92,8 +115,36 @@
 		'exp'.symbolicPrimitive([self])
 	}
 
+	gamma { :self |
+		'gamma'.symbolicPrimitive([self])
+	}
+
+	isInteger { :unused |
+		false
+	}
+
+	isNumericConstant { :unused :unusedOperand |
+		false
+	}
+
+	log { :self |
+		'log'.symbolicPrimitive([self])
+	}
+
+	log10 { :self |
+		'log'.symbolicPrimitive([self, 10])
+	}
+
+	log2 { :self |
+		'log'.symbolicPrimitive([self, 2])
+	}
+
 	[mod, %] { :self :operand |
 		'mod'.symbolicPrimitive([self, operand])
+	}
+
+	one { :unused |
+		1
 	}
 
 	[plus, +] { :self :operand |
@@ -116,73 +167,6 @@
 		'remainder'.symbolicPrimitive([self, operand])
 	}
 
-	[subtract, -] { :self :operand |
-		operand.isNumericConstant(0).if {
-			self
-		} {
-			'subtract'.symbolicPrimitive([self, operand])
-		}
-	}
-
-	[times, *] { :self :operand |
-		operand.isNumericConstant(1).if {
-			self
-		} {
-			'times'.symbolicPrimitive([self, operand])
-		}
-	}
-
-	[absoluteValue, abs] { :self |
-		'abs'.symbolicPrimitive([self])
-	}
-
-	adaptToNumberAndApply { :self :receiver :aBlock/2 |
-		SymbolicExpression(
-			aBlock/2.unqualifiedName,
-			[receiver, self]
-		).simplifyConstantMath
-	}
-
-	cos { :self |
-		'cos'.symbolicPrimitive([self])
-	}
-
-	cot { :self |
-		'cot'.symbolicPrimitive([self])
-	}
-
-	[csc, cosecant] { :self |
-		'csc'.symbolicPrimitive([self])
-	}
-
-	gamma { :self |
-		'gamma'.symbolicPrimitive([self])
-	}
-
-	isInteger { :unused |
-		false
-	}
-
-	isNumericConstant { :unused :unusedOperand |
-		false
-	}
-
-	log { :self |
-		'log'.symbolicPrimitive([self])
-	}
-
-	log2 { :self |
-		'log'.symbolicPrimitive([self, 2])
-	}
-
-	log10 { :self |
-		'log'.symbolicPrimitive([self, 10])
-	}
-
-	one { :unused |
-		1
-	}
-
 	[sec, secant] { :self |
 		'sec'.symbolicPrimitive([self])
 	}
@@ -199,8 +183,24 @@
 		'sqrt'.symbolicPrimitive([self]) /* √ */
 	}
 
+	[subtract, -] { :self :operand |
+		operand.isNumericConstant(0).if {
+			self
+		} {
+			'subtract'.symbolicPrimitive([self, operand])
+		}
+	}
+
 	tan { :self |
 		'tan'.symbolicPrimitive([self])
+	}
+
+	[times, *] { :self :operand |
+		operand.isNumericConstant(1).if {
+			self
+		} {
+			'times'.symbolicPrimitive([self, operand])
+		}
 	}
 
 	truncate { :self |

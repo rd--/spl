@@ -27,11 +27,11 @@ For instance, to sum the numeric elements of a collection:
 In cases where _f_ is not associative, reduce associates to the left:
 
 ```
->>> [1 .. 9].reduce(-)
--43
+>>> [1 .. 5].reduce(-)
+-13
 
->>> (((((((1 - 2) - 3) - 4) - 5) - 6) - 7) - 8) - 9
--43
+>>> ((((1 - 2) - 3) - 4) - 5)
+-13
 ```
 
 `reduce` is an alias for `foldLeft`, the dual of which is `foldRight`:

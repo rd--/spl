@@ -2,19 +2,6 @@ ContinuousMarkovProcess : [Object] {
 
 	| p0 q |
 
-	initialProbabilities { :self |
-		self.p0
-	}
-
-	holdingTimeMean { :self |
-		1 / self.transitionRateVector
-	}
-
-	randomFunction { :self :r :t :n |
-		let [tMin, tMax] = t;
-		self.Stream(r, tMin).timeSeriesRandomFunction(t, n)
-	}
-
 	Stream { :self :r :t0 |
 		let p0 = AliasMethod(self.p0);
 		let m = self.transitionMatrix.collect(AliasMethod/1);
@@ -30,6 +17,19 @@ ContinuousMarkovProcess : [Object] {
 			t := t0;
 			x := p0.nextRandom(r)
 		}
+	}
+
+	holdingTimeMean { :self |
+		1 / self.transitionRateVector
+	}
+
+	initialProbabilities { :self |
+		self.p0
+	}
+
+	randomFunction { :self :r :t :n |
+		let [tMin, tMax] = t;
+		self.Stream(r, tMin).timeSeriesRandomFunction(t, n)
 	}
 
 	transitionMatrix { :self |

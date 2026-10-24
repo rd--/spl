@@ -2,37 +2,11 @@ HexagonalCoordinates : [Object, Store, Equal] {
 
 	| coordinates |
 
-	[plus, +] { :self :operand |
-		operand.isHexagonalCoordinates.if {
-			HexagonalCoordinates(self.coordinates + operand.coordinates)
-		} {
-			self.error('HexagonalCoordinates>>+')
-		}
-	}
-
-	[subtract, -] { :self :operand |
-		operand.isHexagonalCoordinates.if {
-			HexagonalCoordinates(self.coordinates - operand.coordinates)
-		} {
-			self.error('HexagonalCoordinates>>-')
-		}
-	}
-
-	[times, *] { :self :aNumber |
-		HexagonalCoordinates(self.coordinates * aNumber)
-	}
-
 	CartesianCoordinates { :self |
 		self
 		.coordinates
 		.fromHexagonalCoordinates
 		.CartesianCoordinates
-	}
-
-	euclideanDistance { :self :operand |
-		let [q1, r1, _] = self.coordinates;
-		let [q2, r2, _] = operand.coordinates;
-		((q2 - q1).square + (r2 - r1).square + ((q2 - q1) * (r2 - r1))).sqrt
 	}
 
 	diagonalNeighbourVectors { :unused |
@@ -51,6 +25,12 @@ HexagonalCoordinates : [Object, Store, Equal] {
 		self.diagonalNeighbourVectors.collect { :each |
 			HexagonalCoordinates(c + each)
 		}
+	}
+
+	euclideanDistance { :self :operand |
+		let [q1, r1, _] = self.coordinates;
+		let [q2, r2, _] = operand.coordinates;
+		((q2 - q1).square + (r2 - r1).square + ((q2 - q1) * (r2 - r1))).sqrt
 	}
 
 	manhattanDistance { :self :operand |
@@ -75,10 +55,28 @@ HexagonalCoordinates : [Object, Store, Equal] {
 		}
 	}
 
+	[plus, +] { :self :operand |
+		operand.isHexagonalCoordinates.if {
+			HexagonalCoordinates(self.coordinates + operand.coordinates)
+		} {
+			self.error('HexagonalCoordinates>>+')
+		}
+	}
+
 	round { :self |
 		HexagonalCoordinates(
 			self.coordinates.roundedHexagonalCoordinates
 		)
+	}	[subtract, -] { :self :operand |
+		operand.isHexagonalCoordinates.if {
+			HexagonalCoordinates(self.coordinates - operand.coordinates)
+		} {
+			self.error('HexagonalCoordinates>>-')
+		}
+	}
+
+	[times, *] { :self :aNumber |
+		HexagonalCoordinates(self.coordinates * aNumber)
 	}
 
 }

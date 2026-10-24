@@ -92,26 +92,6 @@ BlockStream : [Object, Do, Collect, Iterator, Stream] {
 
 +@Stream {
 
-	[divide, /] { :self :anObject |
-		anObject.adaptToStreamAndApply(self, /)
-	}
-
-	[plus, +] { :self :anObject |
-		anObject.adaptToStreamAndApply(self, +)
-	}
-
-	[power, ^] { :self :anObject |
-		anObject.adaptToStreamAndApply(self, ^)
-	}
-
-	[subtract, -] { :self :anObject |
-		anObject.adaptToStreamAndApply(self, -)
-	}
-
-	[times, *] { :self :anObject |
-		anObject.adaptToStreamAndApply(self, *)
-	}
-
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		self.collect { :each |
 			aBlock(aNumber, each)
@@ -168,7 +148,6 @@ BlockStream : [Object, Do, Collect, Iterator, Stream] {
 		}
 	}
 
-
 	cycle { :self |
 		BlockStream {
 			self.isAtEnd.ifTrue {
@@ -178,6 +157,10 @@ BlockStream : [Object, Do, Collect, Iterator, Stream] {
 		} {
 			self.reset!
 		}
+	}
+
+	[divide, /] { :self :anObject |
+		anObject.adaptToStreamAndApply(self, /)
 	}
 
 	drop { :input :count |
@@ -222,6 +205,14 @@ BlockStream : [Object, Do, Collect, Iterator, Stream] {
 			input.reset!;
 			nextIndex := 1
 		}
+	}
+
+	[plus, +] { :self :anObject |
+		anObject.adaptToStreamAndApply(self, +)
+	}
+
+	[power, ^] { :self :anObject |
+		anObject.adaptToStreamAndApply(self, ^)
 	}
 
 	prefixSum { :self |
@@ -311,6 +302,10 @@ BlockStream : [Object, Do, Collect, Iterator, Stream] {
 		}
 	}
 
+	[subtract, -] { :self :anObject |
+		anObject.adaptToStreamAndApply(self, -)
+	}
+
 	take { :self :limit |
 		let count = 1;
 		BlockStream {
@@ -337,6 +332,10 @@ BlockStream : [Object, Do, Collect, Iterator, Stream] {
 		} {
 			self.reset!
 		}
+	}
+
+	[times, *] { :self :anObject |
+		anObject.adaptToStreamAndApply(self, *)
 	}
 
 	withCollect { :self :aStream :aBlock/2 |

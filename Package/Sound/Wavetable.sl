@@ -38,7 +38,6 @@
 
 }
 
-
 +@Integer {
 
 	gen03 { :self :xMin :xMax :coefficients |
@@ -146,7 +145,6 @@
 		};
 		answer / answer.absMax
 	}
-
 
 	gen16 { :self :aList |
 		let answer = [];

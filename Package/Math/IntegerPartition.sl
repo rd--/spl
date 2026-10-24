@@ -1,5 +1,44 @@
 +@Integer {
 
+	integerPartitionUnrank { :n :method |
+		method.caseOf(
+			[
+				'HeinzAscending' -> {
+					n.integerPartitionUnrankHeinzAscending
+				},
+				'Heinz' -> {
+					n.integerPartitionUnrankHeinzAscending.reverse
+				},
+				'KarttunenAscending' -> {
+					n.integerPartitionUnrankKarttunenAscending
+				},
+				'Karttunen' -> {
+					n.integerPartitionUnrankKarttunenAscending.reverse
+				}
+			]
+		)
+	}
+
+	integerPartitionUnrankHeinzAscending { :n |
+		n.primeFactors.primePi
+	}
+
+	integerPartitionUnrankKarttunenAscending { :n |
+		let p = [];
+		let b = n % 2;
+		let i = 1;
+		{ n != 0 }.whileTrue {
+			n := n >> 1;
+			((n % 2) = b).if {
+				i := i + 1
+			} {
+				b := n % 2;
+				p.add!(i)
+			}
+		};
+		p
+	}
+
 	integerPartitions { :n |
 		(n = 0).if {
 			[[]]
@@ -18,35 +57,12 @@
 		}.++
 	}
 
-	integerPartitionsDescendingDo { :self :aBlock/1 |
-		let n = self;
-		let d = List(n, 1);
-		let k = 1;
-		d[1] := n;
-		aBlock(d.copyFromTo(1, 1));
-		{
-			k != n
-		}.whileTrue {
-			let l = k;
-			let m = d[k];
-			{
-				m = 1
-			}.whileTrue {
-				k := k - 1;
-				m := d[k]
-			};
-			let nPrime = m + l - k;
-			m := m - 1;
-			{
-				m < nPrime
-			}.whileTrue {
-				d[k] := m;
-				nPrime := nPrime - m;
-				k := k + 1
-			};
-			d[k] := nPrime;
-			aBlock(d.copyFromTo(1, k))
-		}
+	integerPartitionsAscending { :self |
+		let answer = [];
+		self.integerPartitionsAscendingDo { :each |
+			answer.add!(each)
+		};
+		answer
 	}
 
 	integerPartitionsAscendingDo { :self :aBlock/1 |
@@ -82,12 +98,35 @@
 		}
 	}
 
-	integerPartitionsAscending { :self |
-		let answer = [];
-		self.integerPartitionsAscendingDo { :each |
-			answer.add!(each)
-		};
-		answer
+	integerPartitionsDescendingDo { :self :aBlock/1 |
+		let n = self;
+		let d = List(n, 1);
+		let k = 1;
+		d[1] := n;
+		aBlock(d.copyFromTo(1, 1));
+		{
+			k != n
+		}.whileTrue {
+			let l = k;
+			let m = d[k];
+			{
+				m = 1
+			}.whileTrue {
+				k := k - 1;
+				m := d[k]
+			};
+			let nPrime = m + l - k;
+			m := m - 1;
+			{
+				m < nPrime
+			}.whileTrue {
+				d[k] := m;
+				nPrime := nPrime - m;
+				k := k + 1
+			};
+			d[k] := nPrime;
+			aBlock(d.copyFromTo(1, k))
+		}
 	}
 
 	integerPartitionsDimensions { :self |
@@ -149,45 +188,6 @@
 
 	integerPartitionsStrict { :self |
 		self.integerPartitions.select(isDuplicateFree/1)
-	}
-
-	integerPartitionUnrankHeinzAscending { :n |
-		n.primeFactors.primePi
-	}
-
-	integerPartitionUnrankKarttunenAscending { :n |
-		let p = [];
-		let b = n % 2;
-		let i = 1;
-		{ n != 0 }.whileTrue {
-			n := n >> 1;
-			((n % 2) = b).if {
-				i := i + 1
-			} {
-				b := n % 2;
-				p.add!(i)
-			}
-		};
-		p
-	}
-
-	integerPartitionUnrank { :n :method |
-		method.caseOf(
-			[
-				'HeinzAscending' -> {
-					n.integerPartitionUnrankHeinzAscending
-				},
-				'Heinz' -> {
-					n.integerPartitionUnrankHeinzAscending.reverse
-				},
-				'KarttunenAscending' -> {
-					n.integerPartitionUnrankKarttunenAscending
-				},
-				'Karttunen' -> {
-					n.integerPartitionUnrankKarttunenAscending.reverse
-				}
-			]
-		)
 	}
 
 	partitionFunctionP { :self :anInteger |
@@ -341,6 +341,22 @@
 		}
 	}
 
+	integerPartitionRank { :p :method |
+		method.caseOf(
+			[
+				'Heinz' -> {
+					p.heinzNumber
+				},
+				'KarttunenAscending' -> {
+					p.integerPartitionRankKarttunenAscending
+				},
+				'Karttunen' -> {
+					p.reverse.integerPartitionRankKarttunenAscending
+				}
+			]
+		)
+	}
+
 	integerPartitionRankKarttunenAscending { :p |
 		let n = 0;
 		let parity = p.size % 2;
@@ -356,22 +372,6 @@
 			parity := 1 - parity
 		};
 		n
-	}
-
-	integerPartitionRank { :p :method |
-		method.caseOf(
-			[
-				'Heinz' -> {
-					p.heinzNumber
-				},
-				'KarttunenAscending' -> {
-					p.integerPartitionRankKarttunenAscending
-				},
-				'Karttunen' -> {
-					p.reverse.integerPartitionRankKarttunenAscending
-				}
-			]
-		)
 	}
 
 }

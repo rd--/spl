@@ -33,10 +33,6 @@ LineSegment : [Object, Equal] {
 		self.u.size
 	}
 
-	svgFragment { :self :options |
-		Line([self.u, self.v]).svgFragment(options)
-	}
-
 	includes { :self :aPoint |
 		self.distance(aPoint).isVeryClose(0)
 	}
@@ -53,6 +49,10 @@ LineSegment : [Object, Equal] {
 		)
 	}
 
+	svgFragment { :self :options |
+		Line([self.u, self.v]).svgFragment(options)
+	}
+
 	vertexCoordinates { :self |
 		[self.u, self.v]
 	}
@@ -64,6 +64,10 @@ LineSegment : [Object, Equal] {
 }
 
 +List {
+
+	LineSegment { :u :v |
+		newLineSegment().initializeSlots(u, v)
+	}
 
 	connectLineSegments { :self :eq/2 |
 		let answer = [];
@@ -110,10 +114,6 @@ LineSegment : [Object, Equal] {
 			answer.add!(l)
 		};
 		answer
-	}
-
-	LineSegment { :u :v |
-		newLineSegment().initializeSlots(u, v)
 	}
 
 }

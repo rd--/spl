@@ -2,6 +2,16 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 
 	| firstLink lastLink |
 
+	[List, linkedListToList] { :self |
+		let answer = List(self.size, nil);
+		let index = 1;
+		self.do { :each |
+			answer[index] := each;
+			index := index + 1
+		};
+		answer
+	}
+
 	addFirst! { :self :anObject |
 		let aLink = Link(anObject, self.firstLink);
 		self.isEmpty.ifTrue {
@@ -88,16 +98,6 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		self.ifNotEmpty {
 			self.firstLink.linksDo(aBlock/1)
 		}
-	}
-
-	[List, linkedListToList] { :self |
-		let answer = List(self.size, nil);
-		let index = 1;
-		self.do { :each |
-			answer[index] := each;
-			index := index + 1
-		};
-		answer
 	}
 
 	postCopy { :self |

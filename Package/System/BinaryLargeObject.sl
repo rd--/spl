@@ -14,12 +14,12 @@
 		self.size = 0
 	}
 
-	slice { :self :start :end :contentType |
-		<primitive: return _self.slice(_start, _end, _contentType);>
-	}
-
 	size { :self |
 		<primitive: return _self.size;>
+	}
+
+	slice { :self :start :end :contentType |
+		<primitive: return _self.slice(_start, _end, _contentType);>
 	}
 
 	text { :self |

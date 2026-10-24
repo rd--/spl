@@ -33,6 +33,10 @@ HelpIndex : [Object] {
 		}.collect(second/1).sort!
 	}
 
+	size { :self |
+		self.helpFileList.size
+	}
+
 	urlFor { :unused :kind :name |
 		[
 			'./lib/spl/Help/',
@@ -41,10 +45,6 @@ HelpIndex : [Object] {
 			name,
 			'.help.sl'
 		].stringCatenate
-	}
-
-	size { :self |
-		self.helpFileList.size
 	}
 
 }

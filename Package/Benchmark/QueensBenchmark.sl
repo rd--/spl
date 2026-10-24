@@ -10,14 +10,6 @@ QueensBenchmark : [Object] {
 		result
 	}
 
-	queens { :self |
-		self.freeRows := List(8, true);
-		self.freeMaxs := List(16, true);
-		self.freeMins := List(16, true);
-		self.queenRows := List(8, -1);
-		self.placeQueen(1)
-	}
-
 	placeQueen { :self :c |
 		withReturn { :return/1 |
 			1.toDo(8) { :r |
@@ -35,6 +27,14 @@ QueensBenchmark : [Object] {
 			};
 			false
 		}
+	}
+
+	queens { :self |
+		self.freeRows := List(8, true);
+		self.freeMaxs := List(16, true);
+		self.freeMins := List(16, true);
+		self.queenRows := List(8, -1);
+		self.placeQueen(1)
 	}
 
 	rowColumn { :self :r :c |

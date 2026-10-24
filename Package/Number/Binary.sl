@@ -2,18 +2,6 @@
 
 @Binary {
 
-	[bitShiftLeft, <<] { :self :anInteger |
-		self.typeResponsibility('@Binary>>bitShiftLeft')
-	}
-
-	[bitShiftRight, >>] { :self :anInteger |
-		self.typeResponsibility('@Binary>>bitShiftRight')
-	}
-
-	[bitShiftRightUnsigned, >>>] { :self :anInteger |
-		self.typeResponsibility('@Binary>>bitShiftRightUnsigned')
-	}
-
 	bitAnd { :self :anInteger |
 		self.typeResponsibility('@Binary>>bitAnd')
 	}
@@ -102,6 +90,18 @@
 		} {
 			self << anInteger
 		}
+	}
+
+	[bitShiftLeft, <<] { :self :anInteger |
+		self.typeResponsibility('@Binary>>bitShiftLeft')
+	}
+
+	[bitShiftRight, >>] { :self :anInteger |
+		self.typeResponsibility('@Binary>>bitShiftRight')
+	}
+
+	[bitShiftRightUnsigned, >>>] { :self :anInteger |
+		self.typeResponsibility('@Binary>>bitShiftRightUnsigned')
 	}
 
 	bitXor { :self :anInteger |

@@ -6,7 +6,7 @@ Run documentation tests:
 { 'Help/Reference'.splFilePath.terseReferenceSummary((verboseLevel: 0, pattern: '.*')) }.timing
 ~~~
 
-Total => 19,583 (200 seconds)
+Total => 19,592 (200 seconds)
 
 Note: Requires LibraryItems be at the interpreter cache, i.e.
 
@@ -31,7 +31,7 @@ Count image files:
 ls ~/sw/spl/Help/Image/* | wc -l
 ~~~
 
-=> 4,966
+=> 5,089
 
 Count reference files:
 
@@ -39,7 +39,7 @@ Count reference files:
 $ (grep '!\[\](' ~/sw/spl/Help/Reference/* | wc -l)
 ~~~
 
-=> 5,065
+=> 5,079
 
 Run SuperCollider programs:
 
@@ -55,4 +55,4 @@ Lint reference files:
 $ (cd ~/sw/spl/Help/Reference; make lint)
 ~~~
 
-Linting: 4200 file(s)
+Linting: 4,213 file(s)

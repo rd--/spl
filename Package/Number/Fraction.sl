@@ -2,107 +2,33 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	| numerator denominator |
 
-	[isLess, <] { :self :operand |
-		operand.isFraction.if {
-			let a = self.numerator * operand.denominator;
-			let b = operand.numerator * self.denominator;
-			a < b
+	Integer { :self |
+		LargeInteger(self).normalInteger
+	}
 
+	[LargeInteger, L, fractionToLargeInteger] { :self |
+		self.isInteger.if {
+			self.numerator
 		} {
-			operand.adaptToFractionAndApply(self, <)
+			self.error('Fraction>>LargeInteger: not integer')
 		}
 	}
 
-	[divide, /, Fraction] { :self :operand |
-		operand.isInteger.if {
-			self * uncheckedFraction(1L, LargeInteger(operand))
-		} {
-			operand.isFraction.if {
-				self * operand.reciprocal
-			} {
-				operand.adaptToFractionAndApply(self, divide/2)
-			}
-		}
+	[Record, fractionToRecord] { :self |
+		(
+			numerator: self.numerator.Integer,
+			denominator: self.denominator.Integer
+		)
 	}
 
-	[plus, +] { :self :operand |
-		operand.isInteger.if {
-			uncheckedFraction(
-				self.numerator + (self.denominator * LargeInteger(operand)),
-				self.denominator
-			)
-		} {
-			operand.isFraction.if {
-				let d = self.denominator.gcd(operand.denominator);
-				let d1 = operand.denominator // d;
-				let d2 = self.denominator // d;
-				let n = (self.numerator * d1) + (operand.numerator * d2);
-				d1 := d1 * d2;
-				d2 := n.gcd(d);
-				n := n // d2;
-				d := d1 * (d // d2);
-				(d = 1).if {
-					/* preference: answer proper integer */
-					uncheckedFraction(n, 1)
-				} {
-					uncheckedFraction(n, d)
-				}
-			} {
-				operand.adaptToFractionAndApply(self, plus/2)
-			}
-		}
+	[SmallFloat, Float, fractionToSmallFloat] { :self |
+		SmallFloat(self.numerator)
+		/
+		SmallFloat(self.denominator)
 	}
 
-	[power, ^] { :self :operand |
-		operand.isInteger.if {
-			self.raisedToInteger(LargeInteger(operand))
-		} {
-			operand.isFraction.if {
-				self.isNegative.if {
-					Complex(self.SmallFloat, 0) ^ operand
-				} {
-					self.raisedToFraction(operand)
-				}
-			} {
-				operand.adaptToFractionAndApply(self, power/2)
-			}
-		}
-	}
-
-	[subtract, -] { :self :operand |
-		operand.isInteger.if {
-			uncheckedFraction(
-				self.numerator - (self.denominator * LargeInteger(operand)),
-				self.denominator
-			)
-		} {
-			operand.isFraction.if {
-				self + operand.negate
-			} {
-				operand.adaptToFractionAndApply(self, subtract/2)
-			}
-		}
-	}
-
-	[times, *] { :self :operand |
-		operand.isFraction.if {
-			let d1 = self.numerator.gcd(operand.denominator);
-			let d2 = self.denominator.gcd(operand.numerator);
-			let numerator = (self.numerator // d1) * (operand.numerator // d2);
-			(d2 = self.denominator & {
-				d1 = operand.denominator
-			}).if {
-				/* preference: answer proper integer */
-				uncheckedFraction(numerator, numerator.one)
-			} {
-				Fraction(
-					numerator,
-					(self.denominator // d2) * (operand.denominator // d1)
-				)
-			}
-		} {
-			operand.adaptToFractionAndApply(self, times/2)
-		}
+	[SmallInteger, fractionToSmallInteger] { :self |
+		SmallInteger(LargeInteger(self))
 	}
 
 	adaptToIntegerAndApply { :self :operand :aBlock/2 |
@@ -177,6 +103,18 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
+	[divide, /, Fraction] { :self :operand |
+		operand.isInteger.if {
+			self * uncheckedFraction(1L, LargeInteger(operand))
+		} {
+			operand.isFraction.if {
+				self * operand.reciprocal
+			} {
+				operand.adaptToFractionAndApply(self, divide/2)
+			}
+		}
+	}
+
 	dividesImmediately { :self :operand |
 		let r = self / operand;
 		r.denominator = 1 & {
@@ -196,20 +134,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		a
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
-		anObject.isNumber.if {
-			anObject.isFraction.if {
-				self.numerator = anObject.numerator & {
-					self.denominator = anObject.denominator
-				}
-			} {
-				anObject.adaptToFractionAndApply(self, aBlock/2)
-			}
-		} {
-			false
-		}
-	}
-
 	gcd { :self :operand |
 		operand.isFraction.if {
 			let d = self.denominator.gcd(operand.denominator);
@@ -224,16 +148,26 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
-	Integer { :self |
-		LargeInteger(self).normalInteger
-	}
-
 	isAdjacentFraction { :self :operand |
 		(operand - self).numerator.abs.isOne
 	}
 
 	isDyadicRational { :self |
 		self.denominator.isPowerOfTwo
+	}
+
+	isEqualBy { :self :anObject :aBlock/2 |
+		anObject.isNumber.if {
+			anObject.isFraction.if {
+				self.numerator = anObject.numerator & {
+					self.denominator = anObject.denominator
+				}
+			} {
+				anObject.adaptToFractionAndApply(self, aBlock/2)
+			}
+		} {
+			false
+		}
 	}
 
 	isEven { :self |
@@ -258,6 +192,17 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	isInteger { :self |
 		self.denominator = 1
+	}
+
+	[isLess, <] { :self :operand |
+		operand.isFraction.if {
+			let a = self.numerator * operand.denominator;
+			let b = operand.numerator * self.denominator;
+			a < b
+
+		} {
+			operand.adaptToFractionAndApply(self, <)
+		}
 	}
 
 	isLiteral { :self |
@@ -308,12 +253,12 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
-	isSuperpartient { :self |
-		self > 1 & { self.isSuperparticular.not }
-	}
-
 	isSuperparticular { :self |
 		self.numerator - 1 = self.denominator
+	}
+
+	isSuperpartient { :self |
+		self > 1 & { self.isSuperparticular.not }
 	}
 
 	isTerminatingDecimal { :self |
@@ -330,14 +275,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	isZero { :self |
 		self.numerator.isZero
-	}
-
-	[LargeInteger, L, fractionToLargeInteger] { :self |
-		self.isInteger.if {
-			self.numerator
-		} {
-			self.error('Fraction>>LargeInteger: not integer')
-		}
 	}
 
 	lcm { :self :operand |
@@ -434,6 +371,50 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		self.weightedMediant(operand, 1, 1.goldenRatio)
 	}
 
+	[plus, +] { :self :operand |
+		operand.isInteger.if {
+			uncheckedFraction(
+				self.numerator + (self.denominator * LargeInteger(operand)),
+				self.denominator
+			)
+		} {
+			operand.isFraction.if {
+				let d = self.denominator.gcd(operand.denominator);
+				let d1 = operand.denominator // d;
+				let d2 = self.denominator // d;
+				let n = (self.numerator * d1) + (operand.numerator * d2);
+				d1 := d1 * d2;
+				d2 := n.gcd(d);
+				n := n // d2;
+				d := d1 * (d // d2);
+				(d = 1).if {
+					/* preference: answer proper integer */
+					uncheckedFraction(n, 1)
+				} {
+					uncheckedFraction(n, d)
+				}
+			} {
+				operand.adaptToFractionAndApply(self, plus/2)
+			}
+		}
+	}
+
+	[power, ^] { :self :operand |
+		operand.isInteger.if {
+			self.raisedToInteger(LargeInteger(operand))
+		} {
+			operand.isFraction.if {
+				self.isNegative.if {
+					Complex(self.SmallFloat, 0) ^ operand
+				} {
+					self.raisedToFraction(operand)
+				}
+			} {
+				operand.adaptToFractionAndApply(self, power/2)
+			}
+		}
+	}
+
 	raisedToFraction { :self :operand |
 		let rootNumerator = self.numerator.nthRoot(operand.denominator).truncate;
 		let rootDenominator = self.denominator.nthRoot(operand.denominator).truncate;
@@ -470,13 +451,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		self
 	}
 
-	[Record, fractionToRecord] { :self |
-		(
-			numerator: self.numerator.Integer,
-			denominator: self.denominator.Integer
-		)
-	}
-
 	[reciprocal, /] { :self |
 		(self.numerator.abs = 1).if {
 			/* preference: answer proper integer */
@@ -484,6 +458,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		} {
 			Fraction(self.denominator, self.numerator)
 		}
+	}
+
+	simplify { :self |
+		self.copy.simplify!
 	}
 
 	simplify! { :self |
@@ -502,21 +480,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 				self
 			}
 		}
-	}
-
-	simplify { :self |
-		self.copy.simplify!
-	}
-
-
-	[SmallFloat, Float, fractionToSmallFloat] { :self |
-		SmallFloat(self.numerator)
-		/
-		SmallFloat(self.denominator)
-	}
-
-	[SmallInteger, fractionToSmallInteger] { :self |
-		SmallInteger(LargeInteger(self))
 	}
 
 	sternBrocotChildren { :self |
@@ -552,6 +515,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
+	storeString { :self |
+		self.storeStringLiteral
+	}
+
 	storeStringLiteral { :self |
 		[
 			self.numerator.uncheckedPrintString(10),
@@ -559,8 +526,19 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		].stringIntercalate('/')
 	}
 
-	storeString { :self |
-		self.storeStringLiteral
+	[subtract, -] { :self :operand |
+		operand.isInteger.if {
+			uncheckedFraction(
+				self.numerator - (self.denominator * LargeInteger(operand)),
+				self.denominator
+			)
+		} {
+			operand.isFraction.if {
+				self + operand.negate
+			} {
+				operand.adaptToFractionAndApply(self, subtract/2)
+			}
+		}
 	}
 
 	sylvesterExpansion { :self |
@@ -578,6 +556,27 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 				y := y * z
 			};
 			a
+		}
+	}
+
+	[times, *] { :self :operand |
+		operand.isFraction.if {
+			let d1 = self.numerator.gcd(operand.denominator);
+			let d2 = self.denominator.gcd(operand.numerator);
+			let numerator = (self.numerator // d1) * (operand.numerator // d2);
+			(d2 = self.denominator & {
+				d1 = operand.denominator
+			}).if {
+				/* preference: answer proper integer */
+				uncheckedFraction(numerator, numerator.one)
+			} {
+				Fraction(
+					numerator,
+					(self.denominator // d2) * (operand.denominator // d1)
+				)
+			}
+		} {
+			operand.adaptToFractionAndApply(self, times/2)
 		}
 	}
 
@@ -644,10 +643,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 +@Integer {
 
-	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
-		aBlock(aFraction, Fraction(self, 1L))
-	}
-
 	[Fraction, R] { :numerator :denominator |
 		numerator.isNaN.if {
 			NaN
@@ -660,12 +655,16 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
-	[toFraction, integerToFraction] { :self |
-		Fraction(LargeInteger(self), 1L)
+	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
+		aBlock(aFraction, Fraction(self, 1L))
 	}
 
 	numeratorDenominator { :self |
 		[self, 1L]
+	}
+
+	[toFraction, integerToFraction] { :self |
+		Fraction(LargeInteger(self), 1L)
 	}
 
 	uncheckedFraction { :numerator :denominator |
@@ -705,18 +704,18 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 +List {
 
-	lambdomaMatrix { :self |
-		let [m, n] = self;
-		Fraction/2
-		.swap
-		.table([1 .. m], [1 .. n])
-	}
-
 	[Fraction, listToFraction] { :self |
 		self.atVectorOrElementwise { :each |
 			let [n, d] = each;
 			Fraction(n, d)
 		}
+	}
+
+	lambdomaMatrix { :self |
+		let [m, n] = self;
+		Fraction/2
+		.swap
+		.table([1 .. m], [1 .. n])
 	}
 
 }
@@ -756,6 +755,16 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		self.matchesRegularExpression('^[-]?[0-9]+/[0-9]+$')
 	}
 
+	parseFraction { :self :elseClause/0 |
+		self.parseFractionSeparatedBy('/', elseClause/0)
+	}
+
+	parseFraction { :self |
+		self.parseFraction {
+			self.error('parseFraction: parse failed')
+		}
+	}
+
 	parseFractionSeparatedBy { :self :separator :elseClause/0 |
 		self.includesSubstring(separator).if {
 			let parts = self.splitOn(separator);
@@ -776,16 +785,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 			} {
 				elseClause()
 			}
-		}
-	}
-
-	parseFraction { :self :elseClause/0 |
-		self.parseFractionSeparatedBy('/', elseClause/0)
-	}
-
-	parseFraction { :self |
-		self.parseFraction {
-			self.error('parseFraction: parse failed')
 		}
 	}
 
@@ -875,7 +874,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 }
-
 
 /*
 

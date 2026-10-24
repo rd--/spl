@@ -30,6 +30,18 @@ HelpFile : [Object, Equal, Cache] {
 		self.readCommaSeparatedField('Categories: ')
 	}
 
+	codeBlockImageFileName { :self :codeBlock |
+		system.splFileName(
+			'Help/Image/%-%.%'.format(
+				[
+					self.originName,
+					codeBlock.codeBlockImageIdentifier,
+					codeBlock.codeBlockImageType
+				]
+			)
+		)
+	}
+
 	codeBlocks { :self |
 		self.cached('codeBlocks') {
 			self.markdown.codeBlocks.collect { :each |
@@ -42,18 +54,6 @@ HelpFile : [Object, Equal, Cache] {
 				each
 			}
 		}
-	}
-
-	codeBlockImageFileName { :self :codeBlock |
-		system.splFileName(
-			'Help/Image/%-%.%'.format(
-				[
-					self.originName,
-					codeBlock.codeBlockImageIdentifier,
-					codeBlock.codeBlockImageType
-				]
-			)
-		)
 	}
 
 	codeBlocksWithAttribute { :self :key :value |
@@ -83,16 +83,6 @@ HelpFile : [Object, Equal, Cache] {
 	documentationTests { :self |
 		self.cached('documentationTests') {
 			self.lines.extractDocumentationTests
-		}
-	}
-
-	isEqualBy { :self :anObject :aBlock/2 |
-		anObject.isHelp & {
-			self.isEqualByAtNamedSlots(
-				anObject,
-				['origin' 'source'],
-				aBlock/2
-			)
 		}
 	}
 
@@ -182,6 +172,16 @@ HelpFile : [Object, Equal, Cache] {
 
 	imageHelpPrograms { :self |
 		self.helpPrograms.select(isImageProgram/1)
+	}
+
+	isEqualBy { :self :anObject :aBlock/2 |
+		anObject.isHelp & {
+			self.isEqualByAtNamedSlots(
+				anObject,
+				['origin' 'source'],
+				aBlock/2
+			)
+		}
 	}
 
 	isGuideFile { :self |
@@ -601,6 +601,11 @@ HelpFile : [Object, Equal, Cache] {
 
 +String {
 
+	helpFilePreprocessor { :topic |
+		let inputFilePath = topic.helpFileName('.pre').splFilePath;
+		inputFilePath.helpFragmentPreprocessor
+	}
+
 	helpFragment { :topic :key :value |
 		let helpFile = system.readHelpFile(topic);
 		let [codeBlock] = helpFile.codeBlocksWithAttribute(key, value);
@@ -639,11 +644,6 @@ HelpFile : [Object, Equal, Cache] {
 				line
 			}
 		}.unlines
-	}
-
-	helpFilePreprocessor { :topic |
-		let inputFilePath = topic.helpFileName('.pre').splFilePath;
-		inputFilePath.helpFragmentPreprocessor
 	}
 
 }

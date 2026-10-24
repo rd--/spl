@@ -4,12 +4,16 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	| real imaginary |
 
-	[absoluteValueArgument, absArg] { :self |
-		[self.absoluteValue, self.argument]
+	[Record, complexToRecord] { :self |
+		(real: self.real, imaginary: self.imaginary)
 	}
 
 	[absoluteValue, abs] { :self |
 		self.absoluteValueSquare.sqrt
+	}
+
+	[absoluteValueArgument, absArg] { :self |
+		[self.absoluteValue, self.argument]
 	}
 
 	[absoluteValueSquare, absSquare] { :self |
@@ -105,7 +109,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		)
 	}
 
-
 	[divide, /] { :self :anObject |
 		anObject.isComplex.if {
 			let a = self.real;
@@ -118,20 +121,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 			)
 		} {
 			anObject.adaptToComplexAndApply(self, divide/2)
-		}
-	}
-
-	isEqualBy { :self :anObject :aBlock/2 |
-		anObject.isNumber.if {
-			anObject.isComplex.if {
-				aBlock(self.real, anObject.real) & {
-					aBlock(self.imaginary, anObject.imaginary)
-				}
-			} {
-				anObject.adaptToComplexAndApply(self, aBlock/2)
-			}
-		} {
-			false
 		}
 	}
 
@@ -191,6 +180,20 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 				anObject.adaptToComplexAndApply(self) { :p :q |
 					p.isCloseBy(q, epsilon)
 				}
+			}
+		} {
+			false
+		}
+	}
+
+	isEqualBy { :self :anObject :aBlock/2 |
+		anObject.isNumber.if {
+			anObject.isComplex.if {
+				aBlock(self.real, anObject.real) & {
+					aBlock(self.imaginary, anObject.imaginary)
+				}
+			} {
+				anObject.adaptToComplexAndApply(self, aBlock/2)
 			}
 		} {
 			false
@@ -320,7 +323,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		Complex(1, 0)
 	}
 
-
 	[plus, +] { :self :anObject |
 		anObject.isComplex.if {
 			let a = self.real;
@@ -394,10 +396,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		} {
 			1 / self
 		}
-	}
-
-	[Record, complexToRecord] { :self |
-		(real: self.real, imaginary: self.imaginary)
 	}
 
 	[remainder, \\] { :self :aNumber |
@@ -525,8 +523,18 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 +@Number {
 
-	conjugate { :self |
-		self
+	[Complex, J] { :real :imaginary |
+		Complex(
+			SmallFloat(real),
+			SmallFloat(imaginary)
+		)
+	}
+
+	I { :self |
+		Complex(
+			0,
+			SmallFloat(self)
+		)
 	}
 
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
@@ -543,18 +551,8 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		(z - 0J1) / (z + 0J1)
 	}
 
-	[Complex, J] { :real :imaginary |
-		Complex(
-			SmallFloat(real),
-			SmallFloat(imaginary)
-		)
-	}
-
-	I { :self |
-		Complex(
-			0,
-			SmallFloat(self)
-		)
+	conjugate { :self |
+		self
 	}
 
 	isGaussianInteger { :self |

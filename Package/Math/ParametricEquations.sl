@@ -221,6 +221,15 @@
 		}
 	}
 
+	lHospitalQuintic { :a |
+		{ :theta |
+			let u = (theta / 2).tan;
+			let x = (a / 2) * (u - ((u ^ 5) / 5));
+			let y = (a / 4) * (1 + u.square).square;
+			[x, y]
+		}
+	}
+
 	lemniscate { :a |
 		{ :theta |
 			/*let rho = a * (2 * theta).cos.sqrt;
@@ -228,15 +237,6 @@
 			let u = 1 + theta.sin.square;
 			let x = (a * theta.cos) / u;
 			let y = (a * theta.sin * theta.cos) / u;
-			[x, y]
-		}
-	}
-
-	lHospitalQuintic { :a |
-		{ :theta |
-			let u = (theta / 2).tan;
-			let x = (a / 2) * (u - ((u ^ 5) / 5));
-			let y = (a / 4) * (1 + u.square).square;
 			[x, y]
 		}
 	}
@@ -369,14 +369,6 @@
 		}
 	}
 
-	tschirnhausenCubic { :a |
-		{ :t |
-			let x = 9 * a * (1 - (3 * t * t));
-			let y = t * x;
-			[x, y]
-		}
-	}
-
 	tractrix { :theta |
 		[
 			theta - theta.tanh,
@@ -409,6 +401,14 @@
 		{ :theta |
 			let x = (a * theta) - (b * theta.sin);
 			let y = a - (b * theta.cos);
+			[x, y]
+		}
+	}
+
+	tschirnhausenCubic { :a |
+		{ :t |
+			let x = 9 * a * (1 - (3 * t * t));
+			let y = t * x;
 			[x, y]
 		}
 	}
