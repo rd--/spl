@@ -338,19 +338,27 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		anObject.adaptToIntegerAndApply(self, quotient/2)
 	}
 
-	raisedToInteger { :self :anInteger |
-		<primitive:
-		if (sl.isLargeInteger(_anInteger) || sl.isSmallFloatInteger(_anInteger)) {
-			return _self ** BigInt(_anInteger);
+	raisedToInteger { :self :operand |
+		operand.isNegative.if {
+			1L / self.raisedToPositiveInteger(-operand)
+		} {
+			self.raisedToPositiveInteger(operand)
 		}
-		>
-		self.error('raisedToInteger: not integer')
 	}
 
-	[remainder, \\] { :self :anInteger |
+	raisedToPositiveInteger { :self :operand |
 		<primitive:
-		if (sl.isLargeInteger(_anInteger) || sl.isSmallFloatInteger(_anInteger)) {
-			return _self % BigInt(_anInteger);
+		if (sl.isLargeInteger(_operand) || sl.isSmallFloatInteger(_operand)) {
+			return _self ** BigInt(_operand);
+		}
+		>
+		self.error('raisedToPositiveInteger: not integer')
+	}
+
+	[remainder, \\] { :self :operand |
+		<primitive:
+		if (sl.isLargeInteger(_operand) || sl.isSmallFloatInteger(_operand)) {
+			return _self % BigInt(_operand);
 		}
 		>
 		self.error('remainder: not integer')

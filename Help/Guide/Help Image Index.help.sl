@@ -226,6 +226,8 @@
   2. ![](Help/Image/arithmeticGeometricMean-B.svg)
 - `arneodoEquation`
   1. ![](Help/Image/arneodoEquation-A.svg)
+- `arnoldsCatMap`
+  1. ![](Help/Image/arnoldsCatMap-A.svg)
 - `array`
   1. ![](Help/Image/array-A.svg)
 - `arrayFlatten`
@@ -507,6 +509,14 @@
   3. ![](Help/Image/BinomialDistribution-C.svg)
   4. ![](Help/Image/BinomialDistribution-D.svg)
   5. ![](Help/Image/BinomialDistribution-E.svg)
+- `binomialGamma`
+  1. ![](Help/Image/binomialGamma-A.svg)
+  2. ![](Help/Image/binomialGamma-B.svg)
+  3. ![](Help/Image/binomialGamma-C.svg)
+  4. ![](Help/Image/binomialGamma-D.svg)
+  5. ![](Help/Image/binomialGamma-E.svg)
+- `binomialPascal`
+  1. ![](Help/Image/binomialPascal-A.svg)
 - `BinomialProcess`
   1. ![](Help/Image/BinomialProcess-A.svg)
   2. ![](Help/Image/BinomialProcess-B.svg)
@@ -646,6 +656,9 @@
   3. ![](Help/Image/boole-C.svg)
   4. ![](Help/Image/boole-D.svg)
   5. ![](Help/Image/boole-E.svg)
+- `booleanSparseArray`
+  1. ![](Help/Image/booleanSparseArray-A.svg)
+  2. ![](Help/Image/booleanSparseArray-B.svg)
 - `botanicCurve`
   1. ![](Help/Image/botanicCurve-A.svg)
   2. ![](Help/Image/botanicCurve-B.svg)
@@ -1713,6 +1726,7 @@
   9. ![](Help/Image/elementaryCellularAutomaton-I.svg)
   10. ![](Help/Image/elementaryCellularAutomaton-J.svg)
   11. ![](Help/Image/elementaryCellularAutomaton-K.png)
+  12. ![](Help/Image/elementaryCellularAutomaton-L.svg)
 - `Ellipse`
   1. ![](Help/Image/Ellipse-A.svg)
   2. ![](Help/Image/Ellipse-B.svg)
@@ -2005,6 +2019,8 @@
   15. ![](Help/Image/fibonacci-O.svg)
   16. ![](Help/Image/fibonacci-P.svg)
   17. ![](Help/Image/fibonacci-Q.svg)
+- `fibonacciClosedForm`
+  1. ![](Help/Image/fibonacciClosedForm-A.svg)
 - `fibonacciCurve`
   1. ![](Help/Image/fibonacciCurve-A.svg)
   2. ![](Help/Image/fibonacciCurve-B.svg)
@@ -2664,6 +2680,7 @@
   5. ![](Help/Image/histogramPlot-E.svg)
   6. ![](Help/Image/histogramPlot-F.svg)
   7. ![](Help/Image/histogramPlot-G.svg)
+  8. ![](Help/Image/histogramPlot-H.svg)
 - `hofstadterQSequence`
   1. ![](Help/Image/hofstadterQSequence-A.svg)
   2. ![](Help/Image/hofstadterQSequence-B.svg)
@@ -2693,6 +2710,7 @@
   2. ![](Help/Image/HsvColour-B.svg)
   3. ![](Help/Image/HsvColour-C.svg)
   4. ![](Help/Image/HsvColour-D.svg)
+  5. ![](Help/Image/HsvColour-E.svg)
 - `hsvToRgb`
   1. ![](Help/Image/hsvToRgb-A.svg)
   2. ![](Help/Image/hsvToRgb-B.svg)
@@ -2736,10 +2754,10 @@
   1. ![](Help/Image/hypotrochoid-A.svg)
   2. ![](Help/Image/hypotrochoid-B.svg)
   3. ![](Help/Image/hypotrochoid-C.svg)
-- `i`
-  1. ![](Help/Image/i-A.svg)
-  2. ![](Help/Image/i-B.svg)
-  3. ![](Help/Image/i-C.svg)
+- `I`
+  1. ![](Help/Image/I-A.svg)
+  2. ![](Help/Image/I-B.svg)
+  3. ![](Help/Image/I-C.svg)
 - `identityMatrix`
   1. ![](Help/Image/identityMatrix-A.png)
 - `IdentitySet`
@@ -2967,6 +2985,7 @@
 - `iota`
   1. ![](Help/Image/iota-A.svg)
   2. ![](Help/Image/iota-B.svg)
+  3. ![](Help/Image/iota-C.svg)
 - `isBeckettGrayCode`
   1. ![](Help/Image/isBeckettGrayCode-A.svg)
   2. ![](Help/Image/isBeckettGrayCode-B.png)
@@ -3132,6 +3151,8 @@
 - `isSorted`
   1. ![](Help/Image/isSorted-A.svg)
   2. ![](Help/Image/isSorted-B.svg)
+- `isSquare`
+  1. ![](Help/Image/isSquare-A.svg)
 - `isSquareFree`
   1. ![](Help/Image/isSquareFree-A.svg)
   2. ![](Help/Image/isSquareFree-B.svg)
@@ -3153,8 +3174,8 @@
   7. ![](Help/Image/iterate-G.svg)
 - `iteratedFiniteAutomaton`
   1. ![](Help/Image/iteratedFiniteAutomaton-A.png)
-- `j`
-  1. ![](Help/Image/j-A.svg)
+- `J`
+  1. ![](Help/Image/J-A.svg)
 - `jacobiCn`
   1. ![](Help/Image/jacobiCn-A.svg)
   2. ![](Help/Image/jacobiCn-B.svg)
@@ -3603,6 +3624,7 @@
   2. ![](Help/Image/logisticSigmoid-B.svg)
   3. ![](Help/Image/logisticSigmoid-C.svg)
   4. ![](Help/Image/logisticSigmoid-D.png)
+  5. ![](Help/Image/logisticSigmoid-E.svg)
 - `logit`
   1. ![](Help/Image/logit-A.svg)
 - `logLinearPlot`
@@ -3842,6 +3864,8 @@
   1. ![](Help/Image/minors-A.svg)
 - `mirror`
   1. ![](Help/Image/mirror-A.svg)
+- `Missing`
+  1. ![](Help/Image/Missing-A.svg)
 - `mittenpunkt`
   1. ![](Help/Image/mittenpunkt-A.svg)
   2. ![](Help/Image/mittenpunkt-B.svg)
@@ -3957,6 +3981,7 @@
   13. ![](Help/Image/multiplicativeOrder-M.svg)
   14. ![](Help/Image/multiplicativeOrder-N.svg)
   15. ![](Help/Image/multiplicativeOrder-O.svg)
+  16. ![](Help/Image/multiplicativeOrder-P.svg)
 - `multiplicativePersistence`
   1. ![](Help/Image/multiplicativePersistence-A.svg)
   2. ![](Help/Image/multiplicativePersistence-B.svg)
@@ -4020,6 +4045,8 @@
   8. ![](Help/Image/namedGraph-H.svg)
   9. ![](Help/Image/namedGraph-I.svg)
   10. ![](Help/Image/namedGraph-J.svg)
+- `NaN`
+  1. ![](Help/Image/NaN-A.svg)
 - `narayanaNumber`
   1. ![](Help/Image/narayanaNumber-A.svg)
 - `narayanaSequence`
@@ -4609,6 +4636,8 @@
   1. ![](Help/Image/Polyhedron-A.svg)
 - `Polynomial`
   1. ![](Help/Image/Polynomial-A.svg)
+- `polyominoes`
+  1. ![](Help/Image/polyominoes-A.svg)
 - `power`
   1. ![](Help/Image/power-A.svg)
   2. ![](Help/Image/power-B.svg)
@@ -5378,6 +5407,7 @@
   3. ![](Help/Image/sec-C.svg)
   4. ![](Help/Image/sec-D.svg)
   5. ![](Help/Image/sec-E.svg)
+  6. ![](Help/Image/sec-F.svg)
 - `sech`
   1. ![](Help/Image/sech-A.svg)
   2. ![](Help/Image/sech-B.svg)
@@ -6202,6 +6232,11 @@
   3. ![](Help/Image/triangularArrayPlot-C.svg)
   4. ![](Help/Image/triangularArrayPlot-D.svg)
   5. ![](Help/Image/triangularArrayPlot-E.svg)
+  6. ![](Help/Image/triangularArrayPlot-F.svg)
+  7. ![](Help/Image/triangularArrayPlot-G.svg)
+- `triangularDifferenceTable`
+  1. ![](Help/Image/triangularDifferenceTable-A.svg)
+  2. ![](Help/Image/triangularDifferenceTable-B.svg)
 - `TriangularDistribution`
   1. ![](Help/Image/TriangularDistribution-A.svg)
   2. ![](Help/Image/TriangularDistribution-B.svg)
@@ -6245,6 +6280,7 @@
 - `trinomial`
   1. ![](Help/Image/trinomial-A.svg)
   2. ![](Help/Image/trinomial-B.svg)
+  3. ![](Help/Image/trinomial-C.svg)
 - `trisectrixOfMaclaurin`
   1. ![](Help/Image/trisectrixOfMaclaurin-A.svg)
 - `trochoid`

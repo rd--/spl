@@ -200,6 +200,13 @@ Math with a `Fraction` answers a `Fraction`:
 -23L
 ```
 
+Integer powers:
+
+```
+>>> 3L ^ [-3 .. 3]
+[1/27 1/9 1/3 1 3 9 27]
+```
+
 Can be implicitly converted to a `SmallFloat`:
 
 ```

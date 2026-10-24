@@ -132,7 +132,7 @@ NaN.isNaN /* literal for NaN */
 28.gcd(12) = 4 /* greatest common denominator */
 28.lcm(12) = 84 /* least common multiple */
 1.exp.log = 1 /* natural logarithm */
-3.log = 1.0986122886681096 /* natural logarithm */
+3.log = 1.0986122886681098 /* natural logarithm */
 100.log = 4.605170185988092 /* natural logarithm */
 -1.log.isComplex /* natural logarithm */
 100.log10 = 2.0 /* base 10 logarithm */
@@ -895,7 +895,7 @@ let c = 2I; let z = c.copy; z.real := 3; z != c & { z = (3 + 2I) } /* copy compl
 (-3 + 2I) - (5 - 1I) = (-8 + 3I)
 (-1 + 2I) ^ 2 ~ (-3 - 4I)
 (-1 + 2I) ^ 2.5 ~ (2.7296 - 6.9606I)
-(-1 + 2I) ^ (1 + 1I) = (-0.27910381075826657 + 0.08708053414102428I)
+(-1 + 2I) ^ (1 + 1I) = (-0.2791038107582666 + 0.08708053414102429I)
 3 * (2 - 5I) = (6 - 15I)
 3 * ((2 - 5I) ^ 2) ~ (-63 - 60I)
 3 * ((2 - 5I) ^ -1) ~ (0.2069 + 0.5172I)
@@ -3877,25 +3877,23 @@ system.methodDictionary['collect'][2]['List'].information.isMethodInformation = 
 system.methodDictionary.includesIndex('collect') = true
 system.allMethods.collect { :each | each.signature }.includes('@Do>>do/2') = true
 '@Do>>do/2'.parseMethodSignature = ['@Do', 'do/2']
-'@Add'.parseQualifiedTraitName = 'Add'
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
 let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorTokenOrQualifiedName = '+'
-system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Multiset') = true
+system.methodImplementations('sum').collect { :each | each.origin.name }.includes('@Multiset') = true
 system.methodSignatures('addInPlace').includes('@Dictionary>>addInPlace/2') = true
 '@Do>>sum/1'.parseMethodSignature = ['@Do', 'sum/1']
-'@Do'.isQualifiedTraitName = true
 system.methodLookupAtSignature('@Do>>sum/1').isMethod = true
 system.methodLookupAtType('min', 1, 'List').sourceCode = '{ :self |\n\t\tself.reduce(min/2)\n\t}'
 system.methodTypes('last/1').includes('String') = true
 system.multipleArityMethodList.includes('caseOf') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
 system.splOperatorNameTable['^'] = 'circumflexAccent' = true
-system.doesTraitImplementMethod('At', 'at') = true
+system.doesTraitImplementMethod('@At', 'at') = true
 system.doesTypeImplementMethod('List', 'species') = true
 [1, 2, 3].respondsTo(select/2) = true /* does a value (courtesy the type) implement a method */
 system.methodPrintString('addInPlace').size >= 3
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
-system.methodLookupAtType('collect', 2, 'List').origin.name = 'PrimitiveArray'
+system.methodLookupAtType('collect', 2, 'List').origin.name = '@PrimitiveArray'
 system.methodLookupAtType('collect', 2, 'List').block.binaryApply([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.methodLookupAtType('sum', 1, 'List') == system.methodLookupAtType('sum', 1, 'SortedSet')
 'sum/1'.parseQualifiedMethodName = ['sum', 1]
@@ -3906,7 +3904,7 @@ system.methodLookupAtType('sum', 1, 'List') == system.methodLookupAtType('sum', 
 system.packageDictionary.isDictionary = true
 system.packageDictionary.isEmpty = false
 let t = system.packageTypes('Complex'); t.size = 1 & { t[1].name = 'Complex' }
-let t = system.packageTraits('Do'); t.size = 1 & { t[1].name = 'Do' }
+let t = system.packageTraits('Do'); t.size = 1 & { t[1].name = '@Do' }
 system.packageMethods('Frequency').detect { :each | each.name = 'inHertz' }.arity = 1
 ```
 
@@ -3922,20 +3920,20 @@ let [t, r] = { system.absoluteTime }.repeatedTiming(0.01); t < 0.00001 & { r > 1
 ## System -- traitDictionary
 ```
 system.traitDictionary.isDictionary = true
-system.traitDictionary.includesIndex('Collection') = true
+system.traitDictionary.includesIndex('@Collection') = true
 system.traitTypes('@Collection').includes('List') = true
-system.typeTraits('List').includes('PrimitiveArray') = true
-system.methodTraits('atRandom/1').includesAll(['Collection', 'Sequence']) = true
-system.methodTraits('sum/1') = ['ArithmeticProgression', 'Do', 'Collection', 'Multiset']
+system.typeTraits('List').includes('@PrimitiveArray') = true
+system.methodTraits('atRandom/1').includesAll(['@Collection', '@Sequence']) = true
+system.methodTraits('sum/1') = ['@ArithmeticProgression', '@Do', '@Collection', '@Multiset']
 system.traitTypes('@Object').includes('SmallFloat') = true
-system.traitLookup('Object').methodDictionary.includesIndex('respondsTo/2') = true
-system.traitLookup('Collection').isTrait = true
-system.traitLookup('Collect').name = 'Collect'
-system.traitLookup('Do').methodDictionary.includesIndex('do/2') = true
-system.traitLookup('Do').methodDictionary['do/2'].isMethod = true
-system.traitTypes('Collect').includes('List') = true
-system.traitTypes('Dictionary').includes('Map') = true
-system.traitDictionary['Dictionary'].isTrait = true
+system.traitLookup('@Object').methodDictionary.includesIndex('respondsTo/2') = true
+system.traitLookup('@Collection').isTrait = true
+system.traitLookup('@Collect').name = '@Collect'
+system.traitLookup('@Do').methodDictionary.includesIndex('do/2') = true
+system.traitLookup('@Do').methodDictionary['do/2'].isMethod = true
+system.traitTypes('@Collect').includes('List') = true
+system.traitTypes('@Dictionary').includes('Map') = true
+system.traitDictionary['@Dictionary'].isTrait = true
 ```
 
 ## System -- typeDictionary
@@ -3945,7 +3943,7 @@ system.typeDictionary.indices.includes('List') = true
 system.typeDictionary.includesIndex('List') = true
 system.typeDictionary['List'].typeName = 'Type' /* type of type is Type */
 system.typeDictionary['List'].isType = true /* Type type predicate */
-system.typeDictionary['List'].traitNameList.includes('Collect') = true
+system.typeDictionary['List'].traitNameList.includes('@Collect') = true
 system.typeDictionary['Association'].slotNameList = ['key', 'value']
 system.typeDictionary['Association'].methodDictionary.indices.includes('isEqualBy/3')
 system.typeDictionary['Association'].methodDictionary.includesIndex('key/1') = true
@@ -4076,7 +4074,7 @@ system.typeLookup('RgbColour').constructorName = 'newRgbColour/0' /* constructor
 system.typeLookup('RgbColour').instanceOf.isRgbColour /* initialized instance of type */
 system.typeLookup('RgbColour').name = 'RgbColour' /* name of type */
 system.typeLookup('RgbColour').packageName = 'Colour' /* package name of type */
-system.typeLookup('RgbColour').traitNameList = ['Object' 'Copy' 'Store' 'Equal' 'Colour'] /* traits (named) implemented by type */
+system.typeLookup('RgbColour').traitNameList = ['@Object' '@Copy' '@Store' '@Equal' '@Colour'] /* traits (named) implemented by type */
 ```
 
 ## Type -- slot access
