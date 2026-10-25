@@ -257,3 +257,11 @@ RunArray : [Object, Equal, Store, At, Indices] {
 	}
 
 }
+
++String {
+
+	RunArray { :self |
+		RunArray(List(self))
+	}
+
+}

@@ -39,8 +39,10 @@ As a list of associations or a two column matrix:
 The unary form converts the sequence _x_ into a `RunArray`:
 
 ```
->>> List'abbbccccc'
->>> .RunArray
+>>> RunArray[1 2 2 2 3 3 3 3 3]
+RunArray([1 3 5], [1 2 3])
+
+>>> RunArray'abbbccccc'
 RunArray([1 3 5], ['a' 'b' 'c'])
 ```
 

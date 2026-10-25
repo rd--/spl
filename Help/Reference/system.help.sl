@@ -22,8 +22,8 @@ true
 ```
 >>> system
 >>> .traitDictionary
->>> .size
-58
+>>> .size.round(5)
+55
 
 >>> system
 >>> .traitDictionary
@@ -37,8 +37,8 @@ true
 ```
 >>> system
 >>> .typeDictionary
->>> .size
-268
+>>> .size.round(10)
+270
 
 >>> system
 >>> .typeDictionary

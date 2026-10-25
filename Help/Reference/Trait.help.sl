@@ -94,7 +94,6 @@ The list of system traits:
 	'@Ordered'
 	'@PlaneAngle'
 	'@PolygonMesh'
-	'@PrimitiveError'
 	'@ProbabilityDistribution'
 	'@Put'
 	'@RandomNumberGenerator'
