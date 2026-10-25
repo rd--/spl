@@ -9,7 +9,7 @@
 	];
 	let lfo = LfBrownNoise1(4, dev, 0) * 4 + 5;
 	let index = IndexInBetween(buffer, lfo).Round(1);
-	let intv = Index(buffer, index);
+	let intv = ClipIndex(buffer, index);
 	{
 		let freq = Lag(intv, 0.1) * root * (LfNoise2(12) * 0.02 + 1);
 		let env = (LfNoise2(4) * 0.4 + 0.6) ^ 2;

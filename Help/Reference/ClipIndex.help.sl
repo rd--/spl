@@ -1,6 +1,6 @@
-# Index
+# ClipIndex
 
-- _Index(table, in)_
+- _ClipIndex(table, in)_
 
 Index into a table with a signal.
 The input signal value is truncated to an integer value and used as an index into the table.
@@ -12,8 +12,10 @@ Out of range index values are clipped to the valid range.
 Index buffer for frequency values:
 
 ```
-let b = LocalBuf[50 100 200 400 800 1600];
-let f = Index(b, LinLin(LfSaw(2, 0), -1, 1, 0, 6));
+let f = ClipIndex(
+	LocalBuf[50 100 200 400 800 1600],
+	LinLin(LfSaw(2, 0), -1, 1, 0, 6)
+);
 SinOsc([f, f * 9], 0) * 0.1
 ```
 

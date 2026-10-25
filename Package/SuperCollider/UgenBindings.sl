@@ -145,6 +145,7 @@
 	BufSampleRate { :bufnum | <primitive: return sc.BufSampleRate(_bufnum);> }
 	BufWr { :bufnum :phase :loop :inputList | <primitive: return sc.BufWr(_bufnum, _phase, _loop, _inputList);> }
 	ClearBuf { :buf | <primitive: return sc.ClearBuf(_buf);> }
+	ClipIndex { :bufnum :in | <primitive: return sc.Index(_bufnum, _in);> }
 	CoinGate { :prob :in | <primitive: return sc.CoinGate(_prob, _in);> }
 	Crackle { :chaosParam | <primitive: return sc.Crackle(_chaosParam);> }
 	CuspL { :freq :a :b :xi | <primitive: return sc.CuspL(_freq, _a, _b, _xi);> }
@@ -193,7 +194,6 @@
 	IRand { :lo :hi | <primitive: return sc.IRand(_lo, _hi);> }
 	Ifft { :buffer :wintype :winsize | <primitive: return sc.Ifft(_buffer, _wintype, _winsize);> }
 	Impulse { :freq :phase | <primitive: return sc.Impulse(_freq, _phase);> }
-	Index { :bufnum :in | <primitive: return sc.Index(_bufnum, _in);> }
 	IndexInBetween { :bufnum :in | <primitive: return sc.IndexInBetween(_bufnum, _in);> }
 	KeyState { :keycode :minval :maxval :lag | <primitive: return sc.KeyState(_keycode, _minval, _maxval, _lag);> }
 	Klang { :freqscale :freqoffset :specificationsListRef | <primitive: return sc.Klang(_freqscale, _freqoffset, _specificationsListRef);> }
