@@ -1,5 +1,3 @@
-/* Requires: LinkedList */
-
 Stack : [Object, Copy, Store, Equal] {
 
 	| linkedList |

@@ -1,5 +1,3 @@
-/* Require: Object */
-
 @Put {
 
 	atAllPut! { :self :indices :anObject |

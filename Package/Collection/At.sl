@@ -1,19 +1,13 @@
-/* Require: Object */
-
 @At {
-
-	atIfAbsent { :self :index :ifAbsent/0 |
-		self.typeResponsibility('atIfPresentIfAbsent')
-	}
-
-}
-
-+@At {
 
 	at { :self :index |
 		self.atIfAbsent(index) {
 			self.errorInvalidIndex('at', index)
 		}
+	}
+
+	atIfAbsent { :self :index :ifAbsent/0 |
+		self.typeResponsibility('atIfPresentIfAbsent')
 	}
 
 	atIfPresent { :self :index :ifPresent/1 |

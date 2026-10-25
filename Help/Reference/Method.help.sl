@@ -40,7 +40,7 @@ true
 >>> 	m.origin.name,
 >>> 	f([3 4 5], { :x | x * x })
 >>> )
-(true, '@PrimitiveArray', [9 16 25])
+(true, 'List', [9 16 25])
 
 >>> [3 4 5].collect { :x | x * x }
 [9 16 25]

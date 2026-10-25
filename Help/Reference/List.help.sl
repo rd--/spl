@@ -229,7 +229,6 @@ Traits implemented by `List`:
 	'@New'
 	'@Object'
 	'@Ordered'
-	'@PrimitiveArray'
 	'@Put'
 	'@Remove'
 	'@Sequence'

@@ -1,8 +1,6 @@
-@PrimitiveArray {
+/* Requires: ByteArray, Float32Array, Float64Array, List */
 
-	[List, arrayToList] { :self |
-		List(self.size, nil).fillFrom!(self)
-	}
++[ByteArray, Float32Array, Float64Array, List] {
 
 	atIfAbsent { :self :index :ifAbsent/0 |
 		<primitive:
@@ -21,7 +19,7 @@
 			});
 		}
 		>
-		self.error('@PrimitiveArray>>collect: not a block')
+		self.error('@collect: not a block')
 	}
 
 	detectIfFoundIfNone { :self :aBlock/1 :whenFound/1 :whenNone/0 |
@@ -73,16 +71,6 @@
 		anObject
 	}
 
-	put! { :self :index :anObject |
-		<primitive:
-		if(sl.arrayCheckIndex(_self, _index)) {
-			_self[_index - 1] = _anObject;
-			return _anObject;
-		}
-		>
-		self.errorInvalidIndex('put!', index)
-	}
-
 	reverse! { :self |
 		<primitive: return _self.reverse();>
 	}
@@ -123,15 +111,6 @@
 		)
 	}
 
-	storeString { :self |
-		'%(%)'.format(
-			[
-				self.typeName,
-				self.List.storeString
-			]
-		)
-	}
-
 	uncheckedAt { :self :index |
 		<primitive: return _self[_index - 1];>
 	}
@@ -151,6 +130,23 @@
 
 	uncheckedSortComparing! { :self :compareBlock/2 |
 		<primitive: return _self.sort(_compareBlock_2);>
+	}
+
+}
+
++[ByteArray, Float32Array, Float64Array] {
+
+	[List, arrayToList] { :self |
+		List(self.size, nil).fillFrom!(self)
+	}
+
+	storeString { :self |
+		'%(%)'.format(
+			[
+				self.typeName,
+				self.List.storeString
+			]
+		)
 	}
 
 }

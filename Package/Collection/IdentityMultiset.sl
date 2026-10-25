@@ -1,4 +1,4 @@
-/* Requires: Multiset */
+/* Requires: List, Map, @Multiset */
 
 IdentityMultiset : [Object, New, Copy, Store, Equal, Do, Collect, Collection, Add, Remove, Unordered, Multiset] {
 

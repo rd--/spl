@@ -50,7 +50,8 @@ export async function primitiveReadLocalPackages(
 	);
 	fetchedTextArray.map(function (text, index) {
 		packageArray[index].text = text;
-		packageArray[index].requires = kernel.parsePackageRequires(text); // Note: will be empty for pre-compiled
+		// Note: requires will be empty for pre-compiled
+		packageArray[index].requires = kernel.parsePackageRequires(text);
 	});
 }
 

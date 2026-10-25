@@ -1,6 +1,10 @@
-/* Require: List, PrimitiveMap, Record, Void */
+/* Requires: List, Record */
 
-Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collect, Collection, Add, Remove, Dictionary, PrimitiveMap] {
+Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collect, Collection, Add, Remove, Dictionary] {
+
+	Map { :self |
+		self
+	}
 
 	comparator { :self |
 		==

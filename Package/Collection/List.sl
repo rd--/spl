@@ -1,4 +1,4 @@
-List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, Collect, Collection, Add, Remove, Sequence, PrimitiveArray, Ordered] {
+List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, Collect, Collection, Add, Remove, Sequence, Ordered] {
 
 	[List, listToList] { :self |
 		self
@@ -182,6 +182,16 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 
 	printString { :self |
 		self.printString(printString/1)
+	}
+
+	put! { :self :index :anObject |
+		<primitive:
+		if(sl.arrayCheckIndex(_self, _index)) {
+			_self[_index - 1] = _anObject;
+			return _anObject;
+		}
+		>
+		self.errorInvalidIndex('put!', index)
 	}
 
 	recordPositions { :self :aBlock/2 |

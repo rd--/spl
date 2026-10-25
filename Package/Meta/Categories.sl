@@ -19,7 +19,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'List'
 		'Record'
 	],
-	'Collection-PrimitiveArray': [
+	'Collection-Array': [
 		'ArrayBuffer'
 		'ByteArray'
 		'Float32Array'

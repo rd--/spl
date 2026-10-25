@@ -12,10 +12,6 @@
 	'Binary' /* > Cache */
 	'Integer' /* > Cache */
 
-	/* Primitive Traits */
-	'PrimitiveArray'
-	'PrimitiveMap'
-
 	/* Collection Traits */
 	'Add'
 	'ArithmeticProgression'
@@ -23,14 +19,15 @@
 	'Collect'
 	'Do'
 	'Collection'
+	'Dictionary' /* @Collection */
 	'Indices'
 	'New'
 	'Ordered'
 	'Put'
 	'Remove'
 	'Sequence'
+	'Set'
 	'Unordered'
-	'Dictionary' /* Collection */
 
 	/* Kernel Types */
 	'Boolean'
@@ -52,6 +49,7 @@
 	'Range'
 	'Record'
 	'Map' /* Record */
+	'WeakMap'
 
 	'Package' /* System, Record */
 
@@ -59,7 +57,11 @@
 	'ByteArray'
 	'Float32Array'
 	'Float64Array'
+
 	'BinaryLargeObject' /* ByteArray, Float64Array */
+
+	'PrimitiveArray' /* ByteArray, Float32Array, Float64Array, List */
+	'PrimitiveMap' /* Map, WeakMap */
 
 	'Response'
 

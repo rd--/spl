@@ -7,6 +7,7 @@ Traits and Types:
 - `Dictionary`
 - `Map`
 - `Record`
+- `WeakMap`
 
 Accessing:
 

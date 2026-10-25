@@ -1,14 +1,12 @@
-@PrimitiveMap {
+/* Requires: Map, WeakMap */
 
-	Map { :self |
-		self
-	}
++[Map, WeakMap] {
 
 	Record { :self |
 		self.keys.allSatisfy(isString/1).if {
 			self.uncheckedMapToRecord
 		} {
-			self.error('@PrimitiveMap>>Record: not all keys are strings')
+			self.error('@Record: not all keys are strings')
 		}
 	}
 

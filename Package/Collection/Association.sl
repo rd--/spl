@@ -1,4 +1,4 @@
-/* Requires: List, Object */
+/* Requires: List */
 
 Association : [Object, Store, Copy, Equal, Compare] {
 

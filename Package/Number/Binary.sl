@@ -1,4 +1,4 @@
-/* Require: Cache */
+/* Requires: List, SmallFloat */
 
 @Binary {
 

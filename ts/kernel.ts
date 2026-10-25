@@ -103,6 +103,7 @@ function splObjectTypeName(anObject: SplObject): TypeName {
 */
 
 export function splTypeName(anObject: unknown): TypeName {
+	// console.debug(`splTypeName: ${anObject}`);
 	if (anObject === null || anObject === undefined) {
 		return 'Nil';
 	}
@@ -379,6 +380,7 @@ export function annotateFunction(
 	aBlock: SplBlock,
 	argumentNames: string[],
 ): SplBlock {
+	// console.debug(`annotateFunction: ${aBlock} ${argumentNames}`);
 	aBlock.argumentNames = argumentNames;
 	return aBlock;
 }

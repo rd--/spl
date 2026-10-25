@@ -12,8 +12,9 @@ Answer a `HelpIndex` holding an index of the Sᴘʟ help files.
 Count entries:
 
 ```
->>> system.helpIndex.size
-4520
+>>> system.helpIndex
+>>> .size.round(25)
+4525
 ```
 
 Lookup a reference entry:

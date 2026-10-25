@@ -1,5 +1,3 @@
-/* Require: SmallFloat */
-
 @Sequence {
 
 	+++ { :self :aList |

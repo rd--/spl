@@ -1,4 +1,4 @@
-/* Requires: NumericArray */
+/* Requires: List, Map, NumericArray, SmallFloat */
 
 +[List, NumericArray] {
 

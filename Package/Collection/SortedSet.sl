@@ -1,3 +1,5 @@
+/* Requires: List */
+
 SortedSet : [Object, New, Copy, Store, Equal, Do, Collect, Collection, Add, Remove, Set] {
 
 	| sortedList |

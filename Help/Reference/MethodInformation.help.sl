@@ -20,8 +20,8 @@ Lookup method in the `System` method dictionary and collate information:
 (
 	2,
 	'collect',
-	true,
-	'@PrimitiveArray',
+	false,
+	'List',
 	'PrimitiveArray',
 	['self', 'aBlock/1']
 )

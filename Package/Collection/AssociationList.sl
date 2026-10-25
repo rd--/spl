@@ -1,3 +1,5 @@
+/* Requires: List */
+
 +List {
 
 	assertIsAssociationList { :self |

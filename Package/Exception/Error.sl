@@ -34,7 +34,19 @@
 
 }
 
-@PrimitiveError {
+Error! : [Object, Equal, Exception] {
+
+}
+
+ReferenceError! : [Object, Exception] {
+
+}
+
+TypeError! : [Object, Exception] {
+
+}
+
++[Error, ReferenceError, TypeError] {
 
 	cause { :self |
 		<primitive: return _self.cause;>
@@ -56,6 +68,10 @@
 		<primitive: return _self.name;>
 	}
 
+	printString { :self |
+		'*Error* ' ++ self.description
+	}
+
 	pseudoSlotNameList { :self |
 		['cause', 'messageText', 'name']
 	}
@@ -63,22 +79,6 @@
 	signal { :self |
 		<primitive: throw(_self);>
 	}
-
-}
-
-Error! : [Object, Equal, Exception, PrimitiveError] {
-
-	printString { :self |
-		'*Error* ' ++ self.description
-	}
-
-}
-
-ReferenceError! : [Object, Exception, PrimitiveError] {
-
-}
-
-TypeError! : [Object, Exception, PrimitiveError] {
 
 }
 

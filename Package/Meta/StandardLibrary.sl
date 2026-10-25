@@ -14,15 +14,18 @@
 	/* Collection */
 	'Array'
 	'AssociationList'
+	'BitSet'
 	'Box'
 	'CategoryDictionary'
 	'CopySequence'
 	'DirectedEdge'
+	'EqualityDictionary'
 	'FiniteWord'
 	'Graph'
 	'Heap'
 	'Histogram'
 	'HuffmanCoding'
+	'IdentitySet'
 	'Link'
 	'LinkedList'
 	'ListView'
@@ -34,29 +37,27 @@
 	'PriorityQueue'
 	'QuickSort'
 	'RelativeRange'
+	'ResidueSet' /* BitSet */
 	'RunArray'
 	'SequenceAlignment'
-	'Set'
 	'Sort'
+	'SortedSet'
 	'SparseArray'
-	'Stack' /* LinkedList */
 	'SortedList'
-	'SortedSet' /* SortedList */
+	'Stack'
 	'Table'
 	'TemporalData'
 	'TimeSeries'
+	'Tuple'
 	'TypedDictionary'
 	'Tree'
-	'Tuple' /* List */
 	'UndirectedEdge'
 	'UnsortedSet'
-	'WeakMap'
 	'WeightedData'
-	'BitSet' /* ByteArray */
-	'IdentityMultiset' /* Multiset */
-	'IdentitySet' /* Set */
+
+	/* Collection (Requiring out of order non-Kernel types) */
+	'IdentityMultiset' /* @Multiset */
 	'Matrix' /* NumericArray */
-	'ResidueSet' /* BitSet Set */
 
 	/* Exception */
 	'Missing'

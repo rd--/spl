@@ -1,3 +1,5 @@
+/* Requires: SmallFloat */
+
 ArrayBuffer! : [Object] {
 
 	[ByteArray, arrayBufferToByteArray] { :self |

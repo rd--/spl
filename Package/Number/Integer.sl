@@ -1,4 +1,4 @@
-/* Require: Cache */
+/* Requires: List, String */
 
 @Integer {
 

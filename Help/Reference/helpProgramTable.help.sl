@@ -8,8 +8,9 @@ and the values are `HelpProgram` objects.
 Count help programs:
 
 ```
->>> system.helpProgramTable.size
-5227
+>>> system.helpProgramTable
+>>> .size.round(25)
+5225
 ```
 
 A selection predicate may be specified,
@@ -18,8 +19,8 @@ count programs that answer images:
 ```
 >>> system.helpProgramTable(
 >>> 	isImageProgram/1
->>> ).size
-5077
+>>> ).size.round(25)
+5075
 ```
 
 Count entries with specific annotations:
@@ -30,9 +31,9 @@ Count entries with specific annotations:
 >>> 	t.count { :e |
 >>> 		e[2].annotations
 >>> 		.includesKey(k)
->>> 	}
+>>> 	}.round(25)
 >>> }
-[4873 204 1818]
+[4875 200 1825]
 ```
 
 * * *

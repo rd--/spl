@@ -1,17 +1,5 @@
 @Indices {
 
-	indices { :self |
-		self.typeResponsibility('@Indices>>indices')
-	}
-
-	size { :self |
-		self.typeResponsibility('@Indices>>size')
-	}
-
-}
-
-+@Indices {
-
 	assertIsOfSize { :self :anInteger |
 		self.assert('isOfSize') {
 			self.size = anInteger
@@ -100,6 +88,10 @@
 			};
 			aBlock()
 		}
+	}
+
+	indices { :self |
+		self.typeResponsibility('@Indices>>indices')
 	}
 
 	indices { :self :aBlock/1 |

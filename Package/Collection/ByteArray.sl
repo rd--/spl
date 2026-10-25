@@ -1,4 +1,4 @@
-ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Collect, Collection, Sequence, PrimitiveArray] {
+ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Collect, Collection, Sequence] {
 
 	[String, utf8String] { :self |
 		<primitive: return new TextDecoder('utf-8').decode(_self).normalize('NFC');>
@@ -92,13 +92,13 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		hash.normalInteger
 	}
 
-	put! { :self :anInteger :aByte |
+	put! { :self :index :aByte |
 		<primitive:
-		if(Number.isInteger(_anInteger) && sl.isByte(_aByte)) {
-			_self[_anInteger - 1] = _aByte;
+		if(sl.arrayCheckIndex(_self, _index) && sl.isByte(_aByte)) {
+			_self[_index - 1] = _aByte;
 			return _aByte;
 		}>
-		self.error('put!: index not an integer or value not a byte')
+		self.error('put!: invalid index or value not a byte')
 	}
 
 	shallowCopy { :self |

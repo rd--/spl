@@ -7,8 +7,12 @@ answer a `Dictionary` holding the `Package`s known to the system.
 
 ```
 >>> let d = system.packageDictionary;
->>> (d.isDictionary, d.elementType, d.size)
-(true, 'Package', 447)
+>>> (
+>>> 	d.isDictionary,
+>>> 	d.elementType,
+>>> 	d.size.round(25)
+>>> )
+(true, 'Package', 450)
 ```
 
 `Object` is a package:

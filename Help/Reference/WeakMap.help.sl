@@ -26,7 +26,6 @@ Traits implemented by `WeakMap`:
 [
 	'@At'
 	'@Object'
-	'@PrimitiveMap'
 	'@Put'
 ]
 ```
@@ -34,5 +33,7 @@ Traits implemented by `WeakMap`:
 * * *
 
 See also: Map
+
+Guides: Dictionary Functions
 
 Categories: Collection, Type

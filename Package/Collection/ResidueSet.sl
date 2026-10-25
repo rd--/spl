@@ -1,4 +1,4 @@
-/* Requires: BitSet Set */
+/* Requires: BitSet, String */
 
 ResidueSet : [Object, New, Store, Equal, Do, Collect, Collection, Add, Remove] {
 
