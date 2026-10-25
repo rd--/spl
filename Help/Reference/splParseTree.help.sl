@@ -51,14 +51,16 @@ Free operators:
 ['Identifier' 'lessThanSignEqualsSignGreaterThanSign/2']
 ```
 
-Lower-case and upper-case initial identifiers:
+Lower-case and upper-case initial identifiers.
+The only defined upper case names are methods,
+which must be arity qualified:
 
 ```
 >>> 'x'.splParseTree[2]
 ['Identifier', 'x']
 
->>> 'X'.splParseTree[2]
-['Identifier', 'X']
+>>> 'X/0'.splParseTree[2]
+['Identifier', 'X/0']
 ```
 
 At a `String` constant:

@@ -7,7 +7,7 @@ let f = SelectX(
 );
 SinOscFb(f, SinOscFb(1 / c, 0)).Splay / 3
 
-# Notes
+/* Notes:
 
 `ascii` derives note number from character encodings:
 
@@ -15,3 +15,4 @@ SinOscFb(f, SinOscFb(1 / c, 0)).Splay / 3
 >>> ':.UODD.Ed'.ascii
 [58 46 85 79 68 68 46 69 100]
 ```
+*/

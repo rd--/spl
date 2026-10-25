@@ -4,7 +4,7 @@ let q = ' #SuperCollider '.ascii.MidiCps;
 let o = LfTri(Duty(b, 0, Dseq(Infinity, q)), 0);
 Splay(CombC(o, 4, LfTri(b / 9, 0) % LfTri(b, 0) * 4 % 4, 5) / 6).Tanh
 
-# Notes
+/* Notes:
 
 _q_ derives frequencies from the Ascii encodings of each letter,
 interpreted as midi note numbers:
@@ -22,3 +22,4 @@ Plot of note numbers:
 ~~~
 ' #SuperCollider '.ascii.discretePlot
 ~~~
+*/

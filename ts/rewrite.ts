@@ -412,7 +412,7 @@ const asSl: ohm.ActionDict<string> = {
 		}
 		return left;
 	},
-	BinaryAdverbExpression(lhs, ops, rhs) {
+	BinaryOperatorWithAdverbExpression(lhs, ops, rhs) {
 		let left = lhs.asSl;
 		const opsArray = ops.children.map((c) => c.asSl);
 		const rhsArray = rhs.children.map((c) => c.asSl);

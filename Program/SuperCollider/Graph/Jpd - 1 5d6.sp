@@ -35,6 +35,7 @@ let enveloped = diffused * PlayBuf(1, envBuf, 1 / trigPeriod, 1, 0, 1, 0);
 let delayed = DelayC(enveloped.second, trigPeriod / 2, trigPeriod / 2);
 Pan2(enveloped.first + delayed, pan, 1)
 
-# Notes
+/* Notes:
 
 `GrainBuf` will not read envelope from `LocalBuf` (use default)
+*/

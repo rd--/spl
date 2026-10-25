@@ -4,7 +4,7 @@ let q = ' #SuperCollider '.ascii.pyramid(1);
 let f = Duty(b, 0, Dseq(Infinity, q * 9 ^ 1.0595 / 2));
 SinOsc(f, SinOsc(b, 0) * Lag(SinOsc(0 - b, 0) < 0.9, 0.1) * 5000) / 4
 
-# Notes
+/* Notes:
 
 `ascii` derives note numbers from character encodings:
 
@@ -35,4 +35,4 @@ SinOsc(f, SinOsc(b, 0) * Lag(SinOsc(0 - b, 0) < 0.9, 0.1) * 5000) / 4
 	32 35 83 117 112 101 114 67 111 108 108 105 100 101 114 32
 ]
 ```
-
+*/

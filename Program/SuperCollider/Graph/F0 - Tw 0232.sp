@@ -6,7 +6,7 @@ let e = SinOsc(b / 9, 0);
 let d = SinOsc(b / 999, 0).Abs + 0.01;
 CombC(o * e, 1.01, d, 9).Tanh / 2
 
-# Notes
+/* Notes:
 
 `pyramid` applies a counting algorithm to a sequence:
 
@@ -24,3 +24,4 @@ CombC(o * e, 1.01, d, 9).Tanh / 2
 	1 1 2 3 5 8 13 21 34
 ]
 ```
+*/

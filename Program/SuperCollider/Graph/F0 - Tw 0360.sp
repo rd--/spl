@@ -12,7 +12,7 @@ let f = [1, 2].collect { :i |
 let x = SinOsc(f, SinOsc(1 / [12, 9], 0) / 4 + 1 * SinOsc(f, e.pi)) * e / 2;
 FreeVerb2(x[1], x[2], 0.1, 1, 0)
 
-# Notes
+/* Notes:
 
 `ascii` derives note numbers from character encodings:
 
@@ -26,3 +26,4 @@ FreeVerb2(x[1], x[2], 0.1, 1, 0)
 >>> 'EGJL'.ascii
 [69 71 74 76]
 ```
+*/

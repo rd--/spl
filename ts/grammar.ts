@@ -62,9 +62,9 @@ Sl {
 	RecordAssignment = "(" NonemptyListOf<RecordInitializerItem, ","> ")" ":=" Expression
 	BinaryExpression
 		= BinaryOperatorExpression // S
-		| BinaryAdverbExpression // S
+		| BinaryOperatorWithAdverbExpression // S
 	BinaryOperatorExpression = Expression (operator Primary)+
-	BinaryAdverbExpression = Expression (operatorWithAdverb Primary)+
+	BinaryOperatorWithAdverbExpression = Expression (operatorWithAdverb Primary)+
 
 	Primary
 		= PutSyntax // S
@@ -85,7 +85,9 @@ Sl {
 		| EmptyListSyntax
 		| reservedIdentifier
 		| literal
-		| identifier
+        | arityQualifiedIdentifier
+        | negatedIdentifier
+		| lowercaseIdentifier
 		| systemVariableIdentifier // This is only required in two places, and should be localised (it cannot be written IN Spl though...)
 		| operatorFree // S
 		| VectorSyntax // S
@@ -144,7 +146,7 @@ Sl {
 	ListRangeFromToBySyntax = "[" Expression ".." Expression ";" Expression "]"
 	EmptyListSyntax = "[" "]"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
-	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | identifier
+	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | lowercaseIdentifier | negatedIdentifier
 	VectorSyntaxUnarySend = (literal | identifier) ("." (selectorName | operatorBound))+
 	MatrixSyntax = "[" NonemptyListOf<MatrixSyntaxItems, ";"> "]"
 	MatrixSyntaxItems = VectorSyntaxItem*

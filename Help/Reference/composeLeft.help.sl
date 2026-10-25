@@ -50,10 +50,10 @@ Compare to `composeRight`:
 At `List`:
 
 ```
->>> [square/1 negate/1].composeLeft . (7)
+>>> [square/1, negate/1].composeLeft . (7)
 49
 
->>> [square/1 negate/1].composeRight . (7)
+>>> [square/1, negate/1].composeRight . (7)
 -49
 ```
 
