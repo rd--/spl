@@ -144,19 +144,6 @@
 		}
 	}
 
-	/*
-	rulkovMapB { :alpha :mu :sigma |
-		let f/2 = rulkovNonlinearFunction(alpha);
-		{ :v |
-			let [x, y] = v;
-			[
-				f(x, y),
-				y - (mu * (x - sigma))
-			]
-		}
-	}
-	*/
-
 	rulkovNonlinearFunction { :alpha |
 		{ :x :y |
 			(x <= 0).if {

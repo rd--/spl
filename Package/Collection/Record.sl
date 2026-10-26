@@ -70,12 +70,6 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collect,
 		<primitive: return _self[_aString] = _anObject;>
 	}
 
-	/*
-	pseudoSlotNameList { :self |
-		['keys' 'values']
-	}
-	*/
-
 	put! { :self :aString :anObject |
 		<primitive:
 		if(typeof _aString === 'string') {

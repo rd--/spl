@@ -1,4 +1,4 @@
-# ---> (hyphenMinusHyphenMinusG...)
+# ---> (hyphenMinusHyphenMinus…)
 
 - _α --> β_
 

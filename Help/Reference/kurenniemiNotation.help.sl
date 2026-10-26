@@ -8,7 +8,7 @@ Staff and ledger lines are drawn in logarithmic space,
 and pitches are drawn at precisely their pitch,
 relative to C1 (the pitch three octaves below middle C).
 
-> This system of notation does not use any accidentals. [...] Observe
+> This system of notation does not use any accidentals. […] Observe
 > that the spaces between staff lines are unequal. In the narrow space
 > there is room for two pitch levels, in the large for
 > three. (Kurenniemi 2015, p. 5)

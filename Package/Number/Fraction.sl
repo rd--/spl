@@ -874,23 +874,3 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 }
-
-/*
-
-The elementwise forms of numerator and denominator have been edited to answer small integers.
-This is a little confusing.
-Should numerator and denominator always answer small integers?
-Should only the below answer small integers?
-
-+List {
-
-	denominatorList { :self |
-		self.denominator.Integer
-	}
-
-	numeratorList { :self |
-		self.numerator.Integer
-	}
-
-}
-*/

@@ -102,7 +102,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 	}
 
 	denominator { :self |
-		1
+		1L
 	}
 
 	[divide, /] { :self :anObject |
@@ -128,16 +128,6 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 			self.numberOfDigitsInBase(radix) - 1
 		}
 	}
-
-	/*
-	gcd { :self :anInteger |
-		anInteger.isLargeInteger.if {
-			self.uncheckedGcd(anInteger)
-		} {
-			anInteger.adaptToNumberAndApply(self, gcd/2)
-		}
-	}
-	*/
 
 	highBitOfInteger { :self |
 		withReturn { :return/1 |

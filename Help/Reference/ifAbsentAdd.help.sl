@@ -1,6 +1,6 @@
-# ifAbsentAdd (ifAbsentAdd!)
+# ifAbsentAdd!
 
-- _ifAbsentAdd(c, x)_
+- _ifAbsentAdd!(c, x)_
 
 Ensure that the object _x_ is part of the collection _c_.
 Answer whether it’s membership was newly acquired.

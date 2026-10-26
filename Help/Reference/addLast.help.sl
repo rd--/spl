@@ -1,9 +1,9 @@
-# addLast (addLast!)
+# addLast
 
 - _addLast([x₁ x₂ …], y)_
 
 Add the object _y_ to the end of the sequence _x_.
-There are both in-place and copying forms.
+There are both copying and in-place forms.
 Answer _y_.
 
 ```

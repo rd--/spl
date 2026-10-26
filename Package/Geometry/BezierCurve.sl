@@ -202,23 +202,6 @@ BezierCurve : [Object, Equal, Cache, Geometry] {
 		]
 	}
 
-	/*
-	bezierFunction { :self |
-		let [m, n] = self.shape;
-		(n = 2).if {
-			let [x, y] = self.transposed;
-			{ :index |
-				[
-					x.bezierFunctionAt(index),
-					y.bezierFunctionAt(index)
-				]
-			}
-		} {
-			self.error('bezierFunction: not two column matrix')
-		}
-	}
-	*/
-
 	bezierFunction { :self |
 		self.size.caseOf([
 			2 -> { { :x | self.linearBezierFunctionAt(x) } },

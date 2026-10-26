@@ -639,27 +639,6 @@
 		self * -1
 	}
 
-	/*
-	niceNumberAbove { :self |
-		let exponent = self.log10.floor;
-		let fraction = self / (10 ^ exponent);
-		let niceFraction = (fraction <= 1).if {
-			1
-		} {
-			(fraction <= 2).if {
-				2
-			} {
-				(fraction <= 5).if {
-					5
-				} {
-					10
-				}
-			}
-		};
-		niceFraction * (10 ^ exponent)
-	}
-	*/
-
 	niceNumberAbove { :self |
 		self.niceNumberBy { :l :n |
 			l[l.bisect(n)]

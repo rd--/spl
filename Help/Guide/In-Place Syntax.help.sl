@@ -104,7 +104,7 @@ the `next` and related methods of `Iterator` and `Stream` are not so named.
 The rationale here is that `next` is the basic operation on,
 and the purpose of,
 these values.
-The methods `reset!` and so `position!` are so named.
+The methods `reset!` is so named.
 
 ```
 >>> Sfc32(6827142).next(5)

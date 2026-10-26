@@ -2,7 +2,8 @@
 
 - _simplify(x)_
 
-Simplify the object _x_, there are copying and in-place forms.
+Simplify the object _x_
+There are both copying and in-place forms.
 Answer _x_.
 
 In-place form at `Fraction`:

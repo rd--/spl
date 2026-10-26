@@ -55,18 +55,4 @@
 		self.typeResponsibility('@Put>>put!')
 	}
 
-	/*
-	put! { :self :primaryIndex :secondaryIndex :anObject |
-		self.at(primaryIndex).put!(secondaryIndex, anObject)
-	}
-
-	put! { :self :primaryIndex :secondaryIndex :tertiaryIndex :anObject |
-		self.at(primaryIndex).at(secondaryIndex).put!(tertiaryIndex, anObject)
-	}
-
-	put! { :self :primaryIndex :secondaryIndex :tertiaryIndex :quaternaryIndex :anObject |
-		self.at(primaryIndex).at(secondaryIndex).at(tertiaryIndex).put!(quaternaryIndex, anObject)
-	}
-	*/
-
 }

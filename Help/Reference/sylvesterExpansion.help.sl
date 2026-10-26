@@ -74,7 +74,7 @@ OEIS [A050205](http://oeis.org/A050205):
 
 * * *
 
-See also: engelExpansion, Fraction
+See also: Fraction, engelExpansion
 
 Guides: Fraction Functions, Integer Sequence Functions
 

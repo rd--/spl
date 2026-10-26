@@ -1,9 +1,9 @@
-# collect (collect!)
+# collect
 
 - _collect(c, f/1)_
 
 Evaluate the block _f_ with each element of the collection _c_ as the argument.
-There are copying and in-place forms.
+There are both copying and in-place forms.
 The in-place form collect the resulting values into the collection _c_,
 and answers `c`.
 The copying form collects the resulting values into a collection like _c_.

@@ -1,4 +1,4 @@
-# sortOn (sortOn!)
+# sortOn
 
 - _sortOn([x₁ x₂ …], f/1)_
 

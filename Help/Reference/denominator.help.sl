@@ -10,14 +10,14 @@ At `Fraction`:
 
 ```
 >>> 2/3.denominator
-3
+3L
 ```
 
 At `LargeInteger`:
 
 ```
 >>> 2L.denominator
-1
+1L
 ```
 
 At `SmallFloat`,
@@ -35,13 +35,13 @@ At negative fractions the `denominator` is positive:
 
 ```
 >>> -3/4.denominator
-4
+4L
 
 >>> -3/4.numerator
--3
+-3L
 
 >>> Fraction(3, -4).denominator
-4
+4L
 ```
 
 Threads over lists:
@@ -93,6 +93,8 @@ OEIS [A061038](https://oeis.org/A061038):
 * * *
 
 See also: Fraction, numerator
+
+Guides: Fraction Functions
 
 References:
 _Mathematica_

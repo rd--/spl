@@ -135,12 +135,6 @@
 		oldObject
 	}
 
-	/*
-	setDictionary! { :self :aDictionary |
-		self.valuesAndCounts := aDictionary
-	}
-	*/
-
 	size { :self |
 		let tally = 0;
 		self.valuesAndCounts.do { :each |

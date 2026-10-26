@@ -1428,8 +1428,7 @@
 		answer
 	}
 
-	/*
-	interleave { :self :aList |
+	symmetricInterleave { :self :aList |
 		let answer = [];
 		let k = self.size.max(aList.size);
 		1.toDo(k) { :i |
@@ -1438,7 +1437,6 @@
 		};
 		answer
 	}
-	*/
 
 	intersperse { :self :anObject |
 		let answer = [];

@@ -1,4 +1,4 @@
-# transpose (transpose!)
+# transpose
 
 - _transpose(m)_
 - _transpose(a, p)_

@@ -1,4 +1,4 @@
-# ()
+# () (leftParenthesisRightParenthesis)
 
 `()` is part of `Apply Syntax` and `Value Apply Syntax`,
 where it represents an empty parameter list:

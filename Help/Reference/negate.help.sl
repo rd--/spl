@@ -1,4 +1,4 @@
-# negate (negate!)
+# negate
 
 - _negate(x)_
 
@@ -127,7 +127,8 @@ At a `Colour`, inverts the value of the colour channels:
 (true, true)
 ```
 
-At `List` there are both copying and in-place forms:
+At `List`,
+there are both copying and in-place forms:
 
 ```
 >>> let x = [1 2 3];

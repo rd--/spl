@@ -1,11 +1,11 @@
-# withIndexCollect (withIndexCollect!)
+# withIndexCollect
 
 - _withIndexCollect(c, f/2)_
 
 Answer a collection like the collection _c_ where the values are given by _f_,
 which receives both the _value_ and _index_ for each element.
 Like `collect` except that the iteration index supplies the second argument to the block _f_.
-There are both in-place and copying forms.
+There are both copying and in-place forms.
 
 Copying form at `List`:
 

@@ -724,7 +724,7 @@ Graph : [Object, Graph] {
 		self.properties['vertexCoordinates']
 	}
 
-	vertexCoordinates! { :self :aList |
+	vertexCoordinatesMutate! { :self :aList |
 		self.properties['vertexCoordinates'] := aList;
 		self
 	}
@@ -733,7 +733,7 @@ Graph : [Object, Graph] {
 		self.properties['vertexLabels']
 	}
 
-	vertexLabels! { :self :aList |
+	vertexLabelsMutate! { :self :aList |
 		self.properties['vertexLabels'] := aList;
 		self
 	}
@@ -920,11 +920,9 @@ Graph : [Object, Graph] {
 		};
 		let g = Graph(v, e);
 		withLabels.ifTrue {
-			g.vertexLabels!(
-				s.collect { :each |
-					each.collect(displayString/1).stringCatenate
-				}
-			)
+			g.vertexLabels := s.collect { :each |
+				each.collect(displayString/1).stringCatenate
+			}
 		};
 		g
 	}
@@ -1008,7 +1006,7 @@ Graph : [Object, Graph] {
 			}
 		};
 		let g = Graph([1 .. m * n], e);
-		g.vertexCoordinates!(c);
+		g.vertexCoordinates := c;
 		g
 	}
 

@@ -111,19 +111,6 @@
 		}
 	}
 
-	/*
-	noseHooverEquation { :alpha |
-		{ :t :v |
-			let [x, y, z] = v;
-			[
-				y,
-				0 - x + (y * z),
-				alpha - (y * y)
-			]
-		}
-	}
-	*/
-
 	noseHooverEquation { :alpha |
 		{ :t :v |
 			let [x, y, z] = v;

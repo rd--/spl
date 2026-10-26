@@ -23,7 +23,7 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 			}
 		};
 		let graph = Graph(edgeList);
-		graph.vertexLabels!(vertexLabels);
+		graph.vertexLabels := vertexLabels;
 		graph
 	}
 

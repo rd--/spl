@@ -1,8 +1,8 @@
 # niceNumberAbove
 
-- _niceNumberAbove(aNumber)_
+- _niceNumberAbove(n)_
 
-Answer a "nice" number greater than or equal to _aNumber_.
+Answer a "nice" number greater than or equal to the number _n_.
 
 Find three nice numbers:
 

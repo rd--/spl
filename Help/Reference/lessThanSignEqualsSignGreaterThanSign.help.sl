@@ -1,4 +1,4 @@
-# <=> (lessThanSignEqualsSign...)
+# <=> (lessThanSignEqualsSign…)
 
 - _p <=> q_
 

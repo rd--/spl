@@ -131,7 +131,6 @@
 +Record {
 	Env { :d | Env(d['levels'], d['times'], d['curves'], d['releaseNode'], d['loopNode'], d['offset']) }
 	EqPan2 { :d | EqPan2(d['in'], d['pos']) }
-	Line { :d | Line(d['start'], d['end'], d['dur']) }
 	MembraneCircle { :d | MembraneCircle(d['excitation'], d['tension'], d['loss']) }
 	MiBraids { :d | MiBraids(d['pitch'], d['timbre'], d['color'], d['model'], d['trig'], d['resamp'], d['decim'], d['bits'], d['ws']) }
 	MiClouds { :d | MiClouds(d['pit'], d['pos'], d['size'], d['dens'], d['tex'], d['dryWet'], d['inGain'], d['spread'], d['rvb'], d['fb'], d['freeze'], d['mode'], d['lofi'], d['trig'], d['inputList']) }

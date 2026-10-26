@@ -9,8 +9,8 @@ CrystalStructure : [Object] {
 			self.vertexList,
 			self.edges
 		);
-		answer.vertexLabels!(self.vertexLabels);
-		answer.vertexCoordinates!(self.vertexCoordinates);
+		answer.vertexLabels := self.vertexLabels;
+		answer.vertexCoordinates := self.vertexCoordinates;
 		answer
 	}
 

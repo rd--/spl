@@ -1,4 +1,4 @@
-# <|
+# <| (lessThanSignVerticalLine)
 
 - _a <| b_
 

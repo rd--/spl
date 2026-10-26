@@ -1,4 +1,4 @@
-# []
+# [] (leftSquareBracketRightSquareBracket)
 
 This is the empty `List Syntax`.
 

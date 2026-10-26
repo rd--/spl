@@ -71,12 +71,6 @@ DyckWord : [Object, Store] {
 		w.allButLast
 	}
 
-	/*
-	murasakiDiagram { :self |
-		self.setPartition.murasakiDiagram
-	}
-	*/
-
 	noncrossingSetPartition { :self |
 		let n = self.length;
 		let b = self.binaryExpansion;

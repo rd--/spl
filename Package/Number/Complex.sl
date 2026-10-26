@@ -286,24 +286,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		[a b.negate; b a]
 	}
 
-	/*
-	[maximum, max] { :self :anObject |
-		anObject.isComplex.if {
-			self.maxOn(anObject, abs/1)
-		} {
-			anObject.adaptToComplexAndApply(self, max/2)
-		}
-	}
-
-	[minimum, min] { :self :anObject |
-		anObject.isComplex.if {
-			self.minOn(anObject, abs/1)
-		} {
-			anObject.adaptToComplexAndApply(self, min/2)
-		}
-	}
-	*/
-
 	[negate, -] { :self |
 		Complex(
 			self.real.negate,

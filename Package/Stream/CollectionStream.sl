@@ -38,7 +38,7 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream] {
 		self.isAtEnd.if {
 			nil
 		} {
-			self.position!(self.position + 1);
+			self.position := self.position + 1;
 			self.collection[self.position]
 		}
 	}
@@ -49,7 +49,7 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream] {
 			self.error('CollectionStream>>next: not enough items in stream')
 		} {
 			let answer = self.collection.copyFromTo(self.position + 1, endPosition);
-			self.position!(endPosition);
+			self.position := endPosition;
 			answer
 		}
 	}
@@ -59,7 +59,7 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream] {
 			let savedPosition = self.position;
 			aCollection.do { :each |
 				(self.next = each).ifFalse {
-					self.position!(savedPosition);
+					self.position := savedPosition;
 					false.return
 				}
 			};
@@ -72,7 +72,7 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream] {
 			nil
 		} {
 			let nextObject = self.next;
-			self.position!(self.position - 1);
+			self.position := self.position - 1;
 			nextObject
 		}
 	}
@@ -85,7 +85,7 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream] {
 			(self.next = anObject).ifTrue {
 				true.return
 			};
-			self.position!(self.position - 1);
+			self.position := self.position - 1;
 			false
 		}
 	}
@@ -94,7 +94,7 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream] {
 		self.positionIndex
 	}
 
-	position! { :self :anInteger |
+	positionMutate! { :self :anInteger |
 		self.isValidReadPosition(anInteger).if {
 			self.positionIndex := anInteger
 		} {
@@ -107,16 +107,16 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream] {
 	}
 
 	reset! { :self |
-		self.position!(0)
+		self.position := 0
 	}
 
 	setFromTo! { :self :newStart :newStop |
-		self.position!(newStart - 1);
+		self.position := newStart - 1;
 		self.readLimit := newStop
 	}
 
 	setToEnd! { :self |
-		self.position!(self.readLimit)
+		self.position := self.readLimit
 	}
 
 	size { :self |
@@ -124,7 +124,7 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream] {
 	}
 
 	skip! { :self :anInteger |
-		self.position!(self.position + anInteger)
+		self.position := self.position + anInteger
 	}
 
 	skipTo! { :self :anObject |
@@ -150,14 +150,14 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream] {
 		).if {
 			self.upToEnd
 		} {
-			self.position!(end);
+			self.position := end;
 			self.collection.copyFromTo(start, end - 1)
 		}
 	}
 
 	upToEnd { :self |
 		let start = 1 + self.position;
-		self.position!(self.readLimit);
+		self.position := self.readLimit;
 		self.collection.copyFromTo(start, self.position)
 	}
 

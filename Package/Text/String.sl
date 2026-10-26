@@ -557,12 +557,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.countUtf16CodeUnits = self.countCharacters
 	}
 
-	/*
-	[isLess, <] { :self :operand |
-		localeCompare(self, operand) = -1
-	}
-	*/
-
 	isLiteral { :unused |
 		true
 	}
@@ -997,15 +991,13 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.copyFromTo(1, anInteger.min(self.size))
 	}
 
-	/*
-	take { :self :smallSize |
-		(self.size <= smallSize).if {
+	nonCopyingTake { :self :anInteger |
+		(self.size <= anInteger).if {
 			self
 		} {
-			self.copyFromTo(1, smallSize)
+			self.copyFromTo(1, anInteger)
 		}
 	}
-	*/
 
 	takeDrop { :self :count |
 		[self.take(count), self.drop(count)]

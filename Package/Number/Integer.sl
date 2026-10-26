@@ -850,22 +850,6 @@
 		self.isInteger
 	}
 
-	/*
-	isFundamentalDiscriminant { :d |
-		let e = d % 4;
-		(e > 1).if {
-			false
-		} {
-			(e = 1).if {
-				d.isSquareFree & { d != 1 }
-			} {
-				let m = d / 4;
-				m.isSquareFree & { m % 4 > 1 }
-			}
-		}
-	}
-	*/
-
 	isFundamentalDiscriminant { :n |
 		n != 1 & {
 			n % 4 = 1 | {

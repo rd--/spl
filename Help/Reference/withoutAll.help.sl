@@ -1,6 +1,6 @@
-# withoutAll (withoutAll!)
+# withoutAll!
 
-- _withoutAll(c₁, c₂)_
+- _withoutAll!(c₁, c₂)_
 
 Remove every element of the collection _c₁_ that compares equal to an element of the collection _c₂_.
 Answer _c₁_.

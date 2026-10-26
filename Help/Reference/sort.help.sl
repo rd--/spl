@@ -1,13 +1,14 @@
-# sort (sort!)
+# sort
 
 - _sort([x₁ x₂ …], f/2)_
 - _sort!([x₁ x₂ …], f/2, g/1)_
 
-There are in-place and copying forms of reverse.
+Sort _x_ according to _f_.
+There are both copying and in-place forms.
 The in-place form sorts the sequence _x_ in-place,
 using the boolean sort block _f/2_,
 and answers _x_.
-The copying form first shallow copied the input and then sorts it in-place,
+The copying form first shallow copies the input and then sorts it in-place,
 answering the new sorted sequence.
 If the sort block is omitted or is `nil`, sort by `precedes`.
 

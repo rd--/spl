@@ -1,4 +1,4 @@
-# Method Browser
+# MethodBrowser
 
 A `ColumnBrowser` where:
 

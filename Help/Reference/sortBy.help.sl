@@ -1,4 +1,4 @@
-# sortBy (sortBy!)
+# sortBy
 
 - _sortBy([x₁ x₂ …], f/2)_
 

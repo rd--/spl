@@ -1,9 +1,9 @@
-# colexicographicSort (colexicographicSort!)
+# colexicographicSort
 
 - _colexicographicSort([x₁ x₂ …])_
 
 Sorts a list _xₙ_ into colexicographic order.
-There are copying and in-place forms.
+There are both copying and in-place forms.
 Answer the sorted list.
 This is `sortComparing` of `colexicographicCompare`.
 

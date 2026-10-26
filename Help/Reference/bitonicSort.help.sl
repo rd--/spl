@@ -4,7 +4,7 @@
 
 Sort the sequence _x_ using the bitonic sort algorithm,
 according to the comparison predicate _f_.
-There are both copying and in-place versions.
+There are both copying and in-place forms.
 The sequence must be a permutation list.
 
 Sort list:

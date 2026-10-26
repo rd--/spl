@@ -2,7 +2,7 @@
 
 - _catenate([c₁ c₂ …])_
 
-Join the collectionss _c_ by into a new collection of the same type.
+Join the collections _c_ by into a new collection of the same type.
 The operator form is `++`.
 
 At `List`:

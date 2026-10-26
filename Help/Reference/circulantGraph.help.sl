@@ -1,6 +1,6 @@
 # circulantGraph
 
-- _circulantGraph(n, [j...])_
+- _circulantGraph(n, [j…])_
 
 Answer the circulant graph with _n_ vertices and jumps _j.._.
 

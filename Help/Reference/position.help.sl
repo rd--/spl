@@ -1,9 +1,8 @@
-# position (position!)
+# position
 
-- _position(s)_
-- _position!(s, n)_
+- _s.position := n_
 
-In the unary case, answer the index preceding the next element in the stream.
+Answer, or assign, the index preceding the next element in the stream.
 
 Unless the stream is at the start, this is also the index of the previous element of the stream.
 The position index corresponding to the beginning of the stream is `zero`.
@@ -24,7 +23,7 @@ which is the index before the next element:
 
 ```
 >>> let s = Stream[1 3 5 7 9];
->>> s.position!(3);
+>>> s.position := 3;
 >>> s.next
 7
 ```
@@ -33,12 +32,12 @@ It is an `error` to move the position out of bounds:
 
 ```
 >>> {
->>> 	Stream[].position!(-1)
+>>> 	Stream[].position := -1
 >>> }.hasError
 true
 
 >>> {
->>> 	Stream[].position!(1)
+>>> 	Stream[].position := 1
 >>> }.hasError
 true
 ```

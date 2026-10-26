@@ -4,7 +4,7 @@
 
 The metallic mean,
 also called the metallic ratio or noble mean,
-of an integer _n_ is the number with the continued fraction _[n;n,n,n,n...]_.
+of an integer _n_ is the number with the continued fraction _[n;n,n,n,n…]_.
 
 The first five metallic means:
 

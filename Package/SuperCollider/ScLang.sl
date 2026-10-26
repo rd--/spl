@@ -242,12 +242,6 @@
 		2 ^ (self / 12)
 	}
 
-	/*
-	nextPowerOfTwo { :self |
-		self.nextPowerOf(2)
-	}
-	*/
-
 	previousPowerOf { :self :base |
 		base ^ (self.log(base).ceiling - 1)
 	}
@@ -259,16 +253,6 @@
 	ratioMidi { :self |
 		12 * self.log2
 	}
-
-	/*
-	previousPowerOfTwo { :self |
-		self.isPowerOfTwo.if {
-			self
-		} {
-			self.previousPowerOf(2)
-		}
-	}
-	*/
 
 }
 

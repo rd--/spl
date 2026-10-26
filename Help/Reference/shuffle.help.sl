@@ -1,25 +1,26 @@
-# shuffle (shuffle!)
+# shuffle
 
 - _shuffle(l, r)_
 
-Randomly shuffle a sequence _l_ either in-place or copying using the Fisher-Yates algorithm.
+Randomly shuffle the sequence _l_ using the Fisher-Yates algorithm.
+There are both copying and in-place forms.
 
 In-place shuffle of a `List`:
 
 ```
 >>> let r = Sfc32(36814);
->>> let l = [1 .. 9];
->>> l.shuffle!(r);
->>> l
-[1 9 3 2 6 8 7 4 5]
+>>> let a = [1 .. 9];
+>>> let b = a.shuffle!(r);
+>>> (b, a == b)
+([1 9 3 2 6 8 7 4 5], true)
 ```
 
 Copying variant, also using the Fisher-Yates algorithm:
 
 ```
 >>> let r = Sfc32(36814);
->>> let l = [1 .. 9];
->>> (l.shuffle(r), l)
+>>> let a = [1 .. 9];
+>>> (a.shuffle(r), a)
 ([1 9 3 2 6 8 7 4 5], [1 .. 9])
 ```
 

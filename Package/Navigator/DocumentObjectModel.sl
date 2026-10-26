@@ -463,8 +463,8 @@
 		<primitive: return _self.title = _aString;>
 	}
 
-	/* Valid at <audio>, <img>, <link>, <script>, and <video> */
 	crossOrigin { :self |
+		/* Valid at <audio>, <img>, <link>, <script>, and <video> */
 		<primitive: return _self.crossorigin;>
 	}
 
@@ -776,12 +776,14 @@ CSSRuleList! : [Object] {
 
 }
 
+/* Chromium */
 CSSStyleDeclaration! : [Object, CssProperties] {
-	/* Chromium... */
+
 }
 
+/* Firefox */
 CSS2Properties! : [Object, CssProperties] {
-	/* Firefox... */
+
 }
 
 CSSStyleRule! : [Object, CssRule] {

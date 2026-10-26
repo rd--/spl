@@ -1,8 +1,9 @@
-# reverse (reverse!)
+# reverse
 
 - _reverse([x₁ x₂ …], n=1)_
 
-There are in-place and copying forms of reverse.
+Reverse the items of _x_.
+There are both copying and in-place forms.
 The in-place form reverses _x_ in-place and answers _x_.
 In the copying form,
 the answer is a new value of the same `species` as _x_ in the reverse order.

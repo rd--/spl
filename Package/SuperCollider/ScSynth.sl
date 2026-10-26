@@ -246,12 +246,6 @@ ScSynth! : [Object] {
 		self.atVectorOrElementwise(uncheckedLocalBuf/1)
 	}
 
-	/*
-	Mix { :self |
-		self.sum
-	}
-	*/
-
 	uncheckedLocalBuf { :self |
 		<primitive: return sc.asLocalBuf(_self);>
 	}

@@ -1,4 +1,4 @@
-# |>=
+# |>= (verticalLineGreaterThanSign…)
 
 - _a |>= b_
 

@@ -1,18 +1,23 @@
-# reverseSort (reverseSort!)
+# reverseSort
 
 - _reverseSort([x₁ x₂ …])_
 
 Answer the reverse sort of the sequence _x_.
-There are copying and in-place forms.
+There are both copying and in-place forms.
 
 At a list of integers:
 
 ```
->>> [1 3 5 2 4].reverseSort!
-[5 4 3 2 1]
+>>> let a = [1 3 5 2 4];
+>>> let b = a.reverseSort!;
+>>> (b, a == b)
+([5 4 3 2 1], true)
 
->>> [1 3 5 2 4].sort!.reverse!
-[5 4 3 2 1]
+>>> let a = [1 3 5 2 4];
+>>> let b = a.sort!;
+>>> let c = b.reverse!;
+>>> (c, a == b, a == c)
+([5 4 3 2 1], true, true)
 ```
 
 At a list of lists:

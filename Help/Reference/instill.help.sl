@@ -1,11 +1,11 @@
-# instill (instill!)
+# instill
 
 - _instill(c, i, x, y)_
 
 Ensure the list _c_ has at least _i_ places,
 adding _y_ as required,
 and set the value at index _i_ to _x_.
-There are both in-place and copying forms.
+There are both copying and in-place forms.
 
 ```
 >>> [10 20 30 40].instill!(3, -30, nil)

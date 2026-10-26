@@ -81,7 +81,7 @@ OeisEntry('A059471').then { :e |
 
 ![](Help/Image/OeisEntry-C.svg)
 
-Limit of _f(f(f(...f(2)...)))%n_ as the number of iterations of _f(x)=2^x-1_ grows,
+Limit of _f(f(f(…f(2)…)))%n_ as the number of iterations of _f(x)=2^x-1_ grows,
 OEIS [A254410](https://oeis.org/A254410):
 
 ~~~spl svg=D oeis=A254410

@@ -124,7 +124,7 @@
 			[1 .. primesList.size],
 			edgeList
 		);
-		graph.vertexCoordinates!(coordinateList);
+		graph.vertexCoordinates := coordinateList;
 		graph
 	}
 

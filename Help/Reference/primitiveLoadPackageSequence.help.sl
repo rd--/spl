@@ -11,6 +11,6 @@ It is defined by the interpreter core.
 
 * * *
 
-See also: Package, primitiveReadLocalPackages, Promise
+See also: Package, Promise, primitiveReadLocalPackages
 
 Categories: Kernel

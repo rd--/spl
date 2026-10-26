@@ -263,8 +263,6 @@
 	VarSaw { :freq :iphase :width | <primitive: return sc.VarSaw(_freq, _iphase, _width);> }
 	Vibrato { :freq :rate :depth :delay :onset :rateVariation :depthVariation :iphase :trig | <primitive: return sc.Vibrato(_freq, _rate, _depth, _delay, _onset, _rateVariation, _depthVariation, _iphase, _trig);> }
 	WrapIndex { :bufnum :in | <primitive: return sc.WrapIndex(_bufnum, _in);> }
-	/* Line { :start :end :dur :doneAction | <primitive: return sc.Line(_start, _end, _dur, _doneAction);> } */
-	/* XLine { :start :end :dur :doneAction | <primitive: return sc.XLine(_start, _end, _dur, _doneAction);> } */
 }
 
 /* Auto-generated (ChannelCount) */

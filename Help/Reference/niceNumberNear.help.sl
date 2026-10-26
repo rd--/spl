@@ -1,8 +1,8 @@
 # niceNumberNear
 
-- _niceNumberNear(aNumber)_
+- _niceNumberNear(n)_
 
-Answer a "nice" number near to _aNumber_.
+Answer a "nice" number near to the number _n_.
 
 Find three nice numbers:
 

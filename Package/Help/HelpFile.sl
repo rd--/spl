@@ -261,8 +261,7 @@ HelpFile : [Object, Equal, Cache] {
 		}
 	}
 
-	/*
-	properName { :self |
+	nameOrTokenName { :self |
 		self.isReferenceFile.if {
 			let firstWord = self.name.words.first;
 			firstWord.isSplOperatorName.if {
@@ -274,7 +273,6 @@ HelpFile : [Object, Equal, Cache] {
 			self.name
 		}
 	}
-	*/
 
 	rationale { :self |
 		self.readParagraphField('_Rationale_:')

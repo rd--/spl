@@ -53,3 +53,25 @@ update-cache:
 
 clear-cache:
 	rm -f .cache/*.js
+
+check-method-spacing:
+	python3 py/check-method-spacing.py Package/*/*.sl
+
+check-doctest-prefixes:
+	python3 py/check-doctest-prefixes.py Package/*/*.sl
+
+check-consecutive-newlines:
+	python3 py/check-consecutive-newlines.py Package/*/*.sl
+
+check-commented-methods:
+	python3 py/check-commented-methods.py Package/*/*.sl
+
+check-reference-names:
+	python3 py/check-reference-names.py Help/Refence/*.sl
+
+check-all:
+	make check-method-spacing
+	make check-doctest-prefixes
+	make check-consecutive-newlines
+	make check-commented-methods
+	make check-reference-names

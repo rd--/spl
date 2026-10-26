@@ -14,8 +14,8 @@ Ugen! : [Object, Number] {
 		>
 	}
 
-	/* Copy, c.f. Interpolation */
 	blend { :y1 :y2 :mu |
+		/* Copy, c.f. Interpolation */
 		y1 + (mu * (y2 - y1))
 	}
 

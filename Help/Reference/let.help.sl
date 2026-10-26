@@ -1,6 +1,6 @@
 # let
 
-- _let name = value; ..._
+- _let name = value; …_
 
 `let` is a keyword that introduces a variable binding.
 

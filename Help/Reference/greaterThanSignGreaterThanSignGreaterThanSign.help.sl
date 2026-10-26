@@ -1,4 +1,4 @@
-# >>> (greaterThanSign...)
+# >>> (greaterThanSign…)
 
 - _α >>> β_
 
@@ -44,7 +44,7 @@ It is only such a token when it appears at the start of a line,
 within a fenced code block,
 in a _.help.sl_ file.
 
-The name of this operator is _greaterThanSign..._.
+The name of this operator is _greaterThanSign…_.
 
 Where supported `>>>` is displayed as ⋙.
 

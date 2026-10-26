@@ -70,15 +70,6 @@ EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] {
 		self.empiricalData.min
 	}
 
-	/*
-	randomVariate { :self :rng :shape |
-		let f/1 = self.inverseCdf;
-		{
-			f(rng.nextRandomFloat)
-		} ! shape
-	}
-	*/
-
 	randomVariate { :self :r :shape |
 		self.empiricalData.randomChoice(r, shape)
 	}

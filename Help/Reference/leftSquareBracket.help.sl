@@ -1,4 +1,4 @@
-# '[' (leftSquareBracket)
+# [ (leftSquareBracket)
 
 `[` is a balanced syntax token, closed by `]`, it is not an operator.
 

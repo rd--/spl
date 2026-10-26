@@ -1,4 +1,4 @@
-# -}
+# -} (hyphenMinusRightCurlyBracket)
 
 `-}` is the close comment token in Haskell.
 

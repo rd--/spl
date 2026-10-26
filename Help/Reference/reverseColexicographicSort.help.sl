@@ -1,4 +1,4 @@
-# reverseColexicographicSort (reverseColexicographicSort!)
+# reverseColexicographicSort
 
 - _reverseColexicographicSort([x₁ x₂ …])_
 

@@ -1,8 +1,8 @@
 # vertexCoordinates
 
-- _vertexCoordinates(g)_
+- _g.vertexCoordinates := x_
 
-Answer the coordinates of the geometry _g_.
+Answer, or in certain cases assign, the coordinates of the geometry or graph _g_.
 
 At `Point`, in two dimensions:
 

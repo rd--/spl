@@ -139,11 +139,17 @@ OEIS [A017665](https://oeis.org/A017665):
 
 ![](Help/Image/numerator-E.svg)
 
+_Note_:
+The elementwise forms of `numerator` and `denominator` answer small integers.
+This is a little confusing.
+Should numerator and denominator always answer small integers?
+Should there be separate forms to answer small integers?
+
 * * *
 
-See also: denominator, Fraction, isFraction
+See also: Fraction, denominator, isFraction
 
-Guides: Number Functions
+Guides: Fraction Functions
 
 References:
 _Mathematica_

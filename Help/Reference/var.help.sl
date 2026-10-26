@@ -1,6 +1,6 @@
 # var
 
-- _var i, j, ...;_
+- _var i, j, …;_
 
 `var` is a _keyword_ that introduces a set of temporary variable names,
 each initialized to `nil`.

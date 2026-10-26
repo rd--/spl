@@ -62,7 +62,7 @@
 				}
 			};
 			let g = Graph(v, e);
-			/* g.vertexLabels!(v % modulus); */
+			/* g.vertexLabels := v % modulus; */
 			g
 		} {
 			self.error('perfectDifferenceSetGraph')

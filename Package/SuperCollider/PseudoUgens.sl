@@ -59,12 +59,6 @@
 
 +[List, SmallFloat, Ugen] {
 
-	/*
-	AudioIn { :channelNumber |
-		In(1, NumOutputBuses() + channelNumber - 1)
-	}
-	*/
-
 	AudioOut { :channelsList |
 		Out(0, channelsList)
 	}
@@ -310,18 +304,6 @@
 	}
 
 }
-
-/*
-+[List, SmallFloat, Ugen] {
-	ExpRand { :tr :lo :hi | TExpRand(lo, hi, tr) }
-	IRand { :tr :lo :hi | TiRand(lo, hi, tr) }
-	LinRand { :tr :lo :hi :minmax | TLinRand(lo, hi, minmax, tr) }
-	Line { :tr :start :end :dur | TLine(start, end, dur, tr) }
-	Rand { :tr :lo :hi | TRand(lo, hi, tr) }
-	Scramble { :tr :inList | TScramble(tr, inList) }
-	XLine { :tr :start :end :dur | TxLine(start, end, dur, tr) }
-}
-*/
 
 +[List, SmallFloat, Ugen] {
 	Adsr { :gate :attackTime :decayTime :sustainLevel :releaseTime :curve | <primitive: return sc.Adsr(_gate, _attackTime, _decayTime, _sustainLevel, _releaseTime, _curve);> }

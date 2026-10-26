@@ -1,6 +1,6 @@
 # midpointTriangles
 
-- _midpointTriangles([v₁ v₂ v₃ ...])_
+- _midpointTriangles([v₁ v₂ v₃…])_
 
 Answer the _n_ midpoint triangles of an _n_-polygon.
 The midpoint triangles are formed from each polygon vertext _v_ and the two adjacent midpoint vertices.
