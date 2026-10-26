@@ -144,19 +144,19 @@ List'string'.clump(2).String = ['st' 'ri' 'ng']
 7.obtain(1, nil) = 7
 nil ? { 'x' } = 'x' /* right hand side if nil */
 'x' ? { 'y' } = 'x' /* left hand side unless nil */
-3/2.RatioCents.round = 702 /* ratio (interval) to cents */
-3/2.RatioCents ~ 702 /* ratio (interval) to cents */
-702.CentsRatio ~ 1.5 /* cents (interval) to ratio */
-1.5.RatioMidi ~ 7.02 /* ratio (interval) to midi */
-7.02.MidiRatio ~ 1.5 /* midi (interval) to ratio */
+3/2.ratioCents.round = 702 /* ratio (interval) to cents */
+3/2.ratioCents ~ 702 /* ratio (interval) to cents */
+702.centsRatio ~ 1.5 /* cents (interval) to ratio */
+1.5.ratioMidi ~ 7.02 /* ratio (interval) to midi */
+7.02.midiRatio ~ 1.5 /* midi (interval) to ratio */
 [1, 3, 2, 5, 4].ordering = [1, 3, 2, 5, 4] /* indices that would sort reciever */
 'string'.characters.ordering = [6, 4, 5, 3, 1, 2] /* indices that would sort reciever */
-4.75.OctCps = 440 /* linear octave to hertz */
-440.CpsOct = 4.75 /* hertz to linear octave */
-440.CpsMidi = 69 /* hertz to midi note number */
-69.MidiCps = 440 /* midi note number to hertz */
-0.MidiCps.round = 8 /* midi note zero */
-1.CpsMidi.round = -36 /* one hertz */
+4.75.octCps = 440 /* linear octave to hertz */
+440.cpsOct = 4.75 /* hertz to linear octave */
+440.cpsMidi = 69 /* hertz to midi note number */
+69.midiCps = 440 /* midi note number to hertz */
+0.midiCps.round = 8 /* midi note zero */
+1.cpsMidi.round = -36 /* one hertz */
 [1 .. 5].slide(3, 1) = [1 2 3 2 3 4 3 4 5] /* adjacent elements given windowLength and stepSize */
 [1 .. 7].slide(3, 2) = [1 2 3 3 4 5 5 6 7] /* 1-3, 3-5, 5-7 */
 [1 .. 6].slide(4, 1) = [1 2 3 4 2 3 4 5 3 4 5 6] /* 1-4, 2-5, 3-6 */

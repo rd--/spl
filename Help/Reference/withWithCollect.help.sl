@@ -33,6 +33,7 @@ It is an error if c₂ or c₃ are not sequences:
 >>> {
 >>> 	[1].withWithCollect(4, 5, timesPlus/3)
 >>> }.hasError
+true
 ```
 
 * * *

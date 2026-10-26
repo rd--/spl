@@ -95,10 +95,10 @@ Symbolic expressions implement `Number`.
 (* (- 23 x) (- 23 x))
 ```
 
-`Hypotenuse` is the `sqrt` of the sum of the squares:
+`hypotenuse` is the `sqrt` of the sum of the squares:
 
 ```
->> `x`.Hypotenuse(`y`)
+>> `x`.hypotenuse(`y`)
 (sqrt (+ (* x x) (* y y)))
 ```
 
@@ -211,7 +211,7 @@ with unicode symbols:
 If the symbol names are elided the letters of the greek alphabet are used:
 
 ```
->> Hypotenuse/2
+>> hypotenuse/2
 >> .SymbolicExpression
 (sqrt (+ (* α α) (* β β)))
 ```
@@ -236,7 +236,7 @@ A function that is `one` if either _x_ or _y_ are close to `zero`:
 Plot the `Graph` of the `Tree` of a `SymbolicExpression`:
 
 ~~~spl svg=A
-`x`.Hypotenuse(`y`).Tree.treePlot
+`x`.hypotenuse(`y`).Tree.treePlot
 ~~~
 
 ![](Help/Image/SymbolicExpression-A.svg)

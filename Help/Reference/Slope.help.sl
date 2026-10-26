@@ -30,7 +30,7 @@ let freq = [
 SinOsc(freq, 0).Splay * 0.1
 ```
 
-For another example of `Slope` see `Hypotenuse`.
+For another example of `Slope` see `hypotenuse`.
 
 * * *
 

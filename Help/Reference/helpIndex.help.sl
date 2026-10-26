@@ -14,7 +14,7 @@ Count entries:
 ```
 >>> system.helpIndex
 >>> .size.round(25)
-4525
+4475
 ```
 
 Lookup a reference entry:

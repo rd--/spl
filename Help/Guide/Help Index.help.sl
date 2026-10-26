@@ -302,8 +302,6 @@ Guides (A-Z):
 
 Reference (A-Z):
 
-- `Abs`
-- `AbsDif`
 - `Add`
 - `Adsr`
 - `AliasMethod`
@@ -312,17 +310,13 @@ Reference (A-Z):
 - `AllpassN`
 - `AmClip`
 - `AmpComp`
-- `AmpDb`
 - `Amplitude`
 - `AnalogueClock`
 - `AnnotatedGeometry`
 - `Annulus`
 - `AnnulusSector`
 - `Arc`
-- `ArcCos`
-- `ArcSin`
 - `ArcSinDistribution`
-- `ArcTan`
 - `ArithmeticProgression`
 - `ArrayBuffer`
 - `AsciiString`
@@ -374,7 +368,6 @@ Reference (A-Z):
 - `CategoryBrowser`
 - `CategoryDictionary`
 - `CauchyDistribution`
-- `Ceiling`
 - `CentsTuning`
 - `Changed`
 - `Character`
@@ -383,8 +376,8 @@ Reference (A-Z):
 - `Circle`
 - `CircularSector`
 - `CircularSegment`
-- `Clip`
 - `Clip2`
+- `ClipIndex`
 - `ClipNoise`
 - `Clock`
 - `Coin`
@@ -410,17 +403,11 @@ Reference (A-Z):
 - `ControlIn`
 - `ControlRate`
 - `Copy`
-- `Cos`
-- `Cosh`
 - `CoxIngersollRossProcess`
-- `CpsCv`
-- `CpsMidi`
-- `CpsOct`
 - `Crackle`
 - `CrystalStructure`
 - `CrystalStructureBrowser`
 - `CssStyleSheet`
-- `Cube`
 - `Cuboid`
 - `CuspL`
 - `Cutoff`
@@ -428,7 +415,6 @@ Reference (A-Z):
 - `CylindricalCoordinates`
 - `Date`
 - `DateAndTime`
-- `DbAmp`
 - `Dbrown`
 - `Dc`
 - `Decay`
@@ -455,8 +441,6 @@ Reference (A-Z):
 - `DiscreteUniformDistribution`
 - `Disk`
 - `Distances`
-- `Distort`
-- `Divide`
 - `Diwhite`
 - `Do`
 - `Document`
@@ -490,7 +474,6 @@ Reference (A-Z):
 - `Error`
 - `Exception`
 - `Excess`
-- `Exp`
 - `ExponentialDistribution`
 - `ExpRand`
 - `ExpRandRange`
@@ -504,8 +487,6 @@ Reference (A-Z):
 - `Float`
 - `Float32Array`
 - `Float64Array`
-- `Floor`
-- `Fold`
 - `Fold2`
 - `FontMenu`
 - `FontSizeMenu`
@@ -515,7 +496,6 @@ Reference (A-Z):
 - `Fraction`
 - `FractionalBrownianMotionProcess`
 - `FractionalGaussianNoiseProcess`
-- `FractionalPart`
 - `Frame`
 - `FRatioDistribution`
 - `FreeVerb`
@@ -525,7 +505,6 @@ Reference (A-Z):
 - `GammaDistribution`
 - `Gate`
 - `GaussianInteger`
-- `Gcd`
 - `Gendy1`
 - `Gendy3`
 - `GeneralisedCircle`
@@ -565,7 +544,6 @@ Reference (A-Z):
 - `HuffmanCoding`
 - `HyperbolicDistribution`
 - `HypergeometricDistribution`
-- `Hypotenuse`
 - `I`
 - `IdentityMultiset`
 - `IdentitySet`
@@ -574,7 +552,6 @@ Reference (A-Z):
 - `Impulse`
 - `ImpulseSequencer`
 - `In`
-- `Index`
 - `Indices`
 - `InfiniteLine`
 - `InfinitePlane`
@@ -601,10 +578,8 @@ Reference (A-Z):
 - `LargeInteger`
 - `Latch`
 - `LatoocarfianC`
-- `Lcm`
 - `LeakDc`
 - `Length`
-- `Less`
 - `LevyDistribution`
 - `LfBrownNoise1`
 - `LfClipNoise`
@@ -642,9 +617,6 @@ Reference (A-Z):
 - `LocalIn`
 - `LocalOut`
 - `Location`
-- `Log`
-- `Log10`
-- `Log2`
 - `LogisticDistribution`
 - `LogNormalDistribution`
 - `Lpf`
@@ -700,7 +672,6 @@ Reference (A-Z):
 - `Map`
 - `Markdown`
 - `Mass`
-- `Max`
 - `Median`
 - `MeixnerDistribution`
 - `MemoizationTable`
@@ -711,19 +682,14 @@ Reference (A-Z):
 - `MethodInformation`
 - `MethodSignatureBrowser`
 - `MidEq`
-- `MidiCps`
 - `MidiMonitorMenu`
 - `MidiPortBrowser`
-- `MidiRatio`
-- `Min`
 - `Missing`
 - `Mix`
-- `ModDif`
 - `MoogFf`
 - `MouseButton`
 - `MouseX`
 - `MouseY`
-- `MulAdd`
 - `MultinormalDistribution`
 - `Multiset`
 - `MultiTapDelay`
@@ -732,7 +698,6 @@ Reference (A-Z):
 - `NaN`
 - `Navigator`
 - `NcsColour`
-- `Negate`
 - `New`
 - `Nil`
 - `NoncentralBetaDistribution`
@@ -744,7 +709,6 @@ Reference (A-Z):
 - `Number`
 - `NumericArray`
 - `Object`
-- `OctCps`
 - `OeisEntry`
 - `OeisSequenceFile`
 - `OffsetOut`
@@ -783,7 +747,6 @@ Reference (A-Z):
 - `Plot`
 - `PlotSet`
 - `Pluck`
-- `Plus`
 - `PmOsc`
 - `PngViewer`
 - `Point`
@@ -797,7 +760,6 @@ Reference (A-Z):
 - `PolygonWithHoles`
 - `Polyhedron`
 - `Polynomial`
-- `Power`
 - `Preferences`
 - `PriorityQueue`
 - `ProbabilityDistribution`
@@ -819,9 +781,7 @@ Reference (A-Z):
 - `RandomWalkProcess`
 - `RandRange`
 - `Range`
-- `RatioMidi`
 - `RatioTuning`
-- `Reciprocal`
 - `ReciprocalDistribution`
 - `Record`
 - `RecordBuf`
@@ -841,7 +801,6 @@ Reference (A-Z):
 - `RingzBank`
 - `Rlpf`
 - `Rotate2`
-- `Round`
 - `RunArray`
 - `RunningSum`
 - `RybColour`
@@ -853,7 +812,6 @@ Reference (A-Z):
 - `ScalaJiTuningBrowser`
 - `ScalaTuning`
 - `Scale`
-- `ScaleNeg`
 - `Schmidt`
 - `ScSynth`
 - `ScUgen`
@@ -870,8 +828,6 @@ Reference (A-Z):
 - `Sfc32`
 - `Silent`
 - `Simplex`
-- `Sin`
-- `Sinh`
 - `SinOsc`
 - `SinOscBank`
 - `SinOscFb`
@@ -884,7 +840,6 @@ Reference (A-Z):
 - `SmallKansan`
 - `SmallKansas`
 - `SmallProgram`
-- `SoftClip`
 - `SortedList`
 - `SortedSet`
 - `Sos`
@@ -898,9 +853,6 @@ Reference (A-Z):
 - `SplayAz`
 - `SplitMix`
 - `Spring`
-- `SqrDif`
-- `Sqrt`
-- `Square`
 - `StableDistribution`
 - `Stack`
 - `StadiumShape`
@@ -911,7 +863,6 @@ Reference (A-Z):
 - `Stream`
 - `String`
 - `StudentTDistribution`
-- `Subtract`
 - `Sum`
 - `Sum3Rand`
 - `Sum4`
@@ -932,8 +883,6 @@ Reference (A-Z):
 - `TableRand`
 - `TableViewer`
 - `TableWindow`
-- `Tan`
-- `Tanh`
 - `TChoose`
 - `TDelay`
 - `TDuty`
@@ -948,7 +897,6 @@ Reference (A-Z):
 - `Time`
 - `TimeInterval`
 - `Timer`
-- `Times`
 - `TimeSeries`
 - `TimeStamp`
 - `TiRand`
@@ -1003,7 +951,6 @@ Reference (A-Z):
 - `WindowMenu`
 - `Workspace`
 - `WorldMenu`
-- `Wrap`
 - `Wrap2`
 - `WrapIndex`
 - `Writing`
@@ -1017,11 +964,13 @@ Reference (a-z):
 - `aasTriangle`
 - `abs`
 - `absArg`
+- `absDif`
 - `absMax`
 - `absoluteCorrelation`
 - `absoluteCorrelationFunction`
 - `absoluteDifference`
 - `absoluteTime`
+- `absoluteValue`
 - `absSquare`
 - `accumulate`
 - `ackleyFunction`
@@ -1082,6 +1031,7 @@ Reference (a-z):
 - `alternatingHarmonicSeries`
 - `alternatingSum`
 - `altitudes`
+- `ampDb`
 - `ampersand`
 - `ampersandAmpersand`
 - `ampersandCurve`
@@ -1620,6 +1570,9 @@ Reference (a-z):
 - `countsBy`
 - `covariance`
 - `covarianceFunction`
+- `cpsCv`
+- `cpsMidi`
+- `cpsOct`
 - `cramersRule`
 - `crayolaColourCatalogue`
 - `crc16`
@@ -1666,6 +1619,7 @@ Reference (a-z):
 - `dayOfWeek`
 - `dayOfYear`
 - `days`
+- `dbAmp`
 - `deBruijnGraph`
 - `deBruijnSequence`
 - `deBruijnSequenceCount`
@@ -1788,6 +1742,7 @@ Reference (a-z):
 - `distance`
 - `distanceMatrix`
 - `distinctPrimeFactors`
+- `distort`
 - `divide`
 - `dividedDifferences`
 - `divideOutAll`
@@ -3085,6 +3040,8 @@ Reference (a-z):
 - `metres`
 - `micro`
 - `middle`
+- `midiCps`
+- `midiRatio`
 - `midpoint`
 - `midpointPolygon`
 - `midpointStretchingPolygon`
@@ -3122,7 +3079,7 @@ Reference (a-z):
 - `mixedRadixGrayCode`
 - `mod`
 - `modificationTime`
-- `modDif`
+- `modularDistance`
 - `modularDistanceMultiset`
 - `modularInverse`
 - `moduloFibonacciSequence`
@@ -3281,6 +3238,7 @@ Reference (a-z):
 - `occurrencesOf`
 - `octave`
 - `octaveReduce`
+- `octCps`
 - `oddEvenSort`
 - `oddEvenSortMatrix`
 - `oddLimit`
@@ -3671,6 +3629,7 @@ Reference (a-z):
 - `rankedMin`
 - `ranking`
 - `rastriginFunction`
+- `ratioMidi`
 - `rationalize`
 - `rationalOrdering`
 - `rationalUnrank`
@@ -4004,6 +3963,7 @@ Reference (a-z):
 - `smoothStepFunction`
 - `sobolevaModifiedTanh`
 - `sobolSequence`
+- `softClip`
 - `softMax`
 - `softPlus`
 - `softSign`
@@ -4064,6 +4024,7 @@ Reference (a-z):
 - `splPunctuationTokenName`
 - `splSimplify`
 - `spokePlot`
+- `sqrDif`
 - `sqrt`
 - `square`
 - `squareChart`

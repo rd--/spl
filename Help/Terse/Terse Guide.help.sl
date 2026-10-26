@@ -3893,7 +3893,7 @@ system.doesTypeImplementMethod('List', 'species') = true
 [1, 2, 3].respondsTo(select/2) = true /* does a value (courtesy the type) implement a method */
 system.methodPrintString('addInPlace').size >= 3
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
-system.methodLookupAtType('collect', 2, 'List').origin.name = '@PrimitiveArray'
+system.methodLookupAtType('collect', 2, 'List').origin.name = 'List'
 system.methodLookupAtType('collect', 2, 'List').block.binaryApply([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.methodLookupAtType('sum', 1, 'List') == system.methodLookupAtType('sum', 1, 'SortedSet')
 'sum/1'.parseQualifiedMethodName = ['sum', 1]
@@ -3922,7 +3922,6 @@ let [t, r] = { system.absoluteTime }.repeatedTiming(0.01); t < 0.00001 & { r > 1
 system.traitDictionary.isDictionary = true
 system.traitDictionary.includesIndex('@Collection') = true
 system.traitTypes('@Collection').includes('List') = true
-system.typeTraits('List').includes('@PrimitiveArray') = true
 system.methodTraits('atRandom/1').includesAll(['@Collection', '@Sequence']) = true
 system.methodTraits('sum/1') = ['@ArithmeticProgression', '@Do', '@Collection', '@Multiset']
 system.traitTypes('@Object').includes('SmallFloat') = true

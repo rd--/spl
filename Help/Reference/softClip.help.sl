@@ -36,7 +36,7 @@ Evaluate symbolically:
   x
   (/ (- (abs x) 0.25) x)
 )
-``
+```
 
 * * *
 

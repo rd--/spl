@@ -388,6 +388,10 @@
 		}
 	}
 
+	hypotenuse { :self :operand |
+		(self.square + operand.square).sqrt
+	}
+
 	imaginary { :self |
 		self.zero
 	}
