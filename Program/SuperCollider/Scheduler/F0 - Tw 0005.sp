@@ -2,7 +2,7 @@
 { :currentTime |
 	let z = (1 -- 61).atRandom;
 	let d = z / 3;
-	let y = LfTri(z, 0).Abs / z;
+	let y = LfTri(z, 0).abs / z;
 	let s = Rlpf(
 		TDuty(y, 0, y),
 		z * 99 + y,

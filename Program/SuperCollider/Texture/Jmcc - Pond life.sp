@@ -1,6 +1,6 @@
 /* Pond life ; Jmcc ; #1 */
 {
-	let f = MulAdd(
+	let f = *+(
 		SinOsc(20 + Rand(0, 30), 0),
 		100 + Rand(0, 300),
 		500 + LinRand(0, 2000, 0)

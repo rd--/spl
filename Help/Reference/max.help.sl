@@ -124,6 +124,14 @@ The cumulative maxima is the `scan` of `max`:
 [4 4 8 8 9 12 12 18 18]
 ```
 
+At `Ugen`,
+modulates and envelopes:
+
+```
+let z = SinOsc(500, 0);
+z.max(SinOsc(0.1, 0)) * 0.1
+```
+
 Table _(j%i).⌈(i%j)_ read by antidiagonals,
 OEIS [A204016](https://oeis.org/A204016):
 
@@ -154,6 +162,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Max.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/max.html),
+_Max_
+[1](https://docs.cycling74.com/reference/gen_common_max/),
 _Python_
 [1](https://docs.python.org/3/library/functions.html#max),
 _Smalltalk_

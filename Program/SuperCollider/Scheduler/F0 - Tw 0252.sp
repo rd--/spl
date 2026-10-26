@@ -2,7 +2,7 @@
 let i = 0;
 let f = [5, 10, 12, 20, 24] * 10;
 { :nextDelay |
-	let e = Line(0, 1.pi, 10).Sin;
+	let e = Line(0, 1.pi, 10).sin;
 	let o = MoogFf(
 		SyncSaw([7, 8], f.atWrap(i)),
 		4000 * e,

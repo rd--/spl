@@ -7,14 +7,14 @@
 		).Sum * 0.1
 	};
 	let osc = SinOsc(
-		TRand(24, 108, tr).MidiCps,
+		TRand(24, 108, tr).midiCps,
 		TRand(0, 2.pi, tr)
 	);
 	EqPan2(
 		[
 			osc,
-			amp(TExpRand(0.3, 8, tr)).Max(0),
-			amp(TExpRand(6, 24, tr)).Abs
+			amp(TExpRand(0.3, 8, tr)).max(0),
+			amp(TExpRand(6, 24, tr)).abs
 		].product,
 		TRand(-1, 1, tr)
 	)

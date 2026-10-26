@@ -8,7 +8,7 @@ let o = Splay2(
 			SinOsc(0.01 / [1 .. 8], 0).ExpRange(0.01, 1)
 		),
 		0.995
-	).Tanh
+	).tanh
 );
 Lpf(o, 5000) / 5 <! LocalOut(o)
 
@@ -21,12 +21,12 @@ Splay(
 			VarSaw(r + 6, 0, 1 / 2) * 2 + c,
 			0,
 			VarSaw(1 / r, 0, 0.5) ^ 2
-		) ^ (VarSaw(0.001 / r + 8, 0, VarSaw(1 / 3, 0, 0.5).Abs) * 12 + 13),
+		) ^ (VarSaw(0.001 / r + 8, 0, VarSaw(1 / 3, 0, 0.5).abs) * 12 + 13),
 		VarSaw(
 			0.003 / r,
 			0,
 			VarSaw(r * 8, 0, 0.5)
-		).Lag3(0.1).Abs * 4000 + 80,
+		).Lag3(0.1).abs * 4000 + 80,
 		1.1 - VarSaw(8 * r, 0, 0.5) ^ 2
 	) * VarSaw(r / c, 0, 0.5) / 2,
 	VarSaw(1, 0, VarSaw(1, 0, 0.5))
@@ -34,15 +34,15 @@ Splay(
 
 /* ChaosGen writes melodies ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110751954599483552 */
 let p = system.coin(0.5).if {
-	GbmanN([8 4 6 2], 1.2, 2.1).LinLin(-1, 1, 8, 32).Ceiling
+	GbmanN([8 4 6 2], 1.2, 2.1).LinLin(-1, 1, 8, 32).ceiling
 } {
-	StandardN([8 4 6 2], 1, 0.5, 0).LinLin(-1, 1, 12, 48).Ceiling
+	StandardN([8 4 6 2], 1, 0.5, 0).LinLin(-1, 1, 12, 48).ceiling
 };
 let f = DegreeToKey(
 	LocalBuf[0 2 3 5 7 8 10],
 	p,
 	12
-).MidiCps;
+).midiCps;
 let m = SinOsc([8 4 0.5 1], 0);
 let e = Perc(m, 0.001, 1 / 8, -4);
 Splay(
@@ -52,12 +52,12 @@ Splay(
 				f,
 				SinOsc(3 * f, 0) * e ^ 2 * (SinOsc(1.1 ^ [0 .. 3] / 16, 0) * 2 + 3)
 			) * e,
-			m.Abs / 2,
+			m.abs / 2,
 			1 - m ^ 2 * 2,
 			1 - m.ExpRange(0.01, 1)
 		),
 		0.2,
-		m.Abs / 2048
+		m.abs / 2048
 	),
 	m[3]
 ) / 2
@@ -86,7 +86,7 @@ let c = 1.5 ^ [0, 4 .. 12];
 let e = StandardN(c, 1, 0.5, 0).ExpRange(0.01, 1);
 Splay(
 	LeakDc(
-		-12.DbAmp * StandardN(
+		-12.dbAmp * StandardN(
 			e * c * 220,
 			LfdNoise3([1] # 4) * 0.1 + 0.97215,
 			1 / 4,
@@ -100,7 +100,7 @@ Splay(
 /* Phasing Patterns ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110888653997752683 */
 let f = (48 + [0 .. 2].collect { :n |
 	[0 -5 15 10] + (n * 12)
-}.++).MidiCps;
+}.++).midiCps;
 Splay(
 	SinOsc(
 		f,
@@ -114,25 +114,25 @@ let p = 9 / 7 ^ [0 .. 16];
 let c = { :freq |
 	LinCongC(freq, 1.1, 0.13, 1, 0)
 };
-let d = (c(c(p.arcTan) ^ 2 * 4) ^ 4 * 8).Abs;
-let t = c(c(d / p.arcTan).Round(1 / d) ^ 4 * d * 8).Sin;
-let f = TRand(0, 64, t).Ceiling.MidiCps;
+let d = (c(c(p.arcTan) ^ 2 * 4) ^ 4 * 8).abs;
+let t = c(c(d / p.arcTan).round(1 / d) ^ 4 * d * 8).sin;
+let f = TRand(0, 64, t).ceiling.midiCps;
 Splay(
 	LeakDc(
 		Pluck(
 			(SinOsc(
-				f * p * p.Log,
+				f * p * p.log,
 				0
-			) * SinOsc(f * p * p.log / 2, 0) * 2 * d).Sin,
+			) * SinOsc(f * p * p.log / 2, 0) * 2 * d).sin,
 			t,
 			0.1,
 			t.ExpRange(0.01, 1) / d / p,
 			(t ^ 1.5 * f) * (d / p.scramble),
-			(p * (1 - t.ExpRange(0.01, 1))).Sin.ExpRange(0.9999, 0.5)
+			(p * (1 - t.ExpRange(0.01, 1))).sin.ExpRange(0.9999, 0.5)
 		),
 		0.995
 	)
-).Tanh / 3
+).tanh / 3
 
 /* Grains, Daily ; https://github.com/lukiss/Losers-Union-SC-Research */
 let m = { :lo :hi |
@@ -155,7 +155,7 @@ LeakDc(
 		1024
 	).Splay,
 	0.995
-).SoftClip / 2
+).softClip / 2
 
 /* Spa Saw Shower Wash ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111427906537919703 */
 let c = 2048.sineTable(1 / [1 .. 128], [0]).normalizeSignal.wavetableFormat.LocalBuf;
@@ -185,7 +185,7 @@ o := BHiPass4(o, w(1 / 7), 1) + Bpf(o, w(1 / 5), 1) + MoogFf(o, w(1 / 3), 2, 0);
 o
 
 /* Suspect jazz ; https://github.com/lukiss/Losers-Union-SC-Research */
-let x = HenonL(1 + LfdNoise1(3).ExpRange(0.01, 1) * 8, 1.4, 0.3, 0, 0).Fold2(1);
+let x = HenonL(1 + LfdNoise1(3).ExpRange(0.01, 1) * 8, 1.4, 0.3, 0, 0).fold;
 let t = [0 .. 8].collect { :n |
 	PulseDivider(x, 8, 7 - n)
 };
@@ -206,7 +206,7 @@ let f = Demand(
 			}.++
 		)
 	].Sum
-).MidiCps;
+).midiCps;
 let o = SinOsc(
 	(BrownNoise() * 0.015 + 1) * f,
 	(BrownNoise() / 4 * SinOsc([3.25 0.5 2] * f, 0) * e(-28)).Sum
@@ -230,7 +230,7 @@ Splay(
 /* Something awfully old ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=kr */
 let a = LocalBuf(1, 8 * 2048);
 let f = {
-	LfdNoise3([0.001] # 7).Tan.Abs.kr
+	LfdNoise3([0.001] # 7).tan.abs.kr
 };
 Splay(
 	LeakDc(
@@ -249,15 +249,15 @@ Splay(
 			0.4,
 			0.4,
 			2
-		).SoftClip,
+		).softClip,
 		0.995
 	)
 ) <! RecordBuf(a, 0, 1, 0, 1, 0, 1, 0, LfdNoise3(500) + (PinkNoise() * 8))
 
 /* Drone for the Evening ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111024677229943163 */
 let p = (1, 3 .. 64);
-let f = (LfdNoise1(8) / 16 + 33).MidiCps;
-let c = p ^ (p / p.sum).ArcTan * f * p;
+let f = (LfdNoise1(8) / 16 + 33).midiCps;
+let c = p ^ (p / p.sum).arcTan * f * p;
 Splay(
 	SinOsc(
 		c,
@@ -270,7 +270,7 @@ Splay(
 let d = Dseq(Infinity, [1, 3 .. 21]);
 let f = Ddup(
 	LfPar(0.05, 0) * d / [3 7 5 1],
-	Dseq(Infinity, [9 .. 42].degreeToKey([0 1 3 5 7 8 10], 12)).MidiCps
+	Dseq(Infinity, [9 .. 42].degreeToKey([0 1 3 5 7 8 10], 12)).midiCps
 );
 let n = 8;
 LeakDc(
@@ -290,7 +290,7 @@ LeakDc(
 
 /* 12 May 2020 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let l = { :freq :mul |
-	(LfdNoise3(freq) * mul).Abs
+	(LfdNoise3(freq) * mul).abs
 };
 let i = 1 / 16;
 let t = Impulse(l(1.pi, 1.pi), 0);
@@ -301,7 +301,7 @@ CombC(
 				t,
 				0,
 				Drand(Infinity, [9 .. 42].degreeToKey([0 2 4 7 9], 1.pi.pi))
-			).MidiCps,
+			).midiCps,
 			0
 		) * (t.Lag3Ud(0, i) + (t.Lag3Ud(i + l(9, i * 4), l(1.pi, 1.pi)) / 1.pi))
 	} !^ 5,
@@ -319,8 +319,8 @@ Splay(
 	LeakDc(
 		Formant(
 			[
-				({ a := a + 5 } ! 6).MidiCps,
-				({ f(29).Round(7) } ! 6).MidiRatio
+				({ a := a + 5 } ! 6).midiCps,
+				({ f(29).round(7) } ! 6).midiRatio
 			].product,
 			{ f(1000) } ! 6,
 			{ f(500) } ! 6
@@ -332,14 +332,14 @@ Splay(
 /* 3 Nov 2018 ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=kr */
 let a = 9;
 let f = { :b |
-	LfNoise2(b.Sign).ExpRange(9, b)
+	LfNoise2(b.sign).ExpRange(9, b)
 };
 Splay(
 	LeakDc(
 		Formant(
 			[
-				({ a := a + 7 } ! 6).MidiCps,
-				({ f(99).Round(12) } ! 6).MidiRatio
+				({ a := a + 7 } ! 6).midiCps,
+				({ f(99).round(12) } ! 6).midiRatio
 			].product,
 			{ f(2200) } ! 6,
 			{ f(300) } ! 6
@@ -354,14 +354,14 @@ Splay(
 /* Drone 22 Maj 2021 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let n = 4;
 let l = { :mul |
-	(LfdNoise3([0.05] # n) * mul).Abs
+	(LfdNoise3([0.05] # n) * mul).abs
 };
 let d = {
 	{
 		Demand(
 			Impulse(1 / [30 .. 53].atRandom, 0),
 			0,
-			Dxrand(Infinity, [7 .. 53].degreeToKey([0 1 4 5 7 9 10], 12).MidiCps)
+			Dxrand(Infinity, [7 .. 53].degreeToKey([0 1 4 5 7 9 10], 12).midiCps)
 		)
 	} ! n
 };
@@ -379,7 +379,7 @@ Splay(
 			7
 		),
 		110
-	) * -12.DbAmp
+	) * -12.dbAmp
 )
 
 /* 30 Apr. 2020 ; https://github.com/lukiss/Losers-Union-SC-Research */
@@ -410,9 +410,9 @@ Normalizer(
 		0.01,
 		0.075
 	),
-	-2.DbAmp,
+	-2.dbAmp,
 	0.02
-).Fold2(0.8)
+).fold(-0.8, 0.8)
 
 /* 22 Nov. 2021 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let k = 1 / 100000;
@@ -424,13 +424,13 @@ Splay(
 		33 * n(),
 		0,
 		LfSaw(1 / 3 * n(), 0) * LfSaw(n() / 3, 0)
-	) * (LfSaw(5 / 3, 0) * (LfSaw(7 / 3 * n().-, 0).Tan)).Abs
-).Tanh
+	) * (LfSaw(5 / 3, 0) * (LfSaw(7 / 3 * n().-, 0).tan)).abs
+).tanh
 
 /* 12 Juli 2019 ; https://github.com/lukiss/Losers-Union-SC-Research ; rd edit */
 let f = { :freq :mul |
 	let z = LfdNoise3(freq) * mul;
-	z.Ring1(z % 0.01).Hypotenuse(z)
+	z.Ring1(z % 0.01).hypotenuse(z)
 };
 let o = Formant(
 	f(f(3, 13), 220),
@@ -441,13 +441,13 @@ let a = Excess(
 	f(f(2, 12), 1),
 	f(f(1, 14), f(4.4, 0.5) + 0.3)
 );
-(o * a).EqPan2(0).SoftClip
+(o * a).EqPan2(0).softClip
 
 /* 12 Juli 2019 ; https://github.com/lukiss/Losers-Union-SC-Research ; rd edit */
 let k = 8;
 let f = { :freq :mul |
 	let z = LfdNoise3(freq) * mul;
-	z.Ring1(z % 0.01).Hypotenuse(z)
+	z.Ring1(z % 0.01).hypotenuse(z)
 };
 let o = Formant(
 	f(f(3, 13), 220),
@@ -460,25 +460,25 @@ let a = {
 		f(f(1, 14), f(4.4, 0.5) + 0.3)
 	)
 } ! k;
-(o * a).Splay.SoftClip / k.sqrt
+(o * a).Splay.softClip / k.sqrt
 
 /* 5 Sep. 2020 ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=kr */
 let l = {
-	LfdNoise3(1).Abs.kr
+	LfdNoise3(1).abs.kr
 };
 let r = { :freq :mul |
-	(Gendy3(6, 6, l(), l(), freq, l(), l(), 5, l() * 5) * mul).Abs.kr
+	(Gendy3(6, 6, l(), l(), freq, l(), l(), 5, l() * 5) * mul).abs.kr
 };
--12.DbAmp * Splay(
+-12.dbAmp * Splay(
 	[1 .. 6].collect { :n |
 		CombC(
 			LeakDc(
 				Fm7Matrix(
 					{
 						[
-							Rand(0, 80).MidiCps,
+							Rand(0, 80).midiCps,
 							0,
-							Blip(r(l(), 24), r(l(), 228)).Abs.kr
+							Blip(r(l(), 24), r(l(), 228)).abs.kr
 						]
 					} ! 6,
 					[6 6].constantArray(
@@ -496,7 +496,7 @@ let r = { :freq :mul |
 
 /* Ambient Ligeti inspired soundscape ; https://github.com/lukiss/Losers-Union-SC-Research */
 let r = { :n |
-	{ LfdNoise3(1 / 86).Abs } ! n
+	{ LfdNoise3(1 / 86).abs } ! n
 };
 Splay(
 	LeakDc(
@@ -505,7 +505,7 @@ Splay(
 				1,
 				SfAcquireMono('Floating'),
 				r(9),
-				[-36 -9 -14 0 -19 -5 3 -2 -24 -7].MidiRatio,
+				[-36 -9 -14 0 -19 -5 3 -2 -24 -7].midiRatio,
 				8 * r(9) + 8 / 86,
 				-1,
 				12,
@@ -519,7 +519,7 @@ Splay(
 		0.995
 	),
 	2 / 4
-).Tanh * Line(0, 1, 12)
+).tanh * Line(0, 1, 12)
 
 /* 27 Jan 2023 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let d = Dust(1);
@@ -535,16 +535,16 @@ let e = TChoose(
 	[
 		c.Sum,
 		n,
-		c.Round(32),
-		n.Atan2(m()),
-		c.Sin,
-		c.Tan,
-		n.Hypotenuse(c)
+		c.round(32),
+		n.atan2(m()),
+		c.sin,
+		c.tan,
+		n.hypotenuse(c)
 	]
 );
-let a = ((LfSaw(c.Tan / m(), 0).Abs ^ e.Max(0)).Log10.Sin.Abs ^ 10).Tanh;
+let a = ((LfSaw(c.tan / m(), 0).abs ^ e.max(0)).log10.sin.abs ^ 10).tanh;
 Splay(
-	SinOsc(c.Log10 * c, 0) * a,
+	SinOsc(c.log10 * c, 0) * a,
 	SinOsc(m() * m(), 0) * 0.5
 ) / 23
 
@@ -552,18 +552,18 @@ Splay(
 let a = [41 73 123 196];
 let f = SinOsc(440, 0);
 [0 .. 8].do { :i |
-	a := a * 5.MidiRatio;
-	f := SinOsc(f * a.rotate(i + 3), 0) * SinOsc(f, 0).Tanh
+	a := a * 5.midiRatio;
+	f := SinOsc(f * a.rotate(i + 3), 0) * SinOsc(f, 0).tanh
 };
 Splay(
-	LeakDc(f.Tanh, 0.995),
-	SinOsc(f.Sum.Abs, 0)
+	LeakDc(f.tanh, 0.995),
+	SinOsc(f.Sum.abs, 0)
 )
 
 /* 23 Mars ; https://github.com/lukiss/Losers-Union-SC-Research */
 let d = { :n |
 	{
-		Gendy3(1, 1, 1, 1, LfNoise1(2) + 1, 0.5, 0.5, 12, 12).Abs.Round(1 / 16).kr
+		Gendy3(1, 1, 1, 1, LfNoise1(2) + 1, 0.5, 0.5, 12, 12).abs.round(1 / 16).kr
 	} ! n
 };
 let t = Dust(d(5) / 2).kr;
@@ -600,7 +600,7 @@ Splay(
 let l = { :lo :hi |
 	TChoose(
 		Dust([3] # 2),
-		CuspN(1.1 ^ [0 .. 5], 1, 1.9, 0).Tanh
+		CuspN(1.1 ^ [0 .. 5], 1, 1.9, 0).tanh
 	).ExpRange(lo, hi)
 };
 let a = { l(0.001, 1) } ! 6;
@@ -608,7 +608,7 @@ let f = l(12, 999);
 let e = Env(a, a / a.Sum / f, a.- * 9, nil, nil, 0).circle(0, 'lin').asEnvGen(1);
 let g = Perc(e > 0.1, 0.005, 0.9 / f, -4);
 let p = (1 - g).LinLin(0, 1, -1, 1);
-(XFade2(e, (e * f).Sin, p, 1) + g).Tanh.Splay
+(XFade2(e, (e * f).sin, p, 1) + g).tanh.Splay
 
 /* Tennis ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=NonLocalBuffer */
 let nf = 48000; /* sample rate */
@@ -623,7 +623,7 @@ let w = RecordBuf(b, z, t, 1 - t, t, 1, t, 0, n);
 let p = PlayBuf(
 	1,
 	b,
-	(1 - n.Round(1 / 16)) / TRand(1, z / 100, t).Lag3(0.001),
+	(1 - n.round(1 / 16)) / TRand(1, z / 100, t).Lag3(0.001),
 	t,
 	z,
 	1,
@@ -638,7 +638,7 @@ EqPan2(
 			0
 		),
 		0.995
-	).SoftClip,
+	).softClip,
 	TRand(-1, 1, t)
 )
 
@@ -664,7 +664,7 @@ let tab = [
 	40 80 100 120 120;
 	0 -20 -32 -28 -36
 ];
-let x = LorenzL(24, 10, 28, 2.667, 0.05, 0.1, 0, 0).Sin.LinLin(-1, 1, 1, 4) / Diwhite(Infinity, 2, 10);
+let x = LorenzL(24, 10, 28, 2.667, 0.05, 0.1, 0, 0).sin.LinLin(-1, 1, 1, 4) / Diwhite(Infinity, 2, 10);
 let dur = Duty(x, 0, x);
 let trg = TDuty(dur, 0, 1);
 let mel = [26 .. 42].degreeToKey([0 2 4 5 7 9 11], 12);
@@ -688,14 +688,14 @@ let voc = SelectXFocus(
 	true
 );
 let atk = PinkNoise() * (1 - env);
-let sus = LfNoise2(voc.second) * ((env - voc.third.DbAmp) / 2) + voc.first;
+let sus = LfNoise2(voc.second) * ((env - voc.third.dbAmp) / 2) + voc.first;
 Splay(
 	Bpf(
 		SyncSaw(
-			LfNoise2(voc.second) * mnn / (voc.first) + mnn.MidiCps,
+			LfNoise2(voc.second) * mnn / (voc.first) + mnn.midiCps,
 			atk + sus
 		),
 		env - (Perc(trg, 0, 1 / (2 ^ [0 .. 5]) / 8, -4) * 0.5) * voc.first + 30,
 		voc.second / voc.first
-	).SoftClip * voc.third.DbAmp * env
+	).softClip * voc.third.dbAmp * env
 )

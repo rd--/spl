@@ -9,7 +9,7 @@ SinOsc(Stepper(Impulse(10, 0), 0, 4, 16, x, 0) * 100, 0) * 0.05
 let scale = [0 2 4 5 7 9 11 12] + 60;
 let clock = Impulse(3, 0);
 let index = Stepper(clock, 1, 0, scale.size - 1, 1, 0);
-let freq = Multiplexer(index, scale).MidiCps;
+let freq = Multiplexer(index, scale).midiCps;
 SinOsc(freq, 0) * 0.1
 
 /* Stepper */
@@ -18,7 +18,7 @@ let rate = MouseX(1, 3, 1, 0.2);
 let clock = Impulse(rate, 0);
 let env = Decay2(clock, 0.002, 2.5);
 let index = Stepper(clock, 0, 0, 15, 1, 0);
-let freq = Lag2(BufRd(1, b, index, 1, 1).MidiCps, 0.1) + [0, 0.3];
+let freq = Lag2(BufRd(1, b, index, 1, 1).midiCps, 0.1) + [0, 0.3];
 let ffreq = Lag2(freq, 0.1) + [0, 0.3];
 let lfo = SinOsc(0.2, [0, 0.5.pi]) * 0.0024 + 0.0025;
 let rvb = { :in |

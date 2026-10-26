@@ -8,10 +8,7 @@ Splay(
 	) / 9 * SinOsc(
 		999 * b.shuffle / Rlpf(
 			Latch(
-				Round(
-					WhiteNoise(),
-					0.5
-				) + 2,
+				WhiteNoise().round(0.5) + 2,
 				BrownNoise() + 1.4 > SinOsc(
 					b / 999,
 					0

@@ -5,7 +5,7 @@
 		TRand(0, 12, tr),
 		12
 	);
-	let freq = (60 + dgr).MidiCps;
+	let freq = (60 + dgr).midiCps;
 	let pan = TRand(-0.25, 0.25, tr);
 	let amp = TRand(0.1, 0.2, tr);
 	let fc = LinExp(LfNoise1(TRand(0.25, 0.4, tr)), -1, 1, 500, 2000);
@@ -16,6 +16,6 @@
 		* amp
 	} !+ 8;
 	let eg = Decay2(tr, 0.5, 1);
-	let out = eg * Rlpf(osc.Distort * 0.2, fc, 0.1);
+	let out = eg * Rlpf(osc.distort * 0.2, fc, 0.1);
 	EqPan2(out, [pan, pan + 0.3]).Sum
 }.OverlapTexture(2, 0, 9).Mix

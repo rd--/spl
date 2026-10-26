@@ -7,6 +7,6 @@ let m = DegreeToKey(
 	12
 ) + 24;
 let e = AmpComp(m, 440, 1 / 3) * LfTri(b, b) * b * 9;
-let o = VarSaw(m.MidiCps, 0, LfTri(b, 0) + 1 / 2) * e;
+let o = VarSaw(m.midiCps, 0, LfTri(b, 0) + 1 / 2) * e;
 let s = Rlpf(o, Lag2(m, 1 / b % 1) * 3, 1);
-AllpassN(s, 0.3, 0.2 - b, 3).Splay.Tanh
+AllpassN(s, 0.3, 0.2 - b, 3).Splay.tanh

@@ -15,7 +15,7 @@ Mixer parametric Eq as effect:
 ```
 MidEq(
 	Saw(200) * 0.1,
-	SinOsc(LfNoise2(1 / 3), 0).MulAdd(24, 84).MidiCps,
+	SinOsc(LfNoise2(1 / 3), 0).*+(24, 84).midiCps,
 	0.3,
 	12
 )

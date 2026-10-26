@@ -18,17 +18,17 @@ let x = MouseX(0, 15, 0, 0.1);
 let k = DegreeToKey(b, x, 12);
 let c = { :n :r |
 	let o = SinOsc(
-		(r + k + (n * 0.04)).MidiCps,
+		(r + k + (n * 0.04)).midiCps,
 		0
 	) * 0.1;
 	let t = LfPulse(
-		[48, 55].MidiCps,
+		[48, 55].midiCps,
 		0,
 		0.15
 	);
 	let f = (
 		SinOsc(0.1, 0) * 10 + r
-	).MidiCps;
+	).midiCps;
 	let d = Rlpf(t, f, 0.1) * 0.1;
 	let m = o + d;
 	CombN(m, 0.31, 0.31, 2) + m

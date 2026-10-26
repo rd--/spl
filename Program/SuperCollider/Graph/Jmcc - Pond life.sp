@@ -1,6 +1,6 @@
 /* Pond life (Jmcc) #1 ; Graph rewrite ; requires=LinRand */
 { :tr |
-	let f = MulAdd(
+	let f = *+(
 		SinOsc(TRand(20, 50, tr), 0),
 		TRand(100, 400, tr),
 		TLinRand(500, 2500, 0, tr)

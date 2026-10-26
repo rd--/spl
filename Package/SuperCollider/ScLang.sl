@@ -53,46 +53,20 @@
 
 +@Number {
 
-	/*
-	Cube { :self |
-		self * self * self
-	}
-	*/
-
-	DifSqr { :self :aNumber |
+	difSqr { :self :aNumber |
 		(self * self) - (aNumber * aNumber)
 	}
 
-	Distort { :self |
+	distort { :self |
 		self / (1 + self.abs)
 	}
 
-	Hypotenuse { :self :aNumber |
-		((self * self) + (aNumber * aNumber)).sqrt
-	}
-
-	HypotenuseApproximate { :self :aNumber |
+	hypotenuseApproximate { :self :aNumber |
 		self.abs + aNumber.abs - ((2.sqrt - 1) * self.abs.min(aNumber.abs))
 	}
 
-	MulAdd { :self :mul :add |
-		self * mul + add
-	}
-
-	Negate { :self |
-		0 - self
-	}
-
-	OctCps { :self |
+	octCps { :self |
 		440 * (2 ^ (self - 4.75))
-	}
-
-	Reciprocal { :self |
-		1 / self
-	}
-
-	Square { :self |
-		self * self
 	}
 
 	nextPowerOf { :self :base |
@@ -392,6 +366,10 @@
 		([0] ++ self).differences
 	}
 
+	difSqr { :self :aNumber |
+		aNumber.adaptToCollectionAndApply(self, difSqr/2)
+	}
+
 	extendTo { :self :size |
 		1.toAsCollect(size, self) { :index |
 			self.atWrap(index)
@@ -472,6 +450,14 @@
 	keepLast { :self :n |
 		let size = self.size;
 		self.copyFromTo(size - n, size)
+	}
+
+	midiCps { :self |
+		self.collect(midiCps/1)
+	}
+
+	midiRatio { :self |
+		self.collect(midiRatio/1)
 	}
 
 	multiChannelExpand { :self |
@@ -698,23 +684,7 @@
 
 }
 
-+Range {
-
-	MulAdd { :self :mul :add |
-		self * mul + add
-	}
-
-}
-
 +SmallFloat {
-
-	SoftClip { :self |
-		(self.abs <= 0.5).if {
-			self
-		} {
-			(self.abs - 0.25) / self
-		}
-	}
 
 	degreeToKey { :self :scale :stepsPerOctave |
 		let scaleDegree = self.round;

@@ -13,7 +13,7 @@ let bass = Impulse(r0, 0).in { :t |
 				Perc(t, 0, 0.013, 0).LinLin(0, 1, 0, 12 * 3),
 				Sequencer([0, 0, -2, -2, 0, 0, 3, 3], Impulse(r0 / (3 * 8), 0)),
 				root
-			].sum.MidiCps,
+			].sum.midiCps,
 			0
 		),
 		Sequencer([1, 0, 0.35], t),
@@ -33,7 +33,7 @@ let pad = Impulse(r0 / padd, 0).in { :t |
 				root,
 				SinOsc(2.4, 0) * 0.18,
 				[0.06, -0.06]
-			].sum.MidiCps,
+			].sum.midiCps,
 			0
 		),
 		Saw(r0 / padd).Lag(0.1).LinLin(-1, 1, 0, 1),
@@ -56,7 +56,7 @@ let mel = Impulse(r0, 0).in { :t |
 					),
 					Sequencer([1, 2, 3, 2], t) * 12,
 					root
-				].sum.MidiCps,
+				].sum.midiCps,
 				0
 			),
 			Perc(

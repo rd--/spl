@@ -136,7 +136,7 @@
 	MiBraids { :d | MiBraids(d['pitch'], d['timbre'], d['color'], d['model'], d['trig'], d['resamp'], d['decim'], d['bits'], d['ws']) }
 	MiClouds { :d | MiClouds(d['pit'], d['pos'], d['size'], d['dens'], d['tex'], d['dryWet'], d['inGain'], d['spread'], d['rvb'], d['fb'], d['freeze'], d['mode'], d['lofi'], d['trig'], d['inputList']) }
 	MiRings { :d | MiRings(d['in'], d['trig'], d['pit'], d['struct'], d['bright'], d['damp'], d['pos'], d['model'], d['poly'], d['internExciter'], d['easterEgg'], d['bypass']) }
-	MulAdd { :d | MulAdd(d['in'], d['mul'], d['add']) }
+	[timesPlus, *+] { :d | timesPlus(d['in'], d['mul'], d['add']) }
 	Perc { :d | Perc(d['trig'], d['attackTime'], d['releaseTime'], d['curve']) }
 	Release { :d | Release(d['in'], d['attackTime'], d['sustainTime'], d['releaseTime']) }
 	TScramble { :d | TScramble(d['trigger'], d['inputs']) }

@@ -6,7 +6,7 @@ EpanechnikovDistribution : [Object] {
 		let c = self.c;
 		let m = 3 / (4 * c);
 		{ :x |
-			let y = x.clip([0 - c, c]);
+			let y = x.clip(0 - c, c);
 			0.5 + (m * y) - ((y ^ 3) / (4 * (c ^ 3)))
 		}
 	}

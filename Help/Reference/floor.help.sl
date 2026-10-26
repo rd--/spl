@@ -134,6 +134,13 @@ OEIS [A032528](https://oeis.org/A032528):
 [0 1 6 13 24 37 54 73 96 121]
 ```
 
+Stepped line:
+
+```
+let m = XLine(48, 57, 7);
+SinOsc([m m.floor].midiCps, 0) * 0.1
+```
+
 Floor is a staircase function:
 
 ~~~spl svg=A

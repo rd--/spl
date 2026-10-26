@@ -45,7 +45,7 @@ let rungler = [
 	(sh8b / (2 ^ 1))
 ].sum;
 let buf1 = rungler;
-let runglerF = (rungler * scale.LinLin(0, 1, 0, 127)).MidiCps;
+let runglerF = (rungler * scale.LinLin(0, 1, 0, 127)).midiCps;
 let filt = Select(
 	filterType,
 	[

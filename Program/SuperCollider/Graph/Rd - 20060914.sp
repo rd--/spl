@@ -5,7 +5,7 @@
 		let du = [5 4 5 7 4 5];
 		let d = du * ds;
 		EqPan2(
-			SinOsc(TxLine(m, m + TRand(0.05, 0.5, tr), d, tr).MidiCps, 0),
+			SinOsc(TxLine(m, m + TRand(0.05, 0.5, tr), d, tr).midiCps, 0),
 			TxLine(TRand(-1, 1, tr), TRand(-1, 1, tr), d, tr)
 		).Sum * Sine(tr, du.max * ds) * TRand(0.005, 0.01, tr)
 	};

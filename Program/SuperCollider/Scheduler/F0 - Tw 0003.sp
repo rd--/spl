@@ -1,6 +1,6 @@
 /* https://sccode.org/1-4Qy ; F0 ; 0003 */
 { :nextDelay |
-	let t = SinOsc(Rand(99, 999), 0).Abs;
+	let t = SinOsc(Rand(99, 999), 0).abs;
 	let o = Formlet(
 		TDuty(t, 0, t),
 		LinRand(0, 4000, 0),

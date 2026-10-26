@@ -5,7 +5,7 @@ let m = {
 let v = LfTri(m(), 0) * 0.001 + 0.6;
 let c = {
 	Choose(
-		CuspN(120 * m().Hypotenuse(v.Tan) ^ v, 1, 1.9, 0),
+		CuspN(120 * m().hypotenuse(v.tan) ^ v, 1, 1.9, 0),
 		[0 5.1 -4.7 -12 7]
 	)
 };
@@ -14,18 +14,18 @@ let f = { :a |
 		List(
 			6,
 			[
-				(c() + a).MidiCps,
+				(c() + a).midiCps,
 				0,
-				MulAdd(SinOsc(13 * v, 0), 0.2, (2 * v).Exp * v) / 8
+				SinOsc(13 * v, 0) * 0.2 + ((2 * v).exp * v) / 8
 			]
 		) * v,
 		List(6, List(6, m()))
-	).SoftClip.Sum
+	).softClip.Sum
 };
 Splay2(
 	[0 3.1 7.05 10 -9 17].collect { :n |
 		EqPan2(
-			f(c() + 52 + n) * (12 * m().-).DbAmp,
+			f(c() + 52 + n) * (12 * m().-).dbAmp,
 			LfNoise2(500)
 		)
 	},

@@ -2,7 +2,7 @@
 let pattern = [55 63 60 63 57 65 62 65];
 let f = { :octave :clockRate :pwmRate :fltRate |
 	let tr = Impulse(clockRate, 0);
-	let patternCps = (pattern + (12 * octave)).MidiCps;
+	let patternCps = (pattern + (12 * octave)).midiCps;
 	let sq = Sequencer(patternCps, tr);
 	let pwm = SinOsc(pwmRate, Rand(0, 2.pi)) * 0.4 + 0.5;
 	let cf = SinOsc(fltRate, Rand(0, 2.pi)) * 1400 + 2000;

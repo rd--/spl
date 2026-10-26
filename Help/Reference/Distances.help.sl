@@ -35,7 +35,7 @@ let c = [-45, 45, 135, -135].collect { :each |
 let g = 0.5 / Distances(x, y, 0, c);
 let z = Hpf(
 	PinkNoise(),
-	([1 .. 4] * 12 + 36).MidiCps
+	([1 .. 4] * 12 + 36).midiCps
 );
 (z * g).Splay
 ```

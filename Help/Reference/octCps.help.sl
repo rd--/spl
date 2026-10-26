@@ -1,34 +1,34 @@
-# OctCps
+# octCps
 
-- _OctCps(aNumber)_
+- _octCps(n)_
 
-Convert decimal octaves to cycles per second.
-Inverse of `CpsOct`.
+Convert decimal octaves _n_ to cycles per second.
+Inverse of `cpsOct`.
 
 Decimal octaves are a linear pitch space.
 _C4_ is _4_, _A4_ is _4 + 9/12_.
 
 ```
->>> (4 + (9 / 12)).OctCps
+>>> (4 + (9 / 12)).octCps
 440
 ```
 
 Linear frequency sweep:
 
 ```
-Saw(Line(2, 9, 10).OctCps) * 0.1
+Saw(Line(2, 9, 10).octCps) * 0.1
 ```
 
 Evaluate symbolically:
 
 ```
->> OctCps(`x`)
+>> octCps(`x`)
 (* 440 (^ 2 (- x 4.75)))
 ```
 
 * * *
 
-See also: CpsOct, MidiCps
+See also: cpsOct, midiCps
 
 Guides: Pitch Functions
 

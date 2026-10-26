@@ -15,7 +15,7 @@ let y = MouseY([700, 1300], [2000, 100], 1, 0.2);
 Formlet(s, y, 0.005, x)
 
 /* Formlet ; modulate Formant frequency */
-Formlet(Blip(MulAdd(SinOsc(5, 0), 20, 300), 1000) * 0.1, XLine(1500, 700, 8), 0.005, 0.04)
+Formlet(Blip(*+(SinOsc(5, 0), 20, 300), 1000) * 0.1, XLine(1500, 700, 8), 0.005, 0.04)
 
 /* Formlet ; noise control */
 let sig = Blip(SinOsc(5, 0) * 20 + 300, 1000) * 0.1;

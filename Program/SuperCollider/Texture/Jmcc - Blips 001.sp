@@ -10,7 +10,7 @@ let blipProc = {
 		let z = EqPan(
 			blipProc() * blipProc(),
 			Line(Rand(-1, 1), Rand(-1, 1), 4)
-		).Distort * 0.3;
+		).distort * 0.3;
 		6.timesRepeat {
 			z := AllpassN(z, 0.05, { Rand(0, 0.05) } ! 2, 4)
 		};

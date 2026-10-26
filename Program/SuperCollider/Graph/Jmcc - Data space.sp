@@ -2,7 +2,7 @@
 { :tr |
 	let dt = TRand(0, 0.25, tr) + 0.1;
 	let osc = { :n :m |
-		let e = MulAdd(
+		let e = *+(
 			LfPulse(TRand(0, m, tr), 0, TRand(0, 1, tr)),
 			TRand(0, 8000, tr),
 			TRand(0, 2000, tr)

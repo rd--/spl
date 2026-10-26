@@ -38,7 +38,7 @@ Mouse controls decay:
 let x = MouseX(0.99, 1.00001, 0, 0.1);
 let peak = PeakFollower(
 	Dust(20) * Line(0, 1, 4),
-	x.Min(1)
+	x.min(1)
 );
 SinOsc(peak * 1500 + 200, 0) * 0.1
 ```
@@ -46,7 +46,7 @@ SinOsc(peak * 1500 + 200, 0) * 0.1
 Follow a sine lfo, decay controlled by mouse:
 
 ```
-let decay = MouseX(0, 1.1, 0, 0.1).Min(1);
+let decay = MouseX(0, 1.1, 0, 0.1).min(1);
 let peak = PeakFollower(
 	SinOsc(0.2, 0),
 	decay

@@ -8,7 +8,7 @@
 		}
 	}
 
-	arcCsc { :self |
+	[arcCsc, arcCosecant] { :self |
 		self.isZero.if {
 			Infinity
 		} {
@@ -16,7 +16,7 @@
 		}
 	}
 
-	arcSec { :self |
+	[arcSec, arcSecant] { :self |
 		self.isZero.if {
 			Infinity
 		} {
@@ -128,11 +128,11 @@
 		}
 	}
 
-	arcCsc { :z |
+	[arcCsc, arcCosecant] { :z |
 		-1I * ((1 - (1 / z.square)).sqrt + (1I / z)).log
 	}
 
-	arcSec { :z |
+	[arcSec, arcSecant] { :z |
 		-1I * (((1 - z.square).sqrt + 1).log - z.log)
 	}
 
@@ -258,11 +258,11 @@
 		self.collect(arcCot/1)
 	}
 
-	arcCsc { :self |
+	[arcCsc, arcCosecant] { :self |
 		self.collect(arcCsc/1)
 	}
 
-	arcSec { :self |
+	[arcSec, arcSecant] { :self |
 		self.collect(arcSec/1)
 	}
 
@@ -324,6 +324,10 @@
 
 	arcTan { :self :operand |
 		operand.adaptToCollectionAndApply(self, arcTan/2)
+	}
+
+	atan2 { :self :operand |
+		operand.adaptToCollectionAndApply(self, atan2/2)
 	}
 
 }

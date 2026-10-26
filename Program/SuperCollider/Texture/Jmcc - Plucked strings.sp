@@ -10,7 +10,7 @@
 		[s0, s1, s2].atRandom
 	};
 	{
-		let dt = 1 / Rand(60, 90).Floor.MidiCps;
+		let dt = 1 / Rand(60, 90).floor.midiCps;
 		let t = Decay(i(), 0.1) * PinkNoise() * 0.1;
 		EqPan(CombL(t, dt, dt, 4), Rand(-1, 1))
 	} !+ 5

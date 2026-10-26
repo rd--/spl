@@ -10,7 +10,7 @@ let z = { :tr |
 	let t = [
 		LfPulse(f, TRand(0.1, 0.9, tr), 0),
 		0.002,
-		LfNoise2(TRand(0, 8, tr)).Max(0)
+		LfNoise2(TRand(0, 8, tr)).max(0)
 	].product;
 	{
 		{

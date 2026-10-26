@@ -54,34 +54,29 @@ Texture:
 		LfSaw(
 			[21000 21001],
 			0
-		) * MulAdd(
+		) * (
 			LfPulse(
 				ExpRand(0.1, 1),
 				0,
 				0.3
-			),
-			0.2,
-			0.02
+			) * 0.2 + 0.02
 		) * LfPulse(
 			z,
 			0,
 			MouseY(0.01, 0.99, 0, 0.2)
 		),
-		z * MulAdd(
+		z * (
 			LfPulse(
 				ExpRand(0.1, 12),
 				0,
 				0.4
-			),
-			0.2,
-			0.2
-		) + Times(
+			) * 0.2 + 0.2
+		) + (
 			LfPulse(
 				ExpRand(0.1, 12),
 				0,
 				0.7
-			),
-			0.2
+			) * 0.2
 		),
 		0.1
 	)

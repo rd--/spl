@@ -17,11 +17,11 @@ let spread = 1;
 let metronome = Ringz(trig, 6000, 0.01) * 0.03;
 let pulses = Rcd(trig, rotate, reset, 3, spread, 0, 0, 0, 0);
 let out = Ringz(pulses, freqs, decays) * 0.05;
-Splay2(out * 0.7).Tanh + metronome
+Splay2(out * 0.7).tanh + metronome
 
 /* Rcd ; using 'reset' */
 let clock = LfPulse(8, 0, 0.001);
-let freqs = ([0 .. 7] * 4 + 50).MidiCps;
+let freqs = ([0 .. 7] * 4 + 50).midiCps;
 let rotate = 4;
 let reset = CoinGate(0.05, clock);
 let pulses = Rcd(clock, rotate, reset, 0, 0, 0, 0, 0, 0);
@@ -50,7 +50,7 @@ let out = Ringz(pulses, freqs, decays) * 0.05;
 Splay2(out)
 
 /* Rcd ; gates */
-let freqs = ([0 .. 7] * 5 + 50).MidiCps;
+let freqs = ([0 .. 7] * 5 + 50).midiCps;
 let amps = [10 5 3 3 3 2 2 2] / 10;
 let trig = LfPulse(7, 0, 0.01);
 let rotate = -2;

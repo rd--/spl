@@ -1,17 +1,16 @@
 /* Birdies (Jmcc) #6 */
 {
-	let p1 = MulAdd(
-		LfPulse(0.4 + Rand(0, 1), 0, Rand(0, 0.8) + 0.1),
+	let p1 = LfPulse(
+		0.4 + Rand(0, 1),
+		0,
+		Rand(0, 0.8) + 0.1
+	).*+(
 		Rand(4, 7),
 		2
 	);
-	let p2 = Times(
-		LfPulse(0.4 + Rand(0, 1), 0, Rand(0, 0.8) + 0.1),
-		Rand(4, 7)
-	);
+	let p2 = LfPulse(0.4 + Rand(0, 1), 0, Rand(0, 0.8) + 0.1) * Rand(4, 7);
 	let p3 = LfPulse(0.2 + Rand(0, 0.5), 0, 0.4);
-	let sw = MulAdd(
-		LfSaw(p1 + p2, 0),
+	let sw = LfSaw(p1 + p2, 0).*(
 		(1000 + Rand(0, 800)).-,
 		4000 + Rand(-1200, 1200)
 	);

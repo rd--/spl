@@ -5,7 +5,7 @@
 	let p = [];
 	let q = [];
 	n.timesRepeat {
-		let freq = IRand(24, 84).MidiCps;
+		let freq = IRand(24, 84).midiCps;
 		p.add!(freq);
 		{ p.add!(freq + Rand(-d, d)) } ! 2;
 		{ q.add!(freq + Rand(-d, d)) } ! 3

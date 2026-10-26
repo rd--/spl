@@ -1,12 +1,15 @@
 # wrap
 
-- _wrap(x, ⌊, ⌈)_
+- _wrap(x, ⌊=-1, ⌈=1)_
 
 Wrap _x_ so that it lies, inclusively, between ⌊ and ⌈.
 
 ```
->>> 2.wrap(-1, 1)
-0
+>>> 1.5.wrap(-1, 1)
+-0.5
+
+>>> -1.5.wrap
+0.5
 ```
 
 Threads elementwise over lists:
@@ -14,12 +17,15 @@ Threads elementwise over lists:
 ```
 >>> [-2 -1 0 1 2].wrap(-1, 1)
 [0 -1 0 1 0]
+
+>>> [-1.5 .. 1.5; 0.5].wra
+[0.5 -1 -0.5 0 0.5 1 -0.5]
 ```
 
 Within the boundaries equivalent to `identity`:
 
 ```
->>> [-1 0 1].wrap(-1, 1)
+>>> [-1 0 1].wrap
 [-1 0 1]
 ```
 
@@ -42,6 +48,29 @@ Wrap a real number between two values:
 [0.5 0.6 0.3 0.4 0.5 0.6 0.7 0.4 0.5]
 ```
 
+Wrap a (-0.2, 0.2) sine tone to (-0.15, 0.15):
+
+```
+(SinOsc(440, 0) * 0.2)
+.wrap(-0.15, 0.15)
+```
+
+Wrap frequency input:
+
+```
+let z = SinOsc(
+	1 / 11,
+	0
+).LinLin(-1, 1, 100, 200);
+SinOsc(
+	z.wrap(
+		[110, 130],
+		[190, 170]
+	),
+	0
+) * 0.1
+```
+
 Plot a sawtooth wave formed by wrapping a line:
 
 ~~~spl svg=A
@@ -57,5 +86,11 @@ Plot a sawtooth wave formed by wrapping a line:
 See also: atFold, atWrap, fold, foldIndex, wrapExclusive, wrapIndex
 
 Guides: Indexing Functions
+
+References:
+_Max_
+[1](https://docs.cycling74.com/reference/gen_common_wrap/),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Wrap.html)
 
 Categories: Testing

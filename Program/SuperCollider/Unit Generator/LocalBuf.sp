@@ -8,5 +8,5 @@ EqPan2(
 
 /* LocalBuf ; matrix form */
 let buf = LocalBuf[48 60 69; 62 64 65];
-let freq = BufRd(1, buf, MouseX(0, 3, 0, 0.2), 1, 1).MidiCps;
+let freq = BufRd(1, buf, MouseX(0, 3, 0, 0.2), 1, 1).midiCps;
 SinOsc(freq, 0) * 0.1

@@ -3,7 +3,7 @@ let tr = TDuty(Dseq(Infinity, [1 1 2 1 1 1 2 3 1 1 1 1 2 3 4] * 0.175), 0, 1);
 let freq = [
 	Sequencer([60 62 63 58 48 55], tr),
 	Sequencer([63 60 48 62 55 58], tr)
-].MidiCps;
+].midiCps;
 let amp = TRand(0.05, 0.65, tr); /* pulse amplitude (0 - 1, def = 0.5) */
 let gate = 1; /* synth release */
 let pos = TRand(0.05, 0.25, tr); /* pluck position (0 - 1, def = 0.14) */

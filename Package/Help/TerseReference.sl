@@ -11,7 +11,7 @@
 		.do { :fileName |
 			let fileText = fileName.readTextFile;
 			let programTexts = fileText.paragraphs.takeWhile { :each |
-				each.beginsWith('#').not
+				each.includesSubstring('Notes').not
 			};
 			[fileName, programTexts.size].printLine;
 			programTexts.do { :each |

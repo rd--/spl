@@ -20,7 +20,7 @@ so that is does not overlap by very much with the next sound:
 	Release(
 		Pan2(
 			SinOsc(
-				IRand(48, 72).MidiCps,
+				IRand(48, 72).midiCps,
 				0
 			),
 			Rand(-1, 1),

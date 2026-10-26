@@ -9,7 +9,7 @@ let exc = [1 .. n].collect { :i |
 	let excCh = Demand(excTrig, 0, Dbrown(Infinity, 0, n - 1, 1));
 	let excFr = MouseY(10, 10000, 0, 0.2);
 	let excSg = LfNoise2(excFr) * excEnv.asEnvGen(excTrig) * Rand(0, 0.1);
-	excSg * ((excCh - i).Abs < 1)
+	excSg * ((excCh - i).abs < 1)
 };
 let del = [1 .. n].collect { :i |
 	DelayTap(buf[i], tapTimes[i]) /* Tap the delay lines */

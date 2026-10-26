@@ -2,7 +2,7 @@
 let k = 0.13;
 let l = { :a :b |
 	k := k + k;
-	LatoocarfianN(k, 1, 3, k, 0.5, 0.5, 0.5).Tanh.LinLin(-1, 1, a, b)
+	LatoocarfianN(k, 1, 3, k, 0.5, 0.5, 0.5).tanh.LinLin(-1, 1, a, b)
 };
 let d = {
 	Decay2(
@@ -21,7 +21,7 @@ Normalizer(
 					l(21, 4),
 					l(6, 17),
 					l(0.003, 1 / 5),
-					d().Clip(0, 0.05),
+					d().clip(0, 0.05),
 					0.1,
 					0,
 					0

@@ -2,7 +2,8 @@
 
 - _ceiling(x)_
 
-Answer the integer nearest _x_ toward ∞, positive infinity.
+Answer the integer nearest _x_ toward +∞,
+positive infinity.
 
 At integers:
 
@@ -155,6 +156,13 @@ OEIS [A011975](https://oeis.org/A011975):
 [1 3 4 6 7 11 12 17 19 24 26 33 35 43 46]
 ```
 
+Stepped line:
+
+```
+let m = XLine(48, 57, 7);
+SinOsc([m, m.ceiling].midiCps, 0) * 0.1
+```
+
 Ceiling is a staircase function:
 
 ~~~spl svg=A
@@ -286,6 +294,8 @@ Guides: Rounding Functions
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Ceiling),
+_Csound_
+[1](https://csound.com/docs/manual/ceil.html),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:ceiling),
 _J_

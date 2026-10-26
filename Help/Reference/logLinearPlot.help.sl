@@ -68,8 +68,8 @@ Plot multiple functions:
 ~~~spl svg=G
 (1E-1 -- 1E3).logLinearPlot(
 	[
-		{ :x | 10 ^ x }.clip([0 10]),
-		{ :x | x }.clip([0 10]),
+		{ :x | 10 ^ x }.clip(0, 10),
+		{ :x | x }.clip(0, 10),
 		{ :x | x.log10 }
 	]
 )

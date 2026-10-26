@@ -9,7 +9,7 @@ Voicer(1, 16) { :e |
 	let tbl = seq.LocalBuf;
 	let mnn = e.x * 88 + 21;
 	let mnn0 = Latch(mnn, e.w);
-	let rt = ((mnn - mnn0) * e.y).MidiRatio;
+	let rt = ((mnn - mnn0) * e.y).midiRatio;
 	let [idx, rtMul] = SamplerIndex(tbl, BufFrames(tbl), mnn0);
 	let b1 = b0 + idx;
 	let sig = PlayBuf(2, b1, BufRateScale(b1) * rtMul * rt, e.w, 0, 0, 0);

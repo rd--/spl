@@ -12,7 +12,7 @@ The below is only zero only when _input_ is zero:
 
 ```
 let n = Sum3Rand(SinOsc(1 / 2, 0)) * 0.1;
-n.Abs - n
+n.abs - n
 ```
 
 * * *

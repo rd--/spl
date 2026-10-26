@@ -4,6 +4,7 @@
 
 Answers the exponential of _x_,
 that is _e^x_.
+`e` is the base of natural logarithms.
 
 ```
 >>> 1.5.exp
@@ -259,6 +260,8 @@ Guides: Mathematical Functions
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Exponential),
+_Csound_
+[1](https://csound.com/docs/manual/exp.html),
 _Dlmf_
 [1](https://dlmf.nist.gov/4.2#iii),
 _J_

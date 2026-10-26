@@ -25,6 +25,14 @@ Threads over lists:
 [-3 0 3]
 ```
 
+Signed square root of sine oscillator:
+
+```
+let a = SinOsc(440, 0) * 0.1;
+let b = a.signedSqrt * 0.1;
+[a b]
+```
+
 Ploto over subset of reals:
 
 ~~~spl svg=A

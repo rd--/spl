@@ -15,7 +15,7 @@ Same as `OnePole`:
 let x = MouseX(-1, 1, 0, 0.2);
 FirstOrderFilterSection(
 	LfSaw(200, 0) * 0.1,
-	1 - x.Abs,
+	1 - x.abs,
 	0,
 	x
 )
@@ -27,7 +27,7 @@ Same as `OneZero`:
 let x = MouseX(-1, 1, 0, 0.2);
 FirstOrderFilterSection(
 	LfSaw(200, 0) * 0.1,
-	1 - x.Abs,
+	1 - x.abs,
 	x,
 	0
 )

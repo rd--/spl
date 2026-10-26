@@ -12,7 +12,7 @@ The below is only zero when _input_ is zero:
 
 ```
 let n = BiLinRand(SinOsc(1 / 2, 0)) * 0.1;
-n.Abs - n
+n.abs - n
 ```
 
 Equivalent to:

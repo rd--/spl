@@ -3,7 +3,7 @@ let n = 11;
 let z = {
 	let freq = Rand(50, 560.3);
 	let numCps = Rand(2, 20);
-	let kNum = MulAdd(SinOsc(ExpRand(0.02, 0.2), 0), numCps / 2, numCps / 2);
+	let kNum = SinOsc(ExpRand(0.02, 0.2), 0).*+(numCps / 2, numCps / 2);
 	let osc = Gendy1(
 		Rand(0, 6),
 		Rand(0, 6),
@@ -54,7 +54,7 @@ SinOsc(SinOsc(modFreq,0) * modFreq * modIndex + 440, 0) * 0.25
 
 /* tutorial 2.4 ; fm */
 let carFreq = 440;
-let harmonicity = MouseX(0, 10, 0, 0.2).Round(1);
+let harmonicity = MouseX(0, 10, 0, 0.2).round(1);
 let modIndex = MouseY(0.0, 10.0, 0, 0.2);
 let modFreq = carFreq * harmonicity;
 SinOsc(carFreq + (SinOsc(modFreq, 0) * modFreq * modIndex), 0.0) * 0.1
@@ -103,13 +103,13 @@ let decayTimes = [1 .. numPartials].collect { :i |
 SinOsc(Stepper(Impulse(10, 0), 0, 1, 10, 1, 1) * 100, 0) * 0.1
 
 /* tutorial 3.4 */
-Saw(Select(Stepper(Impulse(4, 0.1), 0, 0, 7, 1, 0), [72, 63, 67, 72, 55, 62, 63, 60].MidiCps)) * 0.1
+Saw(Select(Stepper(Impulse(4, 0.1), 0, 0, 7, 1, 0), [72, 63, 67, 72, 55, 62, 63, 60].midiCps)) * 0.1
 
 /* tutorial 3.4 */
 Saw(
 	Select(
 		Stepper(Impulse(MouseX(1, 40, 0, 0.2), 0.1), 0, 0, 7, 1, 0),
-		[72 63 67 72 55 62 63 60].MidiCps
+		[72 63 67 72 55 62 63 60].midiCps
 	)
 ) * 0.1
 
@@ -126,7 +126,7 @@ SinOsc(400 * (1 + EnvGen(Impulse(2.5, 0), 1, 0, 1, 0, env)), 0) * 0.1
 
 /* tutorial 3.4 ; ? */
 let env = Env([63 63 60 55 60], [0.125], [0], nil, nil, 0);
-SinOsc(EnvGen(Impulse(2, 0), 1, 0, 1, 0, env).MidiCps, 0) * 0.1
+SinOsc(EnvGen(Impulse(2, 0), 1, 0, 1, 0, env).midiCps, 0) * 0.1
 
 /* tutorial 3.4 */
 let trig = Impulse(3, 0);
@@ -146,4 +146,4 @@ Saw(Lag(Stepper(Impulse(10, 0), 0, 1, 10, 1, 1) * 200, MouseX(0.0, 0.2, 0, 0.2))
 Ringz(Saw(LinExp(Lag(LfNoise0(5), 0.1), -1, 1, 100, 2000)) * 0.2, 1000, 0.01) * 0.1
 
 /* tutorial 3.4 */
-Ringz(Saw(LinExp(Lag(LfNoise0(5), MouseX(0.01, 0.3, 0, 0.2)), -1, 1, 100, 2000).Round(20)) * 0.2, 1000, 0.01) * 0.1
+Ringz(Saw(LinExp(Lag(LfNoise0(5), MouseX(0.01, 0.3, 0, 0.2)), -1, 1, 100, 2000).round(20)) * 0.2, 1000, 0.01) * 0.1

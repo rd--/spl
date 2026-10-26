@@ -24,7 +24,7 @@ let z = { :tr |
 			tr
 		)
 	) * 0.3
-}.OverlapTexture(2, 1, 12).Mix.Distort;
+}.OverlapTexture(2, 1, 12).Mix.distort;
 6.timesRepeat {
 	z := AllpassN(z, 0.05, { Rand(0, 0.05) } ! 2, 4)
 };

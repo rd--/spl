@@ -23,7 +23,7 @@ Sum randomly generated oscillators:
 		let f = Choose(
 			tr,
 			[48 .. 72]
-		).MidiCps;
+		).midiCps;
 		let ff = f * (
 			SinOsc(
 				TExpRand(4, 6, tr),

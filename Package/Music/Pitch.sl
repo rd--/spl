@@ -18,19 +18,19 @@
 
 +@Number {
 
-	CpsCv { :f :f0 |
+	cpsCv { :f :f0 |
 		(f / f0).log2
 	}
 
-	CpsCv { :f |
+	cpsCv { :f |
 		(f / 261.6256).log2
 	}
 
-	CvCps { :v :f0 |
+	cvCps { :v :f0 |
 		f0 * (2 ^ v)
 	}
 
-	CvCps { :v |
+	cvCps { :v |
 		261.6256 * (2 ^ v)
 	}
 
@@ -132,21 +132,21 @@
 
 +@Collect {
 
-	CpsCv { :self |
-		self.collect(CpsCv/1)
+	cpsCv { :self |
+		self.collect(cpsCv/1)
 	}
 
-	CpsCv { :self :f0 |
+	cpsCv { :self :f0 |
 		self.collect { :f |
 			(f / f0).log2
 		}
 	}
 
-	CvCps { :self |
-		self.collect(CvCps/1)
+	cvCps { :self |
+		self.collect(cvCps/1)
 	}
 
-	CvCps { :self :f0 |
+	cvCps { :self :f0 |
 		self.collect { :v |
 			f0 * (2 ^ v)
 		}

@@ -12,7 +12,7 @@ let n = 8; /* number of simultaneous events */
 {
 	EqPan2(
 		(
-			SinOsc(SinOsc(20 + Rand(0, 30), 0).MulAdd(100 + Rand(0, 300), 500 + LinRand(0, 2000, 0)), 0)
+			SinOsc(SinOsc(20 + Rand(0, 30), 0).*+(100 + Rand(0, 300), 500 + LinRand(0, 2000, 0)), 0)
 			*
 			LfPulse(3 / (1 + Rand(0, 8)), 0, 0.2 + Rand(0, 0.3)) * 0.04
 		),
@@ -23,7 +23,7 @@ let n = 8; /* number of simultaneous events */
 /********** Alien froggies ; Jmcc **********/
 let rate = 11;
 { :rep |
-	rate := (rate * (0.2.BiLinRand.Exp)).Fold(1, 30);
+	rate := (rate * (0.2.BiLinRand.exp)).fold(1, 30);
 	Formant(rate, ExpRand(200, 3000), Rand(0, 9) * rate + rate) * 0.05
 }.overlapTextureProgram(0.5, 0.25, 5)
 
@@ -54,7 +54,7 @@ let env = EnvLinen(2, 5, 2, 0.02, -4);
 	Mix(
 		EqPan2(
 			/* just minor seventh chord */
-			SinOsc(f * [1, 1.2, 1.5, 1.8], 0) * Max(0, LfNoise2([r, r, r, r]) * 0.1),
+			SinOsc(f * [1, 1.2, 1.5, 1.8], 0) * max(0, LfNoise2([r, r, r, r]) * 0.1),
 			{ Rand(-1, 1) } ! 4
 		)
 	).CombN(0.1, 0.1, 1)
@@ -66,7 +66,7 @@ let env = EnvLinen(2, 5, 2, 0.02, -4);
 		RingzBank( /* resonant filter bank simulates resonant modes of bouncing objects */
 			Decay( /* decays excite filter bank, each impulse triggers a decay */
 				Impulse( /* impulses trigger decay envelope */
-					XLine(5 + Rand(-2, 2), 600, 4), 0).Times( /* accellerating frequency */
+					XLine(5 + Rand(-2, 2), 600, 4), 0).*( /* accellerating frequency */
 						XLine(0.09, 0.000009, 4)), /* decaying impulse amplitude */
 				0.001 /* decay time - very short */
 			),
@@ -165,7 +165,7 @@ let t = 4;
 let t3 = t / 3;
 let note = 80 + 40.atRandom;
 {
-	let delay = 1 / note.MidiCps;
+	let delay = 1 / note.midiCps;
 	note := (note + 15.atRandom - 7).fold(80, 120);
 	EqPan2(CombL(Lpz2(WhiteNoise() * 0.01), 0.01, delay, -0.4), Rand(-1, 1))
 }.overlapTextureProgram(t3, t3, n)
@@ -178,7 +178,7 @@ let n = 4; /* number of simultaneous events */
 	let a = [a0, a1];
 	let b = Rand(0, 2000);
 	let c = [a0 + Rand(-1, 1), a1 + Rand(-1, 1)];
-	SinOsc(SinOsc(a, 0).MulAdd(Rand(0, 1.0) * b, b), 0).Times(SinOsc(c, 0).MulAdd(0.05, 0.05))
+	SinOsc(SinOsc(a, 0).*+(Rand(0, 1.0) * b, b), 0).*(SinOsc(c, 0).*+(0.05, 0.05))
 }.overlapTextureProgram(8, 4, n)
 
 /********** Birdies ; Jmcc **********/
@@ -188,18 +188,18 @@ let n = 4; /* number of simultaneous events */
 		SinOsc(
 			Lag(
 				LfSaw(
-					LfPulse(0.4 + Rand(0, 1), 0, Rand(0, 0.8) + 0.1).MulAdd(Rand(0, 3) + 4, 2)
+					LfPulse(0.4 + Rand(0, 1), 0, Rand(0, 0.8) + 0.1).*+(Rand(0, 3) + 4, 2)
 					+
-					LfPulse(0.4 + Rand(0, 1), 0, Rand(0, 0.8) + 0.1).Times(Rand(0, 3) + 4),
+					LfPulse(0.4 + Rand(0, 1), 0, Rand(0, 0.8) + 0.1).*(Rand(0, 3) + 4),
 					0
-				).MulAdd(
+				).*+(
 					(1000 + Rand(0, 800)).-,
 					4000 + Rand(-1200, 1200)
 				),
 				0.05
 			),
 			0
-		).Times(
+		).*(
 			Lag(LfPulse(Rand(0, 0.5) + 0.2, 0, 0.4) * 0.02, 0.3)
 		),
 		Rand(-1, 1)
@@ -209,10 +209,10 @@ let n = 4; /* number of simultaneous events */
 /********** Birdies ; Jmcc **********/
 let n = 4; /* number of simultaneous events */
 {
-	let p1 = MulAdd(LfPulse(0.4 + Rand(0, 1), 0, Rand(0, 0.8) + 0.1), Rand(0, 3) + 4, 2);
-	let p2 = MulAdd(LfPulse(0.4 + Rand(0, 1), 0, Rand(0, 0.8) + 0.1), Rand(0, 3) + 4, 0);
-	let freq = Lag(MulAdd(LfSaw(p1 + p2, 0), (1000 + Rand(0, 800)).-, 4000 + Rand(-1200, 1200)), 0.05);
-	let amp = Lag(MulAdd(LfPulse(0.2 + Rand(0, 0.5), 0, 0.4), 0.02, 0), 0.3);
+	let p1 = *+(LfPulse(0.4 + Rand(0, 1), 0, Rand(0, 0.8) + 0.1), Rand(0, 3) + 4, 2);
+	let p2 = *+(LfPulse(0.4 + Rand(0, 1), 0, Rand(0, 0.8) + 0.1), Rand(0, 3) + 4, 0);
+	let freq = Lag(*+(LfSaw(p1 + p2, 0), (1000 + Rand(0, 800)).-, 4000 + Rand(-1200, 1200)), 0.05);
+	let amp = Lag(*+(LfPulse(0.2 + Rand(0, 0.5), 0, 0.4), 0.02, 0), 0.3);
 	EqPan2(SinOsc(freq, 0) * amp, Rand(-1, 1))
 }.overlapTextureProgram(7, 4, n)
 
@@ -227,7 +227,7 @@ let n = 4; /* number of simultaneous events */
 	let gate = Impulse(XLine(rate, [3 0.3].atRandom * rate, 12), 0);
 	3.timesRepeat {
 		let f2 = Rand(0, x);
-		ph := SinOsc([f2, f2 + Rand(-1, 1)], 0).MulAdd(y, ph)
+		ph := SinOsc([f2, f2 + Rand(-1, 1)], 0).*+(y, ph)
 	};
 	Adsr(gate, 0.001, 0.01, 0.25, 0.04, -4) * SinOsc([f1, f1 + Rand(-1, 1)], ph) * 0.1
 }.overlapTextureProgram(4, 4, n)

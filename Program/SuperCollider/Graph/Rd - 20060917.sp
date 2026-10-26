@@ -6,6 +6,6 @@ let b = LocalBuf[
 let clk = DustRange(0.2, 0.9);
 let env = Decay2(clk, 0.2, 2.5);
 let idx = Stepper(clk, 0, 0, 15, 1, 0);
-let f1 = (BufRd(1, b, idx, 1, 1) - 24).MidiCps;
+let f1 = (BufRd(1, b, idx, 1, 1) - 24).midiCps;
 let f2 = LfNoise0([1, 3]) * 1.2 + f1;
 SinOsc(f1, 0) + SinOsc(f2, 0) * env * 0.2

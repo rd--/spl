@@ -1,7 +1,9 @@
 +@Integer {
 
 	modularDistance { :i :j :m |
-		(i - j).abs.min(m - (i - j).abs)
+		let p = i % m;
+		let q = j % m;
+		(p - q).abs.min(m - (p - q).abs)
 	}
 
 }

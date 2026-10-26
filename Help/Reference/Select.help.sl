@@ -34,7 +34,7 @@ As a sequencer:
 		Saw(
 			Select(
 				LfSaw(1, 0) * cycle + cycle,
-				a.MidiCps
+				a.midiCps
 			)
 		) * 0.2
 	} ! 2

@@ -17,7 +17,7 @@ let s = [1 .. n].collect { :i |
 		Rand(0, 1)
 	).LinLin(-1, 1, 0.3, 2) * i;
 	let o3 = SinOsc(
-		(35 + (i / n * 3) + o1 + o2).MidiCps,
+		(35 + (i / n * 3) + o1 + o2).midiCps,
 		Rand(0, 1)
 	) ^ 7;
 	let e = LfNoise2(ExpRand(0.05, 2)).LinLin(-1, 1, 0, 0.1) * Line(0, 1, i * 3 / 2);

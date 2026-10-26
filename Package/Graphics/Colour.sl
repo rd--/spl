@@ -370,7 +370,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	saturate { :self |
-		self.clip([0 1])
+		self.clip(0, 1)
 	}
 
 	srgbDecode { :self |
@@ -652,7 +652,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	saturate { :self |
-		self.clip([0 1])
+		self.clip
 	}
 
 	srgbDecode { :self |

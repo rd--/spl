@@ -191,6 +191,12 @@ At `Symbol`:
 (/ 1 m)
 ```
 
+Quiet and quieter pink noise:
+
+```
+PinkNoise() / [10 25]
+```
+
 Plot equal divisions of the unit interval _(0,1)_,
 the _y_ coordinate is given by the order of the divisions:
 

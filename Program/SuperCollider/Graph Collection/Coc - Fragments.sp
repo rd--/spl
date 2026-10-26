@@ -1,5 +1,5 @@
 /* Wandering sines ; https://github.com/cianoc/supercollider_fragments */
-let f = (LfNoise1(0.5) * 600 + (LfSaw(1.5, 0) * 50 + 500)).Abs;
+let f = (LfNoise1(0.5) * 600 + (LfSaw(1.5, 0) * 50 + 500)).abs;
 let o = SinOsc(f, 0) * 0.1;
 let d = CombN(o, 3.0, [1.35, 0.7], 6);
 Pan2(o, 0, 1) + d
@@ -11,7 +11,7 @@ Pan2(o, 0, 1) + d
 
 /* Nice use of Blip */
 let t = Impulse(6, 0);
-let o = Blip(TRand(48, 72, t).MidiCps, TRand(1, 12, t)) * TRand(-0.5, 0.4, t).Max(0);
+let o = Blip(TRand(48, 72, t).midiCps, TRand(1, 12, t)) * TRand(-0.5, 0.4, t).max(0);
 let p = Pan2(o, TRand(-1.0, 1.0, t), Decay2(t, 0.1, 3) * 0.5);
 p + CombL(p, 2.0, 4 / 6, 6)
 
@@ -29,14 +29,14 @@ p + CombL(p, 2.0, 4 / 6, 6)
 /* Pretty nice but inessential ; Rand */
 [1 .. 12].collect { :i |
 	let freq = MouseX(Rand(0.1, 5), Rand(3, 20), 0, 0.2);
-	let amp = LfNoise0(MouseX(Rand(1, 6), Rand(1, 6), 0, 0.2)).Max(0);
+	let amp = LfNoise0(MouseX(Rand(1, 6), Rand(1, 6), 0, 0.2)).max(0);
 	let osc = SinOsc(SinOsc(freq, 0) * MouseY(10, 50, 0, 0.2) + Rand(200, 5000), 0) * amp;
 	Pan2(osc, Rand(-1, 1), 0.03)
 }.Mix
 
 /* Random impulses */
 {
-	let freq = 100.ExpRand(3000);
+	let freq = ExpRand(100, 3000);
 	let amp = Decay2(Dust(1 / 5), 0.1, (freq ^ -0.7) * 100);
 	Pan2(SinOsc(freq * (LfNoise1(1 / 6) * 0.4 + 1), 0) * amp, LfNoise1(1 / 8), 1)
 } !+ 15 * 0.1
@@ -107,10 +107,10 @@ let dt = [1.4, 1.1, 2, 1, 1.8, 2.9, 4, 0.3, 1, 3.6, 2.3, 1.1];
 let t = Impulse(1 / 3, 0);
 let m = { Rand(1, 3) } ! 2;
 let env = Decay2(t, 0.01 * m, 1 * m) / [1 .. 6];
-SinOsc([60 64 67 71 74 78].MidiCps, 0).Sum * env * 0.1
+SinOsc([60 64 67 71 74 78].midiCps, 0).Sum * env * 0.1
 
 /* Interesting drone */
-let freq = [40 42 43 45 47 48 41 42].MidiCps;
+let freq = [40 42 43 45 47 48 41 42].midiCps;
 let amp = LfNoise1({ Rand(0.1, 0.5) } ! 8) * 0.5 + 0.5;
 Pan2(SinOsc(freq, 0), { Rand(-1, 1) } ! 8, amp).Mix * 0.1
 
@@ -138,16 +138,16 @@ let tr = Dust(3 / 7);
 let f0 = Rand(100, 400);
 [1 .. 16].collect { :partial |
 	let env = Asr(tr, 0, 5, [0]) / partial;
-	let amp = LfNoise1(Rand(5, 12)).Max(0);
+	let amp = LfNoise1(Rand(5, 12)).max(0);
 	Pan2(SinOsc(f0 * partial, 0), Rand(-1, 1), env * amp)
 }.Mix * 0.5
 
 /* Multiple sines */
 let speeds = [1 .. 11] / 20;
-let f0 = (MouseX(0, 36, 0, 0.2).Round(7) + 24).MidiCps;
+let f0 = (MouseX(0, 36, 0, 0.2).round(7) + 24).midiCps;
 let harmonics = 16;
 [1 .. harmonics].collect { :partial |
-	Pan2(SinOsc(f0 * partial, 0), Rand(-1, 1), SinOsc(speeds.atRandom, 0).Max(0))
+	Pan2(SinOsc(f0 * partial, 0), Rand(-1, 1), SinOsc(speeds.atRandom, 0).max(0))
 }.Mix / harmonics * 0.5
 
 /* More bells */
@@ -175,8 +175,8 @@ let totalPartials = 3;
 	let freq = { Rand(1, 24) * base * Rand(1, 1.1) } ! totalPartials;
 	let amp = { Rand(0.1, 0.5) } ! 10;
 	let res = RingzBank(GreyNoise() * Rand(0.03, 0.1), freq, amp, [1]);
-	Pan2(res, LfNoise1(1), (SinOsc(10 / Rand(1, 5), 0) * 0.005).Max(0))
-} !> 8 * LfNoise1(1 / 10).Abs
+	Pan2(res, LfNoise1(1), (SinOsc(10 / Rand(1, 5), 0) * 0.005).max(0))
+} !> 8 * LfNoise1(1 / 10).abs
 
 /* Phase modulation, all three */
 {
@@ -189,7 +189,7 @@ let totalPartials = 3;
 /* Ping pong */
 let rate = 5;
 let tr = Impulse(5, 0);
-let freq = TRand([36, 60], [72, 86], tr).MidiCps;
+let freq = TRand([36, 60], [72, 86], tr).midiCps;
 let ratio = 2;
 let env = Decay2(tr, 0, 1.25 / rate);
 PmOsc(freq, freq * ratio, 3 + env * 4, 0) * env * 0.25
@@ -215,10 +215,10 @@ SinOsc(Latch(LfSaw(Line(0.1, 20, 60), 0) * 500 + 600, Impulse(10, 0)), 0) * 0.1
 /* Rise fall pad ; Event control */
 Voicer(1, 16) { :e |
 	let mnn = e.x * 24 + 48;
-	let freq = mnn.MidiCps;
+	let freq = mnn.midiCps;
 	let gate = e.w;
 	let osc1 = Saw(freq + LfTri(0.3, 0));
-	let osc2 = Saw((mnn - 0.03).MidiCps);
+	let osc2 = Saw((mnn - 0.03).midiCps);
 	let filterEnv = Adsr(gate, 1, 1.4, 0.05, 0.2, 0);
 	let ampEnv = Adsr(gate, 0.1, 0.01, 0.6, 1.5, 0) * e.z;
 	Pan2(Rlpf(osc1 + osc2, 3000 * filterEnv + freq, 1.5), e.i * 2 - 1, ampEnv)

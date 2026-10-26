@@ -45,7 +45,7 @@ $ (grep '!\[\](' ~/sw/spl/Help/Reference/* | wc -l)
 Run SuperCollider programs:
 
 ~~~spl
-'Help/Reference'.splFilePath.terseSuperColliderGraphSummary((verbose: true, pattern: '.*'))
+'Help/Reference'.splFilePath.terseSuperColliderGraphSummary((verboseLevel: 2, pattern: '.*'))
 ~~~
 
 Total => 572

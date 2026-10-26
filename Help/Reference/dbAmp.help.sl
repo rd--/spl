@@ -1,46 +1,46 @@
-# DbAmp
+# dbAmp
 
-- _DbAmp(x)_
+- _dbAmp(x)_
 
 Convert decibels to linear amplitude.
 Alias for `dbAmp`.
 
 ```
->>> DbAmp(-20)
+>>> dbAmp(-20)
 0.1
 
->>> DbAmp(12.0412)
+>>> dbAmp(12.0412)
 4
 ```
 
 Threads over lists:
 
 ```
->>> [-120 -60 -40 -20 0 20].DbAmp
+>>> [-120 -60 -40 -20 0 20].dbAmp
 [0.000001 0.001 0.01 0.1 1 10]
 
->>> [-12.041 -6.02 0 6.02 12.041].DbAmp
+>>> [-12.041 -6.02 0 6.02 12.041].dbAmp
 [0.25 0.5 1 2 4]
 ```
 
 Plot curve:
 
 ~~~spl svg=A
-(-120 -- 0).functionPlot(DbAmp/1)
+(-120 -- 0).functionPlot(dbAmp/1)
 ~~~
 
-![](Help/Image/DbAmp-A.svg)
+![](Help/Image/dbAmp-A.svg)
 
 Fixed amplitude:
 
 ```
-SinOsc(440, 0) * -24.DbAmp
+SinOsc(440, 0) * -24.dbAmp
 ```
 
 Modulate amplitude:
 
 ```
-let mul = Line(-12, -40, 10).DbAmp;
+let mul = Line(-12, -40, 10).dbAmp;
 SinOsc(800, 0) * mul
 ```
 

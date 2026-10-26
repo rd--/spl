@@ -15,7 +15,7 @@ octaves.collect { :m0 |
 	let du = 90;
 	let o = [1 .. 4].collect { :index |
 		EqPan2(
-			SinOsc(Line(m1[index], m2[index], du).MidiCps, 0),
+			SinOsc(Line(m1[index], m2[index], du).midiCps, 0),
 			Line(Rand(-1, 1), Rand(-1, 1), du)
 		) * Line(Rand(0, 0.1), Rand(0, 0.1), du)
 	};

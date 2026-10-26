@@ -31,10 +31,10 @@ Fm7(ctlMatrix, modMatrix).first(2) * 0.1
 	let x = MouseX(0, 3, 0, 0.2);
 	let modMatrix = {
 		{
-			LfNoise1(0.5).Max(0)
+			LfNoise1(0.5).max(0)
 		} ! 6 * x
 	} ! 6;
-	Fm7Matrix(ctlMatrix, modMatrix) * -18.DbAmp
+	Fm7Matrix(ctlMatrix, modMatrix) * -18.dbAmp
 } !> 3
 
 /* Fm7 ; an algorithmically generated graph courtesy f0 ; note one-indexing */
@@ -123,6 +123,6 @@ let yMatrix = [
 let ctlMatrix = xMatrix.collect { :p | p.collect { :q | SinOsc(q[1], q[2]) * q[3] + q[4] } };
 let modMatrix = yMatrix.collect { :p | p.collect { :q | Pulse(q[1], q[2]) * q[3] + q[4] } };
 let o = Fm7Matrix(ctlMatrix, modMatrix);
-let g3 = LinLin(LfSaw(0.1, 0), -1, 1, 0, -12.DbAmp);
-let g6 = -3.DbAmp;
+let g3 = LinLin(LfSaw(0.1, 0), -1, 1, 0, -12.dbAmp);
+let g6 = -3.dbAmp;
 [o[1] + (o[3] * g3) + o[5], o[2] + o[4] + o[6] * g6]

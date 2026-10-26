@@ -23,15 +23,11 @@ Use input amplitude to control SinOsc frequency, _use headphones to prevent feed
 
 ```
 SinOsc(
-	MulAdd(
-		Amplitude(
-			AudioIn(1),
-			0.01,
-			0.01
-		),
-		1200,
-		400
-	),
+	Amplitude(
+		AudioIn(1),
+		0.01,
+		0.01
+	) * 1200 + 400,
 	0
 ) * 0.2
 ```

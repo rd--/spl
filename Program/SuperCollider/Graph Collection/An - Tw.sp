@@ -1,7 +1,7 @@
 /* https://twitter.com/alln4tural/status/99846300173991936 ; graph rewrite ; packet size */
 let k = 64;
 { :tr |
-	let h = TChoose(tr, [33 38 40]).MidiCps * (2 ^ TChoose(tr, [0 .. 5]));
+	let h = TChoose(tr, [33 38 40]).midiCps * (2 ^ TChoose(tr, [0 .. 5]));
 	{
 		SinOsc(TExpRand(h - (h / 256), h + (h / 256), tr), 0) * 0.025
 	} !^ k
@@ -10,7 +10,7 @@ let k = 64;
 /* https://twitter.com/alln4tural/status/99846300173991936 ; graph rewrite ; packet size */
 let k = 40;
 { :tr |
-	let h = TChoose(tr, [33 38 40]).MidiCps * (2 ^ TChoose(tr, [0 .. 4]));
+	let h = TChoose(tr, [33 38 40]).midiCps * (2 ^ TChoose(tr, [0 .. 4]));
 	{
 		SinOsc(TExpRand(h - (h / 64), h + (h / 64), tr), 0) * 0.025
 	} !^ 8

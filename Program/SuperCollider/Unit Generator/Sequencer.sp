@@ -1,9 +1,9 @@
 /* Sequencer ; Audio rate */
-let freq = Sequencer([60 62 65 69], Impulse(2, 0)).MidiCps;
+let freq = Sequencer([60 62 65 69], Impulse(2, 0)).midiCps;
 SinOsc(freq, 0) * 0.1
 
 /* Sequencer ; Control rate */
-let freq = Sequencer([60 62 65 69], Impulse(2, 0).kr).MidiCps;
+let freq = Sequencer([60 62 65 69], Impulse(2, 0).kr).midiCps;
 SinOsc(freq, 0) * 0.1
 
 /* Sequencer ; Jmcc */
@@ -14,11 +14,11 @@ let x = Rlpf(
 	GreyNoise([0.4] # 2, 0) * Decay2(trig1, 0.005, 0.7),
 	MouseX(200, 8000, 1, 0.2),
 	0.2
-).Distort;
+).distort;
 let trig2 = ImpulseSequencer([0.4 0 0.1 0.1 0.4 0.1 0.1 0.1], clock);
-let freq = (Sequencer([33 33 35 36 45 47 38 40 33 33 35 36 47 48 50 52], clock) + root).MidiCps;
+let freq = (Sequencer([33 33 35 36 45 47 38 40 33 33 35 36 47 48 50 52], clock) + root).midiCps;
 let z = VarSaw(freq * [1, 1.505], 0, MouseY(0, 1, 0, 0.2)) * Decay2(trig2, 0.005, 1.4);
-CombN(x + z * 0.5, 0.26, 0.26, 4).SoftClip
+CombN(x + z * 0.5, 0.26, 0.26, 4).softClip
 
 /* Sequencer ; Jmcc */
 let p = Drand(Infinity, [
@@ -36,7 +36,7 @@ let r = Lpf(
 		BrownNoise([1] # 2, 0) * Decay2(trig1, 0.005, 0.7) * 3,
 		MouseX(200, 300, 1, 0.2),
 		0.4
-	).Distort,
+	).distort,
 	800
 );
 let trig2 = ImpulseSequencer([0.4 0.1 0.2 0.1], clock);
@@ -44,24 +44,24 @@ let x = Rlpf(
 	GreyNoise([0.4] # 2, 0) * Decay2(trig2, 0.005, 0.3),
 	MouseX(200, 8000, 1, 0.2),
 	0.2
-).Distort;
+).distort;
 let scale = LocalBuf[0 2 3 5 7 8 10];
 let trig3 = ImpulseSequencer([0.4 0 0.1 0.1 0.4 0.1 0.1 0.1] * 1.5, clock);
-let freq = (DegreeToKey(scale, Demand(clock, 0, p), 12) - 12 + root).MidiCps;
+let freq = (DegreeToKey(scale, Demand(clock, 0, p), 12) - 12 + root).midiCps;
 let z = Rlpf(
 	VarSaw(freq * [1, 1.505], 0, MouseY(0, 1, 0, 0.2)) * Decay2(trig3, 0.005, 0.8),
 	MouseX(200, 8000, 1, 0.2),
 	0.2
-).Distort;
+).distort;
 let trig4 = ImpulseSequencer(
 	[1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1] * 0.2,
 	clock
 );
-let y = SinOsc((root + 24).MidiCps, 0) * Decay2(trig4, 0.005, 0.2);
+let y = SinOsc((root + 24).midiCps, 0) * Decay2(trig4, 0.005, 0.2);
 let trig5 = ImpulseSequencer([1 31 4] # [1 0 1] * 0.3, clock);
-let w = SinOsc((root + 24 + 7).MidiCps, 0) * Decay2(trig5, 0.005, 0.2);
+let w = SinOsc((root + 24 + 7).midiCps, 0) * Decay2(trig5, 0.005, 0.2);
 let snd = (r * 0.1 + x + z + [y, w]) * 0.4;
-(CombN(snd, 0.51, 0.51, 4) * 0.4 + snd.reverse).SoftClip
+(CombN(snd, 0.51, 0.51, 4) * 0.4 + snd.reverse).softClip
 
 /* Sequencer ; Jmcc */
 let z = 0; let a = 0.1; let b = 0.2; let c = 0.4;
@@ -89,11 +89,11 @@ let r = SinOsc(80, 0) * Decay2(trig1, 0.005, 0.5) * 0.3;
 /* drum */
 let trig2 = DemandImpulseSequencer([p], clock);
 let exc2 = WhiteNoise() * Decay2(trig2, 0.005, 0.05);
-let x = RingzBank(exc2, { Rand(80, 800) } ! 4, nil, { Rand(0.05, 0.2) } ! 4).Distort * 0.2;
+let x = RingzBank(exc2, { Rand(80, 800) } ! 4, nil, { Rand(0.05, 0.2) } ! 4).distort * 0.2;
 /* metallic */
 let trig3 = DemandImpulseSequencer([q], clock);
 let exc3 = WhiteNoise() * Decay2(trig3, 0.005, 0.05);
-let s = RingzBank(exc3, { Rand(3500, 4000) } ! 4, nil, { Rand(0.05, 0.2) } ! 4).Distort * 0.1;
+let s = RingzBank(exc3, { Rand(3500, 4000) } ! 4, nil, { Rand(0.05, 0.2) } ! 4).distort * 0.1;
 /* whine */
 let exc4 = GreyNoise([0.0007] # 2, 0);
 let y = { :tr |
@@ -104,7 +104,7 @@ let y = { :tr |
 		[1],
 		{ TRand(0.2, 0.8, tr) } ! 4
 	) * env
-}.OverlapTexture(4, 2, 2).Mix.ScaleNeg(MouseX(-1, 1, 0, 0.2));
+}.OverlapTexture(4, 2, 2).Mix.scaleNegative(MouseX(-1, 1, 0, 0.2));
 let snd = x + (y * 0.5) + s + r;
 6.timesRepeat {
 	snd := AllpassN(Lpz2(snd), 0.03, { Rand(0, 0.03) } ! 2, 5)

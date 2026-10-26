@@ -64,6 +64,26 @@ Continued fraction expansion:
 [0 1 3 5 7 9 11 13 15 17]
 ```
 
+`tanh` is a form of distortion:
+
+```
+SinOsc(
+	[440 441],
+	0
+).tanh * SinOsc(
+	[0.1 0.25],
+	0
+) * 0.1
+```
+
+Increase amplitude over time:
+
+```
+let e = XLine(0.1, 10, 10);
+let o = SinOsc(500, 0);
+(o * e).tanh * 0.25
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

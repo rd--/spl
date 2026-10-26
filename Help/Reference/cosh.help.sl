@@ -146,6 +146,8 @@ See also: arcCosh, cos, sin, sech, sinh
 Guides: Hyperbolic Functions, Trigonometric Functions
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/cosh.html),
 _Mathematica_
 [1](https://mathworld.wolfram.com/HyperbolicCosine.html)
 [2](https://reference.wolfram.com/language/ref/Cosh.html),

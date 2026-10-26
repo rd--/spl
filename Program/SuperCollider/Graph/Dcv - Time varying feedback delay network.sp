@@ -1,7 +1,7 @@
 /* http://scsynth.org/t/time-varying-feedback-delay-network/5383/6 (dietcv) */
 let rotatableMatrix = { :angle |
-	let s = angle.Sin;
-	let c = angle.Cos;
+	let s = angle.sin;
+	let c = angle.cos;
 	let givens2x2 = [
 		[c, s.-],
 		[s, c]

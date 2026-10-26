@@ -2,7 +2,7 @@
 let f = 443;
 let s = [0 2 4 6 7 9 11];
 let m = [-14 .. 14; 2].degreeToKey(s, 12);
-let p = m.MidiRatio;
+let p = m.midiRatio;
 Splay2(
 	SinOsc(
 		f / 2 * p,
@@ -14,6 +14,6 @@ Splay2(
 				p / p.radiansToDegrees,
 				0
 			)
-		).Max(0) ^ 2 * 1.pi
-	) * SinOsc(p.degreesToRadians, 0).Max(0) / 3
+		).max(0) ^ 2 * 1.pi
+	) * SinOsc(p.degreesToRadians, 0).max(0) / 3
 )

@@ -5,4 +5,4 @@ let f = Duty(
 	0,
 	Dseq(Infinity, LfTri(1 / c / 8, 0) > 0 * 3 + c * 99)
 );
-Hpf(BLowPass(LfTri(c, 0), f, 0.001) / 12, 9).Splay.Sin / 2
+Hpf(BLowPass(LfTri(c, 0), f, 0.001) / 12, 9).Splay.sin / 2

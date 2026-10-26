@@ -31,11 +31,11 @@ let toTrigger = { :x |
 };
 let warpedPhase = phase.LinCurve(0, 1, 0, 1, 4);
 let trigger = warpedPhase.toTrigger;
-let wrappedPhase = (warpedPhase * div).Wrap(0, 1);
+let wrappedPhase = (warpedPhase * div).wrap(0, 1);
 let warpedTriggers = wrappedPhase.toTrigger;
-let stepped = (warpedPhase * div).Floor;
+let stepped = (warpedPhase * div).floor;
 let quantized = stepped / div;
-let freq = quantized.MulAdd(
+let freq = quantized.*+(
 	TExpRand(111, 1111, trigger),
 	TExpRand(111, 1111, trigger)
 );

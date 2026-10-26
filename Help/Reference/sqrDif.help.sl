@@ -1,14 +1,16 @@
-# SqrDif
+# sqrDif
 
-- _SqrDif(α, β)_
+- _sqrDif(α, β)_
 
-Square of the difference.
-_SqrDif(a, b)_ is equivalent to _(a-b)^2_.
-This is more efficient than using separate unit generators for each operation.
+Square of the difference,
+is equivalent to _(α-β)^2_.
+This can be more efficient than the written out form.
+
+At `Ugen`:
 
 ```
 SinOsc(800, 0)
-.SqrDif(
+.sqrDif(
 	SinOsc(
 		XLine(200, 500, 5),
 		0
@@ -27,7 +29,7 @@ let c = a - b;
 
 * * *
 
-See also: AbsDif
+See also: absDif
 
 Guides: Unit Generators
 

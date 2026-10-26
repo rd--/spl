@@ -11,6 +11,13 @@ The four-quadrant inverse tangent of the point _y=4,x=-3_:
 2.2143
 ```
 
+Threads elementwise over lists and matrices:
+
+```
+>>> [1 -1].atan2([1 -1])
+[0.25.pi -0.75.pi]
+```
+
 Convert _4+3i_ into polar coordinates:
 
 ```

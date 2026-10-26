@@ -170,16 +170,16 @@
 	}
 
 	LinCurve { :self :inMin :inMax :outMin :outMax :curve |
-		let grow = curve.Exp;
+		let grow = curve.exp;
 		let a = outMax - outMin / (1 - grow);
 		let b = outMin + a;
-		let scaled = (self.Clip(inMin, inMax) - inMin) / (inMax - inMin);
+		let scaled = (self.clip(inMin, inMax) - inMin) / (inMax - inMin);
 		let curvedResult = b - (a * (grow ^ scaled));
 		curve.isNumber.if {
 			curvedResult
 		} {
 			Select2(
-				curve.Abs >= 0.125,
+				curve.abs >= 0.125,
 				curvedResult,
 				self.LinLin(inMin, inMax, outMin, outMax)
 			)
@@ -193,7 +193,7 @@
 	LinLin { :self :srcLo :srcHi :dstLo :dstHi |
 		let mul = (dstHi - dstLo) / (srcHi - srcLo);
 		let add = dstLo - (mul * srcLo);
-		MulAdd(self.Clip(srcLo, srcHi), mul, add)
+		self.clip(srcLo, srcHi).timesPlus(mul, add)
 	}
 
 	LinRand0 { :self |
@@ -213,7 +213,7 @@
 	}
 
 	PulseDpw { :freq :width |
-		SawDpw(freq, 0) - SawDpw(freq, (width + width).Wrap(-1, 1))
+		SawDpw(freq, 0) - SawDpw(freq, (width + width).wrap(-1, 1))
 	}
 
 	Rand0 { :self |
@@ -227,11 +227,11 @@
 	SelectXFocus { :which :array :focus :wrap |
 		wrap.if {
 			array.withIndexCollect { :input :index |
-				(1 - (ModDif(which, index - 1, array.size) * focus)).Max(0) * input
+				(1 - (modularDistance(which, index - 1, array.size) * focus)).max(0) * input
 			}.sum
 		} {
 			array.withIndexCollect { :input :index |
-				(1 - (AbsDif(which, index - 1) * focus)).Max(0) * input
+				(1 - (absDif(which, index - 1) * focus)).max(0) * input
 			}
 		}
 	}

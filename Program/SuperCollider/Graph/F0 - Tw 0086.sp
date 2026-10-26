@@ -3,7 +3,7 @@ let a = LfNoise2(1 / [9 .. 17]).kr;
 Splay2(
 	Ringz(
 		Bpf(
-			Dust2(a.Abs * 10000),
+			Dust2(a.abs * 10000),
 			a.LinExp(-1, 1, 99, 10000),
 			1.1 - a
 		),

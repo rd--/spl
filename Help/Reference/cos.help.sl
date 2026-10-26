@@ -202,6 +202,8 @@ See also: arcCos, arcCosh, cosh, sec, sin, tan
 Guides: Trigonometric Functions
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/cos.html),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Cosine.html)
 [2](https://reference.wolfram.com/language/ref/Cos.html),

@@ -3,7 +3,7 @@
 	let t = SinOsc(
 		TRand(1, 999, tr),
 		0
-	).Abs;
+	).abs;
 	{
 		Formlet(
 			TDuty(t, 0, t),

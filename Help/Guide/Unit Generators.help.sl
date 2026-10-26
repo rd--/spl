@@ -99,8 +99,9 @@
 
 ## Distortion
 
-- `Distort`: nonlinear distortion
-- `SoftClip`: nonlinear distortion
+- `distort`
+- `softClip`
+- `tanh`
 
 ## Envelopes
 
@@ -156,47 +157,50 @@
 
 ## Mathematical Function
 
-- `Abs`: absolute value
-- `ArcCos`: arc cosine
-- `ArcSin`: arc sine
-- `ArcTan`: arc tangent
-- `Ceiling`: next higher integer
+- `abs`: absolute value
+- `arcCos`: arc cosine
+- `arcSin`: arc sine
+- `arcTan`: arc tangent
+- `ceiling`: next higher integer
+- `clip`: clipping
+- `cos`: cosine
+- `cosh`: hyperbolic cosine
+- `cube`: cube value
+- `divide`: division
+- `exp`: exponential
+- `floor`: next lower integer
+- `fold`: fold a signal outside given thresholds
+- `fractionPart`: fractional part
+- `hypotenuse`: hypotenuse
+- `log10`: base 10 logarithm
+- `log2`: base 2 logarithm
+- `log`: natural logarithm
+- `max`: maximum
+- `min`: minimum
+- `modularDistance`: minimum difference of two values in modulo arithmetics
+- `negate`: negation
+- `plus`: addition
+- `power`: raised to
+- `quotient`: quotient
+- `reciprocal`: reciprocal
+- `round`: round to multiple of
+- `signedGcd`: greatest common divisor
+- `signedLcm`: least common multiple
+- `signedSqrt`: square root
+- `sin`: sine
+- `sinh`: hyperbolic sine
+- `square`: square value
+- `subtract`: subtraction
+- `tan`: tangent
+- `tanh`: hyperbolic tangent
+- `timesPlus`: multiply and add
+- `wrap`: wrap a signal outside given thresholds
+
+## Bilateral Functions
+
 - `Clip2`: bilateral clipping
-- `Clip`: clipping
-- `Cos`: cosine
-- `Cosh`: hyperbolic cosine
-- `Cube`: cube value
-- `Divide`: division
-- `Exp`: exponential
-- `Floor`: next lower integer
 - `Fold2`: bilateral folding
-- `Fold`: fold a signal outside given thresholds
-- `FractionPart`: fractional part
-- `Gcd`: greatest common divisor
-- `Hypotenuse`: hypotenuse
-- `Lcm`: least common multiple
-- `Log10`: base 10 logarithm
-- `Log2`: base 2 logarithm
-- `Log`: natural logarithm
-- `Max`: maximum
-- `Min`: minimum
-- `ModDif`: minimum difference of two values in modulo arithmetics
-- `MulAdd`: multiply and add
-- `Negate`: negation
-- `Plus`: addition
-- `Power`: raised to
-- `Quotient`: quotient
-- `Reciprocal`: reciprocal
-- `Round`: round to multiple of
-- `Sin`: sine
-- `Sinh`: hyperbolic sine
-- `Sqrt`: square root
-- `Square`: square value
-- `Subtract`: subtraction
-- `Tan`: tangent
-- `Tanh`: hyperbolic tangent
 - `Wrap2`: bilateral wrapping
-- `Wrap`: wrap a signal outside given thresholds
 
 ## Noise Generators
 

@@ -56,6 +56,13 @@ Find the angle between two vectors:
 0.5.pi
 ```
 
+At `Ugen`:
+
+```
+let x = Line(-1, 1, 2).arcCos * 2.pi;
+SinOsc(x * 110 + 110, 0) * 0.1
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

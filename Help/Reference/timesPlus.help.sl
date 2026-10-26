@@ -1,9 +1,10 @@
 # timesPlus
 
-- _timesPlus(i, j, k)_
+- _timesPlus(i, j=1, k=0)_
 
 Answer _i*j+k_.
 In some cases this may be optimised as a fused multiply-add operator.
+The identity function if _j=1_ and _k=0_.
 
 ```
 >>> 3.timesPlus(4, 5)
@@ -46,8 +47,21 @@ Threads over lists:
 [26 36 38]
 ```
 
+At `Ugen`:
+
+~~~
+SinOsc(440, 0).*+(
+	0.1,
+	0
+)
+~~~
+
 * * *
 
 See also: *, +, plus, times
 
 Guides: Arithmetic Functions, Mathematical Functions
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/MulAdd.html)

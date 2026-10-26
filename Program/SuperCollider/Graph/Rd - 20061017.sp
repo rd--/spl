@@ -36,7 +36,7 @@ let ps = [-12 -5 0 2 4 5 7 12];
 	let fs = Select(TiRand(0, 7, tr), ps);
 	let k = Ringz(
 		Decay2(tr, 0.06, 0.01) * PinkNoise() * TRand(0, 1, tr),
-		cf * fs.MidiRatio + TRand(0, 1, tr),
+		cf * fs.midiRatio + TRand(0, 1, tr),
 		1 / cd * TRand(2, 17, tr)
 	) * ca;
 	EqPan2(k.Sum, TRand(-1, 1, tr))

@@ -1,7 +1,7 @@
 /* Uplink (Jmcc) #2 ; Graph rewrite */
 { :tr |
 	let osc = {
-		let e = MulAdd(
+		let e = *+(
 			LfPulse(TRand(0, 4, tr), 0, TRand(0, 1, tr)),
 			TRand(0, 8000, tr),
 			TRand(0, 2000, tr)

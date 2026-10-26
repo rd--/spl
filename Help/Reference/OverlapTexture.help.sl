@@ -45,7 +45,7 @@ let texture = { :tr |
 			25 30 34 37 41 42 46
 			49 53 54 58 61 63 66
 		]
-	).MidiCps;
+	).midiCps;
 	let f2 = f1 * 2 + TRand(-0.5, 0.5, tr);
 	LfPulse([f1 f2], 0, 0.2).Sum
 }.OverlapTexture(4, 2, 4);

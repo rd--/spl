@@ -50,7 +50,7 @@ let carFreq = [
 let modFreq = carFreq * [
 	tbl(tr, [1 0 0 1 0 0 1], 1, 23),
 	tbl(tr, [0 1 1 0 1 1 0], 1, 23)
-].Round(1);
+].round(1);
 let index = [
 	tbl(tr, [0 0 0 1], 1, 23),
 	tbl(tr, [1 0 0 0], 1, 23)

@@ -5,6 +5,7 @@
 Answer the nearest number to _n_ that is a multiple of _α_.
 The unary form answers the integer nearest _n_,
 sometimes written as _⌊n⌉_.
+Implements quantization by rounding.
 
 Round to integer, unary form or _α=1_:
 
@@ -211,6 +212,14 @@ OEIS [A101285](https://oeis.org/A101285):
 ]
 ```
 
+At `Ugen`:
+
+```
+let l = Line(48, 57, 23);
+let f = [l, l.round(1)].midiCps;
+SinOsc(f, 0) * 0.1
+```
+
 Plot the function over a subset of the reals
 round is a staircase function:
 
@@ -324,7 +333,11 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/NearestIntegerFunction.html)
 [2](https://reference.wolfram.com/language/ref/Round.html),
+_Max_
+[1](https://docs.cycling74.com/reference/gen_dsp_round/),
 _Smalltalk_
-5.6.2.32
+5.6.2.32,
+_SuperCollider_
+[1](https://doc.sccode.org/Overviews/Operators.html#.round)
 
 Categories: Truncating, Rounding

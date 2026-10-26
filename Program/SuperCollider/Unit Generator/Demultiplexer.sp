@@ -7,7 +7,7 @@ Demultiplexer(numChannels, input, selector).Sum * 0.1
 
 /* Demultiplexer */
 let tr = Impulse(4, 0);
-let freq = TiRand(48, 72, tr).MidiCps;
+let freq = TiRand(48, 72, tr).midiCps;
 let env = Decay2(tr, 1 / 13, 1 / 2) * 0.5;
 let input = SinOsc(freq, 0) * env;
 let numChannels = 4;

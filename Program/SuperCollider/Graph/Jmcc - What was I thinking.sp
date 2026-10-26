@@ -1,7 +1,7 @@
 /* What was I thinking? (Jmcc) */
 let z = Rlpf(
 	Pulse(
-		Decay(LfPulse(0.1, 0, 0.05) * Impulse(8, 0) * 500, 2).Max(
+		Decay(LfPulse(0.1, 0, 0.05) * Impulse(8, 0) * 500, 2).max(
 			SinOsc(4, 0) + 80
 		),
 		LfNoise1(0.157) * 0.4 + 0.5

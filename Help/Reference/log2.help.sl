@@ -13,18 +13,22 @@ also called the binary logarithm.
 >>> (2 ^ 10).log(2)
 10
 
->>> (2 ^ 1/2).log2
-1/2
-
->>> 2.sqrt.log2
-1/2
-
 >>> (2 ^ -1).log2
 -1
 
 >>> let n = system.nextRandomFloat;
 >>> n.log2
 (n.log / 2.log)
+```
+
+`log2` of the `sqrt` of two is one half:
+
+```
+>>> (2 ^ 1/2).log2
+1/2
+
+>>> 2.sqrt.log2
+1/2
 ```
 
 Log base two of the first few primes:
@@ -70,7 +74,7 @@ Frequency of middle C (C4) in hertz:
 >>> 2 ^ (440.log2 - 9/12)
 261.6256
 
->>> 261.6256.CpsMidi
+>>> 261.6256.cpsMidi
 60
 ```
 

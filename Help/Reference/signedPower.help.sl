@@ -40,6 +40,19 @@ Compare with `^`:
 0.353553
 ```
 
+The operator form is `**`:
+
+```
+>>> (2 ** 3, 2 ^ 3)
+8
+
+>>> (-0.25 ** 0.75, -0.25 ^ 0.75)
+(-0.353553, -0.25J0.25)
+
+>>> 0 - (0.25 ^ 0.75)
+-0.353553
+```
+
 Symmetric power with _x=-0.25_ and _y_ in _0,1_:
 
 ~~~spl svg=A
@@ -50,9 +63,12 @@ Symmetric power with _x=-0.25_ and _y_ in _0,1_:
 
 ![](Help/Image/signedPower-A.svg)
 
+_Note:_
+The SuperCollider bindings implements both `power` and `signedPower` as the same function.
+
 * * *
 
-See also: ^, exp, log, powerMod, powerRange, sqrt
+See also: **, ^, exp, log, power, powerMod, powerRange, sqrt
 
 Guides: Mathematical Functions
 

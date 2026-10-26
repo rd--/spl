@@ -1,9 +1,9 @@
 /* Duty ; c.f. equivalent Demand graph ; (Duty) */
 let tr = Dust(9);
-let n = Dseq(Infinity, [0, 2, 4, 5, 7, 9, 11, 12]) + (TRand(3, 6, tr).Round(1) * 12);
-let f = Duty(0.1, 0, n.MidiCps);
+let n = Dseq(Infinity, [0, 2, 4, 5, 7, 9, 11, 12]) + (TRand(3, 6, tr).round(1) * 12);
+let f = Duty(0.1, 0, n.midiCps);
 let o = SinOsc([f, f + 0.7], 0);
-o.Cube.Cube * 0.1
+o.cube.cube * 0.1
 
 /* Duty */
 let f = { :tr :trs |
@@ -13,9 +13,9 @@ let f = { :tr :trs |
 		0.01,
 		TRand(0.15, 0.35, tr) * MouseY(0.5, 2, 0, 0.2)
 	) * TRand(0.01, 0.2, tr);
-	let f = Demand(tr, 0, (n + trs).MidiCps);
+	let f = Demand(tr, 0, (n + trs).midiCps);
 	let o = SinOsc([f, f + TRand(0.7, 1.3, tr)], 0);
-	o.Cube.Cube * a
+	o.cube.cube * a
 };
 let d = Dseq(Infinity, [8, 3, 3, 2, 8, 4, 4]) / MouseX(9, 27, 1, 0.2);
 let t1 = TDuty(d, 0, 1);

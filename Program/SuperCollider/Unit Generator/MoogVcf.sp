@@ -1,6 +1,6 @@
 /* MoogVcf ; Event control */
 Voicer(1, 16) { :e |
-	let freq = e.p.UnitCps;
+	let freq = e.p.unitCps;
 	let osc = {
 		Saw(freq * TExpRand(0.99, 1.01, e.w))
 	} !+ 8;

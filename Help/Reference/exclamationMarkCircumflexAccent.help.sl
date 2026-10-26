@@ -11,7 +11,7 @@ Names the idiom of generating an array and distributing it across the main ouput
 		let f = Choose(
 			tr,
 			[48 .. 72]
-		).MidiCps;
+		).midiCps;
 		let ff = f * (
 			SinOsc(
 				TExpRand(4, 6, tr),

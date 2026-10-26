@@ -9,7 +9,7 @@
 		{ Rand(50, 2000) } ! 4,
 		nil,
 		{ Rand(0.2, 4) } ! 4
-	).Abs * [-1, 1].atRandom;
+	).abs * [-1, 1].atRandom;
 	let flt = Rlpf(sig, SinOsc(LinRand(0, 1, 0), 0) * 0.7 * f + f, 0.1);
 	let z = EqPan(flt * amp, pan);
 	6.timesRepeat {

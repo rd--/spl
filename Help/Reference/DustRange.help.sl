@@ -40,7 +40,7 @@ let iot = 20 / SampleRate();
 let x = MouseX(1, 16, 1, 0.1);
 let d = DustRange(iot / x, iot * x);
 let s = TRand(-1, 1, d);
-Trig(d, SampleDur()) * s.Sign * 0.1
+Trig(d, SampleDur()) * s.sign * 0.1
 ```
 
 Sine sweeps:
@@ -51,7 +51,7 @@ Sine sweeps:
 	let dur = TRand(0.01, 0.5, tr);
 	let f0 = TRand(48, 60, tr);
 	let f1 = TRand(36, 84, tr);
-	let freq = TLine(f0, f1, dur, tr).MidiCps;
+	let freq = TLine(f0, f1, dur, tr).midiCps;
 	let env = Decay2(tr, dur / 3, dur) * 0.5;
 	SinOsc(freq, 0) * env
 } !^ 7

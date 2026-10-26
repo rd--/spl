@@ -7,7 +7,7 @@ let f = [1, 2].collect { :i |
 		Dseq(120, '@LEGJLEG'.ascii),
 		Dseq(60, 'EGJL'.ascii)
 	];
-	Demand(t[i], 0, Dseq(1, q)).MidiCps
+	Demand(t[i], 0, Dseq(1, q)).midiCps
 };
 let x = SinOsc(f, SinOsc(1 / [12, 9], 0) / 4 + 1 * SinOsc(f, e.pi)) * e / 2;
 FreeVerb2(x[1], x[2], 0.1, 1, 0)

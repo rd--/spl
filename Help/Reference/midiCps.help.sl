@@ -1,6 +1,6 @@
-# MidiCps
+# midiCps
 
-- _MidiCps(x)_
+- _midiCps(x)_
 
 Convert midi note number to cycles per second.
 Alias of `midiCps`.
@@ -10,14 +10,14 @@ Middle C (_C4_ in scientific pitch notation) is defined to be midi note number 6
 The A above middle C has a nominal frequency of 440 hertz:
 
 ```
->>> 69.MidiCps
+>>> 69.midiCps
 440
 ```
 
 Threads over lists and fractional values are allowed:
 
 ```
->>> [60 60.5 61].MidiCps
+>>> [60 60.5 61].midiCps
 [261.6255 269.2918 277.1826]
 ```
 
@@ -25,14 +25,14 @@ Oscillator frequency sweep specified in midi note numbers:
 
 ```
 Saw(
-	Line(24, 108, 10).MidiCps
+	Line(24, 108, 10).midiCps
 ) * 0.1
 ```
 
-The inverse is `CpsMidi`:
+The inverse is `cpsMidi`:
 
 ```
->>> 69.MidiCps.CpsMidi
+>>> 69.midiCps.cpsMidi
 69
 ```
 
@@ -40,7 +40,7 @@ Midi note numbers are a linear pitch space,
 each twelve steps is an octave:
 
 ```
->>> [48 60 72].MidiCps
+>>> [48 60 72].midiCps
 [130.8 261.6 523.2]
 
 >>> 130.8 * [1 2 4]
@@ -50,10 +50,10 @@ each twelve steps is an octave:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 100).functionPlot(MidiCps/1)
+(0 -- 100).functionPlot(midiCps/1)
 ~~~
 
-![](Help/Image/MidiCps-A.svg)
+![](Help/Image/midiCps-A.svg)
 
 Evaluate symbolically:
 
@@ -64,7 +64,7 @@ Evaluate symbolically:
 
 * * *
 
-See also: CpsMidi, MidiRatio
+See also: cpsMidi, midiRatio
 
 Guides: Pitch Functions, Unit Generators
 

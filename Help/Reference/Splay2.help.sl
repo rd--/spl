@@ -29,7 +29,7 @@ Texture graph:
 	let k = 7;
 	let o = SinOsc(
 		{
-			TiRand(40, 90, tr).MidiCps
+			TiRand(40, 90, tr).midiCps
 		} ! k,
 		0
 	);
@@ -46,7 +46,7 @@ Texture program:
 {
 	let k = 7;
 	let o = SinOsc(
-		{ IRand(40, 90).MidiCps } ! k,
+		{ IRand(40, 90).midiCps } ! k,
 		0
 	);
 	let a = { Rand(0.05, 0.1) } ! k;

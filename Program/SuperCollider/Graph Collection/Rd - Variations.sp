@@ -36,7 +36,7 @@ let z = {
 	let n3 = TExpRand([500, 900], 1600, t);
 	Ringz(n2, n3, x)
 } !> 3;
-z.Clip2(TRand(0, 1, Dust(8))) * 0.25
+Clip2(z, TRand(0, 1, Dust(8))) * 0.25
 
 /* 20060914 ; rd ; graph rewrite ; requires=Sine ; requires=arrayedEnv ; packet size */
 let k = 3;
@@ -45,7 +45,7 @@ let k = 3;
 		let ds = 3;
 		let du = [5 4 5 7 4 5];
 		let d = du * ds;
-		let freq = TxLine(m, m + TRand(0.05, 0.5, tr), d, tr).MidiCps;
+		let freq = TxLine(m, m + TRand(0.05, 0.5, tr), d, tr).midiCps;
 		let env = Sine(tr, du.max * ds) * TRand(0.005, 0.01, tr);
 		let pos = TxLine(TRand(-1, 1, tr), TRand(-1, 1, tr), d, tr);
 		let osc = SinOsc(freq, 0);
@@ -72,7 +72,7 @@ let mkRead = { :l :t |
 };
 [1 .. 4].collect { :n |
 	let t = Dust(1.6);
-	let f = mkRead([60, 62, 64, 65, 67, 69], t).MidiCps;
+	let f = mkRead([60, 62, 64, 65, 67, 69], t).midiCps;
 	let p = mkRead([-1, -0.5, 0, 0.25, 0.75, 1], t);
 	let a = mkRead([0.01, 0.05, 0.1, 0.15, 0.25, 0.35], t);
 	EqPan2(SinOsc(f, 0) * a, p)
@@ -86,7 +86,7 @@ let b = LocalBuf[
 let clk = DustRange(0.2, 0.9);
 let env = Decay2(clk, 0.02, 2.5);
 let idx = Stepper(clk, 0, 0, 15, 1, 0);
-let f1 = (BufRd(1, b, idx, 1, 1) - 24).MidiCps;
+let f1 = (BufRd(1, b, idx, 1, 1) - 24).midiCps;
 let f2 = LfNoise0([1, 3]) * 1.2 + f1;
 let o1 = SinOsc(f1, 0) * env;
 let o2 = SinOsc(f2, 0) * env;
@@ -100,7 +100,7 @@ let b = LocalBuf[
 let clk = DustRange(0.2, 0.9);
 let env = Decay2(clk, 0.2, 2.5);
 let idx = Stepper(clk, 0, 0, 15, 1, 0);
-let f1 = (BufRd(1, b, idx, 1, 1) - 24).MidiCps;
+let f1 = (BufRd(1, b, idx, 1, 1) - 24).midiCps;
 let f2 = LfNoise0([1, 3]) * 1.2 + f1;
 SinOsc(f1, 0) + SinOsc(f2, 0) * env * 0.2
 
@@ -121,8 +121,8 @@ let fw = { :r |
 		40 59 45 47 52
 	];
 	let f = BufRd(1, b, r1, 0, 2);
-	let o1 = Blip((r + f).MidiCps, 12);
-	let o2 = Blip((r + f + r2).MidiCps, 12);
+	let o1 = Blip((r + f).midiCps, 12);
+	let o2 = Blip((r + f + r2).midiCps, 12);
 	o1 + o2 * Decay2(t, 0.3, 1.2) * 0.1
 };
 fw(24) + fw(36)
@@ -140,8 +140,8 @@ let t = [t0, t1];
 let k = TRand(56, 57, t);
 let i = TRand(40, 480, t);
 let j = TRand(-1, 1, t);
-let c = k.MidiCps;
-let m = (k + 1 + j).MidiCps;
+let c = k.midiCps;
+let m = (k + 1 + j).midiCps;
 let e = Perc(t, 0.01, 0.9, [-4, -4]);
 let f = SinOsc(c, 0) * i + m;
 SinOsc(f, 0) * e * 0.1
@@ -150,8 +150,8 @@ SinOsc(f, 0) * e * 0.1
 let t0 = Impulse(1 / 0.30, 0);
 let t = [t0, TDelay(t0, 0.15)];
 let k = TRand(56, 57, t);
-let m = (k + 1 + TRand(-1, 1, t)).MidiCps;
-let f = SinOsc(k.MidiCps, 0) * TRand(40, 480, t) + m;
+let m = (k + 1 + TRand(-1, 1, t)).midiCps;
+let f = SinOsc(k.midiCps, 0) * TRand(40, 480, t) + m;
 SinOsc(f, 0) * Perc(t, 0.01, 0.9, [-4, -4]) * 0.1
 
 /* 20060925 ; rd */
@@ -179,7 +179,7 @@ let n = LfNoise1([3, 3.05]) * 0.04;
 let d = TiRand(x, y, t);
 let e = Decay2(t, 0.005, TRand(0.02, 0.15, t));
 let k = DegreeToKey(LocalBuf[0 2 3.2 5 7 9 10], d, 12);
-let f = (b + k + n).MidiCps;
+let f = (b + k + n).midiCps;
 let m = e * SinOsc(f, 0) * 0.2;
 let u = PulseDivider(t, 9, 0);
 let r0 = TRand(0.0075, 0.125, u);
@@ -192,12 +192,12 @@ let u = PulseDivider(t, 9, 0);
 let d = TiRand(MouseX(15, 0, 0, 0.1), MouseY(15, 27, 0, 0.1), t);
 let k = DegreeToKey(LocalBuf[0 2 3.2 5 7 9 10], d, 12);
 let m = LfNoise1([3, 3.05]) * 0.04 + Choose(t, [36, 48, 60, 72]) + k;
-let o = SinOsc(m.MidiCps, 0) * Decay2(t, 0.005, TRand(0.02, 0.15, t)) * 0.2;
+let o = SinOsc(m.midiCps, 0) * Decay2(t, 0.005, TRand(0.02, 0.15, t)) * 0.2;
 o * 0.5 + AllpassC(o, 0.15, TRand(0.0075, 0.125, u), TRand(0.05, 0.15, u))
 
 /* 20061017 ; rd */
 let o = SinOsc(LfNoise0([0.5, 1.5]), 0);
-let t = Impulse(Slope(o).Abs * [2, 3], 0);
+let t = Impulse(Slope(o).abs * [2, 3], 0);
 let x = MouseX(960, 3620, 1, 0.2);
 let y = MouseY(0.5, 2.0, 0, 0.2);
 Ringz(Decay2(t, 0.1, 0.2), TRand(x, 3940, t), TRand(0.005, 0.275, t) * y)
@@ -205,7 +205,7 @@ Ringz(Decay2(t, 0.1, 0.2), TRand(x, 3940, t), TRand(0.005, 0.275, t) * y)
 /* 20061023 ; rd */
 let n1 = LfNoise0([0.5, 1.5]);
 let o = SinOsc(n1, 0);
-let a = Slope(o).Abs * [2, 3];
+let a = Slope(o).abs * [2, 3];
 let t = Impulse(a, 0);
 let i = Decay2(t, 0.1, 0.2);
 let x = MouseX(960, 3620, 1, 0.2);

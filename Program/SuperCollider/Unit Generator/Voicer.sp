@@ -1,27 +1,27 @@
 /* SinOsc ; Event control ; p */
 Voicer(1, 16) { :e |
-	SinOsc(e.p.UnitCps, 0) * e.w * e.z
+	SinOsc(e.p.unitCps, 0) * e.w * e.z
 }.Splay
 
 /* SinOsc ; Event control ; x */
 Voicer(1, 16) { :e |
-	EqPan2(SinOsc((e.x * 24 + 48).MidiCps, 0), e.i * 2 - 1) * e.z * e.w
+	EqPan2(SinOsc((e.x * 24 + 48).midiCps, 0), e.i * 2 - 1) * e.z * e.w
 }.Mix
 
 /* Blip ; Event control ; Shared parameter */
 let nh = 1;
 Voicer(1, 16) { :e |
-	Blip(e.p.UnitCps, nh) * e.w * e.z
+	Blip(e.p.unitCps, nh) * e.w * e.z
 }.Splay
 
 /* Blip ; Event control */
 Voicer(1, 16) { :e |
-	EqPan2(Blip(e.p.UnitCps, e.y * 10 + 1), e.i * 2 - 1) * e.w * e.z * e.z
+	EqPan2(Blip(e.p.unitCps, e.y * 10 + 1), e.i * 2 - 1) * e.w * e.z * e.z
 }.Mix
 
 /* Blip ; Event control */
 Voicer(1, 16) { :e |
-	EqPan2(Blip(e.p.UnitCps, e.i * 10 + 1), e.j * 2 - 1) * e.w * e.z / 9
+	EqPan2(Blip(e.p.unitCps, e.i * 10 + 1), e.j * 2 - 1) * e.w * e.z / 9
 }.Mix
 
 /* PanAz ; Event control */
@@ -29,7 +29,7 @@ let nc = 2;
 Voicer(1, 16) { :e |
 	PanAz(
 		nc,
-		Blip(e.p.UnitCps, e.y * 3 + 1),
+		Blip(e.p.unitCps, e.y * 3 + 1),
 		e.i * 2 - 1,
 		1,
 		3,
@@ -52,7 +52,7 @@ Voicer(
 	voiceFunc: { :e |
 		EqPan2(
 			in: Blip(
-				freq: e.p.UnitCps,
+				freq: e.p.unitCps,
 				numHarm: e.y * 10 + 1
 			),
 			pos: e.i * 2 - 1
@@ -130,10 +130,10 @@ Voicer(
 		EqPan2(
 			in: Resonz(
 				in: PinkNoise(),
-				freq: (e.x * 24 + 48).MidiCps,
+				freq: (e.x * 24 + 48).midiCps,
 				bwr: e.y * 0.25
 			) * 24,
 			pos: e.i * 2 - 1
-		) * e.z.Square * e.w
+		) * e.z.square * e.w
 	}
 ).Sum

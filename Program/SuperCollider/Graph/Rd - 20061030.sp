@@ -6,4 +6,4 @@ let o = [
 	f * TRand(0.750, 0.7505, tr),
 	f * TRand(0.975, 1.025, tr)
 ].Saw.Mix;
-(o * TRand(0.0, 0.5, tr)).Clip2(0.75) * 0.15
+(o * TRand(0.0, 0.5, tr)).clip(-0.75, 0.75) * 0.15

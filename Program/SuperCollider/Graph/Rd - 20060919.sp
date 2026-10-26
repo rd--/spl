@@ -14,7 +14,7 @@
 	];
 	let f = BufRd(1, b, TiRand(0, 6, tr), 0, 2);
 	[
-		Blip((r + f).MidiCps, 12),
-		Blip((r + f + TRand(-0.0001, 0.0001, tr)).MidiCps, 12)
+		Blip((r + f).midiCps, 12),
+		Blip((r + f + TRand(-0.0001, 0.0001, tr)).midiCps, 12)
 	].Sum * Decay2(tr, 0.3, 1.2) * 0.1
 }.Mix

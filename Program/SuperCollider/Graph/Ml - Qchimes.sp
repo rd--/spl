@@ -1,7 +1,7 @@
-/* Event control ; http://www.listarc.bham.ac.uk/lists/sc-users/msg68844.html (ml) ; requires=kr */
+/* Event control ; http://www.listarc.bham.ac.uk/lists/sc-users/msg68844.html (ml) ; requires=kr ; packet size */
+let numPartials = 40;
 Voicer(1, 16) { :e |
-	let numPartials = 40;
-	let baseFreq = (e.x * 25 + 48).MidiCps;
+	let baseFreq = (e.x * 25 + 48).midiCps;
 	let sig = Decay(K2A(e.w) * 0.1, 0.001) * PinkNoise();
 	let rat = [
 		1 1.125 1.25 1.333 1.5 1.666 1.875
@@ -18,6 +18,6 @@ Voicer(1, 16) { :e |
 	let amp = { Rand(0.1, 0.9) } ! numPartials;
 	let dcy = { Rand(0.5, 9) } ! numPartials;
 	let osc = DynRingzBank(sig, freq, amp, dcy);
-	let env = LagUd(e.w * e.z, 0.5, 8).kr * 0.1 * numPartials.Reciprocal; /* Note .kr! */
+	let env = LagUd(e.w * e.z, 0.5, 8).kr * 0.1 * numPartials.reciprocal; /* Note .kr! */
 	EqPan2(osc, e.i * 2 - 1) * env
 }.Mix

@@ -2,7 +2,7 @@
 {
 	let dt = Rand(0.25, 0.35);
 	let osc = { :n :m |
-		let e = MulAdd(
+		let e = *+(
 			LfPulse(Rand(0, m), 0, Rand(0, 1)),
 			Rand(0, 8000),
 			Rand(0, 2000)

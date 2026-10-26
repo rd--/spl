@@ -20,7 +20,7 @@ A pair of sine oscillators crossfading between randomly shifting pitches and ste
 	EqPan(
 		SinOsc(
 			TiRand(48, 72, tr)
-			.MidiCps,
+			.midiCps,
 			0
 		),
 		TRand(-1, 1, tr)

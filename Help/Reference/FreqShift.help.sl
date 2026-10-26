@@ -82,7 +82,7 @@ Simple detune & pitchmod via FreqShift:
 	let table = [0 2 4 5 7 9 11 12];
 	let octave = Choose(tr, [0 .. 2]);
 	let note = 48 + Choose(tr, table);
-	let freq = (octave * 12 + note).MidiCps;
+	let freq = (octave * 12 + note).midiCps;
 	let detune = 1.5;
 	let osc = SinOsc(freq, 0) * 0.1;
 	let left = osc + FreqShift(
@@ -106,7 +106,7 @@ Shift pulse wave in opposite directions:
 	let table = [0 2 4 5 7 9 11 12];
 	let octave = Choose(tr, [0 .. 2]);
 	let note = 48 + Choose(tr, table);
-	let freq = (octave * 12 + note).MidiCps;
+	let freq = (octave * 12 + note).midiCps;
 	let width = SinOsc(2.3, 0).LinLin(
 		-1, 1,
 		0.2, 0.8
@@ -133,7 +133,7 @@ FreqShift, feedback, FreqShift:
 	let table = [0 2 4 5 7 9 11 12];
 	let octave = Choose(tr, [0 .. 2]);
 	let note = 48 + Choose(tr, table);
-	let freq = (octave * 12 + note).MidiCps;
+	let freq = (octave * 12 + note).midiCps;
 	let in = FreqShift(
 		InFb(1, 0) * 3.2,
 		TxLine(0.01, freq * 1.5, 1, tr),
@@ -159,7 +159,7 @@ Non-graph variant:
 	let table = [0 2 4 5 7 9 11 12];
 	let octave = [0 .. 2].atRandom;
 	let note = 48 + table.atRandom;
-	let freq = (octave * 12 + note).MidiCps;
+	let freq = (octave * 12 + note).midiCps;
 	let in = FreqShift(
 		InFb(1, 0) * 3.2,
 		XLine(0.01, freq * 1.5, 1),

@@ -12,7 +12,7 @@ Pitch class table, linear interpolation, first slowly, then quickly, then slowly
 
 ```
 let tbl = LocalBuf[0 2 10 12];
-SinOsc((Osc1(tbl, 5) + 48).MidiCps, 0) * 0.1
+SinOsc((Osc1(tbl, 5) + 48).midiCps, 0) * 0.1
 ```
 
 * * *

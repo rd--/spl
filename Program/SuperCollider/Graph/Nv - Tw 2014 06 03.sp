@@ -6,5 +6,5 @@ let k = 9;
 			LfPulse(2 ^ IRand(-9, 1), IRand(0, 2) / 2, 0.5)
 		} !* (ix + 1) / ix + 1
 	}.product * 86;
-	Pluck(Bpf(f, f, 1).Sin, Saw(440), 1 , 1 / f, 9, 0.5)
+	Pluck(Bpf(f, f, 1).sin, Saw(440), 1 , 1 / f, 9, 0.5)
 } !^ k * 0.2

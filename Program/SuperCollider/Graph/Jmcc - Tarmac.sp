@@ -16,7 +16,7 @@ let a = [
 	let z = PinkNoise() * (LfNoise1(TRand(0, 3, tr)) * 0.0008 + 0.0022);
 	let s = (
 		{ Ringz(z, TRand(50, 4000, tr), TRand(0.2, 12, tr)) } !+ 4
-	).Max(0) * Choose(tr, [-1, 1]);
+	).max(0) * Choose(tr, [-1, 1]);
 	let f = Rlpf(
 		s,
 		Decay2(t, 0.004, d) * TRand(0, 5000, tr) + TRand(0, 100, tr) + 100,

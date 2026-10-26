@@ -1,7 +1,7 @@
-/* Jh ; http://scsynth.org/t/auditory-illusion-with-exponentially-spaced-frequencies/4157 ; rd (edit) */
+/* Jh ; http://scsynth.org/t/auditory-illusion-with-exponentially-spaced-frequencies/4157 ; rd (edit) ; packet size */
 let tr = Impulse(0.1, 0);
 let sinOsc = { :freq |
-	(Phasor(tr, freq * SampleDur(), 0, 1, 0) * 2.pi).Sin
+	(Phasor(tr, freq * SampleDur(), 0, 1, 0) * 2.pi).sin
 };
 let k = 160;
 let b = TRand(2, 2.25, tr);

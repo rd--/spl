@@ -9,5 +9,5 @@ let v = 0.9 ^ 9;
 	p := p.rotateRight(1);
 	o := o + CombC(p, 0.9, SinOsc(1 / b / 9, 0).LinLin(-1, 1, b ^ i / (99 + 9), b ^ i / 99), i + 1)
 };
-o := Hpf(o * l.Max(0) * v, 9).Tanh;
+o := Hpf(o * l.max(0) * v, 9).tanh;
 Splay(o * v) <! LocalOut(o)

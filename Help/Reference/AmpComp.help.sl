@@ -14,7 +14,7 @@ compensating for higher frequencies normally being perceived as louder.
 - exp: exponent, how steep the curve decreases for increasing freq
 
 Note that for frequencies very much smaller than root the amplitudes can become very high.
-In this case limit the freq with _freq.Max(minval)_, or use `AmpCompA`.
+In this case limit the freq with _freq.max(minval)_, or use `AmpCompA`.
 
 Compare a sine tone with and without amplitude compensation:
 

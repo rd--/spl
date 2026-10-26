@@ -1,6 +1,6 @@
-# SoftClip
+# softClip
 
-- _SoftClip(x)_
+- _softClip(x)_
 
 Nonlinear distortion.
 Distortion with a perfectly linear region from -0.5 to +0.5.
@@ -8,16 +8,16 @@ Distortion with a perfectly linear region from -0.5 to +0.5.
 The soft clip function:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(SoftClip/1)
+(-1 -- 1).functionPlot(softClip/1)
 ~~~
 
-![](Help/Image/SoftClip-A.svg)
+![](Help/Image/softClip-A.svg)
 
 Linearly increase amplitude introducing distortion:
 
 ```
 (SinOsc(500, 0) * XLine(0.1, 10, 10))
-.SoftClip * 0.1
+.softClip * 0.1
 ```
 
 With named temporary variables:
@@ -25,12 +25,22 @@ With named temporary variables:
 ```
 let e = XLine(0.1, 10, 10);
 let o = SinOsc(500, 0);
-(o * e).SoftClip * 0.1
+(o * e).softClip * 0.1
 ```
+
+Evaluate symbolically:
+
+```
+>> softClip(`x`)
+(if (<= (abs x) 0.5)
+  x
+  (/ (- (abs x) 0.25) x)
+)
+``
 
 * * *
 
-See also: Distort
+See also: distort
 
 Guides: Unit Generators
 

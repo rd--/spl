@@ -6,7 +6,7 @@ let dens = LfNoise1(0.3) * 0.5 + 0.5;
 let tex = LfNoise1(0.3) * 0.5 + 0.5;
 let freeze = LfClipNoise(0.3);
 let tr = Dust([0.8, 1.1]);
-let freq = Latch(PinkNoise() * 24 + 80, tr).MidiCps;
+let freq = Latch(PinkNoise() * 24 + 80, tr).midiCps;
 let inputList = Rlpf(tr, freq, 0.002) * 4;
 MiClouds(
 	pit: pit,

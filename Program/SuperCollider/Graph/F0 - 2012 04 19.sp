@@ -5,6 +5,6 @@ let t1 = LfTri(0.1, 0) * 0.05 + 0.05;
 CombN(
 	Limiter(Brf(sw, t0, 1), 1, 0.01),
 	0.1,
-	t1.Round(0.01),
+	t1.round(0.01),
 	1
 ) * 0.1

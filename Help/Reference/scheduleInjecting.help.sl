@@ -15,7 +15,7 @@ with random inter-offset delays, durations and pan locations:
 	Release(
 		EqPan(
 			SinOsc(
-				n.MidiCps,
+				n.midiCps,
 				0
 			) * 0.1,
 			Rand(-1, 1)

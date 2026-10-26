@@ -1,6 +1,6 @@
 /* https://scsynth.org/t/10300 (Ryan Alexander Alam) */
 let k = 13;
-let f0 = 48.MidiCps;
+let f0 = 48.midiCps;
 let scales = [1 .. k].collect { :i |
 	[0 .. 2 * i + 1].collect { :j |
 		Fraction(i + 1, i) ^ j

@@ -210,6 +210,14 @@ At `Symbol`:
 (min x y)
 ```
 
+At `Ugen`,
+modulates and envelopes:
+
+```
+let z = SinOsc(500, 0);
+z.min(SinOsc(0.1, 0)) * 0.1
+```
+
 Range of digits of _n_,
 OEIS [A037904](https://oeis.org/A037904):
 
@@ -306,6 +314,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Min.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/min.html),
+_Max_
+[1](https://docs.cycling74.com/reference/gen_common_min/),
 _Python_
 [1](https://docs.python.org/3/library/functions.html#min),
 _Smalltalk_

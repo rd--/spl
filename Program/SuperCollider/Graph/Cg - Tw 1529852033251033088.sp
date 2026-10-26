@@ -1,7 +1,7 @@
 /* http://twitter.com/SC2Sbot/status/1529852033251033088 (cg) */
 Splay2(
 	Integrator(
-		LfNoise0({ 7 } ! 4).Round(SinOsc(4, 0)),
+		LfNoise0({ 7 } ! 4).round(SinOsc(4, 0)),
 		1
 	),
 	Saw(
@@ -13,4 +13,4 @@ Splay2(
 	1,
 	0,
 	true
-).Sin * 0.04
+).sin * 0.04

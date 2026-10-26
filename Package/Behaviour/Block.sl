@@ -87,15 +87,15 @@ Block! : [Object, Equal] {
 		answer
 	}
 
-	clip { :aBlock/1 :minMax :replaceWith |
+	clip { :aBlock/1 :min :max :vMin :vMax |
 		{ :x |
-			aBlock(x).clip(minMax, replaceWith)
+			aBlock(x).clip(min, max, vMin, vMax)
 		}
 	}
 
-	clip { :aBlock/1 :minMax |
+	clip { :aBlock/1 :min :max |
 		{ :x |
-			aBlock(x).clip(minMax)
+			aBlock(x).clip(min, max)
 		}
 	}
 

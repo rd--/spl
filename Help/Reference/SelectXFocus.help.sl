@@ -66,14 +66,14 @@ let mY = MouseY(0, 1, 0, 0.2);
 let mWrap = { :pMin :pMax :min :max |
 	(
 		mX * ExpRand(pMin, pMax)
-	).Sin + 1 * 0.5 * ExpRand(min, max)
+	).sin + 1 * 0.5 * ExpRand(min, max)
 };
 let a = {
 	let freq = mWrap(10, 40, 200, 5000);
 	let fAdd = ExpRand(200, 3000);
 	let fMul = LfNoise0(
 		ExpRand(0.1, 8)
-	).Round(
+	).round(
 		1 / 6
 	).ExpRange(
 		1,
@@ -87,9 +87,8 @@ let a = {
 let b = OnePole({ PinkNoise() * 0.5 } ! 2, 0.4);
 a.add!(
 	SinOsc(
-		Times(
-			LfdNoise0(11),
-			SetResetFf(
+		(
+			LfdNoise0(11) * SetResetFf(
 				Dust(1) * 0.3,
 				Dust(1) * 0.3
 			)

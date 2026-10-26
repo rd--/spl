@@ -6,7 +6,7 @@
 		{ Rand(50, 2000) } ! 4,
 		nil,
 		{ Rand(0.2, 12) } ! 4
-	).Abs * [-1, 1].atRandom;
+	).abs * [-1, 1].atRandom;
 	let z = EqPan(sig, LfNoise1(Rand(0, 1)));
 	6.timesRepeat {
 		z := AllpassN(z, 0.04, { Rand(0, 0.04) } ! 2, 16)

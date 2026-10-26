@@ -1,8 +1,8 @@
 /* Alien froggies (Jmcc) #1 */
 { :tr |
 	let rate = 11;
-	let r = Fold(
-		rate * TRand(-0.2, [0.1, 0.2], tr).Exp,
+	let r = fold(
+		rate * TRand(-0.2, [0.1, 0.2], tr).exp,
 		1,
 		30
 	);

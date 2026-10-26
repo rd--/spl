@@ -7,7 +7,7 @@ Voicer(1, 16) { :e |
 
 /* Sos */
 Voicer(1, 16) { :e |
-	let freq = (e.x * 25 + 48).MidiCps;
+	let freq = (e.x * 25 + 48).midiCps;
 	let rq = 0.002 + (e.y * 0.004);
 	let b1 = 1.987 * 0.9889999999 * 0.09.cos;
 	let b2 = -0.998057;

@@ -23,10 +23,10 @@ sig * 0.1
 	let syncDcy = TRand(0.5, 2, tr);
 	let syncEnv = TxLine(syncEgTop / syncRatio, 1, syncDcy, tr);
 	let gainEnv = Adsr(Trig(tr, syncDcy), 0.3, 0.3, 0.5, 0.1, -4);
-	let freq = { Choose(tr, [45, 48, 52, 53, 57, 58, 60, 64, 65, 70]).MidiCps } ! 5;
+	let freq = { Choose(tr, [45, 48, 52, 53, 57, 58, 60, 64, 65, 70]).midiCps } ! 5;
 	let in = LfTri(freq, 0);
 	let phase = Sweep(in, freq * syncRatio * syncEnv);
-	let synced = SinOsc(0, (phase % 1) * 2.pi).Square;
+	let synced = SinOsc(0, (phase % 1) * 2.pi).square;
 	let sig = synced * in * gainEnv;
 	sig.Splay2 * 0.2
 }.OverlapTexture(2, 0, 2).Mix
@@ -35,13 +35,13 @@ sig * 0.1
 let numPartials = 64;
 let spectrum = [1 .. numPartials];
 let inharmonic = MouseX(0.002, 0.008, 0, 0.2);
-let tension = (1 + (spectrum * spectrum * inharmonic)).Sqrt;
+let tension = (1 + (spectrum * spectrum * inharmonic)).signedSqrt;
 let tilt = MouseY(-5, -1, 0, 0.2);
-let ampList = (spectrum.log2 * tilt).DbAmp;
+let ampList = (spectrum.log2 * tilt).dbAmp;
 let freq0 = 110;
 let freq = freq0 * spectrum * tension;
 let sig = SinOsc(freq, { Rand(0, 2.pi) } ! numPartials);
-(sig * ampList).Sum / numPartials
+(sig * ampList).sum / numPartials
 
 /* SinOsc ; https://scsynth.org/t/6256/5 ; bipolar version */
 let freq = 130;
@@ -57,7 +57,7 @@ let freqRes = MouseY(100, 1200, 0, 0.2);
 let pdbase = Impulse(freqBase, 0);
 let pd = Phasor(pdbase, 2.pi* freqBase / SampleRate(), 0, 2.pi, 0);
 let pdres = Phasor(pdbase, 2.pi * freqRes / SampleRate(), 0, 2.pi, 0);
-let pdi = LinLin((2.pi - pd).Max(0), 0, 2.pi, 0, 1);
+let pdi = LinLin((2.pi - pd).max(0), 0, 2.pi, 0, 1);
 Lag(SinOsc(0, pdres) * pdi, 1 / freqBase)
 
 /* SinOsc ; https://scsynth.org/t/6264/9 (es) */
@@ -65,7 +65,7 @@ let freq = [440, 880];
 let k = 12000 * (SampleRate() / 44100) / (freq * freq.log);
 let sinSig = SinOsc(freq, 0);
 let cosSig = SinOsc(freq, 1/2.pi);
-let sqSig = (sinSig * k).Tanh;
+let sqSig = (sinSig * k).tanh;
 let sawSig = sqSig * (cosSig + 1);
 sawSig * 0.1
 
@@ -74,7 +74,7 @@ let freq = 110;
 let indexLimit = 1.5;
 let index = LinLin(SinOsc(1 / 10, 3.pi / 2), -1, 1, 1, indexLimit);
 let phase = index * LocalIn(1, 1);
-let sig = SinOsc(freq, phase) + SinOsc(freq * 0.001, index * LocalIn(1, 1)).SoftClip;
+let sig = SinOsc(freq, phase) + SinOsc(freq * 0.001, index * LocalIn(1, 1)).softClip;
 sig <! LocalOut(sig) * 0.1
 
 /* SinOsc */
@@ -129,7 +129,7 @@ SinOsc(
 
 /* SinOsc ; simple fm */
 let modFreq = [400, MouseX(400, 700, 1, 0.2)];
-let modDev = SinOsc(LfNoise2(1) + 1, 0).Abs * 1200;
+let modDev = SinOsc(LfNoise2(1) + 1, 0).abs * 1200;
 let modOsc = SinOsc(modFreq, 0) * modDev;
 let carFreq = [400, MouseY(400, 500, 1, 0.2)];
 SinOsc(carFreq + modOsc, 0) * LfNoise2([1, 2]).LinLin(-1, 1, 0, 0.1)
@@ -164,10 +164,10 @@ SinOsc(freq * carRatio + modOsc, 0) * carAmp
 let freq = 440; let phase = 0; let amp = 0.1;
 SinOsc(freq, phase) * amp
 
-/* SinOsc ; requires 0.Max(aUgen) */
+/* SinOsc ; requires 0.max(aUgen) */
 let n = 16;
 {
-	let amp = 0.Max(SinOsc(ExpRand(0.1, 1), Rand(0, 2.pi))) / n / 2;
+	let amp = 0.max(SinOsc(ExpRand(0.1, 1), Rand(0, 2.pi))) / n / 2;
 	EqPan(
 		SinOsc(ExpRand(100, 1000), 0) * amp,
 		Rand(-1, 1)
@@ -226,7 +226,7 @@ SelectX(control, tone) * 0.1
 /* alarm ; mouse selects timbre */
 let freq = Lpf(Sequencer([723 932 1012], Impulse(1 / 0.05, 0)), 70);
 let osc = SinOsc(freq, 0);
-let operations = [osc, osc.pi.Sin, osc.pi.Cos, (osc + 0.25).pi.Cos];
+let operations = [osc, osc.pi.sin, osc.pi.cos, (osc + 0.25).pi.cos];
 Select(MouseX(0, 4, 0, 0.2), operations) * 0.1
 
 /* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft */

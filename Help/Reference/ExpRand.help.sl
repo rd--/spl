@@ -21,7 +21,7 @@ o.Splay
 		SinOsc(
 			ExpRand(300, 3000),
 			0
-		) * 0.Max(
+		) * 0.max(
 			SinOsc(
 				ExpRand(1, 15),
 				0

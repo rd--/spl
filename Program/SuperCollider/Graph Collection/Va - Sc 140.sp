@@ -4,7 +4,7 @@ let a = CombN(
 		LocalIn(2, 0) * 7.5 + (Saw([32, 33]) * 0.2),
 		2 ^ (LfNoise0(4 / 3) * 4) * 300,
 		0.1
-	).Distort,
+	).distort,
 	2,
 	2,
 	40
@@ -21,8 +21,8 @@ a <! LocalOut(a)
 }.Mix
 
 /* sc-140 ; 05 ; Batuhan Bozkurt */
-let f = LocalIn(2, 0).Tanh;
-let k = Latch(f[1].Abs, Impulse(1 / 4, 0));
+let f = LocalIn(2, 0).tanh;
+let k = Latch(f[1].abs, Impulse(1 / 4, 0));
 f <! LocalOut(f + CombC(Blip([4, 6], 100 * k + 50) * 0.9, 1, k * 0.3, 50 * f))
 
 /* sc-140 ; 07 ; Thor Magnusson */

@@ -5,7 +5,7 @@ let f = Choose(p, [58 58.2 62; 56 56.2 67]) ++ [39 51 60 63 65];
 let t = Choose(p, [-2 0 4]) + f;
 {
 	let osc = SinOsc(
-		t.MidiCps,
+		t.midiCps,
 		Rlpf(VarSaw(b * 32, 0, 0.5) * 2000, 9, 0.1) * 0.001 + 10
 	);
 	let env = {

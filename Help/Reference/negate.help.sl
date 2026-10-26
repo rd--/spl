@@ -2,8 +2,9 @@
 
 - _negate(x)_
 
-Answer a number that is the negation of the number _x_.
+Answer a number that is the negation of the number _x_,
 Equivalent to multiplication by negative `one`.
+also called inversion.
 The operator form in `-`.
 
 At `SmallFloat`:

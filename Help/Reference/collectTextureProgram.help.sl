@@ -15,7 +15,7 @@ Play slowly ascending diatonic scale:
 	Release(
 		EqPan2(
 			SinOsc(
-				MidiCps(pitchClass + 48),
+				midiCps(pitchClass + 48),
 				0
 			) * 0.1,
 			Rand(-1, 1)

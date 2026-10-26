@@ -2,7 +2,7 @@
 {
 	let p = 10; /* number of partials */
 	let n = WhiteNoise() * 0.007;
-	let f = (SinOsc(0.1 + Rand(0, 0.2), 0) * (12 + Rand(-12, 12)) + 60 + Rand(-24, 24)).MidiCps;
+	let f = (SinOsc(0.1 + Rand(0, 0.2), 0) * (12 + Rand(-12, 12)) + 60 + Rand(-24, 24)).midiCps;
 	let sweep = Resonz(n, f, 0.1);
 	{
 		RingzBank(

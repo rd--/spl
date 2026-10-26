@@ -10,7 +10,7 @@
 		Choose(tr, [s0, s1, s2])
 	};
 	{
-		let dt = 1 / TRand(60, 90, tr).Floor.MidiCps;
+		let dt = 1 / TRand(60, 90, tr).floor.midiCps;
 		let t = Decay(i(), 0.1) * PinkNoise() * 0.1;
 		EqPan2(CombL(t, dt, dt, 4), TRand(-1, 1, tr))
 	} !+ 5

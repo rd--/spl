@@ -27,6 +27,14 @@ shorter lists are extended as required by recycling:
 [8 32 72 110 38]
 ```
 
+It is an error if c₂ or c₃ are not sequences:
+
+```
+>>> {
+>>> 	[1].withWithCollect(4, 5, timesPlus/3)
+>>> }.hasError
+```
+
 * * *
 
 See also: collect, map, withCollect

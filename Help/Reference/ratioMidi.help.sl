@@ -1,21 +1,21 @@
-# RatioMidi
+# ratioMidi
 
-- _RatioMidi(x)_
+- _ratioMidi(x)_
 
 Convert interval as frequency ratio to midi note number.
 Alias for `ratioMidi`.
 
-Inverse of `MidiRatio`.
+Inverse of `midiRatio`.
 
 ```
->>> 2.RatioMidi
+>>> 2.ratioMidi
 12
 ```
 
 A rational perfect fifth is 702 cents:
 
 ```
->>> ((3 / 2).RatioMidi * 100)
+>>> ((3 / 2).ratioMidi * 100)
 702
 ```
 
@@ -24,13 +24,13 @@ Generate Pythagorean scale:
 ```
 let genScale = { :ratio |
 	0:11.collect { :each |
-		(ratio ^ each).RatioMidi % 12
+		(ratio ^ each).ratioMidi % 12
 	}
 };
 let notes = 48 + genScale(3 / 2);
 let amps = { Rand(0, 0.1) } ! 12;
 Splay(
-	SinOsc(notes.MidiCps, 0) * amps
+	SinOsc(notes.midiCps, 0) * amps
 )
 ```
 
@@ -43,7 +43,7 @@ Evaluate symbolically:
 
 * * *
 
-See also: CpsMidi, MidiCps, MidiRatio
+See also: cpsMidi, midiCps, midiRatio
 
 Guides: Pitch Functions
 

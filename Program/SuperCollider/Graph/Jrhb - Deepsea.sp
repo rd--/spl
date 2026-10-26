@@ -5,7 +5,7 @@ let tr = Dust(0.25);
 let n = TRand(7, 46, tr);
 let dt = 25.0 + TRand(-1.7, 1.7, tr) + LfNoise2(2) * variation * 0.001;
 let freq = 901 + TRand(0, 65, tr);
-let t = Impulse(dt.Reciprocal, 0) * 100;
+let t = Impulse(dt.reciprocal, 0) * 100;
 let count = PulseCount(t, 0);
 let u = Bpf(
 	Bpf(count < n * t, freq, 0.1),
@@ -18,7 +18,7 @@ let f1 = Bpf(
 	0.1
 );
 let f2 = CombL(
-	Lpf(f1 * LfNoise1(0.1).Max(0), 800),
+	Lpf(f1 * LfNoise1(0.1).max(0), 800),
 	0.5,
 	0.5,
 	1

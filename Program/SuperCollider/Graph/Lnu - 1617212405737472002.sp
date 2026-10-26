@@ -35,11 +35,11 @@ let c = [
 Splay(
 	LeakDc(
 		[
-			c.MidiCps.collect { :freq |
+			c.midiCps.collect { :freq |
 				SinOsc(freq, 0)
 			},
-			SinOsc(2 / c.Log10, 0),
-			LfSaw(11 / c.-, 0).Max(0).Lag3(0.1)
+			SinOsc(2 / c.log10, 0),
+			LfSaw(11 / c.-, 0).max(0).Lag3(0.1)
 		].product,
 		0.995
 	),

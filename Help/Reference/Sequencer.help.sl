@@ -22,7 +22,7 @@ Sequence triggered by square wave:
 let freq = Sequencer(
 	[60 62 63 58 48 55],
 	LfPulse(6, 0, 0.5)
-).MidiCps;
+).midiCps;
 LfSaw(freq, 0) * 0.1
 ```
 
@@ -32,7 +32,7 @@ Sequence triggered by random impulses:
 let freq = Sequencer(
 	[60 62 63 58 48 55],
 	Dust(6)
-).MidiCps;
+).midiCps;
 LfSaw(freq, 0) * 0.1
 ```
 
@@ -64,7 +64,7 @@ let note = Sequencer(
 	],
 	clock
 );
-let freq = (note + root).MidiCps;
+let freq = (note + root).midiCps;
 let trig = ImpulseSequencer(
 	[4 0 1 1 4 1 1 1] / 10,
 	clock
@@ -75,7 +75,7 @@ let z = VarSaw(
 	0,
 	MouseY(0, 1, 0, 0.2)
 ) * env;
-CombN(z, 0.26, 0.26, 4).SoftClip
+CombN(z, 0.26, 0.26, 4).softClip
 ```
 
 * * *

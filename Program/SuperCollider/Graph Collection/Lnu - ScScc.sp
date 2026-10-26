@@ -5,7 +5,7 @@ Pan2(
 	Bpf(
 		SinOsc(
 			f,
-			SinOsc(m ^ f * 2, 0) * m * 2.pi).Sign,
+			SinOsc(m ^ f * 2, 0) * m * 2.pi).sign,
 		(m * m).LinExp(-1, 1, 0.01, 1) * 5000 + (m * 99),
 		1
 	),
@@ -58,33 +58,33 @@ let t = Sweep(0, r) % r;
 let d = { TRand(0, 256, t < 1) };
 let o = d();
 {
-	o := BitOr(
+	o := bitOr(
 		o,
 		(
-			BitOr(
-				BitOr(
-					BitAnd(
+			bitOr(
+				bitOr(
+					bitAnd(
 						(t / d() / 4),
 						d()
 					),
-					BitAnd(
+					bitAnd(
 						(t / d()) % o,
 						d()
 					)
 				),
-				BitAnd(
-					o > d() * BitOr(
-						BitAnd(t * 2, d()),
+				bitAnd(
+					o > d() * bitOr(
+						bitAnd(t * 2, d()),
 						d()
 					),
-					BitAnd(t * d(), t / d())
+					bitAnd(t * d(), t / d())
 				)
 			)
 		)
 	)
 } ! 5;
 Pan2(
-	LeakDc(o, 0.995).Fold(-1, 1),
+	LeakDc(o, 0.995).fold,
 	0,
 	1 / 9
 )
@@ -94,8 +94,8 @@ let r = 9000;
 let t = Sweep(0, r) % r;
 let d = { TRand(0, 256, t < 1) };
 let o = d();
-let | = BitOr/2;
-let & = BitAnd/2;
+let | = bitOr/2;
+let & = bitAnd/2;
 {
 	o := (
 		o
@@ -107,7 +107,7 @@ let & = BitAnd/2;
 	)
 } ! 5;
 Pan2(
-	LeakDc(o, 0.995).Fold(-1, 1),
+	LeakDc(o, 0.995).fold,
 	0,
 	1 / 9
 )
@@ -116,7 +116,7 @@ Pan2(
 let x = LfNoise2(1).kr + 1.002;
 let t = LfPulse(x * 4, 0, 0.9).kr;
 let e = Env([-8 8 0], [0.1 0.9], 3, nil, nil, 0);
-let g = { EnvGen(t, 1, 0, 1.1 - x, 0, e).MidiRatio };
+let g = { EnvGen(t, 1, 0, 1.1 - x, 0, e).midiRatio };
 let d = { LfTri({ Rand(1, 1.pi) } ! 4, 0) * [0 .. 3] / 66 + 1 };
 Splay(
 	[
@@ -128,14 +128,14 @@ Splay(
 
 /* SCSCC-11 "Encore" 214 bytes ; Error? */
 let z = { :x | LfSaw(x, 0) };
-let i = [1 .. 4].fibonacci; /* 1 1 2 3 */
+let i = [1 1 2 3];
 let f = 1 << [0 .. 3] + i * 2; /* 4 6 12 22 */
 let l = DegreeToKey(
 	LocalBuf[0 2 5 7 9],
 	StandardN(f, 1, 0.5, 0) * z(1 / f) * 12,
 	12
 );
-let o = z(l.MidiRatio * 110 * i);
+let o = z(l.midiRatio * 110 * i);
 let g = l / (4 ^ i);
 let a = z(g) + 1 / 2 ^ 4 * o;
 let b = z(o + g) + 1 / 2 ^ (z(g / i) + 1 * 8 + 0.1) * 8000 + 40;
@@ -147,15 +147,15 @@ let z = { :x | LfSaw(x, 0) };
 let m = { 1 << (LfNoise2(2) + 1 * 2.2) };
 let x = 36;
 let f = 3 * [0 .. x - 1] + 16;
-let a = Sin(z(m() / 32) + 2 * 2.pi * z(MidiCps(f)));
-let b = Sin(Log2(z(m()) + 1 / 2 * (1.1 + z(m() / x) * f)).Sin ^ 8);
-let c = z( { -1 * m() } ! x / (m() * x)).Max(0);
+let a = sin(z(m() / 32) + 2 * 2.pi * z(f.midiCps));
+let b = sin(log2(z(m()) + 1 / 2 * (1.1 + z(m() / x) * f)).sin ^ 8);
+let c = z( { -1 * m() } ! x / (m() * x)).max(0);
 FreeVerb(
 	Splay(
 		Lpz2(a * b * c),
 		z(m() / 4)
 	),
-	m().Sin + 1 / 3,
+	m().sin + 1 / 3,
 	m() / x,
 	x / m()
 )
@@ -170,7 +170,7 @@ let f = 82 * ugenIf(
 	LfSaw(1 / 5, 0) > 0,
 	a,
 	[3 3 3 3 4] + a
-).MidiRatio;
+).midiRatio;
 Splay(
 	[0 .. 4].collect { :n |
 		let q = f[n + 1] * p;
@@ -178,9 +178,9 @@ Splay(
 			SinOsc(
 				q,
 				SinOsc(p / 5 + 3, 0) * SinOsc(7 / q[1], 0)
-			) * Negate(
-				SinOsc(rotate(p, n) / q, 0) + 3 ^ 2 * p).DbAmp
-		).Sum / 4
+			) * negate(
+				SinOsc(rotate(p, n) / q, 0) + 3 ^ 2 * p).dbAmp
+		).sum / 4
 	},
 	SinOsc(1 / 3, 0)
 )
@@ -193,14 +193,14 @@ let l = QuadN(
 	[2, 1],
 	-0.001 * [0 .. 7] + 1,
 	-1, -0.75, 0
-).Sin;
+).sin;
 let a = QuadN(41, 1, -1, -0.75, 0);
-let b = Round(l * 5 + (5 + [0 .. 7] + 16), 5).MidiCps;
-let c = Sin(1.pi * z(a / 4 + b * MidiRatio(7 * [0 .. 9])));
-let d = z(-2 ^ Round(l * 3 / 2, 1) / [1 .. 3]);
+let b = round(l * 5 + (5 + [0 .. 7] + 16), 5).midiCps;
+let c = (1.pi * z(a / 4 + b * midiRatio(7 * [0 .. 9]))).sin;
+let d = z(-2 ^ round(l * 3 / 2, 1) / [1 .. 3]);
 let o = Splay(
 	c * Lag(
-		d + 1 / 2 ^ Abs(z(1 + l) ^ 0.1 * 9) / 2,
+		d + 1 / 2 ^ (z(1 + l) ^ 0.1 * 9).abs / 2,
 		0.003
 	),
 	l[1]
@@ -212,21 +212,24 @@ CombC(
 	l.atAll([7 .. 8]) * 4
 ) * (1 / 8) + o
 
-/* SCSCC-15 "Bitwise Bird Calls" 93 bytes */
+/* SCSCC-15 "bitwise Bird Calls" 93 bytes */
 let r = TRand(1, 255, Dust(2));
-let t = Sweep(0, 1) * r.Sin * 999 % r;
-let b = t.BitAnd(r);
+let t = Sweep(0, 1) * r.sin * 999 % r;
+let b = t.bitAnd(r);
 Pan2(
 	Saw(
-		13 * b.BitOr(t >> r)
+		13 * b.bitOr(t >> r)
 	) * (b > 66) / 3,
 	0,
 	1
 )
 
 /* SCSCC-18 "Bone Spurs" 165 bytes */
-let b = [BLowShelf/4 BPeakEq/4 BHiShelf/4 BLowPass/3 BHiPass/3 BBandPass/3 BBandStop/3 BAllPass/3];
-let q = { :x | QuadN(x, 1, -1, -0.75, 0).Sin };
+let b = [
+	BLowShelf/4, BPeakEq/4, BHiShelf/4, BLowPass/3,
+	BHiPass/3, BBandPass/3, BBandStop/3, BAllPass/3
+];
+let q = { :x | QuadN(x, 1, -1, -0.75, 0).sin };
 let o = LocalIn(1, 0) + 0.1;
 [0 .. 7].collect { :n |
 	let f = 1.1 ^ n;
@@ -236,7 +239,7 @@ let o = LocalIn(1, 0) + 0.1;
 		q(0.1 * f) + 1.005,
 		0
 	);
-	o := (3 * c).Tanh
+	o := (3 * c).tanh
 };
 Pan2(o, 0, 1 / 11) <! LocalOut(CombC(o, 0.2, 0.2, 1))
 
@@ -245,12 +248,12 @@ let c = [7 / 3, 1.78, 3 / 2,1] *.x [1, 2];
 let t = Sweep(0, 1) * 8000;
 let a = CuspL(c, 1, 1.9, 0).reverse;
 let b = CuspL(c, 1, 1.9, 0) + 1 * 64;
-let d = BitOr(
-	BitAnd(t * c, b),
+let d = bitOr(
+	bitAnd(t * c, b),
 	t >> ( 2 * [0 .. 2] + 4)
 ) % 256;
 Pan2(
-	Sum(1 / 8 < a * Fold(LeakDc(d, 0.995) / 8, -1, 1)),
+	Sum(1 / 8 < a * (LeakDc(d, 0.995) / 8).fold),
 	0,
 	1 / 8
 )
@@ -258,12 +261,12 @@ Pan2(
 /* SCSCC-21 "Byte Beat Business" 104b */
 let e = 256;
 let t = Sweep(0, 8000);
-let | = BitOr/2;
-let & = BitAnd/2;
+let | = bitOr/2;
+let & = bitAnd/2;
 let a = ((t >> 8 % e) | (t / 5 & (t / 2816 % e)));
 let b = (t >> 9 % e | (t * 2 & (t / 1792 % 16)));
 Pan2(
-	LeakDc(a | b, 0.995).Clip(-1, 1),
+	LeakDc(a | b, 0.995).clip,
 	0,
 	1 / 22
 )
@@ -277,18 +280,18 @@ Brf(
 			(
 				e / 2 + 1 * [82 146 195 246]
 				*
-				(LfSaw(0.1 + [0 .. 3] * 3, 0).Abs / 24 + 1)
+				(LfSaw(0.1 + [0 .. 3] * 3, 0).abs / 24 + 1)
 			),
 			0
 		),
 		LfSaw(h, 0)
 	),
-	LfSaw(h / (9 / 7 + LfSaw(h / 34, 0) ^ 2 * 4), 0).Abs * 4000 + 82,
+	LfSaw(h / (9 / 7 + LfSaw(h / 34, 0) ^ 2 * 4), 0).abs * 4000 + 82,
 	4
 ) * (
-	LfSaw(-8, 1) + 1 / 2 ^ (LfSaw(h / 27, 0).Abs * 8 + h) / 2
+	LfSaw(-8, 1) + 1 / 2 ^ (LfSaw(h / 27, 0).abs * 8 + h) / 2
 	+
-	(Slew(e, 1000, 1) ^ (LfSaw(h / 46, 0).Abs * 3 + h))
+	(Slew(e, 1000, 1) ^ (LfSaw(h / 46, 0).abs * 3 + h))
 ) / 5 * Line(0, 1, 9)
 
 /* SCSCC-23 "Back to 1991" 228bytes (updated 20250327) */
@@ -313,8 +316,8 @@ Pan2(
 	1
 )
 
-/* SCSCC-24 "Loading…" 221 bytes ; https://github.com/lukiss/SCSCC/ */
-let r = (12 * [0 .. 4] +.x [0 10 15 19]).MidiRatio;
+/* SCSCC-24 "Loading..." 221 bytes ; https://github.com/lukiss/SCSCC/ */
+let r = (12 * [0 .. 4] +.x [0 10 15 19]).midiRatio;
 Splay(
 	[0 .. 9].collect { :n |
 		let a = LfSaw(1 / (2 ^ n % 111), 0);
@@ -341,7 +344,7 @@ Splay(
 )
 
 /* SCSCC-25 "Feeling Melancholy at the Spa, In A minor" */
-let r = MidiRatio(12 * [0 .. 4] +.x (5 * [0 .. 4] ++ [19]));
+let r = midiRatio(12 * [0 .. 4] +.x (5 * [0 .. 4] ++ [19]));
 let z = { :x | LfSaw(x, 0) };
 let h = 1 / 2;
 let w = CuspL(h, 1, 1.9, 0) + 1 / 2 ^ h * 4;
@@ -359,7 +362,7 @@ GVerb(
 				h,
 				z(n % w) / 77 + 1 / a,
 				z(w + n % h) + 2.1 * 4,
-				1 - z(w % h).Abs ^ 2 * h + h
+				1 - z(w % h).abs ^ 2 * h + h
 			).Sum
 		},
 		50
@@ -368,7 +371,7 @@ GVerb(
 )
 
 /* SCSCC-26 */
-let c = MidiRatio(12 * [0 .. 2] +.x (5 * [0 .. 3] ++ [19]));
+let c = midiRatio(12 * [0 .. 2] +.x (5 * [0 .. 3] ++ [19]));
 let m = { LfdNoise3([0.1] # 5) + 1 / 2 };
 let k = 6;
 Splay(
@@ -394,7 +397,7 @@ Splay(
 
 /* SCSCC-27 The Schmidt Trigger Ugen (223 bytes) */
 let t = 0.1;
-let r = MidiRatio(12 * [0 .. 2] +.x (5 * [0 .. 4] ++ [19])) * 98;
+let r = midiRatio(12 * [0 .. 2] +.x (5 * [0 .. 4] ++ [19])) * 98;
 let f = {
 	(
 		TChoose(Dust(t), r).Lag(0.1)
@@ -410,7 +413,7 @@ Splay(
 				SinOsc(
 					1 << n * f() / 2,
 					0
-				) * Max(LfNoise2(t), 0)
+				) * max(LfNoise2(t), 0)
 			) * SinOsc(f() % 1.pi * t, 0)
 		} ! 3;
 		LeakDc(
@@ -425,12 +428,12 @@ Splay(
 /* SCSCC-28 256b Dub */
 let f = 53;
 let h = 1 / 3;
-let r = MidiRatio(12 * [0 .. 3] +.x (5 * [0 .. 4] ++ [19]));
+let r = midiRatio(12 * [0 .. 3] +.x (5 * [0 .. 4] ++ [19]));
 let l = nil;
 let a = nil;
 let o = Splay(
 	0:12.collect { :n |
-		l := LfSaw(1 / (2 ^ n % f), 0).Abs;
+		l := LfSaw(1 / (2 ^ n % f), 0).abs;
 		a := 4 + l;
 		let p = (n + 1).prime;
 		let x = 1 / 2 < l * 1 / 2 + 1 * 66 * r;
@@ -472,12 +475,12 @@ let o = b(f);
 	o := LeakDc(
 		b(
 			f := LfNoise2([33, 33]) / 222 + 1 * f * 1.189
-		).Fold(
+		).fold(
 			b(2 / 3 * f),
 			b(3 / 2 * f)
 		).Blend(
 			o,
-			b(m() ^ 1.pi / 9).Abs
+			b(m() ^ 1.pi / 9).abs
 		),
 		0.995
 	)
@@ -485,23 +488,23 @@ let o = b(f);
 o / 5 * Line(0, 1, 14)
 
 /* SCSCC #32 Baum 219 */
-let f = Index(
+let f = ClipIndex(
 	(12 * [0 .. 5] +.x (5 * [0 .. 3] ++ [19])).LocalBuf,
-	Round(
+	round(
 		QuadC(1, 1, -1, -0.75, 0) + 1 / 2 * 30,
-		Ceiling(QuadC(0.9, 1, -1, -0.75, 0) + 1 * 12)
+		ceiling(QuadC(0.9, 1, -1, -0.75, 0) + 1 * 12)
 	)
 );
 let z = Formlet(
-	Hpz1(f).Abs * QuadC(22050, 1, -1, -0.75, 0),
-	55 * f.MidiRatio,
+	Hpz1(f).abs * QuadC(22050, 1, -1, -0.75, 0),
+	55 * f.midiRatio,
 	0.002,
 	1
-).Sin;
+).sin;
 let o = PitchShift(
 	z,
 	1,
-	(8 + f).Log,
+	(8 + f).log,
 	0.1,
 	0.1
 ) + z;
@@ -514,7 +517,7 @@ Pan2(
 /* SCSCC #33 "Nudge" */
 let m = { LfdNoise3(1 / 3) + 1 / 2 };
 let b = { :x | Blip(x, m() ^ 1.pi * 16) };
-let r = MidiRatio(
+let r = midiRatio(
 	(2 * [0 .. 1] +.x (5 * [0 .. 3] ++ [19])) +.x (24 * [0 .. 2])
 );
 let c = Stream(r).collect { :x |
@@ -522,11 +525,11 @@ let c = Stream(r).collect { :x |
 };
 Splay(
 	{
-		let p = b(m() / 9 + 4).Fold(
+		let p = b(m() / 9 + 4).fold(
 			m() / 9,
 			1
 		);
-		let q = b(c.next).Fold(
+		let q = b(c.next).fold(
 			b(c.next),
 			b(c.next)
 		);
@@ -560,35 +563,35 @@ let z = { :a | LfSaw(-1 * a, 1) };
 let f = 7777;
 let n = z(42 * [0 .. 6] + (0.1 * f)).Sum;
 let m = z(8) + 1 / 2 ^ (z(2) > 0 ^ 6 * 6 + 0.9) / 3;
-let a = m * Hpf(Apf(n, f / 2, z(1 / 18).Abs ^ 0.1), f).Clip(-1, 1) / 8;
-let b = Sin(1.pi * z(z(2) + 1 / 2 ^ 32 * 110 + 55)) * Lag(z(2) + 1 / 2, 0.001) / 3;
-let c = (z(n / 4 + 1 * [540 800]).Sum / 88 * (z(8 / [7 13 11]).Max(0) ^ 8)).Sum;
+let a = m * Hpf(Apf(n, f / 2, z(1 / 18).abs ^ 0.1), f).clip / 8;
+let b = (1.pi * z(z(2) + 1 / 2 ^ 32 * 110 + 55)).sin * Lag(z(2) + 1 / 2, 0.001) / 3;
+let c = (z(n / 4 + 1 * [540 800]).Sum / 88 * (z(8 / [7 13 11]).max(0) ^ 8)).Sum;
 Pan2(a + b + c, 0, 1)
 
 /* ScScc-38 "Index" ; https://github.com/lukiss/SCSCC/ */
 let t = LfSaw(-7, 0);
-let c = Index(
+let c = ClipIndex(
 	((7 * [0 .. 3]) +.x (5 * [0 .. 3])).LocalBuf,
 	Stepper(
 		t,
 		0,
-		LfSaw([0 .. 2] + 0.1 / 3, 0).Abs * 16,
-		LfSaw([0 .. 2] + 0.1 / 1.pi, 0).Abs * 16,
+		LfSaw([0 .. 2] + 0.1 / 3, 0).abs * 16,
+		LfSaw([0 .. 2] + 0.1 / 1.pi, 0).abs * 16,
 		1,
 		0
 	)
-).MidiRatio;
+).midiRatio;
 Splay(
 	LeakDc(
 		CombC(
-			LfSaw(1 << [0 .. 2] / 4 * 98 * c, 0) * t.Max(0) / 2,
+			LfSaw(1 << [0 .. 2] / 4 * 98 * c, 0) * t.max(0) / 2,
 			0.2,
 			0.2,
 			1
 		),
 		0.995
 	),
-	c.Sum.Sin
+	c.sum.sin
 )
 
 /* SCSCC-40 "Bonus Level" ; https://github.com/lukiss/SCSCC/ */
@@ -604,8 +607,8 @@ let r = Select(
 		+
 		Select(k(), [d m m d d m m d])
 	)
-).MidiRatio.kr;
-let e = Abs(LfSaw({ 1 + a() } ! 4, 0) * 8 + 1).kr;
+).midiRatio.kr;
+let e = (LfSaw({ 1 + a() } ! 4, 0) * 8 + 1).abs.kr;
 Splay(
 	LfSaw(
 		a/0 ! 4 / 4 + 65 * r,
@@ -620,11 +623,11 @@ let t = LfSaw(
 ) + 1 / 2;
 let o = Splay(
 		t ^ 2 * LfSaw(
-			131 * MidiRatio(
-				Floor(
+			131 * midiRatio(
+				floor(
 					LfSaw(1 / 32, 0) * 8
-				) * 5 + Round(
-					3.1 * LfSaw(1 / 8, 1 / 16).Max(0), 2
+				) * 5 + round(
+					3.1 * LfSaw(1 / 8, 1 / 16).max(0), 2
 				) + [9 4 7 0] % 12 +.x [19 0]
 			),
 			0
@@ -643,7 +646,7 @@ let m = Select(
 	Sweep(0, 1) % 4,
 	[7 12 19 24]
 );
-let r = Wrap(m + [0 16 7 11 -3], -12, 12).MidiRatio;
+let r = (m + [0 16 7 11 -3]).wrap(-12, 12).midiRatio;
 Splay(
 	Blip(
 		n / 133 + 1 * 198 * r,
@@ -659,10 +662,10 @@ let m = Select(
 	[7 12 19 24]
 );
 let r = (
-	Wrap(m + [0 16 7 11 -3], -12, 12)
+	(m + [0 16 7 11 -3]).wrap(-12, 12)
 	+.x
 	[0 7]
-).MidiRatio;
+).midiRatio;
 Splay(
 	Blip(
 		n / 99 + 1 * 147 * r,
@@ -675,11 +678,11 @@ Splay(
 
 /* SCSCC-45 "Lullaby" ; Sub 256 version 194 bytes */
 let r = 1 << [0 .. 2] * 1.1;
-let a = LfSaw(-1 * r, 1).Max(0).Lag(0.005);
+let a = LfSaw(-1 * r, 1).max(0).Lag(0.005);
 let m = Select(
 	A2K(QuadN(r, [0 .. 2] / 9 + 1, -1, -0.75, 0) + 1 * 18),
 	(12 * [0 .. 2]) +.x [0 2 3 5 7 10] +.x [19 0]
-).MidiRatio * 49;
+).midiRatio * 49;
 Splay(
 	Blip(
 		Blip(3.1, 33) / 3 + 1 * m,
@@ -697,18 +700,18 @@ let i = ToggleFf(
 		)
 	)
 ) * (128 >> (0 .. 7));
-let f = i.Sum.Tan;
+let f = i.sum.tan;
 let o = Lpz2(
 	LeakDc(
 		Select(
 			LfSaw(
-				Sum(i) + f,
+				sum(i) + f,
 				0
 			) + 1 * 4.3 - 1,
 			i
 		) / 2,
 		LfSaw(-1 * f, 0) * 0.005 + 0.995
-	).Wrap(-1, 1)
+	).wrap
 );
 Pan2(o, 0, 1 / 8) <! LocalOut(o)
 
@@ -718,7 +721,7 @@ Splay(
 		Select(
 			Gendy3(1, 1, 1, 1, [1 .. 5] / 99, 0.5, 0.5, 12, 12) + 1 * 14,
 			(12 * [0 .. 3]) +.x (2 * [0 .. 3] ++ (2 * [0 .. 2] + 7))
-		).MidiRatio.kr * 49,
+		).midiRatio.kr * 49,
 		0
 	) / 5
 )
@@ -726,8 +729,8 @@ Splay(
 /* SCSCC-50 WIP Ba Be Bi Ba */
 let a = ('R[jln-/457Kcjlm+-144Bckno!/144'.ascii - 6).clump(10);
 let t = CuspN(CuspN(4, 1, 1.9, 0) + 1.1 * 3, 1, 1.9, 0);
-let u = Hpz2(t).Abs > 0;
-let b = MidiCps(
+let u = Hpz2(t).abs > 0;
+let b = midiCps(
 	CuspN(2 + t * 99, 1, 1.9, 0) / 99 + 1 * TChoose(
 		u,
 		a + Dc(0)
@@ -736,7 +739,7 @@ let b = MidiCps(
 EqPan2(
 	Sum(
 		Formant(
-			MidiCps(t + 1 * 6 + 42),
+			midiCps(t + 1 * 6 + 42),
 			b[1],
 			b[2]
 		) * (1 / [1 4 12 17 23])
@@ -746,9 +749,9 @@ EqPan2(
 
 /* SCSCC-51 #UntzUntz */
 let f = 98;
-let a = SinOsc(2, 0).Max(0);
+let a = SinOsc(2, 0).max(0);
 let b = SinOsc(3 / (2 * f), 0) + 1.001 / 11;
-let c = SinOsc(2, 4).Max(0);
+let c = SinOsc(2, 4).max(0);
 let d = SinOsc(1.9 / f, 0) + 4 * 4;
 let e = SinOsc(SinOsc(4 / f, 0) ^ 1.pi * f + f * SinOsc(f, 0), 0);
 let g = SinOsc(1 / 2, 1.9) ^ (SinOsc(0.992 / 7, 0) + 6 * 66);
@@ -756,7 +759,7 @@ let h = Sum(SinOsc([14 15].fibonacci, 0)) * SinOsc(4 / f, 0) / 2;
 Pan2(
 	LeakDc(
 		SinOsc(
-			Log(a ^ b * 11).Sin ^ 5 * 4 * f,
+			log(a ^ b * 11).sin ^ 5 * 4 * f,
 			c ^ d * e + (g * h)
 		) / 3,
 		0.995
@@ -775,7 +778,7 @@ let o = Lpz2(
 				SinOsc(0.009 / [1 .. 8], 0).ExpRange(0.01, 1)
 			),
 			0.995
-		).Sin
+		).sin
 	)
 );
 (o / 5) <! LocalOut(o)
@@ -787,14 +790,12 @@ let w = Dwhite(Infinity, [0 0 0], 1);
 let r = Duty(w[1], w[2], w[3]).kr;
 Pan2(
 	Sum(
-		Fold(
+		(
 			LfSaw(
 				1 / r,
 				0
-			).Max(0) * m,
-			-1,
-			1
-		) + 1 / 2 ^ (r * 9 + 4) * SinOsc(r * 98 * p * m, 0)
+			).max(0) * m
+		).fold + 1 / 2 ^ (r * 9 + 4) * SinOsc(r * 98 * p * m, 0)
 	),
 	0,
 	0.1

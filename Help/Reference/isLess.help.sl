@@ -75,6 +75,15 @@ selecting only items less than five:
 [3 1 4 1 2]
 ```
 
+At `Ugen`,
+amplitude modulated pink noise:
+
+```
+PinkNoise()
+* Lag(LfSaw(1, -1) < 0, 0.1)
+* 0.05
+```
+
 * * *
 
 See also: Compare, Equal, =, !=, <, <=, >, >=, <=>, isGreater, isLessOrEqual

@@ -8,10 +8,10 @@
 			) * 0.1
 		).Sum
 	};
-	let a1 = a(ExpRand(0.3, 0.8)).Max(0);
-	let a2 = a(ExpRand(6, 24)).Abs;
+	let a1 = a(ExpRand(0.3, 0.8)).max(0);
+	let a2 = a(ExpRand(6, 24)).abs;
 	EqPan(
-		SinOsc(Rand(24, 108).MidiCps, Rand(0, 2.pi)) * a1 * a2,
+		SinOsc(Rand(24, 108).midiCps, Rand(0, 2.pi)) * a1 * a2,
 		Rand(-1, 1)
 	)
 }.overlapTextureProgram(4, 4, 12)

@@ -26,7 +26,7 @@ let output = [1 .. numChans].collect { :cNum |
 		Rand(0.99, 1) * lfoFreq,
 		phase
 	).LinLin(-1, 1, minModAmount, delayVal);
-	let fb0 = (ctl::delayFb * 1.1 * localIn[cNum]).Tanh;
+	let fb0 = (ctl::delayFb * 1.1 * localIn[cNum]).tanh;
 	let fb1 = DelayL(fb0, 0.2, Rand(0.1, 0.2));
 	let fb2 = Lpf(
 		fb1,

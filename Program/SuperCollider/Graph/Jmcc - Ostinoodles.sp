@@ -10,7 +10,7 @@ let z = { :tr |
 	) + root;
 	let f = TxLine(TExpRand(4, 24, tr), TExpRand(4, 24, tr), 12, tr);
 	let trig = Impulse(f, 0);
-	let freq = Sequencer(seq.MidiCps, trig);
+	let freq = Sequencer(seq.midiCps, trig);
 	let sig = LfTri(freq, 0) * Decay2(trig, 0.004, 0.3) * 0.1;
 	EqPan2(sig, TRand(-1, 1, tr))
 }.OverlapTexture(6, 3, 6).Mix;

@@ -32,7 +32,7 @@ PinkNoise([0.1] # 2, 0)
 		1 / 80,
 		1 / 80,
 		0.3
-	) * SinOsc(80.04, 0.5.pi).Abs
+	) * SinOsc(80.04, 0.5.pi).abs
 ]
 
 /* Waveform ; Jmcc */
@@ -43,7 +43,7 @@ PinkNoise([0.1] # 2, 0)
 		1 / 80,
 		1 / 80,
 		0.3
-	) * SinOsc(80, 1).Abs
+	) * SinOsc(80, 1).abs
 ]
 
 /* Filtered decorrelated noise ; Jmcc */

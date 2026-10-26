@@ -141,9 +141,7 @@
 		self.max(low)
 	}
 
-	clip { :self :u :v |
-		let [min, max] = u;
-		let [vMin, vMax] = v;
+	clip { :self :min :max :vMin :vMax |
 		(self < min).if {
 			vMin
 		} {
@@ -155,12 +153,18 @@
 		}
 	}
 
+	clip { :self :min :max |
+		self.clip(min, max, min, max)
+	}
+
 	clip { :self :minMax |
-		self.clip(minMax, minMax)
+		let min = minMax.min;
+		let max = minMax.max;
+		self.clip(min, max, min, max)
 	}
 
 	clip { :self |
-		self.clip([-1 1], [-1 1])
+		self.clip(-1, 1, -1, 1)
 	}
 
 	concisePrintString { :self |
@@ -328,6 +332,10 @@
 			z := twiceRange - z
 		};
 		low + z
+	}
+
+	fold { :self |
+		self.fold(-1, 1)
 	}
 
 	fractionalPart { :self |
@@ -1055,11 +1063,19 @@
 		}
 	}
 
-	signedPower { :self :aNumber |
+	[signedPower, **] { :self :aNumber |
 		self.isNegative.if {
 			(self.negate ^ aNumber).negate
 		} {
 			self ^ aNumber
+		}
+	}
+
+	signedSqrt { :self |
+		self.isNegative.if {
+			self.negate.sqrt.negate
+		} {
+			self.sqrt
 		}
 	}
 
@@ -1069,6 +1085,14 @@
 
 	smallFloatMax { :self |
 		self * system.smallFloatMax
+	}
+
+	softClip { :self |
+		(self.abs <= 0.5).if {
+			self
+		} {
+			(self.abs - 0.25) / self
+		}
 	}
 
 	softPlus { :x |
@@ -1221,6 +1245,10 @@
 		{ self < low }.whileTrue { self := self + range };
 		{ self > high }.whileTrue { self := self - range };
 		self
+	}
+
+	wrap { :self |
+		self.wrap(-1, 1)
 	}
 
 	wrapExclusive { :self :low :high |

@@ -1,23 +1,23 @@
-/* MidiCps */
-Saw(Line(24, 108, 10).MidiCps) * 0.05
+/* midiCps */
+Saw(Line(24, 108, 10).midiCps) * 0.05
 
-/* MidiCps ; step */
-Saw(Line(24, 108, 10).Round(1).MidiCps) * 0.05
+/* midiCps ; step */
+Saw(Line(24, 108, 10).round(1).midiCps) * 0.05
 
-/* MidiCps ; requires=keywords */
+/* midiCps ; requires=keywords */
 Saw(
 	Line(
 		start: 24,
 		end: 108,
 		dur: 10
-	).MidiCps
+	).midiCps
 ) * 0.05
 
-/* MidiCps ; step ; requires=keywords */
+/* midiCps ; step ; requires=keywords */
 Saw(
 	Line(
 		start: 24,
 		end: 108,
 		dur: 10
-	).Round(1).MidiCps
+	).round(1).midiCps
 ) * 0.05

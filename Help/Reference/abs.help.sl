@@ -58,6 +58,23 @@ where it is also called the complex modulus or `norm`:
 [1 2 3; 4 5 6]
 ```
 
+Wave folding:
+
+```
+let x = MouseX(0.25, 2, 0, 0.2);
+let y = MouseY(1, 9, 0, 0.2);
+let m = SinOsc(
+	[0.5 0.9] * x,
+	0
+).LinLin(-1, 1, 0.9, y);
+let o = SinOsc(
+	[55 99],
+	0
+) * (m * (m > 0) + 1);
+let z = o * 0.25 + 0.25;
+(z - z.round(1)).abs - 0.25
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

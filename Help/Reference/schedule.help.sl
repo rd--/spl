@@ -15,7 +15,7 @@ The expression below schedules random sine tones of random durations at random i
 	Release(
 		Pan2(
 			SinOsc(
-				IRand(48, 72).MidiCps,
+				IRand(48, 72).midiCps,
 				0
 			),
 			Rand(-1, 1),

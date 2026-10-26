@@ -326,6 +326,12 @@ OEIS [A017173](https://oeis.org/A017173):
 [1 10 19 28 37 46 55 64 73 82 91 100 109 118]
 ```
 
+Quiet and quieter pink noise:
+
+```
+PinkNoise() * [0.1 0.05]
+```
+
 Plot multiples of each the integers up to _n_ extending to _m_,
 the _y_ coordinate is given by the multiplier:
 

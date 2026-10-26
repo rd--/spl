@@ -12,6 +12,10 @@
 		}
 	}
 
+	clip { :self :min :max |
+		self.withWithCollect(min.nest, max.nest, clip/3)
+	}
+
 	clip { :self :minMax |
 		self.collect { :each |
 			each.clip(minMax)
@@ -19,7 +23,7 @@
 	}
 
 	clip { :self |
-		self.clip([-1 1])
+		self.clip(-1, 1)
 	}
 
 	copyWithout { :self :oldElement |

@@ -1,7 +1,7 @@
 /* F0 ; http://twitter.com/redFrik/status/1105496695637454848 */
 let b = [1 .. 15] + 1 / 151;
-let w = (VarSaw(b, b, 1 / 5.15) * 1 + 1.5).Ceiling;
-let i = (VarSaw(1 / 15, 1 / 5, b) * 5).Ceiling + 5 / 5;
+let w = (VarSaw(b, b, 1 / 5.15) * 1 + 1.5).ceiling;
+let i = (VarSaw(1 / 15, 1 / 5, b) * 5).ceiling + 5 / 5;
 let s = BufRd(1, LocalBuf[51 * 1.5, 51, 151], i, 0, 1);
 let x = Lag(s, b);
 let y = VarSaw(5 + b, 0, 0.5);

@@ -121,7 +121,7 @@ let input = SinOsc(
 let delayedSignal = DelayTap(
 	buffer,
 	0.15
-).Distort;
+).distort;
 let mixedSignal = (
 	delayedSignal * 0.8
 ) + input;

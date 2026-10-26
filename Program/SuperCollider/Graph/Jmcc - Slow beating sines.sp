@@ -4,11 +4,11 @@
 	let p = [];
 	let q = [];
 	n.timesRepeat {
-		let freq = TRand(24, 84, tr).MidiCps;
+		let freq = TRand(24, 84, tr).midiCps;
 		let d = 5;
 		p.add!(freq);
-		{ p.add!(freq + TRand(d.Negate, d, tr)) } ! 2;
-		{ q.add!(freq + TRand(d.Negate, d, tr)) } ! 3
+		{ p.add!(freq + TRand(d.negate, d, tr)) } ! 2;
+		{ q.add!(freq + TRand(d.negate, d, tr)) } ! 3
 	};
 	[p, q].collect { :freqList |
 		freqList.collect { :freq |

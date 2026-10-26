@@ -9,6 +9,6 @@ let k = DegreeToKey(b, Sequencer(n, tr), 12);
 let e = Decay2(tr, 0.01, TRand(0.15, 0.5, tr));
 {
 	let m = 48 + k + TRand(0, 0.05, tr);
-	let b = Blip(m.MidiCps, TRand(1, 7, tr)) * e * 8;
-	CombC(b.Tanh / 8, 1, 1, 8) * TRand(0.05, 0.15, tr)
+	let b = Blip(m.midiCps, TRand(1, 7, tr)) * e * 8;
+	CombC(b.tanh / 8, 1, 1, 8) * TRand(0.05, 0.15, tr)
 } ! 2

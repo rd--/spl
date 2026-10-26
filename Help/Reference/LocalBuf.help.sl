@@ -19,7 +19,7 @@ let b = LocalBuf[
 ];
 let x = MouseX(0, 8, 0, 0.2);
 let m = BufRd(1, b, x, 1, 1) + 48;
-SinOsc(m.MidiCps, 0) * 0.1
+SinOsc(m.midiCps, 0) * 0.1
 ```
 
 In the matrix case the buffer will have multiple channels.
@@ -31,7 +31,7 @@ let b = LocalBuf[
 ];
 let x = MouseX(0, 4, 0, 0.2);
 let m = BufRd(1, b, x, 1, 1) + 48;
-SinOsc(m.MidiCps, 0) * 0.1
+SinOsc(m.midiCps, 0) * 0.1
 ```
 
 * * *

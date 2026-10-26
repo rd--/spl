@@ -1,37 +1,44 @@
-# Distort
+# distort
 
-- _Distort(x)_
+- _distort(x)_
 
 Nonlinear distortion.
 Implements _x/(1+|x|)_.
 
 ```
->>> Distort(0.5)
+>>> distort(0.5)
 1/3
 
 >>> 0.5 / (1 + 0.5.abs)
 1/3
 ```
 
-Plot over _(-1,1)_:
+Evaluate symbolically:
 
-~~~spl svg=A
-(-1 -- 1).functionPlot(Distort/1)
-~~~
-
-![](Help/Image/Distort-A.svg)
+```
+>> distort(`x`)
+(/ x (+ 1 (abs x)))
+```
 
 Distortion increases with amplitude:
 
 ```
 (
 	SinOsc(500, 0) * XLine(0.1, 10, 10)
-).Distort * 0.1
+).distort * 0.1
 ```
+
+Plot over _(-1,1)_:
+
+~~~spl svg=A
+(-1 -- 1).functionPlot(distort/1)
+~~~
+
+![](Help/Image/distort-A.svg)
 
 * * *
 
-See also: SoftClip, Tanh
+See also: softClip, tanh
 
 Guides: Unit Generators
 

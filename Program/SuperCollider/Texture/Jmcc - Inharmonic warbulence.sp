@@ -1,12 +1,12 @@
 /* Inharmonic warbulence (Jmcc) #12 */
 {
-	let f = Rand(24, 96).MidiCps;
-	let a = 1.Min(500 / f);
+	let f = Rand(24, 96).midiCps;
+	let a = 1.min(500 / f);
 	let r = XLine(ExpRand(0.1, 20), ExpRand(0.1, 20), 25.6);
 	let n = 12;
 	let z = {
 		let g = Rand(1, n + 1);
-		let m = 0.Max(
+		let m = 0.max(
 			SinOsc(r * Rand(0.9, 1.1), Rand(0, 2.pi)) * 0.08 - 0.04
 		);
 		EqPan(FSinOsc(f * g, 0) * m * (2 / g), Rand(-1, 1))

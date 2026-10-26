@@ -14,7 +14,7 @@ The below is zero when _input_ is positive:
 
 ```
 let n = LinRand(SinOsc(1 / 2, 0)) * 0.1;
-n.Abs - n
+n.abs - n
 ```
 
 Ternary form generates a single random float value in linear distribution from _lo_ to _hi_,

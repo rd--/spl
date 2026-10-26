@@ -196,6 +196,10 @@
 		self.collect(digitValue/1)
 	}
 
+	distort { :self |
+		self.collect(distort/1)
+	}
+
 	divisors { :self |
 		self.collect(divisors/1)
 	}
@@ -290,10 +294,8 @@
 		self.collect(floor/1)
 	}
 
-	fold { :self :low :high |
-		self.collect { :each |
-			each.fold(low, high)
-		}
+	fold { :self |
+		self.fold(-1, 1)
 	}
 
 	[fractionExponent, frexp] { :self |
@@ -823,6 +825,14 @@
 		self.collect(square/1)
 	}
 
+	signedSqrt { :self |
+		self.collect(signedSqrt/1)
+	}
+
+	softClip { :self |
+		self.collect(softClip/1)
+	}
+
 	squareFreePart { :self |
 		self.collect(squareFreePart/1)
 	}
@@ -905,10 +915,8 @@
 		self.collect(withoutTrailingZeroes/1)
 	}
 
-	wrap { :self :lo :hi |
-		self.collect { :each |
-			each.wrap(lo, hi)
-		}
+	wrap { :self |
+		self.wrap(-1, 1)
 	}
 
 	wrapExclusive { :self :lo :hi |
@@ -1035,6 +1043,10 @@
 		anObject.adaptToCollectionAndApply(self, times/2)
 	}
 
+	[signedPower, **] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, signedPower/2)
+	}
+
 }
 
 +@Sequence {
@@ -1071,8 +1083,16 @@
 		anObject.adaptToCollectionAndApply(self, divisible/2)
 	}
 
+	fold { :self :low :high |
+		self.withWithCollect(low.nest, high.nest, fold/3)
+	}
+
 	gcd { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, gcd/2)
+	}
+
+	hypotenuse { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, hypotenuse/2)
 	}
 
 	ieeeRemainder { :self :anObject |
@@ -1110,6 +1130,10 @@
 		}
 	}
 
+	modularDistance { :i :j :m |
+		i.withWithCollect(j.nest, m.nest, modularDistance/3)
+	}
+
 	nimMultiplication { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, nimMultiplication/2)
 	}
@@ -1122,6 +1146,18 @@
 		anObject.adaptToCollectionAndApply(self, round/2)
 	}
 
+	scaleNegative { :self :operand |
+		operand.adaptToCollectionAndApply(self, scaleNegative/2)
+	}
+
+	signedGcd { :self :operand |
+		operand.adaptToCollectionAndApply(self, signedGcd/2)
+	}
+
+	signedLcm { :self :operand |
+		operand.adaptToCollectionAndApply(self, signedLcm/2)
+	}
+
 	[timesPlus, *+] { :self :mul :add |
 		self * mul + add
 	}
@@ -1132,6 +1168,10 @@
 
 	truncate { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, truncate/2)
+	}
+
+	wrap { :self :lo :hi |
+		self.withWithCollect(lo.nest, hi.nest, wrap/3)
 	}
 
 }

@@ -95,7 +95,7 @@
 	}
 
 	bernsteinBasis { :d :n :x |
-		x := x.clip([0 1]);
+		x := x.clip(0, 1);
 		d.binomial(n) * (x ^ n) * ((1 - x) ^ (d - n))
 	}
 
@@ -1544,6 +1544,30 @@
 
 	rulerFunction { :n |
 		(2 * n).integerExponent(2)
+	}
+
+	signedGcd { :self :aNumber |
+		(
+			self.isNegative & {
+				aNumber.isNegative
+			}
+		).if {
+			self.negate.gcd(aNumber.negate).negate
+		} {
+			self.gcd(aNumber)
+		}
+	}
+
+	signedLcm { :self :aNumber |
+		(
+			self.isNegative | {
+				aNumber.isNegative
+			}
+		).if {
+			self.abs.lcm(aNumber.abs).negate
+		} {
+			self.lcm(aNumber)
+		}
 	}
 
 	squareFreePart { :n |

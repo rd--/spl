@@ -72,6 +72,14 @@ At `Symbol`:
 (+ m n)
 ```
 
+At `Ugen`:
+
+```
+let a = SinOsc(220, 0);
+let b = Saw(110);
+(a + b) * 0.1
+```
+
 _a(n)=o(n-1)+o(n-2)_ where _o(n)_ is the number of occurrences of _a(n)_ in _a_ up to _n_,
 OEIS [A306246](https://oeis.org/A306246):
 
@@ -93,6 +101,18 @@ let q = nil;
 ~~~
 
 ![](Help/Image/plus-A.svg)
+
+_Rationale_:
+`plus` is defined as the constructor for the binary addition operator.
+`add` is the name of the method for adding an element to a collection.
+The composite of `times` and `plus` is spelled `timesPlus`.
+
+```
+>>> let p = [1 2 3];
+>>> let q = 4;
+>>> (p + q, p.add!(q), p)
+([5 6 7], 4, [1 2 3 4])
+```
 
 * * *
 

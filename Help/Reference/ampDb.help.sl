@@ -1,20 +1,20 @@
-# AmpDb
+# ampDb
 
-- _AmpDb(x)_
+- _ampDb(x)_
 
 Convert linear amplitude to decibels.
 Equal to `log10` of _x_ `times` twenty.
-Inverse of `DbAmp`.
+Inverse of `dbAmp`.
 Alias of `ampDb`.
 
 ```
->>> AmpDb(0.1)
+>>> ampDb(0.1)
 -20
 
 >>> 0.1.log10 * 20
 -20
 
->>> AmpDb(4)
+>>> ampDb(4)
 12.0412
 
 >>> 4.log10 * 20
@@ -25,27 +25,27 @@ Threads over lists,
 powers to ten and powers of two:
 
 ```
->>> [0.000001 0.001 0.01 0.1 1 10].AmpDb
+>>> [0.000001 0.001 0.01 0.1 1 10].ampDb
 [-120 -60 -40 -20 0 20]
 
->>> [0.25 0.5 1 2 4].AmpDb
+>>> [0.25 0.5 1 2 4].ampDb
 [-12.04 -6.02 0 6.02 12.04]
 ```
 
 Plot curve:
 
 ~~~spl svg=A
-(0.001 -- 1).functionPlot(AmpDb/1)
+(0.001 -- 1).functionPlot(ampDb/1)
 ~~~
 
-![](Help/Image/AmpDb-A.svg)
+![](Help/Image/ampDb-A.svg)
 
 Compare linear and exponential curves as frequency control:
 
 ```
 SinOsc(
 	[
-		Line(0.001, 1, 2).AmpDb,
+		Line(0.001, 1, 2).ampDb,
 		Line(-96, 0.001, 2)
 	] * 110 + 110,
 	0
@@ -61,7 +61,7 @@ Evaluate symbolically:
 
 * * *
 
-See also: DbAmp
+See also: dbAmp
 
 Guides: Unit Generators
 

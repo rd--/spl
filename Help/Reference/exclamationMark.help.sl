@@ -62,7 +62,7 @@ As a syntax token `!` is part of `Type Definition Syntax`.
 ```
 {
 	SinOsc(
-		IRand(48, 72).MidiCps,
+		IRand(48, 72).midiCps,
 		0
 	) * Rand(0.05, 0.1)
 } ! 2
@@ -74,7 +74,7 @@ The particular case of duplicating a signal function and then panning it:
 { :tr |
 	SinOsc(
 		{
-			TiRand(48, 72, tr).MidiCps
+			TiRand(48, 72, tr).midiCps
 		} ! 7,
 		0
 	).Splay * 0.1
@@ -87,7 +87,7 @@ can be written more simply using the `!^` operator:
 { :tr |
 	{
 		SinOsc(
-			TiRand(48, 72, tr).MidiCps,
+			TiRand(48, 72, tr).midiCps,
 			0
 		)
 	} !^ 7 * 0.1

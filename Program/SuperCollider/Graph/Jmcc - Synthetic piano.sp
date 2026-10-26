@@ -4,7 +4,7 @@
 	let e = Decay2(Impulse(Rand(0.1, 0.5), Rand(0, 1)) * 0.1, 0.008, 0.04);
 	let z = [1 .. 3].collect { :i |
 		let c = [-0.05, 0, 0.04];
-		let dt = 1 / (n + c[i]).MidiCps;
+		let dt = 1 / (n + c[i]).midiCps;
 		CombL(LfNoise2(3000) * e, dt, dt, 6)
 	};
 	EqPan2(z.Sum, n - 36 / 27 - 1)

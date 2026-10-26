@@ -20,7 +20,7 @@ Voicer(1, 16) { :e |
 	let trig = Impulse(impulseFreq, 0);
 	let snd = SinOsc(oscFreq, 0) * Decay2(trig, 0.01, 0.2 * decay);
 	EqPan2(
-		(snd * distort).Tanh / distort,
+		(snd * distort).tanh / distort,
 		pan.Lag(0.1)
 	) * mul.Lag(0.1)
 }.Mix
@@ -34,7 +34,7 @@ Voicer(1, 16) { :e |
 	let env = Decay2(Impulse(impulseFreq, 0), 0.01, 0.2 * TRand(0.1, 1, tr));
 	let snd = SinOsc(oscFreq, 0) * env;
 	EqPan2(
-		(snd * distort).Tanh / distort,
+		(snd * distort).tanh / distort,
 		TRand(-1, 1, tr)
 	) * TxLine(TRand(0.2, 0.5, tr), 0.001, TRand(3, 7, tr), Impulse(0, 0) + tr)
 } !> 16

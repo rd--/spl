@@ -1,15 +1,14 @@
-# CpsMidi
+# cpsMidi
 
-- _CpsMidi(x)_
+- _cpsMidi(x)_
 
 Convert cycles per second to midi note number.
-Alias of `cpsMidi`.
 
 Middle C (_C4_ in scientific pitch notation) is defined to be midi note number 60.
 The A above middle C has a nominal frequency of 440 hertz:
 
 ```
->>> 440.CpsMidi
+>>> 440.cpsMidi
 69
 ```
 
@@ -20,14 +19,14 @@ Threads over lists and answers fractional values:
 >>> 	261.6255
 >>> 	269.2918
 >>> 	277.1826
->>> ].CpsMidi
+>>> ].cpsMidi
 [60 60.5 61]
 ```
 
-The inverse is `MidiCps`:
+The inverse is `midiCps`:
 
 ```
->>> 440.CpsMidi.MidiCps
+>>> 440.cpsMidi.midiCps
 440
 ```
 
@@ -39,10 +38,10 @@ let freq = LfNoise2(
 ) * [333 222] + [222 333];
 SinOsc(
 	freq
-	.CpsMidi
-	.Round([2 3])
+	.cpsMidi
+	.round([2 3])
 	.Lag(1E-2)
-	.MidiCps,
+	.midiCps,
 	0
 ) * 0.1
 ```
@@ -51,7 +50,7 @@ Midi note numbers are a linear pitch space,
 each twelve steps is an octave:
 
 ```
->>> [130.8 261.6 523.2].CpsMidi
+>>> [130.8 261.6 523.2].cpsMidi
 [48 60 72]
 
 >>> 48 + (12 * [0 1 2])
@@ -61,10 +60,10 @@ each twelve steps is an octave:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(20 -- 1280).functionPlot(CpsMidi/1)
+(20 -- 1280).functionPlot(cpsMidi/1)
 ~~~
 
-![](Help/Image/CpsMidi-A.svg)
+![](Help/Image/cpsMidi-A.svg)
 
 Evaluate symbolically:
 
@@ -75,9 +74,9 @@ Evaluate symbolically:
 
 * * *
 
-See also: MidiCps, RatioMidi
+See also: midiCps, ratioMidi
 
-Guides: Pitch Functions, Unit Generators
+Guides: Pitch Functions, Tuning Functions, Unit Generators
 
 References:
 _Csound_

@@ -325,6 +325,8 @@ See also: arcSin, cos, csc, haversine, sinDegrees, sinh, tan
 Guides: Trigonometric Functions
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/sin.html),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Sine.html)
 [2](https://reference.wolfram.com/language/ref/Sin.html),

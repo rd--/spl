@@ -39,9 +39,9 @@ let feedbackCoefficient = MouseY(
 8.timesRepeat {
 	let delayTime = { 0.1.atRandom } ! 2;
 	let decayTime = delayTime / (
-		feedbackCoefficient.Log
+		feedbackCoefficient.log
 		/
-		-60.DbAmp.Log.Abs
+		-60.dbAmp.log.abs
 	);
 	z := AllpassL(
 		z,

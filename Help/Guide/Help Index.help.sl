@@ -3122,7 +3122,7 @@ Reference (a-z):
 - `mixedRadixGrayCode`
 - `mod`
 - `modificationTime`
-- `modularDistance`
+- `modDif`
 - `modularDistanceMultiset`
 - `modularInverse`
 - `moduloFibonacciSequence`

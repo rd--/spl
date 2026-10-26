@@ -14,4 +14,4 @@
 			) * SinOsc(a / 3, 0)
 		}
 	)
-}.mean.Tanh
+}.mean.tanh
