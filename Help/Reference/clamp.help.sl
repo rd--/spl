@@ -22,6 +22,8 @@ Clamps _x to the inclusive range _(⌊,⌈)_.
 
 See also: clip, wrap
 
+Guides: Mathematical Functions, Signal Processing Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Clamp_(function))

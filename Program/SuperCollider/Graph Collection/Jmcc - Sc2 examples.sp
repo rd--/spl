@@ -29,7 +29,7 @@ let f = 50; /* fundamental frequency */
 let p = 20; /* number of partials per channel */
 let z = 0; /* start of oscil daisy chain */
 let offset = Line(0, -0.02, 60); /* causes sound to separate and fade */
-1:p.do { :i |
+[1 .. p].do { :i |
 	z := SinOsc(
 		f * i,
 		0
@@ -52,7 +52,7 @@ let f = 80; /* fundamental frequency */
 let p = 10; /* number of partials per channel */
 let z = 0; /* start of oscil daisy chain */
 let trig = XLine([10, 10], 0.1, 60); /* trigger probability decreases over time */
-1:p.do { :i |
+[1 .. p].do { :i |
 	z := SinOsc(
 		f * i,
 		0
@@ -255,7 +255,7 @@ let out = [1 .. 8].collect { :ix |
 	let freq = ([-2 0 3 5 7 10 12 15].at(ix) + 60).MidiCps;
 	let metal = RingzBank(
 		pluck,
-		1:n * freq, /* frequencies */
+		[1 .. n] * freq, /* frequencies */
 		nil, /* amplitudes default to 1.0 */
 		{ Rand(0.3, 1.0) } ! n /* ring times */
 	);

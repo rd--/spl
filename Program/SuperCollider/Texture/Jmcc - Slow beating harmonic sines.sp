@@ -8,8 +8,8 @@
 	let k = 24 + 12.atRandom;
 	n.timesRepeat {
 		let freq = ([0 2 4 5 7 9].atRandom + (IRand(0, 7) * 12) + k).MidiCps;
-		[p, q].do { :each |
-			[1, 2, 4, 5, 6].do { :h |
+		[p q].do { :each |
+			[1 2 4 5 6].do { :h |
 				each.add!(freq * h + Rand(-d, d))
 			}
 		}

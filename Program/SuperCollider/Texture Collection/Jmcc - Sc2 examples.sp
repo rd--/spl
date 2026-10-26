@@ -135,7 +135,7 @@ let p = 12; /* number of overtones */
 		RingzBank(
 			noise,
 			{ Rand(-0.5, 0.5) } ! p + p.arithmeticProgression(freq, freq),
-			1 / 1:p,
+			1 / [1 .. p],
 			{ 0.5 + Rand(0, 4) } ! p
 		)
 	} ! 2
@@ -153,7 +153,7 @@ let p = 12; /* number of overtones */
 		RingzBank(
 			noise,
 			{ Rand(-0.5, 0.5) } ! p + p.arithmeticProgression(freq, 2 * freq),
-			1 / 1:p,
+			1 / [1 .. p],
 			{ 0.2 + Rand(0, 0.8) } ! p
 		)
 	} ! 2

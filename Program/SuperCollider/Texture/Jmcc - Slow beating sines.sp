@@ -10,7 +10,7 @@
 		{ p.add!(freq + Rand(-d, d)) } ! 2;
 		{ q.add!(freq + Rand(-d, d)) } ! 3
 	};
-	[p, q].collect { :freq |
+	[p q].collect { :freq |
 		SinOscBank(
 			freq,
 			0.1,

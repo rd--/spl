@@ -1,6 +1,6 @@
 # sin
 
-Requires Bilin
+Requires bilin
 
 /* ---- sin ; https://scsynth.org/t/6256/7 ; requires=Bilin */
 let freq = 130;

@@ -3,7 +3,7 @@ let k = 13;
 let f0 = 48.MidiCps;
 let scales = [1 .. k].collect { :i |
 	[0 .. 2 * i + 1].collect { :j |
-		Fraction(i + 1L, i) ^ j
+		Fraction(i + 1, i) ^ j
 	}
 };
 let durations = scales.collect { :each |
@@ -22,7 +22,9 @@ UgenGraph(
 	] # 2
 ).send;
 LsBind(
-	instrument: 'saw',
-	freq: LsCat(scales.++ * f0),
-	dur: LsCat(durations.++)
+	(
+		instrument: 'saw',
+		freq: LsCat(scales.++ * f0),
+		dur: LsCat(durations.++)
+	)
 )
