@@ -802,8 +802,13 @@
 		<primitive: return sc.MaxLocalBufs(_count);>
 	}
 
-	Median { :length :in |
-		<primitive: return sc.Median(_length, _in);>
+	medianFilter { :in :r |
+		<primitive:
+		if(sl.isSmallFloat(_r)) {
+			return sc.Median(_r * 2 + 1, _in);
+		}
+		>
+		in.error('medianFilter: length not scalar')
 	}
 
 	MouseButton { :minval :maxval :lag |
