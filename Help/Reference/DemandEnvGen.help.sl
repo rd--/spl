@@ -24,7 +24,7 @@ Frequency modulation:
 ```
 let curveInterpolation = 5;
 let y = MouseY(1, 3000, 1, 0.2);
-let list = { ExpRand(200, 1000) } ! 32;
+let list = { expRand(200, 1000) } ! 32;
 let freq = DemandEnvGen(
 	{ Dseq(Infinity, list.scramble) } ! 2,
 	SampleDur() * y,

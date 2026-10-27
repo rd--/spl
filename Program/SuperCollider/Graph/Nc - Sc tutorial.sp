@@ -3,7 +3,7 @@ let n = 11;
 let g = {
 	let freq = Rand(50, 560.3);
 	let numcps = Rand(2, 20);
-	let knum = SinOsc(ExpRand(0.02, 0.2), 0) * (numcps / 2) + (numcps / 2);
+	let knum = SinOsc(expRand(0.02, 0.2), 0) * (numcps / 2) + (numcps / 2);
 	let gen = Gendy1(
 		IRand(0, 6),
 		IRand(0, 6),

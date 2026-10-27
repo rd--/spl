@@ -2,7 +2,7 @@
 {
 	let f = Rand(24, 96).midiCps;
 	let a = 1.min(500 / f);
-	let r = XLine(ExpRand(0.1, 20), ExpRand(0.1, 20), 25.6);
+	let r = XLine(expRand(0.1, 20), expRand(0.1, 20), 25.6);
 	let n = 12;
 	let z = {
 		let g = Rand(1, n + 1);

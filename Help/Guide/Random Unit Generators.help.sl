@@ -38,7 +38,7 @@ which can be used to implement tendency masks:
 
 Unit generators that generate random numbers once:
 
-- `ExpRand`
+- `expRand`
 - `IRand`
 - `LinRand`
 - `NRand`

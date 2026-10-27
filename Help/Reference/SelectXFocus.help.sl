@@ -65,14 +65,14 @@ let mX = MouseX(0, 1, 0, 0.1);
 let mY = MouseY(0, 1, 0, 0.2);
 let mWrap = { :pMin :pMax :min :max |
 	(
-		mX * ExpRand(pMin, pMax)
-	).sin + 1 * 0.5 * ExpRand(min, max)
+		mX * expRand(pMin, pMax)
+	).sin + 1 * 0.5 * expRand(min, max)
 };
 let a = {
 	let freq = mWrap(10, 40, 200, 5000);
-	let fAdd = ExpRand(200, 3000);
+	let fAdd = expRand(200, 3000);
 	let fMul = LfNoise0(
-		ExpRand(0.1, 8)
+		expRand(0.1, 8)
 	).round(
 		1 / 6
 	).expRange(

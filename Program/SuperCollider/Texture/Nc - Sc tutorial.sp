@@ -6,7 +6,7 @@
 	let o = {
 		let freq = Rand(50, 560.3);
 		let numCps = Rand(2, 20);
-		let kNum = SinOsc(ExpRand(0.02, 0.2), 0) * (numCps / 2) + (numCps / 2);
+		let kNum = SinOsc(expRand(0.02, 0.2), 0) * (numCps / 2) + (numCps / 2);
 		let gen = Gendy1(
 			IRand(0, 6),
 			IRand(0, 6),

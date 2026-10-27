@@ -4,7 +4,7 @@ let major = [0 2 4 5 7 9 11];
 {
 	let offset = [-16 .. 16].atRandom;
 	let seq = ([0 .. 3] + offset).shuffle.degreeToKey(major, 12) + root;
-	let trig = Impulse(XLine(ExpRand(4, 24), ExpRand(4, 24), 12), 0);
+	let trig = Impulse(XLine(expRand(4, 24), expRand(4, 24), 12), 0);
 	let f = Sequencer(seq.midiCps, trig);
 	let z = EqPan(LfTri(f, 0) * Decay2(trig, 0.004, 0.3) * 0.1, Rand(-1, 1));
 	6.timesRepeat {

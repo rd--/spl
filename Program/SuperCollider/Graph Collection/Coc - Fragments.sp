@@ -22,7 +22,7 @@ p + CombL(p, 2.0, 4 / 6, 6)
 
 /* Use of Dust with rising sounds ; Rand */
 {
-	let s = RingzBank(Dust(1 / 3) * 0.1, { ExpRand(1000, 10000) } ! 3, [1], { Rand(1, 4) } ! 15);
+	let s = RingzBank(Dust(1 / 3) * 0.1, { expRand(1000, 10000) } ! 3, [1], { Rand(1, 4) } ! 15);
 	Pan2(s, LfTri(Rand(3, 10), 0), 0.1)
 } !+ 20
 
@@ -36,14 +36,14 @@ p + CombL(p, 2.0, 4 / 6, 6)
 
 /* Random impulses */
 {
-	let freq = ExpRand(100, 3000);
+	let freq = expRand(100, 3000);
 	let amp = Decay2(Dust(1 / 5), 0.1, (freq ^ -0.7) * 100);
 	Pan2(SinOsc(freq * (LfNoise1(1 / 6) * 0.4 + 1), 0) * amp, LfNoise1(1 / 8), 1)
 } !+ 15 * 0.1
 
 /* Random impulses ; Decay2 */
 {
-	let freq = ExpRand(100, 3000);
+	let freq = expRand(100, 3000);
 	let t = Dust(1 / 5);
 	let amp = Decay2(t, 0.01, freq ^ -0.7 * 100);
 	Pan2(SinOsc(freq * (LfNoise1(1 / 6) * 0.4 + 1), 0) * amp, LfNoise1(1 / 8), 1)
@@ -130,7 +130,7 @@ let tr = Dust(3 / 7);
 let harmonics = 16;
 {
 	let amp = SinOsc(1 / Rand(3, 6), 0) * Rand(0.1, 0.9);
-	Pan2(SinOsc(ExpRand(100, 2000), 0), Rand(-1, 1), amp)
+	Pan2(SinOsc(expRand(100, 2000), 0), Rand(-1, 1), amp)
 } !+ harmonics / (2 * harmonics)
 
 /* Worth experimenting with */
@@ -162,7 +162,7 @@ Rlpf(PinkNoise() * 0.3, { LfNoise0(12) } ! 2 * 500 + 500, 0.2)
 {
 	RingzBank(
 		PinkNoise() * 0.0005,
-		{ ExpRand(60, 10000) } ! 15,
+		{ expRand(60, 10000) } ! 15,
 		[1],
 		[1]
 	)
@@ -171,7 +171,7 @@ Rlpf(PinkNoise() * 0.3, { LfNoise0(12) } ! 2 * 500 + 500, 0.2)
 /* This one floats in and out */
 let totalPartials = 3;
 {
-	let base = ExpRand(50, 100);
+	let base = expRand(50, 100);
 	let freq = { Rand(1, 24) * base * Rand(1, 1.1) } ! totalPartials;
 	let amp = { Rand(0.1, 0.5) } ! 10;
 	let res = RingzBank(GreyNoise() * Rand(0.03, 0.1), freq, amp, [1]);

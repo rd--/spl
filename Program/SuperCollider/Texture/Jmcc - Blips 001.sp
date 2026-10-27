@@ -1,8 +1,8 @@
 /* Blips 001 (Jmcc) #SC3d1.5 */
 let blipProc = {
 	Blip(
-		XLine(ExpRand(0.25, 400), ExpRand(0.25, 400), 4),
-		XLine(ExpRand(2, 100), ExpRand(2, 100), 4)
+		XLine(expRand(0.25, 400), expRand(0.25, 400), 4),
+		XLine(expRand(2, 100), expRand(2, 100), 4)
 	)
 };
 {

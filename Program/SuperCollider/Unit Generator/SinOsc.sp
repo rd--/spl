@@ -167,9 +167,9 @@ SinOsc(freq, phase) * amp
 /* SinOsc ; requires 0.max(aUgen) */
 let n = 16;
 {
-	let amp = 0.max(SinOsc(ExpRand(0.1, 1), Rand(0, 2.pi))) / n / 2;
+	let amp = 0.max(SinOsc(expRand(0.1, 1), Rand(0, 2.pi))) / n / 2;
 	EqPan(
-		SinOsc(ExpRand(100, 1000), 0) * amp,
+		SinOsc(expRand(100, 1000), 0) * amp,
 		Rand(-1, 1)
 	)
 } !+ n

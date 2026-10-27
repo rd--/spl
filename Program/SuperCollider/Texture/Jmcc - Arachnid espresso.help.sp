@@ -18,7 +18,7 @@
 	).Lag(0.1 / r);
 	let n = Lpz2(LfNoise2(Min(f * 24, 12000)) * 0.2 * e);
 	let z = EqPan2(
-		CombC(n, 0.1, 1 / f, Min(0.5, ExpRand(90, 240) / f) * p[1]) * 0.2,
+		CombC(n, 0.1, 1 / f, Min(0.5, expRand(90, 240) / f) * p[1]) * 0.2,
 		Rand(-1, 1)
 	);
 	6.timesRepeat {

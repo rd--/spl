@@ -10,7 +10,7 @@ let r = { :i |
 };
 let z = {
 	EqPan2(
-		Decay2(Dust(0.2), 0.1, 0.5) * 0.1 * SinOsc(ExpRand(300, 2200), 0).cube,
+		Decay2(Dust(0.2), 0.1, 0.5) * 0.1 * SinOsc(expRand(300, 2200), 0).cube,
 		Rand(-1, 1)
 	)
 } !+ 12 + EqPan2(

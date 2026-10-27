@@ -19,6 +19,6 @@ let n = 7;
 	Ringz(
 		trigFlt,
 		freq * [1, 1.1, 1.2],
-		ExpRand(2 ^ i.negate * 0.1, 0.5)
+		expRand(2 ^ i.negate * 0.1, 0.5)
 	).Sum.distort
 }.Splay * 0.5

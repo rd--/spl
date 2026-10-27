@@ -474,7 +474,6 @@ Reference (A-Z):
 - `Exception`
 - `Excess`
 - `ExponentialDistribution`
-- `ExpRand`
 - `ExpRandRange`
 - `ExtremeValueDistribution`
 - `FbSineC`

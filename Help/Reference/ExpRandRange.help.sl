@@ -2,7 +2,8 @@
 
 - _ExpRandRange(low, high)_
 
-Exponentially distributed random number in indicated range.
+Exponentially distributed random numbers in indicated range.
+This is the continuous variant of `expRand`.
 
 As amplitude:
 
@@ -36,7 +37,7 @@ ExpRandRange(
 
 * * *
 
-See also: ExpRand
+See also: expRand
 
 Guides: Unit Generators
 

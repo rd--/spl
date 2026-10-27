@@ -1523,7 +1523,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'EnvGen'
 		'EqPan2'
 		'Exp'
-		'ExpRand'
+		'expRand'
 		'ExpRandN'
 		'ExpRandRange'
 		'expRange'

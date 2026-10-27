@@ -1,8 +1,38 @@
 # expRand
 
 - _expRand(r, a, b)_
+- _expRand(a, b)_
 
 Answer a random number logarithmically distributed between _a_ and _b_.
+The ternary form utilises the random number generator _r_.
+The binary form answers an initialisation rate unit generator.
+
+```
+let n = 5;
+let freq = { expRand(111, 333) } ! n;
+let ampl = { expRand(0.05, 0.10) } ! n;
+let o = SinOsc(freq, 0) * ampl;
+o.Splay
+```
+
+A `TextureProgram` of pulsing sine tones (Jmcc):
+
+~~~spl texture
+{
+	EqPan(
+		SinOsc(
+			expRand(300, 3000),
+			0
+		) * 0.max(
+			SinOsc(
+				expRand(1, 15),
+				0
+			) * 0.05
+		),
+		Rand(-1,1)
+	)
+}.overlapTextureProgram(4, 4, 4)
+~~~
 
 Histogram of random variate of ten-thousand places:
 
@@ -19,10 +49,13 @@ let r = Sfc32(678123);
 
 * * *
 
-See also: exp, log, nextRandomFloat
+See also:IRand, LinRand, NRand, Rand, TexpRand, TRand, TiRand,  exp, log, nextRandomFloat
 
-Guides: Random Functions
+Guides: Random Functions, Unit Generators
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/exprand.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/SimpleNumber.html#-exprand)
+[2](https://doc.sccode.org/Classes/ExpRand.html)

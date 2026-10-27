@@ -3,7 +3,7 @@ let n = 11;
 let z = {
 	let freq = Rand(50, 560.3);
 	let numCps = Rand(2, 20);
-	let kNum = SinOsc(ExpRand(0.02, 0.2), 0).*+(numCps / 2, numCps / 2);
+	let kNum = SinOsc(expRand(0.02, 0.2), 0).*+(numCps / 2, numCps / 2);
 	let osc = Gendy1(
 		Rand(0, 6),
 		Rand(0, 6),

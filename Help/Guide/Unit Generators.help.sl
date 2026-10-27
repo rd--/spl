@@ -261,7 +261,7 @@
 
 ## Random Number Generators
 
-- `ExpRand`: random number generator
+- `expRand`: random number generator
 - `Hasher`: randomized value
 - `IRand`: random number generator
 - `LinRand`: random number generator

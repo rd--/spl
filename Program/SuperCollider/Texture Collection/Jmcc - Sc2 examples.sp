@@ -24,7 +24,7 @@ let n = 8; /* number of simultaneous events */
 let rate = 11;
 { :rep |
 	rate := (rate * (0.2.BiLinRand.exp)).fold(1, 30);
-	Formant(rate, ExpRand(200, 3000), Rand(0, 9) * rate + rate) * 0.05
+	Formant(rate, expRand(200, 3000), Rand(0, 9) * rate + rate) * 0.05
 }.overlapTextureProgram(0.5, 0.25, 5)
 
 /********** Random sine waves ; Jmcc **********/
@@ -223,7 +223,7 @@ let n = 4; /* number of simultaneous events */
 	let y = MouseY(0, 2, 0, 0.2); /* mouse y controls modulation index */
 	let ph = 0;
 	let f1 = Rand(0, x);
-	let rate = ExpRand(10, 40);
+	let rate = expRand(10, 40);
 	let gate = Impulse(XLine(rate, [3 0.3].atRandom * rate, 12), 0);
 	3.timesRepeat {
 		let f2 = Rand(0, x);

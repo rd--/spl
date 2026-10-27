@@ -49,14 +49,14 @@ Texture:
 
 ~~~spl texture
 {
-	let z = ExpRand(300, 3000) + [-0.6 0.6];
+	let z = expRand(300, 3000) + [-0.6 0.6];
 	Rlpf(
 		LfSaw(
 			[21000 21001],
 			0
 		) * (
 			LfPulse(
-				ExpRand(0.1, 1),
+				expRand(0.1, 1),
 				0,
 				0.3
 			) * 0.2 + 0.02
@@ -67,13 +67,13 @@ Texture:
 		),
 		z * (
 			LfPulse(
-				ExpRand(0.1, 12),
+				expRand(0.1, 12),
 				0,
 				0.4
 			) * 0.2 + 0.2
 		) + (
 			LfPulse(
-				ExpRand(0.1, 12),
+				expRand(0.1, 12),
 				0,
 				0.7
 			) * 0.2

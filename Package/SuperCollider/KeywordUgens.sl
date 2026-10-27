@@ -84,8 +84,8 @@
 		EnvGen(d['gate'], d['levelScale'], d['levelBias'], d['timeScale'], d['doneAction'], d['envelope'])
 	}
 
-	ExpRand { :d |
-		ExpRand(d['lo'], d['hi'])
+	expRand { :d |
+		expRand(d['lo'], d['hi'])
 	}
 
 	FSinOsc { :d |
@@ -501,7 +501,7 @@
 	}
 
 	degreeToKey { :d |
-		DegreeToKey(d['bufNum'], d['in'], d['octave'])
+		degreeToKey(d['bufNum'], d['in'], d['octave'])
 	}
 
 	linExp { :d |

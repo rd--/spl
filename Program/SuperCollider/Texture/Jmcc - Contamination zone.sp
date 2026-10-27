@@ -1,6 +1,6 @@
 /* Contamination zone (Jmcc) #9 */
 {
-	let f = ExpRand(800, 8000);
+	let f = expRand(800, 8000);
 	let pan = LfNoise1(Rand(0, 1));
 	let amp = LfPulse(LinRand(0, 15, 0), 0, 0.2 + Rand(0, 0.2));
 	let exc = PinkNoise() * (LfNoise1(Rand(0, 3)) * 0.0008 + 0.0022);

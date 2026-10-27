@@ -1,8 +1,8 @@
 /* Pulse harmonic warbulence (Jmcc) #12 */
 {
 	let f = Rand(24, 96).midiCps;
-	let r = XLine(ExpRand(0.1, 20), ExpRand(0.1, 20), 25.6);
-	let p = LfPulse(ExpRand(0.2, 1.2), Rand(0.1, 0.2), 0.5);
+	let r = XLine(expRand(0.1, 20), expRand(0.1, 20), 25.6);
+	let p = LfPulse(expRand(0.2, 1.2), Rand(0.1, 0.2), 0.5);
 	let z = [1 .. 12].collect { :i |
 		let m = 0.max(
 			SinOsc(r * Rand(0.9, 1.1), Rand(0, 2.pi)) * 0.1 - 0.05

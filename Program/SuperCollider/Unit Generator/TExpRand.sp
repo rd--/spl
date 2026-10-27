@@ -1,4 +1,4 @@
-/* ExpRand ; texture ; requires 0.max(aUgen) */
+/* expRand ; texture ; requires 0.max(aUgen) */
 { :tr |
 	EqPan2(
 		SinOsc(

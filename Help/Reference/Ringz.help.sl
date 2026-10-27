@@ -60,8 +60,8 @@ let exciter = WhiteNoise() * 0.001;
 	Ringz(
 		exciter,
 		XLine(
-			ExpRand(100, 5000),
-			ExpRand(100, 5000),
+			expRand(100, 5000),
+			expRand(100, 5000),
 			20
 		),
 		0.5
@@ -96,7 +96,7 @@ let k = 111;
 {
 	Ringz(
 		PinkNoise() * 0.1,
-		{ ExpRand(333, 22222) } ! k,
+		{ expRand(333, 22222) } ! k,
 		1
 	).mean
 } ! 2 * 0.22
@@ -112,7 +112,7 @@ let k = 222;
 			PinkNoise() * 0.22,
 			Perc(1, 0, 5.5, -4) * 22222 + 10
 		),
-		{ ExpRand(333, 22222) } ! k,
+		{ expRand(333, 22222) } ! k,
 		1
 	).mean
 } ! 2 * 0.22

@@ -13,10 +13,10 @@ let rewrite = { :n |
 	let str = rewrite(i + 6);
 	let dt = 2 ^ i.negate * 10;
 	let trig = Sequencer(str, Impulse(1 / dt, 0));
-	let freq = ExpRand(200, i + 1 / 7 * 10100);
+	let freq = expRand(200, i + 1 / 7 * 10100);
 	Ringz(
 		trig,
 		freq * [1, 1.2, 1.5],
-		ExpRand(2 ^ i.negate * 0.1, 1.101)
+		expRand(2 ^ i.negate * 0.1, 1.101)
 	).Sum.distort
 }.Splay * 0.5

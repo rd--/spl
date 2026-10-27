@@ -63,7 +63,7 @@ Resonz(
 		let freq = Rand(50, 560.3);
 		let numCps = Rand(2, 20);
 		let kNum = (
-			SinOsc(ExpRand(0.02, 0.2), 0)
+			SinOsc(expRand(0.02, 0.2), 0)
 			* (numCps / 2)
 			+ (numCps / 2)
 		);
@@ -98,7 +98,7 @@ An overlapping texture program:
 		let freq = Rand(50, 560.3);
 		let numCps = Rand(2, 20);
 		let kNum = SinOsc(
-			ExpRand(0.02, 0.2),
+			expRand(0.02, 0.2),
 			0
 		).linLin(-1, 1, 0, numCps);
 		let osc = Gendy1(

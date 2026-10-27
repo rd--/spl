@@ -618,7 +618,7 @@
 		<primitive: return sc.EnvTrapezoid(_trig, _dur, _shape, _skew);>
 	}
 
-	ExpRand { :lo :hi |
+	expRand { :lo :hi |
 		<primitive: return sc.ExpRand(_lo, _hi);>
 	}
 
