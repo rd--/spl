@@ -98,7 +98,6 @@ Traits implemented by `SortedSet`:
 >>> .sort!
 [
 	'@Add'
-	'@Collect'
 	'@Collection'
 	'@Copy'
 	'@Do'

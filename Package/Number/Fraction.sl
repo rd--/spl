@@ -692,7 +692,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 }
 
-+@Collect {
++@Collection {
 
 	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
 		self.collect { :each |

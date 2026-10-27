@@ -862,7 +862,6 @@ Reference/collatzSequence.help.sl
 Reference/collatzTerrasTree.help.sl
 Reference/collectCatenate.help.sl
 Reference/collect.help.sl
-Reference/Collect.help.sl
 Reference/collectInto.help.sl
 Reference/Collection.help.sl
 Reference/CollectionStream.help.sl
@@ -1398,7 +1397,7 @@ Reference/evoluteSpiralMatrix.help.sl
 Reference/excenters.help.sl
 Reference/excentralTriangle.help.sl
 Reference/Exception.help.sl
-Reference/Excess.help.sl
+Reference/excess.help.sl
 Reference/exchangeMatrix.help.sl
 Reference/excircles.help.sl
 Reference/excirclesRadicalCircle.help.sl
@@ -4011,7 +4010,7 @@ Reference/subtract.help.sl
 Reference/succeeds.help.sl
 Reference/suffixes.help.sl
 Reference/Sum3Rand.help.sl
-Reference/Sum4.help.sl
+Reference/sum4.help.sl
 Reference/sum.help.sl
 Reference/Sum.help.sl
 Reference/sumOfSquares.help.sl

@@ -90,7 +90,7 @@
 
 }
 
-Link : [Object, Copy, Store, Equal, Do, Collect, Link] {
+Link : [Object, Copy, Store, Equal, Do, Collection, Link] {
 
 	| value nextLink |
 

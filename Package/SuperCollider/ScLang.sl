@@ -1,4 +1,4 @@
-+@Collect {
++@Collection {
 
 	ampDb { :self |
 		self.collect(ampDb/1)
@@ -434,6 +434,14 @@
 	keepLast { :self :n |
 		let size = self.size;
 		self.copyFromTo(size - n, size)
+	}
+
+	linExp { :self :inMin :inMax :outMin :outMax |
+		self.withWithWithWithCollect(inMin,inMax, outMin, outMax, linExp/5)
+	}
+
+	linLin { :self :inMin :inMax :outMin :outMax |
+		self.withWithWithWithCollect(inMin,inMax, outMin, outMax, linLin/5)
 	}
 
 	midiCps { :self |

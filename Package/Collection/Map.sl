@@ -1,6 +1,6 @@
-/* Requires: List, Record */
+/* Requires: List Record */
 
-Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collect, Collection, Add, Remove, Dictionary] {
+Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, Remove, Dictionary] {
 
 	Map { :self |
 		self

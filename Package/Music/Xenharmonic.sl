@@ -152,7 +152,7 @@
 
 }
 
-+@Collect {
++@Collection {
 
 	benedettiHeight { :self |
 		self.collect(benedettiHeight/1)

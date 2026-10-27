@@ -1,6 +1,6 @@
-/* Requires: Collect, Sequence */
+/* Requires: Collection Sequence */
 
-+@Collect {
++@Collection {
 
 	Boolean { :self |
 		self.collect(Boolean/1)
@@ -134,6 +134,20 @@
 		self.collect(chop/1)
 	}
 
+	clip { :self |
+		self.collect { :each |
+			each.clip(-1, 1, -1, 1)
+		}
+	}
+
+	clip { :self :minMax |
+		let a = minMax.min;
+		let b = minMax.max;
+		self.collect { :each |
+			each.clip(a, b, a, b)
+		}
+	}
+
 	conjugate { :self |
 		self.collect(conjugate/1)
 	}
@@ -198,6 +212,10 @@
 
 	distort { :self |
 		self.collect(distort/1)
+	}
+
+	[divide, /] { :self :operand |
+		self.collect(/.bindRight(operand))
 	}
 
 	divisors { :self |
@@ -613,6 +631,10 @@
 		self.collect(mixedFractionParts/1)
 	}
 
+	[mod, %] { :self :operand |
+		self.collect(%.bindRight(operand))
+	}
+
 	moebiusMu { :self |
 		self.collect(moebiusMu/1)
 	}
@@ -705,6 +727,14 @@
 		self.collect(pisanoPeriod/1)
 	}
 
+	[plus, +] { :self :operand |
+		self.collect(+.bindRight(operand))
+	}
+
+	[power, ^] { :self :operand |
+		self.collect(^.bindRight(operand))
+	}
+
 	powerMod { :self :exponent :modulo |
 		self.collect { :each |
 			each.powerMod(exponent, modulo)
@@ -775,6 +805,16 @@
 		self.collect(reciprocal/1)
 	}
 
+	replaceNaN { :self :operand |
+		self.collect { :each |
+			each.isNaN.if {
+				operand
+			} {
+				each
+			}
+		}
+	}
+
 	replaceNaN { :x :y |
 		x.collect { :each |
 			each.replaceNaN(y)
@@ -791,6 +831,14 @@
 		self.collect { :each |
 			each.repunit(operand)
 		}
+	}
+
+	rescale { :self :a :b |
+		self.collect(rescaleBlock(a, b))
+	}
+
+	rescale { :self :a |
+		self.collect(rescaleBlock(a, [0, 1]))
 	}
 
 	riemannXi { :self |
@@ -851,6 +899,10 @@
 		}
 	}
 
+	[subtract, -] { :self :operand |
+		self.collect(-.bindRight(operand))
+	}
+
 	superCatalanNumber { :self |
 		self.collect(superCatalanNumber/1)
 	}
@@ -873,6 +925,10 @@
 
 	thueMorse { :self |
 		self.collect(thueMorse/1)
+	}
+
+	[times, *] { :self :operand |
+		self.collect(*.bindRight(operand))
 	}
 
 	triangularNumber { :self |
@@ -1055,12 +1111,12 @@
 		self.collect(absoluteValueArgument/1)
 	}
 
-	[argument, arg] { :self |
-		self.collect(argument/1)
-	}
-
 	amClip { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, amClip/2)
+	}
+
+	[argument, arg] { :self |
+		self.collect(argument/1)
 	}
 
 	arithmeticGeometricMean { :self :anObject |
@@ -1089,6 +1145,10 @@
 
 	binomialGamma { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, binomialGamma/2)
+	}
+
+	clip { :self :min :max |
+		self.withWithCollect(min.nest, max.nest, clip/3)
 	}
 
 	digitalRoot { :self :anObject |
@@ -1174,6 +1234,10 @@
 		operand.adaptToCollectionAndApply(self, signedLcm/2)
 	}
 
+	sum4 { :a :b :c :d |
+		a + b + c + d
+	}
+
 	[timesPlus, *+] { :self :mul :add |
 		self * mul + add
 	}
@@ -1228,7 +1292,7 @@
 
 }
 
-+@Collect {
++@Collection {
 
 	atIntegerOrElementwise { :self :aBlock/1 |
 		self.collect { :each |

@@ -86,7 +86,7 @@
 
 }
 
-+@Collect {
++@Collection {
 
 	factorialNumberSystemDecode { :self |
 		self.collect(factorialNumberSystemDecode/1)

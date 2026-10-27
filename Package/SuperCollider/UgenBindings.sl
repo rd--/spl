@@ -466,18 +466,6 @@
 
 +[List, Ugen, SmallFloat] {
 
-	linExp { :in :srclo :srchi :dstlo :dsthi |
-		<primitive: return sc.LinExp(_in, _srclo, _srchi, _dstlo, _dsthi);>
-	}
-
-	Sum4 { :in0 :in1 :in2 :in3 |
-		<primitive: return sc.Sum4(_in0, _in1, _in2, _in3);>
-	}
-
-}
-
-+[List, Ugen, SmallFloat] {
-
 	AmpComp { :freq :root :exp |
 		<primitive: return sc.AmpComp(_freq, _root, _exp);>
 	}
@@ -1550,24 +1538,36 @@
 
 +Ugen {
 
-	clip { :in :lo :hi |
-		<primitive: return sc.Clip(_in, _lo, _hi);>
-	}
-
 	bilateralClip { :self :anObject |
 		<primitive: return sc.Clip2(_self, _anObject);>
-	}
-
-	fold { :in :lo :hi |
-		<primitive: return sc.Fold(_in, _lo, _hi);>
 	}
 
 	bilateralFold { :self :anObject |
 		<primitive: return sc.Fold2(_self, _anObject);>
 	}
 
+	bilateralWrap { :self :anObject |
+		<primitive: return sc.Wrap2(_self, _anObject);>
+	}
+
+	clip { :in :lo :hi |
+		<primitive: return sc.Clip(_in, _lo, _hi);>
+	}
+
+	fold { :in :lo :hi |
+		<primitive: return sc.Fold(_in, _lo, _hi);>
+	}
+
+	linExp { :in :srclo :srchi :dstlo :dsthi |
+		<primitive: return sc.LinExp(_in, _srclo, _srchi, _dstlo, _dsthi);>
+	}
+
 	modularDistance { :x :y :mod |
 		<primitive: return sc.ModDif(_x, _y, _mod);>
+	}
+
+	sum4 { :in0 :in1 :in2 :in3 |
+		<primitive: return sc.Sum4(_in0, _in1, _in2, _in3);>
 	}
 
 	[timesPlus, *+] { :in :mul :add |
@@ -1576,10 +1576,6 @@
 
 	wrap { :in :lo :hi |
 		<primitive: return sc.Wrap(_in, _lo, _hi);>
-	}
-
-	bilateralWrap { :self :anObject |
-		<primitive: return sc.Wrap2(_self, _anObject);>
 	}
 
 }

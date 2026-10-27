@@ -64,7 +64,6 @@ The list of system traits:
 	'@Cache'
 	'@CartesianCoordinates'
 	'@Character'
-	'@Collect'
 	'@Collection'
 	'@Colour'
 	'@Compare'

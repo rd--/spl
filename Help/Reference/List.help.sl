@@ -218,7 +218,6 @@ Traits implemented by `List`:
 [
 	'@Add'
 	'@At'
-	'@Collect'
 	'@Collection'
 	'@Compare'
 	'@Copy'

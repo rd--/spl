@@ -1010,7 +1010,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 }
 
-+@Collect {
++@Collection {
 
 	isNaN { :self |
 		self.collect(isNaN/1)

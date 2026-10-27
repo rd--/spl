@@ -1,5 +1,17 @@
 @Collection {
 
+	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
+		self.collect { :each |
+			aBlock(anInteger, each)
+		}
+	}
+
+	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
+		self.collect { :each |
+			aBlock(aNumber, each)
+		}
+	}
+
 	[allEqual, =] { :self |
 		self.allEqualBy(isEqual/2)
 	}
@@ -129,6 +141,30 @@
 
 	copyList { :self |
 		self.List
+	}
+
+	copyWithout { :self :oldElement |
+		self.reject { :each |
+			each = oldElement
+		}
+	}
+
+	copyWithoutAll { :self :aCollection |
+		self.reject { :each |
+			aCollection.includes(each)
+		}
+	}
+
+	copyWithoutIdenticalElements { :self |
+		let seen = IdentitySet();
+		self.select { :each |
+			seen.includes(each).if {
+				false
+			} {
+				seen.uncheckedInclude!(each);
+				true
+			}
+		}
 	}
 
 	countsBy { :self :aBlock/1 |

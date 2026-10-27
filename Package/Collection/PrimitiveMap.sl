@@ -1,4 +1,4 @@
-/* Requires: Map, WeakMap */
+/* Requires: Map WeakMap */
 
 +[Map, WeakMap] {
 

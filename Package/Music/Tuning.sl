@@ -80,7 +80,7 @@
 
 }
 
-+@Collect {
++@Collection {
 
 	centsToRatio { :self |
 		self.collect(centsToRatio/1)

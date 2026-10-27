@@ -1,6 +1,6 @@
 /* Requires: Iterator Stream */
 
-BlockStream : [Object, Do, Collect, Iterator, Stream] {
+BlockStream : [Object, Do, Iterator, Collection, Stream] {
 
 	| onNext onReset nextItem |
 

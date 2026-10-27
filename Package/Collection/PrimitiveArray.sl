@@ -1,4 +1,4 @@
-/* Requires: ByteArray, Float32Array, Float64Array, List */
+/* Requires: ByteArray Float32Array Float64Array List */
 
 +[ByteArray, Float32Array, Float64Array, List] {
 

@@ -244,10 +244,6 @@
 		LfTri(d['freq'], d['iphase'])
 	}
 
-	linExp { :d |
-		linExp(d['in'], d['srcLo'], d['srcHi'], d['dstLo'], d['dstHi'])
-	}
-
 	LinPan2 { :d |
 		LinPan2(d['in'], d['pos'], d['level'])
 	}
@@ -506,6 +502,10 @@
 
 	XFade2 { :d |
 		XFade2(d['inA'], d['inB'], d['pan'], d['level'])
+	}
+
+	linExp { :d |
+		linExp(d['in'], d['srcLo'], d['srcHi'], d['dstLo'], d['dstHi'])
 	}
 
 }

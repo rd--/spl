@@ -437,7 +437,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 }
 
-+@Collect {
++@Collection {
 
 	adaptToDecimalAndApply { :self :operand :aBlock/2 |
 		self.collect { :each |

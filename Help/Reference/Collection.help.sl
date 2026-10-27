@@ -1,11 +1,12 @@
 # Collection
 
-`Collection` is a trait holding behaviours common to finite collections.
-Collections should ordinarily implement `Do`.
+`Collection` is a trait holding behaviours common to collections.
+Collections should ordinarily implement `Do` and `New`.
 
 The required methods are:
 
-- `size`
+- `collect`
+- `select`
 
 Methods for testing
 
@@ -21,9 +22,7 @@ Methods for enumerating:
 
 - `do`
 - `doSeparatedBy`
-- `select`
 - `reject`
-- `collect`
 - `detect`
 - `detectIfNone`
 - `injectInto`
@@ -49,16 +48,19 @@ Types implementing `Collection`:
 ```
 >>> system
 >>> .traitTypes('@Collection')
->>> .sort
+>>> .sort!
 [
 	'AsciiString'
 	'BitSet'
+	'BlockStream'
 	'ByteArray'
+	'CollectionStream'
 	'Dictionary'
 	'Float32Array'
 	'Float64Array'
 	'IdentityMultiset'
 	'IdentitySet'
+	'Link'
 	'LinkedList'
 	'List'
 	'ListView'
@@ -81,7 +83,7 @@ Types implementing `Collection`:
 
 * * *
 
-See also: Dictionary, New, Sequence, do, size
+See also: Add, At, Collection, Do, Put, Remove
 
 Guides: Collection Functions, Dictionary Functions, List Functions
 

@@ -128,10 +128,6 @@
 		Pan2(in, pos, 1)
 	}
 
-	expRange { :self :lo :hi |
-		linExp(self, -1, 1, lo, hi)
-	}
-
 	Fm7Matrix { :ctlMatrix :modMatrix |
 		Fm7(ctlMatrix.catenate, modMatrix.catenate)
 	}
@@ -184,18 +180,8 @@
 		Env(levels, times, ['lin'], nil, nil, 0).asEnvGen(gate)
 	}
 
-	linLin { :self :srcLo :srcHi :dstLo :dstHi |
-		let mul = (dstHi - dstLo) / (srcHi - srcLo);
-		let add = dstLo - (mul * srcLo);
-		self.clip(srcLo, srcHi).timesPlus(mul, add)
-	}
-
 	LinRand0 { :self |
 		LinRand(0, self, 1)
-	}
-
-	linRange { :self :lo :hi |
-		linLin(self, -1, 1, lo, hi)
 	}
 
 	MouseX { :minval :maxval |
@@ -301,6 +287,20 @@
 
 	ZeroBuf { :self |
 		self <! ClearBuf(self)
+	}
+
+	expRange { :self :lo :hi |
+		linExp(self, -1, 1, lo, hi)
+	}
+
+	linLin { :self :srcLo :srcHi :dstLo :dstHi |
+		let mul = (dstHi - dstLo) / (srcHi - srcLo);
+		let add = dstLo - (mul * srcLo);
+		self.clip(srcLo, srcHi).timesPlus(mul, add)
+	}
+
+	linRange { :self :lo :hi |
+		linLin(self, -1, 1, lo, hi)
 	}
 
 }

@@ -2066,7 +2066,7 @@
 
 }
 
-+@Collect {
++@Collection {
 
 	inverseCantorPairingFunction { :self |
 		self.collect(inverseCantorPairingFunction/1)

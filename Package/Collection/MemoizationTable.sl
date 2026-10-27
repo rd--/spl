@@ -1,4 +1,4 @@
-MemoizationTable : [Object, Do, Collect, Collection] {
+MemoizationTable : [Object, Do, Collection] {
 
 	| block table |
 

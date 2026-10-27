@@ -3,7 +3,7 @@
 - _Sum(c)_
 
 Sums the list of inputs _c_.
-Unlike `sum`, implements optimization using the `Sum4` primitive `Ugen`.
+Unlike `sum`, implements optimization using the `sum4` primitive `Ugen`.
 
 Sum a list of sawtooth oscillators:
 
@@ -36,7 +36,7 @@ Sine oscillators:
 ].Sum * 0.1
 ```
 
-Sum nine oscillators, utilising two `Sum4` Ugens and two `Plus` Ugens:
+Sum nine oscillators, utilising two `sum4` Ugens and two `plus` Ugens:
 
 ```
 SinOsc(
@@ -49,7 +49,7 @@ Where supported, `Sum` is displayed as ∑.
 
 * * *
 
-See also: Mix, sum, Sum4
+See also: Mix, sum, sum4
 
 Unicode: U+2211 ∑ N-Ary Summation
 

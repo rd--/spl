@@ -1,4 +1,4 @@
-Storage! : [Object, Collect, Collection, Dictionary] {
+Storage! : [Object, Collection, Dictionary] {
 
 	at { :self :key |
 		key.assertIsString;

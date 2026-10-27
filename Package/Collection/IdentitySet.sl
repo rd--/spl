@@ -1,6 +1,6 @@
 /* Requires: List */
 
-IdentitySet! : [Object, New, Copy, Store, Equal, Do, Collect, Collection, Add, Remove, Unordered, Set] {
+IdentitySet! : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unordered, Set] {
 
 	[List, identitySetToList] { :self |
 		<primitive: return Array.from(_self);>

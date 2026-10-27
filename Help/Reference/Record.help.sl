@@ -131,7 +131,6 @@ List of traits implemented by `Record`:
 [
 	'@Add'
 	'@At'
-	'@Collect'
 	'@Collection'
 	'@Copy'
 	'@Dictionary'

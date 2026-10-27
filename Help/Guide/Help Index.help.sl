@@ -376,7 +376,7 @@ Reference (A-Z):
 - `Circle`
 - `CircularSector`
 - `CircularSegment`
-- `clip2`
+- `bilateralClip`
 - `ClipIndex`
 - `ClipNoise`
 - `Clock`

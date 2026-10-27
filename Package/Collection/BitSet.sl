@@ -1,6 +1,6 @@
 /* Requires: ByteArray */
 
-BitSet : [Object, Copy, Store, Equal, Do, Collect, Collection, Add, Remove] {
+BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 
 	| capacity bytes tally |
 

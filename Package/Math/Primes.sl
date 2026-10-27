@@ -1158,7 +1158,7 @@
 
 }
 
-+@Collect {
++@Collection {
 
 	nonPrime { :self |
 		self.collect(nonPrime/1)

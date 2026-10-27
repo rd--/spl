@@ -1,4 +1,4 @@
-/* Requires: List, String */
+/* Requires: List String */
 
 @Integer {
 

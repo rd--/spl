@@ -198,9 +198,9 @@
 
 ## Bilateral Functions
 
-- `clip2`: bilateral clipping
-- `fold2`: bilateral folding
-- `wrap2`: bilateral wrapping
+- `bilateralClip`
+- `bilateralFold`
+- `bilateralWrap`
 
 ## Noise Generators
 

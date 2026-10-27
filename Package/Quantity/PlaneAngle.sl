@@ -112,7 +112,7 @@
 
 }
 
-+@Collect {
++@Collection {
 
 	degrees { :self |
 		self.collect(degrees/1)

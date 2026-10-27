@@ -1,6 +1,6 @@
-/* Requires: BitSet, String */
+/* Requires: BitSet String */
 
-ResidueSet : [Object, New, Store, Equal, Do, Collect, Collection, Add, Remove] {
+ResidueSet : [Object, New, Store, Equal, Do, Collection, Add, Remove] {
 
 	| commonResidueSet modulus |
 

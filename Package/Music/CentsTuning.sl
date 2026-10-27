@@ -1,4 +1,4 @@
-/* Requires: ScalaTuning, Tuning */
+/* Requires: ScalaTuning Tuning */
 
 CentsTuning : [Object, Store, Equal, Tuning] {
 

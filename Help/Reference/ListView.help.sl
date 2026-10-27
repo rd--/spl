@@ -147,7 +147,6 @@ Traits implemented by `ListView`:
 >>> .sort!
 [
 	'@At'
-	'@Collect'
 	'@Collection'
 	'@Compare'
 	'@Copy'

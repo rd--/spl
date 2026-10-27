@@ -1,4 +1,4 @@
-LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Collect, Collection, Add, Remove, Sequence] {
+LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Collection, Add, Remove, Sequence] {
 
 	| firstLink lastLink |
 

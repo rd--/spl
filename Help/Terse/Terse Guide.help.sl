@@ -3927,10 +3927,9 @@ system.methodTraits('sum/1') = ['@ArithmeticProgression', '@Do', '@Collection', 
 system.traitTypes('@Object').includes('SmallFloat') = true
 system.traitLookup('@Object').methodDictionary.includesIndex('respondsTo/2') = true
 system.traitLookup('@Collection').isTrait = true
-system.traitLookup('@Collect').name = '@Collect'
 system.traitLookup('@Do').methodDictionary.includesIndex('do/2') = true
 system.traitLookup('@Do').methodDictionary['do/2'].isMethod = true
-system.traitTypes('@Collect').includes('List') = true
+system.traitTypes('@Collection').includes('List') = true
 system.traitTypes('@Dictionary').includes('Map') = true
 system.traitDictionary['@Dictionary'].isTrait = true
 ```
@@ -3942,7 +3941,7 @@ system.typeDictionary.indices.includes('List') = true
 system.typeDictionary.includesIndex('List') = true
 system.typeDictionary['List'].typeName = 'Type' /* type of type is Type */
 system.typeDictionary['List'].isType = true /* Type type predicate */
-system.typeDictionary['List'].traitNameList.includes('@Collect') = true
+system.typeDictionary['List'].traitNameList.includes('@Collection') = true
 system.typeDictionary['Association'].slotNameList = ['key', 'value']
 system.typeDictionary['Association'].methodDictionary.indices.includes('isEqualBy/3')
 system.typeDictionary['Association'].methodDictionary.includesIndex('key/1') = true

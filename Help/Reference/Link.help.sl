@@ -55,7 +55,7 @@ Traits implemented by `Link`:
 >>> .traitNameList
 >>> .sort!
 [
-	'@Collect'
+	'@Collection'
 	'@Copy'
 	'@Do'
 	'@Equal'

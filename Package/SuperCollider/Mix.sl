@@ -235,7 +235,7 @@
 
 	Sum { :self |
 		(self.size >= 4).if {
-			let prefix = Sum4(self[1], self[2], self[3], self[4]);
+			let prefix = sum4(self[1], self[2], self[3], self[4]);
 			(self.size = 4).if {
 				prefix
 			} {

@@ -129,7 +129,7 @@
 
 }
 
-+@Collect {
++@Collection {
 
 	cpsCv { :self |
 		self.collect(cpsCv/1)

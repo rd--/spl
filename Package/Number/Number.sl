@@ -1118,6 +1118,10 @@
 		self > 0
 	}
 
+	sum4 { :a :b :c :d |
+		a + b + c + d
+	}
+
 	swishFunction { :beta |
 		{ :x |
 			x / (1 + (beta.negate * x).exp)

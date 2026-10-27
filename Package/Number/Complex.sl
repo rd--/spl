@@ -551,7 +551,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 }
 
-+@Collect {
++@Collection {
 
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
 		self.collect { :each |

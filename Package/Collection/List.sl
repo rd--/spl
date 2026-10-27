@@ -1,4 +1,4 @@
-List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, Collect, Collection, Add, Remove, Sequence, Ordered] {
+List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, Collection, Add, Remove, Sequence, Ordered] {
 
 	[List, listToList] { :self |
 		self

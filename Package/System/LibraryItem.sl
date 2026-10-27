@@ -1,4 +1,4 @@
-/* Requires: CacheStorage, Url */
+/* Requires: CacheStorage Url */
 
 LibraryItem : [Object] {
 

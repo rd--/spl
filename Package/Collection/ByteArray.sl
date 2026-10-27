@@ -1,4 +1,4 @@
-ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Collect, Collection, Sequence] {
+ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Collection, Sequence] {
 
 	[String, utf8String] { :self |
 		<primitive: return new TextDecoder('utf-8').decode(_self).normalize('NFC');>
