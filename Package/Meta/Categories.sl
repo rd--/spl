@@ -1484,7 +1484,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'Dc'
 		'Decay'
 		'Decay2'
-		'DegreeToKey'
+		'degreeToKey'
 		'Delay1'
 		'Delay2'
 		'DelayC'

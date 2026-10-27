@@ -13,7 +13,7 @@ Voicer(1, 16) { :e |
 	let rq = samp + TRand(0.1, 0.15, tr);
 	let rate = TExpRand(0.1, 3, tr);
 	let index = linLin(LfSaw(samp, 0), -1, 1, bottom, top) * BufFrames(buf);
-	let tonic = DegreeToKey(buf, index, 12) + root;
+	let tonic = degreeToKey(buf, index, 12) + root;
 	let env = Decay2(tr, atk, decay) * 0.35;
 	let sig = Bpf(SyncSaw(root.midiCps, tonic.midiCps) * env, cFreq, rq) * amp;
 	let loc = EqPan2(sig, SinOsc(rate * 0.9 + Rand(-0.6, 0.6), 0));

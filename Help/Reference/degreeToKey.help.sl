@@ -1,18 +1,19 @@
 # degreeToKey
 
-- _degreeToKey(s, degree)_
-- _degreeToKey(degree, scale, stepsPerOctave)_
+- _degreeToKey(s, n)_
+- _degreeToKey(s, n, m)_
 
-Convert from degree to key.
+Convert from degree _n_ to key in the context of the scale _s_,
+which has _m_ steps per octave.
 
 In the binary case,
 the scale _s_ is an instance of `Scale`,
-and both and indices are counted from `one`:
+indices are counted from `one`:
 
 ```
 >>> let s = Scale([2 2 1 2 2 2 1], 'Maj.');
->>> 1:7.collect { :each |
->>> 	s.degreeToKey(each)
+>>> 1:7.collect { :n |
+>>> 	s.degreeToKey(n)
 >>> }
 [1 3 5 6 8 10 12]
 ```
@@ -113,25 +114,30 @@ At minor scale:
 ```
 
 In the ternary case, which follows the _SuperCollider_ definition,
-_scale_ is specified as a `List` and _stepsPerOctave_ separately,
-and degrees are _zero-indexed_:
+the _scale_ is specified in two parts,
+as a list of zero-indexed step locations,
+with the steps per octave count given separately.
+The lookup degrees are also zero-indexed:
 
 ```
->>> 2.degreeToKey([1 3 6 8 10], 12)
+>>> let s = [1 3 6 8 10];
+>>> s.degreeToKey(2, 12)
 6
 ```
 
 Threads over lists:
 
 ```
->>> [0 .. 7].degreeToKey([0 2 4 5 7 9 11], 12)
+>>> let s = [0 2 4 5 7 9 11];
+>>> s.degreeToKey([0 .. 7], 12)
 [0 2 4 5 7 9 11 12]
 ```
 
 Indices wrap around the table and shift octaves as they do:
 
 ```
->>> [1 .. 15].degreeToKey([0 1 5 9 11], 12)
+>>> let s = [0 1 5 9 11];
+>>> s.degreeToKey([1 .. 15], 12)
 [
 	01 05 09 11 12
 	13 17 21 23 24
@@ -142,11 +148,12 @@ Indices wrap around the table and shift octaves as they do:
 Negative degrees:
 
 ```
->>> -12.degreeToKey([0 2 4 6 7 9 11], 12)
+>>> let s = [0 2 4 6 7 9 11];
+>>> s.degreeToKey(-12, 12)
 -20
 
->>> [-14, -12 .. 14]
->>> .degreeToKey([0, 2, 4, 6, 7, 9, 11], 12)
+>>> let s = [0 2 4 6 7 9 11];
+>>> s.degreeToKey([-14 .. 14; 2], 12)
 [
 	-24 -20 -17 -13
 	-10 -6 -3
@@ -155,9 +162,36 @@ Negative degrees:
 ]
 ```
 
+Modal space, mouse controls discrete pitch in dorian mode:
+
+```
+let b = LocalBuf[0 2 3.2 5 7 9 10];
+let x = MouseX(0, 15, 0, 0.1);
+let k = degreeToKey(b, x, 12);
+let c = { :n :r |
+	let o = SinOsc(
+		(r + k + (n * 0.04)).midiCps,
+		0
+	) * 0.1;
+	let t = LfPulse(
+		[48 55].midiCps,
+		0,
+		0.15
+	);
+	let f = (
+		SinOsc(0.1, 0) * 10 + r
+	).midiCps;
+	let d = Rlpf(t, f, 0.1) * 0.1;
+	let m = o + d;
+	CombN(m, 0.31, 0.31, 2) + m
+};
+let n = LfNoise1([3, 3]);
+(c(n, 48) + c(n, 72)) * 0.25
+```
+
 * * *
 
-See also: cancelFlat, cancelSharp, DegreeToKey, flat, Scale, sharp
+See also: Scale, cancelFlat, cancelSharp, flat, sharp
 
 Guides: Scale Functions
 

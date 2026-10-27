@@ -99,8 +99,8 @@
 		answer
 	}
 
-	collectInto { :self :aBlock :aCollection |
-		aCollection.fillFromWith!(self, aBlock)
+	collectInto { :self :aBlock/1 :aCollection |
+		aCollection.fillFromWith!(self, aBlock/1)
 	}
 
 	collectThenDo { :self :collectBlock/1 :doBlock/1 |

@@ -47,9 +47,9 @@ Constants:
 
 Converting:
 
-- `centsToRatio`: cents to ratio
-- `degreeToKey`: degree to key
-- `ratioToCents`: ratio to cents
+- `centsToRatio`
+- `degreeToKey`
+- `ratioToCents`
 
 Fraction Functions:
 

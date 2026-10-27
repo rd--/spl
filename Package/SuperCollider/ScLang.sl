@@ -340,12 +340,6 @@
 		answer
 	}
 
-	degreeToKey { :self :scale :stepsPerOctave |
-		self.collect { :scaleDegree |
-			scaleDegree.degreeToKey(scale, stepsPerOctave)
-		}
-	}
-
 	difSqr { :self :aNumber |
 		aNumber.adaptToCollectionAndApply(self, difSqr/2)
 	}
@@ -681,17 +675,6 @@
 }
 
 +SmallFloat {
-
-	degreeToKey { :self :scale :stepsPerOctave |
-		let scaleDegree = self.round;
-		let accidental = (self - scaleDegree) * 10;
-		let baseKey = (stepsPerOctave * (scaleDegree.quotientBy(scale.size, floor/1))) + scale.atWrap(scaleDegree + 1);
-		(accidental = 0).if {
-			baseKey
-		} {
-			baseKey + (accidental * (stepsPerOctave / 12.0))
-		}
-	}
 
 	geom { :self :start :grow |
 		self.geometricProgression(start, grow)

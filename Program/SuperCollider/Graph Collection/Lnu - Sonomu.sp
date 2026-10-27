@@ -510,7 +510,7 @@ let z = { :x | LfSaw(x, 0) };
 let i = [1 .. 4].fibonacci; /* 1 1 2 3 */
 let f = 2 ^ [0 .. 3] + i * 2;
 let b = LocalBuf[0 2 5 7 9];
-let l = DegreeToKey(
+let l = degreeToKey(
 	b,
 	StandardN(f, 1, 0.5, 0).sin.Sanitize(0) * z(1 / f / i) * 12,
 	12

@@ -21,8 +21,7 @@ Catalogues:
 
 Converting:
 
-- `asScale`: intervals to scale
-- `degreeToKey`: degree to key
+- `degreeToKey`
 
 Drawing:
 

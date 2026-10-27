@@ -1,8 +1,8 @@
 # quarterToneSharp
 
-- _quarterToneSharp(aNumber)_
+- _quarterToneSharp(n)_
 
-Answer _aNumber + 0.05_.
+Answer the number _n_ plus _0.05_.
 In some contexts, such as `degreeToKey`, a fractional scale degree indicates an _alteration_.
 
 ```
@@ -14,6 +14,8 @@ Where supported `quarterToneSharp` is displayed as 𝄲.
 
 * * *
 
-See also: degreeToKey, flat, quarterToneFlat, Scale, sharp
+See also: Scale, degreeToKey, flat, quarterToneFlat, sharp
+
+Guides: Scale Functions
 
 Unicode: U+1D132 𝄲 Musical Symbol Quarter Tone Sharp

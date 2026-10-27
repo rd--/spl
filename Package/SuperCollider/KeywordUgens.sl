@@ -52,7 +52,7 @@
 		Decay2(d['in'], d['attackTime'], d['decayTime'])
 	}
 
-	DegreeToKey { :d |
+	degreeToKey { :d |
 		DegreeToKey(d['bufNum'], d['in'], d['octave'])
 	}
 

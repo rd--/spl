@@ -1276,6 +1276,10 @@
 		}
 	}
 
+}
+
++[List, Range] {
+
 	atVectorOrElementwise { :self :aBlock/1 |
 		self.isEmpty.if {
 			self
@@ -1300,11 +1304,25 @@
 		}
 	}
 
+	atNumberOrElementwise { :self :aBlock/1 |
+		self.collect { :each |
+			each.atNumberOrElementwise(aBlock/1)
+		}
+	}
+
 }
 
 +@Integer {
 
 	atIntegerOrElementwise { :self :aBlock/1 |
+		aBlock(self)
+	}
+
+}
+
++@Number {
+
+	atNumberOrElementwise { :self :aBlock/1 |
 		aBlock(self)
 	}
 

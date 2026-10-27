@@ -193,11 +193,14 @@
 	}
 
 	atAllUsing { :self :indexList :aBlock/2 |
-		let answer = self.newOfSize(indexList.size);
-		indexList.indicesDo { :index |
-			answer[index] := aBlock(self, indexList[index])
-		};
-		answer
+		indexList.atVectorOrElementwise { :indexList |
+			indexList.collectInto(
+				{ :i |
+					aBlock(self, i)
+				},
+				self.newOfSize(indexList.size)
+			)
+		}
 	}
 
 	atAllValid { :self :indexList |

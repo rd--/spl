@@ -542,7 +542,7 @@
 		<primitive: return sc.Ddup(_n, _in);>
 	}
 
-	DegreeToKey { :bufnum :in :octave |
+	degreeToKey { :bufnum :in :octave |
 		<primitive: return sc.DegreeToKey(_bufnum, _in, _octave);>
 	}
 

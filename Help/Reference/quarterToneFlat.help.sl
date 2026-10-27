@@ -1,8 +1,8 @@
 # quarterToneFlat
 
-- _quarterToneFlat(aNumber)_
+- _quarterToneFlat(n)_
 
-Answer _aNumber - 0.05_.
+Answer the number _n_ minus _0.05_.
 In some contexts, such as `degreeToKey`, a fractional scale degree indicates an _alteration_.
 
 ```
@@ -14,6 +14,8 @@ Where supported `quarterToneFlat` is displayed as 𝄳.
 
 * * *
 
-See also: degreeToKey, flat, quarterToneSharp, Scale, sharp
+See also: Scale, degreeToKey, flat, quarterToneSharp, sharp
+
+Guides: Scale Functions
 
 Unicode: U+1D133 𝄳 Musical Symbol Quarter Tone Flat

@@ -16,13 +16,9 @@ Scale : [Object, Store] {
 		)
 	}
 
-	degreeToKey { :self :scaleDegree |
-		scaleDegree.isCollection.if {
-			scaleDegree.collect { :each |
-				self.fractionalDegreeToKey(each)
-			}
-		} {
-			self.fractionalDegreeToKey(scaleDegree)
+	degreeToKey { :scale :operand |
+		operand.atNumberOrElementwise { :scaleDegree |
+			scale.fractionalDegreeToKey(scaleDegree)
 		}
 	}
 
@@ -41,7 +37,10 @@ Scale : [Object, Store] {
 	integerDegreeToKey { :self :scaleDegree :accidental |
 		let stepsPerOctave = self.tuningSize;
 		let tuningIndices = self.tuningIndices;
-		let baseKey = (stepsPerOctave * ((scaleDegree - 1).quotientBy(self.size, floor/1))) + tuningIndices.atWrap(scaleDegree);
+		let baseKey = (
+			stepsPerOctave
+			* ((scaleDegree - 1).quotientBy(self.size, floor/1))
+		) + tuningIndices.atWrap(scaleDegree);
 		(accidental = 0).if {
 			baseKey
 		} {
@@ -334,6 +333,26 @@ Scale : [Object, Store] {
 
 	rectangularHorogramDrawing { :self |
 		self.rectangularPartitionsDrawing
+	}
+
+}
+
++List {
+
+	degreeToKey { :scale :operand :stepsPerOctave |
+		operand.atNumberOrElementwise { :fractionalScaleDegree |
+			let scaleDegree = fractionalScaleDegree.round;
+			let accidental = (fractionalScaleDegree - scaleDegree) * 10;
+			let baseKey = (
+				stepsPerOctave
+				* (scaleDegree.quotientBy(scale.size, floor/1))
+			) + scale.atWrap(scaleDegree + 1);
+			(accidental = 0).if {
+				baseKey
+			} {
+				baseKey + (accidental * (stepsPerOctave / 12.0))
+			}
+		}
 	}
 
 }

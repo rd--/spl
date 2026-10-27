@@ -69,7 +69,7 @@
 - `CpsMidi`: convert cycles per second to midi note
 - `CpsOct`: convert cycles per second to decimal octaves
 - `DbAmp`: convert decibels to linear amplitude
-- `DegreeToKey`: convert signal to modal pitch
+- `degreeToKey`: convert signal to modal pitch
 - `K2A`: control rate to audio rate converter
 - `linExp`: convert a linear range to an exponential range
 - `linLin`: convert a linear range to a linear range

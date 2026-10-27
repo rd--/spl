@@ -421,7 +421,6 @@ Reference (A-Z):
 - `Decay2`
 - `Decimal`
 - `DecodeB2`
-- `DegreeToKey`
 - `DelaunayTriangulation`
 - `Delay1`
 - `Delay2`

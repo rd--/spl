@@ -1,11 +1,14 @@
 # cancelSharp
 
-- _cancelSharp(aNumber)_
+- _cancelSharp(n)_
 
-Answer _aNumber - 0.1_.
+Answer the number _n_ minus _0.1_.
 In some contexts, such as `degreeToKey`, a fractional scale degree indicates an _alteration_.
 
 ```
+>>> 4.sharp.cancelSharp
+4
+
 >>> 4.cancelSharp
 3.9
 ```
@@ -14,6 +17,8 @@ Where supported `cancelSharp` is displayed as ♮.
 
 * * *
 
-See also: degreeToKey, flat, Scale, sharp
+See also: Scale, degreeToKey, flat, sharp
+
+Guides: Scale Functions
 
 Unicode: U+266E ♮ Music Natural Sign

@@ -1,6 +1,6 @@
 /* Modal space (Jmcc) #8 */
 let b = LocalBuf[0 2 3.2 5 7 9 10];
-let k = DegreeToKey(b, MouseX(0, 15, 0, 0.2), 12);
+let k = degreeToKey(b, MouseX(0, 15, 0, 0.2), 12);
 let c = { :n :r |
 	let o = SinOsc((r + k + (n * 0.04)).midiCps, 0) * 0.1;
 	let t = LfPulse([48, 55].midiCps, 0, 0.15);

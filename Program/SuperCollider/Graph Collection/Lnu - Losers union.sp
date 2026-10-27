@@ -38,7 +38,7 @@ let p = system.coin(0.5).if {
 } {
 	StandardN([8 4 6 2], 1, 0.5, 0).linLin(-1, 1, 12, 48).ceiling
 };
-let f = DegreeToKey(
+let f = degreeToKey(
 	LocalBuf[0 2 3 5 7 8 10],
 	p,
 	12

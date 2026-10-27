@@ -47,7 +47,7 @@ let x = Rlpf(
 ).distort;
 let scale = LocalBuf[0 2 3 5 7 8 10];
 let trig3 = ImpulseSequencer([0.4 0 0.1 0.1 0.4 0.1 0.1 0.1] * 1.5, clock);
-let freq = (DegreeToKey(scale, Demand(clock, 0, p), 12) - 12 + root).midiCps;
+let freq = (degreeToKey(scale, Demand(clock, 0, p), 12) - 12 + root).midiCps;
 let z = Rlpf(
 	VarSaw(freq * [1, 1.505], 0, MouseY(0, 1, 0, 0.2)) * Decay2(trig3, 0.005, 0.8),
 	MouseX(200, 8000, 1, 0.2),

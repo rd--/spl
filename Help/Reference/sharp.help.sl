@@ -1,8 +1,8 @@
 # sharp
 
-- _sharp(aNumber)_
+- _sharp(n)_
 
-Answer _aNumber + 0.1_.
+Answer the number _n_ plus _0.1_.
 In some contexts, such as `degreeToKey`, a fractional scale degree indicates an _alteration_.
 
 ```
@@ -17,6 +17,8 @@ Where supported `sharp` is displayed as ♯.
 
 * * *
 
-See also: degreeToKey, flat, quarterToneSharp, Scale
+See also: Scale, degreeToKey, flat, quarterToneSharp
+
+Guides: Scale Functions
 
 Unicode: U+266F ♯ Music Sharp Sign

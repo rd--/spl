@@ -3,7 +3,7 @@ let n = 5;
 let mode = LocalBuf[0 3 5 7 10];
 let root = 36 + 12.atRandom;
 let z = { :tr |
-	let m = DegreeToKey(mode, TRand(0, 20, tr), 12) + root;
+	let m = degreeToKey(mode, TRand(0, 20, tr), 12) + root;
 	let o = Resonz(PinkNoise() * 20, m.midiCps, 0.002) * 4;
 	EqPan2(
 		o.distort * 0.2,

@@ -391,7 +391,7 @@ let b = { :f :m :a :g |
 
 /* Modal space (Jmcc) #8 ; left-to-right */
 let b = LocalBuf[0 2 3.2 5 7 9 10];
-let k = DegreeToKey(b, MouseX(0, 15, 0, 0.1), 12);
+let k = degreeToKey(b, MouseX(0, 15, 0, 0.1), 12);
 let c = { :n :r |
 	let o = SinOsc((k + r + (n * 0.04)).midiCps, 0).*(0.1);
 	let t = LfPulse([48, 55].midiCps, 0, 0.15);
@@ -426,7 +426,7 @@ let z = { :tr |
 		hi: 16,
 		trig: tr
 	);
-	let sequence = DegreeToKey(
+	let sequence = degreeToKey(
 		bufNum: major,
 		in: TScramble(
 			trigger: tr,
