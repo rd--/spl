@@ -705,6 +705,7 @@ Reference/BufRd.help.sl
 Reference/bulgarianSolitaire.help.sl
 Reference/burnsideCurve.help.sl
 Reference/burrowsWheelerTransform.help.sl
+Reference/busIn.help.sl
 Reference/butcherTreeCount.help.sl
 Reference/butterflyCurve.help.sl
 Reference/bWeightingCurve.help.sl
@@ -1918,7 +1919,6 @@ Reference/InfinitePlane.help.sl
 Reference/infinity.help.sl
 Reference/Infinity.help.sl
 Reference/in.help.sl
-Reference/In.help.sl
 Reference/inHertz.help.sl
 Reference/initializeSlots.help.sl
 Reference/injectInto.help.sl
@@ -2725,7 +2725,6 @@ Reference/medialTriangle.help.sl
 Reference/medianDeviation.help.sl
 Reference/medianFilter.help.sl
 Reference/median.help.sl
-Reference/Median.help.sl
 Reference/mediant.help.sl
 Reference/meisselMertensConstant.help.sl
 Reference/MeixnerDistribution.help.sl

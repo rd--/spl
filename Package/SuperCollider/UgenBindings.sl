@@ -1023,7 +1023,7 @@
 		<primitive: return sc.GrainSin(_numChan, _trigger, _dur, _freq, _pan, _envbufnum, _maxGrains);>
 	}
 
-	In { :numChan :bus |
+	busIn { :numChan :bus |
 		<primitive: return sc.In(_numChan, _bus);>
 	}
 
