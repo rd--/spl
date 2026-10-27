@@ -42,7 +42,7 @@ At the unit cube, a `Polyhedron`:
 
 * * *
 
-See also: faceIndices, Polygon, Polyhedron, vertexCoordinates, vertexCount
+See also: Polygon, Polyhedron, faceIndices, vertexCoordinates, vertexCount
 
 Guides: Geometry Functions
 

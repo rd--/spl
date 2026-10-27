@@ -17,6 +17,6 @@ true
 
 * * *
 
-See also: associations, associationAtIfAbsent, indexValueAssociations
+See also: associationAtIfAbsent, associations, indexValueAssociations
 
 Categories: Accessing

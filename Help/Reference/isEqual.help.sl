@@ -115,7 +115,7 @@ Select the numbers that are equal to zero:
 
 * * *
 
-See also: Equal, =, <, <=, >, >=, !=, ==, ~, :=, hasEqualElements, hasEqualSlots, isUnequal
+See also: Equal, !=, :=, <, <=, =, ==, >, >=, ~, hasEqualElements, hasEqualSlots, isUnequal
 
 Guides: Comparison Functions
 

@@ -15,7 +15,7 @@ Where supported, `:;` is displayed as ↲.
 
 * * *
 
-See also: ;, :
+See also: :, ;
 
 Guides: Syntax Tokens, Volume Syntax
 

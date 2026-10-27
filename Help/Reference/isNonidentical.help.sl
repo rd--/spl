@@ -46,7 +46,7 @@ false
 
 * * *
 
-See also: Equal, =, !=, ==, isIdentical
+See also: Equal, !=, =, ==, isIdentical
 
 Guides: Comparison Functions
 

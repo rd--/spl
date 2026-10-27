@@ -268,7 +268,7 @@ true
 
 * * *
 
-See also: Binary, ByteArray, Integer, Magnitude, Number, parseLargeInteger, SmallFloat
+See also: Binary, ByteArray, Integer, Magnitude, Number, SmallFloat, parseLargeInteger
 
 Guides: Integer Functions
 

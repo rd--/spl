@@ -60,7 +60,7 @@ Relation to `vectorAngle`:
 
 * * *
 
-See also: arcCos, cos, haversine, inverseHaversine, sin, SphericalCoordinates, vectorAngle
+See also: SphericalCoordinates, arcCos, cos, haversine, inverseHaversine, sin, vectorAngle
 
 Guides: Coordinate System Functions, Geometry Functions, Trigonometric Functions
 

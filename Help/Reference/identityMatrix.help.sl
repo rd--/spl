@@ -69,7 +69,7 @@ Draw `identityMatrix`:
 
 * * *
 
-See also: diagonalMatrix, exchangeMatrix, kroneckerDelta, unitVector, permutationMatrix, table
+See also: diagonalMatrix, exchangeMatrix, kroneckerDelta, permutationMatrix, table, unitVector
 
 Guides: Matrix Functions
 

@@ -23,7 +23,7 @@ Colour swatch for _NCS 4055-R90B_:
 
 * * *
 
-See also: ncsColourCatalogue, ncsToRgb, NcsColour, parseNcs
+See also: NcsColour, ncsColourCatalogue, ncsToRgb, parseNcs
 
 Guides: Colour Functions
 

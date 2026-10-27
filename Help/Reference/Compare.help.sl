@@ -103,7 +103,7 @@ The `less` and related methods are implemented for numeric types that have a str
 
 * * *
 
-See also: <, >, compare, Equal, less
+See also: Equal, <, >, compare, less
 
 Guides: Comparison Functions, Sort Functions
 

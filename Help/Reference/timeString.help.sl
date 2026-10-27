@@ -35,7 +35,7 @@ The time string truncates the accuracy to one millisecond.
 
 * * *
 
-See also: isTimeString, parseTime, Time
+See also: Time, isTimeString, parseTime
 
 Guides: Parsing Functions
 

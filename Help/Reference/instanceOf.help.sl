@@ -13,6 +13,6 @@ Create an uninitialized instance of the type _t_.
 
 * * *
 
-See also: new, Type, typeLookup
+See also: Type, new, typeLookup
 
 Categories: Instance Creation, Reflection

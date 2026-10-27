@@ -78,7 +78,7 @@ Infinity
 
 * * *
 
-See also: erf, erfc, inverseCdf, inverseErf, NormalDistribution
+See also: NormalDistribution, erf, erfc, inverseCdf, inverseErf
 
 Guides: Special Functions
 

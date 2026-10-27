@@ -149,7 +149,7 @@ OEIS [A113217](https://oeis.org/A113217):
 
 * * *
 
-See also: digitalRootSet, digitSum, multiplicativeDigitalRoot
+See also: digitSum, digitalRootSet, multiplicativeDigitalRoot
 
 References:
 _Mathematica_

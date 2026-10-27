@@ -44,7 +44,7 @@ Resample a 2×2×2 volume to a 3×2×3 volume:
 
 * * *
 
-See also: trilinearInterpolation, matrixResample, resample, volumeInterpolation
+See also: matrixResample, resample, trilinearInterpolation, volumeInterpolation
 
 Guides: Interpolation Functions
 

@@ -45,7 +45,7 @@ Get the `area` of a polygon with holes:
 
 * * *
 
-See also: area, innerPolygons, outerPolygon, Polygon
+See also: Polygon, area, innerPolygons, outerPolygon
 
 Guides: Geometry Functions
 

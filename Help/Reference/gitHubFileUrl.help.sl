@@ -26,6 +26,6 @@ Answer a file `Url` for the file _f_ at branch _b_ of the project _p_ of the use
 
 * * *
 
-See also: gitLabFileUrl, Url
+See also: Url, gitLabFileUrl
 
 Guides: Network Functions

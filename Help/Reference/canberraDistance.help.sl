@@ -23,7 +23,7 @@ Equivalent to _((u - v).abs / (u.abs + v.abs)).sum_.
 
 * * *
 
-See also: brayCurtisDistance, chessboardDistance, euclideanDistance, editDistance, hammingDistance, manhattanDistance
+See also: brayCurtisDistance, chessboardDistance, editDistance, euclideanDistance, hammingDistance, manhattanDistance
 
 Guides: Distance Functions
 

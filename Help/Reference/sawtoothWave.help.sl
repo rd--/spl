@@ -31,7 +31,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: clip, fractionalPart, Piecewise, squareWave, triangleWave
+See also: Piecewise, clip, fractionalPart, squareWave, triangleWave
 
 Guides: Signal Processing Functions
 

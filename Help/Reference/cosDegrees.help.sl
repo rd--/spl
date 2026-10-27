@@ -44,7 +44,7 @@ Non-commensurate waves (quasiperiodic function):
 
 * * *
 
-See also: cos, sinDegrees, sin
+See also: cos, sin, sinDegrees
 
 Guides: Trigonometric Functions
 

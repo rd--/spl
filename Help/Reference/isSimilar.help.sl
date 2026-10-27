@@ -133,7 +133,7 @@ true
 
 * * *
 
-See also: Compare, Equal, ~, =, <~, >~, !=, !~, isClose, isDissimilar, isEqual, isVeryClose
+See also: Compare, Equal, !=, !~, <~, =, >~, ~, isClose, isDissimilar, isEqual, isVeryClose
 
 Guides: Comparison Functions, Equality Functions
 

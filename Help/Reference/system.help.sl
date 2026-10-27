@@ -49,7 +49,7 @@ true
 
 * * *
 
-See also: Method, Package, Trait, Type, System
+See also: Method, Package, System, Trait, Type
 
 Guides: Reflection Functions, System Functions, System Variable
 

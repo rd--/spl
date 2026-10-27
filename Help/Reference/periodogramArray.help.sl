@@ -68,7 +68,7 @@ x.square.sum
 
 * * *
 
-See also: periodogramPlot, fourier, partition, spectrogramArray, dirichletWindow
+See also: dirichletWindow, fourier, partition, periodogramPlot, spectrogramArray
 
 Guides: Fourier Analysis Functions
 

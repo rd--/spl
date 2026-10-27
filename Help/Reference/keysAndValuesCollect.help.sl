@@ -17,7 +17,7 @@ At `Record`:
 
 * * *
 
-See also: do, collect, keysAndValuesDo, withIndexCollect
+See also: collect, do, keysAndValuesDo, withIndexCollect
 
 Guides: Dictionary Functions
 

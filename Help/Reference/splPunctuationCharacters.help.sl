@@ -34,6 +34,6 @@ true
 
 * * *
 
-See also: splOperatorTokenName, splOperatorNameTable, splPunctuationCharacterNameTable
+See also: splOperatorNameTable, splOperatorTokenName, splPunctuationCharacterNameTable
 
 Guides: Reflection Functions

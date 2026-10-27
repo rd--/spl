@@ -94,7 +94,7 @@ Except where necessary the use of `Character` and `Character` `List` values are 
 
 * * *
 
-See also: isAlphaNumeric, isCharacter, isDigit, isLetter, isUpperCase, isLowerCase, String
+See also: String, isAlphaNumeric, isCharacter, isDigit, isLetter, isLowerCase, isUpperCase
 
 Guides: String Functions
 

@@ -26,6 +26,6 @@ Note this is not the `min` of the transformed values:
 
 * * *
 
-See also: <, maxOn, max, min, minimalBy, reduce
+See also: <, max, maxOn, min, minimalBy, reduce
 
 Guides: Comparison Functions

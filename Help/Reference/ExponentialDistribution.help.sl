@@ -121,7 +121,7 @@ Evaluate symbolically:
 
 * * *
 
-See also: cdf, GammaDistribution, LaplaceDistribution, pdf, randomVariate
+See also: GammaDistribution, LaplaceDistribution, cdf, pdf, randomVariate
 
 Guides: Probability Distributions, Random Functions
 

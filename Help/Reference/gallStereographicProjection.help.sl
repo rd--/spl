@@ -23,7 +23,7 @@ Lattice points under Gall stereographic projection:
 
 * * *
 
-See also: gallPetersProjection, GeodeticCoordinates
+See also: GeodeticCoordinates, gallPetersProjection
 
 Guides: Geodetic Functions
 

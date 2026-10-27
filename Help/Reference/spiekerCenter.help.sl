@@ -31,7 +31,7 @@ let t = [3 4 5].sssTriangle;
 
 * * *
 
-See also: incenter, medialTriangle, spiekerCircle, triangleCentre, Triangle
+See also: Triangle, incenter, medialTriangle, spiekerCircle, triangleCentre
 
 Guides: Geometry Functions
 

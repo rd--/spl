@@ -34,7 +34,7 @@ o.Splay
 
 * * *
 
-See also: IRand, LinRand, NRand, Rand, TExpRand, TiRand, TRand
+See also: IRand, LinRand, NRand, Rand, TExpRand, TRand, TiRand
 
 Guides: Unit Generators
 

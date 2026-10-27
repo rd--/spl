@@ -26,7 +26,7 @@ which must be an ascending list of coefficients:
 
 * * *
 
-See also: polynomialQuotient, remainder, UnivariatePolynomial
+See also: UnivariatePolynomial, polynomialQuotient, remainder
 
 Guides: Polynomial Functions
 

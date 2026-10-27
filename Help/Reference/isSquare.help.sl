@@ -48,7 +48,7 @@ is the turn sequence of the triangle spiral:
 
 * * *
 
-See also: isInteger, isIntegerSquare, square, sqrt
+See also: isInteger, isIntegerSquare, sqrt, square
 
 Guides: Integer Functions
 

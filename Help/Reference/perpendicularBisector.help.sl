@@ -29,7 +29,7 @@ InfiniteLine([1 1], [2 -2])
 
 * * *
 
-See also: angleBisector, InfiniteLine, Line, midpoint
+See also: InfiniteLine, Line, angleBisector, midpoint
 
 Guides: Geometry Functions
 

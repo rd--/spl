@@ -23,7 +23,7 @@ in order to allow writing `!~` as _not similar to_.
 
 * * *
 
-See also: =, <~, >~, !=, !~, isDissimilar, isSimilar
+See also: !=, !~, <~, =, >~, isDissimilar, isSimilar
 
 Guides: Comparison Functions
 

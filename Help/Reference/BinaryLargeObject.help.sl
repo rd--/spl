@@ -66,7 +66,7 @@ ByteArray[65 .. 69]
 
 * * *
 
-See also: arrayBuffer, File, size, text, type
+See also: File, arrayBuffer, size, text, type
 
 References:
 _Iana_

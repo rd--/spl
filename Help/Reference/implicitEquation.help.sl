@@ -78,7 +78,7 @@ Ellipse([0 0], [1.5 1])
 
 * * *
 
-See also: Circle, contourPlot, Ellipse, GeneralisedCircle, InfiniteLine
+See also: Circle, Ellipse, GeneralisedCircle, InfiniteLine, contourPlot
 
 References:
 _Mathematica_

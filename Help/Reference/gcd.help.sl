@@ -467,7 +467,7 @@ OEIS [A370067](https://oeis.org/A370067):
 
 * * *
 
-See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm, signedGcd
+See also: Fraction, ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, isCoprime, isPrime, lcm, signedGcd
 
 Guides: Integer Functions
 

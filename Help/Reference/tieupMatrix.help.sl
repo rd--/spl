@@ -34,6 +34,6 @@ WeavingInformationFile (
 
 * * *
 
-See also: drawdownMatrix, WeavingInformationFile
+See also: WeavingInformationFile, drawdownMatrix
 
 Guides: Matrix Functions

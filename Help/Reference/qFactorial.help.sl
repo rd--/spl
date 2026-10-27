@@ -82,7 +82,7 @@ OEIS [A069779](https://oeis.org/A069779):
 
 * * *
 
-See also: qBinomial, qPochhammer, UnivariatePolynomial
+See also: UnivariatePolynomial, qBinomial, qPochhammer
 
 Guides: Polynomial Functions
 

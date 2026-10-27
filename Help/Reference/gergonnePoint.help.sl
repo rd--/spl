@@ -29,7 +29,7 @@ let c = t.cevianTriangle(g);
 
 * * *
 
-See also: centroid, contactTriangle, incenter, orthocenter, spiekerCenter, symmedianPoint, Triangle
+See also: Triangle, centroid, contactTriangle, incenter, orthocenter, spiekerCenter, symmedianPoint
 
 Guides: Geometry Functions
 

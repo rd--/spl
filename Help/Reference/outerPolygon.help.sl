@@ -24,7 +24,7 @@ p
 
 * * *
 
-See also: innerPolygons, Polygon, PolygonWithHoles
+See also: Polygon, PolygonWithHoles, innerPolygons
 
 Guides: Geometry Functions
 

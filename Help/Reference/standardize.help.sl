@@ -68,7 +68,7 @@ let q = p.standardize;
 
 * * *
 
-See also: median, NormalDistribution, normalize, rescale, standardDeviation
+See also: NormalDistribution, median, normalize, rescale, standardDeviation
 
 References:
 _Mathematica_

@@ -67,7 +67,7 @@ LogNormalDistribution(2, 0.3)
 
 * * *
 
-See also: erf, inverseErf, NormalDistribution
+See also: NormalDistribution, erf, inverseErf
 
 Guides: Probability Distributions, Random Functions
 

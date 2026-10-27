@@ -14,7 +14,7 @@ false
 
 * * *
 
-See also: isNotNil, Nil
+See also: Nil, isNotNil
 
 Guides: Nil Functions
 

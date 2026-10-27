@@ -20,6 +20,6 @@ Quantity(1209600, 'second')
 
 * * *
 
-See also: Duration, hours, inSeconds, seconds, minutes, weeks
+See also: Duration, hours, inSeconds, minutes, seconds, weeks
 
 Categories: Time, Type

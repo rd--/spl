@@ -29,7 +29,7 @@ When the arguments to `<=` are `boole`, it is the material implication `Boolean`
 
 * * *
 
-See also: Equal, Compare, <, >=, >, >=, =, isEqual, isGreaterOrEqual, isLess
+See also: Compare, Equal, <, =, >, >=, >=, isEqual, isGreaterOrEqual, isLess
 
 Guides: Comparison Functions
 

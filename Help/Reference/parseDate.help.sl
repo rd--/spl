@@ -35,7 +35,7 @@ To parse a `DateAndTime` use `parseDateAndTime`.
 
 * * *
 
-See also: Date, dateString, dateAndTimeString, Duration, ordinalDateString, parseDateAndTime, TimeStamp
+See also: Date, Duration, TimeStamp, dateAndTimeString, dateString, ordinalDateString, parseDateAndTime
 
 Guides: Date and Time Functions, Parsing Functions
 

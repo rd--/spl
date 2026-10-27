@@ -56,7 +56,7 @@ Plot over a subset of the complexes with _q=a_:
 
 * * *
 
-See also: qBinomial, qFactorial, pochhammer
+See also: pochhammer, qBinomial, qFactorial
 
 Guides: Special Functions
 

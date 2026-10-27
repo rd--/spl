@@ -101,7 +101,7 @@ The type has the non-standard spelling _URL_, which is defined by the system.
 
 * * *
 
-See also: Location, UrlQueryParameters, fileUrl, fileName, fragment, href, host, hostName, origin, pathName, protocol, query
+See also: Location, UrlQueryParameters, fileName, fileUrl, fragment, host, hostName, href, origin, pathName, protocol, query
 
 Guides: Network Functions
 

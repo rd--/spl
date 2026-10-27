@@ -26,6 +26,6 @@ in relation to the primes list _p_.
 
 * * *
 
-See also: tuningLatticeEdges, tuningLatticePrimes, Tuning
+See also: Tuning, tuningLatticeEdges, tuningLatticePrimes
 
 Guides: Tuning Functions

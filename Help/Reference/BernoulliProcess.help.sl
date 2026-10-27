@@ -18,7 +18,7 @@ BernoulliProcess(1 / 3)
 
 * * *
 
-See also: randomBit, randomBoolean, BernoulliDistribution, BinomialProcess, randomFunction
+See also: BernoulliDistribution, BinomialProcess, randomBit, randomBoolean, randomFunction
 
 Guides: Random Processes
 

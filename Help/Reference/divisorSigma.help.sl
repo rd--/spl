@@ -834,7 +834,7 @@ OEIS [A053222](https://oeis.org/A053222):
 
 * * *
 
-See also: aliquotSum, divisible, divisors, divisorSum, divisorSummatoryFunction, eulerPhi, isAbundantNumber, unitaryDivisorSigma
+See also: aliquotSum, divisible, divisorSum, divisorSummatoryFunction, divisors, eulerPhi, isAbundantNumber, unitaryDivisorSigma
 
 Guides: Integer Sequence Functions
 

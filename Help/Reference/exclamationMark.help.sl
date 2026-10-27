@@ -96,7 +96,7 @@ can be written more simply using the `!^` operator:
 
 * * *
 
-See also: #, !^, duplicate, factorialOrGamma
+See also: !^, #, duplicate, factorialOrGamma
 
 Guides: Binary Operators, Type Definition Syntax
 

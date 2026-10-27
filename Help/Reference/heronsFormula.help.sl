@@ -14,7 +14,7 @@ Calculate the area of a triangle:
 
 * * *
 
-See also: area, shoelaceFormula, Triangle
+See also: Triangle, area, shoelaceFormula
 
 Guides: Geometry Functions
 

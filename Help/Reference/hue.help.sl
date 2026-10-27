@@ -183,7 +183,7 @@ system.svgColourDictionary
 
 * * *
 
-See also: chroma, Colour, HsvColour, hsl, hsv, hsvToRgb
+See also: Colour, HsvColour, chroma, hsl, hsv, hsvToRgb
 
 Guides: Colour Functions
 

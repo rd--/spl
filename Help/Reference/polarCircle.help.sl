@@ -32,7 +32,7 @@ let t = [5 3.5 7].sssTriangle;
 
 * * *
 
-See also: isObtuse, orthocenter, Triangle
+See also: Triangle, isObtuse, orthocenter
 
 Guides: Geometry Functions, Triangle Functions
 

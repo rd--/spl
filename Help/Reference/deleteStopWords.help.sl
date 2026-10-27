@@ -54,7 +54,7 @@ Remove stopwords from a list of strings:
 
 * * *
 
-See also: toLowerCase, englishStopWords, reject
+See also: englishStopWords, reject, toLowerCase
 
 Guides: String Functions
 

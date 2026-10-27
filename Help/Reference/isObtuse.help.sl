@@ -39,7 +39,7 @@ false
 
 * * *
 
-See also: interiorAngles, isAcute, pi, Triangle
+See also: Triangle, interiorAngles, isAcute, pi
 
 Guides: Triangle Functions
 

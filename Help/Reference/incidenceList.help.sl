@@ -73,7 +73,7 @@ Relation to `adjacencyList`:
 
 * * *
 
-See also: adjacencyList, adjacencyMatrix, Graph, incidenceGraph, incidenceMatrix, neighborhoodGraph
+See also: Graph, adjacencyList, adjacencyMatrix, incidenceGraph, incidenceMatrix, neighborhoodGraph
 
 Guides: Graph Functions
 

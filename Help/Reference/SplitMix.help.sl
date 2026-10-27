@@ -55,7 +55,7 @@ Difference between empirical and expected mean and standard deviation:
 
 * * *
 
-See also: LinearCongruential, MersenneTwister, RandomNumberGenerator, Sfc32, Stream
+See also: LinearCongruential, MersenneTwister, RandomNumberGenerator, Stream, Sfc32
 
 Guides: Random Number Generators
 

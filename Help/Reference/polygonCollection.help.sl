@@ -24,7 +24,7 @@ let c = [0 0; 1 0 ; 0 1];
 
 * * *
 
-See also: GeometryCollection, lineCollection, Polygon, PolygonWithHoles
+See also: GeometryCollection, Polygon, PolygonWithHoles, lineCollection
 
 Guides: Geometry Functions
 

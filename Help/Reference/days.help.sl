@@ -31,6 +31,6 @@ use `inDays` to answer the number of days:
 
 * * *
 
-See also: hours, inSeconds, minutes, Quantity, seconds, Time, weeks
+See also: Quantity, Time, hours, inSeconds, minutes, seconds, weeks
 
 Categories: Time, Type

@@ -68,7 +68,7 @@ OEIS [A029837](https://oeis.org/A029837):
 
 * * *
 
-See also: bitLength, bitShiftRight, Binary, byteCount, highBitOfInteger, integerLength, lowBit
+See also: Binary, bitLength, bitShiftRight, byteCount, highBitOfInteger, integerLength, lowBit
 
 Guides: Bitwise Functions
 

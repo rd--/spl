@@ -195,7 +195,7 @@ OEIS [A210434](https://oeis.org/A210434):
 
 * * *
 
-See also: bitLength, digitCount, integerDigits, log, log2, log10, integerExponent, numberOfDigitsInBase
+See also: bitLength, digitCount, integerDigits, integerExponent, log, log10, log2, numberOfDigitsInBase
 
 Guides: Integer Functions
 

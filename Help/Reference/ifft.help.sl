@@ -24,7 +24,7 @@ The input and output lists are `Complex`:
 
 * * *
 
-See also: fft, Complex
+See also: Complex, fft
 
 Guides: Fourier Analysis Functions
 

@@ -70,7 +70,7 @@ Some Frobenius numbers:
 
 * * *
 
-See also: bockerLiptakAlgorithm, reduce, integerPartitions
+See also: bockerLiptakAlgorithm, integerPartitions, reduce
 
 Guides: Combinatorial Functions
 

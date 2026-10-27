@@ -123,7 +123,7 @@ A spiral on five radial lines:
 
 * * *
 
-See also: Complex, PolarCoordinates, fromBipolarCoordinates, toPolarCoordinates, fromSphericalCoordinates
+See also: Complex, PolarCoordinates, fromBipolarCoordinates, fromSphericalCoordinates, toPolarCoordinates
 
 Guides: Coordinate System Functions
 

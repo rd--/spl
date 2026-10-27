@@ -22,7 +22,7 @@ Plot whites with increasing α:
 
 * * *
 
-See also: alpha, blue, Colour, green, red, RgbColour
+See also: Colour, RgbColour, alpha, blue, green, red
 
 Guides: Colour Functions
 

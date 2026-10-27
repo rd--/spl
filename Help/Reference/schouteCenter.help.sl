@@ -23,7 +23,7 @@ let c = t.symmedianPoint;
 
 * * *
 
-See also: symmedianPoint, Triangle
+See also: Triangle, symmedianPoint
 
 Guides: Geometry Functions
 

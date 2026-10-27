@@ -20,7 +20,7 @@ and should answer a value of the same type, here a stream.
 
 * * *
 
-See also: contents, next, reset, Stream, take
+See also: Stream, contents, next, reset, take
 
 Guides: Stream Functions
 

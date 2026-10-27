@@ -74,7 +74,7 @@ The incidence matrix of a cycle graph is banded:
 
 * * *
 
-See also: completeGraph, Graph, pathGraph, starGraph, wheelGraph
+See also: Graph, completeGraph, pathGraph, starGraph, wheelGraph
 
 Guides: Graph Functions
 

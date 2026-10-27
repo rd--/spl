@@ -70,7 +70,7 @@ let r = 2.36185;
 
 * * *
 
-See also: fernandezGuastiSquircle, Superellipse, superformulaCurve
+See also: Superellipse, fernandezGuastiSquircle, superformulaCurve
 
 Guides: Curve Functions
 

@@ -49,7 +49,7 @@ GrainBuf(
 
 * * *
 
-See also: GrainIn, GrainFm, GrainSin
+See also: GrainFm, GrainIn, GrainSin
 
 Guides: Unit Generators
 

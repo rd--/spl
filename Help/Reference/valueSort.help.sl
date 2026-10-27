@@ -39,6 +39,6 @@ At an `Association` `List`, in-place:
 
 * * *
 
-See also: Dictionary, keys, keySort, sort
+See also: Dictionary, keySort, keys, sort
 
 Guides: Dictionary Functions

@@ -59,7 +59,7 @@ Gather integers that have identical remainders:
 
 * * *
 
-See also: binLists, collect, counts, deleteDuplicates, gatherBy, groupBy, partition, select, split, sort, tally
+See also: binLists, collect, counts, deleteDuplicates, gatherBy, groupBy, partition, select, sort, split, tally
 
 Guides: List Functions
 

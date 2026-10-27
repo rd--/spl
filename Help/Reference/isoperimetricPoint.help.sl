@@ -31,7 +31,7 @@ let t = sssTriangle(3, 2.5, 3);
 
 * * *
 
-See also: equalDetourPoint, outerSoddyCircle, tangentCircles, Triangle
+See also: Triangle, equalDetourPoint, outerSoddyCircle, tangentCircles
 
 Guides: Geometry Functions
 

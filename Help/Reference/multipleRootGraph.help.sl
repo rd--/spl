@@ -13,4 +13,4 @@ The binary operator `<!` is an alias.
 
 * * *
 
-See also: <!, FirstArg
+See also: FirstArg, <!

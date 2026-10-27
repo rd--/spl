@@ -45,7 +45,7 @@ Colinear vertices:
 
 * * *
 
-See also: area, heronsFormula, Polygon, signedArea
+See also: Polygon, area, heronsFormula, signedArea
 
 Guides: Geometry Functions
 

@@ -38,7 +38,7 @@ let f = XLine(1000, 20000, 10);
 
 * * *
 
-See also: LfdNoise0, LfNoise1
+See also: LfNoise1, LfdNoise0
 
 Guides: Unit Generators
 

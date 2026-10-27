@@ -58,7 +58,7 @@ let f = 1;
 
 * * *
 
-See also: do, downToDo, Range, to, toByDo
+See also: Range, do, downToDo, to, toByDo
 
 Guides: Iteration Functions
 

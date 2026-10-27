@@ -13,7 +13,7 @@ The `unquotedString` method answers the unquoted string.
 
 * * *
 
-See also: DoubleQuotedString, graveAccent, String, Symbol
+See also: DoubleQuotedString, String, Symbol, graveAccent
 
 Guides: String Syntax
 

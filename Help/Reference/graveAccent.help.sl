@@ -17,7 +17,7 @@ The name of this syntax token is `graveAccent`.
 
 * * *
 
-See also: apostrophe, quotationMark, Symbol
+See also: Symbol, apostrophe, quotationMark
 
 Guides: String Syntax
 

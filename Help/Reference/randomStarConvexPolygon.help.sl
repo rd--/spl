@@ -51,7 +51,7 @@ let r = Sfc32(123123);
 
 * * *
 
-See also: fromPolarCoordinates, Polygon, randomConvexHullPolygon, randomReal, randomSimplePolygon
+See also: Polygon, fromPolarCoordinates, randomConvexHullPolygon, randomReal, randomSimplePolygon
 
 References:
 _Mathematica_

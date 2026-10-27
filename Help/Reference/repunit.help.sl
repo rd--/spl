@@ -78,7 +78,7 @@ OEIS [A002450](https://oeis.org/A002450):
 
 * * *
 
-See also: ^, /
+See also: /, ^
 
 References:
 _Mathematica_

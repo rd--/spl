@@ -16,7 +16,7 @@ The images of elements from each cycle of a permutation, and a fixed point:
 
 * * *
 
-See also: cycles, Permutation, permute
+See also: Permutation, cycles, permute
 
 Guides: Permutation Functions
 

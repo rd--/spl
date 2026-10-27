@@ -53,7 +53,7 @@ Expand a negative integer:
 
 * * *
 
-See also: integerDigits, realDigits, numberDecompose
+See also: integerDigits, numberDecompose, realDigits
 
 Guides: Number Digit Functions
 

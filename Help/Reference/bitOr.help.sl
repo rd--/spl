@@ -169,7 +169,7 @@ let a = k.sternBrocotSequence;
 
 * * *
 
-See also: or, bitAnd, bitNot, bitXor
+See also: bitAnd, bitNot, bitXor, or
 
 Guides: Bitwise Functions, Boolean Functions, Logical Operators
 

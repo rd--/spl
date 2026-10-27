@@ -8,4 +8,4 @@ If there is no such word answer the empty string.
 
 * * *
 
-See also: insertStringAtCaret, selectedText, selectedTextOrWordAtCaret, Window
+See also: Window, insertStringAtCaret, selectedText, selectedTextOrWordAtCaret

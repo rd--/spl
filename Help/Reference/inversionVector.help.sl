@@ -46,7 +46,7 @@ The inversion vectors of _S4_:
 
 * * *
 
-See also: leftInversionCount, Permutation, permutationInversions, permutationSymbol
+See also: Permutation, leftInversionCount, permutationInversions, permutationSymbol
 
 Guides: Permutation Functions
 

@@ -83,7 +83,7 @@ Decimal(226/999, 81)
 
 * * *
 
-See also: arrayPlot, Decimal
+See also: Decimal, arrayPlot
 
 Guides: Plotting Functions
 

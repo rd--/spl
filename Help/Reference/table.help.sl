@@ -471,7 +471,7 @@ let x = 1:k.select { :n |
 
 * * *
 
-See also: Range, array, collect, diagonalMatrix, identityMatrix, do, map, sum, product, nestList, tuples, withCollect
+See also: Range, array, collect, diagonalMatrix, do, identityMatrix, map, nestList, product, sum, tuples, withCollect
 
 Guides: Array Functions, List Functions, Matrix Functions
 

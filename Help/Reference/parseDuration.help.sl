@@ -70,7 +70,7 @@ To work with such values see `CalendarDuration`.
 
 * * *
 
-See also: CalendarDuration, Date, Duration, parseDate, TimeStamp
+See also: CalendarDuration, Date, Duration, TimeStamp, parseDate
 
 Guides: Date and Time Functions, Parsing Functions
 

@@ -73,7 +73,7 @@ hararyGraph(5, 6).graphPlot
 
 * * *
 
-See also: circulantGraph, completeGraph, cycleGraph, Graph
+See also: Graph, circulantGraph, completeGraph, cycleGraph
 
 References:
 _Mathematica_

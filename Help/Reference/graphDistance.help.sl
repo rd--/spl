@@ -55,7 +55,7 @@ Infinity
 
 * * *
 
-See also: findShortestPath, graphDistanceMatrix, Graph
+See also: Graph, findShortestPath, graphDistanceMatrix
 
 Guides: Distance Functions, Graph Functions
 

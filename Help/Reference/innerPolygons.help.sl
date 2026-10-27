@@ -24,7 +24,7 @@ At `Polygon`:
 
 * * *
 
-See also: outerPolygon, Polygon, PolygonWithHoles
+See also: Polygon, PolygonWithHoles, outerPolygon
 
 Guides: Geometry Functions
 

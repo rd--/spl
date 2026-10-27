@@ -62,7 +62,7 @@ At _π_ with base _e_:
 
 * * *
 
-See also: log10, log, mantissaExponent, integerExponent
+See also: integerExponent, log, log10, mantissaExponent
 
 Guides: Number Digit Functions
 

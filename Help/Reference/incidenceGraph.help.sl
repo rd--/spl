@@ -138,7 +138,7 @@ The incidence graph of a star graph is itself:
 
 * * *
 
-See also: adjacencyList, Graph, incidenceMatrix, neighbourhoodGraph
+See also: Graph, adjacencyList, incidenceMatrix, neighbourhoodGraph
 
 Guides: Graph Functions
 

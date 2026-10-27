@@ -142,6 +142,6 @@ note accuracy of _355/113_:
 
 * * *
 
-See also: fareyApproximants, fareySequence, Fraction, fractionalPart
+See also: Fraction, fareyApproximants, fareySequence, fractionalPart
 
 Guides: Number Functions

@@ -51,7 +51,7 @@ Threads over lists:
 
 * * *
 
-See also: =, <~, >~, isClose, isVeryClose
+See also: <~, =, >~, isClose, isVeryClose
 
 Guides: Comparison Functions, Mathematical Functions
 

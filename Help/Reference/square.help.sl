@@ -299,7 +299,7 @@ Where supported `square` is displayed as ².
 
 * * *
 
-See also: ^, *, cube, squarePyramidalNumber, sqrt
+See also: *, ^, cube, sqrt, squarePyramidalNumber
 
 Guides: Integer Sequence Functions
 

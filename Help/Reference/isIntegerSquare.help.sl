@@ -14,7 +14,7 @@ OEIS [A000290](https://oeis.org/A000290):
 
 * * *
 
-See also: isInteger, isSquare, square, sqrt
+See also: isInteger, isSquare, sqrt, square
 
 Guides: Integer Functions
 

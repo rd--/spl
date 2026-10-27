@@ -74,7 +74,7 @@ use `associationsSwapped`:
 
 * * *
 
-See also: ->, associationsDo, associationsSwapped, Association, Dictionary, indexValueAssociations, keys, values
+See also: Association, Dictionary, ->, associationsDo, associationsSwapped, indexValueAssociations, keys, values
 
 Guides: Dictionary Functions
 

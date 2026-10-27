@@ -23,7 +23,7 @@ let m = b.medialTriangle;
 
 * * *
 
-See also: antipedalTriangle, medialTriangle, orthocenter, Triangle
+See also: Triangle, antipedalTriangle, medialTriangle, orthocenter
 
 Guides: Geometry Functions, Triangle Functions
 

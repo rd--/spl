@@ -16,7 +16,7 @@ At `Record`:
 
 * * *
 
-See also: associations, Dictionary, indices, keys, keysAndValues, values
+See also: Dictionary, associations, indices, keys, keysAndValues, values
 
 Guides: Dictionary Functions
 

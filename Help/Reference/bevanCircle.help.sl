@@ -19,7 +19,7 @@ let t = sssTriangle(3, 4, 5);
 
 * * *
 
-See also: bevanPoint, Circle, excenters, Triangle
+See also: Circle, Triangle, bevanPoint, excenters
 
 Guides: Geometry Functions
 

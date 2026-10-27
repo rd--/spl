@@ -18,7 +18,7 @@ Answer an _(h,s,l)_ triple given an _(h,s,v)_ triple.
 
 * * *
 
-See also: hslToRgb, hslToHsv, rgbToHsl, rgbToHsv
+See also: hslToHsv, hslToRgb, rgbToHsl, rgbToHsv
 
 Guides: Colour Functions
 

@@ -35,7 +35,7 @@ The _4,3_ Bernstein basis polynomial:
 
 * * *
 
-See also: ^, BezierCurve, binomial, Piecewise
+See also: BezierCurve, Piecewise, ^, binomial
 
 Guides: Geometry Functions
 

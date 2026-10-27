@@ -387,7 +387,7 @@ true
 
 * * *
 
-See also: Frequency, Mass, PlaneAngle, QuantityArray, Length, SiUnit, Time
+See also: Frequency, Length, Mass, PlaneAngle, QuantityArray, SiUnit, Time
 
 Guides: Quantity Functions
 

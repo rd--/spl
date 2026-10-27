@@ -54,4 +54,4 @@ c.matrixPlot
 
 * * *
 
-See also: warpingDistance, warpingCorrespondence, warpingPlot
+See also: warpingCorrespondence, warpingDistance, warpingPlot

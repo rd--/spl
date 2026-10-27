@@ -18,7 +18,7 @@ Answers `nil`.
 
 * * *
 
-See also: includesIndex, Indexable, indices, withIndexDo
+See also: Indexable, includesIndex, indices, withIndexDo
 
 Guides: Iteration Functions, Indexing Functions
 

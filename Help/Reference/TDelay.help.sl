@@ -25,7 +25,7 @@ let z = Dust(5);
 
 * * *
 
-See also: Delay1, Delay2, DelayC
+See also: DelayC, Delay1, Delay2
 
 Guides: Unit Generators
 

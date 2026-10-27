@@ -119,7 +119,7 @@ let f = e - 4;
 
 * * *
 
-See also: Circle, equilateralTriangle, Line, Polygon, Rectangle, Simplex
+See also: Circle, Line, Polygon, Rectangle, Simplex, equilateralTriangle
 
 Guides: Geometry Functions, Triangle Functions
 

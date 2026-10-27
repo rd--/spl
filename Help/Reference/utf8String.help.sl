@@ -52,7 +52,7 @@ Not all byte sequences are valid UTF-8 codes:
 
 * * *
 
-See also: ByteArray, String, asciiString, utf8ByteArray, utf8List, utf16String
+See also: ByteArray, String, asciiString, utf16String, utf8ByteArray, utf8List
 
 Guides: String Functions
 

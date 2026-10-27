@@ -21,7 +21,7 @@ which must be an ascending list of coefficients:
 
 * * *
 
-See also: polynomialRemainder, quotient, UnivariatePolynomial
+See also: UnivariatePolynomial, polynomialRemainder, quotient
 
 Guides: Polynomial Functions
 

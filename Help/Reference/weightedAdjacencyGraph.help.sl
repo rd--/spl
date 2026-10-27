@@ -35,7 +35,7 @@ A symmetric weighted adjacency matrix results in an undirected graph:
 
 * * *
 
-See also: adjacencyGraph, edgeWeights, isEdgeWeightedGraph, incidenceGraph, kirchhoffGraph
+See also: adjacencyGraph, edgeWeights, incidenceGraph, isEdgeWeightedGraph, kirchhoffGraph
 
 Guides: Graph Functions
 

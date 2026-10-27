@@ -2,7 +2,7 @@
 
 - _expRand(r, a, b)_
 
-Answer a random number logarithmically distrbuted between _a_ and _b_.
+Answer a random number logarithmically distributed between _a_ and _b_.
 
 Histogram of random variate of ten-thousand places:
 

@@ -17,6 +17,6 @@ Read stream until element satisfies predicate:
 
 * * *
 
-See also: Iterator, next, Stream
+See also: Iterator, Stream, next
 
 Guides: Stream Functions

@@ -32,7 +32,7 @@ At `List`:
 
 * * *
 
-See also: Association, Multiset, List, sortedElements
+See also: Association, List, Multiset, sortedElements
 
 Guides: List Functions, Set Functions
 

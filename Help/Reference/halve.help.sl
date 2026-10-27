@@ -48,7 +48,7 @@ Where supported `halve` is displayed as ½.
 
 * * *
 
-See also: /, double, Number
+See also: Number, /, double
 
 References:
 _J_

@@ -87,7 +87,7 @@ Plot tree with arbitrarily chosen Matula-Göbel number _n=987654321_:
 
 * * *
 
-See also: matulaGoebelNumber, primePi, Tree
+See also: Tree, matulaGoebelNumber, primePi
 
 Guides: Tree Functions
 

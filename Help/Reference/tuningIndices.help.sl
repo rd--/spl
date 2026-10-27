@@ -31,6 +31,6 @@ the `tuningIndices` will likewise be offset:
 
 * * *
 
-See also: intervals, Scale
+See also: Scale, intervals
 
 Guides: Scale Functions

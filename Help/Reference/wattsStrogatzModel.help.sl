@@ -63,7 +63,7 @@ Sfc32(517342)
 
 * * *
 
-See also: circulantGraph, Graph, randomBernoulliGraph, ringLatticeGraph
+See also: Graph, circulantGraph, randomBernoulliGraph, ringLatticeGraph
 
 Guides: Graph Functions
 

@@ -62,7 +62,7 @@ At `Polyhedron`:
 
 * * *
 
-See also: edgeCount, Graph, vertexCoordinates, vertexList
+See also: Graph, edgeCount, vertexCoordinates, vertexList
 
 Guides: Geometry Functions, Graph Functions
 

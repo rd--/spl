@@ -41,7 +41,7 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: planarConvexPolytopeGraphCatalogue, planarQuadrangulationsCatalogue, planarRegularGraphCatalogue, PolygonMesh
+See also: PolygonMesh, planarConvexPolytopeGraphCatalogue, planarQuadrangulationsCatalogue, planarRegularGraphCatalogue
 
 Guides: Library Catalogue
 

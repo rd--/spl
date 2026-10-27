@@ -23,7 +23,7 @@ Answer the ascending runs of _aPermutation_.
 
 * * *
 
-See also: orderedSubstrings, Permutation
+See also: Permutation, orderedSubstrings
 
 References:
 _Mathematica_

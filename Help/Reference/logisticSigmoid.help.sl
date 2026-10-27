@@ -104,7 +104,7 @@ Plot comparing to scale `tanh` function:
 
 * * *
 
-See also: LogisticDistribution, exp, gompertzFunction, heavisideTheta, logit, richardsCurve, unitStep, tanh
+See also: LogisticDistribution, exp, gompertzFunction, heavisideTheta, logit, richardsCurve, tanh, unitStep
 
 Guides: Activation Functions, Sigmoid Functions
 

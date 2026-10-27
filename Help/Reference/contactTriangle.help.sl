@@ -37,7 +37,7 @@ Draw nested contact triangles:
 
 * * *
 
-See also: cevianTriangle, gergonnePoint, incircle, Triangle
+See also: Triangle, cevianTriangle, gergonnePoint, incircle
 
 Guides: Geometry Functions
 

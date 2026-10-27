@@ -29,7 +29,7 @@ false
 
 * * *
 
-See also: isColumnVector, isMatrix, isVector, List, Matrix
+See also: List, Matrix, isColumnVector, isMatrix, isVector
 
 Guides: Predicate Functions
 

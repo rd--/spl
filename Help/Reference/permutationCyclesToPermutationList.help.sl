@@ -40,4 +40,4 @@ The binary form allows setting the size of the answer:
 
 * * *
 
-See also: isPermutationCycles, Permutation, permutationCycles, permutationDegree, permutationList
+See also: Permutation, isPermutationCycles, permutationCycles, permutationDegree, permutationList

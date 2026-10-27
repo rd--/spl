@@ -50,7 +50,7 @@ let s = t.spiekerCenter;
 
 * * *
 
-See also: centroid, gergonnePoint, incenter, orthocenter, spiekerCenter, symmedianPoint, Triangle
+See also: Triangle, centroid, gergonnePoint, incenter, orthocenter, spiekerCenter, symmedianPoint
 
 Guides: Geometry Functions
 

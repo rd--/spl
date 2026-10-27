@@ -63,7 +63,7 @@ Plot the adjacency matrix:
 
 * * *
 
-See also: adjacencyMatrix, Graph
+See also: Graph, adjacencyMatrix
 
 Guides: Graph Functions
 

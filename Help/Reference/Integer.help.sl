@@ -165,7 +165,7 @@ Methods for arithmetic:
 
 * * *
 
-See also: Binary, Float, Fraction, Number, SmallFloat, SmallInteger, LargeInteger
+See also: Binary, Float, Fraction, LargeInteger, Number, SmallFloat, SmallInteger
 
 Guides: Integer Functions, Number Functions
 

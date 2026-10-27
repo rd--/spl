@@ -46,4 +46,4 @@ false
 
 * * *
 
-See also: =, ==, SmallFloat, Symbol, SymbolicExpression
+See also: SmallFloat, Symbol, SymbolicExpression, =, ==

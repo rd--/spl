@@ -30,6 +30,6 @@ The `namedColourPalette` method answers a `ColourPalette` value:
 
 * * *
 
-See also: Colour, ColourGradient, colourPalettes, namedColourPalette, RgbColour
+See also: Colour, ColourGradient, RgbColour, colourPalettes, namedColourPalette
 
 Guides: Colour Functions

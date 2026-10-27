@@ -27,7 +27,7 @@ which must be an ascending list of coefficients:
 
 * * *
 
-See also: euclideanAlgorithm, gcd, monicPolynomial, UnivariatePolynomial
+See also: UnivariatePolynomial, euclideanAlgorithm, gcd, monicPolynomial
 
 Guides: Polynomial Functions
 

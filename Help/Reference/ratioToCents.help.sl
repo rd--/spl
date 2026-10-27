@@ -160,7 +160,7 @@ Plot step sizes of the `prime` harmonic series in cents:
 
 * * *
 
-See also: centsToRatio, Tuning
+See also: Tuning, centsToRatio
 
 Guides: Xenharmonic Functions
 

@@ -20,6 +20,6 @@ indicating the uniform distances along the curve between equidistant sampling po
 
 * * *
 
-See also: bezierApproximation, BezierCurve, bezierDistanceTable, bezierFunction
+See also: BezierCurve, bezierApproximation, bezierDistanceTable, bezierFunction
 
 Guides: Geometry Functions

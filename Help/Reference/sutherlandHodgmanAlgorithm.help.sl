@@ -28,7 +28,7 @@ let c = Polygon[
 
 * * *
 
-See also: cohenSutherlandAlgorithm, Polygon
+See also: Polygon, cohenSutherlandAlgorithm
 
 Guides: Geometry Functions
 

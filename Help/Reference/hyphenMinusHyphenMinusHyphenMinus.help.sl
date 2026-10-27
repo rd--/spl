@@ -11,7 +11,7 @@ UndirectedEdge(1, 2)
 
 * * *
 
-See also: -->, DirectedEdge, Graph, UndirectedEdge
+See also: DirectedEdge, Graph, UndirectedEdge, -->
 
 Guides: Graph Functions
 

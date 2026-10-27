@@ -126,7 +126,7 @@ OEIS [A144789](https://oeis.org/A144789):
 
 * * *
 
-See also: runLengthTransform, RunArray
+See also: RunArray, runLengthTransform
 
 Guides: List Functions
 

@@ -49,7 +49,7 @@ Hash an integer by converting to a string:
 
 * * *
 
-See also: crc16, digest, fnv1aHash, String
+See also: String, crc16, digest, fnv1aHash
 
 Guides: String Functions
 

@@ -50,6 +50,6 @@ it answers itself:
 
 * * *
 
-See also: continuedFraction, Fraction, fromContinuedFraction, sternBrocotChildren, sternBrocotTree
+See also: Fraction, continuedFraction, fromContinuedFraction, sternBrocotChildren, sternBrocotTree
 
 Guides: Mathematical Sequences

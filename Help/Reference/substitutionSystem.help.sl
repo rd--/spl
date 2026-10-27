@@ -528,7 +528,7 @@ OEIS [A159684](https://oeis.org/A159684):
 
 * * *
 
-See also: Association, fibonacciWord, locallyCatenativeSequence, Map, rudinShapiro, simpleLindenmayerSystem, thueMorse
+See also: Association, Map, fibonacciWord, locallyCatenativeSequence, rudinShapiro, simpleLindenmayerSystem, thueMorse
 
 Guides: Integer Sequence Functions
 

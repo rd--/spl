@@ -48,7 +48,7 @@ Frequency response of the Bartlett-Hann window:
 
 * * *
 
-See also: bartlettWindow, hannWindow, blackmanWindow, welchWindow
+See also: bartlettWindow, blackmanWindow, hannWindow, welchWindow
 
 Guides: Window Functions
 

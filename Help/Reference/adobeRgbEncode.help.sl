@@ -41,6 +41,6 @@ Inverse is `adobeRgbDecode`:
 
 * * *
 
-See also: adobeRgbDecode, Colour, List, RgbColour, SmallFloat
+See also: Colour, List, RgbColour, SmallFloat, adobeRgbDecode
 
 Guides: Colour Functions

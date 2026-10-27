@@ -8,7 +8,7 @@ The answer is an equivalent `Promise` object to _p_.
 
 * * *
 
-See also: finally, onRejection, Promise, thenElse
+See also: Promise, finally, onRejection, thenElse
 
 Guides: Asynchronous Functions
 

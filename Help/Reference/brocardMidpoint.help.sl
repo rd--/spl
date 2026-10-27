@@ -21,7 +21,7 @@ let [b, c, _] = t.brocardPoints;
 
 * * *
 
-See also: brocardCircle, brocardDiameter, brocardPoints, Triangle
+See also: Triangle, brocardCircle, brocardDiameter, brocardPoints
 
 Guides: Triangle Functions
 

@@ -72,7 +72,7 @@ The distance between two vertices can be found using the shortest path:
 
 * * *
 
-See also: dijkstrasAlgorithm, graphDistance, graphDistanceMatrix, Graph
+See also: Graph, dijkstrasAlgorithm, graphDistance, graphDistanceMatrix
 
 Guides: Geometry Functions, Graph Functions
 

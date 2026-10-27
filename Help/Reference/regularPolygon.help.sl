@@ -141,7 +141,7 @@ The `arcLength` of successive regular polygons with radius `one` approximates _2
 
 * * *
 
-See also: circlePoints, interiorAngles, Polygon, unitSquare
+See also: Polygon, circlePoints, interiorAngles, unitSquare
 
 References:
 _Mathematica_

@@ -53,7 +53,7 @@ false
 
 * * *
 
-See also: arrayDepth, dimensions, elementType, isArray, isColumnVector, isRowVector, isList, isMatrix, isVectorOf
+See also: arrayDepth, dimensions, elementType, isArray, isColumnVector, isList, isMatrix, isRowVector, isVectorOf
 
 Guides: Predicate Functions, Vector Functions
 

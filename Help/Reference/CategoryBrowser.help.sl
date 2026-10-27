@@ -17,6 +17,6 @@ and the `origin` of the selected method.
 
 * * *
 
-See also: ColumnBrowser, HelpBrowser, MethodBrowser, MethodSignatureBrowser, TraitBrowser, TypeBrowser, SystemBrowser, WorldMenu
+See also: ColumnBrowser, HelpBrowser, MethodBrowser, MethodSignatureBrowser, SystemBrowser, TraitBrowser, TypeBrowser, WorldMenu
 
 Categories: Kansas

@@ -99,7 +99,7 @@ The vertex in-degrees of an undirected graph can be obtained from its adjacency 
 
 * * *
 
-See also: adjacencyMatrix, Graph, vertexCount, vertexDegree, vertexList, vertexOutDegree
+See also: Graph, adjacencyMatrix, vertexCount, vertexDegree, vertexList, vertexOutDegree
 
 Guides: Graph Functions
 

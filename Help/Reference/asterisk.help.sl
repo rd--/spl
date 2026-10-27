@@ -32,7 +32,7 @@ The name of this operator is `asterisk`:
 
 * * *
 
-See also: +, -, /, ^, *+, asterisk, sign, times
+See also: *+, +, -, /, ^, asterisk, sign, times
 
 Guides: Binary Operators
 

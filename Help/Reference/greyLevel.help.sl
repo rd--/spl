@@ -44,7 +44,7 @@ greyLevel/2
 
 * * *
 
-See also: black, blue, Colour, green, hue, red, RgbColour, white
+See also: Colour, RgbColour, black, blue, green, hue, red, white
 
 Guides: Colour Functions
 

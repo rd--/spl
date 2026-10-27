@@ -30,7 +30,7 @@ Where supported `inf` is displayed as ∞.
 
 * * *
 
-See also: eulerGamma, e, i, Infinity, pi
+See also: Infinity, e, eulerGamma, i, pi
 
 Unicode: U+221E ∞ Infinity
 

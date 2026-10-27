@@ -39,7 +39,7 @@ The `contentType` method at `Headers` can be used to get the 'Content-Type' fiel
 
 * * *
 
-See also: blob, byteArray, fetch, headers, Headers, json, Promise, text
+See also: Headers, Promise, blob, byteArray, fetch, headers, json, text
 
 Guides: Network Functions
 

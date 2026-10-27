@@ -56,7 +56,7 @@ let n = 100;
 
 * * *
 
-See also: bitShiftLeft, bitShiftRightUnsigned, bitXor, Sfc32
+See also: Sfc32, bitShiftLeft, bitShiftRightUnsigned, bitXor
 
 Guides: Bitwise Functions, Integer Sequence Functions, Random Functions
 

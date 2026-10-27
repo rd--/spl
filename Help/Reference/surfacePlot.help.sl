@@ -243,7 +243,7 @@ _x³-3xy²_:
 
 * * *
 
-See also: discretePlot, functionPlot, graphPlot, LineDrawing, linePlot, matrixPlot, meshGrid, parametricPlot, scatterPlot
+See also: LineDrawing, discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, meshGrid, parametricPlot, scatterPlot
 
 Guides: Plotting Functions, Surface Functions
 

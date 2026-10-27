@@ -69,7 +69,7 @@ Draw the wheel graph on nine vertices:
 
 * * *
 
-See also: cycleGraph, Graph, pathGraph, starGraph
+See also: Graph, cycleGraph, pathGraph, starGraph
 
 Guides: Graph Functions
 

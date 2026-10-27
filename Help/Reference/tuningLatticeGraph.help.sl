@@ -162,7 +162,7 @@ it is more usual to calculate the required primes vector.
 
 * * *
 
-See also: draw, gradyTuningLatticeCoordinates, Graph, RatioTuning, tuningLatticePrimes, wilsonTuningLatticeCoordinates
+See also: Graph, RatioTuning, draw, gradyTuningLatticeCoordinates, tuningLatticePrimes, wilsonTuningLatticeCoordinates
 
 Guides: Tuning Functions, Xenharmonic Functions
 

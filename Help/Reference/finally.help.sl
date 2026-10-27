@@ -7,7 +7,7 @@ Answer an equivalent `Promise` object to _p_.
 
 * * *
 
-See also: onRejection, Promise, then, thenElse
+See also: Promise, onRejection, then, thenElse
 
 Guides: Asynchronous Functions
 

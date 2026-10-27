@@ -117,7 +117,7 @@ The Fourier transform is equivalent to multiplication with a `fourierMatrix`:
 
 * * *
 
-See also: fourierMatrix, fft, inverseFourier
+See also: fft, fourierMatrix, inverseFourier
 
 Guides: Fourier Analysis Functions
 

@@ -31,7 +31,7 @@ There are equivalent methods for:
 
 * * *
 
-See also: Frequency, Time, Quantity, inMetres, inRadians, inSeconds
+See also: Frequency, Quantity, Time, inMetres, inRadians, inSeconds
 
 Guides: Quantity Functions
 

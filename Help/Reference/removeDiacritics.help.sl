@@ -66,7 +66,7 @@ Identity at string without diacritics:
 
 * * *
 
-See also: removePunctuation, String
+See also: String, removePunctuation
 
 Guides: String Functions
 

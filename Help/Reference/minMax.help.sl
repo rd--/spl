@@ -87,7 +87,7 @@ Relation to `coordinateBounds`:
 
 * * *
 
-See also: min, max
+See also: max, min
 
 Guides: Statistics Functions
 

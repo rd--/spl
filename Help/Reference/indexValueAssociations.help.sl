@@ -11,7 +11,7 @@ Answer a sequence containing the (index -> value) associations of the sequence _
 
 * * *
 
-See also: associations, Sequence
+See also: Sequence, associations
 
 Guides: List Functions
 

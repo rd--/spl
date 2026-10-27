@@ -24,6 +24,6 @@ The inverse is `utf16String`:
 
 * * *
 
-See also: String, utf8ByteArray, utf16String
+See also: String, utf16String, utf8ByteArray
 
 Guides: String Functions

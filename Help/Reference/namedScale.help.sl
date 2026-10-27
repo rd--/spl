@@ -42,6 +42,6 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: LibraryItem, intervalName, namedScaleList, scalaScaleArchive, Scale, scaleNameList
+See also: LibraryItem, Scale, intervalName, namedScaleList, scalaScaleArchive, scaleNameList
 
 Guides: Scale Functions

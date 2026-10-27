@@ -143,7 +143,7 @@ OEIS [A097806](https://oeis.org/A097806):
 
 * * *
 
-See also: #, ++, arrayPad, padLeftAndRight, padRight, reshape, recycle, shape, size
+See also: #, ++, arrayPad, padLeftAndRight, padRight, recycle, reshape, shape, size
 
 Guides: List Functions
 

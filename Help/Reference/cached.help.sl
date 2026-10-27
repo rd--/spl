@@ -21,7 +21,7 @@ for instance `primesList`:
 
 * * *
 
-See also: atIfAbsentPut, Cache, whenCached
+See also: Cache, atIfAbsentPut, whenCached
 
 Guides: Dictionary Functions
 

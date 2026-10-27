@@ -110,7 +110,7 @@ OEIS [A049310](https://oeis.org/A049310):
 
 * * *
 
-See also: bernsteinBasis, chebyshevT, UnivariatePolynomial
+See also: UnivariatePolynomial, bernsteinBasis, chebyshevT
 
 Guides: Mathematical Functions, Polynomial Functions
 

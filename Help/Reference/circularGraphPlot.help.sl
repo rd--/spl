@@ -38,7 +38,7 @@ Draw the Herschel graph:
 
 * * *
 
-See also: graphPlot, linearGraphPlot, Graph
+See also: Graph, graphPlot, linearGraphPlot
 
 Guides: Graph Functions, Plotting Functions
 

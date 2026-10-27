@@ -21,7 +21,7 @@ use `inMetres` to answer value in metres:
 
 * * *
 
-See also: centimetres, Quantity
+See also: Quantity, centimetres
 
 Guides: SI Units
 

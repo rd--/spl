@@ -38,7 +38,7 @@ Gather by remainder:
 
 * * *
 
-See also: gather, groupBy, select, splitOn, sortOn
+See also: gather, groupBy, select, sortOn, splitOn
 
 Guides: List Functions
 

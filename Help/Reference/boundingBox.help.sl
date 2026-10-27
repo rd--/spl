@@ -66,6 +66,6 @@ At `Triangle`:
 
 * * *
 
-See also: coordinateBoundingBox, Point, Circle, Line, Polygon, Triangle
+See also: Circle, Line, Point, Polygon, Triangle, coordinateBoundingBox
 
 Categories: Geometry

@@ -103,7 +103,7 @@ a.first(m).scatterPlot
 
 * * *
 
-See also: deepIndicesOf, indicesOfSubstring, indexOf, occurrencesOf
+See also: deepIndicesOf, indexOf, indicesOfSubstring, occurrencesOf
 
 Guides: Dictionary Functions, List Functions
 

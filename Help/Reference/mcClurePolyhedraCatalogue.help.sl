@@ -46,6 +46,6 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: PerspectiveDrawing, fradinPolhyedraCatalogue, holmesPolyhedraCatalogue, levskayaPolyhedraCatalogue, Polyhedron
+See also: PerspectiveDrawing, Polyhedron, fradinPolhyedraCatalogue, holmesPolyhedraCatalogue, levskayaPolyhedraCatalogue
 
 Guides: Library Catalogue

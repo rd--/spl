@@ -36,7 +36,7 @@ let i = p.convexHullIndices;
 
 * * *
 
-See also: convexHull, grahamScan, Polygon
+See also: Polygon, convexHull, grahamScan
 
 Guides: Geometry Functions
 

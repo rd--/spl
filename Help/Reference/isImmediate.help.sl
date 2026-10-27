@@ -59,6 +59,6 @@ true
 
 * * *
 
-See also: =, ==, IdentityMultiset, isJson, isLiteral, Map, IdentitySet
+See also: IdentityMultiset, IdentitySet, Map, =, ==, isJson, isLiteral
 
 Categories: Testing

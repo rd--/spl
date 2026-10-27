@@ -34,7 +34,7 @@ This is the `Dictionary` form of the `indexOf` method.
 
 * * *
 
-See also: keyAtValueIfAbsent, indexOf
+See also: indexOf, keyAtValueIfAbsent
 
 References:
 _Smalltalk_

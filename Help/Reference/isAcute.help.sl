@@ -39,7 +39,7 @@ false
 
 * * *
 
-See also: interiorAngles, isObtuse, isRight, pi, Triangle
+See also: Triangle, interiorAngles, isObtuse, isRight, pi
 
 Guides: Triangle Functions
 

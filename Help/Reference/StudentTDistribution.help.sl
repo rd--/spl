@@ -74,7 +74,7 @@ StudentTDistribution(0, 1, 10)
 
 * * *
 
-See also: beta, betaRegularized, CauchyDistribution, NormalDistribution
+See also: CauchyDistribution, NormalDistribution, beta, betaRegularized
 
 Guides: Probability Distributions, Random Functions
 

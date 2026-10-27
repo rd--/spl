@@ -53,7 +53,7 @@ This is similar to, but distinct from, the matrix given by `distanceMatrix`:
 
 * * *
 
-See also: /, distanceMatrix, isConstantStructure, RatioTuning
+See also: RatioTuning, /, distanceMatrix, isConstantStructure
 
 Guides: Matrix Functions, Tuning Functions
 

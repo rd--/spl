@@ -44,7 +44,7 @@ true
 
 * * *
 
-See also: isByte, isEven, isOrigin, isNegative, isOdd, isOne, isPositive, isZero
+See also: isByte, isEven, isNegative, isOdd, isOne, isOrigin, isPositive, isZero
 
 Guides: Predicate Functions
 

@@ -79,7 +79,7 @@ let y = 8.bitReversalPermutation;
 
 * * *
 
-See also: bitReverse, fromDigits, hammersleyPointSet, integerDigits, permute, Permutation, reversalPermutation
+See also: Permutation, bitReverse, fromDigits, hammersleyPointSet, integerDigits, permute, reversalPermutation
 
 Guides: Bitwise Functions, Integer Sequence Functions, Permutation Functions
 

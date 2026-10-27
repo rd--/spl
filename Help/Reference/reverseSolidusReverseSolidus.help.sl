@@ -80,7 +80,7 @@ Where supported `\\` is displayed as ⑊.
 
 * * *
 
-See also: /, //, %, mod, quotient, quotientRemainder, remainder
+See also: %, /, //, mod, quotient, quotientRemainder, remainder
 
 Guides: Binary Operators, Mathematical Functions
 

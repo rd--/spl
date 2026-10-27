@@ -32,7 +32,7 @@ At `InfinitePlane`:
 
 * * *
 
-See also: embeddingDimension, InfinitePlane, normalize, Triangle, unitNormal, unitVector
+See also: InfinitePlane, Triangle, embeddingDimension, normalize, unitNormal, unitVector
 
 References:
 _Mathematica_

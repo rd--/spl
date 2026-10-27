@@ -71,7 +71,7 @@ Where supported `complement` is displayed as ∁.
 
 * * *
 
-See also: BitSet, graphComplement, Graph, intersection, union, ResidueSet, select, symmetricDifference, take, uniqueElements
+See also: BitSet, Graph, ResidueSet, graphComplement, intersection, select, symmetricDifference, take, union, uniqueElements
 
 Guides: Set Functions
 

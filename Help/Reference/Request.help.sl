@@ -11,7 +11,7 @@ A `Type` representing a resource request.
 
 * * *
 
-See also: fetch, Url
+See also: Url, fetch
 
 Guides: Network Functions
 

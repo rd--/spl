@@ -170,7 +170,7 @@ let i = (-2 -- 2).discretize(25);
 
 * * *
 
-See also: arg, complexListPlot, Complex
+See also: Complex, arg, complexListPlot
 
 Guides: Complex Number Functions, Plotting Functions
 

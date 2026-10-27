@@ -171,7 +171,7 @@ OEIS [A034851](https://oeis.org/A034851):
 
 * * *
 
-See also: binomial, qFactorial, qPochhammer, UnivariatePolynomial
+See also: UnivariatePolynomial, binomial, qFactorial, qPochhammer
 
 Guides: Combinatorial Functions, Polynomial Functions
 

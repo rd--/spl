@@ -43,7 +43,7 @@ WienerProcess(0, 1)
 
 * * *
 
-See also: GeometricBrownianMotionProcess, NormalDistribution, OrnsteinUhlenbeckProcess, randomFunction, RandomWalkProcess
+See also: GeometricBrownianMotionProcess, NormalDistribution, OrnsteinUhlenbeckProcess, RandomWalkProcess, randomFunction
 
 Guides: Random Processes
 

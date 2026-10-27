@@ -13,7 +13,7 @@ Answer the remainder of the items accessible by te stream _s_.
 
 * * *
 
-See also: contents, next, nextOrUpToEnd, reset, Stream, upTo
+See also: Stream, contents, next, nextOrUpToEnd, reset, upTo
 
 Guides: Stream Functions
 

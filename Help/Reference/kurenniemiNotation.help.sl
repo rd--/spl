@@ -27,7 +27,7 @@ there is space below for _F#3_ and space above for _G#3_.
 
 * * *
 
-See also: divisors, LineDrawing
+See also: LineDrawing, divisors
 
 Guides: Tuning Functions
 

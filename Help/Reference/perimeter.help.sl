@@ -30,7 +30,7 @@ At `Triangle`:
 
 * * *
 
-See also: arcLength, circumference, Circle, Rectangle, Triangle, sideLengths
+See also: Circle, Rectangle, Triangle, arcLength, circumference, sideLengths
 
 Guides: Geometry Functions, Triangle Functions
 

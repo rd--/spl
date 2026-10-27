@@ -20,7 +20,7 @@ Where supported `!~` is displayed as ≉.
 
 * * *
 
-See also: Equal, Compare, ~, =, <~, >~, isClose, isSimilar, isVeryClose
+See also: Compare, Equal, <~, =, >~, ~, isClose, isSimilar, isVeryClose
 
 Guides: Comparison Functions, Equality Functions
 

@@ -37,7 +37,7 @@ let h = p.atAll(i);
 
 * * *
 
-See also: convexHullIndices, delaunayMesh, DelaunayTriangulation, grahamScan, Polygon
+See also: DelaunayTriangulation, Polygon, convexHullIndices, delaunayMesh, grahamScan
 
 Guides: Geometry Functions
 

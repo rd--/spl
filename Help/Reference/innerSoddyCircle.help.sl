@@ -20,7 +20,7 @@ let t = [3.5 2.5 4].sssTriangle;
 
 * * *
 
-See also: Circle, equalDetourPoint, outerSoddyCircle, tangentCircles, Triangle
+See also: Circle, Triangle, equalDetourPoint, outerSoddyCircle, tangentCircles
 
 Guides: Geometry Functions, Triangle Functions
 

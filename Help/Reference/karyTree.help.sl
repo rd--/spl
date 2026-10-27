@@ -30,7 +30,7 @@ karyTree(8, 4).treePlot
 
 * * *
 
-See also: completeKaryTree, starGraph, Tree
+See also: Tree, completeKaryTree, starGraph
 
 Guides: Tree Functions
 

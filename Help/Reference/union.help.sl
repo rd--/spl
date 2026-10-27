@@ -120,7 +120,7 @@ Where supported `union` is displayed as ∪.
 
 * * *
 
-See also: ++, difference, IdentitySet, intersection, Set, unionBy
+See also: IdentitySet, Set, ++, difference, intersection, unionBy
 
 Guides: Set Functions
 

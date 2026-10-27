@@ -23,7 +23,7 @@ The inverse is `factorialNumberSystemEncode`:
 
 * * *
 
-See also: factorial, factorialNumberSystemEncode, factorialExpansion
+See also: factorial, factorialExpansion, factorialNumberSystemEncode
 
 Guides: Mathematical Functions
 

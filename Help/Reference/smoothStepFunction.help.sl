@@ -53,7 +53,7 @@ Six smoothStep functions:
 
 * * *
 
-See also: binomialPascal, smootherStep, smoothStep
+See also: binomialPascal, smoothStep, smootherStep
 
 Guides: Interpolation Functions
 

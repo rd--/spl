@@ -20,6 +20,6 @@ At a 3×3 matrix:
 
 * * *
 
-See also: deepMax, deepMin, deepInjectInto, min, max
+See also: deepInjectInto, deepMax, deepMin, max, min
 
 Categories: Testing

@@ -139,7 +139,7 @@ the strong (normal) product of two path graphs:
 
 * * *
 
-See also: hammingGraph, gridGraph, prismGraph
+See also: gridGraph, hammingGraph, prismGraph
 
 Guides: Graph Functions
 

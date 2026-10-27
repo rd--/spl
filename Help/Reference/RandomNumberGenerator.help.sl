@@ -51,7 +51,7 @@ The provided methods are:
 
 * * *
 
-See also: Iterator, randomComplex, randomChoice, randomInteger, randomLargeInteger, randomReal, randomWeightedChoice, Sfc32, Stream
+See also: Iterator, Stream, Sfc32, randomChoice, randomComplex, randomInteger, randomLargeInteger, randomReal, randomWeightedChoice
 
 Guides: Random Number Generators
 

@@ -21,7 +21,7 @@ let b = a.contactTriangle;
 
 * * *
 
-See also: Circle, contactTriangle, Triangle
+See also: Circle, Triangle, contactTriangle
 
 Guides: Geometry Functions, Triangle Functions
 

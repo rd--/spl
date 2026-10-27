@@ -24,7 +24,7 @@ o.Splay
 
 * * *
 
-See also: Trig, Trig1, TrigAllocator
+See also: Trig, TrigAllocator, Trig1
 
 Guides: Unit Generators
 

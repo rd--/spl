@@ -13,7 +13,7 @@ The name of this syntax token is `apostrophe`.
 
 * * *
 
-See also: graveAccent, quotationMark, String
+See also: String, graveAccent, quotationMark
 
 Guides: Literals Syntax, String Syntax
 

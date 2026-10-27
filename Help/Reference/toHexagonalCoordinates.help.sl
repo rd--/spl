@@ -31,6 +31,6 @@ the inverse is `fromHexagonalCoordinates`:
 
 * * *
 
-See also: fromHexagonalCoordinates, HexagonalCoordinates
+See also: HexagonalCoordinates, fromHexagonalCoordinates
 
 Guides: Coordinate System Functions

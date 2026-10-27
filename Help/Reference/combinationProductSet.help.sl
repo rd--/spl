@@ -71,7 +71,7 @@ A worked example:
 
 * * *
 
-See also: eulerFokkerGenus, tuningLatticeGraph, nub, product, octaveReduce, subsets
+See also: eulerFokkerGenus, nub, octaveReduce, product, subsets, tuningLatticeGraph
 
 Guides: Tuning Functions, Xenharmonic Functions
 

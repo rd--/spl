@@ -44,7 +44,7 @@ An _isometric_ projection of the same point set:
 
 * * *
 
-See also: cos, sin, spherePoints, Sphere
+See also: Sphere, cos, sin, spherePoints
 
 Further Reading: González 2010
 

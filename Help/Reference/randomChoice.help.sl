@@ -228,7 +228,7 @@ let r = Sfc32(131939);
 
 * * *
 
-See also: anyOne, atRandom, randomInteger, RandomNumberGenerator, randomSample, randomWeightedChoice
+See also: RandomNumberGenerator, anyOne, atRandom, randomInteger, randomSample, randomWeightedChoice
 
 Guides: Random Functions
 

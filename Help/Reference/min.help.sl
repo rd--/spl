@@ -297,7 +297,7 @@ let f = { :x :y |
 
 * * *
 
-See also: clip, deepMin, floor, max, minBy, minDetect, minimalBy, minMax, takeSmallest, rankedMin, ordering
+See also: clip, deepMin, floor, max, minBy, minDetect, minMax, minimalBy, ordering, rankedMin, takeSmallest
 
 Guides: Sort Functions, Statistics Functions
 

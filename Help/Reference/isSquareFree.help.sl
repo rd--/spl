@@ -207,7 +207,7 @@ OEIS [A366288](https://oeis.org/A366288):
 
 * * *
 
-See also: factorInteger, factor, isCubeFree, isDuplicateFree, isPerfectSquare, isPowerfulNumber, isPrime, isPrimePower, moebiusMu, primeOmega, primeNu
+See also: factor, factorInteger, isCubeFree, isDuplicateFree, isPerfectSquare, isPowerfulNumber, isPrime, isPrimePower, moebiusMu, primeNu, primeOmega
 
 Guides: Integer Functions
 

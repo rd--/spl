@@ -15,7 +15,7 @@ Replaces each item in th sequence _x_ by its `image` under the permutation _p_.
 
 * * *
 
-See also: image, Permutation
+See also: Permutation, image
 
 Guides: Permutation Functions
 

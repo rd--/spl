@@ -19,7 +19,7 @@ the last entry in the `coefficientList`.
 
 * * *
 
-See also: coefficientList, UnivariatePolynomial
+See also: UnivariatePolynomial, coefficientList
 
 Guides: Polynomial Functions
 

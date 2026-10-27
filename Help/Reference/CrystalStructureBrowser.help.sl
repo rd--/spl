@@ -8,6 +8,6 @@ When selected, the text view shows the description of the lattice and a number o
 
 * * *
 
-See also: ColumnBrowser, CrystalStructure, leitnerCatalogue, WorldMenu
+See also: ColumnBrowser, CrystalStructure, WorldMenu, leitnerCatalogue
 
 Categories: Kansas

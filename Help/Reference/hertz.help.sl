@@ -33,7 +33,7 @@ Quantity(1000000000, 'hertz')
 
 * * *
 
-See also: asHertz, Frequency, Quantity
+See also: Frequency, Quantity, asHertz
 
 Guides: Quantity Functions
 

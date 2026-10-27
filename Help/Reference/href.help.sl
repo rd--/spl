@@ -14,7 +14,7 @@ also called a hyperlink.
 
 * * *
 
-See also: host, hostName, Location, origin, pathName, Url
+See also: Location, Url, host, hostName, origin, pathName
 
 Guides: Network Functions
 

@@ -104,7 +104,7 @@ partitioned into a rectangular matrix:
 
 * * *
 
-See also: cross, minors, determinant, kroneckerDelta, order, isSorted, permutations
+See also: cross, determinant, isSorted, kroneckerDelta, minors, order, permutations
 
 Guides: Permutation Functions
 

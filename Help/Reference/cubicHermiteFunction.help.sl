@@ -39,7 +39,7 @@ let t = [1 1; 1 -1; 1 1];
 
 * * *
 
-See also: bezierFunction, bSplineFunction
+See also: bSplineFunction, bezierFunction
 
 Guides: Interpolation Functions
 

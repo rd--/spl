@@ -67,7 +67,7 @@ Find area of a parallelogram:
 
 * * *
 
-See also: arcLength, Circle, cross, perimeter, Polygon, Rectangle, shoelaceFormula, Triangle
+See also: Circle, Polygon, Rectangle, Triangle, arcLength, cross, perimeter, shoelaceFormula
 
 Guides: Geometry Functions
 

@@ -159,7 +159,7 @@ Common choices of parameters:
 
 * * *
 
-See also: median, percentile, quartiles, variance, sort
+See also: median, percentile, quartiles, sort, variance
 
 Guides: Probability Distributions, Statistics Functions
 

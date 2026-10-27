@@ -15,7 +15,7 @@ t
 
 * * *
 
-See also: fromTrilinearCoordinates, Triangle
+See also: Triangle, fromTrilinearCoordinates
 
 Guides: Triangle Functions
 

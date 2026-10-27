@@ -224,7 +224,7 @@ OEIS [A127093](https://oeis.org/A127093):
 
 * * *
 
-See also: /, //, +, -, *, solidus, times
+See also: *, +, -, /, //, solidus, times
 
 Guides: Arithmetic Functions, Binary Operators, Mathematical Functions
 

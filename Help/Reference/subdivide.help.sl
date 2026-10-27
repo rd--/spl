@@ -133,7 +133,7 @@ let n = 256;
 
 * * *
 
-See also: --, discretize, Interval, linspace, Range
+See also: Interval, Range, --, discretize, linspace
 
 Guides: Coordinate System Functions, Interpolation Functions, List Functions
 

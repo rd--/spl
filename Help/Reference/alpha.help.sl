@@ -15,7 +15,7 @@ Where supported `alpha` is displayed as α.
 
 * * *
 
-See also: blue, Colour, green, red
+See also: Colour, blue, green, red
 
 Guides: Colour Functions
 

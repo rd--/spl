@@ -77,6 +77,6 @@ OEIS [A227186](https://oeis.org/A227186):
 
 * * *
 
-See also: runLengthTransform, runLengthsOf, RunArray
+See also: RunArray, runLengthTransform, runLengthsOf
 
 Guides: List Functions

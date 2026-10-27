@@ -15,7 +15,7 @@ ByteArray[0 1]
 
 * * *
 
-See also: encode, encodeInt8, encodeInt32, encodeFloat32, encodeFloat64
+See also: encode, encodeFloat32, encodeFloat64, encodeInt32, encodeInt8
 
 Guides: Bitwise Functions
 

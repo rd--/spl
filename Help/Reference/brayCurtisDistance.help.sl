@@ -30,7 +30,7 @@ Bray–Curtis distance is a ratio of Manhattan distances:
 
 * * *
 
-See also: canberraDistance, chessboardDistance, euclideanDistance, editDistance, hammingDistance, manhattanDistance
+See also: canberraDistance, chessboardDistance, editDistance, euclideanDistance, hammingDistance, manhattanDistance
 
 Guides: Distance Functions
 

@@ -15,6 +15,6 @@ as in `commonResidue`.
 
 * * *
 
-See also: %, commonResidue, minimalResidue, Residue
+See also: Residue, %, commonResidue, minimalResidue
 
 Guides: Integer Functions, Modular Arithmetic Functions

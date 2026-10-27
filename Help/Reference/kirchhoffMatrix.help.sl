@@ -56,7 +56,7 @@ The Kirchhoff matrix of an undirected graph is symmetric:
 
 * * *
 
-See also: adjacencyMatrix, incidenceMatrix, Graph, kirchhoffGraph
+See also: Graph, adjacencyMatrix, incidenceMatrix, kirchhoffGraph
 
 Guides: Graph Functions
 

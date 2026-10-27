@@ -57,7 +57,7 @@ OEIS [A004613](https://oeis.org/A004613):
 
 * * *
 
-See also: =, equal, %, mod, Residue
+See also: Residue, %, =, equal, mod
 
 Guides: Integer Functions
 

@@ -32,6 +32,6 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: LibraryItem, scalaRationalTuningArchive, scalaTuningArchive, ScalaTuning
+See also: LibraryItem, ScalaTuning, scalaRationalTuningArchive, scalaTuningArchive
 
 Guides: Library Catalogue, Xenharmonic Functions

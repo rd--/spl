@@ -13,6 +13,6 @@ The ternary form is an idiom re-ordering the arguments to _cached_.
 
 * * *
 
-See also: Cache, cached, System, WeakMap
+See also: Cache, System, WeakMap, cached
 
 Categories: Evaluating

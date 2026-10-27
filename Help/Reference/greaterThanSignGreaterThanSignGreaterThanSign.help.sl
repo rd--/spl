@@ -50,7 +50,7 @@ Where supported `>>>` is displayed as ⋙.
 
 * * *
 
-See also: >>, DocumentationTest
+See also: DocumentationTest, >>
 
 Guides: Bitwise Functions, Documentation Tests
 

@@ -29,7 +29,7 @@ let t = sssTriangle(3, 4.4, 5);
 
 * * *
 
-See also: Circle, ninePointCircle, Triangle
+See also: Circle, Triangle, ninePointCircle
 
 Guides: Geometry Functions
 

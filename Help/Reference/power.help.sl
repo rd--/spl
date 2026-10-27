@@ -1309,7 +1309,7 @@ OEIS [A008952](https://oeis.org/A008952):
 
 * * *
 
-See also: +, -, *, /, exp, factorialPower, matrixPower, log, powerMod, powerRange, signedPower, sqrt
+See also: *, +, -, /, exp, factorialPower, log, matrixPower, powerMod, powerRange, signedPower, sqrt
 
 Guides: Arithmetic Functions, Binary Operators
 

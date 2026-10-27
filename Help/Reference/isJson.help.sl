@@ -38,7 +38,7 @@ true
 
 * * *
 
-See also: Boolean, encodeJson, isImmediate, Json, json, List, Nil, parseJson, SmallFloat, String, Record
+See also: Boolean, Json, List, Nil, Record, SmallFloat, String, encodeJson, isImmediate, json, parseJson
 
 Guides: Protocol Functions
 

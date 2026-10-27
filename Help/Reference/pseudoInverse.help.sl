@@ -99,7 +99,7 @@ Find the pseudoinverse of a machine-precision matrix:
 
 * * *
 
-See also: inverse, Matrix
+See also: Matrix, inverse
 
 Guides: Matrix Functions
 

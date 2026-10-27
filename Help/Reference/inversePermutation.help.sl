@@ -87,7 +87,7 @@ Inverting a permutation is equivalent to reversing its cycles:
 
 * * *
 
-See also: cycles, inverse, Permutation, permutationPower
+See also: Permutation, cycles, inverse, permutationPower
 
 Guides: Permutation Functions
 

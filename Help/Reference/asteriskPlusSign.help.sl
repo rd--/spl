@@ -8,7 +8,7 @@ The name of this operator is `asteriskPlusSign`.
 
 * * *
 
-See also: +, *, timesPlus, plus, times
+See also: *, +, plus, times, timesPlus
 
 Guides: Operator List, Operator Syntax
 

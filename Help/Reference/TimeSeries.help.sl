@@ -301,7 +301,7 @@ Plot Akima interpolation function of time series:
 
 * * *
 
-See also: isRegularlySampled, minimumTimeIncrement, resample, TemporalData
+See also: TemporalData, isRegularlySampled, minimumTimeIncrement, resample
 
 Guides: Time Series Functions
 

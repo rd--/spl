@@ -60,7 +60,7 @@ Where supported `rho` as ρ, `theta` as θ, and `phi` as φ.
 
 * * *
 
-See also: CartesianCoordinates, PolarCoordinates, IsoSphericalCoordinates, PlanarCoordinates, fromSphericalCoordinates
+See also: CartesianCoordinates, IsoSphericalCoordinates, PlanarCoordinates, PolarCoordinates, fromSphericalCoordinates
 
 Guides: Coordinate System Functions, Geometry Functions
 

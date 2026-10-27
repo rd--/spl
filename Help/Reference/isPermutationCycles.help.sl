@@ -55,7 +55,7 @@ false
 
 * * *
 
-See also: permutationCycles, permutationList, isPermutationList
+See also: isPermutationList, permutationCycles, permutationList
 
 Guides: Permutation Functions, Predicate Functions
 

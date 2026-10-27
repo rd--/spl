@@ -38,7 +38,7 @@ Generate a sequence of dyadic rationals over _(0,x)_ with precision _2ⁿ_.
 
 * * *
 
-See also: denominator, Fraction, isPowerOfTwo, minkowskiQuestionMark
+See also: Fraction, denominator, isPowerOfTwo, minkowskiQuestionMark
 
 Guides: Integer Functions, Mathematical Functions
 

@@ -95,7 +95,7 @@ At `Range`:
 
 * * *
 
-See also: arithmeticMean, arithmeticGeometricMean, geometricMean, median
+See also: arithmeticGeometricMean, arithmeticMean, geometricMean, median
 
 Guides: Statistics Functions
 

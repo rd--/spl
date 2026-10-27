@@ -31,7 +31,7 @@ Rlpf(
 
 * * *
 
-See also: LfPulse, SinOsc, Saw
+See also: LfPulse, Saw, SinOsc
 
 Guides: Unit Generators
 

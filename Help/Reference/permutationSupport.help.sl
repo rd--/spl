@@ -30,7 +30,7 @@ Support of identity permutation:
 
 * * *
 
-See also: cycles, permutationMax, permutationMin, permutationLength
+See also: cycles, permutationLength, permutationMax, permutationMin
 
 Guides: Permutation Functions
 

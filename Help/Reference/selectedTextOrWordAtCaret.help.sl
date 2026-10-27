@@ -7,4 +7,4 @@ else answer `wordAtCaret`.
 
 * * *
 
-See also: selectedText, wordAtCaret, Window
+See also: Window, selectedText, wordAtCaret

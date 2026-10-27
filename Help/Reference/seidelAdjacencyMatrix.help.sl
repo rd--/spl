@@ -19,7 +19,7 @@ also called the Seidel matrix or the )(−1,1,0)_-adjacency matrix.
 
 * * *
 
-See also: adjacencyMatrix, Graph
+See also: Graph, adjacencyMatrix
 
 Guides: Graph Functions
 

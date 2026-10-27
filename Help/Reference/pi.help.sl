@@ -384,7 +384,7 @@ Where supported `pi` is displayed as π.
 
 * * *
 
-See also: e, Infinity, NaN, tau
+See also: Infinity, NaN, e, tau
 
 Guides: Mathematical Constants
 

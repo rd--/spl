@@ -25,7 +25,7 @@ In the `String` case the check is made of the `utf8ByteArray` of the string:
 
 * * *
 
-See also: ByteArray, hash, fnv1aHash, String, utf8ByteArray
+See also: ByteArray, String, fnv1aHash, hash, utf8ByteArray
 
 Guides: String Functions
 

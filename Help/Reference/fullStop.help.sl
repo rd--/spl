@@ -26,7 +26,7 @@ The name of this syntax token is `fullStop`.
 
 * * *
 
-See also: :, ,, ;
+See also: ,, :, ;
 
 Guides: Method Syntax, Syntax Tokens, Value Apply Syntax
 

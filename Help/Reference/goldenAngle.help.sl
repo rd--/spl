@@ -40,7 +40,7 @@ Scatter plot of a phyllotaxis pattern:
 
 * * *
 
-See also: e, degree, fibonacci, goldenRatio, pi
+See also: degree, e, fibonacci, goldenRatio, pi
 
 Guides: Mathematical Constants
 

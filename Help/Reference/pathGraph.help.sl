@@ -64,7 +64,7 @@ The adjacency matrix of the _n=15_ path graph:
 
 * * *
 
-See also: cycleGraph, Graph
+See also: Graph, cycleGraph
 
 Guides: Graph Functions
 

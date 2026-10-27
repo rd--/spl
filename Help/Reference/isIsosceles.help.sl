@@ -31,7 +31,7 @@ true
 
 * * *
 
-See also: isAcute, isHeronian, isObtuse, isScalene, isRight, Triangle
+See also: Triangle, isAcute, isHeronian, isObtuse, isRight, isScalene
 
 Guides: Triangle Functions
 

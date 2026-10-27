@@ -37,7 +37,7 @@ The notation _[from .. to]_ creates a `List` with elements from _from_ to _to_.
 
 * * *
 
-See also: :, --, Interval
+See also: Interval, --, :
 
 Guides: Range Syntax
 

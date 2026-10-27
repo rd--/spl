@@ -23,7 +23,7 @@ Exradii of a right triangle:
 
 * * *
 
-See also: excenters, excircles, Triangle
+See also: Triangle, excenters, excircles
 
 Guides: Geometry Functions, Triangle Functions
 

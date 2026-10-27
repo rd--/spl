@@ -116,7 +116,7 @@ The composite of `times` and `plus` is spelled `timesPlus`.
 
 * * *
 
-See also: +, -, *, /, conjugate, sum
+See also: *, +, -, /, conjugate, sum
 
 Guides: Binary Operators
 

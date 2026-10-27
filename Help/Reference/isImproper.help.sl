@@ -24,7 +24,7 @@ true
 
 * * *
 
-See also: isMomentOfSymmetry, isProper, isStrictlyProper, Scale
+See also: Scale, isMomentOfSymmetry, isProper, isStrictlyProper
 
 Guides: Scale Functions
 

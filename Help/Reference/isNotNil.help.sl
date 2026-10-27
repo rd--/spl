@@ -14,7 +14,7 @@ true
 
 * * *
 
-See also: isNil, Nil
+See also: Nil, isNil
 
 Guides: Nil Functions
 

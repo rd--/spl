@@ -36,7 +36,7 @@ true
 
 * * *
 
-See also: matches, RegularExpression
+See also: RegularExpression, matches
 
 Guides: Regular Expression Functions
 

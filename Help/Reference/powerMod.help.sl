@@ -435,7 +435,7 @@ OEIS [A396382](https://oeis.org/A396382):
 
 * * *
 
-See also: ^, %
+See also: %, ^
 
 Guides: Integer Functions
 

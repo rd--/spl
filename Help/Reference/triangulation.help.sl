@@ -36,7 +36,7 @@ p.triangulation.collect { :each |
 
 * * *
 
-See also: delaunayMesh, Polygon, Triangle
+See also: Polygon, Triangle, delaunayMesh
 
 Guides: Geometry Functions
 

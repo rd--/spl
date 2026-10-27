@@ -27,7 +27,7 @@ If the range is empty there are no values to iterate over:
 
 * * *
 
-See also: do, downToDo, Range, to, toDo, upToDo
+See also: Range, do, downToDo, to, toDo, upToDo
 
 Guides: Iteration Functions
 

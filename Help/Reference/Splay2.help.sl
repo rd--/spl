@@ -58,7 +58,7 @@ _Note:_ The Sc Ugen is called _Splay_.
 
 * * *
 
-See also: Pan2, Splay, SplayAz
+See also: Splay, SplayAz, Pan2
 
 Guides: Unit Generators
 

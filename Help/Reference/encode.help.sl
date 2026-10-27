@@ -30,7 +30,7 @@ ByteArray[
 
 * * *
 
-See also: encodeInt8, encodeInt16, encodeInt32, encodeFloat32, encodeFloat64
+See also: encodeFloat32, encodeFloat64, encodeInt16, encodeInt32, encodeInt8
 
 Guides: Bitwise Functions
 

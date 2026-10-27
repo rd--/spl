@@ -52,6 +52,6 @@ ColourGradient[
 
 * * *
 
-See also: Colour, ColourPalette, continuousColourGradient, discreteColourGradient, colourGradients, namedColourGradient, resample
+See also: Colour, ColourPalette, colourGradients, continuousColourGradient, discreteColourGradient, namedColourGradient, resample
 
 Guides: Colour Functions

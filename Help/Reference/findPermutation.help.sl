@@ -65,7 +65,7 @@ Find permutations for rotations:
 
 * * *
 
-See also: cycles, ordering, Permutation, permute
+See also: Permutation, cycles, ordering, permute
 
 Guides: Permutation Functions
 

@@ -29,7 +29,7 @@ let [p, q, r] = t.vertexCoordinates;
 
 * * *
 
-See also: firstBrocardTriangle, Triangle
+See also: Triangle, firstBrocardTriangle
 
 Guides: Geometry Functions
 

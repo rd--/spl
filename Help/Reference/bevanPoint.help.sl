@@ -24,7 +24,7 @@ let t = sssTriangle(3, 4, 5);
 
 * * *
 
-See also: bevanCircle, Point, Triangle
+See also: Point, Triangle, bevanCircle
 
 Guides: Geometry Functions
 

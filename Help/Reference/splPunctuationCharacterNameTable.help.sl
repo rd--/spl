@@ -20,7 +20,7 @@ answer a `Dictionary` where the `keys` are punctuation characters and the values
 
 * * *
 
-See also: splOperatorTokenName, splOperatorNameTable, splPunctuationCharacters, system
+See also: splOperatorNameTable, splOperatorTokenName, splPunctuationCharacters, system
 
 Guides: Reflection Functions
 

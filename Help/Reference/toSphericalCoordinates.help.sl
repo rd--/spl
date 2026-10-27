@@ -47,7 +47,7 @@ Collects over lists:
 
 * * *
 
-See also: arcTan, fromSphericalCoordinates, norm, toPolarCoordinates, SphericalCoordinates
+See also: SphericalCoordinates, arcTan, fromSphericalCoordinates, norm, toPolarCoordinates
 
 Guides: Coordinate System Functions
 

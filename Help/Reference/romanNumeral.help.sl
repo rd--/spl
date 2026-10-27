@@ -72,7 +72,7 @@ The inverse is `fromRomanNumeral`:
 
 * * *
 
-See also: integerString, fromRomanNumeral
+See also: fromRomanNumeral, integerString
 
 References:
 _Mathematica_

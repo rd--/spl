@@ -53,7 +53,7 @@ true
 
 * * *
 
-See also: sort, sortComparing, sortByOn, sortOn
+See also: sort, sortByOn, sortComparing, sortOn
 
 Guides: Sort Functions
 

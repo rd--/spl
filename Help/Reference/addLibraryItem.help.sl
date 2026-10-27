@@ -19,6 +19,6 @@ the parsing is delayed until an item is actually required.
 
 * * *
 
-See also: cachedFetch, library, LibraryItem, system, System
+See also: LibraryItem, System, cachedFetch, library, system
 
 Guides: Library Catalogue

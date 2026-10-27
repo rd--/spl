@@ -33,7 +33,7 @@ SinOsc(1000, 0)
 
 * * *
 
-See also: clip, excess, bilateralFold, bilateralWrap
+See also: bilateralFold, bilateralWrap, clip, excess
 
 Guides: Unit Generators
 

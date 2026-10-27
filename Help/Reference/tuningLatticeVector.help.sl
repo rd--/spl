@@ -50,7 +50,7 @@ true
 
 * * *
 
-See also: tuningLatticeEdges, tuningLatticePrimes, tuningLatticeVectorString, tuningLatticeVertices, Tuning
+See also: Tuning, tuningLatticeEdges, tuningLatticePrimes, tuningLatticeVectorString, tuningLatticeVertices
 
 Guides: Tuning Functions
 

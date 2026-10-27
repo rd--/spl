@@ -34,7 +34,7 @@ Disk(c, r).LineDrawing
 
 * * *
 
-See also: Ball, center, Circle, Polygon, radius, randomPoint, Sphere
+See also: Ball, Circle, Polygon, Sphere, center, radius, randomPoint
 
 Guides: Geometry Functions
 

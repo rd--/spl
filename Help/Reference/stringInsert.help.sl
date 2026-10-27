@@ -31,7 +31,7 @@ At the end of the existing string:
 
 * * *
 
-See also: insertAt, String
+See also: String, insertAt
 
 Guides: String Functions
 

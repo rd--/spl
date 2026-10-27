@@ -20,7 +20,7 @@ The empty file `Url`:
 
 * * *
 
-See also: fileName, hostName, href, Location, Url
+See also: Location, Url, fileName, hostName, href
 
 Guides: Network Functions
 

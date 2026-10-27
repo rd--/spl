@@ -41,7 +41,7 @@ Use `one` to copy element type of existing array:
 
 * * *
 
-See also: one, reshape, zero, zeroes, zeroMatrix
+See also: one, reshape, zero, zeroMatrix, zeroes
 
 Guides: Matrix Functions
 

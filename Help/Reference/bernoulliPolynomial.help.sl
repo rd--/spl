@@ -34,7 +34,7 @@ Plot the polynomials _B(5)_ and _B(6)_:
 
 * * *
 
-See also: bernoulliNumber, bernoulliSequence, UnivariatePolynomial
+See also: UnivariatePolynomial, bernoulliNumber, bernoulliSequence
 
 Guides: Polynomial Functions
 

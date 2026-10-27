@@ -91,7 +91,7 @@ OEIS [A063919](https://oeis.org/A063919):
 
 * * *
 
-See also: divisors, divisorSigma, gcd, unitaryDivisors
+See also: divisorSigma, divisors, gcd, unitaryDivisors
 
 Guides: Integer Functions
 

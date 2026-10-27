@@ -31,7 +31,7 @@ When the arguments to `>=` are `boole`, it is the converse implication `Boolean`
 
 * * *
 
-See also: Compare, Equal, <, <=, >, >=, =, !=, <=>, isGreater, isLessEqual
+See also: Compare, Equal, !=, <, <=, <=>, =, >, >=, isGreater, isLessEqual
 
 Guides: Comparison Functions
 

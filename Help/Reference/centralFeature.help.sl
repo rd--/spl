@@ -73,7 +73,7 @@ Extreme values have a large influence on the Mean:
 
 * * *
 
-See also: distanceMatrix, mean, median, trimmedMean, spatialMedian, winsorizedMean
+See also: distanceMatrix, mean, median, spatialMedian, trimmedMean, winsorizedMean
 
 Guides: Statistics Functions
 

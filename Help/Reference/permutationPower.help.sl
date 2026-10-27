@@ -95,7 +95,7 @@ Powers of permutation _23517468_:
 
 * * *
 
-See also: cycles, inversePermutation, Permutation, permutationProduct
+See also: Permutation, cycles, inversePermutation, permutationProduct
 
 Guides: Permutation Functions
 

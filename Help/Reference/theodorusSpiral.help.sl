@@ -29,7 +29,7 @@ the angles exhibit the equidistribution property:
 
 * * *
 
-See also: archimedeanSpiral, doyleSpiral, eulerSpiral, logarithmicSpiral, norwichSpiral, tractrixSpiral, sqrt
+See also: archimedeanSpiral, doyleSpiral, eulerSpiral, logarithmicSpiral, norwichSpiral, sqrt, tractrixSpiral
 
 Guides: Geometry Functions
 

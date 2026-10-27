@@ -27,6 +27,6 @@ At `List`:
 
 * * *
 
-See also: add, IdentitySet, include, Set
+See also: IdentitySet, Set, add, include
 
 Categories: Adding

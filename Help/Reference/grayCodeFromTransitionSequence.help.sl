@@ -66,6 +66,6 @@ confirm the sequence is a Beckett-Gray code:
 
 * * *
 
-See also: GrayCode, isGrayCode, isBeckettGrayCode
+See also: GrayCode, isBeckettGrayCode, isGrayCode
 
 Guides: List Functions

@@ -51,6 +51,6 @@ Plot a liftplan from a weaving information file:
 
 * * *
 
-See also: drawdownMatrix, tieupMatrix, threadingMatrix, WeavingInformationFile
+See also: WeavingInformationFile, drawdownMatrix, threadingMatrix, tieupMatrix
 
 Guides: Matrix Functions

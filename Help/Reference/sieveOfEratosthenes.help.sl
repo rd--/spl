@@ -110,7 +110,7 @@ Plot the prime counting function:
 
 * * *
 
-See also: isPrime, primesList, primePi, wheelSieve
+See also: isPrime, primePi, primesList, wheelSieve
 
 Guides: Prime Number Functions
 

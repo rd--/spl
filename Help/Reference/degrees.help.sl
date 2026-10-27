@@ -52,7 +52,7 @@ See also `degreesToRadians`:
 
 * * *
 
-See also: degree, PlaneAngle, Quantity, radians
+See also: PlaneAngle, Quantity, degree, radians
 
 Guides: Quantity Functions
 

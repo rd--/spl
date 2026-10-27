@@ -58,7 +58,7 @@ RatioTuning[
 
 * * *
 
-See also: gradyTuningLatticeCoordinates, tuningLatticeGraph, Tuning
+See also: Tuning, gradyTuningLatticeCoordinates, tuningLatticeGraph
 
 Guides: Tuning Functions, Xenharmonic Functions
 

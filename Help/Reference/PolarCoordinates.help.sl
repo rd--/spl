@@ -58,7 +58,7 @@ true
 
 * * *
 
-See also: CartesianCoordinates, Point, PlanarCoordinates, SphericalCoordinates, fromPolarCoordinates, toPolarCoordinates
+See also: CartesianCoordinates, PlanarCoordinates, Point, SphericalCoordinates, fromPolarCoordinates, toPolarCoordinates
 
 Guides: Geometry Functions
 

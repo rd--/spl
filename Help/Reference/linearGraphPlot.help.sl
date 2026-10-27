@@ -61,7 +61,7 @@ Graph[
 
 * * *
 
-See also: circularGraphPlot, graphPlot, Graph
+See also: Graph, circularGraphPlot, graphPlot
 
 Guides: Graph Functions, Plotting Functions
 

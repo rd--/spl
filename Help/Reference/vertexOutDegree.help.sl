@@ -77,7 +77,7 @@ Undirected graphs correspond to directed graphs with each edge both an in- and o
 
 * * *
 
-See also: adjacencyMatrix, Graph, vertexCount, vertexDegree, vertexInDegree, vertexList
+See also: Graph, adjacencyMatrix, vertexCount, vertexDegree, vertexInDegree, vertexList
 
 Guides: Graph Functions
 

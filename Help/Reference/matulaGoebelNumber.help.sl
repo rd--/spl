@@ -17,6 +17,6 @@ The inverse of `matulaGoebelTree`:
 
 * * *
 
-See also: matulaGoebelTree, Tree
+See also: Tree, matulaGoebelTree
 
 Guides: Tree Functions

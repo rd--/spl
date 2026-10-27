@@ -125,7 +125,7 @@ The _3,1_ coprime tree:
 
 * * *
 
-See also: calkinWilfTree, isCoprime, Tree, unfoldTree
+See also: Tree, calkinWilfTree, isCoprime, unfoldTree
 
 Guides: Prime Number Functions
 

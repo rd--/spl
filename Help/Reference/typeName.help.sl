@@ -63,7 +63,7 @@ true
 
 * * *
 
-See also: elementTypes, species, typeDefinition, typeDictionary, Type
+See also: Type, elementTypes, species, typeDefinition, typeDictionary
 
 Guides: Reflection Functions
 

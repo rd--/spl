@@ -37,7 +37,7 @@ A ternary scale:
 
 * * *
 
-See also: intervalClasses, scalaScaleArchive, Scale
+See also: Scale, intervalClasses, scalaScaleArchive
 
 Guides: Scale Functions, Xenharmonic Functions
 

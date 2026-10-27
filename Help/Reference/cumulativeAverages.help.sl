@@ -24,6 +24,6 @@ Plot the cumulative average of the Champernowne sequence:
 
 * * *
 
-See also: accumulate, mean, movingAverage, movingMedian, movingMap
+See also: accumulate, mean, movingAverage, movingMap, movingMedian
 
 Guides: List Functions

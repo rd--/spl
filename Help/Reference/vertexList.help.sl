@@ -47,7 +47,7 @@ At the unit cube:
 
 * * *
 
-See also: edgeList, Graph, vertexCount
+See also: Graph, edgeList, vertexCount
 
 Guides: Geometry Functions, Graph Functions
 

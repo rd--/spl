@@ -31,7 +31,7 @@ Polyhedron(
 
 * * *
 
-See also: PerspectiveDrawing, LineDrawing, Polygon, unitCube, unitDodecahedron, unitIcosahedron, unitSquare, unitTetrahedron
+See also: LineDrawing, PerspectiveDrawing, Polygon, unitCube, unitDodecahedron, unitIcosahedron, unitSquare, unitTetrahedron
 
 Guides: Geometry Functions
 

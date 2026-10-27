@@ -153,7 +153,7 @@ Sfc32(731894)
 
 * * *
 
-See also: Circle, Line, PerspectiveDrawing, Point, Polygon, Plot, Rectangle, draw
+See also: Circle, Line, PerspectiveDrawing, Plot, Point, Polygon, Rectangle, draw
 
 Guides: Drawing Functions, Image Functions
 

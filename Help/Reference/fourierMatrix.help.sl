@@ -101,7 +101,7 @@ Plot the imaginary part of the 25×25 Fourier matrix:
 
 * * *
 
-See also: hadamardMatrix, fourier, vandermondeMatrix, walshMatrix
+See also: fourier, hadamardMatrix, vandermondeMatrix, walshMatrix
 
 Guides: Fourier Analysis Functions
 

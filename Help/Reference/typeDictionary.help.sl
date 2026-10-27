@@ -52,7 +52,7 @@ Find the types that have a slot named _cache_:
 
 * * *
 
-See also: methodDictionary, packageDictionary, System, traitDictionary, Type
+See also: System, Type, methodDictionary, packageDictionary, traitDictionary
 
 Guides: Reflection Functions
 

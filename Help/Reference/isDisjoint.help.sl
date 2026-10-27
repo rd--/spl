@@ -20,7 +20,7 @@ false
 
 * * *
 
-See also: isIntersecting, noneSatisfy, intersection
+See also: intersection, isIntersecting, noneSatisfy
 
 Guides: Set Functions
 

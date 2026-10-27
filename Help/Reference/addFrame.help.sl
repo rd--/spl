@@ -6,6 +6,6 @@ Add a `Frame` to `SmallKansas`.
 
 * * *
 
-See also: addFrameWithAnimator, SmallKansas
+See also: SmallKansas, addFrameWithAnimator
 
 Categories: Kansas

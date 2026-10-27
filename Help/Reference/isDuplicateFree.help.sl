@@ -75,7 +75,7 @@ Construct the permanent analog of the totally antisymmetric tensor:
 
 * * *
 
-See also: countDistinct, counts, deleteDuplicates, deleteAdjacentDuplicates, isSquareFree
+See also: countDistinct, counts, deleteAdjacentDuplicates, deleteDuplicates, isSquareFree
 
 Guides: Collection Functions, List Functions, Set Functions
 

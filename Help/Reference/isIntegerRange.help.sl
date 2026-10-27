@@ -11,6 +11,6 @@ true
 
 * * *
 
-See also: isInteger, Range
+See also: Range, isInteger
 
 Categories: Testing

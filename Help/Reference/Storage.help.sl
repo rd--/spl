@@ -12,7 +12,7 @@ To delete all items from the storage use `removeAll`.
 
 * * *
 
-See also: Dictionary, Indexable, localStorage, sessionStorage, System
+See also: Dictionary, Indexable, System, localStorage, sessionStorage
 
 Guides: System Functions
 

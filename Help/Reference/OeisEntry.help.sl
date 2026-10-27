@@ -131,7 +131,7 @@ true
 
 * * *
 
-See also: cachedFetch, OeisSequenceFile
+See also: OeisSequenceFile, cachedFetch
 
 Guides: Integer Sequence Functions
 

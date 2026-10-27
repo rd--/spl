@@ -17,7 +17,7 @@ The subsequence _23_ appears once in _123234345_ starting at three:
 
 * * *
 
-See also: indexOfSubstring, indicesOf, includesSubstring
+See also: includesSubstring, indexOfSubstring, indicesOf
 
 Guides: List Functions
 

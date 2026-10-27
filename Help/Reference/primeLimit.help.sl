@@ -60,7 +60,7 @@ OEIS [A112762](https://oeis.org/A112762):
 
 * * *
 
-See also: primeFactors, RatioTuning
+See also: RatioTuning, primeFactors
 
 Guides: Prime Number Functions, Scale Functions, Tuning Functions
 

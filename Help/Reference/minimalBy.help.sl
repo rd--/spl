@@ -38,7 +38,7 @@ Prune a `Record` to its minimal values:
 
 * * *
 
-See also: <, maximalBy, max, min, reduce
+See also: <, max, maximalBy, min, reduce
 
 Guides: Comparison Functions, Sort Functions
 

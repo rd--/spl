@@ -29,7 +29,7 @@ In Sᴘʟ the names are _&_ and _&&_.
 
 * * *
 
-See also: |, &&, allSatisfy, ampersand, and, or
+See also: &&, |, allSatisfy, ampersand, and, or
 
 Guides: Boolean Functions, Binary Operators, Logical Operators
 

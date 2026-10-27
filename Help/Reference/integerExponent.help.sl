@@ -626,7 +626,7 @@ let n = 10 ^ 10;
 
 * * *
 
-See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction
+See also: ^, digitCount, factorInteger, integerDigits, log10, log2, rulerFunction
 
 Guides: Bitwise Functions, Integer Functions
 

@@ -76,7 +76,7 @@ Plot a trigonometric function:
 
 * * *
 
-See also: arrayPlot, Colour, contourPlot, Greymap, Image, matrixPlot, reliefPlot
+See also: Colour, Greymap, Image, arrayPlot, contourPlot, matrixPlot, reliefPlot
 
 Guides: Plotting Functions
 

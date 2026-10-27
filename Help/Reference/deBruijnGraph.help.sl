@@ -33,7 +33,7 @@ deBruijnGraph(3, 2)
 
 * * *
 
-See also: deBruijnSequence, Graph, hammingGraph, realDigits, shiftRegisterSequence
+See also: Graph, deBruijnSequence, hammingGraph, realDigits, shiftRegisterSequence
 
 Guides: Graph Functions
 

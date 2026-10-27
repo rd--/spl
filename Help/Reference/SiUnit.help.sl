@@ -175,7 +175,7 @@ SiUnit(
 
 * * *
 
-See also: Frequency, Length, Mass, PlaneAngle, Quantity, siUnit, Time
+See also: Frequency, Length, Mass, PlaneAngle, Quantity, Time, siUnit
 
 Guides: SI Units
 

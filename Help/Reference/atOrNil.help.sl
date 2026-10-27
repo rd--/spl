@@ -15,6 +15,6 @@ nil
 
 * * *
 
-See also: at, atIfAbsent, atOrMissing, Nil
+See also: Nil, at, atIfAbsent, atOrMissing
 
 Guides: Indexing Functions

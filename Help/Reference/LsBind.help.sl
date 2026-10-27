@@ -186,7 +186,7 @@ LsBind(
 
 * * *
 
-See also: play, Record
+See also: Record, play
 
 Guides: Patterns and Streams
 

@@ -64,7 +64,7 @@ as part of the digraphs `solidusAsterisk` and `asteriskSolidus`.
 
 * * *
 
-See also: //, +, -, *, divide, reciprocal
+See also: *, +, -, //, divide, reciprocal
 
 Guides: Arithmetic Functions, Arity Syntax, Comment Syntax, Binary Operators, Fraction Syntax, Mathematical Functions
 

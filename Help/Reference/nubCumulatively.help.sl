@@ -28,7 +28,7 @@ Relation to `nub`:
 
 * * *
 
-See also: add, IdentitySet, includesBy, nub, nubBy, nubIdentical, nubSieve, select
+See also: IdentitySet, add, includesBy, nub, nubBy, nubIdentical, nubSieve, select
 
 Guides: List Functions
 

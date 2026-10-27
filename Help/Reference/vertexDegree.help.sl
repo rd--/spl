@@ -102,7 +102,7 @@ Each vertex of a _k_-regular graph has the same vertex degree _k-1_:
 
 * * *
 
-See also: adjacencyMatrix, Graph, vertexCount, vertexInDegree, vertexList, vertexOutDegree
+See also: Graph, adjacencyMatrix, vertexCount, vertexInDegree, vertexList, vertexOutDegree
 
 Guides: Graph Functions
 

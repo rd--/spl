@@ -105,7 +105,7 @@ Calculate the orthonormal basis vectors for the range of a rank deficient matrix
 
 * * *
 
-See also: dot, inner, gramSchmidtProcess, isOrthogonalMatrix, isUnitaryMatrix, normalize, projection, qrDecomposition
+See also: dot, gramSchmidtProcess, inner, isOrthogonalMatrix, isUnitaryMatrix, normalize, projection, qrDecomposition
 
 Guides: Matrix Functions
 

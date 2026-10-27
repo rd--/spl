@@ -6,7 +6,7 @@ Answer `true` if _aGraph_ is an edge weighted graph.
 
 * * *
 
-See also: edgeWeights, Graph, weightedAdjacencyGraph
+See also: Graph, edgeWeights, weightedAdjacencyGraph
 
 References:
 _Mathematica_

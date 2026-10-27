@@ -59,7 +59,7 @@ Exponential moving average with a smoothing coefficient of 1 is the original lis
 
 * * *
 
-See also: accumulate, movingAverage, mean, movingMap, movingMedian, partition
+See also: accumulate, mean, movingAverage, movingMap, movingMedian, partition
 
 References:
 _Mathematica_

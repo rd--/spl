@@ -32,7 +32,7 @@ let t = sssTriangle(1, 5 / 6, 5 / 6);
 
 * * *
 
-See also: Circle, equalDetourPoint, innerSoddyCircle, tangentCircles, Triangle
+See also: Circle, Triangle, equalDetourPoint, innerSoddyCircle, tangentCircles
 
 Guides: Geometry Functions, Triangle Functions
 

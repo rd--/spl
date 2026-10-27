@@ -34,7 +34,7 @@ Cumulative distribution function, varying _σ_:
 
 * * *
 
-See also: arcSin, BetaDistribution
+See also: BetaDistribution, arcSin
 
 Guides: Probability Distributions, Random Functions
 

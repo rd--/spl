@@ -13,7 +13,7 @@ Polynomial[1/2 3/2 1]
 
 * * *
 
-See also: gcd, Polynomial, UnivariatePolynomial
+See also: Polynomial, UnivariatePolynomial, gcd
 
 Guides: Polynomial Functions
 

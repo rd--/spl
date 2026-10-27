@@ -21,7 +21,7 @@ Methods are:
 
 * * *
 
-See also: contents, HtmlElement, isDocument, isFragment, parseHtml
+See also: HtmlElement, contents, isDocument, isFragment, parseHtml
 
 Guides: Text Functions
 

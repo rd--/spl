@@ -22,7 +22,7 @@ Plot blacks with increasing α:
 
 * * *
 
-See also: alpha, Colour, green, red, RgbColour
+See also: Colour, RgbColour, alpha, green, red
 
 Guides: Colour Functions
 

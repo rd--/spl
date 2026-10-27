@@ -14,7 +14,7 @@ Includes the port number if specified, unlike `hostName`:
 
 * * *
 
-See also: fragment, hostName, href, pathName, port, protocol, query, Url
+See also: Url, fragment, hostName, href, pathName, port, protocol, query
 
 Guides: Network Functions
 

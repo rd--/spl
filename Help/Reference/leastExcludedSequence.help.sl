@@ -78,6 +78,6 @@ OEIS [A289194](https://oeis.org/A289194):
 
 * * *
 
-See also: detect, includes, Map
+See also: Map, detect, includes
 
 Guides: Integer Sequence Functions

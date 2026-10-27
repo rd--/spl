@@ -76,7 +76,7 @@ At `Symbol`:
 
 * * *
 
-See also: -, +, *, /, ^, negate
+See also: *, +, -, /, ^, negate
 
 Guides: Arithmetic Functions, Binary Operators
 

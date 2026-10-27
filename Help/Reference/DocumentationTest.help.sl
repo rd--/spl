@@ -94,7 +94,7 @@ The parsers for `Documenatation Tests` are `parseDocumentationTest` and `extract
 
 * * *
 
-See also: parseDocumentationTest, extractDocumentationTests
+See also: extractDocumentationTests, parseDocumentationTest
 
 Guides: Documentation Tests
 

@@ -214,7 +214,7 @@ let a = [1 .. 12];
 
 * * *
 
-See also: intercalate, intersperse, transposeIrregular, transpose
+See also: intercalate, intersperse, transpose, transposeIrregular
 
 Guides: List Functions
 

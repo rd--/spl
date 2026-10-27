@@ -46,7 +46,7 @@ let r = Sfc32(371841);
 
 * * *
 
-See also: circlePoints, cyclicPolygon, Polygon
+See also: Polygon, circlePoints, cyclicPolygon
 
 Guides: Geometry Functions
 

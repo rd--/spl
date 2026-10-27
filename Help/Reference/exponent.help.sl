@@ -13,7 +13,7 @@ also called the `degree` of the polynomial.
 
 * * *
 
-See also: degree, UnivariatePolynomial
+See also: UnivariatePolynomial, degree
 
 Guides: Polynomial Functions
 

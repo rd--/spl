@@ -15,6 +15,6 @@ Missing('NotAvailable', 11)
 
 * * *
 
-See also: at, atOrNil, Missing
+See also: Missing, at, atOrNil
 
 Guides: Indexing Functions

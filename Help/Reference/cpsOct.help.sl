@@ -22,7 +22,7 @@ Evaluate symbolically:
 
 * * *
 
-See also: cpsMidi, ratioMidi, octCps
+See also: cpsMidi, octCps, ratioMidi
 
 Guides: Pitch Functions, Unit Generators
 

@@ -47,7 +47,7 @@ Match prefix:
 
 * * *
 
-See also: matches, matchRegularExpression, RegularExpression, search
+See also: RegularExpression, matchRegularExpression, matches, search
 
 Guides: Regular Expression Functions
 

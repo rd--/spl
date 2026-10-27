@@ -34,7 +34,7 @@ The answer has only lower case letters:
 
 * * *
 
-See also: characterRange, Character, String
+See also: Character, String, characterRange
 
 Guides: String Functions
 

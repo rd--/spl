@@ -50,7 +50,7 @@ Threads over lists:
 
 * * *
 
-See also: negate, isNonNegative, isPositive, isZero
+See also: isNonNegative, isPositive, isZero, negate
 
 Guides: Mathematical Functions, Predicate Functions
 

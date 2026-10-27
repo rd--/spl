@@ -16,4 +16,4 @@ The reconstruction is _(-1 ^ sign) * (2 ^ exponent) * mantissa_.
 
 * * *
 
-See also: signExponentMantissa, SmallFloat
+See also: SmallFloat, signExponentMantissa

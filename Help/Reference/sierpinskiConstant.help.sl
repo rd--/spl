@@ -29,7 +29,7 @@ The Sierpiński constant _K_ is _Sπ_:
 
 * * *
 
-See also: exp, eulerGamma, lemniscateConstant, log, pi
+See also: eulerGamma, exp, lemniscateConstant, log, pi
 
 Guides: Mathematical Constants
 

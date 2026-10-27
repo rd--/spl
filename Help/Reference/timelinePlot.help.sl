@@ -40,7 +40,7 @@ PoissonProcess(2.7)
 
 * * *
 
-See also: scatterPlot, TemporalData, TimeSeries
+See also: TemporalData, TimeSeries, scatterPlot
 
 Guides: Plotting Functions
 

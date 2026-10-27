@@ -56,7 +56,7 @@ Frequency response of the Nuttall window:
 
 * * *
 
-See also: generalCosineWindow, blackmanNuttallWindow
+See also: blackmanNuttallWindow, generalCosineWindow
 
 Guides: Window Functions
 

@@ -52,6 +52,6 @@ let [a, b] = [10, 11];
 
 * * *
 
-See also: arrayPlot, ColourGrid, matrixPlot
+See also: ColourGrid, arrayPlot, matrixPlot
 
 Guides: Plotting Functions

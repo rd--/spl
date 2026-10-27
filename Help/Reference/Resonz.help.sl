@@ -66,7 +66,7 @@ let x = {
 
 * * *
 
-See also: Formlet, Rhpf, Rlpf, Ringz
+See also: Formlet, Rhpf, Ringz, Rlpf
 
 Guides: Unit Generators
 

@@ -18,7 +18,7 @@ a set of specific intervals at a given generic interval:
 
 * * *
 
-See also: intervalClasses, intervals, intervalsBy, isProper, isStrictlyProper, Scale
+See also: Scale, intervalClasses, intervals, intervalsBy, isProper, isStrictlyProper
 
 Guides: Scale Functions, Xenharmonic Functions
 

@@ -25,7 +25,7 @@ true
 
 * * *
 
-See also: System, traitLookup, Type
+See also: System, Type, traitLookup
 
 Guides: Reflection Functions
 

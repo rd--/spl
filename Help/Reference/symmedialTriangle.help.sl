@@ -19,7 +19,7 @@ let t = [6 5 6].sssTriangle;
 
 * * *
 
-See also: fromTrilinearVertexMatrix, symmedianPoint, Triangle
+See also: Triangle, fromTrilinearVertexMatrix, symmedianPoint
 
 Guides: Geometry Functions
 

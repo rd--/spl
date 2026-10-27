@@ -69,7 +69,7 @@ equal to `<=` at `boole`:
 
 * * *
 
-See also: &, |, &&, allSatisfy, or
+See also: &, &&, |, allSatisfy, or
 
 Guides: Boolean Functions, Binary Operators, Logical Operators
 

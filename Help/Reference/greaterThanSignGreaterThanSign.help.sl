@@ -94,7 +94,7 @@ The name of this operator is `greaterThanSignGreaterThanSign`.
 
 * * *
 
-See also: >>>, bitShift, bitShiftLeft, bitShiftRight, DocumentationTest
+See also: DocumentationTest, >>>, bitShift, bitShiftLeft, bitShiftRight
 
 Guides: Bitwise Functions, Documentation Tests
 

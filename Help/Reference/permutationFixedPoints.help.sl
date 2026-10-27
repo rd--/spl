@@ -55,7 +55,7 @@ The fixed points of the identity permutation:
 
 * * *
 
-See also: cycles, Permutation, support
+See also: Permutation, cycles, support
 
 Guides: Permutation Functions
 

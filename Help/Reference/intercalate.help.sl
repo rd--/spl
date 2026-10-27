@@ -32,7 +32,7 @@ At empty list:
 
 * * *
 
-See also: intersperse, interleave, riffle, transpose
+See also: interleave, intersperse, riffle, transpose
 
 Guides: List Functions
 

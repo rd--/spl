@@ -17,6 +17,6 @@ Answers `nil`.
 
 * * *
 
-See also: do, withDo, reverseDo
+See also: do, reverseDo, withDo
 
 Categories: Enumerating

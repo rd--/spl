@@ -28,7 +28,7 @@ Where supported `<~` is displayed as ⪅.
 
 * * *
 
-See also: =, ~, <, >, >~
+See also: <, =, >, >~, ~
 
 Guides: Comparison Functions
 

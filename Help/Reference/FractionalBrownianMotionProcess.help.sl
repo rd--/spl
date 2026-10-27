@@ -39,7 +39,7 @@ FractionalBrownianMotionProcess(0.7)
 
 * * *
 
-See also: FractionalGaussianNoiseProcess, GeometricBrownianMotionProcess, hoskingMethod, NormalDistribution, OrnsteinUhlenbeckProcess, RandomWalkProcess, WienerProcess
+See also: FractionalGaussianNoiseProcess, GeometricBrownianMotionProcess, NormalDistribution, OrnsteinUhlenbeckProcess, RandomWalkProcess, WienerProcess, hoskingMethod
 
 Guides: Random Processes
 

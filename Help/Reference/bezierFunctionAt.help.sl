@@ -27,7 +27,7 @@ Construct a Bézier curve using a list of control points and apply the function 
 
 * * *
 
-See also: bernsteinBasis, BezierCurve, bezierFunction, cubicBezierFunctionAt, deCasteljausAlgorithm, linearBezierFunctionAt, quadraticBezierFunctionAt
+See also: BezierCurve, bernsteinBasis, bezierFunction, cubicBezierFunctionAt, deCasteljausAlgorithm, linearBezierFunctionAt, quadraticBezierFunctionAt
 
 Guides: Geometry Functions
 

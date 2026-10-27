@@ -23,7 +23,7 @@ Answer the minimal residue of the integer _n_ modulo _m_.
 
 * * *
 
-See also: %, commonResidue, positiveResidue, Residue
+See also: Residue, %, commonResidue, positiveResidue
 
 Guides: Integer Functions, Modular Arithmetic Functions
 

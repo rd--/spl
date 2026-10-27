@@ -30,7 +30,7 @@ system
 
 * * *
 
-See also: pathJoin, Promise, readBinaryFile, readDirectory, readTextFile
+See also: Promise, pathJoin, readBinaryFile, readDirectory, readTextFile
 
 Guides: File Functions
 

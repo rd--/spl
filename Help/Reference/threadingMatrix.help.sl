@@ -35,6 +35,6 @@ that is each column is reversed.
 
 * * *
 
-See also: drawdownMatrix, liftplanMatrix, tieupMatrix, WeavingInformationFile
+See also: WeavingInformationFile, drawdownMatrix, liftplanMatrix, tieupMatrix
 
 Guides: Matrix Functions

@@ -29,7 +29,7 @@ use `inSeconds` to answer the number of seconds:
 
 * * *
 
-See also: hours, inSeconds, milliseconds, minutes, Quantity
+See also: Quantity, hours, inSeconds, milliseconds, minutes
 
 Guides: Quantity Functions
 

@@ -41,7 +41,7 @@ SinOsc(freq, 0) * 0.1
 
 * * *
 
-See also: Demand, Duty, TDuty, Dswitch
+See also: Demand, Dswitch, Duty, TDuty
 
 Guides: Unit Generators
 

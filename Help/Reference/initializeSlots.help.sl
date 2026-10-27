@@ -42,7 +42,7 @@ It is, in effect, a shorthand for setting each slot individually:
 
 * * *
 
-See also: initialize, new, Type
+See also: Type, initialize, new
 
 Guides: Reflection Functions
 

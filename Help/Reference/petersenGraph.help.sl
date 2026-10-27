@@ -107,7 +107,7 @@ The line graph of the Petersen graph:
 
 * * *
 
-See also: circulantGraph, complement, completeGraph, cycleGraph, Graph, lineGraph, prismGraph, starPolygon
+See also: Graph, circulantGraph, complement, completeGraph, cycleGraph, lineGraph, prismGraph, starPolygon
 
 Guides: Graph Functions
 

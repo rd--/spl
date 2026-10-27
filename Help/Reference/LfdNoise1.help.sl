@@ -38,7 +38,7 @@ SinOsc(
 
 * * *
 
-See also: LfdNoise0, LfdNoise3, LfNoise1
+See also: LfNoise1, LfdNoise0, LfdNoise3
 
 Guides: Unit Generators
 

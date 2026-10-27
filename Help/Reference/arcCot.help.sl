@@ -76,7 +76,7 @@ Plot over a subset of the complexes:
 
 * * *
 
-See also: arcTan, arcCoth, cot, degree
+See also: arcCoth, arcTan, cot, degree
 
 Guides: Trigonometric Functions
 

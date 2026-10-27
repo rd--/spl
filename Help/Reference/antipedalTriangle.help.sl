@@ -49,7 +49,7 @@ let p = t.firstFermatPoint;
 
 * * *
 
-See also: anticomplementaryTriangle, pedalTriangle, Triangle
+See also: Triangle, anticomplementaryTriangle, pedalTriangle
 
 Guides: Geometry Functions
 

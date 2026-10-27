@@ -12,7 +12,7 @@ This is ordinarily used by methods that provide access to system resources that 
 
 * * *
 
-See also: atIfAbsentPut, Cache, cached
+See also: Cache, atIfAbsentPut, cached
 
 Guides: Dictionary Functions
 

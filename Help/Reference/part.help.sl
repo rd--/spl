@@ -159,7 +159,7 @@ Extract the first element from each list:
 
 * * *
 
-See also: at, atAll, atAllSymmetrical, atSymmetrical, extract, Range, RelativeRange
+See also: Range, RelativeRange, at, atAll, atAllSymmetrical, atSymmetrical, extract
 
 Guides: Array Functions, Indexing Functions
 

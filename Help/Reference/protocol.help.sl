@@ -26,7 +26,7 @@ Mail, telephone and archive addresses:
 
 * * *
 
-See also: host, hostName, href, pathName, Location, Url
+See also: Location, Url, host, hostName, href, pathName
 
 Guides: Network Functions
 

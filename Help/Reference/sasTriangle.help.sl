@@ -64,7 +64,7 @@ let [_, _, c] = t.sideLengths;
 
 * * *
 
-See also: asaTriangle, sssTriangle, Triangle
+See also: Triangle, asaTriangle, sssTriangle
 
 Guides: Geometry Functions, Triangle Functions
 

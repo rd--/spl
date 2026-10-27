@@ -29,7 +29,7 @@ let t = [4 5 4].sssTriangle;
 
 * * *
 
-See also: bevanPoint, cevianTriangle, nagelPoint, pedalTriangle, Triangle
+See also: Triangle, bevanPoint, cevianTriangle, nagelPoint, pedalTriangle
 
 Guides: Geometry Functions
 

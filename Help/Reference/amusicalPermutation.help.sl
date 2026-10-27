@@ -175,7 +175,7 @@ b.discretePlot.log
 
 * * *
 
-See also: isEven, floor
+See also: floor, isEven
 
 References:
 _OEIS_

@@ -30,4 +30,4 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: LibraryItem, intervalName, namedScale, Scale
+See also: LibraryItem, Scale, intervalName, namedScale

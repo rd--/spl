@@ -21,7 +21,7 @@ At `Sphere`:
 
 * * *
 
-See also: Circle, circumference, radius, Sphere
+See also: Circle, Sphere, circumference, radius
 
 Guides: Geometry Functions
 

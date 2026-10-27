@@ -16,7 +16,7 @@ let c = t.excenters;
 
 * * *
 
-See also: excircles, exradii, incenter, Triangle
+See also: Triangle, excircles, exradii, incenter
 
 Guides: Geometry Functions, Triangle Functions
 

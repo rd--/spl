@@ -42,7 +42,7 @@ An twenty-one part integer partition of ninety-six:
 
 * * *
 
-See also: Disk, integerPartitions, LineDrawing
+See also: Disk, LineDrawing, integerPartitions
 
 Guides: Combinatorial Functions, Partition Functions, Plotting Functions
 

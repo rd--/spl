@@ -35,6 +35,6 @@ Find divisors that occur in any of 10, 12, and 20:
 
 * * *
 
-See also: ++, difference, IdentitySet, intersection, Set, union
+See also: IdentitySet, Set, ++, difference, intersection, union
 
 Categories: Enumerating

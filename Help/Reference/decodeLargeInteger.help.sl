@@ -52,7 +52,7 @@ At a thireen-place array:
 
 * * *
 
-See also: encode, encodeInt8, encodeInt16, encodeFloat32, encodeFloat64, randomLargeInteger
+See also: encode, encodeFloat32, encodeFloat64, encodeInt16, encodeInt8, randomLargeInteger
 
 Guides: Bitwise Functions
 

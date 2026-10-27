@@ -53,6 +53,6 @@ The matrix specific form is `columnCount`:
 
 * * *
 
-See also: columnCount, dimensions, isArray, isMatrix, isVolume, List, Matrix, numberOfRows, shape
+See also: List, Matrix, columnCount, dimensions, isArray, isMatrix, isVolume, numberOfRows, shape
 
 Guides: Array Functions, Matrix Functions

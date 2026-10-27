@@ -88,7 +88,7 @@ let y = x.collect { :t |
 
 * * *
 
-See also: convolve, fftConvolve, ifft, Complex
+See also: Complex, convolve, fftConvolve, ifft
 
 Guides: Fourier Analysis Functions
 

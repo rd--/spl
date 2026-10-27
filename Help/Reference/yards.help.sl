@@ -37,7 +37,7 @@ use `inYards` to answer the distance in yards:
 
 * * *
 
-See also: feet, metres, miles, Quantity
+See also: Quantity, feet, metres, miles
 
 Guides: SI Units
 

@@ -28,7 +28,7 @@ let x = (-4 -- 4).discretize(100);
 
 * * *
 
-See also: arrayPlot, Colour, contourPlot, densityPlot, Greymap, Image, matrixPlot
+See also: Colour, Greymap, Image, arrayPlot, contourPlot, densityPlot, matrixPlot
 
 Guides: Plotting Functions
 

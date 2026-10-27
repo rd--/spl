@@ -125,7 +125,7 @@ true
 
 * * *
 
-See also: isAtom, isFinite, isFraction, isInteger, isLargeInteger, isSmallFloat, Number
+See also: Number, isAtom, isFinite, isFraction, isInteger, isLargeInteger, isSmallFloat
 
 Guides: Mathematical Functions
 

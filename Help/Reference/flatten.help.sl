@@ -78,7 +78,7 @@ At `Tree`:
 
 * * *
 
-See also: ++, catenate, arrayFlatten, deepDo, flattenTo
+See also: ++, arrayFlatten, catenate, deepDo, flattenTo
 
 References:
 _Apl_

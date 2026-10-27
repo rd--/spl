@@ -63,7 +63,7 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: planarConvexPolytopeGraphCatalogue, planarNonHamiltonianGraphCatalogue, planarQuadrangulationsCatalogue, planarRegularGraphCatalogue, PolygonMesh
+See also: PolygonMesh, planarConvexPolytopeGraphCatalogue, planarNonHamiltonianGraphCatalogue, planarQuadrangulationsCatalogue, planarRegularGraphCatalogue
 
 Guides: Library Catalogue
 

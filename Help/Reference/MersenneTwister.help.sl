@@ -67,7 +67,7 @@ Difference between empirical and expected mean and standard deviation:
 
 * * *
 
-See also: LinearCongruential, RandomNumberGenerator, Sfc32, SplitMix, Stream
+See also: LinearCongruential, RandomNumberGenerator, SplitMix, Stream, Sfc32
 
 Guides: Random Number Generators
 

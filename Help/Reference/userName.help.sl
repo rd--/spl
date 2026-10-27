@@ -12,7 +12,7 @@ The user name is part of the authority component.
 
 * * *
 
-See also: fragment, host, hostName, href, pathName, port, protocol, query, Url
+See also: Url, fragment, host, hostName, href, pathName, port, protocol, query
 
 Guides: Network Functions
 

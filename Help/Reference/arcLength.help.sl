@@ -42,7 +42,7 @@ At `Polygon`:
 
 * * *
 
-See also: Circle, circumference, perimeter, Line, Polygon, Rectangle, regularPolygon
+See also: Circle, Line, Polygon, Rectangle, circumference, perimeter, regularPolygon
 
 Guides: Geometry Functions
 

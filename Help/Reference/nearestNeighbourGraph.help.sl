@@ -38,7 +38,7 @@ g
 
 * * *
 
-See also: distanceMatrix, Graph, nearest
+See also: Graph, distanceMatrix, nearest
 
 Guides: Graph Functions
 

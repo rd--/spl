@@ -63,7 +63,7 @@ Sfc32(79143)
 
 * * *
 
-See also: atRandom, randomByteArray, randomLargeInteger, RandomNumberGenerator, randomReal, randomSample
+See also: RandomNumberGenerator, atRandom, randomByteArray, randomLargeInteger, randomReal, randomSample
 
 Guides: Random Functions
 

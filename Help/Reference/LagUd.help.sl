@@ -11,7 +11,7 @@ This is useful for smoothing out control signals, where _fade in_ should be diff
 
 * * *
 
-See also: Lag, Lag2, Lag3, Lag2Ud, Lag3Ud
+See also: Lag, Lag2, Lag2Ud, Lag3, Lag3Ud
 
 Guides: Unit Generators
 

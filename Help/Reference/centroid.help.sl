@@ -54,7 +54,7 @@ let p = 8.regularPolygon([0 0], 1, 0);
 
 * * *
 
-See also: Circle, Line, Polygon, polygonCentroid, Rectangle
+See also: Circle, Line, Polygon, Rectangle, polygonCentroid
 
 Guides: Geometry Functions
 

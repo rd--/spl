@@ -162,7 +162,7 @@ let t = sssTriangle(x ^ -1, 1, x);
 
 * * *
 
-See also: asaTriangle, sasTriangle, Triangle
+See also: Triangle, asaTriangle, sasTriangle
 
 Guides: Geometry Functions, Triangle Functions
 

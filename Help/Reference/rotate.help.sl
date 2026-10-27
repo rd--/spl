@@ -48,7 +48,7 @@ let g = [1 3].unitSquare;
 
 * * *
 
-See also: centroid, circulantMatrix, Polygon, rotateLeft, rotateRight, scaled
+See also: Polygon, centroid, circulantMatrix, rotateLeft, rotateRight, scaled
 
 Guides: List Functions
 

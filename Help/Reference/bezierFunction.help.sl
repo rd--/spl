@@ -78,7 +78,7 @@ let f/1 = [0 0.25 1.75 2].bezierFunction;
 
 * * *
 
-See also: bernsteinBasis, bezierApproximation, BezierCurve, bezierFunctionAt, bezierTrace, cubicBezierFunctionAt, deCasteljausAlgorithm, linearBezierFunctionAt, quadraticBezierFunctionAt
+See also: BezierCurve, bernsteinBasis, bezierApproximation, bezierFunctionAt, bezierTrace, cubicBezierFunctionAt, deCasteljausAlgorithm, linearBezierFunctionAt, quadraticBezierFunctionAt
 
 Guides: Geometry Functions
 

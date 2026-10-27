@@ -53,7 +53,7 @@ let n = [0 .. m - 1];
 
 * * *
 
-See also: +, *, injectInto, square, sum
+See also: *, +, injectInto, square, sum
 
 Guides: Collection Functions, Mathematical Functions
 

@@ -23,7 +23,7 @@ Threads over lists:
 
 * * *
 
-See also: Colour, HsvColour, hsvToRgb, hue, RgbColour
+See also: Colour, HsvColour, RgbColour, hsvToRgb, hue
 
 Guides: Colour Functions
 

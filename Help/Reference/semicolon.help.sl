@@ -31,7 +31,7 @@ The name of this syntax token is `semicolon`.
 
 * * *
 
-See also: :, ,, .
+See also: ,, ., :
 
 Guides: Block Syntax, Matrix Syntax, Syntax Tokens
 

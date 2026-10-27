@@ -21,7 +21,7 @@ false
 
 * * *
 
-See also: isRowVector, isMatrix, isVector
+See also: isMatrix, isRowVector, isVector
 
 Guides: Predicate Functions
 

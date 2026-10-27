@@ -73,7 +73,7 @@ The _n=9_ complete graph:
 
 * * *
 
-See also: circulantGraph, cycleGraph, Graph, wattsStrogatzModel
+See also: Graph, circulantGraph, cycleGraph, wattsStrogatzModel
 
 Guides: Graph Functions
 

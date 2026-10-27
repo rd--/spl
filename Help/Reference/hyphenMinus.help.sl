@@ -31,7 +31,7 @@ Where supported `-` is displayed as −.
 
 * * *
 
-See also: +, *, /, ^, negate, subtract
+See also: *, +, /, ^, negate, subtract
 
 Guides: Binary Operators
 

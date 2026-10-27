@@ -39,7 +39,7 @@ and the answer is not a triplet but a quartet:
 
 * * *
 
-See also: Colour, parseHexColour, parseHexTriplet, printString, RgbColour
+See also: Colour, RgbColour, parseHexColour, parseHexTriplet, printString
 
 Guides: Colour Functions
 

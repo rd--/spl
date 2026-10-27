@@ -624,7 +624,7 @@ and that this distinction is important for some calculations:
 
 * * *
 
-See also: e, fibonacci, fibonacciSequence, goldenAngle, harmoniousNumber, metallicMean, logarithmicSpiral, pi, plasticRatio, supergoldenRatio, wythoffLower
+See also: e, fibonacci, fibonacciSequence, goldenAngle, harmoniousNumber, logarithmicSpiral, metallicMean, pi, plasticRatio, supergoldenRatio, wythoffLower
 
 Guides: Mathematical Constants, Xenharmonic Functions
 

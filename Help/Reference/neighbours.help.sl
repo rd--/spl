@@ -41,7 +41,7 @@ All vertices are neighbours in a complete graph:
 
 * * *
 
-See also: adjacencyList, Graph, incidenceGraph, incidenceList, neighbourhoodGraph
+See also: Graph, adjacencyList, incidenceGraph, incidenceList, neighbourhoodGraph
 
 Guides: Graph Functions
 

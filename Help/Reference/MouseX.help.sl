@@ -38,7 +38,7 @@ MouseX and MouseY can report unexpected values on systems with multiple displays
 
 * * *
 
-See also: MouseY, MouseButton
+See also: MouseButton, MouseY
 
 Guides: Unit Generators
 

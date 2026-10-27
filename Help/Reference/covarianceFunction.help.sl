@@ -20,7 +20,7 @@ Estimate the covariance function at specified lags:
 
 * * *
 
-See also: correlationFunction, correlation, covariance
+See also: correlation, correlationFunction, covariance
 
 References:
 _Mathematica_

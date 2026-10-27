@@ -20,6 +20,6 @@ An error with a cause:
 
 * * *
 
-See also: causeText, description, Error, messageText, name
+See also: Error, causeText, description, messageText, name
 
 Guides: Error Functions

@@ -30,7 +30,7 @@ At a `List` of associations:
 
 * * *
 
-See also: associations, do, keysDo, keysAndValuesDo, valuesDo
+See also: associations, do, keysAndValuesDo, keysDo, valuesDo
 
 Guides: Iteration Functions
 

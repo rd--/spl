@@ -26,7 +26,7 @@ The subsequence _23_ appears twice in _123234345_:
 
 * * *
 
-See also: indexOfSubstring, indicesOf, includesSubstring, sequencePosition
+See also: includesSubstring, indexOfSubstring, indicesOf, sequencePosition
 
 Guides: List Functions
 

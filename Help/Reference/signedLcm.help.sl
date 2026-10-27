@@ -79,7 +79,7 @@ signedLcm/2
 
 * * *
 
-See also: &&, gcd, signedGcd, lcm
+See also: &&, gcd, lcm, signedGcd
 
 Guides: Integer Functions
 

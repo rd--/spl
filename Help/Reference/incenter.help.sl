@@ -30,7 +30,7 @@ let c = t.incenter;
 
 * * *
 
-See also: excenters, incircle, Triangle
+See also: Triangle, excenters, incircle
 
 Guides: Geometry Functions
 

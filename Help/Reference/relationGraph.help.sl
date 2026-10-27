@@ -125,7 +125,7 @@ Construct a graph from its adjacency matrix:
 
 * * *
 
-See also: adjacencyGraph, Graph
+See also: Graph, adjacencyGraph
 
 Guides: Graph Functions
 

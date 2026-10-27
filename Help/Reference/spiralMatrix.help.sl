@@ -88,7 +88,7 @@ Plot matrix:
 
 * * *
 
-See also: crossMatrix, isPrime, spirangle, evoluteSpiralMatrix
+See also: crossMatrix, evoluteSpiralMatrix, isPrime, spirangle
 
 Guides: Geometry Functions, Matrix Functions
 

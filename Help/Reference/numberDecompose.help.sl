@@ -115,7 +115,7 @@ Decompose an amount of Bahamian dollars in the available banknote denominations:
 
 * * *
 
-See also: numberCompose, quotientRemainder, integerPartitions, integerDigits, mixedRadixEncode
+See also: integerDigits, integerPartitions, mixedRadixEncode, numberCompose, quotientRemainder
 
 Guides: Integer Functions
 

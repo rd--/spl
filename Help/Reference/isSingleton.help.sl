@@ -46,7 +46,7 @@ true
 
 * * *
 
-See also: completeGraph, Graph, isEmpty, size
+See also: Graph, completeGraph, isEmpty, size
 
 Guides: Graph Functions, List Functions, Set Functions
 

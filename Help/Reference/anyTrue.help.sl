@@ -38,7 +38,7 @@ true
 
 * * *
 
-See also: allSatisfy, allFalse, allTrue, anySatisfy, noneSatisfy
+See also: allFalse, allSatisfy, allTrue, anySatisfy, noneSatisfy
 
 Guides: Boolean Functions, Predicate Functions
 

@@ -15,7 +15,7 @@ The name of this operator is `exclamationMarkEqualsSignEqualsSign`.
 
 * * *
 
-See also: =, ==, !=, isIdentical, isNonidentical
+See also: !=, =, ==, isIdentical, isNonidentical
 
 Guides: Comparison Functions, Equality Functions
 

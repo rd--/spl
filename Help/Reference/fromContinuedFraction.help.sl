@@ -234,7 +234,7 @@ OeisEntry('A071766').withData(
 
 * * *
 
-See also: convergents, continuedFraction, goldenRatio
+See also: continuedFraction, convergents, goldenRatio
 
 Guides: Mathematical Functions
 

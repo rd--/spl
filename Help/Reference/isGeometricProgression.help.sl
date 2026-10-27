@@ -23,6 +23,6 @@ The `ratios` of a geometic series are all equal:
 
 * * *
 
-See also: isArithmeticProgression, geometricProgression, ratios
+See also: geometricProgression, isArithmeticProgression, ratios
 
 Categories: Testing

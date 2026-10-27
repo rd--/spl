@@ -146,7 +146,7 @@ let m = 89;
 
 * * *
 
-See also: ^, %, powerMod
+See also: %, ^, powerMod
 
 Guides: Prime Number Functions
 

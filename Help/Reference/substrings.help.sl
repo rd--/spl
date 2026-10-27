@@ -196,7 +196,7 @@ OEIS [A085823](https://oeis.org/A085823):
 
 * * *
 
-See also: partition, powerSet, longestCommonSubsequence, subsequences, subsets, tuples
+See also: longestCommonSubsequence, partition, powerSet, subsequences, subsets, tuples
 
 Guides: Sequence Alignment Functions
 

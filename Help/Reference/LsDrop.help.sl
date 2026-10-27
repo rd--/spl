@@ -18,7 +18,7 @@ This is equivalent to `drop`:
 
 * * *
 
-See also: drop, LsTake
+See also: LsTake, drop
 
 Guides: Patterns and Streams
 

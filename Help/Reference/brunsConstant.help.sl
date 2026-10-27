@@ -41,7 +41,7 @@ Plot convergence:
 
 * * *
 
-See also: boltzmannConstant, e, goldenRatio, isPrime, isLesserTwinPrime, pi, planckConstant, silverConstant, stolarskyHarborthConstant
+See also: boltzmannConstant, e, goldenRatio, isLesserTwinPrime, isPrime, pi, planckConstant, silverConstant, stolarskyHarborthConstant
 
 Guides: Integer Sequence Functions, Mathematical Constants, Prime Number Functions
 

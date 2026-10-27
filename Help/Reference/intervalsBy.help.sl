@@ -23,7 +23,7 @@ Answer the cyclic intervals of the scale _s_ at the specified distance _n_.
 
 * * *
 
-See also: intervalClass, intervalClasses, intervals, Scale
+See also: Scale, intervalClass, intervalClasses, intervals
 
 Guides: Scale Functions, Xenharmonic Functions
 

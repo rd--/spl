@@ -28,7 +28,7 @@ let t = sssTriangle(3, 4, 5);
 
 * * *
 
-See also: isoperimetricPoint, Triangle
+See also: Triangle, isoperimetricPoint
 
 Guides: Geometry Functions
 

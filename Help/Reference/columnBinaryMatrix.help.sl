@@ -40,6 +40,6 @@ To recover the indices use `deepIndicesOf` and `column`:
 
 * * *
 
-See also: isCostasArray, SparseArray, welchCostasArrayList
+See also: SparseArray, isCostasArray, welchCostasArrayList
 
 Guides: Matrix Functions

@@ -11,7 +11,7 @@ Answer the column vector of the vector _x_.
 
 * * *
 
-See also: isColumnVector, List, rowVector
+See also: List, isColumnVector, rowVector
 
 Guides: Matrix Functions
 

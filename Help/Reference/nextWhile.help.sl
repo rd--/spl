@@ -18,7 +18,7 @@ answers `true`.
 
 * * *
 
-See also: next, nextUntil, takeWhile, Stream
+See also: Stream, next, nextUntil, takeWhile
 
 Guides: Stream Functions
 

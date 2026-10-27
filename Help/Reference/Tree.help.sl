@@ -488,7 +488,7 @@ An asymmetric tree:
 
 * * *
 
-See also: expressionTree, List
+See also: List, expressionTree
 
 Guides: Tree Functions
 

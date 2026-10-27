@@ -37,7 +37,7 @@ Find the minimum time increments for a collection of paths:
 
 * * *
 
-See also: isRegularlySampled, TemporalData, TimeSeries
+See also: TemporalData, TimeSeries, isRegularlySampled
 
 Guides: Time Series Functions
 

@@ -51,7 +51,7 @@ Circular drawing of the same graph:
 
 * * *
 
-See also: completeGraph, Graph
+See also: Graph, completeGraph
 
 Guides: Graph Functions
 

@@ -97,7 +97,7 @@ A part of an infinite or open simple spirolateral:
 
 * * *
 
-See also: hypotrochoid, Polygon
+See also: Polygon, hypotrochoid
 
 Guides: Curve Functions
 

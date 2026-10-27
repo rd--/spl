@@ -65,7 +65,7 @@ true
 
 * * *
 
-See also: intervalMatrix, Tuning
+See also: Tuning, intervalMatrix
 
 References:
 _Xenharmonic_

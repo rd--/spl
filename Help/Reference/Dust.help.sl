@@ -21,7 +21,7 @@ Dust(XLine(20000, 2, 10)) * 0.1
 
 * * *
 
-See also: Dust2, Impulse
+See also: Impulse, Dust2
 
 Guides: Unit Generators
 

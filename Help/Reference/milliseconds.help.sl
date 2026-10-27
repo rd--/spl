@@ -26,7 +26,7 @@ use `inMilliseconds` to answer the number of milliseconds:
 
 * * *
 
-See also: hours, inSeconds, minutes, Quantity, seconds
+See also: Quantity, hours, inSeconds, minutes, seconds
 
 Guides: Quantity Functions
 

@@ -145,6 +145,6 @@ let p = { :r :e |
 
 * * *
 
-See also: --, Interval, Range, subdivide
+See also: Interval, Range, --, subdivide
 
 Guides: Coordinate System Functions, Interpolation Functions, List Functions

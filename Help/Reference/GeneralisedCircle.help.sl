@@ -123,7 +123,7 @@ GeneralisedCircle(0, -1J1, 2)
 
 * * *
 
-See also: Circle, implicitEquation, InfiniteLine
+See also: Circle, InfiniteLine, implicitEquation
 
 Guides: Geometry Functions
 

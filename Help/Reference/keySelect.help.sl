@@ -31,7 +31,7 @@ At `List`, select keys that odd:
 
 * * *
 
-See also: collect, detect, select, reject
+See also: collect, detect, reject, select
 
 Guides: Dictionary Functions
 

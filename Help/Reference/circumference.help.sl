@@ -11,7 +11,7 @@ Answer the arc length of the circle _c_.
 
 * * *
 
-See also: arcLength, Circle, perimeter
+See also: Circle, arcLength, perimeter
 
 Guides: Geometry Functions
 

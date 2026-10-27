@@ -27,7 +27,7 @@ If the interval is empty there are no values to iterate over:
 
 * * *
 
-See also: do, Range, to, toByDo, toDo
+See also: Range, do, to, toByDo, toDo
 
 Guides: Iteration Functions
 

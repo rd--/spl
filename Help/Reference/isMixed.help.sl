@@ -36,7 +36,7 @@ Graph[1 --> 2, 2 --- 3, 3 --> 1]
 
 * * *
 
-See also: ---, -->, Graph, isDirected, isUndirected
+See also: Graph, ---, -->, isDirected, isUndirected
 
 Guides: Graph Functions
 

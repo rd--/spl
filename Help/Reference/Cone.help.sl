@@ -19,7 +19,7 @@ Answer a `Cone` with a base of radius _r_ centered at _c₁_ and a tip at _c₂_
 
 * * *
 
-See also: area, Ball, center, diameter, Circle, Ellipse, radius, randomPoint, spherePoints
+See also: Ball, Circle, Ellipse, area, center, diameter, radius, randomPoint, spherePoints
 
 References:
 _Mathematica_

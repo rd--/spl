@@ -35,7 +35,7 @@ DoubleQuotedString('`x`')
 
 * * *
 
-See also: BacktickQuotedString, quotationMark, String
+See also: BacktickQuotedString, String, quotationMark
 
 Guides: String Syntax
 

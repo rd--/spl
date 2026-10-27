@@ -216,7 +216,7 @@ OEIS [A034962](https://oeis.org/A034962):
 
 * * *
 
-See also: clump, adjacentPairsCollect, movingMap, pairsCollect, pairsDo, partitionDo, takeList, windowedReduce
+See also: adjacentPairsCollect, clump, movingMap, pairsCollect, pairsDo, partitionDo, takeList, windowedReduce
 
 Guided: List Functions, String Functions
 

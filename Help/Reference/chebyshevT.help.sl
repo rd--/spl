@@ -164,7 +164,7 @@ Evaluate symbolically:
 
 * * *
 
-See also: chebyshevU, UnivariatePolynomial
+See also: UnivariatePolynomial, chebyshevU
 
 Guides: Polynomial Functions
 

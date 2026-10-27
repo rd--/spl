@@ -103,7 +103,7 @@ let e = d.voronoiEdgeList.collect { :each |
 
 * * *
 
-See also: circumcircle, convexHull, convexHullIndices, delaunayMesh, edgeList, faceIndices, Graph, graph, polygonMesh, PolygonMesh, vertexCount, voronoiVertexCoordinates
+See also: Graph, PolygonMesh, circumcircle, convexHull, convexHullIndices, delaunayMesh, edgeList, faceIndices, graph, polygonMesh, vertexCount, voronoiVertexCoordinates
 
 Guides: Graph Functions
 

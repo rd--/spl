@@ -110,7 +110,7 @@ Product of two permutation lists of the same length:
 
 * * *
 
-See also: ordering, permutationList, permutationCycles, isPermutationCycles
+See also: isPermutationCycles, ordering, permutationCycles, permutationList
 
 Guides: Permutation Functions, Predicate Functions
 

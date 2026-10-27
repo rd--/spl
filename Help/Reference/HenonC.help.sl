@@ -53,7 +53,7 @@ HenonC(
 
 * * *
 
-See also: HenonN, HenonL
+See also: HenonL, HenonN
 
 Guides: Unit Generators
 

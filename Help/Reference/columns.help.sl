@@ -41,6 +41,6 @@ Table([3 3].iota).columns([1 3]).htmlString
 
 * * *
 
-See also: at, column, List, Matrix, rows, submatrix, transpose
+See also: List, Matrix, at, column, rows, submatrix, transpose
 
 Guides: Matrix Functions

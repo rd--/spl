@@ -66,7 +66,7 @@ Fibonacci polynomials:
 
 * * *
 
-See also: fibonacci, UnivariatePolynomial
+See also: UnivariatePolynomial, fibonacci
 
 Guides: Polynomial Functions
 

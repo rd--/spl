@@ -75,7 +75,7 @@ let f = { :o |
 
 * * *
 
-See also: array, coordinateBoundingBoxArray, coordinateBounds, coordinateBoundsList, outer, Range, subdivide, table
+See also: Range, array, coordinateBoundingBoxArray, coordinateBounds, coordinateBoundsList, outer, subdivide, table
 
 Guides: Array Functions, Geometry Functions
 

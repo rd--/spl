@@ -129,7 +129,7 @@ OEIS [A061704](https://oeis.org/A061704):
 
 * * *
 
-See also: aliquotSum, divisors, divisorSigma, sum
+See also: aliquotSum, divisorSigma, divisors, sum
 
 References:
 _Mathematica_

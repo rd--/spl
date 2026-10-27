@@ -21,4 +21,4 @@ use `inCentimetres` to answer the value in centimetres:
 
 * * *
 
-See also: metres, Quantity
+See also: Quantity, metres

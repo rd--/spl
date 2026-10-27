@@ -55,7 +55,7 @@ The 25-Paley graph:
 
 * * *
 
-See also: cyclotomicGraph, Graph, hadamardMatrix
+See also: Graph, cyclotomicGraph, hadamardMatrix
 
 Guides: Graph Functions
 

@@ -42,6 +42,6 @@ false
 
 * * *
 
-See also: isCollection, isDictionary, isSequence, List, Map, Record
+See also: List, Map, Record, isCollection, isDictionary, isSequence
 
 Categories: Testing

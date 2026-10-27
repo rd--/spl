@@ -107,7 +107,7 @@ Discriminant of a quartic:
 
 * * *
 
-See also: determinant, isSquareFree, resultant, trace, UnivariatePolynomial
+See also: UnivariatePolynomial, determinant, isSquareFree, resultant, trace
 
 Guides: Polynomial Functions
 

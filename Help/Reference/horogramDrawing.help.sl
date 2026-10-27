@@ -36,7 +36,7 @@ A drawing of the _5/12_ moment of symmetry scale construction:
 
 * * *
 
-See also: Circle, circularPartitionsDrawing, horogramTable, Line, LineDrawing, momentOfSymmetry, rectangularHorogramDrawing
+See also: Circle, Line, LineDrawing, circularPartitionsDrawing, horogramTable, momentOfSymmetry, rectangularHorogramDrawing
 
 Guides: Scale Functions, Xenharmonic Functions
 

@@ -243,6 +243,6 @@ Plot the `Graph` of the `Tree` of a `SymbolicExpression`:
 
 * * *
 
-See also: Block, isEqualSymbolicExpression, commonSubexpressions, name, printString, recogniseSymbolicExpression, Symbol
+See also: Block, Symbol, commonSubexpressions, isEqualSymbolicExpression, name, printString, recogniseSymbolicExpression
 
 Categories: Logic, Type

@@ -27,4 +27,4 @@ true
 
 * * *
 
-See also: /, Fraction, isPrime
+See also: Fraction, /, isPrime

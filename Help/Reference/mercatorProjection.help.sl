@@ -22,7 +22,7 @@ Lattice points under Mercator projection:
 
 * * *
 
-See also: gallPetersProjection, gallStereographicProjection, GeodeticCoordinates, namedCartographicProjection
+See also: GeodeticCoordinates, gallPetersProjection, gallStereographicProjection, namedCartographicProjection
 
 Guides: Geodetic Functions
 

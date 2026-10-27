@@ -36,7 +36,7 @@ system
 
 * * *
 
-See also: Cache, CacheStorage, system, System
+See also: Cache, CacheStorage, System, system
 
 Guides: System Functions
 

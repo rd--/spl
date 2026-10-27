@@ -30,7 +30,7 @@ false
 
 * * *
 
-See also: =, ==, <, isZero, isNegative
+See also: <, =, ==, isNegative, isZero
 
 Guides: Predicate Functions
 

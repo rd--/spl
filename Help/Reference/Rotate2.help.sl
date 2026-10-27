@@ -63,7 +63,7 @@ Rotate2(x, y, MouseX(0, 2, 0, 0.2))
 
 * * *
 
-See also: BiPanB2, DecodeB2, PanB, PanB2
+See also: PanB, BiPanB2, DecodeB2, PanB2
 
 Guides: Unit Generators
 

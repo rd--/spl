@@ -68,7 +68,7 @@ Drawing of the line graph of the star graph on six vertices:
 
 * * *
 
-See also: cycleGraph, Graph
+See also: Graph, cycleGraph
 
 Guides: Graph Functions
 

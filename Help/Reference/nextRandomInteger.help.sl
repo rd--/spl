@@ -38,7 +38,7 @@ let r = Sfc32(901813);
 
 * * *
 
-See also: nextRandomFloat, randomInteger, RandomNumberGenerator
+See also: RandomNumberGenerator, nextRandomFloat, randomInteger
 
 Guides: Random Number Generators
 

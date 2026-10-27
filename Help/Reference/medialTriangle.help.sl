@@ -95,7 +95,7 @@ Barymetric subdivision:
 
 * * *
 
-See also: midpoint, midpointPolygon, pedalTriangle, Triangle
+See also: Triangle, midpoint, midpointPolygon, pedalTriangle
 
 Guides: Geometry Functions
 

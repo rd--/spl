@@ -7,4 +7,4 @@ Alias for `integerSquareRoot`.
 
 * * *
 
-See also: integerSquareRoot, squareRoot, sqrt
+See also: integerSquareRoot, sqrt, squareRoot

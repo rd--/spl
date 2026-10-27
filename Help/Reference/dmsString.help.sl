@@ -19,7 +19,7 @@ Canonicalize a Dms list:
 
 * * *
 
-See also: degree, dmsList, fromDms, GeodeticCoordinates
+See also: GeodeticCoordinates, degree, dmsList, fromDms
 
 References:
 _Mathematica_

@@ -24,7 +24,7 @@ BLowPass(
 
 * * *
 
-See also: Sos, BLowPass4, BHiPass, BHiPass4, BPeakEQ, BLowShelf, BHiShelf, BBandPass, BBandStop, BAllPass
+See also: BAllPass, BBandPass, BBandStop, BHiPass, BHiShelf, BLowShelf, BPeakEQ, Sos, BHiPass4, BLowPass4
 
 Guides: Unit Generators
 

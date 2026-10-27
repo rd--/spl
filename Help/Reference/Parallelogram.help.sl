@@ -69,7 +69,7 @@ Any triangle is always of equal area to a certain parallelogram having an equal 
 
 * * *
 
-See also: LineDrawing, parallelogram, Polygon, vertexCoordinates
+See also: LineDrawing, Polygon, parallelogram, vertexCoordinates
 
 Guides: Geometry Functions
 

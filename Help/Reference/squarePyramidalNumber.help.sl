@@ -44,7 +44,7 @@ OEIS [A000330](https://oeis.org/A000330):
 
 * * *
 
-See also: ^, *, square, sqrt
+See also: *, ^, sqrt, square
 
 Guides: Integer Sequence Functions
 

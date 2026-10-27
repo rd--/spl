@@ -108,7 +108,7 @@ Difference between empirical and expected mean and standard deviation:
 
 * * *
 
-See also: MersenneTwister, RandomNumberGenerator, Sfc32, SplitMix, Stream
+See also: MersenneTwister, RandomNumberGenerator, SplitMix, Stream, Sfc32
 
 Guides: Random Number Generators
 

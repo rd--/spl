@@ -131,6 +131,6 @@ For the answer to be a block subarray _i_ should contain only proper substrings 
 
 * * *
 
-See also: at, atAll, Array, part, submatrix
+See also: Array, at, atAll, part, submatrix
 
 Guides: Array Functions

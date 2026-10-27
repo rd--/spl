@@ -13,7 +13,7 @@ which must be a valid Utf-16 sequence.
 
 * * *
 
-See also: String, asciiString, utf8String, utf16List
+See also: String, asciiString, utf16List, utf8String
 
 Guides: String Functions
 

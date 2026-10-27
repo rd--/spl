@@ -14,7 +14,7 @@ false
 
 * * *
 
-See also: endsWith, beginsWith, beginsWithAny
+See also: beginsWith, beginsWithAny, endsWith
 
 Guides: List Functions
 

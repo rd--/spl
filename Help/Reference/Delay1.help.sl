@@ -15,7 +15,7 @@ let z = Dust(1000);
 
 * * *
 
-See also: DelayC, DelayL, DelayN, Delay2, DelayTap, DelayWrite
+See also: DelayC, DelayL, DelayN, DelayTap, DelayWrite, Delay2
 
 Guides: Unit Generators
 

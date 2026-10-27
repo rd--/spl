@@ -63,7 +63,7 @@ true
 
 * * *
 
-See also: encodeJson, isJson, Json
+See also: Json, encodeJson, isJson
 
 Guides: Protocol Functions
 

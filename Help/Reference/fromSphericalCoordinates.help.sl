@@ -85,7 +85,7 @@ Convert to cyclindrical coordinates:
 
 * * *
 
-See also: arcTan, norm, fromPolarCoordinates, SphericalCoordinates, toSphericalCoordinates
+See also: SphericalCoordinates, arcTan, fromPolarCoordinates, norm, toSphericalCoordinates
 
 Guides: Coordinate System Functions
 

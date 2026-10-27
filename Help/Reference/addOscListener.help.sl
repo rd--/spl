@@ -23,6 +23,6 @@ true
 
 * * *
 
-See also: removeOscListener, ScSynth
+See also: ScSynth, removeOscListener
 
 Categories: Scheduling

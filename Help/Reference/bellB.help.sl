@@ -92,7 +92,7 @@ Evaluate symbolically:
 
 * * *
 
-See also: bellY, UnivariatePolynomial
+See also: UnivariatePolynomial, bellY
 
 Guides: Polynomial Functions
 

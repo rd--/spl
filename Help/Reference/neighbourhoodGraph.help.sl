@@ -49,7 +49,7 @@ The neighbourhood graph of a complete graph is itself:
 
 * * *
 
-See also: adjacencyList, Graph, incidenceGraph, incidenceList, incidenceMatrix
+See also: Graph, adjacencyList, incidenceGraph, incidenceList, incidenceMatrix
 
 Guides: Graph Functions
 

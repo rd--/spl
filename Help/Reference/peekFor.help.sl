@@ -21,7 +21,7 @@ if the next element is equal to `x`.
 
 * * *
 
-See also: peek, Stream
+See also: Stream, peek
 
 Guides: Stream Functions
 

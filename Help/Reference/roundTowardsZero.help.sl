@@ -49,6 +49,6 @@ Compare to `round`:
 
 * * *
 
-See also: ceiling, floor, round, roundDown, roundUp, roundTiesEven, truncate
+See also: ceiling, floor, round, roundDown, roundTiesEven, roundUp, truncate
 
 Guides: Rounding Functions

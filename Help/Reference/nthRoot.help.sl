@@ -147,7 +147,7 @@ Where supported `nthRoot` is displayed as √.
 
 * * *
 
-See also: ^, sqrt, cubeRoot
+See also: ^, cubeRoot, sqrt
 
 References:
 _Apl_

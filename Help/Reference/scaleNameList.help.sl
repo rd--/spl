@@ -158,6 +158,6 @@ true
 
 * * *
 
-See also: namedScale, scalaScaleArchive, Scale
+See also: Scale, namedScale, scalaScaleArchive
 
 Guides: Scale Functions

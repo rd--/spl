@@ -32,7 +32,7 @@ Skip to a position:
 
 * * *
 
-See also: position, next, skipTo, Stream
+See also: Stream, next, position, skipTo
 
 Guides: Stream Functions
 

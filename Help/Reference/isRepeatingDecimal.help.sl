@@ -48,7 +48,7 @@ OEIS [A085837](https://oeis.org/A085837):
 
 * * *
 
-See also: decimalPeriod, Fraction
+See also: Fraction, decimalPeriod
 
 Guides: Integer Functions
 

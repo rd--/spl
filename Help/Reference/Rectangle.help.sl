@@ -148,7 +148,7 @@ as the enclosure of three squares:
 
 * * *
 
-See also: centeredRectangle, Circle, Line, LineDrawing, Point, Polygon, Triangle, unitSquare, vertexCoordinates
+See also: Circle, Line, LineDrawing, Point, Polygon, Triangle, centeredRectangle, unitSquare, vertexCoordinates
 
 Guides: Geometry Functions
 

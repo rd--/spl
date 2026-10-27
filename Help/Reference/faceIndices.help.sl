@@ -54,7 +54,7 @@ At the unit cube, a `Polyhedron`:
 
 * * *
 
-See also: faceCount, Polygon, Polyhedron, vertexCoordinates, vertexCount
+See also: Polygon, Polyhedron, faceCount, vertexCoordinates, vertexCount
 
 References:
 _Mathematica_

@@ -13,7 +13,7 @@ of the `Url` _u_.
 
 * * *
 
-See also: host, hostName, href, pathName, port, protocol, query, Url
+See also: Url, host, hostName, href, pathName, port, protocol, query
 
 Guides: Network Functions
 

@@ -34,7 +34,7 @@ The name of this syntax token is `colon`.
 
 * * *
 
-See also: ,, ., ;, :;, :=
+See also: ,, ., :;, :=, ;
 
 Guides: Block Syntax, Record Syntax, Infix Method Syntax, Range Syntax, Syntax Tokens, Type Definition Syntax
 

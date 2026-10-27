@@ -17,6 +17,6 @@ and it avoids making the extra copy that `copy` of `List` makes if _c_ is not a 
 
 * * *
 
-See also: copy, List
+See also: List, copy
 
 Guides: Copying Functions, List Functions

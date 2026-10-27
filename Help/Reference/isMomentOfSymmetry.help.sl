@@ -26,7 +26,7 @@ false
 
 * * *
 
-See also: intervalClass, intervalClasses, isBinary, isProper, isStrictlyProper, momentOfSymmetry, Scale
+See also: Scale, intervalClass, intervalClasses, isBinary, isProper, isStrictlyProper, momentOfSymmetry
 
 Guides: Scale Functions, Xenharmonic Functions
 

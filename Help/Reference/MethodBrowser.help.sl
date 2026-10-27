@@ -11,6 +11,6 @@ The _Status Text_ shows if the selected value is a `Trait` or a `Type`.
 
 * * *
 
-See also: CategoryBrowser, MethodSignatureBrowser, TraitBrowser, TypeBrowser, SystemBrowser
+See also: CategoryBrowser, MethodSignatureBrowser, SystemBrowser, TraitBrowser, TypeBrowser
 
 Categories: Kansas

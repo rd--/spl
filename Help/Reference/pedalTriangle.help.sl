@@ -68,7 +68,7 @@ let d = t.secondBrocardTriangle;
 
 * * *
 
-See also: antipedalTriangle, cevianTriangle, fromTrilinearVertexMatrix, medialTriangle, orthicTriangle, orthocenter, Triangle, sec
+See also: Triangle, antipedalTriangle, cevianTriangle, fromTrilinearVertexMatrix, medialTriangle, orthicTriangle, orthocenter, sec
 
 Guides: Geometry Functions
 

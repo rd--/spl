@@ -8,6 +8,6 @@ A `Trait` defines required methods using this method.
 
 * * *
 
-See also: error, Trait, Type, signal
+See also: Trait, Type, error, signal
 
 Categories: Error

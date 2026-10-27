@@ -42,7 +42,7 @@ let r = Sfc32(890133);
 
 * * *
 
-See also: BinomialProcess, PoissonDistribution, ExponentialDistribution
+See also: BinomialProcess, ExponentialDistribution, PoissonDistribution
 
 Guides: Random Processes
 

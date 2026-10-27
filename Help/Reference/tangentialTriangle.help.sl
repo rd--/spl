@@ -34,7 +34,7 @@ let t = [3 4.75 3].sssTriangle;
 
 * * *
 
-See also: circumcircle, fromTrilinearVertexMatrix, orthicTriangle, Triangle
+See also: Triangle, circumcircle, fromTrilinearVertexMatrix, orthicTriangle
 
 Guides: Geometry Functions
 

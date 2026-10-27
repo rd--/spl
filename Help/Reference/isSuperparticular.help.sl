@@ -68,7 +68,7 @@ The superparticular numbers are exactly the rational numbers whose simple contin
 
 * * *
 
-See also: fareySequence, Fraction, isSquareSuperparticular, isUnitFraction
+See also: Fraction, fareySequence, isSquareSuperparticular, isUnitFraction
 
 Guides: Xenharmonic Functions
 

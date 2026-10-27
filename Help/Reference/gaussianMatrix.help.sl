@@ -58,7 +58,7 @@ Compute and plot a Gaussian vector:
 
 * * *
 
-See also: differences, diskMatrix, exp, gaussianVector, NormalDistribution
+See also: NormalDistribution, differences, diskMatrix, exp, gaussianVector
 
 Guides: Matrix Functions
 

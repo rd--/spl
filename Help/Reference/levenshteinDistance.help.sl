@@ -84,7 +84,7 @@ Levenshtein distance treats transposition as separate deletion and insertion ope
 
 * * *
 
-See also: editDistance, hammingDistance, damerauLevenshteinDistance, manhattanDistance, needlemanWunschAlgorithm
+See also: damerauLevenshteinDistance, editDistance, hammingDistance, manhattanDistance, needlemanWunschAlgorithm
 
 Guides: Distance Functions, Similarity Functions
 

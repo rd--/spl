@@ -38,6 +38,6 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: LibraryItem, scalaTuningArchive, ScalaTuning
+See also: LibraryItem, ScalaTuning, scalaTuningArchive
 
 Guides: Tuning Functions

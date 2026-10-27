@@ -28,7 +28,7 @@ At `CentsTuning`:
 
 * * *
 
-See also: CentsTuning, RatioTuning, ScalaTuning, Tuning, integers, ratios, ratioToCents
+See also: CentsTuning, RatioTuning, ScalaTuning, Tuning, integers, ratioToCents, ratios
 
 Guides: Tuning Functions
 

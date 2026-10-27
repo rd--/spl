@@ -63,7 +63,7 @@ A two dimensional geometric series diagram by Nicole Oresme:
 
 * * *
 
-See also: arithmeticProgression, arithmeticoGeometricSequence, isGeometricProgression, powerRange, Range, ratios
+See also: Range, arithmeticProgression, arithmeticoGeometricSequence, isGeometricProgression, powerRange, ratios
 
 Guides: Integer Sequence Functions, List Functions
 

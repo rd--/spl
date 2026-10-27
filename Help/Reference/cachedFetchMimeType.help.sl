@@ -19,7 +19,7 @@ system
 
 * * *
 
-See also: Cache, CacheStorage, cachedFetch, fetch, fetchMimeType, Url
+See also: Cache, CacheStorage, Url, cachedFetch, fetch, fetchMimeType
 
 Guides: Network Functions
 

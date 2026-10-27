@@ -149,7 +149,7 @@ which are stored as a `Record`:
 
 * * *
 
-See also: asTree, contents, do, markdownToHtml, Tree
+See also: Tree, asTree, contents, do, markdownToHtml
 
 Guides: Help Functions, Text Functions
 

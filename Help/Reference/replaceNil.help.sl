@@ -26,6 +26,6 @@ Threads over lists:
 
 * * *
 
-See also: isNil, Nil
+See also: Nil, isNil
 
 Guides: Error Functions

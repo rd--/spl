@@ -93,7 +93,7 @@ Unicode strings:
 
 * * *
 
-See also: Character, characters, codePoints, String
+See also: Character, String, characters, codePoints
 
 Guides: String Functions
 

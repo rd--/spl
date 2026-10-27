@@ -60,7 +60,7 @@ and the denominator on the _y_-axis:
 
 * * *
 
-See also: calkinWilfSequence, sternBrocotSequence, sternBrocotTree, Tree
+See also: Tree, calkinWilfSequence, sternBrocotSequence, sternBrocotTree
 
 References:
 _Mathematica_

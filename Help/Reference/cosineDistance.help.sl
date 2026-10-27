@@ -19,7 +19,7 @@ Cosine distance between numeric vectors:
 
 * * *
 
-See also: correlationDistance, euclideanDistance, dot, norm, vectorAngle
+See also: correlationDistance, dot, euclideanDistance, norm, vectorAngle
 
 Guides: Distance Functions
 

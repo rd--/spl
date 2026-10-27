@@ -138,7 +138,7 @@ For the answer to be a block submatrix _r_ and _c_ should contain only proper su
 
 * * *
 
-See also: at, atAll, Matrix, part, subarray
+See also: Matrix, at, atAll, part, subarray
 
 Guides: Matrix Functions
 

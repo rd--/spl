@@ -14,7 +14,7 @@ false
 
 * * *
 
-See also: isTree, size, Tree, zero
+See also: Tree, isTree, size, zero
 
 Guides: Tree Functions
 

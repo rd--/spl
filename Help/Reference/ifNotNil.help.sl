@@ -20,7 +20,7 @@ nil
 
 * * *
 
-See also: if, ifEmpty, ifFalse, ifNil, ifTrue, nil, Nil
+See also: Nil, if, ifEmpty, ifFalse, ifNil, ifTrue, nil
 
 Guides: Control Functions
 

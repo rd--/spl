@@ -114,7 +114,7 @@ Plot the Pochhammer function varying _a_:
 
 * * *
 
-See also: beta, binomial, gamma, factorial, factorialPower
+See also: beta, binomial, factorial, factorialPower, gamma
 
 Guides: Combinatorial Functions, Special Functions
 

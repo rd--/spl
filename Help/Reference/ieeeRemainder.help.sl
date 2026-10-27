@@ -45,7 +45,7 @@ Compare with `remainder`:
 
 * * *
 
-See also: -, *, remainder, round
+See also: *, -, remainder, round
 
 Guides: Floating Point Functions
 

@@ -48,7 +48,7 @@ At `Polyhedron`, the number of edges is half of the sum of the face degrees:
 
 * * *
 
-See also: edgeList, Graph, Polygon, Polyhedron, vertexCount
+See also: Graph, Polygon, Polyhedron, edgeList, vertexCount
 
 Guides: Geometry Functions, Graph Function
 

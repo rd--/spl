@@ -13,7 +13,7 @@ and `false` if not.
 
 * * *
 
-See also: next, peekFor, Stream
+See also: Stream, next, peekFor
 
 Guides: Stream Functions
 

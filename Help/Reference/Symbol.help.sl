@@ -71,7 +71,7 @@ x
 
 * * *
 
-See also: name, String, SymbolicExpression
+See also: String, SymbolicExpression, name
 
 Guides: String Syntax
 

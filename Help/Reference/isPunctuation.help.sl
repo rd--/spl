@@ -44,7 +44,7 @@ There are twenty six punctuations and each has two cases:
 
 * * *
 
-See also: Character, isDigit, isLowerCase, isUpperCase, String
+See also: Character, String, isDigit, isLowerCase, isUpperCase
 
 Guides: String Functions
 

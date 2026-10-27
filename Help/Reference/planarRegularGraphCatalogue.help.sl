@@ -31,7 +31,7 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: planarConvexPolytopeGraphCatalogue, planarNonHamiltonianGraphCatalogue, planarQuadrangulationsCatalogue, PolygonMesh
+See also: PolygonMesh, planarConvexPolytopeGraphCatalogue, planarNonHamiltonianGraphCatalogue, planarQuadrangulationsCatalogue
 
 Guides: Library Catalogue
 

@@ -16,7 +16,7 @@ Answer the altitudes of the triangle _t_.
 
 * * *
 
-See also: orthicTriangle, orthocenter, Triangle
+See also: Triangle, orthicTriangle, orthocenter
 
 Guides: Geometry Functions
 

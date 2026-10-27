@@ -25,7 +25,7 @@ let b = (1/10 * (25 - (11 * 5.sqrt))).sqrt;
 
 * * *
 
-See also: goldenRatio, Polygon, starPolygon
+See also: Polygon, goldenRatio, starPolygon
 
 References:
 _Mathematica_

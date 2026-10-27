@@ -173,6 +173,6 @@ Rows 1&2 of page 2:
 
 * * *
 
-See also: at, Sequence
+See also: Sequence, at
 
 Guides: Array Functions

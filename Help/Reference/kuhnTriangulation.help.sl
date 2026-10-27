@@ -35,6 +35,6 @@ let k = 3.kuhnTriangulation;
 
 * * *
 
-See also: permutations, Tetrahedron, Triangle
+See also: Tetrahedron, Triangle, permutations
 
 Further Reading: Coxeter 1932, Kuhn 1960, Moore 1992

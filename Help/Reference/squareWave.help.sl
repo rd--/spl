@@ -31,7 +31,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: integerPart, Piecewise, sawtoothWave, sin, triangleWave, unitBox, unitStep
+See also: Piecewise, integerPart, sawtoothWave, sin, triangleWave, unitBox, unitStep
 
 Guides: Signal Processing Functions
 

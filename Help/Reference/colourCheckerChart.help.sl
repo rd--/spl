@@ -65,7 +65,7 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: Colour, LibraryItem, parseHexColour, parseHexTriplet, RgbColour
+See also: Colour, LibraryItem, RgbColour, parseHexColour, parseHexTriplet
 
 Guides: Library Catalogue
 

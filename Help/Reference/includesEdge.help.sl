@@ -45,6 +45,6 @@ false
 
 * * *
 
-See also: DirectedEdge, Graph, matchesEdge, UndirectedEdge
+See also: DirectedEdge, Graph, UndirectedEdge, matchesEdge
 
 Guides: Graph Functions

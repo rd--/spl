@@ -83,7 +83,7 @@ In both cases,
 
 * * *
 
-See also: List, rulesTree, Tree
+See also: List, Tree, rulesTree
 
 Guides: Tree Functions
 

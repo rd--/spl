@@ -32,7 +32,7 @@ true
 
 * * *
 
-See also: ascii, asciiString, ByteArray, String, utf8ByteArray, utf8String, utf16List
+See also: ByteArray, String, ascii, asciiString, utf16List, utf8ByteArray, utf8String
 
 Guides: String Functions
 

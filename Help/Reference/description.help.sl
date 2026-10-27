@@ -48,7 +48,7 @@ If an explicit message text was provided by the signaler of the exception, that 
 
 * * *
 
-See also: error, Error, messageText, reason, Scale
+See also: Error, Scale, error, messageText, reason
 
 Guides: Error Functions, Scale Functions, Tuning Functions
 

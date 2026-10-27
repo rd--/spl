@@ -86,7 +86,7 @@ PinkNoise()
 
 * * *
 
-See also: Compare, Equal, =, !=, <, <=, >, >=, <=>, isGreater, isLessOrEqual
+See also: Compare, Equal, !=, <, <=, <=>, =, >, >=, isGreater, isLessOrEqual
 
 Guides: Binary Operators, Comparison Functions, Sort Functions
 

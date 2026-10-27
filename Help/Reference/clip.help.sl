@@ -108,7 +108,7 @@ the unary `Clip` defaults to _0,1_.
 
 * * *
 
-See also: clamp, max, min, normalizeRange, noralizeSignal, piecewise, rescale, round, tanh, threshold, unitize
+See also: clamp, max, min, noralizeSignal, normalizeRange, piecewise, rescale, round, tanh, threshold, unitize
 
 References:
 _Mathematica_

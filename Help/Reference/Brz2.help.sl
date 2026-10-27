@@ -22,7 +22,7 @@ Brz2(WhiteNoise() * 0.1)
 
 * * *
 
-See also: Bpz2, Brf
+See also: Brf, Bpz2
 
 References:
 _SuperCollider_

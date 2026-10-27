@@ -28,7 +28,7 @@ BrownianBridgeProcess(1, [0 -1], [2 1])
 
 * * *
 
-See also: eulerMaruyamaMethod, GeometricBrownianMotionProcess, NormalDistribution, OrnsteinUhlenbeckProcess, WienerProcess
+See also: GeometricBrownianMotionProcess, NormalDistribution, OrnsteinUhlenbeckProcess, WienerProcess, eulerMaruyamaMethod
 
 Guides: Random Processes
 

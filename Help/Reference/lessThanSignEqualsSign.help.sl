@@ -15,7 +15,7 @@ The name of this operator is `lessThanSignEqualsSign`.
 
 * * *
 
-See also: <, >, >=, =, lessEqual
+See also: <, =, >, >=, lessEqual
 
 Guides: Comparison Functions
 

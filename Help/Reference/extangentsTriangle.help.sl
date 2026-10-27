@@ -35,7 +35,7 @@ let c = a.excenters;
 
 * * *
 
-See also: excenters, excircles, Triangle
+See also: Triangle, excenters, excircles
 
 Guides: Geometry Functions
 

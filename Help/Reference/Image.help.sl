@@ -30,7 +30,7 @@ Create an `Image` from a constant array:
 
 * * *
 
-See also: arrayPlot, Bitmap, Greymap, Svg
+See also: Bitmap, Greymap, Svg, arrayPlot
 
 Guides: Image Functions
 

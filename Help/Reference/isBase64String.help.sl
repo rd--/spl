@@ -46,7 +46,7 @@ false
 
 * * *
 
-See also: Number, base64Decode, base64Encode, isBooleanString, isFloatString, isDecimalIntegerString
+See also: Number, base64Decode, base64Encode, isBooleanString, isDecimalIntegerString, isFloatString
 
 Guides: Parsing Functions
 

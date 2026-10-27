@@ -144,7 +144,7 @@ Plot `tanh` alongside a simple approximation suitable for use as a non-linear di
 
 * * *
 
-See also: arcTanh, sinh, coth, sobolevaModifiedTanh, tan
+See also: arcTanh, coth, sinh, sobolevaModifiedTanh, tan
 
 Guides: Hyperbolic Functions, Sigmoid Functions
 

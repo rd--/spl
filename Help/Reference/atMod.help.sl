@@ -31,6 +31,6 @@ The unary form is equivalent to `atWrap`.
 
 * * *
 
-See also: at, atFold, atPin, atWrap, Indexable, put, size
+See also: Indexable, at, atFold, atPin, atWrap, put, size
 
 Categories: Accessing

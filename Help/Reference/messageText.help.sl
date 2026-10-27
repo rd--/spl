@@ -12,7 +12,7 @@ Answer the message text of the exception _e_.
 
 * * *
 
-See also: description, error, Error
+See also: Error, description, error
 
 Guides: Error Functions
 

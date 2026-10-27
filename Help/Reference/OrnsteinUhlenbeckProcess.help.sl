@@ -31,7 +31,7 @@ OrnsteinUhlenbeckProcess(0.3, 0.5, 0.4)
 
 * * *
 
-See also: eulerMaruyamaMethod, NormalDistribution, WienerProcess
+See also: NormalDistribution, WienerProcess, eulerMaruyamaMethod
 
 Guides: Random Processes
 

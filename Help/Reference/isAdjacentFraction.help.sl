@@ -26,7 +26,7 @@ false
 
 * * *
 
-See also: fareySequence, Fraction
+See also: Fraction, fareySequence
 
 Guides: Predicate Functions
 

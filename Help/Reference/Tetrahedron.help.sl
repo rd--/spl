@@ -32,7 +32,7 @@ Tetrahedron[
 
 * * *
 
-See also: kuhnTriangulation, Polyhedron, Simplex, Triangle, unitTetrahedron
+See also: Polyhedron, Simplex, Triangle, kuhnTriangulation, unitTetrahedron
 
 Guides: Geometry Functions
 

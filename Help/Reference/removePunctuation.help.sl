@@ -29,6 +29,6 @@ Remove only quotation marks:
 
 * * *
 
-See also: removeDiacritics, String
+See also: String, removeDiacritics
 
 Guides: String Functions

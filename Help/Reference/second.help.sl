@@ -11,7 +11,7 @@ Answer the second element of the sequence _c_.
 
 * * *
 
-See also: first, Sequence
+See also: Sequence, first
 
 Guides: List Functions
 

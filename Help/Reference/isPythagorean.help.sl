@@ -32,7 +32,7 @@ true
 
 * * *
 
-See also: greatestPrimeFactor, primeLimit, RatioTuning
+See also: RatioTuning, greatestPrimeFactor, primeLimit
 
 Guides: Tuning Functions
 

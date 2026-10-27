@@ -59,7 +59,7 @@ Sfc32(529721)
 
 * * *
 
-See also: BrownianBridgeProcess, GeometricBrownianMotionProcess, milsteinMethod, OrnsteinUhlenbeckProcess
+See also: BrownianBridgeProcess, GeometricBrownianMotionProcess, OrnsteinUhlenbeckProcess, milsteinMethod
 
 Guides: Numerical Methods, Random Processes
 

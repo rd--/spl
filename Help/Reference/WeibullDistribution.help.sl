@@ -82,7 +82,7 @@ WeibullDistribution(3 / 4, 1, 0)
 
 * * *
 
-See also: CauchyDistribution, cdf, NormalDistribution, pdf, randomVariate, UniformDistribution
+See also: CauchyDistribution, NormalDistribution, UniformDistribution, cdf, pdf, randomVariate
 
 Guides: Probability Distributions, Random Functions
 

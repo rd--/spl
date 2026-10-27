@@ -220,7 +220,7 @@ drawdownMatrix(i1, m, i2)
 
 * * *
 
-See also: Bitmap, integerSequenceMatrix, matrixPlot, tieupMatrix, WeavingInformationFile
+See also: Bitmap, WeavingInformationFile, integerSequenceMatrix, matrixPlot, tieupMatrix
 
 Guides: Matrix Functions
 

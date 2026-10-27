@@ -32,7 +32,7 @@ The derivative is `logisticSigmoid`:
 
 * * *
 
-See also: logisticSigmoid, softMax, softSign, ramp
+See also: logisticSigmoid, ramp, softMax, softSign
 
 Guides: Activation Functions
 

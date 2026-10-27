@@ -12,7 +12,7 @@ system
 
 * * *
 
-See also: fetch, fetchByteArray, fetchMimeType, fetchText, Json
+See also: Json, fetch, fetchByteArray, fetchMimeType, fetchText
 
 Guides: Network Functions
 

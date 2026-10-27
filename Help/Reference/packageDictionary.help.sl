@@ -62,7 +62,7 @@ true
 
 * * *
 
-See also: methodDictionary, Package, packageMethods, packageTraits, packageTypes, traitDictionary, typeDictionary, system
+See also: Package, methodDictionary, packageMethods, packageTraits, packageTypes, system, traitDictionary, typeDictionary
 
 Guides: Reflection Functions
 

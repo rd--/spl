@@ -45,4 +45,4 @@ This name of this operator is `exclamationMarkPlusSign`.
 
 * * *
 
-See also: !, !^, Sum
+See also: Sum, !, !^

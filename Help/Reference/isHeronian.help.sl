@@ -68,7 +68,7 @@ true
 
 * * *
 
-See also: area, isDescartesQuadruple, isInteger, Triangle
+See also: Triangle, area, isDescartesQuadruple, isInteger
 
 References:
 _Mathematica_

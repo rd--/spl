@@ -22,7 +22,7 @@ WienerProcess(0, 0.5)
 
 * * *
 
-See also: randomVariate, TemporalData, WienerProcess
+See also: TemporalData, WienerProcess, randomVariate
 
 References:
 _Mathematica_

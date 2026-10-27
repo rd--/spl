@@ -122,7 +122,7 @@ Polygon[
 
 * * *
 
-See also: area, centroid, interiorAngles, polygonCollection, PolygonWithHoles, randomPolygon, regularPolygon, vertexCoordinates
+See also: PolygonWithHoles, area, centroid, interiorAngles, polygonCollection, randomPolygon, regularPolygon, vertexCoordinates
 
 Guides: Geometry Functions
 

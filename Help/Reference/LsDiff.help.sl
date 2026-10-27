@@ -11,7 +11,7 @@ Answer a stream of the differences between the current and previous values of _i
 
 * * *
 
-See also: adjacentPairsCollect, adjacentPairsDo, LsAdjacent
+See also: LsAdjacent, adjacentPairsCollect, adjacentPairsDo
 
 Guides: Patterns and Streams
 

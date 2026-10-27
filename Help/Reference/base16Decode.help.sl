@@ -15,7 +15,7 @@ This is aliased with `parseBase16`.
 
 * * *
 
-See also: base64Decode, base16Encode, isBase16String
+See also: base16Encode, base64Decode, isBase16String
 
 Guides: Parsing Functions
 

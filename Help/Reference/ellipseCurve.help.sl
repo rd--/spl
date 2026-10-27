@@ -65,7 +65,7 @@ Plot ¾ of a circular ellipse beginning at ¼:
 
 * * *
 
-See also: circleCurve, Ellipse
+See also: Ellipse, circleCurve
 
 Guides: Curve Functions
 

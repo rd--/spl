@@ -31,7 +31,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: heavisideLambda, Piecewise, sawtoothWave, sin, squareWave, unitTriangle
+See also: Piecewise, heavisideLambda, sawtoothWave, sin, squareWave, unitTriangle
 
 Guides: Signal Processing Functions
 

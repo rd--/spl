@@ -13,6 +13,6 @@ The _Status Text_ shows the traits the selected type implements.
 
 * * *
 
-See also: TraitBrowser, SystemBrowser
+See also: SystemBrowser, TraitBrowser
 
 Categories: Kansas

@@ -27,7 +27,7 @@ Rewrite words _a b_ as _b, a_:
 
 * * *
 
-See also: replace, replaceString, replaceStringAll, replaceAllWith
+See also: replace, replaceAllWith, replaceString, replaceStringAll
 
 Guides: Regular Expression Functions
 

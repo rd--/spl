@@ -22,7 +22,7 @@ completeKaryTree(3, 3).treePlot
 
 * * *
 
-See also: karyTree, Tree
+See also: Tree, karyTree
 
 Guides: Tree Functions
 

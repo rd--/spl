@@ -42,7 +42,7 @@ The `arcLength` in three-dimensions:
 
 * * *
 
-See also: HalfLine, InfiniteLine, HalfPlane, InfinitePlane, Line, Point
+See also: HalfLine, HalfPlane, InfiniteLine, InfinitePlane, Line, Point
 
 References:
 _Mathematica_

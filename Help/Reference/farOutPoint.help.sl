@@ -29,7 +29,7 @@ let c = t.farOutPoint;
 
 * * *
 
-See also: centroid, circumcenter, circumcircle, Triangle
+See also: Triangle, centroid, circumcenter, circumcircle
 
 Guides: Geometry Functions
 

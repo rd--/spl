@@ -134,7 +134,7 @@ OEIS [A136412](https://oeis.org/A136412):
 
 * * *
 
-See also: cayleyTree, Graph
+See also: Graph, cayleyTree
 
 Guides: Graph Functions
 

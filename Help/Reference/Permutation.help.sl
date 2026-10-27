@@ -438,7 +438,7 @@ true
 
 * * *
 
-See also: cycles, inversePermutation, isPermutationCycles, isPemutationList, permutationCycle, permutationList, permutationProduct, permutationPower, permute
+See also: cycles, inversePermutation, isPemutationList, isPermutationCycles, permutationCycle, permutationList, permutationPower, permutationProduct, permute
 
 Guides: Permutation Functions
 

@@ -14,7 +14,7 @@ else `false`.
 
 * * *
 
-See also: negate, isNegative, isNonNegative, isPositive
+See also: isNegative, isNonNegative, isPositive, negate
 
 Guides: Predicate Functions
 

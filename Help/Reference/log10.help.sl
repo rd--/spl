@@ -86,7 +86,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: ^, log, log2, power, realExponent, integerExponent, powerRange
+See also: ^, integerExponent, log, log2, power, powerRange, realExponent
 
 Guides: Mathematical Functions
 

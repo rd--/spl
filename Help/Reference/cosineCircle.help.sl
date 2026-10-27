@@ -19,7 +19,7 @@ let t = [5 3.5 5].sssTriangle;
 
 * * *
 
-See also: Circle, symmedianPoint, Triangle
+See also: Circle, Triangle, symmedianPoint
 
 Guides: Geometry Functions, Triangle Functions
 

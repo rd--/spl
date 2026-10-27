@@ -178,7 +178,7 @@ Where supported `cube` is displayed as ³.
 
 * * *
 
-See also: ^, *, cubeRoot, square
+See also: *, ^, cubeRoot, square
 
 References:
 _Mathematica_

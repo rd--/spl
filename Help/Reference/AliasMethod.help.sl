@@ -33,7 +33,7 @@ The distribution is given as a sequence of probability values that `sum` to `one
 
 * * *
 
-See also: Random, randomWeightedChoice, Sfc32
+See also: Random, Sfc32, randomWeightedChoice
 
 References:
 _W_

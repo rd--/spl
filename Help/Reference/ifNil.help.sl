@@ -35,7 +35,7 @@ true
 
 * * *
 
-See also: if, ifEmpty, ifFalse, ifNaN, ifNotNil, ifTrue, nil, Nil
+See also: Nil, if, ifEmpty, ifFalse, ifNaN, ifNotNil, ifTrue, nil
 
 Guides: Control Functions
 

@@ -32,7 +32,7 @@ Where supported `precedesOrEqualTo` is displayed as ≼.
 
 * * *
 
-See also: =, <, >, <=>, compare, precedes
+See also: <, <=>, =, >, compare, precedes
 
 Unicode: U+227c ≼ Precedes Or Equal To
 

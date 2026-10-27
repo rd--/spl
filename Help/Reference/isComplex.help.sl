@@ -30,7 +30,7 @@ real numbers and quaternions are also complex numbers in that they answer `real`
 
 * * *
 
-See also: isNumber, isReal, Complex
+See also: Complex, isNumber, isReal
 
 Guides: Complex Number Functions, Number Functions, Predicate Functions
 

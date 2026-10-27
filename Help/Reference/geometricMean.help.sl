@@ -103,7 +103,7 @@ Compute the geometric and arithmetic means of the columns of a matrix:
 
 * * *
 
-See also: arithmeticMean, arithmeticGeometricMean, harmonicMean, mean, median
+See also: arithmeticGeometricMean, arithmeticMean, harmonicMean, mean, median
 
 Guides: Statistics Functions
 

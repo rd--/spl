@@ -37,7 +37,7 @@ When the arguments to `!=` are `boole`, it is the exclusive or function:
 
 * * *
 
-See also: Equal, =, !, ==, ~~, <, <=, >=, isEqual
+See also: Equal, !, <, <=, =, ==, >=, ~~, isEqual
 
 Guides: Binary Operators, Comparison Functions
 

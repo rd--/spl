@@ -25,6 +25,6 @@ The `cause` need not be another `Error`:
 
 * * *
 
-See also: cause, description, Error, messageText
+See also: Error, cause, description, messageText
 
 Guides: Error Functions

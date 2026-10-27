@@ -15,7 +15,7 @@ Where supported `==` is displayed as ≡.
 
 * * *
 
-See also: Compare, Equal, =, ~~, ~, !=, !==, identical
+See also: Compare, Equal, !=, !==, =, ~, ~~, identical
 
 Guides: Comparison Functions, Equality Functions
 

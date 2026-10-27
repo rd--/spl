@@ -50,7 +50,7 @@ And so on indefinitely.
 
 * * *
 
-See also: isMomentOfSymmetry, momentOfSymmetry, Scale
+See also: Scale, isMomentOfSymmetry, momentOfSymmetry
 
 Guides: Tuning Functions, Xenharmonic Functions
 

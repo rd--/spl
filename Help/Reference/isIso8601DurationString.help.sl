@@ -36,7 +36,7 @@ true
 
 * * *
 
-See also: Date, DateAndTime, Duration, parseDuration, TimeStamp
+See also: Date, DateAndTime, Duration, TimeStamp, parseDuration
 
 Guides: Date and Time Functions, Parsing Functions
 

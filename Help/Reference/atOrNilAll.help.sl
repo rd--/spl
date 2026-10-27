@@ -13,6 +13,6 @@ or `nil` if the index is invalid.
 
 * * *
 
-See also: atAll, atOrMissingAll, atOrNil, Nil
+See also: Nil, atAll, atOrMissingAll, atOrNil
 
 Guides: Indexing Functions

@@ -85,7 +85,7 @@ Represent a network with an adjacency matrix:
 
 * * *
 
-See also: adjacencyList, adjacencyMatrix, Graph, weightedAdjacencyGraph
+See also: Graph, adjacencyList, adjacencyMatrix, weightedAdjacencyGraph
 
 Guides: Graph Functions
 

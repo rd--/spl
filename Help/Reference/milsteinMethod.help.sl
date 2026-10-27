@@ -43,7 +43,7 @@ Sfc32(317892)
 
 * * *
 
-See also: eulerMaruyamaMethod, GeometricBrownianMotionProcess
+See also: GeometricBrownianMotionProcess, eulerMaruyamaMethod
 
 Guides: Numerical Methods, Random Processes
 

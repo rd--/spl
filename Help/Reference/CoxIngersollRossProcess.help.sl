@@ -32,7 +32,7 @@ CoxIngersollRossProcess(0.3, 0.5, 1, 2)
 
 * * *
 
-See also: eulerMaruyamaMethod, GeometricBrownianMotionProcess, WienerProcess
+See also: GeometricBrownianMotionProcess, WienerProcess, eulerMaruyamaMethod
 
 Guides: Random Processes
 

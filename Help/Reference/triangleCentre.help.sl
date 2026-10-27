@@ -36,7 +36,7 @@ The `orthocenter`:
 
 * * *
 
-See also: interiorAngles, sideLengths, Triangle
+See also: Triangle, interiorAngles, sideLengths
 
 Guides: Geometry Functions
 

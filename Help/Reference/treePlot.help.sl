@@ -44,7 +44,7 @@ A tree with only `nil` data:
 
 * * *
 
-See also: graphPlot, Tree
+See also: Tree, graphPlot
 
 Guides: Graph Functions, Plotting Functions, Tree Functions
 

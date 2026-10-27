@@ -10,7 +10,7 @@ The three components of `CylindricalCoordinates` are:
 
 * * *
 
-See also: CartesianCoordinates, fromCylindricalCoordinates, SphericalCoordinates, toCylindricalCoordinates
+See also: CartesianCoordinates, SphericalCoordinates, fromCylindricalCoordinates, toCylindricalCoordinates
 
 Guides: Coordinate System Functions, Geometry Functions
 

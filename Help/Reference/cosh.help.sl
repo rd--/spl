@@ -141,7 +141,7 @@ log scale plot:
 
 * * *
 
-See also: arcCosh, cos, sin, sech, sinh
+See also: arcCosh, cos, sech, sin, sinh
 
 Guides: Hyperbolic Functions, Trigonometric Functions
 

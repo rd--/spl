@@ -55,7 +55,7 @@ a[1 .. 85].scatterPlot
 
 * * *
 
-See also: detect, includes, Range
+See also: Range, detect, includes
 
 Guides: Collection Functions
 

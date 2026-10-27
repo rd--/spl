@@ -74,6 +74,6 @@ system.helpProgramsDo { :p |
 
 * * *
 
-See also: helpFilesDo, HelpProgram
+See also: HelpProgram, helpFilesDo
 
 Guides: Help Files, Help Functions, System Functions

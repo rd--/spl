@@ -11,6 +11,6 @@ List()
 
 * * *
 
-See also: (:), List, Record
+See also: List, Record, (:)
 
 Guides: List Syntax, Syntax Guides

@@ -25,7 +25,7 @@ Plot the adjacency matrix of the stacked book graph _B(5,7)_:
 
 * * *
 
-See also: bookGraph, Graph, graphProduct, pathGraph, starGraph
+See also: Graph, bookGraph, graphProduct, pathGraph, starGraph
 
 Guides: Graph Functions
 

@@ -165,7 +165,7 @@ OEIS [A056951](https://oeis.org/A056951):
 
 * * *
 
-See also: absArg, absSquare, arg, hypot, imaginary, norm, sign, real
+See also: absArg, absSquare, arg, hypot, imaginary, norm, real, sign
 
 Guides: Complex Number Functions
 

@@ -95,7 +95,7 @@ Graph[1 3; 1 4; 1 5; 2 3; 2 4; 2 5; 3 5]
 
 * * *
 
-See also: complement, Graph, lineGraph, undirectedGraph
+See also: Graph, complement, lineGraph, undirectedGraph
 
 Guides: Graph Functions
 

@@ -102,7 +102,7 @@ Correlation between an identity matrix and itself:
 
 * * *
 
-See also: centralMoment, cosineSimilarity, correlationFunction, covariance, mean, variance
+See also: centralMoment, correlationFunction, cosineSimilarity, covariance, mean, variance
 
 Guides: Statistics Functions
 

@@ -70,7 +70,7 @@ TimeSeries([4 1 3 2 5], [1 .. 5])
 
 * * *
 
-See also: atBlend, blend, ColourGradient, downsample, interpolation, linearInterpolation, listInterpolation, upsample
+See also: ColourGradient, atBlend, blend, downsample, interpolation, linearInterpolation, listInterpolation, upsample
 
 Guides: Interpolation Functions, Time Series Functions
 

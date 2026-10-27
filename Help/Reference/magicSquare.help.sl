@@ -105,7 +105,7 @@ A 10×10 magic square:
 
 * * *
 
-See also: List, magicSquareSummary, Matrix
+See also: List, Matrix, magicSquareSummary
 
 Guides: Magic Square Functions
 

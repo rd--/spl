@@ -19,7 +19,7 @@ The name of this token is `quotationMark`.
 
 * * *
 
-See also: apostrophe, DoubleQuotedString, graveAccent, String
+See also: DoubleQuotedString, String, apostrophe, graveAccent
 
 Guides: String Syntax
 

@@ -59,7 +59,7 @@ true
 
 * * *
 
-See also: parseScientificNotation, SmallFloat
+See also: SmallFloat, parseScientificNotation
 
 Guides: Parsing Functions
 

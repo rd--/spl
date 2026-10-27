@@ -147,6 +147,6 @@ The size of each row is given by the Fibonacci numbers:
 
 * * *
 
-See also: fibonacci, Fraction, rationalUnrank
+See also: Fraction, fibonacci, rationalUnrank
 
 Guides: Integer Sequence Functions

@@ -82,7 +82,7 @@ The `depth` of an array is one greater than its `rank`:
 
 * * *
 
-See also: arrayDepth, depth, dimensions, isArray, isMatrix, isVector, matrixRank, reshape, Sequence, shape
+See also: Sequence, arrayDepth, depth, dimensions, isArray, isMatrix, isVector, matrixRank, reshape, shape
 
 Guides: Matrix Functions
 

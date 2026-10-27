@@ -463,7 +463,7 @@ Evaluate symbolically:
 
 * * *
 
-See also: +, *, dotProduct, inner, outer, scalarTripleProduct
+See also: *, +, dotProduct, inner, outer, scalarTripleProduct
 
 Guides: List Functions, Matrix Functions, Vector Functions
 

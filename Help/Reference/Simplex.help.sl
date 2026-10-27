@@ -6,7 +6,7 @@ A `Type` representing the simplex spanned by points _pᵢ_.
 
 * * *
 
-See also: cayleyMengerDeterminant, kuhnTriangulation, Line, Point, Tetrahedron, Triangle
+See also: Line, Point, Tetrahedron, Triangle, cayleyMengerDeterminant, kuhnTriangulation
 
 References:
 _Mathematica_

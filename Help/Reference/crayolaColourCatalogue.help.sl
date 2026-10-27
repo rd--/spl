@@ -67,7 +67,7 @@ The `crayolaColourCatalogue` method is `requireLibraryItem` of 'CrayolaColourCat
 
 * * *
 
-See also: LibraryItem, namedColour, RgbColour
+See also: LibraryItem, RgbColour, namedColour
 
 Guides: Colour Functions, Library Catalogue
 

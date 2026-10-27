@@ -38,7 +38,7 @@ OEIS [A008302](https://oeis.org/A008302):
 
 * * *
 
-See also: descents, mahonianNumbers, Permutation
+See also: Permutation, descents, mahonianNumbers
 
 Guides: Permutation Functions
 

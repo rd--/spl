@@ -58,7 +58,7 @@ The adjacency matrix of a circulant graph of ninety-nine edges:
 
 * * *
 
-See also: hararyGraph, Graph
+See also: Graph, hararyGraph
 
 Guides: Graph Functions
 

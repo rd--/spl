@@ -231,7 +231,7 @@ A family of circles:
 
 * * *
 
-See also: Arc, arcLength, area, centroid, circleThrough, Disk, Ellipse, GeneralisedCircle, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, unitCircle, x, y
+See also: Arc, Disk, Ellipse, GeneralisedCircle, LineDrawing, Polygon, Rectangle, Triangle, arcLength, area, centroid, circleThrough, perimeter, r, unitCircle, x, y
 
 Guides: Geometry Functions
 

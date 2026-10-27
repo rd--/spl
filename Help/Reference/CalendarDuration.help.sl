@@ -76,7 +76,7 @@ it only has an absolute duration in seconds in relation to a `Date` or `DateAndT
 
 * * *
 
-See also: Date, Duration, Frequency, inSeconds, parseCalendarDuration, TimeStamp
+See also: Date, Duration, Frequency, TimeStamp, inSeconds, parseCalendarDuration
 
 Guides: Date and Time Functions
 

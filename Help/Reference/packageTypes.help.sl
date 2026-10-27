@@ -20,6 +20,6 @@ answer the `List` of `Type`s defined in the named `Package` _p_.
 
 * * *
 
-See also: Package, packageDictionary, packageMethods, packageTraits, Type
+See also: Package, Type, packageDictionary, packageMethods, packageTraits
 
 Guides: Reflection Functions

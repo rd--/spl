@@ -39,7 +39,7 @@ true
 
 * * *
 
-See also: isRegularlySpaced, minimumTimeIncrement, TemporalData, TimeSeries
+See also: TemporalData, TimeSeries, isRegularlySpaced, minimumTimeIncrement
 
 Guides: Time Series Functions
 

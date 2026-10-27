@@ -19,7 +19,7 @@ let t = [4.5 3 5].sssTriangle;
 
 * * *
 
-See also: excircles, spiekerCenter, Triangle
+See also: Triangle, excircles, spiekerCenter
 
 Guides: Geometry Functions, Triangle Functions
 

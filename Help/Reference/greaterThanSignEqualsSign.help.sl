@@ -15,7 +15,7 @@ The name of this operator is `greaterThanSignEqualsSign`.
 
 * * *
 
-See also: <, >, <=, =, !=, <=>, isGreaterOrEqual, Magnitude
+See also: Magnitude, !=, <, <=, <=>, =, >, isGreaterOrEqual
 
 Guides: Comparison Functions
 

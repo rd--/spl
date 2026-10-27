@@ -49,7 +49,7 @@ Plot negative half over _(-1,0)_:
 
 * * *
 
-See also: *, abs, log, log2, log10, sign
+See also: *, abs, log, log10, log2, sign
 
 Guides: Mathematical Functions, Plotting Functions
 

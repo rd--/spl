@@ -30,7 +30,7 @@ Of a quaternary scale:
 
 * * *
 
-See also: intervalClass, isProper, isStrictlyProper, Scale
+See also: Scale, intervalClass, isProper, isStrictlyProper
 
 Guides: Scale Functions, Xenharmonic Functions
 

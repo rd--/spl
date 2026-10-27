@@ -85,7 +85,7 @@ Texture:
 
 * * *
 
-See also: Pulse, LfSaw
+See also: LfSaw, Pulse
 
 Guides: Unit Generators
 

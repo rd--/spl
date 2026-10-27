@@ -35,7 +35,7 @@ At `TimeSeries`:
 
 * * *
 
-See also: associations, Dictionary, indices, keys
+See also: Dictionary, associations, indices, keys
 
 Guides: Dictionary Functions
 

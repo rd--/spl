@@ -86,7 +86,7 @@ and whose edges represent pairs of elements that are reversed by the permutation
 
 * * *
 
-See also: inversionVector, leftInversionCount, Permutation, rightInversionCount
+See also: Permutation, inversionVector, leftInversionCount, rightInversionCount
 
 References:
 _Mathematica_

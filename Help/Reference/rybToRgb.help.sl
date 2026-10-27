@@ -63,7 +63,7 @@ system.rybColourTable
 
 * * *
 
-See also: hsvToRgb, RgbColour, RybColour
+See also: RgbColour, RybColour, hsvToRgb
 
 Guides: Colour Functions
 

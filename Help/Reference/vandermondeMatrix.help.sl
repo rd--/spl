@@ -89,7 +89,7 @@ A rectangular Vandermonde matrix:
 
 * * *
 
-See also: binomial, cauchyMatrix, interpolation, factorialPower, linearRecurrence, powerRange
+See also: binomial, cauchyMatrix, factorialPower, interpolation, linearRecurrence, powerRange
 
 Guides: Fourier Analysis Functions, Matrix Functions
 

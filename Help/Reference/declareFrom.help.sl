@@ -17,7 +17,7 @@ then remove it from _d₂_ and use its association as the element of _d₁_.
 
 * * *
 
-See also: add, Dictionary
+See also: Dictionary, add
 
 Guides: Dictionary Functions
 

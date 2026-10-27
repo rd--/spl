@@ -145,7 +145,7 @@ OEIS [A204016](https://oeis.org/A204016):
 
 * * *
 
-See also: ceiling, deepMax, maximalBy, maxOn, min
+See also: ceiling, deepMax, maxOn, maximalBy, min
 
 Guides: Sort Functions, Statistics Functions
 

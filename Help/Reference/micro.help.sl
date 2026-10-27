@@ -36,7 +36,7 @@ Where supported `micro` is displayed as μ.
 
 * * *
 
-See also: centi, deci, deca, hecto, giga, kilo, mega, milli, nano, pico, terra
+See also: centi, deca, deci, giga, hecto, kilo, mega, milli, nano, pico, terra
 
 Guides: SI Units
 

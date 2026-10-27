@@ -59,7 +59,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: fibonacci, pellSequence, pellLucasSequence
+See also: fibonacci, pellLucasSequence, pellSequence
 
 Guides: Integer Sequence Functions
 

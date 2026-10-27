@@ -22,7 +22,7 @@ Hpz2(WhiteNoise()) * 0.1
 
 * * *
 
-See also: Bpz2, Brz2, Lpz2, Hpz1
+See also: Bpz2, Brz2, Hpz1, Lpz2
 
 Guides: Unit Generators
 

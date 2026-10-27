@@ -18,7 +18,7 @@ The name of this operator is `exclamationMarkEqualsSign`.
 
 * * *
 
-See also: Compare, Equal, =, ==, ~~, <, <=, >=, isUnequal
+See also: Compare, Equal, <, <=, =, ==, >=, ~~, isUnequal
 
 Guides: Binary Operators, Comparison Functions, Equality Functions
 

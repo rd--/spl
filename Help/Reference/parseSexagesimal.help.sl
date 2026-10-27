@@ -85,7 +85,7 @@ any fraction in which the denominator is a regular number may be expressed exact
 
 * * *
 
-See also: fromDms, dmsList, numberDecompose, parseDecimalInteger, parseNumber
+See also: dmsList, fromDms, numberDecompose, parseDecimalInteger, parseNumber
 
 Guides: Parsing Functions
 

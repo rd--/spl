@@ -27,4 +27,4 @@ Add two levels to a tree:
 
 * * *
 
-See also: nestList, Tree
+See also: Tree, nestList

@@ -68,7 +68,7 @@ The dimension of a `Polyhedron` is three:
 
 * * *
 
-See also: embeddingDimension, Circle, Line, Point, Polygon, Polyhedron, Rectangle, Sphere, size
+See also: Circle, Line, Point, Polygon, Polyhedron, Rectangle, Sphere, embeddingDimension, size
 
 Guides: Geometry Functions
 

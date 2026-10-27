@@ -59,6 +59,6 @@ Methods for querying:
 
 * * *
 
-See also: cdf, hazardFunction, inverseCdf, inverseSurvivalFunction, quantile, pdf, randomVariate, survivalFunction
+See also: cdf, hazardFunction, inverseCdf, inverseSurvivalFunction, pdf, quantile, randomVariate, survivalFunction
 
 Guides: Probability Distributions, Random Functions

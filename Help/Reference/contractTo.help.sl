@@ -16,7 +16,7 @@ Answer the string _s_ or a copy shortened by an ellipsis to _n_ places.
 
 * * *
 
-See also: concisePrintString, printStringLimitedTo, String, truncateTo
+See also: String, concisePrintString, printStringLimitedTo, truncateTo
 
 Guides: String Functions
 

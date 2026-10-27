@@ -95,7 +95,7 @@ Sequence of steps for Euclidean algorithm:
 
 * * *
 
-See also: quotientRemainder, UnivariatePolynomial
+See also: UnivariatePolynomial, quotientRemainder
 
 Guides: Polynomial Functions
 

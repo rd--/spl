@@ -15,7 +15,7 @@ Where supported `->` is displayed as →.
 
 * * *
 
-See also: <-, Association, key, value
+See also: Association, <-, key, value
 
 Guides: Operator List, Operator Syntax
 

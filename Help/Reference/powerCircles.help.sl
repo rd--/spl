@@ -20,7 +20,7 @@ let m = t.medialTriangle;
 
 * * *
 
-See also: Circle, medialTriangle, Triangle
+See also: Circle, Triangle, medialTriangle
 
 Guides: Geometry Functions, Triangle Functions
 

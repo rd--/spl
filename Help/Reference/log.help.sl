@@ -388,7 +388,7 @@ let c = (a / b).log;
 
 * * *
 
-See also: exp, log2, log10, logarithmicIntegral
+See also: exp, log10, log2, logarithmicIntegral
 
 Guides: Mathematical Functions
 

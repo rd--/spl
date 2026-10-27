@@ -36,7 +36,7 @@ in C it is the _exclusive or_ operator.
 
 * * *
 
-See also: +, -, *, /, circumflexAccent, exp, power
+See also: *, +, -, /, circumflexAccent, exp, power
 
 Guides: Arithmetic Functions, Binary Operators
 

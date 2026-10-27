@@ -135,7 +135,7 @@ let n = 13;
 
 * * *
 
-See also: Colour, hsv, hsvToRgb, RgbColour
+See also: Colour, RgbColour, hsv, hsvToRgb
 
 Guides: Colour Functions
 

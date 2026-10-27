@@ -13,7 +13,7 @@ where _i_ and _j_ are indices into the `List` of atoms.
 
 * * *
 
-See also: asCrystalStructure, CrystalStructureBrowser, leitnerCrystalStructureCatalogue
+See also: CrystalStructureBrowser, asCrystalStructure, leitnerCrystalStructureCatalogue
 
 References:
 _W_

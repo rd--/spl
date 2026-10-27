@@ -142,7 +142,7 @@ A minor sixth:
 
 * * *
 
-See also: harmonographCurve, lateralHarmonographCurve, lissajousCurve, hypotrochoid, sin
+See also: harmonographCurve, hypotrochoid, lateralHarmonographCurve, lissajousCurve, sin
 
 Guides: Curve Functions
 

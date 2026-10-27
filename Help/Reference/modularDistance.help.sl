@@ -85,7 +85,7 @@ let d = modularDistance(
 
 * * *
 
-See also: -, %, absDif, mod, modularInverse, subtract
+See also: %, -, absDif, mod, modularInverse, subtract
 
 Guides: Modular Arithmetic Functions
 

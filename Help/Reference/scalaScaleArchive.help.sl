@@ -256,7 +256,7 @@ The archive is stored in the file _modename.par_ in the Scala distribution.
 
 * * *
 
-See also: LibraryItem, namedScale, scalaTuningArchive, Scale
+See also: LibraryItem, Scale, namedScale, scalaTuningArchive
 
 Guides: Library Catalogue, Scale Functions, Tuning Functions
 

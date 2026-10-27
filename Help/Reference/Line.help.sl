@@ -184,7 +184,7 @@ _Note_: This is the Sc _Line_ Ugen without the _doneAction_ input.
 
 * * *
 
-See also: HalfLine, InfiniteLine, lineCollection, Point, XLine
+See also: HalfLine, InfiniteLine, Point, XLine, lineCollection
 
 Guides: Geometry Functions, Unit Generators
 

@@ -24,7 +24,7 @@ true
 
 * * *
 
-See also: cycles, isSymmetricMatrix, Permutation
+See also: Permutation, cycles, isSymmetricMatrix
 
 Guides: Permutation Functions, Predicate Functions
 

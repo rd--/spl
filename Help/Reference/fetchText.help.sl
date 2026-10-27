@@ -30,7 +30,7 @@ system
 
 * * *
 
-See also: fetch, fetchByteArray, fetchJson, fetchTextWithDefault, String, Url
+See also: String, Url, fetch, fetchByteArray, fetchJson, fetchTextWithDefault
 
 Guides: Network Functions
 

@@ -69,7 +69,7 @@ The inverse is `ratioToCents`:
 
 * * *
 
-See also: Tuning, rationalize, ratioToCents
+See also: Tuning, ratioToCents, rationalize
 
 Guides: Tuning Functions, Xenharmonic Functions
 

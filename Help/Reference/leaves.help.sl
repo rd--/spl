@@ -26,7 +26,7 @@ Count the even numbers in a Tree:
 
 * * *
 
-See also: leafCount, Tree
+See also: Tree, leafCount
 
 Guides: Tree Functions
 

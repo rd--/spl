@@ -118,7 +118,7 @@ OEIS [A227183](https://oeis.org/A227183):
 
 * * *
 
-See also: binaryContraction, binaryExpansion, binaryRunLengthDecode, runLengths, RunArray
+See also: RunArray, binaryContraction, binaryExpansion, binaryRunLengthDecode, runLengths
 
 Guides: Bitwise Functions, Integer Functions
 

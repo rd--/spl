@@ -15,6 +15,6 @@ answer the `List` of `Trait`s defined in the named `Package` _p_.
 
 * * *
 
-See also: Package, packageDictionary, packageMethods, packageTypes, Trait
+See also: Package, Trait, packageDictionary, packageMethods, packageTypes
 
 Guides: Reflection Functions

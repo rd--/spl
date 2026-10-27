@@ -61,7 +61,7 @@ true
 
 * * *
 
-See also: isEven, isOrigin, isNegative, isOdd, isOne, isPositive, zero
+See also: isEven, isNegative, isOdd, isOne, isOrigin, isPositive, zero
 
 Guides: Predicate Functions
 

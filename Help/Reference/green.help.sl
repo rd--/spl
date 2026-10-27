@@ -34,7 +34,7 @@ Plot greens with increasing α:
 
 * * *
 
-See also: alpha, blue, Colour, red
+See also: Colour, alpha, blue, red
 
 Guides: Colour Functions
 

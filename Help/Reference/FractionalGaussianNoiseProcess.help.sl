@@ -39,7 +39,7 @@ FractionalGaussianNoiseProcess(0.9)
 
 * * *
 
-See also: BrownianBridgeProcess, FractionalBrownianMotionProcess, GeometricBrownianMotionProcess, hoskingMethod, NormalDistribution, OrnsteinUhlenbeckProcess, RandomWalkProcess, WienerProcess
+See also: BrownianBridgeProcess, FractionalBrownianMotionProcess, GeometricBrownianMotionProcess, NormalDistribution, OrnsteinUhlenbeckProcess, RandomWalkProcess, WienerProcess, hoskingMethod
 
 References:
 _Mathematica_

@@ -50,7 +50,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: ^, factorial, binomial, sum
+See also: ^, binomial, factorial, sum
 
 Guides: Combinatorial Functions
 

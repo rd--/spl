@@ -23,7 +23,7 @@ Accessors to read the parts of the file are:
 
 * * *
 
-See also: helpIndex, HelpIndex, readHelpFile, terseReferenceSummary
+See also: HelpIndex, helpIndex, readHelpFile, terseReferenceSummary
 
 Guides: Documentation Tests, Help Files, Help Functions, System Functions
 

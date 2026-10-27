@@ -31,7 +31,7 @@ Sfc32(112212).randomTree(5).treePlot
 
 * * *
 
-See also: RandomNumberGenerator, Sfc32, Tree
+See also: RandomNumberGenerator, Tree, Sfc32
 
 Guides: Graph Functions, Random Functions
 

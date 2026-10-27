@@ -8,6 +8,6 @@ The opposite predicate is `isAtom`.
 
 * * *
 
-See also: Collection, isAtom, collect, do, size, species
+See also: Collection, collect, do, isAtom, size, species
 
 Categories: Testing, Collection

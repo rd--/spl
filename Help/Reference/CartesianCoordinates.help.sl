@@ -77,7 +77,7 @@ true
 
 * * *
 
-See also: Complex, Point, PolarCoordinates, PlanarCoordinates, SphericalCoordinates, x, y, z
+See also: Complex, PlanarCoordinates, Point, PolarCoordinates, SphericalCoordinates, x, y, z
 
 Guides: Geometry Functions
 

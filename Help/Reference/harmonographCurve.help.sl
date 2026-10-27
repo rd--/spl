@@ -110,7 +110,7 @@ Near octaves:
 
 * * *
 
-See also: lateralHarmonographCurve, CurvelissajousCurve, hypotrochoid, rotaryHarmonographCurve, sin
+See also: CurvelissajousCurve, hypotrochoid, lateralHarmonographCurve, rotaryHarmonographCurve, sin
 
 Guides: Curve Functions
 

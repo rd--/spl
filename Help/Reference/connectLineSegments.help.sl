@@ -35,6 +35,6 @@ Line segments in a two-dimensional space, compared using `=`:
 
 * * *
 
-See also: LineSegment, Line, List
+See also: Line, LineSegment, List
 
 Guides: Geometry Functions

@@ -212,7 +212,7 @@ Pyramid _k=7_:
 
 * * *
 
-See also: ++, catenate, mirror, Permutation, prefixes, suffixes
+See also: Permutation, ++, catenate, mirror, prefixes, suffixes
 
 References:
 _SuperCollider_

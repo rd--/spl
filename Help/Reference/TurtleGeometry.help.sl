@@ -182,7 +182,7 @@ TurtleGeometry()
 
 * * *
 
-See also: drawing, Geometry
+See also: Geometry, drawing
 
 Guides: Geometry Functions
 

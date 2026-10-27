@@ -45,7 +45,7 @@ true
 
 * * *
 
-See also: ~, !~, =, <~, >~, isCloseBy, isSimilar, isVeryClose, threshold
+See also: !~, <~, =, >~, ~, isCloseBy, isSimilar, isVeryClose, threshold
 
 References:
 _Apl_

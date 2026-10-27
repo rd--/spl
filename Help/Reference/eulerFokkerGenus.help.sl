@@ -62,7 +62,7 @@ RatioTuning(
 
 * * *
 
-See also: combinationProductSet, tuningLatticeGraph, nub, product, octaveReduce, subsets
+See also: combinationProductSet, nub, octaveReduce, product, subsets, tuningLatticeGraph
 
 Guides: Tuning Functions
 

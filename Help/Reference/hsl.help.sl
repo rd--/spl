@@ -23,7 +23,7 @@ Threads over lists:
 
 * * *
 
-See also: Colour, HslColour, hslToRgb, hue, RgbColour
+See also: Colour, HslColour, RgbColour, hslToRgb, hue
 
 Guides: Colour Functions
 

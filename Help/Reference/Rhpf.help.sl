@@ -20,7 +20,7 @@ Rhpf(
 
 * * *
 
-See also: Formlet, Rlpf, Resonz, Ringz
+See also: Formlet, Resonz, Ringz, Rlpf
 
 Guides: Unit Generators
 

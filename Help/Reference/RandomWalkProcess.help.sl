@@ -69,7 +69,7 @@ RandomWalkProcess(0.5, 0.5)
 
 * * *
 
-See also: BernoulliProcess, randomFunction, WienerProcess
+See also: BernoulliProcess, WienerProcess, randomFunction
 
 Guides: Random Processes
 

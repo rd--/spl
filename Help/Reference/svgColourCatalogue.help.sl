@@ -66,7 +66,7 @@ The `svgColourCatalogue` method is `requireLibraryItem` of 'SvgColourCatalogue'.
 
 * * *
 
-See also: Colour, LibraryItem, namedColour, RgbColour, svgColourDictionary
+See also: Colour, LibraryItem, RgbColour, namedColour, svgColourDictionary
 
 Guides: Colour Functions, Library Catalogue
 

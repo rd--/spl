@@ -125,7 +125,7 @@ Draw `exchangeMatrix`:
 
 * * *
 
-See also: antidiagonalMatrix, diagonalMatrix, identityMatrix, kroneckerDelta, unitVector, permutationMatrix, table
+See also: antidiagonalMatrix, diagonalMatrix, identityMatrix, kroneckerDelta, permutationMatrix, table, unitVector
 
 Guides: Matrix Functions
 

@@ -47,7 +47,7 @@ At `Triangle`:
 
 * * *
 
-See also: InfinitePlane, normalize, surfaceNormal, Triangle, unitVector
+See also: InfinitePlane, Triangle, normalize, surfaceNormal, unitVector
 
 References:
 _Mathematica_

@@ -17,7 +17,7 @@ The semiperimeter of a polygon is half its perimeter:
 
 * * *
 
-See also: perimeter, Polygon
+See also: Polygon, perimeter
 
 References:
 _Mathematica_

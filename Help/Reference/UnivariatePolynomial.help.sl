@@ -302,7 +302,7 @@ let p3 = p1 + p2;
 
 * * *
 
-See also: coefficientList, chebyshevT, chebyshevU, cyclotomic, legendreP, Polynomial
+See also: Polynomial, chebyshevT, chebyshevU, coefficientList, cyclotomic, legendreP
 
 Guides: Polynomial Functions
 

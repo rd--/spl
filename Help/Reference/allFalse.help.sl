@@ -27,7 +27,7 @@ true
 
 * * *
 
-See also: allSatisfy, anySatisfy, allTrue, noneSatisfy
+See also: allSatisfy, allTrue, anySatisfy, noneSatisfy
 
 Guides: Boolean Functions, Predicate Functions
 

@@ -49,7 +49,7 @@ ByteArray'utf8ByteArray'
 
 * * *
 
-See also: ByteArray, String, asciiByteArray, utf8String, utf16List
+See also: ByteArray, String, asciiByteArray, utf16List, utf8String
 
 Guides: String Functions
 

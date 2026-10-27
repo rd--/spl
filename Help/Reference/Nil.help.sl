@@ -25,7 +25,7 @@ true
 
 * * *
 
-See also: Void, ?, ??, ~?, nil, ifNil, ifNotNil
+See also: Void, ?, ??, ~?, ifNil, ifNotNil, nil
 
 Guides: Nil Functions
 

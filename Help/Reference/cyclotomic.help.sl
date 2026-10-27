@@ -235,7 +235,7 @@ OEIS [A013595](https://oeis.org/A013595):
 
 * * *
 
-See also: polynomialQuotient, UnivariatePolynomial
+See also: UnivariatePolynomial, polynomialQuotient
 
 Guides: Polynomial Functions
 

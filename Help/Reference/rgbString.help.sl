@@ -30,6 +30,6 @@ At `RgbColour` after _Srgb_ encoding:
 
 * * *
 
-See also: Colour, Svg, RgbColour
+See also: Colour, RgbColour, Svg
 
 Guides: Colour Functions

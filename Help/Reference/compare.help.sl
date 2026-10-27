@@ -127,7 +127,7 @@ The inverse is called `lexicographicOrder`.
 
 * * *
 
-See also: =, <, >, <=>, Compare, precedes
+See also: Compare, <, <=>, =, >, precedes
 
 Guides: List Functions, Sort Functions, String Functions
 

@@ -19,7 +19,7 @@ let [i, d] = p.bezierDistanceTable(128);
 
 * * *
 
-See also: bezierApproximation, BezierCurve, bezierFunction, bezierTrace
+See also: BezierCurve, bezierApproximation, bezierFunction, bezierTrace
 
 Guides: Geometry Functions
 

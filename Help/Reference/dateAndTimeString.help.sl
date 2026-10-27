@@ -40,7 +40,7 @@ TimeStamp(1744141500)
 
 * * *
 
-See also: Date, dateString, parseDate, parseDuration, TimeStamp
+See also: Date, TimeStamp, dateString, parseDate, parseDuration
 
 Guides: Date and Time Functions
 

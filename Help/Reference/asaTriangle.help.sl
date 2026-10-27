@@ -63,7 +63,7 @@ Varying two angles together:
 
 * * *
 
-See also: aasTriangle, sasTriangle, sssTriangle, Triangle
+See also: Triangle, aasTriangle, sasTriangle, sssTriangle
 
 Guides: Geometry Functions, Triangle Functions
 

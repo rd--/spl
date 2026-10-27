@@ -21,6 +21,6 @@ system
 
 * * *
 
-See also: fetch, fetchByteArray, fetchJson, fetchText, Url
+See also: Url, fetch, fetchByteArray, fetchJson, fetchText
 
 Categories: Network

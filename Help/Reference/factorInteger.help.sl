@@ -575,7 +575,7 @@ OEIS [A050252](https://oeis.org/A050252):
 
 * * *
 
-See also: divisors, factoredInteger, isPrime, isPrimeFactorization, primeFactors, primeFactorization, product
+See also: divisors, factoredInteger, isPrime, isPrimeFactorization, primeFactorization, primeFactors, product
 
 Guides: Integer Functions, Prime Number Functions
 

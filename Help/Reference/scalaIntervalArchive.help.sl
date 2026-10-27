@@ -59,6 +59,6 @@ The archive is stored in the file _intnam.par_ in the Scala distribution.
 
 * * *
 
-See also: Fraction, intervalName, intervalNameList, LibraryItem, namedInterval
+See also: Fraction, LibraryItem, intervalName, intervalNameList, namedInterval
 
 Guides: Library Catalogue, Xenharmonic Functions

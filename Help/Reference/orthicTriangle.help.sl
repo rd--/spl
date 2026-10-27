@@ -57,7 +57,7 @@ let c = t.orthicTriangle.vertexCoordinates;
 
 * * *
 
-See also: fromTrilinearVertexMatrix, orthocenter, pedalTriangle, Triangle, sec
+See also: Triangle, fromTrilinearVertexMatrix, orthocenter, pedalTriangle, sec
 
 Guides: Geometry Functions, Triangle Functions
 

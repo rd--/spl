@@ -73,7 +73,7 @@ Construct a tree of the House of Atreus:
 
 * * *
 
-See also: expressionTree, Tree
+See also: Tree, expressionTree
 
 Guides: Tree Functions
 

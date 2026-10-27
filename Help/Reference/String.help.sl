@@ -55,7 +55,7 @@ String indexing only makes sense for strings that are in the _Basic Multilingual
 
 * * *
 
-See also: AsciiString, BacktickQuotedString, Character, DoubleQuotedString, asciiByteArray, characterList, utf8ByteArray, utf16List
+See also: AsciiString, BacktickQuotedString, Character, DoubleQuotedString, asciiByteArray, characterList, utf16List, utf8ByteArray
 
 Guides: String Functions, String Syntax
 

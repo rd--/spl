@@ -40,7 +40,7 @@ To parse a date without time use `parseDate`.
 
 * * *
 
-See also: Date, dateString, dateAndTimeString, Duration, ordinalDateString, parseDate, TimeStamp
+See also: Date, Duration, TimeStamp, dateAndTimeString, dateString, ordinalDateString, parseDate
 
 Guides: Parsing Functions
 

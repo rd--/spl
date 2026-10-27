@@ -18,7 +18,7 @@ system
 
 * * *
 
-See also: ByteArray, fetch, fetchBinaryLargeObject, fetchJson, fetchMimeType, fetchText, Url
+See also: ByteArray, Url, fetch, fetchBinaryLargeObject, fetchJson, fetchMimeType, fetchText
 
 Guides: Network Functions
 

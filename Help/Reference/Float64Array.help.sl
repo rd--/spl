@@ -58,7 +58,7 @@ zeroFloat64Array/1
 
 * * *
 
-See also: ByteArray, Float32Array, List, encode
+See also: ByteArray, List, Float32Array, encode
 
 Guides: Vector Functions
 

@@ -78,7 +78,7 @@ Sfc32(367214)
 
 * * *
 
-See also: median, exponentialMovingAverage, movingMap, movingMedian, partition
+See also: exponentialMovingAverage, median, movingMap, movingMedian, partition
 
 References:
 _Mathematica_

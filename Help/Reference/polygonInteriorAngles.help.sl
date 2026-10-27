@@ -38,6 +38,6 @@ C.f. `Triangle`:
 
 * * *
 
-See also: exteriorAngles, interiorAngles, Polygon, Triangle
+See also: Polygon, Triangle, exteriorAngles, interiorAngles
 
 Guides: Geometry Functions

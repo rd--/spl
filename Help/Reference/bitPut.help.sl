@@ -52,7 +52,7 @@ Show which bits have been set:
 
 * * *
 
-See also: bitAt, bitSet, BitSet, highBit, integerDigits, setBitAt
+See also: BitSet, bitAt, bitSet, highBit, integerDigits, setBitAt
 
 Guides: Bitwise Functions
 

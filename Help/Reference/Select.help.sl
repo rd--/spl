@@ -45,7 +45,7 @@ For selecting from a list of constants consider also `BufRd`.
 
 * * *
 
-See also: BufRd, SelectX, SelectXFocus, LinSelectX
+See also: BufRd, LinSelectX, SelectX, SelectXFocus
 
 Guides: Unit Generators
 

@@ -26,7 +26,7 @@ use `inMinutes` to answer the number of minutes:
 
 * * *
 
-See also: hours, milliseconds, Quantity, seconds
+See also: Quantity, hours, milliseconds, seconds
 
 Guides: Quantity Functions
 

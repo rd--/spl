@@ -34,7 +34,7 @@ Indices of `one` in a matrix of `boole`:
 
 * * *
 
-See also: deepIndexDo, deepIndices, indicesOf, indexOf, occurrencesOf
+See also: deepIndexDo, deepIndices, indexOf, indicesOf, occurrencesOf
 
 References:
 _Mathematica_

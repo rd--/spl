@@ -56,7 +56,7 @@ Draw two unit cubes:
 
 * * *
 
-See also: PerspectiveDrawing, Cuboid, LineDrawing, Polyhedron, unitDodecahedron, unitIcosahedron, unitSquare, unitTetrahedron
+See also: Cuboid, LineDrawing, PerspectiveDrawing, Polyhedron, unitDodecahedron, unitIcosahedron, unitSquare, unitTetrahedron
 
 Guides: Geometry Functions
 

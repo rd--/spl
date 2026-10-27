@@ -366,7 +366,7 @@ OEIS [A297330](https://oeis.org/A297330):
 
 * * *
 
-See also: -, accumulate, differencesBy, differenceTable, discreteLaplacian, foldList, gradient, orderedDifferences, prefixSum, ratios, triangularDifferenceTable
+See also: -, accumulate, differenceTable, differencesBy, discreteLaplacian, foldList, gradient, orderedDifferences, prefixSum, ratios, triangularDifferenceTable
 
 Guides: List Functions
 

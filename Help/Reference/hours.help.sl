@@ -31,7 +31,7 @@ use `inHours` to answer the number of hours:
 
 * * *
 
-See also: milliseconds, minutes, Quantity, seconds
+See also: Quantity, milliseconds, minutes, seconds
 
 Guides: Quantity Functions
 

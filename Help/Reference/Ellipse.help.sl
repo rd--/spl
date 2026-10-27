@@ -80,7 +80,7 @@ Ellipse([0 0], [x 1])
 
 * * *
 
-See also: Circle, ellipseCurve, Polygon, Rectangle, Triangle
+See also: Circle, Polygon, Rectangle, Triangle, ellipseCurve
 
 Guides: Geometry Functions
 

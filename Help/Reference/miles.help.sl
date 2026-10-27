@@ -52,7 +52,7 @@ use `inMiles` to answer the distance in miles:
 
 * * *
 
-See also: metres, Quantity
+See also: Quantity, metres
 
 Guides: SI Units
 

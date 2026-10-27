@@ -25,7 +25,7 @@ SinOsc(freq, 0) * 0.1
 
 * * *
 
-See also: Demand, Dbrown, Dwhite
+See also: Dbrown, Demand, Dwhite
 
 Guides: Unit Generators
 

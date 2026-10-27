@@ -25,7 +25,7 @@ use `inCentiseconds` to answer the number of centiseconds:
 
 * * *
 
-See also: hours, inSeconds, milliseconds, Quantity, seconds, minutes
+See also: Quantity, hours, inSeconds, milliseconds, minutes, seconds
 
 Guides: Quantity Functions
 

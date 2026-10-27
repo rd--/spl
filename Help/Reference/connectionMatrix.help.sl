@@ -20,7 +20,7 @@ however for multi-graphs the connection matrix has boole entries:
 
 * * *
 
-See also: adjacencyMatrix, Graph
+See also: Graph, adjacencyMatrix
 
 Guides: Matrix Functions
 

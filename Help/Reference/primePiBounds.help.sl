@@ -19,7 +19,7 @@ true
 
 * * *
 
-See also: primePi, primeBounds
+See also: primeBounds, primePi
 
 References:
 _Mathematica_

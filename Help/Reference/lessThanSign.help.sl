@@ -32,7 +32,7 @@ in Apl it is _⌊_.
 
 * * *
 
-See also: Compare, Equal, =, !=, <=, >, >=, <=>, isLess, isLessOrEqual
+See also: Compare, Equal, !=, <=, <=>, =, >, >=, isLess, isLessOrEqual
 
 Guides: Binary Operators, Comparison Functions, Sort Functions
 

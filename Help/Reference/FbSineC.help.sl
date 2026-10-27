@@ -89,7 +89,7 @@ FbSineC(
 
 * * *
 
-See also: FbSineN, FbSineL
+See also: FbSineL, FbSineN
 
 Guides: Unit Generators
 

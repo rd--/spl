@@ -31,7 +31,7 @@ At five vectors:
 
 * * *
 
-See also: brayCurtisDistance, canberraDistance, euclideanDistance, editDistance, hammingDistance, manhattanDistance
+See also: brayCurtisDistance, canberraDistance, editDistance, euclideanDistance, hammingDistance, manhattanDistance
 
 Guides: Distance Functions
 

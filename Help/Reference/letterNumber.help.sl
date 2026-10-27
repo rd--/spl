@@ -35,6 +35,6 @@ Get positions of each of the letters in a string:
 
 * * *
 
-See also: alphabet, indexOf, String
+See also: String, alphabet, indexOf
 
 Guides: String Functions

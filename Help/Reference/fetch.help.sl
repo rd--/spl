@@ -74,7 +74,7 @@ system
 
 * * *
 
-See also: fetchByteArray, fetchJson, fetchText, Promise, Response
+See also: Promise, Response, fetchByteArray, fetchJson, fetchText
 
 Guides: Network Functions
 

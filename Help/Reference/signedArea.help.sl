@@ -30,6 +30,6 @@ The answer is negative if the vertex coordinates are in clockwise order:
 
 * * *
 
-See also: area, shoelaceFormula, Triangle
+See also: Triangle, area, shoelaceFormula
 
 Guides: Geometry Functions

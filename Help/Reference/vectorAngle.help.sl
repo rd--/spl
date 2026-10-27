@@ -73,7 +73,7 @@ The rule may be unsigned, signed or counter-clockwise:
 
 * * *
 
-See also: arcCos, cross, counterClockwiseVectorAngle, degree, dot, planarAngle, signedVectorAngle, unsignedVectorAngle
+See also: arcCos, counterClockwiseVectorAngle, cross, degree, dot, planarAngle, signedVectorAngle, unsignedVectorAngle
 
 Guides: Geometry Functions
 

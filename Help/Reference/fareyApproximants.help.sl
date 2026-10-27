@@ -143,7 +143,7 @@ OEIS [A097546](https://oeis.org/A097546):
 
 * * *
 
-See also: fareyConvergence, fareySequence, Fraction, mediant
+See also: Fraction, fareyConvergence, fareySequence, mediant
 
 Guides: Number Functions
 

@@ -19,7 +19,7 @@ let t = [2.5 2 2.75].sssTriangle;
 
 * * *
 
-See also: contactTriangle, Triangle
+See also: Triangle, contactTriangle
 
 Guides: Triangle Functions
 

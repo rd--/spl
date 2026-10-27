@@ -33,7 +33,7 @@ let r = Rectangle[0 0; 1 1];
 
 * * *
 
-See also: Circle, center, incenter, inradius, Rectangle, Triangle
+See also: Circle, Rectangle, Triangle, center, incenter, inradius
 
 Guides: Geometry Functions
 

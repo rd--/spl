@@ -24,6 +24,6 @@ Record minima:
 
 * * *
 
-See also: <, >, min, max, recordPositions
+See also: <, >, max, min, recordPositions
 
 Guides: List Functions

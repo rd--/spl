@@ -31,7 +31,7 @@ Plot reds with increasing α:
 
 * * *
 
-See also: alpha, blue, Colour, green, RgbColour
+See also: Colour, RgbColour, alpha, blue, green
 
 Guides: Colour Functions
 

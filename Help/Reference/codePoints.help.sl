@@ -68,7 +68,7 @@ The inverse is `fromCodePoints`:
 
 * * *
 
-See also: Character, characterList, codePoint, String, toCharacterCode, utf8ByteArray, utf16List
+See also: Character, String, characterList, codePoint, toCharacterCode, utf16List, utf8ByteArray
 
 Guides: String Functions
 

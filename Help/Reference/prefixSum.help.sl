@@ -256,7 +256,7 @@ OEIS [A000788](https://oeis.org/A000788):
 
 * * *
 
-See also: +, accumulate, differences, prefixes, prefixProduct, scan, suffixSum, sum
+See also: +, accumulate, differences, prefixProduct, prefixes, scan, suffixSum, sum
 
 Guides: List Functions, Mathematical Functions
 

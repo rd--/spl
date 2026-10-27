@@ -9,6 +9,6 @@ When a method is selected the text pane shows the definition of the method.
 
 * * *
 
-See also: TypeBrowser, SystemBrowser
+See also: SystemBrowser, TypeBrowser
 
 Categories: Kansas

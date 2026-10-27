@@ -57,7 +57,7 @@ At `Type`:
 
 * * *
 
-See also: description, error, Error, messageText
+See also: Error, description, error, messageText
 
 References:
 _Smalltalk_

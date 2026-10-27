@@ -16,7 +16,7 @@ If there is no item, answer nil.
 
 * * *
 
-See also: next, peekFor, Stream
+See also: Stream, next, peekFor
 
 Guides: Stream Functions
 

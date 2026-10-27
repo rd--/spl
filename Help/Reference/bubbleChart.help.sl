@@ -75,7 +75,7 @@ _y=x²%67_:
 
 * * *
 
-See also: rectangleChart, sectorChart, scatterPlot
+See also: rectangleChart, scatterPlot, sectorChart
 
 Guides: Plotting Functions
 

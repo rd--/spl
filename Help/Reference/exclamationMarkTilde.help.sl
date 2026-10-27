@@ -13,7 +13,7 @@ The name of this operator is `exclamationMarkTilde`.
 
 * * *
 
-See also: ~, =, <~, >~, isDissimilar
+See also: <~, =, >~, ~, isDissimilar
 
 Guides: Comparison Functions, Equality Functions
 

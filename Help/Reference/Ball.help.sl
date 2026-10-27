@@ -18,7 +18,7 @@ centered at point _c_ with radius _r_.
 
 * * *
 
-See also: center, Circle, Ellipse, radius, randomPoint, Sphere, volume
+See also: Circle, Ellipse, Sphere, center, radius, randomPoint, volume
 
 Guides: Geometry Functions
 

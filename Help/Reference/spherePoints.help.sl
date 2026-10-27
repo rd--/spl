@@ -17,7 +17,7 @@ A _y,z_ projection of one hundred points on the surface of the unit sphere:
 
 * * *
 
-See also: %, ^, angleVector, cos, Range, sin, Sphere, spherePointsFibonacci
+See also: Range, Sphere, %, ^, angleVector, cos, sin, spherePointsFibonacci
 
 References:
 _Mathematica_

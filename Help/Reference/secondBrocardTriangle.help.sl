@@ -22,7 +22,7 @@ let b = a.secondBrocardTriangle;
 
 * * *
 
-See also: firstBrocardTriangle, Triangle
+See also: Triangle, firstBrocardTriangle
 
 Guides: Geometry Functions
 

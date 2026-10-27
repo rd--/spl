@@ -63,7 +63,7 @@ Plot the distance matrix of a `gridGraph` of size _5,5_:
 
 * * *
 
-See also: distanceMatrix, graphDistance, Graph
+See also: Graph, distanceMatrix, graphDistance
 
 Guides: Distance Functions, Graph Functions
 

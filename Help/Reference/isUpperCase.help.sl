@@ -22,7 +22,7 @@ true
 
 * * *
 
-See also: toUpperCase, isLowerCase
+See also: isLowerCase, toUpperCase
 
 Guides: String Functions
 

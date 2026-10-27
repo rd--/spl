@@ -26,6 +26,6 @@ Answer a file `Url` for the file _f_ at branch _b_ of the project _p_ of the use
 
 * * *
 
-See also: gitHubFileUrl, Url
+See also: Url, gitHubFileUrl
 
 Guides: Network Functions

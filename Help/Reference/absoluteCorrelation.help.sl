@@ -34,7 +34,7 @@ Absolute correlation between vectors of complexes:
 
 * * *
 
-See also: absoluteCorrelationFunction, covariance, correlation, moment, standardize
+See also: absoluteCorrelationFunction, correlation, covariance, moment, standardize
 
 Guides: Statistics Functions
 

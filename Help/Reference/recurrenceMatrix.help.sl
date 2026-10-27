@@ -58,7 +58,7 @@ without thesholding:
 
 * * *
 
-See also: Bitmap, distanceMatrix, Greymap, matrixPlot, recurrenceTable
+See also: Bitmap, Greymap, distanceMatrix, matrixPlot, recurrenceTable
 
 Guides: Matrix Functions, Plotting Functions
 

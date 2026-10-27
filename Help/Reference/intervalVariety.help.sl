@@ -30,7 +30,7 @@ Threads over lists:
 
 * * *
 
-See also: intervalClass, intervals, intervalsBy, isProper, isStrictlyProper, Scale
+See also: Scale, intervalClass, intervals, intervalsBy, isProper, isStrictlyProper
 
 Guides: Scale Functions, Xenharmonic Functions
 

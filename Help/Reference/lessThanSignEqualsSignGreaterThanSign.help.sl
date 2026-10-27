@@ -83,7 +83,7 @@ The name of this operator is `lessThanSignEqualsSignGreaterThanSign`.
 
 * * *
 
-See also: ~, =, <, <=, >, >=, compare
+See also: <, <=, =, >, >=, ~, compare
 
 Guides: Comparison Functions
 

@@ -98,7 +98,7 @@ The underlying list can be accessed using `collection`:
 
 * * *
 
-See also: asTuple, List
+See also: List, asTuple
 
 Guides: List Syntax, Tuple Syntax
 

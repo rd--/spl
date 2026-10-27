@@ -38,7 +38,7 @@ Where supported `<|` is displayed as ≺.
 
 * * *
 
-See also: <, <=|, |>, compare, Compare, precedes
+See also: Compare, <, <=|, |>, compare, precedes
 
 Guides: Comparison Functions
 

@@ -52,7 +52,7 @@ LfdClipNoise(XLine(1000, 20000, 10)) * 0.1
 
 * * *
 
-See also: LfClipNoise, LfdNoise0, LfdNoise1, LfdNoise3, LfNoise0, LfNoise1, LfNoise2
+See also: LfClipNoise, LfNoise0, LfNoise1, LfNoise2, LfdNoise0, LfdNoise1, LfdNoise3
 
 Guides: Unit Generators
 

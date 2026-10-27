@@ -23,7 +23,7 @@ Where supported `rightIdentity` is displayed as ⊢.
 
 * * *
 
-See also: leftIdentity, identity
+See also: identity, leftIdentity
 
 References:
 _Apl_

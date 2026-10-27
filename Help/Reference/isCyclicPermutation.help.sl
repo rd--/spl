@@ -16,7 +16,7 @@ There are twenty-four _5-cycle_ permutations of _1:5_:
 
 * * *
 
-See also: cycles, Permutation
+See also: Permutation, cycles
 
 Guides: Permutation Functions
 

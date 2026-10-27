@@ -13,6 +13,6 @@ Answer the intervals of the scale _s_.
 
 * * *
 
-See also: intervalClass, intervalClasses, intervalsBy, Scale
+See also: Scale, intervalClass, intervalClasses, intervalsBy
 
 Guides: Scale Functions

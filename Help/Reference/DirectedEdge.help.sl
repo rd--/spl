@@ -48,7 +48,7 @@ Graph[1 --> 2, 2 --> 3, 3 --> 1]
 
 * * *
 
-See also: ->, ---, Edge, Graph, UndirectedEdge
+See also: Edge, Graph, UndirectedEdge, ---, ->
 
 Guides: Graph Functions
 

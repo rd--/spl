@@ -16,7 +16,7 @@ false
 
 * * *
 
-See also: matchesRegularExpression, RegularExpression, search
+See also: RegularExpression, matchesRegularExpression, search
 
 Guides: Regular Expression Functions
 

@@ -806,7 +806,7 @@ The answer replaces apostrophe characters with right single quotation marks.
 
 * * *
 
-See also: intervalNameList, LibraryItem, namedInterval, scalaIntervalArchive
+See also: LibraryItem, intervalNameList, namedInterval, scalaIntervalArchive
 
 Guides: Tuning Functions
 

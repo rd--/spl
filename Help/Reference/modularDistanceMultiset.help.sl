@@ -63,6 +63,6 @@ is called Winograd-deep:
 
 * * *
 
-See also: isErdosDeep, isWinogradDeep, modularDistance, Multiset
+See also: Multiset, isErdosDeep, isWinogradDeep, modularDistance
 
 Guides: Modular Arithmetic Functions

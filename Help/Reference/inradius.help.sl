@@ -23,7 +23,7 @@ At `Rectangle`:
 
 * * *
 
-See also: incenter, incircle, radius, Triangle
+See also: Triangle, incenter, incircle, radius
 
 Guides: Geometry Functions
 

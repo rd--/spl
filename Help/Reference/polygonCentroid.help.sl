@@ -24,4 +24,4 @@ let h = p.convexHull;
 
 * * *
 
-See also: centroid, Polygon, shoelaceFormula
+See also: Polygon, centroid, shoelaceFormula

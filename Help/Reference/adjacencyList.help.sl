@@ -69,7 +69,7 @@ Relation to `incidenceList`:
 
 * * *
 
-See also: adjacencyGraph, adjacencyMatrix, incidenceList, neighbours, neighbourhoodGraph, vertexInNeighbours, vertexOutNeighbours
+See also: adjacencyGraph, adjacencyMatrix, incidenceList, neighbourhoodGraph, neighbours, vertexInNeighbours, vertexOutNeighbours
 
 Guides: Graph Functions
 

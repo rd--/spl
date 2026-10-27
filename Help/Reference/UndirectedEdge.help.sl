@@ -57,7 +57,7 @@ Graph[1 --- 2, 2 --- 3, 3 --- 1]
 
 * * *
 
-See also: -->, DirectedEdge, Graph, UndirectedEdge
+See also: DirectedEdge, Graph, UndirectedEdge, -->
 
 Unicode: U+02E3A ⸺ Two-Em Dash
 

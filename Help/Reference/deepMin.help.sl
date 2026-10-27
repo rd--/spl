@@ -30,6 +30,6 @@ At a 3×3 matrix:
 
 * * *
 
-See also: deepMax, deepMinMax, deepInjectInto, deepReduce, min, max, floor, minBy
+See also: deepInjectInto, deepMax, deepMinMax, deepReduce, floor, max, min, minBy
 
 Categories: Testing

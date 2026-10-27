@@ -11,7 +11,7 @@ equivalent to _p.thenElse(nil.constant, f/1)_.
 
 * * *
 
-See also: finally, Promise, then, thenElse
+See also: Promise, finally, then, thenElse
 
 Guides: Asynchronous Functions
 

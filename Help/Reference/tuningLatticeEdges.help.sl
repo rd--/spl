@@ -24,7 +24,7 @@ Edges connect vertices whose coordinates have a `manhattanDistance` of `one`.
 
 * * *
 
-See also: tuningLatticePrimes, tuningLatticeVertexCoordinates, manhattanDistance
+See also: manhattanDistance, tuningLatticePrimes, tuningLatticeVertexCoordinates
 
 Guides: Tuning Functions
 

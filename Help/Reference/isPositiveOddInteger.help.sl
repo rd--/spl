@@ -17,6 +17,6 @@ false
 
 * * *
 
-See also: isInteger, isOdd, isPositive, isPositiveInteger, isNumber
+See also: isInteger, isNumber, isOdd, isPositive, isPositiveInteger
 
 Categories: Predicate, Testing

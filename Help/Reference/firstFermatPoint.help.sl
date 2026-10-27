@@ -30,7 +30,7 @@ let p = t.firstFermatPoint;
 
 * * *
 
-See also: antipedalTriangle, Triangle
+See also: Triangle, antipedalTriangle
 
 Guides: Geometry Functions
 

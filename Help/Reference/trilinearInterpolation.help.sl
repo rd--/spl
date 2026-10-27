@@ -29,7 +29,7 @@ using function data on the lattice points.
 
 * * *
 
-See also: linearInterpolation, bilinearInterpolation, volumeResample
+See also: bilinearInterpolation, linearInterpolation, volumeResample
 
 Guides: Interpolation Functions
 

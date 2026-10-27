@@ -31,7 +31,7 @@ The inverse is `digitCharacter`:
 
 * * *
 
-See also: asciiValue, codePoint, Character, digitCharacter
+See also: Character, asciiValue, codePoint, digitCharacter
 
 Guides: Integer Functions, String Functions
 
