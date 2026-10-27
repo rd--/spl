@@ -101,14 +101,6 @@
 
 }
 
-LibraryItem(
-	name: 'UnicodeCharacterDatabase',
-	category: 'Text/Encoding',
-	url: 'https://rohandrape.net/sw/hsc3-data/data/text/unicode/unicode-character-table.json',
-	mimeType: 'application/json',
-	parser: identity/1
-)
-
 +System {
 
 	englishStopWords { :self |
@@ -116,6 +108,14 @@ LibraryItem(
 	}
 
 }
+
+LibraryItem(
+	name: 'UnicodeCharacterDatabase',
+	category: 'Text/Encoding',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/text/unicode/unicode-character-table.json',
+	mimeType: 'application/json',
+	parser: identity/1
+)
 
 LibraryItem(
 	name: 'EnglishStopWords',

@@ -62,4 +62,4 @@ Type Predicates:
 
 * * *
 
-Guides: Complex Number Functions, Integer Functions, Prime Number Functions, Quaternion Functions
+Guides: Complex Number Functions, Fraction Functions, Integer Functions, Prime Number Functions, Quaternion Functions

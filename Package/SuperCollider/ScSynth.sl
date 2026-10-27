@@ -254,12 +254,12 @@ ScSynth! : [Object] {
 
 +Block {
 
-	!^ { :self :anInteger |
-		Splay(self ! anInteger)
-	}
-
 	!> { :self :anInteger |
 		Mix(self ! anInteger)
+	}
+
+	!^ { :self :anInteger |
+		Splay(self ! anInteger)
 	}
 
 }

@@ -10,16 +10,7 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 		Time(self.inSeconds)
 	}
 
-	[Times, *] { :self :anObject |
-		anObject.isNumber.if {
-			Quantity(
-				self.magnitude * anObject,
-				self.unit
-			)
-		} {
-			self.error('*: invalid operand')
-		}
-	}	[divide, /] { :self :anObject |
+	[divide, /] { :self :anObject |
 		self * anObject.reciprocal
 	}
 
@@ -132,6 +123,17 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 
 	[subtract, -] { :self :anObject |
 		self + anObject.negate
+	}
+
+	[times, *] { :self :anObject |
+		anObject.isNumber.if {
+			Quantity(
+				self.magnitude * anObject,
+				self.unit
+			)
+		} {
+			self.error('*: invalid operand')
+		}
 	}
 
 }

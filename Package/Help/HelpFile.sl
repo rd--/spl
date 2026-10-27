@@ -230,6 +230,19 @@ HelpFile : [Object, Equal, Cache] {
 		}
 	}
 
+	nameOrTokenName { :self |
+		self.isReferenceFile.if {
+			let firstWord = self.name.words.first;
+			firstWord.isSplOperatorName.if {
+				firstWord.splOperatorTokenName
+			} {
+				firstWord
+			}
+		} {
+			self.name
+		}
+	}
+
 	oeisHelpPrograms { :self |
 		self.helpPrograms.select(isOeisProgram/1)
 	}
@@ -258,19 +271,6 @@ HelpFile : [Object, Equal, Cache] {
 	paragraphs { :self |
 		self.cached('paragraphs') {
 			self.source.paragraphs
-		}
-	}
-
-	nameOrTokenName { :self |
-		self.isReferenceFile.if {
-			let firstWord = self.name.words.first;
-			firstWord.isSplOperatorName.if {
-				firstWord.splOperatorTokenName
-			} {
-				firstWord
-			}
-		} {
-			self.name
 		}
 	}
 

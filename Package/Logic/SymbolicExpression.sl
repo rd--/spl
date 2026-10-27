@@ -32,16 +32,16 @@
 		'and'.symbolicPrimitive([self, aBlock()])
 	}
 
-	| { :self :aBlock/0 |
-		'or'.symbolicPrimitive([self, aBlock()])
-	}
-
 	if { :self :whenTrue/0 :whenFalse/0 |
 		'if'.symbolicPrimitive([self, whenTrue(), whenFalse()])
 	}
 
 	not { :self |
 		'not'.symbolicPrimitive([self])
+	}
+
+	[or, |] { :self :aBlock/0 |
+		'or'.symbolicPrimitive([self, aBlock()])
 	}
 
 }

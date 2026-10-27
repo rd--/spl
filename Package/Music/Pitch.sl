@@ -61,7 +61,6 @@
 
 }
 
-/* Csound naming */
 +@Frequency {
 
 	cps { :self |

@@ -1428,16 +1428,6 @@
 		answer
 	}
 
-	symmetricInterleave { :self :aList |
-		let answer = [];
-		let k = self.size.max(aList.size);
-		1.toDo(k) { :i |
-			answer.add!(self.atWrap(i));
-			answer.add!(aList.atWrap(i))
-		};
-		answer
-	}
-
 	intersperse { :self :anObject |
 		let answer = [];
 		self.doSeparatedBy { :each |
@@ -2710,6 +2700,16 @@
 		self[j] := x
 	}
 
+	symmetricInterleave { :self :aList |
+		let answer = [];
+		let k = self.size.max(aList.size);
+		1.toDo(k) { :i |
+			answer.add!(self.atWrap(i));
+			answer.add!(aList.atWrap(i))
+		};
+		answer
+	}
+
 	take { :self :count :fill |
 		(count < 0).if {
 			self.takeLast(count.negate, fill)
@@ -3059,20 +3059,20 @@
 		}
 	}
 
-	+= { :self :anObject |
+	[divide!, /=] { :self :anObject |
+		applyBinaryMathOperator!(self, anObject, /)
+	}
+
+	[plus!, +=] { :self :anObject |
 		applyBinaryMathOperator!(self, anObject, +)
 	}
 
-	-= { :self :anObject |
+	[subtract!, -=] { :self :anObject |
 		applyBinaryMathOperator!(self, anObject, -)
 	}
 
-	*= { :self :anObject |
+	[times!, *=] { :self :anObject |
 		applyBinaryMathOperator!(self, anObject, *)
-	}
-
-	/= { :self :anObject |
-		applyBinaryMathOperator!(self, anObject, /)
 	}
 
 }

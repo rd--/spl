@@ -469,6 +469,7 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 }
 
 +ByteArray {
+
 	decodeLargeInteger { :self :littleEndian |
 		let k = self.size;
 		let f = { :n |

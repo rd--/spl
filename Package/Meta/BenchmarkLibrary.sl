@@ -1,3 +1,5 @@
+/* Meta: BenchmarkLibrary */
+
 [
 	'Benchmark'
 	'SomRandom'

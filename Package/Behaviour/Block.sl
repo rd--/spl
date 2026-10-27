@@ -132,7 +132,7 @@ Block! : [Object, Equal] {
 		r
 	}
 
-	convergentSeries{ :f/1 :i |
+	convergentSeries { :f/1 :i |
 		convergentSeries(f/1, i, 1000, 1, 1E-16, +)
 	}
 
@@ -772,7 +772,7 @@ Block! : [Object, Equal] {
 
 }
 
-+List{
++List {
 
 	predicateAnd { :self |
 		{ :anObject |

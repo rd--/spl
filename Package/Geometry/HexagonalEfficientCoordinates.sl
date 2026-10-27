@@ -19,7 +19,9 @@ HexagonalEfficientCoordinates : [Object, Equal] {
 			[1 - a, r + a, c - (1 - a)],
 			[1 - a, r + a, c + a]
 		].collect(HexagonalEfficientCoordinates/1)
-	}	[negate, -] { :self |
+	}
+
+	[negate, -] { :self |
 		let [a, r, c] = self.coordinates;
 		HexagonalEfficientCoordinates(
 			a,

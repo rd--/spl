@@ -1,3 +1,5 @@
+/* Meta: Categories */
+
 system.categoryDictionary.categorizeDictionary('type', (
 	'Kernel-Behaviour': [
 		'Block'

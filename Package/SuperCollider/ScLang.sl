@@ -53,27 +53,6 @@
 
 +@Number {
 
-	difSqr { :self :aNumber |
-		(self * self) - (aNumber * aNumber)
-	}
-
-	distort { :self |
-		self / (1 + self.abs)
-	}
-
-	hypotenuseApproximate { :self :aNumber |
-		self.abs + aNumber.abs - ((2.sqrt - 1) * self.abs.min(aNumber.abs))
-	}
-
-	octCps { :self |
-		440 * (2 ^ (self - 4.75))
-	}
-
-	nextPowerOf { :self :base |
-		let exponent = self.log(base).ceiling;
-		base ^ exponent
-	}
-
 	ampComp { :freq :root :exp |
 		(root / freq) ^ exp
 	}
@@ -115,6 +94,14 @@
 
 	dbAmp { :self |
 		10 ^ (self * 0.05)
+	}
+
+	difSqr { :self :aNumber |
+		(self * self) - (aNumber * aNumber)
+	}
+
+	distort { :self |
+		self / (1 + self.abs)
 	}
 
 	expExp { :self :inMin :inMax :outMin :outMax |
@@ -172,6 +159,10 @@
 				}
 			}
 		}
+	}
+
+	hypotenuseApproximate { :self :aNumber |
+		self.abs + aNumber.abs - ((2.sqrt - 1) * self.abs.min(aNumber.abs))
 	}
 
 	isExclusivelyBetween { :self :lo :hi |
@@ -242,6 +233,15 @@
 		2 ^ (self / 12)
 	}
 
+	nextPowerOf { :self :base |
+		let exponent = self.log(base).ceiling;
+		base ^ exponent
+	}
+
+	octCps { :self |
+		440 * (2 ^ (self - 4.75))
+	}
+
 	previousPowerOf { :self :base |
 		base ^ (self.log(base).ceiling - 1)
 	}
@@ -270,12 +270,12 @@
 
 +Block {
 
-	!+ { :self :anInteger |
-		(self ! anInteger).Sum
-	}
-
 	!* { :self :anInteger |
 		(self ! anInteger).product
+	}
+
+	!+ { :self :anInteger |
+		(self ! anInteger).Sum
 	}
 
 }
@@ -346,12 +346,12 @@
 		}
 	}
 
-	differentiate { :self |
-		([0] ++ self).differences
-	}
-
 	difSqr { :self :aNumber |
 		aNumber.adaptToCollectionAndApply(self, difSqr/2)
+	}
+
+	differentiate { :self |
+		([0] ++ self).differences
 	}
 
 	extendTo { :self :size |

@@ -372,7 +372,8 @@
 	}
 
 	at { :self :anInteger |
-		self.item(anInteger - 1) /* One-indexed */
+		/* One-indexed */
+		self.item(anInteger - 1)
 	}
 
 	item { :self :anInteger |
@@ -419,6 +420,15 @@
 		<primitive: return _self.contentEditable = _aString;>
 	}
 
+	crossOrigin { :self |
+		/* Valid at <audio>, <img>, <link>, <script>, and <video> */
+		<primitive: return _self.crossorigin;>
+	}
+
+	crossOriginMutate! { :self :aString |
+		<primitive: return _self.crossorigin = _aString;>
+	}
+
 	focus { :self :options |
 		<primitive: return _self.focus(options);>
 	}
@@ -461,15 +471,6 @@
 
 	titleMutate! { :self :aString |
 		<primitive: return _self.title = _aString;>
-	}
-
-	crossOrigin { :self |
-		/* Valid at <audio>, <img>, <link>, <script>, and <video> */
-		<primitive: return _self.crossorigin;>
-	}
-
-	crossOriginMutate! { :self :aString |
-		<primitive: return _self.crossorigin = _aString;>
 	}
 
 }
@@ -759,7 +760,8 @@ CSSFontFaceRule! : [Object, CssRule] {
 CSSRuleList! : [Object] {
 
 	at { :self :index |
-		self.item(index - 1) /* One-indexed */
+		/* One-indexed */
+		self.item(index - 1)
 	}
 
 	item { :self :index |
@@ -776,13 +778,11 @@ CSSRuleList! : [Object] {
 
 }
 
-/* Chromium */
-CSSStyleDeclaration! : [Object, CssProperties] {
+CSSStyleDeclaration! /* Chromium */ : [Object, CssProperties] {
 
 }
 
-/* Firefox */
-CSS2Properties! : [Object, CssProperties] {
+CSS2Properties! /* Firefox */ : [Object, CssProperties] {
 
 }
 
@@ -933,7 +933,7 @@ DOMPointReadOnly! : [Object, DOMPointReadOnly] {
 
 }
 
-DocumentRange! : [Object, AbstractRange] { /* Note: Renamed by Spl kernel from Range */
+DocumentRange! : [Object, AbstractRange] {
 
 	cloneRange { :self |
 		<primitive: return _self.cloneRange();>
@@ -956,10 +956,18 @@ DocumentRange! : [Object, AbstractRange] { /* Note: Renamed by Spl kernel from R
 	}
 
 	endOffset { :self |
+		/* One-indexed */
 		<primitive: return _self.endOffset + 1;>
-	} /* One-indexed */
+	}
+
 	insertNode { :self :aNode |
 		<primitive: return _self.insertNode(_aNode);>
+	}
+
+	isInTextAreaElement { :self |
+		self.startContainer.isElement & {
+			self.startContainer.childNodes[self.startOffset].isHTMLTextAreaElement
+		}
 	}
 
 	selectNodeContents { :self :aNode |
@@ -967,22 +975,22 @@ DocumentRange! : [Object, AbstractRange] { /* Note: Renamed by Spl kernel from R
 	}
 
 	setEnd { :self :endNode :endOffset |
+		/* One-indexed */
 		<primitive: return _self.setEnd(_endNode, _endOffset - 1);>
-	} /* One-indexed */
+	}
+
 	setStart { :self :startNode :startOffset |
+		/* One-indexed */
 		<primitive: return _self.setStart(_startNode, _startOffset - 1);>
-	} /* One-indexed */
+	}
+
 	startContainer { :self |
 		<primitive: return _self.startContainer;>
 	}
 
 	startOffset { :self |
+		/* One-indexed */
 		<primitive: return _self.startOffset + 1;>
-	} /* One-indexed */
-	isInTextAreaElement { :self |
-		self.startContainer.isElement & {
-			self.startContainer.childNodes[self.startOffset].isHTMLTextAreaElement
-		}
 	}
 
 	toString { :self |
@@ -1521,7 +1529,8 @@ NamedNodeMap! : [Object] {
 NodeList! : [Object] {
 
 	at { :self :anInteger |
-		self.item(anInteger - 1) /* One-indexed */
+		/* One-indexed */
+		self.item(anInteger - 1)
 	}
 
 	item { :self :anInteger |
@@ -1617,8 +1626,10 @@ Selection! : [Object] {
 	}
 
 	anchorOffset { :self |
+		/* One-indexed */
 		<primitive: return _self.anchorOffset + 1;>
-	} /* One-indexed */
+	}
+
 	collapse { :self :node :offset |
 		<primitive: return _self.collapse(_node, _offset);>
 	}
@@ -1645,10 +1656,13 @@ Selection! : [Object] {
 
 	focusOffset { :self |
 		<primitive: return _self.focusOffset + 1;>
-	} /* One-indexed */
+	}
+
 	getRangeAt { :self :anInteger |
+		/* One-indexed */
 		<primitive: return _self.getRangeAt(_anInteger - 1);>
-	} /* One-indexed */
+	}
+
 	isCaret { :self |
 		self.type = 'Caret'
 	}

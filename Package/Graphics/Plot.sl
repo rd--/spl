@@ -1511,7 +1511,7 @@ Plot : [Object] {
 
 }
 
-+List{
++List {
 
 	denseScatterPlot { :self :shape |
 		let [w, h] = shape;

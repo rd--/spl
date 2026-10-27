@@ -821,16 +821,16 @@
 		self.collect(sign/1)
 	}
 
-	square { :self |
-		self.collect(square/1)
-	}
-
 	signedSqrt { :self |
 		self.collect(signedSqrt/1)
 	}
 
 	softClip { :self |
 		self.collect(softClip/1)
+	}
+
+	square { :self |
+		self.collect(square/1)
 	}
 
 	squareFreePart { :self |
@@ -1035,16 +1035,16 @@
 		anObject.adaptToCollectionAndApply(self, remainder/2)
 	}
 
+	[signedPower, **] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, signedPower/2)
+	}
+
 	[subtract, -] { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, subtract/2)
 	}
 
 	[times, *] { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, times/2)
-	}
-
-	[signedPower, **] { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, signedPower/2)
 	}
 
 }

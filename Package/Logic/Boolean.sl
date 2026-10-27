@@ -141,14 +141,6 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 
 +@Integer {
 
-	&& { :self :aBoole |
-		self.assertIsBoole.bitAnd(aBoole.assertIsBoole)
-	}
-
-	|| { :self :aBoole |
-		self.assertIsBoole.bitOr(aBoole.assertIsBoole)
-	}
-
 	Boolean { :self |
 		(self = 0).if {
 			false
@@ -167,6 +159,14 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 		} {
 			self.error('assertIsBoole: not 0 or 1')
 		}
+	}
+
+	[evaluatingAnd, &&] { :self :aBoole |
+		self.assertIsBoole.bitAnd(aBoole.assertIsBoole)
+	}
+
+	[evaluatingOr, ||] { :self :aBoole |
+		self.assertIsBoole.bitOr(aBoole.assertIsBoole)
 	}
 
 }

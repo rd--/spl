@@ -1,5 +1,3 @@
-/* Pseudo-Trait: Copy & Sequence: copyFromTo */
-
 +[List, Range, String] {
 
 	chunksOf { :self :chunkSize |

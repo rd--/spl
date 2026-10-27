@@ -53,15 +53,15 @@ OscMessage : [Object, Store] {
 
 	| address parameterList |
 
+	encode { :self |
+		self.encodeRecord.basicEncodeOscMessage
+	}
+
 	encodeRecord { :self |
 		(
 			address: self.address,
 			args: self.parameterList.collect(encodeRecord/1)
 		)
-	}
-
-	encode { :self |
-		self.encodeRecord.basicEncodeOscMessage
 	}
 
 }
@@ -81,15 +81,15 @@ OscBundle : [Object, Store] {
 
 	| time messageList |
 
+	encode { :self |
+		self.encodeRecord.basicEncodeOscBundle
+	}
+
 	encodeRecord { :self |
 		(
 			timeTag: (native: self.time * 1000),
 			packets: self.messageList.collect(encodeRecord/1)
 		)
-	}
-
-	encode { :self |
-		self.encodeRecord.basicEncodeOscBundle
 	}
 
 }

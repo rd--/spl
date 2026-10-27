@@ -1,4 +1,4 @@
-/* CartesianCoordinates */
+/* Requires: CartesianCoordinates */
 
 PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, CartesianCoordinates] {
 

@@ -12,6 +12,9 @@ A range can be collapsed using `collapse`.
 
 The `toString` method answers the text of the range as a `String`.
 
+_Note:_
+Renamed by the Spl kernel from `Range`, which is the name of an Spl type.
+
 * * *
 
 See also: Document, Selection, Window

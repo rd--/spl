@@ -1,3 +1,5 @@
+/* Meta: SuperColliderLibrary */
+
 [
 	/* Music */
 	'AtonalTheory'

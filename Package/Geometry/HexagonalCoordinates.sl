@@ -67,7 +67,9 @@ HexagonalCoordinates : [Object, Store, Equal] {
 		HexagonalCoordinates(
 			self.coordinates.roundedHexagonalCoordinates
 		)
-	}	[subtract, -] { :self :operand |
+	}
+
+	[subtract, -] { :self :operand |
 		operand.isHexagonalCoordinates.if {
 			HexagonalCoordinates(self.coordinates - operand.coordinates)
 		} {

@@ -94,16 +94,16 @@ CollectionStream : [Object, Copy, Equal, Do, Collect, Iterator, Stream] {
 		self.positionIndex
 	}
 
+	positionError { :self |
+		self.error('positionError: position out of bounds')
+	}
+
 	positionMutate! { :self :anInteger |
 		self.isValidReadPosition(anInteger).if {
 			self.positionIndex := anInteger
 		} {
 			self.positionError
 		}
-	}
-
-	positionError { :self |
-		self.error('positionError: position out of bounds')
 	}
 
 	reset! { :self |

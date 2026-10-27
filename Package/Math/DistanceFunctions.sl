@@ -552,7 +552,7 @@
 
 }
 
-+List{
++List {
 
 	wagnerFischerAlgorithm { :a :b |
 		<primitive:
@@ -589,7 +589,7 @@
 
 }
 
-+String{
++String {
 
 	wagnerFischerAlgorithm { :a :b |
 		a.characters.wagnerFischerAlgorithm(
@@ -692,7 +692,7 @@
 
 }
 
-+List{
++List {
 
 	sequenceAlignment { :a :b |
 		let [c, d] = needlemanWunschAlgorithm(a, b, nil, [1, -1, -1]);
@@ -718,7 +718,7 @@
 
 }
 
-+String{
++String {
 
 	sequenceAlignment { :a :b |
 		sequenceAlignment(a.characters, b.characters).collect { :each |

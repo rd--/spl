@@ -1479,7 +1479,7 @@
 
 }
 
-+LargeInteger{
++LargeInteger {
 
 	brentPollardAlgorithm { :self |
 		self.uncheckedBrentPollardAlgorithm(2 ^ 20)

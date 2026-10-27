@@ -728,6 +728,14 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
+	nonCopyingTake { :self :anInteger |
+		(self.size <= anInteger).if {
+			self
+		} {
+			self.copyFromTo(1, anInteger)
+		}
+	}
+
 	normalizeWhitespace { :self |
 		<primitive: return _self.replace(/\s+/g, ' ').trim();>
 	}
@@ -989,14 +997,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 	[take, truncateTo] { :self :anInteger |
 		self.copyFromTo(1, anInteger.min(self.size))
-	}
-
-	nonCopyingTake { :self :anInteger |
-		(self.size <= anInteger).if {
-			self
-		} {
-			self.copyFromTo(1, anInteger)
-		}
 	}
 
 	takeDrop { :self :count |

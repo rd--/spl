@@ -75,3 +75,6 @@ check-all:
 	make check-consecutive-newlines
 	make check-commented-methods
 	make check-reference-names
+
+sort-method-definitions:
+	python3 py/sort-method-definitions.py Package/*/*.sl

@@ -142,7 +142,7 @@ SphericalCoordinates : [Object, Store, Equal] {
 
 }
 
-+List{
++List {
 
 	sphericalDistance { :self :operand |
 		let [theta1, phi1] = self;
