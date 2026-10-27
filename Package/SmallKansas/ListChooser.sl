@@ -1,5 +1,3 @@
-/* Requires: TextElement */
-
 ListChooser : [Object] {
 
 	| listChooserPane filterText select entries ignoreCase |

@@ -1,3 +1,5 @@
+/* Requires: SmallKansas */
+
 Frame : [Object, UserEventTarget] {
 
 	| smallKansas framePane titlePane closeButton menuButton titleText inMove x y x0 y0 subject eventListeners |

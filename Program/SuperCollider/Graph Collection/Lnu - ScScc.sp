@@ -1,12 +1,12 @@
 /*  SCSCC-2 "Crispy Rubber" 138 bytes ; https://github.com/lukiss/SCSCC/ */
 let m = SinOsc(QuadC(1, 1, -1, -0.75, 0) ^ 2 * 8, 0);
-let f = QuadC(m ^ m ^ m, 1, -1, -0.75, 0).LinExp(-1, 1, 0.01, 1) * 99 + 12;
+let f = QuadC(m ^ m ^ m, 1, -1, -0.75, 0).linExp(-1, 1, 0.01, 1) * 99 + 12;
 Pan2(
 	Bpf(
 		SinOsc(
 			f,
 			SinOsc(m ^ f * 2, 0) * m * 2.pi).sign,
-		(m * m).LinExp(-1, 1, 0.01, 1) * 5000 + (m * 99),
+		(m * m).linExp(-1, 1, 0.01, 1) * 5000 + (m * 99),
 		1
 	),
 	0,
@@ -775,7 +775,7 @@ let o = Lpz2(
 			DelayC(
 				LocalIn(2, 0) + 1 * 2,
 				1,
-				SinOsc(0.009 / [1 .. 8], 0).ExpRange(0.01, 1)
+				SinOsc(0.009 / [1 .. 8], 0).expRange(0.01, 1)
 			),
 			0.995
 		).sin

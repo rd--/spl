@@ -7,10 +7,12 @@
 	'NavigatorMidi'
 	'NavigatorSvg'
 
-	/* SmallKansas */
+	/* SmallKansas (Kernel) */
+	'SmallKansas'
 	'UserEventTarget'
 	'View'
-	'SmallKansas'
+
+	/* SmallKansas */
 	'ColumnBrowser'
 	'Frame'
 	'ListChooser'

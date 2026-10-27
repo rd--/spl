@@ -1,3 +1,5 @@
+/* Requires: SmallKansas */
+
 MenuItem : [Object, Compare] {
 
 	| name accessKey onSelect |

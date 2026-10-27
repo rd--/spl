@@ -3011,14 +3011,14 @@
 		}
 	}
 
-	withWithWithCollect { :a :b :c :d :f/3 |
+	withWithWithCollect { :a :b :c :d :f/4 |
 		let n = [a, b, c, d].collect(size/1).max;
 		1.toAsCollect(n, a) { :i |
 			f(a.atWrap(i), b.atWrap(i), c.atWrap(i), d.atWrap(i))
 		}
 	}
 
-	withWithWithWithCollect { :a :b :c :d :e :f/3 |
+	withWithWithWithCollect { :a :b :c :d :e :f/5 |
 		let n = [a, b, c, d, e].collect(size/1).max;
 		1.toAsCollect(n, a) { :i |
 			f(a.atWrap(i), b.atWrap(i), c.atWrap(i), d.atWrap(i), e.atWrap(i))

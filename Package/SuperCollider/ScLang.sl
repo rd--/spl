@@ -437,11 +437,15 @@
 	}
 
 	linExp { :self :inMin :inMax :outMin :outMax |
-		self.withWithWithWithCollect(inMin,inMax, outMin, outMax, linExp/5)
+		self.withWithWithWithCollect(
+			inMin.nest, inMax.nest, outMin.nest, outMax.nest, linExp/5
+		)
 	}
 
 	linLin { :self :inMin :inMax :outMin :outMax |
-		self.withWithWithWithCollect(inMin,inMax, outMin, outMax, linLin/5)
+		self.withWithWithWithCollect(
+			inMin.nest, inMax.nest, outMin.nest, outMax.nest, linLin/5
+		)
 	}
 
 	midiCps { :self |

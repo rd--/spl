@@ -2,7 +2,6 @@
 
 [
 	'Benchmark'
-	'SomRandom'
 	'BounceBenchmark'
 	'HavlakBenchmark'
 	'JsonBenchmark'
@@ -12,6 +11,7 @@
 	'PermuteBenchmark'
 	'QueensBenchmark'
 	'SieveBenchmark'
+	'SomRandom'
 	'SqueakBenchmark'
 	'StorageBenchmark'
 	'TowersBenchmark'

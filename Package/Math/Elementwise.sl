@@ -136,7 +136,7 @@
 
 	clip { :self |
 		self.collect { :each |
-			each.clip(-1, 1, -1, 1)
+			each.clip(-1, 1)
 		}
 	}
 

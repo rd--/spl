@@ -18,7 +18,6 @@
 	'Add'
 	'ArithmeticProgression'
 	'At'
-	'Collect'
 	'Do'
 	'Collection'
 	'Dictionary' /* @Collection */

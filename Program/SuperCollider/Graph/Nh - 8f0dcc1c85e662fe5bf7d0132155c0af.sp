@@ -9,11 +9,11 @@ snd := SinOsc({ ExpRand(10, 100) } ! 4 * freq + (snd * index), 0);
 snd := Latch(snd, PulseDivider(snd.reverse, Lpf(snd, 10 * cutoff).cube * 8000 * divide, 0));
 snd := Lpf(snd, 440);
 snd := Select(Lpf(snd.reverse, 10 * cutoff) * 3, [Pulse(440 * freq + (snd * index), 0.5), SinOsc(100 * freq + (snd * index), 0)]);
-snd := Rlpf(snd, 440 + (1000 * Lpf(Lpf(snd, 1), 1).clip(0, 1)), 0.1);
+snd := Rlpf(snd, 440 + (1000 * Lpf(Lpf(snd, 1), 1).clip), 0.1);
 snd := Sanitize(snd, 0);
 4.timesRepeat {
 	snd := snd + SinOsc(ExpRand(10, 800) * freq + Lpf(snd * index, 100), 0)
 };
 snd := snd <! LocalOut(snd);
 snd := snd.Splay;
-snd.clip * -12.dbAmp
+snd.clip(-1, 1) * -12.dbAmp

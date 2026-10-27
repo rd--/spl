@@ -1582,8 +1582,12 @@
 
 +Ugen {
 
-	clip { :in |
-		clip(in, -1, 1)
+	clip { :self |
+		self.clip(-1, 1)
+	}
+
+	fold { :self |
+		self.fold(-1, 1)
 	}
 
 	round { :self |
@@ -1596,6 +1600,10 @@
 
 	unitCps { :self |
 		(self * 100).midiCps
+	}
+
+	wrap { :self |
+		self.wrap(-1, 1)
 	}
 
 }

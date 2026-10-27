@@ -65,24 +65,24 @@ Voicer(
 	part: 1,
 	numVoices: 6,
 	voiceFunc: { :e |
-		let loss = linExp(
+		let loss = (
 			in: e.y,
 			srcLo: 0,
 			srcHi: 1,
 			dstLo: 0.99999,
 			dstHi: 0.99950
-		);
+		).linExp;
 		let wobble = SinOsc(
 			freq: 2,
 			phase: 0
 		);
-		let tension = linExp(
+		let tension = (
 			in: e.x,
 			srcLo: 0,
 			srcHi: 1,
 			dstLo: 0.01,
 			dstHi: 0.1
-		) + (wobble * 0.0001);
+		).linExp + (wobble * 0.0001);
 		let env = Perc(
 			trig: e.w,
 			attackTime: 0.0001,

@@ -1,4 +1,4 @@
-/* Requires: SmallKansas Window */
+/* Requires: SmallKansas */
 
 TextEditor : [Object, UserEventTarget, View] {
 
