@@ -80,15 +80,15 @@
 
 ## Math Operators
 
-- `Abs`, `AbsDif`, `AmClip`
-- `Clip`, `Fold`, `Wrap`
+- `abs`, `absDif`, `amClip`
+- `clip`, `fold`, `wrap`
 - `Integrator`
 - `LinExp`, `LinLin`
-- `ModDif`
-- `Neg`
-- `Pow`
+- `modularDistance`
+- `negate`
+- `power`
 - `RunningMax`, `RunningMin`, `RunningSum`
-- `Slope`, `Sqrt`, `Sum`
+- `Slope`, `signedSqrt`, `Sum`
 
 ## Noise Generators
 

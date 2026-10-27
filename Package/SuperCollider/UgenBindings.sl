@@ -1242,10 +1242,6 @@
 
 +[List, SmallFloat, Ugen] {
 
-	AmClip { :self :anObject |
-		<primitive: return sc.AmClip(_self, _anObject);>
-	}
-
 	BiLinRand { :self |
 		<primitive: return sc.BiLinRand(_self);>
 	}
@@ -1442,6 +1438,10 @@
 		<primitive: return sc.AbsDif(_self, _anObject);>
 	}
 
+	amClip { :self :anObject |
+		<primitive: return sc.AmClip(_self, _anObject);>
+	}
+
 	atan2 { :self :anObject |
 		<primitive: return sc.Atan2(_self, _anObject);>
 	}
@@ -1592,18 +1592,6 @@
 
 	unitCps { :self |
 		(self * 100).midiCps
-	}
-
-}
-
-+SmallFloat {
-
-	amClip { :self :aNumber |
-		(aNumber <= self.zero).if {
-			self.zero
-		} {
-			self * aNumber
-		}
 	}
 
 }

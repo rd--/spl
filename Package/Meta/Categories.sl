@@ -1408,7 +1408,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'AllpassC'
 		'AllpassL'
 		'AllpassN'
-		'AmClip'
+		'amClip'
 		'AmpComp'
 		'AmpCompA'
 		'AmpDb'

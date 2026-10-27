@@ -38,6 +38,14 @@
 		}
 	}
 
+	amClip { :self :aNumber |
+		(aNumber <= self.zero).if {
+			self.zero
+		} {
+			self * aNumber
+		}
+	}
+
 	angleVector { :self |
 		[self.cos, self.sin]
 	}

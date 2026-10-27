@@ -308,7 +308,7 @@ Reference (A-Z):
 - `AllpassC`
 - `AllpassL`
 - `AllpassN`
-- `AmClip`
+- `amClip`
 - `AmpComp`
 - `Amplitude`
 - `AnalogueClock`

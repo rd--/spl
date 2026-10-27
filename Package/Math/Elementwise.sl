@@ -1059,6 +1059,10 @@
 		self.collect(argument/1)
 	}
 
+	amClip { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, amClip/2)
+	}
+
 	arithmeticGeometricMean { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, arithmeticGeometricMean/2)
 	}
