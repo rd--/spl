@@ -33,7 +33,7 @@ Note that `|` is never displayed as ∨ because it is part of the `Block Syntax`
 
 See also: &, &&, ||, anySatisfy, or, verticalLine
 
-Guides: Boolean Functions, Binary Operators, Logical Operators, Syntax Tokens
+Guides: Binary Operators, Boolean Functions, Logical Operators, Syntax Tokens
 
 References:
 _Apl_

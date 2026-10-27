@@ -31,7 +31,7 @@ Comment syntax is selected to use token sequences that are otherwise invalid or 
 
 * * *
 
-See also: /, *, /*, */
+See also: *, */, /, /*
 
 See also: Syntax Guides
 

@@ -49,6 +49,6 @@ list syntax is not rewritten by the simplifier:
 
 See also: List
 
-Guides: Array Syntax, List Assignment Syntax, Record Syntax, Tuple Syntax, Syntax Guides, Vector Syntax, Volume Syntax
+Guides: Array Syntax, List Assignment Syntax, Record Syntax, Syntax Guides, Tuple Syntax, Vector Syntax, Volume Syntax
 
 Categories: Syntax

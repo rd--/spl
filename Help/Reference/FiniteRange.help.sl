@@ -40,4 +40,4 @@ however it also allows infinite and improper `Range` values.
 
 See also: ArithmeticProgression, Range
 
-Guides: Range Syntax, Range Literal Syntax
+Guides: Range Literal Syntax, Range Syntax

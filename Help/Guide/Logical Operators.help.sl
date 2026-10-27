@@ -31,7 +31,7 @@ false
 
 * * *
 
-See also: &, &&, |, ||, anySatisfy, allSatisfy, bitAnd, bitOr, not
+See also: &, &&, |, ||, allSatisfy, anySatisfy, bitAnd, bitOr, not
 
 Guides: Bitwise Functions, Boolean Functions, Comparison Functions
 

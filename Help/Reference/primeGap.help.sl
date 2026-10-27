@@ -85,7 +85,7 @@ OEIS [A001223](https://oeis.org/A001223):
 
 See also: isPrime, nextPrime, prime
 
-Guides: Prime Number Functions, Integer Sequence Functions
+Guides: Integer Sequence Functions, Prime Number Functions
 
 References:
 _Mathematica_

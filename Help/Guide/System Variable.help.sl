@@ -35,6 +35,6 @@ however that could be equally or more confusing.
 
 * * *
 
-See also: system, System, Void
+See also: System, Void, system
 
 Guides: Reflection Functions, System Functions

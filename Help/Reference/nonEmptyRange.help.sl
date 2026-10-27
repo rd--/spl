@@ -36,4 +36,4 @@ not _nonempty_.
 
 See also: Range
 
-Guides: Range Syntax, Range Literal Syntax
+Guides: Range Literal Syntax, Range Syntax

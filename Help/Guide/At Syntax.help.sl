@@ -81,7 +81,7 @@ however this is confusing and should be disallowed:
 
 * * *
 
-See also: @, at, atAll, List, Range, Record
+See also: List, Range, Record, @, at, atAll
 
 Guides: AtAll Syntax, Property Read Syntax, Put Syntax
 

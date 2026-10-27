@@ -542,10 +542,6 @@
 		<primitive: return sc.Ddup(_n, _in);>
 	}
 
-	degreeToKey { :bufnum :in :octave |
-		<primitive: return sc.DegreeToKey(_bufnum, _in, _octave);>
-	}
-
 	DemandEnvGen { :level :dur :shape :curve :gate :reset :levelScale :levelBias :timeScale :doneAction |
 		<primitive: return sc.DemandEnvGen(_level, _dur, _shape, _curve, _gate, _reset, _levelScale, _levelBias, _timeScale, _doneAction);>
 	}
@@ -988,6 +984,10 @@
 
 	WrapIndex { :bufnum :in |
 		<primitive: return sc.WrapIndex(_bufnum, _in);>
+	}
+
+	degreeToKey { :bufnum :in :octave |
+		<primitive: return sc.DegreeToKey(_bufnum, _in, _octave);>
 	}
 
 }

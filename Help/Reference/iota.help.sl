@@ -139,7 +139,7 @@ Where supported `iota` is displayed as ⍳.
 
 See also: rank, reshape, shape
 
-Guides: Array Functions, Matrix Functions, List Functions
+Guides: Array Functions, List Functions, Matrix Functions
 
 References:
 _Apl_

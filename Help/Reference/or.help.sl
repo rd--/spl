@@ -75,7 +75,7 @@ Note that `|` is not displayed as ∨ because it is part of the `Block Syntax`.
 
 See also: &, &&, |, ||, and, or
 
-Guides: Boolean Functions, Binary Operators, Logical Operators
+Guides: Binary Operators, Boolean Functions, Logical Operators
 
 References:
 _Apl_

@@ -42,6 +42,6 @@ Empty `Map`:
 
 * * *
 
-See also: Dictionary, Record, Map
+See also: Dictionary, Map, Record
 
 Guides: Dictionary Syntax, Record Syntax, Syntax Guides

@@ -76,7 +76,7 @@ This mode is off by default.
 
 See also: Association, Block, $, also, applyWithReturn, cull, identity, in, nullaryApply, with
 
-Guides: Dictionary Functions, Block Functions
+Guides: Block Functions, Dictionary Functions
 
 References:
 _Smalltalk_

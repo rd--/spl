@@ -31,7 +31,7 @@ In Sᴘʟ the names are _&_ and _&&_.
 
 See also: &&, |, allSatisfy, ampersand, and, or
 
-Guides: Boolean Functions, Binary Operators, Logical Operators
+Guides: Binary Operators, Boolean Functions, Logical Operators
 
 Unicode: U+00026 & Ampersand, U+2227 ∧ Logical and
 

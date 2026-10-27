@@ -52,10 +52,6 @@
 		Decay2(d['in'], d['attackTime'], d['decayTime'])
 	}
 
-	degreeToKey { :d |
-		DegreeToKey(d['bufNum'], d['in'], d['octave'])
-	}
-
 	DelayC { :d |
 		DelayC(d['in'], d['maxDelayTime'], d['delayTime'])
 	}
@@ -502,6 +498,10 @@
 
 	XFade2 { :d |
 		XFade2(d['inA'], d['inB'], d['pan'], d['level'])
+	}
+
+	degreeToKey { :d |
+		DegreeToKey(d['bufNum'], d['in'], d['octave'])
 	}
 
 	linExp { :d |

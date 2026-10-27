@@ -54,6 +54,6 @@ true
 
 * * *
 
-See also: Binary, Complex, Decimal, Fraction, Integer, isImmediate, LargeInteger, Number, Residue, SmallFloat
+See also: Binary, Complex, Decimal, Fraction, Integer, LargeInteger, Number, Residue, SmallFloat, isImmediate
 
 Guides: Number Syntax, Numerical Precision

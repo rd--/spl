@@ -44,7 +44,7 @@ Operators are blocks:
 
 * * *
 
-See also: ., Block
+See also: Block, .
 
 Guides: Apply Syntax, Method Syntax
 

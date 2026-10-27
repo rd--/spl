@@ -81,7 +81,7 @@ or with temporary variables:
 
 * * *
 
-See also: :=, List
+See also: List, :=
 
 Guides: Record Assignment Syntax
 

@@ -40,7 +40,7 @@ A concise notation can allow the _score_ for a work to be written directly in Sá
 
 * * *
 
-See also: :;, List
+See also: List, :;
 
 Guides: List Syntax, Matrix Syntax, Vector Syntax, Volume Syntax
 

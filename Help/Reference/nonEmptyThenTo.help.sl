@@ -28,4 +28,4 @@ true
 
 See also: nonEmptyRange, thenTo
 
-Guides: Range Syntax, Range Literal Syntax
+Guides: Range Literal Syntax, Range Syntax

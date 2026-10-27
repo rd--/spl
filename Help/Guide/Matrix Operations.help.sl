@@ -105,6 +105,6 @@ Trace:
 
 * * *
 
-See also: +, *, at, determinant, dot, isColumnVector, isMatrix, isRowVector, isSquareMatrix, Matrix, shape, trace
+See also: Matrix, *, +, at, determinant, dot, isColumnVector, isMatrix, isRowVector, isSquareMatrix, shape, trace
 
 Guides: Matrix Functions

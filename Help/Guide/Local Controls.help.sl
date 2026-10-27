@@ -27,4 +27,4 @@ The list to reset all three controls above to their initial values is _[440, 440
 
 * * *
 
-See also: localControls, NamedControl, Named Controls
+See also: NamedControl, Named Controls, localControls

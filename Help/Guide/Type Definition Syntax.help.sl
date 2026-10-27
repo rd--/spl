@@ -22,7 +22,7 @@ To define a _primitive_ type the name is suffixed with an `!`, as in _Nil!_.
 
 * * *
 
-See also: :, {, }, Trait, Type
+See also: Trait, Type, :, {, }
 
 Guides: Defining Types, Syntax Guides, Syntax Tokens
 

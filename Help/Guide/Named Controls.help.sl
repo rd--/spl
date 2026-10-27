@@ -30,4 +30,4 @@ All local controls must be specified using the one mechanism.
 
 * * *
 
-See also: Local Controls, NamedControl
+See also: NamedControl, Local Controls

@@ -87,7 +87,7 @@ At `Symbol` the `name` method answers the quoted string:
 
 * * *
 
-See also: apostrophe, BacktickQuotedString, DoubleQuotedString, graveAccent, quotationMark, String, Symbol
+See also: BacktickQuotedString, DoubleQuotedString, String, Symbol, apostrophe, graveAccent, quotationMark
 
 Guides: Literals Syntax
 

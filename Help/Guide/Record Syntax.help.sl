@@ -25,7 +25,7 @@ List of associations:
 
 * * *
 
-See also: :, Record
+See also: Record, :
 
 Guides: List Syntax, Property Read Syntax, Property Write Syntax
 

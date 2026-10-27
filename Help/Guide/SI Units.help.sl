@@ -66,7 +66,7 @@ the SI prefix methods can answer `LargeInteger` values:
 
 * * *
 
-See also: centi, deci, deca, hecto, giga, kilo, mega, micro, milli, nano, pico, SiUnit, terra
+See also: SiUnit, centi, deca, deci, giga, hecto, kilo, mega, micro, milli, nano, pico, terra
 
 Guides: Quantity Functions
 

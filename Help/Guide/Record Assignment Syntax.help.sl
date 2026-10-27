@@ -68,7 +68,7 @@ true
 
 * * *
 
-See also: =, :=
+See also: :=, =
 
 Guides: List Assignment Syntax
 

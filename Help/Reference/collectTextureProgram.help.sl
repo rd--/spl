@@ -31,6 +31,6 @@ Play slowly ascending diatonic scale:
 
 See also: TextureProgram, overlapTextureProgram, spawnTextureProgram, xFadeTextureProgram
 
-Guides: Texture Programs, SuperCollider Functions
+Guides: SuperCollider Functions, Texture Programs
 
 Categories: Scheduling

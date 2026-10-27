@@ -21,7 +21,7 @@ true
 
 See also: Quaternion, isGaussianInteger, isInteger
 
-Guides: Quaternion Functions, Integer Functions, Predicate Functions
+Guides: Integer Functions, Predicate Functions, Quaternion Functions
 
 References:
 _Mathematica_

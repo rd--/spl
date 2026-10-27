@@ -13,4 +13,4 @@ The method dictionary is reflected in the `system` value.
 
 * * *
 
-See also: Dictionary, methodDictionary, Method, System
+See also: Dictionary, Method, System, methodDictionary

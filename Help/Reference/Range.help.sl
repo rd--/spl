@@ -401,7 +401,7 @@ OEIS [A194258](https://oeis.org/A194258):
 
 See also: ArithmeticProgression, Interval, RelativeRange, .., characterRange, discretize, do, downTo, end, isIntegerRange, last, reverseDo, start, stop, subdivide, thenTo, to, toBy, upOrDownTo
 
-Guides: Range Functions, Range Syntax, Range Literal Syntax, Sequence Functions
+Guides: Range Functions, Range Literal Syntax, Range Syntax, Sequence Functions
 
 References:
 _Mathematica_

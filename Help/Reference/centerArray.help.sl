@@ -75,7 +75,7 @@ p.colourMatrixPlot
 
 See also: centerList, centerMatrix, padLeft, padRight, reshape
 
-Guides: Array Functions, Matrix Functions, List Functions
+Guides: Array Functions, List Functions, Matrix Functions
 
 References:
 _Mathematica_

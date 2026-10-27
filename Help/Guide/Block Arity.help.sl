@@ -16,6 +16,6 @@ There are no optional parameters or _rest_ arguments.
 
 * * *
 
-See also: Block, cull, argumentCount
+See also: Block, argumentCount, cull
 
 Guides: Smalltalk Arity

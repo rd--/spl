@@ -28,6 +28,6 @@ false
 
 * * *
 
-See also: =, <, <|
+See also: <, <|, =
 
 Guides: Comparison Functions

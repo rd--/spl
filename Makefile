@@ -78,3 +78,9 @@ check-all:
 
 sort-method-definitions:
 	python3 py/sort-method-definitions.py Package/*/*.sl
+
+sort-guides:
+	python3 py/sort-guides.py Help/*/*.sl
+
+sort-see-also:
+	python3 py/sort-see-also.py Help/*/*.sl

@@ -50,6 +50,6 @@ Round a `SmallFloat` to a specified precision:
 
 * * *
 
-See also: printStringShowingDecimalPlaces, round, SmallFloat, smallFloatEpsilon, LargeInteger
+See also: LargeInteger, SmallFloat, printStringShowingDecimalPlaces, round, smallFloatEpsilon
 
 Guides: Numeric Types

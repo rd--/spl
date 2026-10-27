@@ -117,6 +117,6 @@ in alphabetical order:
 
 * * *
 
-See also: isSplOperatorToken, splOperatorCharacters, splOperatorTokenName, splOperatorNameTable
+See also: isSplOperatorToken, splOperatorCharacters, splOperatorNameTable, splOperatorTokenName
 
 Guides: Binary Operator Syntax, Reflection Functions, Syntax Tokens

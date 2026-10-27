@@ -30,6 +30,6 @@ true
 
 * * *
 
-See also: =, :=, ==, let, var
+See also: :=, =, ==, let, var
 
 Guides: Assignment Syntax, Comparison Functions, Initialised Temporaries Syntax

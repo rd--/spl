@@ -71,7 +71,7 @@ equal to `<=` at `boole`:
 
 See also: &, &&, |, allSatisfy, or
 
-Guides: Boolean Functions, Binary Operators, Logical Operators
+Guides: Binary Operators, Boolean Functions, Logical Operators
 
 References:
 _Apl_

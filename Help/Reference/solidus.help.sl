@@ -66,7 +66,7 @@ as part of the digraphs `solidusAsterisk` and `asteriskSolidus`.
 
 See also: *, +, -, //, divide, reciprocal
 
-Guides: Arithmetic Functions, Arity Syntax, Comment Syntax, Binary Operators, Fraction Syntax, Mathematical Functions
+Guides: Arithmetic Functions, Arity Syntax, Binary Operators, Comment Syntax, Fraction Syntax, Mathematical Functions
 
 Unicode:
 U+0002F / Solidus,

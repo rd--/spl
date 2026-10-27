@@ -70,7 +70,7 @@ introduce distinct bindings:
 
 * * *
 
-See also: ., (, ), Block, Method
+See also: Block, Method, (, ), .
 
 Guides: Method Syntax, Syntax Guides, Value Apply Syntax
 

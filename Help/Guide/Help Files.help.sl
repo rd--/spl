@@ -22,7 +22,7 @@ _Guide_ files are freely structured and are organised by cross-reference.
 
 * * *
 
-See also: helpFileName, HelpFile
+See also: HelpFile, helpFileName
 
 Guides: File Extensions, System Functions
 

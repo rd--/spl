@@ -26,7 +26,7 @@ OEIS [A051634](https://oeis.org/A051634):
 
 See also: isBalancedPrime, isWeakPrime
 
-Guides: Prime Number Functions, Predicate Functions
+Guides: Predicate Functions, Prime Number Functions
 
 References:
 _OEIS_

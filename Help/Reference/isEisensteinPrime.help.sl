@@ -62,7 +62,7 @@ Plot Eisenstein primes on a linear _(a,b)_ grid:
 
 See also: EisensteinInteger, isGaussianPrime, isPrime
 
-Guides: Prime Number Functions, Predicate Functions
+Guides: Predicate Functions, Prime Number Functions
 
 References:
 _Mathematica_

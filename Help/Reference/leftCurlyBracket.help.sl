@@ -11,6 +11,6 @@ The name of this syntax token is `leftCurlyBracket`.
 
 See also: (, ), }
 
-Guides: Block Syntax, Trailing Block Syntax, Syntax Tokens
+Guides: Block Syntax, Syntax Tokens, Trailing Block Syntax
 
 Categories: Syntax

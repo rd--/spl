@@ -29,6 +29,6 @@ In this case the exception can be _caught_ using `ifError`:
 
 * * *
 
-See also: ensure, Error, error, hasError, ifError, nil, signal
+See also: Error, ensure, error, hasError, ifError, nil, signal
 
 Categories: Error, Exception

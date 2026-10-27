@@ -20,6 +20,6 @@ Answers `nil`.
 
 See also: Indexable, includesIndex, indices, withIndexDo
 
-Guides: Iteration Functions, Indexing Functions
+Guides: Indexing Functions, Iteration Functions
 
 Categories: Enumerating

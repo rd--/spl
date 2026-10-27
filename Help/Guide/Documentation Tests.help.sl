@@ -43,7 +43,7 @@ Where supported the token `>>>` is displayed as ⋙.
 
 * * *
 
-See also: ~, DocumentationTest, extractDocumentationTests, isCodeFence, terseReferenceSummary
+See also: DocumentationTest, ~, extractDocumentationTests, isCodeFence, terseReferenceSummary
 
 Guides: Fenced Code Blocks, Reference Help Files
 
