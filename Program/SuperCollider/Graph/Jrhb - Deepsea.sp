@@ -9,7 +9,7 @@ let t = Impulse(dt.reciprocal, 0) * 100;
 let count = PulseCount(t, 0);
 let u = Bpf(
 	Bpf(count < n * t, freq, 0.1),
-	freq * (count % LinLin(LfNoise1(1), -1, 1, 2, 20) + 1),
+	freq * (count % linLin(LfNoise1(1), -1, 1, 2, 20) + 1),
 	0.2
 );
 let f1 = Bpf(

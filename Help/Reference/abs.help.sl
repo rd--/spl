@@ -66,7 +66,7 @@ let y = MouseY(1, 9, 0, 0.2);
 let m = SinOsc(
 	[0.5 0.9] * x,
 	0
-).LinLin(-1, 1, 0.9, y);
+).linLin(-1, 1, 0.9, y);
 let o = SinOsc(
 	[55 99],
 	0

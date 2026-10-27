@@ -4,5 +4,5 @@ let e = (f % 1.pi).floor;
 let b = [0 .. 8] - 1 + 1.pi.tanh * 1.pi.pi;
 let c = 1 / b;
 let j = SinOsc(b * f, c) * SinOsc(c, 0).max(0) + AllpassC(LocalIn(f, 0), e, SinOsc(c / f, 0) / f + e / e, e) * e;
-let o = Bpf(Normalizer(j, e / e , c), LinExp(SinOsc(c, 0), -1, 1, f, e ^ f * f), 1);
+let o = Bpf(Normalizer(j, e / e , c), linExp(SinOsc(c, 0), -1, 1, f, e ^ f * f), 1);
 o.Splay2.sin <! LocalOut(o.rotateRight(1))

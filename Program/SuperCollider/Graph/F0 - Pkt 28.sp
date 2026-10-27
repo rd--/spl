@@ -10,9 +10,9 @@ let z = [1 .. n].collect { :i |
 	let g = SinOsc(400 + i,0) * f;
 	let h = SinOsc(0.05, i + 3) * 0.5 + 1;
 	let j = SinOsc(800 + i, 0) * h;
-	let k = LinExp(i, 0, n - 1, 70, 1500);
+	let k = linExp(i, 0, n - 1, 70, 1500);
 	let z = SinOsc(k, a) * c.max(0) * e * g * j;
-	let l = LinLin(i, 0, n - 1, -0.925, 0.925);
+	let l = linLin(i, 0, n - 1, -0.925, 0.925);
 	EqPan2(z, l) / n
 };
 let y = Limiter(LeakDc(z.sum, 0.995), 1, 0.01);

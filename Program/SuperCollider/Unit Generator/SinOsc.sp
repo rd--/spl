@@ -13,7 +13,7 @@ SinOsc(110, 2.pi * [0.75, 0]) * 0.1
 
 /* SinOsc ; two oscillators ; frequencies approach 500 from opposite directions */
 let lfo = MouseX(1, 0, 0, 0.2);
-let sig = SinOsc(LinExp(lfo, 0, 1, 100, 500), 0) + SinOsc(LinExp(lfo, 0, 1, 1000, 500), 0);
+let sig = SinOsc(linExp(lfo, 0, 1, 100, 500), 0) + SinOsc(linExp(lfo, 0, 1, 1000, 500), 0);
 sig * 0.1
 
 /* SinOsc ; https://scsynth.org/t/5169/5 (dietcv) */
@@ -57,7 +57,7 @@ let freqRes = MouseY(100, 1200, 0, 0.2);
 let pdbase = Impulse(freqBase, 0);
 let pd = Phasor(pdbase, 2.pi* freqBase / SampleRate(), 0, 2.pi, 0);
 let pdres = Phasor(pdbase, 2.pi * freqRes / SampleRate(), 0, 2.pi, 0);
-let pdi = LinLin((2.pi - pd).max(0), 0, 2.pi, 0, 1);
+let pdi = linLin((2.pi - pd).max(0), 0, 2.pi, 0, 1);
 Lag(SinOsc(0, pdres) * pdi, 1 / freqBase)
 
 /* SinOsc ; https://scsynth.org/t/6264/9 (es) */
@@ -72,7 +72,7 @@ sawSig * 0.1
 /* SinOsc ; https://scsynth.org/t/6264/8 (fm) */
 let freq = 110;
 let indexLimit = 1.5;
-let index = LinLin(SinOsc(1 / 10, 3.pi / 2), -1, 1, 1, indexLimit);
+let index = linLin(SinOsc(1 / 10, 3.pi / 2), -1, 1, 1, indexLimit);
 let phase = index * LocalIn(1, 1);
 let sig = SinOsc(freq, phase) + SinOsc(freq * 0.001, index * LocalIn(1, 1)).softClip;
 sig <! LocalOut(sig) * 0.1
@@ -122,8 +122,8 @@ SinOsc([freqSweep, freqSweep + 400], 0).mean
 /* SinOsc */
 SinOsc(
 	LfNoise2(
-		SinOsc([3, 5], 0).LinLin(-1, 1, [2, 7], 35)
-	).LinLin(-1, 1, 100, [200, 300]),
+		SinOsc([3, 5], 0).linLin(-1, 1, [2, 7], 35)
+	).linLin(-1, 1, 100, [200, 300]),
 	0
 ) * 0.1
 
@@ -132,7 +132,7 @@ let modFreq = [400, MouseX(400, 700, 1, 0.2)];
 let modDev = SinOsc(LfNoise2(1) + 1, 0).abs * 1200;
 let modOsc = SinOsc(modFreq, 0) * modDev;
 let carFreq = [400, MouseY(400, 500, 1, 0.2)];
-SinOsc(carFreq + modOsc, 0) * LfNoise2([1, 2]).LinLin(-1, 1, 0, 0.1)
+SinOsc(carFreq + modOsc, 0) * LfNoise2([1, 2]).linLin(-1, 1, 0, 0.1)
 
 /* SinOsc ; simple fm */
 let modFreq = MouseX(1, 1000, 1, 0.2);
@@ -201,7 +201,7 @@ let fmSignal = Voicer(1, 16) { :e |
 	let pitchMod = SinOsc(pitchModRate, 0) * pitchModDepth;
 	let mod = SinOsc(pitch * ratio, 0) * pitch * indexEnv;
 	let car = SinOsc(pitch * (2 ^ (pitchMod / 1200)) + mod, 0) * volEnv * amp;
-	let filter = Lpf(car * volMod, LinExp(tone, 0, 1, 200, 20000));
+	let filter = Lpf(car * volMod, linExp(tone, 0, 1, 200, 20000));
 	EqPan2(filter, (panModDepth < 0.01).if { pan } { panMod })
 }.Mix;
 let delayMix = 0.5;
@@ -231,7 +231,7 @@ Select(MouseX(0, 4, 0, 0.2), operations) * 0.1
 
 /* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft */
 let o = { :freq :lo :hi |
-	SinOsc(freq, 0).LinLin(-1, 1, lo, hi)
+	SinOsc(freq, 0).linLin(-1, 1, lo, hi)
 };
 SinOsc(
 	o(

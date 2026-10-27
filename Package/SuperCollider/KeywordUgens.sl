@@ -244,8 +244,8 @@
 		LfTri(d['freq'], d['iphase'])
 	}
 
-	LinExp { :d |
-		LinExp(d['in'], d['srcLo'], d['srcHi'], d['dstLo'], d['dstHi'])
+	linExp { :d |
+		linExp(d['in'], d['srcLo'], d['srcHi'], d['dstLo'], d['dstHi'])
 	}
 
 	LinPan2 { :d |

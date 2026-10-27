@@ -23,7 +23,7 @@ let azimuth = useMouse.if {
 	MouseX(0, 2.pi, 0, 0.2)
 } {
 	LfSaw(1 / 4, 0)
-	.LinLin(-1, 1, 0, 2.pi)
+	.linLin(-1, 1, 0, 2.pi)
 };
 let rho = useMouse.if {
 	MouseY(0, 4, 0, 0.2)
@@ -59,7 +59,7 @@ let azimuth = useMouse.if {
 	MouseX(0, 2.pi, 0, 0.2)
 } {
 	LfSaw(1 / 4, 0)
-	.LinLin(-1, 1, 0, 2.pi)
+	.linLin(-1, 1, 0, 2.pi)
 };
 let rho = useMouse.if {
 	MouseY(0, 4, 0, 0.2)

@@ -2,7 +2,7 @@
 let src = AudioIn([1]);
 let notes = { Choose(Dust(0.5).kr, 60 + [-9, -7, -5, -3, -2, 0, 2, 3, 5, 7, 9, 10]) } ! 3;
 let numBands = 32;
-let bandFreqs = LinExp([0 .. numBands - 1], 0, numBands - 1, 100, 8000);
+let bandFreqs = linExp([0 .. numBands - 1], 0, numBands - 1, 100, 8000);
 let voicedCarrier = Saw(notes.midiCps);
 let isVoiced = Lag(Lag(ZeroCrossing(src).cpsMidi, 0.05) > 5000.cpsMidi, 0.05);
 let carrier = SelectX(isVoiced, [voicedCarrier, PinkNoise()]);

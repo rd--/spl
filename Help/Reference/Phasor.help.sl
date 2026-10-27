@@ -17,7 +17,7 @@ Note: Since end is defined as the wrap point, its value is never actually output
 
 Phasor controls sine frequency,
 end frequency matches a second sine wave,
-`LinLin` converts range:
+`linLin` converts range:
 
 ```
 let rate = MouseX(0.2, 2, 1, 0.2);
@@ -26,7 +26,7 @@ let sr = SampleRate();
 let x = Phasor(trig, rate / sr, 0, 1, 0);
 SinOsc(
 	[
-		x.LinLin(0, 1, 600, 1000),
+		x.linLin(0, 1, 600, 1000),
 		1000
 	],
 	0

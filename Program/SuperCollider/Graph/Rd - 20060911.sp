@@ -16,4 +16,6 @@ let z = {
 		x
 	)
 } !> 3;
-z.Clip2(TRand(0, 1, Dust(8))) * 0.25
+z.bilateralClip(
+	TRand(0, 1, Dust(8))
+) * 0.25

@@ -28,7 +28,7 @@ Noise modulation of frequency:
 ```
 Vosim(
 	Impulse(110 + [-1 0 1], 0),
-	LinExp(
+	linExp(
 		LfNoise2([0.35 0.25 0.15]),
 		-1, 1,
 		[110 220 440], 880

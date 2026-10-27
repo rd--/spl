@@ -49,7 +49,7 @@ GrainFm(
 	0.1,
 	WhiteNoise() * MouseY(0, 400, 0, 0.2) + 440,
 	TRand(20, 200, trigger),
-	LfNoise1(500).LinLin(-1, 1, 1, 10),
+	LfNoise1(500).linLin(-1, 1, 1, 10),
 	MouseX(-1, 1, 0, 0.2),
 	-1,
 	512

@@ -6,6 +6,6 @@ let x = Line(0, [0.9, 1], 30);
 		{ :f | SinOsc(f, 0) },
 		{ :f | Pulse(f, 0.5) }
 	].atRandom;
-	x := o(x.LinLin(-1, 1, 10, 1000))
+	x := o(x.linLin(-1, 1, 10, 1000))
 };
 x * 0.1

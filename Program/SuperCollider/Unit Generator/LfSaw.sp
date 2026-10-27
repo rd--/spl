@@ -4,8 +4,8 @@ LfSaw(110, 2 * [0.5, 0]) * 0.1
 /* LfSaw ; as phasor */
 (LfSaw(220, 0).pi + 1.pi).sin * 0.1
 
-/* LfSaw ; as phase input to sin ; scale using LinLin */
-LinLin(LfSaw(440, 0), -1, 1, 0, 2.pi).sin * 0.1
+/* LfSaw ; as phase input to sin ; scale using linLin */
+linLin(LfSaw(440, 0), -1, 1, 0, 2.pi).sin * 0.1
 
 /* LfSaw ; as phasor */
 let freq = LfNoise2(3) * 110 + 220;
@@ -18,7 +18,7 @@ LfSaw(500, 1) * 0.05
 LfSaw(LfSaw(4, 0) * 400 + 400, 0) * 0.05
 
 /* LfSaw ; output range is bi-polar */
-let f = [LinLin(LfSaw(0.5, 1), -1, 1, 200, 1600), 200, 1600];
+let f = [linLin(LfSaw(0.5, 1), -1, 1, 200, 1600), 200, 1600];
 (SinOsc(f, 0) * [0.1, 0.05, 0.05]).Sum
 
 /* LfSaw ; mixed with sin, then with distortions */
@@ -31,10 +31,10 @@ o3.distort.distort.cube * 0.5
 /* LfSaw ; https://scsynth.org/t/6320/2 (nh) ; Event control */
 Voicer(1, 16) { :e |
 	let freq = e.p.unitCps;
-	let auto = SinOsc(e.z * 2, 0).LinLin(-1, 1, 1, 1 + e.y);
+	let auto = SinOsc(e.z * 2, 0).linLin(-1, 1, 1, 1 + e.y);
 	let formantTable = LocalBuf[400 1600 2700; 830 1200 4000; 325 600 2530];
 	let formants = BufRd(1, formantTable, e.y * 3, 1, 2).kr * [1 / auto, auto, auto ^ 0.5];
-	let phase = LfSaw(freq, 0).LinLin(-1, 1, 0, 1);
+	let phase = LfSaw(freq, 0).linLin(-1, 1, 0, 1);
 	let snd = (phase * formants / freq * 2.pi).sin;
 	EqPan2(
 		(snd.first + (snd.second.sign * 0.25)) * e.z * 2 * e.w,

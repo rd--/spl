@@ -1071,6 +1071,18 @@
 		anObject.adaptToCollectionAndApply(self, beta/2)
 	}
 
+	bilateralClip { :self :operand |
+		self.clip(-operand, operand)
+	}
+
+	bilateralFold { :self :operand |
+		self.fold(-operand, operand)
+	}
+
+	bilateralWrap { :self :operand |
+		self.wrap(-operand, operand)
+	}
+
 	binomial { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, binomial/2)
 	}

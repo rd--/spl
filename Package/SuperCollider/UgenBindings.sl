@@ -466,7 +466,7 @@
 
 +[List, Ugen, SmallFloat] {
 
-	LinExp { :in :srclo :srchi :dstlo :dsthi |
+	linExp { :in :srclo :srchi :dstlo :dsthi |
 		<primitive: return sc.LinExp(_in, _srclo, _srchi, _dstlo, _dsthi);>
 	}
 
@@ -1246,16 +1246,8 @@
 		<primitive: return sc.BiLinRand(_self);>
 	}
 
-	Clip2 { :self :anObject |
-		<primitive: return sc.Clip2(_self, _anObject);>
-	}
-
 	Coin { :self |
 		<primitive: return sc.Coin(_self);>
-	}
-
-	Excess { :self :anObject |
-		<primitive: return sc.Excess(_self, _anObject);>
 	}
 
 	ExpRandRange { :self :anObject |
@@ -1264,10 +1256,6 @@
 
 	FirstArg { :self :anObject |
 		<primitive: return sc.FirstArg(_self, _anObject);>
-	}
-
-	Fold2 { :self :anObject |
-		<primitive: return sc.Fold2(_self, _anObject);>
 	}
 
 	HanWindow { :self |
@@ -1296,10 +1284,6 @@
 
 	WelchWindow { :self |
 		<primitive: return sc.WelchWindow(_self);>
-	}
-
-	Wrap2 { :self :anObject |
-		<primitive: return sc.Wrap2(_self, _anObject);>
 	}
 
 }
@@ -1470,6 +1454,10 @@
 		<primitive: return sc.Fdiv(_self, _anObject);>
 	}
 
+	excess { :self :anObject |
+		<primitive: return sc.Excess(_self, _anObject);>
+	}
+
 	hypotenuse { :self :anObject |
 		<primitive: return sc.Hypot(_self, _anObject);>
 	}
@@ -1566,8 +1554,16 @@
 		<primitive: return sc.Clip(_in, _lo, _hi);>
 	}
 
+	bilateralClip { :self :anObject |
+		<primitive: return sc.Clip2(_self, _anObject);>
+	}
+
 	fold { :in :lo :hi |
 		<primitive: return sc.Fold(_in, _lo, _hi);>
+	}
+
+	bilateralFold { :self :anObject |
+		<primitive: return sc.Fold2(_self, _anObject);>
 	}
 
 	modularDistance { :x :y :mod |
@@ -1582,12 +1578,24 @@
 		<primitive: return sc.Wrap(_in, _lo, _hi);>
 	}
 
+	bilateralWrap { :self :anObject |
+		<primitive: return sc.Wrap2(_self, _anObject);>
+	}
+
 }
 
 +Ugen {
 
 	clip { :in |
 		clip(in, -1, 1)
+	}
+
+	round { :self |
+		self.round(1)
+	}
+
+	truncate { :self |
+		self.truncate(1)
 	}
 
 	unitCps { :self |

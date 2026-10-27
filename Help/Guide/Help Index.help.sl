@@ -376,7 +376,7 @@ Reference (A-Z):
 - `Circle`
 - `CircularSector`
 - `CircularSegment`
-- `Clip2`
+- `clip2`
 - `ClipIndex`
 - `ClipNoise`
 - `Clock`
@@ -487,7 +487,7 @@ Reference (A-Z):
 - `Float`
 - `Float32Array`
 - `Float64Array`
-- `Fold2`
+- `fold2`
 - `FontMenu`
 - `FontSizeMenu`
 - `Formant`
@@ -603,10 +603,10 @@ Reference (A-Z):
 - `LinearCongruential`
 - `LineDrawing`
 - `LineSegment`
-- `LinExp`
+- `linExp`
 - `Link`
 - `LinkedList`
-- `LinLin`
+- `linLin`
 - `LinPan2`
 - `LinRand`
 - `LinXFade2`

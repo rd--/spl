@@ -16,13 +16,13 @@ Implementing the first meaning requires writing an additional method.
 ```
 
 Such shorthands are useful for common idioms.
-The _LinLin_ pseudo-Ugen maps between two linear ranges.
-The _Range_ pseudo-Ugen is LinLin with an input range of (-1, 1).
+The `linLin` pseudo-Ugen maps between two linear ranges.
+The `range` pseudo-Ugen is `linLin` with an input range of (-1, 1).
 
 ```
 + [List, Ugen] {
-	Range { :self :lo :hi |
-		LinLin(self, -1, 1, lo, hi)
+	range { :self :lo :hi |
+		linLin(self, -1, 1, lo, hi)
 	}
 }
 ```

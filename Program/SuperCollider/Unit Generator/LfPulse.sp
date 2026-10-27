@@ -35,7 +35,7 @@ EqPan2(snd, pan) * amp
 
 /* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft */
 let p = { :freq :lo :hi |
-	LfPulse(freq, 0, 0.5).LinLin(0, 1, lo, hi)
+	LfPulse(freq, 0, 0.5).linLin(0, 1, lo, hi)
 };
 p(
 	p(

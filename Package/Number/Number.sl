@@ -124,6 +124,18 @@
 		[r, k]
 	}
 
+	bilateralClip { :self :operand |
+		self.clip(-operand, operand)
+	}
+
+	bilateralFold { :self :operand |
+		self.fold(-operand, operand)
+	}
+
+	bilateralWrap { :self :operand |
+		self.wrap(-operand, operand)
+	}
+
 	ceiling { :self |
 		let truncation = self.truncate;
 		(self <= 0).if {

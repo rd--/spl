@@ -4,7 +4,7 @@ Splay2(
 	Ringz(
 		Bpf(
 			Dust2(a.abs * 10000),
-			a.LinExp(-1, 1, 99, 10000),
+			a.linExp(-1, 1, 99, 10000),
 			1.1 - a
 		),
 		[9 .. 1; -1] * 99,

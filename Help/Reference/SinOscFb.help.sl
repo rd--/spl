@@ -15,7 +15,7 @@ It may be useful if you want to simulate feedback Fm synths.
 	let f0 = Choose(tr, [110 220 440]);
 	{
 		let freq = f0 + TRand(0, f0, tr);
-		let fb = LfNoise2(1).LinLin(-1, 1, 0, x);
+		let fb = LfNoise2(1).linLin(-1, 1, 0, x);
 		EqPan(
 			SinOscFb(freq, fb),
 			TRand(-1, 1, tr)
@@ -32,7 +32,7 @@ Non-graph variant:
 	let f0 = [110 220 440].atRandom;
 	{
 		let freq = f0 + Rand(0, f0);
-		let fb = LfNoise2(1).LinLin(-1, 1, 0, x);
+		let fb = LfNoise2(1).linLin(-1, 1, 0, x);
 		EqPan(
 			SinOscFb(freq, fb),
 			Rand(-1, 1)

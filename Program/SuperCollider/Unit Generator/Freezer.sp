@@ -17,7 +17,7 @@ Freezer(sf, 0.2500, 0.2505, [0.1 0.2], 1, 0, 0.050, [0.005 0.010], 0, 0, 16)
 /* Freezer ; k-rate instance */
 let sf = SfAcquireMono('CrotaleD6');
 let n = { :f :i :j |
-	LfNoise2(f).LinLin(-1, 1, i, j)
+	LfNoise2(f).linLin(-1, 1, i, j)
 };
 let left = n(1, 0.3, [0.6 0.8]);
 let right = left + n(1, 0.01, [0.05 0.1]);
@@ -26,7 +26,7 @@ Freezer(sf, left, right, [0.1 0.2], 0.5, 0.1, 0.5, 0.05, 0, 0, 24)
 /* Freezer ; k-rate instance */
 let sf = SfAcquireMono('CrotaleD6');
 let n = { :i :j |
-	LfNoise2(0.1).LinLin(-1, 1, i, j)
+	LfNoise2(0.1).linLin(-1, 1, i, j)
 };
 Freezer(
 	sf,

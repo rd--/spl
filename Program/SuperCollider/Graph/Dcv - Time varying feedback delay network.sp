@@ -22,7 +22,7 @@ let rotatableMatrix = { :angle |
 	kronecker(givens2x2, householder4x4)
 };
 let matrix = { :trig :rotateFreq :rotateAmount |
-	let rotate = SinOsc(rotateFreq, 0).LinLin(-1, 1, 0, rotateAmount);
+	let rotate = SinOsc(rotateFreq, 0).linLin(-1, 1, 0, rotateAmount);
 	let angle = Phasor(trig, rotate * SampleDur(), 0, 1, 0) * 2.pi;
 	rotatableMatrix(angle)
 };
@@ -35,12 +35,12 @@ let ctl = (
 	rotateFreq: 0.1,
 	rotateAmount: 55
 ).localControls;
-let delMod = SinOsc(2, 0).LinLin(-1, 1, 1, 4);
+let delMod = SinOsc(2, 0).linLin(-1, 1, 1, 4);
 let gainEnv = Perc(ctl::trig, 0.001, 1, -4);
 let modEnv = Env([0 1 0], [0.125 0.5], [-8 -4], nil, nil, 0).asEnvGen(ctl::trig);
 let inSig = Saw(XLine(100, 1000, 0.1)) * gainEnv;
 let order = 8;
-let size = ctl::size + modEnv.LinLin(0, 1, 0, ctl::sizeEnvAmount);
+let size = ctl::size + modEnv.linLin(0, 1, 0, ctl::sizeEnvAmount);
 let delTimes = {
 	[1000 .. 4599].atRandom.nextPrime
 } ! order;

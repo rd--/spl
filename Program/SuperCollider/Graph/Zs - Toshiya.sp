@@ -7,7 +7,7 @@ let osc = {
 	let sig = SinOsc((mnn0 + mnn).midiCps, 0);
 	sig := Lpf(
 		sig,
-		LinExp(SinOsc(Rand(1 / 30, 1 / 10), Rand(0, 2.pi)), -1, 1, 20, 12000)
+		linExp(SinOsc(Rand(1 / 30, 1 / 10), Rand(0, 2.pi)), -1, 1, 20, 12000)
 	) * 2;
 	sig := DelayC(
 		sig,
@@ -16,10 +16,10 @@ let osc = {
 	);
 	EqPan(sig, Lag(LfNoise0(1 / 3), 3)) / 12 * amp
 } !+ 12 + EqPan(
-	SinOsc((mnn0 - 12).midiCps, LinLin(LfTri(0.5, 0), -1, 1, 0.2, 0.8)) / 12 * amp,
+	SinOsc((mnn0 - 12).midiCps, linLin(LfTri(0.5, 0), -1, 1, 0.2, 0.8)) / 12 * amp,
 	SinOsc(0.1, 0) * 0.2
 );
-let snd = MoogLadder(osc.tanh, LinExp(Lag(LfNoise0(1 / 6), 6), -1, 1, f0 * 2, f0 * 10), 0);
+let snd = MoogLadder(osc.tanh, linExp(Lag(LfNoise0(1 / 6), 6), -1, 1, f0 * 2, f0 * 10), 0);
 let z = DelayN(snd, 0.048, 0.048);
 let y = {
 	CombL(z, 0.1, LfNoise1(Rand(0, 0.1)) * 0.04 + 0.05, 15)
@@ -27,10 +27,10 @@ let y = {
 4.timesRepeat {
 	y := AllpassN(y, 0.050, [Rand(0, 0.050), Rand(0, 0.050)], 1)
 };
-snd := snd + (LinLin(Lag(LfNoise0(1 / 10), 10), -1, 1, 0.01, 0.06) * y);
+snd := snd + (linLin(Lag(LfNoise0(1 / 10), 10), -1, 1, 0.01, 0.06) * y);
 snd := snd + [
 	Amplitude(snd, 0.01, 0.01),
-	LinLin(Lag(LfNoise0(1 / 1), 1), -1, 1, 0, 1),
+	linLin(Lag(LfNoise0(1 / 1), 1), -1, 1, 0, 1),
 	RingzBank(
 		{ PinkNoise() * 0.007 } ! 2,
 		[f0, f0 * 2 + 23, f0 * 4 + 53, f0 * 8 + 23],

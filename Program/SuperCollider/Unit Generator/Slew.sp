@@ -10,5 +10,5 @@ let y = MouseY(200, 12000, 1, 0.2);
 let freq = 440;
 let square = LfPulse(freq, 0, 0.5) * 2 - 1;
 let tri = Slew(square, freq * 4, freq * 4);
-let sin = LinLin(tri > 0, 0, 1, -1, 1) * (tri.abs ^ (1 / 4));
+let sin = linLin(tri > 0, 0, 1, -1, 1) * (tri.abs ^ (1 / 4));
 XFade2(tri, sin, MouseX(-1, 1, 0, 0.2), 0.05)

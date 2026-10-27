@@ -61,7 +61,7 @@ let c = l.LinCurve(-1, 1, -1, 1, XLine(-3, -100, 0.1));
 
 * * *
 
-See also: LinExp, LinLin
+See also: linExp, linLin
 
 Guides: Unit Generators
 

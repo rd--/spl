@@ -12,7 +12,7 @@ let env = EnvBreakPoint(
 	[4 -4]
 ).asEnvGen(1);
 SinOsc(
-	LinLin(env, 0, 1, 220, 880),
+	linLin(env, 0, 1, 220, 880),
 	0
 ) * env * 0.1
 ```

@@ -21,7 +21,7 @@ let raisedCos = { :phase :index |
 };
 let rate = 110;
 let modRatio = 2.5;
-let index = SinOsc(0.3, 0).LinLin(-1, 1, 0, 30);
+let index = SinOsc(0.3, 0).linLin(-1, 1, 0, 30);
 let modPhase = Phasor(Dc(0), rate * modRatio * SampleDur(), 0, 1, 0);
 let mod = (modPhase * 2.pi).sin;
 let raisedCosWindow = raisedCos(modPhase, index);

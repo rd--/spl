@@ -65,7 +65,7 @@ Voicer(
 	part: 1,
 	numVoices: 6,
 	voiceFunc: { :e |
-		let loss = LinExp(
+		let loss = linExp(
 			in: e.y,
 			srcLo: 0,
 			srcHi: 1,
@@ -76,7 +76,7 @@ Voicer(
 			freq: 2,
 			phase: 0
 		);
-		let tension = LinExp(
+		let tension = linExp(
 			in: e.x,
 			srcLo: 0,
 			srcHi: 1,

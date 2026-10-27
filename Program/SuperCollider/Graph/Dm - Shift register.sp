@@ -20,7 +20,7 @@ let chord = Demand(
 );
 let chordCps = chord.midiCps;
 let cf = Vibrato(chordCps, 6, 0.02, 0, 0, 0.04, 0.1, 0, 0);
-let mf = chordCps * LinLin(LfPulse(1 / 8, 0, 0.5), 0, 1, 1.01, 2.01);
+let mf = chordCps * linLin(LfPulse(1 / 8, 0, 0.5), 0, 1, 1.01, 2.01);
 let sig = PmOsc(cf, mf, TxLine(3, 0.0001, 0.2, trig), 0);
 let cmp = (sig * AmpCompA(chordCps, 0, 0.32, 1) * amp).sum;
 XFade2(

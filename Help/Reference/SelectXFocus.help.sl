@@ -75,7 +75,7 @@ let a = {
 		ExpRand(0.1, 8)
 	).round(
 		1 / 6
-	).ExpRange(
+	).expRange(
 		1,
 		Rand(1, 1.2)
 	);
@@ -92,7 +92,7 @@ a.add!(
 				Dust(1) * 0.3,
 				Dust(1) * 0.3
 			)
-		).LinLin(-1, 1, 0, 700) + 220,
+		).linLin(-1, 1, 0, 700) + 220,
 		0
 	)
 );

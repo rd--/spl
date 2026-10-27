@@ -1,10 +1,10 @@
 /* Pluck ; https://scsynth.org/t/4318/17 */
 let freq = LfNoise2(1);
-let trig = Impulse(LinExp(freq, -1, 1, 1, 100), 0);
+let trig = Impulse(linExp(freq, -1, 1, 1, 100), 0);
 let freqs = (60.5 + [0 2 4 5 7 9 10]).midiCps;
 let snd = Pluck(Hasher(Sweep(trig, 1)) * -10.dbAmp, trig, 1 / freqs, 1 / freqs, 0.9, 0.5);
 snd := LeakDc(snd, 0.995).Sum;
-snd := MoogFf(snd, LinExp(LfNoise2(1), -1, 1, 500, 16000), 0, 0);
+snd := MoogFf(snd, linExp(LfNoise2(1), -1, 1, 500, 16000), 0, 0);
 EqPan(snd, freq)
 
 /* Pluck ; Event control */
@@ -18,9 +18,9 @@ Voicer(1, 16) { :e |
 /* Pluck ; Event control */
 (
 	w: SinOsc(Rand([2 .. 9] / 11, 1), 0),
-	x: LfNoise2(Rand([9 .. 2; -1] / 13, 1)).LinLin(-1, 1, 0, [2 .. 9] / 17),
-	y: LfNoise2(Rand([2 .. 9] / 15, 2)).LinLin(-1, 1, [9 .. 2; -1] / 19, 1),
-	z: LfNoise2(Rand(1, [9 .. 2; -1] / 11)).LinLin(-1, 1, 0, [2 .. 9] / 9)
+	x: LfNoise2(Rand([9 .. 2; -1] / 13, 1)).linLin(-1, 1, 0, [2 .. 9] / 17),
+	y: LfNoise2(Rand([2 .. 9] / 15, 2)).linLin(-1, 1, [9 .. 2; -1] / 19, 1),
+	z: LfNoise2(Rand(1, [9 .. 2; -1] / 11)).linLin(-1, 1, 0, [2 .. 9] / 9)
 ).Voicer { :e |
 	let dm = 1 / 220;
 	let dl = (e.x.negate * 0.9 + 1) * dm;

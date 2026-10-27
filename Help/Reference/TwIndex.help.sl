@@ -33,7 +33,7 @@ let index = TwIndex(
 );
 [
 	SinOsc(Select(index, [333 444 555]), 0),
-	SinOsc(w3.LinLin(0, 1, 444, 555), 0) / 3
+	SinOsc(w3.linLin(0, 1, 444, 555), 0) / 3
 ] * 0.1
 ```
 

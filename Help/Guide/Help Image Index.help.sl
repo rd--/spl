@@ -3538,8 +3538,8 @@
   16. ![](Help/Image/linePlot-P.svg)
   17. ![](Help/Image/linePlot-Q.svg)
   18. ![](Help/Image/linePlot-R.svg)
-- `LinLin`
-  1. ![](Help/Image/LinLin-A.svg)
+- `linLin`
+  1. ![](Help/Image/linLin-A.svg)
 - `linspace`
   1. ![](Help/Image/linspace-A.svg)
 - `liouvilleLambda`

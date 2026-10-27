@@ -4,9 +4,9 @@ let i = TRand(1, 64, tr);
 let x = SinOsc(i % 9.33, 0).*+(5, 5).ceiling;
 let t = SinOsc(2 ^ (i % 11) * 150 / x, 0);
 let y = Hpz1(x).abs > 0;
-let f = t.ExpRange(
-	Latch(LinExp(SinOsc(i % 4.4, 0), -1, 1, 9, 999), y),
-	Latch(LinExp(SinOsc(i % 1.pi, 0), -1, 1, 99, 9000), y)
+let f = t.expRange(
+	Latch(linExp(SinOsc(i % 4.4, 0), -1, 1, 9, 999), y),
+	Latch(linExp(SinOsc(i % 1.pi, 0), -1, 1, 99, 9000), y)
 );
 let e = TLine(0.2, 0, 9, tr).min(0.6) ^ 2;
 EqPan(

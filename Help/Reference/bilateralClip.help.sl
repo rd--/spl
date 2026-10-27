@@ -1,6 +1,6 @@
-# Clip2
+# bilateralClip
 
-- _Clip2(a, b)_
+- _bilateralClip(a, b)_
 
 Waveshaping.
 Bilateral clipping.
@@ -10,7 +10,7 @@ At `SmallFloat`:
 
 ```
 >>> (-2 .. 2).collect { :each |
->>> 	Clip2(each, 1)
+>>> 	bilateralClip(each, 1)
 >>> }
 [-1 -1 0 1 1]
 ```
@@ -18,18 +18,22 @@ At `SmallFloat`:
 Fixed clipping:
 
 ```
-SinOsc(400, 0).Clip2(0.2)
+SinOsc(400, 0)
+.bilateralClip(0.2)
 ```
 
 Time varying clipping:
 
 ```
-SinOsc(1000, 0).Clip2(Line(0, 1, 23)) / 2
+SinOsc(1000, 0)
+.bilateralClip(
+	Line(0, 1, 23)
+) / 2
 ```
 
 * * *
 
-See also: Clip, Excess, Fold2, Wrap2
+See also: clip, excess, bilateralFold, bilateralWrap
 
 Guides: Unit Generators
 

@@ -6,7 +6,7 @@ Voicer(1, 16) { :e |
 	let hiFreqs = freq * [19.2, 20, 21.2];
 	let modFreq = e.j * 4 + 3;
 	let modAmp = e.k * 2;
-	let mod = LinLin(SinOsc(modFreq, TRand(0, 2.pi, e.w)), -1, 1, 1 - ([0.5, 0.3, 0.3, 0.5] * modAmp), 1);
+	let mod = linLin(SinOsc(modFreq, TRand(0, 2.pi, e.w)), -1, 1, 1 - ([0.5, 0.3, 0.3, 0.5] * modAmp), 1);
 	let velocity = Latch(e.z, e.w) * 2;
 	let sound = 0.3 * [1, 1.1 * velocity, 0.6 * velocity * velocity, 0.5 * velocity] * SinOsc(freqs, 0);
 	let decay = 0;

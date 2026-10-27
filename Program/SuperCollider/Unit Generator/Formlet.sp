@@ -8,7 +8,7 @@ Formlet(Blip(XLine(10, 400, 8), 1000) * 0.2, 1000, 0.01, 0.1)
 Formlet(Blip(XLine([10, 15], [400, 700], 8), 1000) * 0.2, 1000, 0.01, 0.1)
 
 /* Formlet ; mouse control of frequency and decay time */
-let f = LinExp(LfNoise2([1, 3]), -1, 1, [10, 15], [400, 700]);
+let f = linExp(LfNoise2([1, 3]), -1, 1, [10, 15], [400, 700]);
 let s = Blip(f, 1000) * 0.1;
 let x = MouseX(0.01, 0.2, 1, 0.2);
 let y = MouseY([700, 1300], [2000, 100], 1, 0.2);
@@ -19,8 +19,8 @@ Formlet(Blip(*+(SinOsc(5, 0), 20, 300), 1000) * 0.1, XLine(1500, 700, 8), 0.005,
 
 /* Formlet ; noise control */
 let sig = Blip(SinOsc(5, 0) * 20 + 300, 1000) * 0.1;
-let frq = LinExp(LfNoise2([0.5, 2.5]), -1, 1, [700, 1300], [2000, 100]);
-let dcy = LinExp(LfNoise2([3, 9]), -1, 1, 0.01, 0.2);
+let frq = linExp(LfNoise2([0.5, 2.5]), -1, 1, [700, 1300], [2000, 100]);
+let dcy = linExp(LfNoise2([3, 9]), -1, 1, 0.01, 0.2);
 Formlet(sig, frq, 0.005, dcy)
 
 /* Formlet ; bass percussion */

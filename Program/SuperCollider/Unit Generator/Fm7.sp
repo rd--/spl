@@ -19,14 +19,14 @@ Fm7(ctlMatrix, modMatrix).first(2) * 0.1
 
 /* Fm7 ; three set of six output channels (18 channels) */
 {
-	let freq = LfNoise0(3).ExpRange(200, 310);
+	let freq = LfNoise0(3).expRange(200, 310);
 	let ctlMatrix = [
 		[freq, 0, 1],
 		[freq, 0, 1],
-		[LfNoise2(0.5).ExpRange(3, 80), 0, 1],
-		[LfNoise2(0.5).ExpRange(3, 800), 0, 1],
-		[LfNoise2(0.5).ExpRange(3, 800), 0, 1],
-		[LfNoise2(0.5).ExpRange(0.3, 10), 0, 1]
+		[LfNoise2(0.5).expRange(3, 80), 0, 1],
+		[LfNoise2(0.5).expRange(3, 800), 0, 1],
+		[LfNoise2(0.5).expRange(3, 800), 0, 1],
+		[LfNoise2(0.5).expRange(0.3, 10), 0, 1]
 	];
 	let x = MouseX(0, 3, 0, 0.2);
 	let modMatrix = {
@@ -123,6 +123,6 @@ let yMatrix = [
 let ctlMatrix = xMatrix.collect { :p | p.collect { :q | SinOsc(q[1], q[2]) * q[3] + q[4] } };
 let modMatrix = yMatrix.collect { :p | p.collect { :q | Pulse(q[1], q[2]) * q[3] + q[4] } };
 let o = Fm7Matrix(ctlMatrix, modMatrix);
-let g3 = LinLin(LfSaw(0.1, 0), -1, 1, 0, -12.dbAmp);
+let g3 = linLin(LfSaw(0.1, 0), -1, 1, 0, -12.dbAmp);
 let g6 = -3.dbAmp;
 [o[1] + (o[3] * g3) + o[5], o[2] + o[4] + o[6] * g6]

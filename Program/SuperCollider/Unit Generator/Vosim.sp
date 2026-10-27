@@ -21,8 +21,8 @@ let l = TRand(-1, 1, tr);
 let x = MouseX(0.25, 2, 0, 0.2);
 let y = MouseY(0.25, 0.85, 0, 0.2);
 let z = 9;
-let freq = f * x * LinLin(LfNoise2(z), -1, 1, 0.25, 2);
-let decay = d * y * LinLin(LfNoise2(z), -1, 1, 0.25, 2);
+let freq = f * x * linLin(LfNoise2(z), -1, 1, 0.25, 2);
+let decay = d * y * linLin(LfNoise2(z), -1, 1, 0.25, 2);
 EqPan2(
 	(Vosim(tr, freq, n, decay) * a).Sum,
 	l
@@ -31,6 +31,6 @@ EqPan2(
 /* Vosim ; Event control */
 Voicer(1, 16) { :e |
 	let tr = Impulse(e.p.unitCps, 0);
-	let freq = LinExp(e.y, 0, 1, 440, 880);
+	let freq = linExp(e.y, 0, 1, 440, 880);
 	EqPan2(Vosim(tr, freq, e.k + 1 * e.y * 12, e.j), e.i * 2 - 1) * e.w * e.z
 }.Mix

@@ -3,7 +3,7 @@ let note = 60;
 let semi = [4, 7, 11, 12];
 let delayTimes = (note + ([0] ++ semi)).midiCps.reciprocal;
 let in = [LeakDc(PinkNoise(), 0.995)] # 2 / 5 + AudioIn([1, 2]);
-let cf = SinOsc(1 / 10, 0).LinLin(-1, 1, 50, 500);
+let cf = SinOsc(1 / 10, 0).linLin(-1, 1, 50, 500);
 let z = Bpf(in, cf, 1);
 let cmb = { :x :i |
 	CombL(x, 0.2, delayTimes[i], 1)
@@ -18,7 +18,7 @@ let sumR = (c1 / 2 + c3 + c5) * -10.dbAmp;
 Splay([sumL, sumR], 0.5)
 
 /* 2019-12-01_VICRIMA.scd ; https://github.com/gosub/supercollider-explore */
-let a = SinOsc(LfNoise0(1).LinExp(-1, 1, 100, 1000), 0);
+let a = SinOsc(LfNoise0(1).linExp(-1, 1, 100, 1000), 0);
 let e = Perc(Dust(8), 0.01, 1, -4);
 let f = { :x |
 	x.Ring1(DelayL(PitchShift(x, 0.2, [0.2, 0.21], 0, 0), 1, 0.2))

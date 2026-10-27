@@ -2,7 +2,7 @@
 let k = 0.13;
 let l = { :a :b |
 	k := k + k;
-	LatoocarfianN(k, 1, 3, k, 0.5, 0.5, 0.5).tanh.LinLin(-1, 1, a, b)
+	LatoocarfianN(k, 1, 3, k, 0.5, 0.5, 0.5).tanh.linLin(-1, 1, a, b)
 };
 let d = {
 	Decay2(

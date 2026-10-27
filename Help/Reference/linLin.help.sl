@@ -1,6 +1,6 @@
-# LinLin
+# linLin
 
-- _LinLin(in, srcLow=-1, srcHigh=1, dstLow=0, dstHigh=1)_
+- _linLin(in, srcLow=-1, srcHigh=1, dstLow=0, dstHigh=1)_
 
 Maps a linear range of values to another linear range of values.
 
@@ -15,7 +15,7 @@ Map oscillator to frequency:
 ```
 let mod = SinOsc(Line(1, 10, 10), 0);
 SinOsc(
-	LinLin(mod, -1, 1, 100, 900),
+	linLin(mod, -1, 1, 100, 900),
 	0
 ) * 0.1
 ```
@@ -25,8 +25,7 @@ Modulating destination values:
 ```
 let mod = LfNoise2(80);
 SinOsc(
-	LinLin(
-		mod,
+	mod.linLin(
 		-1,
 		1,
 		MouseX(200, 8000, 1, 0.2),
@@ -41,8 +40,7 @@ Modulating source and destination values:
 ```
 let mod = LfNoise2(80);
 SinOsc(
-	LinLin(
-		mod,
+	mod.linLin(
 		SinOsc(0.2, 0),
 		SinOsc(0.2543, 0),
 		MouseX(200, 8000, 1, 0.2),
@@ -55,7 +53,7 @@ SinOsc(
 Rescale low-frequency sawtooth oscillator output as frequency control:
 
 ```
-let f = LfSaw(1, 1).LinLin(-1, 1, 220, 440);
+let f = LfSaw(1, 1).linLin(-1, 1, 220, 440);
 SinOsc(f.Lag(0.05), 0) * 0.1
 ```
 
@@ -63,7 +61,7 @@ At `SmallFloat`:
 
 ```
 >>> [0 0.5 1].collect { :each |
->>> 	each.LinLin(0, 1, 3, 9)
+>>> 	each.linLin(0, 1, 3, 9)
 >>> }
 [3 6 9]
 ```
@@ -72,15 +70,15 @@ Invert a bipolar sine signal and scale to be unipolar:
 
 ~~~spl svg=A
 (0 -- 2.pi).functionPlot { :x |
-	x.sin.LinLin(-1, 1, 1, 0)
+	x.sin.linLin(-1, 1, 1, 0)
 }
 ~~~
 
-![](Help/Image/LinLin-A.svg)
+![](Help/Image/linLin-A.svg)
 
 * * *
 
-See also: LinExp, rescale
+See also: linExp, rescale
 
 Guides: Unit Generators
 
@@ -91,6 +89,6 @@ _Max_
 [1](https://docs.cycling74.com/reference/scale/)
 [2](https://docs.cycling74.com/reference/gen_common_scale/),
 _SuperCollider_
-[1](https://doc.sccode.org/Classes/LinLin.html)
+[1](https://doc.sccode.org/Classes/linLin.html)
 
 Categories: Ugen

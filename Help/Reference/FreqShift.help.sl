@@ -43,7 +43,7 @@ Modulating shift and phase:
 FreqShift(
 	SinOsc(10, 0),
 	LfNoise2(0.3) * 1500,
-	SinOsc(500, 0).LinLin(
+	SinOsc(500, 0).linLin(
 		-1, 1,
 		0, 2.pi
 	)
@@ -107,7 +107,7 @@ Shift pulse wave in opposite directions:
 	let octave = Choose(tr, [0 .. 2]);
 	let note = 48 + Choose(tr, table);
 	let freq = (octave * 12 + note).midiCps;
-	let width = SinOsc(2.3, 0).LinLin(
+	let width = SinOsc(2.3, 0).linLin(
 		-1, 1,
 		0.2, 0.8
 	);

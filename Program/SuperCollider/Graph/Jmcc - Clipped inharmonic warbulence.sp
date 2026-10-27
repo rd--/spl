@@ -1,6 +1,6 @@
 /* Clipped inharmonic warbulence (Jmcc) */
 let z = { :tr |
-	let r = LinExp(LfNoise1(1 / 16), -1, 1, 0.1, 20);
+	let r = linExp(LfNoise1(1 / 16), -1, 1, 0.1, 20);
 	let f = TRand(24, 96, tr).midiCps;
 	let a = (500 / f).min(1);
 	let n = 12;

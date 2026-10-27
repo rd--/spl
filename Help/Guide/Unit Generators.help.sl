@@ -71,8 +71,8 @@
 - `DbAmp`: convert decibels to linear amplitude
 - `DegreeToKey`: convert signal to modal pitch
 - `K2A`: control rate to audio rate converter
-- `LinExp`: convert a linear range to an exponential range
-- `LinLin`: convert a linear range to a linear range
+- `linExp`: convert a linear range to an exponential range
+- `linLin`: convert a linear range to a linear range
 - `MidiCps`: convert midi note to cycles per second
 - `MidiRatio`: convert an interval in midi notes into a frequency ratio
 - `OctCps`: convert decimal octaves to cycles per second
@@ -198,9 +198,9 @@
 
 ## Bilateral Functions
 
-- `Clip2`: bilateral clipping
-- `Fold2`: bilateral folding
-- `Wrap2`: bilateral wrapping
+- `clip2`: bilateral clipping
+- `fold2`: bilateral folding
+- `wrap2`: bilateral wrapping
 
 ## Noise Generators
 

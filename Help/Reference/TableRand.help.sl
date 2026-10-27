@@ -23,7 +23,7 @@ let w = TrigRoundRobin(
 let f = TableRand(
 	w,
 	tbl
-).LinExp(0, 1, 111, 1111);
+).linExp(0, 1, 111, 1111);
 let e = Perc(w, 1 / 111, 1, -1);
 let o = SinOsc(f, 0) * e;
 o.Splay / 3
@@ -39,7 +39,7 @@ let tbl = { :trig :dist :lo :hi |
 		dist
 		.randomTable(128)
 		.LocalBuf
-	).LinExp(0, 1, lo, hi)
+	).linExp(0, 1, lo, hi)
 };
 let x = MouseX(7, [7 * 11, 11 * 23], 1, 0.2);
 let tr = Dust(x).kr;

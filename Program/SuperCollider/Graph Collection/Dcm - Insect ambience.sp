@@ -6,7 +6,7 @@
 /* bugs */
 let amp = 1.2; let ampLagTime = 20; let cutFreq = 600; let nse = 0.1; let nFreq = 800;
 let src = { Lpf(PinkNoise() * nse, nFreq) * SinOsc(1750, 0) * SinOsc(160, 0) } ! 2;
-let bugs = PitchShift(src, 0.2, LinLin(LfTri(20, 0), -1, 1, 0.9, 5), 0.01, 0.0001);
+let bugs = PitchShift(src, 0.2, linLin(LfTri(20, 0), -1, 1, 0.9, 5), 0.01, 0.0001);
 Hpf(Limiter(bugs, 0.9, 0.01) * Line(0, amp, ampLagTime), cutFreq)
 
 /* frog */
@@ -17,7 +17,7 @@ let amp = 0.2; let ampLagTime = 5; let freq = 1000; let pos = 1; let posLagTime 
 let src = {
 	Hpf(
 		Bpf(PinkNoise() * Line(0, amp, ampLagTime), [450, 250, 150], 0.2),
-		LinLin(LfNoise2([0.1, 0.11, 0.14]), -1, 1, 100,800)
+		linLin(LfNoise2([0.1, 0.11, 0.14]), -1, 1, 100,800)
 	)
 } !+ 3;
 XFade2(src.Splay, Lpf(src, freq), Line(0, pos, posLagTime), 1)

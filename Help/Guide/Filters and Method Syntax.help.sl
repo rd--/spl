@@ -6,11 +6,11 @@ which shapes a noise generator (`PinkNoise`),
 which is then filtered (`Bpf`) and
 echoed (`AllpassN`).
 The _lfo_ block generates quadratic noise (`LfNoise2`),
-which in then scaled (`LinLin`).
+which in then scaled (`linLin`).
 
 ```
 let lfo = { :freq :lo :hi |
-	LfNoise2(freq).LinLin(-1, 1, lo, hi)
+	LfNoise2(freq).linLin(-1, 1, lo, hi)
 };
 Dust([1, 3])
 .Times(1 / 4)
@@ -26,7 +26,7 @@ The same program written in applicative form with infix operators:
 
 ```
 let lfo = { :freq :lo :hi |
-	LinLin(LfNoise2(freq), -1, 1, lo, hi)
+	linLin(LfNoise2(freq), -1, 1, lo, hi)
 };
 AllpassN(
 	Bpf(

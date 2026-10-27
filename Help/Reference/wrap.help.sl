@@ -61,7 +61,7 @@ Wrap frequency input:
 let z = SinOsc(
 	1 / 11,
 	0
-).LinLin(-1, 1, 100, 200);
+).linLin(-1, 1, 100, 200);
 SinOsc(
 	z.wrap(
 		[110, 130],

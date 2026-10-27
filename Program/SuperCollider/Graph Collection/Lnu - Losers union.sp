@@ -5,7 +5,7 @@ let o = Splay2(
 		DelayC(
 			i + ((1 + i) ^ 0.999),
 			1,
-			SinOsc(0.01 / [1 .. 8], 0).ExpRange(0.01, 1)
+			SinOsc(0.01 / [1 .. 8], 0).expRange(0.01, 1)
 		),
 		0.995
 	).tanh
@@ -34,9 +34,9 @@ Splay(
 
 /* ChaosGen writes melodies ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110751954599483552 */
 let p = system.coin(0.5).if {
-	GbmanN([8 4 6 2], 1.2, 2.1).LinLin(-1, 1, 8, 32).ceiling
+	GbmanN([8 4 6 2], 1.2, 2.1).linLin(-1, 1, 8, 32).ceiling
 } {
-	StandardN([8 4 6 2], 1, 0.5, 0).LinLin(-1, 1, 12, 48).ceiling
+	StandardN([8 4 6 2], 1, 0.5, 0).linLin(-1, 1, 12, 48).ceiling
 };
 let f = DegreeToKey(
 	LocalBuf[0 2 3 5 7 8 10],
@@ -54,7 +54,7 @@ Splay(
 			) * e,
 			m.abs / 2,
 			1 - m ^ 2 * 2,
-			1 - m.ExpRange(0.01, 1)
+			1 - m.expRange(0.01, 1)
 		),
 		0.2,
 		m.abs / 2048
@@ -83,7 +83,7 @@ Splay(
 
 /* KaosSprinkler ; https://github.com/lukiss/Losers-Union-SC-Research */
 let c = 1.5 ^ [0, 4 .. 12];
-let e = StandardN(c, 1, 0.5, 0).ExpRange(0.01, 1);
+let e = StandardN(c, 1, 0.5, 0).expRange(0.01, 1);
 Splay(
 	LeakDc(
 		-12.dbAmp * StandardN(
@@ -126,9 +126,9 @@ Splay(
 			) * SinOsc(f * p * p.log / 2, 0) * 2 * d).sin,
 			t,
 			0.1,
-			t.ExpRange(0.01, 1) / d / p,
+			t.expRange(0.01, 1) / d / p,
 			(t ^ 1.5 * f) * (d / p.scramble),
-			(p * (1 - t.ExpRange(0.01, 1))).sin.ExpRange(0.9999, 0.5)
+			(p * (1 - t.expRange(0.01, 1))).sin.expRange(0.9999, 0.5)
 		),
 		0.995
 	)
@@ -136,10 +136,10 @@ Splay(
 
 /* Grains, Daily ; https://github.com/lukiss/Losers-Union-SC-Research */
 let m = { :lo :hi |
-	StandardL(LfdNoise1(1).ExpRange(0.01, 1) * 8 + 0.1, 2, 0.5, 0).ExpRange(lo, hi)
+	StandardL(LfdNoise1(1).expRange(0.01, 1) * 8 + 0.1, 2, 0.5, 0).expRange(lo, hi)
 };
 let f = {
-	StandardL(m(1, 128), m(1, 3), 0.5, 0).ExpRange(40, 5000)
+	StandardL(m(1, 128), m(1, 3), 0.5, 0).expRange(40, 5000)
 };
 let n = 8;
 LeakDc(
@@ -160,7 +160,7 @@ LeakDc(
 /* Spa Saw Shower Wash ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111427906537919703 */
 let c = 2048.sineTable(1 / [1 .. 128], [0]).normalizeSignal.wavetableFormat.LocalBuf;
 let w = { :freq |
-	LfdNoise3(freq).LinLin(-1, 1, 80, 6880) /* LinCurve */
+	LfdNoise3(freq).linLin(-1, 1, 80, 6880) /* LinCurve */
 };
 let f = SinOsc(
 	{ Rand(3.3, 4.4) } ! 6,
@@ -185,11 +185,11 @@ o := BHiPass4(o, w(1 / 7), 1) + Bpf(o, w(1 / 5), 1) + MoogFf(o, w(1 / 3), 2, 0);
 o
 
 /* Suspect jazz ; https://github.com/lukiss/Losers-Union-SC-Research */
-let x = HenonL(1 + LfdNoise1(3).ExpRange(0.01, 1) * 8, 1.4, 0.3, 0, 0).fold;
+let x = HenonL(1 + LfdNoise1(3).expRange(0.01, 1) * 8, 1.4, 0.3, 0, 0).fold;
 let t = [0 .. 8].collect { :n |
 	PulseDivider(x, 8, 7 - n)
 };
-let d = 1.5 + x.ExpRange(0.01, 1);
+let d = 1.5 + x.expRange(0.01, 1);
 let e = { :c |
 	Perc(t, 0.004, d, c)
 };
@@ -313,7 +313,7 @@ CombC(
 /* 9 Jan 2019 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let a = 40;
 let f = { :b |
-	LfNoise1(1).ExpRange(10, b)
+	LfNoise1(1).expRange(10, b)
 };
 Splay(
 	LeakDc(
@@ -332,7 +332,7 @@ Splay(
 /* 3 Nov 2018 ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=kr */
 let a = 9;
 let f = { :b |
-	LfNoise2(b.sign).ExpRange(9, b)
+	LfNoise2(b.sign).expRange(9, b)
 };
 Splay(
 	LeakDc(
@@ -437,8 +437,7 @@ let o = Formant(
 	f(f(2, 10), f(f(3, 13), 2320)),
 	f(f(3, 5), 2500)
 );
-let a = Excess(
-	f(f(2, 12), 1),
+let a = f(f(2, 12), 1).excess(
 	f(f(1, 14), f(4.4, 0.5) + 0.3)
 );
 (o * a).EqPan2(0).softClip
@@ -455,8 +454,7 @@ let o = Formant(
 	f(f(3, 5), 2500)
 );
 let a = {
-	Excess(
-		f(f(2 / k, 12), 1),
+	f(f(2 / k, 12), 1).excess(
 		f(f(1, 14), f(4.4, 0.5) + 0.3)
 	)
 } ! k;
@@ -601,23 +599,23 @@ let l = { :lo :hi |
 	TChoose(
 		Dust([3] # 2),
 		CuspN(1.1 ^ [0 .. 5], 1, 1.9, 0).tanh
-	).ExpRange(lo, hi)
+	).expRange(lo, hi)
 };
 let a = { l(0.001, 1) } ! 6;
 let f = l(12, 999);
 let e = Env(a, a / a.Sum / f, a.- * 9, nil, nil, 0).circle(0, 'lin').asEnvGen(1);
 let g = Perc(e > 0.1, 0.005, 0.9 / f, -4);
-let p = (1 - g).LinLin(0, 1, -1, 1);
+let p = (1 - g).linLin(0, 1, -1, 1);
 (XFade2(e, (e * f).sin, p, 1) + g).tanh.Splay
 
 /* Tennis ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=NonLocalBuffer */
 let nf = 48000; /* sample rate */
 let b = 1000; /* BufAlloc(1, nf).BufClear */
 let n = LeakDc(
-	StandardL(22050, LfNoise1(1).LinLin(-1, 1, 0.72, 1.40), 0.5, 0),
+	StandardL(22050, LfNoise1(1).linLin(-1, 1, 0.72, 1.40), 0.5, 0),
 	0.995
 );
-let z = Sweep(0, 1 - n.ExpRange(0.01, 1)) % 1 * nf;
+let z = Sweep(0, 1 - n.expRange(0.01, 1)) % 1 * nf;
 let t = (n.Lag3(0.1) > 0);
 let w = RecordBuf(b, z, t, 1 - t, t, 1, t, 0, n);
 let p = PlayBuf(
@@ -633,7 +631,7 @@ EqPan2(
 	LeakDc(
 		MoogFf(
 			p,
-			p.ExpRange(0.01, 1) * 11025,
+			p.expRange(0.01, 1) * 11025,
 			2,
 			0
 		),
@@ -664,7 +662,7 @@ let tab = [
 	40 80 100 120 120;
 	0 -20 -32 -28 -36
 ];
-let x = LorenzL(24, 10, 28, 2.667, 0.05, 0.1, 0, 0).sin.LinLin(-1, 1, 1, 4) / Diwhite(Infinity, 2, 10);
+let x = LorenzL(24, 10, 28, 2.667, 0.05, 0.1, 0, 0).sin.linLin(-1, 1, 1, 4) / Diwhite(Infinity, 2, 10);
 let dur = Duty(x, 0, x);
 let trg = TDuty(dur, 0, 1);
 let mel = [26 .. 42].degreeToKey([0 2 4 5 7 9 11], 12);
@@ -674,7 +672,7 @@ let mnn = Demand(
 	Dseq(Infinity, mel.scramble)
 );
 let env = Adsr(
-	Trig(trg, dur * LfNoise2(4).LinLin(-1, 1, 0.5, 1)),
+	Trig(trg, dur * LfNoise2(4).linLin(-1, 1, 0.5, 1)),
 	dur / 48,
 	1 / 4,
 	1,
@@ -682,7 +680,7 @@ let env = Adsr(
 	-4
 );
 let voc = SelectXFocus(
-	mnn.LinLin(mel.first, mel.last, 0, tab.size),
+	mnn.linLin(mel.first, mel.last, 0, tab.size),
 	tab,
 	0.9,
 	true

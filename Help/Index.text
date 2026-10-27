@@ -591,6 +591,9 @@ Reference/bicorn.help.sl
 Reference/bicuspidCurve.help.sl
 Reference/bifoliate.help.sl
 Reference/bifolium.help.sl
+Reference/bilateralClip.help.sl
+Reference/bilateralFold.help.sl
+Reference/bilateralWrap.help.sl
 Reference/bilinearInterpolation.help.sl
 Reference/BiLinRand.help.sl
 Reference/binaryCombinations.help.sl
@@ -837,7 +840,6 @@ Reference/cissoidOfDiocles.help.sl
 Reference/clamp.help.sl
 Reference/clawsonPoint.help.sl
 Reference/cleliaCurve.help.sl
-Reference/Clip2.help.sl
 Reference/clip.help.sl
 Reference/ClipIndex.help.sl
 Reference/ClipNoise.help.sl
@@ -1528,7 +1530,6 @@ Reference/Float.help.sl
 Reference/floor.help.sl
 Reference/floorLog.help.sl
 Reference/fnv1aHash.help.sl
-Reference/Fold2.help.sl
 Reference/fold.help.sl
 Reference/foldIndex.help.sl
 Reference/foldLeft.help.sl
@@ -2536,10 +2537,10 @@ Reference/linePlaneIntersection.help.sl
 Reference/linePlot.help.sl
 Reference/LineSegment.help.sl
 Reference/lines.help.sl
-Reference/LinExp.help.sl
+Reference/linExp.help.sl
 Reference/LinkedList.help.sl
 Reference/Link.help.sl
-Reference/LinLin.help.sl
+Reference/linLin.help.sl
 Reference/LinPan2.help.sl
 Reference/LinRand.help.sl
 Reference/linspace.help.sl
@@ -4425,7 +4426,6 @@ Reference/wordsBy.help.sl
 Reference/words.help.sl
 Reference/Workspace.help.sl
 Reference/WorldMenu.help.sl
-Reference/Wrap2.help.sl
 Reference/wrapExclusive.help.sl
 Reference/wrap.help.sl
 Reference/wrapIndex.help.sl

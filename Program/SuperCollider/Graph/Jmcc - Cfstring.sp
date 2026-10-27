@@ -8,7 +8,7 @@
 	let freq = (60 + dgr).midiCps;
 	let pan = TRand(-0.25, 0.25, tr);
 	let amp = TRand(0.1, 0.2, tr);
-	let fc = LinExp(LfNoise1(TRand(0.25, 0.4, tr)), -1, 1, 500, 2000);
+	let fc = linExp(LfNoise1(TRand(0.25, 0.4, tr)), -1, 1, 500, 2000);
 	let osc = {
 		LfSaw(
 			freq * [TRand(0.99, 1.0, tr), TRand(0.99, 1.01, tr)],

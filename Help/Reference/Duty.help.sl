@@ -116,7 +116,7 @@ Duty(
 With non-demand inputs:
 
 ```
-let freq = LfNoise2(1).LinLin(
+let freq = LfNoise2(1).linLin(
 	-1, 1, 111, 555
 );
 let latchFreq = Duty(

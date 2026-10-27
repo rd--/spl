@@ -29,7 +29,7 @@ Ordinary playback, phase courtesy `LfSaw`:
 ```spl SfAcquire
 let sf = SfAcquire('Floating', 1, [1]).first;
 let sw = LfSaw(1 / SfDuration(sf), 0);
-let ph = sw.LinLin(-1, 1, 0, SfFrameCount(sf));
+let ph = sw.linLin(-1, 1, 0, SfFrameCount(sf));
 BufRd(1, sf, ph, 1, 2)
 ```
 

@@ -23,7 +23,7 @@ Here the pointer moves from the beginning to the end of the soundfile over fifte
 Warp1(
 	1,
 	SfAcquireMono('Floating'),
-	LfSaw(1 / 15, 0).LinLin(-1, 1, 0, 1),
+	LfSaw(1 / 15, 0).linLin(-1, 1, 0, 1),
 	MouseX(0.5, 2, 0, 0.2),
 	0.1,
 	-1,

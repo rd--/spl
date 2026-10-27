@@ -9,7 +9,7 @@ let root = 45;
 let bass = Impulse(r0, 0).in { :t |
 	let bassf = Impulse(r0 / (3 * 8), 0).in { :u |
 		Perc(t, 0, 0.013, 0)
-		.LinLin(0, 1, 0, 12 * 3)
+		.linLin(0, 1, 0, 12 * 3)
 		.+(Sequencer([0 0 -2 -2 0 0 3 3], u))
 		.+(root)
 		.midiCps
@@ -27,8 +27,8 @@ let pad = Impulse(r0 / padd, 0).in { :t |
 	.+([0.06, -0.06])
 	.midiCps
 	.SinOsc(0)
-	.*(Saw(r0 / padd).Lag(0.1).LinLin(-1, 1, 0, 1))
-	.*(SinOsc(2.7, 0).LinLin(-1, 1, 0.4, 1))
+	.*(Saw(r0 / padd).Lag(0.1).linLin(-1, 1, 0, 1))
+	.*(SinOsc(2.7, 0).linLin(-1, 1, 0.4, 1))
 	.withDelayed(4 / 12 * padt, 0.7)
 	.*(0.77)
 };

@@ -83,7 +83,7 @@
 - `abs`, `absDif`, `amClip`
 - `clip`, `fold`, `wrap`
 - `Integrator`
-- `LinExp`, `LinLin`
+- `linExp`, `linLin`
 - `modularDistance`
 - `negate`
 - `power`

@@ -15,7 +15,7 @@ Bezier(100, 0.001, x, 0, [0, 0, y, -1.3, 0.3, -1.3, 0.5, 0, 0.7, 1.3, 0.8, 1.3, 
 
 /* Bezier ; dynamic shifting of control points, as oscillator */
 let w = { :l :r |
-	LinLin(LfdNoise3(2), -1, 1, l, r)
+	linLin(LfdNoise3(2), -1, 1, l, r)
 };
 {
 	let p = [
@@ -34,7 +34,7 @@ let w = { :l :r |
 /* Bezier ; Event control */
 Voicer(1, 16) { :e |
 	let w = { :l :r |
-		LinLin(LfdNoise3(e.j * 5), -1, 1, l, r)
+		linLin(LfdNoise3(e.j * 5), -1, 1, l, r)
 	};
 	{
 		let p = [

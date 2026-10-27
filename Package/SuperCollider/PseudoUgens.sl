@@ -3,7 +3,7 @@
 +[List, SmallFloat, Ugen] {
 
 	Blend { :y1 :y2 :mu |
-		let signedMu = mu.LinLin(0, 1, -1, 1);
+		let signedMu = mu.linLin(0, 1, -1, 1);
 		XFade2(y1, y2, signedMu, 1)
 	}
 
@@ -128,8 +128,8 @@
 		Pan2(in, pos, 1)
 	}
 
-	ExpRange { :self :lo :hi |
-		LinExp(self, -1, 1, lo, hi)
+	expRange { :self :lo :hi |
+		linExp(self, -1, 1, lo, hi)
 	}
 
 	Fm7Matrix { :ctlMatrix :modMatrix |
@@ -175,7 +175,7 @@
 			Select2(
 				curve.abs >= 0.125,
 				curvedResult,
-				self.LinLin(inMin, inMax, outMin, outMax)
+				self.linLin(inMin, inMax, outMin, outMax)
 			)
 		}
 	}
@@ -184,7 +184,7 @@
 		Env(levels, times, ['lin'], nil, nil, 0).asEnvGen(gate)
 	}
 
-	LinLin { :self :srcLo :srcHi :dstLo :dstHi |
+	linLin { :self :srcLo :srcHi :dstLo :dstHi |
 		let mul = (dstHi - dstLo) / (srcHi - srcLo);
 		let add = dstLo - (mul * srcLo);
 		self.clip(srcLo, srcHi).timesPlus(mul, add)
@@ -194,8 +194,8 @@
 		LinRand(0, self, 1)
 	}
 
-	LinRange { :self :lo :hi |
-		LinLin(self, -1, 1, lo, hi)
+	linRange { :self :lo :hi |
+		linLin(self, -1, 1, lo, hi)
 	}
 
 	MouseX { :minval :maxval |

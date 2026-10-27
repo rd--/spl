@@ -2,7 +2,7 @@
 VarSaw(110, 1 * [0, 0.25], 0.5) * 0.1
 
 /* VarSaw ; per-note width modulation */
-let d = LinLin(LfNoise2(0.1), -1, 1, 0.05, 0.5);
+let d = linLin(LfNoise2(0.1), -1, 1, 0.05, 0.5);
 let tr = Impulse(1 / d, 0);
 let w0 = TRand(0, 0.35, tr);
 let w1 = TRand(0.65, 1, tr);

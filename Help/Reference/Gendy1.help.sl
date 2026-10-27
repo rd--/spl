@@ -100,7 +100,7 @@ An overlapping texture program:
 		let kNum = SinOsc(
 			ExpRand(0.02, 0.2),
 			0
-		).LinLin(-1, 1, 0, numCps);
+		).linLin(-1, 1, 0, numCps);
 		let osc = Gendy1(
 			ampDist: Rand(0, 6),
 			durDist: Rand(0, 6),

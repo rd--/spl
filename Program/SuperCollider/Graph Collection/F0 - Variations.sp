@@ -13,7 +13,7 @@ EqPan2(src <! LocalOut(src), 0)
 
 /* pkt 07 (f0) ; https://fredrikolofsson.com/f0blog/pact-februari/ ; helper */
 let sinOsc = { :f :l :r |
-	LinExp(SinOsc(f, 0), -1, 1, l, r)
+	linExp(SinOsc(f, 0), -1, 1, l, r)
 };
 GVerb(
 	LeakDc(
@@ -54,7 +54,7 @@ Rhpf(
 /* https://sccode.org/1-4S6 ; f0 ; 't' */
 let p = Saw([3, 4]) * (Saw(1) * 32 + 128) + Duty(1, 0, (Dseq(1, [0, 8, 1, 5]) * [1, 4, 8]).flop);
 let o = SinOsc(Saw(3) * 64 + 99, p) / 9;
-CombN(o, 1 / 4, 1 / 2.125, SinOsc(0.005, 1.5.pi).LinLin(-1, 1, 0, 6)).transpose.Sum
+CombN(o, 1 / 4, 1 / 2.125, SinOsc(0.005, 1.5.pi).linLin(-1, 1, 0, 6)).transpose.Sum
 
 /* tw 0120 (f0) ; requires=kr */
 let z = LfTri(1 / [7 8], 0) * LfTri(1 / 9, 0) * 99;
@@ -155,7 +155,7 @@ let i = Rand(1, 64);
 let x = (SinOsc(i % 9.33, 0) * 5 + 5).ceiling;
 let t = SinOsc(2 ^ (i % 11) * 150 / x, 0);
 let y = Hpz1(x).abs > 0;
-let f = LinExp(t, -1, 1, Latch(LinExp(SinOsc(i % 4.4, 0), -1, 1, 9, 999), y), Latch(LinExp(SinOsc(i % 1.pi, 0), -1, 1, 99, 9000), y));
+let f = linExp(t, -1, 1, Latch(linExp(SinOsc(i % 4.4, 0), -1, 1, 9, 999), y), Latch(linExp(SinOsc(i % 1.pi, 0), -1, 1, 99, 9000), y));
 EqPan(
 	Blip(f, t + 2) * (1 - t),
 	SinOsc(0.1, i)
