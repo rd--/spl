@@ -1218,6 +1218,10 @@
 		anObject.adaptToCollectionAndApply(self, nthRoot/2)
 	}
 
+	[plus, +] { :a :b :c :d |
+		a + b + c + d
+	}
+
 	round { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, round/2)
 	}
@@ -1232,10 +1236,6 @@
 
 	signedLcm { :self :operand |
 		operand.adaptToCollectionAndApply(self, signedLcm/2)
-	}
-
-	[plus, +] { :a :b :c :d |
-		a + b + c + d
 	}
 
 	[timesPlus, *+] { :self :mul :add |

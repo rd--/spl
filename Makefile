@@ -67,7 +67,10 @@ check-commented-methods:
 	python3 py/check-commented-methods.py Package/*/*.sl
 
 check-reference-names:
-	python3 py/check-reference-names.py Help/Refence/*.sl
+	python3 py/check-reference-names.py Help/Reference/*.sl
+
+check-case-sensitive-file-names:
+	python3 py/check-case-sensitive-file-names.py Help
 
 check-all:
 	make check-method-spacing

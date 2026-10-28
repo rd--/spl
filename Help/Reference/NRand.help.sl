@@ -22,7 +22,7 @@ let n = MouseX(1, 9, 0, 0.2).round(1);
 
 * * *
 
-See also: expRand, IRand, LinRand, Rand, TExpRand, TRand, TiRand
+See also: IRand, LinRand, Rand, TExpRand, TRand, TiRand, expRand
 
 Guides: Unit Generators
 

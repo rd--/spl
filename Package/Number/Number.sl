@@ -748,6 +748,10 @@
 		}
 	}
 
+	[plus, +] { :a :b :c :d |
+		a + b + c + d
+	}
+
 	powerMod { :base :exponent :modulo |
 		exponent.isCollection.if {
 			exponent.collect { :each |
@@ -1116,10 +1120,6 @@
 
 	strictlyPositive { :self |
 		self > 0
-	}
-
-	[plus, +] { :a :b :c :d |
-		a + b + c + d
 	}
 
 	swishFunction { :beta |

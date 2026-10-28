@@ -502,10 +502,6 @@
 		<primitive: return sc.ClearBuf(_buf);>
 	}
 
-	bufIndexClip { :bufnum :in |
-		<primitive: return sc.Index(_bufnum, _in);>
-	}
-
 	CoinGate { :prob :in |
 		<primitive: return sc.CoinGate(_prob, _in);>
 	}
@@ -616,10 +612,6 @@
 
 	EnvTrapezoid { :trig :dur :shape :skew |
 		<primitive: return sc.EnvTrapezoid(_trig, _dur, _shape, _skew);>
-	}
-
-	expRand { :lo :hi |
-		<primitive: return sc.ExpRand(_lo, _hi);>
 	}
 
 	FSinOsc { :freq :iphase |
@@ -802,15 +794,6 @@
 		<primitive: return sc.MaxLocalBufs(_count);>
 	}
 
-	medianFilter { :in :r |
-		<primitive:
-		if(sl.isSmallFloat(_r)) {
-			return sc.Median(_r * 2 + 1, _in);
-		}
-		>
-		in.error('medianFilter: length not scalar')
-	}
-
 	MouseButton { :minval :maxval :lag |
 		<primitive: return sc.MouseButton(_minval, _maxval, _lag);>
 	}
@@ -987,12 +970,29 @@
 		<primitive: return sc.Vibrato(_freq, _rate, _depth, _delay, _onset, _rateVariation, _depthVariation, _iphase, _trig);>
 	}
 
+	bufIndexClip { :bufnum :in |
+		<primitive: return sc.Index(_bufnum, _in);>
+	}
+
 	bufIndexWrap { :bufnum :in |
 		<primitive: return sc.WrapIndex(_bufnum, _in);>
 	}
 
 	degreeToKey { :bufnum :in :octave |
 		<primitive: return sc.DegreeToKey(_bufnum, _in, _octave);>
+	}
+
+	expRand { :lo :hi |
+		<primitive: return sc.ExpRand(_lo, _hi);>
+	}
+
+	medianFilter { :in :r |
+		<primitive:
+		if(sl.isSmallFloat(_r)) {
+			return sc.Median(_r * 2 + 1, _in);
+		}
+		>
+		in.error('medianFilter: length not scalar')
 	}
 
 }
@@ -1023,10 +1023,6 @@
 		<primitive: return sc.GrainSin(_numChan, _trigger, _dur, _freq, _pan, _envbufnum, _maxGrains);>
 	}
 
-	busIn { :numChan :bus |
-		<primitive: return sc.In(_numChan, _bus);>
-	}
-
 	InFeedback { :numChan :bus |
 		<primitive: return sc.InFeedback(_numChan, _bus);>
 	}
@@ -1053,6 +1049,10 @@
 
 	Warp1 { :numChan :bufnum :pointer :freqScale :windowSize :envbufnum :overlaps :windowRandRatio :interp |
 		<primitive: return sc.Warp1(_numChan, _bufnum, _pointer, _freqScale, _windowSize, _envbufnum, _overlaps, _windowRandRatio, _interp);>
+	}
+
+	busIn { :numChan :bus |
+		<primitive: return sc.In(_numChan, _bus);>
 	}
 
 }
