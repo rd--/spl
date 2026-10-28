@@ -46,7 +46,7 @@ let rungler = [
 ].sum;
 let buf1 = rungler;
 let runglerF = (rungler * scale.linLin(0, 1, 0, 127)).midiCps;
-let filt = Select(
+let filt = SelectT(
 	filterType,
 	[
 		Rlpf(pwm, (runglerF * runglerFilt) + filtFreq, q * -1 + 1) * gain,
@@ -55,7 +55,7 @@ let filt = Select(
 		Dfm1(pwm, (runglerF * runglerFilt) + filtFreq, q, gain, 1, 0.0003)
 	]
 );
-let output = Select(
+let output = SelectT(
 	outSignal,
 	[tri1, osc3, tri2, osc2, pwm, sh0b, filt]
 );

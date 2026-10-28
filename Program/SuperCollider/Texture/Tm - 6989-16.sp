@@ -9,7 +9,7 @@
 			LfNoise1(dur).linLin(-1, 1, 0.01, 8)
 		);
 		let freq = Rand(30, 5000) * note.midiRatio;
-		let sig = Select(
+		let sig = SelectT(
 			LfNoise0(dur).linLin(-1, 1, 0, 2).round(1),
 			[
 				SinOsc(freq, 0),
@@ -18,7 +18,7 @@
 			] * 0.1
 		);
 		let filtFreq = Rand(30, 1000) * LfNoise1(dur).linLin(-1, 1, 1, 5);
-		let filt = Select(
+		let filt = SelectT(
 			LfNoise0(dur).linLin(-1, 1, 0, 2).round(1),
 			[
 				Lpf(sig, filtFreq),

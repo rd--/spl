@@ -5,6 +5,16 @@
 
 Answer a random number logarithmically distributed between _a_ and _b_.
 The ternary form utilises the random number generator _r_.
+
+```
+>>> Sfc32(3627814).expRand(1, 900)
+74.253
+
+>>> let r = Sfc32(3627814);
+>>> { r.expRand(1, 900) } ! 4
+[74.253 10.442 11.491 53.526]
+```
+
 The binary form answers an initialisation rate unit generator.
 
 ```

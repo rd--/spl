@@ -59,7 +59,7 @@ CombN(o, 1 / 4, 1 / 2.125, SinOsc(0.005, 1.5.pi).linLin(-1, 1, 0, 6)).transpose.
 /* tw 0120 (f0) ; requires=kr */
 let z = LfTri(1 / [7 8], 0) * LfTri(1 / 9, 0) * 99;
 let l = [60 .. 79].midiCps;
-let f = Select(z, l);
+let f = SelectT(z, l);
 let w = LfTri(1 / [3, 4], 0) % 1;
 let o = VarSaw(f.kr, 0, w.kr);
 CombN(o, 1, 1 / [5, 6], 8) / 8
@@ -68,7 +68,7 @@ CombN(o, 1, 1 / [5, 6], 8) / 8
 let z = SinOsc(1 / [8, 7], 0) * SinOsc(1 / 30, 0) * 9;
 let l = [0 .. 7] * 6 + 56;
 let m = SinOsc(1 / [4, 3], 0);
-let o = SinOsc(Select(z, l).kr.midiCps, 0) * m;
+let o = SinOsc(SelectT(z, l).kr.midiCps, 0) * m;
 CombN(o, 1, 1 / [6, 5], 9).tanh * 0.1
 
 /* tw 0134 (f0) */
@@ -84,7 +84,7 @@ let n = 50;
 /* https://sccode.org/1-4Qy ; f0 ; 0233 ; requires=kr */
 let b = 1 / [1 4 6 8 11];
 let c = LfTri(b / 98, 0);
-let q = Dseq(Infinity, Select(LfTri(b / 99, 0) + c * 5, 1 / b + 59).kr).midiCps;
+let q = Dseq(Infinity, SelectT(LfTri(b / 99, 0) + c * 5, 1 / b + 59).kr).midiCps;
 Splay(LfTri(Duty(b, c, q) + c, 0) / 3)
 
 /* https://sccode.org/1-4Qy ; f0 ; 0246 ; requires=DynRingzBank */
@@ -128,7 +128,7 @@ CombN(
 /* f0 ; https://twitter.com/redFrik/status/1105496695637454848 ; requires=kr */
 let b = [1 .. 15] + 1 / 151;
 let w = (VarSaw(b, b, 1 / 5.15) * 1 + 1.5).ceiling;
-let s = Select((VarSaw(1 / 15, 1 / 5, b) * 5).ceiling + 5 / 5, [51 * 1.5, 51, 151]).kr;
+let s = SelectT((VarSaw(1 / 15, 1 / 5, b) * 5).ceiling + 5 / 5, [51 * 1.5, 51, 151]).kr;
 let x = Lag(s, b);
 let y = VarSaw(5 + b, 0, 0.5);
 let z = VarSaw(b, b, b) * b / 5 + [1.5, 5, 1];

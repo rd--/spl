@@ -33,7 +33,7 @@ This may not be the most efficient way if each input is Cpu-expensive.
 
 * * *
 
-See also: Multiplexer, Select, TChoose, TwIndex
+See also: Multiplexer, SelectT, TChoose, TwIndex
 
 Guides: Unit Generators
 

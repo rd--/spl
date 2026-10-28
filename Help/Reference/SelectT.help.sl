@@ -1,8 +1,8 @@
-# Select
+# SelectT
 
-- _Select(which, list)_
+- _SelectT(which, list)_
 
-Select output from a list of inputs.
+Select one output from a list of inputs.
 
 All the Ugens are continuously running.
 This may not be the most efficient way if each input is Cpu-expensive.
@@ -21,7 +21,7 @@ let a = [
 	Pulse(440, 0.5)
 ];
 let cycle = a.size * 0.5;
-Select(LfSaw(1, 0) * cycle + cycle, a) * 0.2
+SelectT(LfSaw(1, 0) * cycle + cycle, a) * 0.2
 ```
 
 As a sequencer:
@@ -32,7 +32,7 @@ As a sequencer:
 		let a = { TRand(30, 80, tr) } ! 32;
 		let cycle = a.size * 0.5;
 		Saw(
-			Select(
+			SelectT(
 				LfSaw(1, 0) * cycle + cycle,
 				a.midiCps
 			)
@@ -45,7 +45,7 @@ For selecting from a list of constants consider also `BufRd`.
 
 * * *
 
-See also: BufRd, LinSelectX, SelectX, SelectXFocus
+See also: BufRd, SelectX, SelectXFocus
 
 Guides: Unit Generators
 

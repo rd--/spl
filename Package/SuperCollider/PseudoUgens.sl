@@ -137,7 +137,7 @@
 		let trig = Trig1(gate, SampleDur());
 		let index = Stepper(trig.kr, 1, 0, inList.size - 1, 1, 0);
 		Latch(
-			Select(index, inList), /* Multiplexer */
+			SelectT(index, inList), /* Multiplexer */
 			trig
 		)
 	}
@@ -220,7 +220,7 @@
 	}
 
 	Sequencer { :inList :trig |
-		Select(
+		SelectT(
 			Stepper(trig.kr, 1, 0, inList.size - 1, 1, 0),
 			inList
 		) /* Multiplexer */

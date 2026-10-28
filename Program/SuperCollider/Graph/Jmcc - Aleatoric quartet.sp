@@ -7,7 +7,7 @@ let rapf = { :in |
 	AllpassN(in, 0.05, { Rand(0, 0.05) } ! 2, 1)
 };
 let mkFreq = {
-	let n0 = LfNoise0(Select(IRand(0, 2), [1, 0.5, 0.25]));
+	let n0 = LfNoise0(SelectT(IRand(0, 2), [1, 0.5, 0.25]));
 	Lag((n0 * 7 + 66 + Rand(-30, 30)).round(1), 0.2).midiCps
 };
 let g = [1 .. 4].collect { :ix |

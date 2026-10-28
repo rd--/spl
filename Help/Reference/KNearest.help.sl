@@ -40,7 +40,7 @@ let z = [
 	Saw(111) / 2,
 	Pulse(555, 0.5) / 3
 ] * 0.1;
-Select(n, z)
+SelectT(n, z)
 ```
 
 * * *

@@ -46,7 +46,7 @@ let mel = Impulse(r0, 0).in { :t |
 		[
 			SinOsc(
 				[
-					Sequencer([0, 1, 2, 1, 3], t).Select(
+					Sequencer([0, 1, 2, 1, 3], t).SelectT(
 						[
 							Sequencer([0, -2, 0, 3], u),
 							Sequencer([7, 5, 7, 10], u),

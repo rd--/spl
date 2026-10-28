@@ -3006,6 +3006,7 @@ Reference/openIn.help.sl
 Reference/operatingSystem.help.sl
 Reference/operatorPrecedence.help.sl
 Reference/optimalGolombRulers.help.sl
+Reference/optimisedSum.help.sl
 Reference/orderedBellNumber.help.sl
 Reference/orderedDifferences.help.sl
 Reference/Ordered.help.sl
@@ -4009,7 +4010,6 @@ Reference/succeeds.help.sl
 Reference/suffixes.help.sl
 Reference/Sum3Rand.help.sl
 Reference/sum.help.sl
-Reference/Sum.help.sl
 Reference/sumOfSquares.help.sl
 Reference/superCatalanNumber.help.sl
 Reference/SuperColliderProgramBrowser.help.sl

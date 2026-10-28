@@ -18,7 +18,7 @@ Assuming normalized values:
 ```
 let trig = Impulse(6, 0).kr;
 let index = TwIndex(trig, 0, [0.05, 0.45, 0.5]);
-SinOsc(Select(index, [333 444 555]), 0) * 0.1
+SinOsc(SelectT(index, [333 444 555]), 0) * 0.1
 ```
 
 Modulating probability values:
@@ -32,14 +32,14 @@ let index = TwIndex(
 	[0.05, 0.25, w3]
 );
 [
-	SinOsc(Select(index, [333 444 555]), 0),
+	SinOsc(SelectT(index, [333 444 555]), 0),
 	SinOsc(w3.linLin(0, 1, 444, 555), 0) / 3
 ] * 0.1
 ```
 
 * * *
 
-See also: Select, TwChoose
+See also: SelectT, TwChoose
 
 Guides: Unit Generators
 

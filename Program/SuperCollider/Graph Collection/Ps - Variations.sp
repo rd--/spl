@@ -35,7 +35,7 @@ let pad = Impulse(r0 / padd, 0).in { :t |
 let mel = Impulse(r0, 0).in { :t |
 	let u = Impulse(r0 / (3 * 16), 0);
 	Sequencer([0 1 2 1 3], t)
-	.Select(
+	.SelectT(
 		[
 			Sequencer([0 -2 0 3], u),
 			Sequencer([7 5 7 10], u),

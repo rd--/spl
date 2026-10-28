@@ -911,7 +911,7 @@
 		<primitive: return sc.SawDpw(_freq, _iphase);>
 	}
 
-	Select { :which :array |
+	SelectT { :which :array |
 		<primitive: return sc.Select(_which, _array);>
 	}
 

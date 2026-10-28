@@ -388,8 +388,8 @@
 		Schmidt(d['in'], d['lo'], d['hi'])
 	}
 
-	Select { :d |
-		Select(d['which'], d['array'])
+	SelectT { :d |
+		SelectT(d['which'], d['array'])
 	}
 
 	SetResetFf { :d |

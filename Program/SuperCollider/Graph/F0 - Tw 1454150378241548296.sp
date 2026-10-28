@@ -1,6 +1,6 @@
 /* http://twitter.com/redFrik/status/1454150378241548296 ; F0 */
 let a = { :r :i :n :q :p |
-	Rlpf(Impulse(r, p), Select(i % 5, [0, 3, 5, 7, 10] + n).midiCps, q)
+	Rlpf(Impulse(r, p), SelectT(i % 5, [0, 3, 5, 7, 10] + n).midiCps, q)
 };
 let x = 0.001;
 let b = [1 .. 8] / 8;

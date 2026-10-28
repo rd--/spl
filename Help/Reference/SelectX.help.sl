@@ -42,7 +42,7 @@ SinOsc(
 
 * * *
 
-See also: LinSelectX, Select, SelectXFocus
+See also: LinSelectX, SelectT, SelectXFocus
 
 Guides: Unit Generators
 
