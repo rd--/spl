@@ -12,28 +12,28 @@ let gain = 'gain'.kr(1);
 let filterType = 'filterType'.kr(0);
 let outSignal = 'outSignal'.kr(6);
 let amp = 'amp'.kr(1);
-let bufR = LocalIn(2, [0 0]);
+let bufR = localIn(2, [0 0]);
 let rungler0 = bufR[1];
 let buf = bufR[2];
-let sr = SampleDur();
-let tri1 = LfTri((rungler0 * rungler1) + freq1, 0);
-let tri2 = LfTri((rungler0 * rungler2) + freq2, 0);
+let sr = sampleDur();
+let tri1 = lfTri((rungler0 * rungler1) + freq1, 0);
+let tri2 = lfTri((rungler0 * rungler2) + freq2, 0);
 let pwm = (tri1 + tri2) > 0;
-let osc1 = PulseDpw((rungler0 * rungler1) + freq1, 0.5);
-let osc2 = PulseDpw((rungler0 * rungler2) + freq2, 0.5);
+let osc1 = pulseDpw((rungler0 * rungler1) + freq1, 0.5);
+let osc2 = pulseDpw((rungler0 * rungler2) + freq2, 0.5);
 let osc3 = ((buf * loop) + (osc1 * (loop * -1 + 1)));
 let sh0 = osc3 > 0.5;
 let sh8 = 1;
 let sh0a = (sh8 > sh0) = (sh8 < sh0);
 let sh0b = (sh0a * -1) + 1;
-let sh1 = DelayN(Latch(sh0b, osc2), 0.01, sr);
-let sh2 = DelayN(Latch(sh1, osc2), 0.01, sr * 2);
-let sh3 = DelayN(Latch(sh2, osc2), 0.01, sr * 3);
-let sh4 = DelayN(Latch(sh3, osc2), 0.01, sr * 4);
-let sh5 = DelayN(Latch(sh4, osc2), 0.01, sr * 5);
-let sh6 = DelayN(Latch(sh5, osc2), 0.01, sr * 6);
-let sh7 = DelayN(Latch(sh6, osc2), 0.01, sr * 7);
-let sh8b = DelayN(Latch(sh7, osc2), 0.01, sr * 8);
+let sh1 = delayN(latch(sh0b, osc2), 0.01, sr);
+let sh2 = delayN(latch(sh1, osc2), 0.01, sr * 2);
+let sh3 = delayN(latch(sh2, osc2), 0.01, sr * 3);
+let sh4 = delayN(latch(sh3, osc2), 0.01, sr * 4);
+let sh5 = delayN(latch(sh4, osc2), 0.01, sr * 5);
+let sh6 = delayN(latch(sh5, osc2), 0.01, sr * 6);
+let sh7 = delayN(latch(sh6, osc2), 0.01, sr * 7);
+let sh8b = delayN(latch(sh7, osc2), 0.01, sr * 8);
 let rungler = [
 	(sh1 / (2 ^ 8)),
 	(sh2 / (2 ^ 7)),
@@ -46,17 +46,17 @@ let rungler = [
 ].sum;
 let buf1 = rungler;
 let runglerF = (rungler * scale.linLin(0, 1, 0, 127)).midiCps;
-let filt = SelectT(
+let filt = selectT(
 	filterType,
 	[
-		Rlpf(pwm, (runglerF * runglerFilt) + filtFreq, q * -1 + 1) * gain,
-		Rhpf(pwm, (runglerF * runglerFilt) + filtFreq, q * -1 + 1) * gain,
-		Svf(pwm, (runglerF * runglerFilt) + filtFreq, q, 1, 0, 0, 0, 0) * gain,
-		Dfm1(pwm, (runglerF * runglerFilt) + filtFreq, q, gain, 1, 0.0003)
+		rlpf(pwm, (runglerF * runglerFilt) + filtFreq, q * -1 + 1) * gain,
+		rhpf(pwm, (runglerF * runglerFilt) + filtFreq, q * -1 + 1) * gain,
+		svf(pwm, (runglerF * runglerFilt) + filtFreq, q, 1, 0, 0, 0, 0) * gain,
+		dfm1(pwm, (runglerF * runglerFilt) + filtFreq, q, gain, 1, 0.0003)
 	]
 );
-let output = SelectT(
+let output = selectT(
 	outSignal,
 	[tri1, osc3, tri2, osc2, pwm, sh0b, filt]
 );
-LeakDc([output * amp] # 2, 0.995) <! LocalOut([runglerF, buf1]) * 0.1
+leakDc([output * amp] # 2, 0.995) <! localOut([runglerF, buf1]) * 0.1

@@ -12,7 +12,7 @@ Implement the Cohen–Sutherland algorithm to clip the line _l_ to lie within th
 Line[-1 -1; 1 1]
 ```
 
-Clip lines along each axis and diagonal:
+clip lines along each axis and diagonal:
 
 ~~~spl svg=A
 let r = Rectangle[-1 -1; 1 1];
@@ -32,7 +32,7 @@ let r = Rectangle[-1 -1; 1 1];
 
 ![](Help/Image/cohenSutherlandAlgorithm-A.svg)
 
-Clip lines at every fourth degree of rotation:
+clip lines at every fourth degree of rotation:
 
 ~~~spl svg=B
 let r = Rectangle[-0.25 -0.25; 0.25 0.25];

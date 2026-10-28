@@ -8,17 +8,17 @@ This program generates random panning three note chords.
 let dur = 12;
 {
 	{
-		Pan2(
-			SinOsc(
-				IRand(48, 72).midiCps,
+		pan2(
+			sinOsc(
+				iRand(48, 72).midiCps,
 				0
 			),
 			line(
-				Rand(-1, 1),
-				Rand(-1, 1),
+				rand(-1, 1),
+				rand(-1, 1),
 				dur
 			),
-			Rand(0.01, 0.05)
+			rand(0.01, 0.05)
 		)
 	} !+ 3
 }.overlapTextureProgram(
@@ -43,7 +43,7 @@ Functions:
 - `xFadeTextureProgram`
 
 Textrue programs are distinct from texture unit generators,
-see `OverlapTexture` and `XFadeTexture`.
+see `overlapTexture` and `xFadeTexture`.
 
 * * *
 

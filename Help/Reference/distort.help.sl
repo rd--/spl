@@ -24,7 +24,7 @@ Distortion increases with amplitude:
 
 ```
 (
-	SinOsc(500, 0) * XLine(0.1, 10, 10)
+	sinOsc(500, 0) * xLine(0.1, 10, 10)
 ).distort * 0.1
 ```
 

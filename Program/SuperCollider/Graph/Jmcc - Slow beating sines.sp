@@ -4,15 +4,15 @@
 	let p = [];
 	let q = [];
 	n.timesRepeat {
-		let freq = TRand(24, 84, tr).midiCps;
+		let freq = tRand(24, 84, tr).midiCps;
 		let d = 5;
 		p.add!(freq);
-		{ p.add!(freq + TRand(d.negate, d, tr)) } ! 2;
-		{ q.add!(freq + TRand(d.negate, d, tr)) } ! 3
+		{ p.add!(freq + tRand(d.negate, d, tr)) } ! 2;
+		{ q.add!(freq + tRand(d.negate, d, tr)) } ! 3
 	};
 	[p, q].collect { :freqList |
 		freqList.collect { :freq |
-			SinOsc(freq, TRand(0, 2.pi, tr))
+			sinOsc(freq, tRand(0, 2.pi, tr))
 		}.sum
 	} * 0.1 / n
-}.OverlapTexture(4, 4, 2).Mix
+}.overlapTexture(4, 4, 2).mix

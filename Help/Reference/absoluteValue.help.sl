@@ -16,7 +16,7 @@ contrary motion:
 ```
 let a = line(-1, 1, 2);
 let b = a.absoluteValue;
-SinOsc(
+sinOsc(
 	[a b] * 220 + [220 440],
 	0
 ) * [a b] * 0.1
@@ -25,14 +25,14 @@ SinOsc(
 Compare:
 
 ```
-let o = SyncSaw(100, 440);
+let o = syncSaw(100, 440);
 [o, o.absoluteValue] * 0.1
 ```
 
 Full-wave rectification:
 
 ```
-SinOsc(440, 0).absoluteValue * 0.1
+sinOsc(440, 0).absoluteValue * 0.1
 ```
 
 * * *

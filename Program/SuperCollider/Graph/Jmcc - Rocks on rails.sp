@@ -2,17 +2,17 @@
 let p = 20; /* Number of partials */
 let n = 4; /* Number of overlapping events */
 { :tr |
-	EqPan2(
-		DynRingzBank( /* P resonant modes */
-			Resonz(
-				Dust(100) * 0.04, /* Excitation */
-				XLine(3000, 300, 8), /* Sweep filter down */
+	eqPan2(
+		dynRingzBank( /* P resonant modes */
+			resonz(
+				dust(100) * 0.04, /* Excitation */
+				xLine(3000, 300, 8), /* sweep filter down */
 				0.2 /* Band width ratio */
 			),
-			{ 200 + TLinRand(0, 3000, 0, tr) } ! p, /* Resonant frequencies */
+			{ 200 + tLinRand(0, 3000, 0, tr) } ! p, /* Resonant frequencies */
 			[1], /* Amplitudes */
-			{ 0.2 + TRand(0, 1, tr) } ! p /* Ring times */
+			{ 0.2 + tRand(0, 1, tr) } ! p /* Ring times */
 		),
-		line(TRand(-1, 1, tr), TRand(-1, 1, tr), 8) /* Sweep pan */
+		line(tRand(-1, 1, tr), tRand(-1, 1, tr), 8) /* sweep pan */
 	)
-}.OverlapTexture(2, 3, n).Mix * 0.5
+}.overlapTexture(2, 3, n).mix * 0.5

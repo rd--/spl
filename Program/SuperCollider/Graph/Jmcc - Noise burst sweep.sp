@@ -1,7 +1,7 @@
 /* Noise burst sweep (Jmcc) #6 ; mouse control */
-let n = WhiteNoise([1] # 2, 0);
-let lfoRate = MouseX(10, 60, 1, 0.2);
-let amp = LfSaw(lfoRate, -1).max(0);
-let cfreq = MouseY(400, 8000, 1, 0.2);
-let freq = SinOsc(0.2, 0) * cfreq + (1.05 * cfreq);
-Resonz(n * amp, freq, 0.1)
+let n = whiteNoise([1] # 2, 0);
+let lfoRate = mouseX(10, 60, 1, 0.2);
+let amp = lfSaw(lfoRate, -1).max(0);
+let cfreq = mouseY(400, 8000, 1, 0.2);
+let freq = sinOsc(0.2, 0) * cfreq + (1.05 * cfreq);
+resonz(n * amp, freq, 0.1)

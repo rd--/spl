@@ -62,10 +62,10 @@ system.scSynth.sendOsc(
 Read the table as a frequency control:
 
 ```
-let rate = MouseX(0.001, 0.1, 0, 0.2);
-let lfo = PlayBuf(1, 10, rate, 1, 0, 1, 0);
+let rate = mouseX(0.001, 0.1, 0, 0.2);
+let lfo = playBuf(1, 10, rate, 1, 0, 1, 0);
 let freq = lfo * 110 + 220;
-SinOsc(freq, 0) * 0.1
+sinOsc(freq, 0) * 0.1
 ```
 
 * * *

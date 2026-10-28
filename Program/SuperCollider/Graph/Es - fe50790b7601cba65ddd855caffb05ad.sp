@@ -1,5 +1,5 @@
 /* http://gist.github.com/audionerd/fe50790b7601cba65ddd855caffb05ad (Eric Skogen) */
-let detune = MouseX(0.5, 2, 0, 0.2);
+let detune = mouseX(0.5, 2, 0, 0.2);
 let detuneCurve = { :x |
 	(10028.7312891634 * (x ^ 11)) -
 	(50818.8652045924 * (x ^ 10)) +
@@ -23,7 +23,7 @@ Voicer(1, 16) { :e |
 	let sideGain = { :x |
 		(-0.73764 * (x ^ 2)) + (1.2841 * x) + 0.044372
 	};
-	let center = LfSaw(freq, Rand(0, 1));
+	let center = lfSaw(freq, rand(0, 1));
 	let freqs = [
 		(freq - (freq * (detuneCurve(detune)) * 0.11002313)),
 		(freq - (freq * (detuneCurve(detune)) * 0.06288439)),
@@ -33,9 +33,9 @@ Voicer(1, 16) { :e |
 		(freq + (freq * (detuneCurve(detune)) * 0.10745242))
 	];
 	let side = [1 .. 6].collect { :n |
-		LfSaw(freqs[n], Rand(0, 2))
+		lfSaw(freqs[n], rand(0, 2))
 	}.sum;
 	let sig = (center * centerGain(mix)) + (side * sideGain(mix));
-	let amp = e.z * 0.2 * e.w.LagUd(0.05, 2);
-	Pan2(Hpf(sig, freq), e.i * 2 - 1, amp)
-}.Mix
+	let amp = e.z * 0.2 * e.w.lagUd(0.05, 2);
+	pan2(hpf(sig, freq), e.i * 2 - 1, amp)
+}.mix

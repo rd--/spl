@@ -2,12 +2,12 @@
 { :currentTime :harmonicNumber |
 	let nextHarmonicNumber = harmonicNumber % 8 + 1;
 	let nextDelay = 9 - nextHarmonicNumber;
-	let delayedOutput = DelayN(InFb(2, 0), 1, 1);
-	let oscillator = SinOsc(
+	let delayedOutput = delayN(inFb(2, 0), 1, 1);
+	let oscillator = sinOsc(
 		harmonicNumber * 99 + [0, 2],
 		delayedOutput.reverse
 	);
-	Release(
+	release(
 		oscillator / 9,
 		0.02, nextDelay, 16
 	).playAt(currentTime);

@@ -1,13 +1,13 @@
 /* http://twitter.com/HernaniVillase/status/517517924236795905 ; rewrite (rd) */
 { :tr |
-	let f = TRand(97, 101, tr);
-	let o = LfTri(
-		{ TRand(0, 200, tr) + 216 } ! 8 + f,
-		{ TRand(0, 2.pi, tr) } ! 8
+	let f = tRand(97, 101, tr);
+	let o = lfTri(
+		{ tRand(0, 200, tr) + 216 } ! 8 + f,
+		{ tRand(0, 2.pi, tr) } ! 8
 	);
-	let e = LfTri(
-		{ TRand(0, 0.01, tr) + 0.1 } ! 8,
+	let e = lfTri(
+		{ tRand(0, 0.01, tr) + 0.1 } ! 8,
 		0
 	) * 0.1 + 0.01;
-	(o * e).Splay2
-}.OverlapTexture(3, 5, 3).Mix
+	(o * e).splay2
+}.overlapTexture(3, 5, 3).mix

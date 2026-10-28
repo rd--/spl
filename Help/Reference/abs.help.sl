@@ -61,13 +61,13 @@ where it is also called the complex modulus or `norm`:
 Wave folding:
 
 ```
-let x = MouseX(0.25, 2, 0, 0.2);
-let y = MouseY(1, 9, 0, 0.2);
-let m = SinOsc(
+let x = mouseX(0.25, 2, 0, 0.2);
+let y = mouseY(1, 9, 0, 0.2);
+let m = sinOsc(
 	[0.5 0.9] * x,
 	0
 ).linLin(-1, 1, 0.9, y);
-let o = SinOsc(
+let o = sinOsc(
 	[55 99],
 	0
 ) * (m * (m > 0) + 1);

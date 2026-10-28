@@ -10,20 +10,20 @@ and send the result to the synthesiser.
 The process runs at the interval _delayTime_.
 
 In the program below the _sound_ generates a random sine tone,
-the _envelope_ applies a `Release` envelope,
+the _envelope_ applies a `release` envelope,
 and the _delayTime_ block selects a random integer to divide down:
 
 ~~~spl texture
 {
-	EqPan2(
-		SinOsc(
-			Rand(111, 555),
+	eqPan2(
+		sinOsc(
+			rand(111, 555),
 			0
-		) * Rand(1, 5) / 100,
-		Rand(-1, 1)
+		) * rand(1, 5) / 100,
+		rand(-1, 1)
 	)
 }.TextureProgram { :x |
-	Release(x, 1, 3, 1)
+	release(x, 1, 3, 1)
 } {
 	3:7.atRandom / 9
 }

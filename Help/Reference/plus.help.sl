@@ -75,8 +75,8 @@ At `Symbol`:
 At `Ugen`:
 
 ```
-let a = SinOsc(220, 0);
-let b = Saw(110);
+let a = sinOsc(220, 0);
+let b = saw(110);
 (a + b) * 0.1
 ```
 
@@ -84,10 +84,10 @@ There is a special optimised case to sum four signals.
 Note that the underlying _Sum4_ unit generator requires all inputs be operating at the same rate,
 and will crash the synthesiser otherwise.
 Should not be used directly,
-instead see `Mix` and `optimisedSum`:
+instead see `mix` and `optimisedSum`:
 
 ```
-let o = SinOsc([111, 333, 555, 777], 0);
+let o = sinOsc([111, 333, 555, 777], 0);
 let [a, b, c, d] = o * 0.1;
 plus(a, b, c, d)
 ```

@@ -6,7 +6,7 @@
 Answers _x_ for _⌊ ≤ x ≤ ⌈_, _v⌊_ for _x < ⌊_ and _v⌈_ for _x > ⌈_.
 Also called `clamp`.
 
-Clip number to (-1, 1):
+clip number to (-1, 1):
 
 ```
 >>> 8.5.clip
@@ -19,7 +19,7 @@ Clip number to (-1, 1):
 -1
 ```
 
-Clip number to indicated range:
+clip number to indicated range:
 
 ```
 >>> -5/2.clip(-2, 2)
@@ -32,7 +32,7 @@ Clip number to indicated range:
 -2
 ```
 
-Clip number that is already in range:
+clip number that is already in range:
 
 ```
 >>> 0.clip(-1, 1)
@@ -53,7 +53,7 @@ Collect using unary form:
 [-1 -1 0 1 1]
 ```
 
-Clip threads over lists and arrays:
+clip threads over lists and arrays:
 
 ```
 >>> -3:3.clip(-2, 2)
@@ -77,10 +77,10 @@ Boundaries are includes:
 [-1 1]
 ```
 
-Clip sine:
+clip sine:
 
 ```
-let o = SinOsc(440, 0) * 0.2;
+let o = sinOsc(440, 0) * 0.2;
 o.clip(-0.07, 0.07)
 ```
 
@@ -104,7 +104,7 @@ Plot the composition of clip with a periodic function:
 
 _Note_:
 In SuperCollider,
-the unary `Clip` defaults to _0,1_.
+the unary `clip` defaults to _0,1_.
 
 * * *
 

@@ -1531,7 +1531,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'FbSineL'
 		'Divide'
 		'Fft'
-		'FirstArg'
+		'firstArg'
 		'Floor'
 		'Fm7'
 		'Fold'

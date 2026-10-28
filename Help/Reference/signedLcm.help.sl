@@ -56,13 +56,13 @@ Inner square:
 Mouse control of frequency:
 
 ```
-let x = MouseX(-200, 200, 0, 0.2);
-let y = MouseY(-200, 200, 0, 0.2);
-let freq = SinOsc(
+let x = mouseX(-200, 200, 0, 0.2);
+let y = mouseY(-200, 200, 0, 0.2);
+let freq = sinOsc(
 	0.3,
 	0
 ) * [x, y].signedLcm(20) * 30 + 500;
-SinOsc(freq, 0) * 0.1
+sinOsc(freq, 0) * 0.1
 ```
 
 Matrix plot of inner square,

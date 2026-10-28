@@ -51,18 +51,18 @@ Wrap a real number between two values:
 Wrap a (-0.2, 0.2) sine tone to (-0.15, 0.15):
 
 ```
-(SinOsc(440, 0) * 0.2)
+(sinOsc(440, 0) * 0.2)
 .wrap(-0.15, 0.15)
 ```
 
 Wrap frequency input:
 
 ```
-let z = SinOsc(
+let z = sinOsc(
 	1 / 11,
 	0
 ).linLin(-1, 1, 100, 200);
-SinOsc(
+sinOsc(
 	z.wrap(
 		[110, 130],
 		[190, 170]

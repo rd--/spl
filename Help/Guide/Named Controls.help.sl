@@ -8,7 +8,7 @@ The named controls are collected altogether, sorted by name, and assigned indexe
 In simple cases the indices can be readily inferred, below _amp_ will have index zero and _freq_ index one.
 
 ```
-SinOsc(
+sinOsc(
 	NamedControl('freq', 440),
 	0
 ) * NamedControl('amp', 0.1)
@@ -19,7 +19,7 @@ However as a rule if controls are specified using `NamedControl` they should be 
 There is an abbreviated notation illustrated below, `kr` is simply an alias for `NamedControl`.
 
 ```
-SinOsc([
+sinOsc([
 	'freq1'.kr(440),
 	'freq2'.kr(440 + 3)
 ], 0) * 'amp'.kr(0.1)

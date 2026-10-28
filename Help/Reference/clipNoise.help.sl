@@ -1,0 +1,23 @@
+# clipNoise
+
+- _clipNoise(mul=1, add=0)_
+
+Noise generator.
+Generates noise whose values are either -1 or 1.
+This produces the maximum energy for the least peak to peak amplitude.
+
+```
+clipNoise([0.05 0.05], 0)
+```
+
+* * *
+
+See also: brownNoise, greyNoise, pinkNoise, whiteNoise
+
+Guides: Unit Generators
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/ClipNoise.html)
+
+Categories: Ugen, Noise

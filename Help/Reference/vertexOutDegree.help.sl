@@ -3,7 +3,7 @@
 - _vertexOutDegree(g)_
 - _vertexOutDegree(g, v)_
 
-Out the binary case,
+In the binary case,
 answer the vertex out-degree of the vertex _v_ in the graph _g_.
 
 In the unary case answer the `vertexOutDegree` for each entry in `vertexList`.

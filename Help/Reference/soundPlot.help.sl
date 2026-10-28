@@ -6,11 +6,11 @@ Render _n_ seconds of the sound _s_,
 which may have multiple channels,
 and plot the answer.
 
-Plot `Latch` of `Dust`:
+Plot `latch` of `dust`:
 
 ~~~spl ui
-let d = Dust([1 5] * 100);
-Latch(d, d).soundPlot(0.1)
+let d = dust([1 5] * 100);
+latch(d, d).soundPlot(0.1)
 ~~~
 
 * * *

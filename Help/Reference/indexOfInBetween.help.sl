@@ -34,7 +34,7 @@ Equal elements are allowed:
 5.2
 ```
 
-Out of range items answer the first and last indices:
+out of range items answer the first and last indices:
 
 ```
 >>> 2:8.collect { :each |

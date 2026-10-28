@@ -2,14 +2,14 @@
 { :currentTime |
 	let z = (1 -- 61).atRandom;
 	let d = z / 3;
-	let y = LfTri(z, 0).abs / z;
-	let s = Rlpf(
-		TDuty(y, 0, y),
+	let y = lfTri(z, 0).abs / z;
+	let s = rlpf(
+		tDuty(y, 0, y),
 		z * 99 + y,
 		0.01
 	) * (6 + y);
-	Release(
-		EqPan(s, 0) / 3,
+	release(
+		eqPan(s, 0) / 3,
 		d, 0, z
 	).playAt(currentTime);
 	d

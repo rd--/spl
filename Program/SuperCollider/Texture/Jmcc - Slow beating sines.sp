@@ -5,16 +5,16 @@
 	let p = [];
 	let q = [];
 	n.timesRepeat {
-		let freq = IRand(24, 84).midiCps;
+		let freq = iRand(24, 84).midiCps;
 		p.add!(freq);
-		{ p.add!(freq + Rand(-d, d)) } ! 2;
-		{ q.add!(freq + Rand(-d, d)) } ! 3
+		{ p.add!(freq + rand(-d, d)) } ! 2;
+		{ q.add!(freq + rand(-d, d)) } ! 3
 	};
 	[p q].collect { :freq |
-		SinOscBank(
+		sinOscBank(
 			freq,
 			0.1,
-			{ Rand(0, 2.pi) } ! (3 * n)
+			{ rand(0, 2.pi) } ! (3 * n)
 		)
 	} / n
 }.xFadeTextureProgram(4, 4)

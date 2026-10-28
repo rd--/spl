@@ -4,36 +4,36 @@
 	let dur = 1 / 60;
 	let osc = {
 		let note = (
-			SinOsc(LfNoise1(dur / 6).linLin(-1, 1, 30, 1000), 0)
+			sinOsc(lfNoise1(dur / 6).linLin(-1, 1, 30, 1000), 0)
 			*
-			LfNoise1(dur).linLin(-1, 1, 0.01, 8)
+			lfNoise1(dur).linLin(-1, 1, 0.01, 8)
 		);
-		let freq = Rand(30, 5000) * note.midiRatio;
-		let sig = SelectT(
-			LfNoise0(dur).linLin(-1, 1, 0, 2).round(1),
+		let freq = rand(30, 5000) * note.midiRatio;
+		let sig = selectT(
+			lfNoise0(dur).linLin(-1, 1, 0, 2).round(1),
 			[
-				SinOsc(freq, 0),
-				Saw(freq),
-				Pulse(freq, 0)
+				sinOsc(freq, 0),
+				saw(freq),
+				pulse(freq, 0)
 			] * 0.1
 		);
-		let filtFreq = Rand(30, 1000) * LfNoise1(dur).linLin(-1, 1, 1, 5);
-		let filt = SelectT(
-			LfNoise0(dur).linLin(-1, 1, 0, 2).round(1),
+		let filtFreq = rand(30, 1000) * lfNoise1(dur).linLin(-1, 1, 1, 5);
+		let filt = selectT(
+			lfNoise0(dur).linLin(-1, 1, 0, 2).round(1),
 			[
-				Lpf(sig, filtFreq),
-				Hpf(sig, filtFreq),
-				Bpf(sig, filtFreq, 1)
+				lpf(sig, filtFreq),
+				hpf(sig, filtFreq),
+				bpf(sig, filtFreq, 1)
 			]
 		);
-		CombL(sig, 0.5, LfNoise1(dur / 6).linLin(-1, 1, 0.02, 0.5), Rand(0.3, 2))
+		combL(sig, 0.5, lfNoise1(dur / 6).linLin(-1, 1, 0.02, 0.5), rand(0.3, 2))
 	} ! num;
-	let sig = osc.Splay2;
-	FreeVerb2(
+	let sig = osc.splay2;
+	freeVerb2(
 		sig.first,
 		sig.second,
-		LfNoise1(dur).linLin(-1, 1, 0, 1),
-		LfNoise1(dur * 3).linLin(-1, 1, 0.2, 2),
+		lfNoise1(dur).linLin(-1, 1, 0, 1),
+		lfNoise1(dur * 3).linLin(-1, 1, 0.2, 2),
 		0.5
 	)
 }.overlapTextureProgram(9, 3, 2)

@@ -1,8 +1,9 @@
 # removeOscListener
 
-- _removeOscListener(aMessageSource, anOscAddress, aBlock/1)_
+- _removeOscListener(s, a, f/1)_
 
-Remove a listener for Osc messages from an Osc source, for instance _ScSynth_.
+Remove a listener for Open Sound Control messages from an Open Sound Control source,
+for instance _ScSynth_.
 
 ```
 >>> system.workspace.includesKey('onDone').if {

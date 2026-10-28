@@ -2,21 +2,21 @@
 let k = 0.13;
 let l = { :a :b |
 	k := k + k;
-	LatoocarfianN(k, 1, 3, k, 0.5, 0.5, 0.5).tanh.linLin(-1, 1, a, b)
+	latoocarfianN(k, 1, 3, k, 0.5, 0.5, 0.5).tanh.linLin(-1, 1, a, b)
 };
 let d = {
-	Decay2(
-		TDuty(1 / 8, 0, 1),
+	decay2(
+		tDuty(1 / 8, 0, 1),
 		l(0.01, 1 / 9),
 		l(0.1, 1)
 	)
 };
-Normalizer(
-	LeakDc(
-		MoogFf(
+normalizer(
+	leakDc(
+		moogFf(
 			List(
 				2,
-				LorenzL(
+				lorenzL(
 					20000,
 					l(21, 4),
 					l(6, 17),

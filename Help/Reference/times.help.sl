@@ -329,7 +329,7 @@ OEIS [A017173](https://oeis.org/A017173):
 Quiet and quieter pink noise:
 
 ```
-PinkNoise() * [0.1 0.05]
+pinkNoise() * [0.1 0.05]
 ```
 
 Plot multiples of each the integers up to _n_ extending to _m_,

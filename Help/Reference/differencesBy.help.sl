@@ -24,7 +24,7 @@ At `List`:
 [1 2 3 -7]
 ```
 
-Distances between successive Cartesian vectors:
+distances between successive Cartesian vectors:
 
 ```
 >>> [0 0; 1 0; 0 1; 0 0]

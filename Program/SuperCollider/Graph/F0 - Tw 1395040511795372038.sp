@@ -1,16 +1,16 @@
 /* F0 ; http://twitter.com/redFrik/status/1395040511795372038 */
 let b = [2 6 3 1];
 let c = 500;
-let f = Duty(
+let f = duty(
 	b,
-	SinOscFb(b / 9, 0),
-	Dseq(Infinity, (SinOscFb(b / 24, 0).round(1) + [0 .. 9] * 7 + 29.17).midiCps)
+	sinOscFb(b / 9, 0),
+	dseq(Infinity, (sinOscFb(b / 24, 0).round(1) + [0 .. 9] * 7 + 29.17).midiCps)
 );
-let o = SinOscFb(f, SinOscFb(b / 13, 0).max(0) / 3 * 2);
-let p = AllpassC(o / 8, 1, 0.51, 8);
-let q = Bpf(
-	Hasher(SinOscFb(b / 12, 0).max(0)) * SinOscFb(b / c, 0).max(0) / c,
-	2 ^ SinOscFb(b / c * 2, 0) * 1000,
+let o = sinOscFb(f, sinOscFb(b / 13, 0).max(0) / 3 * 2);
+let p = allpassC(o / 8, 1, 0.51, 8);
+let q = bpf(
+	hasher(sinOscFb(b / 12, 0).max(0)) * sinOscFb(b / c, 0).max(0) / c,
+	2 ^ sinOscFb(b / c * 2, 0) * 1000,
 	1 / 99
 );
-Hpf(p + GVerb(q, 99, 9, 0.2, 0.5, 15, 1, 0.7, 0.5, 300), 50).clump(2).sum.transpose.Mix * 0.2
+hpf(p + gVerb(q, 99, 9, 0.2, 0.5, 15, 1, 0.7, 0.5, 300), 50).clump(2).sum.transpose.mix * 0.2

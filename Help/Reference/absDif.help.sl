@@ -14,9 +14,9 @@ Simple rhythm:
 
 ```
 let m = 0.2.absDif(
-	SinOsc(2, 0) * 0.5
+	sinOsc(2, 0) * 0.5
 );
-SinOsc(440, 0) * m / 2
+sinOsc(440, 0) * m / 2
 ```
 
 * * *

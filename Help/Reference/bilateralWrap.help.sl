@@ -6,7 +6,7 @@ Bilateral wrapping.
 Wraps input signal _x_ to +/- _n_.
 
 ```
-SinOsc(1000, 0).bilateralWrap(
+sinOsc(1000, 0).bilateralWrap(
 	line(0, 1.01, 8)
 ) * 0.1
 ```

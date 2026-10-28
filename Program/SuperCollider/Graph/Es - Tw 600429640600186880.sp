@@ -1,7 +1,7 @@
 /* Tw 600429640600186880 (es) ; http://twitter.com/sluyterrific_sc/status/600429640600186880 */
-let m = MouseX(0.925, 1, 0, 0.2);
-let l = LocalIn(2, 0) * m + (Dust2([1, 1]) * 9);
+let m = mouseX(0.925, 1, 0, 0.2);
+let l = localIn(2, 0) * m + (dust2([1, 1]) * 9);
 let s = [2 .. 6].collect { :n |
-	AllpassC(l, 0.6, LfNoise2(0.01) * 0.01 + (1 / n), 1)
+	allpassC(l, 0.6, lfNoise2(0.01) * 0.01 + (1 / n), 1)
 }.sum / 4.5;
-l <! LocalOut(LeakDc(s, 0.995))
+l <! localOut(leakDc(s, 0.995))

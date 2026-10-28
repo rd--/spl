@@ -60,7 +60,7 @@ At `Ugen`:
 
 ```
 let x = line(-1, 1, 2).arcCos * 2.pi;
-SinOsc(x * 110 + 110, 0) * 0.1
+sinOsc(x * 110 + 110, 0) * 0.1
 ```
 
 Plot over a subset of the reals:

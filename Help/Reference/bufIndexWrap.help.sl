@@ -4,7 +4,7 @@
 
 Index into a table with a signal.
 The input signal value is truncated to an integer value and used as an index into the table.
-Out of range index values are wrapped cyclically to the valid range.
+out of range index values are wrapped cyclically to the valid range.
 
 - table: a buffer
 - in: the input signal
@@ -12,13 +12,13 @@ Out of range index values are wrapped cyclically to the valid range.
 Indexing into a table:
 
 ```
-let b = LocalBuf[
+let b = [
 	200 300 400 500 600 800
-];
-SinOsc(
+].localBuf;
+sinOsc(
 	bufIndexWrap(
 		b,
-		MouseX(0, 6 * 3, 0, 0.1)
+		mouseX(0, 6 * 3, 0, 0.1)
 	),
 	0
 ) * 0.1
@@ -26,7 +26,7 @@ SinOsc(
 
 * * *
 
-See also: Shaper, bufIndexClip
+See also: shaper, bufIndexClip
 
 Guides: Unit Generators
 

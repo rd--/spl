@@ -1,6 +1,6 @@
 # atBlend
 
-- _atBlend(aSequence, aNumber)_
+- _atBlend([x₁ x₂ …], n)
 
 Answer a linearly interpolated value between the two closest indices.
 
@@ -12,7 +12,7 @@ Answer a linearly interpolated value between the two closest indices.
 3.2
 ```
 
-Out of range indices answer end points:
+out of range indices answer end points:
 
 ```
 >>> [2 3 5 6].atBlend(-1)

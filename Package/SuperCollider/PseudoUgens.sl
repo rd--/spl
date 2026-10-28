@@ -4,41 +4,41 @@
 
 	Blend { :y1 :y2 :mu |
 		let signedMu = mu.linLin(0, 1, -1, 1);
-		XFade2(y1, y2, signedMu, 1)
+		xFade2(y1, y2, signedMu, 1)
 	}
 
-	BrownNoise { :mul :add |
-		{ BrownNoise() } ! mul.shape * mul + add
+	brownNoise { :mul :add |
+		{ brownNoise() } ! mul.shape * mul + add
 	}
 
-	ClipNoise { :mul :add |
-		{ ClipNoise() } ! mul.shape * mul + add
+	clipNoise { :mul :add |
+		{ clipNoise() } ! mul.shape * mul + add
 	}
 
-	GreyNoise { :mul :add |
-		{ GreyNoise() } ! mul.shape * mul + add
+	greyNoise { :mul :add |
+		{ greyNoise() } ! mul.shape * mul + add
 	}
 
-	PinkNoise { :mul :add |
-		{ PinkNoise() } ! mul.shape * mul + add
+	pinkNoise { :mul :add |
+		{ pinkNoise() } ! mul.shape * mul + add
 	}
 
-	WhiteNoise { :mul :add |
-		{ WhiteNoise() } ! mul.shape * mul + add
+	whiteNoise { :mul :add |
+		{ whiteNoise() } ! mul.shape * mul + add
 	}
 
 }
 
 +Ugen {
 
-	FeedforwardFeedbackward { :in :forward/2 :backward/1 |
+	feedforwardFeedbackward { :in :forward/2 :backward/1 |
 		let maxBlockSize = 512;
-		let buffer = BufAlloc(1, maxBlockSize + 1).BufClear;
-		let delayTime = ControlDur();
-		let reader = DelayTap(buffer, delayTime);
+		let buffer = bufAlloc(1, maxBlockSize + 1).bufClear;
+		let delayTime = controlDur();
+		let reader = delayTap(buffer, delayTime);
 		let backwardAnswer = backward(reader);
 		let forwardAnswer = forward(in, backwardAnswer);
-		let writer = DelayWrite(buffer, forwardAnswer);
+		let writer = delayWrite(buffer, forwardAnswer);
 		[backwardAnswer, forwardAnswer].anySatisfy(isList/1).ifTrue {
 			'FeedforwardFeedbackward: processors not monophonic'.error
 		};
@@ -49,9 +49,9 @@
 
 +List {
 
-	FeedforwardFeedbackward { :in :forward/2 :backward/1 |
+	feedforwardFeedbackward { :in :forward/2 :backward/1 |
 		in.collect { :x |
-			FeedforwardFeedbackward(x, forward/2, backward/1)
+			feedforwardFeedbackward(x, forward/2, backward/1)
 		}
 	}
 
@@ -59,47 +59,47 @@
 
 +[List, SmallFloat, Ugen] {
 
-	AudioOut { :channelsList |
-		Out(0, channelsList)
+	audioOut { :channelsList |
+		out(0, channelsList)
 	}
 
-	Cc { :index |
-		ControlIn(1, 11000 + index - 1)
+	cc { :index |
+		controlIn(1, 11000 + index - 1)
 	}
 
-	Choose { :tr :inList |
+	tChoose { :tr :inList |
 		(
 			inList.elementType = 'SmallFloat' |  {
 				inList.isMatrixOf('SmallFloat')
 			}
 		).if {
-			TBufChoose(tr, LocalBuf(inList))
+			tBufChoose(tr, localBuf(inList))
 		} {
-			TChoose(tr, inList)
+			uncheckedTChoose(tr, inList)
 		}
 	}
 
-	CurveGen { :gate :levels :times :curves |
+	curveGen { :gate :levels :times :curves |
 		Env(levels, times, curves, nil, nil, 0).asEnvGen(gate)
 	}
 
-	DemandImpulseSequencer { :self :trig |
-		DemandSequencer(self, trig) * Trig(trig, SampleDur())
+	demandImpulseSequencer { :self :trig |
+		demandSequencer(self, trig) * trig(trig, sampleDur())
 	}
 
-	DemandSequencer { :self :trig |
-		Demand(trig, 0, Dseq(Infinity, self))
+	demandSequencer { :self :trig |
+		demand(trig, 0, dseq(Infinity, self))
 	}
 
-	Distances { :x :y :z :coordinateList |
-		WDistances(1, x, y, z, coordinateList)
+	distances { :x :y :z :coordinateList |
+		wDistances(1, x, y, z, coordinateList)
 	}
 
-	DurationSequencer { :self :dur |
-		Duty(dur, 0, Dseq(Infinity, self))
+	durationSequencer { :self :dur |
+		duty(dur, 0, dseq(Infinity, self))
 	}
 
-	EnvBreakPoint { :breakPointList :curves |
+	envBreakPoint { :breakPointList :curves |
 		let n = breakPointList.size;
 		let m = n - 1;
 		Env(
@@ -116,53 +116,53 @@
 		)
 	}
 
-	EnvLinen { :attackTime :sustainTime :releaseTime :level :curve |
+	envLinen { :attackTime :sustainTime :releaseTime :level :curve |
 		<primitive: return sc.EnvLinen(_attackTime, _sustainTime, _releaseTime, _level, _curve);>
 	}
 
-	EqBalance2 { :left :right :pos |
-		Balance2(left, right, pos, 1)
+	eqBalance2 { :left :right :pos |
+		balance2(left, right, pos, 1)
 	}
 
-	EqPan2 { :in :pos |
-		Pan2(in, pos, 1)
+	eqPan2 { :in :pos |
+		pan2(in, pos, 1)
 	}
 
-	Fm7Matrix { :ctlMatrix :modMatrix |
-		Fm7(ctlMatrix.catenate, modMatrix.catenate)
+	fm7Matrix { :ctlMatrix :modMatrix |
+		fm7(ctlMatrix.catenate, modMatrix.catenate)
 	}
 
-	HoldSequence { :inList :dur |
-		let gate = DurationGate(dur);
-		let trig = Trig1(gate, SampleDur());
-		let index = Stepper(trig.kr, 1, 0, inList.size - 1, 1, 0);
-		Latch(
-			SelectT(index, inList), /* Multiplexer */
+	holdSequence { :inList :dur |
+		let gate = durationGate(dur);
+		let trig = trig1(gate, sampleDur());
+		let index = stepper(trig.kr, 1, 0, inList.size - 1, 1, 0);
+		latch(
+			selectT(index, inList), /* multiplexer */
 			trig
 		)
 	}
 
-	IRand0 { :self |
-		IRand(0, self)
+	iRand0 { :self |
+		iRand(0, self)
 	}
 
-	IRand1 { :self |
-		IRand(1, self)
+	iRand1 { :self |
+		iRand(1, self)
 	}
 
-	IRand2 { :self |
-		IRand(0 - self, self)
+	iRand2 { :self |
+		iRand(0 - self, self)
 	}
 
-	ImpulseSequencer { :self :trig |
-		Sequencer(self, trig) * Trig(trig, SampleDur())
+	impulseSequencer { :self :trig |
+		sequencer(self, trig) * trig(trig, sampleDur())
 	}
 
-	KNearest { :numChannels :x :y :z :coordinateList |
-		WkNearest(numChannels, 1, x, y, z, coordinateList)
+	kNearest { :numChannels :x :y :z :coordinateList |
+		wkNearest(numChannels, 1, x, y, z, coordinateList)
 	}
 
-	LinCurve { :self :inMin :inMax :outMin :outMax :curve |
+	linCurve { :self :inMin :inMax :outMin :outMax :curve |
 		let grow = curve.exp;
 		let a = outMax - outMin / (1 - grow);
 		let b = outMin + a;
@@ -171,7 +171,7 @@
 		curve.isNumber.if {
 			curvedResult
 		} {
-			Select2(
+			select2(
 				curve.abs >= 0.125,
 				curvedResult,
 				self.linLin(inMin, inMax, outMin, outMax)
@@ -179,35 +179,35 @@
 		}
 	}
 
-	LinGen { :gate :levels :times |
+	linGen { :gate :levels :times |
 		Env(levels, times, ['lin'], nil, nil, 0).asEnvGen(gate)
 	}
 
-	LinRand0 { :self |
-		LinRand(0, self, 1)
+	linRand0 { :self |
+		linRand(0, self, 1)
 	}
 
-	MouseX { :minval :maxval |
-		MouseX(minval, maxval, 0, 0.2)
+	mouseX { :minval :maxval |
+		mouseX(minval, maxval, 0, 0.2)
 	}
 
-	MouseY { :minval :maxval |
-		MouseY(minval, maxval, 0, 0.2)
+	mouseY { :minval :maxval |
+		mouseY(minval, maxval, 0, 0.2)
 	}
 
-	PulseDpw { :freq :width |
-		SawDpw(freq, 0) - SawDpw(freq, (width + width).wrap(-1, 1))
+	pulseDpw { :freq :width |
+		sawDpw(freq, 0) - sawDpw(freq, (width + width).wrap(-1, 1))
 	}
 
-	Rand0 { :self |
-		Rand(0, self)
+	rand0 { :self |
+		rand(0, self)
 	}
 
-	Rand2 { :self |
-		Rand(0 - self, self)
+	rand2 { :self |
+		rand(0 - self, self)
 	}
 
-	SelectXFocus { :which :array :focus :wrap |
+	selectXFocus { :which :array :focus :wrap |
 		wrap.if {
 			array.withIndexCollect { :input :index |
 				(1 - (modularDistance(which, index - 1, array.size) * focus)).max(0) * input
@@ -219,22 +219,22 @@
 		}
 	}
 
-	Sequencer { :inList :trig |
-		SelectT(
-			Stepper(trig.kr, 1, 0, inList.size - 1, 1, 0),
+	sequencer { :inList :trig |
+		selectT(
+			stepper(trig.kr, 1, 0, inList.size - 1, 1, 0),
 			inList
-		) /* Multiplexer */
+		) /* multiplexer */
 	}
 
-	Silent { :numChannels |
+	silent { :numChannels |
 		(numChannels = 1).if {
-			Dc(0)
+			dc(0)
 		} {
-			List(numChannels, Dc(0))
+			List(numChannels, dc(0))
 		}
 	}
 
-	SplayAz { :numChannels :inList :spread :level :width :center :orientation :levelComp |
+	splayAz { :numChannels :inList :spread :level :width :center :orientation :levelComp |
 		let n = 1.max(inList.size);
 		let pos = (n = 1).if {
 			center
@@ -250,46 +250,46 @@
 			Note that deleting .sqrt can dramatically alter feedback paths. */
 			level := level * n.reciprocal.sqrt
 		};
-		PanAz(numChannels, inList, pos, level, width, orientation).flop.collect(sum/1)
+		panAz(numChannels, inList, pos, level, width, orientation).flop.collect(sum/1)
 	}
 
-	TBufChoose { :tr :buf |
-		BufRd(
+	tBufChoose { :tr :buf |
+		bufRd(
 			1,
 			buf,
-			TiRand(0, BufFrames(buf) - 1, tr),
+			tiRand(0, bufFrames(buf) - 1, tr),
 			0,
 			1 /* 1 = No Interpolation */
 		)
 	}
 
-	TDurationSequencer { :self :dur |
-		TDuty(dur, 0, Dseq(Infinity, self))
+	tDurationSequencer { :self :dur |
+		tDuty(dur, 0, dseq(Infinity, self))
 	}
 
-	THoldSequence { :inList :dur |
-		HoldSequence(inList, dur).Trig1(SampleDur())
+	tHoldSequence { :inList :dur |
+		holdSequence(inList, dur).trig1(SampleDur())
 	}
 
-	TableWindow { :trig :dur :bufNum |
-		let phase = TLine(0, BufFrames(bufNum), dur, trig);
-		BufRd(1, bufNum, phase, 0, 4) /* 4 = Cubic Interpolation */
+	tableWindow { :trig :dur :bufNum |
+		let phase = tLine(0, bufFrames(bufNum), dur, trig);
+		bufRd(1, bufNum, phase, 0, 4) /* 4 = Cubic Interpolation */
 	}
 
-	Tr { :self |
-		Trig(self, SampleDur())
+	tr { :self |
+		trig(self, sampleDur())
 	}
 
-	Tr1 { :self |
-		Trig1(self, SampleDur())
+	tr1 { :self |
+		trig1(self, sampleDur())
 	}
 
-	WrapOut { :self |
-		<primitive: return sc.wrapOut(_busOffset_1(_self), _self);>
+	wrapOut { :self |
+		<primitive: return sc.WrapOut(_busOffset_1(_self), _self);>
 	}
 
-	ZeroBuf { :self |
-		self <! ClearBuf(self)
+	zeroBuf { :self |
+		self <! clearBuf(self)
 	}
 
 	expRange { :self :lo :hi |
@@ -310,71 +310,71 @@
 
 +[List, SmallFloat, Ugen] {
 
-	Adsr { :gate :attackTime :decayTime :sustainLevel :releaseTime :curve |
+	adsr { :gate :attackTime :decayTime :sustainLevel :releaseTime :curve |
 		<primitive: return sc.Adsr(_gate, _attackTime, _decayTime, _sustainLevel, _releaseTime, _curve);>
 	}
 
-	Asr { :gate :attackTime :releaseTime :curve |
+	asr { :gate :attackTime :releaseTime :curve |
 		<primitive: return sc.Asr(_gate, _attackTime, _releaseTime, _curve);>
 	}
 
-	AudioIn { :channelsList |
+	audioIn { :channelsList |
 		<primitive: return sc.AudioIn(_channelsList);>
 	}
 
-	BHiPass4 { :in :freq :rq |
+	bHiPass4 { :in :freq :rq |
 		<primitive: return sc.BHiPass4(_in, _freq, _rq);>
 	}
 
-	BLowPass4 { :in :freq :rq |
+	bLowPass4 { :in :freq :rq |
 		<primitive: return sc.BLowPass4(_in, _freq, _rq);>
 	}
 
-	BufAlloc { :numChannels :numFrames |
+	bufAlloc { :numChannels :numFrames |
 		<primitive: return sc.BufAlloc(_numChannels, _numFrames);>
 	}
 
-	BufClear { :bufnum |
+	bufClear { :bufnum |
 		<primitive: return sc.BufClear(_bufnum);>
 	}
 
-	BufRec { :bufnum :reset :inputList |
+	bufRec { :bufnum :reset :inputList |
 		<primitive: return sc.BufRec(_bufnum, _reset, _inputList);>
 	}
 
-	BufWrite { :bufnum :phase :loop :inputList |
+	bufWrite { :bufnum :phase :loop :inputList |
 		<primitive: return sc.BufWrite(_bufnum, _phase, _loop, _inputList);>
 	}
 
-	Changed { :input :threshold |
+	changed { :input :threshold |
 		<primitive: return sc.Changed(_input, _threshold);>
 	}
 
-	CompanderD { :in :thresh :slopeBelow :slopeAbove :clampTime :relaxTime |
+	companderD { :in :thresh :slopeBelow :slopeAbove :clampTime :relaxTime |
 		<primitive: return sc.CompanderD(_in, _thresh, _slopeBelow, _slopeAbove, _clampTime, _relaxTime);>
 	}
 
-	ControlIn { :numChannels :bus |
+	controlIn { :numChannels :bus |
 		<primitive: return sc.ControlIn(_numChannels, _bus);>
 	}
 
-	ControlOut { :bus :channelsList |
+	controlOut { :bus :channelsList |
 		<primitive: return sc.ControlOut(_bus, _channelsList);>
 	}
 
-	Cutoff { :sustainTime :releaseTime :curve |
+	cutoff { :sustainTime :releaseTime :curve |
 		<primitive: return sc.Cutoff(_sustainTime, _releaseTime, _curve);>
 	}
 
-	DelayTap { :bufnum :delayTime |
+	delayTap { :bufnum :delayTime |
 		<primitive: return sc.DelayTap(_bufnum, _delayTime);>
 	}
 
-	DelayWrite { :bufnum :input |
+	delayWrite { :bufnum :input |
 		<primitive: return sc.DelayWrite(_bufnum, _input);>
 	}
 
-	DynRingzBank { :input :freq :amp :time |
+	dynRingzBank { :input :freq :amp :time |
 		<primitive: return sc.DynRingzBank(_input, _freq, _amp, _time);>
 	}
 
@@ -382,11 +382,11 @@
 		<primitive: return new sc.Env(_levels, _times, _curves, _releaseNode, _loopNode, _offset);>
 	}
 
-	InFb { :numChannels :bus |
+	inFb { :numChannels :bus |
 		<primitive: return sc.InFb(_numChannels, _bus);>
 	}
 
-	LinSeg { :gate :coordList |
+	linSeg { :gate :coordList |
 		<primitive: return sc.LinSeg(_gate, _coordList);>
 	}
 
@@ -394,105 +394,105 @@
 		<primitive: return sc.Line(_start, _end, _dur, 0);>
 	}
 
-	MultiTapDelay { :timesList :levelsList :input |
+	multiTapDelay { :timesList :levelsList :input |
 		<primitive: return sc.MultiTapDelay(_timesList, _levelsList, _input);>
 	}
 
-	Osc1 { :buf :dur |
+	osc1 { :buf :dur |
 		<primitive: return sc.Osc1(_buf, _dur);>
 	}
 
-	Perc { :trig :attackTime :releaseTime :curve |
+	perc { :trig :attackTime :releaseTime :curve |
 		<primitive: return sc.Perc(_trig, _attackTime, _releaseTime, _curve);>
 	}
 
-	PingPongDelay { :left :right :maxDelayTime :delayTime :feedback |
+	pingPongDelay { :left :right :maxDelayTime :delayTime :feedback |
 		<primitive: return sc.PingPongDelay(_left, _right, _maxDelayTime, _delayTime, _feedback);>
 	}
 
-	PmOsc { :carfreq :modfreq :pmindex :modphase |
+	pmOsc { :carfreq :modfreq :pmindex :modphase |
 		<primitive: return sc.PmOsc(_carfreq, _modfreq, _pmindex, _modphase);>
 	}
 
-	Release { :input :attackTime :dur :releaseTime |
+	release { :input :attackTime :dur :releaseTime |
 		<primitive: return sc.Release(_input, _attackTime, _dur, _releaseTime);>
 	}
 
-	RingzBank { :input :freq :amp :time |
+	ringzBank { :input :freq :amp :time |
 		<primitive: return sc.RingzBank(_input, _freq, _amp, _time);>
 	}
 
-	Select2 { :predicate :ifTrue :ifFalse |
+	select2 { :predicate :ifTrue :ifFalse |
 		<primitive: return sc.Select2(_predicate, _ifTrue, _ifFalse);>
 	}
 
-	SelectX { :which :array |
+	selectX { :which :array |
 		<primitive: return sc.SelectX(_which, _array);>
 	}
 
-	SfDuration { :sfBufferList |<primitive: return sc.SfDur(_sfBufferList);>
+	sfDuration { :sfBufferList |<primitive: return sc.SfDur(_sfBufferList);>
 	}
 
-	SfFrameCount { :sfBufferList |<primitive: return sc.SfFrames(_sfBufferList);>
+	sfFrameCount { :sfBufferList |<primitive: return sc.SfFrames(_sfBufferList);>
 	}
 
-	SfPlay { :sfBufferList :rate :trigger :startPos :loop |<primitive: return sc.SfPlay(_sfBufferList, _rate, _trigger, _startPos, _loop);>
+	sfPlay { :sfBufferList :rate :trigger :startPos :loop |<primitive: return sc.SfPlay(_sfBufferList, _rate, _trigger, _startPos, _loop);>
 	}
 
-	SfRateScale { :sfBufferList |<primitive: return sc.SfRateScale(_sfBufferList);>
+	sfRateScale { :sfBufferList |<primitive: return sc.SfRateScale(_sfBufferList);>
 	}
 
-	SfRead { :sfBufferList :phase :loop :interpolation |<primitive: return sc.SfRead(_sfBufferList, _phase, _loop, _interpolation);>
+	sfRead { :sfBufferList :phase :loop :interpolation |<primitive: return sc.SfRead(_sfBufferList, _phase, _loop, _interpolation);>
 	}
 
-	SfSampleRate { :sfBufferList |<primitive: return sc.SfSampleRate(_sfBufferList);>
+	sfSampleRate { :sfBufferList |<primitive: return sc.SfSampleRate(_sfBufferList);>
 	}
 
-	Shuf { :repeats :list |
+	shuf { :repeats :list |
 		<primitive: return sc.Shuf(_repeats, _list);>
 	}
 
-	SinOscBank { :freq :amp :phase |
+	sinOscBank { :freq :amp :phase |
 		<primitive: return sc.SinOscBank(_freq, _amp, _phase);>
 	}
 
-	Sine { :trig :dur |
+	sine { :trig :dur |
 		<primitive: return sc.Sine(_trig, _dur);>
 	}
 
-	Splay2 { :inList :spread :level :center :levelComp |
+	splay2 { :inList :spread :level :center :levelComp |
 		<primitive: return sc.Splay(_inList, _spread, _level, _center, _levelComp);>
 	}
 
-	Splay2 { :inList |
+	splay2 { :inList |
 		<primitive: return sc.Splay2(_inList);>
 	}
 
-	TChoose { :trig :array |
+	uncheckedTChoose { :trig :array |
 		<primitive: return sc.TChoose(_trig, _array);>
 	}
 
-	TLine { :start :end :dur :trig |
+	tLine { :start :end :dur :trig |
 		<primitive: return sc.TLine(_start, _end, _dur, _trig);>
 	}
 
-	TwChoose { :trig :array :weights :normalize |
+	twChoose { :trig :array :weights :normalize |
 		<primitive: return sc.TwChoose(_trig, _array, _weights, _normalize);>
 	}
 
-	TxLine { :start :end :dur :trig |
+	txLine { :start :end :dur :trig |
 		<primitive: return sc.TxLine(_start, _end, _dur, _trig);>
 	}
 
-	VarLag { :input :time :curve |
+	varLag { :input :time :curve |
 		<primitive: return sc.VarLag(_input, _time, _curve);>
 	}
 
-	XChoose { :repeats :list |
+	xChoose { :repeats :list |
 		<primitive: return sc.XChoose(_repeats, _list);>
 	}
 
-	XLine { :start :end :dur |
+	xLine { :start :end :dur |
 		<primitive: return sc.XLine(_start, _end, _dur, 0);>
 	}
 

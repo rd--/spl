@@ -1,5 +1,5 @@
 /* http://sccode.org/1-4Qy (F0) ; 0348 */
 let b = [9 4 3 6] / 4;
-let c = VarSaw(0.1 / b, 0, 0.5) + 1 / 9;
-let o = 9 ^ c * VarSaw((VarSaw(c / 3, 0, 0.5) + b).round(b) * 99, 0, c);
-AllpassC(o, 1, c + 9 / 99, 9).tanh.Splay / 2
+let c = varSaw(0.1 / b, 0, 0.5) + 1 / 9;
+let o = 9 ^ c * varSaw((varSaw(c / 3, 0, 0.5) + b).round(b) * 99, 0, c);
+allpassC(o, 1, c + 9 / 99, 9).tanh.splay / 2

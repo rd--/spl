@@ -2,15 +2,15 @@
 [1 .. 3].collect { :k |
 	[1 .. 9].collect { :i |
 		let ph = [
-			SinOsc(
+			sinOsc(
 				{
 					i * k ^ i / (2 ^ [-2 .. 4].atRandom)
 				} ! 2,
 				0
 			),
-			Decay(Dust(1 / 4 ^ i), SinOsc(0.1, 0) + k + i),
+			decay(dust(1 / 4 ^ i), sinOsc(0.1, 0) + k + i),
 			k * 999
 		].product;
-		SinOsc(i * k * k, ph)
+		sinOsc(i * k * k, ph)
 	}.product
-}.Mix
+}.mix

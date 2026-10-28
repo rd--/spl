@@ -22,7 +22,7 @@ Lookup and existing index:
 'z'
 ```
 
-Out of bounds indices answer `nil`:
+out of bounds indices answer `nil`:
 
 ```
 >>> [1 3 5 7 9]

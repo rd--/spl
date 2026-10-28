@@ -9,13 +9,13 @@
 		let iot = (1 / [3 5 7 11 13 17]).atRandom;
 		(iot * [0 .. 2]).do { :startTime |
 			let note = (chord.atRandom - [0 12 24].atRandom).midiCps;
-			let x = Decay(
-				Impulse(0, 0) * Rand(0.1, 0.2),
-				Rand(0.1, 0.3)
-			) * BrownNoise();
-			let y = CombC(x, 0.05, 1 / note, Rand(2, 3));
-			Release(
-				EqPan(y, Rand(-1, 1)),
+			let x = decay(
+				impulse(0, 0) * rand(0.1, 0.2),
+				rand(0.1, 0.3)
+			) * brownNoise();
+			let y = combC(x, 0.05, 1 / note, rand(2, 3));
+			release(
+				eqPan(y, rand(-1, 1)),
 				0.02, 3, 3
 			).playAt(currentTime + startTime)
 		}

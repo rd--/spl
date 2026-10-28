@@ -2,51 +2,51 @@
 
 +Void {
 
-	BlockSize {
+	blockSize {
 		<primitive: return sc.BlockSize();>
 	}
 
-	BrownNoise {
+	brownNoise {
 		<primitive: return sc.BrownNoise();>
 	}
 
-	ClipNoise {
+	clipNoise {
 		<primitive: return sc.ClipNoise();>
 	}
 
-	ControlDur {
+	controlDur {
 		<primitive: return sc.ControlDur();>
 	}
 
-	ControlRate {
+	controlRate {
 		<primitive: return sc.ControlRate();>
 	}
 
-	GreyNoise {
+	greyNoise {
 		<primitive: return sc.GrayNoise();>
 	}
 
-	NumOutputBuses {
+	numOutputBuses {
 		<primitive: return sc.NumOutputBuses();>
 	}
 
-	PinkNoise {
+	pinkNoise {
 		<primitive: return sc.PinkNoise();>
 	}
 
-	RadiansPerSample {
+	radiansPerSample {
 		<primitive: return sc.RadiansPerSample();>
 	}
 
-	SampleDur {
+	sampleDur {
 		<primitive: return sc.SampleDur();>
 	}
 
-	SampleRate {
+	sampleRate {
 		<primitive: return sc.SampleRate();>
 	}
 
-	WhiteNoise {
+	whiteNoise {
 		<primitive: return sc.WhiteNoise();>
 	}
 
@@ -54,311 +54,311 @@
 
 +[List, Ugen] {
 
-	A2K { :in |
+	a2K { :in |
 		<primitive: return sc.A2K(_in);>
 	}
 
-	AllpassC { :in :maxdelaytime :delaytime :decaytime |
+	allpassC { :in :maxdelaytime :delaytime :decaytime |
 		<primitive: return sc.AllpassC(_in, _maxdelaytime, _delaytime, _decaytime);>
 	}
 
-	AllpassL { :in :maxdelaytime :delaytime :decaytime |
+	allpassL { :in :maxdelaytime :delaytime :decaytime |
 		<primitive: return sc.AllpassL(_in, _maxdelaytime, _delaytime, _decaytime);>
 	}
 
-	AllpassN { :in :maxdelaytime :delaytime :decaytime |
+	allpassN { :in :maxdelaytime :delaytime :decaytime |
 		<primitive: return sc.AllpassN(_in, _maxdelaytime, _delaytime, _decaytime);>
 	}
 
-	Amplitude { :in :attackTime :releaseTime |
+	amplitude { :in :attackTime :releaseTime |
 		<primitive: return sc.Amplitude(_in, _attackTime, _releaseTime);>
 	}
 
-	Apf { :in :freq :radius |
+	apf { :in :freq :radius |
 		<primitive: return sc.Apf(_in, _freq, _radius);>
 	}
 
-	BAllPass { :in :freq :rq |
+	bAllPass { :in :freq :rq |
 		<primitive: return sc.BAllPass(_in, _freq, _rq);>
 	}
 
-	BBandPass { :in :freq :bw |
+	bBandPass { :in :freq :bw |
 		<primitive: return sc.BBandPass(_in, _freq, _bw);>
 	}
 
-	BBandStop { :in :freq :bw |
+	bBandStop { :in :freq :bw |
 		<primitive: return sc.BBandStop(_in, _freq, _bw);>
 	}
 
-	BHiPass { :in :freq :rq |
+	bHiPass { :in :freq :rq |
 		<primitive: return sc.BHiPass(_in, _freq, _rq);>
 	}
 
-	BHiShelf { :in :freq :rs :db |
+	bHiShelf { :in :freq :rs :db |
 		<primitive: return sc.BHiShelf(_in, _freq, _rs, _db);>
 	}
 
-	BLowPass { :in :freq :rq |
+	bLowPass { :in :freq :rq |
 		<primitive: return sc.BLowPass(_in, _freq, _rq);>
 	}
 
-	BLowShelf { :in :freq :rs :db |
+	bLowShelf { :in :freq :rs :db |
 		<primitive: return sc.BLowShelf(_in, _freq, _rs, _db);>
 	}
 
-	BMoog { :in :freq :q :mode :saturation |
+	bMoog { :in :freq :q :mode :saturation |
 		<primitive: return sc.BMoog(_in, _freq, _q, _mode, _saturation);>
 	}
 
-	BPeakEq { :in :freq :rq :db |
+	bPeakEq { :in :freq :rq :db |
 		<primitive: return sc.BPeakEq(_in, _freq, _rq, _db);>
 	}
 
-	Balance2 { :left :right :pos :level |
+	balance2 { :left :right :pos :level |
 		<primitive: return sc.Balance2(_left, _right, _pos, _level);>
 	}
 
-	BfDecode1 { :w :x :y :z :azimuth :elevation :wComp |
+	bfDecode1 { :w :x :y :z :azimuth :elevation :wComp |
 		<primitive: return sc.BfDecode1(_w, _x, _y, _z, _azimuth, _elevation, _wComp);>
 	}
 
-	BfEncode1 { :input :azimuth :elevation :rho :gain :wComp |
+	bfEncode1 { :input :azimuth :elevation :rho :gain :wComp |
 		<primitive: return sc.BfEncode1(_input, _azimuth, _elevation, _rho, _gain, _wComp);>
 	}
 
-	Bpf { :in :freq :rq |
+	bpf { :in :freq :rq |
 		<primitive: return sc.Bpf(_in, _freq, _rq);>
 	}
 
-	Bpz2 { :in |
+	bpz2 { :in |
 		<primitive: return sc.Bpz2(_in);>
 	}
 
-	Brf { :in :freq :rq |
+	brf { :in :freq :rq |
 		<primitive: return sc.Brf(_in, _freq, _rq);>
 	}
 
-	Brz2 { :in |
+	brz2 { :in |
 		<primitive: return sc.Brz2(_in);>
 	}
 
-	CombC { :in :maxdelaytime :delaytime :decaytime |
+	combC { :in :maxdelaytime :delaytime :decaytime |
 		<primitive: return sc.CombC(_in, _maxdelaytime, _delaytime, _decaytime);>
 	}
 
-	CombL { :in :maxdelaytime :delaytime :decaytime |
+	combL { :in :maxdelaytime :delaytime :decaytime |
 		<primitive: return sc.CombL(_in, _maxdelaytime, _delaytime, _decaytime);>
 	}
 
-	CombN { :in :maxdelaytime :delaytime :decaytime |
+	combN { :in :maxdelaytime :delaytime :decaytime |
 		<primitive: return sc.CombN(_in, _maxdelaytime, _delaytime, _decaytime);>
 	}
 
-	Compander { :in :control :thresh :slopeBelow :slopeAbove :clampTime :relaxTime |
+	compander { :in :control :thresh :slopeBelow :slopeAbove :clampTime :relaxTime |
 		<primitive: return sc.Compander(_in, _control, _thresh, _slopeBelow, _slopeAbove, _clampTime, _relaxTime);>
 	}
 
-	Convolution { :in :kernel :framesize |
+	convolution { :in :kernel :framesize |
 		<primitive: return sc.Convolution(_in, _kernel, _framesize);>
 	}
 
-	Decay { :in :decayTime |
+	decay { :in :decayTime |
 		<primitive: return sc.Decay(_in, _decayTime);>
 	}
 
-	Decay2 { :in :attackTime :decayTime |
+	decay2 { :in :attackTime :decayTime |
 		<primitive: return sc.Decay2(_in, _attackTime, _decayTime);>
 	}
 
-	Delay1 { :in |
+	delay1 { :in |
 		<primitive: return sc.Delay1(_in);>
 	}
 
-	Delay2 { :in |
+	delay2 { :in |
 		<primitive: return sc.Delay2(_in);>
 	}
 
-	DelayC { :in :maxdelaytime :delaytime |
+	delayC { :in :maxdelaytime :delaytime |
 		<primitive: return sc.DelayC(_in, _maxdelaytime, _delaytime);>
 	}
 
-	DelayL { :in :maxdelaytime :delaytime |
+	delayL { :in :maxdelaytime :delaytime |
 		<primitive: return sc.DelayL(_in, _maxdelaytime, _delaytime);>
 	}
 
-	DelayMap { :bufNum :in :dynamic :spec |
+	delayMap { :bufNum :in :dynamic :spec |
 		<primitive: return sc.DelayMap(_bufNum, _in, _dynamic, _spec);>
 	}
 
-	DelayN { :in :maxdelaytime :delaytime |
+	delayN { :in :maxdelaytime :delaytime |
 		<primitive: return sc.DelayN(_in, _maxdelaytime, _delaytime);>
 	}
 
-	Demand { :trig :reset :demandUGens |
+	demand { :trig :reset :demandUGens |
 		<primitive: return sc.Demand(_trig, _reset, _demandUGens);>
 	}
 
-	DetectSilence { :in :amp :time :doneAction |
+	detectSilence { :in :amp :time :doneAction |
 		<primitive: return sc.DetectSilence(_in, _amp, _time, _doneAction);>
 	}
 
-	Formlet { :in :freq :attacktime :decaytime |
+	formlet { :in :freq :attacktime :decaytime |
 		<primitive: return sc.Formlet(_in, _freq, _attacktime, _decaytime);>
 	}
 
-	FreeVerb { :in :mix :room :damp |
+	freeVerb { :in :mix :room :damp |
 		<primitive: return sc.FreeVerb(_in, _mix, _room, _damp);>
 	}
 
-	FreeVerb2 { :in :in2 :mix :room :damp |
+	freeVerb2 { :in :in2 :mix :room :damp |
 		<primitive: return sc.FreeVerb2(_in, _in2, _mix, _room, _damp);>
 	}
 
-	FreqShift { :in :freq :phase |
+	freqShift { :in :freq :phase |
 		<primitive: return sc.FreqShift(_in, _freq, _phase);>
 	}
 
-	GVerb { :in :roomsize :revtime :damping :inputbw :spread :drylevel :earlyreflevel :taillevel :maxroomsize |
+	gVerb { :in :roomsize :revtime :damping :inputbw :spread :drylevel :earlyreflevel :taillevel :maxroomsize |
 		<primitive: return sc.GVerb(_in, _roomsize, _revtime, _damping, _inputbw, _spread, _drylevel, _earlyreflevel, _taillevel, _maxroomsize);>
 	}
 
-	Gate { :in :trig |
+	gate { :in :trig |
 		<primitive: return sc.Gate(_in, _trig);>
 	}
 
-	Hasher { :in |
+	hasher { :in |
 		<primitive: return sc.Hasher(_in);>
 	}
 
-	Hilbert { :in |
+	hilbertTransform { :in |
 		<primitive: return sc.Hilbert(_in);>
 	}
 
-	Hpf { :in :freq |
+	hpf { :in :freq |
 		<primitive: return sc.Hpf(_in, _freq);>
 	}
 
-	Hpz1 { :in |
+	hpz1 { :in |
 		<primitive: return sc.Hpz1(_in);>
 	}
 
-	Hpz2 { :in |
+	hpz2 { :in |
 		<primitive: return sc.Hpz2(_in);>
 	}
 
-	InRange { :in :lo :hi |
+	inRange { :in :lo :hi |
 		<primitive: return sc.InRange(_in, _lo, _hi);>
 	}
 
-	Integrator { :in :coef |
+	integrator { :in :coef |
 		<primitive: return sc.Integrator(_in, _coef);>
 	}
 
-	K2A { :in |
+	k2A { :in |
 		<primitive: return sc.K2A(_in);>
 	}
 
-	Klank { :input :freqscale :freqoffset :decayscale :specificationsListRef |
+	klank { :input :freqscale :freqoffset :decayscale :specificationsListRef |
 		<primitive: return sc.Klank(_input, _freqscale, _freqoffset, _decayscale, _specificationsListRef);>
 	}
 
-	Lag { :in :lagTime |
+	lag { :in :lagTime |
 		<primitive: return sc.Lag(_in, _lagTime);>
 	}
 
-	Lag2 { :in :lagTime |
+	lag2 { :in :lagTime |
 		<primitive: return sc.Lag2(_in, _lagTime);>
 	}
 
-	Lag3 { :in :lagTime |
+	lag3 { :in :lagTime |
 		<primitive: return sc.Lag3(_in, _lagTime);>
 	}
 
-	Lag3Ud { :in :lagTimeU :lagTimeD |
+	lag3Ud { :in :lagTimeU :lagTimeD |
 		<primitive: return sc.Lag3Ud(_in, _lagTimeU, _lagTimeD);>
 	}
 
-	LagUd { :in :lagTimeU :lagTimeD |
+	lagUd { :in :lagTimeU :lagTimeD |
 		<primitive: return sc.LagUd(_in, _lagTimeU, _lagTimeD);>
 	}
 
-	Latch { :in :trig |
+	latch { :in :trig |
 		<primitive: return sc.Latch(_in, _trig);>
 	}
 
-	LeakDc { :in :coef |
+	leakDc { :in :coef |
 		<primitive: return sc.LeakDc(_in, _coef);>
 	}
 
-	Limiter { :in :level :dur |
+	limiter { :in :level :dur |
 		<primitive: return sc.Limiter(_in, _level, _dur);>
 	}
 
-	LinPan2 { :in :pos :level |
+	linPan2 { :in :pos :level |
 		<primitive: return sc.LinPan2(_in, _pos, _level);>
 	}
 
-	LinXFade2 { :inA :inB :pan |
+	linXFade2 { :inA :inB :pan |
 		<primitive: return sc.LinXFade2(_inA, _inB, _pan);>
 	}
 
-	Lpf { :in :freq |
+	lpf { :in :freq |
 		<primitive: return sc.Lpf(_in, _freq);>
 	}
 
-	Lpz1 { :in |
+	lpz1 { :in |
 		<primitive: return sc.Lpz1(_in);>
 	}
 
-	Lpz2 { :in |
+	lpz2 { :in |
 		<primitive: return sc.Lpz2(_in);>
 	}
 
-	MVerb { :in1 :in2 :dampingFreq :density :bandwidthFreq :decay :predelay :size :gain :mix :earlyMix |
+	mVerb { :in1 :in2 :dampingFreq :density :bandwidthFreq :decay :predelay :size :gain :mix :earlyMix |
 		<primitive: return sc.MVerb(_in1, _in2, _dampingFreq, _density, _bandwidthFreq, _decay, _predelay, _size, _gain, _mix, _earlyMix);>
 	}
 
-	MantissaMask { :in :bits |
+	mantissaMask { :in :bits |
 		<primitive: return sc.MantissaMask(_in, _bits);>
 	}
 
-	MidEq { :in :freq :rq :db |
+	midEq { :in :freq :rq :db |
 		<primitive: return sc.MidEq(_in, _freq, _rq, _db);>
 	}
 
-	MoogFf { :in :freq :gain :reset |
+	moogFf { :in :freq :gain :reset |
 		<primitive: return sc.MoogFf(_in, _freq, _gain, _reset);>
 	}
 
-	MoogVcf { :in :fco :res |
+	moogVcf { :in :fco :res |
 		<primitive: return sc.MoogVcf(_in, _fco, _res);>
 	}
 
-	Normalizer { :in :level :dur |
+	normalizer { :in :level :dur |
 		<primitive: return sc.Normalizer(_in, _level, _dur);>
 	}
 
-	OnePole { :in :coef |
+	onePole { :in :coef |
 		<primitive: return sc.OnePole(_in, _coef);>
 	}
 
-	OneZero { :in :coef |
+	oneZero { :in :coef |
 		<primitive: return sc.OneZero(_in, _coef);>
 	}
 
-	Pan2 { :in :pos :level |
+	pan2 { :in :pos :level |
 		<primitive: return sc.Pan2(_in, _pos, _level);>
 	}
 
-	PanB { :in :azimuth :elevation :gain |
+	panB { :in :azimuth :elevation :gain |
 		<primitive: return sc.PanB(_in, _azimuth, _elevation, _gain);>
 	}
 
-	PanB2 { :input :azimuth :gain |
+	panB2 { :input :azimuth :gain |
 		<primitive: return sc.PanB2(_input, _azimuth, _gain);>
 	}
 
-	PeakFollower { :in :decay |
+	peakFollower { :in :decay |
 		<primitive: return sc.PeakFollower(_in, _decay);>
 	}
 
@@ -366,87 +366,87 @@
 		<primitive: return sc.Pitch(_in, _initFreq, _minFreq, _maxFreq, _execFreq, _maxBinsPerOctave, _median, _ampThreshold, _peakThreshold, _downSample, _clar);>
 	}
 
-	PitchShift { :in :windowSize :pitchRatio :pitchDispersion :timeDispersion |
+	pitchShift { :in :windowSize :pitchRatio :pitchDispersion :timeDispersion |
 		<primitive: return sc.PitchShift(_in, _windowSize, _pitchRatio, _pitchDispersion, _timeDispersion);>
 	}
 
-	Pluck { :in :trig :maxdelaytime :delaytime :decaytime :coef |
+	pluck { :in :trig :maxdelaytime :delaytime :decaytime :coef |
 		<primitive: return sc.Pluck(_in, _trig, _maxdelaytime, _delaytime, _decaytime, _coef);>
 	}
 
-	Resonz { :in :freq :bwr |
+	resonz { :in :freq :bwr |
 		<primitive: return sc.Resonz(_in, _freq, _bwr);>
 	}
 
-	Rhpf { :in :freq :rq |
+	rhpf { :in :freq :rq |
 		<primitive: return sc.Rhpf(_in, _freq, _rq);>
 	}
 
-	Ringz { :in :freq :decaytime |
+	ringz { :in :freq :decaytime |
 		<primitive: return sc.Ringz(_in, _freq, _decaytime);>
 	}
 
-	Rlpf { :in :freq :rq |
+	rlpf { :in :freq :rq |
 		<primitive: return sc.Rlpf(_in, _freq, _rq);>
 	}
 
-	RunningMax { :in :trig |
+	runningMax { :in :trig |
 		<primitive: return sc.RunningMax(_in, _trig);>
 	}
 
-	RunningSum { :in :numsamp |
+	runningSum { :in :numsamp |
 		<primitive: return sc.RunningSum(_in, _numsamp);>
 	}
 
-	Sanitize { :in :replace |
+	sanitize { :in :replace |
 		<primitive: return sc.Sanitize(_in, _replace);>
 	}
 
-	Schmidt { :in :lo :hi |
+	schmidt { :in :lo :hi |
 		<primitive: return sc.Schmidt(_in, _lo, _hi);>
 	}
 
-	Slew { :in :up :dn |
+	slew { :in :up :dn |
 		<primitive: return sc.Slew(_in, _up, _dn);>
 	}
 
-	Slope { :in |
+	slope { :in |
 		<primitive: return sc.Slope(_in);>
 	}
 
-	Spring { :in :spring :damp |
+	spring { :in :spring :damp |
 		<primitive: return sc.Spring(_in, _spring, _damp);>
 	}
 
-	TDelay { :in :dur |
+	tDelay { :in :dur |
 		<primitive: return sc.TDelay(_in, _dur);>
 	}
 
-	Trig { :in :dur |
+	trig { :in :dur |
 		<primitive: return sc.Trig(_in, _dur);>
 	}
 
-	Trig1 { :in :dur |
+	trig1 { :in :dur |
 		<primitive: return sc.Trig1(_in, _dur);>
 	}
 
-	TwIndex { :input :normalize :array |
+	twIndex { :input :normalize :array |
 		<primitive: return sc.TwIndex(_input, _normalize, _array);>
 	}
 
-	TwoPole { :in :freq :radius |
+	twoPole { :in :freq :radius |
 		<primitive: return sc.TwoPole(_in, _freq, _radius);>
 	}
 
-	TwoZero { :in :freq :radius |
+	twoZero { :in :freq :radius |
 		<primitive: return sc.TwoZero(_in, _freq, _radius);>
 	}
 
-	XFade2 { :inA :inB :pan :level |
+	xFade2 { :inA :inB :pan :level |
 		<primitive: return sc.XFade2(_inA, _inB, _pan, _level);>
 	}
 
-	ZeroCrossing { :in |
+	zeroCrossing { :in |
 		<primitive: return sc.ZeroCrossing(_in);>
 	}
 
@@ -454,11 +454,11 @@
 
 +[List, Ugen] {
 
-	[FirstOrderFilterSection, Fos] { :in :a0 :a1 :b1 |
+	[firstOrderFilterSection, fos] { :in :a0 :a1 :b1 |
 		<primitive: return sc.Fos(_in, _a0, _a1, _b1);>
 	}
 
-	[SecondOrderFilterSection, Sos] { :in :a0 :a1 :a2 :b1 :b2 |
+	[secondOrderFilterSection, sos] { :in :a0 :a1 :a2 :b1 :b2 |
 		<primitive: return sc.Sos(_in, _a0, _a1, _a2, _b1, _b2);>
 	}
 
@@ -466,507 +466,507 @@
 
 +[List, Ugen, SmallFloat] {
 
-	AmpComp { :freq :root :exp |
+	ampComp { :freq :root :exp |
 		<primitive: return sc.AmpComp(_freq, _root, _exp);>
 	}
 
-	AmpCompA { :freq :root :minAmp :rootAmp |
+	ampCompA { :freq :root :minAmp :rootAmp |
 		<primitive: return sc.AmpCompA(_freq, _root, _minAmp, _rootAmp);>
 	}
 
-	Blip { :freq :numharm |
+	blip { :freq :numharm |
 		<primitive: return sc.Blip(_freq, _numharm);>
 	}
 
-	BufDur { :bufnum |
+	bufDur { :bufnum |
 		<primitive: return sc.BufDur(_bufnum);>
 	}
 
-	BufFrames { :bufnum |
+	bufFrames { :bufnum |
 		<primitive: return sc.BufFrames(_bufnum);>
 	}
 
-	BufRateScale { :bufnum |
+	bufRateScale { :bufnum |
 		<primitive: return sc.BufRateScale(_bufnum);>
 	}
 
-	BufSampleRate { :bufnum |
+	bufSampleRate { :bufnum |
 		<primitive: return sc.BufSampleRate(_bufnum);>
 	}
 
-	BufWr { :bufnum :phase :loop :inputList |
+	bufWr { :bufnum :phase :loop :inputList |
 		<primitive: return sc.BufWr(_bufnum, _phase, _loop, _inputList);>
 	}
 
-	ClearBuf { :buf |
+	clearBuf { :buf |
 		<primitive: return sc.ClearBuf(_buf);>
 	}
 
-	CoinGate { :prob :in |
+	coinGate { :prob :in |
 		<primitive: return sc.CoinGate(_prob, _in);>
 	}
 
-	Crackle { :chaosParam |
+	crackle { :chaosParam |
 		<primitive: return sc.Crackle(_chaosParam);>
 	}
 
-	CuspL { :freq :a :b :xi |
+	cuspL { :freq :a :b :xi |
 		<primitive: return sc.CuspL(_freq, _a, _b, _xi);>
 	}
 
-	CuspN { :freq :a :b :xi |
+	cuspN { :freq :a :b :xi |
 		<primitive: return sc.CuspN(_freq, _a, _b, _xi);>
 	}
 
-	Dbrown { :length :lo :hi :step |
+	dbrown { :length :lo :hi :step |
 		<primitive: return sc.Dbrown(_length, _lo, _hi, _step);>
 	}
 
-	Dbufrd { :bufnum :phase :loop |
+	dbufrd { :bufnum :phase :loop |
 		<primitive: return sc.Dbufrd(_bufnum, _phase, _loop);>
 	}
 
-	Dbufwr { :bufnum :phase :input :loop |
+	dbufwr { :bufnum :phase :input :loop |
 		<primitive: return sc.Dbufwr(_bufnum, _phase, _input, _loop);>
 	}
 
-	Dc { :in |
+	dc { :in |
 		<primitive: return sc.Dc(_in);>
 	}
 
-	Ddup { :n :in |
+	ddup { :n :in |
 		<primitive: return sc.Ddup(_n, _in);>
 	}
 
-	DemandEnvGen { :level :dur :shape :curve :gate :reset :levelScale :levelBias :timeScale :doneAction |
+	demandEnvGen { :level :dur :shape :curve :gate :reset :levelScale :levelBias :timeScale :doneAction |
 		<primitive: return sc.DemandEnvGen(_level, _dur, _shape, _curve, _gate, _reset, _levelScale, _levelBias, _timeScale, _doneAction);>
 	}
 
-	DetectIndex { :bufnum :input |
+	bufDetectIndex { :bufnum :input |
 		<primitive: return sc.DetectIndex(_bufnum, _input);>
 	}
 
-	Dgeom { :start :grow :length |
+	dgeom { :start :grow :length |
 		<primitive: return sc.Dgeom(_start, _grow, _length);>
 	}
 
-	Dibrown { :length :lo :hi :step |
+	dibrown { :length :lo :hi :step |
 		<primitive: return sc.Dibrown(_length, _lo, _hi, _step);>
 	}
 
-	Diwhite { :length :lo :hi |
+	diwhite { :length :lo :hi |
 		<primitive: return sc.Diwhite(_length, _lo, _hi);>
 	}
 
-	Drand { :repeats :list |
+	drand { :repeats :list |
 		<primitive: return sc.Drand(_repeats, _list);>
 	}
 
-	Dseq { :repeats :list |
+	dseq { :repeats :list |
 		<primitive: return sc.Dseq(_repeats, _list);>
 	}
 
-	Dser { :repeats :list |
+	dser { :repeats :list |
 		<primitive: return sc.Dser(_repeats, _list);>
 	}
 
-	Dseries { :length :start :step |
+	dseries { :length :start :step |
 		<primitive: return sc.Dseries(_length, _start, _step);>
 	}
 
-	Dshuf { :repeats :list |
+	dshuf { :repeats :list |
 		<primitive: return sc.Dshuf(_repeats, _list);>
 	}
 
-	DurationGate { :dur |
+	durationGate { :dur |
 		 <primitive: return sc.DurationGate(_dur);>
 	}
 
-	Dust { :density |
+	dust { :density |
 		<primitive: return sc.Dust(_density);>
 	}
 
-	Dust2 { :density |
+	dust2 { :density |
 		<primitive: return sc.Dust2(_density);>
 	}
 
-	Duty { :dur :reset :level |
+	duty { :dur :reset :level |
 		<primitive: return sc.Duty(_dur, _reset, 0, _level);>
 	}
 
-	Dwhite { :length :lo :hi |
+	dwhite { :length :lo :hi |
 		<primitive: return sc.Dwhite(_length, _lo, _hi);>
 	}
 
-	Dwrand { :repeats :weights :list |
+	dwrand { :repeats :weights :list |
 		<primitive: return sc.Dwrand(_repeats, _weights, _list);>
 	}
 
-	Dxrand { :repeats :list |
+	dxrand { :repeats :list |
 		<primitive: return sc.Dxrand(_repeats, _list);>
 	}
 
-	EnvGen { :gate :levelScale :levelBias :timeScale :doneAction :envelope |
+	envGen { :gate :levelScale :levelBias :timeScale :doneAction :envelope |
 		<primitive: return sc.EnvGen(_gate, _levelScale, _levelBias, _timeScale, _doneAction, _envelope);>
 	}
 
-	EnvTrapezoid { :trig :dur :shape :skew |
+	envTrapezoid { :trig :dur :shape :skew |
 		<primitive: return sc.EnvTrapezoid(_trig, _dur, _shape, _skew);>
 	}
 
-	FSinOsc { :freq :iphase |
+	fSinOsc { :freq :iphase |
 		<primitive: return sc.FSinOsc(_freq, _iphase);>
 	}
 
-	FbSineC { :freq :im :fb :a :c :xi :yi |
+	fbSineC { :freq :im :fb :a :c :xi :yi |
 		<primitive: return sc.FbSineC(_freq, _im, _fb, _a, _c, _xi, _yi);>
 	}
 
-	FbSineL { :freq :im :fb :a :c :xi :yi |
+	fbSineL { :freq :im :fb :a :c :xi :yi |
 		<primitive: return sc.FbSineL(_freq, _im, _fb, _a, _c, _xi, _yi);>
 	}
 
-	FbSineN { :freq :im :fb :a :c :xi :yi |
+	fbSineN { :freq :im :fb :a :c :xi :yi |
 		<primitive: return sc.FbSineN(_freq, _im, _fb, _a, _c, _xi, _yi);>
 	}
 
-	Fft { :buffer :in :hop :wintype :active :winsize |
+	fft { :buffer :in :hop :wintype :active :winsize |
 		<primitive: return sc.Fft(_buffer, _in, _hop, _wintype, _active, _winsize);>
 	}
 
-	Formant { :fundfreq :formfreq :bwfreq |
+	formant { :fundfreq :formfreq :bwfreq |
 		<primitive: return sc.Formant(_fundfreq, _formfreq, _bwfreq);>
 	}
 
-	FreeSelfWhenDone { :src |
+	freeSelfWhenDone { :src |
 		<primitive: return sc.FreeSelfWhenDone(_src);>
 	}
 
-	GbmanL { :freq :xi :yi |
+	gbmanL { :freq :xi :yi |
 		<primitive: return sc.GbmanL(_freq, _xi, _yi);>
 	}
 
-	GbmanN { :freq :xi :yi |
+	gbmanN { :freq :xi :yi |
 		<primitive: return sc.GbmanN(_freq, _xi, _yi);>
 	}
 
-	Gendy1 { :ampdist :durdist :adparam :ddparam :minfreq :maxfreq :ampscale :durscale :initCPs :knum |
+	gendy1 { :ampdist :durdist :adparam :ddparam :minfreq :maxfreq :ampscale :durscale :initCPs :knum |
 		<primitive: return sc.Gendy1(_ampdist, _durdist, _adparam, _ddparam, _minfreq, _maxfreq, _ampscale, _durscale, _initCPs, _knum);>
 	}
 
-	Gendy2 { :ampdist :durdist :adparam :ddparam :minfreq :maxfreq :ampscale :durscale :initCPs :knum :a :c |
+	gendy2 { :ampdist :durdist :adparam :ddparam :minfreq :maxfreq :ampscale :durscale :initCPs :knum :a :c |
 		<primitive: return sc.Gendy2(_ampdist, _durdist, _adparam, _ddparam, _minfreq, _maxfreq, _ampscale, _durscale, _initCPs, _knum, _a, _c);>
 	}
 
-	Gendy3 { :ampdist :durdist :adparam :ddparam :freq :ampscale :durscale :initCPs :knum |
+	gendy3 { :ampdist :durdist :adparam :ddparam :freq :ampscale :durscale :initCPs :knum |
 		<primitive: return sc.Gendy3(_ampdist, _durdist, _adparam, _ddparam, _freq, _ampscale, _durscale, _initCPs, _knum);>
 	}
 
-	HenonC { :freq :a :b :x0 :x1 |
+	henonC { :freq :a :b :x0 :x1 |
 		<primitive: return sc.HenonC(_freq, _a, _b, _x0, _x1);>
 	}
 
-	HenonL { :freq :a :b :x0 :x1 |
+	henonL { :freq :a :b :x0 :x1 |
 		<primitive: return sc.HenonL(_freq, _a, _b, _x0, _x1);>
 	}
 
-	HenonN { :freq :a :b :x0 :x1 |
+	henonN { :freq :a :b :x0 :x1 |
 		<primitive: return sc.HenonN(_freq, _a, _b, _x0, _x1);>
 	}
 
-	IRand { :lo :hi |
+	iRand { :lo :hi |
 		<primitive: return sc.IRand(_lo, _hi);>
 	}
 
-	Ifft { :buffer :wintype :winsize |
+	ifft { :buffer :wintype :winsize |
 		<primitive: return sc.Ifft(_buffer, _wintype, _winsize);>
 	}
 
-	Impulse { :freq :phase |
+	impulse { :freq :phase |
 		<primitive: return sc.Impulse(_freq, _phase);>
 	}
 
-	IndexInBetween { :bufnum :in |
+	indexInBetween { :bufnum :in |
 		<primitive: return sc.IndexInBetween(_bufnum, _in);>
 	}
 
-	KeyState { :keycode :minval :maxval :lag |
+	keyState { :keycode :minval :maxval :lag |
 		<primitive: return sc.KeyState(_keycode, _minval, _maxval, _lag);>
 	}
 
-	Klang { :freqscale :freqoffset :specificationsListRef |
+	klang { :freqscale :freqoffset :specificationsListRef |
 		<primitive: return sc.Klang(_freqscale, _freqoffset, _specificationsListRef);>
 	}
 
-	LatoocarfianC { :freq :a :b :c :d :xi :yi |
+	latoocarfianC { :freq :a :b :c :d :xi :yi |
 		<primitive: return sc.LatoocarfianC(_freq, _a, _b, _c, _d, _xi, _yi);>
 	}
 
-	LatoocarfianL { :freq :a :b :c :d :xi :yi |
+	latoocarfianL { :freq :a :b :c :d :xi :yi |
 		<primitive: return sc.LatoocarfianL(_freq, _a, _b, _c, _d, _xi, _yi);>
 	}
 
-	LatoocarfianN { :freq :a :b :c :d :xi :yi |
+	latoocarfianN { :freq :a :b :c :d :xi :yi |
 		<primitive: return sc.LatoocarfianN(_freq, _a, _b, _c, _d, _xi, _yi);>
 	}
 
-	LfClipNoise { :freq |
+	lfClipNoise { :freq |
 		<primitive: return sc.LfClipNoise(_freq);>
 	}
 
-	LfCub { :freq :iphase |
+	lfCub { :freq :iphase |
 		<primitive: return sc.LfCub(_freq, _iphase);>
 	}
 
-	LfGauss { :duration :width :iphase :loop :doneAction |
+	lfGauss { :duration :width :iphase :loop :doneAction |
 		<primitive: return sc.LfGauss(_duration, _width, _iphase, _loop, _doneAction);>
 	}
 
-	LfNoise0 { :freq |
+	lfNoise0 { :freq |
 		<primitive: return sc.LfNoise0(_freq);>
 	}
 
-	LfNoise1 { :freq |
+	lfNoise1 { :freq |
 		<primitive: return sc.LfNoise1(_freq);>
 	}
 
-	LfNoise2 { :freq |
+	lfNoise2 { :freq |
 		<primitive: return sc.LfNoise2(_freq);>
 	}
 
-	LfPar { :freq :iphase |
+	lfPar { :freq :iphase |
 		<primitive: return sc.LfPar(_freq, _iphase);>
 	}
 
-	LfPulse { :freq :iphase :width |
+	lfPulse { :freq :iphase :width |
 		<primitive: return sc.LfPulse(_freq, _iphase, _width);>
 	}
 
-	LfSaw { :freq :iphase |
+	lfSaw { :freq :iphase |
 		<primitive: return sc.LfSaw(_freq, _iphase);>
 	}
 
-	LfTri { :freq :iphase |
+	lfTri { :freq :iphase |
 		<primitive: return sc.LfTri(_freq, _iphase);>
 	}
 
-	LfdClipNoise { :freq |
+	lfdClipNoise { :freq |
 		<primitive: return sc.LfdClipNoise(_freq);>
 	}
 
-	LfdNoise0 { :freq |
+	lfdNoise0 { :freq |
 		<primitive: return sc.LfdNoise0(_freq);>
 	}
 
-	LfdNoise1 { :freq |
+	lfdNoise1 { :freq |
 		<primitive: return sc.LfdNoise1(_freq);>
 	}
 
-	LfdNoise3 { :freq |
+	lfdNoise3 { :freq |
 		<primitive: return sc.LfdNoise3(_freq);>
 	}
 
-	LinCongC { :freq :a :c :m :xi |
+	linCongC { :freq :a :c :m :xi |
 		<primitive: return sc.LinCongC(_freq, _a, _c, _m, _xi);>
 	}
 
-	LinRand { :lo :hi :minmax |
+	linRand { :lo :hi :minmax |
 		<primitive: return sc.LinRand(_lo, _hi, _minmax);>
 	}
 
-	Linen { :gate :attackTime :susLevel :releaseTime :doneAction |
+	linen { :gate :attackTime :susLevel :releaseTime :doneAction |
 		<primitive: return sc.Linen(_gate, _attackTime, _susLevel, _releaseTime, _doneAction);>
 	}
 
-	LocalOut { :channelsList |
+	localOut { :channelsList |
 		<primitive: return sc.LocalOut(_channelsList);>
 	}
 
-	Logistic { :chaosParam :freq :init |
+	logistic { :chaosParam :freq :init |
 		<primitive: return sc.Logistic(_chaosParam, _freq, _init);>
 	}
 
-	LorenzL { :freq :s :r :b :h :xi :yi :zi |
+	lorenzL { :freq :s :r :b :h :xi :yi :zi |
 		<primitive: return sc.LorenzL(_freq, _s, _r, _b, _h, _xi, _yi, _zi);>
 	}
 
-	MaxLocalBufs { :count |
+	maxLocalBufs { :count |
 		<primitive: return sc.MaxLocalBufs(_count);>
 	}
 
-	MouseButton { :minval :maxval :lag |
+	mouseButton { :minval :maxval :lag |
 		<primitive: return sc.MouseButton(_minval, _maxval, _lag);>
 	}
 
-	MouseX { :minval :maxval :warp :lag |
+	mouseX { :minval :maxval :warp :lag |
 		<primitive: return sc.MouseX(_minval, _maxval, _warp, _lag);>
 	}
 
-	MouseY { :minval :maxval :warp :lag |
+	mouseY { :minval :maxval :warp :lag |
 		<primitive: return sc.MouseY(_minval, _maxval, _warp, _lag);>
 	}
 
-	Multiplexer { :selector :inputList |
+	multiplexer { :selector :inputList |
 		<primitive: return sc.Multiplexer(_selector, _inputList);>
 	}
 
-	NRand { :lo :hi :n |
+	nRand { :lo :hi :n |
 		<primitive: return sc.NRand(_lo, _hi, _n);>
 	}
 
-	OffsetOut { :bus :channelsList |
+	offsetOut { :bus :channelsList |
 		<primitive: return sc.OffsetOut(_bus, _channelsList);>
 	}
 
-	Osc { :bufnum :freq :phase |
+	osc { :bufnum :freq :phase |
 		<primitive: return sc.Osc(_bufnum, _freq, _phase);>
 	}
 
-	Out { :bus :channelsList |
+	out { :bus :channelsList |
 		<primitive: return sc.Out(_bus, _channelsList);>
 	}
 
-	Phasor { :trig :rate :start :end :resetPos |
+	phasor { :trig :rate :start :end :resetPos |
 		<primitive: return sc.Phasor(_trig, _rate, _start, _end, _resetPos);>
 	}
 
-	Pulse { :freq :width |
+	pulse { :freq :width |
 		<primitive: return sc.Pulse(_freq, _width);>
 	}
 
-	PulseCount { :trig :reset |
+	pulseCount { :trig :reset |
 		<primitive: return sc.PulseCount(_trig, _reset);>
 	}
 
-	PulseDivider { :trig :div :start |
+	pulseDivider { :trig :div :start |
 		<primitive: return sc.PulseDivider(_trig, _div, _start);>
 	}
 
-	PvBinScramble { :buffer :wipe :width :trig |
+	pvBinScramble { :buffer :wipe :width :trig |
 		<primitive: return sc.PvBinScramble(_buffer, _wipe, _width, _trig);>
 	}
 
-	PvDiffuser { :buffer :trig |
+	pvDiffuser { :buffer :trig |
 		<primitive: return sc.PvDiffuser(_buffer, _trig);>
 	}
 
-	PvRandComb { :buffer :wipe :trig |
+	pvRandComb { :buffer :wipe :trig |
 		<primitive: return sc.PvRandComb(_buffer, _wipe, _trig);>
 	}
 
-	QuadC { :freq :a :b :c :xi |
+	quadC { :freq :a :b :c :xi |
 		<primitive: return sc.QuadC(_freq, _a, _b, _c, _xi);>
 	}
 
-	QuadL { :freq :a :b :c :xi |
+	quadL { :freq :a :b :c :xi |
 		<primitive: return sc.QuadL(_freq, _a, _b, _c, _xi);>
 	}
 
-	QuadN { :freq :a :b :c :xi |
+	quadN { :freq :a :b :c :xi |
 		<primitive: return sc.QuadN(_freq, _a, _b, _c, _xi);>
 	}
 
-	Rand { :lo :hi |
+	rand { :lo :hi |
 		<primitive: return sc.Rand(_lo, _hi);>
 	}
 
-	RecordBuf { :bufnum :offset :recLevel :preLevel :run :loop :trigger :doneAction :inputList |
+	recordBuf { :bufnum :offset :recLevel :preLevel :run :loop :trigger :doneAction :inputList |
 		<primitive: return sc.RecordBuf(_bufnum, _offset, _recLevel, _preLevel, _run, _loop, _trigger, _doneAction, _inputList);>
 	}
 
-	ReplaceOut { :bus :channelsList |
+	replaceOut { :bus :channelsList |
 		<primitive: return sc.ReplaceOut(_bus, _channelsList);>
 	}
 
-	Rotate2 { :x :y :pos |
+	rotate2 { :x :y :pos |
 		<primitive: return sc.Rotate2(_x, _y, _pos);>
 	}
 
-	SamplerIndex { :bufNum :size :mnn |
+	samplerIndex { :bufNum :size :mnn |
 		<primitive: return sc.SamplerIndex(_bufNum, _size, _mnn);>
 	}
 
-	Saw { :freq |
+	saw { :freq |
 		<primitive: return sc.Saw(_freq);>
 	}
 
-	SawDpw { :freq :iphase |
+	sawDpw { :freq :iphase |
 		<primitive: return sc.SawDpw(_freq, _iphase);>
 	}
 
-	SelectT { :which :array |
+	selectT { :which :array |
 		<primitive: return sc.Select(_which, _array);>
 	}
 
-	SetBuf { :buf :offset :length :array |
+	setBuf { :buf :offset :length :array |
 		<primitive: return sc.SetBuf(_buf, _offset, _length, _array);>
 	}
 
-	SetResetFf { :trig :reset |
+	setResetFf { :trig :reset |
 		<primitive: return sc.SetResetFf(_trig, _reset);>
 	}
 
-	SinOsc { :freq :phase |
+	sinOsc { :freq :phase |
 		<primitive: return sc.SinOsc(_freq, _phase);>
 	}
 
-	SinOscFb { :freq :feedback |
+	sinOscFb { :freq :feedback |
 		<primitive: return sc.SinOscFb(_freq, _feedback);>
 	}
 
-	StandardL { :freq :k :xi :yi |
+	standardL { :freq :k :xi :yi |
 		<primitive: return sc.StandardL(_freq, _k, _xi, _yi);>
 	}
 
-	StandardN { :freq :k :xi :yi |
+	standardN { :freq :k :xi :yi |
 		<primitive: return sc.StandardN(_freq, _k, _xi, _yi);>
 	}
 
-	Stepper { :trig :reset :min :max :step :resetval |
+	stepper { :trig :reset :min :max :step :resetval |
 		<primitive: return sc.Stepper(_trig, _reset, _min, _max, _step, _resetval);>
 	}
 
-	Sweep { :trig :rate |
+	sweep { :trig :rate |
 		<primitive: return sc.Sweep(_trig, _rate);>
 	}
 
-	SyncSaw { :syncFreq :sawFreq |
+	syncSaw { :syncFreq :sawFreq |
 		<primitive: return sc.SyncSaw(_syncFreq, _sawFreq);>
 	}
 
-	TDuty { :dur :reset :level |
+	tDuty { :dur :reset :level |
 		<primitive: return sc.TDuty(_dur, _reset, 0, _level, 0);>
 	}
 
-	TExpRand { :lo :hi :trig |
+	tExpRand { :lo :hi :trig |
 		<primitive: return sc.TExpRand(_lo, _hi, _trig);>
 	}
 
-	TRand { :lo :hi :trig |
+	tRand { :lo :hi :trig |
 		<primitive: return sc.TRand(_lo, _hi, _trig);>
 	}
 
-	TableRand { :trig :bufnum |
+	tableRand { :trig :bufnum |
 		<primitive: return sc.TableRand(_trig, _bufnum);>
 	}
 
-	TiRand { :lo :hi :trig |
+	tiRand { :lo :hi :trig |
 		<primitive: return sc.TiRand(_lo, _hi, _trig);>
 	}
 
-	Timer { :trig |
+	timer { :trig |
 		<primitive: return sc.Timer(_trig);>
 	}
 
-	ToggleFf { :trig |
+	toggleFf { :trig |
 		<primitive: return sc.ToggleFf(_trig);>
 	}
 
-	VarSaw { :freq :iphase :width |
+	varSaw { :freq :iphase :width |
 		<primitive: return sc.VarSaw(_freq, _iphase, _width);>
 	}
 
-	Vibrato { :freq :rate :depth :delay :onset :rateVariation :depthVariation :iphase :trig |
+	vibrato { :freq :rate :depth :delay :onset :rateVariation :depthVariation :iphase :trig |
 		<primitive: return sc.Vibrato(_freq, _rate, _depth, _delay, _onset, _rateVariation, _depthVariation, _iphase, _trig);>
 	}
 
@@ -986,55 +986,55 @@
 
 +[SmallFloat, List] {
 
-	BufRd { :numChan :bufnum :phase :loop :interpolation |
+	bufRd { :numChan :bufnum :phase :loop :interpolation |
 		<primitive: return sc.BufRd(_numChan, _bufnum, _phase, _loop, _interpolation);>
 	}
 
-	DecodeB2 { :numChan :w :x :y :orientation |
+	decodeB2 { :numChan :w :x :y :orientation |
 		<primitive: return sc.DecodeB2(_numChan, _w, _x, _y, _orientation);>
 	}
 
-	Demultiplexer { :numChannels :input :selector |
+	demultiplexer { :numChannels :input :selector |
 		<primitive: return sc.Demultiplexer(_numChannels, _input, _selector);>
 	}
 
-	GrainBuf { :numChan :trigger :dur :sndbuf :rate :pos :interp :pan :envbufnum :maxGrains |
+	grainBuf { :numChan :trigger :dur :sndbuf :rate :pos :interp :pan :envbufnum :maxGrains |
 		<primitive: return sc.GrainBuf(_numChan, _trigger, _dur, _sndbuf, _rate, _pos, _interp, _pan, _envbufnum, _maxGrains);>
 	}
 
-	GrainFm { :numChan :trigger :dur :carfreq :modfreq :index :pan :envbufnum :maxGrains |
+	grainFm { :numChan :trigger :dur :carfreq :modfreq :index :pan :envbufnum :maxGrains |
 		<primitive: return sc.GrainFm(_numChan, _trigger, _dur, _carfreq, _modfreq, _index, _pan, _envbufnum, _maxGrains);>
 	}
 
-	GrainSin { :numChan :trigger :dur :freq :pan :envbufnum :maxGrains |
+	grainSin { :numChan :trigger :dur :freq :pan :envbufnum :maxGrains |
 		<primitive: return sc.GrainSin(_numChan, _trigger, _dur, _freq, _pan, _envbufnum, _maxGrains);>
 	}
 
-	InFeedback { :numChan :bus |
+	inFeedback { :numChan :bus |
 		<primitive: return sc.InFeedback(_numChan, _bus);>
 	}
 
-	LocalBuf { :numChannels :numFrames |
+	localBuf { :numChannels :numFrames |
 		<primitive: return sc.LocalBuf(_numChannels, _numFrames);>
 	}
 
-	LocalIn { :numChan :default |
+	localIn { :numChan :default |
 		<primitive: return sc.LocalIn(_numChan, _default);>
 	}
 
-	PanAz { :numChan :in :pos :level :width :orientation |
+	panAz { :numChan :in :pos :level :width :orientation |
 		<primitive: return sc.PanAz(_numChan, _in, _pos, _level, _width, _orientation);>
 	}
 
-	PlayBuf { :numChan :bufnum :rate :trigger :startPos :loop :doneAction |
+	playBuf { :numChan :bufnum :rate :trigger :startPos :loop :doneAction |
 		<primitive: return sc.PlayBuf(_numChan, _bufnum, _rate, _trigger, _startPos, _loop, _doneAction);>
 	}
 
-	TGrains { :numChan :trigger :bufnum :rate :centerPos :dur :pan :amp :interp |
+	tGrains { :numChan :trigger :bufnum :rate :centerPos :dur :pan :amp :interp |
 		<primitive: return sc.TGrains(_numChan, _trigger, _bufnum, _rate, _centerPos, _dur, _pan, _amp, _interp);>
 	}
 
-	Warp1 { :numChan :bufnum :pointer :freqScale :windowSize :envbufnum :overlaps :windowRandRatio :interp |
+	warp1 { :numChan :bufnum :pointer :freqScale :windowSize :envbufnum :overlaps :windowRandRatio :interp |
 		<primitive: return sc.Warp1(_numChan, _bufnum, _pointer, _freqScale, _windowSize, _envbufnum, _overlaps, _windowRandRatio, _interp);>
 	}
 
@@ -1046,11 +1046,11 @@
 
 +[List, Ugen] {
 
-	Dswitch { :index :list |
+	dswitch { :index :list |
 		<primitive: return sc.Dswitch(_index, _list);>
 	}
 
-	Dswitch1 { :index :list |
+	dswitch1 { :index :list |
 		<primitive: return sc.Dswitch1(_index, _list);>
 	}
 
@@ -1058,163 +1058,163 @@
 
 +[List, SmallFloat, Ugen] {
 
-	AnalogFoldOsc { :freq :amp |
+	analogFoldOsc { :freq :amp |
 		<primitive: return sc.AnalogFoldOsc(_freq, _amp);>
 	}
 
-	Bezier { :haltAfter :dx :freq :phase :param |
+	bezier { :haltAfter :dx :freq :phase :param |
 		<primitive: return sc.Bezier(_haltAfter, _dx, _freq, _phase, _param);>
 	}
 
-	CrossoverDistortion { :in :amp :smooth |
+	crossoverDistortion { :in :amp :smooth |
 		<primitive: return sc.CrossoverDistortion(_in, _amp, _smooth);>
 	}
 
-	Dfm1 { :in :freq :res :inputgain :type :noiselevel |
+	dfm1 { :in :freq :res :inputgain :type :noiselevel |
 		<primitive: return sc.Dfm1(_in, _freq, _res, _inputgain, _type, _noiselevel);>
 	}
 
-	DustRange { :iotMin :iotMax |
+	dustRange { :iotMin :iotMax |
 		<primitive: return sc.DustRange(_iotMin, _iotMax);>
 	}
 
-	DwgPluckedStiff { :freq :amp :gate :pos :c1 :c3 :inp :release :fB |
+	dwgPluckedStiff { :freq :amp :gate :pos :c1 :c3 :inp :release :fB |
 		<primitive: return sc.DwgPluckedStiff(_freq, _amp, _gate, _pos, _c1, _c3, _inp, _release, _fB);>
 	}
 
-	Dx7 { :bufnum :on :off :data :vc :mnn :vel :pw :mw :bc :fc |
+	dx7 { :bufnum :on :off :data :vc :mnn :vel :pw :mw :bc :fc |
 		<primitive: return sc.Dx7(_bufnum, _on, _off, _data, _vc, _mnn, _vel, _pw, _mw, _bc, _fc);>
 	}
 
-	Dx7Env { :gate :data :r1 :r2 :r3 :r4 :l1 :l2 :l3 :l4 :ol |
+	dx7Env { :gate :data :r1 :r2 :r3 :r4 :l1 :l2 :l3 :l4 :ol |
 		<primitive: return sc.Dx7Env(_gate, _data, _r1, _r2, _r3, _r4, _l1, _l2, _l3, _l4, _ol);>
 	}
 
-	ExpRandN { :numChan :lo :hi |
+	expRandN { :numChan :lo :hi |
 		<primitive: return sc.ExpRandN(_numChan, _lo, _hi);>
 	}
 
-	Fm7 { :ctlMatrix :modMatrix |
+	fm7 { :ctlMatrix :modMatrix |
 		<primitive: return sc.Fm7(_ctlMatrix, _modMatrix);>
 	}
 
-	Freezer { :bufnum :left :right :gain :increment :incrementOffset :incrementRandom :rightRandom :syncPhaseTrigger :randomizePhaseTrigger :numberOfLoops |
+	freezer { :bufnum :left :right :gain :increment :incrementOffset :incrementRandom :rightRandom :syncPhaseTrigger :randomizePhaseTrigger :numberOfLoops |
 		<primitive: return sc.Freezer(_bufnum, _left, _right, _gain, _increment, _incrementOffset, _incrementRandom, _rightRandom, _syncPhaseTrigger, _randomizePhaseTrigger, _numberOfLoops);>
 	}
 
-	Friction { :in :friction :spring :damp :mass :beltmass |
+	friction { :in :friction :spring :damp :mass :beltmass |
 		<primitive: return sc.Friction(_in, _friction, _spring, _damp, _mass, _beltmass);>
 	}
 
-	GreyholeRaw { :in1 :in2 :damping :delaytime :diffusion :feedback :moddepth :modfreq :size |
+	greyholeRaw { :in1 :in2 :damping :delaytime :diffusion :feedback :moddepth :modfreq :size |
 		<primitive: return sc.GreyholeRaw(_in1, _in2, _damping, _delaytime, _diffusion, _feedback, _moddepth, _modfreq, _size);>
 	}
 
-	LfBrownNoise1 { :freq :dev :dist |
+	lfBrownNoise1 { :freq :dev :dist |
 		<primitive: return sc.LfBrownNoise1(_freq, _dev, _dist);>
 	}
 
-	LinRandN { :numChan :lo :hi :minmax |
+	linRandN { :numChan :lo :hi :minmax |
 		<primitive: return sc.LinRandN(_numChan, _lo, _hi, _minmax);>
 	}
 
-	MembraneCircle { :excitation :tension :loss |
+	membraneCircle { :excitation :tension :loss |
 		<primitive: return sc.MembraneCircle(_excitation, _tension, _loss);>
 	}
 
-	MiBraids { :pitch :timbre :color :model :trig :resamp :decim :bits :ws |
+	miBraids { :pitch :timbre :color :model :trig :resamp :decim :bits :ws |
 		<primitive: return sc.MiBraids(_pitch, _timbre, _color, _model, _trig, _resamp, _decim, _bits, _ws);>
 	}
 
-	MiClouds { :pit :pos :size :dens :tex :drywet :inGain :spread :rvb :fb :freeze :mode :lofi :trig :inputList |
+	miClouds { :pit :pos :size :dens :tex :drywet :inGain :spread :rvb :fb :freeze :mode :lofi :trig :inputList |
 		<primitive: return sc.MiClouds(_pit, _pos, _size, _dens, _tex, _drywet, _inGain, _spread, _rvb, _fb, _freeze, _mode, _lofi, _trig, _inputList);>
 	}
 
-	MiRings { :in :trig :pit :struct :bright :damp :pos :model :poly :internExciter :easteregg :bypass |
+	miRings { :in :trig :pit :struct :bright :damp :pos :model :poly :internExciter :easteregg :bypass |
 		<primitive: return sc.MiRings(_in, _trig, _pit, _struct, _bright, _damp, _pos, _model, _poly, _internExciter, _easteregg, _bypass);>
 	}
 
-	MoogLadder { :in :ffreq :res |
+	moogLadder { :in :ffreq :res |
 		<primitive: return sc.MoogLadder(_in, _ffreq, _res);>
 	}
 
-	ObxdFilter { :in :cutoff :resonance :multimode :bandpass :fourpole |
+	obxdFilter { :in :cutoff :resonance :multimode :bandpass :fourpole |
 		<primitive: return sc.ObxdFilter(_in, _cutoff, _resonance, _multimode, _bandpass, _fourpole);>
 	}
 
-	Perlin3 { :x :y :z |
+	perlin3 { :x :y :z |
 		<primitive: return sc.Perlin3(_x, _y, _z);>
 	}
 
-	RandN { :numChan :lo :hi |
+	randN { :numChan :lo :hi |
 		<primitive: return sc.RandN(_numChan, _lo, _hi);>
 	}
 
-	Rcd { :clock :rotate :reset :div :spread :auto :len :down :gates |
+	rcd { :clock :rotate :reset :div :spread :auto :len :down :gates |
 		<primitive: return sc.Rcd(_clock, _rotate, _reset, _div, _spread, _auto, _len, _down, _gates);>
 	}
 
-	Scm { :clock :bpm :rotate :slip :shuffle :skip :pw |
+	scm { :clock :bpm :rotate :slip :shuffle :skip :pw |
 		<primitive: return sc.Scm(_clock, _bpm, _rotate, _slip, _shuffle, _skip, _pw);>
 	}
 
-	ShufflerB { :bufnum :readLocationMinima :readLocationMaxima :readIncrementMinima :readIncrementMaxima :durationMinima :durationMaxima :envelopeAmplitudeMinima :envelopeAmplitudeMaxima :envelopeShapeMinima :envelopeShapeMaxima :envelopeSkewMinima :envelopeSkewMaxima :stereoLocationMinima :stereoLocationMaxima :interOffsetTimeMinima :interOffsetTimeMaxima :ftableReadLocationIncrement :readIncrementQuanta :interOffsetTimeQuanta |
+	shufflerB { :bufnum :readLocationMinima :readLocationMaxima :readIncrementMinima :readIncrementMaxima :durationMinima :durationMaxima :envelopeAmplitudeMinima :envelopeAmplitudeMaxima :envelopeShapeMinima :envelopeShapeMaxima :envelopeSkewMinima :envelopeSkewMaxima :stereoLocationMinima :stereoLocationMaxima :interOffsetTimeMinima :interOffsetTimeMaxima :ftableReadLocationIncrement :readIncrementQuanta :interOffsetTimeQuanta |
 		<primitive: return sc.ShufflerB(_bufnum, _readLocationMinima, _readLocationMaxima, _readIncrementMinima, _readIncrementMaxima, _durationMinima, _durationMaxima, _envelopeAmplitudeMinima, _envelopeAmplitudeMaxima, _envelopeShapeMinima, _envelopeShapeMaxima, _envelopeSkewMinima, _envelopeSkewMaxima, _stereoLocationMinima, _stereoLocationMaxima, _interOffsetTimeMinima, _interOffsetTimeMaxima, _ftableReadLocationIncrement, _readIncrementQuanta, _interOffsetTimeQuanta);>
 	}
 
-	SinGrain { :trigger :dur :freq |
+	sinGrain { :trigger :dur :freq |
 		<primitive: return sc.SinGrain(_trigger, _dur, _freq);>
 	}
 
-	Svf { :signal :cutoff :res :lowpass :bandpass :highpass :notch :peak |
+	svf { :signal :cutoff :res :lowpass :bandpass :highpass :notch :peak |
 		<primitive: return sc.Svf(_signal, _cutoff, _res, _lowpass, _bandpass, _highpass, _notch, _peak);>
 	}
 
-	SvfBp { :in :freq :q |
+	svfBp { :in :freq :q |
 		<primitive: return sc.SvfBp(_in, _freq, _q);>
 	}
 
-	SvfHp { :in :freq :q |
+	svfHp { :in :freq :q |
 		<primitive: return sc.SvfHp(_in, _freq, _q);>
 	}
 
-	SvfLp { :in :freq :q |
+	svfLp { :in :freq :q |
 		<primitive: return sc.SvfLp(_in, _freq, _q);>
 	}
 
-	TLinRand { :lo :hi :minmax :trigger |
+	tLinRand { :lo :hi :minmax :trigger |
 		<primitive: return sc.TLinRand(_lo, _hi, _minmax, _trigger);>
 	}
 
-	TScramble { :trigger :inputs |
+	tScramble { :trigger :inputs |
 		<primitive: return sc.TScramble(_trigger, _inputs);>
 	}
 
-	TrigAllocator { :numChannels :algorithm :in :dur |
+	trigAllocator { :numChannels :algorithm :in :dur |
 		<primitive: return sc.TrigAllocator(_numChannels, _algorithm, _in, _dur);>
 	}
 
-	TrigRoundRobin { :numChannels :in |
+	trigRoundRobin { :numChannels :in |
 		<primitive: return sc.TrigRoundRobin(_numChannels, _in);>
 	}
 
-	VbJonVerb { :in :decay :damping :inputbw :erfl :tail |
+	vbJonVerb { :in :decay :damping :inputbw :erfl :tail |
 		<primitive: return sc.VbJonVerb(_in, _decay, _damping, _inputbw, _erfl, _tail);>
 	}
 
-	Vosim { :trig :freq :nCycles :decay |
+	vosim { :trig :freq :nCycles :decay |
 		<primitive: return sc.Vosim(_trig, _freq, _nCycles, _decay);>
 	}
 
-	WDistances { :gate :x :y :z :coordinateList |
+	wDistances { :gate :x :y :z :coordinateList |
 		<primitive: return sc.WDistances(_gate, _x, _y, _z, _coordinateList);>
 	}
 
-	WaveLoss { :in :drop :outof :mode |
+	waveLoss { :in :drop :outof :mode |
 		<primitive: return sc.WaveLoss(_in, _drop, _outof, _mode);>
 	}
 
-	WkNearest { :numChannels :gate :x :y :z :coordinateList |
+	wkNearest { :numChannels :gate :x :y :z :coordinateList |
 		<primitive: return sc.WkNearest(_numChannels, _gate, _x, _y, _z, _coordinateList);>
 	}
 
@@ -1222,47 +1222,47 @@
 
 +[List, SmallFloat, Ugen] {
 
-	BiLinRand { :self |
+	biLinRand { :self |
 		<primitive: return sc.BiLinRand(_self);>
 	}
 
-	Coin { :self |
+	coin { :self |
 		<primitive: return sc.Coin(_self);>
 	}
 
-	ExpRandRange { :self :anObject |
+	expRandRange { :self :anObject |
 		<primitive: return sc.ExpRandRange(_self, _anObject);>
 	}
 
-	FirstArg { :self :anObject |
+	firstArg { :self :anObject |
 		<primitive: return sc.FirstArg(_self, _anObject);>
 	}
 
-	HanWindow { :self |
+	hanWindow { :self |
 		<primitive: return sc.HanWindow(_self);>
 	}
 
-	LinRand { :self |
+	linRand { :self |
 		<primitive: return sc.LinRand_(_self);>
 	}
 
-	RandRange { :self :anObject |
+	randRange { :self :anObject |
 		<primitive: return sc.RandRange(_self, _anObject);>
 	}
 
-	Ring1 { :self :anObject |
+	ring1 { :self :anObject |
 		<primitive: return sc.Ring1(_self, _anObject);>
 	}
 
-	Sum3Rand { :self |
+	sum3Rand { :self |
 		<primitive: return sc.Sum3Rand(_self);>
 	}
 
-	TriWindow { :self |
+	triWindow { :self |
 		<primitive: return sc.TriWindow(_self);>
 	}
 
-	WelchWindow { :self |
+	welchWindow { :self |
 		<primitive: return sc.WelchWindow(_self);>
 	}
 

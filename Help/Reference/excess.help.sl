@@ -7,7 +7,7 @@ _excess(α, β)_ answers the difference of the original signal and its clipped f
 ie. _α - clip(α, -β, β)_.
 
 ```
-SinOsc(
+sinOsc(
 	1000,
 	0
 ).excess(

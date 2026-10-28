@@ -20,7 +20,7 @@ This allows something akin to keyword arguments.
 For instance the SuperCollider unit generators each define a unary instances at `Record`:
 
 ```
-SinOsc(freq: 440, phase: 0) * 0.1
+sinOsc(freq: 440, phase: 0) * 0.1
 ```
 
 * * *

@@ -16,15 +16,15 @@ The soft clip function:
 Linearly increase amplitude introducing distortion:
 
 ```
-(SinOsc(500, 0) * XLine(0.1, 10, 10))
+(sinOsc(500, 0) * xLine(0.1, 10, 10))
 .softClip * 0.1
 ```
 
 With named temporary variables:
 
 ```
-let e = XLine(0.1, 10, 10);
-let o = SinOsc(500, 0);
+let e = xLine(0.1, 10, 10);
+let o = sinOsc(500, 0);
 (o * e).softClip * 0.1
 ```
 

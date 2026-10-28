@@ -1,0 +1,51 @@
+# lfClipNoise
+
+- _lfClipNoise(freq)_
+
+Clipped noise.
+Randomly generates the values -1 or +1 at a rate given by the nearest integer division of the sample rate by the freq argument.
+It is probably pretty hard on your speakers!
+
+- freq: approximate rate at which to generate random values.
+
+Fixed frequency:
+
+```
+lfClipNoise(1000) * 0.05
+```
+
+Modulate frequency:
+
+```
+lfClipNoise(xLine(1000, 10000, 10)) * 0.05
+```
+
+Texture program:
+
+~~~spl texture
+{
+	let freq = rand(47, 69) * [1, 1.1];
+	let mul = {
+		perc(
+			lfClipNoise(rand(3, 7)),
+			0.01,
+			1,
+			-4
+		) * 0.1
+	} ! 2;
+	let snd = [
+		sinOsc(freq * [1, 2], 0),
+		saw(freq * [2, 3]),
+		pulse(freq * [3, 4], 0.5)
+	] * mul;
+	freeVerb(snd.sum, 0.33, 0.5, 0.5)
+}.overlapTextureProgram(7, 7, 3)
+~~~
+
+* * *
+
+See also: pinkNoise, whiteNoise
+
+Guides: Unit Generators
+
+Categories: Ugen, Noise

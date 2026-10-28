@@ -1,6 +1,6 @@
 /* Tw 0020 (F0) */
 let a = { :freq |
-	LfPulse(freq, 0, 0.5)
+	lfPulse(freq, 0, 0.5)
 };
 let b = [0 .. 3];
 let a1 = a(b / 32) + 1 / 8;
@@ -10,4 +10,4 @@ let a4 = a(a(b / 8)) * 2 + b;
 let a5 = a(4 / (b + 1)); /* Divide by zero */
 let a6 = a(a2);
 let a7 = a(a6 + (a3.sum + a5 * a4) * 100);
-a7.sum.EqPan2(0) * 0.1
+a7.sum.eqPan2(0) * 0.1

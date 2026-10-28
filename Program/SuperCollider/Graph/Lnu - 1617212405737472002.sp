@@ -32,16 +32,16 @@ let c = [
 	15 20 25 31 36 42 47 51 56 61 67 72 78 83 87 92 97 103;
 	16 21 25 31 36 42 47 52 57 61 67 72 78 83 88 93 97 103
 ].atRandom;
-Splay(
-	LeakDc(
+splay(
+	leakDc(
 		[
 			c.midiCps.collect { :freq |
-				SinOsc(freq, 0)
+				sinOsc(freq, 0)
 			},
-			SinOsc(2 / c.log10, 0),
-			LfSaw(11 / c.-, 0).max(0).Lag3(0.1)
+			sinOsc(2 / c.log10, 0),
+			lfSaw(11 / c.-, 0).max(0).lag3(0.1)
 		].product,
 		0.995
 	),
-	SinOsc(1 / c.first, 0)
+	sinOsc(1 / c.first, 0)
 )

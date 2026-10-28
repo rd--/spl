@@ -92,7 +92,7 @@ ScSynth! : [Object] {
 		).if {
 			self.multipleRootGraph(aUgen)
 		} {
-			FirstArg(self, aUgen)
+			firstArg(self, aUgen)
 		}
 	}
 
@@ -206,15 +206,15 @@ ScSynth! : [Object] {
 
 +Block {
 
-	OverlapTexture { :self :sustainTime :transitionTime :overlap |
-		self.OverlapTextureList(sustainTime, transitionTime, overlap)
+	overlapTexture { :self :sustainTime :transitionTime :overlap |
+		self.overlapTextureList(sustainTime, transitionTime, overlap)
 	}
 
-	OverlapTextureList { :self :sustainTime :transitionTime :overlap |
+	overlapTextureList { :self :sustainTime :transitionTime :overlap |
 		<primitive: return sc.OverlapTextureArray(_self, _sustainTime, _transitionTime, _overlap);>
 	}
 
-	XFadeTexture { :self :sustainTime :transitionTime |
+	xFadeTexture { :self :sustainTime :transitionTime |
 		<primitive: return sc.XFadeTexture(_self, _sustainTime, _transitionTime);>
 	}
 
@@ -222,27 +222,27 @@ ScSynth! : [Object] {
 
 +String {
 
-	SfAcquire { :self :numberOfChannels :channelIndices |
+	sfAcquire { :self :numberOfChannels :channelIndices |
 		<primitive: return sc.SfAcquire(_self, _numberOfChannels, _channelIndices);>
 	}
 
-	SfAcquire1 { :self :numberOfChannels :channelIndex |
-		SfAcquire(self, numberOfChannels, [channelIndex]).first
+	sfAcquire1 { :self :numberOfChannels :channelIndex |
+		sfAcquire(self, numberOfChannels, [channelIndex]).first
 	}
 
-	SfAcquireMono { :self |
-		SfAcquire(self, 1, [1]).first
+	sfAcquireMono { :self |
+		sfAcquire(self, 1, [1]).first
 	}
 
-	SfAcquireStereo { :self |
-		SfAcquire(self, 2, [1, 2])
+	sfAcquireStereo { :self |
+		sfAcquire(self, 2, [1, 2])
 	}
 
 }
 
 +List {
 
-	LocalBuf { :self |
+	localBuf { :self |
 		self.atVectorOrElementwise(uncheckedLocalBuf/1)
 	}
 
@@ -255,11 +255,11 @@ ScSynth! : [Object] {
 +Block {
 
 	!> { :self :anInteger |
-		Mix(self ! anInteger)
+		mix(self ! anInteger)
 	}
 
 	!^ { :self :anInteger |
-		Splay(self ! anInteger)
+		splay(self ! anInteger)
 	}
 
 }

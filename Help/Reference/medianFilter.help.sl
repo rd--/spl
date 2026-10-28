@@ -53,16 +53,16 @@ _r_ must be odd number from 1 to 15.
 A signal with impulse noise.
 
 ```
-let a = Saw(500) * 0.1;
-let b = Dust2(100) * 0.9;
+let a = saw(500) * 0.1;
+let b = dust2(100) * 0.9;
 a + b
 ```
 
 After applying median filter:
 
 ```
-let a = Saw(500) * 0.1;
-let b = Dust2(100) * 0.9;
+let a = saw(500) * 0.1;
+let b = dust2(100) * 0.9;
 medianFilter(a + b, 1)
 ```
 
@@ -71,8 +71,8 @@ The median length can be increased for longer duration noise.
 A signal with longer impulse noise:
 
 ```
-let a = Saw(500) * 0.1;
-let b = Lpz1(Dust2(100) * 0.9);
+let a = saw(500) * 0.1;
+let b = lpz1(dust2(100) * 0.9);
 a + b
 ```
 
@@ -81,52 +81,52 @@ a neighbourhood of three,
 does not help here because the impulses are two samples long:
 
 ```
-let a = Saw(500) * 0.1;
-let b = Lpz1(Dust2(100) * 0.9);
+let a = saw(500) * 0.1;
+let b = lpz1(dust2(100) * 0.9);
 medianFilter(a + b, 1)
 ```
 
 _r=2_ does better:
 
 ```
-let a = Saw(500) * 0.1;
-let b = Lpz1(Dust2(100) * 0.9);
+let a = saw(500) * 0.1;
+let b = lpz1(dust2(100) * 0.9);
 medianFilter(a + b, 2)
 ```
 
 Long median filters begin chopping off the peaks of the waveform:
 
 ```
-let x = SinOsc(1000, 0) * 0.1;
-XFade2(
+let x = sinOsc(1000, 0) * 0.1;
+xFade2(
 	x,
 	medianFilter(x, 15),
-	MouseX(-1, 1, 0, 0.2), 1
+	mouseX(-1, 1, 0, 0.2), 1
 )
 ```
 
 Another noise reduction application:
 
 ```
-let a = WhiteNoise();
-let b = SinOsc(800, 0);
+let a = whiteNoise();
+let b = sinOsc(800, 0);
 a + b * 0.1
 ```
 
 Use MedianFilter filter for high frequency noise:
 
 ```
-let a = WhiteNoise();
-let b = SinOsc(800, 0);
+let a = whiteNoise();
+let b = sinOsc(800, 0);
 medianFilter(a + b, 15) * 0.1
 ```
 
-Use `LeakDc` for low frequency noise:
+Use `leakDc` for low frequency noise:
 
 ```
-let a = WhiteNoise();
-let b = SinOsc(800, 0);
-LeakDc(
+let a = whiteNoise();
+let b = sinOsc(800, 0);
+leakDc(
 	medianFilter(a + b, 15),
 	0.9
 ) * 0.1

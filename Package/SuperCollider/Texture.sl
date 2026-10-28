@@ -42,8 +42,8 @@ TextureProgram : [Object] {
 			nil,
 			0
 		);
-		let amp = EnvGen(1, 1, 0, 1, 2, env);
-		Out(0, aUgen * amp)
+		let amp = envGen(1, 1, 0, 1, 2, env);
+		out(0, aUgen * amp)
 	}
 
 }

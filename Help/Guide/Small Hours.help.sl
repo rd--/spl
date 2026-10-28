@@ -11,18 +11,18 @@ and type _Ctrl-Enter_.
 ```
 /* https://sccode.org/1-4Qy ; f0 ; 0283 */
 let b = 1 / 2:6;
-let o1 = SinOscFb(
-	SinOscFb(b, 1) < b * 500 + 99,
+let o1 = sinOscFb(
+	sinOscFb(b, 1) < b * 500 + 99,
 	0
 ) / 5;
-let o2 = SinOscFb(
+let o2 = sinOscFb(
 	999 * b,
-	SinOscFb(
-		SinOscFb(b, 1) < 0.1 + 1,
+	sinOscFb(
+		sinOscFb(b, 1) < 0.1 + 1,
 		1
 	) % b
 );
-let o3 = SinOscFb(
+let o3 = sinOscFb(
 	0.1 - b,
 	1
 ).Min(0);

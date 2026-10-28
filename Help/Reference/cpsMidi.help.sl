@@ -33,14 +33,14 @@ The inverse is `midiCps`:
 Quantize continuous frequency signals:
 
 ```
-let freq = LfNoise2(
+let freq = lfNoise2(
 	[2 3]
 ) * [333 222] + [222 333];
-SinOsc(
+sinOsc(
 	freq
 	.cpsMidi
 	.round([2 3])
-	.Lag(1E-2)
+	.lag(1E-2)
 	.midiCps,
 	0
 ) * 0.1

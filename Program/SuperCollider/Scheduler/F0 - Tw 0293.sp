@@ -1,12 +1,12 @@
 /* https://sccode.org/1-4Qy ; F0 ; 0293 */
 { :currentTime :a |
 	let i = a[1];
-	let b = Saw(i); /* C.f. LfSaw */
+	let b = saw(i); /* C.f. lfSaw */
 	let d = 1 / i;
-	Release(
-		EqPan(
-			SinOscFb(
-				Duty(d, 0, Dseq(1, a * 99 / 2)),
+	release(
+		eqPan(
+			sinOscFb(
+				duty(d, 0, dseq(1, a * 99 / 2)),
 				b
 			),
 			b

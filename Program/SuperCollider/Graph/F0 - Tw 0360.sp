@@ -1,16 +1,16 @@
 /* http://sccode.org/1-4Qy (F0) ; 0360 */
-let t = SinOsc([7.992, 8], 0);
-let e = Perc(t, 0.005, 0.2, -4);
+let t = sinOsc([7.992, 8], 0);
+let e = perc(t, 0.005, 0.2, -4);
 let f = [1, 2].collect { :i |
 	let q = [
-		Dseq(240, '@BGIJB@IGBJI'.ascii),
-		Dseq(120, '@LEGJLEG'.ascii),
-		Dseq(60, 'EGJL'.ascii)
+		dseq(240, '@BGIJB@IGBJI'.ascii),
+		dseq(120, '@LEGJLEG'.ascii),
+		dseq(60, 'EGJL'.ascii)
 	];
-	Demand(t[i], 0, Dseq(1, q)).midiCps
+	demand(t[i], 0, dseq(1, q)).midiCps
 };
-let x = SinOsc(f, SinOsc(1 / [12, 9], 0) / 4 + 1 * SinOsc(f, e.pi)) * e / 2;
-FreeVerb2(x[1], x[2], 0.1, 1, 0)
+let x = sinOsc(f, sinOsc(1 / [12, 9], 0) / 4 + 1 * sinOsc(f, e.pi)) * e / 2;
+freeVerb2(x[1], x[2], 0.1, 1, 0)
 
 /* Notes:
 

@@ -28,7 +28,7 @@ Threads over lists:
 Signed square root of sine oscillator:
 
 ```
-let a = SinOsc(440, 0) * 0.1;
+let a = sinOsc(440, 0) * 0.1;
 let b = a.signedSqrt * 0.1;
 [a b]
 ```

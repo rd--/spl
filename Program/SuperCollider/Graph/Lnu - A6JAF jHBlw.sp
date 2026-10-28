@@ -1,33 +1,33 @@
 /* http://www.youtube.com/watch?v=a6JAF-jHBlw ; lnu ; requires=Fm7 */
 let m = {
-	LfTri(Rand(0, 0.005), 0) * 0.0003 + 0.5
+	lfTri(rand(0, 0.005), 0) * 0.0003 + 0.5
 };
-let v = LfTri(m(), 0) * 0.001 + 0.6;
+let v = lfTri(m(), 0) * 0.001 + 0.6;
 let c = {
-	Choose(
-		CuspN(120 * m().hypotenuse(v.tan) ^ v, 1, 1.9, 0),
+	tChoose(
+		cuspN(120 * m().hypotenuse(v.tan) ^ v, 1, 1.9, 0),
 		[0 5.1 -4.7 -12 7]
 	)
 };
 let f = { :a |
-	Fm7Matrix(
+	fm7Matrix(
 		List(
 			6,
 			[
 				(c() + a).midiCps,
 				0,
-				SinOsc(13 * v, 0) * 0.2 + ((2 * v).exp * v) / 8
+				sinOsc(13 * v, 0) * 0.2 + ((2 * v).exp * v) / 8
 			]
 		) * v,
 		List(6, List(6, m()))
 	).softClip.sum
 };
-Splay2(
+splay2(
 	[0 3.1 7.05 10 -9 17].collect { :n |
-		EqPan2(
+		eqPan2(
 			f(c() + 52 + n) * (12 * m().-).dbAmp,
-			LfNoise2(500)
+			lfNoise2(500)
 		)
 	},
 	0.5, 1, 0, true
-).transpose.Mix
+).transpose.mix

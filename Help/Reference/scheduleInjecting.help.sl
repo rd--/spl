@@ -12,16 +12,16 @@ with random inter-offset delays, durations and pan locations:
 ~~~spl scheduler
 { :currentTime :midiNoteNumber |
 	let n = midiNoteNumber;
-	Release(
-		EqPan(
-			SinOsc(
+	release(
+		eqPan(
+			sinOsc(
 				n.midiCps,
 				0
 			) * 0.1,
-			Rand(-1, 1)
+			rand(-1, 1)
 		),
 		0.01,
-		Rand(3, 7),
+		rand(3, 7),
 		0.9
 	).playAt(currentTime);
 	(n <= 72).ifTrue {

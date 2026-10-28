@@ -13,8 +13,8 @@ Two quadrant multiply.
 As amplitude envelope:
 
 ```
-WhiteNoise().amClip(
-	SinOsc(1, 0) * 0.2
+whiteNoise().amClip(
+	sinOsc(1, 0) * 0.2
 )
 ```
 

@@ -8,8 +8,8 @@ let noteList = [
 	76 88 99 124
 ];
 {
-	RingzBank(
-		Release(PinkNoise([0.001] # 2, 0), 2, 1, 2),
+	ringzBank(
+		release(pinkNoise([0.001] # 2, 0), 2, 1, 2),
 		noteList.atRandom.midiCps,
 		1,
 		ringTimes

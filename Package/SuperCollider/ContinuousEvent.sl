@@ -86,7 +86,7 @@ ContinuousEvent : [Object] {
 		1.toCollect(voice) { :each |
 			let bus = part.voicerVoiceAddress(each);
 			ContinuousEvent(
-				ControlIn(8, bus)
+				controlIn(8, bus)
 			).voiceBlock
 		}
 	}
@@ -104,7 +104,7 @@ ContinuousEvent : [Object] {
 
 	VoiceWriter { :part :numVoices :voiceBlock/0 |
 		1.toCollect(numVoices) { :voice |
-			ControlOut(
+			controlOut(
 				part.voicerVoiceAddress(voice),
 				ContinuousEvent(
 					voiceBlock()
@@ -117,47 +117,47 @@ ContinuousEvent : [Object] {
 
 +[SmallFloat, List] {
 
-	KeyDown { :voiceNumber |
+	keyDown { :voiceNumber |
 		<primitive: return sc.KeyDown(_voiceNumber);>
 	}
 
-	KeyPitch { :voiceNumber |
+	keyPitch { :voiceNumber |
 		<primitive: return sc.KeyPitch(_voiceNumber);>
 	}
 
-	KeyPressure { :voiceNumber |
+	keyPressure { :voiceNumber |
 		<primitive: return sc.KeyPressure(_voiceNumber);>
 	}
 
-	KeyTimbre { :voiceNumber |
+	keyTimbre { :voiceNumber |
 		<primitive: return sc.KeyTimbre(_voiceNumber);>
 	}
 
-	KeyVelocity { :voiceNumber |
+	keyVelocity { :voiceNumber |
 		<primitive: return sc.KeyVelocity(_voiceNumber);>
 	}
 
-	PenAngle { :voiceNumber |
+	penAngle { :voiceNumber |
 		<primitive: return sc.PenAngle(_voiceNumber);>
 	}
 
-	PenDown { :voiceNumber |
+	penDown { :voiceNumber |
 		<primitive: return sc.PenDown(_voiceNumber);>
 	}
 
-	PenRadius { :voiceNumber |
+	penRadius { :voiceNumber |
 		<primitive: return sc.PenRadius(_voiceNumber);>
 	}
 
-	PenX { :voiceNumber |
+	penX { :voiceNumber |
 		<primitive: return sc.PenX(_voiceNumber);>
 	}
 
-	PenY { :voiceNumber |
+	penY { :voiceNumber |
 		<primitive: return sc.PenY(_voiceNumber);>
 	}
 
-	PenZ { :voiceNumber |
+	penZ { :voiceNumber |
 		<primitive: return sc.PenZ(_voiceNumber);>
 	}
 

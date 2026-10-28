@@ -19,17 +19,17 @@ let freq = [
 	ctl['freq'],
 	ctl['freq'] * ctl['detune']
 ];
-let osc = Saw(freq).Release(
+let osc = saw(freq).release(
 	0,
 	1,
 	ctl['release']
 );
-let cut = XLine(
+let cut = xLine(
 	ctl['cutoff'],
 	100,
 	ctl['release']
 );
-let sig = Rlpf(
+let sig = rlpf(
 	osc,
 	cut,
 	1 / ctl['q']
@@ -124,14 +124,14 @@ let freq = [
 	ctl['freq'],
 	ctl['freq'] * ctl['detune']
 ];
-let env = Asr(
+let env = asr(
 	ctl['gate'],
 	ctl['attack'],
 	ctl['release'],
 	-4
-).FreeSelfWhenDone;
-let osc = Saw(freq) * env;
-let sig = Rlpf(
+).freeSelfWhenDone;
+let osc = saw(freq) * env;
+let sig = rlpf(
 	osc,
 	ctl['cutoff'],
 	1 / ctl['q']

@@ -2,17 +2,17 @@
 let p = 20; /* number of partials */
 let n = 4; /* number of overlapping events */
 {
-	EqPan(
-		RingzBank( /* p resonant modes */
-			Resonz(
-				Dust(100) * 0.04, /* excitation */
-				XLine(3000, 300, 8), /* sweep filter down */
+	eqPan(
+		ringzBank( /* p resonant modes */
+			resonz(
+				dust(100) * 0.04, /* excitation */
+				xLine(3000, 300, 8), /* sweep filter down */
 				0.2 /* band width ratio */
 			),
-			{ 200 + LinRand(0, 3000, 0) } ! p, /* resonant frequencies */
+			{ 200 + linRand(0, 3000, 0) } ! p, /* resonant frequencies */
 			nil, /* amplitudes default to 1.0 */
-			{ 0.2 + Rand(0, 1) } ! p /* ring times */
+			{ 0.2 + rand(0, 1) } ! p /* ring times */
 		),
-		line(Rand(-1, 1), Rand(-1, 1), 8) /* sweep pan */
+		line(rand(-1, 1), rand(-1, 1), 8) /* sweep pan */
 	)
 }.overlapTextureProgram(2, 3, n)

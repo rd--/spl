@@ -1,0 +1,24 @@
+# osc1
+
+- _osc1(table, dur)_
+
+One-shot oscillator.
+An oscillator that reads through a table only once.
+
+- table: an instance of Signal; its size must be a power of 2.
+- dur: how long to read through the table
+
+Pitch class table, linear interpolation, first slowly, then quickly, then slowly again:
+
+```
+let tbl = [0 2 10 12].localBuf;
+sinOsc((osc1(tbl, 5) + 48).midiCps, 0) * 0.1
+```
+
+* * *
+
+See also: osc
+
+Guides: Unit Generators
+
+Categories: Oscillator

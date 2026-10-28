@@ -1,0 +1,8 @@
+/* membraneCircle ; Event control */
+Voicer(1, 16) { :e |
+	let loss = linExp(e.y, 0, 1, 0.99999, 0.99950);
+	let wobble = sinOsc(2, 0);
+	let tension = linExp(e.x, 0, 1, 0.01, 0.1) + (wobble * 0.0001);
+	let env = perc(e.w, 0.0001, 1 - e.z, -4) * (e.z + (e.y / 4));
+	eqPan2(membraneCircle(pinkNoise() * env, tension, loss), e.i * 2 - 1)
+}.mix /* Cpu Load: Mac Studio M1 Max 2022: 16 voices = 33% */

@@ -15,7 +15,7 @@ For instance the SuperCollider unit generators each define a unary instances at 
 which is instead handled by `Record Constructor Syntax`:
 
 ```
-SinOsc(freq: 440, phase: 0) * 0.1
+sinOsc(freq: 440, phase: 0) * 0.1
 ```
 
 The second form allows eliding double parentheses:

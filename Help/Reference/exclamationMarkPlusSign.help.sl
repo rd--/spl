@@ -20,25 +20,25 @@ Sum randomly generated oscillators:
 ```
 { :tr |
 	{
-		let f = Choose(
+		let f = tChoose(
 			tr,
 			[48 .. 72]
 		).midiCps;
 		let ff = f * (
-			SinOsc(
-				TExpRand(4, 6, tr),
+			sinOsc(
+				tExpRand(4, 6, tr),
 				0
 			) * 0.008 + 1
 		);
-		LfSaw(
+		lfSaw(
 			ff * [
-				TRand(0.99, 1.01, tr),
-				TRand(0.99, 1.01, tr)
+				tRand(0.99, 1.01, tr),
+				tRand(0.99, 1.01, tr)
 			],
 			0
 		) * 0.01
 	} !+ 10
-}.OverlapTexture(2, 3, 4).Mix
+}.overlapTexture(2, 3, 4).mix
 ```
 
 This name of this operator is `exclamationMarkPlusSign`.

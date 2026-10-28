@@ -1,7 +1,7 @@
 +@Integer {
 
-	SparseMatrixMixer { :numOutputs :inputList :sparseMatrix |
-		let answer = List(numOutputs, Dc(0));
+	sparseMatrixMixer { :numOutputs :inputList :sparseMatrix |
+		let answer = List(numOutputs, dc(0));
 		sparseMatrix.do { :each |
 			let [inputIndex, outputIndex, gain] = each;
 			/* ['SparseMatrixMixer', each].printLine; */
@@ -155,7 +155,7 @@
 
 +List {
 
-	Mix { :self |
+	mix { :self |
 		let ruleTable = system.preference('ScSynth/Outputs/Mixer/RuleTable', [['1×2', [1, 2]]]);
 		let runList = self.collect(size/1).RunArray;
 		let derivedPrefix = runList.runLengthsAndValuesCollect { :run :value |
@@ -194,7 +194,7 @@
 					};
 					let channelCount = reindexedEntries.collect(second/1).max;
 					/* ['mixByAvailableNamedRule', channelCount, self.shape, reindexedEntries].printLine; */
-					SparseMatrixMixer(
+					sparseMatrixMixer(
 						channelCount,
 						self.catenate,
 						reindexedEntries ++ self.lowFrequencySendsSparseMatrix
@@ -209,7 +209,7 @@
 
 +List {
 
-	Splay { :inList :spread |
+	splay { :inList :spread |
 		let numberOfChannels = system.scSynth.mainOutputs;
 		let orientation = system.scSynth.mainOrientation;
 		(
@@ -222,15 +222,15 @@
 			inList
 		} {
 			(numberOfChannels = 2).if {
-				Splay2(inList, spread, 1, 0, true)
+				splay2(inList, spread, 1, 0, true)
 			} {
-				SplayAz(numberOfChannels, inList, spread, 1, 2, 0, orientation, true)
+				splayAz(numberOfChannels, inList, spread, 1, 2, 0, orientation, true)
 			}
 		}
 	}
 
-	Splay { :inList |
-		Splay(inList, 1)
+	splay { :inList |
+		splay(inList, 1)
 	}
 
 	optimisedSum { :self |
@@ -250,13 +250,13 @@
 
 +[Ugen, List] {
 
-	EqPan { :input :position |
+	eqPan { :input :position |
 		let numberOfChannels = system.scSynth.mainOutputs;
 		let orientation = system.scSynth.mainOrientation;
 		(numberOfChannels = 2).if {
-			EqPan2(input, position)
+			eqPan2(input, position)
 		} {
-			PanAz(numberOfChannels, input, position, 1, 2, orientation)
+			panAz(numberOfChannels, input, position, 1, 2, orientation)
 		}
 	}
 

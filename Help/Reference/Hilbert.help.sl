@@ -10,7 +10,7 @@ Due to the method used, distortion occurs in the upper octave of the frequency s
 
 * * *
 
-See also: FreqShift
+See also: freqShift
 
 Guides: Unit Generators
 

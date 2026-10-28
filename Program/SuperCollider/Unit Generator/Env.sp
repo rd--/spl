@@ -4,26 +4,26 @@ let times = [4 2 1];
 let curves = 2;
 let env = Env(levels, times, curves, nil, nil, 0);
 let freq = env.asEnvGen(1);
-SinOsc(freq, 0) * 0.1
+sinOsc(freq, 0) * 0.1
 
-/* Env ; EnvGen */
+/* Env ; envGen */
 let e = Env([440 440 324 10000], [4 2 1], 2, nil, nil, 0);
-let f = EnvGen(1, 1, 0, 1, 2, e);
-SinOsc(f, 0) * 0.1
+let f = envGen(1, 1, 0, 1, 2, e);
+sinOsc(f, 0) * 0.1
 
 /* Env ; circle */
 let env = Env([6000 700 100], [1 1], ['exp' 'lin'], nil, nil, 0).circle(0, 'lin');
-SinOsc(
+sinOsc(
 	env.asEnvGen(1),
 	0
-) * 0.1 + Impulse(1, 0)
+) * 0.1 + impulse(1, 0)
 
 /* Env ; circle */
 let env = Env([6000 700 100], [1 1], ['exp' 'lin'], nil, nil, 0).circle(1, 'lin');
-SinOsc(
-	env.asEnvGen(MouseX(-1, 1, 0, 0.2)),
+sinOsc(
+	env.asEnvGen(mouseX(-1, 1, 0, 0.2)),
 	0
-) * 0.1 + Impulse(1, 0)
+) * 0.1 + impulse(1, 0)
 
 /* Env ; requires=keywords */
 let e = Env(
@@ -34,7 +34,7 @@ let e = Env(
 	loopNode: nil,
 	offset: 0
 );
-let f = EnvGen(
+let f = envGen(
 	gate: 1,
 	levelScale: 1,
 	levelBias: 0,
@@ -42,7 +42,7 @@ let f = EnvGen(
 	doneAction: 2,
 	envelope: e
 );
-SinOsc(
+sinOsc(
 	freq: f,
 	phase: 0
 ) * 0.1
@@ -50,4 +50,4 @@ SinOsc(
 /* Env ; asEnvGenWithDoneAction */
 let e = Env([440 440 324 10000], [4 2 1], 2, nil, nil, 0);
 let f = e.asEnvGenWithDoneAction(1, 2);
-SinOsc(f, 0) * 0.1
+sinOsc(f, 0) * 0.1

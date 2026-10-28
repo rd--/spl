@@ -61,26 +61,26 @@ Threads over lists:
 Different moduli:
 
 ```
-let o = LfSaw(10, 0);
+let o = lfSaw(10, 0);
 let d = o.modularDistance(
 	0,
-	[0 .. 8] * MouseX(0, 1 / 5, 0, 0.2)
+	[0 .. 8] * mouseX(0, 1 / 5, 0, 0.2)
 );
-SinOsc(d * 4000 + 400, 0).Splay * 0.1
+sinOsc(d * 4000 + 400, 0).splay * 0.1
 ```
 
 Wrapping amplitude crossfade:
 
 ```
 let n = 12;
-let o = SinOsc(RandN(n, 300, 800), 0);
-let x = MouseX(0, n * 2, 0, 0.2);
+let o = sinOsc(randN(n, 300, 800), 0);
+let x = mouseX(0, n * 2, 0, 0.2);
 let d = modularDistance(
 	x,
 	[0 .. n - 1],
 	n
 );
-(o * (1 - d).max(0)).Splay * 0.1
+(o * (1 - d).max(0)).splay * 0.1
 ```
 
 * * *

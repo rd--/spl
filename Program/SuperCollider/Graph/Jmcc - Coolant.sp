@@ -1,7 +1,7 @@
 /* Coolant (Jmcc) #2 ; Graph rewrite ; requires=XFadeTexture */
-let o = OnePole(BrownNoise() * 0.002, 0.95);
+let o = onePole(brownNoise() * 0.002, 0.95);
 { :tr |
 	{
-		Ringz(o, 40 + TRand(0, 2000, tr), 1) * 0.5
+		ringz(o, 40 + tRand(0, 2000, tr), 1) * 0.5
 	} !^ 10
-}.XFadeTexture(4, 4)
+}.xFadeTexture(4, 4)

@@ -1,6 +1,6 @@
 # !^ (exclamationMarkCircumflexAccent)
 
-- _alpha !^ beta_ ⟹ _(alpha ! beta).Splay_
+- _alpha !^ beta_ ⟹ _(alpha ! beta).splay_
 
 Duplicate and distribute.
 Names the idiom of generating an array and distributing it across the main ouput channels.
@@ -8,26 +8,26 @@ Names the idiom of generating an array and distributing it across the main ouput
 ```
 { :tr |
 	{
-		let f = Choose(
+		let f = tChoose(
 			tr,
 			[48 .. 72]
 		).midiCps;
 		let ff = f * (
-			SinOsc(
-				TExpRand(4, 6, tr),
+			sinOsc(
+				tExpRand(4, 6, tr),
 				0
 			) * 0.008 + 1
 		);
-		LfSaw(
-			ff * TRand(0.99, 1.01, tr),
+		lfSaw(
+			ff * tRand(0.99, 1.01, tr),
 			0
 		) * 0.05
 	} !^ 10
-}.OverlapTexture(2, 3, 4).Mix
+}.overlapTexture(2, 3, 4).mix
 ```
 
 The name of this operator is `exclamationMarkCircumflexAccent`.
 
 * * *
 
-See also: Splay, !, !+
+See also: splay, !, !+

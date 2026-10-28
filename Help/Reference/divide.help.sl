@@ -194,7 +194,7 @@ At `Symbol`:
 Quiet and quieter pink noise:
 
 ```
-PinkNoise() / [10 25]
+pinkNoise() / [10 25]
 ```
 
 Plot equal divisions of the unit interval _(0,1)_,

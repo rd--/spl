@@ -2,9 +2,9 @@
 let x = line(0, [0.9, 1], 30);
 5.timesRepeat {
 	let o/1 = [
-		{ :f | Saw(f) },
-		{ :f | SinOsc(f, 0) },
-		{ :f | Pulse(f, 0.5) }
+		{ :f | saw(f) },
+		{ :f | sinOsc(f, 0) },
+		{ :f | pulse(f, 0.5) }
 	].atRandom;
 	x := o(x.linLin(-1, 1, 10, 1000))
 };

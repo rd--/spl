@@ -1,42 +1,42 @@
 /* https://fredrikolofsson.com/f0blog/sapf-sctweets/ 0428 */
 let b = [1 .. 9];
 let g = 1 / b;
-Splay(
-	7 ^ SinOsc(
+splay(
+	7 ^ sinOsc(
 		g / 99,
 		0
-	) / 9 * SinOsc(
-		999 * b.shuffle / Rlpf(
-			Latch(
-				WhiteNoise().round(0.5) + 2,
-				BrownNoise() + 1.4 > SinOsc(
+	) / 9 * sinOsc(
+		999 * b.shuffle / rlpf(
+			latch(
+				whiteNoise().round(0.5) + 2,
+				brownNoise() + 1.4 > sinOsc(
 					b / 999,
 					0
 				)
 			),
-			9 ^ SinOsc(g
+			9 ^ sinOsc(g
 				* 9,
 				0
 			) * 999,
-			SinOsc(
+			sinOsc(
 				b / 77,
 				0
 			) / 2 + 0.6
 		),
 		0
-	) * Rlpf(
-		Latch(
-			WhiteNoise(),
-			BrownNoise() + 1.3 > SinOsc(
+	) * rlpf(
+		latch(
+			whiteNoise(),
+			brownNoise() + 1.3 > sinOsc(
 				b / 99,
 				0
 			)
 		),
-		9 ^ SinOsc(
+		9 ^ sinOsc(
 			g,
 			0
 		) * 999,
-		SinOsc(
+		sinOsc(
 			b / 88,
 			0
 		) / 2 + 0.6

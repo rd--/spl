@@ -1,23 +1,23 @@
 /* https://fredrikolofsson.com/f0blog/sapf-sctweets/ 0327 */
 (
-	SinOsc(
+	sinOsc(
 		0,
-		SinOsc(
+		sinOsc(
 			99,
-			9 ^ SinOsc(
+			9 ^ sinOsc(
 				1 / 8,
-				LagUd(
-					SinOsc(
+				lagUd(
+					sinOsc(
 						1 / [2, 12],
 						0
-					) < 0 * 2 ^ SinOsc(
-						SinOsc(3, 0) > 0 * 150,
+					) < 0 * 2 ^ sinOsc(
+						sinOsc(3, 0) > 0 * 150,
 						0
 					),
 					1 / 50,
 					1 / 5
 				) * 5
 			)
-		) + SinOsc(1 / [6, 7], 0)
+		) + sinOsc(1 / [6, 7], 0)
 	) * 3
 ).tanh

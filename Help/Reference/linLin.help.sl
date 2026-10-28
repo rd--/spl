@@ -13,8 +13,8 @@ Maps a linear range of values to another linear range of values.
 Map oscillator to frequency:
 
 ```
-let mod = SinOsc(line(1, 10, 10), 0);
-SinOsc(
+let mod = sinOsc(line(1, 10, 10), 0);
+sinOsc(
 	linLin(mod, -1, 1, 100, 900),
 	0
 ) * 0.1
@@ -23,13 +23,13 @@ SinOsc(
 Modulating destination values:
 
 ```
-let mod = LfNoise2(80);
-SinOsc(
+let mod = lfNoise2(80);
+sinOsc(
 	mod.linLin(
 		-1,
 		1,
-		MouseX(200, 8000, 1, 0.2),
-		MouseY(200, 8000, 1, 0.2)
+		mouseX(200, 8000, 1, 0.2),
+		mouseY(200, 8000, 1, 0.2)
 	),
 	0
 ) * 0.1
@@ -38,13 +38,13 @@ SinOsc(
 Modulating source and destination values:
 
 ```
-let mod = LfNoise2(80);
-SinOsc(
+let mod = lfNoise2(80);
+sinOsc(
 	mod.linLin(
-		SinOsc(0.2, 0),
-		SinOsc(0.2543, 0),
-		MouseX(200, 8000, 1, 0.2),
-		MouseY(200, 8000, 1, 0.2)
+		sinOsc(0.2, 0),
+		sinOsc(0.2543, 0),
+		mouseX(200, 8000, 1, 0.2),
+		mouseY(200, 8000, 1, 0.2)
 	),
 	0
 ) * 0.1
@@ -53,8 +53,8 @@ SinOsc(
 Rescale low-frequency sawtooth oscillator output as frequency control:
 
 ```
-let f = LfSaw(1, 1).linLin(-1, 1, 220, 440);
-SinOsc(f.Lag(0.05), 0) * 0.1
+let f = lfSaw(1, 1).linLin(-1, 1, 220, 440);
+sinOsc(f.lag(0.05), 0) * 0.1
 ```
 
 At `SmallFloat`:

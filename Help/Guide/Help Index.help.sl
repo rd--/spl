@@ -467,8 +467,8 @@ Reference (A-Z):
 - `EnvGen`
 - `EnvTrapezoid`
 - `EpanechnikovDistribution`
-- `EqPan`
-- `EqPan2`
+- `eqPan`
+- `eqPan2`
 - `Equal`
 - `Error`
 - `Exception`
@@ -720,7 +720,7 @@ Reference (A-Z):
 - `OscMessage`
 - `OscParameter`
 - `Out`
-- `OverlapTexture`
+- `overlapTexture`
 - `Package`
 - `Pan2`
 - `PanAz`
@@ -736,7 +736,7 @@ Reference (A-Z):
 - `Phasor`
 - `Piecewise`
 - `PingPongDelay`
-- `PinkNoise`
+- `pinkNoise`
 - `Pitch`
 - `PitchShift`
 - `PlanarCoordinates`
@@ -953,7 +953,7 @@ Reference (A-Z):
 - `bufIndexWrap`
 - `Writing`
 - `XFade2`
-- `XFadeTexture`
+- `xFadeTexture`
 - `XLine`
 - `ZeroCrossing`
 

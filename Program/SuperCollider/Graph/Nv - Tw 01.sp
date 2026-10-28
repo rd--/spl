@@ -1,7 +1,7 @@
 /* http://sccode.org/1-V (Nv) L1 */
-let a = PinkNoise([1] # 2, 0);
+let a = pinkNoise([1] # 2, 0);
 50.timesRepeat {
-	let f = linExp(LfNoise1(Rand(0, 0.05)), -1, 1, 40, 15000);
-	a := BBandStop(a, f, expRand(0.1, 2))
+	let f = linExp(lfNoise1(rand(0, 0.05)), -1, 1, 40, 15000);
+	a := bBandStop(a, f, expRand(0.1, 2))
 };
-Lpf(a, 100000)
+lpf(a, 100000)

@@ -2,8 +2,8 @@
 {
 	let n = 60;
 	{
-		SinOscBank(
-			{ 40 + LinRand(0, 10000, 0) } ! n,
+		sinOscBank(
+			{ 40 + linRand(0, 10000, 0) } ! n,
 			nil,
 			nil
 		)

@@ -6,15 +6,15 @@ Bilateral folding.
 Folds _a_ to +/- _b_.
 
 ```
-SinOsc(1000, 0)
+sinOsc(1000, 0)
 .bilateralFold(line(0, 1, 23)) / 3
 ```
 
-Using `SinOsc`:
+Using `sinOsc`:
 
 ```
-SinOsc(55, 0).bilateralFold(
-	SinOsc(0.5, 0)
+sinOsc(55, 0).bilateralFold(
+	sinOsc(0.5, 0)
 	.linLin(-1, 1, 0.2, 4)
 )
 ```
@@ -22,17 +22,17 @@ SinOsc(55, 0).bilateralFold(
 High frequencies:
 
 ```
-let o = SinOsc(
+let o = sinOsc(
 	[9333, 12111],
 	[0, 5 / 1.pi]
 ).bilateralFold(
-	SinOsc(
+	sinOsc(
 		[0.51, 0.37],
 		0
 	).linLin(-1, 1, 0, [0.1, 0.3])
 );
-let e = SinOsc(
-	[7, 11] * SinOsc(
+let e = sinOsc(
+	[7, 11] * sinOsc(
 		[0.5, 0.33],
 		0
 	).linLin(-1, 1, 1, [3, 4]),

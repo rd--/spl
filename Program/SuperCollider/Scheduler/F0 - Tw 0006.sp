@@ -1,16 +1,16 @@
 /* https://sccode.org/1-4Qy ; f0 ; 0006 */
 { :nextDelay |
-	let n = MoogFf(
-		ClipNoise() * 0.4,
-		LfPar(
-			{ Rand(0, 0.3) } ! 2,
+	let n = moogFf(
+		clipNoise() * 0.4,
+		lfPar(
+			{ rand(0, 0.3) } ! 2,
 			0
 		) * 600 + 990,
 		2,
 		0
 	);
-	Release(
-		GVerb(n, 9, 9, 1, 0.5, 15, 1, 0.7, 0.5, 300),
+	release(
+		gVerb(n, 9, 9, 1, 0.5, 15, 1, 0.7, 0.5, 300),
 		3, 0, 19
 	).sum * 0.1
 }.playEvery {

@@ -18,14 +18,14 @@ At `SmallFloat`:
 Fixed clipping:
 
 ```
-SinOsc(400, 0)
+sinOsc(400, 0)
 .bilateralClip(0.2)
 ```
 
 Time varying clipping:
 
 ```
-SinOsc(1000, 0)
+sinOsc(1000, 0)
 .bilateralClip(
 	line(0, 1, 23)
 ) / 2

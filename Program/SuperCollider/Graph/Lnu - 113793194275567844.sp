@@ -3,17 +3,17 @@ let f = 443;
 let s = [0 2 4 6 7 9 11];
 let m = s.degreeToKey([-14 .. 14; 2], 12);
 let p = m.midiRatio;
-Splay2(
-	SinOsc(
+splay2(
+	sinOsc(
 		f / 2 * p,
 		(
-			SinOsc(
-				f * p * (SinOsc(p, 0) * 0.01 + 1),
+			sinOsc(
+				f * p * (sinOsc(p, 0) * 0.01 + 1),
 				0
-			) * SinOsc(
+			) * sinOsc(
 				p / p.radiansToDegrees,
 				0
 			)
 		).max(0) ^ 2 * 1.pi
-	) * SinOsc(p.degreesToRadians, 0).max(0) / 3
+	) * sinOsc(p.degreesToRadians, 0).max(0) / 3
 )

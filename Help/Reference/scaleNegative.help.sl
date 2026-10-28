@@ -8,7 +8,7 @@ Scale negative part of input,
 as a waveshaping function:
 
 ```
-SinOsc(500, 0)
+sinOsc(500, 0)
 .scaleNegative(
 	line(1, -1, 7)
 ) / 7

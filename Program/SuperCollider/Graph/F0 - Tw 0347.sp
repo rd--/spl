@@ -2,9 +2,9 @@
 [0 .. 29].collect { :i |
 	let c = i / 48;
 	let b = c / 72;
-	VarSaw(
-		(LfSaw(c, 0) * LfSaw(b, 0) * 8 + 9).round(i % 9 + 1) * 25 + c,
+	varSaw(
+		(lfSaw(c, 0) * lfSaw(b, 0) * 8 + 9).round(i % 9 + 1) * 25 + c,
 		c,
-		LfSaw(3, i) + 1 / 3
-	) * (LfSaw(b, i / 1.pi) % 1) / 2
-}.Splay
+		lfSaw(3, i) + 1 / 3
+	) * (lfSaw(b, i / 1.pi) % 1) / 2
+}.splay

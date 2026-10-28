@@ -217,7 +217,7 @@ At `Ugen`:
 ```
 let l = line(48, 57, 23);
 let f = [l, l.round(1)].midiCps;
-SinOsc(f, 0) * 0.1
+sinOsc(f, 0) * 0.1
 ```
 
 Plot the function over a subset of the reals

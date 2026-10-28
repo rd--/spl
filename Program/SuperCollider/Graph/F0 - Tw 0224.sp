@@ -1,6 +1,6 @@
 /* Tw 0224 (F0) ; http://www.fredrikolofsson.com/f0blog/?q=node/617 */
 let c = 200000;
-let b = BufAlloc(2, c).BufClear;
-let d = BufRd(2, b, SinOsc([2 3] * 9, 0) * c, 0, 2);
-let w = BufWr(b, SinOsc([99 145], 0).abs * c, 1, SinOsc(3 / [2 3], 0) / 3);
-d.transpose.Mix * 0.5 <! w
+let b = bufAlloc(2, c).bufClear;
+let d = bufRd(2, b, sinOsc([2 3] * 9, 0) * c, 0, 2);
+let w = bufWr(b, sinOsc([99 145], 0).abs * c, 1, sinOsc(3 / [2 3], 0) / 3);
+d.transpose.mix * 0.5 <! w

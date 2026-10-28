@@ -2,13 +2,13 @@
 let x = [4 4.5; 2 3 5 6];
 let z = x *.x (x *.x x).tuples;
 let y = (z * 4).++.clump(2) ++ [0];
-let f = Duty(1 / 5, 0, Dseq(Infinity, y));
-GVerb(
-	VarSaw(
+let f = duty(1 / 5, 0, dseq(Infinity, y));
+gVerb(
+	varSaw(
 		f, 0, 0.9
-	) * LfPulse(
+	) * lfPulse(
 		5, 0, 0.5
-	).Lag(0.01),
+	).lag(0.01),
 	99, 5, 0.5, 0.5, 15,
 	1, 0.7, 0.5, 300
-).transpose.Mix / 15
+).transpose.mix / 15

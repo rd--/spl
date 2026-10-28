@@ -28,9 +28,9 @@ let genScale = { :ratio |
 	}
 };
 let notes = 48 + genScale(3 / 2);
-let amps = { Rand(0, 0.1) } ! 12;
-Splay(
-	SinOsc(notes.midiCps, 0) * amps
+let amps = { rand(0, 0.1) } ! 12;
+splay(
+	sinOsc(notes.midiCps, 0) * amps
 )
 ```
 

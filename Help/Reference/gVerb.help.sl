@@ -1,0 +1,37 @@
+# gVerb
+
+- _gVerb(in, roomSize=10, revTime=3, damping=0.5, inputBw=0.5, spread=15, dryLevel=1, earlyRefLevel=0.7, tailLevel=0.5, maxRoomSize=300)_
+
+A two-channel reverb Ugen, based on the _gVerb_ Ladspa effect by Juhana Sadeharju.
+
+- in: mono input.
+- roomSize: in squared meters.
+- revTime: in seconds.
+- damping: high frequency rolloff, 0 damps completely, 1 not at all.
+- inputBw: same as damping control, but on the input signal.
+- spread: a control on the stereo spread and diffusion of the reverb signal.
+- dryLevel: amount of dry signal.
+- earlyRefLevel: amount of early reflection level.
+- tailLevel: amount of tail level.
+- maxRoomSize: to set the size of the delay lines. Defaults to roomsize + 1.
+
+Stereo decayed impulses, reverberated:
+
+```
+let i = impulse([0.5 1 2], 0);
+let c = lfCub([300 900 1200], 0);
+let s = decay(i, [0.1 0.05 0.25]) * c * 0.05;
+gVerb(s, 10, 3, 0.5, 0.5, 15, 1, 0.7, 0.5, 300).mix
+```
+
+* * *
+
+See also: freeVerb, freeVerb2
+
+Guides: Unit Generators
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/GVerb.html)
+
+Categories: UGen, Reverb

@@ -214,8 +214,8 @@ At `Ugen`,
 modulates and envelopes:
 
 ```
-let z = SinOsc(500, 0);
-z.min(SinOsc(0.1, 0)) * 0.1
+let z = sinOsc(500, 0);
+z.min(sinOsc(0.1, 0)) * 0.1
 ```
 
 Range of digits of _n_,

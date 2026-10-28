@@ -8,16 +8,16 @@
 - end: ending value
 - dur: duration in seconds
 
-Sweep oscillator frequency:
+sweep oscillator frequency:
 
 ```
-SinOsc(line(200, 17000, 10), 0) * 0.1
+sinOsc(line(200, 17000, 10), 0) * 0.1
 ```
 
 Diverging frequencies:
 
 ```
-SinOsc(
+sinOsc(
 	line(
 		[900 1100],
 		[200 1300],
@@ -27,17 +27,17 @@ SinOsc(
 ) * 0.1
 ```
 
-`XLine` is usually better than `line` for frequency:
+`xLine` is usually better than `line` for frequency:
 
 ```
-SinOsc(XLine(200, 17000, 10), 0) * 0.1
+sinOsc(xLine(200, 17000, 10), 0) * 0.1
 ```
 
 _Note_: This is the SuperCollider _Line_ Ugen without the _doneAction_ input.
 
 * * *
 
-See also: XLine
+See also: xLine
 
 Guides: Unit Generators
 

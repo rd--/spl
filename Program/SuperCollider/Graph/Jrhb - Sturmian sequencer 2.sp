@@ -13,12 +13,12 @@ let n = 7;
 [0 .. n - 1].collect { :i |
 	let str = rewrite([0], i + 6);
 	let dt = 2 ^ (n - i).negate * 20;
-	let trig = TDuty(dt, 0, Dseq(1, str));
-	let freq = TExpRand(200, (n - i) / n * 10100, trig);
-	let trigFlt = Bpf(trig, LfNoise2(0.1) * 0.02 + 1 * freq, 0.2);
-	Ringz(
+	let trig = tDuty(dt, 0, dseq(1, str));
+	let freq = tExpRand(200, (n - i) / n * 10100, trig);
+	let trigFlt = bpf(trig, lfNoise2(0.1) * 0.02 + 1 * freq, 0.2);
+	ringz(
 		trigFlt,
 		freq * [1, 1.1, 1.2],
 		expRand(2 ^ i.negate * 0.1, 0.5)
 	).sum.distort
-}.Splay * 0.5
+}.splay * 0.5

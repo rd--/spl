@@ -2,7 +2,7 @@
 let numPartials = 40;
 Voicer(1, 16) { :e |
 	let baseFreq = (e.x * 25 + 48).midiCps;
-	let sig = Decay(K2A(e.w) * 0.1, 0.001) * PinkNoise();
+	let sig = decay(k2A(e.w) * 0.1, 0.001) * pinkNoise();
 	let rat = [
 		1 1.125 1.25 1.333 1.5 1.666 1.875
 		2 2.25 2.5 2.666 3 3.333 3.75
@@ -15,9 +15,9 @@ Voicer(1, 16) { :e |
 		256 288 320 341.333
 	];
 	let freq = { baseFreq * rat.atRandom } ! numPartials;
-	let amp = { Rand(0.1, 0.9) } ! numPartials;
-	let dcy = { Rand(0.5, 9) } ! numPartials;
-	let osc = DynRingzBank(sig, freq, amp, dcy);
-	let env = LagUd(e.w * e.z, 0.5, 8).kr * 0.1 * numPartials.reciprocal; /* Note .kr! */
-	EqPan2(osc, e.i * 2 - 1) * env
-}.Mix
+	let amp = { rand(0.1, 0.9) } ! numPartials;
+	let dcy = { rand(0.5, 9) } ! numPartials;
+	let osc = dynRingzBank(sig, freq, amp, dcy);
+	let env = lagUd(e.w * e.z, 0.5, 8).kr * 0.1 * numPartials.reciprocal; /* Note .kr! */
+	eqPan2(osc, e.i * 2 - 1) * env
+}.mix

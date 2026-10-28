@@ -5,15 +5,15 @@
 Autocorrelation pitch follower.
 Returns two signals, _freq_ and _hasFreq_.
 
-This is a better pitch follower than `ZeroCrossing`, but more costly of CPU.
+This is a better pitch follower than `zeroCrossing`, but more costly of CPU.
 For most purposes the default settings can be used and only in needs to be supplied.
 
 Track sine oscillator:
 
 ```
-let x = MouseX(220, 660, 0, 0.1);
-let y = MouseY(0.01, 0.1, 0, 0.1);
-let z = SinOsc(x, 0) * y;
+let x = mouseX(220, 660, 0, 0.1);
+let y = mouseY(0.01, 0.1, 0, 0.1);
+let z = sinOsc(x, 0) * y;
 let f = pitchFollower(
 	z,
 	440, 60, 4000, 100,
@@ -22,13 +22,13 @@ let f = pitchFollower(
 	0.02, 0.5,
 	1, 0
 );
-[z, SinOsc(f.first / 2, 0) * 0.1]
+[z, sinOsc(f.first / 2, 0) * 0.1]
 ```
 
 Track audio input, __use headphones__:
 
 ```
-let z = AudioIn([1, 2]).sum;
+let z = audioIn([1, 2]).sum;
 let f = pitchFollower(
 	z,
 	440, 60, 4000, 100,
@@ -37,16 +37,16 @@ let f = pitchFollower(
 	0.02, 0.5,
 	1, 0
 );
-let s = VarSaw(
+let s = varSaw(
 	f.first * [0.5, 1, 2],
 	0,
-	LfNoise1(0.3) * 0.1 + 0.1
+	lfNoise1(0.3) * 0.1 + 0.1
 ) * 0.1;
 6.timesRepeat {
-	s := AllpassN(
+	s := allpassN(
 		s,
 		0.040,
-		{ Rand(0, 0.04) } ! 2,
+		{ rand(0, 0.04) } ! 2,
 		2
 	)
 };
@@ -55,7 +55,7 @@ s
 
 * * *
 
-See also: Amplitude
+See also: amplitude
 
 Guides: Unit Generators
 

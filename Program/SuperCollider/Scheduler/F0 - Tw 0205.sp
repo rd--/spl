@@ -1,10 +1,10 @@
 /* https://sccode.org/1-4Qy ; F0 ; 0205 */
 { :currentTime :frequencies |
-	let oscillators = SinOsc(
-		Duty(1 / [8 9], 0, Dseq(99, frequencies)),
+	let oscillators = sinOsc(
+		duty(1 / [8 9], 0, dseq(99, frequencies)),
 		0
 	);
-	Release(
+	release(
 		oscillators * 0.1,
 		0.02, 0, 9
 	).playAt(currentTime);

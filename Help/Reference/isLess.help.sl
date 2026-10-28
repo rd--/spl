@@ -79,8 +79,8 @@ At `Ugen`,
 amplitude modulated pink noise:
 
 ```
-PinkNoise()
-* Lag(LfSaw(1, -1) < 0, 0.1)
+pinkNoise()
+* lag(lfSaw(1, -1) < 0, 0.1)
 * 0.05
 ```
 

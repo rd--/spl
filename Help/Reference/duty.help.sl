@@ -1,0 +1,143 @@
+# duty
+
+- _duty(dur=1, reset=0, level=1)_
+
+demand results from demand rate ugens.
+
+A value is demanded of _level_ and output according to a stream of duration values.
+
+When there is a trigger at the reset input, _dur_ and _level_ are reset.
+
+The reset input may also be a demand Ugen, providing a stream of reset times.
+
+- dur: time values, the next level is acquired after duration
+- reset: resets _level_ and _dur_ when triggered.
+- level: demand Ugen providing the output values
+
+demand Ugen as durations:
+
+```
+let freq = duty(
+	drand(Infinity, [0.01 0.2 0.4]),
+	0,
+	dseq(Infinity, [204 400 201 502 300 200])
+).lag(0.2);
+sinOsc(freq * [1 1.01], 0) * 0.1
+```
+
+Control rate ugen as durations:
+
+```
+let freq = duty(
+	mouseX(0.001, 2, 1, 0.2),
+	0,
+	dseq(Infinity, [204 400 201 502 300 200])
+);
+sinOsc(freq * [1 1.01], 0) * 0.1
+```
+
+Control rate resetting the demand ugens:
+
+```
+let freq = duty(
+	dseq(
+		Infinity,
+		[
+			0.2,
+			0.3,
+			0.4,
+			dseq(Infinity, [1 1 1 2 1 2])
+		]
+	) / 2,
+	dust(1).kr,
+	dseq(Infinity, [0, 1, 2, dseq(Infinity, [1 .. 5])])
+) * 30 + 250;
+sinOsc(freq * [1 1.01], 0) * 0.1
+```
+
+demand rate reset:
+
+```
+let freq = duty(
+	dseq(
+		Infinity,
+		[
+			0.2,
+			0.3,
+			0.4,
+			dseq(Infinity, [1 1 1 2 1 2])
+		]
+	) / 2,
+	dseq(Infinity, [1 2 4 5]),
+	dseq(Infinity, [0, 1, 2, dseq(Infinity, [1 .. 5])])
+) * 30 + 250;
+sinOsc(freq * [1 1.01], 0) * 0.1
+```
+
+demand Ugen as audio oscillator:
+
+```
+let n = 5;
+let m = 32;
+let a = {
+	let r = {
+		(-0.2 -- 0.2).atRandom
+	} ! m;
+	let x = [
+		r,
+		{
+			let r = {
+				(-0.2 -- 0.2).atRandom
+			} ! n;
+			drand(
+				1,
+				r
+			)
+		} ! m.atRandom.round
+	].++;
+	dseq(Infinity, x.scramble)
+} ! n;
+duty(
+	(
+		mouseX(1, 125, 1, 0.2)
+		*
+		sampleDur()
+		*
+		[1, 1.02]
+	),
+	0,
+	dswitch1(
+		mouseY(0, n - 1, 0, 0.2),
+		a
+	)
+)
+```
+
+With non-demand inputs:
+
+```
+let freq = lfNoise2(1).linLin(
+	-1, 1, 111, 555
+);
+let latchFreq = duty(
+	mouseX(0.1, 1, 1, 0.2),
+	0,
+	freq
+);
+sinOsc(
+	[freq, latchFreq],
+	0
+) * 0.1
+```
+
+* * *
+
+See also: latch, tDuty
+
+Guides: Unit Generators
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Duty.html)
+
+Categories: Ugen

@@ -12,18 +12,18 @@ The expression below schedules random sine tones of random durations at random i
 
 ~~~spl scheduler
 { :currentTime |
-	Release(
-		Pan2(
-			SinOsc(
-				IRand(48, 72).midiCps,
+	release(
+		pan2(
+			sinOsc(
+				iRand(48, 72).midiCps,
 				0
 			),
-			Rand(-1, 1),
-			Rand(0, 0.1)
+			rand(-1, 1),
+			rand(0, 0.1)
 		),
-		Rand(0, 1),
-		Rand(1, 2),
-		Rand(2, 3)
+		rand(0, 1),
+		rand(1, 2),
+		rand(2, 3)
 	).playAt(currentTime);
 	(1 -- 1.5).atRandom
 }.schedule

@@ -1,13 +1,13 @@
 /* https://sccode.org/1-4Qy ; F0 ; 0003 */
 { :nextDelay |
-	let t = SinOsc(Rand(99, 999), 0).abs;
-	let o = Formlet(
-		TDuty(t, 0, t),
-		LinRand(0, 4000, 0),
+	let t = sinOsc(rand(99, 999), 0).abs;
+	let o = formlet(
+		tDuty(t, 0, t),
+		linRand(0, 4000, 0),
 		t,
 		1 - t
 	);
-	Release(
+	release(
 		[o o],
 		0.02, nextDelay, 39
 	)

@@ -28,26 +28,26 @@ the speed of sound is 344 m/s:
 
 ```
 let x = 10;
-let y = LfSaw(1 / 6, 0) * 100;
+let y = lfSaw(1 / 6, 0) * 100;
 let distance = hypotenuse(x, y);
-let velocity = Slope(distance);
+let velocity = slope(distance);
 let pitchRatio = (344 - velocity) / 344;
 let amplitude = 10 / distance.square;
-SinOsc(1000 * pitchRatio, 0) * amplitude
+sinOsc(1000 * pitchRatio, 0) * amplitude
 ```
 
 The next example uses the distance to modulate a delay line:
 
 ```
 let x = 10;
-let y = LfSaw(1 / [6, 11], [0, 1]) * 100;
+let y = lfSaw(1 / [6, 11], [0, 1]) * 100;
 let distance = hypotenuse(x, y);
 let amplitude = 40 / distance.square;
-let motorSound = Rlpf(
-	SinOsc(
+let motorSound = rlpf(
+	sinOsc(
 		200,
 		0
-	) * LfPulse(
+	) * lfPulse(
 		[31.3, 23.1],
 		0,
 		0.4
@@ -55,7 +55,7 @@ let motorSound = Rlpf(
 	400,
 	0.3
 );
-DelayL(
+delayL(
 	motorSound,
 	110 / 344,
 	distance / 344

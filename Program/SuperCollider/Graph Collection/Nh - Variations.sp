@@ -1,17 +1,17 @@
 /* https://gist.github.com/nhthn/8f0dcc1c85e662fe5bf7d0132155c0af (nh) */
-let freqScale = MouseY(0.01, 3, 1, 0.2);
-let snd = LocalIn(4, 0);
-let freq = 3000 * freqScale + ((Lpf(snd, 0.1) * 100) * [1000, 1500, 1200, 1100]);
-snd := Rlpf(Saw(Lpf(freq.abs, 1) * snd), 1000 * freqScale + (900 * snd), snd.abs + 0.01);
-snd := SelectT(
-	PulseDivider(Bpf(snd, 0.1, 0.1), 1000, 0),
+let freqScale = mouseY(0.01, 3, 1, 0.2);
+let snd = localIn(4, 0);
+let freq = 3000 * freqScale + ((lpf(snd, 0.1) * 100) * [1000, 1500, 1200, 1100]);
+snd := rlpf(saw(lpf(freq.abs, 1) * snd), 1000 * freqScale + (900 * snd), snd.abs + 0.01);
+snd := selectT(
+	pulseDivider(bpf(snd, 0.1, 0.1), 1000, 0),
 	[
 		snd,
-		Rlpf(snd, 1000 * freqScale + (100 * Lpf(snd, 0.1).fold(-1, 1)), 0.5).tanh
+		rlpf(snd, 1000 * freqScale + (100 * lpf(snd, 0.1).fold(-1, 1)), 0.5).tanh
 	]
 );
-snd := LeakDc(Sanitize(snd, 0).clip, 0.995);
+snd := leakDc(sanitize(snd, 0).clip, 0.995);
 snd := [2, 3, 4, 1].collect { :index | snd[index] };
-snd := snd <! LocalOut(snd.clip);
-snd := Splay2(snd, 0.5, 1, 0, true);
+snd := snd <! localOut(snd.clip);
+snd := splay2(snd, 0.5, 1, 0, true);
 snd.clip * -12.dbAmp

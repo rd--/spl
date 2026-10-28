@@ -1,13 +1,13 @@
 /* http://twitter.com/SC2Sbot/status/1529852033251033088 (cg) */
-Splay2(
-	Integrator(
-		LfNoise0({ 7 } ! 4).round(SinOsc(4, 0)),
+splay2(
+	integrator(
+		lfNoise0({ 7 } ! 4).round(sinOsc(4, 0)),
 		1
 	),
-	Saw(
-		Sequencer(
-			[1, Drand(1, [5, 10]), 1, Drand(1, [11, 20])],
-			Impulse(1 / 4, 0)
+	saw(
+		sequencer(
+			[1, drand(1, [5, 10]), 1, drand(1, [11, 20])],
+			impulse(1 / 4, 0)
 		)
 	),
 	1,

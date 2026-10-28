@@ -22,8 +22,8 @@ let rotatableMatrix = { :angle |
 	kronecker(givens2x2, householder4x4)
 };
 let matrix = { :trig :rotateFreq :rotateAmount |
-	let rotate = SinOsc(rotateFreq, 0).linLin(-1, 1, 0, rotateAmount);
-	let angle = Phasor(trig, rotate * SampleDur(), 0, 1, 0) * 2.pi;
+	let rotate = sinOsc(rotateFreq, 0).linLin(-1, 1, 0, rotateAmount);
+	let angle = phasor(trig, rotate * sampleDur(), 0, 1, 0) * 2.pi;
 	rotatableMatrix(angle)
 };
 let ctl = (
@@ -35,10 +35,10 @@ let ctl = (
 	rotateFreq: 0.1,
 	rotateAmount: 55
 ).localControls;
-let delMod = SinOsc(2, 0).linLin(-1, 1, 1, 4);
-let gainEnv = Perc(ctl::trig, 0.001, 1, -4);
+let delMod = sinOsc(2, 0).linLin(-1, 1, 1, 4);
+let gainEnv = perc(ctl::trig, 0.001, 1, -4);
 let modEnv = Env([0 1 0], [0.125 0.5], [-8 -4], nil, nil, 0).asEnvGen(ctl::trig);
-let inSig = Saw(XLine(100, 1000, 0.1)) * gainEnv;
+let inSig = saw(xLine(100, 1000, 0.1)) * gainEnv;
 let order = 8;
 let size = ctl::size + modEnv.linLin(0, 1, 0, ctl::sizeEnvAmount);
 let delTimes = {
@@ -46,10 +46,10 @@ let delTimes = {
 } ! order;
 let sampleRate = 48000;
 let delTimesSec = (delTimes * delMod) / sampleRate;
-let sig = inSig + LocalIn(order, [0] # order);
-sig := DelayC(sig, 0.5, delTimesSec * size - ControlDur());
+let sig = inSig + localIn(order, [0] # order);
+sig := delayC(sig, 0.5, delTimesSec * size - controlDur());
 sig := sig * ctl::feedback;
-sig := OnePole(sig, ctl::coef);
+sig := onePole(sig, ctl::coef);
 sig := sig * matrix(ctl::trig, ctl::rotateFreq, ctl::rotateAmount).transpose;
 sig := sig.sum;
-(inSig + sig.Splay2 <! LocalOut(sig)) * 0.5
+(inSig + sig.splay2 <! localOut(sig)) * 0.5

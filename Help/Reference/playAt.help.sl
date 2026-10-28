@@ -7,8 +7,8 @@ Play _x_ at time _t_, which is in _session_ time, not _absolute_ time.
 Schedule an enveloped and self-deleting quiet sine oscillator to play in five seconds from now:
 
 ~~~spl scheduler
-let x = Release(
-	SinOsc(440, 0) * 0.1,
+let x = release(
+	sinOsc(440, 0) * 0.1,
 	0.05,
 	1,
 	3

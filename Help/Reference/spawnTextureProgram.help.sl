@@ -11,9 +11,9 @@ Texture of overlapping sine tone dyads:
 ~~~spl texture
 {
 	{
-		Release(
-			SinOsc(
-				Rand(220, 990),
+		release(
+			sinOsc(
+				rand(220, 990),
 				0
 			),
 			0.01,

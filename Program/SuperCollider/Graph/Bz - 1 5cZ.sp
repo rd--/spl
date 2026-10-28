@@ -2,17 +2,17 @@
 { :tr |
 	let n = 16;
 	let sig = {
-		let q = TRand(
-			TRand(0.1, 0.5, tr),
-			TRand(0.1, 0.5, tr),
+		let q = tRand(
+			tRand(0.1, 0.5, tr),
+			tRand(0.1, 0.5, tr),
 			tr
 		);
-		let env = LfNoise1(TRand(1, 2, tr)) * TRand(1, 2, tr) + TRand(-2, 0, tr);
-		Bpf(
-			Dust2(TRand(12, 160, tr)) * env,
-			TRand(TRand(100, 200, tr), TRand(200, 2500, tr), tr),
+		let env = lfNoise1(tRand(1, 2, tr)) * tRand(1, 2, tr) + tRand(-2, 0, tr);
+		bpf(
+			dust2(tRand(12, 160, tr)) * env,
+			tRand(tRand(100, 200, tr), tRand(200, 2500, tr), tr),
 			q
 		) / q.signedSqrt
 	} ! n;
-	((sig * TRand(1, 2, tr)).tanh * 0.5).Splay2
-}.OverlapTexture(4, 4, 4).Mix
+	((sig * tRand(1, 2, tr)).tanh * 0.5).splay2
+}.overlapTexture(4, 4, 4).mix

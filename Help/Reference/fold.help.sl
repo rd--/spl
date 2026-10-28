@@ -31,23 +31,23 @@ Fold a floating point number between two values:
 Fold a signal outside given thresholds.
 
 ```
-let o = SinOsc(440, 0) * 0.2;
+let o = sinOsc(440, 0) * 0.2;
 o.fold(-0.1, 0.1)
 ```
 
 Modulate both fold points, at different ratios:
 
 ```
-let x = MouseX(0.1, 0.2, 0, 0.2);
-let o = SinOsc(440, 0) * 0.2;
+let x = mouseX(0.1, 0.2, 0, 0.2);
+let o = sinOsc(440, 0) * 0.2;
 o.fold(x.- / 2, x)
 ```
 
 Modulate one fold point:
 
 ```
-let x = MouseX(0.1, 0.2, 0, 0.2);
-let o = SinOsc(440, 0) * 0.2;
+let x = mouseX(0.1, 0.2, 0, 0.2);
+let o = sinOsc(440, 0) * 0.2;
 o.fold(-0.2, x)
 ```
 

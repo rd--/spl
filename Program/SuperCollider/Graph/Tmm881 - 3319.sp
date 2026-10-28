@@ -1,12 +1,12 @@
 /* Tmm881 ; http://scsynth.org/t/3319 ; Edit (rd) ; Event control */
 let pre = Voicer(1, 16) { :e |
-	let freq = (e.x * 25 + 48).midiCps + [0, TRand(1, 4, e.w)];
-	let carriers = [SinOsc(freq, 0), Saw(freq), Pulse(freq, 0.5)];
-	let modulators = { SinOsc(TRand(0.0322, 1.0, e.w) * 0.0647, 0) } ! carriers.size;
+	let freq = (e.x * 25 + 48).midiCps + [0, tRand(1, 4, e.w)];
+	let carriers = [sinOsc(freq, 0), saw(freq), pulse(freq, 0.5)];
+	let modulators = { sinOsc(tRand(0.0322, 1.0, e.w) * 0.0647, 0) } ! carriers.size;
 	let filterEnv = Env([3600, 220, 3600], [e.y * 2, 16], 2, 1, nil, 0).asEnvGen(e.w);
-	EqPan2(
-		Lpf((carriers * modulators).sum, filterEnv),
+	eqPan2(
+		lpf((carriers * modulators).sum, filterEnv),
 		e.i * 2 - 1
-	).sum * LagUd(e.w * e.z, 0, 0.25)
+	).sum * lagUd(e.w * e.z, 0, 0.25)
 }.sum;
-FreeVerb2(pre.first, pre.second, 0.33, 0.5, 0.5)
+freeVerb2(pre.first, pre.second, 0.33, 0.5, 0.5)

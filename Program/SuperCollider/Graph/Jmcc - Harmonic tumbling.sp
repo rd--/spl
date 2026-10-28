@@ -2,18 +2,18 @@
 let f = 80; /* Fundamental frequency */
 let p = 10; /* Number of partials per channel */
 let z = 0.0; /* Start of oscillator daisy chain */
-let trig = XLine([10, 10], 0.1, 60); /* Trigger probability decreases over time */
+let trig = xLine([10, 10], 0.1, 60); /* Trigger probability decreases over time */
 [1 .. p].do { :i |
-	z := FSinOsc(
+	z := fSinOsc(
 		f * i, /* Frequency of partial */
 		0
 	).*+(
-		Decay2(
-			Dust(
+		decay2(
+			dust(
 				trig /* Trigger rate */
 			) * 0.02, /* Trigger amplitude */
 			0.005, /* Grain attack time */
-			Rand(0, 0.5) /* Grain decay time */
+			rand(0, 0.5) /* Grain decay time */
 		),
 		z
 	)

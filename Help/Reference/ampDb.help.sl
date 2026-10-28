@@ -43,7 +43,7 @@ Plot curve:
 Compare linear and exponential curves as frequency control:
 
 ```
-SinOsc(
+sinOsc(
 	[
 		line(0.001, 1, 2).ampDb,
 		line(-96, 0.001, 2)

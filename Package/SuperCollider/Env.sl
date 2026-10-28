@@ -1,7 +1,7 @@
 Env! : [Object] {
 
 	circle { :self :timeFromLastToFirst :curve |
-		let first0Then1 = Latch(Dc(1), Impulse(0, 0));
+		let first0Then1 = latch(dc(1), impulse(0, 0));
 		self.releaseNode.isNil.if {
 			self.levels := [0] ++ self.levels ++ [0];
 			self.curves := [curve] ++ self.curves.List.wrapExtend(self.times.size) ++ ['lin'];
@@ -30,11 +30,11 @@ Env! : [Object] {
 	}
 
 	[envToEnvGen, asEnvGenWithDoneAction] { :self :gate :doneAction |
-		EnvGen(gate, 1, 0, 1, doneAction, self)
+		envGen(gate, 1, 0, 1, doneAction, self)
 	}
 
 	[envToEnvGen, asEnvGen] { :self :gate |
-		EnvGen(gate, 1, 0, 1, 0, self)
+		envGen(gate, 1, 0, 1, 0, self)
 	}
 
 	levels { :self |

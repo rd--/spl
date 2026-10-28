@@ -1,12 +1,12 @@
 /* http://sccode.org/1-4Qy (F0) ; 0306 */
 let o = [0 .. 1].collect { :i |
-	SinOsc(
-		Duty(
+	sinOsc(
+		duty(
 			i + 1 / 9,
 			0,
-			Dseq(Infinity, [1 .. 8].stutter(32)) * Dseq(Infinity, [1 .. 8].fibonacci) * 99
+			dseq(Infinity, [1 .. 8].stutter(32)) * dseq(Infinity, [1 .. 8].fibonacci) * 99
 		),
 		0
 	)
 };
-Hpf(FreeVerb(o, 0.2, 1, 0.2), 9) / 3
+hpf(freeVerb(o, 0.2, 1, 0.2), 9) / 3

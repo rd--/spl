@@ -22,8 +22,8 @@ Texture Program Functions:
 
 Texture Unit Generator Functions:
 
-- `OverlapTexture`
-- `XFadeTexture`
+- `overlapTexture`
+- `xFadeTexture`
 
 Scheduling Functions:
 

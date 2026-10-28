@@ -1,499 +1,499 @@
 +Record {
 
-	AllpassC { :d |
-		AllpassC(d['in'], d['maxDelayTime'], d['delayTime'], d['decayTime'])
+	allpassC { :d |
+		allpassC(d['in'], d['maxDelayTime'], d['delayTime'], d['decayTime'])
 	}
 
-	AllpassL { :d |
-		AllpassL(d['in'], d['maxDelayTime'], d['delayTime'], d['decayTime'])
+	allpassL { :d |
+		allpassL(d['in'], d['maxDelayTime'], d['delayTime'], d['decayTime'])
 	}
 
-	AllpassN { :d |
-		AllpassN(d['in'], d['maxDelayTime'], d['delayTime'], d['decayTime'])
+	allpassN { :d |
+		allpassN(d['in'], d['maxDelayTime'], d['delayTime'], d['decayTime'])
 	}
 
-	Balance2 { :d |
-		Balance2(d['left'], d['right'], d['pos'], d['level'])
+	balance2 { :d |
+		balance2(d['left'], d['right'], d['pos'], d['level'])
 	}
 
-	Blip { :d |
-		Blip(d['freq'], d['numHarm'])
+	blip { :d |
+		blip(d['freq'], d['numHarm'])
 	}
 
-	Bpf { :d |
-		Bpf(d['in'], d['freq'], d['rq'])
+	bpf { :d |
+		bpf(d['in'], d['freq'], d['rq'])
 	}
 
-	Brf { :d |
-		Brf(d['in'], d['freq'], d['rq'])
+	brf { :d |
+		brf(d['in'], d['freq'], d['rq'])
 	}
 
-	CombC { :d |
-		CombC(d['in'], d['maxDelayTime'], d['delayTime'], d['decayTime'])
+	combC { :d |
+		combC(d['in'], d['maxDelayTime'], d['delayTime'], d['decayTime'])
 	}
 
-	CombL { :d |
-		CombL(d['in'], d['maxDelayTime'], d['delayTime'], d['decayTime'])
+	combL { :d |
+		combL(d['in'], d['maxDelayTime'], d['delayTime'], d['decayTime'])
 	}
 
-	CombN { :d |
-		CombN(d['in'], d['maxDelayTime'], d['delayTime'], d['decayTime'])
+	combN { :d |
+		combN(d['in'], d['maxDelayTime'], d['delayTime'], d['decayTime'])
 	}
 
-	Compander { :d |
-		Compander(d['in'], d['control'], d['thresh'], d['slopeBelow'], d['slopeAbove'], d['clampTime'], d['relaxTime'])
+	compander { :d |
+		compander(d['in'], d['control'], d['thresh'], d['slopeBelow'], d['slopeAbove'], d['clampTime'], d['relaxTime'])
 	}
 
-	Decay { :d |
-		Decay(d['in'], d['decayTime'])
+	decay { :d |
+		decay(d['in'], d['decayTime'])
 	}
 
-	Decay2 { :d |
-		Decay2(d['in'], d['attackTime'], d['decayTime'])
+	decay2 { :d |
+		decay2(d['in'], d['attackTime'], d['decayTime'])
 	}
 
-	DelayC { :d |
-		DelayC(d['in'], d['maxDelayTime'], d['delayTime'])
+	delayC { :d |
+		delayC(d['in'], d['maxDelayTime'], d['delayTime'])
 	}
 
-	DelayL { :d |
-		DelayL(d['in'], d['maxDelayTime'], d['delayTime'])
+	delayL { :d |
+		delayL(d['in'], d['maxDelayTime'], d['delayTime'])
 	}
 
-	DelayN { :d |
-		DelayN(d['in'], d['maxDelayTime'], d['delayTime'])
+	delayN { :d |
+		delayN(d['in'], d['maxDelayTime'], d['delayTime'])
 	}
 
-	Demand { :d |
-		Demand(d['trig'], d['reset'], d['demandUgens'])
+	demand { :d |
+		demand(d['trig'], d['reset'], d['demandUgens'])
 	}
 
-	Dseq { :d |
-		Dseq(d['repeats'], d['list'])
+	dseq { :d |
+		dseq(d['repeats'], d['list'])
 	}
 
-	Dust { :d |
-		Dust(d['density'])
+	dust { :d |
+		dust(d['density'])
 	}
 
-	Dust2 { :d |
-		Dust2(d['density'])
+	dust2 { :d |
+		dust2(d['density'])
 	}
 
-	EnvGen { :d |
-		EnvGen(d['gate'], d['levelScale'], d['levelBias'], d['timeScale'], d['doneAction'], d['envelope'])
+	envGen { :d |
+		envGen(d['gate'], d['levelScale'], d['levelBias'], d['timeScale'], d['doneAction'], d['envelope'])
 	}
 
-	FSinOsc { :d |
-		FSinOsc(d['freq'], d['iphase'])
+	fSinOsc { :d |
+		fSinOsc(d['freq'], d['iphase'])
 	}
 
-	Fold { :d |
-		Fold(d['in'], d['lo'], d['hi'])
+	fold { :d |
+		fold(d['in'], d['lo'], d['hi'])
 	}
 
-	Formant { :d |
-		Formant(d['fundFreq'], d['formFreq'], d['bwfreq'])
+	formant { :d |
+		formant(d['fundFreq'], d['formFreq'], d['bwfreq'])
 	}
 
-	Formlet { :d |
-		Formlet(d['in'], d['freq'], d['attackTime'], d['decayTime'])
+	formlet { :d |
+		formlet(d['in'], d['freq'], d['attackTime'], d['decayTime'])
 	}
 
-	Fos { :d |
-		Fos(d['in'], d['a0'], d['a1'], d['b1'])
+	fos { :d |
+		fos(d['in'], d['a0'], d['a1'], d['b1'])
 	}
 
-	FreeVerb { :d |
-		FreeVerb(d['in'], d['mix'], d['room'], d['damp'])
+	freeVerb { :d |
+		freeVerb(d['in'], d['mix'], d['room'], d['damp'])
 	}
 
-	FreeVerb2 { :d |
-		FreeVerb2(d['in'], d['in2'], d['mix'], d['room'], d['damp'])
+	freeVerb2 { :d |
+		freeVerb2(d['in'], d['in2'], d['mix'], d['room'], d['damp'])
 	}
 
-	FreqShift { :d |
-		FreqShift(d['in'], d['freq'], d['phase'])
+	freqShift { :d |
+		freqShift(d['in'], d['freq'], d['phase'])
 	}
 
-	GVerb { :d |
-		GVerb(d['in'], d['roomSize'], d['revtime'], d['damping'], d['inputbw'], d['spread'], d['drylevel'], d['earlyreflevel'], d['tailLevel'], d['maxroomSize'])
+	gVerb { :d |
+		gVerb(d['in'], d['roomSize'], d['revtime'], d['damping'], d['inputbw'], d['spread'], d['drylevel'], d['earlyreflevel'], d['tailLevel'], d['maxroomSize'])
 	}
 
-	Gate { :d |
-		Gate(d['in'], d['trig'])
+	gate { :d |
+		gate(d['in'], d['trig'])
 	}
 
-	Gendy1 { :d |
-		Gendy1(d['ampDist'], d['durDist'], d['adParam'], d['ddParam'], d['minFreq'], d['maxFreq'], d['ampScale'], d['durScale'], d['initCps'], d['kNum'])
+	gendy1 { :d |
+		gendy1(d['ampDist'], d['durDist'], d['adParam'], d['ddParam'], d['minFreq'], d['maxFreq'], d['ampScale'], d['durScale'], d['initCps'], d['kNum'])
 	}
 
-	Gendy2 { :d |
-		Gendy2(d['ampDist'], d['durDist'], d['adParam'], d['ddParam'], d['minFreq'], d['maxFreq'], d['ampScale'], d['durScale'], d['initCps'], d['kNum'], d['a'], d['c'])
+	gendy2 { :d |
+		gendy2(d['ampDist'], d['durDist'], d['adParam'], d['ddParam'], d['minFreq'], d['maxFreq'], d['ampScale'], d['durScale'], d['initCps'], d['kNum'], d['a'], d['c'])
 	}
 
-	Gendy3 { :d |
-		Gendy3(d['ampDist'], d['durDist'], d['adParam'], d['ddParam'], d['freq'], d['ampScale'], d['durScale'], d['initCps'], d['kNum'])
+	gendy3 { :d |
+		gendy3(d['ampDist'], d['durDist'], d['adParam'], d['ddParam'], d['freq'], d['ampScale'], d['durScale'], d['initCps'], d['kNum'])
 	}
 
-	GrainBuf { :d |
-		GrainBuf(d['numChan'], d['trigger'], d['dur'], d['sndBuf'], d['rate'], d['pos'], d['interp'], d['pan'], d['envBufNum'] /* ? -1 */, d['maxGrains'])
+	grainBuf { :d |
+		grainBuf(d['numChan'], d['trigger'], d['dur'], d['sndBuf'], d['rate'], d['pos'], d['interp'], d['pan'], d['envBufNum'] /* ? -1 */, d['maxGrains'])
 	}
 
-	GrainFm { :d |
-		GrainFm(d['numChan'], d['trigger'], d['dur'], d['carFreq'], d['modFreq'], d['index'], d['pan'], d['envBufNum'] /* ? -1 */, d['maxGrains'])
+	grainFm { :d |
+		grainFm(d['numChan'], d['trigger'], d['dur'], d['carFreq'], d['modFreq'], d['index'], d['pan'], d['envBufNum'] /* ? -1 */, d['maxGrains'])
 	}
 
-	GrainIn { :d |
-		GrainIn(d['numChan'], d['trigger'], d['dur'], d['in'], d['pan'], d['envBufNum'] /* ? -1 */, d['maxGrains'])
+	grainIn { :d |
+		grainIn(d['numChan'], d['trigger'], d['dur'], d['in'], d['pan'], d['envBufNum'] /* ? -1 */, d['maxGrains'])
 	}
 
-	GrainSin { :d |
-		GrainSin(d['numChan'], d['trigger'], d['dur'], d['freq'], d['pan'], d['envBufNum'] /* ? -1 */, d['maxGrains'])
+	grainSin { :d |
+		grainSin(d['numChan'], d['trigger'], d['dur'], d['freq'], d['pan'], d['envBufNum'] /* ? -1 */, d['maxGrains'])
 	}
 
-	Hpf { :d |
-		Hpf(d['in'], d['freq'])
+	hpf { :d |
+		hpf(d['in'], d['freq'])
 	}
 
-	IRand { :d |
-		IRand(d['lo'], d['hi'])
+	iRand { :d |
+		iRand(d['lo'], d['hi'])
 	}
 
-	Impulse { :d |
-		Impulse(d['freq'], d['phase'])
+	impulse { :d |
+		impulse(d['freq'], d['phase'])
 	}
 
-	Lag { :d |
-		Lag(d['in'], d['lagTime'])
+	lag { :d |
+		lag(d['in'], d['lagTime'])
 	}
 
-	Lag2 { :d |
-		Lag2(d['in'], d['lagTime'])
+	lag2 { :d |
+		lag2(d['in'], d['lagTime'])
 	}
 
 	Lag2Ud { :d |
 		Lag2Ud(d['in'], d['lagTimeU'], d['lagTimeD'])
 	}
 
-	Lag3 { :d |
-		Lag3(d['in'], d['lagTime'])
+	lag3 { :d |
+		lag3(d['in'], d['lagTime'])
 	}
 
-	Lag3Ud { :d |
-		Lag3Ud(d['in'], d['lagTimeU'], d['lagTimeD'])
+	lag3Ud { :d |
+		lag3Ud(d['in'], d['lagTimeU'], d['lagTimeD'])
 	}
 
-	LagIn { :d |
-		LagIn(d['numChan'], d['bus'], d['lag'])
+	lagIn { :d |
+		lagIn(d['numChan'], d['bus'], d['lag'])
 	}
 
-	LagUd { :d |
-		LagUd(d['in'], d['lagTimeU'], d['lagTimeD'])
+	lagUd { :d |
+		lagUd(d['in'], d['lagTimeU'], d['lagTimeD'])
 	}
 
-	Latch { :d |
-		Latch(d['in'], d['trig'])
+	latch { :d |
+		latch(d['in'], d['trig'])
 	}
 
-	LeakDc { :d |
-		LeakDc(d['in'], d['coef'])
+	leakDc { :d |
+		leakDc(d['in'], d['coef'])
 	}
 
-	LfCub { :d |
-		LfCub(d['freq'], d['iphase'])
+	lfCub { :d |
+		lfCub(d['freq'], d['iphase'])
 	}
 
-	LfGauss { :d |
-		LfGauss(d['duration'], d['width'], d['iphase'], d['loop'], d['doneAction'])
+	lfGauss { :d |
+		lfGauss(d['duration'], d['width'], d['iphase'], d['loop'], d['doneAction'])
 	}
 
-	LfNoise0 { :d |
-		LfNoise0(d['freq'])
+	lfNoise0 { :d |
+		lfNoise0(d['freq'])
 	}
 
-	LfNoise1 { :d |
-		LfNoise1(d['freq'])
+	lfNoise1 { :d |
+		lfNoise1(d['freq'])
 	}
 
-	LfNoise2 { :d |
-		LfNoise2(d['freq'])
+	lfNoise2 { :d |
+		lfNoise2(d['freq'])
 	}
 
-	LfPar { :d |
-		LfPar(d['freq'], d['iphase'])
+	lfPar { :d |
+		lfPar(d['freq'], d['iphase'])
 	}
 
-	LfPulse { :d |
-		LfPulse(d['freq'], d['iphase'], d['width'])
+	lfPulse { :d |
+		lfPulse(d['freq'], d['iphase'], d['width'])
 	}
 
-	LfSaw { :d |
-		LfSaw(d['freq'], d['iphase'])
+	lfSaw { :d |
+		lfSaw(d['freq'], d['iphase'])
 	}
 
-	LfTri { :d |
-		LfTri(d['freq'], d['iphase'])
+	lfTri { :d |
+		lfTri(d['freq'], d['iphase'])
 	}
 
-	LinPan2 { :d |
-		LinPan2(d['in'], d['pos'], d['level'])
+	linPan2 { :d |
+		linPan2(d['in'], d['pos'], d['level'])
 	}
 
-	LinRand { :d |
-		LinRand(d['lo'], d['hi'], d['minmax'])
+	linRand { :d |
+		linRand(d['lo'], d['hi'], d['minmax'])
 	}
 
-	LinXFade2 { :d |
-		LinXFade2(d['inA'], d['inB'], d['pan'])
+	linXFade2 { :d |
+		linXFade2(d['inA'], d['inB'], d['pan'])
 	}
 
 	line { :d |
 		line(d['start'], d['end'], d['dur'])
 	}
 
-	Linen { :d |
-		Linen(d['gate'], d['attackTime'], d['susLevel'], d['releaseTime'], d['doneAction'])
+	linen { :d |
+		linen(d['gate'], d['attackTime'], d['susLevel'], d['releaseTime'], d['doneAction'])
 	}
 
-	LocalBuf { :d |
-		LocalBuf(d['numChannels'], d['numFrames'])
+	localBuf { :d |
+		localBuf(d['numChannels'], d['numFrames'])
 	}
 
-	LocalIn { :d |
-		LocalIn(d['numChan'], d['default'])
+	localIn { :d |
+		localIn(d['numChan'], d['default'])
 	}
 
-	LocalOut { :d |
-		LocalOut(d['channelsList'])
+	localOut { :d |
+		localOut(d['channelsList'])
 	}
 
-	Lpf { :d |
-		Lpf(d['in'], d['freq'])
+	lpf { :d |
+		lpf(d['in'], d['freq'])
 	}
 
-	MVerb { :d |
-		MVerb(d['in1'], d['in2'], d['dampingFreq'], d['density'], d['bandwidthFreq'], d['decay'], d['preDelay'], d['size'], d['gain'], d['mix'], d['earlyMix'])
+	mVerb { :d |
+		mVerb(d['in1'], d['in2'], d['dampingFreq'], d['density'], d['bandwidthFreq'], d['decay'], d['preDelay'], d['size'], d['gain'], d['mix'], d['earlyMix'])
 	}
 
-	MoogFf { :d |
-		MoogFf(d['in'], d['freq'], d['gain'], d['reset'])
+	moogFf { :d |
+		moogFf(d['in'], d['freq'], d['gain'], d['reset'])
 	}
 
-	MouseButton { :d |
-		MouseButton(d['minVal'], d['maxVal'], d['lag'])
+	mouseButton { :d |
+		mouseButton(d['minVal'], d['maxVal'], d['lag'])
 	}
 
-	MouseX { :d |
-		MouseX(d['minVal'], d['maxVal'], d['warp'], d['lag'])
+	mouseX { :d |
+		mouseX(d['minVal'], d['maxVal'], d['warp'], d['lag'])
 	}
 
-	MouseY { :d |
-		MouseY(d['minVal'], d['maxVal'], d['warp'], d['lag'])
+	mouseY { :d |
+		mouseY(d['minVal'], d['maxVal'], d['warp'], d['lag'])
 	}
 
-	NRand { :d |
-		NRand(d['lo'], d['hi'], d['n'])
+	nRand { :d |
+		nRand(d['lo'], d['hi'], d['n'])
 	}
 
-	Osc { :d |
-		Osc(d['bufNum'], d['freq'], d['phase'])
+	osc { :d |
+		osc(d['bufNum'], d['freq'], d['phase'])
 	}
 
-	OscN { :d |
-		OscN(d['bufNum'], d['freq'], d['phase'])
+	oscN { :d |
+		oscN(d['bufNum'], d['freq'], d['phase'])
 	}
 
-	Out { :d |
-		Out(d['bus'], d['channelsList'])
+	out { :d |
+		out(d['bus'], d['channelsList'])
 	}
 
-	Pan2 { :d |
-		Pan2(d['in'], d['pos'], d['level'])
+	pan2 { :d |
+		pan2(d['in'], d['pos'], d['level'])
 	}
 
-	Pan4 { :d |
-		Pan4(d['in'], d['xpos'], d['ypos'], d['level'])
+	pan4 { :d |
+		pan4(d['in'], d['xpos'], d['ypos'], d['level'])
 	}
 
-	PanAz { :d |
-		PanAz(d['numChan'], d['in'], d['pos'], d['level'], d['width'], d['orientation'])
+	panAz { :d |
+		panAz(d['numChan'], d['in'], d['pos'], d['level'], d['width'], d['orientation'])
 	}
 
-	Phasor { :d |
-		Phasor(d['trig'], d['rate'], d['start'], d['end'], d['resetPos'])
+	phasor { :d |
+		phasor(d['trig'], d['rate'], d['start'], d['end'], d['resetPos'])
 	}
 
 	pitchFollower { :d |
 		pitchFollower(d['in'], d['initFreq'], d['minFreq'], d['maxFreq'], d['execFreq'], d['maxBinsPerOctave'], d['median'], d['ampThreshold'], d['peakThreshold'], d['downSample'], d['clar'])
 	}
 
-	PitchShift { :d |
-		PitchShift(d['in'], d['windowSize'], d['pitchRatio'], d['pitchDispersion'], d['timeDispersion'])
+	pitchShift { :d |
+		pitchShift(d['in'], d['windowSize'], d['pitchRatio'], d['pitchDispersion'], d['timeDispersion'])
 	}
 
-	Pluck { :d |
-		Pluck(d['in'], d['trig'], d['maxDelayTime'], d['delayTime'], d['decayTime'], d['coef'])
+	pluck { :d |
+		pluck(d['in'], d['trig'], d['maxDelayTime'], d['delayTime'], d['decayTime'], d['coef'])
 	}
 
-	Pulse { :d |
-		Pulse(d['freq'], d['width'])
+	pulse { :d |
+		pulse(d['freq'], d['width'])
 	}
 
-	PulseCount { :d |
-		PulseCount(d['trig'], d['reset'])
+	pulseCount { :d |
+		pulseCount(d['trig'], d['reset'])
 	}
 
-	PulseDivider { :d |
-		PulseDivider(d['trig'], d['div'], d['start'])
+	pulseDivider { :d |
+		pulseDivider(d['trig'], d['div'], d['start'])
 	}
 
-	Ramp { :d |
-		Ramp(d['in'], d['lagTime'])
+	ramp { :d |
+		ramp(d['in'], d['lagTime'])
 	}
 
-	Rand { :d |
-		Rand(d['lo'], d['hi'])
+	rand { :d |
+		rand(d['lo'], d['hi'])
 	}
 
-	Resonz { :d |
-		Resonz(d['in'], d['freq'], d['bwr'])
+	resonz { :d |
+		resonz(d['in'], d['freq'], d['bwr'])
 	}
 
-	Rhpf { :d |
-		Rhpf(d['in'], d['freq'], d['rq'])
+	rhpf { :d |
+		rhpf(d['in'], d['freq'], d['rq'])
 	}
 
-	Ringz { :d |
-		Ringz(d['in'], d['freq'], d['decayTime'])
+	ringz { :d |
+		ringz(d['in'], d['freq'], d['decayTime'])
 	}
 
-	Rlpf { :d |
-		Rlpf(d['in'], d['freq'], d['rq'])
+	rlpf { :d |
+		rlpf(d['in'], d['freq'], d['rq'])
 	}
 
-	Rotate2 { :d |
-		Rotate2(d['x'], d['y'], d['pos'])
+	rotate2 { :d |
+		rotate2(d['x'], d['y'], d['pos'])
 	}
 
-	Saw { :d |
-		Saw(d['freq'])
+	saw { :d |
+		saw(d['freq'])
 	}
 
-	Schmidt { :d |
-		Schmidt(d['in'], d['lo'], d['hi'])
+	schmidt { :d |
+		schmidt(d['in'], d['lo'], d['hi'])
 	}
 
-	SelectT { :d |
-		SelectT(d['which'], d['array'])
+	selectT { :d |
+		selectT(d['which'], d['array'])
 	}
 
-	SetResetFf { :d |
-		SetResetFf(d['trig'], d['reset'])
+	setResetFf { :d |
+		setResetFf(d['trig'], d['reset'])
 	}
 
-	Shaper { :d |
-		Shaper(d['bufNum'], d['in'])
+	shaper { :d |
+		shaper(d['bufNum'], d['in'])
 	}
 
-	SinOsc { :d |
-		SinOsc(d['freq'], d['phase'])
+	sinOsc { :d |
+		sinOsc(d['freq'], d['phase'])
 	}
 
-	SinOscFb { :d |
-		SinOscFb(d['freq'], d['feedback'])
+	sinOscFb { :d |
+		sinOscFb(d['freq'], d['feedback'])
 	}
 
-	Slew { :d |
-		Slew(d['in'], d['up'], d['dn'])
+	slew { :d |
+		slew(d['in'], d['up'], d['dn'])
 	}
 
-	Slope { :d |
-		Slope(d['in'])
+	slope { :d |
+		slope(d['in'])
 	}
 
-	Stepper { :d |
-		Stepper(d['trig'], d['reset'], d['min'], d['max'], d['step'], d['resetval'])
+	stepper { :d |
+		stepper(d['trig'], d['reset'], d['min'], d['max'], d['step'], d['resetval'])
 	}
 
-	Sweep { :d |
-		Sweep(d['trig'], d['rate'])
+	sweep { :d |
+		sweep(d['trig'], d['rate'])
 	}
 
-	SyncSaw { :d |
-		SyncSaw(d['syncFreq'], d['sawFreq'])
+	syncSaw { :d |
+		syncSaw(d['syncFreq'], d['sawFreq'])
 	}
 
-	TExpRand { :d |
-		TExpRand(d['lo'], d['hi'], d['trig'])
+	tExpRand { :d |
+		tExpRand(d['lo'], d['hi'], d['trig'])
 	}
 
-	TGrains { :d |
-		TGrains(d['numChan'], d['trigger'], d['bufNum'], d['rate'], d['centerPos'], d['dur'], d['pan'], d['amp'], d['interp'])
+	tGrains { :d |
+		tGrains(d['numChan'], d['trigger'], d['bufNum'], d['rate'], d['centerPos'], d['dur'], d['pan'], d['amp'], d['interp'])
 	}
 
-	TRand { :d |
-		TRand(d['lo'], d['hi'], d['trig'])
+	tRand { :d |
+		tRand(d['lo'], d['hi'], d['trig'])
 	}
 
-	TiRand { :d |
-		TiRand(d['lo'], d['hi'], d['trig'])
+	tiRand { :d |
+		tiRand(d['lo'], d['hi'], d['trig'])
 	}
 
-	Timer { :d |
-		Timer(d['trig'])
+	timer { :d |
+		timer(d['trig'])
 	}
 
-	ToggleFf { :d |
-		ToggleFf(d['trig'])
+	toggleFf { :d |
+		toggleFf(d['trig'])
 	}
 
-	Trig { :d |
-		Trig(d['in'], d['dur'])
+	trig { :d |
+		trig(d['in'], d['dur'])
 	}
 
-	Trig1 { :d |
-		Trig1(d['in'], d['dur'])
+	trig1 { :d |
+		trig1(d['in'], d['dur'])
 	}
 
-	TwoPole { :d |
-		TwoPole(d['in'], d['freq'], d['radius'])
+	twoPole { :d |
+		twoPole(d['in'], d['freq'], d['radius'])
 	}
 
-	TwoZero { :d |
-		TwoZero(d['in'], d['freq'], d['radius'])
+	twoZero { :d |
+		twoZero(d['in'], d['freq'], d['radius'])
 	}
 
-	VOsc { :d |
-		VOsc(d['bufPos'], d['freq'], d['phase'])
+	vOsc { :d |
+		vOsc(d['bufPos'], d['freq'], d['phase'])
 	}
 
-	VOsc3 { :d |
-		VOsc3(d['bufPos'], d['freq1'], d['freq2'], d['freq3'])
+	vOsc3 { :d |
+		vOsc3(d['bufPos'], d['freq1'], d['freq2'], d['freq3'])
 	}
 
-	VarLag { :d |
-		VarLag(d['in'], d['time'], d['curvature'], d['warp'], d['start'])
+	varLag { :d |
+		varLag(d['in'], d['time'], d['curvature'], d['warp'], d['start'])
 	}
 
-	VarSaw { :d |
-		VarSaw(d['freq'], d['iphase'], d['width'])
+	varSaw { :d |
+		varSaw(d['freq'], d['iphase'], d['width'])
 	}
 
-	Vibrato { :d |
-		Vibrato(d['freq'], d['rate'], d['depth'], d['delay'], d['onset'], d['rateVariation'], d['depthVariation'], d['iphase'], d['trig'])
+	vibrato { :d |
+		vibrato(d['freq'], d['rate'], d['depth'], d['delay'], d['onset'], d['rateVariation'], d['depthVariation'], d['iphase'], d['trig'])
 	}
 
-	Warp1 { :d |
-		Warp1(d['numChan'], d['bufNum'], d['pointer'], d['freqScale'], d['windowSize'], d['envBufNum'] /* ? -1 */, d['overlaps'], d['windowRandRatio'], d['interp'])
+	warp1 { :d |
+		warp1(d['numChan'], d['bufNum'], d['pointer'], d['freqScale'], d['windowSize'], d['envBufNum'] /* ? -1 */, d['overlaps'], d['windowRandRatio'], d['interp'])
 	}
 
-	Wrap { :d |
-		Wrap(d['in'], d['lo'], d['hi'])
+	wrap { :d |
+		wrap(d['in'], d['lo'], d['hi'])
 	}
 
-	XFade2 { :d |
-		XFade2(d['inA'], d['inB'], d['pan'], d['level'])
+	xFade2 { :d |
+		xFade2(d['inA'], d['inB'], d['pan'], d['level'])
 	}
 
 	degreeToKey { :d |
@@ -516,40 +516,40 @@
 		Env(d['levels'], d['times'], d['curves'], d['releaseNode'], d['loopNode'], d['offset'])
 	}
 
-	EqPan2 { :d |
-		EqPan2(d['in'], d['pos'])
+	eqPan2 { :d |
+		eqPan2(d['in'], d['pos'])
 	}
 
-	MembraneCircle { :d |
-		MembraneCircle(d['excitation'], d['tension'], d['loss'])
+	membraneCircle { :d |
+		membraneCircle(d['excitation'], d['tension'], d['loss'])
 	}
 
-	MiBraids { :d |
-		MiBraids(d['pitch'], d['timbre'], d['color'], d['model'], d['trig'], d['resamp'], d['decim'], d['bits'], d['ws'])
+	miBraids { :d |
+		miBraids(d['pitch'], d['timbre'], d['color'], d['model'], d['trig'], d['resamp'], d['decim'], d['bits'], d['ws'])
 	}
 
-	MiClouds { :d |
-		MiClouds(d['pit'], d['pos'], d['size'], d['dens'], d['tex'], d['dryWet'], d['inGain'], d['spread'], d['rvb'], d['fb'], d['freeze'], d['mode'], d['lofi'], d['trig'], d['inputList'])
+	miClouds { :d |
+		miClouds(d['pit'], d['pos'], d['size'], d['dens'], d['tex'], d['dryWet'], d['inGain'], d['spread'], d['rvb'], d['fb'], d['freeze'], d['mode'], d['lofi'], d['trig'], d['inputList'])
 	}
 
-	MiRings { :d |
-		MiRings(d['in'], d['trig'], d['pit'], d['struct'], d['bright'], d['damp'], d['pos'], d['model'], d['poly'], d['internExciter'], d['easterEgg'], d['bypass'])
+	miRings { :d |
+		miRings(d['in'], d['trig'], d['pit'], d['struct'], d['bright'], d['damp'], d['pos'], d['model'], d['poly'], d['internExciter'], d['easterEgg'], d['bypass'])
 	}
 
-	Perc { :d |
-		Perc(d['trig'], d['attackTime'], d['releaseTime'], d['curve'])
+	perc { :d |
+		perc(d['trig'], d['attackTime'], d['releaseTime'], d['curve'])
 	}
 
-	Release { :d |
-		Release(d['in'], d['attackTime'], d['sustainTime'], d['releaseTime'])
+	release { :d |
+		release(d['in'], d['attackTime'], d['sustainTime'], d['releaseTime'])
 	}
 
-	TScramble { :d |
-		TScramble(d['trigger'], d['inputs'])
+	tScramble { :d |
+		tScramble(d['trigger'], d['inputs'])
 	}
 
-	TxLine { :d |
-		TxLine(d['start'], d['end'], d['dur'], d['trig'])
+	txLine { :d |
+		txLine(d['start'], d['end'], d['dur'], d['trig'])
 	}
 
 	Voicer { :d |

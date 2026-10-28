@@ -17,14 +17,14 @@ so that is does not overlap by very much with the next sound:
 	let decay = (2 -- 3).atRandom;
 	let transition = attack + decay;
 	let sustain = nextDelay - transition + 0.5;
-	Release(
-		Pan2(
-			SinOsc(
-				IRand(48, 72).midiCps,
+	release(
+		pan2(
+			sinOsc(
+				iRand(48, 72).midiCps,
 				0
 			),
-			Rand(-1, 1),
-			Rand(0, 0.1)
+			rand(-1, 1),
+			rand(0, 0.1)
 		),
 		attack,
 		sustain.max(0),

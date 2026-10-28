@@ -23,7 +23,7 @@ Random signal generators:
 - `LfdNoise0`
 - `LfdNoise1`
 - `LfdNoise3`
-- `PinkNoise`
+- `pinkNoise`
 - `TwChoose`
 - `WhiteNoise`
 
@@ -52,7 +52,7 @@ Unit generators that generate random numbers when triggered:
 - `TiRand`
 - `TwIndex`
 
-Demand rate random number unit generators:
+demand rate random number unit generators:
 
 - `Dbrown`
 - `Diwhite`

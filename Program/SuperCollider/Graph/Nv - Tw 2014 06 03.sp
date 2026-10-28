@@ -3,8 +3,8 @@ let k = 9;
 {
 	let f = [1 .. 8].collect{ :ix |
 		{
-			LfPulse(2 ^ IRand(-9, 1), IRand(0, 2) / 2, 0.5)
+			lfPulse(2 ^ iRand(-9, 1), iRand(0, 2) / 2, 0.5)
 		} !* (ix + 1) / ix + 1
 	}.product * 86;
-	Pluck(Bpf(f, f, 1).sin, Saw(440), 1 , 1 / f, 9, 0.5)
+	pluck(bpf(f, f, 1).sin, saw(440), 1 , 1 / f, 9, 0.5)
 } !^ k * 0.2

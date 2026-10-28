@@ -50,7 +50,7 @@ Threads over lists:
 At `Ugen`:
 
 ~~~
-SinOsc(440, 0).*+(
+sinOsc(440, 0).*+(
 	0.1,
 	0
 )

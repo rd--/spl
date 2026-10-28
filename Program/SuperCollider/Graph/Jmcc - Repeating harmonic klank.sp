@@ -1,14 +1,14 @@
 /* Repeating harmonic klank (Jmcc) */
 { :tr |
 	let p = 8;
-	let s = Decay(Dust(0.8) * 0.01, 3.4) * LfSaw(TLinRand(0, 40, 0, tr), 0);
-	let f = TChoose(tr, [400 500 600 700 800 900 1000 1200 1400 1500 1600]);
+	let s = decay(dust(0.8) * 0.01, 3.4) * lfSaw(tLinRand(0, 40, 0, tr), 0);
+	let f = tChoose(tr, [400 500 600 700 800 900 1000 1200 1400 1500 1600]);
 	{
-		RingzBank(
+		ringzBank(
 			s,
-			{ f * TRand(1, 13, tr) } ! p,
+			{ f * tRand(1, 13, tr) } ! p,
 			1,
-			{ TRand(0.4, 3.4, tr) } ! p
+			{ tRand(0.4, 3.4, tr) } ! p
 		)
 	} ! 2
-}.OverlapTexture(8, 2, 4).Mix
+}.overlapTexture(8, 2, 4).mix

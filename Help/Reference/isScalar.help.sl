@@ -8,7 +8,7 @@ Answer `true` if the number _x_ is a scalar number, else `false`.
 >>> gcd(17, 23).isScalar
 true
 
->>> SinOsc(440, 0).isScalar
+>>> sinOsc(440, 0).isScalar
 false
 
 >>> { [1 2 3].isScalar }.hasError

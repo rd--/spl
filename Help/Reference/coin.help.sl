@@ -15,6 +15,30 @@ at one third, `coin` is `true` one third of the time.
 [true true false false true true false true true]
 ```
 
+The unary form is a unit generator variant:
+
+```
+coin(sinOsc(0.1, 0)) * 0.1
+```
+
+Coin one is always zero:
+
+```
+sinOsc(440, 0) * coin(dc(1)) * 0.1
+```
+
+Coin zero is always zero:
+
+```
+sinOsc(440, 0) * coin(dc(0))
+```
+
+Coin of almost one is almost always one:
+
+```
+sinOsc(440, 0) * coin(dc(0.999)) * 0.1
+```
+
 * * *
 
 See also: randomBit, randomBoolean, randomComplex, randomInteger, randomReal

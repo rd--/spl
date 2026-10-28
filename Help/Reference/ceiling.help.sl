@@ -159,8 +159,8 @@ OEIS [A011975](https://oeis.org/A011975):
 Stepped line:
 
 ```
-let m = XLine(48, 57, 7);
-SinOsc([m, m.ceiling].midiCps, 0) * 0.1
+let m = xLine(48, 57, 7);
+sinOsc([m, m.ceiling].midiCps, 0) * 0.1
 ```
 
 Ceiling is a staircase function:

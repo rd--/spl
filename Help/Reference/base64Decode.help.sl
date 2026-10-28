@@ -63,7 +63,7 @@ The inverse is `base64Encode`:
 )
 ```
 
-Out of range values raise an error:
+out of range values raise an error:
 
 ```
 >>> {

@@ -48,7 +48,7 @@ Run SuperCollider programs:
 'Help/Reference'.splFilePath.terseSuperColliderGraphSummary((verboseLevel: 2, pattern: '.*'))
 ~~~
 
-Total => 572
+Total => 574
 
 Lint reference files:
 

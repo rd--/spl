@@ -12,9 +12,9 @@ let durations = scales.collect { :each |
 UgenGraph(
 	'saw',
 	[
-		Saw(
+		saw(
 			NamedControl('freq', 440)
-		) * Cutoff(
+		) * cutoff(
 			0,
 			4.8,
 			-20

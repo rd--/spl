@@ -1,0 +1,69 @@
+# grainFm
+
+- _grainFm(numChannels=1, trigger=0, dur=1, carfreq=440, modfreq=220, index=1, pan=0, envbufnum=-1, maxGrains=512)_
+
+Granular synthesis with frequency modulated sine tones.
+
+- numChannels: the number of channels to output
+- trigger: a trigger to start a new grain
+- dur: size of the grain (in seconds)
+- carFreq: the carrier freq of the grain generators internal oscillator
+- modFreq: the modulating freq of the grain generators internal oscillator
+- index: the index of modulation
+- pan: determines where to pan the output
+- envBufNum: the buffer number containing a signal to use for the grain envelope, -1 uses a built-in Hann envelope.  Cannot be localBuf (Nov. 2023)
+- maxGrains: the maximum number of overlapping grains that can be used at a given time (ir)
+
+Linear envelopes modulating controls:
+
+```
+let numChannels = 8;
+let envDur = 15;
+let trigger = impulse(line(7.5, 15, envDur), 0);
+let dur = 0.1;
+let carFreq = line(200, 800, envDur);
+let modFreq = 200;
+let index = line(-1, 1, envDur);
+let pan = line(-0.85, 0.85, envDur);
+let envBufNum = -1;
+let maxGrains = 512;
+grainFm(
+	numChannels,
+	trigger, dur,
+	carFreq, modFreq, index,
+	pan,
+	envBufNum,
+	maxGrains
+).splay * 0.1
+```
+
+Mouse controls panning, noise and mouse control deviation from center pitch:
+
+```
+let numChannels = 8;
+let trigger = impulse(10, 0);
+let dur = 0.1;
+grainFm(
+	numChannels,
+	trigger,
+	0.1,
+	whiteNoise() * mouseY(0, 400, 0, 0.2) + 440,
+	tRand(20, 200, trigger),
+	lfNoise1(500).linLin(-1, 1, 1, 10),
+	mouseX(-1, 1, 0, 0.2),
+	-1,
+	512
+).splay * 0.1
+```
+
+* * *
+
+See also: grainBuf, grainIn, grainSin, tGrains, warp1
+
+Guides: Unit Generators
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/GrainFM.html)
+
+Categories: Ugen

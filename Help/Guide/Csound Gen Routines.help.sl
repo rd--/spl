@@ -24,7 +24,7 @@
 
 * * *
 
-See also: Osc, Shaper
+See also: osc, shaper
 
 References:
 _Csound_

@@ -1,37 +1,37 @@
 # Filters and Method Syntax
 
-In the program below randomly spaced impulses (`Dust`) are scaled (`Times`),
-trigger an envelope (`Decay`),
-which shapes a noise generator (`PinkNoise`),
-which is then filtered (`Bpf`) and
-echoed (`AllpassN`).
-The _lfo_ block generates quadratic noise (`LfNoise2`),
+In the program below randomly spaced impulses (`dust`) are scaled (`*`),
+trigger an envelope (`decay`),
+which shapes a noise generator (`pinkNoise`),
+which is then filtered (`bpf`) and
+echoed (`allpassN`).
+The _lfo_ block generates quadratic noise (`lfNoise2`),
 which in then scaled (`linLin`).
 
 ```
 let lfo = { :freq :lo :hi |
-	LfNoise2(freq).linLin(-1, 1, lo, hi)
+	lfNoise2(freq).linLin(-1, 1, lo, hi)
 };
-Dust([1, 3])
-.Times(1 / 4)
-.Decay((1 / 3).lfo(1 / 5, 5 / 7))
-.Times(PinkNoise())
-.Bpf(
+dust([1, 3])
+.*(1 / 4)
+.decay((1 / 3).lfo(1 / 5, 5 / 7))
+.*(pinkNoise())
+.bpf(
 	(1 / 3).lfo(700, 2300),
 	(1 / 3).lfo(1 / 9, 3)
-).AllpassN(1 / 5, 1 / 5, lfo(1 / 3, 1 / 3, 3))
+).allpassN(1 / 5, 1 / 5, lfo(1 / 3, 1 / 3, 3))
 ```
 
 The same program written in applicative form with infix operators:
 
 ```
 let lfo = { :freq :lo :hi |
-	linLin(LfNoise2(freq), -1, 1, lo, hi)
+	linLin(lfNoise2(freq), -1, 1, lo, hi)
 };
-AllpassN(
-	Bpf(
-		PinkNoise() * Decay(
-			Dust([1, 3]) * 1 / 4,
+allpassN(
+	bpf(
+		pinkNoise() * decay(
+			dust([1, 3]) * 1 / 4,
 			lfo(1 / 3, 1 / 5, 5 / 7)
 		),
 		lfo(1 / 3, 700, 2300),

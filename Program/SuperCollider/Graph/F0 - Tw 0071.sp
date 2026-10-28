@@ -1,12 +1,12 @@
 /* https://fredrikolofsson.com/f0blog/sapf-sctweets/ ; 0071 */
 let b = [2 .. 5];
-Splay(
-	LfTri(
+splay(
+	lfTri(
 		(
-			LfTri(b / 9 / 9 / 9, 0).round(
-				LfTri(9 - b * 99, 9 - b / 9) * LfTri(b / 9, b / 99)
+			lfTri(b / 9 / 9 / 9, 0).round(
+				lfTri(9 - b * 99, 9 - b / 9) * lfTri(b / 9, b / 99)
 			) * (
-				LfTri(9, 0) * (9 - b * 99) + (99 * b)
+				lfTri(9, 0) * (9 - b * 99) + (99 * b)
 			)
 		).abs,
 		0

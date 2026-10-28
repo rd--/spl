@@ -67,10 +67,10 @@ Continued fraction expansion:
 `tanh` is a form of distortion:
 
 ```
-SinOsc(
+sinOsc(
 	[440 441],
 	0
-).tanh * SinOsc(
+).tanh * sinOsc(
 	[0.1 0.25],
 	0
 ) * 0.1
@@ -79,8 +79,8 @@ SinOsc(
 Increase amplitude over time:
 
 ```
-let e = XLine(0.1, 10, 10);
-let o = SinOsc(500, 0);
+let e = xLine(0.1, 10, 10);
+let o = sinOsc(500, 0);
 (o * e).tanh * 0.25
 ```
 

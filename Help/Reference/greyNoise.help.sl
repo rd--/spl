@@ -1,0 +1,42 @@
+# greyNoise
+
+- _greyNoise(mul=1, add=0)_
+
+Noise generator.
+Generates noise which results from flipping random bits in a word.
+This type of noise has a high Rms level relative to its peak to peak level.
+The spectrum is emphasized towards lower frequencies.
+
+```
+greyNoise([0.125 0.125], 0)
+```
+
+High pass filtered:
+
+```
+greyNoise([0.125] # 2, 0).hpz1
+```
+
+High pass filtered,
+modulating cutoff frequency:
+
+```
+{
+	hpf(
+		greyNoise() * 0.1,
+		lfNoise2(3) * 6666 + 9999
+	)
+} ! 2
+```
+
+* * *
+
+See also: brownNoise, clipNoise, pinkNoise, whiteNoise
+
+Guides: Unit Generators
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/GrayNoise.html)
+
+Categories: Ugen

@@ -7,11 +7,11 @@ let major = [0 2 4 5 7 9 11];
 		([0 .. 3] + offset).shuffle,
 		12
 	) + root;
-	let trig = Impulse(XLine(expRand(4, 24), expRand(4, 24), 12), 0);
-	let f = Sequencer(seq.midiCps, trig);
-	let z = EqPan(LfTri(f, 0) * Decay2(trig, 0.004, 0.3) * 0.1, Rand(-1, 1));
+	let trig = impulse(xLine(expRand(4, 24), expRand(4, 24), 12), 0);
+	let f = sequencer(seq.midiCps, trig);
+	let z = eqPan(lfTri(f, 0) * decay2(trig, 0.004, 0.3) * 0.1, rand(-1, 1));
 	6.timesRepeat {
-		z := AllpassN(z, 0.040, { Rand(0, 0.04) } ! 2, 16)
+		z := allpassN(z, 0.040, { rand(0, 0.04) } ! 2, 16)
 	};
 	z
 }.overlapTextureProgram(6, 3, 6)

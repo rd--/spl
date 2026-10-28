@@ -24,26 +24,26 @@ let revBalance = 0.5; /* Dry/wet balance, ratio */
 let tapScale = revBalance / tapData.size; /* Tap amplitude scaling factor */
 let combScale = revBalance / combData.size; /* Comb amplitude scaling factor */
 let input = system.coin(0.5).if { /* Audio input signal */
-	Impulse(0.2, 2)
+	impulse(0.2, 2)
 } {
-	Decay2(Impulse(0.2, 2), 0.001, 0.2) * PinkNoise()
+	decay2(impulse(0.2, 2), 0.001, 0.2) * pinkNoise()
 };
-let buffer = BufAlloc(1, 48000 * 0.1).BufClear; /* A buffer for the early reflections delay line */
+let buffer = bufAlloc(1, 48000 * 0.1).bufClear; /* A buffer for the early reflections delay line */
 let revMonoInput = input.isList.if {
 	input.sum / input.size /* Reverb input must be mono */
 } {
 	input
 };
-let delayWriter = DelayWrite(buffer, revMonoInput);
+let delayWriter = delayWrite(buffer, revMonoInput);
 let tapsOut = 0;
 let combsOut = 0;
 let allPassIo = 0;
 tapData.do { :params |
-	tapsOut := tapsOut + (DelayTap(buffer, params.first) * params.second)
+	tapsOut := tapsOut + (delayTap(buffer, params.first) * params.second)
 };
 [1 .. 6].do { :index |
 	combsOut := combsOut + (
-		CombC(
+		combC(
 			revMonoInput + tapsOut, /* TapsOut could be scaled */
 			0.1,
 			combData[index].first,
@@ -53,10 +53,10 @@ tapData.do { :params |
 };
 allPassIo := combsOut;
 4.timesRepeat {
-	allPassIo := AllpassN(
+	allPassIo := allpassN(
 		allPassIo,
 		0.050,
-		{ Rand(0, 0.050) } ! 2,
+		{ rand(0, 0.050) } ! 2,
 		1
 	)
 };

@@ -9,10 +9,10 @@ This can be more efficient than the written out form.
 At `Ugen`:
 
 ```
-SinOsc(800, 0)
+sinOsc(800, 0)
 .sqrDif(
-	SinOsc(
-		XLine(200, 500, 5),
+	sinOsc(
+		xLine(200, 500, 5),
 		0
 	)
 ) * 0.125
@@ -21,8 +21,8 @@ SinOsc(800, 0)
 Written out:
 
 ```
-let a = SinOsc(800, 0);
-let b = SinOsc(XLine(200, 500, 5), 0);
+let a = sinOsc(800, 0);
+let b = sinOsc(xLine(200, 500, 5), 0);
 let c = a - b;
 (c * c) * 0.125
 ```

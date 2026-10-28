@@ -1,6 +1,6 @@
-# EqPan
+# eqPan
 
-- _EqPan(in, pos=0)_
+- _eqPan(in, pos=0)_
 
 Equal power panner across the main output channels, as configured in `Preferences`.
 
@@ -10,21 +10,21 @@ Equal power panner across the main output channels, as configured in `Preference
 Pan pink noise:
 
 ```
-EqPan(PinkNoise(), LfSaw(1 / 4, 0)) * 0.1
+eqPan(pinkNoise(), lfSaw(1 / 4, 0)) * 0.1
 ```
 
-Sum of two panners, ie. channel-expansion at `EqPan`:
+Sum of two panners, ie. channel-expansion at `eqPan`:
 
 ```
-EqPan(
-	[PinkNoise(), WhiteNoise()]  / [7, 23],
-	[SinOsc(1 / 7, 0), LfSaw(1 / 4, 0)]
+eqPan(
+	[pinkNoise(), whiteNoise()]  / [7, 23],
+	[sinOsc(1 / 7, 0), lfSaw(1 / 4, 0)]
 ).sum
 ```
 
 * * *
 
-See also: PanAz, EqPan2, LinPan2, Pan2
+See also: panAz, eqPan2, linPan2, pan2
 
 Guides: Unit Generators
 

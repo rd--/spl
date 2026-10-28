@@ -4,13 +4,13 @@
 'Program/SuperCollider/Graph'.splFilePath.terseProgramSummary(isOutputSignal/1)
 ~~~
 
-=> 403
+=> 402
 
 ~~~
 'Program/SuperCollider/Graph Collection'.splFilePath.terseProgramSummary(isOutputSignal/1)
 ~~~
 
-=> 391
+=> 392
 
 ~~~
 'Program/SuperCollider/Unit Generator'.splFilePath.terseProgramSummary(isOutputSignal/1)

@@ -2,8 +2,8 @@
 {
 	let p = [1 1; 1 1; -1 2].atRandom; /* choose string or pipe */
 	let r = [8 4 2].atRandom;
-	let c = Impulse(r, 0);
-	let t = ImpulseSequencer(
+	let c = impulse(r, 0);
+	let t = impulseSequencer(
 		[
 			1 1 0 0 0 0 0 0;
 			1 1 1 0 0 0 0 0;
@@ -11,18 +11,18 @@
 		].atRandom.shuffle,
 		c
 	);
-	let e = Trig(t, Rand(0.3, 0.9) / r);
-	let f = p[2] * Sequencer(
-		{ Rand(24, 96).midiCps } ! [1 .. 4].atRandom,
+	let e = trig(t, rand(0.3, 0.9) / r);
+	let f = p[2] * sequencer(
+		{ rand(24, 96).midiCps } ! [1 .. 4].atRandom,
 		t
-	).Lag(0.1 / r);
-	let n = Lpz2(LfNoise2(Min(f * 24, 12000)) * 0.2 * e);
-	let z = EqPan2(
-		CombC(n, 0.1, 1 / f, Min(0.5, expRand(90, 240) / f) * p[1]) * 0.2,
-		Rand(-1, 1)
+	).lag(0.1 / r);
+	let n = lpz2(lfNoise2(Min(f * 24, 12000)) * 0.2 * e);
+	let z = eqPan2(
+		combC(n, 0.1, 1 / f, Min(0.5, expRand(90, 240) / f) * p[1]) * 0.2,
+		rand(-1, 1)
 	);
 	6.timesRepeat {
-		z := AllpassL(z, 0.03, [Rand(0, 0.03), Rand(0, 0.03)], 3)
+		z := allpassL(z, 0.03, [rand(0, 0.03), rand(0, 0.03)], 3)
 	};
 	z
 }.overlapTextureProgram(19, 0.5, 5)

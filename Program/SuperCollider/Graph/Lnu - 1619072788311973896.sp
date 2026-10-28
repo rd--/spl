@@ -1,13 +1,13 @@
 /* http://twitter.com/lukiss163/status/1619072788311973896 ; Lnu */
 let c = [0 .. 8].collect { :n |
-	let d = Dust(1);
-	TRand(0.5, 2.5, d).Lag3(1 / 16) ^ n
+	let d = dust(1);
+	tRand(0.5, 2.5, d).lag3(1 / 16) ^ n
 };
 let m = c.last;
 let n = c / c.sum;
-let o = SinOsc(c.log10 * c, 0);
-let r = TChoose(
-	Dust(1 + m),
+let o = sinOsc(c.log10 * c, 0);
+let r = tChoose(
+	dust(1 + m),
 	[
 		c.sum,
 		n,
@@ -18,8 +18,8 @@ let r = TChoose(
 		n.hypotenuse(c)
 	]
 );
-let e = ((LfSaw(c.tan / m, 0).abs ^ r.max(0)).log10.sin.abs ^ 10).tanh;
-Splay(
+let e = ((lfSaw(c.tan / m, 0).abs ^ r.max(0)).log10.sin.abs ^ 10).tanh;
+splay(
 	o * e,
-	SinOsc(m * m, 0)
+	sinOsc(m * m, 0)
 )

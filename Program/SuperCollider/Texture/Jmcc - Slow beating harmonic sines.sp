@@ -7,14 +7,14 @@
 	let q = [];
 	let k = 24 + 12.atRandom;
 	n.timesRepeat {
-		let freq = ([0 2 4 5 7 9].atRandom + (IRand(0, 7) * 12) + k).midiCps;
+		let freq = ([0 2 4 5 7 9].atRandom + (iRand(0, 7) * 12) + k).midiCps;
 		[p q].do { :each |
 			[1 2 4 5 6].do { :h |
-				each.add!(freq * h + Rand(-d, d))
+				each.add!(freq * h + rand(-d, d))
 			}
 		}
 	};
 	[p q].collect { :freq |
-		SinOscBank(freq, 0.1, { 2 * Rand(0, 1.pi) } ! (m * n))
+		sinOscBank(freq, 0.1, { 2 * rand(0, 1.pi) } ! (m * n))
 	} / n
 }.xFadeTextureProgram(6, 3)

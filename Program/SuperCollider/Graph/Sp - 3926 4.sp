@@ -2,9 +2,9 @@
 Voicer(1, 16) { :e |
 	let width = e.x.clip(0.05, 0.95);
 	let freq = e.y * 800 + 200;
-	let saw = linLin(LfSaw(freq / 2, 1), -1, 1, width.-, 1 - width);
-	let trig = ToggleFf(Trig(saw.-, 2 / SampleRate()) + Trig(saw, 2 / SampleRate()));
+	let saw = linLin(lfSaw(freq / 2, 1), -1, 1, width.-, 1 - width);
+	let trig = toggleFf(trig(saw.-, 2 / sampleRate()) + trig(saw, 2 / sampleRate()));
 	let a = linLin(saw, width.-, 0, 0, 1.pi).sin;
 	let b = linLin(saw, 0, 1 - width, 0, 2.pi).sin;
-	Select2(trig, a, b).EqPan2(0) * e.w * e.z
-}.Mix * 0.2
+	select2(trig, a, b).eqPan2(0) * e.w * e.z
+}.mix * 0.2

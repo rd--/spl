@@ -21,25 +21,25 @@ The binary form answers an initialisation rate unit generator.
 let n = 5;
 let freq = { expRand(111, 333) } ! n;
 let ampl = { expRand(0.05, 0.10) } ! n;
-let o = SinOsc(freq, 0) * ampl;
-o.Splay
+let o = sinOsc(freq, 0) * ampl;
+o.splay
 ```
 
 A `TextureProgram` of pulsing sine tones (Jmcc):
 
 ~~~spl texture
 {
-	EqPan(
-		SinOsc(
+	eqPan(
+		sinOsc(
 			expRand(300, 3000),
 			0
 		) * 0.max(
-			SinOsc(
+			sinOsc(
 				expRand(1, 15),
 				0
 			) * 0.05
 		),
-		Rand(-1,1)
+		rand(-1,1)
 	)
 }.overlapTextureProgram(4, 4, 4)
 ~~~
@@ -59,7 +59,7 @@ let r = Sfc32(678123);
 
 * * *
 
-See also:IRand, LinRand, NRand, Rand, TexpRand, TRand, TiRand,  exp, log, nextRandomFloat
+See also:IRand, linRand, nRand, rand, TexpRand, tRand, tiRand,  exp, log, nextRandomFloat
 
 Guides: Random Functions, Unit Generators
 

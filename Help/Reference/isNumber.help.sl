@@ -117,8 +117,8 @@ true
 A `Ugen` is a kind of number:
 
 ```
->>> SinOsc(440, 0).isNumber & {
->>> 	SinOsc(440, 0).isUgen
+>>> sinOsc(440, 0).isNumber & {
+>>> 	sinOsc(440, 0).isUgen
 >>> }
 true
 ```

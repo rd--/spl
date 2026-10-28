@@ -1,19 +1,19 @@
 /* Police state (Jmcc) */
 let n = 4; /* Number of sirens */
-CombL(
+combL(
 	{
-		EqPan(
-			SinOsc(
-				SinOsc(Rand(0, 0.1) + 0.02, 2 * Rand(0, 1.pi))
-				* Rand(0, 600)
-				+ (1000 + Rand(-300, 300)),
+		eqPan(
+			sinOsc(
+				sinOsc(rand(0, 0.1) + 0.02, 2 * rand(0, 1.pi))
+				* rand(0, 600)
+				+ (1000 + rand(-300, 300)),
 				0
 			),
-			Rand(-1, 1)
-		) * LfNoise2(100 + Rand(-20, 20)) * 0.1
+			rand(-1, 1)
+		) * lfNoise2(100 + rand(-20, 20)) * 0.1
 	} !+ 4 + (
-		LfNoise2(LfNoise2([0.4, 0.4]) * 90 + 620)
-		* (LfNoise2([0.3, 0.3]) * 0.15 + 0.18)
+		lfNoise2(lfNoise2([0.4, 0.4]) * 90 + 620)
+		* (lfNoise2([0.3, 0.3]) * 0.15 + 0.18)
 	),
 	0.3, 0.3, 3
 ) * 0.5

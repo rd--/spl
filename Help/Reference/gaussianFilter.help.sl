@@ -24,7 +24,7 @@ let y = x.gaussianFilter(2);
 
 ![](Help/Image/gaussianFilter-B.svg)
 
-Impulse responses of Gaussian smoothing filter for selected radii:
+impulse responses of Gaussian smoothing filter for selected radii:
 
 ~~~spl svg=C
 let x = [1].arrayPad([15 15], 0);

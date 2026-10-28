@@ -1,21 +1,21 @@
 /* Cfstring1 (Jmcc) ; Graph rewrite ; http://www.iamas.ac.jp/~aka/dspss2004/materials/ */
 { :tr |
 	let dgr = degreeToKey(
-		LocalBuf[0 2 4 5 7 9 11],
-		TRand(0, 12, tr),
+		[0 2 4 5 7 9 11].localBuf,
+		tRand(0, 12, tr),
 		12
 	);
 	let freq = (60 + dgr).midiCps;
-	let pan = TRand(-0.25, 0.25, tr);
-	let amp = TRand(0.1, 0.2, tr);
-	let fc = linExp(LfNoise1(TRand(0.25, 0.4, tr)), -1, 1, 500, 2000);
+	let pan = tRand(-0.25, 0.25, tr);
+	let amp = tRand(0.1, 0.2, tr);
+	let fc = linExp(lfNoise1(tRand(0.25, 0.4, tr)), -1, 1, 500, 2000);
 	let osc = {
-		LfSaw(
-			freq * [TRand(0.99, 1.0, tr), TRand(0.99, 1.01, tr)],
+		lfSaw(
+			freq * [tRand(0.99, 1.0, tr), tRand(0.99, 1.01, tr)],
 		0)
 		* amp
 	} !+ 8;
-	let eg = Decay2(tr, 0.5, 1);
-	let out = eg * Rlpf(osc.distort * 0.2, fc, 0.1);
-	EqPan2(out, [pan, pan + 0.3]).sum
-}.OverlapTexture(2, 0, 9).Mix
+	let eg = decay2(tr, 0.5, 1);
+	let out = eg * rlpf(osc.distort * 0.2, fc, 0.1);
+	eqPan2(out, [pan, pan + 0.3]).sum
+}.overlapTexture(2, 0, 9).mix

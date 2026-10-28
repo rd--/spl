@@ -19,7 +19,7 @@ let ctl = (
 	freq: [440, 440 + 3],
 	amp: 0.1
 ).localControls;
-SinOsc(ctl['freq'], 0) * ctl['amp']
+sinOsc(ctl['freq'], 0) * ctl['amp']
 ```
 
 The controls are sequenced from left to right.

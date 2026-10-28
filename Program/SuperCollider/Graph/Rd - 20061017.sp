@@ -32,12 +32,12 @@ let cd = [
 ];
 let ps = [-12 -5 0 2 4 5 7 12];
 {
-	let tr = Dust(1 / 3);
-	let fs = SelectT(TiRand(0, 7, tr), ps);
-	let k = Ringz(
-		Decay2(tr, 0.06, 0.01) * PinkNoise() * TRand(0, 1, tr),
-		cf * fs.midiRatio + TRand(0, 1, tr),
-		1 / cd * TRand(2, 17, tr)
+	let tr = dust(1 / 3);
+	let fs = selectT(tiRand(0, 7, tr), ps);
+	let k = ringz(
+		decay2(tr, 0.06, 0.01) * pinkNoise() * tRand(0, 1, tr),
+		cf * fs.midiRatio + tRand(0, 1, tr),
+		1 / cd * tRand(2, 17, tr)
 	) * ca;
-	EqPan2(k.sum, TRand(-1, 1, tr))
+	eqPan2(k.sum, tRand(-1, 1, tr))
 } !> 7

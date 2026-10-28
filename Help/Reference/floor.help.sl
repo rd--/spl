@@ -137,8 +137,8 @@ OEIS [A032528](https://oeis.org/A032528):
 Stepped line:
 
 ```
-let m = XLine(48, 57, 7);
-SinOsc([m m.floor].midiCps, 0) * 0.1
+let m = xLine(48, 57, 7);
+sinOsc([m m.floor].midiCps, 0) * 0.1
 ```
 
 Floor is a staircase function:

@@ -93,13 +93,13 @@
 ## Noise Generators
 
 - `Dust`, `Dust2`
-- `BrownNoise`, `ClipNoise`, `GreyNoise`, `PinkNoise`, `WhiteNoise`
+- `BrownNoise`, `ClipNoise`, `GreyNoise`, `pinkNoise`, `WhiteNoise`
 
 ## Panning
 
 - `Balance2`
 - `BfDecode1`, `BfEncode1`
-- `EqPan`, `EqPan2`, `Pan2`
+- `eqPan`, `eqPan2`, `Pan2`
 - `PanAz`
 - `Splay`, `Splay2
 - `Mix`

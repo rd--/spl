@@ -2,7 +2,7 @@
 
 - _revokeObjectUrl(u)_
 
-Release an existing object Url, previously created by `createObjectUrl`.
+release an existing object Url, previously created by `createObjectUrl`.
 
 * * *
 

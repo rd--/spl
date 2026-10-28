@@ -11,7 +11,7 @@ Answer a `List` of `String` items giving the names of the parameters of the _n_-
 >>> randomChoice/3.parameterNames
 ['self' 'r' 'shape']
 
->>> SinOsc/2.parameterNames
+>>> sinOsc/2.parameterNames
 ['freq' 'phase']
 ```
 

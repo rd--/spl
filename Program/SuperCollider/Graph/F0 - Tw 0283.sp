@@ -1,6 +1,6 @@
 /* http://sccode.org/1-4Qy (F0) ; 0283 */
 let b = 1 / [2 .. 6];
-let o1 = SinOscFb(SinOscFb(b, 1) < b * 500 + 99, 0) / 5;
-let o2 = SinOscFb(999 * b, SinOscFb(SinOscFb(b, 1) < 0.1 + 1, 1) % b);
-let o3 = SinOscFb(0.1 - b, 1).min(0);
-Splay(o1 + (o2 * o3)) / 2
+let o1 = sinOscFb(sinOscFb(b, 1) < b * 500 + 99, 0) / 5;
+let o2 = sinOscFb(999 * b, sinOscFb(sinOscFb(b, 1) < 0.1 + 1, 1) % b);
+let o3 = sinOscFb(0.1 - b, 1).min(0);
+splay(o1 + (o2 * o3)) / 2
