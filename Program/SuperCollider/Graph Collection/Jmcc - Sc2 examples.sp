@@ -28,7 +28,7 @@ Bpz2(WhiteNoise() * LfPulse(MouseX(0.2, 50, 0, 0.2), 0, 0.25) * 0.1)
 let f = 50; /* fundamental frequency */
 let p = 20; /* number of partials per channel */
 let z = 0; /* start of oscil daisy chain */
-let offset = Line(0, -0.02, 60); /* causes sound to separate and fade */
+let offset = line(0, -0.02, 60); /* causes sound to separate and fade */
 [1 .. p].do { :i |
 	z := SinOsc(
 		f * i,

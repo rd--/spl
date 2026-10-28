@@ -25,7 +25,7 @@ Oscillator frequency sweep specified in midi note numbers:
 
 ```
 Saw(
-	Line(24, 108, 10).midiCps
+	line(24, 108, 10).midiCps
 ) * 0.1
 ```
 

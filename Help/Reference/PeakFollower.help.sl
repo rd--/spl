@@ -16,7 +16,7 @@ No decay:
 
 ```
 let peak = PeakFollower(
-	Dust(20) * Line(0, 1, 4),
+	Dust(20) * line(0, 1, 4),
 	1
 );
 SinOsc(peak * 1500 + 200, 0) * 0.1
@@ -26,7 +26,7 @@ A little decay:
 
 ```
 let peak = PeakFollower(
-	Dust(20) * Line(0, 1, 4),
+	Dust(20) * line(0, 1, 4),
 	0.999
 );
 SinOsc(peak * 1500 + 200, 0) * 0.1
@@ -37,7 +37,7 @@ Mouse controls decay:
 ```
 let x = MouseX(0.99, 1.00001, 0, 0.1);
 let peak = PeakFollower(
-	Dust(20) * Line(0, 1, 4),
+	Dust(20) * line(0, 1, 4),
 	x.min(1)
 );
 SinOsc(peak * 1500 + 200, 0) * 0.1

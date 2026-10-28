@@ -1,7 +1,6 @@
 # Line
 
 - _Line([p₁ p₂ …])_
-- _Line(start, end, dur)_
 
 A `Line` is a `Type` representing straight lines connecting a sequence of points _p_,
 also called a polyline or polygonal chain.
@@ -148,54 +147,16 @@ Draw circle tangent lines:
 
 ![](Help/Image/Line-H.svg)
 
-The ternary form of `Line` is a unit generator.
-`Line` generates a line from the start value to the end value.
-
-- start: starting value
-- end: ending value
-- dur: duration in seconds
-
-Sweep oscillator frequency:
-
-```
-SinOsc(Line(200, 17000, 10), 0) * 0.1
-```
-
-Diverging frequencies:
-
-```
-SinOsc(
-	Line(
-		[900 1100],
-		[200 1300],
-		[9 17]
-	),
-	0
-) * 0.1
-```
-
-`XLine` is usually better than `Line` for frequency:
-
-```
-SinOsc(XLine(200, 17000, 10), 0) * 0.1
-```
-
-_Note_: This is the Sc _Line_ Ugen without the _doneAction_ input.
-
 * * *
 
-See also: HalfLine, InfiniteLine, Point, XLine, lineCollection
+See also: HalfLine, InfiniteLine, Point, lineCollection
 
-Guides: Geometry Functions, Unit Generators
+Guides: Geometry Functions
 
 References:
-_Csound_
-[1](https://csound.com/docs/manual/line.html),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Line.html),
-_SuperCollider_
-[1](https://doc.sccode.org/Classes/Line.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Polygonal_chain)
 
-Categories: Geometry, Ugen
+Categories: Geometry

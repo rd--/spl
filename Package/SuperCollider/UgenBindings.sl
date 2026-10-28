@@ -982,15 +982,6 @@
 		<primitive: return sc.ExpRand(_lo, _hi);>
 	}
 
-	medianFilter { :in :r |
-		<primitive:
-		if(sl.isSmallFloat(_r)) {
-			return sc.Median(_r * 2 + 1, _in);
-		}
-		>
-		in.error('medianFilter: length not scalar')
-	}
-
 }
 
 +[SmallFloat, List] {
@@ -1565,6 +1556,15 @@
 
 	linExp { :in :srclo :srchi :dstlo :dsthi |
 		<primitive: return sc.LinExp(_in, _srclo, _srchi, _dstlo, _dsthi);>
+	}
+
+	medianFilter { :in :r |
+		<primitive:
+		if(sl.isSmallFloat(_r)) {
+			return sc.Median(_r * 2 + 1, _in);
+		}
+		>
+		in.error('medianFilter: length not scalar')
 	}
 
 	modularDistance { :x :y :mod |

@@ -248,8 +248,8 @@
 		LinXFade2(d['inA'], d['inB'], d['pan'])
 	}
 
-	Line { :d |
-		Line(d['start'], d['end'], d['dur'])
+	line { :d |
+		line(d['start'], d['end'], d['dur'])
 	}
 
 	Linen { :d |

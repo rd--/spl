@@ -27,7 +27,7 @@ Used to lag pitch,
 SinOsc(
 	Lag(
 		LfPulse(4, 0, 0.5) * 50 + 400,
-		Line(0, 1, 15)
+		line(0, 1, 15)
 	),
 	0
 )

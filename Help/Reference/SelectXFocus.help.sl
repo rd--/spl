@@ -101,7 +101,7 @@ SelectXFocus(
 	a,
 	mY * n,
 	false
-).sum * 0.2 + b * Line(0, 1, 3)
+).sum * 0.2 + b * line(0, 1, 3)
 ```
 
 * * *

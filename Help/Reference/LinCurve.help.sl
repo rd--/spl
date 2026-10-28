@@ -46,7 +46,7 @@ signal * Perc(warpedTriggers, 0.01, 0.1, -4)
 Plotting, fixed curve:
 
 ~~~spl ui
-let l = Line(-1, 5, 0.1);
+let l = line(-1, 5, 0.1);
 let c = l.LinCurve(0, 3, -1, 1, -4);
 [l, c].soundPlot(0.1)
 ~~~

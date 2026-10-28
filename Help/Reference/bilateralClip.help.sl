@@ -27,7 +27,7 @@ Time varying clipping:
 ```
 SinOsc(1000, 0)
 .bilateralClip(
-	Line(0, 1, 23)
+	line(0, 1, 23)
 ) / 2
 ```
 

@@ -390,7 +390,7 @@
 		<primitive: return sc.LinSeg(_gate, _coordList);>
 	}
 
-	Line { :start :end :dur |
+	line { :start :end :dur |
 		<primitive: return sc.Line(_start, _end, _dur, 0);>
 	}
 

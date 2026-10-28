@@ -77,8 +77,8 @@ Saw([440 443 437]).sum * 0.1
 
 /* tutorial 2.5 ; am, fm, chorus */
 let src = Saw([440 443 437] + (SinOsc(100, 0) * 100));
-let amp = LfSaw(Line(3, 17, 3),0) * 0.5 + 0.5 * Line(1, 0, 10);
-Resonz(src, XLine(10000, 10, 10), Line(1, 0.05, 10)).sum * amp
+let amp = LfSaw(line(3, 17, 3),0) * 0.5 + 0.5 * line(1, 0, 10);
+Resonz(src, XLine(10000, 10, 10), line(1, 0.05, 10)).sum * amp
 
 /* tutorial 2.5 ; bell patch ; requires=kr */
 let spectrum = [0.5 1 1.19 1.56 2 2.51 2.66 3.01 4.1];
@@ -91,7 +91,7 @@ let decayTimes = [1 .. numPartials].collect { :i |
 };
 [1 .. numPartials].collect { :i |
 	let freq = spectrum[i] + (SinOsc(modFreqs1[i], 0) * 0.005) * 500;
-	let amp = 0.1 * Line(
+	let amp = 0.1 * line(
 		1,
 		0,
 		decayTimes[i]

@@ -20,7 +20,7 @@ let s = [1 .. n].collect { :i |
 		(35 + (i / n * 3) + o1 + o2).midiCps,
 		Rand(0, 1)
 	) ^ 7;
-	let e = LfNoise2(expRand(0.05, 2)).linLin(-1, 1, 0, 0.1) * Line(0, 1, i * 3 / 2);
+	let e = LfNoise2(expRand(0.05, 2)).linLin(-1, 1, 0, 0.1) * line(0, 1, i * 3 / 2);
 	EqPan2(
 		o3 ^ (i / 3),
 		LfSaw(LfNoise2(lf) / i, Rand(0, 1))

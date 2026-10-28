@@ -10,7 +10,7 @@ as a waveshaping function:
 ```
 SinOsc(500, 0)
 .scaleNegative(
-	Line(1, -1, 7)
+	line(1, -1, 7)
 ) / 7
 ```
 

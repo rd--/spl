@@ -1,11 +1,11 @@
 /* Line */
-SinOsc([110, Line(110, 440, 100)], 0) * 0.1
+SinOsc([110, line(110, 440, 100)], 0) * 0.1
 
 /* Line */
-SinOsc(Line(200, 17000, 5), 0) * 0.1
+SinOsc(line(200, 17000, 5), 0) * 0.1
 
 /* Line */
-SinOsc(Line(200, [209, 211], 5), 0) * 0.1
+SinOsc(line(200, [209, 211], 5), 0) * 0.1
 
 /* Line */
 let octaves = 12 * [5 .. 7];
@@ -15,13 +15,13 @@ octaves.collect { :m0 |
 	let du = 90;
 	let o = [1 .. 4].collect { :index |
 		EqPan2(
-			SinOsc(Line(m1[index], m2[index], du).midiCps, 0),
-			Line(Rand(-1, 1), Rand(-1, 1), du)
-		) * Line(Rand(0, 0.1), Rand(0, 0.1), du)
+			SinOsc(line(m1[index], m2[index], du).midiCps, 0),
+			line(Rand(-1, 1), Rand(-1, 1), du)
+		) * line(Rand(0, 0.1), Rand(0, 0.1), du)
 	};
 	o.sum
 }.Mix * 0.2
 
 /* Line ; note Line is an existing class in Squeak */
-let f = Line(200, 17000, 5);
+let f = line(200, 17000, 5);
 SinOsc(f, 0) * 0.05

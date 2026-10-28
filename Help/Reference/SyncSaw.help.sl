@@ -14,7 +14,7 @@ This is not a band limited waveform, so it may alias.
 Modulate saw frequency:
 
 ```
-SyncSaw(100, Line(100, 800, 12)) * 0.1
+SyncSaw(100, line(100, 800, 12)) * 0.1
 ```
 
 Modulate saw frequency with mouse (view is oscilloscope, `Impulse` shows sync frequency):

@@ -21,7 +21,7 @@ let s = LfSaw(500, 0);
 Convert oscillator output to frequency input:
 
 ```
-let mod = SinOsc(Line(1, 10, 10), 0);
+let mod = SinOsc(line(1, 10, 10), 0);
 [
 	SinOsc(mod * 400 + 500, 0),
 	SinOsc(mod.linExp(-1, 1, 100, 900), 0)

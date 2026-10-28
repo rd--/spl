@@ -10,10 +10,10 @@ let dur = 12;
 	{
 		Pan2(
 			SinOsc(
-				IRand(48, 72).MidiCps,
+				IRand(48, 72).midiCps,
 				0
 			),
-			Line(
+			line(
 				Rand(-1, 1),
 				Rand(-1, 1),
 				dur

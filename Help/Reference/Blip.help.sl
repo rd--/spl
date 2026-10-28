@@ -18,7 +18,7 @@ Blip(XLine(20000, 200, 6), 100) * 0.2
 Modulate number of harmonics:
 
 ```
-Blip(200,Line(1, 100, 20)) * 0.2
+Blip(200,line(1, 100, 20)) * 0.2
 ```
 
 At low frequencies:

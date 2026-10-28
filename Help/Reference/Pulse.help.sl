@@ -16,7 +16,7 @@ Pulse(XLine(40, 4000, 6), 0.1) * 0.1
 Modulate pulse width:
 
 ```
-Pulse(200, Line(0.01, 0.99, 8)) * 0.1
+Pulse(200, line(0.01, 0.99, 8)) * 0.1
 ```
 
 Two band limited square waves thru a resonant low pass filter:

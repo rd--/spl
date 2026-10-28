@@ -28,7 +28,7 @@ Modulate coeficient:
 ```
 OnePole(
 	WhiteNoise() * 0.2,
-	Line(0.95, -0.95, 10)
+	line(0.95, -0.95, 10)
 )
 ```
 

@@ -7,7 +7,7 @@ Folds _a_ to +/- _b_.
 
 ```
 SinOsc(1000, 0)
-.bilateralFold(Line(0, 1, 23)) / 3
+.bilateralFold(line(0, 1, 23)) / 3
 ```
 
 Using `SinOsc`:

@@ -14,7 +14,7 @@ At `Ugen`,
 contrary motion:
 
 ```
-let a = Line(-1, 1, 2);
+let a = line(-1, 1, 2);
 let b = a.absoluteValue;
 SinOsc(
 	[a b] * 220 + [220 440],

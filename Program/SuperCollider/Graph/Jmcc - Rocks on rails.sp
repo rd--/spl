@@ -13,6 +13,6 @@ let n = 4; /* Number of overlapping events */
 			[1], /* Amplitudes */
 			{ 0.2 + TRand(0, 1, tr) } ! p /* Ring times */
 		),
-		Line(TRand(-1, 1, tr), TRand(-1, 1, tr), 8) /* Sweep pan */
+		line(TRand(-1, 1, tr), TRand(-1, 1, tr), 8) /* Sweep pan */
 	)
 }.OverlapTexture(2, 3, n).Mix * 0.5

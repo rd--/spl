@@ -1,6 +1,6 @@
 /* Unknown ; Pmi */
 {
-	let pm = Line(0, Rand(0, 12), Rand(1, 12));
+	let pm = line(0, Rand(0, 12), Rand(1, 12));
 	EqPan(
 		PmOsc(Rand(0, 2000), Rand(0, 800), pm, 0),
 		Rand(-1, 1)

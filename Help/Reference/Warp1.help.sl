@@ -53,7 +53,7 @@ let sound = Warp1(
 	0.3,
 	-1,
 	16,
-	Line(0, 1, 40),
+	line(0, 1, 40),
 	4
 );
 EqPan(sound, pointer * 2 - 1) / 4

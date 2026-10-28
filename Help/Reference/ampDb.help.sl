@@ -45,8 +45,8 @@ Compare linear and exponential curves as frequency control:
 ```
 SinOsc(
 	[
-		Line(0.001, 1, 2).ampDb,
-		Line(-96, 0.001, 2)
+		line(0.001, 1, 2).ampDb,
+		line(-96, 0.001, 2)
 	] * 110 + 110,
 	0
 ) * 0.1

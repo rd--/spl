@@ -13,6 +13,6 @@ let n = 4; /* number of overlapping events */
 			nil, /* amplitudes default to 1.0 */
 			{ 0.2 + Rand(0, 1) } ! p /* ring times */
 		),
-		Line(Rand(-1, 1), Rand(-1, 1), 8) /* sweep pan */
+		line(Rand(-1, 1), Rand(-1, 1), 8) /* sweep pan */
 	)
 }.overlapTextureProgram(2, 3, n)

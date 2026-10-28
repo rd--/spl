@@ -59,7 +59,7 @@ Find the angle between two vectors:
 At `Ugen`:
 
 ```
-let x = Line(-1, 1, 2).arcCos * 2.pi;
+let x = line(-1, 1, 2).arcCos * 2.pi;
 SinOsc(x * 110 + 110, 0) * 0.1
 ```
 

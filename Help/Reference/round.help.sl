@@ -215,7 +215,7 @@ OEIS [A101285](https://oeis.org/A101285):
 At `Ugen`:
 
 ```
-let l = Line(48, 57, 23);
+let l = line(48, 57, 23);
 let f = [l, l.round(1)].midiCps;
 SinOsc(f, 0) * 0.1
 ```

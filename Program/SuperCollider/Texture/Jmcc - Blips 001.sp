@@ -9,7 +9,7 @@ let blipProc = {
 	if(system.coin(0.8)) {
 		let z = EqPan(
 			blipProc() * blipProc(),
-			Line(Rand(-1, 1), Rand(-1, 1), 4)
+			line(Rand(-1, 1), Rand(-1, 1), 4)
 		).distort * 0.3;
 		6.timesRepeat {
 			z := AllpassN(z, 0.05, { Rand(0, 0.05) } ! 2, 4)

@@ -3,7 +3,7 @@ let f = XLine(20, 20000, 20);
 SvfHp(WhiteNoise() * 0.1, f, 1)
 
 /* SvfHp ; changing Q (slowly) */
-let q = Line(2, 0.0001, 20);
+let q = line(2, 0.0001, 20);
 SvfHp(WhiteNoise() * 0.1, 400, q)
 
 /* SvfHp ; modulating F */

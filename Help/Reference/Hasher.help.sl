@@ -13,7 +13,7 @@ The input need not be from zero to one.
 Hashing a straight line makes white noise:
 
 ```
-Hasher(Line(0, 1, 1)) * 0.2
+Hasher(line(0, 1, 1)) * 0.2
 ```
 
 Control rate hash of rounded mouse control, near values hash distinctly:

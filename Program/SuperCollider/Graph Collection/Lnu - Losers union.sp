@@ -30,7 +30,7 @@ Splay(
 		1.1 - VarSaw(8 * r, 0, 0.5) ^ 2
 	) * VarSaw(r / c, 0, 0.5) / 2,
 	VarSaw(1, 0, VarSaw(1, 0, 0.5))
-) * Line(0, 1, 20)
+) * line(0, 1, 20)
 
 /* ChaosGen writes melodies ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110751954599483552 */
 let p = system.coin(0.5).if {
@@ -521,7 +521,7 @@ Splay(
 		0.995
 	),
 	2 / 4
-).tanh * Line(0, 1, 12)
+).tanh * line(0, 1, 12)
 
 /* 27 Jan 2023 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let d = Dust(1);

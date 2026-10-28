@@ -40,7 +40,7 @@ SinOsc(440, 0) * -24.dbAmp
 Modulate amplitude:
 
 ```
-let mul = Line(-12, -40, 10).dbAmp;
+let mul = line(-12, -40, 10).dbAmp;
 SinOsc(800, 0) * mul
 ```
 

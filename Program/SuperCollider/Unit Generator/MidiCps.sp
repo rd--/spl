@@ -1,12 +1,12 @@
 /* midiCps */
-Saw(Line(24, 108, 10).midiCps) * 0.05
+Saw(line(24, 108, 10).midiCps) * 0.05
 
 /* midiCps ; step */
-Saw(Line(24, 108, 10).round(1).midiCps) * 0.05
+Saw(line(24, 108, 10).round(1).midiCps) * 0.05
 
 /* midiCps ; requires=keywords */
 Saw(
-	Line(
+	line(
 		start: 24,
 		end: 108,
 		dur: 10
@@ -15,7 +15,7 @@ Saw(
 
 /* midiCps ; step ; requires=keywords */
 Saw(
-	Line(
+	line(
 		start: 24,
 		end: 108,
 		dur: 10

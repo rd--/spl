@@ -13,7 +13,7 @@ Maps a linear range of values to another linear range of values.
 Map oscillator to frequency:
 
 ```
-let mod = SinOsc(Line(1, 10, 10), 0);
+let mod = SinOsc(line(1, 10, 10), 0);
 SinOsc(
 	linLin(mod, -1, 1, 100, 900),
 	0

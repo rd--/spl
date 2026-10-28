@@ -159,7 +159,7 @@ let f = linExp(t, -1, 1, Latch(linExp(SinOsc(i % 4.4, 0), -1, 1, 9, 999), y), La
 EqPan(
 	Blip(f, t + 2) * (1 - t),
 	SinOsc(0.1, i)
-) * (Line(0.2, 0, 9).min(0.6) ^ 2)
+) * (line(0.2, 0, 9).min(0.6) ^ 2)
 
 /* https://sccode.org/1-4Qy ; f0 ; 0335 ; requires=keywords */
 let o = GrainFm(
