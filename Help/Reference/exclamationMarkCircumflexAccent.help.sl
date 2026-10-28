@@ -30,4 +30,4 @@ The name of this operator is `exclamationMarkCircumflexAccent`.
 
 * * *
 
-See also: splay, !, !+
+See also: !, !+, splay

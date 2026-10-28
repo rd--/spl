@@ -35,7 +35,7 @@ out(0, sinOsc([440, 443], 0) * 0.1)
 
 * * *
 
-See also: audioIn, In, numOutputBuses
+See also: In, audioIn, numOutputBuses
 
 Guides: Unit Generators
 

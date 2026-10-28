@@ -35,7 +35,7 @@ d <! localOut(d.reverse * 0.8)
 
 * * *
 
-See also: localIn, <!
+See also: <!, localIn
 
 Guides: Unit Generators
 

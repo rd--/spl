@@ -21,7 +21,7 @@ sinOsc([f, f * 9], 0) * 0.1
 
 * * *
 
-See also: bufRd, shaper, bufIndexWrap
+See also: bufIndexWrap, bufRd, shaper
 
 Guides: Unit Generators
 

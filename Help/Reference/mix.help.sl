@@ -10,6 +10,6 @@ sinOsc([333 555; 444 777], 0).mix * 0.1
 
 * * *
 
-See also: eqPan, splay, Sum, sum
+See also: Sum, eqPan, splay, sum
 
 Categories: Ugen

@@ -41,10 +41,6 @@ Ugen! : [Object, Number] {
 
 +String {
 
-	NamedControl { :self :defaultValue |
-		<primitive: return sc.localControlInput(_self, -1, _defaultValue);>
-	}
-
 	encodeUgen { :self :ugen |
 		self.encodeUgenAt(
 			ugen.busOffset,
@@ -57,7 +53,11 @@ Ugen! : [Object, Number] {
 	}
 
 	kr { :self :defaultValue |
-		self.NamedControl(defaultValue)
+		self.namedControl(defaultValue)
+	}
+
+	namedControl { :self :defaultValue |
+		<primitive: return sc.localControlInput(_self, -1, _defaultValue);>
 	}
 
 }

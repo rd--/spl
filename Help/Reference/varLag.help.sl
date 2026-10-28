@@ -20,7 +20,7 @@ let crv = varLag(sqr, 0.2, line(-8, 8, 15));
 
 * * *
 
-See also: lag, lagUd, lag2, lag3
+See also: lag, lag2, lag3, lagUd
 
 Guides: Unit Generators
 

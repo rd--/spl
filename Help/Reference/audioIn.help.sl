@@ -16,7 +16,7 @@ delayN(audioIn([1, 2]), 1, 1)
 
 * * *
 
-See also: controlIn, In
+See also: In, controlIn
 
 Guides: Unit Generators
 

@@ -56,7 +56,7 @@ o.splay / 4
 
 * * *
 
-See also: trig, TrigRoundRobin, trig1
+See also: TrigRoundRobin, trig, trig1
 
 Guides: Unit Generators
 

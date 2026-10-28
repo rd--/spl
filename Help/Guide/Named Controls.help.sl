@@ -9,14 +9,14 @@ In simple cases the indices can be readily inferred, below _amp_ will have index
 
 ```
 sinOsc(
-	NamedControl('freq', 440),
+	namedControl('freq', 440),
 	0
-) * NamedControl('amp', 0.1)
+) * namedControl('amp', 0.1)
 ```
 
-However as a rule if controls are specified using `NamedControl` they should be set by name, not index.
+However as a rule if controls are specified using `namedControl` they should be set by name, not index.
 
-There is an abbreviated notation illustrated below, `kr` is simply an alias for `NamedControl`.
+There is an abbreviated notation illustrated below, `kr` is simply an alias for `namedControl`.
 
 ```
 sinOsc([
@@ -30,4 +30,6 @@ All local controls must be specified using the one mechanism.
 
 * * *
 
-See also: NamedControl, Local Controls
+See also: namedControl
+
+Guides: Local Controls

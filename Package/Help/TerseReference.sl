@@ -8,10 +8,14 @@
 		let errorCount = 0;
 		directoryName
 		.readDirectoryFileNames
-		.do { :fileName |
+		.select { :fileName |
+			fileName.extension = '.sp'
+		}.do { :fileName |
 			let fileText = fileName.readTextFile;
 			let programTexts = fileText.paragraphs.takeWhile { :each |
-				each.includesSubstring('Notes').not
+				each.beginsWith('/* Notes:').not & {
+					each.beginsWith('# ').not
+				}
 			};
 			[fileName, programTexts.size].printLine;
 			programTexts.do { :each |

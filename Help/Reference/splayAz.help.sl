@@ -55,7 +55,7 @@ splayAz(
 
 * * *
 
-See also: panAz, splay, pan2, splay2
+See also: pan2, panAz, splay, splay2
 
 Guides: Unit Generators
 

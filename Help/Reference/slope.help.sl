@@ -34,7 +34,7 @@ For another example of `slope` see `hypotenuse`.
 
 * * *
 
-See also: integrator, differences
+See also: differences, integrator
 
 Guides: Unit Generators
 

@@ -30,7 +30,7 @@ feedforwardFeedbackward(
 
 * * *
 
-See also: bufAlloc, bufClear, delayTap, delayWrite, <!
+See also: <!, bufAlloc, bufClear, delayTap, delayWrite
 
 Guides: Unit Generators
 

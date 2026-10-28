@@ -21,7 +21,7 @@ dust(xLine(20000, 2, 10)) * 0.1
 
 * * *
 
-See also: impulse, dust2
+See also: dust2, impulse
 
 Guides: Unit Generators
 

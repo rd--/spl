@@ -13,7 +13,7 @@ UgenGraph(
 	'saw',
 	[
 		saw(
-			NamedControl('freq', 440)
+			namedControl('freq', 440)
 		) * cutoff(
 			0,
 			4.8,

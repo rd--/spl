@@ -25,7 +25,7 @@ freeVerb(
 
 * * *
 
-See also: gVerb, freeVerb2
+See also: freeVerb2, gVerb
 
 Guides: Unit Generators
 

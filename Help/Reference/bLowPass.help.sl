@@ -24,7 +24,7 @@ bLowPass(
 
 * * *
 
-See also: bAllPass, bBandPass, bBandStop, bHiPass, bHiShelf, bLowShelf, BPeakEQ, sos, bHiPass4, bLowPass4
+See also: BPeakEQ, bAllPass, bBandPass, bBandStop, bHiPass, bHiPass4, bHiShelf, bLowPass4, bLowShelf, sos
 
 Guides: Unit Generators
 

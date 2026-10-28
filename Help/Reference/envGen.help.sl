@@ -67,7 +67,7 @@ sinOsc(440, 0) * env
 
 * * *
 
-See also: decay, Line, xLine
+See also: Line, decay, xLine
 
 Guides: Unit Generators
 

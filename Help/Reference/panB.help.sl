@@ -24,7 +24,7 @@ silent(8) ++ decodeB2(8, w, x, y, 0)
 
 * * *
 
-See also: panAz, decodeB2, pan2, panB2, rotate2
+See also: decodeB2, pan2, panAz, panB2, rotate2
 
 Guides: Unit Generators
 

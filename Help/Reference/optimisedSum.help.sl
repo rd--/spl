@@ -49,7 +49,7 @@ Where supported, `optimisedSum` is displayed as ∑.
 
 * * *
 
-See also: mix, +, plus, sum
+See also: +, mix, plus, sum
 
 Unicode: U+2211 ∑ N-Ary Summation
 

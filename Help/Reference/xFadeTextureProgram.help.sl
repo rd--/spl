@@ -7,7 +7,7 @@ Like `overlapTextureProgram` but with only two cross fading sounds.
 
 * * *
 
-See also: TextureProgram, xFadeTexture, collectTextureProgram, overlapTextureProgram, spawnTextureProgram
+See also: TextureProgram, collectTextureProgram, overlapTextureProgram, spawnTextureProgram, xFadeTexture
 
 Guides: SuperCollider Functions, Texture Programs
 

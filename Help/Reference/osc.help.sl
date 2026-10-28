@@ -52,7 +52,7 @@ let b = c.wavetableFormat.localBuf;
 
 * * *
 
-See also: BufPlay, bufRd, localBuf, sinOsc, osc1, wavetableFormat
+See also: BufPlay, bufRd, localBuf, osc1, sinOsc, wavetableFormat
 
 Guides: Unit Generators
 

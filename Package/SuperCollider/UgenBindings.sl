@@ -1238,34 +1238,6 @@
 
 +Ugen {
 
-	biLinRand { :self |
-		<primitive: return sc.BiLinRand(_self);>
-	}
-
-	coin { :self |
-		<primitive: return sc.Coin(_self);>
-	}
-
-	hanWindow { :self |
-		<primitive: return sc.HanWindow(_self);>
-	}
-
-	linRand { :self |
-		<primitive: return sc.LinRand_(_self);>
-	}
-
-	sum3Rand { :self |
-		<primitive: return sc.Sum3Rand(_self);>
-	}
-
-	triWindow { :self |
-		<primitive: return sc.TriWindow(_self);>
-	}
-
-	welchWindow { :self |
-		<primitive: return sc.WelchWindow(_self);>
-	}
-
 	[abs, absoluteValue] { :self |
 		<primitive: return sc.Abs(_self);>
 	}
@@ -1286,8 +1258,16 @@
 		<primitive: return sc.ArcTan(_self);>
 	}
 
+	biLinRand { :self |
+		<primitive: return sc.BiLinRand(_self);>
+	}
+
 	ceiling { :self |
 		<primitive: return sc.Ceil(_self);>
+	}
+
+	coin { :self |
+		<primitive: return sc.Coin(_self);>
 	}
 
 	cos { :self |
@@ -1324,6 +1304,14 @@
 
 	fractionalPart { :self |
 		<primitive: return sc.Frac(_self);>
+	}
+
+	hanWindow { :self |
+		<primitive: return sc.HanWindow(_self);>
+	}
+
+	linRand { :self |
+		<primitive: return sc.LinRand_(_self);>
 	}
 
 	log { :self |
@@ -1382,12 +1370,24 @@
 		<primitive: return sc.Squared(_self);>
 	}
 
+	sum3Rand { :self |
+		<primitive: return sc.Sum3Rand(_self);>
+	}
+
 	tan { :self |
 		<primitive: return sc.Tan(_self);>
 	}
 
 	tanh { :self |
 		<primitive: return sc.Tanh(_self);>
+	}
+
+	triWindow { :self |
+		<primitive: return sc.TriWindow(_self);>
+	}
+
+	welchWindow { :self |
+		<primitive: return sc.WelchWindow(_self);>
 	}
 
 }

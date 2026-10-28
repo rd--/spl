@@ -30,7 +30,7 @@ sinOsc(
 
 * * *
 
-See also: controlDur, controlRate, radiansPerSample, Reciprocal, sampleRate
+See also: Reciprocal, controlDur, controlRate, radiansPerSample, sampleRate
 
 Guides: Unit Generators
 

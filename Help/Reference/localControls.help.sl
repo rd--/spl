@@ -1,9 +1,9 @@
 # localControls
 
-- _localControls(aRecord)_
+- _localControls(r)_
 
-Answer a `Dictionary` with the same keys as _aRecord_,
-where each value is a `NamedControl` named by `key` and with a default value given by `value`.
+Answer a `Dictionary` with the same keys as the record _r_,
+where each value is a `namedControl` named by `key` and with a default value given by `value`.
 
 The expression:
 
@@ -16,14 +16,14 @@ is equivalent to:
 
 ~~~
 let ctl = (
-	freq: NamedControl('freq', 440),
-	amp: NamedControl('amp', 0.1)
+	freq: namedControl('freq', 440),
+	amp: namedControl('amp', 0.1)
 );
 sinOsc(ctl['freq'], 0) * ctl['amp']
 ~~~
 
 * * *
 
-See also: LocalControl, NamedControl
+See also: LocalControl, namedControl
 
 Guides: Local Controls

@@ -1,11 +1,11 @@
-# NamedControl
+# namedControl
 
-- _NamedControl(s, x)_
+- _namedControl(s, x)_
 
 Answers a `Ugen` holding a `LocalControl` with the given name _s_ and the defaut value _x_.
 
 ```
->>> let freq = NamedControl('freq', 440);
+>>> let freq = namedControl('freq', 440);
 >>> let localControl = freq.scUgen.localControl;
 >>> (
 >>> 	freq.isUgen,

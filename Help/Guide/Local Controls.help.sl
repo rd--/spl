@@ -8,7 +8,7 @@ The ordinary way to make local controls is from a _Record_ using _localControls_
 
 ```
 let ctl = (freq: 440, amp: 0.1).localControls;
-(SinOsc(ctl['freq'], 0) * ctl['amp'])
+(sinOsc(ctl['freq'], 0) * ctl['amp'])
 ```
 
 If the default value for a control is a list then a list of control inputs are created, the names qualified by integer suffixes.
@@ -27,4 +27,6 @@ The list to reset all three controls above to their initial values is _[440, 440
 
 * * *
 
-See also: NamedControl, Named Controls, localControls
+See also: localControls, namedControl
+
+Guides: Named Controls

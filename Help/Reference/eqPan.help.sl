@@ -24,7 +24,7 @@ eqPan(
 
 * * *
 
-See also: panAz, eqPan2, linPan2, pan2
+See also: eqPan2, linPan2, pan2, panAz
 
 Guides: Unit Generators
 

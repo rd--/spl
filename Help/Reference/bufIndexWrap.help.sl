@@ -26,7 +26,7 @@ sinOsc(
 
 * * *
 
-See also: shaper, bufIndexClip
+See also: bufIndexClip, shaper
 
 Guides: Unit Generators
 

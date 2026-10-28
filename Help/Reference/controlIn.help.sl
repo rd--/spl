@@ -52,7 +52,7 @@ sinOsc(
 
 * * *
 
-See also: audioIn, controlOut, In, out
+See also: In, audioIn, controlOut, out
 
 Guides: Unit Generators
 

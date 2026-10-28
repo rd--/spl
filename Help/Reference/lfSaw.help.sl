@@ -23,7 +23,7 @@ lfSaw(lfSaw(4, 0) * 400 + 400, 0) * 0.1
 
 * * *
 
-See also: lfPulse, lfTri, saw, syncSaw, varSaw, sawtoothWave
+See also: lfPulse, lfTri, saw, sawtoothWave, syncSaw, varSaw
 
 Guides: Unit Generators
 

@@ -27,7 +27,7 @@ Collect names of `LocalControl` and `ScUgen` values:
 >>> let g = UgenGraph(
 >>> 	'sin',
 >>> 	sinOsc(
->>> 		NamedControl('freq', 440),
+>>> 		namedControl('freq', 440),
 >>> 		0
 >>> 	) * 0.1
 >>> );
