@@ -18,5 +18,5 @@ let rewrite = { :n |
 		trig,
 		freq * [1, 1.2, 1.5],
 		expRand(2 ^ i.negate * 0.1, 1.101)
-	).Sum.distort
+	).sum.distort
 }.Splay * 0.5

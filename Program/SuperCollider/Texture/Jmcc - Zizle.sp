@@ -6,7 +6,7 @@
 				f * [Rand(0.7, 1.3), 1],
 				{ Rand(0, 2.pi) } ! 2
 			) * 0.1
-		).Sum
+		).sum
 	};
 	let a1 = a(expRand(0.3, 0.8)).max(0);
 	let a2 = a(expRand(6, 24)).abs;

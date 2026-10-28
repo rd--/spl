@@ -15,5 +15,5 @@ Voicer(1, 16) { :e |
 	let soundMain = TxLine(zero, 1, 1 / freqs, e.w) * TxLine(1, zero, decays * 4, e.w) * sound * mod;
 	let soundHigh = TxLine(0.3 * (velocity + zero), zero, 0.02, e.w) * SinOsc(hiFreqs, 0); /* Hi frequency onset */
 	let pan = e.i * 2 - 1;
-	EqPan2(soundMain.Sum + soundHigh.Sum, pan) * LagUd(e.w, 0.01, 4)
+	EqPan2(soundMain.sum + soundHigh.sum, pan) * LagUd(e.w, 0.01, 4)
 }.Mix * 0.25

@@ -35,7 +35,7 @@ Voicer(1, 16) { :e |
 		3,
 		0
 	) * e.w * e.z * e.z
-}.Sum
+}.sum
 
 /* Dictionary ; Voicer */
 (
@@ -58,7 +58,7 @@ Voicer(
 			pos: e.i * 2 - 1
 		) * e.w * e.z * e.z
 	}
-).Sum
+).sum
 
 /* MembraneCircle ; Event control ; Note limited voice count ; requires=keywords */
 Voicer(
@@ -120,7 +120,7 @@ Voicer(
 			pos: e.i * 2 - 1
 		)
 	}
-).Sum
+).sum
 
 /* Resonz ; PinkNoise ; Event control ; requires=keywords */
 Voicer(
@@ -136,4 +136,4 @@ Voicer(
 			pos: e.i * 2 - 1
 		) * e.z.square * e.w
 	}
-).Sum
+).sum

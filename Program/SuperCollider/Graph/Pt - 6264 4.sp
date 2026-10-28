@@ -15,4 +15,4 @@ Voicer(1, numVoices) { :e |
 	let rel = e.y + 0.1 * 14 / (partialList + 3 ^ 0.9) * ({ TExpRand(0.5, 2, e.w) } ! numPartials);
 	let envs = Perc(e.w, atk, rel, -4);
 	EqPan2((sig * envs).sum, e.i)
-}.Sum * 0.1
+}.sum * 0.1

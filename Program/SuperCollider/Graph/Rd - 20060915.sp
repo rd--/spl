@@ -15,5 +15,5 @@
 		}
 	};
 	let fp = { TRand(220, 660, tr) } ! np;
-	fp.collect(prt(TRand(4, 7, tr), TRand(0.01, 0.05, tr))).Sum
+	fp.collect(prt(TRand(4, 7, tr), TRand(0.01, 0.05, tr))).sum
 } !> 5

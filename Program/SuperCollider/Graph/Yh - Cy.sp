@@ -15,7 +15,7 @@ let osc = LfPulse(
 	[203.52 366.31 301.77 518.19 811.16 538.75],
 	0,
 	0.5
-).Sum * 0.6;
+).sum * 0.6;
 let sig1 = BLowShelf(
 	Lpf(
 		BHiPass(

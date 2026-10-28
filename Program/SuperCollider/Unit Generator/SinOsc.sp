@@ -243,4 +243,4 @@ SinOsc(
 ) / 5
 
 /* ---- SinOsc ; mce ; two out ; each single channel ; hence mono */
-SinOsc([[440], [441]], 0).Sum * 0.1
+SinOsc([[440], [441]], 0).sum * 0.1

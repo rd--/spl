@@ -9,5 +9,5 @@ Voicer(1, 16) { :e |
 		CombN(flt, 0.5, [0.4, 0.35], 2) * 0.4 + (flt * 0.5),
 		e.i * 2 - 1,
 		LagUd(e.w, 0, 3) * e.z
-	).Sum
+	).sum
 }.Mix

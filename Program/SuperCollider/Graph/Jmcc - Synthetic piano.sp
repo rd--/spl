@@ -7,5 +7,5 @@
 		let dt = 1 / (n + c[i]).midiCps;
 		CombL(LfNoise2(3000) * e, dt, dt, 6)
 	};
-	EqPan2(z.Sum, n - 36 / 27 - 1)
+	EqPan2(z.sum, n - 36 / 27 - 1)
 } !> 3

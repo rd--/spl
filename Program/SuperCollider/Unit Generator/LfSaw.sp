@@ -19,7 +19,7 @@ LfSaw(LfSaw(4, 0) * 400 + 400, 0) * 0.05
 
 /* LfSaw ; output range is bi-polar */
 let f = [linLin(LfSaw(0.5, 1), -1, 1, 200, 1600), 200, 1600];
-(SinOsc(f, 0) * [0.1, 0.05, 0.05]).Sum
+(SinOsc(f, 0) * [0.1, 0.05, 0.05]).sum
 
 /* LfSaw ; mixed with sin, then with distortions */
 let f = XLine(220, 440, 10);

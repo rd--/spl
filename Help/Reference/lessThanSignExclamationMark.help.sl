@@ -32,7 +32,7 @@ let car = SinOsc(
 	],
 	0
 );
-let out = Pan2(LeakDc(car.Sum, 0.995), pan, amp);
+let out = Pan2(LeakDc(car.sum, 0.995), pan, amp);
 out <! LocalOut(car * fb)
 ~~~
 

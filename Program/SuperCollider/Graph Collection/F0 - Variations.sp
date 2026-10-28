@@ -54,7 +54,7 @@ Rhpf(
 /* https://sccode.org/1-4S6 ; f0 ; 't' */
 let p = Saw([3, 4]) * (Saw(1) * 32 + 128) + Duty(1, 0, (Dseq(1, [0, 8, 1, 5]) * [1, 4, 8]).flop);
 let o = SinOsc(Saw(3) * 64 + 99, p) / 9;
-CombN(o, 1 / 4, 1 / 2.125, SinOsc(0.005, 1.5.pi).linLin(-1, 1, 0, 6)).transpose.Sum
+CombN(o, 1 / 4, 1 / 2.125, SinOsc(0.005, 1.5.pi).linLin(-1, 1, 0, 6)).transpose.sum
 
 /* tw 0120 (f0) ; requires=kr */
 let z = LfTri(1 / [7 8], 0) * LfTri(1 / 9, 0) * 99;
@@ -96,7 +96,7 @@ CombC(
 	2,
 	2 - Lpf(e, 50),
 	1
-).transpose.Sum
+).transpose.sum
 
 /* https://sccode.org/1-4Qy ; f0 ; 0318 */
 let b = [1 .. 3];
@@ -113,7 +113,7 @@ Splay(o1 * o2 / 13 + o6) / 3
 	let b = i + 2 * 99;
 	let f = SinOscFb(i + 1 / 150, 0).round(1) + 1 + i * 99 + SinOscFb([3, 2], 0);
 	(Formant(f, b, b) * SinOscFb(i + 1 / 130, 0).max(0)).tanh
-}.Sum.Splay / 7
+}.sum.Splay / 7
 
 /* https://sccode.org/1-4Qy ; f0 ; tweet0350 ; Splay */
 let b = [9 .. 1; -1] / 99;
@@ -123,7 +123,7 @@ CombN(
 	1,
 	b / 9.9,
 	9
-).transpose.Sum.Splay * 0.9
+).transpose.sum.Splay * 0.9
 
 /* f0 ; https://twitter.com/redFrik/status/1105496695637454848 ; requires=kr */
 let b = [1 .. 15] + 1 / 151;

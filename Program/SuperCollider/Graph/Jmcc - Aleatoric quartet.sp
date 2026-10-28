@@ -13,7 +13,7 @@ let mkFreq = {
 let g = [1 .. 4].collect { :ix |
 	let x = PinkNoise() * (LfNoise1(8) * dMul + dAdd).max(0);
 	EqPan2(CombL(x, 0.02, mkFreq().reciprocal, 3), Rand(-1, 1))
-}.Sum;
+}.sum;
 5.timesRepeat {
 	g := rapf(g)
 };

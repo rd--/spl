@@ -36,7 +36,7 @@ let z = Decay2(
 	),
 	0.001,
 	0.3
-) * Pulse([80, 81], 0.3).Sum;
+) * Pulse([80, 81], 0.3).sum;
 Compander(
 	in: z,
 	control: z,
@@ -57,7 +57,7 @@ let z = Decay2(
 	),
 	0.001,
 	0.3
-) * Pulse([80, 81], 0.3).Sum;
+) * Pulse([80, 81], 0.3).sum;
 Compander(
 	in: z,
 	control: z,
@@ -78,7 +78,7 @@ let z = Decay2(
 	),
 	0.001,
 	0.3
-) * Pulse([80, 81], 0.3).Sum;
+) * Pulse([80, 81], 0.3).sum;
 Compander(
 	in: z,
 	control: z,
@@ -99,7 +99,7 @@ let z = Decay2(
 	),
 	0.001,
 	0.3
-) * Pulse([80, 81], 0.3).Sum;
+) * Pulse([80, 81], 0.3).sum;
 Compander(
 	in: z,
 	control: z,

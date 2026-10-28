@@ -51,4 +51,4 @@ let freq = Sequencer(((seq - 1).degreeToKey([0 2 5 7 9], 12) + 60).midiCps, tr);
 let w = Tri.roundRobin(24, tr);
 let env = Perc(w, 1 / 33, 3 / 5, TRand(-3, -1, w));
 let osc = Saw([freq, freq * TRand(1, 1.01, w)]) * env;
-Rlpf(osc, MouseX(333, 4444, 0, 0.2), MouseY(0.25, 4, 0, 0.2)).Sum / 3
+Rlpf(osc, MouseX(333, 4444, 0, 0.2), MouseY(0.25, 4, 0, 0.2)).sum / 3

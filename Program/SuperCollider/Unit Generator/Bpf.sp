@@ -29,7 +29,7 @@
 	}
 ].collect { :f/0 |
 	f()
-}.Sum / 3
+}.sum / 3
 
 /* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft */
 Bpf(

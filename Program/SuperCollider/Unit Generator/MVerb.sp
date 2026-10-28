@@ -1,5 +1,5 @@
 /* MVerb ; static ; requires=keyword */
-let in = Resonz({ Dust([0.3, 0.33]) } ! 3, 3333, 0.01).Sum * 33;
+let in = Resonz({ Dust([0.3, 0.33]) } ! 3, 3333, 0.01).sum * 33;
 MVerb(
 	in1: in[1],
 	in2: in[2],
@@ -16,7 +16,7 @@ MVerb(
 
 /* MVerb ; dynamic */
 let freq = [1, 2.1, 2.9] * 1000;
-let src = Resonz({ Dust([0.25, 0.5]) } ! 3, freq, 0.01).Sum * 33;
+let src = Resonz({ Dust([0.25, 0.5]) } ! 3, freq, 0.01).sum * 33;
 let noiseIn = { :min :max |
 	LfNoise2(1).linLin(-1, 1, min, max)
 };

@@ -4,7 +4,7 @@
 		SinOsc(
 			f * [TRand(0.7, 1.3, tr), 1],
 			{ TRand(0, 2.pi, tr) } ! 2
-		).Sum * 0.1
+		).sum * 0.1
 	};
 	let osc = SinOsc(
 		TRand(24, 108, tr).midiCps,

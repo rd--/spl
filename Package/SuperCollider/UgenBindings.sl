@@ -1571,7 +1571,7 @@
 		<primitive: return sc.ModDif(_x, _y, _mod);>
 	}
 
-	sum4 { :in0 :in1 :in2 :in3 |
+	[plus, +] { :in0 :in1 :in2 :in3 |
 		<primitive: return sc.Sum4(_in0, _in1, _in2, _in3);>
 	}
 

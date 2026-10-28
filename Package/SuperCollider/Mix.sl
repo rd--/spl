@@ -233,13 +233,13 @@
 		Splay(inList, 1)
 	}
 
-	Sum { :self |
+	optimisedSum { :self |
 		(self.size >= 4).if {
-			let prefix = sum4(self[1], self[2], self[3], self[4]);
+			let prefix = plus(self[1], self[2], self[3], self[4]);
 			(self.size = 4).if {
 				prefix
 			} {
-				prefix + Sum(self.copyFromTo(5, self.size))
+				prefix + optimisedSum(self.copyFromTo(5, self.size))
 			}
 		} {
 			self.sum

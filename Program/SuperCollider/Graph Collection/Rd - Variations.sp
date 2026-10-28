@@ -49,7 +49,7 @@ let k = 3;
 		let env = Sine(tr, du.max * ds) * TRand(0.005, 0.01, tr);
 		let pos = TxLine(TRand(-1, 1, tr), TRand(-1, 1, tr), d, tr);
 		let osc = SinOsc(freq, 0);
-		EqPan2(osc, pos).Sum * env
+		EqPan2(osc, pos).sum * env
 	};
 	let scale = [0 2 4 5 7 9 11];
 	let octaves = [4 5 6 7];

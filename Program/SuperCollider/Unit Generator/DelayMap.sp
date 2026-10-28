@@ -19,4 +19,4 @@ Voicer(1, 16) { :e |
 	let f = (e.x * 24 + 48).midiCps;
 	let o = SinOsc(f, 0) * e.z * Lag(e.w, 5);
 	[DelayMap(b, o, 0, a), o]
-}.Sum
+}.sum

@@ -9,4 +9,4 @@ let carrier = SelectX(isVoiced, [voicedCarrier, PinkNoise()]);
 let filterQ = TRand(10, 100, Dust(0.5));
 let srcAmp = Amplitude(Bpf(src, bandFreqs, 1 / filterQ), 0.01, 0.05);
 let snd = Bpf(carrier, bandFreqs, 0.05) * srcAmp;
-EqPan2(snd.Sum, 0) * numBands / 4
+EqPan2(snd.sum, 0) * numBands / 4

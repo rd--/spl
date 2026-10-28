@@ -34,7 +34,7 @@ Voicer(1, 16) { :e |
 	];
 	let side = [1 .. 6].collect { :n |
 		LfSaw(freqs[n], Rand(0, 2))
-	}.Sum;
+	}.sum;
 	let sig = (center * centerGain(mix)) + (side * sideGain(mix));
 	let amp = e.z * 0.2 * e.w.LagUd(0.05, 2);
 	Pan2(Hpf(sig, freq), e.i * 2 - 1, amp)

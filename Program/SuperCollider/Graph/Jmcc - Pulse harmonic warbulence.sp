@@ -7,7 +7,7 @@ let z = { :tr |
 	[1 .. n].collect { :i |
 		let m = SinOsc(r * TRand(0.9, 1.1, tr), TRand(0, 2.pi, tr)) * 0.1 - 0.05;
 		EqPan2(SinOsc(f * i + f, 0) * m.max(0), TRand(-1, 1, tr)) / (i + 1)
-	}.Sum * p
+	}.sum * p
 }.OverlapTexture(12.8, 6.4, 6).Mix;
 {
 	CombN(z, 0.3, { Rand(0.1, 0.3) } ! 2, 8)

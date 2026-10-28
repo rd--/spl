@@ -80,6 +80,18 @@ let b = Saw(110);
 (a + b) * 0.1
 ```
 
+There is a special optimised case to sum four signals.
+Note that the underlying _Sum4_ unit generator requires all inputs be operating at the same rate,
+and will crash the synthesiser otherwise.
+Should not be used directly,
+instead see `Mix` and `optimisedSum`:
+
+```
+let o = SinOsc([111, 333, 555, 777], 0);
+let [a, b, c, d] = o * 0.1;
+plus(a, b, c, d)
+```
+
 _a(n)=o(n-1)+o(n-2)_ where _o(n)_ is the number of occurrences of _a(n)_ in _a_ up to _n_,
 OEIS [A306246](https://oeis.org/A306246):
 

@@ -11,5 +11,5 @@ let t = Choose(p, [-2 0 4]) + f;
 	let env = {
 		LfPulse(b * 16, 1.pi, LfNoise0(500)) * LfNoise0(b * 128).linLin(-1, 1, 0, 0.2)
 	} ! 9;
-	(osc * env.Lag(10)).Sum
+	(osc * env.Lag(10)).sum
 } ! 2

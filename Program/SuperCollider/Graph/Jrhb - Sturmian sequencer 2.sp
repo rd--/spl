@@ -20,5 +20,5 @@ let n = 7;
 		trigFlt,
 		freq * [1, 1.1, 1.2],
 		expRand(2 ^ i.negate * 0.1, 0.5)
-	).Sum.distort
+	).sum.distort
 }.Splay * 0.5

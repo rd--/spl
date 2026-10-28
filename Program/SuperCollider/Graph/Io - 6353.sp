@@ -6,7 +6,7 @@ let shuheiKawachi = { :x :y :a :b |
 		(x.cos * y.cos),
 		(((c * x - y) / b).cos * ((x + (c * y)) / b).cos),
 		(((c * x + y) / b).cos * ((x - (c * y * y)) / b).cos)
-	].Sum
+	].sum
 };
 let xMajor = 0;
 let yMajor = 10;

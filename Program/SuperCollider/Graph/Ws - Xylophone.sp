@@ -9,6 +9,6 @@ Voicer(1, 16) { :e |
 	let envVolume = TxLine(1, 0.01, duration, e.w) - 0.01;
 	let hDur = (duration / ((1 - scaleBy) + (harmonics * scaleBy))) * velocity;
 	let envHarmonics = TxLine(1, 0.01, hDur, e.w) - 0.01;
-	let signal = (amp * SinOsc(freq * harmonics, 0) * velocity / harmonics * envHarmonics).Sum;
+	let signal = (amp * SinOsc(freq * harmonics, 0) * velocity / harmonics * envHarmonics).sum;
 	EqPan2(signal, e.i * 2 - 1) * envVolume * amp * e.w.LagUd(0, 2)
 }.Mix

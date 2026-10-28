@@ -14,4 +14,4 @@ Voicer(1, 16) { :e |
 	let b1 = b0 + idx;
 	let sig = PlayBuf(2, b1, BufRateScale(b1) * rtMul * rt, e.w, 0, 0, 0);
 	sig * e.z * e.w.LagUd(0, 4)
-}.Sum
+}.sum

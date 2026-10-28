@@ -30,7 +30,7 @@ B-format encoding of two signals at opposite sides of the circle:
 
 ```
 let p = WhiteNoise() * 0.05;
-let q = LfSaw([200, 200.37, 201], 0).Sum * 0.03;
+let q = LfSaw([200, 200.37, 201], 0).sum * 0.03;
 let a = PanB2(p, -0.5, 1);
 let b = PanB2(q, 0.5, 1);
 let [w, x, y] = a + b;

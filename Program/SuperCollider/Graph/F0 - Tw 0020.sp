@@ -9,5 +9,5 @@ let a3 = a(b / 64);
 let a4 = a(a(b / 8)) * 2 + b;
 let a5 = a(4 / (b + 1)); /* Divide by zero */
 let a6 = a(a2);
-let a7 = a(a6 + (a3.Sum + a5 * a4) * 100);
-a7.Sum.EqPan2(0) * 0.1
+let a7 = a(a6 + (a3.sum + a5 * a4) * 100);
+a7.sum.EqPan2(0) * 0.1

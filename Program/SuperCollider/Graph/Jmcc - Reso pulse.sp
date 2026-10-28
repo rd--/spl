@@ -6,7 +6,7 @@ let left = Rlpf(
 		let l = [25 30 34 37 41 42 46 49 53 54 58 61 63 66];
 		let f = TChoose(tr, l).midiCps;
 		LfPulse(f, 0, 0.2) + LfPulse(2 * f + TRand(-0.5, 0.5, tr), 0, 0.2)
-	}.OverlapTexture(4, 2, 4).Sum * 0.02,
+	}.OverlapTexture(4, 2, 4).sum * 0.02,
 	lfo, /* Cutoff freq */
 	MouseX(0.2, 0.02, 1, 0.2) /* Filter bandwidth */
 );

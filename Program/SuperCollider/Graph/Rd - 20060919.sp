@@ -16,5 +16,5 @@
 	[
 		Blip((r + f).midiCps, 12),
 		Blip((r + f + TRand(-0.0001, 0.0001, tr)).midiCps, 12)
-	].Sum * Decay2(tr, 0.3, 1.2) * 0.1
+	].sum * Decay2(tr, 0.3, 1.2) * 0.1
 }.Mix

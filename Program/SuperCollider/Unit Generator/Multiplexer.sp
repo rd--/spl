@@ -6,7 +6,7 @@ let env = Decay2(tr, 1 / 11, 1 / 3) / 5;
 let inputList = SinOsc({ Rand(48, 72).midiCps } ! numChannels, 0) * env;
 let signalA = Multiplexer(selector, inputList);
 let signalB = Select(selector, inputList);
-let signalC = Demultiplexer(numChannels, signalA, selector).Sum;
+let signalC = Demultiplexer(numChannels, signalA, selector).sum;
 [signalA, signalB, signalC].Splay2
 
 /* Multiplexer ; list expansion at first input */

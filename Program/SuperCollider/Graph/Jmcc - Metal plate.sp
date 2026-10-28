@@ -14,4 +14,4 @@ let pan = TRand(-1 / 3, 1 / 3, excTrig); /* Pan location */
 let flt = Lpf(del, fltFreq) * 0.98;
 [1 .. n].collect { :i |
 	flt[i] <! DelayWrite(buf[i], flt[i] + exc) /* Write to delay lines */
-}.Sum.EqPan2(pan)
+}.sum.EqPan2(pan)

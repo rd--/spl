@@ -17,5 +17,5 @@
 	} !+ 8;
 	let eg = Decay2(Impulse(0, 0), 0.5, 1);
 	let out = eg * Rlpf(osc.distort * 0.2, fc, 0.1);
-	EqPan(out, [pan, pan + 0.3]).Sum / 2
+	EqPan(out, [pan, pan + 0.3]).sum / 2
 }.overlapTextureProgram(2, 0, 10)

@@ -275,7 +275,7 @@
 	}
 
 	!+ { :self :anInteger |
-		(self ! anInteger).Sum
+		(self ! anInteger).optimisedSum
 	}
 
 }

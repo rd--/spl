@@ -65,4 +65,4 @@ Voicer(1, 16) { :e |
 		phaseRand,
 		numLp
 	) * e.z * e.w
-}.Sum
+}.sum

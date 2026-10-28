@@ -12,5 +12,5 @@
 				) * k
 			)
 		)
-	}.Sum
-}.Sum.GVerb(1, 3, 0.5, 0.5, 15, 1, 0.7, 0.5, 300).transpose.Mix / 512
+	}.sum
+}.sum.GVerb(1, 3, 0.5, 0.5, 15, 1, 0.7, 0.5, 300).transpose.Mix / 512

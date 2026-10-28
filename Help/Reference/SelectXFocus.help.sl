@@ -54,7 +54,7 @@ SelectXFocus(
 	a,
 	MouseY(0, a.size, 0, 0.2),
 	false
-).Sum * 0.2
+).sum * 0.2
 ```
 
 Radio tuner (Jrh):
@@ -101,7 +101,7 @@ SelectXFocus(
 	a,
 	mY * n,
 	false
-).Sum * 0.2 + b * Line(0, 1, 3)
+).sum * 0.2 + b * Line(0, 1, 3)
 ```
 
 * * *

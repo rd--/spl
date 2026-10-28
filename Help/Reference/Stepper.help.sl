@@ -103,7 +103,7 @@ let out = LfPulse(
 	lfreq * [1, 3 / 2, 2],
 	0,
 	0.3
-).Sum;
+).sum;
 out := Rlpf(out, ffreq, 0.3) * env;
 out := Rlpf(out, ffreq, 0.3) * env;
 out := LeakDc(rvb(out * 0.02), 0.995);

@@ -46,7 +46,7 @@ let b = c.wavetableFormat.LocalBuf;
 			82 123 196 147 41 55
 		],
 		0
-	).Sum
+	).sum
 } !^ 3 / 17
 ```
 

@@ -25,14 +25,14 @@ let n = 9;
 [0 .. n].collect { :i |
 	let mult = (-1 ^ i) * (0.5 / (i + 1));
 	SinOsc(440 * (i + 1), 0) * mult
-}.Sum / n
+}.sum / n
 
 /* tutorial 2.1 ; square */
 let n = 9;
 [0 .. n].collect { :i |
 	let harmonicnumber = 2 * i + 1;
 	SinOsc(440 * harmonicnumber, 0) / harmonicnumber
-}.Sum / n
+}.sum / n
 
 /* tutorial 2.1 ; triangle */
 let n = 9;
@@ -40,12 +40,12 @@ let n = 9;
 	let harmonicnumber = 2 * i + 1;
 	let mult = (-1 ^ (harmonicnumber - 1 / 2)) * (1 / (harmonicnumber * harmonicnumber));
 	SinOsc(440 * harmonicnumber, 0) * mult
-}.Sum / n
+}.sum / n
 
 /* tutorial 2.1 ; bell spectra */
 let rat = [0.5 1 1.19 1.56 2 2.51 2.66 3.01 4.1];
 let amp = [0.25 1 0.8 0.5 0.9 0.4 0.3 0.6 0.1] / 23;
-SinOsc(500 * rat, 0).Sum * amp
+SinOsc(500 * rat, 0).sum * amp
 
 /* tutorial 2.4 ; fm */
 let modFreq = MouseX(1, 440, 1, 0.2);
@@ -73,12 +73,12 @@ let conversion = 2.pi / SampleRate();
 SinOsc(440, (modFreq * modIndex * conversion * SinOsc(modFreq, 0))) * 0.25
 
 /* tutorial 2.5 ; chorus */
-Saw([440 443 437]).Sum * 0.1
+Saw([440 443 437]).sum * 0.1
 
 /* tutorial 2.5 ; am, fm, chorus */
 let src = Saw([440 443 437] + (SinOsc(100, 0) * 100));
 let amp = LfSaw(Line(3, 17, 3),0) * 0.5 + 0.5 * Line(1, 0, 10);
-Resonz(src, XLine(10000, 10, 10), Line(1, 0.05, 10)).Sum * amp
+Resonz(src, XLine(10000, 10, 10), Line(1, 0.05, 10)).sum * amp
 
 /* tutorial 2.5 ; bell patch ; requires=kr */
 let spectrum = [0.5 1 1.19 1.56 2 2.51 2.66 3.01 4.1];
@@ -130,7 +130,7 @@ SinOsc(EnvGen(Impulse(2, 0), 1, 0, 1, 0, env).midiCps, 0) * 0.1
 
 /* tutorial 3.4 */
 let trig = Impulse(3, 0);
-let sound = LfPulse(110 * [1, 5 / 2], 0, 0.5).Sum * 0.2;
+let sound = LfPulse(110 * [1, 5 / 2], 0, 0.5).sum * 0.2;
 let env = Decay2(trig, 0.02, 0.2);
 Pan2(sound * env, 0, 1)
 

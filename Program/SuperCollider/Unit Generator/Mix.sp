@@ -6,7 +6,7 @@ let n = 9;
 	EqPan2(
 		[ping, sine],
 		[-1, TRand(-1, 1, tr)]
-	).Sum * [0.1, 0.05]
+	).sum * [0.1, 0.05]
 }.OverlapTexture(n, 0, n).Mix
 
 /* Mix ; !> is ! then Mix */

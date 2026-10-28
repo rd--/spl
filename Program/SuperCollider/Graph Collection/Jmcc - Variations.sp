@@ -217,7 +217,7 @@ let l = Line(0, -0.02, 60);
 [1 .. 20].collect { :h |
 	let n = LfNoise1({ Rand(-4, 4) } ! 2 + 6) * 0.02 + l;
 	SinOsc(50 * (h + 1), 0) * n.max(0)
-}.Sum
+}.sum
 
 /* Harmonic tumbling (Jmcc) #1 */
 let t = XLine([10, 11], 0.1, 60);
@@ -287,7 +287,7 @@ Voicer(1, 16) { :e |
 let s = Voicer(1, 16) { :e |
 	let s = SinOsc(e.x * 400 + 500 * [1 1.2 1.5 1.8], 0); /* just minor seventh chord, 1/1 5/4 3/2 9/5 */
 	let a = LfNoise2({ Rand(30, 90) } ! 4 * (0.75 + e.j)).max(0) * e.z;
-	Pan2(s, { Rand(-1, 1) } ! 4 + (e.i * 2 - 1), a * LagUd(e.w, 0, e.k * 2)).Sum
+	Pan2(s, { Rand(-1, 1) } ! 4 + (e.i * 2 - 1), a * LagUd(e.w, 0, e.k * 2)).sum
 }.Mix * 0.5;
 CombN(s, 0.1, 0.1, 1)
 
@@ -327,7 +327,7 @@ let y = z * 0.6;
 {
 	[y, y].collect { :i |
 		CombL(i, 0.06, LfNoise1(Rand(0, 0.3)) * 0.025 + 0.035, 1)
-	}.Sum
+	}.sum
 } ! 2 + z
 
 /* Wind metals (Jmcc) ; texture=overlap,5,2,12,inf */
@@ -384,7 +384,7 @@ let b = { :f :m :a :g |
 [
 	{ b(14, 400, 500, 0.06) } ! 2,
 	{ b(20, 800, 1000, 0.10) } ! 2
-].Sum
+].sum
 
 /* Coolant (Jmcc) ; requires=filterMethods */
 { BrownNoise().*(0.002).OnePole(0.95).RingzBank({ 40 + Rand(0, 2000) } ! 10, [0.1], [1]) } ! 2
@@ -638,7 +638,7 @@ let z = { :tr |
 		),
 		LfNoise1(Rand(0, 1))
 	) * LfNoise1(LfNoise1(1).*+(3, 4)).*+(0.4, 0.6)
-}.OverlapTexture(8, 3, 4).Sum;
+}.OverlapTexture(8, 3, 4).sum;
 6.timesRepeat {
 	z := AllpassN(z, 0.040, [Rand(0, 0.04), Rand(0, 0.04)], 16)
 };
@@ -674,7 +674,7 @@ let strings = [1 .. 8].collect { :i |
 		),
 		i * 0.2 - 0.5
 	)
-}.Sum;
+}.sum;
 LeakDc(
 	Lpf(strings, 12000),
 	0.995

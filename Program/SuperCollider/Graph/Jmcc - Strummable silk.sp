@@ -15,7 +15,7 @@ let str = [1 .. 8].collect { :ix |
 	);
 	EqPan(metal, ix - 1 * 0.2 - 0.5)
 };
-let s = LeakDc(Lpf(str.Sum, 12000), 0.995);
+let s = LeakDc(Lpf(str.sum, 12000), 0.995);
 6.timesRepeat {
 	s := AllpassN(s, 0.1, { Rand(0, 0.05) } ! 2, 4)
 };

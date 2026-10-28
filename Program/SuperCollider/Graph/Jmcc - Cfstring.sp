@@ -17,5 +17,5 @@
 	} !+ 8;
 	let eg = Decay2(tr, 0.5, 1);
 	let out = eg * Rlpf(osc.distort * 0.2, fc, 0.1);
-	EqPan2(out, [pan, pan + 0.3]).Sum
+	EqPan2(out, [pan, pan + 0.3]).sum
 }.OverlapTexture(2, 0, 9).Mix

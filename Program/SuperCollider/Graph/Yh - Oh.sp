@@ -9,7 +9,7 @@ let osc = LfPulse(
 	[203.52 366.31 301.77 518.19 811.16 538.75],
 	0,
 	0.5
-).Sum;
+).sum;
 let sig1 = Bpf(BLowShelf(osc, 990, 2, -3), 7700, 1);
 let sig2 = BPeakEq(sig1, 7200, 0.5, 5);
 let sig3 = BHiPass4(sig2, 8100, 0.7);

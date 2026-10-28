@@ -39,5 +39,5 @@ let ps = [-12 -5 0 2 4 5 7 12];
 		cf * fs.midiRatio + TRand(0, 1, tr),
 		1 / cd * TRand(2, 17, tr)
 	) * ca;
-	EqPan2(k.Sum, TRand(-1, 1, tr))
+	EqPan2(k.sum, TRand(-1, 1, tr))
 } !> 7

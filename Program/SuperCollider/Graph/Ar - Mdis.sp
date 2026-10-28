@@ -19,5 +19,5 @@ Voicer(1, 16) { :e |
 	let c1 = fund * (level * e1).^(0.7);
 	let c2 = a * (level * e1).^(f2.linLin(50, 1500, 1.1, 1.5));
 	let c3 = b * (level * e1).^(f2.linLin(50, 1500, 1.5, 2.5));
-	LeakDc([c1 c2 c3].Sum, 0.995)
-}.Sum * 0.25
+	LeakDc([c1 c2 c3].sum, 0.995)
+}.sum * 0.25

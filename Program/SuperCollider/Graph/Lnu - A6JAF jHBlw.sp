@@ -20,7 +20,7 @@ let f = { :a |
 			]
 		) * v,
 		List(6, List(6, m()))
-	).softClip.Sum
+	).softClip.sum
 };
 Splay2(
 	[0 3.1 7.05 10 -9 17].collect { :n |

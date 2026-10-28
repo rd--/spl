@@ -10,7 +10,7 @@
 		[
 			TRand(0, TRand(500, 8000, tr), tr),
 			TExpRand(60, 4000, tr)
-		].Sum
+		].sum
 	} ! n;
 	let dt = { TRand(0.1, 2, tr) } ! n;
 	let s = RingzBank(exc, f, [1], dt) * 0.1;

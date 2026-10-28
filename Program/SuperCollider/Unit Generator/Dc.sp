@@ -9,4 +9,4 @@ Dc(0)
 	let p = { Dc(0) } ! 8;
 	let q = { SinOsc(TRand(220, 880, tr), 0) } ! 8;
 	(p ++ q) * 0.1
-}.OverlapTexture(2, 5, 2).Sum
+}.OverlapTexture(2, 5, 2).sum

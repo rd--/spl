@@ -72,7 +72,7 @@ z
 let z = { :tr |
 	let f = TChoose(tr, [25 30 34 37 41 42 46 49 53 54 58 61 63 66]).midiCps;
 	LfPulse(f, 0, 0.2) + LfPulse(2 * f + TRand(-0.5, 0.5, tr), 0, 0.2)
-}.OverlapTexture(4, 2, 4).Sum;
+}.OverlapTexture(4, 2, 4).sum;
 let lfoFreq = 6;
 let lfo = LfNoise0(lfoFreq).*+(1000, 1200);
 let left = Rlpf(
@@ -260,7 +260,7 @@ let out = [1 .. 8].collect { :ix |
 		{ Rand(0.3, 1.0) } ! n /* ring times */
 	);
 	EqPan2(metal, ix * 0.2 - 0.5)
-}.Sum.Lpf(12000).LeakDc(0.995);
+}.sum.Lpf(12000).LeakDc(0.995);
 6.timesRepeat {
 	out := AllpassN(out, 0.1, [Rand(0, 0.05), Rand(0, 0.05)], 4)
 };
@@ -407,8 +407,8 @@ CombL(
 
 /********** Sweep verb ; Jmcc **********/
 let s = AudioIn([1, 2]) * 0.01;
-let z = DelayN(s.Sum, 0.048, 0.048); /* reverb predelay time */
-let y = CombL(z, 0.1, LfNoise1({ Rand(0, 0.1) } ! 6).*+(0.04, 0.05), 15).Sum; /* 6 modulated comb delays in parallel */
+let z = DelayN(s.sum, 0.048, 0.048); /* reverb predelay time */
+let y = CombL(z, 0.1, LfNoise1({ Rand(0, 0.1) } ! 6).*+(0.04, 0.05), 15).sum; /* 6 modulated comb delays in parallel */
 4.timesRepeat { /* chain of 4 allpass delays on each of two channels (8 total) */
 	y := AllpassN(y, 0.050, [Rand(0, 0.050), Rand(0, 0.050)], 1)
 };

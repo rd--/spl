@@ -28,7 +28,7 @@ let f = Pitch(
 Track audio input, __use headphones__:
 
 ```
-let z = AudioIn([1, 2]).Sum;
+let z = AudioIn([1, 2]).sum;
 let f = Pitch(
 	z,
 	440, 60, 4000, 100,

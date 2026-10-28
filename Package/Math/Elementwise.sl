@@ -1234,7 +1234,7 @@
 		operand.adaptToCollectionAndApply(self, signedLcm/2)
 	}
 
-	sum4 { :a :b :c :d |
+	[plus, +] { :a :b :c :d |
 		a + b + c + d
 	}
 

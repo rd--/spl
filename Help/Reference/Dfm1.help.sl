@@ -29,7 +29,7 @@ Dfm1(
 Lfo control of frequency, pulse input:
 
 ```
-let in = Pulse([100 100.1], 0.5).Sum * 0.4;
+let in = Pulse([100 100.1], 0.5).sum * 0.4;
 let freq = SinOsc(
 	SinOsc(0.3, 0).linLin(-1, 1, 0.2, 5),
 	0

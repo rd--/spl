@@ -1118,7 +1118,7 @@
 		self > 0
 	}
 
-	sum4 { :a :b :c :d |
+	[plus, +] { :a :b :c :d |
 		a + b + c + d
 	}
 

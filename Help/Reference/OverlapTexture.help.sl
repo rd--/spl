@@ -47,10 +47,10 @@ let texture = { :tr |
 		]
 	).midiCps;
 	let f2 = f1 * 2 + TRand(-0.5, 0.5, tr);
-	LfPulse([f1 f2], 0, 0.2).Sum
-}.OverlapTexture(4, 2, 4);
+	LfPulse([f1 f2], 0, 0.2).sum
+}.OverlapTexture(4, 2, 4).sum;
 let left = Rlpf(
-	texture.Sum * 0.02,
+	texture * 0.02,
 	lfo,
 	MouseX(0.2, 0.02, 1, 0.2)
 );

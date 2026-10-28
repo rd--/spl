@@ -24,5 +24,5 @@ let g = { :aBlock :count |
 };
 let h/1 = g(f/1, 4);
 let freq3 = h(LfSaw(0.2 * [1, 1.1], 0)).expRange(6, 11000);
-let osc = Bpf(Saw(freq3).product, [70, 800, 9000, 5242], 0.2).Sum;
+let osc = Bpf(Saw(freq3).product, [70, 800, 9000, 5242], 0.2).sum;
 [osc, osc] * 0.3

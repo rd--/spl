@@ -12,5 +12,5 @@
 		let env = Perc(tr, 0.005, dur * durList[i], -4.5) * ampList[i];
 		SinOsc(freq * freqList[i] + detuneList[i], 0) * amp * env
 	};
-	EqPan2(src.Sum, pan)
+	EqPan2(src.sum, pan)
 }.OverlapTexture(9, 0, 7).Mix * 0.1
