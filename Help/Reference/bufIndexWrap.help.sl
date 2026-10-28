@@ -1,6 +1,6 @@
-# WrapIndex
+# bufIndexWrap
 
-- _WrapIndex(table, in)_
+- _bufIndexWrap(table, in)_
 
 Index into a table with a signal.
 The input signal value is truncated to an integer value and used as an index into the table.
@@ -16,7 +16,7 @@ let b = LocalBuf[
 	200 300 400 500 600 800
 ];
 SinOsc(
-	WrapIndex(
+	bufIndexWrap(
 		b,
 		MouseX(0, 6 * 3, 0, 0.1)
 	),
@@ -26,7 +26,7 @@ SinOsc(
 
 * * *
 
-See also: Index, Shaper
+See also: bufIndexClip, Shaper
 
 Guides: Unit Generators
 

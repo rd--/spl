@@ -377,7 +377,7 @@ Reference (A-Z):
 - `CircularSector`
 - `CircularSegment`
 - `bilateralClip`
-- `ClipIndex`
+- `bufIndexClip`
 - `ClipNoise`
 - `Clock`
 - `Coin`
@@ -950,7 +950,7 @@ Reference (A-Z):
 - `Workspace`
 - `WorldMenu`
 - `Wrap2`
-- `WrapIndex`
+- `bufIndexWrap`
 - `Writing`
 - `XFade2`
 - `XFadeTexture`

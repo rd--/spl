@@ -502,7 +502,7 @@
 		<primitive: return sc.ClearBuf(_buf);>
 	}
 
-	ClipIndex { :bufnum :in |
+	bufIndexClip { :bufnum :in |
 		<primitive: return sc.Index(_bufnum, _in);>
 	}
 
@@ -987,7 +987,7 @@
 		<primitive: return sc.Vibrato(_freq, _rate, _depth, _delay, _onset, _rateVariation, _depthVariation, _iphase, _trig);>
 	}
 
-	WrapIndex { :bufnum :in |
+	bufIndexWrap { :bufnum :in |
 		<primitive: return sc.WrapIndex(_bufnum, _in);>
 	}
 

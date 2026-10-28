@@ -28,7 +28,7 @@
 - `PlayBuf`: sample playback oscillator
 - `TGrains`: buffer granulator
 - `Warp1`: warp a buffer with a time pointer
-- `WrapIndex`: index into a table with a signal
+- `bufIndexWrap`: index into a table with a signal
 
 ## Chaotic Systems
 

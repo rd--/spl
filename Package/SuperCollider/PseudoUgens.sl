@@ -136,7 +136,10 @@
 		let gate = DurationGate(dur);
 		let trig = Trig1(gate, SampleDur());
 		let index = Stepper(trig.kr, 1, 0, inList.size - 1, 1, 0);
-		Latch(Select(index, inList), trig) /* Multiplexer */
+		Latch(
+			Select(index, inList), /* Multiplexer */
+			trig
+		)
 	}
 
 	IRand0 { :self |

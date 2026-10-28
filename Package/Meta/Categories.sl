@@ -1793,7 +1793,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'WhiteNoise'
 		'Wrap'
 		'Wrap2'
-		'WrapIndex'
+		'bufIndexWrap'
 		'XChoose'
 		'XFade2'
 		'XFadeTexture'

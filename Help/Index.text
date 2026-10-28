@@ -701,6 +701,8 @@ Reference/bubbleChart.help.sl
 Reference/bubbleSort.help.sl
 Reference/bubbleSortMatrix.help.sl
 Reference/BufFrames.help.sl
+Reference/bufIndexClip.help.sl
+Reference/bufIndexWrap.help.sl
 Reference/BufRd.help.sl
 Reference/bulgarianSolitaire.help.sl
 Reference/burnsideCurve.help.sl
@@ -842,7 +844,6 @@ Reference/clamp.help.sl
 Reference/clawsonPoint.help.sl
 Reference/cleliaCurve.help.sl
 Reference/clip.help.sl
-Reference/ClipIndex.help.sl
 Reference/ClipNoise.help.sl
 Reference/Clock.help.sl
 Reference/closedLine.help.sl
@@ -4425,7 +4426,6 @@ Reference/WorldMenu.help.sl
 Reference/wrapExclusive.help.sl
 Reference/wrap.help.sl
 Reference/wrapIndex.help.sl
-Reference/WrapIndex.help.sl
 Reference/writeBinaryFile.help.sl
 Reference/writeTextFile.help.sl
 Reference/Writing.help.sl
