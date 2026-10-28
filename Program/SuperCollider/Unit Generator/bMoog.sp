@@ -1,5 +1,5 @@
 /* bMoog ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let md = tiRand(0, 2, e.w);
 	let f0 = linExp(e.x, 0, 1, 12, 12000);
 	let sig = lfSaw([f0 * 0.99, f0 * 1.01], 0) * e.k * 0.4;

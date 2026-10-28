@@ -93,7 +93,7 @@ let r = Sfc32(369781);
 let x = r.randomReal([0 1], [n]);
 [100, 200 .. n].collect { :k |
 	[
-		quickSort!/2
+		quickSort!/2,
 		mergeSort!/2
 	].collect { :f/2 |
 		let m = 0;

@@ -26,7 +26,7 @@ The `orthocenter`:
 >>> .triangleCentre(
 >>> 	interiorAngles/1
 >>> ) { :a :b :c |
->>> 	a.sec.clip([-1E6 1E6])
+>>> 	a.sec.clip(-1E6, 1E6)
 >>> }
 [3.2 2.4]
 

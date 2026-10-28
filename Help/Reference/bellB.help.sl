@@ -76,7 +76,7 @@ Plot the first five polynomials over a subset of the reals:
 	1:5.collect { :n |
 		n.bellB
 		.unaryBlock
-		.clip([-2 3])
+		.clip(-2, 3)
 	}
 )
 ~~~

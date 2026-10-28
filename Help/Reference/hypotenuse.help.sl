@@ -68,7 +68,7 @@ The hypotenuse gives the distance of a point _(x,y)_ from the origin:
 let i = (-1 -- 1).subdivide(99);
 { :x :y |
 	x.hypotenuse(y)
-}.table(i, i).clip([0 1]).Greymap
+}.table(i, i).clip(0, 1).Greymap
 ~~~
 
 ![](Help/Image/hypotenuse-A.png)

@@ -10,7 +10,7 @@ Plot over _(-π/2,π/2)_:
 
 ~~~spl svg=A
 (-0.5.pi -- 0.5.pi).functionPlot(
-	quadratrixOfHippias(1).clip([-6 6])
+	quadratrixOfHippias(1).clip(-6, 6)
 )
 ~~~
 
@@ -20,7 +20,7 @@ Plot over _(-4π,4π)_:
 
 ~~~spl svg=B
 (-4.pi -- 4.pi).functionPlot(
-	quadratrixOfHippias(1).clip([-6 6])
+	quadratrixOfHippias(1).clip(-6, 6)
 )
 ~~~
 

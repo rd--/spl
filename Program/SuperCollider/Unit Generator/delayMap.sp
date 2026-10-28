@@ -10,7 +10,7 @@ let o = sinOsc(x, 0) * y;
 [delayMap(b, o, 0, a), o]
 
 /* delayMap ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let b = localBuf(1, 2 * 48000).zeroBuf;
 	let a = [
 		-1 e.y 0 0.5

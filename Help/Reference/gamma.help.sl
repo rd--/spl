@@ -163,7 +163,7 @@ Plot the Euler gamma function:
 
 ~~~spl svg=A
 (-4 -- 4).functionPlot { :z |
-	z.gamma.clip([-10 10])
+	z.gamma.clip(-10, 10)
 }
 ~~~
 
@@ -173,8 +173,8 @@ Plot γ with _γ + sin_, note intersection at positive integers:
 
 ~~~spl svg=B
 (-4 -- 4).functionPlot([
-	{ :z | z.gamma.clip([-1 5]) },
-	{ :z | (z.gamma + z.pi.sin).clip([-1 5]) }
+	{ :z | z.gamma.clip(-1, 5) },
+	{ :z | (z.gamma + z.pi.sin).clip(-1, 5) }
 ])
 ~~~
 

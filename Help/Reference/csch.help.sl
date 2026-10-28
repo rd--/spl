@@ -40,7 +40,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-5 -- 5).functionPlot { :x |
-	x.csch.clip([-1.5 1.5])
+	x.csch.clip(-1.5, 1.5)
 }
 ~~~
 

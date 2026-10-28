@@ -1,32 +1,32 @@
 /* sinOsc ; Event control ; p */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	sinOsc(e.p.unitCps, 0) * e.w * e.z
 }.splay
 
 /* sinOsc ; Event control ; x */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	eqPan2(sinOsc((e.x * 24 + 48).midiCps, 0), e.i * 2 - 1) * e.z * e.w
 }.mix
 
 /* blip ; Event control ; Shared parameter */
 let nh = 1;
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	blip(e.p.unitCps, nh) * e.w * e.z
 }.splay
 
 /* blip ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	eqPan2(blip(e.p.unitCps, e.y * 10 + 1), e.i * 2 - 1) * e.w * e.z * e.z
 }.mix
 
 /* blip ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	eqPan2(blip(e.p.unitCps, e.i * 10 + 1), e.j * 2 - 1) * e.w * e.z / 9
 }.mix
 
 /* panAz ; Event control */
 let nc = 2;
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	panAz(
 		nc,
 		blip(e.p.unitCps, e.y * 3 + 1),
@@ -37,16 +37,16 @@ Voicer(1, 16) { :e |
 	) * e.w * e.z * e.z
 }.sum
 
-/* Dictionary ; Voicer */
+/* Dictionary ; voicer */
 (
 	w: sinOsc(1 / [5, 7], 0),
 	x: sinOsc(1 / [13, 17], 0)
-).Voicer { :e |
+).voicer { :e |
 	sinOsc(e.x * 222 + 333, 0) * e.w * 0.2
 }
 
 /* blip ; Event control ; requires=keywords */
-Voicer(
+voicer(
 	part: 1,
 	numVoices: 16,
 	voiceFunc: { :e |
@@ -61,7 +61,7 @@ Voicer(
 ).sum
 
 /* MembraneCircle ; Event control ; Note limited voice count ; requires=keywords */
-Voicer(
+voicer(
 	part: 1,
 	numVoices: 6,
 	voiceFunc: { :e |
@@ -101,7 +101,7 @@ Voicer(
 ).mix
 
 /* pluck ; Event control ; requires=keywords */
-Voicer(
+voicer(
 	part: 1,
 	numVoices: 16,
 	voiceFunc: { :e |
@@ -123,7 +123,7 @@ Voicer(
 ).sum
 
 /* resonz ; pinkNoise ; Event control ; requires=keywords */
-Voicer(
+voicer(
 	part: 1,
 	numVoices: 16,
 	voiceFunc: { :e |

@@ -25,7 +25,7 @@ clip number to indicated range:
 >>> -5/2.clip(-2, 2)
 -2
 
->>> -5/2.clip([-2 2])
+>>> -5/2.clip(-2, 2)
 -2
 
 >>> -5/2.clip(-2 -- 2)

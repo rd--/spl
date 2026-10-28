@@ -1,5 +1,5 @@
 /* Vibraphone simulation ; Kevin Larke ; Real Time Vibraphone Pitch and Timbre Classification ; Even control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let freq = e.p.unitCps;
 	let detune = e.y * 15;
 	let freqs = freq * [1, 4, 10, 13.75 + detune];

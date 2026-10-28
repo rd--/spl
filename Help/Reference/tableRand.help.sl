@@ -1,9 +1,14 @@
 # tableRand
 
-- _tableRand(trig, bufNum)_
+- _tableRand([x₁ x₂ …], r)_
+- _tableRand(b, t)_
 
-Select random value in (0,1) at each trigger input.
-The value follows the probability density function given in the associated table.
+At `List`,
+_x_ is a cumulative distribution function and _r_ a random number generator.
+
+At `Ugen`,
+select random value in (0,1) at each trigger input _t_.
+The value follows the probability density function given in the associated table _b_.
 
 - trig: generate new random output value on each trigger
 - bufNum: table giving probability density function for random number generation
@@ -20,10 +25,9 @@ let w = trigRoundRobin(
 	k * 2,
 	impulse(k, 0).kr
 );
-let f = tableRand(
-	w,
-	tbl
-).linExp(0, 1, 111, 1111);
+let f = tbl.tableRand(w).linExp(
+	0, 1, 111, 1111
+);
 let e = perc(w, 1 / 111, 1, -1);
 let o = sinOsc(f, 0) * e;
 o.splay / 3
@@ -34,11 +38,10 @@ carrier and modulation frequencies and modulation index:
 
 ```
 let tbl = { :trig :dist :lo :hi |
-	tableRand(
-		trig,
-		dist
-		.randomTable(128)
-		.localBuf
+	dist
+	.randomTable(128)
+	.localBuf.tableRand(
+		trig
 	).linExp(0, 1, lo, hi)
 };
 let x = mouseX(7, [7 * 11, 11 * 23], 1, 0.2);

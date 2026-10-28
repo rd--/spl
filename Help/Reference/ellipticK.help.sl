@@ -24,7 +24,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot { :m |
-	m.ellipticK.clip([1.2 2.6])
+	m.ellipticK.clip(1.2, 2.6)
 }
 ~~~
 
@@ -36,7 +36,7 @@ Plot the small-angle approximation to the period of a pendulum versus the initia
 (0 -- 1.pi).functionPlot { :alpha |
 	(alpha / 2).sin.square
 	.ellipticK
-	.clip([1/2.pi 4])
+	.clip(1/2.pi, 4)
 }
 ~~~
 

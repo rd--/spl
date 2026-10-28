@@ -50,7 +50,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (0 -- 2.pi).functionPlot(
-	sec/1.clip([-4 4])
+	sec/1.clip(-4, 4)
 )
 ~~~
 
@@ -61,7 +61,7 @@ Plot over a subset of the complex numbers:
 ~~~spl png=B
 let i = (-1.pi -- 1.pi).subdivide(100);
 { :y :x |
-	Complex(x, y).sec.abs.clip([0 1])
+	Complex(x, y).sec.abs.clip(0, 1)
 }.table(i, i).Greymap
 ~~~
 
@@ -71,7 +71,7 @@ Plot the sum of the `sec` and `tan` functions:
 
 ~~~spl svg=C
 (0 -- 4.pi).functionPlot { :x |
-	(x.sec + x.tan).clip([-9 9])
+	(x.sec + x.tan).clip(-9, 9)
 }
 ~~~
 
@@ -82,7 +82,7 @@ Draw an epispiral:
 ~~~spl svg=D
 let a = 7;
 (0 -- 2.pi).polarPlot { :theta |
-	(a * theta).sec.clip([0 1])
+	(a * theta).sec.clip(0, 1)
 }
 ~~~
 

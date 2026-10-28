@@ -1,5 +1,5 @@
 /* membraneCircle ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let loss = linExp(e.y, 0, 1, 0.99999, 0.99950);
 	let wobble = sinOsc(2, 0);
 	let tension = linExp(e.x, 0, 1, 0.01, 0.1) + (wobble * 0.0001);

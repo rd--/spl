@@ -90,7 +90,7 @@ let [a, b, c] = [1 / 3, 1 / 3, 2 / 3];
 (-1 -- 1).functionPlot { :z |
 	hypergeometric2F1(
 		a, b, c, z
-	).clip([0 1.5])
+	).clip(0, 1.5)
 }
 ~~~
 
@@ -104,7 +104,7 @@ Plot varying _z_ for three distinct _c_:
 		{ :z |
 			hypergeometric2F1(
 				1, 0.5, n.sqrt, z
-			).clip([0 2])
+			).clip(0, 2)
 		}
 	}
 )

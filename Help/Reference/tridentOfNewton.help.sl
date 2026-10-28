@@ -9,7 +9,7 @@ Trident of Newton, all parameters `one`:
 ~~~spl svg=A
 (-3 -- 2.6).functionPlot(
 	[1 1 1 1].tridentOfNewton
-	.clip([-10 10])
+	.clip(-10, 10)
 )
 ~~~
 
@@ -25,7 +25,7 @@ Three tridents of Newton:
 		1 2 3 4
 	].collect { :each |
 		each.tridentOfNewton
-		.clip([-10 10])
+		.clip(-10, 10)
 	}
 )
 ~~~

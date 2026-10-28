@@ -44,7 +44,7 @@ freezer(
 
 /* freezer ; Event control */
 let sf = sfAcquireMono('Floating');
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let incr = 1;
 	let incrOff = 0;
 	let incrRand = 0;

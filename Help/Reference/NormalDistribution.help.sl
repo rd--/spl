@@ -115,7 +115,7 @@ varying σ:
 	[0.5 1 2].collect { :sigma |
 		NormalDistribution(-2, sigma)
 		.quantileFunction
-		.clip([-6 2])
+		.clip(-6, 2)
 	}
 )
 ~~~
@@ -130,7 +130,7 @@ varying μ:
 	[-1 1 4].collect { :mu |
 		NormalDistribution(mu, 2)
 		.quantileFunction
-		.clip([-10 15])
+		.clip(-10, 15)
 	}
 )
 ~~~

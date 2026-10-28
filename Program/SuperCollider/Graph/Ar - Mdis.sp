@@ -1,5 +1,5 @@
 /* Ar ; http://github.com/alikthename/Musical-Design-in-Supercollider ; 1 */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let withMod = true;
 	let level = e.z * e.w.lagUd(0, e.y * 4 + 0.1);
 	let f1 = (e.x * 36 + 48).midiCps;

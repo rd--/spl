@@ -56,7 +56,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-5 -- 5).functionPlot { :z |
-	z.arcCsch.clip([-2 2])
+	z.arcCsch.clip(-2, 2)
 }
 ~~~
 

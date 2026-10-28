@@ -221,7 +221,7 @@ The quotient of a function:
 (0 -- 2).functionPlot { :x |
 	(x ^ 2)
 	.quotient(x - 1)
-	.clip([-9 9])
+	.clip(-9, 9)
 }
 ~~~
 

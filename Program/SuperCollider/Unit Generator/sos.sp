@@ -1,12 +1,12 @@
 /* sos */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let b1 = linLin(e.y, 0, 1, 1.45, 1.998);
 	let b2 = linLin(e.x, 0, 1, -0.999, -0.9998);
 	eqPan2(sos(trig(k2A(e.w), 0), 0.0, 0.05, 0.0, b1, b2), e.i * 2 - 1) * 8
 }.mix
 
 /* sos */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let freq = (e.x * 25 + 48).midiCps;
 	let rq = 0.002 + (e.y * 0.004);
 	let b1 = 1.987 * 0.9889999999 * 0.09.cos;

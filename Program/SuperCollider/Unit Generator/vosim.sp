@@ -29,7 +29,7 @@ eqPan2(
 ).mix * 0.25
 
 /* vosim ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let tr = impulse(e.p.unitCps, 0);
 	let freq = linExp(e.y, 0, 1, 440, 880);
 	eqPan2(vosim(tr, freq, e.k + 1 * e.y * 12, e.j), e.i * 2 - 1) * e.w * e.z

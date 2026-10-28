@@ -50,7 +50,7 @@ Plot over a subset of the reals:
 ~~~spl svg=A
 (-5 -- 5).functionPlot { :x |
 	(x.abs > 1).if {
-		x.arcCoth.clip([-1.5 1.5])
+		x.arcCoth.clip(-1.5, 1.5)
 	} {
 		0
 	}

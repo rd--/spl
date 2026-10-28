@@ -478,7 +478,7 @@ let o = b(f);
 		).fold(
 			b(2 / 3 * f),
 			b(3 / 2 * f)
-		).Blend(
+		).blendXFade(
 			o,
 			b(m() ^ 1.pi / 9).abs
 		),

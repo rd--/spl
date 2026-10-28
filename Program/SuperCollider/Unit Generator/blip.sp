@@ -15,7 +15,7 @@ blip(
 ) * 0.1
 
 /* blip ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let o = blip((e.x * 13 + 48).midiCps, e.y * 19 + 1);
 	eqPan2(o, e.i * 2 - 1) * e.z * e.w * 0.5
 }.mix

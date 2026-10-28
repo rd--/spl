@@ -155,16 +155,6 @@
 
 +List {
 
-	mix { :self |
-		let ruleTable = system.preference('ScSynth/Outputs/Mixer/RuleTable', [['1×2', [1, 2]]]);
-		let runList = self.collect(size/1).RunArray;
-		let derivedPrefix = runList.runLengthsAndValuesCollect { :run :value |
-			[run.printString, value.printString].stringIntercalate('×')
-		}.stringIntercalate('+') ++ '→';
-		/* ['Mix', ruleTable, derivedPrefix].printLine; */
-		self.mixByAvailableNamedRule(derivedPrefix, ruleTable)
-	}
-
 	lowFrequencySendsSparseMatrix { :self |
 		let lowFrequencySends = system.preference('ScSynth/Outputs/Mixer/LowFrequency/Sends', []);
 		let lowFrequencyGain = system.preference('ScSynth/Outputs/Mixer/LowFrequency/Gain', 1);
@@ -175,6 +165,16 @@
 				lowFrequencyGain
 			]
 		}
+	}
+
+	mix { :self |
+		let ruleTable = system.preference('ScSynth/Outputs/Mixer/RuleTable', [['1×2', [1, 2]]]);
+		let runList = self.collect(size/1).RunArray;
+		let derivedPrefix = runList.runLengthsAndValuesCollect { :run :value |
+			[run.printString, value.printString].stringIntercalate('×')
+		}.stringIntercalate('+') ++ '→';
+		/* ['Mix', ruleTable, derivedPrefix].printLine; */
+		self.mixByAvailableNamedRule(derivedPrefix, ruleTable)
 	}
 
 	mixByAvailableNamedRule { :self :prefix :ruleTable |
@@ -209,6 +209,19 @@
 
 +List {
 
+	optimisedSum { :self |
+		(self.size >= 4).if {
+			let prefix = plus(self[1], self[2], self[3], self[4]);
+			(self.size = 4).if {
+				prefix
+			} {
+				prefix + optimisedSum(self.copyFromTo(5, self.size))
+			}
+		} {
+			self.sum
+		}
+	}
+
 	splay { :inList :spread |
 		let numberOfChannels = system.scSynth.mainOutputs;
 		let orientation = system.scSynth.mainOrientation;
@@ -231,19 +244,6 @@
 
 	splay { :inList |
 		splay(inList, 1)
-	}
-
-	optimisedSum { :self |
-		(self.size >= 4).if {
-			let prefix = plus(self[1], self[2], self[3], self[4]);
-			(self.size = 4).if {
-				prefix
-			} {
-				prefix + optimisedSum(self.copyFromTo(5, self.size))
-			}
-		} {
-			self.sum
-		}
 	}
 
 }

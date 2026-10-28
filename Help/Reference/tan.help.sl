@@ -80,7 +80,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (0 -- 2.pi).functionPlot { :x |
-	x.tan.clip([-6 6])
+	x.tan.clip(-6, 6)
 }
 ~~~
 
@@ -92,11 +92,11 @@ Plot `tan` alongside a Padé approximation:
 (-0.5.pi -- 0.5.pi).functionPlot(
 	[
 		{ :x |
-			x.tan.clip([-3 3])
+			x.tan.clip(-3, 3)
 		},
 		{ :x |
 			x.tanApproximation
-			.clip([-3 3])
+			.clip(-3, 3)
 		}
 	]
 )

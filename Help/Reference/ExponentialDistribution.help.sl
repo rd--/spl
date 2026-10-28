@@ -72,7 +72,7 @@ Quantile function:
 	[0.5 1 3].collect { :lambda |
 		ExponentialDistribution(lambda)
 		.quantileFunction
-		.clip([0 5])
+		.clip(0, 5)
 	}
 )
 ~~~

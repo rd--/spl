@@ -14,11 +14,6 @@ Ugen! : [Object, Number] {
 		>
 	}
 
-	blend { :y1 :y2 :mu |
-		/* Copy, c.f. Interpolation */
-		y1 + (mu * (y2 - y1))
-	}
-
 	isScalar { :self |
 		false
 	}

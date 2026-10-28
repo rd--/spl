@@ -213,7 +213,7 @@ sinOsc(latch(lfSaw(mouseX(0.1, 20, 0, 0.2), 0) * 500 + 600, impulse(10, 0)), 0) 
 sinOsc(latch(lfSaw(line(0.1, 20, 60), 0) * 500 + 600, impulse(10, 0)), 0) * 0.1
 
 /* Rise fall pad ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let mnn = e.x * 24 + 48;
 	let freq = mnn.midiCps;
 	let gate = e.w;

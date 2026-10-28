@@ -52,6 +52,10 @@
 		decay2(d['in'], d['attackTime'], d['decayTime'])
 	}
 
+	degreeToKey { :d |
+		degreeToKey(d['bufNum'], d['in'], d['octave'])
+	}
+
 	delayC { :d |
 		delayC(d['in'], d['maxDelayTime'], d['delayTime'])
 	}
@@ -82,6 +86,10 @@
 
 	envGen { :d |
 		envGen(d['gate'], d['levelScale'], d['levelBias'], d['timeScale'], d['doneAction'], d['envelope'])
+	}
+
+	expRand { :d |
+		expRand(d['lo'], d['hi'])
 	}
 
 	fSinOsc { :d |
@@ -172,8 +180,8 @@
 		lag2(d['in'], d['lagTime'])
 	}
 
-	Lag2Ud { :d |
-		Lag2Ud(d['in'], d['lagTimeU'], d['lagTimeD'])
+	lag2Ud { :d |
+		lag2Ud(d['in'], d['lagTimeU'], d['lagTimeD'])
 	}
 
 	lag3 { :d |
@@ -234,6 +242,10 @@
 
 	lfTri { :d |
 		lfTri(d['freq'], d['iphase'])
+	}
+
+	linExp { :d |
+		linExp(d['in'], d['srcLo'], d['srcHi'], d['dstLo'], d['dstHi'])
 	}
 
 	linPan2 { :d |
@@ -496,18 +508,6 @@
 		xFade2(d['inA'], d['inB'], d['pan'], d['level'])
 	}
 
-	degreeToKey { :d |
-		degreeToKey(d['bufNum'], d['in'], d['octave'])
-	}
-
-	expRand { :d |
-		expRand(d['lo'], d['hi'])
-	}
-
-	linExp { :d |
-		linExp(d['in'], d['srcLo'], d['srcHi'], d['dstLo'], d['dstHi'])
-	}
-
 }
 
 +Record {
@@ -548,16 +548,16 @@
 		tScramble(d['trigger'], d['inputs'])
 	}
 
+	[timesPlus, *+] { :d |
+		timesPlus(d['in'], d['mul'], d['add'])
+	}
+
 	txLine { :d |
 		txLine(d['start'], d['end'], d['dur'], d['trig'])
 	}
 
-	Voicer { :d |
-		Voicer(d['part'], d['numVoices'], d['voiceFunc'])
-	}
-
-	[timesPlus, *+] { :d |
-		timesPlus(d['in'], d['mul'], d['add'])
+	voicer { :d |
+		voicer(d['part'], d['numVoices'], d['voiceFunc'])
 	}
 
 }

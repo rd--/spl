@@ -44,7 +44,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-4 -- 4).functionPlot { :x |
-	x.coth.clip([-4 4])
+	x.coth.clip(-4, 4)
 }
 ~~~
 
@@ -55,7 +55,7 @@ Plot `coth` and `tanh`:
 ~~~spl svg=B
 (-3 -- 3).functionPlot(
 	[
-		coth/1.clip([-5 5]),
+		coth/1.clip(-5, 5),
 		tanh/1
 	]
 )

@@ -1,5 +1,5 @@
 /* http://scsynth.org/t/phaseshaping-osc-algorithms/3926/4 ; Sp ; Event control ; http://core.ac.uk/download/pdf/297014559.pdf */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let width = e.x.clip(0.05, 0.95);
 	let freq = e.y * 800 + 200;
 	let saw = linLin(lfSaw(freq / 2, 1), -1, 1, width.-, 1 - width);

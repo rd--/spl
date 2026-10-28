@@ -1,5 +1,5 @@
 /* http://schollz.com/blog/phasedistortion/ ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let freq = (e.x * 36 + 48).midiCps; /* e.p.unitCps */
 	let amp = e.z;
 	let freqBase = freq;

@@ -27,7 +27,7 @@ let bw = xLine(0.001, 1, 8);
 resonz(whiteNoise() * 0.1, 2000, bw)
 
 /* resonz ; pinkNoise ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	eqPan2(
 		resonz(
 			pinkNoise(),
@@ -38,7 +38,7 @@ Voicer(1, 16) { :e |
 }.mix
 
 /* resonz ; pinkNoise ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let env = perc(e.w, 0.01, 1 + e.j, -4);
 	let freq = e.p.unitCps;
 	let rq = linLin(e.y, 0, 1, 0.05, 0.25) / freq;

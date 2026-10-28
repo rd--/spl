@@ -47,7 +47,7 @@ Plot `abs` of `gamma` at higher resolution:
 
 ~~~spl svg=D
 (-5 -- 2).logPlot(300) { :x |
-	x.gamma.abs.clip([0 150])
+	x.gamma.abs.clip(0, 150)
 }
 ~~~
 
@@ -57,7 +57,7 @@ Plot `abs` of `gamma` at higher resolution:
 
 ~~~spl svg=E
 (-5 -- 2).functionPlot(300) { :x |
-	x.gamma.abs.clip([0 150])
+	x.gamma.abs.clip(0, 150)
 }.log
 ~~~
 

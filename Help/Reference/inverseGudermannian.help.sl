@@ -52,7 +52,7 @@ Plot over a subset of the reals:
 ~~~spl svg=A
 (-0.45.pi -- 0.45.pi).functionPlot(
 	inverseGudermannian/1
-	.clip([-4 4])
+	.clip(-4, 4)
 )
 ~~~
 

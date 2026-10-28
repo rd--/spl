@@ -34,7 +34,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot { :z |
-	z.arcTanh.clip([-3 3])
+	z.arcTanh.clip(-3, 3)
 }
 ~~~
 

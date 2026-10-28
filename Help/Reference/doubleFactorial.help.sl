@@ -121,7 +121,7 @@ Plot over subset of the reals:
 
 ~~~spl svg=A
 (-5 -- 5).functionPlot { :z |
-	z.doubleFactorial.clip([-10 15])
+	z.doubleFactorial.clip(-10, 15)
 }
 ~~~
 

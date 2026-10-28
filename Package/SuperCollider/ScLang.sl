@@ -598,10 +598,6 @@
 		)
 	}
 
-	tableRand { :self |
-		self.tableRand(system.random)
-	}
-
 	waveFill { :self :aBlock/3 :start :end |
 		(self.size > 0).ifTrue {
 			let index = 1;

@@ -478,12 +478,24 @@
 		<primitive: return sc.Blip(_freq, _numharm);>
 	}
 
+	bufDetectIndex { :bufnum :input |
+		<primitive: return sc.DetectIndex(_bufnum, _input);>
+	}
+
 	bufDur { :bufnum |
 		<primitive: return sc.BufDur(_bufnum);>
 	}
 
 	bufFrames { :bufnum |
 		<primitive: return sc.BufFrames(_bufnum);>
+	}
+
+	bufIndexClip { :bufnum :in |
+		<primitive: return sc.Index(_bufnum, _in);>
+	}
+
+	bufIndexWrap { :bufnum :in |
+		<primitive: return sc.WrapIndex(_bufnum, _in);>
 	}
 
 	bufRateScale { :bufnum |
@@ -540,10 +552,6 @@
 
 	demandEnvGen { :level :dur :shape :curve :gate :reset :levelScale :levelBias :timeScale :doneAction |
 		<primitive: return sc.DemandEnvGen(_level, _dur, _shape, _curve, _gate, _reset, _levelScale, _levelBias, _timeScale, _doneAction);>
-	}
-
-	bufDetectIndex { :bufnum :input |
-		<primitive: return sc.DetectIndex(_bufnum, _input);>
 	}
 
 	dgeom { :start :grow :length |
@@ -612,6 +620,10 @@
 
 	envTrapezoid { :trig :dur :shape :skew |
 		<primitive: return sc.EnvTrapezoid(_trig, _dur, _shape, _skew);>
+	}
+
+	expRand { :lo :hi |
+		<primitive: return sc.ExpRand(_lo, _hi);>
 	}
 
 	fSinOsc { :freq :iphase |
@@ -946,10 +958,6 @@
 		<primitive: return sc.TRand(_lo, _hi, _trig);>
 	}
 
-	tableRand { :trig :bufnum |
-		<primitive: return sc.TableRand(_trig, _bufnum);>
-	}
-
 	tiRand { :lo :hi :trig |
 		<primitive: return sc.TiRand(_lo, _hi, _trig);>
 	}
@@ -970,24 +978,16 @@
 		<primitive: return sc.Vibrato(_freq, _rate, _depth, _delay, _onset, _rateVariation, _depthVariation, _iphase, _trig);>
 	}
 
-	bufIndexClip { :bufnum :in |
-		<primitive: return sc.Index(_bufnum, _in);>
-	}
-
-	bufIndexWrap { :bufnum :in |
-		<primitive: return sc.WrapIndex(_bufnum, _in);>
-	}
-
-	expRand { :lo :hi |
-		<primitive: return sc.ExpRand(_lo, _hi);>
-	}
-
 }
 
 +[SmallFloat, List] {
 
 	bufRd { :numChan :bufnum :phase :loop :interpolation |
 		<primitive: return sc.BufRd(_numChan, _bufnum, _phase, _loop, _interpolation);>
+	}
+
+	busIn { :numChan :bus |
+		<primitive: return sc.In(_numChan, _bus);>
 	}
 
 	decodeB2 { :numChan :w :x :y :orientation |
@@ -1036,10 +1036,6 @@
 
 	warp1 { :numChan :bufnum :pointer :freqScale :windowSize :envbufnum :overlaps :windowRandRatio :interp |
 		<primitive: return sc.Warp1(_numChan, _bufnum, _pointer, _freqScale, _windowSize, _envbufnum, _overlaps, _windowRandRatio, _interp);>
-	}
-
-	busIn { :numChan :bus |
-		<primitive: return sc.In(_numChan, _bus);>
 	}
 
 }
@@ -1222,14 +1218,6 @@
 
 +[List, SmallFloat, Ugen] {
 
-	biLinRand { :self |
-		<primitive: return sc.BiLinRand(_self);>
-	}
-
-	coin { :self |
-		<primitive: return sc.Coin(_self);>
-	}
-
 	expRandRange { :self :anObject |
 		<primitive: return sc.ExpRandRange(_self, _anObject);>
 	}
@@ -1238,20 +1226,32 @@
 		<primitive: return sc.FirstArg(_self, _anObject);>
 	}
 
-	hanWindow { :self |
-		<primitive: return sc.HanWindow(_self);>
-	}
-
-	linRand { :self |
-		<primitive: return sc.LinRand_(_self);>
-	}
-
 	randRange { :self :anObject |
 		<primitive: return sc.RandRange(_self, _anObject);>
 	}
 
 	ring1 { :self :anObject |
 		<primitive: return sc.Ring1(_self, _anObject);>
+	}
+
+}
+
++Ugen {
+
+	biLinRand { :self |
+		<primitive: return sc.BiLinRand(_self);>
+	}
+
+	coin { :self |
+		<primitive: return sc.Coin(_self);>
+	}
+
+	hanWindow { :self |
+		<primitive: return sc.HanWindow(_self);>
+	}
+
+	linRand { :self |
+		<primitive: return sc.LinRand_(_self);>
 	}
 
 	sum3Rand { :self |
@@ -1265,10 +1265,6 @@
 	welchWindow { :self |
 		<primitive: return sc.WelchWindow(_self);>
 	}
-
-}
-
-+Ugen {
 
 	[abs, absoluteValue] { :self |
 		<primitive: return sc.Abs(_self);>
@@ -1516,6 +1512,10 @@
 
 	[subtract, -] { :self :anObject |
 		<primitive: return sc.Sub(_self, _anObject);>
+	}
+
+	tableRand { :bufnum :trig |
+		<primitive: return sc.TableRand(_trig, _bufnum);>
 	}
 
 	[times, *] { :self :anObject |

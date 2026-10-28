@@ -66,7 +66,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-0.5 -- 4).functionPlot { :x |
-	pochhammer(x, 0.5).clip([-1.5 2])
+	pochhammer(x, 0.5).clip(-1.5, 2)
 }
 ~~~
 
@@ -89,7 +89,7 @@ Plot the Pochhammer function for various orders:
 	[1 2 3 4].collect { :n |
 		{ :a |
 			pochhammer(a, n)
-			.clip([-30 50])
+			.clip(-30, 50)
 		}
 	}
 )
@@ -104,7 +104,7 @@ Plot the Pochhammer function varying _a_:
 	[0 1 2 3 4].collect { :a |
 		{ :n |
 			pochhammer(a, n)
-			.clip([-5 6])
+			.clip(-5, 6)
 		}
 	}
 )

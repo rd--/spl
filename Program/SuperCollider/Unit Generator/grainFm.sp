@@ -1,5 +1,5 @@
 /* grainFm ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let tr = impulse(e.y * 64 + 10, 0);
 	let cf = (e.p * 127 + e.j).midiCps;
 	let mf = (cf * 1.5) + ((1 - e.x) * e.z * cf);

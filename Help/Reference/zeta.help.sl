@@ -176,7 +176,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-4 -- 4).functionPlot { :z |
-	zeta(z).clip([-3 4])
+	zeta(z).clip(-3, 4)
 }
 ~~~
 

@@ -1,5 +1,5 @@
 /* Tmm881 ; http://scsynth.org/t/3319 ; Edit (rd) ; Event control */
-let pre = Voicer(1, 16) { :e |
+let pre = voicer(1, 16) { :e |
 	let freq = (e.x * 25 + 48).midiCps + [0, tRand(1, 4, e.w)];
 	let carriers = [sinOsc(freq, 0), saw(freq), pulse(freq, 0.5)];
 	let modulators = { sinOsc(tRand(0.0322, 1.0, e.w) * 0.0647, 0) } ! carriers.size;

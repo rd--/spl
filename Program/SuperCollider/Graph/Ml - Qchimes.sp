@@ -1,6 +1,6 @@
 /* Event control ; http://www.listarc.bham.ac.uk/lists/sc-users/msg68844.html (ml) ; requires=kr ; packet size */
 let numPartials = 40;
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let baseFreq = (e.x * 25 + 48).midiCps;
 	let sig = decay(k2A(e.w) * 0.1, 0.001) * pinkNoise();
 	let rat = [

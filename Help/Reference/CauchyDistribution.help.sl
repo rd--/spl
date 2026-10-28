@@ -32,7 +32,7 @@ Plot `quantileFunction` over a subset of the reals:
 (0.05 -- 0.95).functionPlot(
 	CauchyDistribution(10, 3.5)
 	.quantileFunction
-	.clip([-30 50])
+	.clip(-30, 50)
 )
 ~~~
 

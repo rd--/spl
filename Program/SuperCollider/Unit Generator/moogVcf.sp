@@ -1,5 +1,5 @@
 /* MoogVcf ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let freq = e.p.unitCps;
 	let osc = {
 		saw(freq * tExpRand(0.99, 1.01, e.w))

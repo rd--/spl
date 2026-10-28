@@ -26,7 +26,7 @@ let dur = 6;
 }.overlapTexture(2, 2, 4).mix * 0.05
 
 /* pmOsc ; Event control */
-let s = Voicer(1, 16) { :e |
+let s = voicer(1, 16) { :e |
 	let cps = (e.x * 24 + 42).midiCps;
 	let cpsv = cps + (cps * sinOsc(e.y * 4 + 4, 0) * 0.02);
 	let mfreq = linLin(lfPulse(1 / 8, 0, 0.5), 0, 1, 1.01, 2.01) * cps;

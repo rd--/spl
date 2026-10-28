@@ -98,7 +98,7 @@ combN(sinOsc(m.midiCps, 0) * 0.04, 0.2, 0.2, 4) * 0.1
 * 0.1
 
 /* Berlin 1977 (Jmcc) #4 ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let freq = (e.x * 24 + 48).midiCps;
 	let env = decay2(trig(e.w, 0.001), 0.05 * e.y, 2 * e.y);
 	let amp = env * e.z + 0.02;
@@ -127,7 +127,7 @@ let s = pulse(freq, pw) * amp;
 combC(rlpf(s, filt, 0.15), 0.2, [0.2, 0.17], 1.5)
 
 /* Bowed string (Jmcc) ; voicer */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let f = (e.x * 24 + 48).midiCps;
 	let k = dynRingzBank(
 		brownNoise() * e.z * lagUd(e.w, e.y * 0.1, e.y * 4),
@@ -277,14 +277,14 @@ rhpf(f, 5000, 1)
 bpz2(whiteNoise() * lfPulse(lfPulse(0.09, 0, 0.16) * 10 + 7, 0, 0.25) * 0.1)
 
 /* Theremin (Jmcc) ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let freq = lag(linExp(e.y, 0, 1, 4000, 200), 0.8);
 	let a = sinOsc(freq + (freq * sinOsc(4 + 3 * e.j, 0) * 0.02), 0) * e.x * 0.6 * lag(e.w, 0.2);
 	pan2(a, e.i * 0.25, 0.5 + e.z)
 }.mix * 0.5
 
 /* Tremulate (Jmcc) ; Event control */
-let s = Voicer(1, 16) { :e |
+let s = voicer(1, 16) { :e |
 	let s = sinOsc(e.x * 400 + 500 * [1 1.2 1.5 1.8], 0); /* just minor seventh chord, 1/1 5/4 3/2 9/5 */
 	let a = lfNoise2({ rand(30, 90) } ! 4 * (0.75 + e.j)).max(0) * e.z;
 	pan2(s, { rand(-1, 1) } ! 4 + (e.i * 2 - 1), a * lagUd(e.w, 0, e.k * 2)).sum

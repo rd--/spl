@@ -12,7 +12,7 @@ Probability mass function, varying α:
 	[0.5 1 3].collect { :alpha |
 		BetaBinomialDistribution(
 			alpha, 0.3, 20
-		).pdf.clip([0 0.12])
+		).pdf.clip(0, 0.12)
 	}
 )
 ~~~
@@ -26,7 +26,7 @@ Probability mass function, varying β:
 	[0.5 2 3].collect { :beta |
 		BetaBinomialDistribution(
 			1.2, beta, 20
-		).pdf.clip([0 0.15])
+		).pdf.clip(0, 0.15)
 	}
 )
 ~~~

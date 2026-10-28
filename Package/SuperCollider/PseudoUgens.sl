@@ -2,7 +2,7 @@
 
 +[List, SmallFloat, Ugen] {
 
-	Blend { :y1 :y2 :mu |
+	blendXFade { :y1 :y2 :mu |
 		let signedMu = mu.linLin(0, 1, -1, 1);
 		xFade2(y1, y2, signedMu, 1)
 	}
@@ -67,18 +67,6 @@
 		controlIn(1, 11000 + index - 1)
 	}
 
-	tChoose { :tr :inList |
-		(
-			inList.elementType = 'SmallFloat' |  {
-				inList.isMatrixOf('SmallFloat')
-			}
-		).if {
-			tBufChoose(tr, localBuf(inList))
-		} {
-			uncheckedTChoose(tr, inList)
-		}
-	}
-
 	curveGen { :gate :levels :times :curves |
 		Env(levels, times, curves, nil, nil, 0).asEnvGen(gate)
 	}
@@ -126,6 +114,10 @@
 
 	eqPan2 { :in :pos |
 		pan2(in, pos, 1)
+	}
+
+	expRange { :self :lo :hi |
+		linExp(self, -1, 1, lo, hi)
 	}
 
 	fm7Matrix { :ctlMatrix :modMatrix |
@@ -183,8 +175,18 @@
 		Env(levels, times, ['lin'], nil, nil, 0).asEnvGen(gate)
 	}
 
+	linLin { :self :srcLo :srcHi :dstLo :dstHi |
+		let mul = (dstHi - dstLo) / (srcHi - srcLo);
+		let add = dstLo - (mul * srcLo);
+		self.clip(srcLo, srcHi).timesPlus(mul, add)
+	}
+
 	linRand0 { :self |
 		linRand(0, self, 1)
+	}
+
+	linRange { :self :lo :hi |
+		linLin(self, -1, 1, lo, hi)
 	}
 
 	mouseX { :minval :maxval |
@@ -263,6 +265,18 @@
 		)
 	}
 
+	tChoose { :tr :inList |
+		(
+			inList.elementType = 'SmallFloat' |  {
+				inList.isMatrixOf('SmallFloat')
+			}
+		).if {
+			tBufChoose(tr, localBuf(inList))
+		} {
+			uncheckedTChoose(tr, inList)
+		}
+	}
+
 	tDurationSequencer { :self :dur |
 		tDuty(dur, 0, dseq(Infinity, self))
 	}
@@ -292,23 +306,13 @@
 		self <! clearBuf(self)
 	}
 
-	expRange { :self :lo :hi |
-		linExp(self, -1, 1, lo, hi)
-	}
-
-	linLin { :self :srcLo :srcHi :dstLo :dstHi |
-		let mul = (dstHi - dstLo) / (srcHi - srcLo);
-		let add = dstLo - (mul * srcLo);
-		self.clip(srcLo, srcHi).timesPlus(mul, add)
-	}
-
-	linRange { :self :lo :hi |
-		linLin(self, -1, 1, lo, hi)
-	}
-
 }
 
 +[List, SmallFloat, Ugen] {
+
+	Env { :levels :times :curves :releaseNode :loopNode :offset |
+		<primitive: return new sc.Env(_levels, _times, _curves, _releaseNode, _loopNode, _offset);>
+	}
 
 	adsr { :gate :attackTime :decayTime :sustainLevel :releaseTime :curve |
 		<primitive: return sc.Adsr(_gate, _attackTime, _decayTime, _sustainLevel, _releaseTime, _curve);>
@@ -376,10 +380,6 @@
 
 	dynRingzBank { :input :freq :amp :time |
 		<primitive: return sc.DynRingzBank(_input, _freq, _amp, _time);>
-	}
-
-	Env { :levels :times :curves :releaseNode :loopNode :offset |
-		<primitive: return new sc.Env(_levels, _times, _curves, _releaseNode, _loopNode, _offset);>
 	}
 
 	inFb { :numChannels :bus |
@@ -468,10 +468,6 @@
 		<primitive: return sc.Splay2(_inList);>
 	}
 
-	uncheckedTChoose { :trig :array |
-		<primitive: return sc.TChoose(_trig, _array);>
-	}
-
 	tLine { :start :end :dur :trig |
 		<primitive: return sc.TLine(_start, _end, _dur, _trig);>
 	}
@@ -482,6 +478,10 @@
 
 	txLine { :start :end :dur :trig |
 		<primitive: return sc.TxLine(_start, _end, _dur, _trig);>
+	}
+
+	uncheckedTChoose { :trig :array |
+		<primitive: return sc.TChoose(_trig, _array);>
 	}
 
 	varLag { :input :time :curve |

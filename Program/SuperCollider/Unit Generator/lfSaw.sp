@@ -29,7 +29,7 @@ let o3 = o1 + o2;
 o3.distort.distort.cube * 0.5
 
 /* lfSaw ; https://scsynth.org/t/6320/2 (nh) ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let freq = e.p.unitCps;
 	let auto = sinOsc(e.z * 2, 0).linLin(-1, 1, 1, 1 + e.y);
 	let formantTable = [400 1600 2700; 830 1200 4000; 325 600 2530].localBuf;

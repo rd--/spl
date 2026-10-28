@@ -32,7 +32,7 @@ let w = { :l :r |
 } !> 4
 
 /* bezier ; Event control */
-Voicer(1, 16) { :e |
+voicer(1, 16) { :e |
 	let w = { :l :r |
 		linLin(lfdNoise3(e.j * 5), -1, 1, l, r)
 	};
