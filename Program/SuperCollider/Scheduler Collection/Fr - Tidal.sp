@@ -27,7 +27,7 @@ LsBind(
 	instrument: 'saw',
 	dur: 1 / 16,
 	freq: LsSeq(
-		(60 + (seq - 1).degreeToKey([0 2 5 7 9], 12)).midiCps,
+		(60 + [0 2 5 7 9].degreeToKey(seq - 1, 12)).midiCps,
 		Infinity
 	),
 	amp: 0.1
@@ -47,8 +47,11 @@ let seq = [
 	10 1 2 3 1 4 1 2 5 1 2 3 1 6 1 2 3 1 4 1 2 7 1 2 3 1 4 1 2 5 1 2 3 1 8 1 2 3 1 4 1 2 5 1 2 3 1 6 1 2 3 1 4 1 2
 ];
 let tr = Impulse(LfNoise2(1 / 3).linLin(-1, 1, 9, 16), 0);
-let freq = Sequencer(((seq - 1).degreeToKey([0 2 5 7 9], 12) + 60).midiCps, tr);
-let w = Tri.roundRobin(24, tr);
+let freq = Sequencer(
+	([0 2 5 7 9].degreeToKey(seq - 1, 12) + 60).midiCps,
+	tr
+);
+let w = TrigRoundRobin(24, tr);
 let env = Perc(w, 1 / 33, 3 / 5, TRand(-3, -1, w));
 let osc = Saw([freq, freq * TRand(1, 1.01, w)]) * env;
 Rlpf(osc, MouseX(333, 4444, 0, 0.2), MouseY(0.25, 4, 0, 0.2)).sum / 3

@@ -482,8 +482,7 @@ LeakDc(signal, 0.995) /* delays build up a lot of DC, so leak it out here. */
 /********** Modal space ; mouse x controls discrete pitch in dorian mode ; Jmcc **********/
 let mix = SinOsc( /* lead tone */
 	(
-		degreeToKey(
-			LocalBuf[0 2 3 5 7 9 10],
+		LocalBuf[0 2 3 5 7 9 10].degreeToKey(
 			MouseX(0, 15, 0, 0.2), /* mouse indexes into scale */
 			12 /* 12 notes per octave */
 		) + 72 + LfNoise1([3 3]).*(0.04)

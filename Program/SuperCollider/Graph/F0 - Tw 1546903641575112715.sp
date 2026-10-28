@@ -1,6 +1,9 @@
 /* http://twitter.com/redFrik/status/1546903641575112715 ; requires=StandardL ; wait */
 let b = [0 3.084 5.028 6.972 10.056];
-let k = degreeToKey(b.LocalBuf, 2 ^ StandardL(StandardL(b + 1 / 32, b + 1, 0.5, 0), b / 7 + 1, 0.5, 0) * 12, 12);
+let k = LocalBuf(b).degreeToKey(
+	2 ^ StandardL(StandardL(b + 1 / 32, b + 1, 0.5, 0), b / 7 + 1, 0.5, 0) * 12,
+	12
+);
 let f1 = (k + 36 - (StandardL(1 / 32, 1, 0.5, 0) > 0)).midiCps;
 let f2 = StandardL(b / 8 + 8, b / 5 + 1, 0.5, 0);
 let fb = StandardL(1 / 3, b / 8 + 1, 0.5, 0) + 1 / 3;

@@ -236,7 +236,8 @@ Splay(
 )
 
 /* https://sonomu.club/@lukiss/109733997253009229 ; Jan 23, 2023 */
-let c = [9 .. 61; 3].degreeToKey([0 2 3 6 7 8 11], 12);
+let s = [0 2 3 6 7 8 11];
+let c = s.degreeToKey([9 .. 61; 3], 12);
 let o = c.midiCps.collect { :f | SinOsc(f, 0) };
 let e = SinOsc(2 / c.log10, 0) * LfSaw(11 / c.-, 0).max(0).Lag3(0.1);
 Splay(
@@ -319,7 +320,8 @@ let o = (Blip(r(11, 111), r(1 / 3, 333)) * e).tanh;
 o.softClip
 
 /* https://sonomu.club/@lukiss/110533029814503247 ; Jun 13, 2023 */
-let p = [1 .. 14].degreeToKey([0 2 4 7 9], 12).midiRatio;
+let s = [0 2 4 7 9];
+let p = s.degreeToKey([1 .. 14], 12).midiRatio;
 let f = SinOsc(p.sin * 8, 0) * 0.005 + 1 * p * 52;
 let h = SinOsc(f * 2, 0) * SinOsc(1 / 4 / p, 0) * SinOsc(1.pi / p, 0).linExp(-1, 1, 0.01, 1) * 8.pi;
 let m = LfSaw(-1 * [7, 3.5, 7 / 10] * (SinOsc(f.sin.linExp(-1, 1, 0.01, 1), 0) * 0.001 + 1), 1) * 0.5 + 0.5;
@@ -328,7 +330,8 @@ let o = SinOsc(f, h) * e;
 Splay(0.5 * o, SinOsc(1.pi, 0))
 
 /* https://sonomu.club/@lukiss/110538742878262809 ; Jun 14, 2023 */
-let c = [12 .. 38].shuffle.degreeToKey([0 2 4 7 9], 12);
+let s = [0 2 4 7 9];
+let c = s.degreeToKey([12 .. 38].shuffle, 12);
 let w = LfSaw(8, 0) * 0.012 + 1;
 let t = [6, 3 / 2, 3, 3 / 4, 1 / 4];
 let d = Demand(
@@ -510,8 +513,7 @@ let z = { :x | LfSaw(x, 0) };
 let i = [1 .. 4].fibonacci; /* 1 1 2 3 */
 let f = 2 ^ [0 .. 3] + i * 2;
 let b = LocalBuf[0 2 5 7 9];
-let l = degreeToKey(
-	b,
+let l = b.degreeToKey(
 	StandardN(f, 1, 0.5, 0).sin.Sanitize(0) * z(1 / f / i) * 12,
 	12
 ).ceiling;

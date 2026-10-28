@@ -362,7 +362,7 @@
 		<primitive: return sc.PeakFollower(_in, _decay);>
 	}
 
-	Pitch { :in :initFreq :minFreq :maxFreq :execFreq :maxBinsPerOctave :median :ampThreshold :peakThreshold :downSample :clar |
+	pitchFollower { :in :initFreq :minFreq :maxFreq :execFreq :maxBinsPerOctave :median :ampThreshold :peakThreshold :downSample :clar |
 		<primitive: return sc.Pitch(_in, _initFreq, _minFreq, _maxFreq, _execFreq, _maxBinsPerOctave, _median, _ampThreshold, _peakThreshold, _downSample, _clar);>
 	}
 
@@ -978,10 +978,6 @@
 		<primitive: return sc.WrapIndex(_bufnum, _in);>
 	}
 
-	degreeToKey { :bufnum :in :octave |
-		<primitive: return sc.DegreeToKey(_bufnum, _in, _octave);>
-	}
-
 	expRand { :lo :hi |
 		<primitive: return sc.ExpRand(_lo, _hi);>
 	}
@@ -1557,6 +1553,10 @@
 
 	clip { :in :lo :hi |
 		<primitive: return sc.Clip(_in, _lo, _hi);>
+	}
+
+	degreeToKey { :bufnum :in :octave |
+		<primitive: return sc.DegreeToKey(_bufnum, _in, _octave);>
 	}
 
 	fold { :in :lo :hi |

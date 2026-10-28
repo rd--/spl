@@ -3,8 +3,7 @@ let z = { :tr |
 	let root = 81 + TRand(-6, 6, tr);
 	let major = LocalBuf[0 2 4 5 7 9 11];
 	let offset = TRand(-16, 16, tr);
-	let seq = degreeToKey(
-		major,
+	let seq = major.degreeToKey(
 		TScramble(tr, [0 .. 3] + offset),
 		12
 	) + root;

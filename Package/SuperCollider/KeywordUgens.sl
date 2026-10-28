@@ -324,8 +324,8 @@
 		Phasor(d['trig'], d['rate'], d['start'], d['end'], d['resetPos'])
 	}
 
-	Pitch { :d |
-		Pitch(d['in'], d['initFreq'], d['minFreq'], d['maxFreq'], d['execFreq'], d['maxBinsPerOctave'], d['median'], d['ampThreshold'], d['peakThreshold'], d['downSample'], d['clar'])
+	pitchFollower { :d |
+		pitchFollower(d['in'], d['initFreq'], d['minFreq'], d['maxFreq'], d['execFreq'], d['maxBinsPerOctave'], d['median'], d['ampThreshold'], d['peakThreshold'], d['downSample'], d['clar'])
 	}
 
 	PitchShift { :d |

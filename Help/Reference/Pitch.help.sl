@@ -1,6 +1,6 @@
-# Pitch
+# pitchFollower
 
-- _Pitch(in, initFreq=440, minFreq=60, maxFreq=4000, execFreq=100, maxBinsPerOctave=16, median=1, ampThreshold=0.01, peakThreshold=0.5, downSample=1, clar)_
+- _pitchFollower(in, initFreq=440, minFreq=60, maxFreq=4000, execFreq=100, maxBinsPerOctave=16, median=1, ampThreshold=0.01, peakThreshold=0.5, downSample=1, clar)_
 
 Autocorrelation pitch follower.
 Returns two signals, _freq_ and _hasFreq_.
@@ -14,7 +14,7 @@ Track sine oscillator:
 let x = MouseX(220, 660, 0, 0.1);
 let y = MouseY(0.01, 0.1, 0, 0.1);
 let z = SinOsc(x, 0) * y;
-let f = Pitch(
+let f = pitchFollower(
 	z,
 	440, 60, 4000, 100,
 	16,
@@ -29,7 +29,7 @@ Track audio input, __use headphones__:
 
 ```
 let z = AudioIn([1, 2]).sum;
-let f = Pitch(
+let f = pitchFollower(
 	z,
 	440, 60, 4000, 100,
 	16,

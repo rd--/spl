@@ -267,10 +267,11 @@ Splay(
 ) / 3
 
 /* Tw 14 Nov 2022 Ballad ; https://github.com/lukiss/Losers-Union-SC-Research */
+let s = [0 1 3 5 7 8 10];
 let d = Dseq(Infinity, [1, 3 .. 21]);
 let f = Ddup(
 	LfPar(0.05, 0) * d / [3 7 5 1],
-	Dseq(Infinity, [9 .. 42].degreeToKey([0 1 3 5 7 8 10], 12)).midiCps
+	Dseq(Infinity, s.degreeToKey([9 .. 42], 12)).midiCps
 );
 let n = 8;
 LeakDc(
@@ -289,6 +290,7 @@ LeakDc(
 ).sum
 
 /* 12 May 2020 ; https://github.com/lukiss/Losers-Union-SC-Research */
+let s = [0 2 4 7 9];
 let l = { :freq :mul |
 	(LfdNoise3(freq) * mul).abs
 };
@@ -300,7 +302,7 @@ CombC(
 			Demand(
 				t,
 				0,
-				Drand(Infinity, [9 .. 42].degreeToKey([0 2 4 7 9], 1.pi.pi))
+				Drand(Infinity, s.degreeToKey([9 .. 42], 1.pi.pi))
 			).midiCps,
 			0
 		) * (t.Lag3Ud(0, i) + (t.Lag3Ud(i + l(9, i * 4), l(1.pi, 1.pi)) / 1.pi))
@@ -353,6 +355,8 @@ Splay(
 
 /* Drone 22 Maj 2021 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let n = 4;
+let s = [0 1 4 5 7 9 10];
+let f = s.degreeToKey([7 .. 53], 12).midiCps;
 let l = { :mul |
 	(LfdNoise3([0.05] # n) * mul).abs
 };
@@ -361,7 +365,7 @@ let d = {
 		Demand(
 			Impulse(1 / [30 .. 53].atRandom, 0),
 			0,
-			Dxrand(Infinity, [7 .. 53].degreeToKey([0 1 4 5 7 9 10], 12).midiCps)
+			Dxrand(Infinity, f)
 		)
 	} ! n
 };
@@ -665,7 +669,8 @@ let tab = [
 let x = LorenzL(24, 10, 28, 2.667, 0.05, 0.1, 0, 0).sin.linLin(-1, 1, 1, 4) / Diwhite(Infinity, 2, 10);
 let dur = Duty(x, 0, x);
 let trg = TDuty(dur, 0, 1);
-let mel = [26 .. 42].degreeToKey([0 2 4 5 7 9 11], 12);
+let scl = [0 2 4 5 7 9 11];
+let mel = scl.degreeToKey([26 .. 42], 12);
 let mnn = Demand(
 	trg,
 	0,

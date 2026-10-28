@@ -1,8 +1,7 @@
 /* 20061008 ; rd */
 let t = Dust(9);
 let u = PulseDivider(t, 9, 0);
-let k = degreeToKey(
-	LocalBuf[0 2 3.2 5 7 9 10],
+let k = LocalBuf[0 2 3.2 5 7 9 10].degreeToKey(
 	TiRand(MouseX(15, 0, 0, 0.1), MouseY(15, 27, 0, 0.1), t),
 	12
 );

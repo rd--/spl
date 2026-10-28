@@ -5,7 +5,7 @@ let n = [
 ];
 let b = LocalBuf[0 2 4 5 7 9 11];
 let tr = Impulse(4, 0);
-let k = degreeToKey(b, Sequencer(n, tr), 12);
+let k = b.degreeToKey(Sequencer(n, tr), 12);
 let e = Decay2(tr, 0.01, TRand(0.15, 0.5, tr));
 {
 	let m = 48 + k + TRand(0, 0.05, tr);
