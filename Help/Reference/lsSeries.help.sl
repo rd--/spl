@@ -1,0 +1,55 @@
+# lsSeries
+
+- _lsSeries(start, step, length)_
+
+Arithmetic series from _start_, incrementing by _step_, for _length_ places.
+
+```
+>>> lsSeries(1, 1, 9).upToEnd
+[1 .. 9]
+```
+
+With infinite length:
+
+```
+>>> let p = lsSeries(1, 3, Infinity);
+>>> let q = lsSeries(3, 5, Infinity);
+>>> p.next(4) ++ q.next(4)
+[1 4 7 10 3 8 13 18]
+```
+
+Non-cubical squares,
+OEIS [A179126](https://oeis.org/A179126):
+
+```
+>>> let powers = { :m |
+>>> 	lsSeries(0, 1, Infinity) ^ m
+>>> };
+>>> let squares = powers(2);
+>>> let cubes = powers(3);
+>>> squares.reject { :each |
+>>> 	{
+>>> 		each <= cubes.peek
+>>> 	}.whileFalse {
+>>> 		cubes.next
+>>> 	};
+>>> 	each = cubes.peek
+>>> }.drop(20)
+>>> .take(9)
+>>> .upToEnd
+[529 576 625 676 784 841 900 961 1024]
+```
+
+* * *
+
+See also: lsGeom, lsUnfold
+
+Guides: Patterns and Streams
+
+References:
+_Python_
+[1](https://docs.python.org/3/library/itertools.html#itertools.count),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Pseries.html)
+
+Categories: Stream

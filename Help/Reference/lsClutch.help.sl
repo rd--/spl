@@ -1,0 +1,39 @@
+# lsClutch
+
+- _lsClutch(input, latch, initialValue)_
+
+Step through _input_ according to _latch_.
+_latch_ should be a stream that answers a series of items that answer `Boolean`.
+If true the _input_ steps to the next item, if false the previous item is retained.
+If _latch_ is initially false then _initialValue_ is consulted.
+
+```
+>>> lsClutch(
+>>> 	lsSeries(1, 3, 5),
+>>> 	lsSeq(
+>>> 		[true false true true false],
+>>> 		Infinity
+>>> 	),
+>>> 	-1
+>>> ).upToEnd
+[1 1 4 7 7 10 10 13]
+
+>>> lsClutch(
+>>> 	lsSeries(1, 3, 5),
+>>> 	lsSeq([1 0 1 1 0], Infinity),
+>>> 	-1
+>>> ).upToEnd
+[1 1 4 7 7 10 10 13]
+```
+
+* * *
+
+See also: lsDupEach
+
+Guides: Patterns and Streams
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Pclutch.html)
+
+Categories: Stream

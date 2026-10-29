@@ -1,0 +1,34 @@
+# lsClump
+
+- _lsClump(input, size)_
+
+Groups the items at _input_ into lists whose size is given by _size_, which may be a stream.
+
+If there are to few items the last list may be truncated:
+
+```
+>>> lsClump(lsSeries(1, 1, 5), 2).upToEnd
+[1 2; 3 4; 5]
+```
+
+The _size_ value may be a stream:
+
+```
+>>> lsClump(
+>>> 	lsSeries(1, 1, 11),
+>>> 	lsCyc([2 3])
+>>> ).upToEnd
+[1 2; 3 4 5; 6 7; 8 9 10; 11]
+```
+
+* * *
+
+See also: chunksOf, clump
+
+References:
+_Python_
+[1](https://docs.python.org/3/library/itertools.html#itertools.batched),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Pclump.html)
+
+Categories: Stream

@@ -221,6 +221,7 @@ Guides (A-Z):
 - `Record Syntax`
 - `Reference Help Files`
 - `Reflection Functions`
+- `Regular and Irregular Arrays`
 - `Regular Expression Functions`
 - `Rounding Functions`
 - `Scalars and Lists`
@@ -398,7 +399,6 @@ Reference (A-Z):
 - `Ellipse`
 - `EmpiricalDistribution`
 - `EpanechnikovDistribution`
-- `EqPan`
 - `Equal`
 - `Error`
 - `Exception`
@@ -407,7 +407,6 @@ Reference (A-Z):
 - `File`
 - `FilePath`
 - `FiniteRange`
-- `FirstArg`
 - `Float`
 - `Float32Array`
 - `Float64Array`
@@ -545,11 +544,9 @@ Reference (A-Z):
 - `MidiMonitorMenu`
 - `MidiPortBrowser`
 - `Missing`
-- `Mix`
 - `MultinormalDistribution`
 - `Multiset`
 - `MultivariateTDistribution`
-- `NamedControl`
 - `NaN`
 - `Navigator`
 - `NcsColour`
@@ -576,7 +573,6 @@ Reference (A-Z):
 - `Permutation`
 - `PerspectiveDrawing`
 - `Piecewise`
-- `Pitch`
 - `PlanarCoordinates`
 - `PlaneAngle`
 - `Plot`
@@ -911,6 +907,7 @@ Reference (a-z):
 - `atOrNilAll`
 - `atPath`
 - `atPathPut`
+- `atPathWrap`
 - `atPin`
 - `atRandom`
 - `atSymmetrical`
@@ -1820,6 +1817,7 @@ Reference (a-z):
 - `finiteAbelianGroupCount`
 - `finiteGroupCount`
 - `first`
+- `firstArg`
 - `firstBrocardPoint`
 - `firstBrocardTriangle`
 - `firstFermatPoint`
@@ -2260,6 +2258,8 @@ Reference (a-z):
 - `involutionNumber`
 - `iota`
 - `iRand`
+- `irregularIota`
+- `irregularShape`
 - `isAbundantNumber`
 - `isAcute`
 - `isAdjacentFraction`
@@ -3022,6 +3022,7 @@ Reference (a-z):
 - `namedColourGradient`
 - `namedColourPalette`
 - `namedConstant`
+- `namedControl`
 - `namedGraph`
 - `namedInterval`
 - `namedScale`
@@ -3343,6 +3344,7 @@ Reference (a-z):
 - `pinnDSequence`
 - `pisanoPeriod`
 - `pisotSequence`
+- `pitchFollower`
 - `pitchShift`
 - `plainChanges`
 - `plainChangesDo`

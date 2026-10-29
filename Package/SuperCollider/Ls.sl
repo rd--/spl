@@ -2,22 +2,22 @@
 
 +@Object {
 
-	LsCons { :anObject :aStream |
-		LsCat([LsOnce(anObject), aStream])
+	lsCons { :anObject :aStream |
+		lsCat([lsOnce(anObject), aStream])
 	}
 
-	LsConstant { :anObject |
-		LsForever(anObject)
+	lsConstant { :anObject |
+		lsForever(anObject)
 	}
 
-	LsForever { :anObject |
+	lsForever { :anObject |
 		BlockStream {
 			anObject
 		} {
 		}
 	}
 
-	LsOnce { :anObject |
+	lsOnce { :anObject |
 		Stream[anObject]
 	}
 
@@ -25,7 +25,7 @@
 
 +Block {
 
-	LsUnfold { :aBlock/1 :start |
+	lsUnfold { :aBlock/1 :start |
 		let nextItem = start;
 		BlockStream {
 			let answer = nextItem;
@@ -36,15 +36,15 @@
 		}
 	}
 
-	LsUnfold { :aBlock/1 :start :length |
-		LsUnfold(aBlock/1, start).take(length)
+	lsUnfold { :aBlock/1 :start :length |
+		lsUnfold(aBlock/1, start).take(length)
 	}
 
 }
 
 +@Integer {
 
-	LsFin { :count :input |
+	lsFin { :count :input |
 		input.take(count)
 	}
 
@@ -52,39 +52,39 @@
 
 +@Number {
 
-	LsGeom { :start :grow :length |
-		LsUnfold({ :each | each * grow }, start, length)
+	lsGeom { :start :grow :length |
+		lsUnfold({ :each | each * grow }, start, length)
 	}
 
-	LsSeries { :start :step :length |
-		LsUnfold({ :each | each + step }, start, length)
+	lsSeries { :start :step :length |
+		lsUnfold({ :each | each + step }, start, length)
 	}
 
 }
 
 +List {
 
-	LsAt { :list :indices |
+	lsAt { :list :indices |
 		indices.collect { :each |
 			list[each]
 		}
 	}
 
-	LsAtFold { :list :indices |
+	lsAtFold { :list :indices |
 		indices.collect { :each |
 			list.atFold(each)
 		}
 	}
 
-	LsAtWrap { :list :indices |
+	lsAtWrap { :list :indices |
 		indices.collect { :each |
 			list.atWrap(each)
 		}
 	}
 
-	LsCat { :list |
+	lsCat { :list |
 		let index = 1;
-		list.collect!(LsOnce/1);
+		list.collect!(lsOnce/1);
 		BlockStream {
 			(index > list.size).if {
 				nil
@@ -106,13 +106,13 @@
 		}
 	}
 
-	LsCyc { :list |
-		LsSeq(list, Infinity)
+	lsCyc { :list |
+		lsSeq(list, Infinity)
 	}
 
-	LsLace { :list |
+	lsLace { :list |
 		let index = 1;
-		list.collect!(LsForever/1);
+		list.collect!(lsForever/1);
 		BlockStream {
 			let nextItem = list[index].next;
 			(index >= list.size).if {
@@ -127,11 +127,11 @@
 		}
 	}
 
-	LsLace { :list :count |
-		LsLace(list).take(count)
+	lsLace { :list :count |
+		lsLace(list).take(count)
 	}
 
-	LsPermutations { :list |
+	lsPermutations { :list |
 		let local = list.copy;
 		let nextItem = local;
 		BlockStream {
@@ -143,28 +143,28 @@
 		}
 	}
 
-	LsRand { :list :randomNumberGenerator |
+	lsRand { :list :randomNumberGenerator |
 		BlockStream {
 			list.randomChoice(randomNumberGenerator, [])
 		} {
 		}
 	}
 
-	LsRand { :list :count :randomNumberGenerator |
-		LsRand(list, randomNumberGenerator).take(count)
+	lsRand { :list :count :randomNumberGenerator |
+		lsRand(list, randomNumberGenerator).take(count)
 	}
 
-	LsSeq { :list :repeats |
-		LsN(LsCat(list), repeats)
+	lsSeq { :list :repeats |
+		lsN(lsCat(list), repeats)
 	}
 
-	LsSer { :list :count |
-		LsTake(LsCyc(list), count)
+	lsSer { :list :count |
+		lsTake(lsCyc(list), count)
 	}
 
-	LsSwitch { :list :which |
-		list.collect!(LsOnce/1);
-		which := LsForever(which);
+	lsSwitch { :list :which |
+		list.collect!(lsOnce/1);
+		which := lsForever(which);
 		let index = which.next;
 		BlockStream {
 			let nextItem = list[index].next;
@@ -180,9 +180,9 @@
 		}
 	}
 
-	LsSwitch1 { :list :which |
-		list.collect!(LsForever/1);
-		which := LsForever(which);
+	lsSwitch1 { :list :which |
+		list.collect!(lsForever/1);
+		which := lsForever(which);
 		BlockStream {
 			list[which.next].next
 		} {
@@ -191,9 +191,9 @@
 		}
 	}
 
-	LsTuple { :list :repeats |
+	lsTuple { :list :repeats |
 		let count = repeats;
-		list.collect!(LsOnce/1);
+		list.collect!(lsOnce/1);
 		BlockStream {
 			(count <= 0).if {
 				nil
@@ -212,27 +212,27 @@
 		}
 	}
 
-	LsWalk { :list :steps |
-		LsAtFold(list, LsAccum(LsConstant(steps)))
+	lsWalk { :list :steps |
+		lsAtFold(list, lsAccum(lsConstant(steps)))
 	}
 
-	LsXRand { :list :randomNumberGenerator |
-		LsRemDup(LsRand(list, randomNumberGenerator))
+	lsXRand { :list :randomNumberGenerator |
+		lsRemDup(lsRand(list, randomNumberGenerator))
 	}
 
-	LsXRand { :list :count :randomNumberGenerator |
-		LsXRand(list, randomNumberGenerator).take(count)
+	lsXRand { :list :count :randomNumberGenerator |
+		lsXRand(list, randomNumberGenerator).take(count)
 	}
 
 }
 
 +@Stream {
 
-	LsAccum { :input |
-		LsScan(input, +)
+	lsAccum { :input |
+		lsScan(input, +)
 	}
 
-	LsAdjacent { :input :aBlock/2 |
+	lsAdjacent { :input :aBlock/2 |
 		let previousItem = input.next;
 		BlockStream {
 			let nextItem = input.next;
@@ -249,8 +249,8 @@
 		}
 	}
 
-	LsClump { :input :size |
-		size := LsForever(size);
+	lsClump { :input :size |
+		size := lsForever(size);
 		BlockStream {
 			let answer = input.nextOrUpToEnd(size.next);
 			answer.isEmpty.if {
@@ -264,7 +264,7 @@
 		}
 	}
 
-	LsClutch { :input :latch :initialValue |
+	lsClutch { :input :latch :initialValue |
 		let previous = initialValue;
 		BlockStream {
 			latch.next.Boolean.ifTrue {
@@ -277,35 +277,35 @@
 		}
 	}
 
-	LsCollect { :self :aBlock/1 |
+	lsCollect { :self :aBlock/1 |
 		self.collect(aBlock/1)
 	}
 
-	LsConstant { :self |
+	lsConstant { :self |
 		self
 	}
 
-	LsDiff { :input |
-		LsAdjacent(input, -.swap)
+	lsDiff { :input |
+		lsAdjacent(input, -.swap)
 	}
 
-	LsDrop { :self :anInteger |
+	lsDrop { :self :anInteger |
 		self.drop(anInteger)
 	}
 
-	LsDupEach { :input :repeats |
-		input.duplicateEach(LsForever(repeats))
+	lsDupEach { :input :repeats |
+		input.duplicateEach(lsForever(repeats))
 	}
 
-	LsFold { :input :aBlock/2 |
-		LsLast(LsScan(input, aBlock/2))
+	lsFold { :input :aBlock/2 |
+		lsLast(lsScan(input, aBlock/2))
 	}
 
-	LsForever { :input |
-		LsN(input, Infinity)
+	lsForever { :input |
+		lsN(input, Infinity)
 	}
 
-	LsLast { :input |
+	lsLast { :input |
 		let answer = input.next;
 		let nextItem = nil;
 		{
@@ -317,23 +317,23 @@
 		answer
 	}
 
-	LsN { :input :repeats |
+	lsN { :input :repeats |
 		input.repeat(repeats)
 	}
 
-	LsOnce { :self |
+	lsOnce { :self |
 		self
 	}
 
-	LsRemDup { :self |
+	lsRemDup { :self |
 		self.removeSuccesiveDuplicates
 	}
 
-	LsScan { :input :aBlock/2 |
+	lsScan { :input :aBlock/2 |
 		input.scan(aBlock/2)
 	}
 
-	LsSlidingWindows { :input :windowSize :stepSize |
+	lsSlidingWindows { :input :windowSize :stepSize |
 		let overlap = (windowSize - stepSize).max(0);
 		let require = windowSize - overlap;
 		let skipSize = (stepSize - windowSize).max(0);
@@ -357,11 +357,11 @@
 		}
 	}
 
-	LsTake { :input :anInteger |
+	lsTake { :input :anInteger |
 		input.take(anInteger)
 	}
 
-	LsTrace { :input |
+	lsTrace { :input |
 		input.collect { :each |
 			each.printLine;
 			each
@@ -394,9 +394,9 @@
 
 +Record {
 
-	LsBind { :self |
+	lsBind { :self |
 		let isAtEnd = false;
-		self.collect!(LsConstant/1);
+		self.collect!(lsConstant/1);
 		BlockStream {
 			isAtEnd.if {
 				nil
@@ -451,11 +451,11 @@
 
 +[@Number, @Stream] {
 
-	LsBeta { :low :high :p1 :p2 :length :randomNumberGenerator |
-		low := LsConstant(low);
-		high := LsConstant(high);
-		p1 := LsConstant(p1);
-		p2 := LsConstant(p2);
+	lsBeta { :low :high :p1 :p2 :length :randomNumberGenerator |
+		low := lsConstant(low);
+		high := lsConstant(high);
+		p1 := lsConstant(p1);
+		p2 := lsConstant(p2);
 		BlockStream {
 			let lhs = low.next;
 			let rhs = high.next;
@@ -468,8 +468,8 @@
 		}.take(length)
 	}
 
-	LsBrown { :low :high :step :length :randomNumberGenerator |
-		LsBrownUsing(
+	lsBrown { :low :high :step :length :randomNumberGenerator |
+		lsBrownUsing(
 			low,
 			high,
 			step,
@@ -478,10 +478,10 @@
 		).take(length)
 	}
 
-	LsBrownUsing { :low :high :step :randomNumberGenerator :aBlock/3 |
-		low := LsConstant(low);
-		high := LsConstant(high);
-		step := LsConstant(step);
+	lsBrownUsing { :low :high :step :randomNumberGenerator :aBlock/3 |
+		low := lsConstant(low);
+		high := lsConstant(high);
+		step := lsConstant(step);
 		let nextItem = aBlock(randomNumberGenerator, [low.next, high.next], []);
 		low.withWithCollect(high, step) { :low :high :step |
 			let answer = nextItem;
@@ -490,9 +490,9 @@
 		}
 	}
 
-	LsCauchy { :mean :spread :length :randomNumberGenerator |
-		mean := LsConstant(mean);
-		spread := LsConstant(spread);
+	lsCauchy { :mean :spread :length :randomNumberGenerator |
+		mean := lsConstant(mean);
+		spread := lsConstant(spread);
 		mean.withCollect(
 			spread,
 			{ :p :q |
@@ -501,8 +501,8 @@
 		).take(length)
 	}
 
-	LsIBrown { :low :high :step :length :randomNumberGenerator |
-		LsBrownUsing(
+	lsIBrown { :low :high :step :length :randomNumberGenerator |
+		lsBrownUsing(
 			low,
 			high,
 			step,
@@ -511,9 +511,9 @@
 		).take(length)
 	}
 
-	LsWhite { :low :high :length :randomNumberGenerator |
-		LsConstant(low).withCollect(
-			LsConstant(high)
+	lsWhite { :low :high :length :randomNumberGenerator |
+		lsConstant(low).withCollect(
+			lsConstant(high)
 		) { :min :max |
 			randomNumberGenerator.randomReal([min, max], [])
 		}.take(length)
@@ -523,8 +523,8 @@
 
 +String {
 
-	LsSet { :key :value :input |
-		value := LsConstant(value);
+	lsSet { :key :value :input |
+		value := lsConstant(value);
 		input.withCollect(value) { :each :z |
 			each[key] := z;
 			each

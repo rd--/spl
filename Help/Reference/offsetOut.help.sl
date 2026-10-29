@@ -27,7 +27,7 @@ Schedule overlapping copies of the graph above:
 
 ~~~spl scheduler
 let freq = 555;
-LsBind(
+lsBind(
 	instrument: 'sin',
 	freq: freq,
 	dur: 10 / freq,

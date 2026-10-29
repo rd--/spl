@@ -422,7 +422,7 @@ let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 ({ system.nextRandomFloat } ! 9).size = 9 /* the size of the answer is as requested */
 ({ system.nextRandomFloat } ! 3).allSatisfy(isNumber/1) = true
 &.parameterNames = ['self', 'aBlock/0'] /* answer names of method parameters */
-SinOsc/2.parameterNames = ['freq' 'phase'] /* answer names of method parameters */
+sinOsc/2.parameterNames = ['freq' 'phase'] /* answer names of method parameters */
 randomReal/3.parameterNames = ['self', 'range', 'shape'] /* answer names of method parameters */
 system.methodDictionary['at'][2]['Map'].information.parameterNames = ['self', 'key']
 let c = []; let a = []; 1:3.do { :i | c.add! { a.add!(i) } }; c.do(apply/1); a = [1, 2, 3]
@@ -2308,7 +2308,7 @@ system.includesPackage('Date')
 '/* Requires: ColumnBrowser SmallKansas */'.parsePackageHeader = (Requires: ['ColumnBrowser', 'SmallKansas'])
 system.indexedPackages.size - system.loadedPackages.size = system.availablePackages.size
 system.packageDictionary.select { :each | each.requires.isNotEmpty }.size > 10
-system.packageDictionary['PackageBrowser'].dependencies.collect(name/1).includesAll(['Event' 'SmallKansas' 'Window' 'ColumnBrowser'])
+system.packageDictionary['PackageBrowser'].dependencies.collect(name/1).includesAll(['Event' 'SmallKansas' 'ColumnBrowser'])
 'Time-Date'.isQualifiedPackageName
 'Time-Date'.parseQualifiedPackageName = ['Time', 'Date']
 system.packageDictionary.size > 100 /* number of packages */
