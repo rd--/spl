@@ -4,7 +4,7 @@
 
 Answer the sample duration, in seconds, of a sample at the synthesiser.
 
-The sample duration is the `Reciprocal` of the `sampleRate`,
+The sample duration is the `reciprocal` of the `sampleRate`,
 ordinarily a very small number:
 
 ```
@@ -17,7 +17,7 @@ ordinarily a very small number:
 
 Compare sine tones:
 
-~~~
+~~~spl syn=A
 sinOsc(
 	[
 		sampleDur() * 1E8,
@@ -30,7 +30,7 @@ sinOsc(
 
 * * *
 
-See also: Reciprocal, controlDur, controlRate, radiansPerSample, sampleRate
+See also: controlDur, controlRate, radiansPerSample, reciprocal, sampleRate
 
 Guides: Unit Generators
 

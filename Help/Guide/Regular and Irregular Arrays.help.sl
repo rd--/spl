@@ -51,6 +51,6 @@ the second decreasing:
 
 * * *
 
-See also: irregularShape, shape, reshape
+See also: irregularShape, reshape, shape
 
 Guides: Array Functions

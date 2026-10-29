@@ -14,13 +14,13 @@ A linear-interpolating sound generator based on the difference equation:
 
 Default values:
 
-~~~
+~~~spl syn=A
 cuspL(22050, 1, 1.9, 0) * 0.1
 ~~~
 
 Vary frequency:
 
-~~~
+~~~spl syn=B
 cuspL(
 	mouseX(20, sampleRate(), 0, 0.2),
 	1,
@@ -31,7 +31,7 @@ cuspL(
 
 Mouse-controlled params:
 
-~~~
+~~~spl syn=C
 cuspL(
 	sampleRate() / 4,
 	mouseX(0.9, 1.1, 1, 0.2),
@@ -42,7 +42,7 @@ cuspL(
 
 As a frequency control:
 
-~~~
+~~~spl syn=D
 sinOsc(
 	cuspL(
 		40,
@@ -56,7 +56,7 @@ sinOsc(
 
 Filtered noise:
 
-~~~
+~~~spl syn=E
 let t = dust(7).kr;
 bpf(
 	perc(t, 0.03, tRand(0.07, 0.35, t), -4)

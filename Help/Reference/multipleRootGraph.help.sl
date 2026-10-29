@@ -9,8 +9,10 @@ in cases where it would otherwise not be discovered by traversing the completed 
 
 Required where graphs have multiple end points, such as graphs using `localOut` &etc.
 
-The binary operator `<!` is an alias.
+The operator `<!` is a close relative, though not an alias.
 
 * * *
 
-See also: FirstArg, <!
+See also: <!, firstArg
+
+Guides: SuperCollider Functions

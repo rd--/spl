@@ -1,6 +1,6 @@
-# FirstArg
+# firstArg
 
-- _FirstArg(a, b)_
+- _firstArg(a, b)_
 
 Evaluates to the unit-generator _a_ after attaching another unit-generator _b_ to it.
 

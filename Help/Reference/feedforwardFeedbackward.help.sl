@@ -13,7 +13,7 @@ Both _forward_ and _backward_ must answer a `Ugen`, not a `List`.
 A simple feedback delay network, the _forward_ block is `+`,
 the _backward_ block introduces a delay of a little over one second:
 
-~~~
+~~~spl syn=A
 feedforwardFeedbackward(
 	sinOsc(
 		lfNoise2(1 / [7, 9]).linLin(

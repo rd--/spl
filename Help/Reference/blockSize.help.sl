@@ -6,7 +6,7 @@ Answer the block size of the synthesiser.
 
 The block size is the sample rate divided by the control rate:
 
-~~~
+~~~spl syn=A
 sinOsc(
 	[
 		blockSize(),

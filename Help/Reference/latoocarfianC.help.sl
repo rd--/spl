@@ -25,7 +25,7 @@ or oscillate in a cycle (tone).
 
 Default initial parameters, mouse control of frequency:
 
-~~~
+~~~spl syn=A
 let x = mouseX(20, sampleRate(), 0, 0.2);
 latoocarfianC(
 	x,
@@ -36,7 +36,7 @@ latoocarfianC(
 
 Randomly modulate all parameters:
 
-~~~
+~~~spl syn=B
 latoocarfianC(
 	sampleRate() / 4,
 	lfNoise2(2) * 1.5 + 1.5,
@@ -50,7 +50,7 @@ latoocarfianC(
 
 Randomly reset parameters in texture:
 
-~~~
+~~~spl syn=C
 { :tr |
 	let sr = sampleRate();
 	let freq = tRand(400, sr / 3, tr);

@@ -13,7 +13,7 @@ Thus there is a delay equal to twice the lookAheadTime.
 
 Unprocessed signal at left, normalized at right:
 
-~~~
+~~~spl syn=A
 let z = decay2(
 	impulse(8, 0) * (lfSaw(0.25, 0) * -0.6 + 0.7),
 	0.001,

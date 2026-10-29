@@ -6,17 +6,17 @@ Answer the radians per sample of the synthesiser.
 
 Ordinarily a very small number:
 
-~~~
+```
 >>> 2.pi / 48000
 1.30899E-4
 
 >>> (2.pi / 48000 * 1E7).round
 1309
-~~~
+```
 
 Compare sine tones:
 
-~~~
+~~~spl syn=A
 sinOsc(
 	[
 		radiansPerSample() * 1E7,

@@ -7,7 +7,7 @@ which can be read from by `localIn`.
 
 A resonator, note that one must subtract the block size for correct tuning:
 
-~~~
+~~~spl syn=A
 let p = localIn(1, 0);
 let i = impulse(1, 0);
 let d = delayC(
@@ -23,7 +23,7 @@ let d = delayC(
 
 A ping pong delay:
 
-~~~
+~~~spl syn=B
 let n = decay(
 	impulse(0.3, 0),
 	0.1

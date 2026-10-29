@@ -6,7 +6,7 @@ Answer the sample rate of the synthesiser.
 
 Compare sine tone derived from sample rate with a 480hz tone:
 
-~~~
+~~~spl syn=A
 sinOsc(
 	[
 		sampleRate() * 1E-2,

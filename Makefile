@@ -72,12 +72,16 @@ check-reference-names:
 check-case-sensitive-file-names:
 	python3 py/check-case-sensitive-file-names.py Help
 
-check-all:
-	make check-method-spacing
-	make check-doctest-prefixes
-	make check-consecutive-newlines
-	make check-commented-methods
-	make check-reference-names
+check-non-doctest-code-blocks:
+	python3 py/check-non-doctest-code-blocks.py Help/Reference/*.sl
+
+check-all: \
+	check-commented-methods \
+	check-consecutive-newlines \
+	check-doctest-prefixes \
+	check-method-spacing \
+	check-non-doctest-code-blocks \
+	check-reference-names
 
 sort-method-definitions:
 	python3 py/sort-method-definitions.py Package/*/*.sl

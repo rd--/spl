@@ -83,7 +83,7 @@
 		) { :helpFile :options |
 			let testCount = 0;
 			let passCount = 0;
-			let scGraphCodeBlocks = helpFile.unspecifiedCodeBlocks;
+			let scGraphCodeBlocks = helpFile.codeBlocksWithKey('syn');
 			scGraphCodeBlocks.isEmpty.ifFalse {
 				let verboseLevel = options['verboseLevel'];
 				(verboseLevel > 0).ifTrue {

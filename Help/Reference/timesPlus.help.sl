@@ -49,7 +49,7 @@ Threads over lists:
 
 At `Ugen`:
 
-~~~
+~~~spl syn=A
 sinOsc(440, 0).*+(
 	0.1,
 	0
@@ -60,7 +60,7 @@ sinOsc(440, 0).*+(
 
 See also: *, +, plus, times
 
-Guides: Arithmetic Functions, Mathematical Functions
+Guides: Arithmetic Functions, Mathematical Functions, Unit Generators
 
 References:
 _SuperCollider_

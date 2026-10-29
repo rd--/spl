@@ -16,7 +16,7 @@ The control duration is the block size divided by the sample rate:
 
 Compare sine tones:
 
-~~~
+~~~spl syn=A
 sinOsc(
 	[
 		controlDur() * 1E6,
@@ -29,7 +29,7 @@ sinOsc(
 
 It is also the inverse of the control rate:
 
-~~~
+~~~spl syn=B
 sinOsc(
 	[
 		controlDur() * 1E6,

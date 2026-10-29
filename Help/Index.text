@@ -1355,7 +1355,6 @@ Reference/epitrochoid.help.sl
 Reference/epsilon.help.sl
 Reference/eqPan2.help.sl
 Reference/eqPan.help.sl
-Reference/EqPan.help.sl
 Reference/equalDetourPoint.help.sl
 Reference/Equal.help.sl
 Reference/equalIgnoringExtraWhitespace.help.sl
@@ -1512,7 +1511,7 @@ Reference/fineStructureConstant.help.sl
 Reference/finiteAbelianGroupCount.help.sl
 Reference/finiteGroupCount.help.sl
 Reference/FiniteRange.help.sl
-Reference/FirstArg.help.sl
+Reference/firstArg.help.sl
 Reference/firstBrocardPoint.help.sl
 Reference/firstBrocardTriangle.help.sl
 Reference/firstFermatPoint.help.sl
@@ -2007,6 +2006,7 @@ Reference/inversiveDistance.help.sl
 Reference/involutionNumber.help.sl
 Reference/iota.help.sl
 Reference/iRand.help.sl
+Reference/irregularIota.help.sl
 Reference/irregularShape.help.sl
 Reference/isAbundantNumber.help.sl
 Reference/isAcute.help.sl
@@ -2801,7 +2801,6 @@ Reference/mixedRadixDecode.help.sl
 Reference/mixedRadixEncode.help.sl
 Reference/mixedRadixGrayCode.help.sl
 Reference/mix.help.sl
-Reference/Mix.help.sl
 Reference/mod.help.sl
 Reference/modificationTime.help.sl
 Reference/modularDistance.help.sl
@@ -3206,7 +3205,7 @@ Reference/pinkNoise.help.sl
 Reference/pinnDSequence.help.sl
 Reference/pisanoPeriod.help.sl
 Reference/pisotSequence.help.sl
-Reference/Pitch.help.sl
+Reference/pitchFollower.help.sl
 Reference/pitchShift.help.sl
 Reference/plainChangesDo.help.sl
 Reference/plainChanges.help.sl

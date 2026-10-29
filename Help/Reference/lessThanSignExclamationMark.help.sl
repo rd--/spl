@@ -11,7 +11,7 @@ Required where graphs have multiple end points, such as graphs using `localOut` 
 
 Stereo cross channel feedback modulation with mouse control:
 
-~~~
+~~~spl syn=A
 let index = 5;
 let fb = [10 5];
 let pan = 0;
@@ -37,14 +37,14 @@ out <! localOut(car * fb)
 ~~~
 
 _Note_:
-This uses `FirstArg` where _anotherunit generator_ has output ports,
+This uses `firstArg` where _v_ has output ports,
 else it uses `multipleRootGraph`.
 
 The name of this operator is `lessThanSignExclamationMark`.
 
 * * *
 
-See also: FirstArg, multipleRootGraph
+See also: firstArg, multipleRootGraph
 
 References:
 _SuperCollider_

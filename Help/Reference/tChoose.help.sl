@@ -28,7 +28,7 @@ tChoose(
 
 At control rate can select from a constant array:
 
-~~~
+~~~spl syn=B
 splay(
 	sinOsc(
 		tChoose(
