@@ -218,6 +218,7 @@ Guide/Record Constructor Syntax.help.sl
 Guide/Record Syntax.help.sl
 Guide/Reference Help Files.help.sl
 Guide/Reflection Functions.help.sl
+Guide/Regular and Irregular Arrays.help.sl
 Guide/Regular Expression Functions.help.sl
 Guide/Rounding Functions.help.sl
 Guide/Scalars and Lists.help.sl
@@ -511,6 +512,7 @@ Reference/atOrNilAll.help.sl
 Reference/atOrNil.help.sl
 Reference/atPath.help.sl
 Reference/atPathPut.help.sl
+Reference/atPathWrap.help.sl
 Reference/atPin.help.sl
 Reference/atRandom.help.sl
 Reference/atSymmetrical.help.sl
@@ -2005,6 +2007,7 @@ Reference/inversiveDistance.help.sl
 Reference/involutionNumber.help.sl
 Reference/iota.help.sl
 Reference/iRand.help.sl
+Reference/irregularShape.help.sl
 Reference/isAbundantNumber.help.sl
 Reference/isAcute.help.sl
 Reference/isAdjacentFraction.help.sl

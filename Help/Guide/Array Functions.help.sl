@@ -9,6 +9,7 @@ Constructors:
 
 - `array`
 - `duplicate`
+- `fill`
 - `table`
 - `triangularArray`
 
@@ -16,6 +17,7 @@ Querying:
 
 - `arrayDepth`
 - `dimensions`
+- `irregularShape`
 - `rank`
 - `shape`
 

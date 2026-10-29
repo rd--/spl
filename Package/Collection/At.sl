@@ -51,16 +51,24 @@
 		}
 	}
 
-	atPath { :self :path |
+	atPathUsing { :self :path :aBlock/2 |
 		let item = self;
 		path.ifEmpty {
-			self.errorInvalidIndex('atPath', path)
+			self.errorInvalidIndex('atPathUsing', path)
 		} {
 			path.do { :index |
-				item := item[index]
+				item := aBlock(item, index)
 			};
 			item
 		}
+	}
+
+	atPath { :self :path |
+		self.atPathUsing(path, at/2)
+	}
+
+	atPathWrap { :self :path |
+		self.atPathUsing(path, atWrap/2)
 	}
 
 }

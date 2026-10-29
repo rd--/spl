@@ -129,6 +129,51 @@
 		}
 	}
 
+	irregularShapeBoundingShape { :a |
+		let n = a[1];
+		let m = a.allButFirst.collect(deepMax/1);
+		[n] ++ m
+	}
+
+	irregularShapeIndices { :a |
+		let b = a.drop;
+		a.irregularShapeBoundingShape
+		.shapeIndices.select { :i |
+			let j = i.dropLast;
+			j.prefixes.withIndexCollect { :k :y |
+				let z = b.at(y).atPathWrap(k);
+				i[y + 1] <= z
+			}.allTrue
+		}
+	}
+
+	irregularIota { :a :zero |
+		a
+		.irregularShapeIndices
+		.withIndexCollect { :i :j |
+			i -> (j - 1 + zero)
+		}.SparseArray(a.irregularShapeBoundingShape, nil)
+		.normalArray
+		.deepDeleteMissing
+	}
+
+	irregularIota { :a |
+		a.irregularIota(1)
+	}
+
+	irregularShape { :a |
+		let b = [a.size] ++ 1.toCollect(a.depth - 2) { :i |
+			a.atLevelCollect([i], size/1)
+		};
+		b.atLevelCollect([0 .. b.depth - 2]) { :c |
+			c.isList.if {
+				c.findRepeat
+			} {
+				c
+			}
+		}
+	}
+
 	isArray { :self :depth :aBlock/1 |
 		let rho = self.shapeOrNil;
 		rho.isNotNil & {
@@ -469,8 +514,9 @@
 	}
 
 	[reshape, !] { :self :shape |
-		shape.ifEmpty {
-			self.error('reshape: empty shape?')
+		let [n] = shape.shape;
+		(n = 0).if {
+			self.error('reshape: not vector or empty shape?')
 		} {
 			self
 			.flatten

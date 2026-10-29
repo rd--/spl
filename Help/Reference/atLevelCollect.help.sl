@@ -29,7 +29,7 @@ Select one level:
 ]
 
 >>> [2 3 2].iota
->>> .atLevelCollect(2, reverse/1)
+>>> .atLevelCollect([2], reverse/1)
 [
 	2 1; 4 3; 6 5:;
 	8 7; 10 9; 12 11

@@ -158,7 +158,7 @@ gcd/2.array([20 20]).matrixPlot
 
 * * *
 
-See also: arrayFlatten, collect, constantArray, discretize, map, subdivide, table, tuples
+See also: arrayFlatten, collect, constantArray, discretize, fill, map, subdivide, table, tuples
 
 Guides: Array Functions, List Functions, Matrix Functions
 
