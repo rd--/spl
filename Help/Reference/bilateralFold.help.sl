@@ -5,23 +5,23 @@
 Bilateral folding.
 Folds _a_ to +/- _b_.
 
-```
+~~~spl syn=A
 sinOsc(1000, 0)
 .bilateralFold(line(0, 1, 23)) / 3
-```
+~~~
 
 Using `sinOsc`:
 
-```
+~~~spl syn=B
 sinOsc(55, 0).bilateralFold(
 	sinOsc(0.5, 0)
 	.linLin(-1, 1, 0.2, 4)
 )
-```
+~~~
 
 High frequencies:
 
-```
+~~~spl syn=C
 let o = sinOsc(
 	[9333, 12111],
 	[0, 5 / 1.pi]
@@ -39,7 +39,7 @@ let e = sinOsc(
 	[0, 3 / 1.pi]
 );
 o * e
-```
+~~~
 
 * * *
 

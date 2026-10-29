@@ -14,13 +14,13 @@ Simple delay line.
 `dust` randomly triggers `decay` to create an exponential decay envelope for the `whiteNoise` input source,
 input is mixed with delay:
 
-```
+~~~spl syn=A
 let z = decay(
 	dust(1) * 0.5,
 	0.3
 ) * whiteNoise();
 delayC(z, 0.2, 0.2) + z
-```
+~~~
 
 * * *
 

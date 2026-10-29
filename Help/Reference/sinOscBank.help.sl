@@ -11,7 +11,7 @@ A summed set of fixed frequency sin oscillators.
 
 Crossfading randomised oscillator banks:
 
-```
+~~~spl syn=A
 { :tr |
 	{
 		sinOscBank(
@@ -21,11 +21,11 @@ Crossfading randomised oscillator banks:
 		)
 	} ! 2 * 0.1
 }.xFadeTexture(3, 4)
-```
+~~~
 
 Equivalent to:
 
-```
+~~~spl syn=B
 { :tr |
 	{
 		{
@@ -36,7 +36,7 @@ Equivalent to:
 		} !+ 8
 	} ! 2 * 0.1
 }.xFadeTexture(3, 4)
-```
+~~~
 
 * * *
 

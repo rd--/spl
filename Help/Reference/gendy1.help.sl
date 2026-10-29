@@ -30,7 +30,7 @@ The possible amplitude distributions are:
 
 A texture:
 
-```
+~~~spl syn=A
 {
 	let freq = gendy1(
 		iRand(0, 6),
@@ -52,11 +52,11 @@ A texture:
 		rand(-1, 1)
 	) * 0.1
 } !+ 10
-```
+~~~
 
 At `Record`, a texture graph with mouse control:
 
-```
+~~~spl syn=B
 let n = 11;
 resonz(
 	{
@@ -87,7 +87,7 @@ resonz(
 	mouseX(100, 2000, 0, 0.2),
 	mouseY(0.01, 1.0, 0, 0.2)
 )
-```
+~~~
 
 An overlapping texture program:
 

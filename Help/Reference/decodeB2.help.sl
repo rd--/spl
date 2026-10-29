@@ -20,13 +20,13 @@ in which case the first speaker will be the one left of center.
 `decodeB2` decodes the encoded signals to four channels,
 which are reordered for a given speaker arrangement:
 
-```
+~~~spl syn=A
 let p = pinkNoise();
 let mx = mouseX(-1, 1, 0, 0.2);
 let [w, x, y] = panB2(p, mx, 0.1);
 let [a, b, c, d] = decodeB2(4, w, x, y, 0.5);
 [a, b, d, c]
-```
+~~~
 
 * * *
 

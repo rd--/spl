@@ -11,7 +11,7 @@ Read window from table.
 The program below constructs a half-sine table,
 which is applied as a window (amplitude envelope) to a sine oscillator.
 
-```
+~~~spl syn=A
 let tbl = 0:511.collect { :each |
 	(each / 512 * 1.pi).sin
 }.localBuf;
@@ -22,7 +22,7 @@ let win = tableWindow(tr, dur, tbl);
 splay(
 	sinOsc(tExpRand(111, 555, tr), 0) * win / 3
 )
-```
+~~~
 
 * * *
 

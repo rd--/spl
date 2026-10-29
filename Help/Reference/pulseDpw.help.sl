@@ -6,19 +6,19 @@ Band limited pulse wave generator with pulse width modulation.
 
 Modulate frequency:
 
-```
+~~~spl syn=A
 pulseDpw(xLine(40, 4000, 6), 0.1) * 0.1
-```
+~~~
 
 Two band limited square waves through a resonant low pass filter:
 
-```
+~~~spl syn=B
 rlpf(
 	pulseDpw([100 250], 0.5) * 0.1,
 	xLine(8000, 400, 5),
 	0.05
 )
-```
+~~~
 
 * * *
 

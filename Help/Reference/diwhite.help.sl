@@ -11,12 +11,12 @@ diwhite returns integers in the continuous range between lo and hi.
 
 As frequency control:
 
-```
+~~~spl syn=A
 let a = diwhite(Infinity, 0, [13 15]);
 let t = impulse(mouseX(1, 40, 1, 0.2), 0);
 let f = demand(t, 0, a) * 30 + 340;
 sinOsc(f, 0) * 0.1
-```
+~~~
 
 * * *
 

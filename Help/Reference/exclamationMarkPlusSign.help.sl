@@ -17,7 +17,7 @@ This operator does not need to construct the intermediate list structure to calc
 
 Sum randomly generated oscillators:
 
-```
+~~~spl syn=A
 { :tr |
 	{
 		let f = tChoose(
@@ -39,7 +39,7 @@ Sum randomly generated oscillators:
 		) * 0.01
 	} !+ 10
 }.overlapTexture(2, 3, 4).mix
-```
+~~~
 
 This name of this operator is `exclamationMarkPlusSign`.
 

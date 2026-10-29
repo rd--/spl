@@ -33,16 +33,16 @@ Plot curve:
 
 Fixed amplitude:
 
-```
+~~~spl syn=A
 sinOsc(440, 0) * -24.dbAmp
-```
+~~~
 
 Modulate amplitude:
 
-```
+~~~spl syn=B
 let mul = line(-12, -40, 10).dbAmp;
 sinOsc(800, 0) * mul
-```
+~~~
 
 Evaluate symbolically:
 

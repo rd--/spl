@@ -15,7 +15,7 @@ The filter can be overdriven and will self-oscillate at high resonances.
 
 Mouse control of frequency & resonance, noise input:
 
-```
+~~~spl syn=A
 dfm1(
 	pinkNoise() * 0.2,
 	mouseX(80, 5000, 1, 0.2),
@@ -24,18 +24,18 @@ dfm1(
 	0,
 	0.0003
 )
-```
+~~~
 
 Lfo control of frequency, pulse input:
 
-```
+~~~spl syn=B
 let in = pulse([100 100.1], 0.5).sum * 0.4;
 let freq = sinOsc(
 	sinOsc(0.3, 0).linLin(-1, 1, 0.2, 5),
 	0
 ).linLin(-1, 1, 80, 2000);
 dfm1(in, freq, 1.1, 2, 0, 0.0003) * 0.2
-```
+~~~
 
 * * *
 

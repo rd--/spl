@@ -18,24 +18,24 @@ In this case limit the freq with _freq.max(minval)_, or use `ampCompA`.
 
 Compare a sine tone with and without amplitude compensation:
 
-```
+~~~spl syn=A
 let freq = mouseX(300, 15000, 1, 0.2);
 let osc = sinOsc(freq, 0) * 0.1;
 [
 	osc,
 	osc * ampComp(freq, 300, 1 / 3).kr
 ]
-```
+~~~
 
 Different sounds cause quite different loudness perception,
 and the desired musical behavior can vary,
 so the exponent can be tuned:
 
-```
+~~~spl syn=B
 let freq = mouseX(300, 15000, 1, 0.2);
 let mul = ampComp(freq, 300, 4 / 3).kr;
 pulse(freq, 0.5) * mul * 0.1
-```
+~~~
 
 * * *
 

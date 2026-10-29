@@ -12,17 +12,17 @@ Maps a linear range of values to another linear range of values.
 
 Map oscillator to frequency:
 
-```
+~~~spl syn=A
 let mod = sinOsc(line(1, 10, 10), 0);
 sinOsc(
 	linLin(mod, -1, 1, 100, 900),
 	0
 ) * 0.1
-```
+~~~
 
 Modulating destination values:
 
-```
+~~~spl syn=B
 let mod = lfNoise2(80);
 sinOsc(
 	mod.linLin(
@@ -33,11 +33,11 @@ sinOsc(
 	),
 	0
 ) * 0.1
-```
+~~~
 
 Modulating source and destination values:
 
-```
+~~~spl syn=C
 let mod = lfNoise2(80);
 sinOsc(
 	mod.linLin(
@@ -48,14 +48,14 @@ sinOsc(
 	),
 	0
 ) * 0.1
-```
+~~~
 
 Rescale low-frequency sawtooth oscillator output as frequency control:
 
-```
+~~~spl syn=D
 let f = lfSaw(1, 1).linLin(-1, 1, 220, 440);
 sinOsc(f.lag(0.05), 0) * 0.1
-```
+~~~
 
 At `SmallFloat`:
 

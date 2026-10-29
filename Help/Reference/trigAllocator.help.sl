@@ -28,7 +28,7 @@ the allocator generates five gate signals (_w_),
 each gate controls a _sinOsc_ with distinct
 frequency (_f_) and envelope (_e_).
 
-```
+~~~spl syn=A
 let t = impulse(4, 0);
 let d = tRand(0.2, 2, t);
 let w = trigAllocator(5, 1, t, d);
@@ -38,21 +38,21 @@ let e0 = asr(w, 0.01, d / 2, -4);
 let e1 = e0 * tRand(0.1, 0.2, w);
 let o = sinOsc(f1, 0) * e1;
 o.splay
-```
+~~~
 
 The allocator cycles indexes when not stealing.
 In the graph below the gate duration is one millisecond,
 so each impulse could be allocated to the same voice,
 however it cycles, allowing the decay envelope to sound.
 
-```
+~~~spl syn=B
 let t = impulse(4, 0);
 let w = trigAllocator(16, 0, t, 0.001);
 let e = decay2(w * 0.1, 0.01, 4);
 let f = tiRand(84, 96, w).midiCps + tRand(-9, 9, w);
 let o = sinOsc(f, 0) * e * 0.1;
 o.splay / 4
-```
+~~~
 
 * * *
 

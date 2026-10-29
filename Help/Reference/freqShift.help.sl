@@ -15,17 +15,17 @@ but does not preserve the original harmonic relationships.
 
 Shifting a 100Hz tone by 1 Hz rising to 500Hz:
 
-```
+~~~spl syn=A
 freqShift(
 	sinOsc(100, 0),
 	xLine(1, 500, 5),
 	0
 ) * 0.1
-```
+~~~
 
 Shifting a complex tone by 1 Hz rising to 500Hz:
 
-```
+~~~spl syn=B
 freqShift(
 	sinOscBank(
 		[101, 303, 606, 808],
@@ -35,11 +35,11 @@ freqShift(
 	xLine(1, 500, 10),
 	0
 ) * 0.1
-```
+~~~
 
 Modulating shift and phase:
 
-```
+~~~spl syn=C
 freqShift(
 	sinOsc(10, 0),
 	lfNoise2(0.3) * 1500,
@@ -48,7 +48,7 @@ freqShift(
 		0, 2.pi
 	)
 ) * 0.1
-```
+~~~
 
 Frequency shifting an audio sample:
 
@@ -63,7 +63,7 @@ freqShift(
 
 Shifting bandpassed noise:
 
-```
+~~~spl syn=D
 let snd = bpf(whiteNoise(), 1000, 0.001);
 [
 	freqShift(
@@ -73,11 +73,11 @@ let snd = bpf(whiteNoise(), 1000, 0.001);
 	) * 4,
 	snd
 ]
-```
+~~~
 
 Simple detune & pitchmod via freqShift:
 
-```
+~~~spl syn=E
 { :tr |
 	let table = [0 2 4 5 7 9 11 12];
 	let octave = tChoose(tr, [0 .. 2]);
@@ -97,11 +97,11 @@ Simple detune & pitchmod via freqShift:
 	);
 	[left, right] / 3
 }.overlapTexture(3, 3, 3).mix
-```
+~~~
 
 Shift pulse wave in opposite directions:
 
-```
+~~~spl syn=F
 { :tr |
 	let table = [0 2 4 5 7 9 11 12];
 	let octave = tChoose(tr, [0 .. 2]);
@@ -124,11 +124,11 @@ Shift pulse wave in opposite directions:
 	);
 	[left, right] / 3
 }.overlapTexture(3, 3, 3).mix
-```
+~~~
 
 freqShift, feedback, freqShift:
 
-```
+~~~spl syn=G
 { :tr |
 	let table = [0 2 4 5 7 9 11 12];
 	let octave = tChoose(tr, [0 .. 2]);
@@ -150,7 +150,7 @@ freqShift, feedback, freqShift:
 	) * 0.5;
 	[(osc + snd) / 3] # 2
 }.overlapTexture(3, 3, 3).mix
-```
+~~~
 
 Non-graph variant:
 

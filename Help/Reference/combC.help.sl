@@ -15,7 +15,7 @@ Comb delay line.
 
 Comb used as a resonator. The resonant fundamental is equal to reciprocal of the delay time.
 
-```
+~~~spl syn=A
 let z = whiteNoise() * 0.01;
 combC(
 	z,
@@ -23,11 +23,11 @@ combC(
 	xLine(0.0001, 0.01, 20),
 	0.2
 )
-```
+~~~
 
 With negative feedback:
 
-```
+~~~spl syn=B
 let z = whiteNoise() * 0.01;
 combC(
 	z,
@@ -35,17 +35,17 @@ combC(
 	xLine(0.0001, 0.01, 20),
 	-0.2
 )
-```
+~~~
 
 Used as an echo:
 
-```
+~~~spl syn=C
 let z = decay(
 	dust(1) * 0.5,
 	0.2
 ) * whiteNoise();
 combC(z, 0.2, 0.2, 3)
-```
+~~~
 
 * * *
 

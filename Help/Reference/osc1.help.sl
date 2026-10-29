@@ -10,10 +10,10 @@ An oscillator that reads through a table only once.
 
 Pitch class table, linear interpolation, first slowly, then quickly, then slowly again:
 
-```
+~~~spl syn=A
 let tbl = [0 2 10 12].localBuf;
 sinOsc((osc1(tbl, 5) + 48).midiCps, 0) * 0.1
-```
+~~~
 
 * * *
 

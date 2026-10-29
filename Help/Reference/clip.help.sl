@@ -79,10 +79,10 @@ Boundaries are includes:
 
 clip sine:
 
-```
+~~~spl syn=A
 let o = sinOsc(440, 0) * 0.2;
 o.clip(-0.07, 0.07)
-```
+~~~
 
 Plot the unit clip function over a subset of the reals:
 

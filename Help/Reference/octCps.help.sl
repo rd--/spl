@@ -15,9 +15,9 @@ _C4_ is _4_, _A4_ is _4 + 9/12_.
 
 Linear frequency sweep:
 
-```
+~~~spl syn=A
 saw(line(2, 9, 10).octCps) * 0.1
-```
+~~~
 
 Evaluate symbolically:
 

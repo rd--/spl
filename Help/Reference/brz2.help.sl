@@ -10,15 +10,15 @@ Implements the formula:
 
 This filter cuts out frequencies around 1/2 of the Nyquist frequency, compare:
 
-```
+~~~spl syn=A
 whiteNoise() * 0.1
-```
+~~~
 
 and:
 
-```
+~~~spl syn=B
 brz2(whiteNoise() * 0.1)
-```
+~~~
 
 * * *
 

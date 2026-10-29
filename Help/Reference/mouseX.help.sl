@@ -11,19 +11,19 @@ Cursor unit generator.
 
 Mouse control of frequency:
 
-```
+~~~spl syn=A
 sinOsc(mouseX(40, 10000, 1, 0.2), 0) * 0.1
-```
+~~~
 
 Same as above but with a two second lag:
 
-```
+~~~spl syn=B
 sinOsc(mouseX(40, 10000, 1, 2), 0) * 0.1
-```
+~~~
 
 Two oscillators:
 
-```
+~~~spl syn=C
 sinOsc(
 	[
 		mouseX(40, 10000, 1, 0.2),
@@ -31,7 +31,7 @@ sinOsc(
 	],
 	0
 ) * 0.1
-```
+~~~
 
 _Note_:
 mouseX and mouseY can report unexpected values on systems with multiple displays.

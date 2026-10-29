@@ -19,32 +19,32 @@ The reset input may also be a demand UGen, providing a stream of reset times.
 
 demand Ugen as durations:
 
-```
+~~~spl syn=A
 let trig = tDuty(
 	drand(Infinity, [0.01 0.2 0.4 0.3]),
 	0,
 	dseq(Infinity, [0.1 0.4 0.01 0.1 1])
 );
 ringz(trig, 1000, 1) * 0.1
-```
+~~~
 
 Control rate ugen as durations:
 
-```
+~~~spl syn=B
 let trig = tDuty(
 	mouseX(0.1, 0.5, 1, 0.2),
 	0,
 	dseq(Infinity, [0.1 0.4 0.01 0.1 1])
 );
 ringz(trig, 1000, 1) * 0.1
-```
+~~~
 
 Duration sequence:
 
-```
+~~~spl syn=C
 let b = [3 3 2 2 2 1 2 2 2] / 3;
 tDuty(dseq(Infinity, b), 0, 1)
-```
+~~~
 
 * * *
 

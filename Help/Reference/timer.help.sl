@@ -6,7 +6,7 @@ Returns time since last triggered.
 
 Using timer to modulate sine frequency, the slower the trigger is the higher the frequency:
 
-```
+~~~spl syn=A
 let x = mouseX(0.5, 20, 1, 0.2);
 let trig = impulse(x, 0);
 sinOsc(
@@ -16,7 +16,7 @@ sinOsc(
 	],
 	0
 ) * 0.1
-```
+~~~
 
 * * *
 

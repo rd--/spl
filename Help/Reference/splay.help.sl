@@ -5,7 +5,7 @@
 Pan a list of signals at equally spaced locations across the main output channels,
 as configured in `Preferences`.
 
-```
+~~~spl syn=A
 let k = 16;
 1:k.collect { :each |
 	sinOsc(
@@ -16,7 +16,7 @@ let k = 16;
 		0
 	) / k
 }.splay
-```
+~~~
 
 There is a special case,
 where if the size of the input list is equal to the number of available channels,

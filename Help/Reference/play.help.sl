@@ -8,18 +8,18 @@ it is used internally by the system when a expression is _played_.
 
 At `Ugen`:
 
-```
+~~~spl syn=A
 sinOsc(440, 0) * 0.1
-```
+~~~
 
 At a `List` of `Ugen`:
 
-```
+~~~spl syn=B
 [
 	sinOsc(333, 0) * 0.1,
 	saw(111) * 0.02
 ]
-```
+~~~
 
 * * *
 

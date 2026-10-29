@@ -15,15 +15,15 @@ Note: Normalize and array input values should be control rate only.
 
 Assuming normalized values:
 
-```
+~~~spl syn=A
 let trig = impulse(6, 0).kr;
 let index = twIndex(trig, 0, [0.05, 0.45, 0.5]);
 sinOsc(selectT(index, [333 444 555]), 0) * 0.1
-```
+~~~
 
 Modulating probability values:
 
-```
+~~~spl syn=B
 let trig = impulse(6, 0).kr;
 let w3 = sinOsc(1 / 5, 0).kr * 0.5 + 0.5;
 let index = twIndex(
@@ -35,7 +35,7 @@ let index = twIndex(
 	sinOsc(selectT(index, [333 444 555]), 0),
 	sinOsc(w3.linLin(0, 1, 444, 555), 0) / 3
 ] * 0.1
-```
+~~~
 
 * * *
 

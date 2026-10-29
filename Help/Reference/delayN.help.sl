@@ -4,13 +4,13 @@
 
 Delay line, no interpolation.
 
-```
+~~~spl syn=A
 let e = impulse(1, 0).perc(0.01, 0.2, 0);
 let x = sinOsc(220, 0) * e;
 let l = localIn(1, 0) + x;
 let y = delayN(l, 0.1, 0.1);
 y * 0.1 <! localOut(y * 0.8)
-```
+~~~
 
 * * *
 

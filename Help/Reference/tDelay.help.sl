@@ -11,17 +11,17 @@ Any triggers which arrive in the time between an input trigger and its delayed o
 
 impulse runs faster than flip flop:
 
-```
+~~~spl syn=A
 let z = impulse(2, 0);
 [z, toggleFf(tDelay(z, 0.5)) * sinOsc(440, 0)] * 0.1
-```
+~~~
 
 dust runs faster than flip flop:
 
-```
+~~~spl syn=B
 let z = dust(5);
 [z, toggleFf(tDelay(z, 0.5)) * sinOsc(440, 0)] * 0.1
-```
+~~~
 
 * * *
 

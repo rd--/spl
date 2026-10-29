@@ -17,7 +17,7 @@ General purpose (hard-knee) dynamics processor.
 
 Example signal to process:
 
-```
+~~~spl syn=A
 decay2(
 	impulse(8, 0) * (
 		lfSaw(0.3, 0) * -0.3 + 0.3
@@ -25,11 +25,11 @@ decay2(
 	0.001,
 	0.3
 ) * pulse([80, 81], 0.3).sum
-```
+~~~
 
 Noise gate (keywords):
 
-```
+~~~spl syn=B
 let z = decay2(
 	impulse(8, 0) * (
 		lfSaw(0.3, 0) * -0.3 + 0.3
@@ -46,11 +46,11 @@ compander(
 	clampTime: 0.01,
 	relaxTime: 0.01
 )
-```
+~~~
 
 Compressor (keywords):
 
-```
+~~~spl syn=C
 let z = decay2(
 	impulse(8, 0) * (
 		lfSaw(0.3, 0) * -0.3 + 0.3
@@ -67,11 +67,11 @@ compander(
 	clampTime: 0.01,
 	relaxTime: 0.01
 )
-```
+~~~
 
 limiter (keywords):
 
-```
+~~~spl syn=D
 let z = decay2(
 	impulse(8, 0) * (
 		lfSaw(0.3, 0) * -0.3 + 0.3
@@ -88,11 +88,11 @@ compander(
 	clampTime: 0.01,
 	relaxTime: 0.01
 )
-```
+~~~
 
 Sustainer (keywords):
 
-```
+~~~spl syn=E
 let z = decay2(
 	impulse(8, 0) * (
 		lfSaw(0.3, 0) * -0.3 + 0.3
@@ -109,7 +109,7 @@ compander(
 	clampTime: 0.01,
 	relaxTime: 0.05
 ) * 0.5
-```
+~~~
 
 * * *
 

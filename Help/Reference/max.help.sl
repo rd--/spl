@@ -127,10 +127,10 @@ The cumulative maxima is the `scan` of `max`:
 At `Ugen`,
 modulates and envelopes:
 
-```
+~~~spl syn=A
 let z = sinOsc(500, 0);
 z.max(sinOsc(0.1, 0)) * 0.1
-```
+~~~
 
 Table _(j%i).⌈(i%j)_ read by antidiagonals,
 OEIS [A204016](https://oeis.org/A204016):

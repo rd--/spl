@@ -10,35 +10,35 @@ Outputs a different value from the sequence each time a trigger is received.
 
 Arpeggio:
 
-```
+~~~spl syn=A
 let t = impulse(4, 0);
 let f = sequencer([111 222 333 444], t);
 sinOsc(f, 0) * perc(t, 0.1, 0.1, 0) * 0.1
-```
+~~~
 
 Sequence triggered by square wave:
 
-```
+~~~spl syn=B
 let freq = sequencer(
 	[60 62 63 58 48 55],
 	lfPulse(6, 0, 0.5)
 ).midiCps;
 lfSaw(freq, 0) * 0.1
-```
+~~~
 
 Sequence triggered by random impulses:
 
-```
+~~~spl syn=C
 let freq = sequencer(
 	[60 62 63 58 48 55],
 	dust(6)
 ).midiCps;
 lfSaw(freq, 0) * 0.1
-```
+~~~
 
 Sequence of a demand rate value:
 
-```
+~~~spl syn=D
 let tr = lfPulse(6, 0, 0.5);
 let freq = {
 	demandSequencer(
@@ -47,11 +47,11 @@ let freq = {
 	) * 30 + 340
 } ! 2;
 sinOsc(freq, 0) * 0.1
-```
+~~~
 
 Sequence of shifting sequences:
 
-```
+~~~spl syn=E
 let clock = impulse(8, 0);
 let root = sequencer(
 	[24 26 24 22],
@@ -76,7 +76,7 @@ let z = varSaw(
 	mouseY(0, 1, 0, 0.2)
 ) * env;
 combN(z, 0.26, 0.26, 4).softClip
-```
+~~~
 
 * * *
 

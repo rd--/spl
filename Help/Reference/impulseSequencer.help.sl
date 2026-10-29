@@ -10,7 +10,7 @@ Outputs a single sample impulse level from the sequence each time a trigger is r
 
 Use a pulse wave as a trigger:
 
-```
+~~~spl syn=A
 let seq = { :index |
 	let p = [
 		1 0 0 1 0 0 1 0
@@ -38,7 +38,7 @@ let t = lfPulse(8, 0, 0.5);
 	3.seq * brownNoise() * 0.05,
 	4.seq * sinOsc(100, 0) * 0.2
 ].splay
-```
+~~~
 
 * * *
 

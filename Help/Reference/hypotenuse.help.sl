@@ -26,7 +26,7 @@ At large numbers:
 Object travels 200 meters in 6 secs (=120kph) passing 10 meters from the listener,
 the speed of sound is 344 m/s:
 
-```
+~~~spl syn=A
 let x = 10;
 let y = lfSaw(1 / 6, 0) * 100;
 let distance = hypotenuse(x, y);
@@ -34,11 +34,11 @@ let velocity = slope(distance);
 let pitchRatio = (344 - velocity) / 344;
 let amplitude = 10 / distance.square;
 sinOsc(1000 * pitchRatio, 0) * amplitude
-```
+~~~
 
 The next example uses the distance to modulate a delay line:
 
-```
+~~~spl syn=B
 let x = 10;
 let y = lfSaw(1 / [6, 11], [0, 1]) * 100;
 let distance = hypotenuse(x, y);
@@ -60,7 +60,7 @@ delayL(
 	110 / 344,
 	distance / 344
 ) * amplitude
-```
+~~~
 
 The hypotenuse gives the distance of a point _(x,y)_ from the origin:
 

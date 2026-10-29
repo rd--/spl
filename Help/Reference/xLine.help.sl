@@ -12,9 +12,9 @@ Both the start and end values must be non-zero and have the same sign.
 
 Control frequency of sine oscillator:
 
-```
+~~~spl syn=A
 sinOsc(xLine(200, 17000, 10), 0) * 0.1
-```
+~~~
 
 _Note_: This is the Sc _xLine_ Ugen without the _doneAction_ input.
 

@@ -11,24 +11,24 @@ This is the equivalent of 'buzz' in MusicN languages.
 
 Modulate frequency:
 
-```
+~~~spl syn=A
 blip(xLine(20000, 200, 6), 100) * 0.2
-```
+~~~
 
 Modulate number of harmonics:
 
-```
+~~~spl syn=B
 blip(200,line(1, 100, 20)) * 0.2
-```
+~~~
 
 At low frequencies:
 
-```
+~~~spl syn=C
 blip(
 	[3 33],
 	lfNoise2(44) * 77 + 99
 ) * lfTri(4, 0)
-```
+~~~
 
 _Warning_:
 This waveform in its raw form could be damaging to your ears at high amplitudes or for long periods.

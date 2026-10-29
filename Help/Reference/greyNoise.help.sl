@@ -7,27 +7,27 @@ Generates noise which results from flipping random bits in a word.
 This type of noise has a high Rms level relative to its peak to peak level.
 The spectrum is emphasized towards lower frequencies.
 
-```
+~~~spl syn=A
 greyNoise([0.125 0.125], 0)
-```
+~~~
 
 High pass filtered:
 
-```
+~~~spl syn=B
 greyNoise([0.125] # 2, 0).hpz1
-```
+~~~
 
 High pass filtered,
 modulating cutoff frequency:
 
-```
+~~~spl syn=C
 {
 	hpf(
 		greyNoise() * 0.1,
 		lfNoise2(3) * 6666 + 9999
 	)
 } ! 2
-```
+~~~
 
 * * *
 

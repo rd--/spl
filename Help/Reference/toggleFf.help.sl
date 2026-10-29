@@ -9,10 +9,10 @@ Toggles between zero and one upon receiving a trigger.
 
 Increasing density triggers frequency switcher:
 
-```
+~~~spl syn=A
 let ff = toggleFf(dust(xLine(1, 1000, 60)));
 sinOsc(ff * 400 + 800, 0) * 0.1
-```
+~~~
 
 * * *
 

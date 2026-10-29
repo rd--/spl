@@ -4,7 +4,7 @@
 
 Attack-decay-sustain-release envelope.
 
-```
+~~~spl syn=A
 let gate = lfPulse(0.5, 0, 0.5) > 0;
 let attackTime = 0.05;
 let decayTime = 0.15;
@@ -20,7 +20,7 @@ let envelope = adsr(
 	curve
 );
 sinOsc(440, 0) * envelope * 0.1
-```
+~~~
 
 * * *
 

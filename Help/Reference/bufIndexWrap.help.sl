@@ -11,7 +11,7 @@ out of range index values are wrapped cyclically to the valid range.
 
 Indexing into a table:
 
-```
+~~~spl syn=A
 let b = [
 	200 300 400 500 600 800
 ].localBuf;
@@ -22,7 +22,7 @@ sinOsc(
 	),
 	0
 ) * 0.1
-```
+~~~
 
 * * *
 

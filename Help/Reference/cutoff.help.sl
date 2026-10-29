@@ -10,9 +10,9 @@ Apply a cutoff envelope to a continuous sound.
 
 cutoff sine oscillator after four seconds with one second release time:
 
-```
+~~~spl syn=A
 cutoff(4, 1, -4) * sinOsc(220, 0) * 0.1
-```
+~~~
 
 * * *
 

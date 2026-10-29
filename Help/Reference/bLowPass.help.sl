@@ -14,13 +14,13 @@ Warning: frequency values close to zero may cause loud audio artifacts.
 
 Mouse control of parameters:
 
-```
+~~~spl syn=A
 bLowPass(
 	pinkNoise(),
 	mouseX(10, 20000, 1, 0.2),
 	mouseY(0, 1, 0, 0.2)
 ) * 0.25
-```
+~~~
 
 * * *
 

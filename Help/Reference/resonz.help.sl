@@ -15,43 +15,43 @@ The reciprocal of Q is used rather than Q because it saves a divide operation in
 
 Fixed frequency:
 
-```
+~~~spl syn=A
 resonz(whiteNoise() * 0.5, 2000, 0.1)
-```
+~~~
 
 Modulate frequency:
 
-```
+~~~spl syn=B
 resonz(
 	whiteNoise() * 0.5,
 	xLine(1000, 8000, 10),
 	0.05
 )
-```
+~~~
 
 Modulate bandwidth:
 
-```
+~~~spl syn=C
 resonz(
 	whiteNoise() * 0.5,
 	2000,
 	xLine(1, 0.001, 8)
 )
-```
+~~~
 
 Modulate bandwidth opposite direction:
 
-```
+~~~spl syn=D
 resonz(
 	whiteNoise() * 0.5,
 	2000,
 	xLine(0.001, 1, 8)
 )
-```
+~~~
 
 Modulate both frequency and band-width:
 
-```
+~~~spl syn=E
 let x = {
 	whiteNoise() * 0.1
 } ! 2;
@@ -62,7 +62,7 @@ let x = {
 		lfNoise2(0.77) * 0.07 + 0.09
 	)
 } !+ 10
-```
+~~~
 
 * * *
 

@@ -17,7 +17,7 @@ _b_ is the first derivative and produces line segments,
 _c_ is the second derivative and produces constant segments,
 the derivatives must be scaled back to ±1:
 
-```
+~~~spl syn=A
 let a = lfNoise2(2);
 let b = slope(a);
 let c = slope(b);
@@ -28,7 +28,7 @@ let freq = [
 	c * scale.square
 ] * 100 + 200;
 sinOsc(freq, 0).splay * 0.1
-```
+~~~
 
 For another example of `slope` see `hypotenuse`.
 

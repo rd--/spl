@@ -13,14 +13,14 @@ the allocator generates five trigger signals (_r_),
 each controls a _sinOsc_ (_o_) with distinct
 frequency (_f_) and envelope (_e_).
 
-```
+~~~spl syn=A
 let t = impulse(4, 0);
 let r = trigRoundRobin(5, t);
 let f = tiRand(48, 72, r).midiCps;
 let e = decay2(r, 0.05, 2);
 let o = sinOsc(f, 0) * e * 0.5;
 o.splay
-```
+~~~
 
 * * *
 

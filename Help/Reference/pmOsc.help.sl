@@ -11,25 +11,25 @@ Phase modulation sine oscillator pair.
 
 Modulate carrier frequency:
 
-```
+~~~spl syn=A
 pmOsc(line(600, 900, 5), 600, 3, 0) * 0.1
-```
+~~~
 
 Modulate modulator frequency:
 
-```
+~~~spl syn=B
 pmOsc(300, line(600, 900, 5), 3, 0) * 0.1
-```
+~~~
 
 Modulate index:
 
-```
+~~~spl syn=C
 pmOsc(300, 550, line(0, 20, 8), 0) * 0.1
-```
+~~~
 
 Texture:
 
-```
+~~~spl syn=D
 { :tr |
 	linPan2(
 		pmOsc(
@@ -42,7 +42,7 @@ Texture:
 		0.1
 	)
 }.overlapTexture(2, 5, 4).mix
-```
+~~~
 
 * * *
 

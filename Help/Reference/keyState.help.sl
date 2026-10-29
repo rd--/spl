@@ -13,9 +13,9 @@ Note that this Ugen does not prevent normal typing.
 
 Key code 38 is the A key on some keyboards:
 
-```
+~~~spl syn=A
 sinOsc(800, 0) * keyState(38, 0, 0.1, 0.2)
-```
+~~~
 
 * * *
 

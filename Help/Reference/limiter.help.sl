@@ -15,20 +15,20 @@ limiter, unlike compander, is completely transparent for an in range signal.
 
 Limit signal to -8db:
 
-```
+~~~spl syn=A
 let t = impulse(8, 0) * (lfSaw(0.25, 0) * -0.6 + 0.7);
 let z = decay2(t, 0.001, 0.3) * fSinOsc(500, 0);
 let l = -8.dbAmp;
 [z * l, limiter(z, l, 0.01)]
-```
+~~~
 
 Mouse control:
 
-```
+~~~spl syn=B
 let t = impulse(8, 0) * (lfSaw(0.25, 0) * -0.6 + 0.7);
 let z = decay2(t, 0.001, 0.3) * fSinOsc(500, 0);
 limiter(z, mouseX(0, 1, 0, 0.2), 0.01) * 0.2
-```
+~~~
 
 * * *
 

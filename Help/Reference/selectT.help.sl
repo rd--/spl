@@ -14,7 +14,7 @@ For small lists this is more efficient than reading from a buffer.
 
 Cycle though oscillator types:
 
-```
+~~~spl syn=A
 let a = [
 	sinOsc(440, 0),
 	saw(440),
@@ -22,11 +22,11 @@ let a = [
 ];
 let cycle = a.size * 0.5;
 selectT(lfSaw(1, 0) * cycle + cycle, a) * 0.2
-```
+~~~
 
 As a sequencer:
 
-```
+~~~spl syn=B
 { :tr |
 	{
 		let a = { tRand(30, 80, tr) } ! 32;
@@ -39,7 +39,7 @@ As a sequencer:
 		) * 0.2
 	} ! 2
 }.xFadeTexture(3, 4)
-```
+~~~
 
 For selecting from a list of constants consider also `bufRd`.
 

@@ -328,9 +328,9 @@ OEIS [A017173](https://oeis.org/A017173):
 
 Quiet and quieter pink noise:
 
-```
+~~~spl syn=A
 pinkNoise() * [0.1 0.05]
-```
+~~~
 
 Plot multiples of each the integers up to _n_ extending to _m_,
 the _y_ coordinate is given by the multiplier:

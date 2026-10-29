@@ -17,7 +17,7 @@ If it is 1, W is varied according to the scaling of the X, Y and Z channels.
 
 Decode to octaphonic:
 
-```
+~~~spl syn=A
 let useMouse = false;
 let azimuth = useMouse.if {
 	mouseX(0, 2.pi, 0, 0.2)
@@ -49,11 +49,11 @@ bfDecode1(
 	0,
 	0
 )
-```
+~~~
 
 Decode to quadraphonic in sequence _fl, fr, rl, rr_:
 
-```
+~~~spl syn=B
 let useMouse = false;
 let azimuth = useMouse.if {
 	mouseX(0, 2.pi, 0, 0.2)
@@ -83,7 +83,7 @@ bfDecode1(
 	0,
 	0
 )
-```
+~~~
 
 * * *
 

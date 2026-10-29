@@ -14,21 +14,21 @@ and must be greater than or equal to _fundFreq_.
 
 Modulate fundamental frequency, formant freq stays constant:
 
-```
+~~~spl syn=A
 formant(xLine(400, 1000, 8), 2000, 800) * 0.125
-```
+~~~
 
 Modulate formant frequency, fundamental freq stays constant:
 
-```
+~~~spl syn=B
 formant(200, xLine(400, 4000, 8), 200) * 0.125
-```
+~~~
 
 Modulate width frequency, other freqs stay constant:
 
-```
+~~~spl syn=C
 formant(400, 2000, xLine(800, 8000, 8)) * 0.125
-```
+~~~
 
 * * *
 

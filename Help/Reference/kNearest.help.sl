@@ -13,7 +13,7 @@ sorted according to the least distance between the index location and the entrie
 Read index location from either Pen or Mouse input.
 The distance from four equally spaced co-ordinates on the unit circle controls the relative amplitude of four distinctly high-pass filtered noise signals.
 
-```
+~~~spl syn=A
 let k = 2;
 let usePen = false;
 let x = usePen.if {
@@ -41,7 +41,7 @@ let z = [
 	pulse(555, 0.5) / 3
 ] * 0.1;
 selectT(n, z)
-```
+~~~
 
 * * *
 

@@ -26,7 +26,7 @@ in which case the first speaker will be the one left of center.
 
 Eight channel circular panning:
 
-```
+~~~spl syn=A
 panAz(
 	8,
 	pinkNoise(),
@@ -35,12 +35,12 @@ panAz(
 	2,
 	0
 )
-```
+~~~
 
 panAz used to balance _k_ signals,
 mouse controls freqency (of position oscillator) and width parameters.
 
-```
+~~~spl syn=B
 let k = 8;
 let i = sinOsc(
 	{ rand(333, 555) } ! k,
@@ -55,12 +55,12 @@ let g = panAz(
 	0
 );
 i * g
-```
+~~~
 
 Three signals Az panned across distinct rings (horizontal),
 then balanced by a further Az panner (vertical):
 
-```
+~~~spl syn=C
 let i = hpf(
 	pinkNoise(),
 	[1111, 333, 55]
@@ -82,7 +82,7 @@ let g = panAz(
 	0
 );
 (p * g).mix * 4
-```
+~~~
 
 * * *
 

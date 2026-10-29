@@ -7,7 +7,7 @@ The next values are called when the next node is reached.
 
 Frequency envelope with random times:
 
-```
+~~~spl syn=A
 let cubicInterpolation = 7;
 let y = mouseY(0.01, 3, 1, 0.2);
 let freq = demandEnvGen(
@@ -17,11 +17,11 @@ let freq = demandEnvGen(
 	0, 1, 1, 1, 0, 1, 0
 );
 sinOsc(freq * [1 1.01], 0) * 0.1
-```
+~~~
 
 Frequency modulation:
 
-```
+~~~spl syn=B
 let curveInterpolation = 5;
 let y = mouseY(1, 3000, 1, 0.2);
 let list = { expRand(200, 1000) } ! 32;
@@ -33,11 +33,11 @@ let freq = demandEnvGen(
 	1, 1, 1, 0, 1, 0
 );
 sinOsc(freq, 0) * 0.1
-```
+~~~
 
 gate, `mouseX` on right side of screen toggles gate:
 
-```
+~~~spl syn=C
 let freq = demandEnvGen(
 	dwhite(
 		Infinity,
@@ -51,13 +51,13 @@ let freq = demandEnvGen(
 	1, 1, 0, 1, 0
 );
 sinOsc(freq * [1 1.21], 0) * 0.1
-```
+~~~
 
 Sample and hold (0.5 > gate > 0),
 `mouseX` on right side of screen toggles gate,
 `mouseY` scales frequency:
 
-```
+~~~spl syn=D
 let x = mouseX(0, 1, 0, 0.2);
 let y = mouseY(0.25, 2, 0, 0.2);
 let freq = demandEnvGen(
@@ -69,13 +69,13 @@ let freq = demandEnvGen(
 	1, 1, 0, 1, 0
 );
 sinOsc(freq * [1 1.21] * y, 0) * 0.1
-```
+~~~
 
 gate,
 `mouseX` on right side of screen toggles gate,
 `mouseButton` does soft reset:
 
-```
+~~~spl syn=E
 let freq = demandEnvGen(
 	dseq(
 		2,
@@ -96,11 +96,11 @@ let freq = demandEnvGen(
 	1, 0, 1, 0
 );
 sinOsc(freq * [1, 1.001], 0) * 0.1
-```
+~~~
 
 Hardsyncing a saw:
 
-```
+~~~spl syn=F
 let sr = sampleRate();
 let x = mouseX(0.002, 1, 1, 0.2);
 let xx = mouseX(1, sr * x, 1, 0.2);
@@ -114,11 +114,11 @@ demandEnvGen(
 	impulse(xx, 0) * 1.5,
 	1, 0, 1, 0
 )
-```
+~~~
 
 Softsyncing a saw:
 
-```
+~~~spl syn=G
 let sr = sampleRate();
 let x = mouseX(0.002, 1, 1, 0.2);
 let xx = mouseX(1, sr * x, 1, 0.2);
@@ -132,13 +132,13 @@ demandEnvGen(
 	impulse(xx, 0) + [0, 0.3],
 	1, 0, 1, 0
 )
-```
+~~~
 
 Multichannel expansion,
 `mouseX` on right side of screen toggles gate,
 `mouseY` controls speed:
 
-```
+~~~spl syn=H
 let freq = demandEnvGen(
 	{
 		dseq(
@@ -161,7 +161,7 @@ let freq = demandEnvGen(
 	1, 1, 0, 1, 0
 );
 sinOsc(freq, 0) * 0.1
-```
+~~~
 
 * * *
 

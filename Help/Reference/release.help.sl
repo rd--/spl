@@ -7,7 +7,7 @@ Apply a three stage envelope to _in_ and release the synthesis node once the env
 
 With counter to check timing:
 
-```
+~~~spl syn=A
 let counter = pinkNoise() * decay(
 	impulse(1, 0),
 	0.1
@@ -18,24 +18,24 @@ release(
 	2,
 	5
 ) + counter
-```
+~~~
 
 Short attack time:
 
-```
+~~~spl syn=B
 release(sinOsc(440, 0) * 0.1, 0.01, 3, 7)
-```
+~~~
 
 At `Record`:
 
-```
+~~~spl syn=C
 (
 	in: sinOsc(440, 0) * 0.1,
 	attackTime: 0.01,
 	sustainTime: 3,
 	releaseTime: 7
 ).release
-```
+~~~
 
 Scheduling process:
 

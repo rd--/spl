@@ -10,13 +10,13 @@ A two zero filter.
 
 Modulate frequency:
 
-```
+~~~spl syn=A
 twoZero(
 	whiteNoise() * 0.125,
 	xLine(20, 20000, 8),
 	1
 )
-```
+~~~
 
 * * *
 

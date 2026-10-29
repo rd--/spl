@@ -12,10 +12,10 @@ When rate is equal to one, sweep may be used to get a continually-updating measu
 
 Using sweep to modulate sine frequency:
 
-```
+~~~spl syn=A
 let trig = impulse(mouseX(0.5, 20, 1, 0.2), 0);
 sinOsc(sweep(trig, 700) + 500, 0) * 0.1
-```
+~~~
 
 Using sweep to index into a buffer:
 

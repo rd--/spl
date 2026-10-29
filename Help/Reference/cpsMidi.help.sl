@@ -32,7 +32,7 @@ The inverse is `midiCps`:
 
 Quantize continuous frequency signals:
 
-```
+~~~spl syn=A
 let freq = lfNoise2(
 	[2 3]
 ) * [333 222] + [222 333];
@@ -44,7 +44,7 @@ sinOsc(
 	.midiCps,
 	0
 ) * 0.1
-```
+~~~
 
 Midi note numbers are a linear pitch space,
 each twelve steps is an octave:

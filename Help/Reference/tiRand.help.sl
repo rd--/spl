@@ -11,21 +11,21 @@ Generates a random integer value in uniform distribution from _lo_ to _hi_ each 
 
 Random oscillator frequencies:
 
-```
+~~~spl syn=A
 let tr = dust(10);
 sinOsc(tiRand(4, 12, tr) * 100, 0) * 0.1
-```
+~~~
 
 Mouse controls density:
 
-```
+~~~spl syn=B
 let tr = dust(mouseX(1, 8000, 1, 0.2));
 sinOsc(tiRand(4, 12, tr) * 100, 0) * 0.1
-```
+~~~
 
 Random degree, octave and number of harmonics:
 
-```
+~~~spl syn=C
 let scale = [0 2 4 5 7 9 10 12].localBuf;
 { :tr |
 	{
@@ -37,7 +37,7 @@ let scale = [0 2 4 5 7 9 10 12].localBuf;
 		blip(mnn.midiCps, numHarm) * 0.05
 	} !^ 7
 }.overlapTexture(4, 0.05, 2).mix
-```
+~~~
 
 * * *
 

@@ -78,11 +78,11 @@ selecting only items less than five:
 At `Ugen`,
 amplitude modulated pink noise:
 
-```
+~~~spl syn=A
 pinkNoise()
 * lag(lfSaw(1, -1) < 0, 0.1)
 * 0.05
-```
+~~~
 
 * * *
 

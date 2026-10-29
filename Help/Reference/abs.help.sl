@@ -60,7 +60,7 @@ where it is also called the complex modulus or `norm`:
 
 Wave folding:
 
-```
+~~~spl syn=A
 let x = mouseX(0.25, 2, 0, 0.2);
 let y = mouseY(1, 9, 0, 0.2);
 let m = sinOsc(
@@ -73,7 +73,7 @@ let o = sinOsc(
 ) * (m * (m > 0) + 1);
 let z = o * 0.25 + 0.25;
 (z - z.round(1)).abs - 0.25
-```
+~~~
 
 Plot over a subset of the reals:
 

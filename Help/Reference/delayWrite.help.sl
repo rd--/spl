@@ -25,7 +25,7 @@ write the mixed signal to the delay line,
 and output the mixed signal.
 See also `combL`.
 
-```
+~~~spl syn=A
 let buffer = bufAlloc(
 	1,
 	48000 * 0.3
@@ -46,7 +46,7 @@ let writer = delayWrite(
 	mixedSignal
 );
 mixedSignal <! writer
-```
+~~~
 
 Ping pong delay.
 This program
@@ -60,7 +60,7 @@ scales the delayed signal,
 writes the scaled delay signal to the buffers in reverse order,
 and outputs with delayed signal:
 
-```
+~~~spl syn=B
 let leftBuffer = bufAlloc(
 	1,
 	48000 * 0.4
@@ -94,7 +94,7 @@ let writer = delayWrite(
 	toDelay
 );
 output <! writer
-```
+~~~
 
 Illustrate distortion in the feedback loop.
 This program
@@ -105,7 +105,7 @@ mixes the delayed signal with the input,
 writes the mixed signal to the delay line,
 and outputs the mixed signal:
 
-```
+~~~spl syn=C
 let buffer = bufAlloc(
 	1,
 	48000 * 0.3
@@ -130,7 +130,7 @@ let writer = delayWrite(
 	mixedSignal
 );
 mixedSignal <! writer
-```
+~~~
 
 Pitch shift in the feedback loop.
 This program
@@ -142,7 +142,7 @@ mixes the delayed signal with the input,
 writes the mixed signal to the delay line,
 and output the mixed signal:
 
-```
+~~~spl syn=D
 let buffer = bufAlloc(
 	1,
 	48000 * 0.3
@@ -174,7 +174,7 @@ let writer = delayWrite(
 	mixedSignal
 );
 mixedSignal <! writer
-```
+~~~
 
 * * *
 

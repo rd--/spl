@@ -10,7 +10,7 @@ Multi tap delay line. The last delay time is the cycle length, and will coincide
 
 Two unequally spaced echoes:
 
-```
+~~~spl syn=A
 let z = decay2(
 	impulse(1 / 2, 0),
 	0.01,
@@ -24,11 +24,11 @@ let z = decay2(
 		z
 	)
 ]
-```
+~~~
 
 Four equally spaced echoes, each louder than the last:
 
-```
+~~~spl syn=B
 let z = decay2(
 	dust(2),
 	0.01,
@@ -42,11 +42,11 @@ let z = decay2(
 		z
 	)
 ]
-```
+~~~
 
 Four second cyclic pattern of four repeats:
 
-```
+~~~spl syn=C
 let z = decay2(
 	impulse(1 / 4, 0),
 	0.01,
@@ -60,7 +60,7 @@ let z = decay2(
 		z
 	)
 ]
-```
+~~~
 
 * * *
 

@@ -10,7 +10,7 @@ demand rate arithmetic series UGen.
 
 Finite ascending sequences:
 
-```
+~~~spl syn=A
 let seq = dseries(
 	15,
 	0,
@@ -26,11 +26,11 @@ let freq = demand(
 	seq
 ) * 30 + 340;
 sinOsc(freq, 0) * 0.1
-```
+~~~
 
 Ascending sequences:
 
-```
+~~~spl syn=B
 let seq = dseries(
 	Infinity,
 	0,
@@ -45,7 +45,7 @@ let freq = demand(
 	seq
 ) % [15, 45] * 30 + 340;
 sinOsc(freq.lag(0.025), 0) * 0.1
-```
+~~~
 
 Plotting:
 

@@ -12,29 +12,29 @@ The standard map is an area preserving map of a cylinder discovered by the plasm
 
 Vary frequency:
 
-```
+~~~spl syn=A
 standardL(
 	mouseX(20, sampleRate(), 0, 0.2),
 	1,
 	0.5,
 	0
 ) * 0.1
-```
+~~~
 
 Mouse-controlled _k_ parameter:
 
-```
+~~~spl syn=B
 standardL(
 	sampleRate() / 2,
 	mouseX(0.9, 4, 0, 0.2),
 	0.5,
 	0
 ) * 0.1
-```
+~~~
 
 As frequency control:
 
-```
+~~~spl syn=C
 sinOsc(
 	standardL(
 		40,
@@ -44,7 +44,7 @@ sinOsc(
 	) * 800 + 900,
 	0
 ) * 0.1
-```
+~~~
 
 * * *
 

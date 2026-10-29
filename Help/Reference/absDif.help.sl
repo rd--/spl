@@ -12,12 +12,12 @@ Alias for `absoluteDifference`.
 
 Simple rhythm:
 
-```
+~~~spl syn=A
 let m = 0.2.absDif(
 	sinOsc(2, 0) * 0.5
 );
 sinOsc(440, 0) * m / 2
-```
+~~~
 
 * * *
 

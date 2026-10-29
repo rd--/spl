@@ -12,36 +12,36 @@ Output ranges from -1 to +1.
 
 Fixed frequency oscillator:
 
-```
+~~~spl syn=A
 lfPar([440, 800], 0) * 0.1
-```
+~~~
 
 Modulating frequency:
 
-```
+~~~spl syn=B
 lfPar(xLine(100, 2000, 10), 0) * 0.1
-```
+~~~
 
 amplitude modulation:
 
-```
+~~~spl syn=C
 lfPar(xLine(1, 200, 10), 0) * sinOsc(440, 0) * 0.1
-```
+~~~
 
 Used as both oscillator and lfo:
 
-```
+~~~spl syn=D
 lfPar(lfPar(3, 0.3) * 200 + 400, 0) * 0.1
-```
+~~~
 
 Used as phase modulator (behaves like a triangular modulator in fm):
 
-```
+~~~spl syn=E
 [
 	sinOsc(440, lfPar(1, 2) * 8.pi),
 	sinOsc(440 + (lfTri(1, 0) * 8.pi), 0)
 ] * 0.1
-```
+~~~
 
 * * *
 

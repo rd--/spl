@@ -59,18 +59,18 @@ As a syntax token `!` is part of `Type Definition Syntax`.
 
 `!` is a SuperCollider idiom:
 
-```
+~~~spl syn=A
 {
 	sinOsc(
 		iRand(48, 72).midiCps,
 		0
 	) * rand(0.05, 0.1)
 } ! 2
-```
+~~~
 
 The particular case of duplicating a signal function and then panning it:
 
-```
+~~~spl syn=B
 { :tr |
 	sinOsc(
 		{
@@ -79,11 +79,11 @@ The particular case of duplicating a signal function and then panning it:
 		0
 	).splay * 0.1
 }.overlapTexture(4, 4, 2).mix
-```
+~~~
 
 can be written more simply using the `!^` operator:
 
-```
+~~~spl syn=C
 { :tr |
 	{
 		sinOsc(
@@ -92,7 +92,7 @@ can be written more simply using the `!^` operator:
 		)
 	} !^ 7 * 0.1
 }.overlapTexture(4, 4, 2).mix
-```
+~~~
 
 * * *
 

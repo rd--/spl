@@ -12,7 +12,7 @@ Generates a line from the start value to the end value.
 
 Random sine sweeps, `tLine` is in linear pitch space:
 
-```
+~~~spl syn=A
 {
 	let tr = dustRange(0.5, 1.25);
 	let dur = tRand(0.01, 0.5, tr);
@@ -22,7 +22,7 @@ Random sine sweeps, `tLine` is in linear pitch space:
 	let env = sine(tr, dur) * 0.1;
 	sinOsc(freq, 0) * env
 } !^ 7
-```
+~~~
 
 * * *
 

@@ -14,18 +14,18 @@ or if startCount is negative it adds that many counts to the first time the outp
 
 Lower tone at quarter the clock rate:
 
-```
+~~~spl syn=A
 let p = impulse(8, 0);
 let p4 = pulseDivider(p, 4, 0);
 [
 	sinOsc(1200, 0) * decay2(p, 0.005, 0.1),
 	sinOsc(600, 0) * decay2(p4, 0.005, 0.5)
 ] * 0.4
-```
+~~~
 
 Four divisions:
 
-```
+~~~spl syn=B
 let p = impulse(8, 0);
 let p2 = pulseDivider(p, 2, 1);
 let p4 = pulseDivider(p, 4, 0);
@@ -36,18 +36,18 @@ let p16 = pulseDivider(p, 16, 0);
 	sinOsc(600, 0) * decay2(p4, 0.005, 0.5),
 	sinOsc(200, 0) * decay2(p16, 0.005, 1.0)
 ].splay * 0.3
-```
+~~~
 
 Array expansion:
 
-```
+~~~spl syn=C
 impulse(8, 0)
 .pulseDivider([3 5], 0)
 .perc(0.1, 0.1, -4) * sinOsc(
 	[333, 555],
 	0
 ) * 0.1
-```
+~~~
 
 * * *
 

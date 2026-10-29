@@ -9,7 +9,7 @@ Basically this allows a modulation between a sine wave and a sawtooth like wave.
 Overmodulation causes chaotic oscillation.
 It may be useful if you want to simulate feedback Fm synths.
 
-```
+~~~spl syn=A
 { :tr |
 	let x = mouseX(0.15, 0.85, 0, 0.2);
 	let f0 = tChoose(tr, [110 220 440]);
@@ -22,7 +22,7 @@ It may be useful if you want to simulate feedback Fm synths.
 		) / 16
 	} !+ 16
 }.overlapTexture(2, 6, 3).mix
-```
+~~~
 
 Non-graph variant:
 

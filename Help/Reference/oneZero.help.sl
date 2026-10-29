@@ -18,24 +18,24 @@ Implements the formula:
 
 Low pass:
 
-```
+~~~spl syn=A
 oneZero(whiteNoise() * 0.2, 0.5)
-```
+~~~
 
 High pass:
 
-```
+~~~spl syn=B
 oneZero(whiteNoise() * 0.2, -0.5)
-```
+~~~
 
 Modulate coeficient:
 
-```
+~~~spl syn=C
 oneZero(
 	whiteNoise() * 0.2,
 	line(-0.5, 0.5, 10)
 )
-```
+~~~
 
 * * *
 

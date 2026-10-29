@@ -14,12 +14,12 @@ Similar to _lfNoise2_, it generates polynomially interpolated random values at a
 
 Use as frequency control:
 
-```
+~~~spl syn=A
 sinOsc(
 	lfdNoise3(4) * 400 + 450,
 	0
 ) * 0.2
-```
+~~~
 
 * * *
 

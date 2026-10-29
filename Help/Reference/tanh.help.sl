@@ -66,7 +66,7 @@ Continued fraction expansion:
 
 `tanh` is a form of distortion:
 
-```
+~~~spl syn=A
 sinOsc(
 	[440 441],
 	0
@@ -74,15 +74,15 @@ sinOsc(
 	[0.1 0.25],
 	0
 ) * 0.1
-```
+~~~
 
 Increase amplitude over time:
 
-```
+~~~spl syn=B
 let e = xLine(0.1, 10, 10);
 let o = sinOsc(500, 0);
 (o * e).tanh * 0.25
-```
+~~~
 
 Plot over a subset of the reals:
 

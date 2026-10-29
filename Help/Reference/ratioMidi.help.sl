@@ -21,7 +21,7 @@ A rational perfect fifth is 702 cents:
 
 Generate Pythagorean scale:
 
-```
+~~~spl syn=A
 let genScale = { :ratio |
 	0:11.collect { :each |
 		(ratio ^ each).ratioMidi % 12
@@ -32,7 +32,7 @@ let amps = { rand(0, 0.1) } ! 12;
 splay(
 	sinOsc(notes.midiCps, 0) * amps
 )
-```
+~~~
 
 Evaluate symbolically:
 

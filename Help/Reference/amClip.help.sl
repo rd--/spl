@@ -12,11 +12,11 @@ Two quadrant multiply.
 
 As amplitude envelope:
 
-```
+~~~spl syn=A
 whiteNoise().amClip(
 	sinOsc(1, 0) * 0.2
 )
-```
+~~~
 
 Two quadrant multiply:
 

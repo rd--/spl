@@ -10,14 +10,14 @@ Sum a sequence of signals to a bus.
 
 One `out` summing one `sinOsc` to two buses:
 
-```
+~~~spl syn=A
 let o = sinOsc(440, 0) * 0.1;
 out(0, [o o])
-```
+~~~
 
 Two `out` summing distinct frequencies to one bus each:
 
-```
+~~~spl syn=B
 out(
 	0,
 	sinOsc(440, 0) * 0.1
@@ -25,13 +25,13 @@ out(
 	1,
 	sinOsc(443, 0) * 0.1
 )
-```
+~~~
 
 One `out` summing to two buses:
 
-```
+~~~spl syn=C
 out(0, sinOsc([440, 443], 0) * 0.1)
-```
+~~~
 
 * * *
 

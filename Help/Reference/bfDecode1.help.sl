@@ -24,7 +24,7 @@ If it is 1, W is varied according to the scaling of the X, Y and Z channels.
 B-format decode to cube _lfh, rfh, rrh, lrh, lfl, rfl, rrl, lrl_,
 where lfl = left front high, lfl = left front low &etc.
 
-```
+~~~spl syn=A
 let p = pinkNoise();
 let [w, x, y, z] = bfEncode1(
 	p,
@@ -50,7 +50,7 @@ bfDecode1(
 	].pi,
 	0
 )
-```
+~~~
 
 * * *
 

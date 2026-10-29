@@ -50,13 +50,13 @@ Inner square:
 
 Mouse control of frequency:
 
-```
+~~~spl syn=A
 let x = mouseX(-200, 200, 0, 0.2);
 let y = mouseY(-200, 200, 0, 0.2);
 let a = sinOsc(0.3, 0);
 let b = [x y].signedGcd(20);
 sinOsc(a * b * 30 + 500, 0) * 0.1
-```
+~~~
 
 Matrix plot of inner square,
 indicates magnitude only,

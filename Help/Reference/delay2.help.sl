@@ -8,10 +8,10 @@ Two sample delay.
 
 Original, with delayed subtracted from original:
 
-```
+~~~spl syn=A
 let z = dust(1000);
 [z, z - delay2(z)]
-```
+~~~
 
 * * *
 

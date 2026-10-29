@@ -58,10 +58,10 @@ Find the angle between two vectors:
 
 At `Ugen`:
 
-```
+~~~spl syn=A
 let x = line(-1, 1, 2).arcCos * 2.pi;
 sinOsc(x * 110 + 110, 0) * 0.1
-```
+~~~
 
 Plot over a subset of the reals:
 

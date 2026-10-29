@@ -11,15 +11,15 @@ Output ranges from -1 to +1.
 
 Constant frequency:
 
-```
+~~~spl syn=A
 lfTri([440, 800], 0) * 0.1
-```
+~~~
 
 Used as both Oscillator and Lfo:
 
-```
+~~~spl syn=B
 lfTri(lfTri(1, 0) * 400 + 400, 0) * 0.1
-```
+~~~
 
 * * *
 

@@ -11,7 +11,7 @@ A reverb.
 
 Reverberate decaying impulse shaped cubic oscillator:
 
-```
+~~~spl syn=A
 freeVerb(
 	decay(
 		impulse([1, 1 / 3], 0),
@@ -21,7 +21,7 @@ freeVerb(
 	mouseY(0, 1, 0, 0.2),
 	lfNoise2(0.1).linLin(-1, 1, 0, 1)
 )
-```
+~~~
 
 * * *
 

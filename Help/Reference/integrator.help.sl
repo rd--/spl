@@ -14,21 +14,21 @@ The formula implemented is:
 
 As filter:
 
-```
+~~~spl syn=A
 integrator(
 	lfPulse(300, 0, 0.2) * 0.1,
 	0.9
 )
-```
+~~~
 
 Used as an envelope:
 
-```
+~~~spl syn=B
 integrator(
 	lfPulse(3, 0, 0.2) * 0.0004,
 	0.999
 ) * sinOsc(700, 0)
-```
+~~~
 
 * * *
 

@@ -11,17 +11,17 @@ Tracks the peak amplitude of a signal.
 
 Use input amplitude to control pulse amplitude, _use headphones to prevent feedback_.
 
-```
+~~~spl syn=A
 pulse(90, 0.3) * amplitude(
 	audioIn(1),
 	0.01,
 	0.01
 )
-```
+~~~
 
 Use input amplitude to control sinOsc frequency, _use headphones to prevent feedback_.
 
-```
+~~~spl syn=B
 sinOsc(
 	amplitude(
 		audioIn(1),
@@ -30,7 +30,7 @@ sinOsc(
 	) * 1200 + 400,
 	0
 ) * 0.2
-```
+~~~
 
 * * *
 

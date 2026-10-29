@@ -16,29 +16,29 @@ The reset input may also be a demand Ugen, providing a stream of reset times.
 
 demand Ugen as durations:
 
-```
+~~~spl syn=A
 let freq = duty(
 	drand(Infinity, [0.01 0.2 0.4]),
 	0,
 	dseq(Infinity, [204 400 201 502 300 200])
 ).lag(0.2);
 sinOsc(freq * [1 1.01], 0) * 0.1
-```
+~~~
 
 Control rate ugen as durations:
 
-```
+~~~spl syn=B
 let freq = duty(
 	mouseX(0.001, 2, 1, 0.2),
 	0,
 	dseq(Infinity, [204 400 201 502 300 200])
 );
 sinOsc(freq * [1 1.01], 0) * 0.1
-```
+~~~
 
 Control rate resetting the demand ugens:
 
-```
+~~~spl syn=C
 let freq = duty(
 	dseq(
 		Infinity,
@@ -53,11 +53,11 @@ let freq = duty(
 	dseq(Infinity, [0, 1, 2, dseq(Infinity, [1 .. 5])])
 ) * 30 + 250;
 sinOsc(freq * [1 1.01], 0) * 0.1
-```
+~~~
 
 demand rate reset:
 
-```
+~~~spl syn=D
 let freq = duty(
 	dseq(
 		Infinity,
@@ -72,11 +72,11 @@ let freq = duty(
 	dseq(Infinity, [0, 1, 2, dseq(Infinity, [1 .. 5])])
 ) * 30 + 250;
 sinOsc(freq * [1 1.01], 0) * 0.1
-```
+~~~
 
 demand Ugen as audio oscillator:
 
-```
+~~~spl syn=E
 let n = 5;
 let m = 32;
 let a = {
@@ -111,11 +111,11 @@ duty(
 		a
 	)
 )
-```
+~~~
 
 With non-demand inputs:
 
-```
+~~~spl syn=F
 let freq = lfNoise2(1).linLin(
 	-1, 1, 111, 555
 );
@@ -128,7 +128,7 @@ sinOsc(
 	[freq, latchFreq],
 	0
 ) * 0.1
-```
+~~~
 
 * * *
 

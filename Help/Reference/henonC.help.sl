@@ -17,7 +17,7 @@ This equation was discovered by French astronomer Michel Henon while studying th
 
 Default initial params:
 
-```
+~~~spl syn=A
 henonC(
 	mouseX(20, sampleRate(), 0, 0.2),
 	1.4,
@@ -25,11 +25,11 @@ henonC(
 	0,
 	0
 ) * 0.2
-```
+~~~
 
 Mouse-control of parameters:
 
-```
+~~~spl syn=B
 henonC(
 	sampleRate() / 4,
 	mouseX(1, 1.4, 0, 0.2),
@@ -37,11 +37,11 @@ henonC(
 	0,
 	0
 ) * 0.2
-```
+~~~
 
 Randomly modulate parameters:
 
-```
+~~~spl syn=C
 henonC(
 	sampleRate() / 8,
 	lfNoise2(1) * 0.2 + 1.2,
@@ -49,7 +49,7 @@ henonC(
 	0,
 	0
 ) * 0.2
-```
+~~~
 
 * * *
 

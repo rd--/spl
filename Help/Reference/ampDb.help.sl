@@ -42,7 +42,7 @@ Plot curve:
 
 Compare linear and exponential curves as frequency control:
 
-```
+~~~spl syn=A
 sinOsc(
 	[
 		line(0.001, 1, 2).ampDb,
@@ -50,7 +50,7 @@ sinOsc(
 	] * 110 + 110,
 	0
 ) * 0.1
-```
+~~~
 
 Evaluate symbolically:
 

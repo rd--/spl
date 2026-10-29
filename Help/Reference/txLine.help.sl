@@ -13,14 +13,14 @@ Both the start and end values must be non-zero and have the same sign.
 
 Trigger upwards frequency sweep every four seconds:
 
-```
+~~~spl syn=A
 let tr = impulse(0.25, 0);
 let gainEnv = decay2(tr, 0.01, 1);
 eqPan(
 	saw(txLine(100, 1000, 0.1, tr)),
 	tLine(-1, 1, 0.75, tr)
 ) * gainEnv * 0.2
-```
+~~~
 
 * * *
 

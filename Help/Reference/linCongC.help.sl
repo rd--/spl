@@ -20,13 +20,13 @@ All of the parameters are integers and cannot be modulated.
 
 Default parameters:
 
-```
+~~~spl syn=A
 linCongC(22050, 1.1, 0.13, 1.0, 0) * 0.1
-```
+~~~
 
 Texture:
 
-```
+~~~spl syn=B
 { :tr |
 	let freq = sampleRate() / 2;
 	let m = tiRand(0, 1000000, tr);
@@ -41,7 +41,7 @@ Texture:
 		xi
 	) * 0.05
 }.overlapTexture(1, 2, 4).mix
-```
+~~~
 
 * * *
 

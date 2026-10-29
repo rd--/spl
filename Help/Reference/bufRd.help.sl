@@ -49,7 +49,7 @@ bufRd(1, sf, ph, 1, 2)
 
 Play window function at local buffer:
 
-```
+~~~spl syn=A
 let tbl = 0:180.collect { :each |
 	each.degreesToRadians.sin
 }.localBuf;
@@ -57,11 +57,11 @@ let dur = 3;
 let ph = line(0, bufFrames(tbl), dur);
 let win = bufRd(1, tbl, ph, 1, 2);
 sinOsc(440, 0) * 0.1 * win
-```
+~~~
 
 Trigger window function at local buffer:
 
-```
+~~~spl syn=B
 let tbl = 0:180.collect { :each |
 	each.degreesToRadians.sin
 }.localBuf;
@@ -73,7 +73,7 @@ sinOsc(
 	tExpRand(111, 555, tr),
 	0
 ) * win / 3
-```
+~~~
 
 Plot window function:
 

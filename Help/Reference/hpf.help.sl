@@ -10,12 +10,12 @@ A second order high pass filter.
 
 Modulate frequency, note makeup gain:
 
-```
+~~~spl syn=A
 hpf(
 	saw(200) * 0.1,
 	sinOsc(xLine(0.7, 300, 20), 0) * 3600 + 4000
 ) * 2
-```
+~~~
 
 * * *
 

@@ -6,17 +6,17 @@ Maps a linear input range to a curved output range.
 
 The output clips when the input is out of range:
 
-```
+~~~spl syn=A
 sinOsc(
 	phasor(1, 3E-5, -1, 5, 0)
 	.linCurve(0, 3, 111, 333, -4),
 	0
 ) * 0.1
-```
+~~~
 
 Create a stepped sequence:
 
-```
+~~~spl syn=B
 let rate = mouseY(1 / 7, 1, 0, 0.2);
 let div = mouseX(5, 23, 1, 0.2);
 let phase = phasor(
@@ -41,7 +41,7 @@ let freq = quantized.*+(
 );
 let signal = blip(freq, quantized * 13);
 signal * perc(warpedTriggers, 0.01, 0.1, -4)
-```
+~~~
 
 Plotting, fixed curve:
 

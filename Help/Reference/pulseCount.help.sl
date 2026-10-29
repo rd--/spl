@@ -10,13 +10,13 @@ Each trigger increments a counter which is output as a signal.
 
 pulse count as frequency input:
 
-```
+~~~spl syn=A
 let count = pulseCount(
 	impulse(10, 0),
 	impulse(0.4, 0)
 );
 sinOsc(count * 200, 0) * 0.05
-```
+~~~
 
 * * *
 

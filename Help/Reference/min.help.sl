@@ -213,10 +213,10 @@ At `Symbol`:
 At `Ugen`,
 modulates and envelopes:
 
-```
+~~~spl syn=A
 let z = sinOsc(500, 0);
 z.min(sinOsc(0.1, 0)) * 0.1
-```
+~~~
 
 Range of digits of _n_,
 OEIS [A037904](https://oeis.org/A037904):

@@ -11,7 +11,7 @@ before looking up the next index.
 - list: list of values or other ugens
 - index: which of the inputs to return
 
-```
+~~~spl syn=A
 let d = dswitch(
 	dseq(2, [0 1 2 1 0]),
 	[
@@ -27,11 +27,11 @@ let trig = impulse(4, 0);
 		0
 	)
 ] # 2
-```
+~~~
 
 Compare with dswitch1:
 
-```
+~~~spl syn=B
 let d = dswitch1(
 	dseq(2, [0 1 2 1 0]),
 	[
@@ -47,7 +47,7 @@ let trig = impulse(4, 0);
 		0
 	) * 0.1
 ] # 2
-```
+~~~
 
 * * *
 

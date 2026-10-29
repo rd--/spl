@@ -11,7 +11,7 @@ Formula is equivalent to _y(i)=a0·x(i)+a1·x(i-1)+b1·y(i-1)_.
 
 Same as `onePole`:
 
-```
+~~~spl syn=A
 let x = mouseX(-1, 1, 0, 0.2);
 firstOrderFilterSection(
 	lfSaw(200, 0) * 0.1,
@@ -19,11 +19,11 @@ firstOrderFilterSection(
 	0,
 	x
 )
-```
+~~~
 
 Same as `oneZero`:
 
-```
+~~~spl syn=B
 let x = mouseX(-1, 1, 0, 0.2);
 firstOrderFilterSection(
 	lfSaw(200, 0) * 0.1,
@@ -31,7 +31,7 @@ firstOrderFilterSection(
 	x,
 	0
 )
-```
+~~~
 
 * * *
 

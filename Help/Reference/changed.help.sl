@@ -14,12 +14,12 @@ Implements the formula:
 
 Detect changes in a signal:
 
-```
+~~~spl syn=A
 let s = lfNoise0(2);
 let c = changed(s, 0);
 let d = decay2(c, 0.01, 0.5);
 sinOsc(440 + ([s, d] * 440), 0) * 0.1
-```
+~~~
 
 * * *
 

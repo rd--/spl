@@ -16,7 +16,7 @@ The delay line is filled using a rectangular envelope, that is there is no fadin
 
 Excitation signal is `whiteNoise`, triggered twice a second with varying `onePole` coef:
 
-```
+~~~spl syn=A
 pluck(
 	whiteNoise() * 0.1,
 	impulse(2, 0),
@@ -25,11 +25,11 @@ pluck(
 	10,
 	mouseX(-0.999, 0.999, 0, 0.2)
 )
-```
+~~~
 
 Randomised duplicates:
 
-```
+~~~spl syn=B
 let k = 12;
 let freq = sinOsc(
 	{ rand(0.01, 0.15) } ! k,
@@ -48,7 +48,7 @@ splay(
 		0.995
 	)
 )
-```
+~~~
 
 * * *
 

@@ -15,18 +15,18 @@ when _pos_ is 0 the multipliers are ⟦√½, √½⟧.
 
 Pan sweep from left to right:
 
-```
+~~~spl syn=A
 balance2(
 	sinOsc(440, 0),
 	sinOsc(1000, 0),
 	line(-1, 1, 5),
 	0.1
 )
-```
+~~~
 
 In this program two sine oscillators (at 440 and 550 hz) are balanced using a low frequency noise generator.
 
-```
+~~~spl syn=B
 let o = sinOsc([440, 550], 0);
 balance2(
 	o.first,
@@ -34,7 +34,7 @@ balance2(
 	lfNoise1(4),
 	0.1
 )
-```
+~~~
 
 * * *
 

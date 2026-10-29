@@ -10,15 +10,15 @@ It is probably pretty hard on your speakers!
 
 Fixed frequency:
 
-```
+~~~spl syn=A
 lfClipNoise(1000) * 0.05
-```
+~~~
 
 Modulate frequency:
 
-```
+~~~spl syn=B
 lfClipNoise(xLine(1000, 10000, 10)) * 0.05
-```
+~~~
 
 Texture program:
 

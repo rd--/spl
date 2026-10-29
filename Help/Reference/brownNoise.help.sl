@@ -6,15 +6,15 @@ Generates noise whose spectrum falls off in power by 6 dB per octave.
 
 Quiet stereo de-correlated brown noise:
 
-```
+~~~spl syn=A
 brownNoise([0.1 0.1], 0)
-```
+~~~
 
 High pass filtered:
 
-```
+~~~spl syn=B
 brownNoise([0.1 0.1], 0).hpz1
-```
+~~~
 
 * * *
 

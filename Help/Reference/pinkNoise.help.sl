@@ -6,25 +6,25 @@ Noise generator.
 Generates noise whose spectrum falls off in power by 3 dB per octave.
 This gives equal power over the span of each octave.
 
-```
+~~~spl syn=A
 pinkNoise([0.1 0.1], 0)
-```
+~~~
 
 High pass filtered:
 
-```
+~~~spl syn=B
 pinkNoise([0.1] # 2, 0).hpz1
-```
+~~~
 
 Low pass filtered:
 
-```
+~~~spl syn=C
 pinkNoise([0.1] # 2, 0).lpz1
-```
+~~~
 
 Compare to `whiteNoise`:
 
-```
+~~~spl syn=D
 [
 	pinkNoise(
 		0.1,
@@ -35,16 +35,16 @@ Compare to `whiteNoise`:
 		0
 	)
 ]
-```
+~~~
 
 Shifting band-pass filter:
 
-```
+~~~spl syn=E
 pinkNoise([0.2] # 2, 0).bpf(
 	lfNoise2(0.2).linLin(-1, 1, 20, 3000),
 	lfNoise2(0.2).linLin(-1, 1, 0.1, 2)
 )
-```
+~~~
 
 * * *
 

@@ -8,44 +8,44 @@ Bounds are specified in seconds.
 Small inter-offset times generate noise,
 equal bounds generate impulses:
 
-```
+~~~spl syn=A
 let a = dustRange(0.0001, 0.001) * 0.1;
 let b = dustRange(0.1, 0.1) * 0.5;
 [a, b]
-```
+~~~
 
 Audio rate impulse train of varying amplitude (min = max):
 
-```
+~~~spl syn=B
 [
 	dustRange(0.1, 0.1),
 	impulse(10, 0)
 ] * 0.1
-```
+~~~
 
 A mean inter-offset time equal to 0.0005 is equivalent to a density of 2000 at `dust`.
 `dustRange` spacing is more uniform:
 
-```
+~~~spl syn=C
 [
 	dustRange(0.0001, 0.001) * 0.1,
 	dust(2000) * 0.05
 ]
-```
+~~~
 
 Approximation of velvet noise:
 
-```
+~~~spl syn=D
 let iot = 20 / sampleRate();
 let x = mouseX(1, 16, 1, 0.1);
 let d = dustRange(iot / x, iot * x);
 let s = tRand(-1, 1, d);
 trig(d, sampleDur()) * s.sign * 0.1
-```
+~~~
 
 Sine sweeps:
 
-```
+~~~spl syn=E
 {
 	let tr = dustRange(0.5, 1.25);
 	let dur = tRand(0.01, 0.5, tr);
@@ -55,7 +55,7 @@ Sine sweeps:
 	let env = decay2(tr, dur / 3, dur) * 0.5;
 	sinOsc(freq, 0) * env
 } !^ 7
-```
+~~~
 
 * * *
 

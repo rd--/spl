@@ -50,14 +50,14 @@ Wrap a real number between two values:
 
 Wrap a (-0.2, 0.2) sine tone to (-0.15, 0.15):
 
-```
+~~~spl syn=A
 (sinOsc(440, 0) * 0.2)
 .wrap(-0.15, 0.15)
-```
+~~~
 
 Wrap frequency input:
 
-```
+~~~spl syn=B
 let z = sinOsc(
 	1 / 11,
 	0
@@ -69,7 +69,7 @@ sinOsc(
 	),
 	0
 ) * 0.1
-```
+~~~
 
 Plot a sawtooth wave formed by wrapping a line:
 

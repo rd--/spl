@@ -9,27 +9,27 @@ This Ugen simply outputs the initial value you give it.
 
 Silence:
 
-```
+~~~spl syn=A
 dc(0)
-```
+~~~
 
 dc offset, will click on start and finish:
 
-```
+~~~spl syn=B
 sinOsc(440, 0) * 0.1 + dc(0.5)
-```
+~~~
 
 Note the transient before leakDc adapts and suppresses the offset:
 
-```
+~~~spl syn=C
 leakDc(dc(0.5), 0.995)
-```
+~~~
 
 Offset one random sine tone by one silent channel:
 
-```
+~~~spl syn=D
 [dc(0), sinOsc(rand(200, 400), 0) * 0.1]
-```
+~~~
 
 * * *
 

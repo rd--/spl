@@ -11,21 +11,21 @@ Outputs non band limited single sample impulses.
 
 Constant frequency:
 
-```
+~~~spl syn=A
 impulse(800, 0) * 0.2
-```
+~~~
 
 Modulate frequency:
 
-```
+~~~spl syn=B
 impulse(xLine(800, 100, 5), 0) * 0.2
-```
+~~~
 
 Modulate phase:
 
-```
+~~~spl syn=C
 impulse(4, [0, mouseX(0, 1, 0, 0.2)]) * 0.2
-```
+~~~
 
 * * *
 

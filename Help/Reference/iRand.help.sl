@@ -5,7 +5,7 @@
 Random number generator.
 Generates a single random integer value in uniform distribution from _lo_ to _hi_.
 
-```
+~~~spl syn=A
 let scale = [0 2 4 5 7 9 10 12].localBuf;
 {
 	let degree = iRand(0, 7);
@@ -15,7 +15,7 @@ let scale = [0 2 4 5 7 9 10 12].localBuf;
 	let numHarm = iRand(1, 4);
 	blip(mnn.midiCps, numHarm) * 0.1
 } !^ 7
-```
+~~~
 
 Scheduled texture program:
 

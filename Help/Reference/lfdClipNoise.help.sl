@@ -16,39 +16,39 @@ If you dont need very high or very low freqs, or use fixed freqs, lfClipNoise is
 
 Mouse control of frequency. lfClipNoise will get stuck:
 
-```
+~~~spl syn=A
 lfClipNoise(mouseX(0.1, 1000, 1, 0.2)) * 0.1
-```
+~~~
 
 lfdClipNoise will change smoothly:
 
-```
+~~~spl syn=B
 lfdClipNoise(mouseX(0.1, 1000, 1, 0.2)) * 0.1
-```
+~~~
 
 lfClipNoise is silent for two seconds before going up in frequency:
 
-```
+~~~spl syn=C
 lfClipNoise(xLine(0.5, 10000, 3)) * 0.1
-```
+~~~
 
 lfdClipNoise is more immediate:
 
-```
+~~~spl syn=D
 lfdClipNoise(xLine(0.5, 10000, 3)) * 0.1
-```
+~~~
 
 lfClipNoise quantizes time steps at high frequencies
 
-```
+~~~spl syn=E
 lfClipNoise(xLine(1000, 20000, 10)) * 0.1
-```
+~~~
 
 lfdClipNoise does not:
 
-```
+~~~spl syn=F
 lfdClipNoise(xLine(1000, 20000, 10)) * 0.1
-```
+~~~
 
 * * *
 

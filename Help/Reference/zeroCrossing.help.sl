@@ -11,13 +11,13 @@ This is a very crude pitch follower, but can be useful in some situations.
 
 Track frequency of sine oscillator:
 
-```
+~~~spl syn=A
 let a = sinOsc(
 	sinOsc(1, 0) * 600 + 700,
 	0
 ) * 0.1;
 [a, zeroCrossing(a) * 0.0005]
-```
+~~~
 
 * * *
 

@@ -14,45 +14,45 @@ To obtain the minimum and maximum values of the signal as is, use the `runningMi
 
 No decay:
 
-```
+~~~spl syn=A
 let peak = peakFollower(
 	dust(20) * line(0, 1, 4),
 	1
 );
 sinOsc(peak * 1500 + 200, 0) * 0.1
-```
+~~~
 
 A little decay:
 
-```
+~~~spl syn=B
 let peak = peakFollower(
 	dust(20) * line(0, 1, 4),
 	0.999
 );
 sinOsc(peak * 1500 + 200, 0) * 0.1
-```
+~~~
 
 Mouse controls decay:
 
-```
+~~~spl syn=C
 let x = mouseX(0.99, 1.00001, 0, 0.1);
 let peak = peakFollower(
 	dust(20) * line(0, 1, 4),
 	x.min(1)
 );
 sinOsc(peak * 1500 + 200, 0) * 0.1
-```
+~~~
 
 Follow a sine lfo, decay controlled by mouse:
 
-```
+~~~spl syn=D
 let decay = mouseX(0, 1.1, 0, 0.1).min(1);
 let peak = peakFollower(
 	sinOsc(0.2, 0),
 	decay
 );
 sinOsc(peak * 200 + 500, 0) * 0.1
-```
+~~~
 
 * * *
 

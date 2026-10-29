@@ -16,25 +16,25 @@ If you do not need very high or very low freqs, or use fixed freqs, lfNoise1 is 
 
 When moving mouse quickly LfNoise frequently seems stuck:
 
-```
+~~~spl syn=A
 sinOsc(
 	lfNoise1(
 		mouseX(0.1, 1000, 1, 0.2)
 	) * 200 + 500,
 	0
 ) * 0.2
-```
+~~~
 
 LfdNoise changes smoothly:
 
-```
+~~~spl syn=B
 sinOsc(
 	lfdNoise1(
 		mouseX(0.1, 1000, 1, 0.2)
 	) * 200 + 500,
 	0
 ) * 0.2
-```
+~~~
 
 * * *
 

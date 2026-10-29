@@ -22,7 +22,7 @@ For im = 1, fb = 0, and a = 1 a normal sinewave results.
 
 Default initial parameters:
 
-```
+~~~spl syn=A
 fbSineC(
 	sampleRate() / 4,
 	1,
@@ -32,11 +32,11 @@ fbSineC(
 	0.1,
 	0.1
 ) * 0.1
-```
+~~~
 
 Increase feedback:
 
-```
+~~~spl syn=B
 fbSineC(
 	sampleRate(),
 	1,
@@ -46,11 +46,11 @@ fbSineC(
 	0.1,
 	0.1
 ) * 0.1
-```
+~~~
 
 Increase phase multiplier:
 
-```
+~~~spl syn=C
 fbSineC(
 	sampleRate(),
 	1,
@@ -60,22 +60,22 @@ fbSineC(
 	0.1,
 	0.1
 ) * 0.1
-```
+~~~
 
 Modulate frequency and index multiplier:
 
-```
+~~~spl syn=D
 fbSineC(
 	lfNoise2(1) * 1000 + 1000,
 	lfNoise2(1) * 16 + 17,
 	1, 1.005, 0.7,
 	0.1, 0.1
 ) * 0.1
-```
+~~~
 
 Randomly modulate parameters:
 
-```
+~~~spl syn=E
 fbSineC(
 	lfNoise2([1, 2]) * 1000 + 10000,
 	lfNoise2([1, 2]) * 32 + 33,
@@ -85,7 +85,7 @@ fbSineC(
 	0.1,
 	0.1
 ) * 0.05
-```
+~~~
 
 * * *
 

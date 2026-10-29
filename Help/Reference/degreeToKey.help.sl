@@ -164,7 +164,7 @@ Negative degrees:
 
 Modal space, mouse controls discrete pitch in dorian mode:
 
-```
+~~~spl syn=A
 let b = [0 2 3.2 5 7 9 10].localBuf;
 let x = mouseX(0, 15, 0, 0.1);
 let k = degreeToKey(b, x, 12);
@@ -187,7 +187,7 @@ let c = { :n :r |
 };
 let n = lfNoise1([3, 3]);
 (c(n, 48) + c(n, 72)) * 0.25
-```
+~~~
 
 * * *
 

@@ -10,7 +10,7 @@ Second order Butterworth bandpass filter.
 
 Modulate frequency:
 
-```
+~~~spl syn=A
 bpf(
 	saw(200) * 0.5,
 	sinOsc(
@@ -19,7 +19,7 @@ bpf(
 	) * 3600 + 4000,
 	0.3
 )
-```
+~~~
 
 * * *
 

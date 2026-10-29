@@ -9,15 +9,15 @@ Generates random values at a rate given by the nearest integer division of the s
 
 Fixed frequency:
 
-```
+~~~spl syn=A
 lfNoise0(1000) * 0.05
-```
+~~~
 
 Modulate frequency:
 
-```
+~~~spl syn=B
 lfNoise0(xLine(1000, 10000, 10)) * 0.05
-```
+~~~
 
 * * *
 

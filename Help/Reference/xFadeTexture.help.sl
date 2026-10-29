@@ -15,7 +15,7 @@ There are many examples of `xFadeTexture` in the help files.
 
 A pair of sine oscillators crossfading between randomly shifting pitches and stereo locations.
 
-```
+~~~spl syn=A
 { :tr |
 	eqPan(
 		sinOsc(
@@ -26,7 +26,7 @@ A pair of sine oscillators crossfading between randomly shifting pitches and ste
 		tRand(-1, 1, tr)
 	) * 0.1
 }.xFadeTexture(2, 0.5)
-```
+~~~
 
 * * *
 

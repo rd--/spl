@@ -4,11 +4,11 @@
 
 Attack-sustain-release envelope.
 
-```
+~~~spl syn=A
 let gate = lfPulse(0.5, 0, 0.1) > 0;
 let env = asr(gate, 0.05, 0.7, 0);
 sinOsc(440, 0) * env * 0.1
-```
+~~~
 
 * * *
 

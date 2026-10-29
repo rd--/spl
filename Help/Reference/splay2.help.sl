@@ -7,7 +7,7 @@ splay2 spreads a list of channels across a stereo field.
 
 Mouse control:
 
-```
+~~~spl syn=A
 let freq = 0:9.collect { :i |
 	lfNoise2(
 		rand(10, 20)
@@ -20,11 +20,11 @@ splay2(
 	mouseX(-1, 1, 0, 0.2),
 	true
 )
-```
+~~~
 
 Texture graph:
 
-```
+~~~spl syn=B
 { :tr |
 	let k = 7;
 	let o = sinOsc(
@@ -38,7 +38,7 @@ Texture graph:
 	} ! k;
 	splay2(o * a)
 }.overlapTexture(6, 3, 3).mix
-```
+~~~
 
 Texture program:
 

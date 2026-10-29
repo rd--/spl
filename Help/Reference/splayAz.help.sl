@@ -24,7 +24,7 @@ Then the first speaker will be the one left of center.
 
 With mouse control:
 
-```
+~~~spl syn=A
 let numChannels = 8;
 let numVoices = 16;
 let inList = 1:numVoices.collect { :each |
@@ -51,7 +51,7 @@ splayAz(
 	orientation,
 	levelComp
 )
-```
+~~~
 
 * * *
 

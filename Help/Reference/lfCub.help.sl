@@ -11,13 +11,13 @@ Smoother than `lfPar`.
 
 As frequency modulator:
 
-```
+~~~spl syn=A
 lfCub(lfCub(0.2, 0) * 400 + 800, 0) * 0.1
-```
+~~~
 
 As nested frequency modulator:
 
-```
+~~~spl syn=B
 lfCub(
 	lfCub(
 		lfCub(0.2, 0) * 8 + 10,
@@ -25,13 +25,13 @@ lfCub(
 	) * 400 + 800,
 	0
 ) * 0.1
-```
+~~~
 
 Frequency sweep:
 
-```
+~~~spl syn=C
 lfCub(xLine(100, 8000, 30), 0) * 0.1
-```
+~~~
 
 * * *
 

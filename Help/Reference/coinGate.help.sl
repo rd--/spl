@@ -10,7 +10,7 @@ When it receives a trigger, it tosses a coin, and either passes the trigger or d
 
 Mouse controls probablity:
 
-```
+~~~spl syn=A
 let prob = mouseX(0, 1, 0, 0.2);
 let trig = coinGate(
 	prob,
@@ -22,11 +22,11 @@ let freq = tRand(
 	trig
 );
 sinOsc(freq, 0) * 0.1
-```
+~~~
 
 Trigger level is preserved, mouse controls probablity over partial range:
 
-```
+~~~spl syn=B
 let prob = mouseX(0, 0.65, 0, 0.2);
 let trig = impulse(20, 0) * (
 	sinOsc(0.5, 0) + 1
@@ -38,7 +38,7 @@ let trig = impulse(20, 0) * (
 		0.01
 	)
 } !+ 3
-```
+~~~
 
 * * *
 

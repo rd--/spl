@@ -30,26 +30,26 @@ Fold a floating point number between two values:
 
 Fold a signal outside given thresholds.
 
-```
+~~~spl syn=A
 let o = sinOsc(440, 0) * 0.2;
 o.fold(-0.1, 0.1)
-```
+~~~
 
 Modulate both fold points, at different ratios:
 
-```
+~~~spl syn=B
 let x = mouseX(0.1, 0.2, 0, 0.2);
 let o = sinOsc(440, 0) * 0.2;
 o.fold(x.- / 2, x)
-```
+~~~
 
 Modulate one fold point:
 
-```
+~~~spl syn=C
 let x = mouseX(0.1, 0.2, 0, 0.2);
 let o = sinOsc(440, 0) * 0.2;
 o.fold(-0.2, x)
-```
+~~~
 
 Plot a triangle wave formed by folding a line:
 

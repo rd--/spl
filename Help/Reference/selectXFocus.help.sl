@@ -19,7 +19,7 @@ This may not be the most efficient way if each input is Cpu-expensive.
 
 Select one of eight input signals using mouse, fixed focus:
 
-```
+~~~spl syn=A
 let list = {
 	saw(rand(1, 3)) * saw(rand(100, 3000))
 } ! 8;
@@ -29,12 +29,12 @@ selectXFocus(
 	0.3,
 	true
 ) * 0.1
-```
+~~~
 
 Select one of four stereo input signals using mouse,
 control focus using y axis:
 
-```
+~~~spl syn=B
 let a = [
 	saw(
 		lfSaw(3 * [1 1.01], 0) * 100 + 230
@@ -55,11 +55,11 @@ selectXFocus(
 	mouseY(0, a.size, 0, 0.2),
 	false
 ).sum * 0.2
-```
+~~~
 
 Radio tuner (Jrh):
 
-```
+~~~spl syn=C
 let n = 8;
 let mX = mouseX(0, 1, 0, 0.1);
 let mY = mouseY(0, 1, 0, 0.2);
@@ -102,7 +102,7 @@ selectXFocus(
 	mY * n,
 	false
 ).sum * 0.2 + b * line(0, 1, 3)
-```
+~~~
 
 * * *
 

@@ -13,7 +13,7 @@ ie. the output channel count is _coordinateList.size / 3_.
 The program below reads the index location from either Pen or Mouse input.
 The distances from the index location to equally spaced co-ordinates on the unit circle controls the relative amplitude of each high-pass filtered noise signal.
 
-```
+~~~spl syn=A
 let usePen = false;
 let x = usePen.if {
 	penX(1) * 2 - 1
@@ -38,7 +38,7 @@ let z = hpf(
 	([1 .. 4] * 12 + 36).midiCps
 );
 (z * g).splay
-```
+~~~
 
 * * *
 

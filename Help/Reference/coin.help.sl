@@ -17,27 +17,27 @@ at one third, `coin` is `true` one third of the time.
 
 The unary form is a unit generator variant:
 
-```
+~~~spl syn=A
 coin(sinOsc(0.1, 0)) * 0.1
-```
+~~~
 
 Coin one is always zero:
 
-```
+~~~spl syn=B
 sinOsc(440, 0) * coin(dc(1)) * 0.1
-```
+~~~
 
 Coin zero is always zero:
 
-```
+~~~spl syn=C
 sinOsc(440, 0) * coin(dc(0))
-```
+~~~
 
 Coin of almost one is almost always one:
 
-```
+~~~spl syn=D
 sinOsc(440, 0) * coin(dc(0.999)) * 0.1
-```
+~~~
 
 * * *
 

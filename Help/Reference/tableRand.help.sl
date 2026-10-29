@@ -15,7 +15,7 @@ The value follows the probability density function given in the associated table
 
 Randomly set the frequency of a sine oscillator according to an indicated probablity table:
 
-```
+~~~spl syn=A
 let k = 8;
 let tbl = [
 	0 0 0 0 1 0 1
@@ -31,12 +31,12 @@ let f = tbl.tableRand(w).linExp(
 let e = perc(w, 1 / 111, 1, -1);
 let o = sinOsc(f, 0) * e;
 o.splay / 3
-```
+~~~
 
 Generate two distinct probablity tables for each of the inputs to a frequency modulation granular system,
 carrier and modulation frequencies and modulation index:
 
-```
+~~~spl syn=B
 let tbl = { :trig :dist :lo :hi |
 	dist
 	.randomTable(128)
@@ -69,7 +69,7 @@ grainFm(
 	-1,
 	512
 ).mix / 23 / 7
-```
+~~~
 
 * * *
 

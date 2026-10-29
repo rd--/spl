@@ -15,14 +15,14 @@
 
 Filter sawtooth oscillator:
 
-```
+~~~spl syn=A
 svf(
 	lfSaw(lfSaw(2, 0).linLin(-1, 1, 110, 35), 0),
 	mouseX(20, 20000, 1, 0.2),
 	mouseY(1, 0, 0, 0.2),
 	0.1, 0, 0, 0, 0
 )
-```
+~~~
 
 * * *
 

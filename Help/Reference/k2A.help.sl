@@ -11,9 +11,9 @@ k2A converts via linear interpolation.
 
 Control rate white noise interpolated to audio rate:
 
-```
+~~~spl syn=A
 k2A(whiteNoise().kr * 0.2)
-```
+~~~
 
 * * *
 

@@ -10,25 +10,25 @@ Equal power two channel cross fade.
 
 Cross-fade between sawtooth and sine osillators:
 
-```
+~~~spl syn=A
 xFade2(
 	saw(440),
 	sinOsc(440, 0),
 	lfTri(0.1, 0),
 	0.1
 )
-```
+~~~
 
 Stereo (multiple-channel expansion):
 
-```
+~~~spl syn=B
 xFade2(
 	saw([440, 441]),
 	sinOsc([440, 441], 0),
 	lfTri(1 / [9, 10], 0),
 	0.1
 )
-```
+~~~
 
 * * *
 

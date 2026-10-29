@@ -17,12 +17,12 @@ A two-channel reverb Ugen, based on the _gVerb_ Ladspa effect by Juhana Sadeharj
 
 Stereo decayed impulses, reverberated:
 
-```
+~~~spl syn=A
 let i = impulse([0.5 1 2], 0);
 let c = lfCub([300 900 1200], 0);
 let s = decay(i, [0.1 0.05 0.25]) * c * 0.05;
 gVerb(s, 10, 3, 0.5, 0.5, 15, 1, 0.7, 0.5, 300).mix
-```
+~~~
 
 * * *
 

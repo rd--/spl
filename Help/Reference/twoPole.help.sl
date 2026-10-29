@@ -12,23 +12,23 @@ For general purposes `resonz` is better.
 
 Fixed frequency:
 
-```
+~~~spl syn=A
 twoPole(
 	whiteNoise() * 0.005,
 	2000,
 	0.95
 )
-```
+~~~
 
 Modulate frequency:
 
-```
+~~~spl syn=B
 twoPole(
 	whiteNoise() * 0.005,
 	xLine(800, 8000, 8),
 	0.95
 )
-```
+~~~
 
 * * *
 

@@ -13,7 +13,7 @@ demand rate brownian movement generator.
 _dbrown_ answers numbers in the continuous range between lo and hi.
 The arguments can be a number or any other ugen.
 
-```
+~~~spl syn=A
 let seq = dbrown(Infinity, 10, 15, 1);
 let trig = impulse(
 	mouseX(1, 40, 1, 0.2),
@@ -25,7 +25,7 @@ let freq = demand(
 	seq
 ) * 30 + 340;
 sinOsc(freq, 0) * 0.1
-```
+~~~
 
 * * *
 

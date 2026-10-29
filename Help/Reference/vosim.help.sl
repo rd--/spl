@@ -14,18 +14,18 @@ _nCycles_ is checked each time `vosim` receives a trigger.
 
 Mouse control of frequency:
 
-```
+~~~spl syn=A
 vosim(
 	impulse(110 + [-1 0 1], 0),
 	mouseX([110 220 440], 880, 1, 0.2),
 	[3 5 7],
 	[0.77 0.88 0.99]
 ).splay * 0.1
-```
+~~~
 
 Noise modulation of frequency:
 
-```
+~~~spl syn=B
 vosim(
 	impulse(110 + [-1 0 1], 0),
 	linExp(
@@ -36,7 +36,7 @@ vosim(
 	[3 5 7],
 	[0.77 0.88 0.99]
 ).splay * 0.1
-```
+~~~
 
 * * *
 

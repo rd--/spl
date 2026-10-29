@@ -11,13 +11,13 @@ out of range index values are clipped to the valid range.
 
 Index buffer for frequency values:
 
-```
+~~~spl syn=A
 let f = bufIndexClip(
 	[50 100 200 400 800 1600].localBuf,
 	linLin(lfSaw(2, 0), -1, 1, 0, 6)
 );
 sinOsc([f, f * 9], 0) * 0.1
-```
+~~~
 
 * * *
 

@@ -13,28 +13,28 @@ This is not a band limited waveform, so it may alias.
 
 Modulate saw frequency:
 
-```
+~~~spl syn=A
 syncSaw(100, line(100, 800, 12)) * 0.1
-```
+~~~
 
 Modulate saw frequency with mouse (view is oscilloscope, `impulse` shows sync frequency):
 
-```
+~~~spl syn=B
 let freq = 400;
 [
 	syncSaw(freq, freq * mouseX(1, 3, 0, 0.2)),
 	impulse(freq, 0)
 ] * 0.1
-```
+~~~
 
 Mouse control of each frequency input:
 
-```
+~~~spl syn=C
 syncSaw(
 	mouseX(1, 400, 0, 0.2),
 	mouseY(400, 800, 0, 0.2)
 ) * 0.05
-```
+~~~
 
 * * *
 

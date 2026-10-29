@@ -28,7 +28,7 @@ This allows you to use an `lfSaw` to do continuous rotation around a circle.
 
 B-format encoding of two signals at opposite sides of the circle:
 
-```
+~~~spl syn=A
 let p = whiteNoise() * 0.05;
 let q = lfSaw([200, 200.37, 201], 0).sum * 0.03;
 let a = panB2(p, -0.5, 1);
@@ -37,19 +37,19 @@ let [w, x, y] = a + b;
 let m = mouseX(-1, 1, 0, 0.2);
 let [rx, ry] = rotate2(x, y, m);
 decodeB2(8, w, rx, ry, 0)
-```
+~~~
 
 Rotation of stereo sound using Lfo:
 
-```
+~~~spl syn=B
 let x = pinkNoise() * 0.2;
 let y = lfTri(800, 0) * lfPulse(3, 0, 0.3) * 0.2;
 rotate2(x, y, lfSaw(0.1, 0))
-```
+~~~
 
 Rotation using mouse control:
 
-```
+~~~spl syn=C
 let x = {
 	lfSaw(200 + rand(-2, 2), 0) * 0.1
 } !+ 4;
@@ -59,7 +59,7 @@ let y = (
 	* 0.2
 );
 rotate2(x, y, mouseX(0, 2, 0, 0.2))
-```
+~~~
 
 * * *
 

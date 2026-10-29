@@ -12,7 +12,7 @@ Ambisonic B format panner.
 Output channels are in order _w, x, y, z_.
 You will only hear the first two channels on a stereo setup.
 
-```
+~~~spl syn=A
 let [w, x, y, z] = panB(
 	pinkNoise() * 0.1,
 	lfSaw(0.5, 1.pi),
@@ -20,7 +20,7 @@ let [w, x, y, z] = panB(
 	0.3
 );
 silent(8) ++ decodeB2(8, w, x, y, 0)
-```
+~~~
 
 * * *
 

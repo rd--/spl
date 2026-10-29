@@ -12,38 +12,38 @@ Outputs a high value of one and a low value of zero.
 
 Fixed frequency:
 
-```
+~~~spl syn=A
 lfPulse(500, 0, 0.3) * 0.1
-```
+~~~
 
 Mouse control of width:
 
-```
+~~~spl syn=B
 lfPulse(
 	500,
 	0,
 	mouseX(0, 1, 0, 0.2)
 ) * 0.1
-```
+~~~
 
 Used as both Oscillator and Lfo:
 
-```
+~~~spl syn=C
 lfPulse(
 	lfPulse(3, 0, 0.3) * 200 + 200,
 	0,
 	0.2
 ) * 0.1
-```
+~~~
 
 Compare with band limited pulse UGen:
 
-```
+~~~spl syn=D
 [
 	pulse(100, 0.3),
 	lfPulse(100, 0, 0.3)
 ] * 0.15
-```
+~~~
 
 Texture:
 

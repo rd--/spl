@@ -23,11 +23,11 @@ Threads over lists and fractional values are allowed:
 
 Oscillator frequency sweep specified in midi note numbers:
 
-```
+~~~spl syn=A
 saw(
 	line(24, 108, 10).midiCps
 ) * 0.1
-```
+~~~
 
 The inverse is `cpsMidi`:
 

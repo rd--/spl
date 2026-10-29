@@ -15,7 +15,7 @@ The buffer size must be a power of two.
 
 With small sine table:
 
-```
+~~~spl syn=A
 let c = 128.sineTable(
 	1 / 1:3,
 	[0]
@@ -26,11 +26,11 @@ osc(
 	mouseX(222, 555, 1, 0.2),
 	0
 ) * 0.1
-```
+~~~
 
 With less small sine table:
 
-```
+~~~spl syn=B
 let c = 2048.sineTable(
 	1 / 1:128,
 	[0]
@@ -48,7 +48,7 @@ let b = c.wavetableFormat.localBuf;
 		0
 	).sum
 } !^ 3 / 17
-```
+~~~
 
 * * *
 

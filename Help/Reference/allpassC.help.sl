@@ -17,18 +17,18 @@ thus emphasizing only odd harmonics at an octave lower
 
 The allpass delay has no audible effect as a resonator on steady state sound:
 
-```
+~~~spl syn=A
 allpassC(
 	whiteNoise() * 0.1,
 	0.01,
 	xLine(0.0001, 0.01, 20),
 	0.2
 )
-```
+~~~
 
 The examples below add the input to the effected sound so that you can hear the effect of the phase comb:
 
-```
+~~~spl syn=B
 let z = whiteNoise() * 0.1;
 z + allpassC(
 	z,
@@ -36,14 +36,14 @@ z + allpassC(
 	xLine(0.0001, 0.01, 20),
 	0.2
 )
-```
+~~~
 
 The interpolation schemes result in different signals.
 
 Used as an echo this does not really sound different than _Comb_,
 but it outputs the input signal immediately (inverted) and the echoes are lower in amplitude.
 
-```
+~~~spl syn=C
 allpassC(
 	decay(
 		dust(1) * 0.5,
@@ -53,7 +53,7 @@ allpassC(
 	0.2,
 	3
 )
-```
+~~~
 
 * * *
 

@@ -11,13 +11,13 @@ Allows input signal value to pass when gate is positive, otherwise holds last va
 
 Frequency is a random curve for a quarter of a cycle and a held tone for the remainder:
 
-```
+~~~spl syn=A
 let gatedNoise = gate(
 	lfNoise2(4),
 	lfPulse(4 / 3, 0, 1 / 4)
 );
 sinOsc(gatedNoise * 100 + 200, 0) * 0.1
-```
+~~~
 
 * * *
 

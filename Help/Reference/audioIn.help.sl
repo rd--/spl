@@ -10,9 +10,9 @@ i.e. the sound input hardware.
 
 Stereo through patching from input to output with one second delay:
 
-```
+~~~spl syn=A
 delayN(audioIn([1, 2]), 1, 1)
-```
+~~~
 
 * * *
 

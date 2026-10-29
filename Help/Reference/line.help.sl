@@ -10,13 +10,13 @@
 
 sweep oscillator frequency:
 
-```
+~~~spl syn=A
 sinOsc(line(200, 17000, 10), 0) * 0.1
-```
+~~~
 
 Diverging frequencies:
 
-```
+~~~spl syn=B
 sinOsc(
 	line(
 		[900 1100],
@@ -25,13 +25,13 @@ sinOsc(
 	),
 	0
 ) * 0.1
-```
+~~~
 
 `xLine` is usually better than `line` for frequency:
 
-```
+~~~spl syn=C
 sinOsc(xLine(200, 17000, 10), 0) * 0.1
-```
+~~~
 
 _Note_: This is the SuperCollider _Line_ Ugen without the _doneAction_ input.
 

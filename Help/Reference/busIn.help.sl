@@ -19,36 +19,36 @@ The number of hardware input and output busses can vary depending on the synthes
 
 Read and delay the first two hardware input channels:
 
-```
+~~~spl syn=A
 delayN(busIn(2, numOutputBuses()), 2, 2)
-```
+~~~
 
 Write and then read from an audio bus:
 
-```
+~~~spl syn=B
 out(10, pinkNoise() * 0.1)
 <! out(0, busIn(1, 10))
-```
+~~~
 
 One two channel `busIn`, delayed by one second:
 
-```
+~~~spl syn=C
 delayN(
 	busIn(2, numOutputBuses()),
 	1,
 	1
 )
-```
+~~~
 
 Two single channel `busIn` nodes, each delayed by one second:
 
-```
+~~~spl syn=D
 delayN(
 	busIn(1, numOutputBuses() + [0, 1]),
 	1,
 	1
 )
-```
+~~~
 
 * * *
 

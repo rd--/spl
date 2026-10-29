@@ -10,7 +10,7 @@ The output is mixed from an array of inputs, performing an equal power crossfade
 
 Cycle though oscillator types:
 
-```
+~~~spl syn=A
 let a = [
 	sinOsc(440, 0),
 	saw(440),
@@ -21,11 +21,11 @@ selectX(
 	lfSaw(1, 0) * cycle + cycle,
 	a
 ) * 0.2
-```
+~~~
 
 Use mouseX to select frequency modulator:
 
-```
+~~~spl syn=B
 let a = [
 	sinOsc(0.25, 0),
 	lfSaw(10, 0),
@@ -38,7 +38,7 @@ sinOsc(
 	) * 300 + 400,
 	0
 ) * 0.2
-```
+~~~
 
 * * *
 

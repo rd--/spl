@@ -13,9 +13,9 @@ The output will be zero.
 - trig: the trigger that sets output to one.
 - reset: the trigger that sets output to zero.
 
-```
+~~~spl syn=A
 setResetFf(dust(5), dust(5)) * brownNoise() * 0.1
-```
+~~~
 
 * * *
 

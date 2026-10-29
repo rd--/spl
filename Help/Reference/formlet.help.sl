@@ -21,42 +21,42 @@ The great advantage to this filter over FOF is that there is no limit to the num
 
 Fixed parameters:
 
-```
+~~~spl syn=A
 formlet(impulse(20, 0) * 0.5, 1000, 0.01, 0.1)
-```
+~~~
 
 Fixed parameters, modulate frequency of input signal:
 
-```
+~~~spl syn=B
 formlet(
 	blip(xLine(10, 400, 8), 1000) * 0.1,
 	1000,
 	0.01,
 	0.1
 )
-```
+~~~
 
 Modulating formant frequency:
 
-```
+~~~spl syn=C
 formlet(
 	blip(sinOsc(5, 0) * 20 + 300, 1000) * 0.1,
 	xLine(1500, 700, 8),
 	0.005,
 	0.04
 )
-```
+~~~
 
 Mouse control of frequency and decay time:
 
-```
+~~~spl syn=D
 formlet(
 	blip(sinOsc(5, 0) * 20 + 300, 1000) * 0.1,
 	mouseY(700, 2000, 1, 0.2),
 	0.005,
 	mouseX(0.01, 0.2, 1, 0.2)
 )
-```
+~~~
 
 * * *
 

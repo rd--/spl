@@ -17,7 +17,7 @@ _timeDispersion_ can be no larger than windowSize.
 
 Modulate pitch ratio:
 
-```
+~~~spl syn=A
 let z = blip(800, 6) * 0.1;
 pitchShift(
 	z,
@@ -26,11 +26,11 @@ pitchShift(
 	0,
 	0.0001
 )
-```
+~~~
 
 Pitch shift input. __Use headphones__ to prevent feedback:
 
-```
+~~~spl syn=B
 pitchShift(
 	in: audioIn([1, 2]),
 	windowSize: 0.1,
@@ -38,7 +38,7 @@ pitchShift(
 	pitchDispersion: 0,
 	timeDispersion: 0.004
 )
-```
+~~~
 
 Use pitchShift to granulate input.
 Use headphones to prevent feedback.
@@ -46,7 +46,7 @@ Upper left corner is normal playback.
 `mouseX` controls pitch dispersion,
 `mouseY` controls time dispersion.
 
-```
+~~~spl syn=C
 let grainSize = 0.5;
 pitchShift(
 	in: audioIn([1, 2]),
@@ -55,7 +55,7 @@ pitchShift(
 	pitchDispersion: mouseX(0, 1),
 	timeDispersion: mouseY(0, grainSize)
 )
-```
+~~~
 
 * * *
 

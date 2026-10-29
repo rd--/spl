@@ -10,7 +10,7 @@ For most purposes the default settings can be used and only in needs to be suppl
 
 Track sine oscillator:
 
-```
+~~~spl syn=A
 let x = mouseX(220, 660, 0, 0.1);
 let y = mouseY(0.01, 0.1, 0, 0.1);
 let z = sinOsc(x, 0) * y;
@@ -23,11 +23,11 @@ let f = pitchFollower(
 	1, 0
 );
 [z, sinOsc(f.first / 2, 0) * 0.1]
-```
+~~~
 
 Track audio input, __use headphones__:
 
-```
+~~~spl syn=B
 let z = audioIn([1, 2]).sum;
 let f = pitchFollower(
 	z,
@@ -51,7 +51,7 @@ let s = varSaw(
 	)
 };
 s
-```
+~~~
 
 * * *
 

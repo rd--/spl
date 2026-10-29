@@ -10,7 +10,7 @@ Outputs are zeroed and each matrix element summed in.
 
 mix the first and third inputs to the first and second outputs at unity gain:
 
-```
+~~~spl syn=A
 sparseMatrixMixer(
 	2,
 	sinOsc([111 333 555], 0) / 11,
@@ -19,11 +19,11 @@ sparseMatrixMixer(
 		3 2 1
 	]
 )
-```
+~~~
 
 mix the fourth and first inputs to the first and second outputs at -18 and -24 decibels:
 
-```
+~~~spl syn=B
 sparseMatrixMixer(
 	2,
 	sinOsc([111 333 555 777], 0),
@@ -32,7 +32,7 @@ sparseMatrixMixer(
 		1 2 0.06
 	]
 )
-```
+~~~
 
 * * *
 

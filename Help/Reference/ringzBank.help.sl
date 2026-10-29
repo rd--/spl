@@ -12,51 +12,51 @@ ringzBank (_klank_) is a bank of fixed frequency resonators which can be used to
 
 Four resonant filters, default amplitudes and decay times:
 
-```
+~~~spl syn=A
 ringzBank(
 	impulse(2, 0) * 0.1,
 	[800, 1071, 1153, 1723],
 	nil,
 	nil
 )
-```
+~~~
 
 With dust input:
 
-```
+~~~spl syn=B
 ringzBank(
 	dust(8) * 0.1,
 	[800, 1071, 1153, 1723],
 	nil,
 	nil
 )
-```
+~~~
 
 With noise input:
 
-```
+~~~spl syn=C
 ringzBank(
 	pinkNoise() * 0.007,
 	[800, 1071, 1153, 1723],
 	nil,
 	nil
 )
-```
+~~~
 
 With stereo input:
 
-```
+~~~spl syn=D
 ringzBank(
 	pinkNoise([0.005] # 2, 0),
 	[200 671 1153 1723],
 	nil,
 	nil
 )
-```
+~~~
 
 With random frequencies input:
 
-```
+~~~spl syn=E
 ringzBank(
 	decay(
 		impulse(4, 0),
@@ -66,11 +66,11 @@ ringzBank(
 	nil,
 	{ rand(0.1, 2) } ! 12
 )
-```
+~~~
 
 Texture of variation of above:
 
-```
+~~~spl syn=F
 { :tr |
 	let z = decay(
 		impulse(4, 0),
@@ -84,7 +84,7 @@ Texture of variation of above:
 	);
 	eqPan2(r, tRand(-1, 1, tr))
 }.overlapTexture(8, 3, 4).mix
-```
+~~~
 
 * * *
 

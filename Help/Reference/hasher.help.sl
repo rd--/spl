@@ -12,13 +12,13 @@ The input need not be from zero to one.
 
 Hashing a straight line makes white noise:
 
-```
+~~~spl syn=A
 hasher(line(0, 1, 1)) * 0.2
-```
+~~~
 
 Control rate hash of rounded mouse control, near values hash distinctly:
 
-```
+~~~spl syn=B
 let x = mouseX(0, 10, 0, 0.2);
 sinOsc(
 	hasher(
@@ -26,7 +26,7 @@ sinOsc(
 	) * 300 + 500,
 	0
 ) * 0.1
-```
+~~~
 
 * * *
 

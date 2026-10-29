@@ -19,7 +19,7 @@ Audio written to a localOut will not be read by a corresponding localIn until th
 
 Simple delay with reversed channels sent to `localOut` to give ping pong effect, mouse control of decay factor:
 
-```
+~~~spl syn=A
 let source = decay(
 	impulse(0.3, 0),
 	0.1
@@ -30,7 +30,7 @@ let x = mouseX(0, 1, 0, 0.2);
 delayed <! localOut(
 	delayed.reverse * x
 )
-```
+~~~
 
 * * *
 

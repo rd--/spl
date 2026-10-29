@@ -15,7 +15,7 @@ Therefore `controlIn` does not distinguish between new and old data.
 Write signals to control buses,
 this program does not generate an audio signal:
 
-```
+~~~spl syn=A
 controlOut(
 	0,
 	sinOsc(
@@ -23,20 +23,20 @@ controlOut(
 		0
 	).linLin(-1, 1, 0, 1).kr
 )
-```
+~~~
 
 Read signals from control buses written to by above program:
 
-```
+~~~spl syn=B
 sinOsc(
 	controlIn(4, 0) * 333 + 55,
 	0
 ).splay * 0.1
-```
+~~~
 
 Multiple-channel expansion on index, place reader and writer in same graph:
 
-```
+~~~spl syn=C
 let w = controlOut(
 	0,
 	sinOsc(
@@ -48,7 +48,7 @@ sinOsc(
 	controlIn(1, [0 .. 3]) * 333 + 55,
 	0
 ).splay * 0.1 <! w
-```
+~~~
 
 * * *
 

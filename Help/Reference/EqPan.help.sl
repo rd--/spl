@@ -9,18 +9,18 @@ Equal power panner across the main output channels, as configured in `Preference
 
 Pan pink noise:
 
-```
+~~~spl syn=A
 eqPan(pinkNoise(), lfSaw(1 / 4, 0)) * 0.1
-```
+~~~
 
 Sum of two panners, ie. channel-expansion at `eqPan`:
 
-```
+~~~spl syn=B
 eqPan(
 	[pinkNoise(), whiteNoise()]  / [7, 23],
 	[sinOsc(1 / 7, 0), lfSaw(1 / 4, 0)]
 ).sum
-```
+~~~
 
 * * *
 

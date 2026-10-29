@@ -11,14 +11,14 @@ Generates a single random float value in a sum of n uniform distributions from l
 
 As n increases, distribution converges towards gaussian.
 
-```
+~~~spl syn=A
 let n = mouseX(1, 9, 0, 0.2).round(1);
 {
 	let freq = nRand(200, 10000, n);
 	let dur = (1 / freq) * 7500;
 	fSinOsc(freq, 0) * line(0.2, 0, dur)
 } !^ 15
-```
+~~~
 
 * * *
 

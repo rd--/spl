@@ -242,13 +242,13 @@ The `sum` of a finite arithmetic progression is called an arithmetic series:
 
 The _n_, or count, and _d_, or step, values may be signals:
 
-```
+~~~spl syn=A
 let t = impulse(1, 0);
 let a = tRand(222, 333, t);
 let d = tRand(111, 555, t);
 let freq = 8.arithmeticProgression(a, d);
 (sinOsc(freq, 0) / tRand(7, 13, t)).splay
-```
+~~~
 
 * * *
 

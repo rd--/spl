@@ -9,15 +9,15 @@ Generates quadratically interpolated random values at a rate given by the neares
 
 Fixed frequency:
 
-```
+~~~spl syn=A
 lfNoise2(1000) * 0.05
-```
+~~~
 
 Modulate frequency:
 
-```
+~~~spl syn=B
 lfNoise2(xLine(1000, 10000, 10)) * 0.05
-```
+~~~
 
 * * *
 

@@ -9,28 +9,28 @@ A noise generator based on a chaotic function.
 
 Fixed chaos parameter:
 
-```
+~~~spl syn=A
 crackle(1.95) * 0.1
-```
+~~~
 
 Modulate chaos parameter:
 
-```
+~~~spl syn=B
 crackle(
 	line(1, 2, 10)
 ) * 0.1
-```
+~~~
 
 Mouse control of chaos parameter:
 
-```
+~~~spl syn=C
 crackle(
 	[
 		mouseX(1, 2, 0, 0.2),
 		mouseY(1, 2, 0, 0.2)
 	]
 ) * 0.1
-```
+~~~
 
 * * *
 

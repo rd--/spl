@@ -18,7 +18,7 @@ An envelope only has a physical end time (used to cut off events in a Spawn) if 
 
 Slow envelope with slow trigger:
 
-```
+~~~spl syn=A
 let env = envGen(
 	impulse(1 / 9, 0),
 	1,
@@ -35,13 +35,13 @@ let env = envGen(
 	)
 );
 sinOsc(440, 0) * env
-```
+~~~
 
 Trigger envGen with a pulse wave.
 mouseX controls trigger frequency.
 mouseY controls sustain time.
 
-```
+~~~spl syn=B
 let gate = lfPulse(
 	mouseX(0.2, 20, 1, 0.2),
 	0,
@@ -63,7 +63,7 @@ let env = envGen(
 	)
 );
 sinOsc(440, 0) * env
-```
+~~~
 
 * * *
 

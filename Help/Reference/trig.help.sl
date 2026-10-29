@@ -13,27 +13,27 @@ Any trigger received while the output is non-zero is ignored.
 
 A dust signal occasionally triggers a gate be held open for one fifth of a second.
 
-```
+~~~spl syn=A
 trig(dust(1), 0.2) * sinOsc(800, 0) * 0.5
-```
+~~~
 
 The trigger signal also selects a random duration and frequency:
 
-```
+~~~spl syn=B
 let tr = dust(2);
 let d = tRand(0.2, 0.5, tr);
 let f = tExpRand(220, 880, tr);
 trig(tr, d) * sinOsc(f, 0) * 0.5
-```
+~~~
 
 An impulse triggers more frequently than the duration resets:
 
-```
+~~~spl syn=C
 trig(
 	impulse(1, 0),
 	2 - [0, 0.001]
 ) * sinOsc(800, 0) * 0.2
-```
+~~~
 
 * * *
 

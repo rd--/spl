@@ -12,22 +12,22 @@ Constant frequency,
 a list specifies two oscillators,
 one of the frequencies is specified as a `LargeInteger`:
 
-```
+~~~spl syn=A
 sinOsc([200 201L], 0) * 0.25
-```
+~~~
 
 Modulate freq:
 
-```
+~~~spl syn=B
 sinOsc(
 	xLine(2000, 200, 1),
 	0
 ) * 0.25
-```
+~~~
 
 Modulate freq:
 
-```
+~~~spl syn=C
 sinOsc(
 	sinOsc(
 		xLine(1, 1000, 9),
@@ -35,11 +35,11 @@ sinOsc(
 	) * 200 + 800,
 	0
 ) * 0.25
-```
+~~~
 
 Modulate phase:
 
-```
+~~~spl syn=D
 sinOsc(
 	800,
 	sinOsc(
@@ -47,7 +47,7 @@ sinOsc(
 		0
 	) * 2.pi
 ) * 0.25
-```
+~~~
 
 * * *
 

@@ -8,7 +8,7 @@ Equivalent to a list of _dc(0)_ values.
 Offset eight random sine tones by eight silent channels,
 requires sixteen channel system to hear:
 
-```
+~~~spl syn=A
 silent(8) ++ (
 	{
 		sinOsc(
@@ -17,7 +17,7 @@ silent(8) ++ (
 		) * 0.1
 	} ! 8
 )
-```
+~~~
 
 * * *
 

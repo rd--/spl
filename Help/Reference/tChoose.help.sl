@@ -12,7 +12,7 @@ tChoose is defined in terms of `Select` and `tiRand`.
 
 Cycle though oscillator types, mouse control of trigger density:
 
-```
+~~~spl syn=A
 let a = [
 	sinOsc(440, 0),
 	saw(440),
@@ -24,7 +24,7 @@ tChoose(
 	),
 	a
 ) * 0.2
-```
+~~~
 
 At control rate can select from a constant array:
 

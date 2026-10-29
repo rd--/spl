@@ -6,7 +6,7 @@ All pass delay line, linear interpolation.
 
 Mouse controls decay time:
 
-```
+~~~spl syn=A
 let t = dust([2, 2]);
 let z = pinkNoise() * decay(
 	t * 0.5,
@@ -23,11 +23,11 @@ let decayTime = mouseY(0.5, 1.5, 0, 0.2);
 	)
 };
 z
-```
+~~~
 
 Mouse controls feedback coefficient:
 
-```
+~~~spl syn=B
 let t = dust([2, 2]);
 let z = pinkNoise() * decay(
 	t * 0.5,
@@ -51,7 +51,7 @@ let feedbackCoefficient = mouseY(
 	)
 };
 z
-```
+~~~
 
 Show calculation of feedback coefficient and decay time:
 

@@ -11,7 +11,7 @@ A second order low pass filter.
 
 Modulate frequency:
 
-```
+~~~spl syn=A
 brf(
 	saw(200) * 0.1,
 	sinOsc(
@@ -20,7 +20,7 @@ brf(
 	) * 3800 + 4000,
 	0.3
 )
-```
+~~~
 
 * * *
 

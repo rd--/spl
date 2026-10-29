@@ -14,16 +14,16 @@ This is useful for smoothing out control signals.
 
 As filter:
 
-```
+~~~spl syn=A
 let x = lfPulse(300, 0, 0.5) * 0.1;
 [x, lag(x, 0.002)]
-```
+~~~
 
 Used to lag pitch,
 `lfPulse` is the frequency modulator,
 `Line` modulates the lag time:
 
-```
+~~~spl syn=B
 sinOsc(
 	lag(
 		lfPulse(4, 0, 0.5) * 50 + 400,
@@ -32,7 +32,7 @@ sinOsc(
 	0
 )
 * 0.3
-```
+~~~
 
 * * *
 

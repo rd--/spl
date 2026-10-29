@@ -13,20 +13,20 @@ The _dstLow_ and _dstHigh_ arguments must be non-zero and have the same sign.
 
 Convert -1 to +1 sawtooth into 0.01 to 1.0 exponential:
 
-```
+~~~spl syn=A
 let s = lfSaw(500, 0);
 [s * 0.1, s.linExp(-1, 1, 0.001, 0.1)]
-```
+~~~
 
 Convert oscillator output to frequency input:
 
-```
+~~~spl syn=B
 let mod = sinOsc(line(1, 10, 10), 0);
 [
 	sinOsc(mod * 400 + 500, 0),
 	sinOsc(mod.linExp(-1, 1, 100, 900), 0)
 ] * 0.1
-```
+~~~
 
 * * *
 

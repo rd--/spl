@@ -16,7 +16,7 @@ Granular synthesis with frequency modulated sine tones.
 
 Linear envelopes modulating controls:
 
-```
+~~~spl syn=A
 let numChannels = 8;
 let envDur = 15;
 let trigger = impulse(line(7.5, 15, envDur), 0);
@@ -35,11 +35,11 @@ grainFm(
 	envBufNum,
 	maxGrains
 ).splay * 0.1
-```
+~~~
 
 Mouse controls panning, noise and mouse control deviation from center pitch:
 
-```
+~~~spl syn=B
 let numChannels = 8;
 let trigger = impulse(10, 0);
 let dur = 0.1;
@@ -54,7 +54,7 @@ grainFm(
 	-1,
 	512
 ).splay * 0.1
-```
+~~~
 
 * * *
 

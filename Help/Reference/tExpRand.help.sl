@@ -6,17 +6,17 @@ Triggered exponential random number generator.
 Generates a random float value in exponential distribution from _lo_ to _hi_ each time the _trig_ signal is set.
 _lo_ and _hi_ must both have the same sign and be non-zero.
 
-```
+~~~spl syn=A
 let tr = dust(10);
 sinOsc(tExpRand(300, 3000, tr), 0) * 0.1
-```
+~~~
 
 Mouse controls density:
 
-```
+~~~spl syn=B
 let tr = dust(mouseX(1, 8000, 1, 0.2));
 sinOsc(tExpRand(300, 3000, tr), 0) * 0.1
-```
+~~~
 
 * * *
 

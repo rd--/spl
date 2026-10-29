@@ -10,15 +10,15 @@ There is no noticeable difference in sound from dust, but it may be useful for i
 
 Fixed density:
 
-```
+~~~spl syn=A
 dust2(200) * 0.1
-```
+~~~
 
 Modulate density:
 
-```
+~~~spl syn=B
 dust2(xLine(20000, 2, 10)) * 0.1
-```
+~~~
 
 * * *
 

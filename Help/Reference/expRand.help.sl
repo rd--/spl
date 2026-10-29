@@ -17,13 +17,13 @@ The ternary form utilises the random number generator _r_.
 
 The binary form answers an initialisation rate unit generator.
 
-```
+~~~spl syn=A
 let n = 5;
 let freq = { expRand(111, 333) } ! n;
 let ampl = { expRand(0.05, 0.10) } ! n;
 let o = sinOsc(freq, 0) * ampl;
 o.splay
-```
+~~~
 
 A `TextureProgram` of pulsing sine tones (Jmcc):
 

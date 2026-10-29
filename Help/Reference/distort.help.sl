@@ -22,11 +22,11 @@ Evaluate symbolically:
 
 Distortion increases with amplitude:
 
-```
+~~~spl syn=A
 (
 	sinOsc(500, 0) * xLine(0.1, 10, 10)
 ).distort * 0.1
-```
+~~~
 
 Plot over _(-1,1)_:
 

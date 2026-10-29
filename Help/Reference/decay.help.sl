@@ -12,18 +12,18 @@ This is useful for exponential decaying envelopes triggered by impulses.
 
 decay time of one centisecond:
 
-```
+~~~spl syn=A
 decay(impulse(1, 0) * 0.25, 0.01)
-```
+~~~
 
 Used as an envelope:
 
-```
+~~~spl syn=B
 decay(
 	impulse(xLine(1, 50, 20), 0) * 0.25,
 	0.2
 ) * pinkNoise()
-```
+~~~
 
 * * *
 

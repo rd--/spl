@@ -12,10 +12,10 @@ The slope is expressed in units per second.
 
 slew square wave:
 
-```
+~~~spl syn=A
 let z = lfPulse(800, 0, 0.5) * 0.1;
 [z, slew(z, 4000, 4000)]
-```
+~~~
 
 * * *
 

@@ -10,15 +10,15 @@ Implements the formula:
 
 Compare:
 
-```
+~~~spl syn=A
 whiteNoise() * 0.1
-```
+~~~
 
 and:
 
-```
+~~~spl syn=B
 hpz2(whiteNoise()) * 0.1
-```
+~~~
 
 * * *
 

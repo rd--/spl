@@ -10,15 +10,15 @@ This one sounds to me more like the Rhodes tremolo than pan2.
 
 Pan noise:
 
-```
+~~~spl syn=A
 linPan2(pinkNoise(), fSinOsc(2, 0), 0.1)
-```
+~~~
 
 Pan sine:
 
-```
+~~~spl syn=B
 linPan2(fSinOsc(800, 0), fSinOsc(3, 0), 0.1)
-```
+~~~
 
 * * *
 

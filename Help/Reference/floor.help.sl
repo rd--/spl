@@ -136,10 +136,10 @@ OEIS [A032528](https://oeis.org/A032528):
 
 Stepped line:
 
-```
+~~~spl syn=A
 let m = xLine(48, 57, 7);
 sinOsc([m m.floor].midiCps, 0) * 0.1
-```
+~~~
 
 Floor is a staircase function:
 

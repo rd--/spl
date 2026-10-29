@@ -8,19 +8,19 @@ Band limited sawtooth wave generator.
 
 Modulating the frequency:
 
-```
+~~~spl syn=A
 saw(xLine(40, 4000, 6)) * 0.1
-```
+~~~
 
 Two band limited sawtooth waves through a resonant low pass filter:
 
-```
+~~~spl syn=B
 rlpf(
 	saw([100, 250]) * 0.1,
 	xLine(8000, 400, 5),
 	0.05
 )
-```
+~~~
 
 * * *
 

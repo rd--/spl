@@ -14,7 +14,7 @@ The arguments can be a number or any other UGen.
 
 Mouse controls range of frequency and rate of change.
 
-```
+~~~spl syn=A
 let seq = dwhite(
 	Infinity,
 	0,
@@ -30,7 +30,7 @@ let freq = demand(
 	seq
 ) * 30 + 340;
 sinOsc(freq, 0) * 0.1
-```
+~~~
 
 * * *
 

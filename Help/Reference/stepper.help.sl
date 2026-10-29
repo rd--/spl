@@ -15,7 +15,7 @@ The counter wraps between min and max.
 
 Count by one from four up to sixteen:
 
-```
+~~~spl syn=A
 sinOsc(
 	stepper(
 		impulse(10, 0),
@@ -27,33 +27,33 @@ sinOsc(
 	) * 100,
 	0
 ) * 0.05
-```
+~~~
 
 Count by -3:
 
-```
+~~~spl syn=B
 sinOsc(
 	stepper(
 		impulse(10, 0), 0, 4, 16, -3, 0
 	) * 100,
 	0
 ) * 0.05
-```
+~~~
 
 Count by 4:
 
-```
+~~~spl syn=C
 sinOsc(
 	stepper(
 		impulse(10, 0), 0, 4, 16, 4, 0
 	) * 100,
 	0
 ) * 0.05
-```
+~~~
 
 Count by mouse control:
 
-```
+~~~spl syn=D
 let x = mouseX(-9, 9, 0, 0.2);
 sinOsc(
 	stepper(
@@ -61,11 +61,11 @@ sinOsc(
 	) * 100,
 	0
 ) * 0.05
-```
+~~~
 
 Using `stepper` and `bufRd` for sequencing, mouse controls clock rate:
 
-```
+~~~spl syn=E
 let b = [
 	43 55 72 70 55 58 41 67
 	41 60 55 39 58 55 43 51
@@ -111,7 +111,7 @@ out := leakDc(rvb(out * 0.02), 0.995);
 	out := delayL(out, 0.1, lfo) + out
 }; /* flanger */
 onePole(out, 0.9) * 0.5
-```
+~~~
 
 * * *
 

@@ -8,7 +8,7 @@ This can be more efficient than the written out form.
 
 At `Ugen`:
 
-```
+~~~spl syn=A
 sinOsc(800, 0)
 .sqrDif(
 	sinOsc(
@@ -16,16 +16,16 @@ sinOsc(800, 0)
 		0
 	)
 ) * 0.125
-```
+~~~
 
 Written out:
 
-```
+~~~spl syn=B
 let a = sinOsc(800, 0);
 let b = sinOsc(xLine(200, 500, 5), 0);
 let c = a - b;
 (c * c) * 0.125
-```
+~~~
 
 * * *
 

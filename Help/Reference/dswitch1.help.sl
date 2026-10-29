@@ -9,7 +9,7 @@ demand rate generator for switching between inputs.
 
 mouseX selects input:
 
-```
+~~~spl syn=A
 let a = dswitch1(
 	mouseX(0, 4, 0, 0.2),
 	[
@@ -23,11 +23,11 @@ let a = dswitch1(
 let trig = impulse(3, 0);
 let freq = demand(trig, 0, a) * 30 + 340;
 sinOsc(freq, 0) * 0.1
-```
+~~~
 
 Inputs are of increasing number of steps:
 
-```
+~~~spl syn=B
 let a = dswitch1(
 	mouseX(0, 4, 0, 0.2),
 	0:4.collect { :i |
@@ -37,7 +37,7 @@ let a = dswitch1(
 let trig = impulse(6, 0);
 let freq = demand(trig, 0, a) * 30 + 340;
 sinOsc(freq, 0) * 0.1
-```
+~~~
 
 * * *
 

@@ -11,15 +11,15 @@ Output ranges from -1 to +1.
 
 Fixed frequency:
 
-```
+~~~spl syn=A
 lfSaw(500, 1) * 0.1
-```
+~~~
 
 Used as both oscillator and lfo:
 
-```
+~~~spl syn=B
 lfSaw(lfSaw(4, 0) * 400 + 400, 0) * 0.1
-```
+~~~
 
 * * *
 

@@ -14,24 +14,24 @@ _Warning_: In the current implementation, the amplitude can blow up if the frequ
 
 Constant frequency:
 
-```
+~~~spl syn=A
 fSinOsc(800, 0) * 0.25
-```
+~~~
 
 Modulate frequency:
 
-```
+~~~spl syn=B
 fSinOsc(xLine(200, 4000, 1), 0) * 0.25
-```
+~~~
 
 Loses amplitude towards the end:
 
-```
+~~~spl syn=C
 fSinOsc(
 	fSinOsc(xLine(4, 401, 8), 0) * 200 + 800,
 	0
 ) * 0.25
-```
+~~~
 
 * * *
 

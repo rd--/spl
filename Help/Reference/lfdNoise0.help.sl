@@ -17,24 +17,24 @@ If you do not need very high or very low freqs, or use fixed freqs, lfNoise0 is 
 
 Try wiggling mouse quickly, lfNoise frequently seems stuck, lfdNoise changes smoothly.
 
-```
+~~~spl syn=A
 let x = mouseX(0.1, 1000, 1, 0.2);
 [lfNoise0(x), lfdNoise0(x)] * 0.1
-```
+~~~
 
 silent for two seconds before going up in freq.
 
-```
+~~~spl syn=B
 let f = xLine(0.5, 10000, 3);
 [lfNoise0(f), lfdNoise0(f)] * 0.1
-```
+~~~
 
 lfNoise quantizes time steps at high freqs, lfdNoise does not:
 
-```
+~~~spl syn=C
 let f = xLine(1000, 20000, 10);
 [lfNoise0(f), lfdNoise0(f)] * 0.1
-```
+~~~
 
 * * *
 

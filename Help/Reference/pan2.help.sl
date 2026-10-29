@@ -10,13 +10,13 @@ Two channel equal power panner.
 
 Pan `pinkNoise` according to `sinOsc`:
 
-```
+~~~spl syn=A
 pan2(
 	pinkNoise(),
 	sinOsc(0.2, 0),
 	0.1
 )
-```
+~~~
 
 * * *
 

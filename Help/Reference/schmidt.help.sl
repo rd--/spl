@@ -16,11 +16,11 @@ Output is initially zero.
 
 Threshold octave jumps:
 
-```
+~~~spl syn=A
 let in = lfNoise1(3);
 let octave = schmidt(in, -0.15, 0.15) + 1;
 sinOsc(in * 200 + 500 * octave, 0) * 0.1
-```
+~~~
 
 Misnomer for _Schmitt_.
 

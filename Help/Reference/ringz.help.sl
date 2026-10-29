@@ -12,49 +12,49 @@ One `ringz` is equivalent to one component of the klank UGen.
 
 Resonant dust:
 
-```
+~~~spl syn=A
 ringz(dust(3) * 0.1, 2000, 2)
-```
+~~~
 
 Resonant noise:
 
-```
+~~~spl syn=B
 ringz(whiteNoise() * 0.005, 2000, 0.5)
-```
+~~~
 
 Modulate frequency:
 
-```
+~~~spl syn=C
 let freq = xLine(100, 3000, 10);
 [
 	ringz(whiteNoise() * 0.005, freq, 0.5),
 	ringz(impulse(6, 0) * 0.1, freq, 0.5)
 ]
-```
+~~~
 
 Modulate ring time:
 
-```
+~~~spl syn=D
 ringz(
 	impulse(6, 0) * 0.1,
 	2000,
 	xLine(4, 0.04, 8)
 )
-```
+~~~
 
 Modulate ring time opposite direction:
 
-```
+~~~spl syn=E
 ringz(
 	impulse(6, 0) * 0.1,
 	2000,
 	xLine(0.04, 4, 8)
 )
-```
+~~~
 
 Parallel filters with frequency ramps:
 
-```
+~~~spl syn=F
 let exciter = whiteNoise() * 0.001;
 {
 	ringz(
@@ -67,11 +67,11 @@ let exciter = whiteNoise() * 0.001;
 		0.5
 	)
 } !^ 10
-```
+~~~
 
 Texture of above:
 
-```
+~~~spl syn=G
 { :tr |
 	let exciter = whiteNoise() * 0.001;
 	{
@@ -87,11 +87,11 @@ Texture of above:
 		)
 	} !^ 10
 }.overlapTexture(5, 10, 9).mix
-```
+~~~
 
 Fixed exponentially spaced resonators, stereo:
 
-```
+~~~spl syn=H
 let k = 111;
 {
 	ringz(
@@ -100,11 +100,11 @@ let k = 111;
 		1
 	).mean
 } ! 2 * 0.22
-```
+~~~
 
 As above with envelope:
 
-```
+~~~spl syn=I
 let k = 222;
 {
 	ringz(
@@ -116,7 +116,7 @@ let k = 222;
 		1
 	).mean
 } ! 2 * 0.22
-```
+~~~
 
 * * *
 

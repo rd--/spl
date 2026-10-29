@@ -13,7 +13,7 @@ If normalize is set to 1 the weights are continuously normalized (this is an ext
 
 twChoose is a composite of `TwIndex` and `Select`.
 
-```
+~~~spl syn=A
 let list = [
 	sinOsc(111, 0),
 	saw(333),
@@ -26,7 +26,7 @@ twChoose(
 	weights,
 	0
 )
-```
+~~~
 
 Note: All Ugens are continuously running.
 This may not be the most efficient way if each input is Cpu-expensive.

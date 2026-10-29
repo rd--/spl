@@ -9,20 +9,20 @@ A running sum over a user specified number of samples, useful for running RMS po
 
 Overloads of course, would need scaling:
 
-```
+~~~spl syn=A
 runningSum(audioIn([1]), 40) / 40
-```
+~~~
 
 Running Average over _x_ samples:
 
-```
+~~~spl syn=B
 let x = 100;
 runningSum(lfSaw(440, 0), x) / x
-```
+~~~
 
 Rms power:
 
-```
+~~~spl syn=C
 let input= lfSaw(440, 0);
 let numsamp = 30;
 (
@@ -30,17 +30,17 @@ let numsamp = 30;
 	/
 	numsamp
 ).signedSqrt
-```
+~~~
 
 Play around:
 
-```
+~~~spl syn=D
 let input = audioIn([1]);
 let numsamp = 500;
 let power= mouseX(0.1, 4, 0, 0.2);
 let sum = runningSum(input ^ power, numsamp);
 (sum / numsamp) ^ power.reciprocal
-```
+~~~
 
 * * *
 

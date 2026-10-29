@@ -19,7 +19,7 @@ phasor controls sine frequency,
 end frequency matches a second sine wave,
 `linLin` converts range:
 
-```
+~~~spl syn=A
 let rate = mouseX(0.2, 2, 1, 0.2);
 let trig = impulse(rate, 0);
 let sr = sampleRate();
@@ -31,12 +31,12 @@ sinOsc(
 	],
 	0
 ) * 0.1
-```
+~~~
 
 Two phasors control two sine frequencies.
 `mouseX` controls trigger frequency and `mouseY` controls resetPos of the second:
 
-```
+~~~spl syn=B
 let rate = mouseX(1, 200, 1, 0.2);
 let trig = impulse(rate, 0);
 let sr = sampleRate();
@@ -51,7 +51,7 @@ let x = phasor(
 	]
 );
 sinOsc(x * 500 + 500, 0) * 0.2
-```
+~~~
 
 Use phasor to index into a sound file.
 Start and end here are defined as 0 and the number of frames in the buffer.

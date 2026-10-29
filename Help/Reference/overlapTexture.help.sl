@@ -14,28 +14,28 @@ The user function should return a graph of unit generators that produce a contin
 
 Texture of three overlapping stereo sine tones:
 
-```
+~~~spl syn=A
 { :tr |
 	{
 		sinOsc(tRand(220, 990, tr), 0)
 	} ! 2 * 0.1
 }.overlapTexture(3, 3, 3).mix
-```
+~~~
 
 Texture of overlapping _n_-channel sine tones (n should be number of speakers in system):
 
-```
+~~~spl syn=B
 let n = 24;
 { :tr |
 	{
 		sinOsc(tRand(220, 990, tr), 0)
 	} ! n / n / 3
 }.overlapTexture(3, 3, 3).mix
-```
+~~~
 
 There are many examples of `overlapTexture` in the examples files:
 
-```
+~~~spl syn=C
 let lfoFreq = 6;
 let lfo = lfNoise0(lfoFreq) * 1000 + 1200;
 let texture = { :tr |
@@ -61,7 +61,7 @@ let right = delayC(
 	delayTime
 );
 [left, right]
-```
+~~~
 
 * * *
 

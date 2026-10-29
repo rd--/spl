@@ -9,15 +9,15 @@ Generates random impulses from 0 to +1.
 
 Fixed density:
 
-```
+~~~spl syn=A
 dust(200) * 0.1
-```
+~~~
 
 Modulate density:
 
-```
+~~~spl syn=B
 dust(xLine(20000, 2, 10)) * 0.1
-```
+~~~
 
 * * *
 

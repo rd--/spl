@@ -214,11 +214,11 @@ OEIS [A101285](https://oeis.org/A101285):
 
 At `Ugen`:
 
-```
+~~~spl syn=A
 let l = line(48, 57, 23);
 let f = [l, l.round(1)].midiCps;
 sinOsc(f, 0) * 0.1
-```
+~~~
 
 Plot the function over a subset of the reals
 round is a staircase function:

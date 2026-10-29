@@ -6,21 +6,21 @@ Generates noise whose spectrum has equal power at all frequencies.
 
 De-correlated stereo white noise:
 
-```
+~~~spl syn=A
 whiteNoise([0.1 0.1], 0)
-```
+~~~
 
 High pass filtered:
 
-```
+~~~spl syn=B
 whiteNoise([0.1] # 2, 0).hpz1
-```
+~~~
 
 Low pass filtered:
 
-```
+~~~spl syn=C
 whiteNoise([0.1] # 2, 0).lpz1
-```
+~~~
 
 * * *
 

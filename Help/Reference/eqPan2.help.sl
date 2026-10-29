@@ -9,12 +9,12 @@ Two channel equal power panner.
 
 Pan `pinkNoise` using `sinOsc` control signal:
 
-```
+~~~spl syn=A
 eqPan2(
 	pinkNoise(0.1, 0),
 	sinOsc(0.2, 0)
 )
-```
+~~~
 
 * * *
 

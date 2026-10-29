@@ -12,11 +12,11 @@ A change on the input will take the specified time to reach the new value.
 
 Change curvature slowly over time:
 
-```
+~~~spl syn=A
 let sqr = linLin(lfPulse(1, 0, 0.5), 0, 1, 100, 400);
 let crv = varLag(sqr, 0.2, line(-8, 8, 15));
 [sinOsc(crv, 0)] # 2 * 0.3
-```
+~~~
 
 * * *
 

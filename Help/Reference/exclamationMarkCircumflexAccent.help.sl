@@ -5,7 +5,7 @@
 Duplicate and distribute.
 Names the idiom of generating an array and distributing it across the main ouput channels.
 
-```
+~~~spl syn=A
 { :tr |
 	{
 		let f = tChoose(
@@ -24,7 +24,7 @@ Names the idiom of generating an array and distributing it across the main ouput
 		) * 0.05
 	} !^ 10
 }.overlapTexture(2, 3, 4).mix
-```
+~~~
 
 The name of this operator is `exclamationMarkCircumflexAccent`.
 

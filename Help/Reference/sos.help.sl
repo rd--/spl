@@ -9,7 +9,7 @@ Formula is equivalent to _y(i)=a0·x(i)+a1·x(i-1)+a2·x(i-2)+b1·y(i-1)+b2·y(i
 
 Same as `twoPole`:
 
-```
+~~~spl syn=A
 let theta = mouseX(0.2.pi, 1.pi, 0, 0.2);
 let rho = mouseY(0.6, 0.99, 0, 0.2);
 let b1 = 2 * rho * theta.cos;
@@ -22,7 +22,7 @@ secondOrderFilterSection(
 	b1,
 	b2
 )
-```
+~~~
 
 * * *
 

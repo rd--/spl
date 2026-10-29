@@ -12,21 +12,21 @@ Attenuates or boosts a frequency band.
 
 Mixer parametric Eq as effect:
 
-```
+~~~spl syn=A
 midEq(
 	saw(200) * 0.1,
 	sinOsc(lfNoise2(1 / 3), 0).*+(24, 84).midiCps,
 	0.3,
 	12
 )
-```
+~~~
 
 Notch filter:
 
-```
+~~~spl syn=B
 let in = pinkNoise() + sinOsc(600, 0) * 0.1;
 midEq(in, sinOsc(0.2, 0.5.pi) * 2 + 600, 0.01, -24)
-```
+~~~
 
 * * *
 

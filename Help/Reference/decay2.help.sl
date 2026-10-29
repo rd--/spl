@@ -13,34 +13,34 @@ _decay2(in, attackTime, decayTime)_ is equivalent to _decay(in, decayTime) - dec
 
 One millisecond attack, one centisecond decay:
 
-```
+~~~spl syn=A
 decay2(impulse(1, 0), 0.001, 0.01)
-```
+~~~
 
 Since attack and decay are a difference of two Decays, if you swap the values, then the envelope turns upside down:
 
-```
+~~~spl syn=B
 decay2(impulse(1, 0), 0.01, 0.001)
-```
+~~~
 
 Used as an envelope:
 
-```
+~~~spl syn=C
 decay2(
 	impulse(xLine(1, 50, 20), 0) * 0.25,
 	0.01,
 	0.2
 ) * fSinOsc(600, 0)
-```
+~~~
 
 Compare the above with decay used as the envelope:
 
-```
+~~~spl syn=D
 decay(
 	impulse(xLine(1, 50, 20), 0) * 0.25,
 	0.2
 ) * fSinOsc(600, 0)
-```
+~~~
 
 Plot excitation function:
 

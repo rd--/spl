@@ -25,7 +25,7 @@ so that embedding the same Ugen twice calls this stream twice.
 
 Mouse control of tone:
 
-```
+~~~spl syn=A
 let trig = impulse(24, 0);
 let seq = drand(2000, [
 	dseq(1, [1 .. 5].mirror(1, 1)),
@@ -36,11 +36,11 @@ let osc = sinOsc(freq + [0 0.7], 0);
 osc.cube.cube.scaleNegative(
 	mouseX(-1, 1, 0, 0.2)
 ) * 0.1
-```
+~~~
 
 Randomly select among sequences:
 
-```
+~~~spl syn=B
 let trig = impulse(8, 0);
 let seq = drand(Infinity, [
 	dseq(1, [4 0 0 1 2 1 0 1]),
@@ -58,7 +58,7 @@ let trigSeq = demand(
 {
 	lpf(pinkNoise(), 5000)
 } ! 2 * decay(trigSeq, 0.5)
-```
+~~~
 
 * * *
 

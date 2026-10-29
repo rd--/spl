@@ -4,15 +4,15 @@
 
 Default parameters:
 
-```
+~~~spl syn=A
 let tr = impulse(1, 0);
 let env = envTrapezoid(tr, 0.5, 0, 0.5);
 sinOsc(440, 0) * env * 0.1
-```
+~~~
 
 Randomised parameters:
 
-```
+~~~spl syn=B
 let tr = impulse(4, 0);
 let env = envTrapezoid(
 	tr,
@@ -21,11 +21,11 @@ let env = envTrapezoid(
 	tRand(0.1, 0.9, tr)
 );
 sinOsc(440, 0) * env * 0.1
-```
+~~~
 
 Parallel streams:
 
-```
+~~~spl syn=C
 let tr = dustRange(
 	0.005,
 	sinOsc(1 / 11, 0).linLin(-1, 1, 0.005, 0.125)
@@ -63,7 +63,7 @@ let osc = blip(
 	)
 ) * env / 2;
 osc.splay
-```
+~~~
 
 * * *
 

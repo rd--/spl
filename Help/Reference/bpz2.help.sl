@@ -10,15 +10,15 @@ Implements the formula:
 
 This filter cuts out 0 Hz and the Nyquist frequency, compare:
 
-```
+~~~spl syn=A
 whiteNoise() * 0.1
-```
+~~~
 
 and:
 
-```
+~~~spl syn=B
 bpz2(whiteNoise() * 0.1)
-```
+~~~
 
 * * *
 
