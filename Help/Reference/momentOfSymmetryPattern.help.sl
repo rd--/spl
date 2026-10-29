@@ -9,7 +9,7 @@ The pattern of the _7/12_ moment of symmetry:
 
 ```
 >>> 7.momentOfSymmetryPattern(12)
-'LLlsLLs'
+'LLLsLLs'
 ```
 
 This pattern occurs as the final scale of `momentOfSymmetry` of _5/12_,

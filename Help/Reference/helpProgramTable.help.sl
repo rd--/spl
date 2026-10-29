@@ -10,7 +10,7 @@ Count help programs:
 ```
 >>> system.helpProgramTable
 >>> .size.round(25)
-5225
+5800
 ```
 
 A selection predicate may be specified,
@@ -23,17 +23,30 @@ count programs that answer images:
 5075
 ```
 
-Count entries with specific annotations:
+Count synthesiser programs:
+
+```
+>>> system.helpProgramTable { :p |
+>>> 	p.hasAnnotation('syn')
+>>> }.size.round(25)
+575
+```
+
+Count entries with specific annotations,
+here vector graphic programs,
+discrete graphsic programs,
+synthesiser programs,
+and integer sequence programs:
 
 ```
 >>> let t = system.helpProgramTable;
->>> ['svg' 'png' 'oeis'].collect { :k |
+>>> ['svg' 'png' 'syn' 'oeis'].collect { :k |
 >>> 	t.count { :e |
 >>> 		e[2].annotations
 >>> 		.includesKey(k)
 >>> 	}.round(25)
 >>> }
-[4875 200 1825]
+[4875 200 575 1825]
 ```
 
 * * *

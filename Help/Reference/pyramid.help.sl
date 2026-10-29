@@ -214,6 +214,8 @@ Pyramid _k=7_:
 
 See also: Permutation, ++, catenate, mirror, prefixes, suffixes
 
+Guides: SuperCollider Functions
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Array.html#-pyramid)
