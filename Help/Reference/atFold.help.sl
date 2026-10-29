@@ -24,7 +24,7 @@ This form of indexing _reflects_ points at the boundaries:
 
 * * *
 
-See also: at, atAllFold, atBlend, atPin, atWrap
+See also: At, at, atAllFold, atBlend, atPin, atWrap
 
 Guides: Indexing Functions
 
@@ -32,4 +32,4 @@ References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Array.html#-foldAt)
 
-Categories: Acccessing
+Categories: Accessing

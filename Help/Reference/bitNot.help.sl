@@ -121,7 +121,7 @@ OEIS [A350094](https://oeis.org/A350094):
 
 * * *
 
-See also: bitAnd, bitOr, bitXor, not
+See also: Binary, bitAnd, bitOr, bitXor, not
 
 Guides: Bitwise Functions, Boolean Functions
 
@@ -130,5 +130,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BitNot.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Bitwise_operation#NOT)
-
-Categories: Bit Manipulation, Binary

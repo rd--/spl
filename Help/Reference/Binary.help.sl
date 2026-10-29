@@ -1,6 +1,21 @@
 # Binary
 
-`Binary` is a numeric `Trait` holding behaviours related to the binary (bit-level) representation of numbers:
+`Binary` is a numeric trait holding behaviours related to the binary (bit-level) representation of numbers.
+
+Methods include:
+
+- `bitAnd`
+- `bitAt`
+- `bitCount`
+- `bitNot`
+- `bitOr`
+- `bitPut`
+- `bitShiftLeft`
+- `bitShiftRight`
+- `bitXor`
+- `isBinary`
+
+`Binary` is a `Trait`:
 
 ```
 >>> system
@@ -23,12 +38,10 @@ Types implementing `Binary`:
 
 * * *
 
-See also: bitAnd, bitAt, bitCount, bitNot, bitOr, bitPut, bitShiftLeft, bitShiftRight, bitXor, isBinary
+See also: bitAnd, bitNot, bitOr, bitShiftLeft, bitShiftRight, bitXor
 
 Guides: Bitwise Functions
 
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Binary_number)
-
-Categories: Numeric, Bits, Trait

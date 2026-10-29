@@ -84,12 +84,10 @@ OEIS [A067138](https://oeis.org/A067138):
 
 See also: Binary, BitSet, bitClear, bitPut, highBit, integerDigits
 
-Guides: Bitwise Functions
+Guides: Bitwise Functions, Indexing Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BitGet.html),
 _Smalltalk_
 5.6.5.5
-
-Categories: Accessing, Bit Manipulation

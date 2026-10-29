@@ -55,7 +55,7 @@ OEIS [A142151](https://oeis.org/A142151):
 
 * * *
 
-See also: bitAnd, bitNot, bitOr, bitXor
+See also: Binary, bitAnd, bitNot, bitOr, bitXor
 
 Guides: Bitwise Functions
 
@@ -65,5 +65,3 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Logical_NOR)
 [2](https://en.wikipedia.org/wiki/NOR_gate)
-
-Categories: Bit Manipulation, Binary

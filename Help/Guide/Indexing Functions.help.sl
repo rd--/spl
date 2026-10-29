@@ -84,6 +84,8 @@ Write a value to a slot at a specified index:
 
 - `atIfAbsentPut!`
 - `put!`
+- `putPin!`
+- `putWrap!`
 
 Write a value, or a collection of values, to a specified sequence of indices:
 

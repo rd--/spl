@@ -17,6 +17,4 @@ Answer _x_.
 
 See also: Put, atWrap, put!, putPin!
 
-Guides: List Functions
-
-Categories: Acccessing
+Guides: Indexing Functions

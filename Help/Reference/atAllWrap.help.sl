@@ -12,8 +12,6 @@ If any index is out of bounds, let it wrap around from the end to the beginning 
 
 * * *
 
-See also: at, atAll, atFold, atPin, putWrap
+See also: At, at, atAll, atFold, atPin, putWrap!
 
 Guides: Indexing Functions
-
-Categories: Acccessing

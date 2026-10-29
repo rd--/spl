@@ -17,5 +17,3 @@ The name of this operator is `commercialAtGreaterThanSign`.
 See also: @, @*
 
 Guides: Indexing Functions
-
-Categories: Accesing

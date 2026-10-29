@@ -90,4 +90,4 @@ _Smalltalk_
 
 Unicode: U+244A ⑊ OCR Double Backslash
 
-Categories: Arithmetic operators
+Categories: Arithmetic
