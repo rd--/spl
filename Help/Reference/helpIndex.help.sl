@@ -20,8 +20,8 @@ Count entries:
 Lookup a reference entry:
 
 ```
->>> system.helpIndex.find('SinOsc')
-['Reference' 'SinOsc']
+>>> system.helpIndex.find('sinOsc')
+['Reference' 'sinOsc']
 ```
 
 Lookup a guide entry:

@@ -40,7 +40,7 @@ Equivalent to:
 
 * * *
 
-See also: ringzBank
+See also: ringzBank, sinOsc
 
 Guides: Unit Generators
 

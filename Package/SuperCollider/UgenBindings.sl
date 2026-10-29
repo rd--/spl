@@ -1567,7 +1567,7 @@
 		in.error('medianFilter: length not scalar')
 	}
 
-	modularDistance { :x :y :mod |
+	[modularDistance, modDif] { :x :y :mod |
 		<primitive: return sc.ModDif(_x, _y, _mod);>
 	}
 

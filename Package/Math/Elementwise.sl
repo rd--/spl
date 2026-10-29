@@ -1206,7 +1206,7 @@
 		}
 	}
 
-	modularDistance { :i :j :m |
+	[modularDistance, modDif] { :i :j :m |
 		i.withWithCollect(j.nest, m.nest, modularDistance/3)
 	}
 

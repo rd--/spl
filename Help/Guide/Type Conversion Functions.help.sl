@@ -180,6 +180,7 @@ The unary forms of binary constructors operate on appropriately shaped arrays.
 
 `Fraction` at `List`:
 
+```
 >>> Fraction[1 2]
 1/2
 

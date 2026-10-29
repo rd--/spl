@@ -1,6 +1,6 @@
 +@Integer {
 
-	modularDistance { :i :j :m |
+	[modularDistance, modDif] { :i :j :m |
 		let p = i % m;
 		let q = j % m;
 		(p - q).abs.min(m - (p - q).abs)

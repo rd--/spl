@@ -45,6 +45,6 @@ This is distinct from binding a literal block to an existing identifier defined 
 
 See also: nil, var
 
-Guides: Block Syntax, Let Syntax, Program Syntax
+Guides: Block Syntax, Let Syntax, Program Syntax, Syntax Guides
 
 Categories: Syntax

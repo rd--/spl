@@ -31,6 +31,10 @@
 
 +Ugen {
 
+	blend { :y1 :y2 :mu |
+		blendXFade(y1, y2, mu)
+	}
+
 	feedforwardFeedbackward { :in :forward/2 :backward/1 |
 		let maxBlockSize = 512;
 		let buffer = bufAlloc(1, maxBlockSize + 1).bufClear;

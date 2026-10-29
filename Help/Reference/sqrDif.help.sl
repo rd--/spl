@@ -3,7 +3,7 @@
 - _sqrDif(α, β)_
 
 Square of the difference,
-is equivalent to _(α-β)^2_.
+equivalent to _(α-β)^2_.
 This can be more efficient than the written out form.
 
 At `Ugen`:

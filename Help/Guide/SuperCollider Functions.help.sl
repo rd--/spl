@@ -39,6 +39,18 @@ Rendering Functions:
 
 - `renderSoundFile`
 
+Alternate Definition:
+
+- `gcd`, `signedGcd`
+- `lcm`, `signedLcm`
+- `sqrt`, `signedSqrt`
+
+Non-standard Operators:
+
+- `absDif`
+- `modDif`, `modularDistance`
+- `sqrDif`
+
 * * *
 
 Guides: Texture Programs, Unit Generators

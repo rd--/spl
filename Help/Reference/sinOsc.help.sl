@@ -51,7 +51,7 @@ sinOsc(
 
 * * *
 
-See also: fSinOsc, klang, osc, pmOsc, pulse, saw, sinOscFb
+See also: fSinOsc, sinOscBank, osc, pmOsc, pulse, saw, sinOscFb
 
 Guides: Unit Generators
 

@@ -56,4 +56,4 @@ Lint reference files:
 $ (cd ~/sw/spl/Help/Reference; make lint)
 ~~~
 
-Linting: 4,213 file(s)
+Linting: 4,172 file(s)

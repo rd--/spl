@@ -6,8 +6,8 @@ Answer the absolute value of the difference of α and β.
 Alias for `absoluteDifference`.
 
 ```
->>> absDif(1, 2)
-1
+>>> (absDif(1, 2), 1 - 2)
+(1, -1)
 ```
 
 Simple rhythm:

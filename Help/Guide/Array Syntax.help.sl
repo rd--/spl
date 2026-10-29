@@ -22,7 +22,7 @@ can be written using `Matrix Syntax` as a sequence of vectors separated by semic
 
 A _volume_,
 a three-dimensional array,
-also called a _brick_,
+also called a _box_ or a _brick_,
 can be written using `Volume Syntax` as a sequence of matrices separated by _:;_ tokens:
 
 ```
@@ -42,7 +42,7 @@ A concise notation can allow the _score_ for a work to be written directly in Sá
 
 See also: List, :;
 
-Guides: List Syntax, Matrix Syntax, Vector Syntax, Volume Syntax
+Guides: List Syntax, Matrix Syntax, Syntax Guides, Vector Syntax, Volume Syntax
 
 References:
 _Fortress_

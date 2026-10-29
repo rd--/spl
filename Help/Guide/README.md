@@ -25,4 +25,4 @@ Lint files:
 $ (cd ~/sw/spl/Help/Guide; make lint)
 ~~~
 
-Linting: 295 file(s)
+Linting: 298 file(s)
