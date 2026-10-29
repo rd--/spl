@@ -9,9 +9,9 @@ rewriteTest :: String -> String
 rewriteTest string =
   let trim =
         reverse
-        . dropWhile Data.Char.isSpace
-        . reverse
-        . dropWhile Data.Char.isSpace
+          . dropWhile Data.Char.isSpace
+          . reverse
+          . dropWhile Data.Char.isSpace
   in case Data.List.Split.splitOneOf "=~" string of
       [lhs, ' ' : rhs] -> unlines [">>> " ++ trim lhs, rhs]
       _ -> unlines [">>> " ++ string, "true"]
@@ -40,10 +40,10 @@ tidyPost l =
 toDoctest :: [String] -> [String]
 toDoctest =
   tidyPost
-  . lines
-  . unlines
-  . snd
-  . Data.List.mapAccumL toDoctestAccum ("", False)
+    . lines
+    . unlines
+    . snd
+    . Data.List.mapAccumL toDoctestAccum ("", False)
 
 main :: IO ()
 main = interact (unlines . toDoctest . lines)

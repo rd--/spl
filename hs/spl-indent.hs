@@ -10,7 +10,6 @@ The current line is shifted left if:
 - there is a leading closing token
 
 Runs over .help.sl files and understands the document test layout rules.
-
 -}
 module Main where
 
@@ -177,14 +176,12 @@ hasLeadingDot s =
     Just '.' -> True
     _ -> False
 -}
-
 indentNext :: String -> Bool
 indentNext s = inOrOutDent s > 0 || hasTrailingOpening s
 
 {- | (Indent, LeadingDot?)
 type StateWithDot = (Int, Bool)
 -}
-
 data Where = InDocumentTestProgram | InDocumentTestExpectedAnswer | InPlain
   deriving (Eq, Show)
 
@@ -203,10 +200,11 @@ hasDocumentTestProgramPrefix s =
 splitNonIndentingPrefix :: String -> (String, String)
 splitNonIndentingPrefix s =
   if ">> " `isPrefixOf` s
-  then (">> ", drop 3 s)
-  else if ">>> " `isPrefixOf` s
-       then (">>> ", drop 4 s)
-       else ("", s)
+    then (">> ", drop 3 s)
+    else
+      if ">>> " `isPrefixOf` s
+        then (">>> ", drop 4 s)
+        else ("", s)
 
 stepWhere :: Where -> String -> Where
 stepWhere w s =
@@ -239,9 +237,10 @@ indentLine (i, w) u =
       t = removeQuotedByText '\'' s
       next = if indentNext t then 1 else 0
       current = if hasLeadingClosing t then -1 else 0
-      s' = if w == InDocumentTestExpectedAnswer || null s
-            then s
-            else replicate (i + current) '\t' ++ s
+      s' =
+        if w == InDocumentTestExpectedAnswer || null s
+          then s
+          else replicate (i + current) '\t' ++ s
   in ((i + next + current, w'), p ++ s')
 
 -- | Indent sequence of non-indented lines.
