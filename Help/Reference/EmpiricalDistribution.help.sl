@@ -63,8 +63,7 @@ EmpiricalDistribution(
 		6 -> 2,
 		7 -> 1
 	]
-)
-.randomVariate(r, [10 ^ 4])
+).randomVariate(r, [10 ^ 4])
 .histogramPlot
 ~~~
 

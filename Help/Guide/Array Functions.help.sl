@@ -10,6 +10,7 @@ Constructors:
 - `array`
 - `duplicate`
 - `fill`
+- `iota`
 - `table`
 - `triangularArray`
 

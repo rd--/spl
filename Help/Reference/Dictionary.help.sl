@@ -105,7 +105,7 @@ The empty `Dictionary`:
 ```
 >>> let d = Dictionary();
 >>> (d.size, d.isEmpty, d.comparator)
-(0, true, isEqual/2)
+(0, true, =)
 ```
 
 A `Dictionary` with lists for keys:

@@ -173,6 +173,7 @@ Guides (A-Z):
 - `Numeric Types`
 - `Numerical Methods`
 - `Numerical Precision`
+- `Object Functions`
 - `Octave Perspective`
 - `One Indexing`
 - `Open Questions`
@@ -739,7 +740,7 @@ Reference (a-z):
 - `ampersandAmpersand`
 - `ampersandCurve`
 - `ampersandImplicitCurve`
-- `amplitude`
+- `amplitudeFollower`
 - `amusicalPermutation`
 - `and`
 - `angleBisector`
@@ -1549,7 +1550,6 @@ Reference (a-z):
 - `duplicate`
 - `duplicateEach`
 - `duplicateFreePrefix`
-- `duplicates`
 - `durationString`
 - `durfeeSquare`
 - `dust`
@@ -2130,6 +2130,7 @@ Reference (a-z):
 - `inferSchemaType`
 - `infinity`
 - `inHertz`
+- `initialize`
 - `initializeSlots`
 - `injectInto`
 - `inner`
@@ -3800,6 +3801,7 @@ Reference (a-z):
 - `seidelTriangle`
 - `seiffertsSpiral`
 - `select`
+- `selectDuplicates`
 - `selectedText`
 - `selectedTextOrWordAtCaret`
 - `selectIndices`

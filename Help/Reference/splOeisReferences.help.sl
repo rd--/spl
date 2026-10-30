@@ -7,16 +7,18 @@ Answer a `Record` where the keys are help topics and the values are lists of OEI
 Count entries:
 
 ```
->>> system.splOeisReferences.size
-701
+>>> system.splOeisReferences
+>>> .size.round(25)
+700
 ```
 
 Count unique OEIS identitfiers:
 
 ```
 >>> system.splOeisReferences
->>> .values.catenate.unique.size
-3104
+>>> .values.catenate.unique(==)
+>>> .size.round(25)
+3100
 ```
 
 Lookup OEIS references at `zeta`:

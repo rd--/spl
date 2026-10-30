@@ -18,6 +18,17 @@ answer a `List` of the sequence _x_ repeated _n_ times:
 [1 2 3 1 2 3 1 2 3 1 2 3]
 ```
 
+Note relation to `recycle` for vectors:
+
+
+```
+>>> [1 2 3].cycle(3)
+[1 2 3 1 2 3 1 2 3 1 2 3]
+
+>>> [1 2 3].recycle([9])
+[1 2 3 1 2 3 1 2 3 1 2 3]
+```
+
 At `Stream`,
 extend the stream cyclically indefinitely:
 

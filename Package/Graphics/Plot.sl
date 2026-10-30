@@ -1862,7 +1862,7 @@ Plot : [Object] {
 +List {
 
 	dotPlot { :self |
-		self.Multiset.dotPlot
+		Multiset(self, ==).dotPlot
 	}
 
 }

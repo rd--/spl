@@ -67,7 +67,7 @@ true
 
 See also: isPrime, isPrimeTrialDivision
 
-Guides: Prime Number Functions, Predicate Functions
+Guides: Predicate Functions, Prime Number Functions
 
 References:
 _Mathematica_

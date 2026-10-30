@@ -2,14 +2,6 @@ RunArray : [Object, Equal, Store, At, Indices] {
 
 	| runLengths values cachedIndex cachedRun cachedOffset |
 
-	Multiset { :self :comparator/2 |
-		let answer = Multiset([], comparator/2);
-		self.runLengthsAndValuesDo { :run :value |
-			answer.addWithOccurrences!(value, run)
-		};
-		answer
-	}
-
 	IdentitySet { :self |
 		self.values.IdentitySet
 	}
@@ -18,6 +10,14 @@ RunArray : [Object, Equal, Store, At, Indices] {
 		let answer = List(self.size, nil);
 		self.withIndexDo { :each :index |
 			answer[index] := each
+		};
+		answer
+	}
+
+	Multiset { :self :comparator/2 |
+		let answer = Multiset([], comparator/2);
+		self.runLengthsAndValuesDo { :run :value |
+			answer.addWithOccurrences!(value, run)
 		};
 		answer
 	}

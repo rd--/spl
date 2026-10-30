@@ -104,4 +104,4 @@ true
 
 See also: cycle, impliedShape, padLeft, padRight, reshape, reshapeLike, shape
 
-Guides: Array Functions
+Guides: Array Functions, Regular and Irregular Arrays

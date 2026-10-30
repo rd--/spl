@@ -48,6 +48,17 @@ Map[
 (4 * 1) + (3 * 2) + ((2 + 1) * 3)
 ```
 
+Encoding of a `String` using `huffmanEncode`:
+
+~~~spl svg=A
+'Compression is based on redundancy'
+.huffmanEncode
+.encoding
+.discretePlot
+~~~
+
+![](Help/Image/huffmanEncode-A.svg)
+
 * * *
 
 See also: HuffmanCoding

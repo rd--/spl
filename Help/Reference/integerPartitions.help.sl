@@ -624,7 +624,7 @@ OEIS [A116861](https://oeis.org/A116861):
 ~~~spl svg=G oeis=A116861
 1:13.triangularArray { :n :k |
 	n.integerPartitions.count { :p |
-		p.unique.sum = k
+		p.unique(==).sum = k
 	}
 }.catenate.discretePlot
 ~~~

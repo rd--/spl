@@ -129,24 +129,6 @@
 		}
 	}
 
-	irregularShapeBoundingShape { :a |
-		let n = a[1];
-		let m = a.allButFirst.collect(deepMax/1);
-		[n] ++ m
-	}
-
-	irregularShapeIndices { :a |
-		let b = a.drop;
-		a.irregularShapeBoundingShape
-		.shapeIndices.select { :i |
-			let j = i.dropLast;
-			j.prefixes.withIndexCollect { :k :y |
-				let z = b.at(y).atPathWrap(k);
-				i[y + 1] <= z
-			}.allTrue
-		}
-	}
-
 	irregularIota { :a :zero |
 		a
 		.irregularShapeIndices
@@ -171,6 +153,24 @@
 			} {
 				c
 			}
+		}
+	}
+
+	irregularShapeBoundingShape { :a |
+		let n = a[1];
+		let m = a.allButFirst.collect(deepMax/1);
+		[n] ++ m
+	}
+
+	irregularShapeIndices { :a |
+		let b = a.drop;
+		a.irregularShapeBoundingShape
+		.shapeIndices.select { :i |
+			let j = i.dropLast;
+			j.prefixes.withIndexCollect { :k :y |
+				let z = b.at(y).atPathWrap(k);
+				i[y + 1] <= z
+			}.allTrue
 		}
 	}
 

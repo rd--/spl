@@ -13,6 +13,6 @@ Answer a `List` of the slot values for the object _x_.
 
 See also: perform, slotList, slotNameList, uncheckedSlotRead, uncheckedSlotWrite
 
-Guides: Slot Access Syntax, Reflection Functions
+Guides: Reflection Functions, Slot Access Syntax
 
 Status: Experimental

@@ -64,12 +64,6 @@ Dictionary : [Object, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add,
 
 +List {
 
-	assocationListToDicionary { :self |
-		self.collect(
-			keyAndValue/1
-		).listToDictionary
-	}
-
 	Dictionary { :self |
 		self.isEmpty.if {
 			Dictionary()
@@ -80,6 +74,12 @@ Dictionary : [Object, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add,
 				self.listToDictionary
 			}
 		}
+	}
+
+	assocationListToDicionary { :self |
+		self.collect(
+			keyAndValue/1
+		).listToDictionary
 	}
 
 	listToDictionary { :self |

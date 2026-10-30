@@ -394,27 +394,6 @@
 
 +Record {
 
-	lsBind { :self |
-		let isAtEnd = false;
-		self.collect!(lsConstant/1);
-		BlockStream {
-			isAtEnd.if {
-				nil
-			} {
-				let nextList = self.collect(next/1);
-				nextList.anySatisfy(isNil/1).if {
-					isAtEnd := true;
-					nil
-				} {
-					nextList
-				}
-			}
-		} {
-			self.do(reset!/1);
-			isAtEnd := false
-		}
-	}
-
 	asPatternEventMessages { :self :currentTime |
 		let latency = 0.2; /* Preferences */
 		let instrument = self['instrument'];
@@ -444,6 +423,27 @@
 			[sNewBundle, nSetBundle]
 		} {
 			[sNewBundle]
+		}
+	}
+
+	lsBind { :self |
+		let isAtEnd = false;
+		self.collect!(lsConstant/1);
+		BlockStream {
+			isAtEnd.if {
+				nil
+			} {
+				let nextList = self.collect(next/1);
+				nextList.anySatisfy(isNil/1).if {
+					isAtEnd := true;
+					nil
+				} {
+					nextList
+				}
+			}
+		} {
+			self.do(reset!/1);
+			isAtEnd := false
 		}
 	}
 

@@ -263,6 +263,9 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 +@Collection {
 
 	[Multiset, collectionToMultiset] { :self :comparator/2 |
+		self.isDictionary.ifTrue {
+			self.error('collectionToMultiset: dictionary')
+		};
 		let answer = comparatorToEmptyMultiset(comparator/2);
 		answer.addAll!(self);
 		answer

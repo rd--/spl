@@ -172,7 +172,7 @@ OEIS [A127671](https://oeis.org/A127671):
 
 ~~~spl svg=C oeis=A127671
 let c = { :p |
-	let s = p.unique;
+	let s = p.unique(==);
 	let k = p.size;
 	let j = k - 1;
 	let h = s.product { :x |

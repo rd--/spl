@@ -202,18 +202,6 @@
 		}
 	}
 
-	[nub, unique] { :self :comparator/2 |
-		let seen = comparator/2.comparatorToEmptySet;
-		self.select { :each |
-			seen.includes(each).if {
-				false
-			} {
-				seen.include!(each);
-				true
-			}
-		}
-	}
-
 	[deleteDuplicates, nub] { :self |
 		self.deleteDuplicates(=)
 	}
@@ -512,6 +500,18 @@
 
 	not { :self |
 		self.collect(not/1)
+	}
+
+	[nub, unique] { :self :comparator/2 |
+		let seen = comparator/2.comparatorToEmptySet;
+		self.select { :each |
+			seen.includes(each).if {
+				false
+			} {
+				seen.include!(each);
+				true
+			}
+		}
 	}
 
 	one { :self |

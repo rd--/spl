@@ -49,8 +49,21 @@ the second decreasing:
 [2, [3], [1 2 3; 3 2 1]]
 ```
 
+To regularise an irregular array:
+
+```
+>>> [1; 2 3; 4 5 6].padRight
+[1 0 0; 2 3 0; 4 5 6]
+
+>>> [1; 2 3; 4 5 6].padLeft
+[0 0 1; 0 2 3; 4 5 6]
+
+>>> [1; 2 3; 4 5 6].recycle([3 3])
+[1 1 1; 2 3 2; 4 5 6]
+```
+
 * * *
 
-See also: irregularShape, reshape, shape
+See also: irregularIota, irregularShape, recycle, reshape, shape
 
 Guides: Array Functions

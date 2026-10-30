@@ -419,7 +419,7 @@ OEIS [A223543](https://oeis.org/A223543):
 let k = 2 ^ 5 - 1;
 let i = 2 ^ 0:k;
 nimMultiplication/2.table(i, i)
-.catenate.unique.linePlot.log
+.catenate.unique(==).linePlot.log
 ~~~
 
 ![](Help/Image/nimMultiplication-U.svg)
@@ -434,7 +434,7 @@ let i = 2 ^ 1:k;
 let a = 0:k.antidiagonalArray { :m :n |
 	(2 ^ n).nimMultiplication(2 ^ m)
 };
-let u = a.catenate.unique;
+let u = a.catenate.unique(==);
 a.deepCollect { :x |
 	u.indexOf(x) - 1
 }.++.take(264).scatterPlot

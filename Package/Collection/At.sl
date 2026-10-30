@@ -51,6 +51,10 @@
 		}
 	}
 
+	atPath { :self :path |
+		self.atPathUsing(path, at/2)
+	}
+
 	atPathUsing { :self :path :aBlock/2 |
 		let item = self;
 		path.ifEmpty {
@@ -61,10 +65,6 @@
 			};
 			item
 		}
-	}
-
-	atPath { :self :path |
-		self.atPathUsing(path, at/2)
 	}
 
 	atPathWrap { :self :path |

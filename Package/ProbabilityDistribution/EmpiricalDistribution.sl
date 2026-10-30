@@ -88,8 +88,9 @@ EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] {
 +Map {
 
 	EmpiricalDistribution { :self |
-		let b = Multiset(self, ==);
-		newEmpiricalDistribution().initializeSlots(
+		let b = Multiset(self);
+		newEmpiricalDistribution()
+		.initializeSlots(
 			b,
 			b.sum
 		)
