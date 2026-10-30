@@ -6,4 +6,4 @@ The program oracle selects a program at random and opens it in a `SuperColliderP
 
 See also: SmallKansas, SuperColliderProgramBrowser
 
-Categories: Kansas
+Guides: Small Kansas

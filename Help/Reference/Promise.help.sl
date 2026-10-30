@@ -35,12 +35,10 @@ true
 
 See also: allFulfilled, allSettled, anyFulfilled, anySettled, rejectedPromise, resolvedPromise, then, thenElse
 
-Guides: Asynchronous Functions
+Guides: Asynchronous Functions, Scheduling Functions
 
 References:
 _Mdn_
 [1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise),
 _Tc39_
 [1](https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-promise-objects)
-
-Categories: Type, Scheduling

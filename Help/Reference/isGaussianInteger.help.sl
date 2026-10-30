@@ -42,5 +42,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/GaussianInteger.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Gaussian_integer)
-
-Categories: Testing

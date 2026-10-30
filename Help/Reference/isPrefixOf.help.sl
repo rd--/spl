@@ -3,6 +3,7 @@
 - _isPrefixOf(s, t)_
 
 Answer `true` if the _s_ is a prefix of _t_, else `false`.
+This is `swap` of `beginsWith`.
 
 At `String`:
 

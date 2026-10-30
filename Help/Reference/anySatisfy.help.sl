@@ -70,5 +70,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/AnyTrue.html),
 _Smalltalk_
 5.7.1.2
-
-Categories: Testing

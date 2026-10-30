@@ -60,5 +60,3 @@ _Max_
 [1](https://docs.cycling74.com/reference/gen_dsp_cycle/),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/SinOsc.html)
-
-Categories: Ugen, Oscillator

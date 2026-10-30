@@ -10,5 +10,3 @@ Evaluate the block _f_ once, then again as long the value of the block _conditio
 See also: doWhileTrue, if, ifFalse, ifNil, ifTrue, whileFalse, whileTrue
 
 Guides: Control Functions, Iteration Functions
-
-Categories: Evaluating

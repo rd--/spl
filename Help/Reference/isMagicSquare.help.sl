@@ -99,7 +99,7 @@ by Pfeffermann in 1890:
 
 See also: isLatinSquare, magicSquare, magicSquareSummary
 
-Guides: Magic Square Functions, Matrix Functions
+Guides: Magic Square Functions, Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_
@@ -108,5 +108,3 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Magic_square)
 [2](https://en.wikipedia.org/wiki/Magic_square_of_squares)
-
-Categories: Testing

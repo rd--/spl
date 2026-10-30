@@ -62,4 +62,4 @@ system
 
 See also: Notebook, SmallKansas
 
-Categories: Kansas
+Guides: Small Kansas

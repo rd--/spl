@@ -30,12 +30,10 @@ false
 
 See also: Character, isLetter
 
-Guides: String Functions
+Guides: Predicate Functions, String Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DigitQ.html),
 _Smalltalk_
 5.3.4.7
-
-Categories: Testing

@@ -233,5 +233,3 @@ _Smalltalk_
 5.6.5.16,
 _W_
 [1](https://en.wikipedia.org/wiki/Odd_number)
-
-Categories: Testing, Math

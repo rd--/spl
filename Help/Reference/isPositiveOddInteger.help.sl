@@ -19,4 +19,4 @@ false
 
 See also: isInteger, isNumber, isOdd, isPositive, isPositiveInteger
 
-Categories: Predicate, Testing
+Guides: Integer Functions, Predicate Functions

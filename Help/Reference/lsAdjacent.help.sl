@@ -22,7 +22,7 @@ Product of adjacent items:
 
 * * *
 
-See also: lsDiff, lsSeries, adjacentPairsCollect, adjacentPairsDo
+See also: adjacentPairsCollect, adjacentPairsDo, lsDiff, lsSeries
 
 Guides: Patterns and Streams
 

@@ -52,5 +52,3 @@ References:
 _Smalltalk_
 5.9.1.4
 5.9.1.5
-
-Categories: Positioning

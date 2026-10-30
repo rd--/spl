@@ -107,7 +107,10 @@ Array Predicates:
 
 String Predicates:
 
+- `beginsWith`
+- `endsWith`
 - `isBitString`
+- `isPrefixOf`
 - `isString`
 
 Gray Code Predicates:

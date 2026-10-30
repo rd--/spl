@@ -52,5 +52,3 @@ true
 See also: environmentVariable
 
 Guides: System Functions
-
-Categories: System, Subprocess

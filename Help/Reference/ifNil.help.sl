@@ -38,5 +38,3 @@ true
 See also: Nil, if, ifEmpty, ifFalse, ifNaN, ifNotNil, ifTrue, nil
 
 Guides: Control Functions
-
-Categories: Evaluating

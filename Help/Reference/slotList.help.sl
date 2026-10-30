@@ -29,5 +29,3 @@ At `Record`:
 See also: Association, List, isEqualByAtNamedSlots, slotNameList
 
 Guides: Reflection Functions
-
-Categories: Reflection

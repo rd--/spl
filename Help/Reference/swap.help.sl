@@ -24,7 +24,9 @@ true
 
 * * *
 
-See also: Block Arity
+See also: Block
+
+Guides: Block Arity, Block Functions, Operator Adverbs
 
 References:
 _Apl_

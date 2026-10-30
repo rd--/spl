@@ -26,10 +26,8 @@ false
 
 See also: isApostrophe, isGraveAccent, quotationMark
 
-Guides: String Functions, String Syntax
+Guides: Predicate Functions, String Functions, String Syntax
 
 Unicode: U+0022 Quotation Mark,
 U+201C “ Left Double Quotation Mark,
 U+201D ” Right Double Quotation Mark,
-
-Categories: Testing, Text

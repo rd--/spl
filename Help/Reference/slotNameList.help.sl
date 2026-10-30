@@ -29,6 +29,4 @@ See also: perform, slotList, slotValueList, uncheckedSlotRead, uncheckedSlotWrit
 
 Guides: Reflection Functions, Slot Access Syntax
 
-Categories: Accessing, Reflection
-
 Status: Experimental

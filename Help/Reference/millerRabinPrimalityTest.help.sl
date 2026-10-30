@@ -67,12 +67,10 @@ true
 
 See also: isPrime, isPrimeTrialDivision
 
-Guides: Prime Number Functions
+Guides: Prime Number Functions, Predicate Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Rabin-MillerStrongPseudoprimeTest.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test)
-
-Categories: Testing

@@ -12,4 +12,4 @@ The selected port is described in the text pane.
 
 See also: MidiMonitorMenu, SmallKansas
 
-Categories: Kansas
+Guides: Small Kansas

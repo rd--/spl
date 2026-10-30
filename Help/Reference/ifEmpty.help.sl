@@ -22,5 +22,3 @@ else answer _c_ or _g()_.
 See also: if, ifFalse, ifNil, ifNotEmpty, ifNotNil, ifTrue, size
 
 Guides: Collection Functions, Control Functions
-
-Categories: Evaluating

@@ -22,5 +22,3 @@ true
 See also: System, Trait, methodDictionary, packageDictionary, typeDictionary
 
 Guides: Reflection Functions
-
-Categories: Reflection, System

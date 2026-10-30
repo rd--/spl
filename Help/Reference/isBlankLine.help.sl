@@ -17,4 +17,4 @@ false
 
 See also: isAllWhiteSpace, isEmpty, isSpace, isTab
 
-Categories: Testing
+Guides: Predicate Functions, String Functions

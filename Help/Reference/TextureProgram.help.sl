@@ -33,6 +33,4 @@ and the _delayTime_ block selects a random integer to divide down:
 
 See also: collectTextureProgram, overlapTextureProgram, spawnTextureProgram, xFadeTextureProgram
 
-Guides: SuperCollider Functions, Texture Programs, Unit Generators
-
-Categories: Scheduling
+Guides: Scheduling Functions, SuperCollider Functions, Texture Programs, Unit Generators

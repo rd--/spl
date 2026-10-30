@@ -26,4 +26,4 @@ true
 
 See also: ScSynth, removeOscListener
 
-Categories: Scheduling
+Guides: Scheduling Functions

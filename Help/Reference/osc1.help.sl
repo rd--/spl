@@ -20,5 +20,3 @@ sinOsc((osc1(tbl, 5) + 48).midiCps, 0) * 0.1
 See also: osc
 
 Guides: Unit Generators
-
-Categories: Oscillator

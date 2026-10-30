@@ -25,5 +25,3 @@ Answer a `List` of two places giving the holder and selector of the method signa
 See also: Method, asMethodName, parseQualifiedMethodName
 
 Guides: Reflection Functions
-
-Categories: Reflection

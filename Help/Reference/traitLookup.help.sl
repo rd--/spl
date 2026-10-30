@@ -26,5 +26,3 @@ true
 See also: Method, System, Trait
 
 Guides: Reflection Functions
-
-Categories: System, Reflection

@@ -453,5 +453,3 @@ _Smalltalk_
 5.6.5.10,
 _W_
 [1](https://en.wikipedia.org/wiki/Even_number)
-
-Categories: Testing, Math

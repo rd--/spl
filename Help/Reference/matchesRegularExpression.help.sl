@@ -38,10 +38,8 @@ true
 
 See also: RegularExpression, matches
 
-Guides: Regular Expression Functions
+Guides: Predicate Functions, Regular Expression Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/StringMatchQ.html)
-
-Categories: Testing

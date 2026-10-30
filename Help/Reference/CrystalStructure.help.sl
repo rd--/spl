@@ -15,8 +15,8 @@ where _i_ and _j_ are indices into the `List` of atoms.
 
 See also: CrystalStructureBrowser, asCrystalStructure, leitnerCrystalStructureCatalogue
 
+Guides: Geometry Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Crystal_structure)
-
-Categories: Chemistry

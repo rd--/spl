@@ -15,4 +15,4 @@ The _Status Text_ shows the traits the selected type implements.
 
 See also: SystemBrowser, TraitBrowser
 
-Categories: Kansas
+Guides: Small Kansas

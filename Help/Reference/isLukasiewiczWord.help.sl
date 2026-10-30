@@ -204,7 +204,7 @@ In some contexts the words are given with a trailing _0_ (or _-1_).
 
 See also: dyckWords, isDyckWord, motzkinWords
 
-Guides: Combinatorial Functions
+Guides: Combinatorial Functions, Predicate Functions
 
 References:
 _Mathematica_
@@ -213,5 +213,3 @@ _OEIS_
 [1](https://oeis.org/A071153),
 
 Further Reading: Balakirsky 2002, Lapey 2022
-
-Categories: Testing

@@ -16,5 +16,3 @@ that accepts initial values for each slot in sequence.
 See also: Store, slotValueList, storeString
 
 Guides: Reflection Functions
-
-Categories: Reflection

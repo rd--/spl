@@ -23,5 +23,3 @@ answer a `Dictionary` where the `keys` are punctuation characters and the values
 See also: splOperatorNameTable, splOperatorTokenName, splPunctuationCharacters, system
 
 Guides: Reflection Functions
-
-Categories: Reflection

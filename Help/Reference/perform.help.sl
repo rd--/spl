@@ -37,5 +37,3 @@ Operator names must be given using the translated name:
 See also: methodLookupAtType, respondsTo
 
 Guides: Reflection Functions
-
-Categories: Reflection

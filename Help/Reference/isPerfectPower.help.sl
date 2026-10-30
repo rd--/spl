@@ -85,7 +85,7 @@ OEIS [A001597](http://oeis.org/A001597):
 
 See also: isPerfectSquare
 
-Guides: Integer Functions, Integer Sequence Functions
+Guides: Integer Functions, Integer Sequence Functions, Predicate Functions
 
 References:
 _Mathematica_
@@ -94,5 +94,3 @@ _OEIS_
 [1](http://oeis.org/A001597),
 _W_
 [1](https://en.wikipedia.org/wiki/Perfect_number)
-
-Categories: Testing, Math

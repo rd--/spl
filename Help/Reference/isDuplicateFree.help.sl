@@ -77,10 +77,8 @@ Construct the permanent analog of the totally antisymmetric tensor:
 
 See also: countDistinct, counts, deleteAdjacentDuplicates, deleteDuplicates, isSquareFree
 
-Guides: Collection Functions, List Functions, Set Functions
+Guides: Collection Functions, List Functions, Predicate Functions, Set Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DuplicateFreeQ.html)
-
-Categories: Testing

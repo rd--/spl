@@ -10,8 +10,10 @@ Functions:
 - `recurseEvery`
 - `repeatEvery`
 - `schedule`
-- `scheduleAfter`, `scheduleAfterWith`
-- `scheduleAt`, `scheduleAtWith`
+- `scheduleAfter`
+- `scheduleAfterWith`
+- `scheduleAt`
+- `scheduleAtWith`
 - `scheduleEvery`
 - `scheduleInjecting`
 

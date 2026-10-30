@@ -8,4 +8,4 @@ A small Kansan is a `Type` that can be opened in `SmallKansas`.
 
 See also: SmallKansas
 
-Categories: Kansas
+Guides: Small Kansas

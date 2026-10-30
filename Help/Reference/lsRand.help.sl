@@ -48,7 +48,7 @@ lsRand(
 
 * * *
 
-See also: BlockStream, lsWhite, lsXRand, atRandom
+See also: BlockStream, atRandom, lsWhite, lsXRand
 
 Guides: Patterns and Streams
 

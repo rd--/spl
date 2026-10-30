@@ -24,8 +24,6 @@ Where supported `doesNotInclude` is displayed as ∌.
 
 See also: includes, noneSatisfy
 
-Guides: Collection Functions, Dictionary Functions, List Functions
+Guides: Collection Functions, Dictionary Functions, List Functions, Predicate Functions
 
 Unicode: U+220C ∌ Does not contain as member
-
-Categories: Testing

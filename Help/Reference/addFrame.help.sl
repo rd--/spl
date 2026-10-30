@@ -8,4 +8,4 @@ Add a `Frame` to `SmallKansas`.
 
 See also: SmallKansas, addFrameWithAnimator
 
-Categories: Kansas
+Guides: Small Kansas

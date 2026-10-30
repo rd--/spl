@@ -20,5 +20,3 @@ r['z'] := 23
 See also: cancel, scheduleAfter, scheduleEvery
 
 Guides: Scheduling Functions
-
-Categories: Scheduling

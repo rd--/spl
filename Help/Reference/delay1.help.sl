@@ -24,5 +24,3 @@ _Csound_
 [1](https://csound.com/docs/manual/delay1.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Delay1.html)
-
-Categories: Ugen, Delay

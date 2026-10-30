@@ -41,4 +41,6 @@ See also: bufChannels, bufDur, bufRateScale, bufSampleRate, bufSamples
 
 Guides: Unit Generators
 
-Categories: Ugen, Buffer
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/BufFrames.html)

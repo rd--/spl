@@ -78,5 +78,3 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Matrix.html)
 [2](https://reference.wolfram.com/language/ref/MatrixQ.html)
-
-Categories: Testing, Matrix, Collection

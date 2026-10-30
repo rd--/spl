@@ -26,5 +26,3 @@ At a `List` of `Ugen`:
 See also: List, Ugen, playAt, playEvery
 
 Guides: SuperCollider Functions
-
-Categories: Synthesiser

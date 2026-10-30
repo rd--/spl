@@ -44,5 +44,3 @@ with random inter-offset delays, durations and pan locations:
 See also: Clock, recurseEvery, repeatEvery, schedule
 
 Guides: Scheduling Functions
-
-Categories: Scheduling

@@ -50,12 +50,10 @@ true
 
 See also: Dictionary, Indexable, at, includes, includesAssociation, includesIndex, keys
 
-Guides: Dictionary Functions
+Guides: Dictionary Functions, Predicate Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/KeyExistsQ.html)
 _Smalltalk_
 5.7.2.7
-
-Categories: Testing

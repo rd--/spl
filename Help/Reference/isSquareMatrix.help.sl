@@ -23,5 +23,3 @@ true
 See also: List, Matrix, isMatrix, shape
 
 Guides: Matrix Functions, Predicate Functions
-
-Categories: Testing, Matrix

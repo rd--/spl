@@ -45,5 +45,3 @@ References:
 _Smalltalk_
 5.4.2.3
 5.4.2.4
-
-Categories: Evaluating

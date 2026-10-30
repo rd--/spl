@@ -76,5 +76,3 @@ One- and two-character operators:
 See also: splOperatorTokenName, splPunctuationCharacterNameTable
 
 Guides: Binary Operators, Reflection Functions
-
-Categories: Reflection

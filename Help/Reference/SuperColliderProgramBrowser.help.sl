@@ -13,4 +13,4 @@ The context menu of the `TextEditor` can be used to play the program, and to res
 
 See also: CategoryBrowser, MethodSignatureBrowser, SuperColliderProgramOracle, SystemBrowser, TraitBrowser, TypeBrowser
 
-Categories: Kansas
+Guides: Small Kansas

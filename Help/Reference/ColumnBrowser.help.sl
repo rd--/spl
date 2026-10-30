@@ -13,4 +13,4 @@ The status text may show additional information about the most recently selected
 
 See also: CategoryBrowser, MethodBrowser, MethodSignatureBrowser, SystemBrowser, TraitBrowser, TypeBrowser
 
-Categories: Kansas
+Guides: Small Kansas

@@ -41,5 +41,3 @@ true
 See also: Integer, isBit, isInteger
 
 Guides: Predicate Functions
-
-Categories: Testing

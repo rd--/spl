@@ -154,5 +154,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/If.html),
 _Smalltalk_
 5.3.3.8
-
-Categories: Evaluating

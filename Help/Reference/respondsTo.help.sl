@@ -21,5 +21,3 @@ Guides: Reflection Functions
 References:
 _Smalltalk_
 5.3.1.19
-
-Categories: Reflection

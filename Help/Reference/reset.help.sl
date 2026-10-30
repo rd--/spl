@@ -20,5 +20,3 @@ Guides: Stream Functions
 References:
 _Smalltalk_
 5.9.1.6
-
-Categories: Positioning

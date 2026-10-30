@@ -30,5 +30,3 @@ nil
 See also: if, ifEmpty, ifFalse, ifNil, ifNotNil, ifTrue, size
 
 Guides: Collection Functions, Control Functions
-
-Categories: Evaluating

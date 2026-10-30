@@ -25,4 +25,6 @@ See also: lfNoise0, lfNoise1
 
 Guides: Unit Generators
 
-Categories: Noise
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LFNoise2.html)

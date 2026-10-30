@@ -11,4 +11,4 @@ DigitalClock()
 
 See also: AnalogueClock, SmallKansas
 
-Categories: Kansas
+Guides: Small Kansas

@@ -16,8 +16,8 @@ Ternary `if` with branches swapped.
 
 See also: if, ifFalse, ifTrue
 
+Guides: Control Functions
+
 References:
 _Smalltalk_
 5.3.3.6
-
-Categories: Evaluating

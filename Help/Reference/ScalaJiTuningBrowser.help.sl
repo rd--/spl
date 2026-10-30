@@ -25,7 +25,7 @@ system.requestLibraryItem(
 
 See also: RatioTuning, SmallKansas
 
-Categories: Kansas
+Guides: Small Kansas
 
 References:
 _Scala_

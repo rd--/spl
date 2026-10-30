@@ -82,5 +82,3 @@ Guides: Unit Generators
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/AllpassL.html)
-
-Categories: Ugen, Filter, Delay

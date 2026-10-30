@@ -32,5 +32,3 @@ Guides: Boolean Functions, Control Functions
 References:
 _Smalltalk_
 5.3.3.5
-
-Categories: Evaluating

@@ -50,5 +50,3 @@ _Lisp_
 [1](http://clhs.lisp.se/Body/f_apply.htm),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Apply.html)
-
-Categories: Evaluating

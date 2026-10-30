@@ -13,4 +13,4 @@ system.smallKansas.WorldMenu(
 
 See also: SmallKansas
 
-Categories: Kansas
+Guides: Small Kansas

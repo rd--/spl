@@ -96,5 +96,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/OrthogonalMatrixQ.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Orthogonal_matrix)
-
-Categories: Testing, Matrix

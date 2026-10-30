@@ -128,7 +128,7 @@ OEIS [A001223](https://oeis.org/A001223):
 
 See also: allSatisfy, isSmoothNumber, primeFactors
 
-Guides: Integer Functions
+Guides: Integer Functions, Predicate Functions
 
 References:
 _Mathematica_
@@ -139,5 +139,3 @@ _OEIS_
 [3](https://oeis.org/A049296),
 _W_
 [1](https://en.wikipedia.org/wiki/Rough_number)
-
-Categories: Testing

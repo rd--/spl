@@ -8,4 +8,4 @@ If no viewer is open a help request opens a new viewer, else the requested help 
 
 See also: HelpBrowser, WorldMenu
 
-Categories: Kansas
+Guides: Small Kansas

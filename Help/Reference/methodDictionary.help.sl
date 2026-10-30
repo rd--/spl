@@ -90,5 +90,3 @@ The sorted indices of a method dictionary:
 See also: Method, System, methodLookupAtType, packageDictionary, traitDictionary, typeDictionary
 
 Guides: Method Dictionary, Reflection Functions
-
-Categories: Reflection, Accessing, System

@@ -23,4 +23,4 @@ true
 
 See also: addOscListener
 
-Categories: Scheduling
+Guides: Scheduling Functions

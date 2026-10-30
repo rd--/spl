@@ -87,5 +87,3 @@ true
 See also: isSplOperatorToken, isSplPunctuationToken, splOperatorCharacters, splOperatorNameTable, splOperatorTokenName, splPunctuationTokenName
 
 Guides: Binary Operators, Reflection Functions
-
-Categories: Reflection

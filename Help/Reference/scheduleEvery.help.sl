@@ -22,5 +22,3 @@ let k = {
 See also: cancel, scheduleAfter, scheduleAfterWith
 
 Guides: Scheduling Functions
-
-Categories: Scheduling

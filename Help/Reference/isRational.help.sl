@@ -68,5 +68,3 @@ false
 See also: CentsTuning, RatioTuning, Tuning, isFraction, isInteger, ratios
 
 Guides: Number Functions, Predicate Functions, Tuning Functions
-
-Categories: Testing, Tuning

@@ -9,6 +9,4 @@ Like `overlapTextureProgram` but with only two cross fading sounds.
 
 See also: TextureProgram, collectTextureProgram, overlapTextureProgram, spawnTextureProgram, xFadeTexture
 
-Guides: SuperCollider Functions, Texture Programs
-
-Categories: Scheduling
+Guides: Scheduling Functions, SuperCollider Functions, Texture Programs

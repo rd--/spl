@@ -52,12 +52,10 @@ false
 
 See also: beginsWith, endsWithAnyOf
 
-Guides: String Functions
+Guides: List Functions, Predicate Functions, String Functions
 
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:isSuffixOf)
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/StringEndsQ.html)
-
-Categories: Testing

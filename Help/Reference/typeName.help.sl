@@ -70,5 +70,3 @@ Guides: Reflection Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/TypeOf.html)
-
-Categories: Reflection, Types

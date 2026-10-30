@@ -91,6 +91,4 @@ At `List` of `String`:
 
 See also: elementTypeIfAbsent, elementTypes, keyType, typeName
 
-Guides: Reflection Functions
-
-Categories: Reflection, Types
+Guides: Collection Functions, Reflection Functions

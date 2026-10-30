@@ -21,6 +21,4 @@ See also: slotNameList, uncheckedSlotRead
 
 Guides: Reflection Functions
 
-Categories: Reflection
-
 Status: Experimental

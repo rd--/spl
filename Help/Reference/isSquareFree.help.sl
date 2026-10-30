@@ -209,7 +209,7 @@ OEIS [A366288](https://oeis.org/A366288):
 
 See also: factor, factorInteger, isCubeFree, isDuplicateFree, isPerfectSquare, isPowerfulNumber, isPrime, isPrimePower, moebiusMu, primeNu, primeOmega
 
-Guides: Integer Functions
+Guides: Integer Functions, Predicate Functions
 
 References:
 _Mathematica_
@@ -218,5 +218,3 @@ _Mathematica_
 [3](https://reference.wolfram.com/language/ref/SquareFreeQ.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Square-free_integer)
-
-Categories: Testing, Math

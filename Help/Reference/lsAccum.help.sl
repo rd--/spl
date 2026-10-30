@@ -18,6 +18,6 @@ Equivalent to `lsScan` of `+`:
 
 * * *
 
-See also: lsScan, +
+See also: +, lsScan
 
 Categories: Stream

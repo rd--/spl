@@ -100,5 +100,3 @@ system.clock
 See also: clock, recurseEvery, repeatEvery, schedule, scheduleInjecting, system
 
 Guides: Scheduling Functions
-
-Categories: Scheduling

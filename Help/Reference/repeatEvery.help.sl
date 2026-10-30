@@ -29,5 +29,3 @@ system.clock.removeAll!
 See also: Clock, recurseEvery, schedule
 
 Guides: Scheduling Functions
-
-Categories: Scheduling

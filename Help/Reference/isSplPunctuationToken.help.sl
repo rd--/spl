@@ -33,5 +33,3 @@ false
 See also: isSplOperatorToken, isSplPunctuationCharacter, splOperatorTokenName
 
 Guides: Reflection Functions
-
-Categories: Reflection

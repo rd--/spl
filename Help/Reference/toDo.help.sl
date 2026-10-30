@@ -65,5 +65,3 @@ Guides: Iteration Functions
 References:
 _Smalltalk_
 5.6.2.40
-
-Categories: Enumeration, Range

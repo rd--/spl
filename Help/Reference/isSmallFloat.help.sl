@@ -53,6 +53,4 @@ true
 
 See also: SmallFloat, isComplex, isFraction, isLargeInteger, isNumber
 
-Guides: Floating Point Functions
-
-Categories: Testing, Math
+Guides: Floating Point Functions, Predicate Functions

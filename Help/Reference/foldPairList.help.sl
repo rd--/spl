@@ -53,7 +53,7 @@ Find dimensions of an array up to level three:
 
 See also: collect, foldList, map, reduce, scan
 
-Gudies: List Functions
+Guides: List Functions
 
 References:
 _Haskell_

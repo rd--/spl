@@ -82,5 +82,3 @@ References:
 _Smalltalk_
 5.4.2.2
 5.4.4.2
-
-Categories: Accessing, Evaluating

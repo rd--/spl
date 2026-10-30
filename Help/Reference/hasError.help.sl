@@ -33,6 +33,4 @@ This does not answer the value of _f_ so that blocks that answer `true` correctl
 
 See also: ifError, isError
 
-Guides: Block Functions, Control Functions
-
-Categories: Evaluating
+Guides: Block Functions, Control Functions, Error Functions

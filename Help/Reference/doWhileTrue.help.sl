@@ -33,5 +33,3 @@ C.f. `whileTrue`:
 See also: doWhileFalse, if, ifFalse, ifNil, ifTrue, whileFalse, whileTrue
 
 Guides: Control Functions, Iteration Functions
-
-Categories: Evaluating

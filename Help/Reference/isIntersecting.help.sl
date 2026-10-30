@@ -28,10 +28,8 @@ true
 
 See also: anySatisfy, complement, intersection, isDisjoint, union
 
-Guides: Set Functions
+Guides: Predicate Functions, Set Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/IntersectingQ.html)
-
-Categories: Testing

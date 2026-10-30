@@ -37,5 +37,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/ConjugateGradientMethod.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Conjugate_gradient_method)
-
-Categories: Solver

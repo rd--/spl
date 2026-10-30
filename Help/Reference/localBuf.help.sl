@@ -40,4 +40,6 @@ See also: clearBuf, setBuf
 
 Guides: Unit Generators
 
-Categories: Buffer
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LocalBuf.html)

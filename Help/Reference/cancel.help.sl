@@ -22,5 +22,3 @@ nil
 See also: scheduleAfter, scheduleAfterWith, scheduleEvery
 
 Guides: Scheduling Functions
-
-Categories: Scheduling

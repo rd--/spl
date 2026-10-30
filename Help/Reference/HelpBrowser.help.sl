@@ -13,4 +13,4 @@ See also: HelpViewer, WorldMenu
 
 Guides: Help Functions
 
-Categories: Kansas
+Guides: Small Kansas

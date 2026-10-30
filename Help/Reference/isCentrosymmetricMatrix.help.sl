@@ -27,5 +27,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/CentrosymmetricMatrix.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Centrosymmetric_matrix)
-
-Categories: Testing, Matrix

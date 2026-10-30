@@ -49,12 +49,10 @@ true
 
 See also: isSorted, sort, sorted
 
-Guides: Sort Functions
+Guides: Predicate Functions, Sort Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/OrderedQ.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/issorted.html)
-
-Categories: Testing, Sorting

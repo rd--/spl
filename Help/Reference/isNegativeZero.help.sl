@@ -33,5 +33,3 @@ false
 See also: <, =, ==, isNegative, isZero
 
 Guides: Predicate Functions
-
-Categories: Testing, Math

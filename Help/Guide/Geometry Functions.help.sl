@@ -105,6 +105,10 @@ Bezier Functions:
 - `quadraticBezierFunctionAt`
 - `quadraticBezierToCubicBezier`
 
+Chemistry:
+
+- `CrystalStructure`
+
 Catalogues:
 
 - `fradinPolyhedraCatalogue`

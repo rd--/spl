@@ -20,6 +20,4 @@ true
 
 See also: beginsWith, endsWithAnyOf
 
-Guides: List Functions
-
-Categories: Testing
+Guides: List Functions, Predicate Functions

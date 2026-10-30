@@ -43,6 +43,4 @@ At `NumericArray`:
 
 See also: elementType, elementTypeIfAbsent, typeName
 
-Guides: Reflection Functions
-
-Categories: Reflection, Types
+Guides: Collection Functions, Reflection Functions

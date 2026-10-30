@@ -65,12 +65,10 @@ false
 
 See also: beginsWithAnyOf, endsWith, first, isPrefixOf
 
-Guides: List Functions, String Functions
+Guides: List Functions, Predicate Functions, String Functions
 
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:isPrefixOf),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/StringStartsQ.html)
-
-Categories: Testing

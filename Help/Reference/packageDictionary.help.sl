@@ -65,5 +65,3 @@ true
 See also: Package, methodDictionary, packageMethods, packageTraits, packageTypes, system, traitDictionary, typeDictionary
 
 Guides: Reflection Functions
-
-Categories: Reflection, System

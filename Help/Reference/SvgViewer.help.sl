@@ -79,4 +79,4 @@ system.smallKansas.SvgViewer(
 
 See also: PngViewer, SmallKansas
 
-Categories: Kansas
+Guides: Small Kansas

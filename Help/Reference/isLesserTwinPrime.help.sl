@@ -230,7 +230,7 @@ let c = b.deleteDuplicates;
 
 See also: isPrime, nextPrime
 
-Guides: Integer Sequence Functions, Prime Number Functions
+Guides: Integer Sequence Functions, Predicate Functions, Prime Number Functions
 
 References:
 _Mathematica_
@@ -241,5 +241,3 @@ _OEIS_
 [3](https://oeis.org/A006512),
 _W_
 [1](https://en.wikipedia.org/wiki/Twin_prime)
-
-Categories: Testing

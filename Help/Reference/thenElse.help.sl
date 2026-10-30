@@ -10,10 +10,8 @@ The answer is an equivalent `Promise` object to _p_.
 
 See also: Promise, finally, onRejection, then
 
-Guides: Asynchronous Functions
+Guides: Asynchronous Functions, Scheduling Functions
 
 References
 _Tc39_
 [1](https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-promise.prototype.then)
-
-Categories: Scheduling

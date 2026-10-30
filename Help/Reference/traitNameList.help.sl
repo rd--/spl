@@ -29,5 +29,3 @@ Answer a `List` of the `Trait` names implemented by the `Type` _t_.
 See also: Trait, Type
 
 Guides: Reflection Functions
-
-Categories: Reflection

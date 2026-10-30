@@ -45,5 +45,3 @@ let t = lfPulse(8, 0, 0.5);
 See also: sequencer
 
 Guides: Unit Generators
-
-Categories: Ugen, Sequencing

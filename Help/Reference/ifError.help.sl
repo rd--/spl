@@ -50,5 +50,3 @@ _Smalltalk_
 5.4.3.2,
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Function.html#-try)
-
-Categories: Evaluating

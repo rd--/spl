@@ -105,7 +105,7 @@ OEIS [A051037](https://oeis.org/A051037):
 
 See also: isRegularNumber, primeFactors, primeLimit
 
-Guides: Integer Functions, Integer Sequence Functions
+Guides: Integer Functions, Integer Sequence Functions, Predicate Functions
 
 References:
 _Mathematica_
@@ -125,5 +125,3 @@ _W_
 [2](https://en.wikipedia.org/wiki/Regular_number)
 
 Further Reading: Clarke 1877
-
-Categories: Testing

@@ -29,5 +29,3 @@ false
 See also: isSplOperatorCharacter, isSplPunctuationToken, isSplSyntaxToken, splOperatorTokenName
 
 Guides: Reflection Functions
-
-Categories: Reflection

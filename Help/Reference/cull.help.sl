@@ -68,5 +68,3 @@ true
 See also: Block, apply, argumentCount
 
 Guides: Block Functions, Block Semantics
-
-Categories: Evaluating

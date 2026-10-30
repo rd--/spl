@@ -33,6 +33,4 @@ See also: slotList, slotNameList, slotValueList, uncheckedSlotWrite
 
 Guides: Reflection Functions
 
-Categories: Reflection
-
 Status: Experimental

@@ -139,5 +139,3 @@ References:
 _Smalltalk_
 5.4.2.5
 5.4.2.6
-
-Categories: Evaluating

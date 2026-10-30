@@ -44,11 +44,9 @@ Edges answer `isDirected`:
 
 See also: Graph, isDirectedEdge, isMixed, isUndirected
 
-Guides: Graph Functions
+Guides: Graph Functions, Predicate Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DirectedGraph.html)
 [2](http://reference.wolfram.com/language/ref/DirectedGraphQ.html)
-
-Categories: Testing, Collection

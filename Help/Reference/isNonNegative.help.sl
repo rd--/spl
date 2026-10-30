@@ -27,5 +27,3 @@ Guides: Predicate Functions
 References:
 _Smalltalk_
 5.6.2.24
-
-Categories: Testing, Math

@@ -44,8 +44,8 @@ false
 
 See also: Number, isBooleanString, isFloatString, parseDecimalNumeral
 
+Guides: Predicate Functions, String Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Decimal)
-
-Categories: Testing

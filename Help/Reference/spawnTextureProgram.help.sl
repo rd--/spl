@@ -30,6 +30,4 @@ Texture of overlapping sine tone dyads:
 
 See also: TextureProgram, collectTextureProgram, overlapTextureProgram, xFadeTextureProgram
 
-Guides: SuperCollider Functions, Texture Programs
-
-Categories: Scheduling
+Guides: Scheduling Functions, SuperCollider Functions, Texture Programs

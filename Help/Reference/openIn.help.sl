@@ -11,4 +11,4 @@ in response to _event_.
 
 See also: SmallKansas
 
-Categories: Kansas
+Guides: Small Kansas

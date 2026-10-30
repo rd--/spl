@@ -28,5 +28,3 @@ true
 See also: System, Type, traitLookup
 
 Guides: Reflection Functions
-
-Categories: Reflection

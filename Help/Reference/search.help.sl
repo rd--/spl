@@ -36,5 +36,3 @@ Guides: Regular Expression Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/StringContainsQ.html)
-
-Categories: Testing

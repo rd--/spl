@@ -65,5 +65,3 @@ true
 See also: System, Trait, Type, methodDictionary, methodLookupAtType, parameterNames
 
 Guides: Defining Methods, Reflection Functions
-
-Categories: Behaviour, Reflection, Type

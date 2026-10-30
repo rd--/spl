@@ -45,12 +45,10 @@ Plot sequence of regular numbers:
 
 See also: isSmoothNumber, primeFactors, primeLimit
 
-Guides: Integer Functions, Integer Sequence Functions
+Guides: Integer Functions, Integer Sequence Functions, Predicate Functions
 
 References:
 _OEIS_
 [1](https://oeis.org/A051037)
 _W_
 [1](https://en.wikipedia.org/wiki/Regular_number)
-
-Categories: Testing

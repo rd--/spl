@@ -38,5 +38,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/RowVector.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Row_vector)
-
-Categories: Testing

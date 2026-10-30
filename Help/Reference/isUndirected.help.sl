@@ -48,11 +48,9 @@ Edges answer `isUndirected`:
 
 See also: Graph, isDirected, isMixed
 
-Guides: Graph Functions
+Guides: Graph Functions, Predicate Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/UndirectedGraph.html)
 [2](http://reference.wolfram.com/language/ref/UndirectedGraphQ.html)
-
-Categories: Testing, Collection

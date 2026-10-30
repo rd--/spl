@@ -32,5 +32,3 @@ false
 See also: isSplOperatorCharacter, isSplPunctuationCharacter, isSplSyntaxCharacter, splOperatorCharacterName
 
 Guides: Reflection Functions
-
-Categories: Reflection

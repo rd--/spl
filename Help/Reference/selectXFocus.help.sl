@@ -110,4 +110,6 @@ See also: selectT, selectX
 
 Guides: Unit Generators
 
-Categories: Mixing
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/SelectXFocus.html)

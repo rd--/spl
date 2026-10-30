@@ -24,5 +24,3 @@ The reflective method to answer the `Type` of a value is used only infrequently.
 See also: Type, typeLookup, typeName
 
 Guides: Reflection Functions
-
-Categories: Reflection

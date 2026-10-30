@@ -26,7 +26,7 @@ true
 
 See also: isDigit, isLetter
 
-Guides: String Functions
+Guides: String Functions, Predicate Functions
 
 References:
 _Smalltalk_

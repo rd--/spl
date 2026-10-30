@@ -63,5 +63,3 @@ _OEIS_
 [4](https://oeis.org/A069272),
 _W_
 [1](https://en.wikipedia.org/wiki/Almost_prime)
-
-Categories: Testing, Numbers

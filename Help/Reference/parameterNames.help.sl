@@ -50,5 +50,3 @@ The parameter names reported can be for any one of the defined methods.
 See also: Block, Method, argumentNames
 
 Guides: Block Functions, Reflection Functions
-
-Categories: Reflection

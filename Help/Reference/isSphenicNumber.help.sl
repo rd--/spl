@@ -29,7 +29,7 @@ Consecutive sphenic numbers:
 
 See also: isComposite, isPrime, primeFactors, size
 
-Guides: Integer Functions, Integer Sequence Functions, Prime Number Functions
+Guides: Integer Functions, Integer Sequence Functions, Predicate Functions, Prime Number Functions
 
 References:
 _OEIS_
@@ -37,5 +37,3 @@ _OEIS_
 [2](https://oeis.org/A165936),
 _W_
 [1](https://en.wikipedia.org/wiki/Sphenic_number)
-
-Categories: Testing, Numbers

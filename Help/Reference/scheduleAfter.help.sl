@@ -17,5 +17,3 @@ the type of the identifier is unspecified.
 See also: cancel, scheduleAfterWith, scheduleAt, scheduleEvery
 
 Guides: Scheduling Functions
-
-Categories: Scheduling

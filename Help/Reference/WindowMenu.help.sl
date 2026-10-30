@@ -8,4 +8,4 @@ Selecting a `Frame` brings it to the front of the viewing plane.
 
 See also: Frame, Menu, SmallKansas
 
-Categories: Kansas
+Guides: Small Kansas

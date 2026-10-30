@@ -43,5 +43,3 @@ nil
 See also: elementType, keyType, typeName
 
 Guides: Dictionary Functions, Reflection Functions
-
-Categories: Reflection, Types
