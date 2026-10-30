@@ -30,4 +30,4 @@ Key queries are case insensitive.
 
 See also: Record, Response
 
-Categories: Network
+Guides: Network Functions

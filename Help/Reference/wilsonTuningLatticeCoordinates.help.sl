@@ -65,5 +65,3 @@ Guides: Tuning Functions, Xenharmonic Functions
 References:
 _Anaphoria_
 [1](https://anaphoria.com/wilsontreasure.html)
-
-Categories: Tuning

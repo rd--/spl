@@ -1,8 +1,8 @@
-# amplitude
+# amplitudeFollower
 
-- _amplitude(in, attackTime, releaseTime)_
+- _amplitudeFollower(in, attackTime, releaseTime)_
 
-amplitude follower.
+Amplitude follower.
 Tracks the peak amplitude of a signal.
 
 - in: input signal
@@ -12,7 +12,7 @@ Tracks the peak amplitude of a signal.
 Use input amplitude to control pulse amplitude, _use headphones to prevent feedback_.
 
 ~~~spl syn=A
-pulse(90, 0.3) * amplitude(
+pulse(90, 0.3) * amplitudeFollower(
 	audioIn(1),
 	0.01,
 	0.01
@@ -23,7 +23,7 @@ Use input amplitude to control sinOsc frequency, _use headphones to prevent feed
 
 ~~~spl syn=B
 sinOsc(
-	amplitude(
+	amplitudeFollower(
 		audioIn(1),
 		0.01,
 		0.01
@@ -38,4 +38,6 @@ See also: peakFollower
 
 Guides: Unit Generators
 
-Categories: Ugen, Analysis
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Amplitude.html)

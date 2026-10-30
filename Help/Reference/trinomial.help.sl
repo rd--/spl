@@ -196,5 +196,3 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/TrinomialTriangle.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Trinomial_triangle)
-
-Categories: Math, Combinatorics

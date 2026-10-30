@@ -91,5 +91,3 @@ _OEIS_
 [2](https://oeis.org/A095845),
 _W_
 [1](https://en.wikipedia.org/wiki/Cantor_function)
-
-Categories: Math, Function

@@ -69,5 +69,3 @@ References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/UGen.html#-lincurve)
 [2](https://scsynth.org/t/pmono-and-dc-ar-to-send-out-stepped-cv-patterns/8773/13):
-
-Categories: Ugen

@@ -25,6 +25,4 @@ _Note_: This is a reflective implementation of equality and may be slower than a
 
 See also: =, ==, hasEqualElements, isEqualBy, isEqualByAtNamedSlots, slotList
 
-Guides: Reflection Functions
-
-Categories: Comparing, Reflection
+Guides: Comparison Functions, Object Functions, Reflection Functions

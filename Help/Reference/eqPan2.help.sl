@@ -22,4 +22,6 @@ See also: linPan2, pan2
 
 Guides: Unit Generators
 
-Categories: Ugen, Panning
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Pan2.html)

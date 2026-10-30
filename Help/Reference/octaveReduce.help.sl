@@ -167,12 +167,10 @@ Linear scale plot of octave reduced powers of _3/2_:
 
 See also: ^, log2
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Octave),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Octave_reduction)
-
-Categories: Tuning

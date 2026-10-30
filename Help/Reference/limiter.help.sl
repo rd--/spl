@@ -32,8 +32,10 @@ limiter(z, mouseX(0, 1, 0, 0.2), 0.01) * 0.2
 
 * * *
 
-See also: compander
+See also: amplitudeFollower, compander
 
 Guides: Unit Generators
 
-Categories: Ugen, amplitude
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Limiter.html)

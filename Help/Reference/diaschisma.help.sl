@@ -45,12 +45,10 @@ It has tuning lattice coordinates _11 -4 -2_:
 
 See also: mercatorsComma, octaveReduce, pythagoreanChroma, pythagoreanComma, septimalComma, syntonicComma
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Diaschisma),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Diaschisma)
-
-Categories: Math, Contant, Tuning

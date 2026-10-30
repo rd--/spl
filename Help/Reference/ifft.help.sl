@@ -35,5 +35,3 @@ _Matlab_
 [1](https://mathworks.com/help/matlab/ref/ifft.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Signal.html#-ifft)
-
-Categories: Fourier

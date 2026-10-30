@@ -62,5 +62,3 @@ _OEIS_
 [2](https://oeis.org/A112881),
 _W_
 [1](https://en.wikipedia.org/wiki/Perrin_number)
-
-Categories: Math, Function, Sequence

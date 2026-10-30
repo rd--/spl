@@ -38,5 +38,3 @@ See also: *, /, asterisk, asteriskSolidus, solidus
 Guides: Comment Syntax
 
 Unicode: U+000AB « Left-Pointing Double Angle Quotation Mark
-
-Categories: Comments, Syntax

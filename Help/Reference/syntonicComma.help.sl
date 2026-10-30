@@ -111,7 +111,7 @@ Tenney, Weil and Wilson norms:
 
 See also: pythagoreanComma, septimalComma
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _W_
@@ -119,5 +119,3 @@ _W_
 _Xenharmonic_
 [1](https://en.xen.wiki/w/81/80)
 [2](https://en.xen.wiki/w/Schisma)
-
-Categories: Math, Contant, Tuning

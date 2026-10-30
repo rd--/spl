@@ -36,5 +36,3 @@ and uses it for reconstructing notations as required.
 See also: Permutation, permutationMax
 
 Guides: Permutation Functions
-
-Categories: Permutations

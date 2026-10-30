@@ -39,12 +39,10 @@ OEIS [A039599](https://oeis.org/A039599):
 
 See also: bellNumber, binomial, catalanNumber, narayanNumber
 
-Guides: Integer Sequence Functions
+Guides: Combinatorial Functions, Integer Sequence Functions
 
 References:
 _OEIS_
 [1](https://oeis.org/A039599),
 _W_
 [1](https://en.wikipedia.org/wiki/Lobb_number)
-
-Categories: Math, Combinatorics

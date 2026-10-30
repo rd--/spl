@@ -55,5 +55,3 @@ See also: DocumentationTest, >>
 Guides: Bitwise Functions, Documentation Tests
 
 Unicode: U+22D9 ⋙ Very Much Greater-Than
-
-Categories: Comments, Syntax

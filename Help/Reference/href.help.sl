@@ -17,5 +17,3 @@ also called a hyperlink.
 See also: Location, Url, host, hostName, origin, pathName
 
 Guides: Network Functions
-
-Categories: Network

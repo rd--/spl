@@ -13,5 +13,3 @@ See also: *, /, asterisk, solidus, solidusAsterisk
 Guides: Comment Syntax
 
 Unicode: U+000BB » Right-Pointing Double Angle Quotation Mark
-
-Categories: Comments, Syntax

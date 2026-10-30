@@ -38,5 +38,3 @@ immediately following any arguments.
 See also: :=, let, nil
 
 Guides: Assignment Syntax, Block Syntax, Let Syntax, Program Syntax, Var Syntax
-
-Categories: Keyword, Syntax

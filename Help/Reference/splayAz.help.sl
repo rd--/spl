@@ -10,16 +10,16 @@ Each of the inputs is evenly spaced over a cyclic period of 2 in pos with 0 equa
 
 The distance between the input signals in the output range is determined by the spread argument.
 
-- numChans: Number of output channels of the UGen
-- inList: Input signals (can be a single UGen or an array)
+- numChans: Number of output channels.
+- inList: Input signals.
 - spread: How far the input signals are apart in the output. If zero, everything is mixed on center position (see below).
-- level: Scaling for all signals
+- level: Scaling for all signals.
 - width: Over how much of the channels each signal is distributed.
-- center: Which of the channels will be the first channel
+- center: Which of the channels will be the first channel.
 - orientation: Should be zero if the front is a vertex of the polygon.
-The first speaker will be directly in front.
-Should be 0.5 if the front bisects a side of the polygon.
-Then the first speaker will be the one left of center.
+  The first speaker will be directly in front.
+  Should be 0.5 if the front bisects a side of the polygon.
+  Then the first speaker will be the one left of center
 - levelComp: If true, the signal level is adjusted to maintain overall loudness the same (n.reciprocal.sqrt).
 
 With mouse control:
@@ -59,4 +59,6 @@ See also: pan2, panAz, splay, splay2
 
 Guides: Unit Generators
 
-Categories: Panning
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/SplayAz.html)

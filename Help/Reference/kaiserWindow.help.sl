@@ -80,5 +80,3 @@ _Mathworks_
 [1](https://mathworks.com/help/signal/ref/kaiser.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Kaiser_window)
-
-Categories: Windowing

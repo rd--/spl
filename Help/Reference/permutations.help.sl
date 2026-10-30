@@ -244,7 +244,7 @@ OEIS [A333755](https://oeis.org/A333755):
 
 See also: !, lexicographicPermutations, minimumChangePermutations, permutationsDo, plainChanges, stope, subfactorial, subsets
 
-Guides: Permutation Functions
+Guides: Enumeration Functions, Permutation Functions
 
 References:
 _Haskell_
@@ -253,5 +253,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Permutations.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/perms.html)
-
-Categories: Enumerating, Permutations

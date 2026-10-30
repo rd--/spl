@@ -49,5 +49,3 @@ Guides: List Functions, Sequence Alignment Functions
 References:
 _Smalltalk_
 5.7.8.22
-
-Categories: Accessing

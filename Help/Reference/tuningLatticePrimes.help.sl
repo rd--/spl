@@ -41,5 +41,3 @@ At `Tuning`:
 See also: factorInteger, primeFactors, tuningLatticeEdges, tuningLatticeVector, tuningLatticeVertices
 
 Guides: Tuning Functions
-
-Categories: Tuning

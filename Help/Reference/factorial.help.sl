@@ -476,5 +476,3 @@ _Smalltalk_
 5.6.5.11,
 _W_
 [1](https://en.wikipedia.org/wiki/Factorial)
-
-Categories: Math, Combinatorics

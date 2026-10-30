@@ -57,5 +57,3 @@ true
 See also: Exception, cause, causeText, description, error, ifError, messageText, name, signal
 
 Guides: Control Functions, Error Functions
-
-Categories: Exception, Type

@@ -72,10 +72,8 @@ OEIS [A170942](https://oeis.org/A170942):
 
 See also: lexicographicPermutationsDo, minimumChangePermutations, multinomial, nextPermutationLexicographic, permutations, plainChanges
 
-Guides: Permutation Functions
+Guides: Enumeration Functions, Permutation Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Permutations.html)
-
-Categories: Enumerating, Permutations

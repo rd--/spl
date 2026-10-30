@@ -90,6 +90,15 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
       kind
       topic))))
 
+(defun spl-insert-empty-at-quoted ()
+  (interactive)
+  (insert "['']")
+  (backward-char 2))
+
+(defun spl-at-quoted (key)
+  (interactive "MLookup key: ")
+  (insert (format "['%s']" key)))
+
 (defun spl-insert-oeis-reference (oeisId)
   (interactive "MOeis Identifier: ")
   (insert (format "OEIS [%s](https://oeis.org/%s)" oeisId oeisId)))

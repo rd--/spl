@@ -21,6 +21,10 @@ Composition:
 - `composeLeft`
 - `composeRight`
 
+Adverbs:
+
+- `over`
+
 Converting:
 
 - `binaryBlock`

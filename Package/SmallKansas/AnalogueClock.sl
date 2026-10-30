@@ -83,7 +83,7 @@ AnalogueClock : [Object, View, SmallKansan] {
 		self.clockPane.appendChild(svg)
 	}
 
-	initialize { :self |
+	initialize! { :self |
 		self.createElements;
 		self.tick;
 		self
@@ -130,7 +130,7 @@ AnalogueClock : [Object, View, SmallKansan] {
 +Void {
 
 	AnalogueClock {
-		newAnalogueClock().initialize
+		newAnalogueClock().initialize!
 	}
 
 }

@@ -1,13 +1,13 @@
 # typeReponsibility
 
-- _typeReponsibility(anObject, message)_
+- _typeReponsibility(x, m)_
 
-Signal a _type responsibility_ error.
+Signal a _type responsibility_ error at the object _x_ with message _m_.
 
-A `Trait` defines required methods using this method.
+A `Trait` may define required methods using this method.
 
 * * *
 
 See also: Trait, Type, error, signal
 
-Categories: Error
+Guides: Error Functions

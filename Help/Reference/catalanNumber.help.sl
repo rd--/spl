@@ -142,5 +142,3 @@ _Python_
 [1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.catalan),
 _W_
 [1](https://en.wikipedia.org/wiki/Catalan_number)
-
-Categories: Math, Combinatorics

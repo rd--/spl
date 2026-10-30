@@ -135,5 +135,3 @@ _Smalltalk_
 5.3.1.1,
 _W_
 [1](https://en.wikipedia.org/wiki/Logical_biconditional)
-
-Categories: Comparing

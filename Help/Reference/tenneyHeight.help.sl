@@ -58,12 +58,10 @@ Plot for a number of simple just ratios within the octave:
 
 See also: benedettiHeight, eulerGradusSuavitatis, keesSemiHeight, wilsonHeight
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Tenney_norm)
 
 Further Reading: Tenney 1984
-
-Categories: Tuning

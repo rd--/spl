@@ -58,5 +58,3 @@ Guides: Comparison Functions, Mathematical Functions
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Match)
-
-Categories: Comparing

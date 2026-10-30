@@ -71,5 +71,3 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Block.html)
 [2](https://reference.wolfram.com/language/ref/With.html)
-
-Categories: Keyword, Syntax

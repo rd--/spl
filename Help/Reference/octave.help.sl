@@ -1,8 +1,8 @@
 # octave
 
-- _octave(aTuning)_
+- _octave(t)_
 
-Answer the _ratio_ of the _octave_ value at _aTuning_.
+Answer the _ratio_ of the _octave_ value at the tuning _t_.
 
 This is ordinarily, but not necessarily, two.
 
@@ -10,4 +10,4 @@ This is ordinarily, but not necessarily, two.
 
 See also: Tuning
 
-Categories: Accessing, Tuning
+Guides: Tuning Functions

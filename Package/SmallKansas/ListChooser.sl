@@ -25,7 +25,7 @@ ListChooser : [Object] {
 		self.select.deselect
 	}
 
-	initialize { :self :withFilter :titleText :listSize |
+	initialize! { :self :withFilter :titleText :listSize |
 		self.ignoreCase := true;
 		self.listChooserPane := 'div'.createElement(
 			(
@@ -71,7 +71,7 @@ ListChooser : [Object] {
 +Boolean {
 
 	ListChooser { :self :title :listSize |
-		newListChooser().initialize(self, title, listSize)
+		newListChooser().initialize!(self, title, listSize)
 	}
 
 }

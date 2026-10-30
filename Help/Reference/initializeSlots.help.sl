@@ -42,8 +42,6 @@ It is, in effect, a shorthand for setting each slot individually:
 
 * * *
 
-See also: Type, initialize, new
+See also: New, Type, initialize, new
 
-Guides: Reflection Functions
-
-Categories: Instance Creation, Reflection
+Guides: Object Functions, Reflection Functions

@@ -71,7 +71,7 @@ Menu : [Object, View] {
 		]
 	}
 
-	initialize { :self :title :entries |
+	initialize! { :self :title :entries |
 		self.title := title;
 		self.isTransient := false;
 		self.createElements;
@@ -107,7 +107,7 @@ Menu : [Object, View] {
 +String {
 
 	Menu { :self :entries |
-		newMenu().initialize(self, entries)
+		newMenu().initialize!(self, entries)
 	}
 
 }

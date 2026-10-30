@@ -60,5 +60,3 @@ Guides: Matrix Functions, Tuning Functions
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Interval_matrix)
-
-Categories: Tuning, Matrix

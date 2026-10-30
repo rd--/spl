@@ -23,6 +23,4 @@ At `Record`:
 
 See also: anyAs, anyOne, take
 
-Guides: Stream Functions
-
-Categories: Accessing
+Guides: Collection Functions

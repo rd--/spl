@@ -24,5 +24,3 @@ The name of this operator is `questionMarkQuestionMark`.
 See also: ?, ifNil
 
 Guides: Nil Functions
-
-Categories: Conditional, Evaluation

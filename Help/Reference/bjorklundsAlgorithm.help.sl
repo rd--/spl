@@ -224,8 +224,6 @@ The `bjorklundsAlgorithmSequence` method answers each step in the algorithm:
 
 See also: bjorklundsAlgorithmDo, bresenhamLineAlgorithm, euclideanAlgorithm, lexicographicallyLeastRotation
 
-Guides: Scale Functions
+Guides: Mathematical Functions, Scale Functions
 
 Further Reading: Bjorklund 1989, Demaine 2005
-
-Categories: Algorithm, Math

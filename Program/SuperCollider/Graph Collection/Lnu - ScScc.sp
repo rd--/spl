@@ -534,7 +534,7 @@ splay(
 			b(c.next)
 		);
 		leakDc(
-			bpf( 
+			bpf(
 				p ^ 5 * q,
 				b(m() * 8) + 1.1 * 2000 + 100,
 				1 / 3 + m()

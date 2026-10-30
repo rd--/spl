@@ -16,5 +16,3 @@ Answer a `UrlQueryParameters` value holding the `query` component of the `Url` _
 See also: Url, UrlQueryParameters, query
 
 Guides: Network Functions
-
-Categories: Network, Address

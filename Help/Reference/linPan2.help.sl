@@ -26,4 +26,6 @@ See also: eqPan2, pan2, splay2
 
 Guides: Unit Generators
 
-Categories: Panning
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/LinPan2.html)

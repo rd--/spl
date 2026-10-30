@@ -365,5 +365,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Floor_function)
 
 Unicode: U+0230a ⌊ Left Floor, U+230B ⌋ Right Floor
-
-Categories: Truncating, Rounding

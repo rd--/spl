@@ -35,5 +35,3 @@ As a syntax token the `=` symbol is a part of `Let Syntax`.
 See also: Equal, !=, :=, <, <=, ==, >, >=, ~, allEqual, isEqual
 
 Guides: Comparison Functions, Equality Functions, Let Syntax, Syntax Tokens
-
-Categories: Comparing

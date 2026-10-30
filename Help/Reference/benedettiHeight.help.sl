@@ -20,10 +20,8 @@ Threads over lists:
 
 See also: tenneyHeight
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Benedetti_height)
-
-Categories: Tuning

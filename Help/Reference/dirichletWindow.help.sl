@@ -56,5 +56,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DirichletWindow.html),
 _Mathworks_
 [1](https://mathworks.com/help/signal/ref/rectwin.html)
-
-Categories: Windowing

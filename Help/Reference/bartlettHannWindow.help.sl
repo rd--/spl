@@ -61,5 +61,3 @@ _Python_
 [1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.barthann.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Window_function#Bartlett%E2%80%93Hann_window)
-
-Categories: Windowing

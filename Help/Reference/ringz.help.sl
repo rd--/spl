@@ -4,7 +4,7 @@
 
 Ringing filter.
 This is the same as resonz, except that instead of a resonance parameter, the bandwidth is specified in a 60dB ring decay time.
-One `ringz` is equivalent to one component of the klank UGen.
+One `ringz` is equivalent to one component of `ringzBank`.
 
 - in: input signal to be processed
 - freq: resonant frequency in Hertz

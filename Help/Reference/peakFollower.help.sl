@@ -56,7 +56,7 @@ sinOsc(peak * 200 + 500, 0) * 0.1
 
 * * *
 
-See also: amplitude, peak
+See also: amplitudeFollower, peak
 
 Guides: Unit Generators
 

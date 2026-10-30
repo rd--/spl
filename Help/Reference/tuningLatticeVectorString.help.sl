@@ -43,5 +43,3 @@ If _p_ does not contain all of the factors for _n/d_, answer '*':
 See also: Tuning, tuningLatticePrimes, tuningLatticeVector
 
 Guides: Tuning Functions
-
-Categories: Tuning

@@ -59,5 +59,3 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Ordinate.html)
 [2](https://mathworld.wolfram.com/y-Axis.html)
-
-Categories: Accessing, Geometry

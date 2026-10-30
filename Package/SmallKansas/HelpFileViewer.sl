@@ -4,7 +4,7 @@ HelpFileViewer : [Object, UserEventTarget, View] {
 
 	| smallKansas outerElement eventListeners |
 
-	initialize { :self :smallKansas |
+	initialize! { :self :smallKansas |
 		self.smallKansas := smallKansas;
 		self.outerElement := 'div'.createElement(
 			(
@@ -62,7 +62,7 @@ HelpFileViewer : [Object, UserEventTarget, View] {
 		self.frameSet.detectIfNone { :each |
 			each.title = 'Help File Viewer'
 		} {
-			let viewer = newHelpFileViewer().initialize(self);
+			let viewer = newHelpFileViewer().initialize!(self);
 			self.addFrame(viewer, event)
 		}
 	}

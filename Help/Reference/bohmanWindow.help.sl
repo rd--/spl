@@ -69,5 +69,3 @@ _Mathworks_
 [1](https://mathworks.com/help/signal/ref/bohmanwin.html),
 _Python_
 [1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.bohman.html)
-
-Categories: Windowing

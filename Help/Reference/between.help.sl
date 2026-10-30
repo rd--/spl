@@ -22,5 +22,3 @@ Guides: Comparison Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Between.html)
-
-Categories: Comparing

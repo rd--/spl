@@ -48,4 +48,4 @@ Plot from -2 to 2:
 
 See also: continuedFraction, minkowskiQuestionMark
 
-Categories: Math, Function
+Guides: Mathematical Functions

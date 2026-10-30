@@ -28,4 +28,6 @@ See also: eqPan, mix, pan2, panAz, splay2, splayAz
 
 Guides: Unit Generators
 
-Categories: Panner
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Splay.html)

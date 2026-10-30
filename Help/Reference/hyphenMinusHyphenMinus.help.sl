@@ -24,8 +24,6 @@ Where supported `--` is displayed as —.
 
 See also: Interval, Range, ->
 
-Guides: Range Syntax
+Guides: Interval Functions
 
 Unicode: U+2014 — Em Dash
-
-Categories: Constructor, Number, Operator

@@ -11,7 +11,7 @@ SvgViewer : [Object, View] {
 		self.svgPane.appendChild(self.svg)
 	}
 
-	initialize { :self :title :svg |
+	initialize! { :self :title :svg |
 		self.title := title;
 		self.svg := svg;
 		self.createElements;
@@ -27,7 +27,7 @@ SvgViewer : [Object, View] {
 +String {
 
 	SvgViewer { :self :svg |
-		newSvgViewer().initialize(self, svg)
+		newSvgViewer().initialize!(self, svg)
 	}
 
 }

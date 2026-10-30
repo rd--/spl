@@ -17,8 +17,8 @@ The comparison ignores case and possibly some other attributes.
 
 See also: =, ~, isClose, isVeryClose
 
+Guides: Comparison Functions
+
 References:
 _Smalltalk_
 5.7.10.14
-
-Categories: Comparing

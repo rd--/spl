@@ -34,6 +34,6 @@ Where supported `precedesOrEqualTo` is displayed as ≼.
 
 See also: <, <=>, =, >, compare, precedes
 
-Unicode: U+227c ≼ Precedes Or Equal To
+Guides: Comparison Functions
 
-Categories: Comparing
+Unicode: U+227c ≼ Precedes Or Equal To

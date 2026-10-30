@@ -42,5 +42,3 @@ _Smalltalk_
 5.4.3.1,
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Function.html#-protect)
-
-Categories: Exceptions

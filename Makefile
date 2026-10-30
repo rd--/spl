@@ -75,13 +75,17 @@ check-case-sensitive-file-names:
 check-non-doctest-code-blocks:
 	python3 py/check-non-doctest-code-blocks.py Help/Reference/*.sl
 
+check-text-encoding:
+	python3 py/check-text-encoding.py Package/*/*.sl Help/*/*.sl Program/SuperCollider/*/*.sp Help/Image/*.svg
+
 check-all: \
 	check-commented-methods \
 	check-consecutive-newlines \
 	check-doctest-prefixes \
 	check-method-spacing \
 	check-non-doctest-code-blocks \
-	check-reference-names
+	check-reference-names \
+	check-text-encoding
 
 sort-method-definitions:
 	python3 py/sort-method-definitions.py Package/*/*.sl

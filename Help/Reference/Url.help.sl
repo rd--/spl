@@ -114,5 +114,3 @@ _Whatwg_
 [1](https://url.spec.whatwg.org/)
 
 Further Reading: Berners-Lee 1994
-
-Categories: Network, Address

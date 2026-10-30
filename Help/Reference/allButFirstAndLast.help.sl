@@ -24,6 +24,4 @@ The unary form answers all but the first and last element.
 
 See also: allButFirst, allButLast
 
-Guides: List Functions
-
-Categories: Accessing
+Guides: List Functions, Sequence Functions

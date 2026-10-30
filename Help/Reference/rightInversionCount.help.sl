@@ -100,5 +100,3 @@ _Sage_
 _W_
 [1](https://en.wikipedia.org/wiki/Lehmer_code)
 [2](https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics))
-
-Categories: Permutations

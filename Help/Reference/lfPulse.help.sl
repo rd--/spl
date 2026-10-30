@@ -36,7 +36,7 @@ lfPulse(
 ) * 0.1
 ~~~
 
-Compare with band limited pulse UGen:
+Compare with band limited pulse unit generator:
 
 ~~~spl syn=D
 [
@@ -94,5 +94,3 @@ _Max_
 [1](https://docs.cycling74.com/reference/gen_dsp_train/),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LFPulse.html)
-
-Categories: Ugen

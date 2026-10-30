@@ -23,5 +23,3 @@ true
 See also: assert, error, isSmallInteger
 
 Guides: Assertion Functions
-
-Categories: Asserting

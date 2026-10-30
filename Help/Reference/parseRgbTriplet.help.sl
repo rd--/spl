@@ -24,5 +24,3 @@ The triplet can, in fact, have four places, indicating an _alpha_ channel:
 See also: Colour, RgbColour, parseHexTriplet, parseRgbColour, rgbString
 
 Guides: Colour Functions
-
-Categories: Colour, Parsing

@@ -64,5 +64,3 @@ _Python_
 [1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.hann.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Hann_function)
-
-Categories: Windowing

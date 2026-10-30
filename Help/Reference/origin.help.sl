@@ -15,5 +15,3 @@ Answer a `String` having the canonical form of the origin of the Url _u_.
 See also: Location, Url
 
 Guides: Network Functions
-
-Categories: Network

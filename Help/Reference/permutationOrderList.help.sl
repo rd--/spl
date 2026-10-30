@@ -67,5 +67,3 @@ and therefore of order seventeen:
 See also: permutationOrder
 
 Guides: Permutation Functions
-
-Categories: Permutations

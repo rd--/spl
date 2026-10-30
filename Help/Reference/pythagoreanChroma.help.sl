@@ -74,5 +74,3 @@ _W_
 _Xenharmonic_
 [1](https://en.xen.wiki/w/2187/2048)
 [2](https://en.xen.wiki/w/Chromatic_semitone)
-
-Categories: Math, Contant, Tuning

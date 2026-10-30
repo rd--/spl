@@ -26,4 +26,6 @@ See also: playBuf
 
 Guides: Unit Generators
 
-Categories: Ugen, Recording
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/RecordBuf.html)

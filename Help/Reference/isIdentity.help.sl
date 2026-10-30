@@ -24,5 +24,3 @@ true
 See also: Permutation
 
 Guides: Permutation Functions, Predicate Functions
-
-Categories: Permutations

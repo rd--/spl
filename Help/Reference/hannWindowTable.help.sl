@@ -17,5 +17,3 @@ Hann window table:
 See also: hammingWindowTable, hannWindow, kaiserWindowTable, welchWindowTable
 
 Guides: Window Functions
-
-Categories: Windowing

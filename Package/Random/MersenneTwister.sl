@@ -4,7 +4,7 @@ MersenneTwister : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 	| seed block |
 
-	initialize { :self :aNumber |
+	initialize! { :self :aNumber |
 		self.seed := aNumber;
 		self.reset!;
 		self
@@ -24,7 +24,7 @@ MersenneTwister : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 +@Integer {
 
 	MersenneTwister { :self |
-		newMersenneTwister().initialize(self)
+		newMersenneTwister().initialize!(self)
 	}
 
 	mt53RandomNumberGenerator { :self |

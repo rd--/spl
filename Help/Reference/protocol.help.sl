@@ -29,5 +29,3 @@ Mail, telephone and archive addresses:
 See also: Location, Url, host, hostName, href, pathName
 
 Guides: Network Functions
-
-Categories: Network

@@ -71,5 +71,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Euler%E2%80%93Fokker_genus),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Euler-Fokker_genus)
-
-Categories: Tuning

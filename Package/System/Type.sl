@@ -13,7 +13,7 @@ Type! : [Object, Equal] {
 		let method = void.methodDictionary[self.constructorName];
 		let constructor/0 = method.block;
 		let instance = constructor();
-		instance.initialize;
+		instance.initialize!;
 		instance
 	}
 

@@ -27,7 +27,7 @@ The implemented methods are:
 
 See also: Compare, equal
 
-Guides: Comparing Collections
+Guides: Comparing Collections, Comparison Functions
 
 References:
 _Haskell_

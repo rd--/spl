@@ -190,6 +190,12 @@
 
 - `Hyperbolic Functions`: Guide
 
+## Identity Functions
+
+- `identity`
+- `leftIdentity`
+- `rightIdentity`
+
 ## Integer Functions
 
 - `Integer Functions`: Guide

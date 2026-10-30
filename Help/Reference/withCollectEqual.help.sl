@@ -33,4 +33,4 @@ There is also an _adverbial_ form, currently called _e_:
 
 See also: withCollect
 
-Guides: Operator Adverbs
+Guides: Block Functions, Operator Adverbs

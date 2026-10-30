@@ -85,5 +85,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Partition.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Integer_partition)
-
-Categories: Math, Combinatorics

@@ -63,5 +63,3 @@ Guides: Window Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NuttallWindow.html)
-
-Categories: Windowing

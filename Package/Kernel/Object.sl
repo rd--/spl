@@ -96,7 +96,7 @@
 		self
 	}
 
-	initialize { :self |
+	initialize! { :self |
 		self
 	}
 

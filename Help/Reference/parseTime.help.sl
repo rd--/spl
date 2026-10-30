@@ -53,10 +53,8 @@ The ISO-8601 time notation can only represent time up to twenty four hours.
 
 See also: Date, parseDate, parseDateAndTime, parseDuration, timeString
 
-Guides: Parsing Functions
+Guides: Date and Time Functions, Parsing Functions
 
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/ISO_8601)
-
-Categories: Time, Parsing

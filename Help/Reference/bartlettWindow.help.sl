@@ -61,5 +61,3 @@ _Mathematica_
 _Mathworks_
 [1](https://mathworks.com/help/signal/ref/bartlett.html)
 [2](https://mathworks.com/help/signal/ref/triang.html)
-
-Categories: Windowing

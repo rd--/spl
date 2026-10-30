@@ -73,7 +73,7 @@ Frame : [Object, UserEventTarget] {
 		self.framePane.style.setProperty('--font-size', fontSize, '')
 	}
 
-	initialize { :self :smallKansas :subject |
+	initialize! { :self :smallKansas :subject |
 		self.smallKansas := smallKansas;
 		self.subject := subject;
 		self.createElements;
@@ -183,7 +183,7 @@ Frame : [Object, UserEventTarget] {
 +SmallKansas {
 
 	Frame { :self :subject |
-		newFrame().initialize(self, subject)
+		newFrame().initialize!(self, subject)
 	}
 
 }

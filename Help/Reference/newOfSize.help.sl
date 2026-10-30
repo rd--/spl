@@ -35,6 +35,4 @@ cannot have duplicate elements.
 
 See also: New, extendToSize!, new, newFrom, species
 
-Guides: Dictionary Functions, List Functions
-
-Categories: Instance Creation, Reflection
+Guides: Collection Functions, Dictionary Functions, List Functions, Reflection Functions

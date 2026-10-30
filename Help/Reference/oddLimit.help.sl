@@ -30,10 +30,8 @@ The `oddLimitSet` is all of the fractions that are within the specified `oddLimi
 
 See also: integerLimit, oddLimitSet, primeLimit
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Odd_limit)
-
-Categories: Tuning

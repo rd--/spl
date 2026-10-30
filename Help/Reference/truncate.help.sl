@@ -141,5 +141,3 @@ _Smalltalk_
 5.6.2.41,
 _W_
 [1](https://en.wikipedia.org/wiki/Truncation)
-
-Categories: Truncating, Rounding

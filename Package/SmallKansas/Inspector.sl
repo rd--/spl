@@ -21,7 +21,7 @@ Inspector : [Object, View] {
 		self.inspectorList.add!(listChooser)
 	}
 
-	initialize { :self :aValue |
+	initialize! { :self :aValue |
 		self.inspectorPane := 'div'.createElement(
 			(
 				class: 'inspectorPane'
@@ -51,7 +51,7 @@ Inspector : [Object, View] {
 +@Object {
 
 	Inspector { :self |
-		newInspector().initialize(self)
+		newInspector().initialize!(self)
 	}
 
 	inspect { :self |

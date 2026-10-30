@@ -37,7 +37,7 @@ TextEditor : [Object, UserEventTarget, View] {
 		self.editorText.setAttribute('contentEditable', aBoolean.printString)
 	}
 
-	initialize { :self :smallKansas :title :mimeType :contents |
+	initialize! { :self :smallKansas :title :mimeType :contents |
 		self.smallKansas := smallKansas;
 		self.title := title;
 		self.mimeType := mimeType;
@@ -111,7 +111,7 @@ TextEditor : [Object, UserEventTarget, View] {
 +SmallKansas {
 
 	TextEditor { :self :title :mimeType :contents |
-		newTextEditor().initialize(self, title, mimeType, contents)
+		newTextEditor().initialize!(self, title, mimeType, contents)
 	}
 
 	standardTextEditorMenuItems { :self :subject |

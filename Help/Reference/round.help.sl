@@ -339,5 +339,3 @@ _Smalltalk_
 5.6.2.32,
 _SuperCollider_
 [1](https://doc.sccode.org/Overviews/Operators.html#.round)
-
-Categories: Truncating, Rounding

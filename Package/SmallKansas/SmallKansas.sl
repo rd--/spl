@@ -126,7 +126,7 @@ SmallKansas : [Object, Cache] {
 		self.addFrame(self.MethodSignatureBrowser(methodSignatures, false), event)
 	}
 
-	initialize { :self |
+	initialize! { :self |
 		self.container := 'smallKansas'.getElementById;
 		self.frameSet := IdentitySet();
 		self.cache := Record();
@@ -182,7 +182,7 @@ SmallKansas : [Object, Cache] {
 +Void {
 
 	SmallKansas {
-		newSmallKansas().initialize
+		newSmallKansas().initialize!
 	}
 
 }

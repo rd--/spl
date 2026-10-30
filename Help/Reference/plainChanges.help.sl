@@ -124,12 +124,10 @@ OEIS [A280319](https://oeis.org/A280319):
 
 See also: lexicographicPermutations, minimumChangePermutations, permutations, plainChangesDo
 
-Guides: Permutation Functions
+Guides: Enumeration Functions, Permutation Functions
 
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm)
 
 Further Reading: Johnson 1963, Ruskey 1989, Sedgewick 1977, Trotter 1962
-
-Categories: Enumerating, Permutations

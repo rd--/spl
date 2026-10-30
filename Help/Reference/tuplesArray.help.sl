@@ -68,4 +68,4 @@ arranged as an array.
 
 See also: reshape, tuples
 
-Categories: Combinatorics, Enumerating, Math
+Guides: Combinatorial Functions, Enumeration Functions, Mathematical Functions

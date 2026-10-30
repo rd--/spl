@@ -22,5 +22,3 @@ Guides: Control Functions, Error Functions
 References:
 _Smalltalk_
 5.3.1.8
-
-Categories: Error, Exception

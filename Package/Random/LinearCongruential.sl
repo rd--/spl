@@ -4,7 +4,7 @@ LinearCongruential : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 	| parameters seed state |
 
-	initialize { :self :parameters :seed |
+	initialize! { :self :parameters :seed |
 		self.parameters := parameters;
 		self.seed := seed;
 		self.reset!;
@@ -33,7 +33,7 @@ LinearCongruential : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 +List {
 
 	LinearCongruential { :parameters :seed |
-		newLinearCongruential().initialize(parameters, seed)
+		newLinearCongruential().initialize!(parameters, seed)
 	}
 
 }

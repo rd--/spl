@@ -21,6 +21,11 @@ Collective Rounding:
 
 - `roundedPercentageAllocation`
 
+Power Rounding:
+
+- `nextPowerOfTwo`
+- `previousPowerOfTwo`
+
 * * *
 
 Guides: Mathematical Functions

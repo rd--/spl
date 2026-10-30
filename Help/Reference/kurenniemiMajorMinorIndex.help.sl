@@ -48,5 +48,3 @@ See also: gcd, lcm, log
 Guides: Tuning Functions
 
 Further Reading: Kurenniemi 2015
-
-Categories: Tuning

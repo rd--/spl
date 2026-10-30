@@ -67,5 +67,3 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/WelchApodizationFunction.html)
 [2](https://reference.wolfram.com/language/ref/WelchWindow.html)
-
-Categories: Windowing

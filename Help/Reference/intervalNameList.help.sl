@@ -82,5 +82,3 @@ Harmonic division of the octave (Daniélou 1943, p. 153):
 See also: intervalName, namedInterval, scalaIntervalArchive
 
 Guides: Tuning Functions
-
-Categories: Tuning

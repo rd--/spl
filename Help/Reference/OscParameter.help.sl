@@ -70,5 +70,3 @@ Guides: Protocol Functions
 References:
 _OpenSoundControl_
 [1](https://opensoundcontrol.stanford.edu/spec-1_0.html)
-
-Categories: OpenSoundControl

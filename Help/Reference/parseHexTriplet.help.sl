@@ -55,5 +55,3 @@ A rainbow:
 See also: Colour, RgbColour, hexTriplet, parseHexColour, parseRgbColour, rgbString
 
 Guides: Colour Functions, Parsing Functions
-
-Categories: Colour, Parsing

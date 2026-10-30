@@ -56,5 +56,3 @@ true
 See also: sort, sortByOn, sortComparing, sortOn
 
 Guides: Sort Functions
-
-Categories: Sorting

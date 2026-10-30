@@ -74,5 +74,3 @@ _OEIS_
 _W_
 [1](https://en.wikipedia.org/wiki/0)
 [2](https://en.wikipedia.org/wiki/Zero_element)
-
-Categories: Instance Creation

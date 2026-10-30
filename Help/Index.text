@@ -170,6 +170,7 @@ Guide/Number Syntax.help.sl
 Guide/Numerical Methods.help.sl
 Guide/Numerical Precision.help.sl
 Guide/Numeric Types.help.sl
+Guide/Object Functions.help.sl
 Guide/Octave Perspective.help.sl
 Guide/One Indexing.help.sl
 Guide/Open Questions.help.sl
@@ -383,7 +384,7 @@ Reference/ampersandAmpersand.help.sl
 Reference/ampersandCurve.help.sl
 Reference/ampersand.help.sl
 Reference/ampersandImplicitCurve.help.sl
-Reference/amplitude.help.sl
+Reference/amplitudeFollower.help.sl
 Reference/amusicalPermutation.help.sl
 Reference/AnalogueClock.help.sl
 Reference/and.help.sl

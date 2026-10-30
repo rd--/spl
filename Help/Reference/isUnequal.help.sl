@@ -56,5 +56,3 @@ _W_
 [2](https://en.wikipedia.org/wiki/Exclusive_or)
 
 Unicode: U+2260 ≠ Not equal to
-
-Categories: Comparing

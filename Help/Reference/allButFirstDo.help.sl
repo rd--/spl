@@ -17,5 +17,3 @@ Answers `nil`.
 See also: allButLastDo, do
 
 Guides: Iteration Functions
-
-Categories: Accessing

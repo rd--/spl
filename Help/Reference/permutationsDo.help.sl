@@ -20,5 +20,3 @@ Answers `nil`.
 See also: permutations
 
 Guides: Iteration Functions, Permutation Functions
-
-Categories: Enumerating, Permutations

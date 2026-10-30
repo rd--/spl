@@ -141,5 +141,3 @@ _Python_
 [1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.lucas),
 _W_
 [1](https://en.wikipedia.org/wiki/Lucas_number)
-
-Categories: Math, Function, Sequence

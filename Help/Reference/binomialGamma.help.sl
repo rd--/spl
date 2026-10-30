@@ -128,8 +128,8 @@ Evaluate symbolically:
 
 See also: binomial, binomialPascal, gamma
 
+Guides: Combinatorial Functions, Mathematical Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Gamma%27s_triangle)
-
-Categories: Math, Combinatorics

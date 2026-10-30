@@ -447,5 +447,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Permutation.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Permutation)
-
-Categories: Permutations, Type

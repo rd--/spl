@@ -278,6 +278,10 @@
 - `freeVerb`: a reverb
 - `gVerb`: two-channel reverb
 
+## Recording
+
+- `recordBuf`
+
 ## Sequencing
 
 - `seq`: demand rate sequence generator

@@ -27,4 +27,4 @@ Answers the final result sequence.
 
 See also: bjorklundsAlgorithm, euclideanAlgorithm
 
-Categories: Algorithm, Math
+Guides: Mathematical Functions, Scale Functions

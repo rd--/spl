@@ -2,10 +2,10 @@
 
 - _dseries(length=Infinity, start=1, step=1)_
 
-demand rate arithmetic series UGen.
+Demand rate arithmetic series unit generator.
 
-- start: Start value
-- step: Step value
+- start: Start value.
+- step: Step value.
 - length: Number of values to create.
 
 Finite ascending sequences:
@@ -79,5 +79,3 @@ Guides: Unit Generators
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Dseries.html)
-
-Categories: Ugen

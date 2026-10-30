@@ -33,6 +33,4 @@ SortedSet/0
 
 See also: New, fillFrom, new, species
 
-Guides: Collection Functions
-
-Categories: Instance Creation, Reflection
+Guides: Collection Functions, Reflection Functions

@@ -55,5 +55,3 @@ Guides: Error Functions, Scale Functions, Tuning Functions
 References:
 _Smalltalk_
 5.5.1.2
-
-Categories: Errors

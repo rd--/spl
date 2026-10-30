@@ -40,7 +40,7 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 		self.program.focus
 	}
 
-	initialize { :self :smallKansas :description :program :expectedAnswer |
+	initialize! { :self :smallKansas :description :program :expectedAnswer |
 		self.smallKansas := smallKansas;
 		self.outerElement := 'div'.createElement(
 			(
@@ -186,7 +186,7 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 +SmallKansas {
 
 	SmallProgram { :self :description :program :expectedAnswer |
-		newSmallProgram().initialize(self, description, program, expectedAnswer)
+		newSmallProgram().initialize!(self, description, program, expectedAnswer)
 	}
 
 }

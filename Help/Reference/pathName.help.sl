@@ -23,5 +23,3 @@ The empty file `Url`:
 See also: Location, Url, fileName, hostName, href
 
 Guides: Network Functions
-
-Categories: Network

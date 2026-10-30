@@ -19,5 +19,3 @@ Guides: Error Functions
 References:
 _Smalltalk_
 5.5.1.4
-
-Categories: Errors

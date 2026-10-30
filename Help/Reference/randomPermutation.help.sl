@@ -32,5 +32,3 @@ _Mathworks_
 [1](https://www.mathworks.com/help/matlab/ref/randperm.html),
 _Python_
 [1](https://numpy.org/doc/stable/reference/random/generated/numpy.random.permutation.html)
-
-Categories: Random, Permutation

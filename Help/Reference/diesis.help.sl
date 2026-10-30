@@ -32,10 +32,8 @@ It has tuning lattice coordinates _7 0 -3_:
 
 See also: mercatorsComma, octaveReduce, pythagoreanChroma, pythagoreanComma, septimalComma, syntonicComma
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Diesis)
-
-Categories: Math, Contant, Tuning

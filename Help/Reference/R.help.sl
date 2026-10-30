@@ -19,8 +19,7 @@ At `Integer`:
 
 See also: Fraction, divide
 
-Guides: Fraction Syntax
+Guides: Fraction Functions, Fraction Syntax
 
-Unicode: U+1D45F 𝑟 Mathematical Italic Small R
-
-Categories: Accessing, Geometry
+Unicode: U+1D45F 𝑟 Mathematical Italic Small R,
+U+1D445 𝑅 Mathematical Italic Capital R

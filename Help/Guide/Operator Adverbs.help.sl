@@ -2,7 +2,7 @@
 
 - _x ▯.f y_
 
-Adverbs are methods at _Block_.
+Adverbs are methods at `Block`.
 
 Rewrite rules:
 
@@ -105,10 +105,8 @@ Make a flattened list of associations:
 
 * * *
 
-Guides: Operator Syntax
+Guides: Block Functions, Operator Syntax, Syntax Guides
 
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/Modifiers)
-
-Categories: Syntax

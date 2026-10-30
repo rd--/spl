@@ -65,5 +65,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Blancmange_curve)
 
 Further Reading: Takagi 1901
-
-Categories: Math, Function

@@ -129,12 +129,10 @@ The inverse is called `lexicographicOrder`.
 
 See also: Compare, <, <=>, =, >, precedes
 
-Guides: List Functions, Sort Functions, String Functions
+Guides: Comparison Functions, List Functions, Sort Functions, String Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/LexicographicOrder.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Lexicographic_order)
-
-Categories: Comparing

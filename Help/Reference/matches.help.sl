@@ -19,5 +19,3 @@ false
 See also: RegularExpression, matchesRegularExpression, search
 
 Guides: Regular Expression Functions
-
-Categories: Regular Expression, Testing

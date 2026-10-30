@@ -18,10 +18,8 @@ A random single cycle permutation of the symmetric group _S10_:
 
 See also: cycles, randomPermutation, randomSample, sattoloShuffle
 
-Guides: Random Functions
+Guides: Permutation Functions, Random Functions
 
 References:
 _Julia_
 [1](https://docs.julialang.org/en/v1/stdlib/Random/#Random.randcycle),
-
-Categories: Random, Permutation

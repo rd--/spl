@@ -1360,7 +1360,7 @@ OEIS [A052307](https://oeis.org/A052307):
 
 See also: factorial, multinomial, trinomial
 
-Guides: Combinatorial Functions
+Guides: Combinatorial Functions, Integer Functions, Mathematical Functions
 
 References:
 _Apl_
@@ -1396,5 +1396,3 @@ _Python_
 _W_
 [1](https://en.wikipedia.org/wiki/Binomial_coefficient)
 [2](https://en.wikipedia.org/wiki/Cake_number)
-
-Categories: Math, Combinatorics

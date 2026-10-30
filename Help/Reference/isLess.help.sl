@@ -103,5 +103,3 @@ _Smalltalk_
 _W_
 [1](https://en.wikipedia.org/wiki/Converse_nonimplication)
 [2](https://en.wikipedia.org/wiki/Inequality_(mathematics))
-
-Categories: Comparing

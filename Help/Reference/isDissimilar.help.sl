@@ -29,5 +29,3 @@ _Apl_
 [1](https://aplwiki.com/wiki/Not_Match)
 
 Unicode: U+2249 ≉ Not Almost Equal To
-
-Categories: Comparing

@@ -55,5 +55,3 @@ true
 See also: asInteger, isDecimalIntegerString, parseDecimal, parseLargeInteger, parseNumber, parseSmallInteger
 
 Guides: Parsing Functions
-
-Categories: Parsing

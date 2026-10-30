@@ -31,5 +31,3 @@ Guides: Permutation Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order)
-
-Categories: Permutations

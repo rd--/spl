@@ -81,7 +81,7 @@ ColumnBrowser : [Object, View] {
 		}
 	}
 
-	initialize { :self :smallKansas :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept/1 :onChange/2 |
+	initialize! { :self :smallKansas :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept/1 :onChange/2 |
 		self.smallKansas := smallKansas;
 		self.title := title;
 		self.numberOfColumns := columnProportions.size;
@@ -145,7 +145,7 @@ ColumnBrowser : [Object, View] {
 +SmallKansas {
 
 	ColumnBrowser { :self :title :mimeType :withFilter :withStatus :columnProportions :clientKeyBindings :onAccept/1 :onChange/2 |
-		newColumnBrowser().initialize(
+		newColumnBrowser().initialize!(
 			self,
 			title,
 			mimeType,

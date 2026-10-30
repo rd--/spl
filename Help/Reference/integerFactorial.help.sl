@@ -29,12 +29,10 @@ At `LargeInteger`:
 
 See also: !, factorial
 
-Guides: Integer Functions
+Guides: Combinatorial Functions, Integer Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Factorial.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Factorial)
-
-Categories: Math, Combinatorics

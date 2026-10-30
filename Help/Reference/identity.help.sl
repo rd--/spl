@@ -28,6 +28,8 @@ Where supported, `identity` is displayed as ⊣.
 
 See also: leftIdentity, rightIdentity
 
+Guides: Mathematical Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Identity)
@@ -40,5 +42,3 @@ _Smalltalk_
 5.3.1.20
 
 Unicode: U+22A3 ⊣ Left Tack
-
-Categories: Functions

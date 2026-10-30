@@ -10,6 +10,10 @@ Convolution Functions:
 - `convolve`
 - `fftConvolve`
 
+Csound Functions:
+
+- `Csound Gen Routines`: Guide
+
 Delta Functions:
 
 - `diracDelta`
@@ -64,6 +68,12 @@ Waveform Functions:
 - `sawtoothWave`
 - `squareWave`
 - `triangleWave`
+
+Wavetable Functions:
+
+- `addSine`
+- `sineFill`
+- `sineTable`
 
 Weighting Curve Functions:
 

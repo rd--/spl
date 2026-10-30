@@ -13,7 +13,7 @@ Granular synthesis with sound stored in a buffer.
 - interp: the interpolation method used for pitchshifting grains.
 - pan: determines where to pan the output.
 - envbufnum: the buffer number containing a signal to use for the grain envelope. -1 uses a built-in Hann envelope.
-- maxGrains: the maximum number of overlapping grains that can be used at a given time. This value is set at the UGens init time and cannot be modified. Defaults to 512. This can be set lower for more efficient use of memory.
+- maxGrains: the maximum number of overlapping grains that can be used at a given time. This value is set at initialization time and cannot be modified. Defaults to 512. This can be set lower for more efficient use of memory.
 
 The possible interpolation values are
 1 = no interpolation,

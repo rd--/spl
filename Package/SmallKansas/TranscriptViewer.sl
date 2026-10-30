@@ -2,7 +2,7 @@ TranscriptViewer : [Object, View, SmallKansan] {
 
 	| textEditor entryCount |
 
-	initialize { :self |
+	initialize! { :self |
 		self.textEditor = nil;
 		self.entryCount := 0;
 		self

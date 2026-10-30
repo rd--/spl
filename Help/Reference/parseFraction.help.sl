@@ -47,6 +47,4 @@ At `Record`:
 
 See also: Fraction, parseDecimal, parseLargeInteger, parseNumber, parseSmallInteger
 
-Guides: Parsing Functions
-
-Categories: Converting, Parsing
+Guides: Fraction Functions, Parsing Functions

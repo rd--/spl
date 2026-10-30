@@ -6,11 +6,11 @@ Noise generator.
 
 demand rate white noise random generator.
 dwhite answers numbers in the continuous range between lo and hi.
-The arguments can be a number or any other UGen.
+The arguments can be a number or any other unit generator.
 
-- length: Number of values to create
-- lo: Minimum value
-- hi: Maximum value
+- length: number of values to create
+- lo: minimum value
+- hi: maximum value
 
 Mouse controls range of frequency and rate of change.
 
@@ -41,5 +41,3 @@ Guides: Unit Generators
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Dwhite.html)
-
-Categories: Ugen, Noise, demand

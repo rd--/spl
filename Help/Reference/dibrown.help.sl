@@ -10,7 +10,7 @@ demand rate brownian movement generator.
 - hi: maximum value
 - step: maximum step for each new value
 
-_dibrown_ answers numbers in the continuous range between lo and hi.
+`dibrown` answers numbers in the continuous range between lo and hi.
 The arguments can be a number or any other ugen.
 
 ~~~spl syn=A
@@ -32,5 +32,3 @@ Guides: Unit Generators
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Dibrown.html)
-
-Categories: Ugen, Noise, demand

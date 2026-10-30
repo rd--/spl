@@ -28,5 +28,3 @@ See also: !=, !~, <~, =, >~, isDissimilar, isSimilar
 Guides: Comparison Functions
 
 Unicode: U+0007E ~ Tilde, U+2248 ≈ Almost Equal To
-
-Categories: Comparing

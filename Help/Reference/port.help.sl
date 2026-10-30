@@ -17,5 +17,3 @@ Answer a `String` having the port of the `host` component of the `Url` _u_.
 See also: Url, host, hostName
 
 Guides: Network Functions
-
-Categories: Network

@@ -17,4 +17,4 @@ system
 
 See also: String, Url, fetch, fetchByteArray, fetchJson, fetchText
 
-Categories: Network
+Guides: Network Functions

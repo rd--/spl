@@ -16,5 +16,3 @@ of the `Url` _u_.
 See also: Url, host, hostName, href, pathName, port, protocol, query
 
 Guides: Network Functions
-
-Categories: Network

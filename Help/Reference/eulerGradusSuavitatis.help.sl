@@ -71,12 +71,10 @@ OEIS [A275314](https://oeis.org/A275314):
 
 See also: Fraction, isCoprime, primeFactors
 
-Guides: Integer Sequence Functions
+Guides: Integer Sequence Functions, Tuning Functions
 
 References:
 _OEIS_
 [1](https://oeis.org/A275314)
 
 Further Reading: Euler 1739
-
-Categories: Tuning

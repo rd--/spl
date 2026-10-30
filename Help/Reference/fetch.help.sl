@@ -76,12 +76,10 @@ system
 
 See also: Promise, Response, fetchByteArray, fetchJson, fetchText
 
-Guides: Network Functions
+Guides: Network Functions, Scheduling Functions
 
 References:
 _Mdn_
 [1](https://developer.mozilla.org/en-US/docs/Web/API/fetch),
 _Whatwg_
 [1](https://fetch.spec.whatwg.org/#fetch-method)
-
-Categories: Network, Scheduling

@@ -82,7 +82,7 @@ or as a prefix:
 
 See also: any, drop, first, takeFirst, takeLast
 
-Guides: List Functions
+Guides: Collection Functions, List Functions
 
 References:
 _Apl_
@@ -93,5 +93,3 @@ _J_
 [1](https://www.jsoftware.com/help/dictionary/d521.htm),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Take.html)
-
-Categories: Accessing

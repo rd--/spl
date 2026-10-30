@@ -16,5 +16,3 @@ The warning gives the type of the object _x_, its value, and the message string 
 See also: Error, error, identity, notify, printLine
 
 Guides: Error Functions
-
-Categories: Error

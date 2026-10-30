@@ -30,10 +30,8 @@ false
 
 See also: Fraction, parseFraction
 
-Guides: Parsing Functions
+Guides: Parsing Functions, Predicate Functions, String Functions
 
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Fraction)
-
-Categories: Converting, Parsing

@@ -66,5 +66,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Material_nonimplication)
 
 Unicode: U+003e > Greater-Than Sign
-
-Categories: Comparing

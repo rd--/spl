@@ -69,5 +69,3 @@ Guides: Unit Generators
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Demand.html)
-
-Categories: Ugen, demand

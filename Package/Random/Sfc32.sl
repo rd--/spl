@@ -4,7 +4,7 @@ Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 	| seed block |
 
-	initialize { :self :anObject |
+	initialize! { :self :anObject |
 		self.seed := anObject.sfc32State;
 		self.reset!;
 		self
@@ -24,7 +24,7 @@ Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 +List {
 
 	Sfc32 { :self |
-		newSfc32().initialize(self.sfc32State)
+		newSfc32().initialize!(self.sfc32State)
 	}
 
 	sfc32RandomNumberGeneratorBlock { :self |

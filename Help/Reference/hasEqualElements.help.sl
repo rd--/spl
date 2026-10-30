@@ -60,6 +60,4 @@ Two distinct `List` objects are never identical, but may have identical elements
 
 See also: =, ==, hasEqualSlots
 
-Guides: Equality Functions
-
-Categories: Comparing
+Guides: Comparison Functions

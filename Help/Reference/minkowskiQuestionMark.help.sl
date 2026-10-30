@@ -146,6 +146,8 @@ Plot from -2 to 2, _?(x)_ is surjective:
 
 See also: continuedFraction, minkowskiQuestionMarkInverse, sternBrocotTree
 
+Guides: Mathematical Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/MinkowskisQuestionMarkFunction.html)
@@ -154,5 +156,3 @@ _OEIS_
 [1](https://oeis.org/A048819),
 _W_
 [1](https://en.wikipedia.org/wiki/Minkowski%27s_question-mark_function)
-
-Categories: Math, Function

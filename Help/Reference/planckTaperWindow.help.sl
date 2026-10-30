@@ -59,5 +59,3 @@ Frequency response of the Planck-taper window:
 See also: tukeyWindow
 
 Guides: Window Functions
-
-Categories: Windowing

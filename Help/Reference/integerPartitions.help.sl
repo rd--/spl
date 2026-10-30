@@ -675,5 +675,3 @@ _OEIS_
 [7](https://oeis.org/wiki/Orderings_of_partitions),
 _W_
 [1](https://en.wikipedia.org/wiki/Integer_partition)
-
-Categories: Math, Combinatorics

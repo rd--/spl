@@ -15,8 +15,6 @@ The name of this operator is `exclamationMarkTilde`.
 
 See also: <~, =, >~, ~, isDissimilar
 
-Guides: Comparison Functions, Equality Functions
+Guides: Comparison Functions
 
 Unicode: U+2249 ≉ Not Almost Equal To, ≁ U+2241 Not Tilde
-
-Categories: Comparing

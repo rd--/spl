@@ -38,5 +38,3 @@ Fetch text from password file Url:
 See also: Location, Url, hostName, href, origin, pathName, protocol
 
 Guides: Network Functions
-
-Categories: Network

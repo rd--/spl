@@ -33,5 +33,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/PermutationInvolution.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Involution_(mathematics))
-
-Categories: Testing, Permutation

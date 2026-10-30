@@ -25,5 +25,3 @@ x.linePlot
 See also: sin, sineFill, sineTable
 
 Guides: Signal Processing Functions
-
-Categories: Wavetable

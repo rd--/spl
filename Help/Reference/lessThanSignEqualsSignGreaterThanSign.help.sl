@@ -90,5 +90,3 @@ Guides: Comparison Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NumericalOrder.html)
-
-Categories: Comparing

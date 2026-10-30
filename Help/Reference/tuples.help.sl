@@ -204,7 +204,7 @@ All possible trigrams of A and B:
 
 See also: cartesianProduct, powerSet, subsets, table, tuplesArray, tuplesCollect, tuplesDo
 
-Guides: Combinatorial Functions, List Functions, Set Functions
+Guides: Combinatorial Functions, Enumeration Functions, List Functions, Set Functions
 
 References:
 _J_
@@ -214,5 +214,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Tuples.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/combinations.html)
-
-Categories: Combinatorics, Enumerating, Math

@@ -39,5 +39,3 @@ Guides: Unit Generators
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/XFade2.html)
-
-Categories: Ugen, Panning

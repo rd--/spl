@@ -55,7 +55,7 @@ Of the 120 permutations of _S5_, 42 are stack sortable:
 
 See also: Permutation, catalanNumber, dyckWords
 
-Guides: Sort Functions
+Guides: Permutation Functions, Sort Functions
 
 References:
 _Sage_
@@ -64,5 +64,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Stack-sortable_permutation)
 
 Further Reading: Knuth 1968, Rotem 1981
-
-Categories: Permutations, Sorting

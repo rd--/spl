@@ -140,5 +140,3 @@ Guides: Comparison Functions, Equality Functions
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Match)
-
-Categories: Comparing

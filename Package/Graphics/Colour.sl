@@ -187,6 +187,12 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	| rgb alpha |
 
+	initialize! { :self |
+		self.rgb := [0, 0, 0];
+		self.alpha := 1;
+		self
+	}
+
 	lighten { :self :aNumber |
 		RgbColour(
 			self.rgb.linearInterpolation([1 1 1], aNumber),

@@ -46,10 +46,8 @@ Threads over lists:
 
 See also: benedettiHeight, tenneyHeight, withoutFactorsOfTwo
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Kees_semi-height)
-
-Categories: Tuning

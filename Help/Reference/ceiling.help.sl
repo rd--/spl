@@ -311,5 +311,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Ceiling_function)
 
 Unicode: U+02308 ⌈ Left Ceiling, U+2309 ⌉ Right Ceiling
-
-Categories: Truncating and rounding

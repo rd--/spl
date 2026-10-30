@@ -126,7 +126,7 @@ Tenney, Weil and Wilson norms:
 
 See also: mercatorsComma, octaveReduce, pythagoreanChroma, septimalComma, syntonicComma
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _W_
@@ -134,5 +134,3 @@ _W_
 [2](https://en.wikipedia.org/wiki/Comma_(music)),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Pythagorean_comma)
-
-Categories: Math, Contant, Tuning

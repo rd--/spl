@@ -45,5 +45,3 @@ Guides: Unit Generators
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Balance2.html)
-
-Categories: Panning

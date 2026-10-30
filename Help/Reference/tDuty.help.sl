@@ -2,22 +2,22 @@
 
 - _tDuty(dur=1, reset=0, level=1)_
 
-demand results as trigger from demand rate Ugens.
+Demand results as trigger from demand rate unit generators.
 
-A value is demanded of each Ugen in the list and output as a trigger,
+A value is demanded of each unit generator in the list and output as a trigger,
 according to a stream of duration values.
 The unit generators in the list should be _demand_ rate.
 
 When there is a trigger at the reset input,
-the demand rate Ugens in the list and the duration are reset.
+the demand rate unit generators in the list and the duration are reset.
 
 - dur: time values, the next level is acquired after duration
-- reset: resets the list of Ugens and the duration Ugen when triggered.
-- level: demand Ugen providing the output values
+- reset: resets the list of unit generators and the duration unit generator when triggered
+- level: demand unit generator providing the output values
 
-The reset input may also be a demand UGen, providing a stream of reset times.
+The reset input may also be a demand unit generator, providing a stream of reset times.
 
-demand Ugen as durations:
+A demand unit generator as durations:
 
 ~~~spl syn=A
 let trig = tDuty(
@@ -48,12 +48,10 @@ tDuty(dseq(Infinity, b), 0, 1)
 
 * * *
 
-See also: duty
+See also: demand, duty
 
 Guides: Unit Generators
 
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/TDuty.html)
-
-Categories: Ugen

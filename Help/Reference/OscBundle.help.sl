@@ -40,4 +40,6 @@ See also: OscMessage, OscParameter, encode
 
 Guides: Protocol Functions
 
-Categories: OpenSoundControl
+References:
+_OpenSoundControl_
+[1](https://opensoundcontrol.stanford.edu/spec-1_0.html)

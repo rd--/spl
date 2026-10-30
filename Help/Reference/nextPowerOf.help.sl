@@ -28,6 +28,4 @@ in some contexts the following may answer the next next power of two:
 
 See also: isPowerOfTwo, nextPowerOfTwo
 
-Guides: Integer Functions
-
-Categories: Truncation, Rounding
+Guides: Integer Functions, Rounding Functions

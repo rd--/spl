@@ -37,10 +37,8 @@ The time string truncates the accuracy to one millisecond.
 
 See also: Time, isTimeString, parseTime
 
-Guides: Parsing Functions
+Guides: Date and Time Functions, Parsing Functions
 
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/ISO_8601)
-
-Categories: Time, Parsing

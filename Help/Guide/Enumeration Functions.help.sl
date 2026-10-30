@@ -17,6 +17,10 @@ Progression Functions:
 - `toBy`
 - `upOrDownTo`
 
+Set Functions:
+
+- `tuples`
+
 * * *
 
 Guides: Interval Functions, Range Functions

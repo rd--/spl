@@ -97,5 +97,3 @@ Translate the simplified ratios to cents courtesy `cents`:
 See also: RatioTuning, ScalaTuning, Tuning, cents, equalTemperamentTuning
 
 Guides: Tuning Functions
-
-Categories: Tuning

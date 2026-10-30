@@ -89,5 +89,3 @@ _OEIS_
 [2](https://oeis.org/A049773),
 _W_
 [1](https://en.wikipedia.org/wiki/Bit-reversal_permutation)
-
-Categories: Permutation

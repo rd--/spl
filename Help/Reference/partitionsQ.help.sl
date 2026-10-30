@@ -139,5 +139,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/PartitionsQ.html),
 _OEIS_
 [1](https://oeis.org/A000009)
-
-Categories: Combinatorics, Math

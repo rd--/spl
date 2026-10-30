@@ -9,7 +9,7 @@ let n = {
 		0.6
 	) + rlpf(
 		saw(
-			amplitude(
+			amplitudeFollower(
 				3 ^ n() * 3000 * inFeedback(1, 0) + 1,
 				4,
 				4

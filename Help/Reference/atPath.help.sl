@@ -81,5 +81,3 @@ _Apl_
 [1](https://aplwiki.com/wiki/Pick),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/curlylfcoco#dyadic)
-
-Categories: Accessing

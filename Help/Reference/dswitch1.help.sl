@@ -2,12 +2,12 @@
 
 - _dswitch1(index, list)_
 
-demand rate generator for switching between inputs.
+Demand rate generator for switching between inputs.
 
 - index: Which of the inputs to return.
-- list: List of values or other UGens.
+- list: List of values.
 
-mouseX selects input:
+`mouseX` selects input:
 
 ~~~spl syn=A
 let a = dswitch1(
@@ -48,5 +48,3 @@ Guides: Unit Generators
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Dswitch1.html)
-
-Categories: Ugen

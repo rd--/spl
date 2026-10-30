@@ -26,4 +26,4 @@ Sets the separator to '/':
 
 See also: parseFraction
 
-Categories: Converting, Parsing
+Guides: Parsing Functions

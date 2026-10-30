@@ -57,5 +57,3 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HammingFunction.html)
 [2](https://reference.wolfram.com/language/ref/HammingWindow.html)
-
-Categories: Windowing

@@ -15,7 +15,7 @@ ImageViewer : [Object, View] {
 		self.outerElement.appendChild(img)
 	}
 
-	initialize { :self :title :url |
+	initialize! { :self :title :url |
 		self.title := title;
 		self.url := url;
 		self.createElements;
@@ -27,7 +27,7 @@ ImageViewer : [Object, View] {
 +String {
 
 	ImageViewer { :title :url |
-		newImageViewer().initialize(title, url)
+		newImageViewer().initialize!(title, url)
 	}
 
 }

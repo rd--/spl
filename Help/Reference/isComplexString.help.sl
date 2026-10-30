@@ -58,5 +58,3 @@ Guides: Parsing Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Complex_number)
-
-Categories: Converting, Parsing

@@ -24,5 +24,3 @@ Plot 128 place table:
 See also: hammingWindow, hannWindowTable, kaiserWindowTable, welchWindowTable
 
 Guides: Window Functions
-
-Categories: Windowing

@@ -30,5 +30,3 @@ _Smalltalk_
 5.6.1.2
 
 Unicode: U+2264 ≤ Less-than or equal to
-
-Categories: Comparison

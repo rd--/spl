@@ -74,5 +74,3 @@ _OEIS_
 _W_
 [1](https://en.wikipedia.org/wiki/Bell_number)
 [2](https://en.wikipedia.org/wiki/Bell_triangle)
-
-Categories: Math, Combinatorics

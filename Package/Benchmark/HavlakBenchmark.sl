@@ -4,7 +4,7 @@ BasicBlockEdge : [Object] {
 
 	| from to |
 
-	initialize { :self :cfg :fromName :toName |
+	initialize! { :self :cfg :fromName :toName |
 		self.from := cfg.createNode(fromName);
 		self.to := cfg.createNode(toName);
 		self.from.addOutEdge(self.to);
@@ -31,7 +31,7 @@ BasicBlock : [Object] {
 		self.outEdges.addLast!(to)
 	}
 
-	initialize { :self :name |
+	initialize! { :self :name |
 		self.inEdges := [];
 		self.outEdges := [];
 		self.name := name;
@@ -51,7 +51,7 @@ BasicBlock : [Object] {
 +SmallFloat {
 
 	BasicBlock { :self |
-		newBasicBlock().initialize(self)
+		newBasicBlock().initialize!(self)
 	}
 
 }
@@ -83,7 +83,7 @@ ControlFlowGraph : [Object] {
 		node
 	}
 
-	initialize { :self |
+	initialize! { :self |
 		self.basicBlockMap := [];
 		self.edgeList := [];
 		self
@@ -102,7 +102,7 @@ ControlFlowGraph : [Object] {
 +Void {
 
 	ControlFlowGraph {
-		newControlFlowGraph().initialize
+		newControlFlowGraph().initialize!
 	}
 
 }
@@ -110,7 +110,7 @@ ControlFlowGraph : [Object] {
 +ControlFlowGraph {
 
 	BasicBlockEdge { :self :fromName :toName |
-		newBasicBlockEdge().initialize(self, fromName, toName)
+		newBasicBlockEdge().initialize!(self, fromName, toName)
 	}
 
 }
@@ -214,7 +214,7 @@ HavlakLoopFinder : [Object] {
 		self.doDFSCurrent(self.cfg.startBasicBlock, 1)
 	}
 
-	initialize { :self :cfg :lsg |
+	initialize! { :self :cfg :lsg |
 		self.cfg := cfg;
 		self.lsg := lsg;
 		self.nonBackPreds := [];
@@ -301,7 +301,7 @@ HavlakLoopFinder : [Object] {
 +ControlFlowGraph {
 
 	HavlakLoopFinder { :self :lsg |
-		newHavlakLoopFinder().initialize(self, lsg)
+		newHavlakLoopFinder().initialize!(self, lsg)
 	}
 
 }
@@ -337,7 +337,7 @@ LoopStructureGraph : [Object] {
 		loop
 	}
 
-	initialize { :self |
+	initialize! { :self |
 		self.root := SimpleLoop(nil, false);
 		self.loops := [];
 		self.loopCounter := 0;
@@ -357,7 +357,7 @@ LoopStructureGraph : [Object] {
 +Void {
 
 	LoopStructureGraph {
-		newLoopStructureGraph().initialize
+		newLoopStructureGraph().initialize!
 	}
 
 }
@@ -438,7 +438,7 @@ LoopTesterApp : [Object] {
 		finder.findLoops
 	}
 
-	initialize { :self |
+	initialize! { :self |
 		self.cfg := ControlFlowGraph();
 		self.lsg := LoopStructureGraph();
 		self.cfg.createNode(1);
@@ -462,7 +462,7 @@ LoopTesterApp : [Object] {
 +Void {
 
 	LoopTesterApp {
-		newLoopTesterApp().initialize
+		newLoopTesterApp().initialize!
 	}
 
 }
@@ -479,7 +479,7 @@ SimpleLoop : [Object] {
 		self.basicBlocks.uncheckedInclude!(bb)
 	}
 
-	initialize { :self :aBB :aBool |
+	initialize! { :self :aBB :aBool |
 		self.counter := 0;
 		self.depthLevel := 0;
 		self.isRoot := false;
@@ -511,7 +511,7 @@ SimpleLoop : [Object] {
 +[Nil, BasicBlock] {
 
 	SimpleLoop { :self :isReducible |
-		newSimpleLoop().initialize(self, isReducible)
+		newSimpleLoop().initialize!(self, isReducible)
 	}
 
 }
@@ -543,7 +543,7 @@ UnionFindNode : [Object] {
 		self.dfsNumber := dfsNumber
 	}
 
-	initialize { :self |
+	initialize! { :self |
 		self.dfsNumber := 0;
 		self
 	}
@@ -557,7 +557,7 @@ UnionFindNode : [Object] {
 +Void {
 
 	UnionFindNode {
-		newUnionFindNode().initialize
+		newUnionFindNode().initialize!
 	}
 
 }

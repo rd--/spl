@@ -66,5 +66,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Window_function#Blackman%E2%80%93Harris_window)
 
 Further Reading: Harris 1978
-
-Categories: Windowing

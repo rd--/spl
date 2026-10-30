@@ -48,5 +48,3 @@ _Mdn_
 [1](https://developer.mozilla.org/en-US/docs/Web/API/Response),
 _Whatwg_
 [1](https://fetch.spec.whatwg.org/#response-class)
-
-Categories: Network, Type

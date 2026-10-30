@@ -24,5 +24,3 @@ Guides: Signal Processing Functions
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Signal.html#*sineFill)
-
-Categories: Wavetable

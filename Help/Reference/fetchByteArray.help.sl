@@ -21,5 +21,3 @@ system
 See also: ByteArray, Url, fetch, fetchBinaryLargeObject, fetchJson, fetchMimeType, fetchText
 
 Guides: Network Functions
-
-Categories: Network

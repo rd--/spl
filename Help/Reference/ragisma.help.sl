@@ -60,12 +60,10 @@ It is also the difference between the septimal third tone (28:27) and the greate
 
 See also: isSuperparticular, schisma
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Ragisma),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/4375/4374)
-
-Categories: Math, Contant, Tuning

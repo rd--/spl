@@ -34,5 +34,3 @@ unlike `host`:
 See also: Url, fragment, host, href, pathName, port, protocol, query
 
 Guides: Network Functions, System Functions
-
-Categories: Network, System

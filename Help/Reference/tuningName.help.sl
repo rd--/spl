@@ -72,5 +72,3 @@ and this function requires the item be in the interpreter cache.
 See also: LibraryItem, namedTuning, scalaTuningArchive
 
 Guides: Tuning Functions, Xenharmonic Functions
-
-Categories: Tuning

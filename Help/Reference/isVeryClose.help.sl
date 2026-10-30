@@ -22,4 +22,4 @@ true
 
 See also: =, ~, epsilon, isClose, isCloseBy, threshold
 
-Categories: Comparing
+Guides: Comparison Functions

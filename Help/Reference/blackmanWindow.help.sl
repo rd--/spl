@@ -59,5 +59,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/BlackmanWindow.html),
 _Python_
 [1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.blackman.html#scipy.signal.windows.blackman)
-
-Categories: Windowing

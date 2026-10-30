@@ -59,8 +59,8 @@ At `Type`:
 
 See also: Error, description, error, messageText
 
+Guides: Error Functions, Reflection Functions
+
 References:
 _Smalltalk_
 5.5.1.5
-
-Categories: Errors

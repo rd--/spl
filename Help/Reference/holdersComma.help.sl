@@ -28,12 +28,10 @@ It is the irrational number equal to one step of the 53-EDO tuning.
 
 See also: mercatorsComma, pythagoreanComma, septimalComma, syntonicComma
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Holdrian_comma)
 
 Further Reading: Holder 1731
-
-Categories: Math, Contant, Tuning

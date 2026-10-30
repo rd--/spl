@@ -7,6 +7,6 @@ let voicedCarrier = saw(notes.midiCps);
 let isVoiced = lag(lag(zeroCrossing(src).cpsMidi, 0.05) > 5000.cpsMidi, 0.05);
 let carrier = selectX(isVoiced, [voicedCarrier, pinkNoise()]);
 let filterQ = tRand(10, 100, dust(0.5));
-let srcAmp = amplitude(bpf(src, bandFreqs, 1 / filterQ), 0.01, 0.05);
+let srcAmp = amplitudeFollower(bpf(src, bandFreqs, 1 / filterQ), 0.01, 0.05);
 let snd = bpf(carrier, bandFreqs, 0.05) * srcAmp;
 eqPan2(snd.sum, 0) * numBands / 4

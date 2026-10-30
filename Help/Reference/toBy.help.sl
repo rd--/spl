@@ -56,5 +56,3 @@ Guides: Enumeration Functions, Range Functions
 References:
 _Smalltalk_
 5.6.2.38
-
-Categories: Constructor, Range

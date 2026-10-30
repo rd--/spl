@@ -143,7 +143,7 @@ let r = -1.goldenRatio;
 
 See also: integerPart, truncate
 
-Guides: Integer Functions
+Guides: Integer Functions, Rounding Functions
 
 References:
 _Mathematica_
@@ -153,5 +153,3 @@ _Smalltalk_
 5.6.2.20,
 _W_
 [1](https://en.wikipedia.org/wiki/Fractional_part)
-
-Categories: Truncation, Rounding

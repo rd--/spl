@@ -223,5 +223,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Polygonal_number)
 [2](https://en.wikipedia.org/wiki/Triangular_number)
 [3](https://en.wikipedia.org/wiki/Lazy_caterer%27s_sequence)
-
-Categories: Math, Combinations

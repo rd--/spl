@@ -22,5 +22,3 @@ system
 See also: Cache, CacheStorage, Url, cachedFetch, fetch, fetchMimeType
 
 Guides: Network Functions
-
-Categories: Network

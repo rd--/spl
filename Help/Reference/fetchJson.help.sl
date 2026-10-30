@@ -15,5 +15,3 @@ system
 See also: Json, fetch, fetchByteArray, fetchMimeType, fetchText
 
 Guides: Network Functions
-
-Categories: Network

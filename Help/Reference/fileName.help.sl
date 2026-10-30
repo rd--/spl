@@ -37,5 +37,3 @@ A Url with trailing directory separator:
 See also: Url, fileUrl, pathName
 
 Guides: Network Functions
-
-Categories: Network

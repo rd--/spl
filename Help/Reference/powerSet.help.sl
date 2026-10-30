@@ -63,7 +63,7 @@ The power set of the integers _1 .. n_ give the indices for all subsequences, di
 
 See also: powerSetDo, subsets, tuples
 
-Guides: Combinatorial Functions
+Guides: Combinatorial Functions, Set Functions
 
 References:
 _Mathematica_
@@ -75,5 +75,3 @@ _SuperCollider_
 [1](https://doc.sccode.org/Classes/Array.html#-powerset),
 _W_
 [1](https://en.wikipedia.org/wiki/Power_set)
-
-Categories: Set Operations

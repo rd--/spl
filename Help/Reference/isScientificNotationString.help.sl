@@ -59,6 +59,4 @@ false
 
 See also: SmallFloat, parseScientificNotation
 
-Guides: Parsing Functions
-
-Categories: Converting, Parsing
+Guides: Parsing Functions, Predicate Functions, String Functions

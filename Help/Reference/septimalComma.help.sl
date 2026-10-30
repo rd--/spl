@@ -53,12 +53,10 @@ It has tuning lattice coordinates _6 -2 0 -1_:
 
 See also: pythagoreanComma, syntonicComma
 
-Guides: Xenharmonic Functions
+Guides: Mathematical Constants, Tuning Functions, Xenharmonic Functions
 
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Septimal_comma),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/64/63)
-
-Categories: Math, Contant, Tuning

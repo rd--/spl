@@ -20,10 +20,10 @@ let bus = 20; /* These may audible on large multi-channel systems */
 	let stringR = mkDelay(pk2R, pk2Pos - srcPos);
 	let source = {
 		let s = sinOsc(220, 0) * 0.01;
-		let a = amplitude(drv, 0.01, 0.01) * 11;
+		let a = amplitudeFollower(drv, 0.01, 0.01) * 11;
 		let p = pulse(60 + a, 0.5) * 0.1;
 		let f = rlpf(s + p, 320, 0.05);
-		let e = 1 - amplitude(drv, 0.01, 0.01).min(1);
+		let e = 1 - amplitudeFollower(drv, 0.01, 0.01).min(1);
 		normalizer(f, 0.7, 0.01) * e
 	}.apply;
 	let lOut = replaceOut(bus, source * 0.2 + stringR);

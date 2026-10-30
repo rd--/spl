@@ -29,7 +29,7 @@ let y = {
 };
 snd := snd + (linLin(lag(lfNoise0(1 / 10), 10), -1, 1, 0.01, 0.06) * y);
 snd := snd + [
-	amplitude(snd, 0.01, 0.01),
+	amplitudeFollower(snd, 0.01, 0.01),
 	linLin(lag(lfNoise0(1 / 1), 1), -1, 1, 0, 1),
 	ringzBank(
 		{ pinkNoise() * 0.007 } ! 2,

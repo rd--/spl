@@ -4,7 +4,7 @@
 
 12db/oct rolloff 2nd order resonant low pass filter.
 
-The B equalization suite is based on the Second Order Section (SOS) biquad UGen.
+The B equalization suite is based on the second order section (`sos`) biquad unit generator.
 
 - in: input signal to be processed
 - freq: cutoff frequency
@@ -24,12 +24,10 @@ bLowPass(
 
 * * *
 
-See also: BPeakEQ, bAllPass, bBandPass, bBandStop, bHiPass, bHiPass4, bHiShelf, bLowPass4, bLowShelf, sos
+See also: bPeakEq, bAllPass, bBandPass, bBandStop, bHiPass, bHiPass4, bHiShelf, bLowPass4, bLowShelf, sos
 
 Guides: Unit Generators
 
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/BLowPass.html)
-
-Categories: Ugen, Filter

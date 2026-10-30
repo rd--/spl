@@ -98,7 +98,7 @@ Continued fraction:
 
 See also: mercatorsComma, octaveReduce, pythagoreanChroma, pythagoreanComma, septimalComma, syntonicComma
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _W_
@@ -106,5 +106,3 @@ _W_
 _Xenharmonic_
 [1](https://en.xen.wiki/w/256/243)
 [2](https://en.xen.wiki/w/Diatonic_semitone)
-
-Categories: Math, Contant, Tuning

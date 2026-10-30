@@ -34,6 +34,4 @@ At `LargeInteger`:
 
 See also: bitShift, highBit, isPowerOfTwo, previousPowerOfTwo
 
-Guides: Bitwise Functions, Integer Functions
-
-Categories: Truncation, Rounding
+Guides: Bitwise Functions, Integer Functions, Rounding Functions

@@ -48,5 +48,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Converse_(logic))
 
 Unicode: U+2265 ≥ Greater-than or equal to
-
-Categories: Comparison, Operator

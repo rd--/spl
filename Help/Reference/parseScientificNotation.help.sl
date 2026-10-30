@@ -62,5 +62,3 @@ true
 See also: SmallFloat, parseScientificNotation
 
 Guides: Parsing Functions
-
-Categories: Converting, Parsing

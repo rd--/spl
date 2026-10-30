@@ -15,5 +15,3 @@ Answer the first or last element if index is out of bounds.
 See also: at, atAll, atAllWrap, atFold, atPin, atWrap, clip
 
 Guides: Indexing Functions
-
-Categories: Accessing

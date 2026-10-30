@@ -25,10 +25,10 @@ Where supported `rightIdentity` is displayed as ⊢.
 
 See also: identity, leftIdentity
 
+Guides: Mathematical Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Identity)
 
 Unicode: U+22A2 ⊢ Right Tack
-
-Categories: Functions

@@ -2,7 +2,7 @@ LaggedFibonacci : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 	| parameters seed state |
 
-	initialize { :self :parameters :seed |
+	initialize! { :self :parameters :seed |
 		self.parameters := parameters;
 		self.seed := seed;
 		self.reset!;
@@ -52,7 +52,7 @@ LaggedFibonacci : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 	LaggedFibonacci { :s :r :k :m |
 		let p = [s, r, LargeInteger(m)];
-		newLaggedFibonacci().initialize(p, k)
+		newLaggedFibonacci().initialize!(p, k)
 	}
 
 	LaggedFibonacci { :s :r :k |

@@ -46,6 +46,4 @@ At `Record`:
 
 See also: Complex, parseDecimal, parseLargeInteger, parseNumber, parseSmallInteger
 
-Guides: Parsing Functions
-
-Categories: Converting, Parsing
+Guides: Complex Number Functions, Parsing Functions

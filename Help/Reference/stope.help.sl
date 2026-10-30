@@ -32,5 +32,3 @@ Guides: Permutation Functions
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/hat#stope)
-
-Categories: Math, Permutations

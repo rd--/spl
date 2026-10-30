@@ -80,5 +80,3 @@ _Anaphoria_
 [1](https://anaphoria.com/wilsoncps.html),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Combination_product_set)
-
-Categories: Tuning

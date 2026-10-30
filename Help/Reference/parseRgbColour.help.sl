@@ -53,5 +53,3 @@ References:
 _W3_
 [1](https://drafts.csswg.org/css-color/#rgb-functions)
 [2](https://www.w3.org/TR/SVGColor12/#sRGBcolor)
-
-Categories: Colour, Parsing

@@ -39,5 +39,3 @@ See also: fisherYatesShuffle, shuffle
 Guides: Permutation Functions, Random Functions
 
 Further Reading: Sattolo 1986
-
-Categories: Shuffling

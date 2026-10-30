@@ -36,7 +36,7 @@ Notebook : [Object, View, SmallKansan] {
 		self.cells.size
 	}
 
-	initialize { :self :smallKansas |
+	initialize! { :self :smallKansas |
 		self.smallKansas := smallKansas;
 		self.cells := [];
 		self.notebookPane := 'div'.createElement(
@@ -64,7 +64,7 @@ Notebook : [Object, View, SmallKansan] {
 +SmallKansas {
 
 	Notebook { :self |
-		newNotebook().initialize(self)
+		newNotebook().initialize!(self)
 	}
 
 }

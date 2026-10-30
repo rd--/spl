@@ -8,7 +8,7 @@ ColourChooser : [Object, View] {
 		self.colourInput.getAttribute('value')
 	}
 
-	initialize { :self :initialColour :onSelect/1 |
+	initialize! { :self :initialColour :onSelect/1 |
 		self.colourChooserPane := 'div'.createElement(
 			(
 				class: 'colourChooser'
@@ -41,7 +41,7 @@ ColourChooser : [Object, View] {
 +RgbColour {
 
 	ColourChooser { :self :onSelect/1 |
-		newColourChooser().initialize(self, onSelect/1)
+		newColourChooser().initialize!(self, onSelect/1)
 	}
 
 }

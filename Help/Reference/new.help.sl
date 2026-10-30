@@ -200,10 +200,8 @@ true
 
 See also: New, extendToSize!, newFrom, newOfSize, species
 
-Guides: Collection Functions, Dictionary Functions, List Functions
+Guides: Collection Functions, Dictionary Functions, List Functions, Object Functions, Reflection Functions
 
 References:
 _Smalltalk_
 5.3.9.1
-
-Categories: Instance Creation, Reflection

@@ -189,7 +189,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	seedRandom { :self :anInteger |
-		self.randomNumberGenerator.initialize(anInteger)
+		self.randomNumberGenerator.initialize!(anInteger)
 	}
 
 	sessionStorage { :self |

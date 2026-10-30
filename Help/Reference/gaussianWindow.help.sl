@@ -101,5 +101,3 @@ _Mathworks_
 [1](https://mathworks.com/help/signal/ref/gausswin.html),
 _Python_
 [1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.gaussian.html)
-
-Categories: Windowing

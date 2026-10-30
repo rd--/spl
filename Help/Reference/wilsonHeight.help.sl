@@ -45,10 +45,8 @@ let y = 1 - x.wilsonHeight.rescale;
 
 See also: benedettiHeight, tenneyHeight
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Wilson_height)
-
-Categories: Tuning

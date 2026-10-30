@@ -42,12 +42,10 @@ To parse a date without time use `parseDate`.
 
 See also: Date, Duration, TimeStamp, dateAndTimeString, dateString, ordinalDateString, parseDate
 
-Guides: Parsing Functions
+Guides: Parsing Functions, Date and Time Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FromDateString.html),
 _W_
 [1](https://en.wikipedia.org/wiki/ISO_8601)
-
-Categories: Time, Parsing

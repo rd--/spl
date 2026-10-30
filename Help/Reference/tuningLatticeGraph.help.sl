@@ -171,5 +171,3 @@ _Xenharmonic_
 [1](https://en.xen.wiki/w/Harmonic_lattice_diagram),
 _Xenharmonikon_
 [1](https://www.xenharmonikon.org/2020/04/27/the-axial-chord-a-basis-for-2-3-7-11-harmony/)
-
-Categories: Tuning

@@ -76,5 +76,3 @@ _Smalltalk_
 5.6.2.37,
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Integer.html#-to)
-
-Categories: Constructor, Range

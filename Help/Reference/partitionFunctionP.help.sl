@@ -199,5 +199,3 @@ _OEIS_
 [3](https://oeis.org/A026820),
 _W_
 [1](https://en.wikipedia.org/wiki/Partition_function_(number_theory))
-
-Categories: Math, Combinatorics

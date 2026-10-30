@@ -168,5 +168,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/PermutationMatrix.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Permutation_matrix)
-
-Categories: Permutations

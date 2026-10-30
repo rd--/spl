@@ -27,10 +27,8 @@ The answer is given octave reduced and sorted.
 
 See also: octaveReduce, oddLimit, sorted
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Odd_limit)
-
-Categories: Tuning

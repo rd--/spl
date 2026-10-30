@@ -2,17 +2,18 @@
 
 - _instanceOf(t)_
 
-Create an uninitialized instance of the type _t_.
+Create an uninitialized instance of the type _t_ and call `initialize` on it.
+Answer the new instance.
 
 ```
->>> let type = system.typeLookup('RgbColour');
->>> let value = type.instanceOf;
->>> (type.isType, value.isRgbColour, value.rgb)
-(true, true, nil)
+>>> let t = system.typeLookup('RgbColour');
+>>> let x = t.instanceOf;
+>>> (t.isType, x.isRgbColour, x.rgb, x.alpha)
+(true, true, [0 0 0], 1)
 ```
 
 * * *
 
-See also: Type, new, typeLookup
+See also: Type, initialize, new, typeLookup
 
-Categories: Instance Creation, Reflection
+Guides: Object Functions, Reflection Functions

@@ -13,7 +13,7 @@ TableViewer : [Object, View] {
 		)
 	}
 
-	initialize { :self :title :tableData |
+	initialize! { :self :title :tableData |
 		self.title := title;
 		self.createElements(Table(tableData));
 		self
@@ -28,7 +28,7 @@ TableViewer : [Object, View] {
 +String {
 
 	TableViewer { :self :tableData |
-		newTableViewer().initialize(self, tableData)
+		newTableViewer().initialize!(self, tableData)
 	}
 
 }

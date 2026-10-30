@@ -70,7 +70,7 @@
 		<primitive: return sc.AllpassN(_in, _maxdelaytime, _delaytime, _decaytime);>
 	}
 
-	amplitude { :in :attackTime :releaseTime |
+	amplitudeFollower { :in :attackTime :releaseTime |
 		<primitive: return sc.Amplitude(_in, _attackTime, _releaseTime);>
 	}
 

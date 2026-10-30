@@ -53,5 +53,3 @@ true
 See also: Tuning, tuningLatticeEdges, tuningLatticePrimes, tuningLatticeVectorString, tuningLatticeVertices
 
 Guides: Tuning Functions
-
-Categories: Tuning

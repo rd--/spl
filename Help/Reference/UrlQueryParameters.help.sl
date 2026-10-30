@@ -61,5 +61,3 @@ Note that the type has the non-standard name `URLSeachParams`, which is defined 
 See also: Url, associations, keys, queryParameters, queryString, size, values
 
 Guides: Network Functions
-
-Categories: Network, Address

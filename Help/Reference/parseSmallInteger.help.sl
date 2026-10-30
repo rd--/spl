@@ -114,5 +114,3 @@ true
 See also: SmallFloat, isRadixIntegerString, parseDecimalInteger, parseFraction, parseLargeInteger, parseNumber
 
 Guides: Integer Functions, Parsing Functions
-
-Categories: Parsing

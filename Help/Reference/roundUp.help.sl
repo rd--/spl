@@ -64,5 +64,3 @@ and the answer is the same as for `ceiling`:
 See also: ceiling, round, roundDown, truncate
 
 Guides: Rounding Functions
-
-Categories: Truncating, Rounding

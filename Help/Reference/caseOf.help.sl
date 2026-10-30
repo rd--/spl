@@ -125,5 +125,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Switch.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Object.html#-switch)
-
-Categories: Casing

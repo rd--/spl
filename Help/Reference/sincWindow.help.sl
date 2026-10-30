@@ -65,5 +65,3 @@ Frequency response of the sinc window:
 See also: besselI, gaussianWindow, hammingWindow, welchWindow
 
 Guides: Window Functions
-
-Categories: Windowing

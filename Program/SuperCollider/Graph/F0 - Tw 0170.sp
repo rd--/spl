@@ -5,7 +5,7 @@ let c = sinOsc(
 	sinOsc(b, 0) * 400
 ) * sinOsc(b / 4.1, 0);
 c + sinOsc(
-	b * 99 * amplitude(c, 0, 1 / 7),
+	b * 99 * amplitudeFollower(c, 0, 1 / 7),
 	0
 ) + (
 	greyNoise()

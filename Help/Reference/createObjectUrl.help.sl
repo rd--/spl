@@ -26,5 +26,3 @@ _Mozilla_
 [1](https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL_static)
 _W3c_
 [1](https://w3c.github.io/FileAPI/#dfn-createObjectURL)
-
-Categories: Network, Address

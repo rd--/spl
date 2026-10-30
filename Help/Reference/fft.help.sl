@@ -101,5 +101,3 @@ _Python_
 [1](https://docs.scipy.org/doc/scipy-1.15.3/reference/generated/scipy.fft.fft.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Signal.html#-fft)
-
-Categories: Fourier

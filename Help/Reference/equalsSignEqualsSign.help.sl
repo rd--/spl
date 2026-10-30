@@ -20,5 +20,3 @@ See also: Compare, Equal, !=, !==, =, ~, ~~, identical
 Guides: Comparison Functions, Equality Functions
 
 Unicode: U+2261 ≡ Identical To
-
-Categories: Comparing

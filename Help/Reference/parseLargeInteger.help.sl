@@ -38,5 +38,3 @@ true
 See also: LargeInteger, parseDecimal, parseFraction, parseNumber, parseSmallInteger
 
 Guides: Integer Functions, Parsing Functions
-
-Categories: Parsing

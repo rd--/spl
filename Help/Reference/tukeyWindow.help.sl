@@ -77,5 +77,3 @@ _Mathworks_
 [1](https://mathworks.com/help/signal/ref/tukeywin.html),
 _Python_
 [1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.tukey.html)
-
-Categories: Windowing

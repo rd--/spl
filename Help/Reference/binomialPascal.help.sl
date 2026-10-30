@@ -115,5 +115,3 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Pascal%27s_rule)
 [2](https://en.wikipedia.org/wiki/Pascal%27s_triangle)
-
-Categories: Math, Combinatorics
