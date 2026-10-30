@@ -688,7 +688,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 					[f, x + 1, f, x + 1I, f, x - 1, f, x - 1I]
 				}
 			}.flatten.partition(n);
-			let f = fig.collect(canonical/1).unique.select { :x |
+			let f = fig.collect(canonical/1).unique(=).select { :x |
 				x.size = n
 			};
 			{

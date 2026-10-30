@@ -176,7 +176,7 @@ DyckWord : [Object, Store] {
 	isDyckWord { :self :tokens |
 		let n = self.size;
 		n.isEven & {
-			Set(self) = Set(tokens) & {
+			Set(self, ==) = Set(tokens, ==) & {
 				let [a, b] = tokens;
 				let k = 0;
 				let h = 0;

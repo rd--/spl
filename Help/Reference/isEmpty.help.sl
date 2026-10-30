@@ -32,7 +32,7 @@ true
 At `Set`:
 
 ```
->>> Set().isEmpty
+>>> Set([], ==).isEmpty
 true
 ```
 

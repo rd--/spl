@@ -589,8 +589,8 @@
 		self.rescale([self.deepMin, self.deepMax], [0, 1])
 	}
 
-	selectDuplicates { :c |
-		let d = c.duplicatesSet;
+	selectDuplicates { :c :comparator/2 |
+		let d = c.duplicatesSet(comparator/2);
 		c.select { :x |
 			d.includes(x)
 		}

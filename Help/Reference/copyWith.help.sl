@@ -16,8 +16,8 @@ At `List`:
 At `Set`:
 
 ```
->>> Set[1 2 3].copyWith(4)
-Set[1 2 3 4]
+>>> Set([1 2 3], ==).copyWith(4)
+Set([1 2 3 4], ==)
 ```
 
 At `Multiset`:

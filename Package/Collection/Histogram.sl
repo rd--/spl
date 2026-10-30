@@ -81,7 +81,7 @@
 	}
 
 	histogramOf { :self |
-		self.histogramOf { :each |
+		self.histogramOf(=) { :each |
 			each
 		}
 	}

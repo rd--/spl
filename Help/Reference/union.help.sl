@@ -32,15 +32,11 @@ The unary case at `List`:
 The binary case at `Set`:
 
 ```
->>> Set[1 2 3].union([2 3 4])
-Set[1 2 3 4]
-```
+>>> Set([1 2 3], ==).union([2 3 4])
+Set([1 2 3 4], ==)
 
-The binary case at `IdentitySet`:
-
-```
->>> IdentitySet[1 2 3].union([2 3 4])
-IdentitySet[1 2 3 4]
+>>> Set([1 2 3], =).union([2 3 4])
+Set([1 2 3 4], =)
 ```
 
 Find divisors that occur in any of 10, 12, and 20:

@@ -18,7 +18,7 @@ If no item matches, the collection is unchanged:
 >>> (c.without!(4) == c, c)
 (true, [1 2 3])
 
->>> let c = [1 2 3].Set;
+>>> let c = Set([1 2 3], ==);
 >>> (c.without!(4) == c, c.List)
 (true, [1 2 3])
 ```

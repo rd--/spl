@@ -340,7 +340,7 @@
 				m.isLatinSquare
 			}
 		} & {
-			let c = Set();
+			let c = Set([], =);
 			shape.shapeIndices.noneSatisfy { :i |
 				let x = self.collect { :m |
 					m.atPath(i)
@@ -359,7 +359,7 @@
 			let [_, c] = m.shape;
 			let e = [0 -> (c - 1), 1 -> 1];
 			m.allSatisfy { :r |
-				r.sortedElements = e
+				r.sortedElements(==) = e
 			}
 		}
 	}

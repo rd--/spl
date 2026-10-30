@@ -57,25 +57,16 @@ It is an `error` if the key exists:
 true
 ```
 
-At `IdentitySet`,
+At `Set`,
 `add` will include _x_ as one of the set elements only if not already present:
 
 ```
->>> let s = IdentitySet();
+>>> let s = Set([], ==);
 >>> s.add!('x');
 >>> (s.add!('y'), s.size, s.List)
 ('y', 2, ['x' 'y'])
 
->>> {
->>> 	[1].IdentitySet.add!(1)
->>> }.hasError
-true
-```
-
-At `Set`:
-
-```
->>> Set[2 3].add!(1)
+>>> Set([2 3], =).add!(1)
 1
 
 >>> {

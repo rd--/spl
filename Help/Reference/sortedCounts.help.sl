@@ -25,7 +25,7 @@ At `List`:
 [3 -> 1, 2 -> 2, 1 -> 3]
 
 >>> List'abcaca'
->>> .sortedCounts
+>>> .sortedCounts(==)
 [3 -> 'a', 2 -> 'c', 1 -> 'b']
 ```
 

@@ -1,12 +1,12 @@
 # duplicateFreePrefix
 
-- _duplicateFreePrefix([x₁ x₂ …])_
+- _duplicateFreePrefix([x₁ x₂ …], =)_
 
 Answer the prefix of the sequence _x_ that is duplicate free.
 
 ```
 >>> [1 2 3 4 5 4 3 2 1]
->>> .duplicateFreePrefix
+>>> .duplicateFreePrefix(==)
 [1 2 3 4 5]
 ```
 

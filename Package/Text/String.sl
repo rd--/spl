@@ -744,7 +744,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	nub { :self |
-		let seen = Set(==);
+		let seen = Set([], ==);
 		self.select { :each |
 			seen.ifAbsentAdd!(each)
 		}

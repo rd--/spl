@@ -510,7 +510,7 @@
 		self.incidenceList(vertex).do { :each |
 			vertexList.addAll!(each.vertexList)
 		};
-		vertexList.unique.without!(vertex)
+		vertexList.unique(==).without!(vertex)
 	}
 
 	outEdgeListOf { :self :vertex |
@@ -1118,7 +1118,7 @@ Graph : [Object, Graph] {
 +List {
 
 	canonicalEdgeList { :self |
-		let vertexList = self.collectCatenate(vertexList/1).unique;
+		let vertexList = self.collectCatenate(vertexList/1).unique(==);
 		let renameTable = vertexList.collect { :vertex |
 			vertex -> vertexList.indexOf(vertex)
 		}.Map;

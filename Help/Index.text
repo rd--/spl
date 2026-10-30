@@ -1278,7 +1278,6 @@ Reference/duffingMap.help.sl
 Reference/duplicateEach.help.sl
 Reference/duplicateFreePrefix.help.sl
 Reference/duplicate.help.sl
-Reference/duplicates.help.sl
 Reference/Duration.help.sl
 Reference/durationString.help.sl
 Reference/durfeeSquare.help.sl
@@ -3710,6 +3709,7 @@ Reference/seidelAdjacencyMatrix.help.sl
 Reference/seidelEntringerArnoldTriangle.help.sl
 Reference/seidelTriangle.help.sl
 Reference/seiffertsSpiral.help.sl
+Reference/selectDuplicates.help.sl
 Reference/selectedText.help.sl
 Reference/selectedTextOrWordAtCaret.help.sl
 Reference/select.help.sl

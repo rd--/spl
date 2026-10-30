@@ -68,7 +68,9 @@
 	}
 
 	diceSorensenCoefficient { :self :operand |
-		self.Multiset.diceSorensenCoefficient(operand.Multiset)
+		Multiset(self, ==).diceSorensenCoefficient(
+			Multiset(operand, ==)
+		)
 	}
 
 	editDistance { :self :other |

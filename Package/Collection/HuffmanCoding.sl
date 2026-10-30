@@ -45,7 +45,7 @@ HuffmanCoding : [Object, Store, Equal] {
 	huffmanEncode { :self |
 		let huffmanSymbolTable = { :weights |
 			let heap = Heap();
-			weights.sortedCounts.do { :each |
+			weights.sortedCounts(==).do { :each |
 				heap.add!(each.key -> [each.value -> []])
 			};
 			{ heap.size > 1 }.whileTrue {
@@ -61,7 +61,7 @@ HuffmanCoding : [Object, Store, Equal] {
 			};
 			heap.array.first.value.Map
 		};
-		let symbolTable = self.Multiset.huffmanSymbolTable;
+		let symbolTable = Multiset(self, ==).huffmanSymbolTable;
 		HuffmanCoding(
 			symbolTable,
 			self.collect { :each |

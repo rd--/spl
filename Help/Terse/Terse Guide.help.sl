@@ -2159,16 +2159,15 @@ let s = Multiset([], ==); 250.timesRepeat { s.add!([1 .. 4].shuffle!.printString
 let a = [1, 1, 2, 1, 2, 3, 1, 1, 2, 3, 4]; a.sum = a.Multiset(==).sum /* sum may be optimised */
 [1, 2, 3, 1, 3, 4].Multiset(==).valuesAndCounts = [1 -> 2, 2 -> 1, 3 -> 2, 4 -> 1].Map /* contents */
 [1, 1, 1, 1, 1, 2, 2, 2, 2, 3].Multiset(==).cumulativeCounts = [50 -> 1, 90 -> 2, 100 -> 3]
-[1, 2, 2, 3, 3, 3].histogramOf { :each | each }.List = [1, 2, 2, 3, 3, 3]
-[1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].Multiset
-let c = [1, 2, 3, 1]; c.Multiset = c.histogramOf(identity/1)
-let c = [1, 2, 3, 1]; c.Multiset = c.histogramOf { :each | each }
-[1, 2, 3, 1].Multiset = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.value }
-['x', 'y', 'y', 'z'].Multiset = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.key }
-(x: 1, y: 2, z: 1).histogramOf { :each | each } = [1, 2, 1].Multiset
-(x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].Multiset
-(x: 1, y: 2, z: 1).indices.histogramOf { :each | each } = ['x', 'y', 'z'].Multiset
-[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.round } = [1, 2, 3, 2, 3, 1].Multiset
+[1, 2, 2, 3, 3, 3].histogramOf(==) { :each | each }.List = [1, 2, 2, 3, 3, 3]
+[1, 2, 2, 3, 3, 3].histogramOf(==) { :each | each } = [1, 2, 2, 3, 3, 3].Multiset(==)
+let c = [1, 2, 3, 1]; c.Multiset(==) = c.histogramOf(==, identity/1)
+[1, 2, 3, 1].Multiset(==) = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf(==) { :each | each.value }
+['x', 'y', 'y', 'z'].Multiset(==) = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf(==) { :each | each.key }
+(x: 1, y: 2, z: 1).histogramOf(==) { :each | each } = [1, 2, 1].Multiset(==)
+(x: 1, y: 2, z: 1).values.histogramOf(==) { :each | each } = [1, 2, 1].Multiset(==)
+(x: 1, y: 2, z: 1).indices.histogramOf(==) { :each | each } = ['x', 'y', 'z'].Multiset(==)
+[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf(==) { :each | each.round } = [1, 2, 3, 2, 3, 1].Multiset(==)
 [1, 3, 5].Multiset(==).select { :x | x > 1 } = [3, 5].Multiset(==)
 let b = [1, 2, 3, 2, 1].Multiset(==); b.removeAll!([1, 2, 3]); b = [2, 1].Multiset(==) /* only remove first instance */
 ```

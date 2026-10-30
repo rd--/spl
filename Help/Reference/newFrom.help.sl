@@ -22,10 +22,10 @@ At `SortedSet`,
 construct a new set given a `Range`:
 
 ```
->>> Set[].newFrom(1:9)
-Set[1 2 3 4 5 6 7 8 9]
+>>> Set([], =).newFrom(1:9)
+Set([1 2 3 4 5 6 7 8 9], =)
 
->>> Set[].species
+>>> Set([], =).species
 SortedSet/0
 ```
 

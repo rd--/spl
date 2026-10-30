@@ -138,11 +138,15 @@
 	}
 
 	tuningLatticePrimes { :self :includeOctave |
-		let answer = Set();
+		let p = Set([], ==);
 		self.ratios.do { :each |
-			answer.includeAll!(each.tuningLatticePrimes(includeOctave))
+			p.includeAll!(
+				each.tuningLatticePrimes(
+					includeOctave
+				)
+			)
 		};
-		answer.List.sort
+		List(p).sort
 	}
 
 	tuningLatticeVertexCoordinates { :self :primes |

@@ -27,9 +27,9 @@ Removes only one matching element:
 At `Set`:
 
 ```
->>> let c = Set[1 2 3];
+>>> let c = Set([1 2 3], ==);
 >>> let x = c.remove!(1);
->>> (c.List, x)
+>>> (List(c), x)
 ([2 3], 1)
 ```
 

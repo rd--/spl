@@ -309,9 +309,9 @@
 		}
 	}
 
-	duplicatesSet { :c |
-		let a = Set();
-		let b = Set();
+	duplicatesSet { :c :comparator/2 |
+		let a = Set([], comparator/2);
+		let b = Set([], comparator/2);
 		c.do { :x |
 			a.includes(x).if {
 				b.include!(x)

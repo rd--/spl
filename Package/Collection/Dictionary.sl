@@ -506,7 +506,7 @@
 	}
 
 	keyUnion { :self :blockOrDictionary |
-		let keys = Set();
+		let keys = Set([], ==);
 		let aBlock/1 = blockOrDictionary.unaryBlock;
 		self.do { :each |
 			keys.includeAll!(each.keys)

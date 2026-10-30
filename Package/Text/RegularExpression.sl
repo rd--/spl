@@ -301,7 +301,7 @@ RegExp! : [Object, Store, Equal] {
 	}
 
 	wordCounts { :self |
-		self.words.Multiset.sortedCounts.collect { :each |
+		Multiset(self.words, ==).sortedCounts.collect { :each |
 			each.value -> each.key
 		}
 	}

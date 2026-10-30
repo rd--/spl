@@ -557,7 +557,7 @@ HelpFile : [Object, Equal, Cache] {
 		);
 		let oeisIdentifiers = oeisPrograms.collect(
 			oeisIdentifier/1
-		).unique;
+		).unique(==);
 		[
 			'# Integer Sequence Image Index',
 			''

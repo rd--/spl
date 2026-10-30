@@ -268,7 +268,7 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 		answer
 	}
 
-	histogramOf { :self :aBlock/1 :comparator/2 |
+	histogramOf { :self :comparator/2 :aBlock/1 |
 		let answer = comparatorToEmptyMultiset(comparator/2);
 		self.collectInto!(aBlock/1, answer);
 		answer

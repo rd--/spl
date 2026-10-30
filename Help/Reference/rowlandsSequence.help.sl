@@ -101,7 +101,7 @@ OEIS [A221869](https://oeis.org/A221869):
 >>> 7.rowlandsSequence(2500)
 >>> .differences
 >>> .without!(1)
->>> .deleteDuplicates
+>>> .deleteDuplicates(==)
 [5 3 11 23 47 101 7 13 233 467 941 1889]
 ```
 
@@ -112,8 +112,8 @@ OEIS [A225487](https://oeis.org/A225487):
 >>> 7.rowlandsSequence(15000)
 >>> .differences
 >>> .without!(1)
->>> .selectDuplicates
->>> .deleteDuplicates
+>>> .selectDuplicates(==)
+>>> .deleteDuplicates(==)
 [5 3 11 7 13]
 ```
 

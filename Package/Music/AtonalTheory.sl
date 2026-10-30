@@ -7,7 +7,7 @@
 		let m = t.collect { :x |
 			let i = x[2] - x[1];
 			(i > 6).if { 12 - i } { i }
-		}.Multiset;
+		}.Multiset(==);
 		[1 .. 6].collect { :x |
 			m.occurrencesOf(x)
 		}
@@ -22,7 +22,7 @@
 	mandereauIntervalVector { :self :modulus |
 		let m = self.tuples(2).collect { :x |
 			(x[2] - x[1]) % modulus
-		}.Multiset;
+		}.Multiset(==);
 		[0 .. modulus - 1].collect { :x |
 			m.occurrencesOf(x)
 		}

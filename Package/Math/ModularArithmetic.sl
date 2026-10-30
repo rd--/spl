@@ -36,7 +36,7 @@
 				}
 			}
 		};
-		d.Multiset
+		Multiset(d, ==)
 	}
 
 }

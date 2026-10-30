@@ -867,8 +867,8 @@
 		)
 	}
 
-	duplicateFreePrefix { :self |
-		let seen = Set();
+	duplicateFreePrefix { :self :comparator/2 |
+		let seen = Set([], comparator/2);
 		self.takeWhile { :x |
 			seen.includes(x).if {
 				false

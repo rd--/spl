@@ -87,7 +87,7 @@ Total sum of a matrix:
 Sum is implemented efficiently for `Multiset` as a sum of products:
 
 ```
->>> Multiset[3 3 3 5 5 5 5 5].sum
+>>> Multiset([3 3 3 5 5 5 5 5], ==).sum
 (3 * 3) + (5 * 5)
 ```
 
