@@ -52,7 +52,7 @@ FilePath'/tmp/SplOeisData.json'
 	.splOeisReferences
 	.values
 	.catenate
-	.unique
+	.unique(==)
 	.collect { :n |
 		let o = OeisSequenceFile(n);
 		n -> (

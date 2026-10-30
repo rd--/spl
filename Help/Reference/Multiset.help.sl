@@ -1,6 +1,6 @@
 # Multiset
 
-- _Multiset([x₁ x₂ …])_
+- _Multiset([x₁ x₂ …], =)_
 - _Multiset([c₁→i₁, c₂→i₂, …])_
 
 A `Type` and associated `Trait` holding an unordered collection of possibly duplicated elements,
@@ -10,32 +10,46 @@ At a `List` of associations:
 
 ```
 >>> Multiset[1 -> 3, 2 -> 2, 3 -> 1]
->>> .associations
+>>> .sortedElements
 [1 -> 3, 2 -> 2, 3 -> 1]
 ```
 
 At a `List`:
 
 ```
->>> Multiset[1 1 1 2 2 3]
->>> .List
-[1 1 1 2 2 3]
+>>> Multiset([1 1 1 2 2 3], ==)
+>>> .sortedElements
+[1 -> 3, 2 -> 2, 3 -> 1]
+
+>>> Multiset([1 1 1 3 3 5], ==)
+>>> .sortedCounts
+[3 -> 1, 2 -> 3, 1 -> 5]
+```
+
+At `Map`:
+
+```
+>>> Multiset(
+>>> 	Map[1 -> 3, 2 -> 1, 3 -> 5]
+>>> ).sortedCounts
+[5 -> 3, 3 -> 1, 1 -> 2]
 ```
 
 At a `Dictionary`:
 
 ```
->>> Dictionary[1 -> 3, 2 -> 2, 3 -> 1]
->>> .Multiset.associations
+>>> Multiset(
+>>> 	Dictionary[1 -> 3, 2 -> 2, 3 -> 1]
+>>> ).sortedElements
 [1 -> 3, 2 -> 2, 3 -> 1]
 ```
 
-The type `Multiset` collates elements according `=`, see also `IdentityMultiset`.
+The type `Multiset` collates elements according the provided comparator:
 
 ```
 >>> let a = [1 1 1 3 3 5];
->>> let b = Multiset(a);
->>> let c = Set(b);
+>>> let b = Multiset(a, ==);
+>>> let c = Set(b, ==);
 >>> (
 >>> 	a.size,
 >>> 	b.size,
@@ -48,7 +62,7 @@ The type `Multiset` collates elements according `=`, see also `IdentityMultiset`
 To get the elements as a `List` of `Association`s use `sortedCounts` or `sortedElements`.
 
 ```
->>> let a = Multiset[1 1 1 3 3 5];
+>>> let a = Multiset([1 1 1 3 3 5], ==);
 >>> (
 >>> 	a.sortedCounts,
 >>> 	a.sortedElements
@@ -59,10 +73,14 @@ To get the elements as a `List` of `Association`s use `sortedCounts` or `sortedE
 )
 ```
 
-To get the elements as a `Dictionary` use `valuesAndCounts`:
+To get the elements as a `Map` or `Dictionary` use `valuesAndCounts`:
 
 ```
->>> Multiset[1 1 1 3 3 5]
+>>> Multiset([1 1 1 3 3 5], ==)
+>>> .valuesAndCounts
+Map[1 -> 3, 3 -> 2, 5 -> 1]
+
+>>> Multiset([1 1 1 3 3 5], =)
 >>> .valuesAndCounts
 Dictionary[1 -> 3, 3 -> 2, 5 -> 1]
 ```
@@ -70,7 +88,7 @@ Dictionary[1 -> 3, 3 -> 2, 5 -> 1]
 To get the elements as a two column matrix use `elementsAndCounts`:
 
 ```
->>> Multiset[1 1 1 3 3 5]
+>>> Multiset([1 1 1 3 3 5], ==)
 >>> .elementsAndCounts
 [1 3; 3 2; 5 1]
 ```
@@ -78,7 +96,7 @@ To get the elements as a two column matrix use `elementsAndCounts`:
 To count the occurences of an item, also called the _multiplicity_, use `occurrencesOf`:
 
 ```
->>> Multiset[1 1 1 3 3 5]
+>>> Multiset([1 1 1 3 3 5], ==)
 >>> .occurrencesOf(3)
 2
 ```
@@ -86,7 +104,7 @@ To count the occurences of an item, also called the _multiplicity_, use `occurre
 The `size`, also called the _cardinality_, of a `Multiset` is the `sum` of the counts:
 
 ```
->>> Multiset[1 1 1 3 3 5]
+>>> Multiset([1 1 1 3 3 5], ==)
 >>> .size
 3 + 2 + 1
 ```
@@ -94,7 +112,7 @@ The `size`, also called the _cardinality_, of a `Multiset` is the `sum` of the c
 To add an element to a `Multiset` use `add` or `addWithOccurrences`:
 
 ```
->>> let a = Multiset[1 1 1];
+>>> let a = Multiset([1 1 1], ==);
 >>> a.addWithOccurrences!(3, 2);
 >>> a.add!(5);
 >>> a.sortedElements
@@ -104,7 +122,7 @@ To add an element to a `Multiset` use `add` or `addWithOccurrences`:
 To remove an element from a `Multiset` use `remove`:
 
 ```
->>> let a = Multiset[1 1 1 3 3 5];
+>>> let a = Multiset([1 1 1 3 3 5], ==);
 >>> a.remove!(1);
 >>> a.remove!(3);
 >>> a.remove!(5);
@@ -115,8 +133,8 @@ To remove an element from a `Multiset` use `remove`:
 Compare for equality:
 
 ```
->>> let a = Multiset[1 1 1 3 3 5];
->>> let b = Multiset[1 3 5 1 3 1];
+>>> let a = Multiset([1 1 1 3 3 5], ==);
+>>> let b = Multiset([1 3 5 1 3 1], ==);
 >>> a = b
 true
 ```
@@ -124,7 +142,15 @@ true
 Store string:
 
 ```
->> Multiset[1 1 1 2 3 3]
+>> Multiset([1 1 1 2 3 3], ==)
+>> .storeString
+Multiset(
+	Map(
+		[[1, 3], [2, 1], [3, 2]]
+	)
+)
+
+>> Multiset([1 1 1 2 3 3], =)
 >> .storeString
 Multiset(
 	Dictionary(
@@ -137,11 +163,11 @@ Convert the list _x_ to a `Multiset`.
 At a `List` of integers:
 
 ```
->>> Multiset[1 1 1 3 3 5]
+>>> Multiset([1 1 1 3 3 5], ==)
 >>> .sortedElements
 [1 -> 3, 3 -> 2, 5 -> 1]
 
->>> Multiset[1 1 1 3 3 5]
+>>> Multiset([1 1 1 3 3 5], ==)
 >>> .sortedCounts
 [3 -> 1, 2 -> 3, 1 -> 5]
 ```
@@ -150,7 +176,7 @@ Count occurrences of characters in a string:
 
 ```
 >>> List'occurrences'
->>> .Multiset
+>>> .Multiset(==)
 >>> .sortedCounts
 [
 	3 -> 'c',
@@ -165,7 +191,7 @@ to convert a `Multiset` to a `List` use `multitsetToList` (or `List`).
 
 * * *
 
-See also: Dictionary, IdentityMultiset, IdentitySet, Set, add, addWithOccurrences, isImmediate, remove, sortedCounts, sortedElements, valuesAndCounts
+See also: Dictionary, Set, add, addWithOccurrences, isImmediate, remove, sortedCounts, sortedElements, valuesAndCounts
 
 Guides: Set Functions
 

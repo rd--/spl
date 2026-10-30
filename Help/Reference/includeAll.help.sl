@@ -7,11 +7,11 @@ Answer _c₂_.
 
 In general, any object responding to _do_ can be used as the second argument.
 
-At `IdentityMultiset`:
+At `Multiset`:
 
 ```
 >>> let c = [1 2 2 3 3 3];
->>> let r = IdentityMultiset();
+>>> let r = Multiset([], ==);
 >>> (r.includeAll!(c), r.size)
 (c, 6)
 ```

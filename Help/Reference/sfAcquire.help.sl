@@ -13,6 +13,4 @@ sfAcquireMono('Floating')
 
 See also: bufRd, bufWr
 
-Guides: Unit Generators
-
-Categories: SoundFile
+Guides: File Functions, Unit Generators

@@ -48,7 +48,6 @@
 	'Collection-Heap'
 	'Collection-Histogram'
 	'Collection-HuffmanCoding'
-	'Collection-IdentityMultiset'
 	'Collection-IdentitySet'
 	'Collection-Indices'
 	'Collection-Link'

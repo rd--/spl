@@ -1845,7 +1845,6 @@ Reference/hypotenuse.help.sl
 Reference/hypotrochoid.help.sl
 Reference/identity.help.sl
 Reference/identityMatrix.help.sl
-Reference/IdentityMultiset.help.sl
 Reference/IdentitySet.help.sl
 Reference/ieeeRemainder.help.sl
 Reference/ifAbsentAdd.help.sl
@@ -2962,10 +2961,8 @@ Reference/now.help.sl
 Reference/nRand.help.sl
 Reference/nthLexicographicPermutation.help.sl
 Reference/nthRoot.help.sl
-Reference/nubBy.help.sl
 Reference/nubCumulatively.help.sl
 Reference/nub.help.sl
-Reference/nubIdentical.help.sl
 Reference/nubSieve.help.sl
 Reference/nullaryApply.help.sl
 Reference/numberCompose.help.sl

@@ -225,7 +225,7 @@ OEIS [A333755](https://oeis.org/A333755):
 >>> 	n.integerPartitions
 >>> 	.collect(permutations/1)
 >>> 	.catenate
->>> 	.unique
+>>> 	.unique(=)
 >>> 	.select { :x |
 >>> 		x.split(=).size = k
 >>> 	}.size

@@ -1,22 +1,24 @@
 # unique
 
-- _unique([x₁ x₂ …])_
+- _unique([x₁ x₂ …], =)_
 
 Answer the same values as in the collection _x_,
-but with no repetitions,
+but with no repetitions according to _=_,
 and in sorted order.
 
 ```
->>> [1 1 2 1 2 3 1 2 3 4].unique
+>>> [1 1 2 1 2 3 1 2 3 4]
+>>> .unique(==)
 [1 2 3 4]
 
->>> [9 2 9 5].unique
+>>> [9 2 9 5].unique(==)
 [2 5 9]
 
->>> ['3' '2' '1' '2' '3'].unique
+>>> ['3' '2' '1' '2' '3']
+>>> .unique(==)
 ['1' '2' '3']
 
->>> [0J1 0J0 2J0 1J0 0J2].unique
+>>> [0J1 0J0 2J0 1J0 0J2].unique(=)
 [0J0 0J1 0J2 1J0 2J0]
 ```
 
@@ -27,7 +29,7 @@ the meaning of the verb _/._ in _J_:
 ```
 >>> let a = [1 2 3 1 3 2 1];
 >>> let b = [0 1 2 3 4 5 6];
->>> let c = a.unique;
+>>> let c = a.unique(==);
 >>> let d = c.collect { :x |
 >>> 	a.indicesOf(x)
 >>> };
@@ -43,7 +45,7 @@ OEIS [A180410](https://oeis.org/A180410):
 ~~~spl svg=A oeis=A180410
 1:150.collect { :n |
 	n.integerDigits
-	.unique
+	.unique(==)
 	.fromDigits
 }.scatterPlot
 ~~~
@@ -66,7 +68,7 @@ let n = nil;
 	t.addAll!(2:n.primePi.prime ^ k);
 	k := 2 * k
 };
-t.unique.scatterPlot
+t.unique(==).scatterPlot
 ~~~
 
 ![](Help/Image/unique-B.svg)
@@ -81,8 +83,8 @@ let a = [4];
 let b = [];
 16.timesRepeat {
 	let c = (a ++ b);
-	let d = c.unique;
-	let e = Multiset(c).sortedElements;
+	let d = c.unique(==);
+	let e = Multiset(c, ==).sortedElements;
 	let f = e.collect(value/1);
 	b.addAll!(d);
 	a.addAll!(f)
@@ -108,7 +110,7 @@ let m = 11;
 		n := n * 3
 	}
 };
-s.unique
+s.unique(==)
 .integerExponent(5)
 .discretePlot
 ~~~

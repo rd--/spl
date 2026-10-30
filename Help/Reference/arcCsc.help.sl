@@ -92,5 +92,3 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/InverseCosecant.html)
 [2](https://reference.wolfram.com/language/ref/ArcCsc.html),
-
-Categories: Math, Trigonometry

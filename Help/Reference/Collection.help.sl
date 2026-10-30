@@ -58,7 +58,6 @@ Types implementing `Collection`:
 	'Dictionary'
 	'Float32Array'
 	'Float64Array'
-	'IdentityMultiset'
 	'IdentitySet'
 	'Link'
 	'LinkedList'

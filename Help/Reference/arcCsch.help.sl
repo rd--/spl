@@ -66,7 +66,8 @@ Plot over a subset of the reals:
 
 See also: arcCsc, arcSech, csc
 
-Guides: Hyperbolic Functions
+Guides: Hyperbolic Functions, Trigonometric Functions
+
 
 References:
 _Mathematica_
@@ -76,5 +77,3 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/double.acsch.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Inverse_hyperbolic_cosecant)
-
-Categories: Math, Trigonometry

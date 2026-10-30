@@ -79,7 +79,8 @@ EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] {
 +List {
 
 	EmpiricalDistribution { :d |
-		newEmpiricalDistribution().initializeSlots(d.IdentityMultiset, d.size)
+		newEmpiricalDistribution()
+		.initializeSlots(Multiset(d, ==), d.size)
 	}
 
 }
@@ -87,7 +88,7 @@ EmpiricalDistribution : [Object, Equal, ProbabilityDistribution] {
 +Map {
 
 	EmpiricalDistribution { :self |
-		let b = IdentityMultiset(self);
+		let b = Multiset(self, ==);
 		newEmpiricalDistribution().initializeSlots(
 			b,
 			b.sum

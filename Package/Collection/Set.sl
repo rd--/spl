@@ -60,32 +60,28 @@
 
 +@Dictionary {
 
-	[Set, dictionaryToSet] { :self |
-		self.values.Set
+	[Set, dictionaryToSet] { :self :comparator/2 |
+		Set(self.values, comparator/2)
 	}
 
 }
 
 +@Collection {
 
-	[Set, collectionToSet] { :self |
-		SortedSet(self)
-	}
-
-}
-
-+Void {
-
-	Set {
-		SortedSet()
+	[Set, collectionToSet] { :self :comparator/2 |
+		let answer = comparator/2.comparatorToEmptySet;
+		answer.includeAll!(self);
+		answer
 	}
 
 }
 
 +List {
 
-	setIntersection { :self |
-		self.collect(Set/1).reduce(intersection/2)
+	setIntersection { :self :aBlock/2 |
+		self.collect { :x |
+			Set(x, aBlock/2)
+		}.reduce(intersection/2)
 	}
 
 }

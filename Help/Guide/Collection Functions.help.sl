@@ -36,7 +36,6 @@ Types:
 - `Float64Array`
 - `Graph`
 - `Heap`
-- `IdentityMultiset`
 - `IdentitySet`
 - `Interval`
 - `LinkedList`

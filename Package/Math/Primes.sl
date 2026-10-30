@@ -599,7 +599,7 @@
 	}
 
 	primeFactorization { :self |
-		self.primeFactors.Multiset
+		Multiset(self.primeFactors, =)
 	}
 
 	primeFactors { :self :rule |

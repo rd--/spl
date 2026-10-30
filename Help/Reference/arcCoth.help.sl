@@ -71,11 +71,9 @@ Plot of complex `arcCoth` function:
 
 See also: arcSec, cos, sec, tan
 
-Guides: Hyperbolic Functions
+Guides: Hyperbolic Functions, Trigonometric Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/InverseHyperbolicCotangent.html)
 [2](https://reference.wolfram.com/language/ref/ArcCoth.html),
-
-Categories: Math, Trigonometry

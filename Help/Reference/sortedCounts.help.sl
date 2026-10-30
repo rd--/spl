@@ -8,26 +8,25 @@ sorted by _decreasing_ count.
 At `Multiset`:
 
 ```
->>> Multiset[1 2 3 1 2 1]
+>>> Multiset([1 2 3 1 2 1], ==)
 >>> .sortedCounts
 [3 -> 1, 2 -> 2, 1 -> 3]
 
->>> Multiset[1 2 3 1 3 1]
+>>> Multiset([1 2 3 1 3 1], ==)
 >>> .sortedCounts
 [3 -> 1, 2 -> 3, 1 -> 2]
-
->>> List'abcaca'
->>> .Multiset
->>> .sortedCounts
-[3 -> 'a', 2 -> 'c', 1 -> 'b']
 ```
 
 At `List`:
 
 ```
 >>> [1 2 3 1 2 1]
->>> .sortedCounts
+>>> .sortedCounts(==)
 [3 -> 1, 2 -> 2, 1 -> 3]
+
+>>> List'abcaca'
+>>> .sortedCounts
+[3 -> 'a', 2 -> 'c', 1 -> 'b']
 ```
 
 * * *

@@ -13,11 +13,11 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	[List, characters] { :self |
-		self.primitiveCollectInto(identity/1, [])
+		self.primitiveCollectInto!(identity/1, [])
 	}
 
 	[Set, stringToSet] { :self |
-		Set(self.characters)
+		IdentitySet(self.characters)
 	}
 
 	abbreviateTo { :self :anInteger |
@@ -160,7 +160,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	characterCounts { :self |
 		self
 		.characters
-		.IdentityMultiset
+		.Multiset(==)
 		.associations
 		.sort!(succeedsOrEqualTo/2, value/1)
 	}
@@ -170,13 +170,13 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		.characters
 		.partition(n, 1)
 		.collect(stringCatenate/1)
-		.IdentityMultiset
+		.Multiset(==)
 		.associations
 		.sort!(succeedsOrEqualTo/2, value/1)
 	}
 
 	characterList { :self |
-		self.collectInto(identity/1, [])
+		self.collectInto!(identity/1, [])
 	}
 
 	characterString { :self |
@@ -208,13 +208,16 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	codePoints { :self |
-		self.collectInto(codePoint/1, [])
+		self.collectInto!(codePoint/1, [])
 	}
 
-	collectInto { :self :aBlock/1 :aCollection |
-		self.primitiveCollectInto({ :each |
-			aBlock(each.Character)
-		}, [])
+	collectInto! { :self :aBlock/1 :aCollection |
+		self.primitiveCollectInto!(
+			{ :each |
+				aBlock(each.Character)
+			},
+			[]
+		)
 	}
 
 	[compare, localeCompare] { :self :operand |
@@ -625,7 +628,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self
 		.characters
 		.select(isLetter/1)
-		.IdentityMultiset
+		.Multiset(==)
 		.associations
 		.sort!(succeedsOrEqualTo/2, value/1)
 	}
@@ -636,7 +639,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		.select(isLetter/1)
 		.partition(n, 1)
 		.collect(stringCatenate/1)
-		.IdentityMultiset
+		.Multiset(==)
 		.associations
 		.sort!(succeedsOrEqualTo/2, value/1)
 	}
@@ -741,14 +744,14 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	nub { :self |
-		let seen = [];
+		let seen = Set(==);
 		self.select { :each |
 			seen.ifAbsentAdd!(each)
 		}
 	}
 
 	nubSieve { :self |
-		self.characters.nubSieve
+		self.characters.nubSieve(==)
 	}
 
 	occurrencesOf { :self :aString |
@@ -844,7 +847,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.List.prefixes.collect(String/1)
 	}
 
-	primitiveCollectInto { :self :aBlock/1 :aCollection |
+	primitiveCollectInto! { :self :aBlock/1 :aCollection |
 		self.primitiveDo { :each |
 			aCollection.add!(aBlock(each))
 		};

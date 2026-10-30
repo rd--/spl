@@ -12,10 +12,10 @@ At `List`:
 true
 ```
 
-At `IdentityMultiset`:
+At `Multiset`:
 
 ```
->>> IdentityMultiset().isIndexable
+>>> Multiset([], ==).isIndexable
 false
 ```
 

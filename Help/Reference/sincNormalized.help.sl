@@ -72,5 +72,3 @@ _Mathworks_
 [1](https://mathworks.com/help/signal/ref/sinc.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Sinc_function)
-
-Categories: Math, Trigonometry

@@ -155,5 +155,3 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/double.cosh.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Hyperbolic_functions)
-
-Categories: Trigonometry, Math

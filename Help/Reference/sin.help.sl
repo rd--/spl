@@ -336,5 +336,3 @@ _Smalltalk_
 5.6.7.13,
 _W_
 [1](https://en.wikipedia.org/wiki/Sine)
-
-Categories: Math, Trigonometry

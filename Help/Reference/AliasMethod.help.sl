@@ -11,7 +11,7 @@ The distribution is given as a sequence of probability values that `sum` to `one
 >>> let m = AliasMethod(w);
 >>> let r = Sfc32(1372);
 >>> let d = { m.nextRandom(r) } ! 1000;
->>> let a = d.IdentityMultiset.sortedElements;
+>>> let a = d.sortedElements(==);
 >>> (->.zipWith(1:5, w * 1000), a)
 (
 	[
@@ -34,6 +34,8 @@ The distribution is given as a sequence of probability values that `sum` to `one
 * * *
 
 See also: Random, Sfc32, randomWeightedChoice
+
+Guides: Random Functions
 
 References:
 _W_

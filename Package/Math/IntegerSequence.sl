@@ -600,7 +600,7 @@
 	inventorySequence { :terms |
 		let number = 0;
 		let answer = [0];
-		let inventory = [0].IdentityMultiset;
+		let inventory = Multiset([0], ==);
 		2.toDo(terms) { :n |
 			let count = inventory.occurrencesOf(number);
 			number := (count = 0).if {

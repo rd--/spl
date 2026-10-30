@@ -77,11 +77,11 @@ true
 true
 ```
 
-`IdentityMultiset` is not indexable:
+`Multiset` is not indexable:
 
 ```
 >>> {
->>> 	IdentityMultiset[1 2 3].at(1)
+>>> 	Multiset([1 2 3], ==).at(1)
 >>> }.hasError
 true
 ```

@@ -30,7 +30,6 @@ Types implementing `Do`:
 	'Float32Array'
 	'Float64Array'
 	'Heap'
-	'IdentityMultiset'
 	'IdentitySet'
 	'Link'
 	'LinkedList'

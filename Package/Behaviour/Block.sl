@@ -820,3 +820,13 @@ Block! : [Object, Equal] {
 	}
 
 }
+
++Block {
+
+	isStandardComparator { :self |
+		self == == | {
+			self == =
+		}
+	}
+
+}

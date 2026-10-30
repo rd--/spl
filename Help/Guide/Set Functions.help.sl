@@ -5,7 +5,6 @@ Traits and Types:
 - `Set`
 - `Multiset`
 - `IdentitySet`
-- `IdentityMultiset`
 - `ResidueSet`
 - `SortedSet`
 - `UnsortedSet`
@@ -15,7 +14,6 @@ Converting:
 - `Set`
 - `Multiset`
 - `IdentitySet`
-- `IdentityMultiset`
 
 Counting:
 

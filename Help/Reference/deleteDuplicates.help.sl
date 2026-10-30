@@ -1,25 +1,28 @@
 # deleteDuplicates
 
-- _deleteDuplicates([x₁ x₂ …], f/2)_
+- _deleteDuplicates([x₁ x₂ …], =)_
 
-Answer a copy of the collection _x_ that removes any duplicates, according to _f_.
+Answer a copy of the collection _x_ that removes any duplicates,
+according to _=_.
 
 At `List`:
 
 ```
 >>> [1 3 5 3 5 9 5 2 3 5 7 3 5 7 3]
->>> .deleteDuplicates
+>>> .deleteDuplicates(==)
 [1 3 5 9 2 7]
 
->>> [1 7 8 4 3 4 1 9 9 2].deleteDuplicates
+>>> [1 7 8 4 3 4 1 9 9 2]
+>>> .deleteDuplicates(==)
 [1 7 8 4 3 9 2]
 ```
 
-At `Record`, delete elements whose values duplicate those seen earlier:
+At `Record`,
+delete elements whose values duplicate those seen earlier:
 
 ```
 >>> (a: 1, b: 2, c: 1, d: 3, e: 2)
->>> .deleteDuplicates
+>>> .deleteDuplicates(==)
 (a: 1, b: 2, d: 3)
 ```
 
@@ -49,7 +52,7 @@ Similar to `union` with an empty set:
 >>> 	4 9 0 2 6 5 7 4 9 8
 >>> ];
 >>> (
->>> 	x.deleteDuplicates,
+>>> 	x.deleteDuplicates(==),
 >>> 	x.union([])
 >>> )
 (
@@ -80,7 +83,7 @@ it answers a copy of the collection without the duplicate elements.
 
 * * *
 
-See also: counts, deleteAdjacentDuplicates, nub, nubBy, unique
+See also: counts, deleteAdjacentDuplicates, nub, unique
 
 Guides: List Functions
 

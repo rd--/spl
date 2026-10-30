@@ -674,10 +674,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 			let b = p.imaginary.min;
 			p.collect { :x |
 				x - (a + (b * 1I))
-			}.unique
+			}.unique(=)
 		};
 		let allPieces = { :p |
-			p.dihedral.collect(canonical/1).unique
+			p.dihedral.collect(canonical/1).unique(=)
 		};
 		(n = 1).if {
 			[[0]]

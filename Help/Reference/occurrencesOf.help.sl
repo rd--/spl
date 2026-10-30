@@ -20,19 +20,19 @@ At `Record`:
 2
 ```
 
-At `IdentityMultiset`:
+At `Multiset`:
 
 ```
->>> IdentityMultiset[2 3 3 4 4 4]
+>>> Multiset([2 3 3 4 4 4], ==)
 >>> .occurrencesOf(4)
 3
 ```
 
 The number of occurrences of an element in a set will be zero or one.
-At `IdentitySet`:
+At `Set`:
 
 ```
->>> IdentitySet[1 2 2 3 3 3]
+>>> Set([1 2 2 3 3 3], ==)
 >>> .occurrencesOf(3)
 1
 ```

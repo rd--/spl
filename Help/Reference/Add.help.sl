@@ -36,7 +36,6 @@ Types implementing `Add`:
 	'BitSet'
 	'Dictionary'
 	'Heap'
-	'IdentityMultiset'
 	'IdentitySet'
 	'LinkedList'
 	'List'

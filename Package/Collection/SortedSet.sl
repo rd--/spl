@@ -109,3 +109,17 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Set] 
 	}
 
 }
+
++Block {
+
+	comparatorToEmptySet { :comparator/2 |
+		[
+			{ comparator/2 == = } -> { SortedSet() },
+			{ comparator/2 == == } -> { IdentitySet() },
+			{ true } -> {
+				comparator/2.error('comparatorToEmptySet')
+			}
+		].which
+	}
+
+}

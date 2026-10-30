@@ -3,13 +3,13 @@
 +Fraction {
 
 	tuningLatticePrimes { :self :includeOctave |
-		let answer = Set();
+		let answer = Set([], ==);
 		answer.includeAll!(self.numerator.primeFactors);
 		answer.includeAll!(self.denominator.primeFactors);
 		includeOctave.ifFalse {
 			answer.without!(2)
 		};
-		answer.List.sort
+		List(answer).sort!
 	}
 
 	tuningLatticeVector { :self :primes |

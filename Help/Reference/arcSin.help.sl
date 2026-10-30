@@ -109,5 +109,3 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/double.asin.html),
 _Smalltalk_
 5.6.7.3
-
-Categories: Math, Trigonometry

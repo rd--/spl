@@ -5,7 +5,7 @@ ScalaTuning : [Object, Tuning] {
 	| tuningRecord |
 
 	RatioTuning { :self |
-		self.ratios.RatioTuning
+		RatioTuning(self.ratios)
 	}
 
 	cents { :self |
@@ -74,7 +74,7 @@ ScalaTuning : [Object, Tuning] {
 
 	tuningLatticeGraph { :self |
 		self.isRational.if {
-			self.RatioTuning.tuningLatticeGraph
+			RatioTuning(self).tuningLatticeGraph
 		} {
 			self.error('tuningLatticeGraph: irrational')
 		}

@@ -101,26 +101,17 @@ At `Float64Array`:
 Float64Array[0 0 0]
 ```
 
-At `Multiset` and `IdentityMultiset`:
+At `Multiset`:
 
 ```
->>> Multiset().new
-Multiset()
+>>> Multiset([], =).new
+Multiset([], =)
 
->>> Multiset().new(3)
-Multiset()
+>>> Multiset([], =).new(3)
+Multiset([], =)
 
->>> Multiset().newOfSize(3)
+>>> Multiset([], =).newOfSize(3)
 Multiset[nil -> 3]
-
->>> IdentityMultiset().new
-IdentityMultiset()
-
->>> IdentityMultiset().new(3)
-IdentityMultiset()
-
->>> IdentityMultiset().newOfSize(3)
-IdentityMultiset[nil -> 3]
 ```
 
 At `LinkedList`:

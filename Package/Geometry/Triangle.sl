@@ -425,7 +425,7 @@ Triangle : [Object, Store, Equal, Geometry] {
 	}
 
 	isIsosceles { :self |
-		self.sideLengths.nubBy(isVeryClose/2).size <= 2
+		self.sideLengths.deleteDuplicates(isVeryClose/2).size <= 2
 	}
 
 	isOblique { :self |

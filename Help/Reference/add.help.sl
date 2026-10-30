@@ -8,10 +8,10 @@ Therefore, for collections with invariants such as `Dictionary` and `IdentitySet
 In these cases see `include`, which is like `add` except that the size of the collection may stay the same.
 Answers _x_.
 
-At `IdentityMultiset`:
+At `Multiset`:
 
 ```
->>> let b = IdentityMultiset();
+>>> let b = Multiset([], ==);
 >>> b.add!('x');
 >>> (b.add!('y'), b.size, b.List)
 ('y', 2, ['x' 'y'])

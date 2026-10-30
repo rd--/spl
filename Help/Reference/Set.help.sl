@@ -1,24 +1,33 @@
 # Set
 
-- _Set([x₁ x₂ …])_
+- _Set([x₁ x₂ …], =)_
 
 `Set` is both a collection trait,
 holding behaviours for collection types that do not contain duplicate items,
-and an alias for the `SortedSet` type.
+and constructor for set types.
 At a collection,
-answers a `Set` of the elements of the collection _c_.
+answers a set of the elements of the collection _c_,
+if _f_ is `=` answer an `OrderedSet`,
+if _f_ is `==` answer an `IdentitySet`.
 
 At `List`:
 
 ```
->>> Set[1 1 2 1 2 3]
+>>> Set([1 1 2 1 2 3], ==)
+IdentitySet[1, 2, 3]
+
+>>> Set([1 1 2 1 2 3], =)
 SortedSet[1 2 3]
 ```
 
 At `Multiset`:
 
 ```
->>> Multiset[1 1 2 1 2 3]
+>>> Multiset([1 1 2 1 2 3], ==)
+>>> .Set
+IdentitySet[1 2 3]
+
+>>> Multiset([1 1 2 1 2 3], =)
 >>> .Set
 SortedSet[1 2 3]
 ```
@@ -26,15 +35,14 @@ SortedSet[1 2 3]
 At `String`:
 
 ```
->>> 'abracadabra'
->>> .Set
-SortedSet['a' 'b' 'r' 'c' 'd']
+>>> Set'abracadabra'
+IdentitySet['a' 'b' 'r' 'c' 'd']
 ```
 
 At a list of lists:
 
 ```
->>> Set[1 1; 1 1; 1 2]
+>>> Set([1 1; 1 1; 1 2], =)
 SortedSet[1 1; 1 2]
 ```
 
@@ -42,32 +50,32 @@ The empty set constructor,
 also a `Set` from an empty list:
 
 ```
->>> Set().size
+>>> IdentitySet().size
 0
 
->>> Set[].size
+>>> Set([], ==).size
 0
 ```
 
 Set predicates:
 
 ```
->>> Set().isSet
+>>> Set([], =).isSet
 true
 
->>> Set().isSortedSet
+>>> Set([], =).isSortedSet
 true
 
->>> Set().isIdentitySet
-false
+>>> Set([], ==).isIdentitySet
+true
 ```
 
 Sets are collections,
 and have the expected mathematical behavior in relation to scalars:
 
 ```
->>> Set[1 2 3] * 5
-Set[5 10 15]
+>>> Set([1 2 3], ==) * 5
+IdentitySet[5 10 15]
 ```
 
 Note that `Set` may be significantly less efficient that `IdentitySet`,
@@ -80,7 +88,7 @@ false
 >>> 1 == 1L
 false
 
->>> Set[1 1L]
+>>> Set([1 1L], =)
 >>> .List
 [1]
 
@@ -95,7 +103,7 @@ false
 >>> 1J1 = 1J1
 true
 
->>> Set[1J1 1J1]
+>>> Set([1J1 1J1], =)
 >>> .List
 [1J1]
 

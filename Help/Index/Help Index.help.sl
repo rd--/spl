@@ -107,7 +107,6 @@
 - `Association`
 - `BitSet`
 - `IdentityMap`
-- `IdentityMultiset`
 - `IdentitySet`
 - `ListView`
 - `List`
@@ -177,7 +176,7 @@
 - `Character`, `codePoint`, `hexDigitCharacter`
 - `RegularExpression`, `displayString`, `toLowerCase`, `toUpperCase`
 - `inEnglishWords`
-- `IdentityMultiset`, `ByteArray`, `List`, `Map`, `Record`, `IdentitySet`, `SortedList`, `Tree`
+- `ByteArray`, `List`, `Map`, `Record`, `IdentitySet`, `SortedList`, `Tree`
 - `degreesToRadians`, `radiansToDegrees`
 
 ## Copying

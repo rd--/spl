@@ -99,7 +99,7 @@
 		answer
 	}
 
-	collectInto { :self :aBlock/1 :aCollection |
+	collectInto! { :self :aBlock/1 :aCollection |
 		aCollection.fillFromWith!(self, aBlock/1)
 	}
 
@@ -156,7 +156,7 @@
 	}
 
 	copyWithoutIdenticalElements { :self |
-		let seen = IdentitySet();
+		let seen = Set([], ==);
 		self.select { :each |
 			seen.includes(each).if {
 				false
@@ -186,17 +186,13 @@
 		}
 	}
 
-	[deleteDuplicates, nub] { :self |
-		self.deleteDuplicates(isEqual/2)
-	}
-
-	[deleteDuplicates, nubBy] { :self :aBlock/2 |
-		(aBlock/2 == equalsSignEqualsSign/2).if {
-			self.deleteDuplicatesIdentical
+	deleteDuplicates { :self :comparator/2 |
+		comparator/2.isStandardComparator.if {
+			self.nub(comparator/2)
 		} {
 			let seen = [];
 			self.select { :each |
-				seen.includesBy(each, aBlock/2).if {
+				seen.includesBy(each, comparator/2).if {
 					false
 				} {
 					seen.add!(each);
@@ -206,8 +202,8 @@
 		}
 	}
 
-	[deleteDuplicatesIdentical, nubIdentical] { :self |
-		let seen = IdentitySet();
+	[nub, unique] { :self :comparator/2 |
+		let seen = comparator/2.comparatorToEmptySet;
 		self.select { :each |
 			seen.includes(each).if {
 				false
@@ -216,6 +212,10 @@
 				true
 			}
 		}
+	}
+
+	[deleteDuplicates, nub] { :self |
+		self.deleteDuplicates(=)
 	}
 
 	depth { :self |
@@ -665,10 +665,6 @@
 			answer.includeAll!(each)
 		};
 		answer
-	}
-
-	unique { :self |
-		self.deleteDuplicates
 	}
 
 	withLevelCollect { :self :aBlock/2 :level |

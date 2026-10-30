@@ -144,5 +144,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Tan.html),
 _Smalltalk_
 5.6.7.14
-
-Categories: Trigonometry, Math

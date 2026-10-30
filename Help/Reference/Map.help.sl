@@ -73,10 +73,10 @@ At `Record`:
 Map['x' 1; 'y' 2]
 ```
 
-At `IdentityMultiset`:
+At `Multiset`:
 
 ```
->>> IdentityMultiset[1 2 2 3 3 3]
+>>> Multiset([1 2 2 3 3 3], ==)
 >>> .Map
 Map[1 -> 1, 2 -> 2, 3 -> 3]
 ```
@@ -85,7 +85,7 @@ At a two column matrix,
 here a 3×2 matrix:
 
 ```
->>> [1 2; 3 4; 5 6].Map
+>>> Map[1 2; 3 4; 5 6]
 Map[1 -> 2, 3 -> 4, 5 -> 6]
 
 >>> [1 2; 3 4; 5 6]

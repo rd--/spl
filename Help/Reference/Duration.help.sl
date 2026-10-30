@@ -127,5 +127,3 @@ it is not possible to specify months or years or decades or centuries and so for
 See also: CalendarDuration, Date, Frequency, Quantity, Time, TimeStamp, inSeconds, parseDuration
 
 Guides: Date and Time Functions, Quantity Functions
-
-Categories: Temporal, Type

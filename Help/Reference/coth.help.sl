@@ -67,7 +67,7 @@ Plot `coth` and `tanh`:
 
 See also: cosh, cot, sinh
 
-Guides: Hyperbolic Functions
+Guides: Hyperbolic Functions, Trigonometric Functions
 
 References:
 _Mathematica_
@@ -77,5 +77,3 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/double.coth.html),
 _OEIS_
 [1](https://oeis.org/A085984)
-
-Categories: Trigonometry, Math

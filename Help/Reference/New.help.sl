@@ -33,7 +33,6 @@ Types implementing `New`:
 	'ByteArray'
 	'Float32Array'
 	'Float64Array'
-	'IdentityMultiset'
 	'IdentitySet'
 	'LinkedList'
 	'List'

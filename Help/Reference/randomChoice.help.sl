@@ -104,11 +104,11 @@ At `Record`:
 ]
 ```
 
-At `IdentityMultiset` makes a weighted choice:
+At `Multiset` makes a weighted choice:
 
 ```
 >>> let r = Sfc32(13952);
->>> IdentityMultiset[1 3 3 3 5 5 5 5 5]
+>>> Multiset([1 3 3 3 5 5 5 5 5], ==)
 >>> .randomChoice(r, [3 3])
 [
 	3 3 5;
@@ -121,7 +121,7 @@ At `IdentitySet`:
 
 ```
 >>> let r = Sfc32(31052);
->>> let c = IdentitySet[1 .. 9];
+>>> let c = Set([1 .. 9], ==);
 >>> c.randomChoice(r, [3 3])
 [
 	4 8 5;
@@ -138,7 +138,7 @@ At `WeightedData`:
 >>> 	[1 2 3 4],
 >>> 	[2 2 5 1]
 >>> ).randomChoice(r, [100])
->>> .IdentityMultiset
+>>> .Multiset(==)
 >>> .sortedElements
 [1 -> 18, 2 -> 17, 3 -> 50, 4 -> 15]
 ```
@@ -165,11 +165,11 @@ let r = Sfc32(902132);
 
 ![](Help/Image/randomChoice-B.svg)
 
-Plot at `IdentityMultiset`:
+Plot at `Multiset`:
 
 ~~~spl svg=C
 let r = Sfc32(134717);
-IdentityMultiset[1 3 3 3 5 5 5 5 5]
+Multiset([1 3 3 3 5 5 5 5 5], ==)
 .randomChoice(r, [43])
 .stepPlot
 ~~~

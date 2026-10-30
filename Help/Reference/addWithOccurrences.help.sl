@@ -18,7 +18,7 @@ At `List`:
 At `Multiset`:
 
 ```
->>> let a = Multiset[];
+>>> let a = Multiset([], =);
 >>> let b = a.addWithOccurrences!(3, 5);
 >>> (a, b)
 (Multiset[3 -> 5], 3)

@@ -20,8 +20,8 @@ Count the number of entries for each vertex count:
 >>> system
 >>> .sageSmallGraphCatalogue
 >>> .collect(vertexCount/1)
->>> .IdentityMultiset
->>> .sortedElements
+>>> .values
+>>> .sortedElements(==)
 [
 	3 -> 4,
 	4 -> 11,

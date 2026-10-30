@@ -47,6 +47,10 @@ Temporary Files:
 
 - `temporaryFileName`
 
+Sound Files:
+
+- `SoundFile`
+
 Sᴘʟ Files:
 
 - `splDirectory`

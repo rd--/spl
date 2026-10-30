@@ -150,7 +150,7 @@ concluding with the period:
 ```
 >>> 5.momentOfSymmetry(12)
 >>> .collect(prefixSum/1)
->>> .nubCumulatively
+>>> .nubCumulatively(==)
 [5 12; 10; 3 8; 1 6]
 ```
 

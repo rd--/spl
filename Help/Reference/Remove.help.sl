@@ -32,7 +32,6 @@ Types implementing `Remove`:
 	'BitSet'
 	'Dictionary'
 	'Heap'
-	'IdentityMultiset'
 	'IdentitySet'
 	'LinkedList'
 	'List'

@@ -25,10 +25,10 @@ At `Tuple`, which is not a proper sequence:
 false
 ```
 
-At `IdentityMultiset` answers false:
+At `Multiset` answers false:
 
 ```
->>> IdentityMultiset().isSequence
+>>> Multiset([], ==).isSequence
 false
 ```
 

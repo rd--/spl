@@ -129,7 +129,7 @@ the limit at _x=∞_ is one half:
 
 See also: arcSinh, cosh, csch, sin
 
-Guides: Hyperbolic Functions
+Guides: Hyperbolic Functions, Trigonometric Functions
 
 References:
 _Mathematica_
@@ -137,5 +137,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Sinh.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/double.sinh.html)
-
-Categories: Math, Trigonometry

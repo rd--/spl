@@ -10,10 +10,10 @@ The answer block may be nullary or unary.
 >>> [1 3 5].species
 nilList/1
 
->>> IdentityMultiset[1 3 5].species
-IdentityMultiset/0
+>>> (:).species
+Record/0
 
->>> IdentitySet[1 3 5].species
+>>> Set([1 3 5], ==).species
 IdentitySet/0
 
 >>> (x: 1, y: 3, z: 5).species
@@ -28,19 +28,20 @@ This is the mechanism by which `Trait` methods can generate new values of the re
 >>> }
 [3 5]
 
->>> IdentitySet[1 3 5]
+>>> Set([1 3 5], ==)
 >>> .select { :x |
 >>> 	x > 1
 >>> }
-IdentitySet[3 5]
+Set([3 5], ==)
 
->>> IdentityMultiset[1 3 5]
+>>> Multiset([1 3 5], ==)
 >>> .select { :x |
 >>> 	x > 1
 >>> }
-IdentityMultiset[3 5]
+Multiset([3 5], ==)
 
->>> (x: 1, y: 3, z: 5).select { :x |
+>>> (x: 1, y: 3, z: 5)
+>>> .select { :x |
 >>> 	x > 1
 >>> }
 (y: 3, z: 5)

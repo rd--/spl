@@ -133,7 +133,7 @@ let n = [1 3 5 7 11 13];
 RatioTuning(
 	[n, n].tuples
 	.Fraction
-	.unique
+	.unique(=)
 ).tuningLatticeGraph(
 	[3 5 7 11 13],
 	v

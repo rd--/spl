@@ -56,22 +56,26 @@ Dictionary : [Object, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add,
 
 +Void {
 
-	Dictionary {
-		newDictionary().initializeSlots([], [], isEqual/2)
+	[Dictionary, emptyDictionary] {
+		newDictionary().initializeSlots([], [], =)
 	}
 
 }
 
 +List {
 
+	assocationListToDicionary { :self |
+		self.collect(
+			keyAndValue/1
+		).listToDictionary
+	}
+
 	Dictionary { :self |
 		self.isEmpty.if {
 			Dictionary()
 		} {
 			self.isAssociationList.if {
-				self.collect(
-					keyAndValue/1
-				).listToDictionary
+				self.assocationListToDicionary
 			} {
 				self.listToDictionary
 			}
@@ -81,14 +85,32 @@ Dictionary : [Object, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add,
 	listToDictionary { :self |
 		let [_, m] = self.dimensions(2);
 		(m = 2).if {
-			let [keys, values] = self.transpose;
-			let answer = Dictionary();
-			answer.keys := keys;
-			answer.values := values;
-			answer
+			self.twoColumnMatrixToDictionary
 		} {
 			self.error('List>>listToDictionary')
 		}
+	}
+
+	twoColumnMatrixToDictionary { :self |
+		let [keys, values] = self.transpose;
+		let answer = Dictionary();
+		answer.keys := keys;
+		answer.values := values;
+		answer
+	}
+
+}
+
++Block {
+
+	comparatorToEmptyDictionary { :comparator/2 |
+		[
+			{ comparator/2 == = } -> { Dictionary() },
+			{ comparator/2 == == } -> { Map() },
+			{ true } -> {
+				comparator/2.error('comparatorToEmptyDictionary')
+			}
+		].which
 	}
 
 }

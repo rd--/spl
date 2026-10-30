@@ -55,18 +55,18 @@ In-place form at `Record`:
 ((x: 1, y: 4, z: 9), true)
 ```
 
-At `IdentityMultiset`:
+At `Multiset`:
 
 ```
->>> IdentityMultiset[2, 6 .. 14]
+>>> Multiset([2, 6 .. 14], ==)
 >>> .collect(square/1)
-IdentityMultiset[4 36 100 196]
+Multiset([4 36 100 196], ==)
 ```
 
 At `IdentitySet`:
 
 ```
->>> IdentitySet[2, 6 .. 14]
+>>> Set([2, 6 .. 14], ==)
 >>> .collect(square/1)
 IdentitySet[4 36 100 196]
 ```

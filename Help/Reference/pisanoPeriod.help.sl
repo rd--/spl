@@ -173,7 +173,7 @@ OEIS [A079344](https://oeis.org/A079344):
 >>> 12.moduloFibonacciSequence(8)
 [0 1 1 2 3 5 0 5 5 2 7 1]
 
->>> (12.fibonacciSequence % 8).unique
+>>> (12.fibonacciSequence % 8).unique(=)
 [0 1 2 3 5 7]
 ```
 
@@ -385,7 +385,7 @@ OEIS [A189768](https://oeis.org/A189768):
 >>> 1:17.collect { :m |
 >>> 	let k = m.pisanoPeriod;
 >>> 	(k.fibonacciSequence % m)
->>> 	.unique
+>>> 	.unique(=)
 >>> }
 [
 	0;
@@ -416,7 +416,7 @@ OEIS [A118965](https://oeis.org/A118965):
 >>> 	let k = m.pisanoPeriod;
 >>> 	[0 .. m - 1].complement(
 >>> 		(k.fibonacciSequence % m)
->>> 		.unique
+>>> 		.unique(=)
 >>> 	).size
 >>> }
 [
@@ -438,7 +438,7 @@ OEIS [A137750](https://oeis.org/A137750):
 >>> 1:56.prime.collect { :m |
 >>> 	let k = m.pisanoPeriod;
 >>> 	(k.fibonacciSequence % m)
->>> 	.unique.size
+>>> 	.unique(=).size
 >>> }
 [
 	  2   3   5   7   7
@@ -463,7 +463,7 @@ the sequence visits 24 of the 110 residues:
 >>> 110.pisanoPeriod
 60
 
->>> (60.fibonacciSequence % 110).unique
+>>> (60.fibonacciSequence % 110).unique(=)
 [
 	0 1 2 3 5
 	8 13 21 34 47
@@ -652,7 +652,7 @@ OEIS [A118965](https://oeis.org/A118965):
 	let k = m.pisanoPeriod;
 	[0 .. m - 1].complement(
 		(k.fibonacciSequence % m)
-		.unique
+		.unique(=)
 	).size
 }.discretePlot
 ~~~
@@ -666,7 +666,7 @@ OEIS [A137750](https://oeis.org/A137750):
 1:85.prime.collect { :m |
 	let k = m.pisanoPeriod;
 	(k.fibonacciSequence % m)
-	.unique.size
+	.unique(=).size
 }.discretePlot
 ~~~
 

@@ -178,7 +178,8 @@ At `Range`:
 At `Multiset`:
 
 ```
->>> Multiset[3 5 2 4 5 3 4 2].min
+>>> Multiset([3 5 2 4 5 3 4 2], ==)
+>>> .min
 2
 ```
 

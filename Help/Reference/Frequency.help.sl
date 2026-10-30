@@ -94,5 +94,3 @@ References:
 _W_
 [1](https://en.wikipedia.org/wiki/International_System_of_Quantities)
 [2](https://en.wikipedia.org/wiki/International_System_of_Units)
-
-Categories: Temporal, Trait

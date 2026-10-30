@@ -43,5 +43,3 @@ Guides: Benchmarking Functions, Date and Time Functions, System Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Timing.html)
-
-Categories: Timing

@@ -83,5 +83,3 @@ Guides: Date and Time Functions
 References:
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/calendarduration.html)
-
-Categories: Temporal, Type

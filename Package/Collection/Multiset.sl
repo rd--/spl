@@ -1,5 +1,9 @@
 @Multiset {
 
+	[IdentitySet, multisetToIdentitySet] { :self |
+		IdentitySet(self.valuesAndCounts.keys)
+	}
+
 	[List, multitsetToList] { :self |
 		let answer = [];
 		self.do { :each |
@@ -8,12 +12,19 @@
 		answer
 	}
 
-	Multiset { :self |
-		self
+	[Map, multisetToMap] { :self |
+		self.isIdentityMultiset.if {
+			self.valuesAndCounts
+		} {
+			self.error('multisetToMap')
+		}
 	}
 
 	[Set, multisetToSet] { :self |
-		self.valuesAndCounts.indices.Set
+		Set(
+			self.valuesAndCounts.keys,
+			self.comparator
+		)
 	}
 
 	add! { :self :anObject |
@@ -79,11 +90,11 @@
 		answer
 	}
 
-	[isEqual, =] { :self :aMultiset |
-		(self.typeName = aMultiset.typeName) & {
-			self.size = aMultiset.size & {
+	[isEqual, =] { :self :operand |
+		operand.isMultiset & {
+			self.size = operand.size & {
 				self.valuesAndCounts.associationsAllSatisfy { :each |
-					aMultiset.occurrencesOf(each.key) = each.value
+					operand.occurrencesOf(each.key) = each.value
 				}
 			}
 		}
@@ -187,27 +198,31 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 
 	| valuesAndCounts |
 
+	comparator { :self |
+		self.valuesAndCounts.comparator
+	}
+
+	isEqualityMultiset { :self |
+		self.comparator == =
+	}
+
+	isIdentityMultiset { :self |
+		self.comparator == ==
+	}
+
 	postCopy { :self |
 		self.valuesAndCounts := self.valuesAndCounts.copy
 	}
 
 	species { :self |
-		Multiset/0
+		{
+			self.comparator.comparatorToEmptyMultiset
+		}
 	}
 
 }
 
-+Void {
-
-	Multiset {
-		Multiset(
-			Dictionary()
-		)
-	}
-
-}
-
-+Dictionary {
++@Dictionary {
 
 	[Multiset, dictionaryToMultiset] { :self |
 		newMultiset().initializeSlots(self)
@@ -219,33 +234,43 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 
 	Multiset { :self |
 		self.isAssociationList.if {
-			Multiset(Dictionary(self))
+			self.assocationListToDicionary.dictionaryToMultiset
 		} {
-			self.collectionToMultiset
+			self.error('List>>Multiset/1: not association list')
 		}
 	}
 
-	sortedCounts { :self |
-		self.Multiset.sortedCounts
+	sortedCounts { :self :comparator/2 |
+		Multiset(self, comparator/2).sortedCounts
 	}
 
-	sortedElements { :self |
-		self.Multiset.sortedElements
+	sortedElements { :self :comparator/2 |
+		Multiset(self, comparator/2).sortedElements
+	}
+
+}
+
++Block {
+
+	comparatorToEmptyMultiset { :comparator/2 |
+		Multiset(
+			comparatorToEmptyDictionary(comparator/2)
+		)
 	}
 
 }
 
 +@Collection {
 
-	[Multiset, collectionToMultiset] { :self |
-		let answer = Multiset();
+	[Multiset, collectionToMultiset] { :self :comparator/2 |
+		let answer = comparatorToEmptyMultiset(comparator/2);
 		answer.addAll!(self);
 		answer
 	}
 
-	histogramOf { :self :aBlock/1 |
-		let answer = Multiset();
-		self.collectInto(aBlock/1, answer);
+	histogramOf { :self :aBlock/1 :comparator/2 |
+		let answer = comparatorToEmptyMultiset(comparator/2);
+		self.collectInto!(aBlock/1, answer);
 		answer
 	}
 
@@ -254,7 +279,7 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 +List {
 
 	commonest { :self |
-		let byCount = self.Multiset.sortedCounts;
+		let byCount = Multiset(self, =).sortedCounts;
 		let count = byCount.first.key;
 		byCount.select { :each |
 			each.key = count
@@ -262,11 +287,13 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 	}
 
 	counts { :self |
-		self.Multiset.sortedElements
+		Multiset(self, =).sortedElements
 	}
 
-	multisetIntersection { :self |
-		self.collect(Multiset/1).reduce(intersection/2)
+	multisetIntersection { :self :comparator/2 |
+		self.collect { :x |
+			Multiset(x, comparator/2)
+		}.reduce(intersection/2)
 	}
 
 }

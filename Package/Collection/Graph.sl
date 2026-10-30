@@ -557,8 +557,12 @@
 
 	undirectedGraph { :self |
 		Graph(
-			self.vertexList,
-			self.edgeList.collect(UndirectedEdge/1).nubBy(matchesEdge/2)
+			self
+			.vertexList,
+			self
+			.edgeList
+			.collect(UndirectedEdge/1)
+			.deleteDuplicates(matchesEdge/2)
 		)
 	}
 
@@ -1210,7 +1214,7 @@ Graph : [Object, Graph] {
 			vertexList.add!(each[1]);
 			vertexList.add!(each[2])
 		};
-		Graph(vertexList.unique, edgeList)
+		Graph(vertexList.unique(==), edgeList)
 	}
 
 	adjacencyGraph { :self |

@@ -58,7 +58,6 @@
 	'WeightedData'
 
 	/* Collection (Requiring out of order non-Kernel types) */
-	'IdentityMultiset' /* @Multiset */
 	'Matrix' /* NumericArray */
 
 	/* Exception */

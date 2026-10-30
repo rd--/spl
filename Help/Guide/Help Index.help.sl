@@ -446,7 +446,6 @@ Reference (A-Z):
 - `HyperbolicDistribution`
 - `HypergeometricDistribution`
 - `I`
-- `IdentityMultiset`
 - `IdentitySet`
 - `Image`
 - `ImageViewer`
@@ -3117,9 +3116,7 @@ Reference (a-z):
 - `nthLexicographicPermutation`
 - `nthRoot`
 - `nub`
-- `nubBy`
 - `nubCumulatively`
-- `nubIdentical`
 - `nubSieve`
 - `nullaryApply`
 - `numberCompose`

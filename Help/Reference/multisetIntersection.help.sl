@@ -1,33 +1,33 @@
 # multisetIntersection
 
-- _multisetIntersection([m₁ m₂ …])_
+- _multisetIntersection([m₁ m₂ …], =)_
 
-Answer the multiset intersection of _m_.
+Answer the multiset intersection of _m_, given the comparison function _=_.
 
 ```
 >>> [1 1 2 3; 3 1 1 1 4; 4 1 1 3 3]
->>> .multisetIntersection
-Multiset[1 1 3]
+>>> .multisetIntersection(==)
+Multiset([1 1 3], ==)
 ```
 
 If there is no intersection, the result is empty:
 
 ```
 >>> [1 2 2 3; 4 5 6 6]
->>> .multisetIntersection
-Multiset[]
+>>> .multisetIntersection(==)
+Multiset([], ==)
 ```
 
 Compare to `setIntersection` and `intersection`:
 
 ```
 >>> [1 2 1 4 4; 4 1 4 5 4; 3 4 1 4]
->>> .multisetIntersection
-Multiset[1 4 4]
+>>> .multisetIntersection(==)
+Multiset([1 4 4], ==)
 
 >>> [1 2 1 4 4; 4 1 4 5 4; 3 4 1 4]
->>> .setIntersection
-Set[1 4]
+>>> .setIntersection(==)
+Set([1 4], ==)
 
 >>> [1 2 1 4 4; 4 1 4 5 4; 3 4 1 4]
 >>> .intersection

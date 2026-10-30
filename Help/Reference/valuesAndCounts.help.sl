@@ -6,31 +6,26 @@ Answer the dictionary of the multiset _m_,
 which is not sorted.
 The values are the keys and the counts are the values.
 
-At `Multiset` answers a `Dictionary`:
+At `Multiset` answers a `Map` or `Dictionary`:
 
 ```
->>> let m = Multiset[3 2 1 2 3 1 2 1 0];
+>>> let m = Multiset([3 2 1 2 3 1 2 1 0], ==);
 >>> (
 >>> 	m.valuesAndCounts,
 >>> 	m.elementsAndCounts,
 >>> 	m.sortedElements
 >>> )
 (
-	Dictionary[
+	Map[
 		3 -> 2, 2 -> 3, 1 -> 3, 0 -> 1
 	],
 	[3 2; 2 3; 1 3; 0 1],
 	[0 -> 1, 1 -> 3, 2 -> 3, 3 -> 2]
 )
-```
 
-At `IdentityMultiset` answers a `Map`:
-
-```
->>> [3 2 1 2 3 1 2 1 0]
->>> .IdentityMultiset
+>>> Multiset([3 2 1 2 3 1 2 1 0], =)
 >>> .valuesAndCounts
-Map[3 -> 2, 2 -> 3, 1 -> 3, 0 -> 1]
+Dictionary[3 -> 2, 2 -> 3, 1 -> 3, 0 -> 1]
 ```
 
 * * *

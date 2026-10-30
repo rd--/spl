@@ -194,7 +194,7 @@
 
 	atAllUsing { :self :indexList :aBlock/2 |
 		indexList.atVectorOrElementwise { :indexList |
-			indexList.collectInto(
+			indexList.collectInto!(
 				{ :i |
 					aBlock(self, i)
 				},
@@ -1944,11 +1944,11 @@
 		}
 	}
 
-	nubCumulatively { :self :compareBlock/2 |
-		let seen = []; /* not Set() */
+	nubCumulatively { :self :comparator/2 |
+		let seen = comparator/2.comparatorToEmptySet;
 		self.collect { :each |
 			each.select { :item |
-				seen.includesBy(item, compareBlock/2).if {
+				seen.includes(item).if {
 					false
 				} {
 					seen.add!(item);
@@ -1958,12 +1958,8 @@
 		}
 	}
 
-	nubCumulatively { :self |
-		self.nubCumulatively(isEqual/2)
-	}
-
-	nubSieve { :self |
-		let seen = [];
+	nubSieve { :self :comparator/2 |
+		let seen = comparator/2.comparatorToEmptySet;
 		self.collect { :each |
 			seen.includes(each).if {
 				false
@@ -2868,12 +2864,8 @@
 		}
 	}
 
-	unique { :self |
-		self.nub.sort!
-	}
-
-	uniqueElements { :self |
-		self.uniqueElements(isEqual/2)
+	unique { :self :comparator/2 |
+		self.nub(comparator/2).sort!
 	}
 
 	uniqueElements { :self :aBlock/2 |
@@ -2888,8 +2880,12 @@
 					}
 				}
 			};
-			p.difference(seen).nubBy(aBlock/2)
+			p.difference(seen).nub(aBlock/2)
 		}
+	}
+
+	uniqueElements { :self |
+		self.uniqueElements(=)
 	}
 
 	which { :self |

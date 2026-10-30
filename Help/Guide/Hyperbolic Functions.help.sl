@@ -1,20 +1,20 @@
 # Hyperbolic Functions
 
-- `sinh`
-- `cosh`
-- `tanh`
+- `sinh`: hyperbolic sine
+- `cosh`: hyperbolic cosine
+- `tanh`: hyperbolic tangent
 
 Reciprocal:
 
-- `csch`
-- `sech`
-- `coth`
+- `csch`: hyperbolic cosecant
+- `sech`: hyperbolic secant
+- `coth`: hyperbolic cotangent
 
 Inverse:
 
-- `arcSinh`
-- `arcCosh`
-- `arcTanh`
+- `arcSinh`: inverse hyperbolic sine
+- `arcCosh`: inverse hyperbolic cosine
+- `arcTanh`: inverse hyperbolic tangent
 
 Reciprocal inverse:
 

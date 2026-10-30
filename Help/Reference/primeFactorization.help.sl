@@ -6,22 +6,22 @@ Answer a `Multiset` giving the prime factors of the integer _n_ and their multip
 
 ```
 >>> 21.primeFactorization
-Multiset[3 7]
+Multiset([3 7], =)
 
 >>> 36.primeFactorization
-Multiset[2 2 3 3]
+Multiset([2 2 3 3], =)
 
 >>> 60.primeFactorization
-Multiset[2 2 3 5]
+Multiset([2 2 3 5], =)
 
 >>> 120.primeFactorization
-Multiset[2 2 2 3 5]
+Multiset([2 2 2 3 5], =)
 
 >>> 6.factorial.primeFactorization
-Multiset[2 2 2 2 3 3 5]
+Multiset([2 2 2 2 3 3 5], =)
 
 >>> 2401.primeFactorization
-Multiset[7 7 7 7]
+Multiset([7 7 7 7], =)
 
 >>> 20L.factorial
 >>> .primeFactorization
@@ -42,7 +42,7 @@ At `one`:
 
 ```
 >>> 1.primeFactorization
-Multiset[]
+Multiset([], =)
 ```
 
 The keys are the prime divisors:
@@ -62,7 +62,7 @@ Powerful numbers are numbers whose prime factors are all repeated:
 
 ```
 >>> 324.primeFactorization
-Multiset[2 2 3 3 3 3]
+Multiset([2 2 3 3 3 3], =)
 
 >>> 324.isPowerfulNumber
 true
@@ -70,7 +70,7 @@ true
 
 _Rationale_:
 Not implemented at `Fraction` since the usual notation is for the exponent to be negative for factors of the denominator,
-and an `IdentityMultiset` cannot have negative counts.
+and a `Multiset` cannot have negative counts.
 
 * * *
 

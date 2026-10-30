@@ -378,7 +378,7 @@ OEIS [A132213](https://oeis.org/A132213):
 ~~~spl svg=I oeis=A132213
 1:200.collect { :n |
 	1:n.powerMod(2, n)
-	.unique
+	.unique(==)
 	.count(isPrime/1)
 }.scatterPlot
 ~~~

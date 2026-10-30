@@ -95,7 +95,7 @@
 		'cos'.symbolicPrimitive([self])
 	}
 
-	cot { :self |
+	[cot, cotangent] { :self |
 		'cot'.symbolicPrimitive([self])
 	}
 

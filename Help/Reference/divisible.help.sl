@@ -231,7 +231,7 @@ OEIS [A237851](https://oeis.org/A237851):
 [1].leastExcludedSequence(200) { :a :n :m |
 	a[n - 1].integerDigits
 	.select(isPositive/1)
-	.unique
+	.unique(==)
 	.allSatisfy { :x |
 		m.divisible(x)
 	}
@@ -247,7 +247,7 @@ OEIS [A002796](https://oeis.org/A002796):
 1:500.select { :n |
 	n.integerDigits
 	.select(isPositive/1)
-	.unique
+	.unique(==)
 	.allSatisfy { :x |
 		n.divisible(x)
 	}

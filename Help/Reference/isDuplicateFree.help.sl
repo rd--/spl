@@ -1,38 +1,43 @@
 # isDuplicateFree
 
-- _isDuplicateFree(c, f/2)_
+- _isDuplicateFree(c, =, f/1)_
 
-Answer `true` if the collection _c_ has no duplicates according to the block _f_, and `false` otherwise.
+Answer `true` if the collection _c_ has no duplicates according to the block _=_,
+and `false` otherwise.
+If _f_ is given, consider items of _c_ by _f_.
 
 Determine whether or not a list has duplicated elements:
 
 ```
 >>> [1 7 8 4 3 4 1 9 9 2]
->>> .isDuplicateFree(=)
+>>> .isDuplicateFree(==)
 false
 ```
 
 At `Record`:
 
 ```
->>> (x: 1, y: 2, z: 3).isDuplicateFree
+>>> (x: 1, y: 2, z: 3)
+>>> .isDuplicateFree(==)
 true
 
->>> (x: 1, y: 2, z: 1).isDuplicateFree
+>>> (x: 1, y: 2, z: 1)
+>>> .isDuplicateFree(==)
 false
 ```
 
 A `Set` is, by definition, duplicate free:
 
 ```
->>> Set[1 2 3].isDuplicateFree
+>>> Set([1 2 3], ==)
+>>> .isDuplicateFree
 true
 ```
 
 Use `Multiset` to reveal duplicate elements:
 
 ```
->>> Multiset[1 7 8 4 3 4 1 9 9 2]
+>>> Multiset([1 7 8 4 3 4 1 9 9 2], ==)
 >>> .sortedElements
 [
 	1 -> 2,
@@ -54,9 +59,7 @@ Determine whether or not the sublists have the same total:
 >>> 	1 1 1 0 0;
 >>> 	0 0 0 0 1;
 >>> 	1 1 1 0 1
->>> ].isDuplicateFree { :p :q |
->>> 	p.sum = q.sum
->>> }
+>>> ].isDuplicateFree(==, sum/1)
 false
 ```
 
@@ -64,7 +67,7 @@ Construct the permanent analog of the totally antisymmetric tensor:
 
 ```
 >>> [1 2 3].tuples(3).collect { :x |
->>> 	x.isDuplicateFree(=)
+>>> 	x.isDuplicateFree(==)
 >>> }.boole.reshape([3 3 3])
 [
 	0 0 0; 0 0 1; 0 1 0:;

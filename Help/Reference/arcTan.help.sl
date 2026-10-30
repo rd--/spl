@@ -158,5 +158,3 @@ _Smalltalk_
 5.6.7.4,
 _W_
 [1](https://en.wikipedia.org/wiki/Arctangent)
-
-Categories: Math, Trigonometry

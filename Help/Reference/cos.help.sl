@@ -215,5 +215,3 @@ _Smalltalk_
 5.6.7.5,
 _W_
 [1](https://en.wikipedia.org/wiki/Cosine)
-
-Categories: Math, Trigonometry

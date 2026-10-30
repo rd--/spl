@@ -6,9 +6,9 @@
 
 Reciprocal:
 
-- `sec`: secant
-- `csc`: cosecant
-- `cot`: cotangent
+- `sec`, `secant`
+- `csc`, `cosecant`
+- `cot`, `cotangent`
 
 Inverse:
 
@@ -18,9 +18,9 @@ Inverse:
 
 Inverse reciprocal:
 
-- `arcSec`: arc secant
-- `arcCsc`: arc cosecant
-- `arcCot`: arc cotangent
+- `arcSec`, `arcSecant`
+- `arcCsc`, `arcCosecant`
+- `arcCot`, `arcCotangent`
 
 Degrees:
 

@@ -40,11 +40,9 @@ Plot over a subset of the reals:
 
 See also: arcSec, cos, sec, tan
 
-Guides: Hyperbolic Functions
+Guides: Hyperbolic Functions, Trigonometric Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/InverseHyperbolicSecant.html)
 [2](https://reference.wolfram.com/language/ref/ArcSech.html),
-
-Categories: Math, Trigonometry

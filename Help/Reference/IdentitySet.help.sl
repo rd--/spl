@@ -22,10 +22,10 @@ At `List`:
 [1 2 3]
 ```
 
-At `IdentityMultiset`:
+At `Multiset`:
 
 ```
->>> IdentityMultiset[1 1 2 1 2 3]
+>>> Multiset([1 1 2 1 2 3], ==)
 >>> .IdentitySet
 IdentitySet[1 2 3]
 ```
@@ -120,7 +120,7 @@ b.scatterPlot
 
 * * *
 
-See also: Collection, IdentityMultiset, List, add, include, isIdentitySet, isImmediate, nub, unique
+See also: Collection, Multiset, List, add, include, isIdentitySet, isImmediate, nub, unique
 
 Guides: Set Functions
 

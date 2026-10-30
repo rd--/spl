@@ -388,21 +388,26 @@
 		nextValue
 	}
 
-	isDuplicateFree { :self :aBlock/2 |
+	isDuplicateFree { :self :comparator/2 :aBlock/1 |
 		withReturn { :return/1 |
-			let items = [];
-			self.do { :each |
-				items.includesBy(each, aBlock/2).ifTrue {
+			let items = comparator/2.comparatorToEmptySet;
+			self.do { :x |
+				let y = aBlock(x);
+				items.includes(y).ifTrue {
 					false.return
 				};
-				items.add!(each)
+				items.add!(y)
 			};
 			true
 		}
 	}
 
+	isDuplicateFree { :self :comparator/2 |
+		self.isDuplicateFree(comparator/2, identity/1)
+	}
+
 	isDuplicateFree { :self |
-		self.isDuplicateFree(isEqual/2)
+		self.isDuplicateFree(=)
 	}
 
 	isProperSubset { :self :aCollection |

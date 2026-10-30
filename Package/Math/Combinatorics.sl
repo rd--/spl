@@ -880,7 +880,7 @@
 	isLatticeWord { :self :alphabet |
 		let letters = alphabet.allButLast;
 		self.prefixes.allSatisfy { :word |
-			let a = word.IdentityMultiset;
+			let a = Multiset(word, ==);
 			letters.allSatisfy { :i |
 				let b = a.occurrencesOf(i);
 				let c = a.occurrencesOf(i + 1);

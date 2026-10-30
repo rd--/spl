@@ -53,7 +53,7 @@
 		<primitive: return Math.cos(_self);>
 	}
 
-	cot { :self |
+	[cot, cotangent] { :self |
 		1 / self.tan
 	}
 
@@ -216,7 +216,7 @@
 
 +[SmallFloat, Complex] {
 
-	arcCot { :self |
+	[arcCot, arcCotangent] { :self |
 		(1 / self).arcTan
 	}
 
@@ -254,7 +254,7 @@
 		self.collect(arcCos/1)
 	}
 
-	arcCot { :self |
+	[arcCot, arcCotangent] { :self |
 		self.collect(arcCot/1)
 	}
 
@@ -282,7 +282,7 @@
 		self.collect(cosDegrees/1)
 	}
 
-	cot { :self |
+	[cot, cotangent] { :self |
 		self.collect(cot/1)
 	}
 

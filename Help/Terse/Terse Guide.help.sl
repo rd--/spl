@@ -4,7 +4,7 @@
 ```
 system.includesPackage('Add') /* package */
 let r = List(); r.add!('x'); r.add!('x'); r.size = 2
-let r = IdentityMultiset(); r.add!('x'); r.add!('x'); r.size = 2
+let r = Multiset([], ==); r.add!('x'); r.add!('x'); r.size = 2
 let r = Map(); r.add!('x' -> 1); r.add!('y' -> 2); r.size = 2
 let r = Record(); r.add!('x' -> 1); r.add!('y' -> 2); r.size = 2
 let r = IdentitySet(); r.add!('x'); r.add!('y'); r.size = 2
@@ -1042,7 +1042,7 @@ let f = 3/4; let c = f.copy; c.numerator := 1L; c != f & { c = 1/4 } /* copy fra
 let c = 2I; let z = c.copy; z.real := 3; z != c & { z = (3 + 2I) } /* copy complex */
 let a = [1, [2]]; let c = a.copy; c[2][1] := -2; c = a & { a = [1, [-2]] } /* shallow copy of list */
 let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c != a & { a = [1, [2]] } /* deep copy of list */
-let b = [1, 2, 2].IdentityMultiset; let c = b.copy; c.add!(3); c != b & { c = [1, 2, 2, 3].IdentityMultiset } /* copy bag */
+let b = [1, 2, 2].Multiset(==); let c = b.copy; c.add!(3); c != b & { c = [1, 2, 2, 3].Multiset(==) } /* copy */
 let b = BitSet([1, 2], 3); let c = b.copy; c.add!(3); c != b & { c = BitSet([1, 2, 3], 4) } /* copy bitset */
 let b = [1, 2].ByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } /* copy byte array */
 ```
@@ -1491,7 +1491,7 @@ let a = []; 5.toDo(1) { :each | a.add!(each) }; a = [] /* non-ascending sequence
 0:255.collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 0 }
 256:511.collect { :each | each.digitAt(1) } = [0 .. 255]
 256:511.collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 1 }
-512:1023.collect { :each | each.digitAt(2) }.IdentityMultiset.sortedElements = [2 -> 256, 3 -> 256]
+512:1023.collect { :each | each.digitAt(2) }.sortedElements(==) = [2 -> 256, 3 -> 256]
 [1, 8, 16, 24, 32L, 40L, 48L, 56L, 64L].collect { :each | (2 ^ each).digitLength } = [1 .. 9]
 (2 ^ 128L - 1).digitLength = 16
 [64 226 1].ByteArray.fnv1aHash = 2230130162L
@@ -1538,8 +1538,8 @@ system.cache['primesList'][23] = 83 /* prime extends the primesList cache as req
 2588.primeFactors = [2, 2, 647] /* prime factors */
 2:15.select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
 2:999.allSatisfy { :each | each = each.primeFactors.product } = true /* equality with product of factors */
-10071203840.primeFactors.IdentityMultiset.sortedElements = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1] /* prime factor histogram */
-6606028800.primeFactors.IdentityMultiset.sortedCounts = [22 -> 2, 2 -> 5, 2 -> 3, 1 -> 7]
+10071203840.primeFactors.sortedElements(==) = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1] /* prime factor histogram */
+6606028800.primeFactors.sortedCounts(==) = [22 -> 2, 2 -> 5, 2 -> 3, 1 -> 7]
 8589298611.primeFactors = [3, 2863099537] /* large prime factors */
 120.factorInteger = [2 3; 3 1; 5 1]
 60.factorInteger = [2 2; 3 1; 5 1]
@@ -1872,7 +1872,7 @@ let r = Sfc32(12345); r.randomInteger([1 9], 5) = [8, 5, 9, 9, 4] /* duplicate b
 let r = Sfc32(12345); { r.randomInteger([1 9], []) } ! 5 = [8, 5, 9, 9, 4] /* duplicate block */
 List(5, nil).fillFromWith!(1:5, negate/1) = [-1, -2 .. -5]
 let a = List(5, nil); a.fillFromWith!([1, 3, 5, 7, 9], square/1); a = [1, 9, 25, 49, 81]
-let a = List(4, nil); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
+let a = List(4, nil); [1, 3, 5, 7].collectInto!({ :each | each * each}, a); a = [1, 9, 25, 49]
 [1 2 3 4 3 2 1].occurrencesOf(3) = 2 /* number of occurrences of element in collection */
 let a = [1, 2]; let [x, y] = a; [y, x] = [2, 1]
 let i = 1:3; let [x, y, z] = i; [z, y, x] = [3, 2, 1] /* sequence binding syntax */
@@ -2120,45 +2120,45 @@ let f = { :x :y | x + y }; { f(true, false) }.hasError /* boolean does not imple
 ## Multiset -- collection type
 ```
 system.includesPackage('Multiset') /* bag package */
-IdentityMultiset().isIdentityMultiset = true
-IdentityMultiset().typeName = 'IdentityMultiset'
-IdentityMultiset().isCollection
-IdentityMultiset().isIndexable = false
-IdentityMultiset().isSequence = false
-let b = IdentityMultiset(); b.add!('x'); b.add!('x'); b.size = 2 /* number of objects in bag */
-let b = IdentityMultiset(); b.add!('x'); b.add!('y'); b.add!('x'); b.size = 3 /* add element to bag */
-let b = IdentityMultiset(); b.addAll!(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 /* add all elements of argument to bag */
-let c = 'xyyzzz'.ascii; let r = IdentityMultiset(); r.addAll!(c); r.size = 6 /* add all ascii code points of a String to a Multiset */
-let c = 'xyyzzz'.characters; let r = IdentityMultiset(); r.addAll!(c); r.size = 6 /* add all one element strings of a String to a Multiset */
-[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].IdentityMultiset.size = 10
-[2, 3, 5, 7, 3, 5, 7, 5, 7, 7].IdentityMultiset.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
-[2, 3, 5, 7, 3, 5, 7, 5, 7, 7].IdentityMultiset.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
-let b = IdentityMultiset(); let o = ['1' -> 10, '2' -> 1, '3' -> 5]; o.collect { :a | b.addWithOccurrences!(a.key, a.value) }; b.sortedElements = o
-[1, 3, 5, 1, 3, 1].IdentityMultiset.sort = [1, 1, 1, 3, 3, 5] /* array of elements, sorted */
-[1, 3, 5, 1, 5, 1].IdentityMultiset.sort = [1, 1, 1, 3, 5, 5] /* array of elements, sorted */
-[1, 3, 5, 1, 3, 1].IdentityMultiset.sortedCounts = [3 -> 1, 2 -> 3, 1 -> 5]
-[1, 3, 5, 1, 5, 1].IdentityMultiset.sortedCounts = [3 -> 1, 2 -> 5, 1 -> 3]
-[1, 3, 5, 1, 3, 1].IdentityMultiset.sortedElements = [1 -> 3, 3 -> 2, 5 -> 1]
-[1, 3, 5, 1, 5, 1].IdentityMultiset.sortedElements = [1 -> 3, 3 -> 1, 5 -> 2]
-let c1 = [2, 3, 3, 4, 4, 4].IdentityMultiset; let c2 = c1.copy; let s2 = c2.size; c1.removeAll!; c1.size = 0 & { c2.size = s2 }
-let c = IdentityMultiset(); let x = 'x'; c.add!(x); c.remove!(x); c.size = 0
-let c = ['x', 'x'].IdentityMultiset; c.remove!('x'); c.remove!('x'); c.size = 0
-let c = IdentityMultiset(); { c.remove!('x') }.hasError
-[2, 3, 3, 4, 4, 4].IdentityMultiset.occurrencesOf(3) = 2 /* number of occurrences of element in collection */
-[2, 3, 3, 4, 4, 4].IdentityMultiset.occurrencesOf(4) = 3
-[2, 3, 3, 4, 4, 4].IdentityMultiset.occurrencesOf(5) = 0
-[2, 3, 3, 4, 4, 4].IdentityMultiset.occurrencesOf(nil) = 0
-[nil].IdentityMultiset.occurrencesOf(nil) = 1 /* count occurrences of nil */
-let c = [2, 3, 3, 4, 4, 4].IdentityMultiset; c.copy = c /* copy answers new equal Multiset */
-let c = [2, 3, 3, 4, 4, 4].IdentityMultiset; c.copy !== c /* copy does not answer argument */
-let c = IdentityMultiset(); c.addWithOccurrences!('x', 4); c.occurrencesOf('x') = 4
-[2, 3, 3, 4, 4, 4].IdentityMultiset.IdentitySet.size = 3 /* number of unique elements */
-[2, 3, 3, 4, 4, 4].IdentityMultiset.IdentitySet.occurrencesOf(3) = 1
-let s = IdentityMultiset(); 250.timesRepeat { s.add!([1 .. 4].shuffle!.printString) }; s.IdentitySet.size = 24
-[1, 2, 3, 1, 4].IdentityMultiset.isIndexable = false /* bags are not indexable */
-let a = [1, 1, 2, 1, 2, 3, 1, 1, 2, 3, 4]; a.sum = a.IdentityMultiset.sum /* sum may be optimised */
-[1, 2, 3, 1, 3, 4].IdentityMultiset.valuesAndCounts = [1 -> 2, 2 -> 1, 3 -> 2, 4 -> 1].Map /* contents */
-[1, 1, 1, 1, 1, 2, 2, 2, 2, 3].IdentityMultiset.cumulativeCounts = [50 -> 1, 90 -> 2, 100 -> 3]
+Multiset([], ==).comparator == ==
+Multiset([], ==).typeName = 'Multiset'
+Multiset([], ==).isCollection
+Multiset([], ==).isIndexable = false
+Multiset([], ==).isSequence = false
+let b = Multiset([], ==); b.add!('x'); b.add!('x'); b.size = 2 /* number of objects in bag */
+let b = Multiset([], ==); b.add!('x'); b.add!('y'); b.add!('x'); b.size = 3 /* add element to bag */
+let b = Multiset([], ==); b.addAll!(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 /* add all elements of argument to bag */
+let c = 'xyyzzz'.ascii; let r = Multiset([], ==); r.addAll!(c); r.size = 6 /* add all ascii code points of a String to a Multiset */
+let c = 'xyyzzz'.characters; let r = Multiset([], ==); r.addAll!(c); r.size = 6 /* add all one element strings of a String to a Multiset */
+[2, 3, 3, 5, 5, 5, 7, 7, 7, 7].Multiset(==).size = 10
+[2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Multiset(==).sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
+[2, 3, 5, 7, 3, 5, 7, 5, 7, 7].Multiset(==).sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
+let b = Multiset([], ==); let o = ['1' -> 10, '2' -> 1, '3' -> 5]; o.collect { :a | b.addWithOccurrences!(a.key, a.value) }; b.sortedElements = o
+[1, 3, 5, 1, 3, 1].Multiset(==).sort = [1, 1, 1, 3, 3, 5] /* array of elements, sorted */
+[1, 3, 5, 1, 5, 1].Multiset(==).sort = [1, 1, 1, 3, 5, 5] /* array of elements, sorted */
+[1, 3, 5, 1, 3, 1].Multiset(==).sortedCounts = [3 -> 1, 2 -> 3, 1 -> 5]
+[1, 3, 5, 1, 5, 1].Multiset(==).sortedCounts = [3 -> 1, 2 -> 5, 1 -> 3]
+[1, 3, 5, 1, 3, 1].Multiset(==).sortedElements = [1 -> 3, 3 -> 2, 5 -> 1]
+[1, 3, 5, 1, 5, 1].Multiset(==).sortedElements = [1 -> 3, 3 -> 1, 5 -> 2]
+let c1 = [2, 3, 3, 4, 4, 4].Multiset(==); let c2 = c1.copy; let s2 = c2.size; c1.removeAll!; c1.size = 0 & { c2.size = s2 }
+let c = Multiset([], ==); let x = 'x'; c.add!(x); c.remove!(x); c.size = 0
+let c = ['x', 'x'].Multiset(==); c.remove!('x'); c.remove!('x'); c.size = 0
+let c = Multiset([], ==); { c.remove!('x') }.hasError
+[2, 3, 3, 4, 4, 4].Multiset(==).occurrencesOf(3) = 2 /* number of occurrences of element in collection */
+[2, 3, 3, 4, 4, 4].Multiset(==).occurrencesOf(4) = 3
+[2, 3, 3, 4, 4, 4].Multiset(==).occurrencesOf(5) = 0
+[2, 3, 3, 4, 4, 4].Multiset(==).occurrencesOf(nil) = 0
+[nil].Multiset(==).occurrencesOf(nil) = 1 /* count occurrences of nil */
+let c = [2, 3, 3, 4, 4, 4].Multiset(==); c.copy = c /* copy answers new equal Multiset */
+let c = [2, 3, 3, 4, 4, 4].Multiset(==); c.copy !== c /* copy does not answer argument */
+let c = Multiset([], ==); c.addWithOccurrences!('x', 4); c.occurrencesOf('x') = 4
+[2, 3, 3, 4, 4, 4].Multiset(==).IdentitySet.size = 3 /* number of unique elements */
+[2, 3, 3, 4, 4, 4].Multiset(==).IdentitySet.occurrencesOf(3) = 1
+let s = Multiset([], ==); 250.timesRepeat { s.add!([1 .. 4].shuffle!.printString) }; s.IdentitySet.size = 24
+[1, 2, 3, 1, 4].Multiset(==).isIndexable = false /* bags are not indexable */
+let a = [1, 1, 2, 1, 2, 3, 1, 1, 2, 3, 4]; a.sum = a.Multiset(==).sum /* sum may be optimised */
+[1, 2, 3, 1, 3, 4].Multiset(==).valuesAndCounts = [1 -> 2, 2 -> 1, 3 -> 2, 4 -> 1].Map /* contents */
+[1, 1, 1, 1, 1, 2, 2, 2, 2, 3].Multiset(==).cumulativeCounts = [50 -> 1, 90 -> 2, 100 -> 3]
 [1, 2, 2, 3, 3, 3].histogramOf { :each | each }.List = [1, 2, 2, 3, 3, 3]
 [1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].Multiset
 let c = [1, 2, 3, 1]; c.Multiset = c.histogramOf(identity/1)
@@ -2169,8 +2169,8 @@ let c = [1, 2, 3, 1]; c.Multiset = c.histogramOf { :each | each }
 (x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].Multiset
 (x: 1, y: 2, z: 1).indices.histogramOf { :each | each } = ['x', 'y', 'z'].Multiset
 [1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.round } = [1, 2, 3, 2, 3, 1].Multiset
-[1, 3, 5].IdentityMultiset.select { :x | x > 1 } = [3, 5].IdentityMultiset
-let b = [1, 2, 3, 2, 1].IdentityMultiset; b.removeAll!([1, 2, 3]); b = [2, 1].IdentityMultiset /* only remove first instance */
+[1, 3, 5].Multiset(==).select { :x | x > 1 } = [3, 5].Multiset(==)
+let b = [1, 2, 3, 2, 1].Multiset(==); b.removeAll!([1, 2, 3]); b = [2, 1].Multiset(==) /* only remove first instance */
 ```
 
 ## Nil -- kernel type
@@ -2241,7 +2241,7 @@ system.includesPackage('Object') /* package */
 [1, 3, 5].typeName = 'List' /* name of type of object */
 [1, 3, 5].species == nilList/1
 [1, 3, 5].IdentitySet.species == IdentitySet/0
-[1, 3, 5].IdentityMultiset.species == IdentityMultiset/0
+[1, 3, 5].Multiset(==).species.arity = 0
 (x: 1, y: 3, z: 5).species == Record/0
 'b'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) = 2
 { 'd'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) }.hasError
@@ -2457,11 +2457,11 @@ system.randomReal([0 9], []).isNumber /* random floating point number (0 to self
 let s = IdentitySet(); 729.timesRepeat { s.include!(system.randomReal([0 9], []).round) }; s.minMax = [0, 9] /* check distribution */
 system.randomInteger([3 9], []).isInteger /* random integer in range */
 system.randomReal([3 9], []).isNumber /* random float in range */
-let b = IdentityMultiset(); 5000.timesRepeat { b.add!(1:5.atRandom) }; b.valuesAndCounts.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
+let b = Multiset([], ==); 5000.timesRepeat { b.add!(1:5.atRandom) }; b.valuesAndCounts.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
 { [].atRandom = nil }.hasError /* random element of empty collection (nil if unsafe indexing is allowed) */
 [1].atRandom = 1 /* random element of one-element collection */
 let c = [1 .. 5]; c.includes(c.atRandom) /* answer random element from a collection */
-let a = [1 .. 5].IdentitySet; let b = IdentityMultiset(); 250.timesRepeat { b.add!(a.atRandom) }; a = b.IdentitySet /* random element of collection */
+let a = [1 .. 5].IdentitySet; let b = Multiset([], ==); 250.timesRepeat { b.add!(a.atRandom) }; a = b.IdentitySet /* random element of collection */
 ```
 
 ## Random -- Sfc32
@@ -2665,12 +2665,12 @@ let n = 0; 1:5.permutationsDo { :each | n := n + 1 }; n = 120 /* interval permut
 ## Remove -- collection trait
 ```
 let r = List(); r.add!('x'); r.remove!('x'); r.size = 0
-let r = IdentityMultiset(); r.add!('x'); r.remove!('x'); r.size = 0
+let r = Multiset([], ==); r.add!('x'); r.remove!('x'); r.size = 0
 let r = Map(); r.add!('x' -> 1); r.remove!('x' -> 1); r.size = 0
 let r = Record(); r.add!('x' -> 1); r.remove!('x' -> 1); r.size = 0
 let r = IdentitySet(); r.add!('x'); r.remove!('x'); r.size = 0
 { List().remove!('x') }.hasError
-{ IdentityMultiset().remove!('x') }.hasError
+{ Multiset([], ==).remove!('x') }.hasError
 { Map().remove!('x' -> 1) }.hasError
 { Record().remove!('x' -> 1) }.hasError
 { IdentitySet().remove!('x') }.hasError
@@ -3797,9 +3797,9 @@ system.nextRandomFloat < 1 /* system random number generator */
 system.uniqueIdentifier.isInteger /* system unique identifier generator, answers are integers */
 system.uniqueIdentifier != system.uniqueIdentifier /* system unique identifier generator */
 system.highBitPerByteTable.size = 256 /* high bits per byte table */
-system.highBitPerByteTable.IdentityMultiset.sortedCounts = [128 -> 8, 64 -> 7, 32 -> 6, 16 -> 5, 8 -> 4, 4 -> 3, 2 -> 2, 1 -> 1, 1 -> 0]
+system.highBitPerByteTable.Multiset(==).sortedCounts = [128 -> 8, 64 -> 7, 32 -> 6, 16 -> 5, 8 -> 4, 4 -> 3, 2 -> 2, 1 -> 1, 1 -> 0]
 system.lowBitPerByteTable.size = 255 /* low bits per byte table */
-system.lowBitPerByteTable.IdentityMultiset.sortedCounts = [128 -> 1, 64 -> 2, 32 -> 3, 16 -> 4, 8 -> 5, 4 -> 6, 2 -> 7, 1 -> 8]
+system.lowBitPerByteTable.Multiset(==).sortedCounts = [128 -> 1, 64 -> 2, 32 -> 3, 16 -> 4, 8 -> 5, 4 -> 6, 2 -> 7, 1 -> 8]
 ```
 
 ## System -- system names
@@ -4105,7 +4105,7 @@ let a = ('x' -> 1); a.uncheckedSlotWrite('hidden', 1.pi); a = ('x' -> 1) & { a.u
 ```
 system.includesPackage('Unordered') /* package */
 { [1, 2, 3].IdentitySet.at(1) }.hasError /* unordered collections do not implement at */
-{ [1, 2, 3].IdentityMultiset.at(1) }.hasError
+{ [1, 2, 3].Multiset(==).at(1) }.hasError
 ```
 
 ## WeakMap -- collection type
