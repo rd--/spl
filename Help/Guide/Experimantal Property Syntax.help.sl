@@ -1,4 +1,4 @@
-# Property Syntax
+# Experimantal Property Syntax
 
 Rewrite rules:
 
@@ -16,6 +16,6 @@ the message is interpreted as a field access message.
 
 * * *
 
-See also: Indexable Syntax, Property Read Syntax, Property Write Syntax
+See also: Indexable Syntax, Experimantal Property Read Syntax, Experimantal Property Write Syntax
 
 Categories: Syntax

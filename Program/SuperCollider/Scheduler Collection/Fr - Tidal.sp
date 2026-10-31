@@ -19,14 +19,14 @@ let ctl = (
 	cutoff: 5000,
 	q: 0.5
 ).localControls;
-let env = linen(impulse(0, 0), 0, 1, ctl::release, 2);
-let osc = saw([ctl::freq, ctl::freq * ctl::detune]) * env;
-let saw = rlpf(osc, xLine(ctl::cutoff, 100, ctl::release), 1 / ctl::q) * ctl::amp;
+let env = linen(impulse(0, 0), 0, 1, ctl['release'], 2);
+let osc = saw([ctl['freq'], ctl['freq'] * ctl['detune']]) * env;
+let saw = rlpf(osc, xLine(ctl['cutoff'], 100, ctl['release']), 1 / ctl['q']) * ctl['amp'];
 UgenGraph('saw', saw).send;
-LsBind(
+lsBind(
 	instrument: 'saw',
 	dur: 1 / 16,
-	freq: LsSeq(
+	freq: lsSeq(
 		(60 + [0 2 5 7 9].degreeToKey(seq - 1, 12)).midiCps,
 		Infinity
 	),

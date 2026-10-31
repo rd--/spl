@@ -1,4 +1,4 @@
-# Property Write Syntax
+# Experimantal Property Write Syntax
 
 - _r::p := x_
 
@@ -6,25 +6,27 @@ _r::p := x_ sets the value of the property _'p'_ at the record _r_ to the value 
 
 Rewrite rule:
 
-```
->> 'c::p := x'.splSimplify
+~~~spl experimental
+'c::p := x'.splSimplify
+=>
 uncheckedSlotWrite(c, 'p', x)
-```
+~~~
 
 At nested `Record`:
 
-```
->>> let c = (w: (x: (y: (z: 1))));
->>> c::w::x::y::z := -1;
->>> c
+~~~spl experimental
+let c = (w: (x: (y: (z: 1))));
+c::w::x::y::z := -1;
+c
+=>
 (w: (x: (y: (z: -1))))
-```
+~~~
 
 Where supported `::` is displayed as ·.
 
 * * *
 
-See also: At Syntax, Property Read Syntax, Put Syntax
+See also: At Syntax, Experimantal Property Read Syntax, Put Syntax
 
 Unicode: U+00B7 · Middle Dot
 

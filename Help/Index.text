@@ -5,6 +5,7 @@ Guide/An Idiosyncratic Introduction to Spl.help.sl
 Guide/Apl Perspective.help.sl
 Guide/Apply Syntax.help.sl
 Guide/Arithmetic Functions.help.sl
+Guide/Arity Model.help.sl
 Guide/Arity Notation.help.sl
 Guide/Arity Syntax.help.sl
 Guide/Array Functions.help.sl
@@ -41,7 +42,6 @@ Guide/Comparing Collections.help.sl
 Guide/Comparison Functions.help.sl
 Guide/Complex Number Functions.help.sl
 Guide/Complex Number Syntax.help.sl
-Guide/Complicated Method Arity.help.sl
 Guide/Control Blocks.help.sl
 Guide/Control Functions.help.sl
 Guide/Coordinate System Functions.help.sl
@@ -63,6 +63,9 @@ Guide/Emacs Editor.help.sl
 Guide/Enumeration Functions.help.sl
 Guide/Error Functions.help.sl
 Guide/Error Handling.help.sl
+Guide/Experimantal Property Read Syntax.help.sl
+Guide/Experimantal Property Syntax.help.sl
+Guide/Experimantal Property Write Syntax.help.sl
 Guide/Experimental Assignment Operator Syntax.help.sl
 Guide/Experimental AtAllPath Syntax.help.sl
 Guide/Experimental AtIfAbsentPut Syntax.help.sl
@@ -199,9 +202,6 @@ Guide/Printing Functions.help.sl
 Guide/Probability Distributions.help.sl
 Guide/Program Files.help.sl
 Guide/Program Syntax.help.sl
-Guide/Property Read Syntax.help.sl
-Guide/Property Syntax.help.sl
-Guide/Property Write Syntax.help.sl
 Guide/Protocol Functions.help.sl
 Guide/Put Syntax.help.sl
 Guide/Quantity Functions.help.sl

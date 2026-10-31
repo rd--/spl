@@ -68,10 +68,8 @@ Sl {
 
 	Primary
 		= PutSyntax // S
-		| UncheckedSlotWriteSyntax // S
 		| AtAllSyntax // S
 		| AtSyntax // S
-		| UncheckedSlotReadSyntax // S
 		| ValueApply
 		| DotExpressionWithTrailingClosuresSyntax // S
 		| DotExpressionWithAssignmentSyntax // S
@@ -104,8 +102,6 @@ Sl {
 	PutSyntax = Primary "[" Expression "]" ":=" Expression
 	AtSyntax = Primary "[" Expression "]"
 	AtAllSyntax = Primary (ListRangeSyntax | NonScalarListSyntax)
-	UncheckedSlotReadSyntax = Primary "::" recordKey
-	UncheckedSlotWriteSyntax = Primary "::" recordKey ":=" Expression
 	ValueApply = Primary "." ParameterList
 	ParameterList = "(" ListOf<Expression, ","> ")"
 	NonEmptyParameterList = "(" NonemptyListOf<Expression, ","> ")"

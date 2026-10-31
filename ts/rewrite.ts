@@ -571,12 +571,6 @@ const asSl: ohm.ActionDict<string> = {
 	Statements(nonFinal, final) {
 		return nonFinal.asSl + final.asSl;
 	},
-	UncheckedSlotReadSyntax(c, _colons, k) {
-		return `uncheckedSlotRead(${c.asSl}, '${k.sourceString}')`;
-	},
-	UncheckedSlotWriteSyntax(c, _doubleColon, k, _colonEquals, v) {
-		return `uncheckedSlotWrite(${c.asSl}, '${k.sourceString}', ${v.asSl})`;
-	},
 	RangeFromToSyntax(_leftParenthesis, i, _dots, j, _rightParenthesis) {
 		return `Range(${i.asSl}, ${j.asSl})`;
 	},

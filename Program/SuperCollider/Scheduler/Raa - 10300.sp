@@ -21,10 +21,10 @@ UgenGraph(
 		) * 0.2
 	] # 2
 ).send;
-LsBind(
+lsBind(
 	(
 		instrument: 'saw',
-		freq: LsCat(scales.++ * f0),
-		dur: LsCat(durations.++)
+		freq: lsCat(scales.++ * f0),
+		dur: lsCat(durations.++)
 	)
 )
