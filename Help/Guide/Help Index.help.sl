@@ -222,7 +222,7 @@ Guides (A-Z):
 - `Record Syntax`
 - `Reference Help Files`
 - `Reflection Functions`
-- `Regular and Irregular Arrays`
+- `Irregular Arrays`
 - `Regular Expression Functions`
 - `Rounding Functions`
 - `Scalars and Lists`

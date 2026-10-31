@@ -72,6 +72,6 @@ Two pages, unequal number of rows, some zero columns:
 
 * * *
 
-See also: shape
+See also: impliedShape, irregularIota, shape
 
-Guides: Array Functions
+Guides: Array Functions, Irregular Arrays

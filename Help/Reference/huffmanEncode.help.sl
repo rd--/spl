@@ -48,13 +48,15 @@ Map[
 (4 * 1) + (3 * 2) + ((2 + 1) * 3)
 ```
 
-Encoding of a `String` using `huffmanEncode`:
+Length of the coding of each character of a `String` using `huffmanEncode`:
 
 ~~~spl svg=A
-'Compression is based on redundancy'
-.huffmanEncode
-.encoding
-.discretePlot
+let a = 'compression is based on redundancy';
+let b = a.huffmanEncode;
+let c = b.symbolTable;
+a.characters.collect { :x |
+	c[x].size
+}.stepPlot
 ~~~
 
 ![](Help/Image/huffmanEncode-A.svg)

@@ -127,6 +127,7 @@ Guide/Integer Syntax.help.sl
 Guide/Integer Types.help.sl
 Guide/Interpolation Functions.help.sl
 Guide/Interval Functions.help.sl
+Guide/Irregular Arrays.help.sl
 Guide/Iteration Functions.help.sl
 Guide/J Perspective.help.sl
 Guide/Julia Perspective.help.sl
@@ -219,7 +220,6 @@ Guide/Record Constructor Syntax.help.sl
 Guide/Record Syntax.help.sl
 Guide/Reference Help Files.help.sl
 Guide/Reflection Functions.help.sl
-Guide/Regular and Irregular Arrays.help.sl
 Guide/Regular Expression Functions.help.sl
 Guide/Rounding Functions.help.sl
 Guide/Scalars and Lists.help.sl

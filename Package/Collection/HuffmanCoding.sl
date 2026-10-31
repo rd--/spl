@@ -35,17 +35,17 @@ HuffmanCoding : [Object, Store, Equal] {
 +String {
 
 	huffmanEncode { :self |
-		self.characters.huffmanEncode
+		self.characters.huffmanEncode(==)
 	}
 
 }
 
 +List {
 
-	huffmanEncode { :self |
+	huffmanEncode { :self :comparator/2 |
 		let huffmanSymbolTable = { :weights |
 			let heap = Heap();
-			weights.sortedCounts(==).do { :each |
+			weights.sortedCounts(comparator/2).do { :each |
 				heap.add!(each.key -> [each.value -> []])
 			};
 			{ heap.size > 1 }.whileTrue {
@@ -59,9 +59,9 @@ HuffmanCoding : [Object, Store, Equal] {
 				};
 				heap.add!((low.key + high.key) -> (low.value ++ high.value))
 			};
-			heap.array.first.value.Map
+			Map(heap.array.first.value)
 		};
-		let symbolTable = Multiset(self, ==).huffmanSymbolTable;
+		let symbolTable = Multiset(self, comparator/2).huffmanSymbolTable;
 		HuffmanCoding(
 			symbolTable,
 			self.collect { :each |

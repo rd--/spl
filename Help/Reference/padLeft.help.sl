@@ -145,7 +145,7 @@ OEIS [A097806](https://oeis.org/A097806):
 
 See also: #, ++, arrayPad, padLeftAndRight, padRight, recycle, reshape, shape, size
 
-Guides: List Functions
+Guides: Array Functions, List Functions, Irregular Arrays
 
 References:
 _Mathematica_

@@ -1,10 +1,10 @@
 # impliedShape
 
-- _impliedShape(aList)_
+- _impliedShape(a)_
 
 Answer the shape that an array would have to have if it were to hold the,
 possibly irregular,
-array at _aList_.
+array at _a_.
 
 The implied shape of a triangular matrix:
 
@@ -59,3 +59,5 @@ It is also the `shape` of `recycle` if there are no empty places:
 * * *
 
 See also: deepIndices, padLeft, padRight, recycle, reshape, shape
+
+Guides: Array Functions, Irregular Arrays

@@ -1,4 +1,4 @@
-# Regular and Irregular Arrays
+# Irregular Arrays
 
 A regular array has a `shape`.
 An irregular array has a `irregularShape`.
@@ -64,6 +64,6 @@ To regularise an irregular array:
 
 * * *
 
-See also: irregularIota, irregularShape, recycle, reshape, shape
+See also: impliedShape, irregularIota, irregularShape, recycle, reshape, shape
 
 Guides: Array Functions

@@ -21,7 +21,7 @@ which is out of order,
 and retrieve first (least) element:
 
 ```
->>> let h = Heap[5 7 1 3];
+>>> let h = Heap([5 7 1 3], <);
 >>> (h.first, h.size, h[2])
 (1, 4, 3)
 ```
