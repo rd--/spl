@@ -8,6 +8,22 @@ Rewrite rules:
 `Record Syntax` makes constructing records concise.
 `Property Syntax` provides equally concise syntaxes for reading and writing record properties.
 
+`Property Read Syntax` is rewritten as `Apply Syntax`:
+
+~~~spl experimantal
+'a::b'.splSimplify
+=>
+uncheckedSlotRead(a, 'b')
+~~~
+
+`Property Write Syntax` is rewritten as `Apply Syntax`:
+
+~~~spl experimantal
+'a::b := c'.splSimplify
+=>
+uncheckedSlotWrite(a, 'b', c)
+~~~
+
 _Rationale_:
 In Smalltalk systems the _doesNotUnderstand_ protocol is sometimes used for a similar purpose.
 If a Dictionary object _c_ is sent a message _m_ that it does not understand,

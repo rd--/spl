@@ -146,7 +146,7 @@ let p = 9.circlePoints([0 0], 1, 13/18.pi);
 let q = [3 6 9; 1 4 2 8 5 7];
 [
 	Circle([0 0], 1),
-	p.PointCloud,
+	PointSet(p),
 	q.collect { :i |
 		p.atAll(i).Polygon
 	}

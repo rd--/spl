@@ -20,7 +20,7 @@ let t = sssTriangle(3, 4.4, 5);
 		t.ninePointCenter,
 		t.circumcenter,
 		t.orthocenter
-	].PointCloud,
+	].PointSet,
 	t.ninePointCircle
 ].LineDrawing
 ~~~

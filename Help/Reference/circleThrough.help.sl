@@ -44,7 +44,7 @@ Plot two points and the circle passing through them:
 ~~~spl svg=A
 let p = [0 0; 0 1];
 [
-	p.PointCloud,
+	p.PointSet,
 	p.Line,
 	p.circleThrough
 ].LineDrawing
@@ -57,7 +57,7 @@ Plot two points and the circle passing through them:
 ~~~spl svg=B
 let p = [0 0; 1 1];
 [
-	p.PointCloud,
+	p.PointSet,
 	p.Line,
 	p.circleThrough
 ].LineDrawing
@@ -70,7 +70,7 @@ Plot three points and the circle passing through them:
 ~~~spl svg=C
 let p = [0 0; 0 1; 1 0];
 [
-	p.PointCloud,
+	p.PointSet,
 	p.Polygon,
 	p.circleThrough
 ].LineDrawing
@@ -87,7 +87,7 @@ let p = [
 	[-1, 0]
 ];
 [
-	p.PointCloud,
+	p.PointSet,
 	p.Polygon,
 	p.circleThrough
 ].LineDrawing

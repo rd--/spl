@@ -73,7 +73,7 @@ List(k, [0 m]).coordinateBoundsArray(List(k, 1))
 .flatten(k - 1)
 .collect { :x |
 	(x * v).sum
-}.PointCloud
+}.PointSet
 ~~~
 
 ![](Help/Image/gradyTuningLatticeCoordinates-B.svg)

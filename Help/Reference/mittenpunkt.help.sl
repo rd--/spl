@@ -18,7 +18,7 @@ let m = t.mittenpunkt;
 [
 	t,
 	t.medialTriangle,
-	e.PointCloud,
+	e.PointSet,
 	m.Point,
 	e.collect { :x | Line([m x]) }
 ].LineDrawing
@@ -39,7 +39,7 @@ let o = t.orthocenter;
 let s = t.spiekerCenter;
 [
 	t,
-	PointCloud([m c g i y o s]),
+	PointSet([m c g i y o s]),
 	Line([c g]),
 	Line([i y]),
 	Line([o s])

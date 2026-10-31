@@ -24,7 +24,7 @@ let p = [
 let t = p.nearestNeighbourAlgorithm(1);
 let c = p.atAll(t);
 [
-	p.PointCloud,
+	p.PointSet,
 	c.Polygon
 ].LineDrawing
 ~~~
@@ -39,7 +39,7 @@ let p = r.randomReal([-1 1], [17 2]);
 let i = p.nearestNeighbourAlgorithm(1);
 let q = p.atAll(i);
 [
-	p.PointCloud,
+	p.PointSet,
 	q.Polygon
 ].LineDrawing
 ~~~

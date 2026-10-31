@@ -22,6 +22,6 @@ Complete graph on seven vertices:
 
 * * *
 
-See also: Line, LineDrawing, PointCloud, circlePoints, completeGraph
+See also: Line, LineDrawing, PointSet, circlePoints, completeGraph
 
 Guides: Graph Functions

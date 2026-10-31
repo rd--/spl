@@ -11,7 +11,7 @@ Draw a collection of objects with an `embeddingDimension` of two:
 	Circle([0 0], 1),
 	Line([0 0; 0 -1]),
 	Point([0, 1 / 2]),
-	PointCloud([-0.5 -0.5; 0.5 -0.5]),
+	PointSet([-0.5 -0.5; 0.5 -0.5]),
 	Rectangle([-1 -1], [1 1]),
 	regularPolygon(6, [0 0], 0.5, 0),
 	Triangle([-1 -0.75], [0 1], [1 -0.75])
@@ -22,6 +22,6 @@ Draw a collection of objects with an `embeddingDimension` of two:
 
 * * *
 
-See also: Circle, Line, Point, PointCloud, Polygon, Rectangle, Triangle
+See also: Circle, Line, Point, PointCloud, PointSet, Polygon, Rectangle, Triangle
 
 Guides: Geometry Functions

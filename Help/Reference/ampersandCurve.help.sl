@@ -11,7 +11,7 @@ deleting missing values:
 (0 -- 2.pi)
 .discretize(200, ampersandCurve/1)
 .deleteMissing
-.PointCloud
+.PointSet
 ~~~
 
 ![](Help/Image/ampersandCurve-A.svg)

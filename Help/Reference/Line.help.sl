@@ -128,7 +128,7 @@ let c = b.polynomial;
 		{ :x |
 			[x, c.at(x)]
 		}
-	).PointCloud
+	).PointSet
 ].LineDrawing
 ~~~
 

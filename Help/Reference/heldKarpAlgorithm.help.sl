@@ -71,7 +71,7 @@ let m = p.distanceMatrix;
 let [_, t] = m.heldKarpAlgorithm;
 let q = p.atAll(t);
 [
-	p.PointCloud,
+	PointSet(p),
 	Line(q)
 ].LineDrawing
 ~~~

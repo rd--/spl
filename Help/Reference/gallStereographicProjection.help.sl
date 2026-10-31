@@ -16,7 +16,7 @@ Lattice points under Gall stereographic projection:
 }.table(
 	(-1/2.pi -- 1/2.pi).subdivide(8),
 	(-1.pi -- 1.pi).subdivide(16)
-).catenate.PointCloud
+).catenate.PointSet
 ~~~
 
 ![](Help/Image/gallStereographicProjection-A.svg)

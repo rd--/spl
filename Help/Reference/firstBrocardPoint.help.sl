@@ -21,7 +21,7 @@ let [p, q, r] = t.vertexCoordinates;
 	[p q b].circleThrough,
 	[p r b].circleThrough,
 	[q r b].circleThrough,
-	[b p q r].PointCloud
+	PointSet[b p q r]
 ].LineDrawing
 ~~~
 

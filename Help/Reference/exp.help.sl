@@ -210,8 +210,8 @@ let c = r.collect { :v |
 let p = c.realImaginary;
 [
 	Circle([0 0], 1),
-	p.PointCloud,
-	p.Line
+	PointSet(p),
+	Line(p)
 ].LineDrawing
 ~~~
 

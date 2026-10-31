@@ -74,6 +74,14 @@
 		answer
 	}
 
+	[Set, collectionToSet] { :self |
+		self.allTrue(isImmediate/1).if {
+			Set(self, ==)
+		} {
+			Set(self, =)
+		}
+	}
+
 }
 
 +List {

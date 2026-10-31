@@ -94,7 +94,7 @@ let p = [0 0; 1 1; 2 -1; 3 0];
 [
 	p.BezierCurve(3),
 	p.Line,
-	p.PointCloud
+	p.PointSet
 ].LineDrawing
 ~~~
 
@@ -107,7 +107,7 @@ let p = [0 0; 1 1; 2 -1; 3 0; 5 2; 6 -1; 7 3];
 [
 	p.BezierCurve(3),
 	p.Line,
-	p.PointCloud
+	p.PointSet
 ].LineDrawing
 ~~~
 
@@ -144,7 +144,7 @@ let p = [0 0; 0 2; 2 0; 0 0];
 [
 	p.BezierCurve(3),
 	p.Line,
-	p.PointCloud
+	p.PointSet
 ].LineDrawing
 ~~~
 
@@ -157,7 +157,7 @@ let p = [0 0; 1 1; 2 0];
 [
 	p.BezierCurve(2),
 	p.Line,
-	p.PointCloud
+	p.PointSet
 ].LineDrawing
 ~~~
 
@@ -202,7 +202,7 @@ let p = [0 0; 1 2; 2 2; 3 0];
 [
 	p.BezierCurve(3),
 	p.Line,
-	p.PointCloud
+	p.PointSet
 ].LineDrawing
 ~~~
 
@@ -215,7 +215,7 @@ let p = [0 0; 1 3; 2 3; 3 0; 4 3; 5 0; 6 3];
 [
 	p.BezierCurve(3),
 	p.Line,
-	p.PointCloud
+	p.PointSet
 ].LineDrawing
 ~~~
 
@@ -229,14 +229,14 @@ let c = p.BezierCurve(3);
 [
 	c,
 	p.Line,
-	p.PointCloud,
+	p.PointSet,
 	c.approximation.Line
 ].LineDrawing
 ~~~
 
 ![](Help/Image/BezierCurve-L.svg)
 
-Draw a downsampled `approximation` as a `PointCloud`,
+Draw a downsampled `approximation` as a `PointSet`,
 indicating the non-uniform distances along the curve between equidistant sampling points:
 
 ~~~spl svg=M
@@ -244,7 +244,7 @@ indicating the non-uniform distances along the curve between equidistant samplin
 .BezierCurve(3)
 .approximation
 .downsample(4)
-.PointCloud
+.PointSet
 ~~~
 
 ![](Help/Image/BezierCurve-M.svg)
@@ -256,7 +256,7 @@ A downsampled approximation of a composite cubic Bézier curve:
 .BezierCurve(3)
 .approximation
 .downsample(8)
-.PointCloud
+.PointSet
 ~~~
 
 ![](Help/Image/BezierCurve-N.svg)

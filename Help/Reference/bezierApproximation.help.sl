@@ -41,13 +41,13 @@ Use `bezierApproximation` to calculate sucessively closer approximate arc length
 ]
 ```
 
-Draw a `bezierApproximation` as a `PointCloud`,
+Draw a `bezierApproximation` as a `PointSet`,
 indicating the non-uniform distances along the curve between equidistant sampling points:
 
 ~~~spl svg=A
 [0 0; 1 4; 2 -4; 3 0]
 .bezierApproximation(64)
-.PointCloud
+.PointSet
 ~~~
 
 ![](Help/Image/bezierApproximation-A.svg)

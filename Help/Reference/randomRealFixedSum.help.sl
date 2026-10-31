@@ -18,7 +18,7 @@ let p = c.collect(
 );
 [
 	t,
-	p.PointCloud
+	PointCloud(p)
 ].LineDrawing
 ~~~
 

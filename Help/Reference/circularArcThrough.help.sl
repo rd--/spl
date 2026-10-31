@@ -46,8 +46,8 @@ let p = [2.sqrt 0; 1 1; 0 2.sqrt];
 let a = p.circularArcThrough;
 [
 	a,
-	p.PointCloud,
-	a.center.Point
+	PointSet(p),
+	Point(a.center)
 ].LineDrawing
 ~~~
 
@@ -60,8 +60,8 @@ let y = 1 / 2.sqrt;
 let p = [0 1; 1 0; 1 y];
 let a = p.circularArcThrough;
 [
-	p.PointCloud,
-	a.center.Point,
+	PointSet(p),
+	Point(a.center),
 	[1/2 1/2].unitSquare,
 	a
 ].LineDrawing
@@ -76,8 +76,8 @@ let y = 1 / 2.sqrt;
 let p = [1 0; 1 y; 0 1];
 let a = p.circularArcThrough;
 [
-	p.PointCloud,
-	a.center.Point,
+	PointSet(p),
+	Point(a.center),
 	[1/2 1/2].unitSquare,
 	a
 ].LineDrawing
@@ -92,8 +92,8 @@ let y = 1 / 2.sqrt;
 let p = [1 y; 0 1; 1 0];
 let a = p.circularArcThrough;
 [
-	p.PointCloud,
-	a.center.Point,
+	PointSet(p),
+	Point(a.center),
 	[1/2 1/2].unitSquare,
 	a
 ].LineDrawing
@@ -108,8 +108,8 @@ let x = 1 / 2.sqrt;
 let p = [0 0; x 0.5; 1 1];
 let a = p.circularArcThrough;
 [
-	p.PointCloud,
-	a.center.Point,
+	PointSet(p),
+	Point(a.center),
 	[1/2 1/2].unitSquare,
 	a
 ].LineDrawing
@@ -124,8 +124,8 @@ let y = 1 / 2.sqrt;
 let p = [0 0; 0.5 y; 1 1];
 let a = p.circularArcThrough;
 [
-	p.PointCloud,
-	a.center.Point,
+	PointSet(p),
+	Point(a.center),
 	[1/2 1/2].unitSquare,
 	a
 ].LineDrawing

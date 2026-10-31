@@ -21,7 +21,7 @@ let c = a.excenters;
 [
 	a,
 	a.excircles,
-	c.PointCloud,
+	c.PointSet,
 	a.orthicTriangle,
 	a.clawsonPoint.Point,
 	b,

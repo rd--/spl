@@ -13,7 +13,7 @@ let i = (-1 -- 1).discretize(15);
 let z = r;
 { :x :y |
 	[x y z].curvilinearProjection(r)
-}.table(i, i).catenate.PointCloud
+}.table(i, i).catenate.PointSet
 ~~~
 
 ![](Help/Image/curvilinearProjection-A.svg)
@@ -26,7 +26,7 @@ let i = (-1 -- 1).discretize(15);
 let z = 2;
 { :x :y |
 	[x y z].curvilinearProjection
-}.table(i, i).catenate.PointCloud
+}.table(i, i).catenate.PointSet
 ~~~
 
 ![](Help/Image/curvilinearProjection-B.svg)
@@ -39,7 +39,7 @@ let i = (-1 -- 1).discretize(15);
 let z = 1 / 3;
 { :x :y |
 	[x y z].curvilinearProjection
-}.table(i, i).catenate.PointCloud
+}.table(i, i).catenate.PointSet
 ~~~
 
 ![](Help/Image/curvilinearProjection-C.svg)

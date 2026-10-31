@@ -51,7 +51,7 @@ Draw point set and bounding rectangle:
 ~~~spl svg=A
 let p = [3 10; 6 3; 10 2; 2 8; 3 3];
 [
-	p.PointCloud,
+	p.PointSet,
 	p.coordinateBoundingBox.Rectangle
 ].LineDrawing
 ~~~

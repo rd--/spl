@@ -58,7 +58,7 @@ let d = t.secondBrocardTriangle;
 	t,
 	c,
 	d,
-	[a, b].PointCloud,
+	PointSet[a b],
 	t.pedalTriangle(a),
 	t.pedalTriangle(b)
 ].LineDrawing

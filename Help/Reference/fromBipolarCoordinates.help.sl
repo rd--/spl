@@ -23,7 +23,7 @@ note spacing of coordinates:
 ~~~spl svg=B
 (-7 -- 7).subdivide(100).collect { :tau |
 	fromBipolarCoordinates(1, [1, tau])
-}.PointCloud
+}.PointSet
 ~~~
 
 ![](Help/Image/fromBipolarCoordinates-B.svg)
@@ -54,7 +54,7 @@ Plot varying σ:
 			1,
 			[sigma, tau]
 		)
-	}.PointCloud
+	}.PointSet
 }.LineDrawing
 ~~~
 

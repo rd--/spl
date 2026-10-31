@@ -246,7 +246,11 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 		self.isAssociationList.if {
 			self.assocationListToDicionary.dictionaryToMultiset
 		} {
-			self.error('List>>Multiset/1: not association list')
+			self.allTrue(isImmediate/1).if {
+				Multiset(self, ==)
+			} {
+				Multiset(self, =)
+			}
 		}
 	}
 

@@ -89,7 +89,7 @@ let h = p.collect { :c |
 	6.regularPolygon(c, 0.9, 0.5.pi)
 };
 [
-	p.PointCloud,
+	p.PointSet,
 	h
 ].LineDrawing
 ~~~
@@ -159,7 +159,7 @@ let b = [
 ];
 let c = [a, b].transpose;
 let d = c.fromHexagonalCoordinates;
-[d.PointCloud, d.Line].LineDrawing
+[d.PointSet, d.Line].LineDrawing
 ~~~
 
 ![](Help/Image/fromHexagonalCoordinates-E.svg)

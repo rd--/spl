@@ -14,6 +14,12 @@ Sfc32(376814)
 
 ![](Help/Image/PointCloud-A.svg)
 
+The type is not called `PointSet` since the points need not be,
+in the usual sense,
+a set.
+Duplicate elements are allowed.
+`PointSet` is a method that checks that there are no duplicate points and answers a `PointCloud` value.
+
 Disperse a grid of points, _g_, about a focus point _c_:
 
 ~~~spl svg=B
@@ -27,14 +33,10 @@ g.collect { :x |
 		2 ^ (-5 * (x - c).norm)
 	].product;
 	x + dx
-}.PointCloud
+}.PointSet
 ~~~
 
 ![](Help/Image/PointCloud-B.svg)
-
-_Rationale_:
-The type is not called _PointSet_ since it is not a _set_ in the usual sense,
-duplicate elements are allowed.
 
 * * *
 

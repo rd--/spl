@@ -11,7 +11,7 @@ let t = sssTriangle(3, 4, 5);
 [
 	t,
 	t.bevanCircle,
-	t.excenters.PointCloud
+	t.excenters.PointSet
 ].LineDrawing
 ~~~
 

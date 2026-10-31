@@ -16,9 +16,9 @@ let q = c.collect(
 	t.fromTrilinearCoordinates
 );
 [
-	p.PointCloud,
+	p.PointSet,
 	t,
-	q.PointCloud
+	q.PointSet
 ].LineDrawing
 ~~~
 
@@ -36,9 +36,9 @@ let q = c.collect { :each |
 	)
 };
 [
-	p.PointCloud,
+	p.PointSet,
 	t,
-	q.PointCloud
+	q.PointSet
 ].LineDrawing
 ~~~
 

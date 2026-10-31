@@ -6,7 +6,7 @@ Run documentation tests:
 { 'Help/Guide'.splFilePath.terseReferenceSummary((verboseLevel: 0, pattern: '.*')) }.timing
 ~~~
 
-Total => 1,006 (6 seconds)
+Total => 1,007 (5 seconds)
 
 Write image files:
 

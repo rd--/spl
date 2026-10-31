@@ -94,8 +94,8 @@ let p = [0.35 0.35];
 let q = p.circleInversion(c);
 [
 	c,
-	[p q].PointCloud,
-	[p q].Line
+	PointSet[p q],
+	Line[p q]
 ].LineDrawing
 ~~~
 
@@ -114,8 +114,8 @@ let r = c.center;
 	a,
 	b,
 	c,
-	[p q r].PointCloud,
-	[p q].Line
+	PointSet[p q r],
+	Line[p q]
 ].LineDrawing
 ~~~
 
@@ -141,21 +141,6 @@ let b = [0.15 0.25 0.35 0.45].collect { :r |
 
 Orthogonal circles are invariant under inversion with respect to each other,
 however points exchange places:
-
-~~~spl svg=D
-let a = Circle([5 0], 4);
-let b = Circle([0 0], 3);
-let c = a.circleInversion(b);
-let p = List(2, -3 / 2.sqrt);
-let q = p.circleInversion(a);
-let r = a.center;
-[
-	b,
-	c,
-	[p q].PointCloud,
-	[p q r].Line
-].LineDrawing
-~~~
 
 ![](Help/Image/circleInversion-D.svg)
 

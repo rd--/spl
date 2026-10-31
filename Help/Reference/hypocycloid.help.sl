@@ -48,7 +48,7 @@ let c = [0 0.25 0.5 0.75 1].pi.collect(
 	hypocycloid(2, 1)
 );
 [
-	PointCloud(c),
+	PointSet(c),
 	Line(c),
 	Circle([0 0], a)
 ].LineDrawing

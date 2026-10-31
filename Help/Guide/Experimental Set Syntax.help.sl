@@ -6,12 +6,8 @@ Rewrite rule:
 
 Sets are written as lists between special curly brackets.
 
-```
->> 'Set[x y z]'.splSimplify
-Set([x, y, z])
-```
-
-A set of integers:
+A set of integers,
+_{|1, 2, 3|}_:
 
 ```
 >>> Set[1 2 3]
@@ -19,6 +15,7 @@ Set([1, 2, 3])
 ```
 
 The empty `Set`,
+_{| |}_,
 note that the space character is required,
 the expression `{||}` is parsed as a `Block` answering the binary operator `||`:
 

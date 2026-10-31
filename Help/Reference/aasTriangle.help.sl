@@ -45,7 +45,7 @@ let t = aasTriangle(60.degree, 90.degree, a);
 let [_, _, c] = t.sideLengths;
 [
 	t,
-	[0 0; c 0; c a].PointCloud
+	[0 0; c 0; c a].PointSet
 ].LineDrawing
 ~~~
 

@@ -13,7 +13,7 @@ let e = t.excentralTriangle;
 [
 	t,
 	t.antipedalTriangle(t.incenter),
-	e.vertexCoordinates.PointCloud
+	e.vertexCoordinates.PointSet
 ].LineDrawing
 ~~~
 
@@ -27,7 +27,7 @@ let b = a.tangentialTriangle;
 [
 	a,
 	b,
-	b.vertexCoordinates.PointCloud
+	b.vertexCoordinates.PointSet
 ].LineDrawing
 ~~~
 

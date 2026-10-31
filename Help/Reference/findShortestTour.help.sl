@@ -31,7 +31,7 @@ let p = [
 let [_, t] = p.findShortestTour;
 let c = p.atAll(t);
 [
-	p.PointCloud,
+	p.PointSet,
 	c.Line
 ].LineDrawing
 ~~~
@@ -66,7 +66,7 @@ let p = r.randomReal([-1 1], [17 2]);
 let [_, i] = p.findShortestTour;
 let q = p.atAll(i);
 [
-	p.PointCloud,
+	p.PointSet,
 	q.Line
 ].LineDrawing
 ~~~

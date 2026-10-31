@@ -66,7 +66,7 @@ let n = (0 .. k * 2);
 .exp
 .prefixSum
 .realImaginary
-.PointCloud
+.PointSet
 ~~~
 
 ![](Help/Image/I-B.svg)
@@ -81,7 +81,7 @@ let n = (0 .. k * 2);
 .exp
 .prefixSum
 .realImaginary
-.PointCloud
+.PointSet
 ~~~
 
 ![](Help/Image/I-C.svg)

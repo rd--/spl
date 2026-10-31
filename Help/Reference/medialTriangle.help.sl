@@ -30,7 +30,7 @@ At `List`:
 let p = [0 0; 0 1; 1 0];
 let q = p.medialTriangle;
 [
-	(p ++ q).PointCloud,
+	(p ++ q).PointSet,
 	p.Triangle,
 	q.Triangle
 ].LineDrawing

@@ -44,7 +44,7 @@ let t = sssTriangle(3, 4, 5);
 	(1:13 ++ 15:15 ++ 17:19)
 	.collect { :n |
 		t.kimberlingCenter(n)
-	}.PointCloud
+	}.PointSet
 ].LineDrawing
 ~~~
 

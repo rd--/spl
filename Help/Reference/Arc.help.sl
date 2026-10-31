@@ -82,7 +82,7 @@ let c = circlePoints(12, [0 0], 1, 0);
 	Arc([1 0], [1 1], [1/2.pi -1/2.pi]),
 	Arc([0 1], [1 1], [-1.pi 0]),
 	Arc([0 -1], [1 1], [0 1.pi]),
-	PointCloud(c)
+	PointSet(c)
 ].LineDrawing
 ~~~
 
@@ -139,7 +139,7 @@ Draw using parametric equation:
 	50,
 	Arc([0 0], [1/2.pi 1], [5/8.pi 8/5.pi])
 	.parametricEquation
-).PointCloud
+).PointSet
 ~~~
 
 ![](Help/Image/Arc-G.svg)
@@ -150,7 +150,7 @@ drawn as a point cloud:
 
 ~~~spl svg=H
 let a = Arc([0 0], [1 1], [5/4 3/4].pi);
-let p = a.approximation.PointCloud;
+let p = a.approximation.PointSet;
 [a p].LineDrawing
 ~~~
 

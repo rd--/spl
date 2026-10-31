@@ -33,7 +33,7 @@ Draw a lattice of two-dimensional points:
 ~~~spl svg=A
 let b = [3 8; -1 2];
 let c = b.coordinateBoundsArray([1 1]);
-let p = c.flatten(1).PointCloud;
+let p = c.flatten(1).PointSet;
 let r = b.transpose.Rectangle;
 [p, r].LineDrawing
 ~~~
@@ -46,7 +46,7 @@ Draw an array of three-dimensional points with given discretization steps:
 [3 6; -1 2; 0 1.pi]
 .coordinateBoundsArray([0.7 1.5 0.5.pi])
 .flatten(2)
-.PointCloud
+.PointSet
 .PerspectiveDrawing
 ~~~
 
@@ -65,8 +65,8 @@ let f = { :o |
 	).flatten(1)
 };
 [
-	f([0 0]).PointCloud,
-	f([0.5 0.25]).PointCloud,
+	f([0 0]).PointSet,
+	f([0.5 0.25]).PointSet,
 	b.transpose.Rectangle
 ].LineDrawing
 ~~~

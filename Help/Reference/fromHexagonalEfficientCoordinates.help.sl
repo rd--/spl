@@ -20,7 +20,7 @@ let h = p.collect { :c |
 	6.regularPolygon(c, 0.5, 0.5.pi)
 };
 [
-	p.PointCloud,
+	p.PointSet,
 	h
 ].LineDrawing
 ~~~

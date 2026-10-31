@@ -11,13 +11,13 @@ let t = [5 4.5 6].sssTriangle;
 [
 	t,
 	t.brocardCircle,
-	[
+	PointSet[
 		t.symmedianPoint,
 		t.circumcenter,
 		t.firstBrocardPoint,
 		t.secondBrocardPoint,
 		t.kimberlingCenter(182)
-	].PointCloud
+	]
 ].LineDrawing
 ~~~
 

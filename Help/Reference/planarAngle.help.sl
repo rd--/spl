@@ -142,7 +142,7 @@ let a2 = (p -> [q2 q1]).planarAngle;
 let a3 = a0 + a1;
 let [r1, r2] = [0.5 0.75];
 [
-	PointCloud([p q1 q2]),
+	PointSet([p q1 q2]),
 	Line([p q1]),
 	Line([p q2]),
 	Arc(p, [r1 r1], [a0 a3]),

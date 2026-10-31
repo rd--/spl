@@ -29,7 +29,7 @@ let c = SmallFloat[
 	t,
 	c.collect(
 		t.fromBarycentricCoordinates
-	).PointCloud
+	).PointSet
 ].LineDrawing
 ~~~
 
@@ -48,7 +48,7 @@ let c = [0, 0.1 .. 1].tuples(2).select { :each |
 	c.collect { :each |
 		let [p, q] = each;
 		f([p, q, 1 - (p + q)])
-	}.PointCloud
+	}.PointSet
 ].LineDrawing
 ~~~
 
@@ -65,7 +65,7 @@ let c = [0, 0.1 .. 1].tuples(2).select { :each |
 [
 	Cuboid([0 0 0], [1 1 1]),
 	t,
-	PointCloud(
+	PointSet(
 		c.collect { :each |
 			let [p, q] = each;
 			f([p, q, 1 - (p + q)])

@@ -22,7 +22,7 @@ the angles exhibit the equidistribution property:
 ~~~spl svg=B
 150.theodorusSpiral
 .collect(normalize/1)
-.PointCloud
+.PointSet
 ~~~
 
 ![](Help/Image/theodorusSpiral-B.svg)

@@ -22,7 +22,7 @@ Plot first seven turns of the spiral:
 
 ~~~spl svg=A
 (7 * 3).triangularSpiralPoints
-.PointCloud
+.PointSet
 ~~~
 
 ![](Help/Image/triangularSpiralPoints-A.svg)
@@ -33,7 +33,7 @@ Plot the points at prime indices on the first seventeen turns of the spiral:
 let h = (17 * 3).triangularSpiralPoints;
 let k = h.size;
 let p = k.primesUpTo;
-h.atAll(p).PointCloud
+h.atAll(p).PointSet
 ~~~
 
 ![](Help/Image/triangularSpiralPoints-B.svg)
@@ -44,7 +44,7 @@ The same diagram for lucky numbers:
 let h = (17 * 3).triangularSpiralPoints;
 let k = h.size;
 let p = k.luckyNumbers;
-h.atAll(p).PointCloud
+h.atAll(p).PointSet
 ~~~
 
 ![](Help/Image/triangularSpiralPoints-C.svg)

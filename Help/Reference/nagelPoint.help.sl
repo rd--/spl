@@ -20,7 +20,7 @@ let i = t.incenter;
 let e = t.cevianTriangle(n);
 [
 	t,
-	PointCloud([n c i]),
+	PointSet([n c i]),
 	Line([n c i]),
 	e
 ].LineDrawing

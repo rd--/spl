@@ -19,7 +19,7 @@ let o = t.orthocenter;
 let c = t.circumcenter;
 [
 	t,
-	PointCloud([d o c]),
+	PointSet([d o c]),
 	Line([o d])
 ].LineDrawing
 ~~~

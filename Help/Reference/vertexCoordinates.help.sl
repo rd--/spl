@@ -11,10 +11,10 @@ At `Point`, in two dimensions:
 [[0, 0]]
 ```
 
-At `PointCloud`, in two dimensions:
+At `PointSet`, in two dimensions:
 
 ```
->>> PointCloud[0 0; 1 1]
+>>> PointSet[0 0; 1 1]
 >>> .vertexCoordinates
 [0 0; 1 1]
 ```

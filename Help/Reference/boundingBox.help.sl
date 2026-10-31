@@ -14,16 +14,16 @@ At `Point`:
 [0 0 0; 0 0 0]
 ```
 
-At `PointCloud`:
+At `PointSet`:
 
 ```
 >>> [1 6; 3 1; 7 2; 4 4; 8 5]
->>> .PointCloud
+>>> .PointSet
 >>> .boundingBox
 [1 1; 8 6]
 
 >>> [1 6 7; 3 1 5; 7 2 3; 4 4 9; 8 5 7]
->>> .PointCloud
+>>> .PointSet
 >>> .boundingBox
 [1 1 3; 8 6 9]
 ```

@@ -47,7 +47,7 @@ Draw equidistant points:
 (0 -- 2.pi).discretize(
 	75,
 	ellipseCurve([0 0], [1 1.75], -1/4.pi)
-).PointCloud
+).PointSet
 ~~~
 
 ![](Help/Image/ellipseCurve-C.svg)
@@ -58,7 +58,7 @@ Plot ¾ of a circular ellipse beginning at ¼:
 (1/4.pi -- 7/4.pi).discretize(
 	35,
 	ellipseCurve([0 0], [1 1], 0)
-).PointCloud
+).PointSet
 ~~~
 
 ![](Help/Image/ellipseCurve-D.svg)

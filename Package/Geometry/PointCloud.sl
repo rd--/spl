@@ -42,4 +42,12 @@ PointCloud : [Object, Equal, Geometry] {
 		newPointCloud().initializeSlots(self)
 	}
 
+	PointSet { :self |
+		self.isDuplicateFree(=).if {
+			PointCloud(self)
+		} {
+			self.error('PointSet: not duplicate free')
+		}
+	}
+
 }

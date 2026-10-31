@@ -56,7 +56,7 @@ let t = sasTriangle(a, 30.degree, b);
 let [_, _, c] = t.sideLengths;
 [
 	t,
-	[0 0; c 0; c a].PointCloud
+	PointSet[0 0; c 0; c a]
 ].LineDrawing
 ~~~
 

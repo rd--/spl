@@ -13,7 +13,7 @@ let [b, c, _] = t.brocardPoints;
 [
 	t,
 	[b c].Line,
-	[a b c].PointCloud
+	[a b c].PointSet
 ].LineDrawing
 ~~~
 

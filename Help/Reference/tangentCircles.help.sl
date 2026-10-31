@@ -11,9 +11,9 @@ let a = [3.5 2.5 4].sssTriangle;
 let b = a.contactTriangle;
 [
 	a,
-	a.vertexCoordinates.PointCloud,
+	a.vertexCoordinates.PointSet,
 	a.tangentCircles,
-	b.vertexCoordinates.PointCloud
+	b.vertexCoordinates.PointSet
 ].LineDrawing
 ~~~
 

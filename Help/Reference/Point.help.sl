@@ -85,7 +85,7 @@ p.PerspectiveDrawing
 
 * * *
 
-See also: Circle, LineDrawing, PointCloud, asPoint, dimension, embeddingDimension
+See also: Circle, LineDrawing, PointCloud, PointSet, dimension, embeddingDimension
 
 Guides: Geometry Functions
 

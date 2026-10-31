@@ -94,7 +94,7 @@ let c = 0:4.tuples(2).dot(b);
 let t = c.collect { :each |
 	6.regularPolygon(each, 1, 0)
 };
-let p = PointCloud(c);
+let p = PointSet(c);
 [p, t].LineDrawing
 ~~~
 

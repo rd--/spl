@@ -79,12 +79,13 @@ Set([1, 3 .. 9])
 [1 -> 2, 3 -> 4, 5 -> 6]
 ```
 
-`Multiset` constructors:
+`Multiset` constructors,
+special cased for association lists:
 
 ```
 >>> Multiset[1 1 1 2 2 3]
->>> .List
-[1 1 1 2 2 3]
+>>> .sortedElements
+[1 -> 3, 2 -> 2, 3 -> 1]
 
 >>> Multiset[1 -> 3, 2 -> 2, 3 -> 1]
 >>> .sortedElements

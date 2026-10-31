@@ -58,7 +58,7 @@ let [f1, f2] = e.foci;
 let [v1, v2] = e.vertices;
 [
 	e,
-	[c f1 f2 v1 v2].PointCloud,
+	[c f1 f2 v1 v2].PointSet,
 	[c f1 v2].Triangle,
 	Circle(c, 1)
 ].LineDrawing

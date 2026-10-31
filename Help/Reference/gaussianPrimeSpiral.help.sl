@@ -40,7 +40,7 @@ A rectangular spiral with _p=5_ and _k=12_:
 ~~~spl svg=D
 let [p, _] = 8J13.gaussianPrimeSpiral;
 [
-	p.realImaginary.PointCloud,
+	p.realImaginary.PointSet,
 	p.realImaginary.Polygon
 ].GeometryCollection
 ~~~

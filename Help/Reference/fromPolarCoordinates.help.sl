@@ -48,7 +48,7 @@ Plot points at polar coordinates where r and θ are equal:
 ~~~spl svg=A
 1:123.collect { :n |
 	[n n].fromPolarCoordinates
-}.PointCloud
+}.PointSet
 ~~~
 
 ![](Help/Image/fromPolarCoordinates-A.svg)
@@ -58,7 +58,7 @@ Consider only primes:
 ~~~spl svg=B
 1:47.prime.collect { :n |
 	[n n].fromPolarCoordinates
-}.PointCloud
+}.PointSet
 ~~~
 
 ![](Help/Image/fromPolarCoordinates-B.svg)
@@ -68,7 +68,7 @@ A longer prime sequence:
 ~~~spl svg=C
 1:123.prime.collect { :n |
 	[n n].fromPolarCoordinates
-}.PointCloud
+}.PointSet
 ~~~
 
 ![](Help/Image/fromPolarCoordinates-C.svg)
@@ -82,7 +82,7 @@ let f = { :n |
 	[m, m * 2.pi].fromPolarCoordinates
 };
 [
-	(0 .. n).collect(f/1).PointCloud,
+	(0 .. n).collect(f/1).PointSet,
 	(0, 0.02 .. n).collect(f/1).Line
 ].GeometryCollection
 ~~~
@@ -95,7 +95,7 @@ Plot integers _0-250_:
 0:250.collect { :n |
 	let m = n.sqrt;
 	[m, m * 2.pi].fromPolarCoordinates
-}.PointCloud
+}.PointSet
 ~~~
 
 ![](Help/Image/fromPolarCoordinates-E.svg)
@@ -106,7 +106,7 @@ Plot first 250 prime numbers:
 1:250.prime.collect { :n |
 	let m = n.sqrt;
 	[m, m * 2.pi].fromPolarCoordinates
-}.PointCloud
+}.PointSet
 ~~~
 
 ![](Help/Image/fromPolarCoordinates-F.svg)

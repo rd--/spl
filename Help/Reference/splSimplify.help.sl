@@ -264,20 +264,6 @@ atAll(c, listRange(1, 9))
 atAll(c, [i, j])
 ```
 
-`Property Read Syntax` is rewritten as `Apply Syntax`:
-
-```
->> 'a::b'.splSimplify
-uncheckedSlotRead(a, 'b')
-```
-
-`Property Write Syntax` is rewritten as `Apply Syntax`:
-
-```
->> 'a::b := c'.splSimplify
-uncheckedSlotWrite(a, 'b', c)
-```
-
 `Vector Syntax` is rewritten as `List Syntax`:
 
 ```

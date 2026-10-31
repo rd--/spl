@@ -14,8 +14,8 @@ let m = b.medialTriangle;
 [
 	a,
 	b,
-	a.centroid.Point,
-	m.vertexCoordinates.PointCloud
+	Point(a.centroid),
+	PointSet(m.vertexCoordinates)
 ].LineDrawing
 ~~~
 

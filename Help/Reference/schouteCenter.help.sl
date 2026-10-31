@@ -15,7 +15,7 @@ let c = t.symmedianPoint;
 	t,
 	t.circumcircle,
 	[a b].Line,
-	[a, b, c].PointCloud
+	[a, b, c].PointSet
 ].LineDrawing
 ~~~
 

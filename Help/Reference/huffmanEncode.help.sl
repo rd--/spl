@@ -8,7 +8,7 @@ At `List`:
 
 ```
 >>> [4 4 4 4 3 3 3 2 2 1]
->>> .huffmanEncode
+>>> .huffmanEncode(==)
 >>> .symbolTable
 Map[
 	4 -> [0],
@@ -18,12 +18,13 @@ Map[
 ]
 
 >>> [4 4 4 4 3 3 3 2 2 1]
->>> .huffmanEncode
+>>> .huffmanEncode(==)
 >>> .encoding
 [0 0 0 0 1 1 1 1 1 1 1 0 1 1 0 1 1 0 0]
 ```
 
-At `String`:
+At `String`,
+the comparison function is set to `==`:
 
 ```
 >>> 'wwwwxxxyyz'

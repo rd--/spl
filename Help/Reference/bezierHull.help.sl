@@ -20,8 +20,8 @@ let p = [0 0; 0 1; 1 1];
 let h = p.bezierHull(0.5);
 [
 	p.BezierCurve(2),
-	p.PointCloud,
-	h.PointCloud,
+	p.PointSet,
+	h.PointSet,
 	h.atAll([1 2 3]).Line,
 	h.atAll([4 5]).Line
 ].LineDrawing
@@ -48,8 +48,8 @@ let p = [0 0; 1 1; 2 0; 3 2];
 let h = p.bezierHull(0.5);
 [
 	p.BezierCurve(3),
-	p.PointCloud,
-	h.PointCloud,
+	p.PointSet,
+	h.PointSet,
 	h.atAll([1 2 3 4]).Line,
 	h.atAll([5 6 7]).Line,
 	h.atAll([8 9]).Line

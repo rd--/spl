@@ -11,7 +11,7 @@ let t = [6 4 7].sssTriangle;
 let m = t.medialTriangle;
 [
 	t,
-	m.vertexCoordinates.PointCloud,
+	m.vertexCoordinates.PointSet,
 	t.powerCircles
 ].LineDrawing
 ~~~

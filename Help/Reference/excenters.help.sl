@@ -9,7 +9,7 @@ Draw triangle excenters:
 ~~~spl svg=A
 let t = [3 4 5].sssTriangle;
 let c = t.excenters;
-[t, c.PointCloud].LineDrawing
+[t, c.PointSet].LineDrawing
 ~~~
 
 ![](Help/Image/excenters-A.svg)

@@ -11,7 +11,7 @@ let t = [2.5 2 2.75].sssTriangle;
 [
 	t,
 	t.contactTriangle,
-	t.nobbsPoints.first(3).PointCloud
+	t.nobbsPoints.first(3).PointSet
 ].LineDrawing
 ~~~
 

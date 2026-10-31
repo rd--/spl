@@ -22,7 +22,7 @@ let t = sssTriangle(1, 1.15, 1.3);
 	t,
 	t.clawsonPoint.Point,
 	t.orthicTriangle,
-	t.excenters.PointCloud
+	t.excenters.PointSet
 ].LineDrawing
 ~~~
 

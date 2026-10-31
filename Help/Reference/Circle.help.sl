@@ -121,7 +121,7 @@ A geometric technique for finding twelve equally-spaced points around a circle:
 		1 / 1/4.pi.cos,
 		1/4.pi
 	),
-	PointCloud(
+	PointSet(
 		circlePoints(12, [0 0], 1, 0)
 	)
 ].LineDrawing

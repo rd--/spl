@@ -60,7 +60,7 @@ Plot the points at lucky number indices on the first seventeen turns of the tria
 let h = (17 * 3).triangularSpiralPoints;
 let k = h.size;
 let p = k.luckyNumbers;
-h.atAll(p).PointCloud
+h.atAll(p).PointSet
 ~~~
 
 ![](Help/Image/luckyNumbers-B.svg)

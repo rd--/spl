@@ -21,7 +21,7 @@ let c = t.farOutPoint;
 	t,
 	t.circumcircle,
 	[a c].Line,
-	[a b c].PointCloud
+	[a b c].PointSet
 ].LineDrawing
 ~~~
 

@@ -7,8 +7,8 @@ Traits:
 Types:
 
 - `AnnotatedGeometry`
-- `Annulus`
 - `AnnulusSector`
+- `Annulus`
 - `Arc`
 - `BezierCurve`
 - `Circle`
@@ -23,13 +23,14 @@ Types:
 - `InfiniteLine`
 - `InfinitePlane`
 - `Line`
-- `Parallelogram`
 - `Parallelepiped`
+- `Parallelogram`
 - `PointCloud`
+- `PointSet`
 - `Point`
-- `Polygon`
 - `PolygonMesh`
 - `PolygonWithHoles`
+- `Polygon`
 - `Polyhedron`
 - `Rectangle`
 - `StadiumShape`

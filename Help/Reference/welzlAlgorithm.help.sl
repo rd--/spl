@@ -43,7 +43,7 @@ let p = [
 	-8 -2; -14 -6; 7 3; 10 4; -1 4
 ];
 [
-	p.PointCloud,
+	p.PointSet,
 	p.welzlAlgorithm
 ].LineDrawing
 ~~~
@@ -56,7 +56,7 @@ the circle is inscribed on two points:
 ~~~spl svg=B
 let p = [3 10; 6 3; 10 2; 2 8; 3 3];
 [
-	p.PointCloud,
+	p.PointSet,
 	p.welzlAlgorithm
 ].LineDrawing
 ~~~
