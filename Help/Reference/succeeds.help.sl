@@ -81,7 +81,7 @@ Where supported `succeeds` is displayed as ≻.
 
 * * *
 
-See also: <, <=>, <|, =, >, compare, lexicographicSort, succeeds, succeedsOrEqualTo
+See also: <, <=>, <|, =, >, compare, lexicographicSort, succeeds, succeedsOrEqual
 
 Guides: Comparison Functions, List Functions
 

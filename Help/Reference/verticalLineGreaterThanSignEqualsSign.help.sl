@@ -29,7 +29,7 @@ Where supported `|>=` is displayed as ≽.
 
 * * *
 
-See also: <|, |>, succeedsOrEqualTo
+See also: <|, |>, succeedsOrEqual
 
 Guides: Comparison Functions
 

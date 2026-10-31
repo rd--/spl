@@ -482,9 +482,9 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("pi" . ?π) ; U+03C0 π Greek Small Letter Pi
      ("Pi" . ?Π) ; U+003A0 Π Greek Capital Letter Pi
      ("precedes" . ?≺) ; U+227a ≺ Precedes
-     ("precedesOrEqualTo" . ?≼) ; U+227c ≼ Precedes Or Equal To
+     ("precedesOrEqual" . ?≼) ; U+227c ≼ Precedes Or Equal To
      ("succeeds" . ?≻) ; U+227B ≻ Succeeds
-     ("succeedsOrEqualTo" . ?≽) ; U+227D ≽ Succeeds or Equal To ; U+2AB0 ⪰ Succeeds Above Single-Line Equals Sign
+     ("succeedsOrEqual" . ?≽) ; U+227D ≽ Succeeds or Equal To ; U+2AB0 ⪰ Succeeds Above Single-Line Equals Sign
      ("product" . ?Π) ; U+03A0 Π Greek Capital Letter Pi
      ("quarterToneFlat" . ?𝄳) ; U+1D133 𝄳 Musical Symbol Quarter Tone Flat
      ("quarterToneSharp" . ?𝄲) ; U+1D132 𝄲 Musical Symbol Quarter Tone Sharp

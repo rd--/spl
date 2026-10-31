@@ -3,7 +3,7 @@
 - _SortedList([x₁ x₂ …], f/2)_
 
 A `Type` holding a `List` where insertions (using `add` and `addAll`) maintain the list ordering,
-which is specified by a sort block that is ordinarily `precedesOrEqualTo`.
+which is specified by a sort block that is ordinarily `precedesOrEqual`.
 
 ```
 >>> let l = SortedList([]);

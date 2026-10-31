@@ -148,7 +148,7 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 	}
 
 	storeString { :self |
-		(self.sortBlock == precedesOrEqualTo/2).if {
+		(self.sortBlock == precedesOrEqual/2).if {
 			'SortedList(%)'.format([self.collection])
 		} {
 			'SortedList(%, %)'.format(
@@ -165,7 +165,7 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 +Void {
 
 	SortedList {
-		newSortedList().initializeSlots([], precedesOrEqualTo/2)
+		newSortedList().initializeSlots([], precedesOrEqual/2)
 	}
 
 }
@@ -173,7 +173,7 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 +List {
 
 	SortedList { :self |
-		SortedList(self, precedesOrEqualTo/2)
+		SortedList(self, precedesOrEqual/2)
 	}
 
 	SortedList { :self :sortBlock/2 |

@@ -27,9 +27,9 @@ Ordering:
 
 - `compare`
 - `precedes`, `<|`
-- `precedesOrEqualTo`, `<=|`
+- `precedesOrEqual`, `<=|`
 - `succeeds`, `|>`
-- `succeedsOrEqualTo`, `|>=`
+- `succeedsOrEqual`, `|>=`
 
 Similarities:
 

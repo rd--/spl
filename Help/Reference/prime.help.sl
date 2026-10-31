@@ -2,7 +2,8 @@
 
 - _prime(n)_
 
-Answer the _n_--th prime number.  The first prime number is two.
+Answer the _n_--th prime number.
+The first prime number is two.
 
 ```
 >>> 1.prime
@@ -13,9 +14,6 @@ Answer the _n_--th prime number.  The first prime number is two.
 
 >>> 10.prime
 29
-
->>> 2002.prime
-17401
 
 >>> 3579.prime
 33413
@@ -38,6 +36,9 @@ OEIS [A000040](https://oeis.org/A000040):
 ```
 >>> 1:9.prime
 [2 3 5 7 11 13 17 19 23]
+
+>>> [2001 2002].prime
+[17393 17401]
 ```
 
 The tenth, hundredth and thousandth prime:

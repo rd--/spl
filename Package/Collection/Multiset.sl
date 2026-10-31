@@ -154,16 +154,22 @@
 		tally
 	}
 
-	sortedCounts { :self :aBlock/2|
-		self.valuesAndCounts.associationsSwapped.sortBy!(aBlock/2)
+	sortedCounts { :self :aBlock/2 |
+		self
+		.valuesAndCounts
+		.associationsSwapped
+		.sortBy!(aBlock/2)
 	}
 
 	sortedCounts { :self |
-		self.sortedCounts(succeedsOrEqualTo/2)
+		self.sortedCounts(succeedsOrEqual/2)
 	}
 
 	sortedElements { :self |
-		self.valuesAndCounts.associations.sortByOn!(precedesOrEqualTo/2, key/1)
+		self
+		.valuesAndCounts
+		.associations
+		.sortByOn!(precedesOrEqual/2, key/1)
 	}
 
 	sum { :self |
@@ -189,7 +195,7 @@
 	}
 
 	valueSort { :self |
-		self.associations.sortByOn!(precedesOrEqualTo/2, value/1)
+		self.associations.sortByOn!(precedesOrEqual/2, value/1)
 	}
 
 }
@@ -228,6 +234,10 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 		newMultiset().initializeSlots(self)
 	}
 
+	Multiset { :self :operand |
+		self.error('Multiset/2: not defined at @Dictionary')
+	}
+
 }
 
 +List {
@@ -264,7 +274,7 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 
 	[Multiset, collectionToMultiset] { :self :comparator/2 |
 		self.isDictionary.ifTrue {
-			self.error('collectionToMultiset: dictionary')
+			self.error('collectionToMultiset: not defined at @Dictionary')
 		};
 		let answer = comparatorToEmptyMultiset(comparator/2);
 		answer.addAll!(self);
@@ -281,16 +291,24 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 
 +List {
 
-	commonest { :self |
-		let byCount = Multiset(self, =).sortedCounts;
+	commonest { :self :comparator/2 |
+		let byCount = Multiset(self, comparator/2).sortedCounts;
 		let count = byCount.first.key;
 		byCount.select { :each |
 			each.key = count
 		}.collect(value/1)
 	}
 
+	commonest { :self |
+		self.commonest(=)
+	}
+
+	counts { :self :comparator/2 |
+		Multiset(self, comparator/2).sortedElements
+	}
+
 	counts { :self |
-		Multiset(self, =).sortedElements
+		self.counts(=)
 	}
 
 	multisetIntersection { :self :comparator/2 |

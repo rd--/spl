@@ -1,14 +1,17 @@
 # commonest
 
-- _commonest([x₁ x₂ …])_
+- _commonest([x₁ x₂ …], =)_
 
-Answer a `List` of the elements that are the most common in the collection _x_.
+Answer a `List` of the elements that are the most common in the collection _x_,
+according to _=_.
 
 ```
->>> ['b' 'a' 'c' 2 'a' 'b' 1 2].commonest
+>>> ['b' 'a' 'c' 2 'a' 'b' 1 2]
+>>> .commonest(==)
 [2 'a' 'b']
 
->>> [1 2 2 3 3 3 4].commonest
+>>> [1 2 2 3 3 3 4]
+>>> .commonest(==)
 [3]
 ```
 
@@ -21,7 +24,7 @@ Find the _mode_ for the heights of the children in a class:
 >>> 	133 145 147 150 150
 >>> 	146 137 143 132 142
 >>> 	145 136 144 135 141
->>> ].commonest
+>>> ].commonest(==)
 [136]
 ```
 

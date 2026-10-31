@@ -3,9 +3,11 @@
 - _sortedElements(x, =)_
 
 Answers a `List` of `Association`s between elements and counts,
-sorted by increasing element.
+sorted by increasing element,
+according to _=_.
 
-At `Multiset`:
+At `Multiset`,
+the comparison function is given by the container:
 
 ```
 >>> Multiset([1 3 5 1 3 1], ==)
@@ -25,7 +27,8 @@ At `Multiset`:
 At `List`:
 
 ```
->>> [1 3 5 1 3 1].sortedElements(==)
+>>> [1 3 5 1 3 1]
+>>> .sortedElements(==)
 [1 -> 3, 3 -> 2, 5 -> 1]
 ```
 

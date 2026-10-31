@@ -333,7 +333,7 @@ BitSet([1, 3, 9], 10).with { :b | b.clearBitAt(3); b.List = [1, 9] } /* clearBit
 16.bitShiftRight(3) = 2 /* right shift (lower) */
 2.bitShift(3) = 16 /* left shift (higher) */
 16.bitShift(-3) = 2 /* right shift (lower) */
-1:4.select { :bit | 6.bitTest(bit) } = [2, 3] /* bit at position (0|1) [!Squeak] */
+1:4.select { :bit | 6.bitTest(bit) } = [2, 3] /* bit at position (0 | 1) [!Squeak] */
 2 << 3 = 16 /* left shift operator */
 16 >> 3 = 2 /* right shift operator */
 { 1.bitAnd(nil) }.hasError /* operand not adaptable to number */
@@ -1453,10 +1453,10 @@ let h = Heap(); h.add!(5); [h.removeFirst!, h.size] = [5, 0] /* add & remove */
 let h = Heap(); h.addAll!([1 .. 9].shuffle!); h.first = 1 /* add random permutation, first is always 1 */
 let h = Heap(); h.addAll!([1 .. 9].shuffle!); 8.timesRepeat { h.removeFirst! }; h.first = 9
 let h = Heap(); h.addAll!([1 .. 9].shuffle!); 8.timesRepeat { h.removeAt!(2) }; h.first = 1
-let h = [1, 3, 5].Heap; let a = []; h.do { :each | a.add!(each) }; a = [1, 3, 5]
-let h = Heap(>); h.addAll!([1 3 5]); h.first = 5
-let h = Heap { :p :q | p > q }; h.addAll!([1, 3, 5]); [h.removeFirst!, h.first] = [5, 3]
-let h = 1:4.Heap; let c = h.copy; c.add!(5); h != c & { c = [1 .. 5].Heap }
+let h = Heap[1 3 5]; let a = []; h.do { :each | a.add!(each) }; a = [1, 3, 5]
+let h = Heap([1 3 5], >); h.first = 5
+let h = Heap([1, 3, 5], { :p :q | p > q }); (h.removeFirst!, h.first) = (5, 3)
+let h = Heap(1:4); let c = h.copy; c.add!(5); h != c & { c = Heap[1 .. 5] }
 ```
 
 ## Identity -- literals
@@ -1574,7 +1574,7 @@ system.cache['primesList'][23] = 83 /* prime extends the primesList cache as req
 17.indexOfPrime = 7 & { 18.indexOfPrime = 0 } /* index of prime number in prime number sequence, or zero if not prime */
 1.prime = 2 & { 7.prime = 17 } /* index into the prime number sequence */
 18.nextPrime = 19 & { 19.nextPrime = 23 } /* next integer that is greater than self and is prime number */
-19.leastPrimeGreaterThanOrEqualTo = 19 /* next prime or self if prime */
+19.nearestPrime = 19 /* next prime or self if prime */
 1000.previousPrime = 997 & { 997.previousPrime = 991 } /* previous prime */
 ```
 

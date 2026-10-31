@@ -2445,7 +2445,6 @@ Reference/leakDc.help.sl
 Reference/leastExcludedSequence.help.sl
 Reference/leastPrimeFactor.help.sl
 Reference/leastPrimeFactorList.help.sl
-Reference/leastPrimeGreaterThanOrEqualTo.help.sl
 Reference/leastResidueSystem.help.sl
 Reference/leastSquares.help.sl
 Reference/leaves.help.sl
@@ -3285,7 +3284,7 @@ Reference/powerRange.help.sl
 Reference/powerSetDo.help.sl
 Reference/powerSet.help.sl
 Reference/precedes.help.sl
-Reference/precedesOrEqualTo.help.sl
+Reference/precedesOrEqual.help.sl
 Reference/precision.help.sl
 Reference/predicateAnd.help.sl
 Reference/predicateNot.help.sl

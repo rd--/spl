@@ -52,10 +52,9 @@
 	}
 
 	heapSort { :self :sortBlock/2 |
-		let h = Heap(sortBlock/2);
+		let h = Heap(self, sortBlock/2);
 		let l = [];
 		let k = self.size;
-		h.addAll!(self);
 		k.timesRepeat {
 			l.add!(h.removeFirst!)
 		};
@@ -67,7 +66,7 @@
 	}
 
 	sort { :self |
-		self.List.sort!
+		List(self).sort!
 	}
 
 	sort { :self :sortBlock/2 |
@@ -178,7 +177,7 @@
 		}.reverse
 	}
 
-	ordering { :self :aBlock/2|
+	ordering { :self :aBlock/2 |
 		self.sortWithIndices(aBlock/2).collect(value/1)
 	}
 

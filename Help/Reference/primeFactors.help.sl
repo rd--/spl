@@ -94,6 +94,15 @@ At `LargeInteger`:
 >>> [7L 7 73 127 337 92737 649657]
 >>> .product
 9_223_372_036_854_775_807L
+
+>>> 23L.!.primeFactors
+[
+	 2  2  2  2  2  2  2  2  2  2
+	 2  2  2  2  2  2  2  2  2  3
+	 3  3  3  3  3  3  3  3  5  5
+	 5  5  7  7  7 11 11 13 17 19
+	23
+]
 ```
 
 The inverse of `primeFactors` is `product`:
@@ -343,8 +352,9 @@ Guides: Prime Number Functions
 
 References:
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/qco)
-[2](https://www.jsoftware.com/help/dictionary/dqco.htm),
+[1](https://code.jsoftware.com/wiki/Vocabulary/pco)
+[2](https://code.jsoftware.com/wiki/Vocabulary/qco)
+[3](https://www.jsoftware.com/help/dictionary/dqco.htm),
 _Mathematica_
 [1](https://mathworld.wolfram.com/PrimeFactorization.html)
 [2](https://reference.wolfram.com/language/ref/FactorInteger.html),

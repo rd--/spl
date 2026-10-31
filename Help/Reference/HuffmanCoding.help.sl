@@ -36,13 +36,53 @@ Encode and then decode:
 >>> .huffmanEncode.decode
 [5 2 5 2 4 4 3 5 3 4 1 3 5 5 4]
 ```
+Encode a `String` using `huffmanEncode`:
+
+```
+>>> 'compression is based on redundancy'
+>>> .huffmanEncode
+HuffmanCoding(
+	Map[
+		'd' -> [0 0 0],
+		'm' -> [0 0 1 0 0],
+		'u' -> [0 0 1 0 1],
+		'c' -> [0 0 1 1],
+		'r' -> [0 1 0 0],
+		'i' -> [0 1 0 1],
+		' ' -> [0 1 1],
+		'n' -> [1 0 0],
+		's' -> [1 0 1],
+		'a' -> [1 1 0 0],
+		'y' -> [1 1 0 1 0],
+		'p' -> [1 1 0 1 1 0],
+		'b' -> [1 1 0 1 1 1],
+		'o' -> [1 1 1 0],
+		'e' -> [1 1 1 1]
+	],
+	[
+		0 0 1 1 1 1 1 0 0 0
+		1 0 0 1 1 0 1 1 0 0
+		1 0 0 1 1 1 1 1 0 1
+		1 0 1 0 1 0 1 1 1 1
+		0 1 0 0 0 1 1 0 1 0
+		1 1 0 1 0 1 1 1 1 0
+		1 1 1 1 1 0 0 1 0 1
+		1 1 1 1 0 0 0 0 1 1
+		1 1 1 0 1 0 0 0 1 1
+		0 1 0 0 1 1 1 1 0 0
+		0 0 0 1 0 1 1 0 0 0
+		0 0 1 1 0 0 1 0 0 0
+		0 1 1 1 1 0 1 0
+	]
+)
+```
 
 Encode and then decode a `String`:
 
 ```
->>> 'Compression is based on redundancy'
+>>> 'compression is based on redundancy'
 >>> .huffmanEncode.decodeString
-'Compression is based on redundancy'
+'compression is based on redundancy'
 ```
 
 * * *

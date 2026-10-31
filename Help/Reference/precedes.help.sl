@@ -115,7 +115,7 @@ Where supported `precedes` is displayed as ≺.
 
 * * *
 
-See also: <, <=>, <|, =, >, compare, lexicographicSort, precedesOrEqualTo, succeeds
+See also: <, <=>, <|, =, >, compare, lexicographicSort, precedesOrEqual, succeeds
 
 Guides: Comparison Functions, List Functions
 

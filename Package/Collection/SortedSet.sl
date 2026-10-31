@@ -73,7 +73,7 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Set] 
 
 	SortedSet {
 		newSortedSet().initializeSlots(
-			SortedList([], precedesOrEqualTo/2)
+			SortedList([], precedesOrEqual/2)
 		)
 	}
 

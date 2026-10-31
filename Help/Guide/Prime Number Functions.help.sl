@@ -13,7 +13,6 @@ Iteration:
 Neighbours:
 
 - `interprime`
-- `leastPrimeGreaterThanOrEqualTo`
 - `nearestPrime`
 - `nextPrime`
 - `previousPrime`

@@ -229,6 +229,31 @@ Evaluate symbolically:
 (+ (* x (+ (* x 3) 2)) 1)
 ```
 
+Euler’s prime-generating polynomial,
+generates distinct primes for all _n<40_,
+and then less often:
+
+```
+>>> Polynomial[41 1 1]
+>>> .atAll(0:39)
+>>> .isPrime
+>>> .allTrue
+true
+
+>>> Polynomial[41 1 1]
+>>> .atAll(39:50)
+>>> .groupBy(isPrime/1)
+Map[
+	true -> [
+		1601 1847 1933 2111 2203
+		2297 2393 2591
+	],
+	false -> [
+		1681 1763 2021 2491
+	]
+]
+```
+
 Polynomial of degree two, a parabola:
 
 ~~~spl svg=A

@@ -162,7 +162,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		.characters
 		.Multiset(==)
 		.associations
-		.sort!(succeedsOrEqualTo/2, value/1)
+		.sort!(>=, value/1)
 	}
 
 	characterCounts { :self :n |
@@ -172,7 +172,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		.collect(stringCatenate/1)
 		.Multiset(==)
 		.associations
-		.sort!(succeedsOrEqualTo/2, value/1)
+		.sort!(>=, value/1)
 	}
 
 	characterList { :self |
@@ -630,7 +630,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		.select(isLetter/1)
 		.Multiset(==)
 		.associations
-		.sort!(succeedsOrEqualTo/2, value/1)
+		.sort!(>=, value/1)
 	}
 
 	letterCounts { :self :n |
@@ -641,7 +641,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		.collect(stringCatenate/1)
 		.Multiset(==)
 		.associations
-		.sort!(succeedsOrEqualTo/2, value/1)
+		.sort!(>=, value/1)
 	}
 
 	letterNumber { :self :aString |

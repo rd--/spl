@@ -22,10 +22,10 @@ Note relation to `recycle` for vectors:
 
 
 ```
->>> [1 2 3].cycle(3)
+>>> [1 2 3].cycle(4)
 [1 2 3 1 2 3 1 2 3 1 2 3]
 
->>> [1 2 3].recycle([9])
+>>> [1 2 3].recycle([12])
 [1 2 3 1 2 3 1 2 3 1 2 3]
 ```
 

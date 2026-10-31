@@ -2,7 +2,7 @@
 
 - _SortedSet([x₁ x₂ …])_
 
-`SortedSet` is a `Type` representing a set ordered according to `precedesOrEqualTo`,
+`SortedSet` is a `Type` representing a set ordered according to `precedesOrEqual`,
 where the comparison operator is `=`.
 
 The empty set constructor,

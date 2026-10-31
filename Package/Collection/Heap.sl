@@ -29,7 +29,7 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 
 	compareItems { :self :anItem :anotherItem |
 		let sortBlock/2 = self.sortBlock.ifNil {
-			precedesOrEqualTo/2
+			precedesOrEqual/2
 		};
 		sortBlock(anItem, anotherItem)
 	}
@@ -90,7 +90,7 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 		self == anObject | {
 			anObject.isHeap & {
 				anObject.size = self.size & {
-					anObject.sortBlock = self.sortBlock & {
+					anObject.sortBlock == self.sortBlock & {
 						self.array.sort(self.sortBlock).isEqualBy(
 							anObject.array.sort(self.sortBlock),
 							aBlock/2
@@ -204,31 +204,21 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 +Void {
 
 	Heap {
-		newHeap().initializeSlots([], nil, nil)
+		Heap([])
 	}
 
 }
 
-+Block {
++[List, Range] {
 
-	Heap { :self/2 |
-		newHeap().initializeSlots([], self/2, nil)
+	Heap { :self :aBlock/2 |
+		let answer = newHeap().initializeSlots([], aBlock/2, nil);
+		answer.addAll!(self);
+		answer
 	}
-
-}
-
-+List {
 
 	Heap { :self |
-		newHeap().initializeSlots(self, nil, nil)
-	}
-
-}
-
-+Range {
-
-	Heap { :self |
-		self.List.Heap
+		Heap(self, precedesOrEqual/2)
 	}
 
 }

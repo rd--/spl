@@ -28,6 +28,14 @@ Threads over lists:
 [2 3 7 9]
 ```
 
+Count primes strictly less than:
+
+```
+>>> let a = [17 19 23 24 25];
+>>> a.primePi - a.isPrime.boole
+[6 7 8 9 9]
+```
+
 Rational numbers:
 
 ```
@@ -601,6 +609,8 @@ See also: eulerPhi, logarithmicIntegral, nextPrime, primesList, primesUpTo, siev
 Guides: Prime Number Functions
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/pco),
 _Mathematica_
 [1](http://mathworld.wolfram.com/PrimeCountingFunction.html)
 [2](https://reference.wolfram.com/language/ref/PrimePi.html),

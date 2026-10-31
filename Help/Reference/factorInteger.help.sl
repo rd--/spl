@@ -95,6 +95,12 @@ At `LargeInteger`:
 	65537 1;
 	6700417 1
 ]
+
+>>> 23L.!.factorInteger
+[
+	2 19; 3 9; 5 4; 7 3; 11 2;
+	13 1; 17 1; 19 1; 23 1
+]
 ```
 
 For negative numbers, the item _-1 -> 1_ is included in the list of factors:

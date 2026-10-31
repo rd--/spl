@@ -789,7 +789,8 @@
 - `isAscii`, `isAsciiCodePoint`
 - `lines`, `paragraphs`, `sentences`, `words`
 - `removeDiacritics`
-- `compare`, `precedes`, `precedesOrEqualTo`
+- `compare`
+- `precedes`, `precedesOrEqual`
 
 ## Timing
 

@@ -4,6 +4,16 @@
 
 Answer the greatest prime number less than the integer _n_.
 
+The previous prime of a prime is not itself:
+
+```
+>>> 29.isPrime
+true
+
+>>> 29.previousPrime
+23
+```
+
 Compute the last prime before 50:
 
 ```
@@ -41,6 +51,9 @@ OEIS [A007917](https://oeis.org/A007917):
 	11 13 13 13 13 17 17 19 19 19
 	19
 ]
+
+>>> [17393 17401].previousPrime
+[17389 17393]
 ```
 
 Least nonnegative _m_ such that _n!-m_ is prime,
@@ -123,6 +136,8 @@ See also: isPrime, nextPrime
 Guides: Prime Number Functions
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/pco#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/PreviousPrime.html)
 _OEIS_

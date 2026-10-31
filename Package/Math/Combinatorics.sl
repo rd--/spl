@@ -931,7 +931,7 @@
 		{ i <= n }.whileTrue {
 			let j = i + 1;
 			let k = i;
-			{ j <= n & { self[k].precedesOrEqualTo(self[j]) } }.whileTrue {
+			{ j <= n & { self[k].precedesOrEqual(self[j]) } }.whileTrue {
 				self[k].precedes(self[j]).if {
 					k := i
 				} {

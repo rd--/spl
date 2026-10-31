@@ -2643,7 +2643,6 @@ Reference (a-z):
 - `leastExcludedSequence`
 - `leastPrimeFactor`
 - `leastPrimeFactorList`
-- `leastPrimeGreaterThanOrEqualTo`
 - `leastResidueSystem`
 - `leastSquares`
 - `leaves`
@@ -3408,7 +3407,7 @@ Reference (a-z):
 - `powerSet`
 - `powerSetDo`
 - `precedes`
-- `precedesOrEqualTo`
+- `precedesOrEqual`
 - `precision`
 - `predicateAnd`
 - `predicateNot`

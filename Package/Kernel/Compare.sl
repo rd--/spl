@@ -79,7 +79,7 @@
 		self.compare(anObject) = -1
 	}
 
-	[precedesOrEqualTo, <=|] { :self :anObject |
+	[precedesOrEqual, <=|] { :self :anObject |
 		self.compare(anObject) != 1
 	}
 
@@ -100,7 +100,7 @@
 		self.compare(anObject) = 1
 	}
 
-	[succeedsOrEqualTo, |>=] { :self :anObject |
+	[succeedsOrEqual, |>=] { :self :anObject |
 		self.compare(anObject) != -1
 	}
 

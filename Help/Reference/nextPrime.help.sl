@@ -5,6 +5,16 @@
 Answer the least integer that is greater than _n_ and is prime.
 In the binary case answer the _k_-th next, or previous, prime.
 
+The next prime of a prime is not itself:
+
+```
+>>> 23.isPrime
+true
+
+>>> 23.nextPrime
+29
+```
+
 At `SmallFloat`:
 
 ```
@@ -100,6 +110,9 @@ Threads over lists:
 ```
 >>> [1 5 10 15].nextPrime
 [2 7 11 17]
+
+>>> [17393 17401].nextPrime
+[17401 17417]
 ```
 
 First few terms of the next prime function,

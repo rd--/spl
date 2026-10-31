@@ -363,30 +363,6 @@
 		[lp, pr]
 	}
 
-	leastPrimeGreaterThanOrEqualTo { :self :extendCache |
-		let answer = self;
-		(
-			answer.isEven & {
-				answer != 2
-			}
-		).ifTrue {
-			answer := answer + 1
-		};
-		extendCache.ifTrue {
-			system.cachedPrimesListExtendedToPrime(self)
-		};
-		{
-			answer.isPrimeTrialDivision
-		}.whileFalse {
-			answer := answer + 2
-		};
-		answer
-	}
-
-	leastPrimeGreaterThanOrEqualTo { :self |
-		self.leastPrimeGreaterThanOrEqualTo(false)
-	}
-
 	liouvilleFunction { :self |
 		1.to(self).sum { :i |
 			-1 ^ i.primeOmega

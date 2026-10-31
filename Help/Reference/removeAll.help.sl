@@ -8,14 +8,12 @@ Answers `nil`.
 
 ```
 >>> let c = [1 2 3];
->>> c.removeAll!;
->>> c
-[]
+>>> (c, c.removeAll!)
+([], nil)
 
 >>> let c = (x: 1, y: 2, z: 3);
->>> c.removeAll!;
->>> c
-(:)
+>>> (c, c.removeAll!)
+((:), nil)
 ```
 
 In the binary case remove all items in the collection _c₂_ from the collection _c₁_.
@@ -24,14 +22,23 @@ Answers `nil`.
 
 ```
 >>> let c = [1 2 3];
->>> c.removeAll!([1 2]);
->>> c
-[3]
+>>> (c, c.removeAll!([1 2]))
+([3], nil)
 
 >>> let c = (x: 1, y: 2, z: 3);
->>> c.removeAll!(['x' -> 1, 'y' -> 2]);
->>> c
-(z: 3)
+>>> (c, c.removeAll!(['x' -> 1, 'y' -> 2]))
+((z: 3), nil)
+```
+
+It is an error if an item requested to be removed is not present,
+see instead `removeAllFoundIn`:
+
+```
+
+>>> {
+>>> 	[1 2 3].removeAll!([4])
+>>> }.hasError
+true
 ```
 
 At `Storage` will remove all entries, c.f. `localStorage`

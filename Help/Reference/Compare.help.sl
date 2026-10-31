@@ -37,9 +37,9 @@ The implemented methods are:
 
 - `compareOn`
 - `precedes`, `<|`
-- `precedesOrEqualTo`, `<=|`
+- `precedesOrEqual`, `<=|`
 - `succeeds`, `|>`
-- `succeedsOrEqualTo`, `|>=`
+- `succeedsOrEqual`, `|>=`
 
 The `compare` method is derived from `less`, if `less` is defined.
 
