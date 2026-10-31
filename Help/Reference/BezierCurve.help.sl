@@ -144,7 +144,7 @@ let p = [0 0; 0 2; 2 0; 0 0];
 [
 	p.BezierCurve(3),
 	p.Line,
-	p.PointSet
+	p.PointCloud
 ].LineDrawing
 ~~~
 

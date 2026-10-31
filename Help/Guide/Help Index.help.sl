@@ -8,6 +8,7 @@ Guides (A-Z):
 - `Apl Perspective`
 - `Apply Syntax`
 - `Arithmetic Functions`
+- `Arity Model`
 - `Arity Notation`
 - `Arity Syntax`
 - `Array Functions`
@@ -44,7 +45,6 @@ Guides (A-Z):
 - `Comparison Functions`
 - `Complex Number Functions`
 - `Complex Number Syntax`
-- `Complicated Method Arity`
 - `Control Blocks`
 - `Control Functions`
 - `Coordinate System Functions`
@@ -66,6 +66,9 @@ Guides (A-Z):
 - `Enumeration Functions`
 - `Error Functions`
 - `Error Handling`
+- `Experimantal Property Read Syntax`
+- `Experimantal Property Syntax`
+- `Experimantal Property Write Syntax`
 - `Experimental Assignment Operator Syntax`
 - `Experimental AtAllPath Syntax`
 - `Experimental AtIfAbsent Syntax`
@@ -130,6 +133,7 @@ Guides (A-Z):
 - `Integer Types`
 - `Interpolation Functions`
 - `Interval Functions`
+- `Irregular Arrays`
 - `Iteration Functions`
 - `J Perspective`
 - `Julia Perspective`
@@ -201,9 +205,6 @@ Guides (A-Z):
 - `Probability Distributions`
 - `Program Files`
 - `Program Syntax`
-- `Property Read Syntax`
-- `Property Syntax`
-- `Property Write Syntax`
 - `Protocol Functions`
 - `Put Syntax`
 - `Quantity Functions`
@@ -222,7 +223,6 @@ Guides (A-Z):
 - `Record Syntax`
 - `Reference Help Files`
 - `Reflection Functions`
-- `Irregular Arrays`
 - `Regular Expression Functions`
 - `Rounding Functions`
 - `Scalars and Lists`
