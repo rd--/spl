@@ -10,17 +10,19 @@ At `List`:
 >>> [4 4 4 4 3 3 3 2 2 1]
 >>> .huffmanEncode(==)
 >>> .symbolTable
+>>> .collect(size/1)
 Map[
-	4 -> [0],
-	1 -> [1 0 0],
-	2 -> [1 0 1],
-	3 -> [1 1]
+	4 -> 1,
+	3 -> 2,
+	1 -> 3,
+	2 -> 3
 ]
 
 >>> [4 4 4 4 3 3 3 2 2 1]
 >>> .huffmanEncode(==)
 >>> .encoding
-[0 0 0 0 1 1 1 1 1 1 1 0 1 1 0 1 1 0 0]
+>>> .size
+19
 ```
 
 At `String`,
@@ -30,17 +32,13 @@ the comparison function is set to `==`:
 >>> 'wwwwxxxyyz'
 >>> .huffmanEncode
 >>> .symbolTable
+>>> .collect(size/1)
 Map[
-	'w' -> [0],
-	'z' -> [1 0 0],
-	'y' -> [1 0 1],
-	'x' -> [1 1]
+	'w' -> 1,
+	'x' -> 2,
+	'z' -> 3,
+	'y' -> 3
 ]
-
->>> 'wwwwxxxyyz'
->>> .huffmanEncode
->>> .encoding
-[0 0 0 0 1 1 1 1 1 1 1 0 1 1 0 1 1 0 0]
 
 >>> 'wwwwxxxyyz'
 >>> .huffmanEncode

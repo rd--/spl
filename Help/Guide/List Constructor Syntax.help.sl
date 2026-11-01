@@ -80,16 +80,20 @@ Set([1, 3 .. 9])
 ```
 
 `Multiset` constructors,
-special cased for association lists:
+not special cased for association lists:
 
 ```
 >>> Multiset[1 1 1 2 2 3]
 >>> .sortedElements
 [1 -> 3, 2 -> 2, 3 -> 1]
 
->>> Multiset[1 -> 3, 2 -> 2, 3 -> 1]
+>>> Multiset(Map[1 -> 3, 2 -> 2, 3 -> 1])
 >>> .sortedElements
 [1 -> 3, 2 -> 2, 3 -> 1]
+
+>>> Multiset[1 -> 3, 2 -> 2, 3 -> 1]
+>>> .sortedElements
+[(1 -> 3) -> 1, (2 -> 2) -> 1, (3 -> 1) -> 1]
 ```
 
 `ByteArray` constructor:

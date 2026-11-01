@@ -1,20 +1,15 @@
 # Multiset
 
-- _Multiset([x₁ x₂ …], =)_
-- _Multiset([c₁→i₁, c₂→i₂, …])_
+- _Multiset([x₁ x₂ …], f/2)_
+- _Multiset({c₁→i₁, c₂→i₂, …})_
 
-A `Type` and associated `Trait` holding an unordered collection of possibly duplicated elements,
+`Multiset` is a `Type` holding an unordered collection of possibly duplicated elements,
 also called a _bag_.
+The equality predicate _f_ determines the type of the underlying dictionary structure,
+and must be either `=` or `==`.
+If _f_ is elided it is taken to be `=`.
 
-At a `List` of associations:
-
-```
->>> Multiset[1 -> 3, 2 -> 2, 3 -> 1]
->>> .sortedElements
-[1 -> 3, 2 -> 2, 3 -> 1]
-```
-
-At a `List`:
+At `List`:
 
 ```
 >>> Multiset([1 1 1 2 2 3], ==)
@@ -24,27 +19,31 @@ At a `List`:
 >>> Multiset([1 1 1 3 3 5], ==)
 >>> .sortedCounts
 [3 -> 1, 2 -> 3, 1 -> 5]
+
+>>> Multiset[1 1 1 3 3 5]
+>>> .sortedElements
+[1 -> 3, 3 -> 2, 5 -> 1]
 ```
 
 At `Map`:
 
 ```
 >>> Multiset(
->>> 	Map[1 -> 3, 2 -> 1, 3 -> 5]
->>> ).sortedCounts
-[5 -> 3, 3 -> 1, 1 -> 2]
+>>> 	Map['x' -> 3, 'y' -> 2, 'z' -> 1]
+>>> ).sortedElements
+['x' -> 3, 'y' -> 2, 'z' -> 1]
 ```
 
-At a `Dictionary`:
+At `Dictionary`:
 
 ```
 >>> Multiset(
->>> 	Dictionary[1 -> 3, 2 -> 2, 3 -> 1]
+>>> 	Dictionary['x' -> 3, 'y' -> 2, 'z' -> 1]
 >>> ).sortedElements
-[1 -> 3, 2 -> 2, 3 -> 1]
+['x' -> 3, 'y' -> 2, 'z' -> 1]
 ```
 
-The type `Multiset` collates elements according the provided comparator:
+`Multiset` collates elements according the provided comparator:
 
 ```
 >>> let a = [1 1 1 3 3 5];
@@ -54,12 +53,13 @@ The type `Multiset` collates elements according the provided comparator:
 >>> 	a.size,
 >>> 	b.size,
 >>> 	c.size,
->>> 	b.List
+>>> 	List(b)
 >>> )
 (6, 6, 3, a)
 ```
 
-To get the elements as a `List` of `Association`s use `sortedCounts` or `sortedElements`.
+To get the elements as a `List` of `Association` values,
+use `sortedCounts` or `sortedElements`:
 
 ```
 >>> let a = Multiset([1 1 1 3 3 5], ==);
@@ -73,7 +73,8 @@ To get the elements as a `List` of `Association`s use `sortedCounts` or `sortedE
 )
 ```
 
-To get the elements as a `Map` or `Dictionary` use `valuesAndCounts`:
+To get the elements as a `Map` or `Dictionary`,
+use `valuesAndCounts`:
 
 ```
 >>> Multiset([1 1 1 3 3 5], ==)
@@ -85,7 +86,8 @@ Map[1 -> 3, 3 -> 2, 5 -> 1]
 Dictionary[1 -> 3, 3 -> 2, 5 -> 1]
 ```
 
-To get the elements as a two column matrix use `elementsAndCounts`:
+To get the elements as a two column matrix,
+use `elementsAndCounts`:
 
 ```
 >>> Multiset([1 1 1 3 3 5], ==)
@@ -93,7 +95,9 @@ To get the elements as a two column matrix use `elementsAndCounts`:
 [1 3; 3 2; 5 1]
 ```
 
-To count the occurences of an item, also called the _multiplicity_, use `occurrencesOf`:
+To count the occurences of an item,
+also called the _multiplicity_,
+use `occurrencesOf`:
 
 ```
 >>> Multiset([1 1 1 3 3 5], ==)
@@ -101,7 +105,9 @@ To count the occurences of an item, also called the _multiplicity_, use `occurre
 2
 ```
 
-The `size`, also called the _cardinality_, of a `Multiset` is the `sum` of the counts:
+The `size`,
+also called the _cardinality_,
+of a `Multiset` is the `sum` of the counts:
 
 ```
 >>> Multiset([1 1 1 3 3 5], ==)
@@ -180,8 +186,8 @@ Count occurrences of characters in a string:
 >>> .sortedCounts
 [
 	3 -> 'c',
-	2 -> 'e', 2 -> 'r',
-	1 -> 's', 1 -> 'n', 1 -> 'u', 1 -> 'o'
+	2 -> 'r', 2 -> 'e',
+	1 -> 'o', 1 -> 'u', 1 -> 'n', 1 -> 's'
 ]
 ```
 

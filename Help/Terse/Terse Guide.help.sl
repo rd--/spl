@@ -1539,7 +1539,7 @@ system.cache['primesList'][23] = 83 /* prime extends the primesList cache as req
 2:15.select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
 2:999.allSatisfy { :each | each = each.primeFactors.product } = true /* equality with product of factors */
 10071203840.primeFactors.sortedElements(==) = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1] /* prime factor histogram */
-6606028800.primeFactors.sortedCounts(==) = [22 -> 2, 2 -> 5, 2 -> 3, 1 -> 7]
+6606028800.primeFactors.sortedCounts(==) = [22 -> 2, 2 -> 3, 2 -> 5, 1 -> 7]
 8589298611.primeFactors = [3, 2863099537] /* large prime factors */
 120.factorInteger = [2 3; 3 1; 5 1]
 60.factorInteger = [2 2; 3 1; 5 1]
@@ -3639,11 +3639,6 @@ let d = (w: (x: (y: (z: 1)))); d['w']['x']['y']['z'] := -1; d = (w: (x: (y: (z: 
 ```
 'text'[3] = 'x' /* [At Syntax] */
 let x = [1 .. 5]; x[3] := '3'; x[3] = '3' /* [Put Syntax] */
-(x: 1.pi) :: x = 1.pi /* [Quoted At Syntax] */
-let d = (x: 1); d::x = 1 /* [Quoted At Syntax] */
-let d = (x: 1, y: 2); d::x < d::y /* [Quoted At Syntax] */
-let d = (w: (x: (y: (z: 1)))); d::w::x::y::z = 1 /* [Quoted At Syntax] */
-let d = (w: (x: (y: (z: 1)))); d::w::x::y::z := -1; d = (w: (x: (y: (z: -1)))) /* [Quoted Put Syntax] */
 ```
 
 ## Syntax -- dictionary assignment syntax
@@ -3796,7 +3791,7 @@ system.nextRandomFloat < 1 /* system random number generator */
 system.uniqueIdentifier.isInteger /* system unique identifier generator, answers are integers */
 system.uniqueIdentifier != system.uniqueIdentifier /* system unique identifier generator */
 system.highBitPerByteTable.size = 256 /* high bits per byte table */
-system.highBitPerByteTable.Multiset(==).sortedCounts = [128 -> 8, 64 -> 7, 32 -> 6, 16 -> 5, 8 -> 4, 4 -> 3, 2 -> 2, 1 -> 1, 1 -> 0]
+system.highBitPerByteTable.Multiset(==).sortedCounts = [128 -> 8, 64 -> 7, 32 -> 6, 16 -> 5, 8 -> 4, 4 -> 3, 2 -> 2, 1 -> 0, 1 -> 1]
 system.lowBitPerByteTable.size = 255 /* low bits per byte table */
 system.lowBitPerByteTable.Multiset(==).sortedCounts = [128 -> 1, 64 -> 2, 32 -> 3, 16 -> 4, 8 -> 5, 4 -> 6, 2 -> 7, 1 -> 8]
 ```
@@ -3878,7 +3873,7 @@ system.allMethods.collect { :each | each.signature }.includes('@Do>>do/2') = tru
 '@Do>>do/2'.parseMethodSignature = ['@Do', 'do/2']
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
 let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorTokenOrQualifiedName = '+'
-system.methodImplementations('sum').collect { :each | each.origin.name }.includes('@Multiset') = true
+system.methodImplementations('sum').collect { :each | each.origin.name }.includes('@Collection') = true
 system.methodSignatures('addInPlace').includes('@Dictionary>>addInPlace/2') = true
 '@Do>>sum/1'.parseMethodSignature = ['@Do', 'sum/1']
 system.methodLookupAtSignature('@Do>>sum/1').isMethod = true
@@ -3922,7 +3917,7 @@ system.traitDictionary.isDictionary = true
 system.traitDictionary.includesIndex('@Collection') = true
 system.traitTypes('@Collection').includes('List') = true
 system.methodTraits('atRandom/1').includesAll(['@Collection', '@Sequence']) = true
-system.methodTraits('sum/1') = ['@ArithmeticProgression', '@Do', '@Collection', '@Multiset']
+system.methodTraits('sum/1') = ['@ArithmeticProgression', '@Do', '@Collection']
 system.traitTypes('@Object').includes('SmallFloat') = true
 system.traitLookup('@Object').methodDictionary.includesIndex('respondsTo/2') = true
 system.traitLookup('@Collection').isTrait = true

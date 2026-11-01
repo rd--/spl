@@ -10,7 +10,7 @@ At `List`, sort into descending order:
 
 ```
 >>> let a = [1 7 3 9 5];
->>> a.quickSort!(>=);
+>>> a.quickSort!(>);
 >>> a
 [9, 7 .. 1]
 ```
@@ -18,7 +18,7 @@ At `List`, sort into descending order:
 At `List`, sort into ascending order:
 
 ```
->>> [1 7 3 9 5].quickSort!(<=)
+>>> [1 7 3 9 5].quickSort!(<)
 [1, 3 .. 9]
 ```
 

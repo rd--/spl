@@ -33,7 +33,7 @@
 					[
 						each.at(i),
 						each.atWrap(i + 1)
-					].sortBy!(isLessOrEqual/2)
+					].sortBy!(<)
 				)
 			}
 		};
@@ -83,7 +83,7 @@ PolygonMesh : [Object, Store, Equal, Geometry, PolygonMesh] {
 				}.lexicographicallyLeastRotation.deleteAdjacentDuplicates
 			}.reject { :each |
 				each.size <= 2
-			}.nub.sortBy!(isLessOrEqual/2)
+			}.nub.sortBy!(<)
 		)
 	}
 

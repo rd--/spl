@@ -1,4 +1,6 @@
-@Multiset {
+Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unordered] {
+
+	| valuesAndCounts |
 
 	[IdentitySet, multisetToIdentitySet] { :self |
 		IdentitySet(self.valuesAndCounts.keys)
@@ -37,6 +39,10 @@
 
 	associations { :self |
 		self.valuesAndCounts.associations
+	}
+
+	comparator { :self |
+		self.valuesAndCounts.comparator
 	}
 
 	countsAndElements { :self |
@@ -100,6 +106,14 @@
 		}
 	}
 
+	isEqualityMultiset { :self |
+		self.comparator == =
+	}
+
+	isIdentityMultiset { :self |
+		self.comparator == ==
+	}
+
 	keySort { :self |
 		self.sortedElements
 	}
@@ -116,6 +130,10 @@
 		self.valuesAndCounts.atIfAbsent(anObject) {
 			0
 		}
+	}
+
+	postCopy { :self |
+		self.valuesAndCounts := self.valuesAndCounts.copy
 	}
 
 	postCopy { :self |
@@ -162,14 +180,20 @@
 	}
 
 	sortedCounts { :self |
-		self.sortedCounts(succeedsOrEqual/2)
+		self.sortedCounts(succeeds/2)
 	}
 
 	sortedElements { :self |
 		self
 		.valuesAndCounts
 		.associations
-		.sortByOn!(precedesOrEqual/2, key/1)
+		.sortByOn!(precedes/2, key/1)
+	}
+
+	species { :self |
+		{
+			self.comparator.comparatorToEmptyMultiset
+		}
 	}
 
 	sum { :self |
@@ -195,35 +219,7 @@
 	}
 
 	valueSort { :self |
-		self.associations.sortByOn!(precedesOrEqual/2, value/1)
-	}
-
-}
-
-Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unordered, Multiset] {
-
-	| valuesAndCounts |
-
-	comparator { :self |
-		self.valuesAndCounts.comparator
-	}
-
-	isEqualityMultiset { :self |
-		self.comparator == =
-	}
-
-	isIdentityMultiset { :self |
-		self.comparator == ==
-	}
-
-	postCopy { :self |
-		self.valuesAndCounts := self.valuesAndCounts.copy
-	}
-
-	species { :self |
-		{
-			self.comparator.comparatorToEmptyMultiset
-		}
+		self.associations.sortByOn!(precedes/2, value/1)
 	}
 
 }
@@ -242,15 +238,15 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 
 +List {
 
-	Multiset { :self |
-		self.isAssociationList.if {
-			self.assocationListToDicionary.dictionaryToMultiset
+	assocationListToMultiset { :self |
+		self.assocationListToDicionary.dictionaryToMultiset
+	}
+
+	inferredMultiset { :self |
+		self.allTrue(isImmediate/1).if {
+			Multiset(self, ==)
 		} {
-			self.allTrue(isImmediate/1).if {
-				Multiset(self, ==)
-			} {
-				Multiset(self, =)
-			}
+			Multiset(self, =)
 		}
 	}
 
@@ -283,6 +279,18 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 		let answer = comparatorToEmptyMultiset(comparator/2);
 		answer.addAll!(self);
 		answer
+	}
+
+	Multiset { :self |
+		Multiset(self, =)
+	}
+
+	inferredMultiset { :self |
+		self.allTrue(isImmediate/1).if {
+			Multiset(self, ==)
+		} {
+			Multiset(self, =)
+		}
 	}
 
 	histogramOf { :self :comparator/2 :aBlock/1 |

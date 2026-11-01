@@ -63,10 +63,11 @@ At `Interval`:
 At `Multiset`:
 
 ```
->>> let a = ['x' -> 1, 'y' -> 2, 'z' -> 3];
->>> let b = ['x' -> 2, 'y' -> 1];
+>>> let a = List'xyyzzz';
+>>> let b = List'xxy';
+>>> let c = List'xxxyyyzzz';
 >>> Multiset(a).union(Multiset(b))
-Multiset(['x' -> 3, 'y' -> 3, 'z' -> 3])
+Multiset(c)
 ```
 
 Note that the answer is not sorted,

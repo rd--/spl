@@ -85,12 +85,14 @@ At `Interval`:
 At `Multiset`:
 
 ```
->>> let a = ['x' -> 1, 'y' -> 2, 'z' -> 3];
->>> let b = ['x' -> 2, 'y' -> 1];
->>> Multiset(a).intersection(Multiset(b))
-Multiset(['x' -> 1, 'y' -> 1])
+>>> let a = Map['x' -> 1, 'y' -> 2, 'z' -> 3];
+>>> let b = Map['x' -> 2, 'y' -> 1];
+>>> Multiset['x' 'y' 'y' 'z' 'z' 'z']
+>>> .intersection(Multiset['x' 'x' 'y'])
+Multiset['x' 'y']
 
->>> ['x' 'y' 'z' 'z' 'z'].intersection(['x' 'x' 'y'])
+>>> ['x' 'y' 'z' 'z' 'z']
+>>> .intersection(['x' 'x' 'y'])
 ['x' 'y']
 ```
 

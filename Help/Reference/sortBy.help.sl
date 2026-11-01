@@ -5,13 +5,13 @@
 Sort the sequence _x_ using the boolean comparator block _f_.
 There are both copying and in-place forms.
 Answers _x_.
-Unlike `sort`, the comparison block must be valid, not `nil`.
+The comparison block must be valid, not `nil`.
 
 At `List`, sort into descending order:
 
 ```
 >>> let a = [1 7 3 9 5];
->>> a.sortBy!(>=);
+>>> a.sortBy!(>);
 >>> a
 [9 7 5 3 1]
 ```
@@ -19,7 +19,7 @@ At `List`, sort into descending order:
 At `List`, sort into ascending order:
 
 ```
->>> [1 7 3 9 5].sortBy!(<=)
+>>> [1 7 3 9 5].sortBy!(<)
 [1 3 5 7 9]
 ```
 

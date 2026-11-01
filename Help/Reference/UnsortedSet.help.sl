@@ -7,24 +7,28 @@
 The empty set constructor:
 
 ```
->>> UnsortedSet().size
+>>> UnsortedSet()
+>>> .size
 0
 ```
 
 Construct an `UnsortedSet` from an empty list:
 
 ```
->>> UnsortedSet[].size
+>>> UnsortedSet[]
+>>> .size
 0
 ```
 
 Predicates:
 
 ```
->>> UnsortedSet().isUnsortedSet
+>>> UnsortedSet()
+>>> .isUnsortedSet
 true
 
->>> UnsortedSet().isSet
+>>> UnsortedSet()
+>>> .isSet
 true
 ```
 
@@ -36,7 +40,7 @@ and have the expected mathematical behavior in relation to scalars:
 UnsortedSet[15 10 5]
 ```
 
-Note that `UnsortedSet` may be significantly less efficient that `IdentitySet`,
+Note that `UnsortedSet` may be significantly less efficient than `IdentitySet`,
 however `==` has some subtle behaviours:
 
 ```
@@ -47,7 +51,7 @@ false
 false
 
 >>> UnsortedSet[1 1L]
->>> .unsortedList
+>>> .collection
 [1]
 
 >>> {
@@ -62,7 +66,7 @@ false
 true
 
 >>> UnsortedSet[1J1 1J1]
->>> .unsortedList
+>>> .collection
 [1J1]
 
 >>> {

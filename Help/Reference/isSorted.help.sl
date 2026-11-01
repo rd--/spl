@@ -2,18 +2,23 @@
 
 - _isSorted([x₁ x₂ …], f/2)_
 
-Answers `true` if the sequence _x_ is sorted by `<=`, else `false`.
+Answers `true` if the sequence _x_ is sorted by _f_,
+else `false`.
+If _f_ is elided it is taken to be `precedesOrEqual`.
 
 At `List`:
 
 ```
->>> [1, 3 .. 11].isSorted
+>>> [1, 3 .. 11]
+>>> .isSorted
 true
 
->>> [1 3 2 5 4].isSorted
+>>> [1 3 2 5 4]
+>>> .isSorted
 false
 
->>> [5 12 33 39 78 90 95 107].isSorted
+>>> [5 12 33 39 78 90 95 107]
+>>> .isSorted
 true
 ```
 
@@ -65,7 +70,8 @@ true
 Find tuples that are in order:
 
 ```
->>> [1 2 3].tuples(4).select(isSorted/1)
+>>> [1 2 3].tuples(4)
+>>> .select(isSorted/1)
 [
 	1 1 1 1; 1 1 1 2; 1 1 1 3; 1 1 2 2;
 	1 1 2 3; 1 1 3 3; 1 2 2 2; 1 2 2 3;
@@ -77,8 +83,13 @@ Find tuples that are in order:
 Supply sort block:
 
 ```
->>> [9 7 5 3 1].isSorted(>)
+>>> [9 7 5 3 1]
+>>> .isSorted(>)
 true
+
+>>> [1 2 2 3 4 5 5]
+>>> .isSorted(<)
+false
 ```
 
 Indices of sorted tuples:

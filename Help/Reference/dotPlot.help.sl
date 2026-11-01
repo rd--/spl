@@ -29,17 +29,19 @@ At `Multiset`,
 plot a data set of thirty-three places:
 
 ~~~spl svg=C
-Multiset[
-	1 -> 1,
-	2 -> 2,
-	3 -> 3,
-	5 -> 5,
-	6 -> 5,
-	7 -> 3,
-	8 -> 8,
-	9 -> 2,
-	10 -> 4
-].dotPlot
+Multiset(
+	Map[
+		1 -> 1,
+		2 -> 2,
+		3 -> 3,
+		5 -> 5,
+		6 -> 5,
+		7 -> 3,
+		8 -> 8,
+		9 -> 2,
+		10 -> 4
+	]
+).dotPlot
 ~~~
 
 ![](Help/Image/dotPlot-C.svg)

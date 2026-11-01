@@ -1649,7 +1649,7 @@
 	}
 
 	isUnimodal { :x |
-		x.isUnimodal(isLessOrEqual/2)
+		x.isUnimodal(<=)
 	}
 
 	isVeryClose { :self :anObject |
@@ -1945,7 +1945,7 @@
 	}
 
 	nubCumulatively { :self :comparator/2 |
-		let seen = comparator/2.comparatorToEmptySet;
+		let seen = comparator/2.comparatorToSetOrList;
 		self.collect { :each |
 			each.select { :item |
 				seen.includes(item).if {
@@ -1959,7 +1959,7 @@
 	}
 
 	nubSieve { :self :comparator/2 |
-		let seen = comparator/2.comparatorToEmptySet;
+		let seen = comparator/2.comparatorToSetOrList;
 		self.collect { :each |
 			seen.includes(each).if {
 				false

@@ -8,10 +8,12 @@ The answer is a permutation vector.
 Find the ordering that sorts a list:
 
 ```
->>> List'cab'.ordering
+>>> List'cab'
+>>> .ordering
 [2 3 1]
 
->>> [5 2 1 3 6 4].ordering
+>>> [5 2 1 3 6 4]
+>>> .ordering
 [3 2 4 6 1 5]
 
 >>> [3 -4 1 4 22 17 -2 2 13 -11]
@@ -29,7 +31,8 @@ Find the ordering that sorts a list:
 Apply the ordering:
 
 ```
->>> List'cab'.atAll([2 3 1])
+>>> List'cab'
+>>> .atAll([2 3 1])
 ['a' 'b' 'c']
 
 >>> let a = [5 2 1 3 6 4];
@@ -59,35 +62,43 @@ There is more than one ordering of a list with equal items:
 Find the positions of the 4 smallest elements in a list:
 
 ```
->>> [2 6 1 9 1 2 3].ordering.take(4)
+>>> [2 6 1 9 1 2 3]
+>>> .ordering
+>>> .take(4)
 [3 5 1 6]
 ```
 
 Find the position of the largest element:
 
 ```
->>> [2 6 1 9 1 2 3].ordering.last
+>>> [2 6 1 9 1 2 3]
+>>> .ordering
+>>> .last
 4
 ```
 
 Find positions of elements from the fourth smallest to the largest:
 
 ```
->>> [2 6 1 9 1 2 3].ordering.drop(3)
+>>> [2 6 1 9 1 2 3]
+>>> .ordering
+>>> .drop(3)
 [6 7 2 4]
 ```
 
 Find positions of elements in list sorted by `>`:
 
 ```
->>> [2 6 1 9 1 2 3].ordering(>)
+>>> [2 6 1 9 1 2 3]
+>>> .ordering(>)
 [4 2 7 1 6 3 5]
 ```
 
 Find a permutation that sorts a list:
 
 ```
->>> [2 6 1 9 1 2 3].ordering
+>>> [2 6 1 9 1 2 3]
+>>> .ordering
 [3 5 1 6 7 2 4]
 ```
 

@@ -1,10 +1,10 @@
 # isDuplicateFree
 
-- _isDuplicateFree(c, =, f/1)_
+- _isDuplicateFree(c, f/2, g/1)_
 
-Answer `true` if the collection _c_ has no duplicates according to the block _=_,
+Answer `true` if the collection _c_ has no duplicates according to the equality predicate _f_,
 and `false` otherwise.
-If _f_ is given, consider items of _c_ by _f_.
+If _g_ is given, consider items of _c_ as transformed by _g_.
 
 Determine whether or not a list has duplicated elements:
 
@@ -12,6 +12,14 @@ Determine whether or not a list has duplicated elements:
 >>> [1 7 8 4 3 4 1 9 9 2]
 >>> .isDuplicateFree(==)
 false
+```
+
+Allows heterogenous elements:
+
+```
+>>> [1 '2' 3 '4' 5 '1' 2 '3' 4 '5']
+>>> .isDuplicateFree(=)
+true
 ```
 
 At `Record`:

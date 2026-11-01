@@ -8,20 +8,40 @@ that is if it `isFinite` and `isSortedBy` `<=`.
 A strictly increasing sequence is also monotonically increasing:
 
 ```
->>> [1 2 3 4].isMonotonicallyIncreasing
+>>> [1 2 3 4]
+>>> .isMonotonicallyIncreasing
 true
 
->>> [1 2 3 4].isStrictlyIncreasing
+>>> [1 2 3 4]
+>>> .isSortedBy(<=)
+true
+
+>>> [1 2 3 4]
+>>> .isStrictlyIncreasing
+true
+
+>>> [1 2 3 4]
+>>> .isSortedBy(<)
 true
 ```
 
 A monotonically increasing sequence is not necessarily also strictly increasing:
 
 ```
->>> [1 2 2 3].isMonotonicallyIncreasing
+>>> [1 2 2 3]
+>>> .isMonotonicallyIncreasing
 true
 
->>> [1 2 2 3].isStrictlyIncreasing
+>>> [1 2 2 3]
+>>> .isSortedBy(<=)
+true
+
+>>> [1 2 2 3]
+>>> .isStrictlyIncreasing
+false
+
+>>> [1 2 2 3]
+>>> .isSortedBy(<)
 false
 ```
 
@@ -36,7 +56,8 @@ false
 A non increasing sequence:
 
 ```
->>> [4 3 2 1].isMonotonicallyIncreasing
+>>> [4 3 2 1]
+>>> .isMonotonicallyIncreasing
 false
 ```
 
@@ -62,3 +83,9 @@ OEIS [A112769](https://oeis.org/A112769):
 See also: <=, isFinite, isSortedBy, isStrictlyIncreasing
 
 Guides: Sort Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/MonotonicFunction.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Monotonic_function)

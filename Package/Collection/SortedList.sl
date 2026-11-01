@@ -52,12 +52,18 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 		let low = 1;
 		let high = self.collection.size;
 		let sortBlock/2 = self.sortBlock;
+		let f = { :a :b |
+			a = b | {
+				sortBlock(a, b)
+			}
+		};
 		let index = nil;
 		{
 			index := high + low // 2;
-			sortBlock(low, high)
+			f(low, high)
 		}.whileTrue {
-			sortBlock(self.collection[index], newObject).if {
+			let existingObject = self.collection[index];
+			f(existingObject, newObject).if {
 				low := index + 1
 			} {
 				high := index - 1
@@ -148,7 +154,7 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 	}
 
 	storeString { :self |
-		(self.sortBlock == precedesOrEqual/2).if {
+		(self.sortBlock == precedes/2).if {
 			'SortedList(%)'.format([self.collection])
 		} {
 			'SortedList(%, %)'.format(
@@ -164,19 +170,19 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 
 +Void {
 
-	SortedList {
-		newSortedList().initializeSlots([], precedesOrEqual/2)
+	[SortedList, emptySortedList] {
+		newSortedList().initializeSlots([], precedes/2)
 	}
 
 }
 
 +List {
 
-	SortedList { :self |
-		SortedList(self, precedesOrEqual/2)
+	[SortedList, listToSortedList] { :self |
+		SortedList(self, precedes/2)
 	}
 
-	SortedList { :self :sortBlock/2 |
+	[SortedList, listToSortedList] { :self :sortBlock/2 |
 		newSortedList().initializeSlots(
 			self.copy.sortBy!(sortBlock/2),
 			sortBlock/2
@@ -187,11 +193,11 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 
 +@Collection {
 
-	SortedList { :self :sortBlock/2 |
+	[SortedList, collectionToSortedList] { :self :sortBlock/2 |
 		SortedList(self.items, sortBlock/2)
 	}
 
-	SortedList { :self |
+	[SortedList, collectionToSortedList] { :self |
 		SortedList(self.items)
 	}
 

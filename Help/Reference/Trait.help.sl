@@ -85,7 +85,6 @@ The list of system traits:
 	'@Length'
 	'@Link'
 	'@Mass'
-	'@Multiset'
 	'@New'
 	'@Number'
 	'@Object'

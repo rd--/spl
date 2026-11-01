@@ -8,7 +8,11 @@ Answer `true` if _t_ is a Young tableau, else `false`.
 >>> [1 2 4 6; 3 5; 7]
 >>> .isTableau
 true
+```
 
+Sizes must be only weakly decreasing:
+
+```
 >>> [1 4 6 7; 2 5 9; 3; 8]
 >>> .isTableau
 true

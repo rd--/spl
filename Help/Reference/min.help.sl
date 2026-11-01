@@ -80,7 +80,8 @@ To find the minimum of all elements of a matrix see `deepMin`:
 The binary form answer either x₁ or x₂, whichever has the least magnitude:
 
 ```
->>> [4 3 2 3 1 5 7].reduce(min/2)
+>>> [4 3 2 3 1 5 7]
+>>> .reduce(min/2)
 1
 
 >>> [3 3].iota.reduce(min/2)
@@ -295,6 +296,14 @@ let f = { :x :y |
 ~~~
 
 ![](Help/Image/min-E.svg)
+
+_Subtleties_:
+The current implementation of `min` can answer a different type:
+
+```
+>>> min(1, 2L)
+1L
+```
 
 * * *
 

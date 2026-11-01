@@ -13,10 +13,18 @@ At `Record`
 (2, (x: 1, z: 3))
 ```
 
+At `Map`
+
+```
+>>> let d = Map['x' -> 1, 2 -> 'y'];
+>>> (d.removeKey!('x'), d.at(2))
+(1, 'y')
+```
+
 At `Dictionary`
 
 ```
->>> let d = Dictionary['x' -> 1, 2L -> 'y'];
+>>> let d = Dictionary['x' -> 1, 2 -> 'y'];
 >>> (d.removeKey!('x'), d.at(2))
 (1, 'y')
 ```

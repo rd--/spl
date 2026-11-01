@@ -1,6 +1,7 @@
 # Map
 
 - _Map([k₁ v₁; k₂ v₂; …])_
+- _Map([k₁ -> v₁, k₂ -> v₂, …])_
 
 A `Map` is a `Dictionary` type where the keys are compared using the identical to (`==`) operator.
 See `isImmediate` for deciding if a value is suitable as a key.
@@ -37,6 +38,17 @@ Construct a `Map` from an association list:
 >>> Map[1 -> [2, 3], 3 -> [4, 5, 6]]
 >>> .associations
 [1 -> [2, 3], 3 -> [4, 5, 6]]
+```
+
+If there are duplicate keys,
+earlier entries are ignored:
+
+```
+>>> Map['x' 1; 'y' 2; 'x' 3]
+Map['x' 3; 'y' 2]
+
+>>> Map['x' -> 1, 'y' -> 2, 'x' -> 3]
+Map['x' -> 3, 'y' -> 2]
 ```
 
 `Map` treats negative zero as zero when used as a key:

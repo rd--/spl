@@ -29,7 +29,7 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 
 	compareItems { :self :anItem :anotherItem |
 		let sortBlock/2 = self.sortBlock.ifNil {
-			precedesOrEqual/2
+			precedes/2
 		};
 		sortBlock(anItem, anotherItem)
 	}
@@ -218,7 +218,7 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 	}
 
 	Heap { :self |
-		Heap(self, precedesOrEqual/2)
+		Heap(self, precedes/2)
 	}
 
 }

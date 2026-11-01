@@ -68,6 +68,13 @@ At `Range` there is a closed form:
 3.1
 ```
 
+At heterogenous list:
+
+```
+>>> [1 '2' 3 '4' 5].indexOf('4')
+4
+```
+
 * * *
 
 See also: detect, detectIndex, indexOfIfAbsent, indexOfStartingAtBy, indicesOf, keyAtValue, lastIndexOf

@@ -390,7 +390,7 @@
 
 	isDuplicateFree { :self :comparator/2 :aBlock/1 |
 		withReturn { :return/1 |
-			let items = comparator/2.comparatorToEmptySet;
+			let items = comparator/2.comparatorToSetOrList;
 			self.do { :x |
 				let y = aBlock(x);
 				items.includes(y).ifTrue {

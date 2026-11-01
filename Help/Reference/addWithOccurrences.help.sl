@@ -21,12 +21,12 @@ At `Multiset`:
 >>> let a = Multiset([], =);
 >>> let b = a.addWithOccurrences!(3, 5);
 >>> (a, b)
-(Multiset[3 -> 5], 3)
+(Multiset[3 3 3 3 3], 3)
 ```
 
 * * *
 
-See also: Add, add
+See also: Add, Multiset, add
 
 Guides: List Functions
 

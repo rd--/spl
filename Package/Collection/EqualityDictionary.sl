@@ -44,14 +44,6 @@ Dictionary : [Object, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add,
 		'Dictionary(%)'.format([self.associations])
 	}
 
-	storeStringLiteral { :self |
-		self.storeStringLiteral(
-			'[| |]',
-			'[|', '|]',
-			storeString/1, ' -> ', storeString/1
-		)
-	}
-
 }
 
 +Void {
@@ -64,14 +56,19 @@ Dictionary : [Object, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add,
 
 +List {
 
-	Dictionary { :self |
+	[Dictionary, listToDictionary] { :self |
 		self.isEmpty.if {
 			Dictionary()
 		} {
 			self.isAssociationList.if {
 				self.assocationListToDicionary
 			} {
-				self.listToDictionary
+				let [_, m] = self.dimensions(2);
+				(m = 2).if {
+					self.twoColumnMatrixToDictionary
+				} {
+					self.error('listToDictionary')
+				}
 			}
 		}
 	}
@@ -79,20 +76,14 @@ Dictionary : [Object, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add,
 	assocationListToDicionary { :self |
 		self.collect(
 			keyAndValue/1
-		).listToDictionary
-	}
-
-	listToDictionary { :self |
-		let [_, m] = self.dimensions(2);
-		(m = 2).if {
-			self.twoColumnMatrixToDictionary
-		} {
-			self.error('List>>listToDictionary')
-		}
+		).twoColumnMatrixToDictionary
 	}
 
 	twoColumnMatrixToDictionary { :self |
 		let [keys, values] = self.transpose;
+		keys.isDuplicateFree(=).ifFalse {
+			self.error('twoColumnMatrixToDictionary: duplicate keys')
+		};
 		let answer = Dictionary();
 		answer.keys := keys;
 		answer.values := values;

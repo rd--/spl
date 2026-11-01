@@ -373,11 +373,11 @@
 		}
 	}
 
-	removeAssociationIfAbsent! { :self :oldObject :anExceptionBlock/0 |
-		self.includesAssociation(oldObject).if {
-			self.removeKey!(oldObject.key)
+	removeAssociationIfAbsent! { :self :anAssociation :whenAbsent/0 |
+		self.includesAssociation(anAssociation).if {
+			self.removeKey!(anAssociation.key)
 		} {
-			anExceptionBlock()
+			whenAbsent()
 		}
 	}
 

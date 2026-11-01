@@ -1,7 +1,6 @@
 # isDiagonallyDominantMatrix
 
-- _isDiagonallyDominantMatrix(m)_
-- _isDiagonallyDominantMatrix(m, f₂=≥)_
+- _isDiagonallyDominantMatrix(mm f/2=≥)_
 
 Answer `true` if the matrix _m_ is _weakly_ diagonally dominant,
 else `false`.

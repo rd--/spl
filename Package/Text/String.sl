@@ -128,7 +128,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 			return _self.startsWith(_aString);
 		}
 		>
-		self.error('String>>beginsWith: non string operand')
+		self.error('String>>beginsWith: non string operand', [aString])
 	}
 
 	beginsWithAny { :self :aCollection |
@@ -203,7 +203,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		operand.isString.if {
 			uncheckedCodePointCompare(self, operand)
 		} {
-			self.error('String>>codePointCompare: non string operand')
+			self.error('String>>codePointCompare: non string operand', [operand])
 		}
 	}
 
@@ -224,7 +224,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		operand.isString.if {
 			self.uncheckedLocaleCompare(operand)
 		} {
-			self.error('compare: non string operand')
+			self.error('compare: non string operand', [operand])
 		}
 	}
 
@@ -337,7 +337,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 			return _self.endsWith(_aString);
 		}
 		>
-		self.error('String>>endsWith: non string operand')
+		self.error('String>>endsWith: non string operand', [aString])
 	}
 
 	equalIgnoringExtraWhitespace { :self :operand |
@@ -690,7 +690,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		).if {
 			self.uncheckedLocaleCompare(operand, locale)
 		} {
-			self.error('localeCompare: non string operand or invalid locale')
+			self.error(
+				'localeCompare: non string operand or invalid locale',
+				[operand, locale]
+			)
 		}
 	}
 
@@ -727,7 +730,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		operand.isString.if {
 			uncheckedNaturalCompare(self, operand)
 		} {
-			self.error('String>>naturalCompare: non string operand')
+			self.error('String>>naturalCompare: non string operand', [operand])
 		}
 	}
 
@@ -1285,7 +1288,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		).if {
 			self.uncheckedStringIntercalate(aString)
 		} {
-			self.error('List>>stringIntercalate: non-string arguments')
+			self.error('List>>stringIntercalate: non-string arguments', [aString])
 		}
 	}
 

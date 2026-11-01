@@ -73,7 +73,7 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Set] 
 
 	SortedSet {
 		newSortedSet().initializeSlots(
-			SortedList([], precedesOrEqual/2)
+			SortedList([], precedes/2)
 		)
 	}
 
@@ -112,12 +112,22 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Set] 
 
 +Block {
 
-	comparatorToEmptySet { :comparator/2 |
+	comparatorToSetOrList { :comparator/2 |
+		[
+			{ comparator/2 == = } -> { [] },
+			{ comparator/2 == == } -> { IdentitySet() },
+			{ true } -> {
+				comparator/2.error('comparatorToSetOrList')
+			}
+		].which
+	}
+
+	comparatorToSet { :comparator/2 |
 		[
 			{ comparator/2 == = } -> { SortedSet() },
 			{ comparator/2 == == } -> { IdentitySet() },
 			{ true } -> {
-				comparator/2.error('comparatorToEmptySet')
+				comparator/2.error('comparatorToSet')
 			}
 		].which
 	}

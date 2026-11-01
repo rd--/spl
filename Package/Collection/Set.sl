@@ -69,12 +69,16 @@
 +@Collection {
 
 	[Set, collectionToSet] { :self :comparator/2 |
-		let answer = comparator/2.comparatorToEmptySet;
+		let answer = comparatorToSet(comparator/2);
 		answer.includeAll!(self);
 		answer
 	}
 
-	[Set, collectionToSet] { :self |
+	Set { :self |
+		Set(self, =)
+	}
+
+	inferredSet { :self |
 		self.allTrue(isImmediate/1).if {
 			Set(self, ==)
 		} {

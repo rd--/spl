@@ -62,16 +62,16 @@
 	}
 
 	heapSort { :self |
-		self.heapSort(<=|)
+		self.heapSort(precedes/2)
 	}
 
 	sort { :self |
-		List(self).sort!
+		self.copyList.sort!
 	}
 
 	sort { :self :sortBlock/2 |
-		self.copyList.sortBy!(
-			sortBlock/2.ifNil { precedes/2 }
+		self.copyList.sort!(
+			sortBlock/2
 		)
 	}
 
@@ -113,7 +113,7 @@
 
 	isMonotonicallyIncreasing { :self |
 		self.allTrue(isFinite/1) & {
-			self.isSortedBy(isLessOrEqual/2)
+			self.isSortedBy(<=)
 		}
 	}
 
@@ -126,7 +126,7 @@
 	}
 
 	isSortedBetween { :self :startIndex :endIndex |
-		self.isSortedByBetween(<=|, startIndex, endIndex)
+		self.isSortedByBetween(precedesOrEqual/2, startIndex, endIndex)
 	}
 
 	isSortedByBetween { :self :aBlock/2 :startIndex :endIndex |
@@ -236,26 +236,7 @@
 	}
 
 	sort { :self |
-		self.copy.sort!
-	}
-
-	sort! { :self :sortBlock/2 :keyBlock/1 |
-		keyBlock/1.ifNil {
-			self.sortBy!(
-				sortBlock/2.ifNil { precedes/2 }
-			)
-		} {
-			self.sortByOn!(
-				sortBlock/2.ifNil { precedes/2 },
-				keyBlock/1
-			)
-		}
-	}
-
-	sort! { :self :sortBlock/2 |
-		self.sortBy!(
-			sortBlock/2.ifNil { precedes/2 }
-		)
+		self.copyList.sort!
 	}
 
 	sort! { :self |

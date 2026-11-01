@@ -8,7 +8,7 @@ according to _=_.
 ```
 >>> ['b' 'a' 'c' 2 'a' 'b' 1 2]
 >>> .commonest(==)
-[2 'a' 'b']
+['b' 'a' 2]
 
 >>> [1 2 2 3 3 3 4]
 >>> .commonest(==)

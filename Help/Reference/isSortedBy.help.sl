@@ -38,10 +38,15 @@ Specify `>` as the ordering function:
 true
 ```
 
-Use `>=` to allow repeated elements:
+Use `<=` or `>=` to allow repeated elements:
 
 ```
->>> [4 3 3 2 1 1].isSortedBy(>=)
+>>> [4 3 3 2 1 1]
+>>> .isSortedBy(>=)
+true
+
+>>> [1 2 2 3 4 5 5]
+>>> .isSortedBy(<=)
 true
 ```
 

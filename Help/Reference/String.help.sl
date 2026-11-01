@@ -12,8 +12,8 @@ String literal syntax:
 6
 ```
 
-Strings do not implement the `Collection` trait,
-however they do implement `At` and `Do`.
+Strings do not implement the `Collection` or `Sequence` traits,
+however they do implement `At`, `Do` and `Indices`.
 
 There is a `Character` type,
 however ordinarily characters are represented as single element string values.
@@ -28,6 +28,25 @@ and fetching an indexed location in a string answers a character:
 Strings are not lists of characters.
 
 Strings are immutable, i.e. there is no `put` implementation.
+
+Strings are comparable:
+
+```
+>>> ('x' = 'y', 'x' != 'y')
+(false, true)
+
+>>> ('x' <| 'y', 'x' |> 'y')
+(true, false)
+
+>>> ('xy' <| 'x', 'xy' |> 'x')
+(false, true)
+
+>>> ('1' = 1, 1 = '1')
+(false, false)
+
+>>> ('1' != 1, 1 != '1')
+(true, true)
+```
 
 List of traits implemented by `String`:
 

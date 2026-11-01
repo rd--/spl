@@ -79,19 +79,19 @@
 		<primitive: return _self.length;>
 	}
 
-	sortBy { :self :sortBlock/2 |
+	[sort, sortBy] { :self :sortBlock/2 |
 		self.uncheckedSortComparing(
 			sortBlockToTypeCheckedCompareBlock(sortBlock/2)
 		)
 	}
 
-	sortBy! { :self :sortBlock/2 |
+	[sort!, sortBy!] { :self :sortBlock/2 |
 		self.uncheckedSortComparing!(
 			sortBlockToTypeCheckedCompareBlock(sortBlock/2)
 		)
 	}
 
-	sortByOn! { :self :sortBlock/2 :keyBlock/1 |
+	[sort!, sortByOn!] { :self :sortBlock/2 :keyBlock/1 |
 		<primitive:
 		return _self.sort(function(p, q) {
 			return _sortBlock_2(_keyBlock_1(p), _keyBlock_1(q)) ? -1 : 1

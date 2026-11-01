@@ -1,18 +1,53 @@
 # Dictionary
 
+- _Dictionary([k₁ v₁; k₂ v₂; …])_
 - _Dictionary([k₁ -> v₁, k₂ -> v₂, …])_
 
 `Dictionary` is a collection trait holding behaviours common to collections of associations,
 and also a type representing a dictionary where keys are compared according to `=`,
 the equality operator.
 
-At `List` of `Association` values:
+At `List`,
+a two column matrix:
 
 ```
->>> let l = [1 -> -1, 2 -> -2, 3 -> -3];
->>> let d = Dictionary(l);
->>> (l.size, d.size, d.keys, d.values)
-(3, 3, [1 2 3], [-1 -2 -3])
+>>> let d = Dictionary[
+>>> 	'x' 1; 'y' 2; 'z' 3
+>>> ];
+>>> (d.size, d.keys, d.values)
+(3, ['x' 'y' 'z'], [1 2 3])
+```
+
+At `List`,
+of `Association` values:
+
+```
+>>> let d = Dictionary[
+>>> 	1 -> -1, 2 -> -2, 3 -> -3
+>>> ];
+>>> (d.size, d.keys, d.values)
+(3, [1 2 3], [-1 -2 -3])
+```
+
+It is an error if there are duplicate keys:
+
+```
+>>> {
+>>> 	Dictionary['x' -> 1, 'x' -> 2]
+>>> }.hasError
+true
+```
+
+Heterogenous keys and values:
+
+```
+>>> Dictionary['x' 1; 2 'y']
+>>> .keys
+['x' 2]
+
+>>> Dictionary['x' -> 1, 2 -> 'y']
+>>> .values
+[1 'y']
 ```
 
 `Dictionary` is a `Trait`:

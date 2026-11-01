@@ -23,9 +23,9 @@ Set([1 2 3 4], ==)
 At `Multiset`:
 
 ```
->>> Multiset['x' -> 2, 'y' -> 1]
+>>> Multiset['x' 'x' 'y']
 >>> .copyWith('y')
-Multiset['x' -> 2, 'y' -> 2]
+Multiset['x' 'x' 'y' 'y']
 ```
 
 * * *

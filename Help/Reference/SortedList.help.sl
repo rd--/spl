@@ -3,18 +3,20 @@
 - _SortedList([x₁ x₂ …], f/2)_
 
 A `Type` holding a `List` where insertions (using `add` and `addAll`) maintain the list ordering,
-which is specified by a sort block that is ordinarily `precedesOrEqual`.
+which is specified by a sort block that is ordinarily `precedes`.
+The `collection` method answers the underlying sorted list without copying.
 
 ```
 >>> let l = SortedList([]);
 >>> l.add!(3);
 >>> l.add!(2);
 >>> l.add!(1);
->>> l
-SortedList([1 2 3])
+>>> l.sortedListToList
+[1 2 3]
 ```
 
-`addAll` adds each item in turn, `collection` answers the sorted `List` value:
+`addAll` adds each item in turn,
+`collection` answers the underlying sorted list without copying:
 
 ```
 >>> let l = SortedList([5 1 6 4]);
@@ -27,18 +29,17 @@ SortedList([1 2 3])
 Remove item:
 
 ```
->>> let l = SortedList([1 2 3 4 5]);
->>> let o = l.remove!(5);
->>> (o, l)
-(5, SortedList([1 2 3 4]))
+>>> let a = SortedList([1 2 3 4 5]);
+>>> (a.collection, a.remove!(5))
+([1 2 3 4], 5)
 ```
 
 Count occurrences of an item:
 
 ```
->>> SortedList(
->>> 	[1 2 2 3 3 3 4 4 4 4]
->>> ).occurrencesOf(3)
+>>> SortedList[
+>>> 	1 2 2 3 3 3 4 4 4 4
+>>> ].occurrencesOf(3)
 3
 ```
 
@@ -56,16 +57,18 @@ Add `String` items to a `SortedList` and ask for the `middle` and `median` eleme
 Implements `++`:
 
 ```
->>> SortedList([1 3 5]) ++ SortedList([2 4 6])
-SortedList([1, 2, 3, 4, 5, 6])
+>>> SortedList([1 3 5])
+>>> ++ SortedList([2 4 6])
+SortedList([1 2 3 4 5 6])
 ```
 
-`Complex` does not implement `less` but does implement `compare`:
+`Complex` does not implement `less` but does implement `compare`,
+and hence `precedes`:
 
 ```
 >>> SortedList(
 >>> 	[2J2 1J1 0J0 -1J-1]
->>> ).List
+>>> ).collection
 [-1J-1 0J0 1J1 2J2]
 ```
 
@@ -92,7 +95,8 @@ At `List`,
 Specifiy the sort block, here to maintain a list in reverse order:
 
 ```
->>> SortedList([1 9 3 7 5], >).List
+>>> SortedList([1 9 3 7 5], >)
+>>> .collection
 [9 7 5 3 1]
 ```
 
@@ -118,7 +122,7 @@ Mutating the `collection` breaks the sorted list:
 >>> let b = a.collection;
 >>> b[2] := -5;
 >>> a.add!(2);
->>> a.List.isSorted
+>>> List(a).isSorted
 false
 ```
 

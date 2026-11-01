@@ -1,17 +1,17 @@
 UnsortedSet : [Object, New, Store, Equal, Do, Collection, Add, Remove, Unordered, Set] {
 
-	| unsortedList comparator |
+	| collection comparator |
 
 	[List, unsortedSetToList] { :self |
-		self.unsortedList.copy
+		self.collection.copy
 	}
 
 	do { :self :aBlock/1 |
-		self.unsortedList.do(aBlock/1)
+		self.collection.do(aBlock/1)
 	}
 
 	include! { :self :anObject |
-		self.unsortedList
+		self.collection
 		.addIfNotPresentBy!(
 			anObject,
 			self.comparator
@@ -19,26 +19,26 @@ UnsortedSet : [Object, New, Store, Equal, Do, Collection, Add, Remove, Unordered
 	}
 
 	includes { :self :anObject |
-		self.unsortedList.includesBy(anObject, self.comparator)
+		self.collection.includesBy(anObject, self.comparator)
 	}
 
 	removeAll! { :self |
-		self.unsortedList.removeAll!
+		self.collection.removeAll!
 	}
 
 	removeIfAbsent! { :self :anObject :aBlock/0 |
 		let f/2 = self.comparator;
-		self.unsortedList.detectIndexIfFoundIfNone { :item |
+		self.collection.detectIndexIfFoundIfNone { :item |
 			f(item, anObject)
 		} { :index |
-			self.unsortedList.removeAt!(index)
+			self.collection.removeAt!(index)
 		} {
 			aBlock()
 		}
 	}
 
 	size { :self |
-		self.unsortedList.size
+		self.collection.size
 	}
 
 	species { :self |
@@ -64,7 +64,7 @@ UnsortedSet : [Object, New, Store, Equal, Do, Collection, Add, Remove, Unordered
 +Void {
 
 	UnsortedSet {
-		newUnsortedSet().initializeSlots([], isEqual/2)
+		newUnsortedSet().initializeSlots([], =)
 	}
 
 }
@@ -72,11 +72,11 @@ UnsortedSet : [Object, New, Store, Equal, Do, Collection, Add, Remove, Unordered
 +List {
 
 	union { :self |
-		self.unionBy(isEqual/2)
+		self.unionBy(=)
 	}
 
 	union { :self :aCollection |
-		[self, aCollection].unionBy(isEqual/2)
+		[self, aCollection].unionBy(=)
 	}
 
 	unionBy { :self :aBlock/2 |

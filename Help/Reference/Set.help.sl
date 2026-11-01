@@ -1,14 +1,15 @@
 # Set
 
-- _Set([x₁ x₂ …], =)_
+- _Set([x₁ x₂ …], f/2)_
 
 `Set` is both a collection trait,
 holding behaviours for collection types that do not contain duplicate items,
 and constructor for set types.
 At a collection,
 answers a set of the elements of the collection _c_,
-if _f_ is `=` answer an `OrderedSet`,
+if _f_ is `=` answer an `SortedSet`,
 if _f_ is `==` answer an `IdentitySet`.
+If _f_ is elided it is taken to be `=`.
 
 At `List`:
 

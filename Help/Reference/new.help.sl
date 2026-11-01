@@ -111,7 +111,7 @@ Multiset([], =)
 Multiset([], =)
 
 >>> Multiset([], =).newOfSize(3)
-Multiset[nil -> 3]
+Multiset[nil nil nil]
 ```
 
 At `LinkedList`:

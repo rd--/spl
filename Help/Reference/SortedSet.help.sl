@@ -2,7 +2,7 @@
 
 - _SortedSet([x₁ x₂ …])_
 
-`SortedSet` is a `Type` representing a set ordered according to `precedesOrEqual`,
+`SortedSet` is a `Type` representing a set ordered according to `precedes`,
 where the comparison operator is `=`.
 
 The empty set constructor,
@@ -90,6 +90,19 @@ A sorted set of strings:
 ['a' 'kind' 'list' 'of' 'words']
 ```
 
+`SortedSet` requires than items be comparable:
+
+```
+>>> SortedSet[1 2L 3 4L 5]
+>>> .minMax
+[1 5]
+
+>>> {
+>>> 	SortedSet['1' 2 '3' 4 '5']
+>>> }.hasError
+true
+```
+
 Traits implemented by `SortedSet`:
 
 ```
@@ -112,6 +125,6 @@ Traits implemented by `SortedSet`:
 
 * * *
 
-See also: IdentitySet, Set, SortedList
+See also: IdentitySet, Set, SortedList, UnsortedSet
 
 Guides: Set Functions, Set Syntax

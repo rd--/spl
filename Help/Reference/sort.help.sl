@@ -10,7 +10,8 @@ using the boolean sort block _f/2_,
 and answers _x_.
 The copying form first shallow copies the input and then sorts it in-place,
 answering the new sorted sequence.
-If the sort block is omitted or is `nil`, sort by `precedes`.
+If the sort block is omitted,
+sort by `precedes`.
 
 The sort block _f_ should take two arguments,
 and answer `true` if the first element should preceed the second one.
@@ -102,7 +103,7 @@ Sort integers by magnitude:
 Sort by absolute value:
 
 ```
->>> [-11 10 2 1 -4].sort!(<=, abs/1)
+>>> [-11 10 2 1 -4].sort!(<, abs/1)
 [1 2 -4 10 -11]
 ```
 
@@ -117,8 +118,8 @@ Use the ternary form to sort a list of strings by length:
 
 ```
 >>> ['aa' 'abb' 'ba' 'b' 'aaa']
->>> .sort!(<=, size/1)
-['b' 'ba' 'aa' 'aaa' 'abb']
+>>> .sort!(<, size/1)
+['b' 'aa' 'ba' 'abb' 'aaa']
 ```
 
 Sort the characters of a string:
@@ -177,7 +178,7 @@ Sort vectors by the Euclidean norm:
 Sort complex numbers by real part:
 
 ```
->>> [2J-3 0J1 3J-1 1J1].sort!(<=, real/1)
+>>> [2J-3 0J1 3J-1 1J1].sort!(<, real/1)
 [0J1 1J1 2J-3 3J-1]
 ```
 
@@ -192,10 +193,10 @@ Relation to `ordering`:
 [0 3 3 3 5 6 7 8 9 10]
 ```
 
-With explicit `nil`:
+With _or-equal_ comparison:
 
 ```
->>> [3 1 5 3 7 5 9].sort!(nil)
+>>> [3 1 5 3 7 5 9].sort!(<=)
 [1 3 3 5 5 7 9]
 ```
 

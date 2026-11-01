@@ -12,10 +12,10 @@ Count the distinct words in a string:
 >>> .wordCounts
 [
 	'fish' -> 4,
-	'blue' -> 1,
-	'red' -> 1,
+	'one' -> 1,
 	'two' -> 1,
-	'one' -> 1
+	'red' -> 1,
+	'blue' -> 1
 ]
 ```
 

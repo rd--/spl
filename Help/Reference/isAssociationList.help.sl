@@ -9,6 +9,10 @@ Answer `true` if all items in the list _x_ are instances of `Association`.
 >>> .isAssociationList
 true
 
+>>> [1 '2' 3 '4']
+>>> .isAssociationList
+false
+
 >>> ['x' -> 1, 'y' -> [2 3]]
 >>> .isAssociationList
 true

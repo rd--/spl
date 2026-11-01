@@ -120,6 +120,22 @@ Comparison of strings with equal base letters and different marks:
 1
 ```
 
+Note that,
+unlike `=`,
+`compare` can only be applied to like kinds.
+This is because there is no no _unequal_ answer,
+only _precedes_, _equal_ and _succeeds_:
+
+```
+>>> 1 = '1'
+false
+
+>>> {
+>>> 	compare(1, '1')
+>>> }.hasError
+true
+```
+
 _Subtleties_:
 There are different conventions for comparison functions,
 the one followed here is that _-1_ indicates less than and _+1_ indicated greater than.

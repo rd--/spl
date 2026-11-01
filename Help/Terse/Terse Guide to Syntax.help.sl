@@ -64,3 +64,12 @@ let n = 4/3; n:@denominator := 5; n = 4/5 /* slot write syntax */
 ## Volume Syntax
 ```
 ```
+
+## Experimental Quoted At/Put
+```
+(x: 1.pi) :: x = 1.pi /* [Quoted At Syntax] */
+let d = (x: 1); d::x = 1 /* [Quoted At Syntax] */
+let d = (x: 1, y: 2); d::x < d::y /* [Quoted At Syntax] */
+let d = (w: (x: (y: (z: 1)))); d::w::x::y::z = 1 /* [Quoted At Syntax] */
+let d = (w: (x: (y: (z: 1)))); d::w::x::y::z := -1; d = (w: (x: (y: (z: -1)))) /* [Quoted Put Syntax] */
+```

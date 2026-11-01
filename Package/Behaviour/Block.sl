@@ -518,6 +518,10 @@ Block! : [Object, Equal] {
 		anObject
 	}
 
+	operatorName { :self |
+		self.unqualifiedName.splOperatorNameToken
+	}
+
 	outer { :self :aList :anotherList |
 		(self.outer).binaryApply(aList, anotherList)
 	}

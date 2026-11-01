@@ -503,7 +503,7 @@
 	}
 
 	[nub, unique] { :self :comparator/2 |
-		let seen = comparator/2.comparatorToEmptySet;
+		let seen = comparator/2.comparatorToSetOrList;
 		self.select { :each |
 			seen.includes(each).if {
 				false
