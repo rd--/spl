@@ -94,12 +94,12 @@ Dictionary : [Object, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add,
 
 +Block {
 
-	comparatorToEmptyDictionary { :comparator/2 |
+	comparatorToDictionary { :comparator/2 |
 		[
 			{ comparator/2 == = } -> { Dictionary() },
 			{ comparator/2 == == } -> { Map() },
 			{ true } -> {
-				comparator/2.error('comparatorToEmptyDictionary')
+				comparator/2.error('comparatorToDictionary')
 			}
 		].which
 	}

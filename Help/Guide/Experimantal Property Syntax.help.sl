@@ -32,6 +32,6 @@ the message is interpreted as a field access message.
 
 * * *
 
-See also: Indexable Syntax, Experimantal Property Read Syntax, Experimantal Property Write Syntax
+See also: Experimantal Property Read Syntax, Experimantal Property Write Syntax, Indexable Syntax
 
 Categories: Syntax

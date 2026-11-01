@@ -192,7 +192,7 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 
 	species { :self |
 		{
-			self.comparator.comparatorToEmptyMultiset
+			self.comparator.comparatorToMultiset
 		}
 	}
 
@@ -262,9 +262,9 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 
 +Block {
 
-	comparatorToEmptyMultiset { :comparator/2 |
+	comparatorToMultiset { :comparator/2 |
 		Multiset(
-			comparatorToEmptyDictionary(comparator/2)
+			comparatorToDictionary(comparator/2)
 		)
 	}
 
@@ -276,7 +276,7 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 		self.isDictionary.ifTrue {
 			self.error('collectionToMultiset: not defined at @Dictionary')
 		};
-		let answer = comparatorToEmptyMultiset(comparator/2);
+		let answer = comparatorToMultiset(comparator/2);
 		answer.addAll!(self);
 		answer
 	}
@@ -285,18 +285,18 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 		Multiset(self, =)
 	}
 
+	histogramOf { :self :comparator/2 :aBlock/1 |
+		let answer = comparatorToMultiset(comparator/2);
+		self.collectInto!(aBlock/1, answer);
+		answer
+	}
+
 	inferredMultiset { :self |
 		self.allTrue(isImmediate/1).if {
 			Multiset(self, ==)
 		} {
 			Multiset(self, =)
 		}
-	}
-
-	histogramOf { :self :comparator/2 :aBlock/1 |
-		let answer = comparatorToEmptyMultiset(comparator/2);
-		self.collectInto!(aBlock/1, answer);
-		answer
 	}
 
 }
