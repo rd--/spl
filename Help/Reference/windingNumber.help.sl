@@ -40,7 +40,7 @@ Find the polygon density of regular star polygons:
 ```
 >>> let p = 7;
 >>> let q = 3;
->>> let c = p.circlePoints(1);
+>>> let c = p.circlePoints([0 0], 1);
 >>> let i = { :x |
 >>> 	(x + q).mod(p, 1)
 >>> }.nestList(1, p);

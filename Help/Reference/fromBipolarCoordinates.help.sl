@@ -100,7 +100,7 @@ let tauCircles = { :i |
 
 See also: fromPolarCoordinates
 
-Guides: Coordinate System Functions
+Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_
@@ -108,5 +108,3 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Bipolar_coordinates)
 [2](https://en.wikipedia.org/wiki/Apollonian_circles)
-
-Categories: Converting, Geometry

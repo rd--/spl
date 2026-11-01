@@ -62,6 +62,8 @@ Columnwise variance of a matrix:
 
 See also: mean, standardDeviation
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Variance.html),
@@ -71,5 +73,3 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/var.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Variance)
-
-Categories: Statistics

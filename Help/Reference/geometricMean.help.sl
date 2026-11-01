@@ -117,5 +117,3 @@ _Xenharmonic_
 [1](https://en.xen.wiki/w/Geometric_mean),
 _W_
 [1](https://en.wikipedia.org/wiki/Geometric_mean)
-
-Categories: Statistics

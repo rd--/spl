@@ -64,5 +64,3 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/UnitCube.html)
 [2](https://reference.wolfram.com/language/ref/Cube.html)
-
-Categories: Geometry

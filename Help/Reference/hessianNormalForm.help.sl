@@ -1,8 +1,8 @@
 # hessianNormalForm
 
-- _hessianNormalForm(aPlane)_
+- _hessianNormalForm(p)_
 
-Answer the Hesse normal form of _aPlane_,
+Answer the Hesse normal form of the plane _p_,
 the unit normal vector _n_ and the distance of the plane from the origin _p_.
 The Hesse form is primarily used for calculating distances.
 
@@ -39,9 +39,9 @@ Calculate signed point-plane distances using Hesse normal form:
 
 See also: InfinitePlane, signedPointPlaneDistance
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HessianNormalForm.html),
 [2](https://mathworld.wolfram.com/NormalVector.html)
-
-Categories: Geometry

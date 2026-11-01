@@ -43,6 +43,16 @@ Collects over lists:
 [1 0; -2 0; 0 1]
 ```
 
+Evaluate symbolically:
+
+```
+>> [`r` `θ`].fromPolarCoordinates
+[
+	(* r (cos θ)),
+	(* r (sin θ))
+]
+```
+
 Plot points at polar coordinates where r and θ are equal:
 
 ~~~spl svg=A
@@ -125,12 +135,10 @@ A spiral on five radial lines:
 
 See also: Complex, PolarCoordinates, fromBipolarCoordinates, fromSphericalCoordinates, toPolarCoordinates
 
-Guides: Coordinate System Functions
+Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FromPolarCoordinates.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Polar_coordinate_system)
-
-Categories: Converting, Geometry

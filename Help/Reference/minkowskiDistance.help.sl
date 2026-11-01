@@ -37,5 +37,3 @@ Guides: Distance Functions, Similarity Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Minkowski_distance)
-
-Categories: Distance

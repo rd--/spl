@@ -60,5 +60,3 @@ _SuperCollider_
 [1](https://doc.sccode.org/Classes/PinkNoise.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Pink_noise)
-
-Categories: Ugen, Noise

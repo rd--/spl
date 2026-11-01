@@ -1,8 +1,8 @@
 # connectionMatrix
 
-- _connectionMatrix(aGraph)_
+- _connectionMatrix(g)_
 
-Answer the vertex–vertex connection matrix of _aGraph_.
+Answer the vertex–vertex connection matrix of the graph _g_.
 An entry _(i,j)_ of the connection matrix is `one` if the vertices are connected by an edge, else `zero`.
 
 For simple graphs the `connectionMatrix` and the `adjacencyMatrix` are the same,
@@ -22,6 +22,4 @@ however for multi-graphs the connection matrix has boole entries:
 
 See also: Graph, adjacencyMatrix
 
-Guides: Matrix Functions
-
-Categories: Graph, Matrix
+Guides: Graph Functions, Matrix Functions

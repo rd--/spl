@@ -121,5 +121,3 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Median)
 [2](https://en.wikipedia.org/wiki/Weighted_median)
-
-Categories: Statistics

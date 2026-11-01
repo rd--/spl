@@ -37,5 +37,3 @@ Sort association list:
 See also: <, <=, sort, sortBy, sortOn
 
 Guides: Sort Functions
-
-Categories: Sorting

@@ -1,6 +1,6 @@
 # toCylindricalCoordinates
 
-- _toCylindricalCoordinates(aVector)_
+- _toCylindricalCoordinates([x y z])_
 
 Answers the _(rho, phi, z)_ cylindrical coordinates corresponding to the Cartesian coordinates _(x,y,z)_,
 where _(rho, phi)_ is the polar coordinate on the _x/y_ plane and _z_ is the Cartesian _z_-coordinate.
@@ -19,10 +19,20 @@ where _(rho, phi)_ is the polar coordinate on the _x/y_ plane and _z_ is the Car
 [8 * 2.sqrt, 3.pi / 4, -7]
 ```
 
+Evaluate symbolically:
+
+```
+>> [`x` `y` `z`]
+>> .toCylindricalCoordinates
+[
+	(sqrt (+ (* x x) (* y y))),
+	(atan2 y x),
+	z
+]
+```
+
 * * *
 
 See also: CylindricalCoordinates, fromCylindricalCoordinates
 
-Guides: Coordinate System Functions
-
-Categories: Converting, Geometry
+Guides: Coordinate System Functions, Geometry Functions

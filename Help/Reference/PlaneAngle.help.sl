@@ -63,7 +63,7 @@ The circular (trigonometric) functions are implemented:
 
 See also: Quantity, degree, degrees, degreesToRadians, radians, radiansToDegrees
 
-Guides: Quantity Functions
+Guides: Geometry Functions, Quantity Functions
 
 References:
 _Mathematica_
@@ -72,5 +72,3 @@ _NIST_
 [1](https://www.nist.gov/pml/special-publication-811),
 _W_
 [1](https://en.wikipedia.org/wiki/Angle)
-
-Categories: Geometry, Trait

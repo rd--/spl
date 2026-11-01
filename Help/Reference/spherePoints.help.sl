@@ -19,10 +19,10 @@ A _y,z_ projection of one hundred points on the surface of the unit sphere:
 
 See also: Range, Sphere, %, ^, angleVector, cos, sin, spherePointsFibonacci
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SpherePoints.html)
 
 Further Reading: Deserno 2004
-
-Categories: Geometry

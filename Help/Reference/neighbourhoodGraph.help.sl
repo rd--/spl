@@ -59,5 +59,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/NeighborhoodGraph.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Neighbourhood_(graph_theory))
-
-Categories: Graph

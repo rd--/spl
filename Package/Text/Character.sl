@@ -266,8 +266,14 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 		let j = 1;
 		let mismatch = false;
 		let isAtEnd = false;
-		{ isAtEnd }.whileFalse {
-			(a[i] = b[j]).if {
+		{
+			isAtEnd
+		}.whileFalse {
+			(
+				a[i] = b[j] | {
+					f(a[i]) & { f(b[j]) }
+				}
+			).if {
 				i := i + 1;
 				j := j + 1
 			} {

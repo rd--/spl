@@ -13,12 +13,10 @@ Answer the arc length of the circle _c_.
 
 See also: Circle, arcLength, perimeter
 
-Guides: Geometry Functions
+Guides: Circle Functions, Geometry Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Circumference.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Circumference)
-
-Categories: Geometry

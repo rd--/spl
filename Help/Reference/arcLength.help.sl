@@ -52,5 +52,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/ArcLength.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Arc_length)
-
-Categories: Geometry

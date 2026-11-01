@@ -197,7 +197,7 @@ Arc([0 0], [1 1], [5/4 3/4].pi)
 
 See also: Circle, CircularSector, CircularSegment, Ellipse, LineDrawing, Polygon, Rectangle, Triangle
 
-Guides: Geometry Functions
+Guides: Circle Functions, Geometry Functions
 
 References:
 _Mathematica_
@@ -212,5 +212,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Circular_arc)
 [2](https://en.wikipedia.org/wiki/Circular_sector)
 [3](https://en.wikipedia.org/wiki/Central_angle)
-
-Categories: Geometry

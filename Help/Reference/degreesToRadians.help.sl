@@ -29,10 +29,8 @@ Threads over lists:
 
 See also: Angle, degree, degrees, radians, radiansToDegrees
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Mathematical Functions
 
 References:
 _Smalltalk_
 5.6.7.6
-
-Categories: Converting, Math, Geometry

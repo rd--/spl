@@ -58,4 +58,4 @@ In three dimensions:
 
 See also: InfiniteLine, Line, LineSegment, Point, pointLineSegmentNearest, projection
 
-Categories: Geometry
+Guides: Geometry Functions

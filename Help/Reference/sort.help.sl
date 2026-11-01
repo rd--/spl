@@ -221,12 +221,10 @@ r.downsample(4).scatterPlot
 
 See also: isSorted, lexicographicSort, mergeSort, ordering, quickSort, sortBy, sortByOn, sortOn
 
-Guides: In-Place Syntax, Sort Functions
+Guides: Sort Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Sort.html),
 _Python_
 [1](https://docs.python.org/3/library/functions.html#sorted)
-
-Categories: Sorting

@@ -42,8 +42,8 @@ The `minMax` of the transposed matrix:
 
 See also: between, coordinateBoundingBox, minMax, transpose
 
+Guides: Array Functions, Geometry Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CoordinateBounds.html)
-
-Categories: Array, Geometry

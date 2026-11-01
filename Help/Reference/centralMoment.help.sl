@@ -46,5 +46,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CentralMoment.html),
 _Mathworks_
 [1](https://mathworks.com/help/stats/moment.html)
-
-Categories: Statistics

@@ -145,5 +145,3 @@ Guides: Graph Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/IncidenceGraph.html)
-
-Categories: Graph

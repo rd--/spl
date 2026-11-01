@@ -46,6 +46,6 @@ An _isometric_ projection of the same point set:
 
 See also: Sphere, cos, sin, spherePoints
 
-Further Reading: González 2010
+Guides: Geometry Functions
 
-Categories: Geometry
+Further Reading: González 2010

@@ -10,6 +10,9 @@ Answer a `Complex` number with polar co-ordinates _(ρ,φ)_.
 
 >>> Polar(3, -2)
 -1.24844J-2.72789
+
+>>> Polar(5.sqrt, 2.arcTan)
+1J2
 ```
 
 Threads over lists:
@@ -29,7 +32,7 @@ Threads over lists:
 
 * * *
 
-See also: Complex
+See also: Complex, fromPolarCoordinates, toPolarCoordinates
 
 Guides: Complex Number Functions
 

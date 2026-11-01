@@ -21,5 +21,3 @@ A linear Bézier curve, a straight line:
 See also: BezierCurve, bezierFunction, cubicBezierFunctionAt, deCasteljausAlgorithm, quadraticBezierFunctionAt
 
 Guides: Geometry Functions
-
-Categories: Geometry

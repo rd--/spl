@@ -11,5 +11,3 @@ which may be either a `String`, or a `List` or `Tree` of strings.
 See also: SvgViewer, contents, parseSvg
 
 Guides: Drawing Functions, Image Functions
-
-Categories: Graphics

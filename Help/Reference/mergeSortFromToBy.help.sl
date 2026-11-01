@@ -39,5 +39,3 @@ Sort a first half of a random sequence of integers:
 See also: isSorted, mergeSort, mergeSortBy, sort
 
 Guides: Sort Functions
-
-Categories: Sorting

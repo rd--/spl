@@ -60,12 +60,10 @@ true
 
 See also: CartesianCoordinates, PlanarCoordinates, Point, SphericalCoordinates, fromPolarCoordinates, toPolarCoordinates
 
-Guides: Geometry Functions
+Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PolarCoordinates.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Polar_coordinate_system)
-
-Categories: Geometry

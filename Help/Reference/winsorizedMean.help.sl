@@ -55,5 +55,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/WinsorizedMean.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Winsorized_mean)
-
-Categories: Statistics

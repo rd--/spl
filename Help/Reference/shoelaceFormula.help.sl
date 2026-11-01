@@ -55,5 +55,3 @@ _W_
 [2](https://en.wikipedia.org/wiki/Signed_area)
 
 Further Reading: Meister 1769
-
-Categories: Geometry

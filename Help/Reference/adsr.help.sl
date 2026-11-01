@@ -27,5 +27,3 @@ sinOsc(440, 0) * envelope * 0.1
 See also: asr, envGen, perc
 
 Guides: Unit Generators
-
-Categories: Ugen, Envelope

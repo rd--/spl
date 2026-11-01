@@ -37,11 +37,9 @@ The _4,3_ Bernstein basis polynomial:
 
 See also: BezierCurve, Piecewise, ^, binomial
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Mathematical Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BernsteinPolynomial.html)
 [2](https://reference.wolfram.com/language/ref/BernsteinBasis.html)
-
-Categories: Math, Geometry

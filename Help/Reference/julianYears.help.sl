@@ -29,5 +29,3 @@ Guides: Date and Time Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Julian_year_(astronomy))
-
-Categories: Accessing, Date

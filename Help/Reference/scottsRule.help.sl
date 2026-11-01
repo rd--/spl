@@ -28,5 +28,3 @@ Guides: Statistics Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Scott%27s_rule)
-
-Categories: Statistics

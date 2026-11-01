@@ -49,11 +49,11 @@ At `Triangle`:
 
 See also: InfinitePlane, Triangle, normalize, surfaceNormal, unitVector
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/NormalVector.html)
 [2](https://mathworld.wolfram.com/UnitVector.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Normal_(geometry))
-
-Categories: Geometry

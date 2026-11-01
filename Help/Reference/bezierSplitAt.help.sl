@@ -50,5 +50,3 @@ let [q, r] = p.bezierSplitAt(0.5);
 See also: BezierCurve, deCasteljausAlgorithm
 
 Guides: Geometry Functions
-
-Categories: Geometry

@@ -87,6 +87,10 @@
 		).simplifyConstantMath
 	}
 
+	atan2 { :self :operand |
+		'atan2'.symbolicPrimitive([self, operand])
+	}
+
 	conjugate { :self |
 		'conjugate'.symbolicPrimitive([self])
 	}

@@ -1,11 +1,10 @@
 # standardize
 
-- _standardize(aSequence, meanBlock/1, deviationBlock/1)_
-- _standardize(alpha)_ ⟹ _standardize(alpha, mean/1, standardDeviation/1)_
+- _standardize([x₁ x₂ …], mean/1, deviation/1)_
 
-Shifts and rescales the elements of _aSequence_ to have zero mean and unit sample variance.
+Shifts and rescales the elements of the sequence _x_ to have zero mean and unit sample variance.
 
-_standardize(x) = (x - x.meanBlock) / x.deviationBlock_,
+_standardize(x) = (x - mean(x)) / deviation(x)_,
 for non-zero deviation.
 
 Compute standard scores for data:
@@ -70,8 +69,8 @@ let q = p.standardize;
 
 See also: NormalDistribution, median, normalize, rescale, standardDeviation
 
+Guides: List Functions, Mathematical Functions, Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Standardize.html)
-
-Categories: Math, Statistics, Vector

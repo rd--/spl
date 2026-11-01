@@ -37,8 +37,8 @@ and negative if it is on the opposite side.
 
 See also: hessianNormalForm, pointPlaneDistance
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Point-PlaneDistance.html)
-
-Categories: Geometry

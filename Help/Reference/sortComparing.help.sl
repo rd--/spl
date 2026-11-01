@@ -37,5 +37,3 @@ true
 See also: sort, sortBy, sortByOn, sortOn
 
 Guides: Sort Functions
-
-Categories: Sorting

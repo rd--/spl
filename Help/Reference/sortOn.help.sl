@@ -49,5 +49,3 @@ Sort complex numbers by lexicographically:
 See also: sort, sortBy, sortByOn
 
 Guides: Sort Functions
-
-Categories: Sorting

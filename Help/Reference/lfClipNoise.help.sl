@@ -47,5 +47,3 @@ Texture program:
 See also: pinkNoise, whiteNoise
 
 Guides: Unit Generators
-
-Categories: Ugen, Noise

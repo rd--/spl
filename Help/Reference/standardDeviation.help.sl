@@ -82,5 +82,3 @@ _Mathematica_
 [3](https://reference.wolfram.com/language/ref/StandardDeviation.html)
 
 Unicode: U+03C3 σ Greek Small Letter Sigma
-
-Categories: Statistics

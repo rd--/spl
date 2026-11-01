@@ -44,7 +44,8 @@ BinormalDistribution([0 0], [1 1], -0.75)
 
 See also: MultinormalDistribution, NormalDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Functions, Statistics Functions
+
 
 References:
 _Mathematica_
@@ -52,5 +53,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/BinormalDistribution.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Multivariate_normal_distribution)
-
-Categories: Statistics, Random

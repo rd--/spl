@@ -41,5 +41,3 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/UnitOctahedron.html)
 [2](https://reference.wolfram.com/language/ref/Octahedron.html)
-
-Categories: Geometry

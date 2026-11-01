@@ -23,5 +23,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/HeronsFormula.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Heron%27s_formula)
-
-Categories: Geometry

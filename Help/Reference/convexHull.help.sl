@@ -45,5 +45,3 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ConvexHull.html)
 [2](https://reference.wolfram.com/language/ref/ConvexHullMesh.html)
-
-Categories: Geometry

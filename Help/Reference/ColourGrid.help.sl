@@ -33,5 +33,3 @@ Sfc32(731894)
 See also: Colour, LineDrawing, arrayPlot, colourMatrixPlot, matrixPlot
 
 Guides: Colour Functions, Image Functions
-
-Categories: Graphics

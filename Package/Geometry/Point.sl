@@ -344,9 +344,9 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 		}
 	}
 
-	circlePoints { :n :r |
+	circlePoints { :n :o :r |
 		let theta = (1 / n).pi - (1 / 2).pi;
-		n.circlePoints([0 0], r, theta)
+		n.circlePoints(o, r, theta)
 	}
 
 	hexagonalSpiralPoints { :n |

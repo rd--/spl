@@ -132,5 +132,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Polygon.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Polygon)
-
-Categories: Geometry

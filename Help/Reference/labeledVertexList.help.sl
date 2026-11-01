@@ -13,5 +13,3 @@ set using `vertexLabels`.
 See also: Graph, vertexCount, vertexLabels, vertexList
 
 Guides: Graph Functions
-
-Categories: Graph

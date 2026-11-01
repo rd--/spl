@@ -45,5 +45,3 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/UnitTetrahedron.html)
 [2](https://reference.wolfram.com/language/ref/Tetrahedron.html)
-
-Categories: Geometry

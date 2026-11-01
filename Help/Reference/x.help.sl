@@ -53,11 +53,9 @@ The _x_-coordinate of the center of a `Circle`:
 
 See also: imaginary, real, y, z
 
-Guides: Geometry Functions
+Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Abscissa.html)
 [2](https://mathworld.wolfram.com/x-Axis.html)
-
-Categories: Accessing, Geometry

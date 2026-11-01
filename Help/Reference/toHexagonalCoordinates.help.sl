@@ -15,7 +15,8 @@ Convert integral Cartesian coordinates to real hexagonal coordinates:
 Convert Cartesian coordinates to integral hexagonal coordinates:
 
 ```
->>> [1.5 * 3.sqrt, 1.5].toHexagonalCoordinates
+>>> [1.5 * 3.sqrt, 1.5]
+>>> .toHexagonalCoordinates
 [1 1 -2]
 ```
 

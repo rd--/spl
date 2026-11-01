@@ -28,6 +28,4 @@ use `inMilliseconds` to answer the number of milliseconds:
 
 See also: Quantity, hours, inSeconds, minutes, seconds
 
-Guides: Quantity Functions
-
-Categories: Time, Type
+Guides: Date and Time Functions, Quantity Functions

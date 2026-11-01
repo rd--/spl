@@ -21,6 +21,18 @@ the number _n_ multiplied by itself.
 16754550883734621953L
 ```
 
+Squares of real and imaginary integers:
+
+```
+>>> -5:5.collect(square/1)
+[25 16 9 4 1 0 1 4 9 16 25]
+
+>>> -5:5.collect { :n |
+>>> 	n.I.square
+>>> }
+[-25 -16 -9 -4 -1 0 -1 -4 -9 -16 -25]
+```
+
 At `List`,
 OEIS [A000290](https://oeis.org/A000290):
 
@@ -34,6 +46,14 @@ The inverse is `sqrt`:
 ```
 >>> 3.square.sqrt
 3
+
+>>> -5:5.square.sqrt
+[5 4 3 2 1 0 1 2 3 4 5]
+
+>>> -5:5.collect { :n |
+>>> 	n.I.square.sqrt
+>>> }
+[5I 4I 3I 2I 1I 0I 1I 2I 3I 4I 5I]
 ```
 
 Threads over lists:

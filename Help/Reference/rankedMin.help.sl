@@ -82,5 +82,3 @@ Guides: Statistics Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RankedMin.html)
-
-Categories: Statistics

@@ -28,7 +28,7 @@ Draw the mesh of the unit square:
 The Delaunay triangulation of a hexagon:
 
 ~~~spl svg=B
-6.circlePoints(1).delaunayMesh
+6.circlePoints([0 0], 1).delaunayMesh
 ~~~
 
 ![](Help/Image/delaunayMesh-B.svg)

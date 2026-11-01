@@ -34,5 +34,3 @@ A 5×9 matrix:
 See also: ColourGrid, LineDrawing, colourMatrixPlot, matrixPlot
 
 Guides: Colour Functions, Image Functions
-
-Categories: Graphics

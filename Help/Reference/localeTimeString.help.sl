@@ -16,4 +16,4 @@ Answer a `String` with a language-sensitive representation of the time portion o
 
 See also: Date, dateAndTimeString
 
-Categories: Printing, Time
+Guides: Date and Time Functions

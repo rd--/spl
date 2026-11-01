@@ -68,4 +68,4 @@ At `Triangle`:
 
 See also: Circle, Line, Point, Polygon, Triangle, coordinateBoundingBox
 
-Categories: Geometry
+Guides: Geometry Functions

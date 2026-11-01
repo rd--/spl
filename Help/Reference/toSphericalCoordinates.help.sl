@@ -19,10 +19,16 @@ At `List`:
 Equations are:
 
 ```
->>> let [x, y, z] = { system.nextRandomFloat } ! 3;
->>> let r = (x.square + y.square + z.square).sqrt;
+>>> let [x, y, z] = {
+>>> 	system.nextRandomFloat
+>>> } ! 3;
+>>> let r = (
+>>> 	x.square + y.square + z.square
+>>> ).sqrt;
 >>> let theta = x.arcTan(y);
->>> let phi = z.arcTan((x.square + y.square).sqrt);
+>>> let phi = z.arcTan(
+>>> 	(x.square + y.square).sqrt
+>>> );
 >>> [x y z].toSphericalCoordinates
 [r theta phi]
 ```
@@ -41,18 +47,32 @@ with theta remaining the angle in the xy-plane and phi becoming the angle out of
 Collects over lists:
 
 ```
->>> [1 0 1; -2 0 0; 0 1 -1].toSphericalCoordinates
-[2.sqrt 0 0.25.pi; 2 1.pi 0.5.pi; 2.sqrt 0.5.pi 0.75.pi]
+>>> [1 0 1; -2 0 0; 0 1 -1]
+>>> .toSphericalCoordinates
+[
+	2.sqrt 0 0.25.pi;
+	2 1.pi 0.5.pi;
+	2.sqrt 0.5.pi 0.75.pi
+]
+```
+
+Evaluate symbolically:
+
+```
+>> [`x` `y` `z`].toSphericalCoordinates
+[
+	(sqrt (+ (+ (* x x) (* y y)) (* z z))),
+	(atan2 y x),
+	(atan2 (sqrt (+ (* x x) (* y y))) z)
+]
 ```
 
 * * *
 
 See also: SphericalCoordinates, arcTan, fromSphericalCoordinates, norm, toPolarCoordinates
 
-Guides: Coordinate System Functions
+Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ToSphericalCoordinates.html)
-
-Categories: Converting, Geometry

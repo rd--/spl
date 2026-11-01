@@ -301,5 +301,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/BezierCurve.html),
 _W_
 [1](https://en.wikipedia.org/wiki/B%C3%A9zier_curve)
-
-Categories: Geometry

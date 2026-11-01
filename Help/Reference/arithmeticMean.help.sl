@@ -51,5 +51,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Mean.html),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Arithmetic_mean)
-
-Categories: Statistics

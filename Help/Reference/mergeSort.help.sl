@@ -94,5 +94,3 @@ Guides: Sort Functions
 
 References:
 [1](https://en.wikipedia.org/wiki/Merge_sort)
-
-Categories: Sorting

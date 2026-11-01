@@ -48,5 +48,3 @@ Guides: Graph Functions
 References:
 _Sage_
 [1](https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/generic_graph.html#sage.graphs.generic_graph.GenericGraph.neighbors)
-
-Categories: Graph

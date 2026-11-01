@@ -55,5 +55,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/SingletonGraph.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Singleton_(mathematics))
-
-Categories: Testing, Graph

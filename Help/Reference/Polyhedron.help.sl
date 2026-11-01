@@ -39,5 +39,3 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Polyhedron.html)
 [2](https://reference.wolfram.com/language/ref/Polyhedron.html)
-
-Categories: Geometry

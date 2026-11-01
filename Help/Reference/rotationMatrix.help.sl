@@ -59,7 +59,7 @@ Rotation matrix about _x_-axis:
 
 See also: dot, eulerMatrix, reflectionMatrix, scalingMatrix, sin, unitVector
 
-Guides: Matrix Functions
+Guides: Geometry Functions, Matrix Functions
 
 References:
 _Mathematica_
@@ -67,5 +67,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/RotationMatrix.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Rotation_matrix)
-
-Categories: Geometry, Matrix

@@ -122,7 +122,7 @@ A geometric technique for finding twelve equally-spaced points around a circle:
 		1/4.pi
 	),
 	PointSet(
-		circlePoints(12, [0 0], 1, 0)
+		12.circlePoints([0 0], 1, 0)
 	)
 ].LineDrawing
 ~~~
@@ -241,5 +241,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Circle.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Circle)
-
-Categories: Geometry

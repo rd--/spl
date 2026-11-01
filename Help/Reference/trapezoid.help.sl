@@ -64,5 +64,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Trapezoid.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Trapezoid)
-
-Categories: Geometry

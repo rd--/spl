@@ -119,5 +119,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Quicksort)
 
 Further Reading: Hoare 1961
-
-Categories: Sorting

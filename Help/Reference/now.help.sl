@@ -23,5 +23,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Now.html)
 _Smalltalk_
 5.8.4.6
-
-Categories: Time

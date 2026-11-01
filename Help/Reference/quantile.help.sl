@@ -171,5 +171,3 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/prctile.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Quantile)
-
-Categories: Statistics

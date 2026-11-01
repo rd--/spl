@@ -32,5 +32,3 @@ A symmetric quadratic Bézier curve (an arc):
 See also: BezierCurve, bezierFunction, cubicBezierFunctionAt, deCasteljausAlgorithm, linearBezierFunctionAt
 
 Guides: Geometry Functions
-
-Categories: Geometry

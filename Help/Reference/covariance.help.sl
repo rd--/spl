@@ -114,5 +114,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Covariance.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/cov.html)
-
-Categories: Statistics

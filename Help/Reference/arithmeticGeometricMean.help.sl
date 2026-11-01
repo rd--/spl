@@ -86,7 +86,7 @@ OEIS [A084897](https://oeis.org/A084897):
 
 See also: arithmeticMean, arithmeticoGeometricSequence, ellipticK, geometricMean, mean, median, moment
 
-Guides: Integer Sequence Functions, Mathematical Functions
+Guides: Integer Sequence Functions, Mathematical Functions, Statistics Functions
 
 References:
 _Mathematica_
@@ -100,5 +100,3 @@ _OEIS_
 [4](https://oeis.org/A084897),
 _W_
 [1](https://en.wikipedia.org/wiki/Arithmetic%E2%80%93geometric_mean)
-
-Categories: Statistics

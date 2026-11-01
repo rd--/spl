@@ -12,5 +12,3 @@ Labels are arbitrary values associated with each edge.
 See also: Graph, edgeCount, edgeList, vertexLabels
 
 Guides: Graph Functions
-
-Categories: Graph

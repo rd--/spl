@@ -31,12 +31,10 @@ use `inSeconds` to answer the number of seconds:
 
 See also: Quantity, hours, inSeconds, milliseconds, minutes
 
-Guides: Quantity Functions
+Guides: Date and Time Functions, Quantity Functions
 
 References:
 _Smalltalk_
 5.8.2.17
 
 Unicode: U+2033 ″Double Prime
-
-Categories: Time, Type

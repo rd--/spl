@@ -47,5 +47,3 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/InterquartileRange.html)
 [2](https://reference.wolfram.com/language/ref/InterquartileRange.html)
-
-Categories: Statistics

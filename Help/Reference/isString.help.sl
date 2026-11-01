@@ -26,5 +26,3 @@ Guides: Predicate Functions, String Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/StringQ.html)
-
-Categories: Predicate, Testing

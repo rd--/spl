@@ -43,5 +43,3 @@ An arc:
 See also: BezierCurve, bezierFunction, deCasteljausAlgorithm, linearBezierFunctionAt, quadraticBezierFunctionAt
 
 Guides: Geometry Functions
-
-Categories: Geometry

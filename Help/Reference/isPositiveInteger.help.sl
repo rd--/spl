@@ -27,4 +27,4 @@ false
 
 See also: isInteger, isNonNegativeInteger, isNumber, isOdd, isPositiveOddInteger
 
-Categories: Predicate, Testing
+Guides: Predicate Functions

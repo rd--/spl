@@ -51,5 +51,3 @@ _Mathworks_
 [1](https://mathworks.com/help/stats/harmmean.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Harmonic_mean)
-
-Categories: Statistics

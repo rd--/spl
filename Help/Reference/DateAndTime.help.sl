@@ -121,5 +121,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DateObject.html),
 _Smalltalk_
 5.8.1
-
-Categories: Converting, Time, Type

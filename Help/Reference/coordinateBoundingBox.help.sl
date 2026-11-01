@@ -62,9 +62,9 @@ let p = [3 10; 6 3; 10 2; 2 8; 3 3];
 
 See also: coordinateBounds, minMax, transpose
 
+Guides: Array Functions, Geometry Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CoordinateBoundingBox.html),
 [2](https://reference.wolfram.com/language/ref/BoundingRegion.html)
-
-Categories: Array, Geometry

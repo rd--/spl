@@ -75,7 +75,7 @@ Distance from _(0,1,0)_ to each of a set of vectors:
 
 See also: -, abs, brayCurtisDistance, canberraDistance, chessboardDistance, editDistance, hammingDistance, manhattanDistance, norm
 
-Guides: Distance Functions, Similarity Functions
+Guides: Distance Functions, Geometry Functions, Similarity Functions
 
 References:
 _Mathematica_
@@ -83,5 +83,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/EuclideanDistance.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Euclidean_distance)
-
-Categories: Distance, Geometry

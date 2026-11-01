@@ -33,4 +33,4 @@ use `inDays` to answer the number of days:
 
 See also: Quantity, Time, hours, inSeconds, minutes, seconds, weeks
 
-Categories: Time, Type
+Guides: Date and Time Functions

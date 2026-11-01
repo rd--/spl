@@ -55,5 +55,3 @@ The argument is not mutated:
 See also: sort
 
 Guides: Sort Functions
-
-Categories: Sorting

@@ -77,5 +77,3 @@ Guides: Date and Time Functions, Parsing Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-
-Categories: Time

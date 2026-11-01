@@ -19,5 +19,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/CylindricalCoordinates.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Cylindrical_coordinate_system)
-
-Categories: Geometry, Type

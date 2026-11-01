@@ -1,8 +1,8 @@
 # kurtosis
 
-- _kurtosis(aCollection)_
+- _kurtosis(c)_
 
-Answer the coefficient of kurtosis estimate for the elements in _aCollection_.
+Answer the coefficient of kurtosis estimate for the elements in the collection _c_.
 
 Kurtosis for a list of values:
 
@@ -57,10 +57,10 @@ Find kurtosis of ten random numbers:
 
 See also: centralMoment, skewness
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Kurtosis.html),
 _Mathworks_
 [1](https://mathworks.com/help/stats/kurtosis.html)
-
-Categories: Statistics

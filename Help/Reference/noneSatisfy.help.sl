@@ -33,5 +33,3 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NoneTrue.html)
 [2](https://reference.wolfram.com/language/ref/Nor.html)
-
-Categories: Predicate

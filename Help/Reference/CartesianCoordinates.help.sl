@@ -79,12 +79,10 @@ true
 
 See also: Complex, PlanarCoordinates, Point, PolarCoordinates, SphericalCoordinates, x, y, z
 
-Guides: Geometry Functions
+Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CartesianCoordinates.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Cartesian_coordinate_system)
-
-Categories: Geometry, Type

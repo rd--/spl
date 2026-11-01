@@ -55,5 +55,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/UnitSquare.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Unit_square)
-
-Categories: Geometry

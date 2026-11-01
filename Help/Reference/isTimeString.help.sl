@@ -29,10 +29,8 @@ false
 
 See also: Time, parseTime, timeString
 
-Guides: Parsing Functions
+Guides: Date and Time Functions, Parsing Functions, Predicate Functions
 
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/ISO_8601)
-
-Categories: Time

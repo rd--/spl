@@ -60,5 +60,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Quick_sort)
 
 Further Reading: Hoare 1961
-
-Categories: Sorting

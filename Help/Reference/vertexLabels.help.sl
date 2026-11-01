@@ -11,5 +11,3 @@ Labels are arbitrary values associated with each vertex.
 See also: Graph, edgeLabels, labeledVertexList, vertexCoordinates, vertexCount, vertexList
 
 Guides: Graph Functions
-
-Categories: Graph

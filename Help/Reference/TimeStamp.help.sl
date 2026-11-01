@@ -84,5 +84,3 @@ Guides: Date and Time Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Timestamp)
-
-Categories: Time, Type

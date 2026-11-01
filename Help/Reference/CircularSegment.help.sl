@@ -29,12 +29,10 @@ CircularSegment(
 
 See also: Arc, CircularSector
 
-Guides: Geometry Functions
+Guides: Circle Functions, Geometry Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CircularSegment.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Circular_segment)
-
-Categories: Geometry

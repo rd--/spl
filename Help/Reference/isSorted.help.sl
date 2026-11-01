@@ -125,7 +125,7 @@ OEIS [A037016](https://oeis.org/A037016):
 
 See also: isSortedBetween, isSortedBy, sort, sorted
 
-Guides: Sort Functions
+Guides: Predicate Functions, Sort Functions
 
 References:
 _Mathematica_
@@ -134,5 +134,3 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/issorted.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Monotonic_function)
-
-Categories: Testing, Sorting

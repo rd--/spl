@@ -113,5 +113,3 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Correlation)
 [2](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient)
-
-Categories: Statistics

@@ -115,5 +115,3 @@ Guides: Image Functions
 References:
 _Mathematica_
 [1](https://en.wikipedia.org/wiki/Grayscale)
-
-Categories: Graphics

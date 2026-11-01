@@ -62,5 +62,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/EditDistance.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Levenshtein_distance)
-
-Categories: Distance

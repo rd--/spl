@@ -129,5 +129,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Triangle.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Triangle)
-
-Categories: Geometry

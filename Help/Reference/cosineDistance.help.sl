@@ -21,12 +21,11 @@ Cosine distance between numeric vectors:
 
 See also: correlationDistance, dot, euclideanDistance, norm, vectorAngle
 
-Guides: Distance Functions
+Guides: Distance Functions, Geometry Functions
+
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CosineDistance.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Cosine_similarity)
-
-Categories: Distance, Geometry

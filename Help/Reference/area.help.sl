@@ -78,5 +78,3 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Area)
 [2](https://en.wikipedia.org/wiki/Area_of_a_triangle)
-
-Categories: Accessing, Geometry

@@ -32,5 +32,3 @@ _SuperCollider_
 [1](https://doc.sccode.org/Classes/BrownNoise.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Brownian_noise)
-
-Categories: Ugen, Noise

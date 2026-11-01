@@ -66,5 +66,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm)
 
 Further Reading: Wagner 1973
-
-Categories: Distance

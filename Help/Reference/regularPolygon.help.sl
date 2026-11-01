@@ -46,7 +46,8 @@ The `arcLength` of a successive regular polygons with radius one half converges 
 3.141
 ```
 
-Drawing of a pentagon:
+Drawing of a pentagon,
+with initial vertex at _(1,0)_:
 
 ~~~spl svg=A
 5.regularPolygon([0 0], 1, 0)
@@ -54,7 +55,8 @@ Drawing of a pentagon:
 
 ![](Help/Image/regularPolygon-A.svg)
 
-Drawing of a hexagon:
+Drawing of a hexagon,
+with initial vertex at _(1,0)_:
 
 ~~~spl svg=B
 6.regularPolygon([0 0], 1, 0)
@@ -62,7 +64,8 @@ Drawing of a hexagon:
 
 ![](Help/Image/regularPolygon-B.svg)
 
-Drawing of a diamond:
+Drawing of a diamond,
+with initial vertex at _(1,0)_:
 
 ~~~spl svg=C
 4.regularPolygon([0 0], 1, 0)
@@ -71,9 +74,10 @@ Drawing of a diamond:
 ![](Help/Image/regularPolygon-C.svg)
 
 Drawing of a square:
+with initial vertex at (√2,√2):
 
 ~~~spl svg=D
-4.regularPolygon([0 0], 1, 1.pi / 4)
+4.regularPolygon([0 0], 2, 1.pi / 4)
 ~~~
 
 ![](Help/Image/regularPolygon-D.svg)
@@ -143,11 +147,11 @@ The `arcLength` of successive regular polygons with radius `one` approximates _2
 
 See also: Polygon, circlePoints, interiorAngles, unitSquare
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/RegularPolygon.html)
 [2](https://reference.wolfram.com/language/ref/RegularPolygon.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Regular_polygon)
-
-Categories: Geometry

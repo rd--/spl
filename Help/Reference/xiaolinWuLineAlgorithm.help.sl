@@ -53,5 +53,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Xiaolin_Wu%27s_line_algorithm)
 
 Further Reading: Wu 1991
-
-Categories: Geometry

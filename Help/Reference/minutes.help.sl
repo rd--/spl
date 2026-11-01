@@ -28,12 +28,10 @@ use `inMinutes` to answer the number of minutes:
 
 See also: Quantity, hours, milliseconds, seconds
 
-Guides: Quantity Functions
+Guides: Date and Time Functions, Quantity Functions
 
 References:
 _Smalltalk_
 5.8.2.12
 
 Unicode: U+2032 ′Prime
-
-Categories: Time, Type

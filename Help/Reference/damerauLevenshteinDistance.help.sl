@@ -63,5 +63,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DamerauLevenshteinDistance.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)
-
-Categories: Distance

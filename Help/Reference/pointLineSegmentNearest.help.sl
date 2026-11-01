@@ -72,4 +72,5 @@ In three dimensions:
 
 See also: InfiniteLine, Line, LineSegment, Point, pointLineNearest, projection
 
-Categories: Geometry
+Guides: Geometry Functions, Line Functions
+

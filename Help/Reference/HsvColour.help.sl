@@ -146,5 +146,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/HSL_and_HSV)
 
 Further Reading: Joblove 1978, Smith 1978
-
-Categories: Colour, Graphics

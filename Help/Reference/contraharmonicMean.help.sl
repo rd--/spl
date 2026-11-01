@@ -23,5 +23,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ContraharmonicMean.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Contraharmonic_mean)
-
-Categories: Statistics

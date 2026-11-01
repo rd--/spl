@@ -146,5 +146,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Ordering.html),
 _Python_
 [1](https://numpy.org/doc/stable/reference/generated/numpy.argsort.html)
-
-Categories: Sorting

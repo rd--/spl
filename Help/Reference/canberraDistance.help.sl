@@ -34,5 +34,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Canberra_distance)
 
 Further Reading: Lance 1966
-
-Categories: Distance

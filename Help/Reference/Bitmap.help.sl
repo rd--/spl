@@ -65,5 +65,3 @@ let i = (-1 -- 1).subdivide(99);
 See also: Greymap, Svg, matrixPlot
 
 Guides: Image Functions
-
-Categories: Graphics

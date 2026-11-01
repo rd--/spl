@@ -72,6 +72,8 @@ In three dimensions:
 
 See also: InfiniteLine, Line, Point
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Point-LineDistance2-Dimensional.html)
@@ -79,5 +81,3 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Distance_from_a_point_to_a_line)
 [2](https://en.wikipedia.org/wiki/Perpendicular_distance)
-
-Categories: Geometry

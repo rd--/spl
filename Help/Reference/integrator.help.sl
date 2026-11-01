@@ -41,5 +41,3 @@ _SuperCollider_
 [1](https://doc.sccode.org/Classes/Integrator.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Integrator)
-
-Categories: Ugen, Math, Filter, Control

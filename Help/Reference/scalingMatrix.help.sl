@@ -25,10 +25,8 @@ Scaling factors can be negative or zero:
 
 See also: diagonalMatrix, identityMatrix, reflectionMatrix, rotationMatrix
 
-Guides: Matrix Functions
+Guides: Geometry Functions, Matrix Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ScalingMatrix.html)
-
-Categories: Geometry, Matrix

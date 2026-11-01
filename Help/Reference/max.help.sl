@@ -172,5 +172,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Maximum)
 
 Unicode: U+2308 ⌈ Left Ceiling
-
-Categories: Statistics, Testing

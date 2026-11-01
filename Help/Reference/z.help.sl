@@ -50,10 +50,8 @@ At `CartesianCoordinates`:
 
 See also: imaginary, real, x, y
 
-Guides: Geometry Functions
+Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/z-Axis.html)
-
-Categories: Accessing, Geometry

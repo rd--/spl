@@ -27,5 +27,3 @@ Guides: Statistics Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Mean_square)
-
-Categories: Statistics

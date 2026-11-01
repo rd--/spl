@@ -9,7 +9,7 @@ Calculate the `vertexCount`, `faceCount` and `edgeCount` of the `DelaunayTriangu
 
 ```
 >>> let d = DelaunayTriangulation(
->>> 	6.circlePoints(1)
+>>> 	6.circlePoints([0 0], 1)
 >>> );
 >>> (
 >>> 	d.vertexCount,
@@ -23,7 +23,7 @@ Draw the `polygonMesh` of the Delaunay triangulation of a hexagon:
 
 ~~~spl svg=A
 DelaunayTriangulation(
-	6.circlePoints(1)
+	6.circlePoints([0 0], 1)
 ).polygonMesh
 ~~~
 
@@ -33,7 +33,7 @@ Draw the `vertexCoordinates` and `edgeList` of the Delaunay triangulation of a h
 
 ~~~spl svg=B
 DelaunayTriangulation(
-	6.circlePoints(1)
+	6.circlePoints([0 0], 1)
 ).LineDrawing
 ~~~
 
@@ -43,7 +43,7 @@ Plot the `graph` of the Delaunay triangulation of a hexagon:
 
 ~~~spl svg=C
 DelaunayTriangulation(
-	6.circlePoints(1)
+	6.circlePoints([0 0], 1)
 ).graph.graphPlot
 ~~~
 

@@ -70,5 +70,3 @@ osc.splay
 See also: Env, envGen
 
 Guides: Unit Generators
-
-Categories: Ugen, Envelope

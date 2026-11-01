@@ -70,5 +70,3 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/VertexCount.html)
 [2](https://reference.wolfram.com/language/ref/VertexCount.html)
-
-Categories: Collection, Geometry, Graph

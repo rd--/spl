@@ -31,10 +31,8 @@ u.correlationDistance(v)
 
 See also: cosineDistance
 
-Guides: Distance Functions
+Guides: Distance Functions, Statistics Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CorrelationDistance.html),
-
-Categories: Distance, Statistics

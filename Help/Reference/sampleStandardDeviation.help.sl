@@ -18,4 +18,4 @@ Form of standard deviation where _aCollection_ represents the _entire_ populatio
 
 See also: mean, meanDeviation, moment, standardDeviation, standardizedMoment, variance
 
-Categories: Statistics
+Guides: Statistics Functions

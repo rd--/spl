@@ -56,5 +56,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/MeanDeviation.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Average_absolute_deviation)
-
-Categories: Statistics

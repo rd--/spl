@@ -52,16 +52,27 @@ Unsigned angle:
 ```
 >>> 1J2.absArg
 [5.sqrt 2.arcTan]
+
+>>> Polar(5.sqrt, 2.arcTan)
+1J2
+```
+
+Evaluate symbolically:
+
+```
+>> [`x` `y`].toPolarCoordinates
+[
+	(sqrt (+ (* x x) (* y y))),
+	(atan2 y x)
+]
 ```
 
 * * *
 
 See also: Complex, PolarCoordinates, absArg, arcTan, fromPolarCoordinates, norm, toSphericalCoordinates
 
-Guides: Coordinate System Functions
+Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ToPolarCoordinates.html)
-
-Categories: Converting, Geometry

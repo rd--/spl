@@ -15,8 +15,8 @@ The `circumradius` is the `radius` of the `circumcircle` of the geometry _g_.
 
 See also: circumcenter, circumcircle, radius
 
+Guides: Circle Functions, Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Circumradius.html)
-
-Categories: Geometry

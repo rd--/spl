@@ -141,5 +141,3 @@ _Smalltalk_
 _W_
 [1](https://en.wikipedia.org/wiki/Calendar_date)
 [2](https://en.wikipedia.org/wiki/Astronomical_year_numbering)
-
-Categories: Converting, Time, Type

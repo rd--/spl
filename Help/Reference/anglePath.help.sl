@@ -131,5 +131,3 @@ Guides: Geometry Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/AnglePath.html)
-
-Categories: Geometry

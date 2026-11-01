@@ -26,4 +26,4 @@ CartesianCoordinates[1 1 1]
 
 See also: SphericalCoordinates
 
-Categories: Geometry
+Guides: Coordinate System Functions, Geometry Functions

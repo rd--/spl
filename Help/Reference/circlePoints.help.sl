@@ -1,14 +1,14 @@
 # circlePoints
 
-- _circlePoints(n, o=[0 0], r, θ=0)_
-- _circlePoints(n, r)_
+- _circlePoints(n, o=[0 0], r=1, θ)_
 
 Answer the positions of _n_ points equally spaced around a circle of radius _r_ given initial angle _θ_.
+If _θ_ is elided it is taken to be _(1/n-1/2)π_.
 
 Corners of an equilateral triangle:
 
 ```
->>> 3.circlePoints(1)
+>>> 3.circlePoints([0 0], 1)
 [
 	[3.sqrt / 2, -1 / 2],
 	[0, 1],
@@ -19,11 +19,19 @@ Corners of an equilateral triangle:
 A square with side length two centered at _(0,0)_:
 
 ```
->>> 4.circlePoints(2.sqrt)
+>>> 4.circlePoints([0 0], 2.sqrt)
 [1 -1; 1 1; -1 1; -1 -1]
 ```
 
-Four unitary vectors aligned with the axes:
+A square with side length one centered at _(½,½)_:
+
+```
+>>> 4.circlePoints([0.5 0.5], 2.sqrt / 2)
+[1 0; 1 1; 0 1; 0 0]
+```
+
+Four unitary vectors aligned with the axes,
+a diamond:
 
 ```
 >>> 4.circlePoints([0 0], 1, 0)
@@ -39,10 +47,10 @@ C.f. `angleVector`:
 .allButLast
 ```
 
-Draw a pentagon:
+A pentagon:
 
 ~~~spl svg=A
-5.circlePoints([0 0], 1, 1.pi / 10)
+5.circlePoints([0 0], 1)
 .Polygon
 ~~~
 
@@ -157,12 +165,10 @@ let q = [3 6 9; 1 4 2 8 5 7];
 
 * * *
 
-See also: Circle, %, ^, angleVector, cos, sin
+See also: Circle, %, ^, angleVector, cos, fromPolarCoordinates, sin
 
-Guides: Geometry Functions
+Guides: Circle Functions, Geometry Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CirclePoints.html)
-
-Categories: Geometry

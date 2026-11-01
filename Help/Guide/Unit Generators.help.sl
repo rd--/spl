@@ -105,10 +105,13 @@
 
 ## Envelopes
 
+- `adsr`
+- `asr`
 - `cutoff`: cutoff envelope
-- `decay`: exponential decay
 - `decay2`: exponential decay
+- `decay`: exponential decay
 - `envGen`: envelope generator
+- `envTrapezoid`
 - `line`: line generator
 - `release`: release envelope
 - `xLine`: exponential line generator

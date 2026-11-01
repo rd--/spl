@@ -90,5 +90,3 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/Coordinates.html)
 [3](https://reference.wolfram.com/language/ref/VertexCoordinates.html)
 [4](https://reference.wolfram.com/language/ref/PolygonCoordinates.html)
-
-Categories: Geometry

@@ -160,5 +160,3 @@ Guides: Drawing Functions, Image Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Graphics.html)
-
-Categories: Graphics

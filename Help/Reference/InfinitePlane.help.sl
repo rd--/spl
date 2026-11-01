@@ -85,11 +85,11 @@ Dihedral angle:
 
 See also: HalfPlane, hessianNormalForm, unitNormal
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Plane.html)
 [1](https://reference.wolfram.com/language/ref/InfinitePlane.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Plane_(mathematics))
-
-Categories: Geometry

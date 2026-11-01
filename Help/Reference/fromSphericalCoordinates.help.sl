@@ -83,14 +83,23 @@ Convert to cyclindrical coordinates:
 )
 ```
 
+Evaluate symbolically:
+
+```
+>> [`r` `θ` `ϕ`].fromSphericalCoordinates
+[
+	(* (* r (cos θ)) (sin ϕ)),
+	(* (* r (sin θ)) (sin ϕ)),
+	(* r (cos ϕ))
+]
+```
+
 * * *
 
 See also: SphericalCoordinates, arcTan, fromPolarCoordinates, norm, toSphericalCoordinates
 
-Guides: Coordinate System Functions
+Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FromSphericalCoordinates.html)
-
-Categories: Converting, Geometry

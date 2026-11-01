@@ -19,9 +19,9 @@ Answer a `Sphere` with center at the point _c_ and radius _r_.
 
 See also: Ball, Circle, Ellipse, area, center, diameter, radius, randomPoint, spherePoints
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Sphere.html)
 [2](https://reference.wolfram.com/language/ref/Sphere.html)
-
-Categories: Geometry, Type

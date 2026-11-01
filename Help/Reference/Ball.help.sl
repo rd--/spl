@@ -28,5 +28,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Ball.html)
 _W_
 [1](https://en.wikipedia.org/wiki/Ball_(mathematics))
-
-Categories: Geometry, Type

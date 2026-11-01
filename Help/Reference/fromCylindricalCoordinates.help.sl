@@ -19,10 +19,20 @@ where _(ρ,φ)_ is the polar coordinate on the _x/y_ plane and _z_ is the Cartes
 [-8 8 -7]
 ```
 
+Evaluate symbolically:
+
+```
+>> [`ρ` `φ` `z`]
+>> .fromCylindricalCoordinates
+[
+	(* ρ (cos φ)),
+	(* ρ (sin φ)),
+	z
+]
+```
+
 * * *
 
 See also: CylindricalCoordinates, toCylindricalCoordinates
 
-Guides: Coordinate System Functions
-
-Categories: Converting, Geometry
+Guides: Coordinate System Functions, Geometry Functions

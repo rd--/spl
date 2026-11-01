@@ -23,12 +23,10 @@ At `Sphere`:
 
 See also: Circle, Sphere, circumference, radius
 
-Guides: Geometry Functions
+Guides: Circle Functions, Geometry Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Diameter.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Diameter)
-
-Categories: Geometry

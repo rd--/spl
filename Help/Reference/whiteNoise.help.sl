@@ -38,5 +38,3 @@ _SuperCollider_
 [1](https://doc.sccode.org/Classes/WhiteNoise.html),
 _W_
 [1](https://en.wikipedia.org/wiki/White_noise)
-
-Categories: Ugen, Noise

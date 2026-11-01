@@ -44,5 +44,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Disk.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Disk_(mathematics))
-
-Categories: Geometry

@@ -33,10 +33,8 @@ use `inHours` to answer the number of hours:
 
 See also: Quantity, milliseconds, minutes, seconds
 
-Guides: Quantity Functions
+Guides: Date and Time Functions, Quantity Functions
 
 References:
 _Smalltalk_
 5.8.2.11
-
-Categories: Time, Type

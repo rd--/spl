@@ -63,5 +63,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/PolygonAngle.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Interior_angle)
-
-Categories: Geometry

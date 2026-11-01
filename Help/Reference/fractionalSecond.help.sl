@@ -24,5 +24,3 @@ Guides: Date and Time Functions
 References:
 _Smalltalk_
 5.8.1.25
-
-Categories: Accessing, Time

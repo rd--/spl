@@ -98,5 +98,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm)
 
 Further Reading: Bresenham 1965
-
-Categories: Geometry

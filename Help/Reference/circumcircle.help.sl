@@ -65,7 +65,7 @@ let t = sssTriangle(13, 17, 7);
 
 See also: Circle, Triangle, circumcenter, circumradius, circumsphere
 
-Guides: Geometry Functions
+Guides: Circle Functions, Geometry Functions
 
 References:
 _Mathematica_
@@ -77,5 +77,3 @@ _W_
 [4](https://en.wikipedia.org/wiki/Golden_triangle_(mathematics))
 [5](https://en.wikipedia.org/wiki/Kepler_triangle)
 [6](https://en.wikipedia.org/wiki/Automedian_triangle)
-
-Categories: Geometry

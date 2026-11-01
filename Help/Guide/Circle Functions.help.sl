@@ -2,7 +2,11 @@
 
 Types:
 
+- `Arc`
 - `Circle`
+- `CircularSector`
+- `CircularSegment`
+- `Ellipse`
 - `GeneralisedCircle`
 
 Constructors:

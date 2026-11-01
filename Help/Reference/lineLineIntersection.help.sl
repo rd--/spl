@@ -29,12 +29,10 @@ If the lines are parallel, the intersection point will contain infinities:
 
 See also: HalfLine, InfiniteLine, Line, lineEquation, linePlaneIntersection
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Line Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Line-LineIntersection.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection)
-
-Categories: Geometry

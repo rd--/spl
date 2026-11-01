@@ -69,5 +69,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/MedianDeviation.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Median_absolute_deviation)
-
-Categories: Statistics

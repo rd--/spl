@@ -42,5 +42,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/EulerAngles.html)
 [2](https://mathworld.wolfram.com/RotationMatrix.html)
 [3](https://reference.wolfram.com/language/ref/EulerMatrix.html)
-
-Categories: Geometry, Matrix

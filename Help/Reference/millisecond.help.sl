@@ -15,4 +15,4 @@ Answer the millisecond component of the date and time value _d_.
 
 See also: Date, dayOfMonth, first, hour, minute, month, parseDate, second, year
 
-Categories: Accessing, Time
+Guides: Date and Time Functions

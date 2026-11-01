@@ -40,5 +40,3 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Commonest.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Mode_(statistics))
-
-Categories: Statistics

@@ -30,4 +30,4 @@ let phi = 1.goldenRatio;
 
 See also: Rectangle, unitSquare
 
-Categories: Geometry
+Guides: Geometry Functions

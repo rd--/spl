@@ -17,8 +17,8 @@ At `Date`:
 
 See also: Date, minute, month, parseDate, year
 
+Guides: Date and Time Functions
+
 References:
 _Smalltalk_
 5.8.1.13
-
-Categories: Accessing, Time

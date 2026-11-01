@@ -98,5 +98,3 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/bounds.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Maximum_and_minimum)
-
-Categories: Math, Statistics, Testing
