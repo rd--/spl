@@ -1,8 +1,8 @@
 # arrayFilter
 
-- _arrayFilter(aBlock/1, aList, anInteger)_
+- _arrayFilter(f/1, [x₁ x₂ …], n)_
 
-Apply _aBlock_ to all _anInteger * 2 + 1_ sublists of _aList_.
+Apply the block _f_ to all _b*2+1_ sublists of _x_.
 The answer has the same shape as the input.
 At the boundaries, the edge elements are repeated.
 
@@ -50,6 +50,8 @@ Compute a moving average with runs of three elements using a range-one neighbour
 * * *
 
 See also: arrayFlatten, blockMap, convolve, movingMap, partition, reshape
+
+Guides: Array Functions
 
 References:
 _Mathematica_

@@ -1,8 +1,8 @@
 # bezierFunctionAt
 
-- _bezierFunctionAt(aList, aNumber)_
+- _bezierFunctionAt(m, n)_
 
-Answers the Bézier curve specified in _aList_ at _aNumber_.
+Answers the Bézier curve specified by the matrix _m_ at _n_.
 This method runs `bezierFunction` to generate the function,
 and then immediately applies it,
 discarding the generated function.

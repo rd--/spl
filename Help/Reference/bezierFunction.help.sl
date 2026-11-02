@@ -1,9 +1,9 @@
 # bezierFunction
 
-- _bezierFunction(aList)_
+- _bezierFunction(m)_
 
-Answers a unary function that will index the Bézier curve defined by the sequence of control points at _aList_.
-In common cases _aList_ will be a either
+Answers a unary function that will index the Bézier curve defined by the sequence of control points at the matrix _m_.
+In common cases _m_ will be a either
 a 3×2 matrix specifying a quadratic Bézier curve,
 or a 4×2 matrix specifying a cubic Bézier curve.
 

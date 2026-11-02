@@ -1,6 +1,6 @@
 # bezierHull
 
-- _bezierHull(aList, aNumber)_
+- _bezierHull(m, x)_
 
 Hull of a quadratic Bézier curve:
 

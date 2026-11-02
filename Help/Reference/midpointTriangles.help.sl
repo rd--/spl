@@ -47,6 +47,6 @@ midpointPolygon/1
 
 * * *
 
-See also: midpoint, midpointPolygon
+See also: medialTriangle, midpoint, midpointPolygon
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Triangle Functions

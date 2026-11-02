@@ -1,12 +1,14 @@
 # isEdgeWeightedGraph
 
-- _isEdgeWeightedGraph(aGraph)_
+- _isEdgeWeightedGraph(g)_
 
-Answer `true` if _aGraph_ is an edge weighted graph.
+Answer `true` if the graph _g_ is an edge weighted graph.
 
 * * *
 
 See also: Graph, edgeWeights, weightedAdjacencyGraph
+
+Guides: Graph Functions, Predicate Functions
 
 References:
 _Mathematica_

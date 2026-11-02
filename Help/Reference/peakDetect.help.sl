@@ -2,7 +2,7 @@
 
 - _peakDetect([x₁ x₂ …])_
 
-Answer a binary list in which `one`s correspond to peak positions in _aList_.
+Answer a binary list in which `one`s correspond to peak positions in _x_.
 
 Find dominant peaks in a list:
 

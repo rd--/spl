@@ -1,9 +1,9 @@
 # TableViewer
 
-- _TableViewer(aSmallKansas, aString, aList)_
+- _TableViewer(k, t, m)_
 
 Table viewer.
-Add a window to _aSmallKansas_ with title _aString_ displaying a table of the matrix at _aList_.
+Add a window to `SmallKansas` with the title _t_ displaying a table of the matrix at _m_.
 
 ~~~spl smallKansas
 system.smallKansas.TableViewer(

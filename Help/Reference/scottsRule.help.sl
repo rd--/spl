@@ -1,6 +1,6 @@
 # scottsRule
 
-- _scottsRule(aList)_
+- _scottsRule([x₁ x₂ …])_
 
 Answer the Scott rule to select the bin-width for a histogram.
 

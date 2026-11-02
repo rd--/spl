@@ -1,8 +1,8 @@
 # bezierDerivatives
 
-- _bezierDerivatives(aList)_
+- _bezierDerivatives(m)_
 
-Answer a `List` of the successive derivatives of the Bézier curve at _aList_.
+Answer a `List` of the successive derivatives of the Bézier curve at the matrix _m_.
 
 The first, second, and third derivatives of a cubic Bézier curve:
 

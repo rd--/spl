@@ -1,15 +1,14 @@
 # expressionTree
 
-- _expressionTree(aList)_
-- _expressionTree(aList, anObject)_
+- _expressionTree(c, x)_
 
-Answer a `Tree` representation of a (possibly) nested `List`.
+Answer a `Tree` representation of a (possibly) nested `List` _c_.
 
 In the binary case,
-_anObject_ is assigned as the value of each inner node:
+_x_ is assigned as the value of each inner node:
 
 ```
->>> [1 2].expressionTree(nil)
+>>> [1, 2].expressionTree(nil)
 Tree(nil, [Tree(1, []), Tree(2, [])])
 
 >>> [1, [2, [3], 4], 5].expressionTree(nil)

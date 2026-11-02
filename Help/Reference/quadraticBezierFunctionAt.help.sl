@@ -1,8 +1,8 @@
 # quadraticBezierFunctionAt
 
-- _quadraticBezierFunctionAt(aList, aNumber)_
+- _quadraticBezierFunctionAt(m, n)_
 
-Answers the quadratic Bézier curve at _aNumber_ given the three row matrix _aList_.
+Answers the quadratic Bézier curve at _n_ given the three row matrix _m_.
 This is the method utilised by `bezierFunction` for quadratic Bézier curves.
 
 A quadratic Bézier curve:

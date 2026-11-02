@@ -7,6 +7,7 @@ The medial triangle,
 also called the midpoint triangle,
 of a reference triangle _t_ is the triangle with vertices at the midpoints of the triangle’s sides.
 It is the `pedalTriangle` of the `orthocenter`.
+It is a special case of `midpointPolygon`.
 
 ```
 >>> let a = [3 4 5].sssTriangle;
@@ -97,7 +98,7 @@ Barymetric subdivision:
 
 See also: Triangle, midpoint, midpointPolygon, pedalTriangle
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Triangle Functions
 
 References:
 _Mathematica_

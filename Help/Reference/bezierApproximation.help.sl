@@ -1,8 +1,8 @@
 # bezierApproximation
 
-- _bezierApproximation(aList, anInteger)_
+- _bezierApproximation(m, n)_
 
-Utilise `bezierFunction` to evaluate the Bézier curve specified by _aList_ at _anInteger_ equally spaced indices.
+Utilise `bezierFunction` to evaluate the Bézier curve specified by the matrix _m_ at _n_ equally spaced indices.
 The values answered are exactly on the curve,
 the answer is an approximation in the sense of a sampling.
 

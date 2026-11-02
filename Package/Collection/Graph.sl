@@ -435,10 +435,18 @@
 		}.table(v, v)
 	}
 
-	labeledVertexList { :self |
-		self.vertexList.collect { :each |
-			each -> self.vertexLabel(each)
-		}
+	labeledEdgeList { :self :aBlock/1|
+		self.edgeList.withCollect(
+			self.edgeLabels(aBlock/1),
+			->
+		)
+	}
+
+	labeledVertexList { :self :aBlock/1|
+		self.vertexList.withCollect(
+			self.vertexLabels(aBlock/1),
+			->
+		)
 	}
 
 	lineGraph { :self |
@@ -686,7 +694,13 @@ Graph : [Object, Graph] {
 		self.properties['edgeLabels']
 	}
 
-	edgeLabels { :self :aList |
+	edgeLabels { :self :aBlock/1 |
+		self.properties.atIfAbsent('edgeLabels') {
+			self.edgeList.collect(aBlock/1)
+		}
+	}
+
+	edgeLabelsMutate! { :self :aList |
 		self.properties['edgeLabels'] := aList;
 		self
 	}
@@ -731,6 +745,12 @@ Graph : [Object, Graph] {
 	vertexCoordinatesMutate! { :self :aList |
 		self.properties['vertexCoordinates'] := aList;
 		self
+	}
+
+	vertexLabels { :self :aBlock/1 |
+		self.properties.atIfAbsent('vertexLabels') {
+			self.vertexList.collect(aBlock/1)
+		}
 	}
 
 	vertexLabels { :self |

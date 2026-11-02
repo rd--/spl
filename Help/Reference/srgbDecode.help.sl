@@ -1,6 +1,6 @@
 # srgbDecode
 
-- _srgbDecode(aNumber | aList | aColour)_
+- _srgbDecode(x)_
 
 Decode non-linear _Rgb_ values to linear _Rgb_ values using the _Srgb_ colour component transfer function (Cctf).
 Also called the inverse companding or gamma function.

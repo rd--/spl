@@ -1,6 +1,8 @@
 # simpleGraph
 
-- _simpleGraph(aGraph)_
+- _simpleGraph(g)_
+
+Transform the graph _g_ into a simple graph.
 
 Remove self-loops from an undirected graph:
 
@@ -47,6 +49,8 @@ Graph[
 * * *
 
 See also: Graph
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

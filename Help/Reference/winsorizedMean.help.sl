@@ -1,6 +1,6 @@
 # winsorizedMean
 
-- _winsorizedMean(aList, [f₁ f₂])_
+- _winsorizedMean([x₁ x₂ …], [f₁ f₂])_
 
 Answer the `mean` when a fraction _f₁_ of the smallest elements and a fraction _f₂_ of the largest elements are replaced by the remaining extreme values.
 

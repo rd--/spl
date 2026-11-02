@@ -1,9 +1,9 @@
 # quadraticBezierToCubicBezier
 
-- _quadraticBezierToCubicBezier(aList)_
+- _quadraticBezierToCubicBezier(m)_
 
 Convert a quadratic Bézier curve to a cubic Bézier curve.
-_aList_ should be a matrix of three rows,
+_m_ should be a matrix of three rows,
 the answer will be a matrix of four rows.
 
 ```

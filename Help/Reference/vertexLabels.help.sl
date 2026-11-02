@@ -1,5 +1,6 @@
 # vertexLabels
 
+- _vertexLabels(g, f/1)_
 - _g.vertexLabels := x_
 
 Answer, or assign, the vertex labels of the graph _g_.

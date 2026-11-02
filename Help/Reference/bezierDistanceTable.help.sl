@@ -1,10 +1,10 @@
 # bezierDistanceTable
 
-- _bezierDistanceTable(aList, anInteger)_
+- _bezierDistanceTable(m, n)_
 
 Answer two lists,
-the first, _i_, is the equal division of the interval _(0, 1)_ into _anInteger_ parts,
-the second, _d_, is the distance along the Bézier curve specified at _aList_ for each index in _i_.
+the first, _i_, is the equal division of the interval _(0, 1)_ into _n_ parts,
+the second, _d_, is the distance along the Bézier curve specified at _m_ for each index in _i_.
 The last item in _d_ is the arc length of the curve.
 
 The distance between equally spaced indices is not, in general, equal:

@@ -1,8 +1,8 @@
 # rectangularHorogramDrawing
 
-- _rectangularHorogramDrawing(aList)_
+- _rectangularHorogramDrawing(a)_
 
-Answer a `LineDrawing` showing a rectangular Wilson horogram of the interval sequences at _aList_,
+Answer a `LineDrawing` showing a rectangular Wilson horogram of the interval sequences at the irregular array _a_,
 which should each sum to the same value.
 
 `zero` is at the left,

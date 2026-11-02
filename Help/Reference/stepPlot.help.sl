@@ -1,8 +1,8 @@
 # stepPlot
 
-- _stepPlot(aList)_
+- _stepPlot(c)_
 
-Plot values in steps.
+Plot values at the collection _c_ in steps.
 
 At integer vector:
 

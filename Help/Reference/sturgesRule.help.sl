@@ -1,6 +1,6 @@
 # sturgesRule
 
-- _sturgesRule(aList)_
+- _sturgesRule([x₁ x₂ …])_
 
 Answer Sturgess rule to select the number of bins for a histogram.
 

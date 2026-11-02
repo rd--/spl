@@ -1,8 +1,8 @@
 # cubicBezierFunctionAt
 
-- _cubicBezierFunctionAt(aList, aNumber)_
+- _cubicBezierFunctionAt(m, n)_
 
-Answers the cubic Bézier curve at _aNumber_ given the four row matrix _aList_.
+Answers the cubic Bézier curve at _n_ given the four row matrix _m_.
 This is a special case of the more general `bezierFunctionAt`.
 
 A cubic Bézier curve:

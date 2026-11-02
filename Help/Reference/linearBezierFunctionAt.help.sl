@@ -1,8 +1,8 @@
 # linearBezierFunctionAt
 
-- _linearBezierFunctionAt(aList, aNumber)_
+- _linearBezierFunctionAt(m, n)_
 
-Answers the linear Bézier curve at _aNumber_ given the two row matrix _aList_.
+Answers the linear Bézier curve at _b_ given the two row matrix _m_.
 This is the method utilised by `bezierFunction` for linear Bézier curves.
 
 A linear Bézier curve, a straight line:

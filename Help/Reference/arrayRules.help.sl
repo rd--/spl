@@ -1,9 +1,9 @@
 # arrayRules
 
-- _arrayRules(aList | anArray, anObject)_
+- _arrayRules(a, x)_
 
-Answer an `Association` `List` indicating the values at _anArray_ that are not equal to _anObject_.
-If the bounding index would not be included it is given with the _zero_ value.
+Answer an `Association` `List` indicating the values at the array _a_ that are not equal to the object _x_.
+If the bounding index would not be included it is given with the `zero` value.
 This is one form of sparse representation of an array.
 
 A six-vector with three `zero` elements answers a list of three or four places:

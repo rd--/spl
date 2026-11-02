@@ -15,7 +15,7 @@ true
 [false false false]
 ```
 
-At `Triangle`:
+At `Triangle`,
 an obtuse triangle:
 
 ```
@@ -41,7 +41,7 @@ false
 
 See also: Triangle, interiorAngles, isAcute, pi
 
-Guides: Triangle Functions
+Guides: Predicate Functions, Triangle Functions
 
 References:
 _Mathematica_

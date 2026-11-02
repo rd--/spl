@@ -1,6 +1,6 @@
 # freedmanDiaconisRule
 
-- _freedmanDiaconisRule(aList)_
+- _freedmanDiaconisRule([x₁ x₂ …])_
 
 Answer the Freedman-Diaconis rule to select the bin-width for a histogram.
 

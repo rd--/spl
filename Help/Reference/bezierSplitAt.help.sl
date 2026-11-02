@@ -1,8 +1,8 @@
 # bezierSplitAt
 
-- _bezierSplitAt(aList, aNumber)_
+- _bezierSplitAt(m, n)_
 
-Split a Bézier curve into two parts at position _aNumber_,
+Split a Bézier curve _m_ into two parts at position _n_,
 which should be between `zero` and `one`.
 The split is made using the same process as `deCasteljausAlgorithm`.
 
