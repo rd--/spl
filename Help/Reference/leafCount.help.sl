@@ -1,8 +1,8 @@
 # leafCount
 
-- _leafCount(aCollection | aTree)_
+- _leafCount(c)_
 
-Answers the total number of non-collection elements in _aCollection_.
+Answers the total number of non-collection elements in the collection _c_.
 
 At `Range`:
 

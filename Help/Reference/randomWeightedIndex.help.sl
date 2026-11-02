@@ -24,6 +24,6 @@ let r = Sfc32(37914);
 
 See also: atRandom, nextRandomFloat
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 Categories: Random

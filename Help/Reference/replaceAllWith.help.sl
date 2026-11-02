@@ -1,13 +1,16 @@
-# replaceAllWith
+# replaceAllWith!
 
-- _replaceAllWith(x, a, b)_
+- _replaceAllWith!(x, a, b)_
 
 At `List`,
-answer a copy of _x_ where all instances of _a_ are replaced with _b_:
+replace all instances of _a_ with _b_,
+answer _x_:
 
 ```
->>> [1 2 3 1 2 1].replaceAllWith(2, -2)
-[1 -2 3 1 -2 1]
+>>> let a = [1 2 3 1 2 1];
+>>> let b = a.replaceAllWith!(2, -2);
+>>> (a, a == b)
+([1 -2 3 1 -2 1], true)
 ```
 
 At `RegularExpression`,

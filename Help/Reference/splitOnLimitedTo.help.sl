@@ -1,8 +1,8 @@
 # splitOnLimitedTo
 
-- _splitOnLimitedTo(aString, separator, count)_
+- _splitOnLimitedTo(s, c, n)_
 
-Variant of `splitOn` that limits the number of items in the answer to _count_.
+Variant of `splitOn` that limits the number of items in the answer to _n_.
 
 ```
 >>> 'List of three words'

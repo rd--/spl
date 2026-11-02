@@ -32,4 +32,4 @@ Simulation methods:
 
 * * *
 
-Guides: Probability Distributions, Random Functions, Random Number Generators, Time Series Functions
+Guides: Probability Distributions, Random Number Functions, Random Number Generators, Time Series Functions

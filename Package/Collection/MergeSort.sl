@@ -24,9 +24,9 @@
 			}
 		};
 		(i1 <= middle).if {
-			destination.replaceFromToWithStartingAt(out + 1, last, self, i1)
+			destination.replaceFromToWithStartingAt!(out + 1, last, self, i1)
 		} {
-			destination.replaceFromToWithStartingAt(out + 1, last, self, i2)
+			destination.replaceFromToWithStartingAt!(out + 1, last, self, i2)
 		}
 	}
 

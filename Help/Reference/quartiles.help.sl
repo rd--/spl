@@ -1,9 +1,8 @@
 # quartiles
 
-- _quartiles(aCollection, [a b; c d])_
-- _quartiles(alpha)_ ⟹ _quartiles(alpha, [1/2 0; 0 1])_
+- _quartiles(c, m=[1/2 0; 0 1])_
 
-Answer the (1/4, 1/2, 3/4) quantile estimates of the elements in _aCollection_.
+Answer the (1/4, 1/2, 3/4) quantile estimates of the elements in the collection _c_.
 
 Quartiles for a list of exact numbers:
 

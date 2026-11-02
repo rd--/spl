@@ -13,7 +13,7 @@ Replace sub-sequences that match a sequence:
 ```
 
 Replace sub-sequences that match any of the rules,
-if the left hand side of a rule it not a sequence it is understood to be a sequence of one place:
+if the left hand side of a rule is not a sequence it is understood to be a sequence of one place:
 
 ```
 >>> [1 2 3 3 1 2].sequenceReplace(

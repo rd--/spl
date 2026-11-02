@@ -230,7 +230,7 @@ let r = Sfc32(131939);
 
 See also: RandomNumberGenerator, anyOne, atRandom, randomInteger, randomSample, randomWeightedChoice
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 References:
 _Julia_

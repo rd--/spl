@@ -33,7 +33,7 @@ Sfc32(112212).randomTree(5).treePlot
 
 See also: RandomNumberGenerator, Tree, Sfc32
 
-Guides: Graph Functions, Random Functions
+Guides: Graph Functions, Random Number Functions
 
 References:
 _Mathematica_

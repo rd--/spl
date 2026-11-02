@@ -1,10 +1,9 @@
 # parseBoolean
 
-- _parseBoolean(aString)_
-- _parseBoolean(aString, elseClause/0)_
+- _parseBoolean(s, f/0)_
 
-Answer the `Boolean` indicated by _aString_,
-else evaluate _elseClause_,
+Answer the `Boolean` indicated by the string _s_,
+else evaluate the else clause _f_,
 or signal an `error`.
 
 Parse boolean texts:

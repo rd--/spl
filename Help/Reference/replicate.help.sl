@@ -217,5 +217,3 @@ _Python_
 [1](https://numpy.org/doc/stable/reference/generated/numpy.repeat.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Array.html#-dupEach)
-
-Categories: Copying

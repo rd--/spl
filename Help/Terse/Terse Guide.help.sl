@@ -3021,7 +3021,7 @@ let a = []; (x: 1, y: 2, z: 3).indicesDo { :each | a.add!(each) }; a = ['x', 'y'
 1:4.foldRight(Association/2) = (1 -> (2 -> (3 -> 4))) /* fold, right associative */
 1:4.foldLeft(-) = (((1 - 2) - 3) - 4) /* fold, left associative */
 1:4.foldRight(-) = (1 - (2 - (3 - 4))) /* fold, right associative */
-let a = [1 3 5 3 5 7]; a.replaceAllWith(3, -3); a = [1 -3 5 -3 5 7] /* replace each occurence of an item with another */
+let a = [1 3 5 3 5 7]; a.replaceAllWith!(3, -3); a = [1 -3 5 -3 5 7] /* replace each occurence of an item with another */
 [0, 1].tuples(2) = [[0, 0], [0, 1], [1, 0], [1, 1]] /* all n-tuples, of two elements is binary counting */
 [0 1].tuples(3) = [0 0 0; 0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1] /* all n-tuples */
 [0 1 2].tuples(2) = [0 0; 0 1; 0 2; 1 0; 1 1; 1 2; 2 0; 2 1; 2 2] /* of three elements is ternary counting */

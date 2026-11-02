@@ -40,7 +40,7 @@ let c = r.poissonDiskSampling(
 
 See also: randomPoint
 
-Guides: Random Functions, Sequence Functions
+Guides: Random Number Functions, Sequence Functions
 
 References:
 _Python_

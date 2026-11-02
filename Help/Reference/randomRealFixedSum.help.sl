@@ -32,4 +32,4 @@ For instance _[i j n]_ would specify an _i×j_ matrix of _n_ vectors.
 
 See also: UniformDistribution, randomReal, staffordsAlgorithm
 
-Guides: Random Functions
+Guides: Random Number Functions

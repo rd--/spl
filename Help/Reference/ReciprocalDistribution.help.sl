@@ -54,7 +54,7 @@ ReciprocalDistribution(1, 4)
 
 See also: UniformDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Mathworks_

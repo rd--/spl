@@ -33,7 +33,7 @@ Generate a random permutation:
 
 ```
 >>> let r = Sfc32(49135);
->>> let l = r.randomSample(1:20, 20);
+>>> let l = r.randomSample([1 .. 20], 20);
 >>> (
 >>> 	l.mean,
 >>> 	l.standardDeviation,
@@ -72,7 +72,7 @@ Guarantee that a set of random integers over a large range has no repetitions:
 
 See also: atRandom, reservoirSampleAlgorithmL
 
-Guides: Permutation Functions, Random Functions
+Guides: Permutation Functions, Random Number Functions
 
 References:
 _Mathematica_

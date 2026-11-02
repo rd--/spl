@@ -30,6 +30,4 @@ Relation to `nub`:
 
 See also: IdentitySet, add, includesBy, nub, nubSieve, select
 
-Guides: List Functions
-
-Categories: Copying
+Guides: Copying Functions, List Functions

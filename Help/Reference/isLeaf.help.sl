@@ -1,8 +1,8 @@
 # isLeaf
 
-- _isLeaf(aTree)_
+- _isLeaf(t)_
 
-A `Tree` is a _leaf_ if its `size` is `zero`:
+A `Tree` _t_ is a _leaf_ if its `size` is `zero`:
 
 ```
 >>> Tree(1, []).isLeaf

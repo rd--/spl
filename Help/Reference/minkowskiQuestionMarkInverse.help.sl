@@ -1,6 +1,6 @@
 # minkowskiQuestionMarkInverse
 
-- _minkowskiQuestionMarkInverse(aNumber)_
+- _minkowskiQuestionMarkInverse(n)_
 
 The inverse of Minkowski’s question mark function.
 

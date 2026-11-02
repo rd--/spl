@@ -20,5 +20,3 @@ Changes a sub-list of the copy are visible in the initial list:
 See also: Copy, copy, deepCopy, postCopy
 
 Guides: Copying Functions
-
-Categories: Copying

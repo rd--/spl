@@ -88,7 +88,7 @@ let b = d.randomVariate(r, 100);
 
 See also: BernoulliProcess, BinomialDistribution, CauchyDistribution, UniformDistribution, WeibullDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Mathematica_

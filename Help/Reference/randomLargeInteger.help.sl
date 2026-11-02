@@ -33,7 +33,7 @@ At `LargeInteger`:
 
 See also: atRandom, randomByteArray, randomInteger, randomReal, randomSample
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 References:
 _Mathematica_

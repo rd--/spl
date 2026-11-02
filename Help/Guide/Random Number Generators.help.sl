@@ -5,7 +5,7 @@ Traits:
 - `RandomNumberGenerator`
 - `Stream`
 
-Pseudo-random Number Generators:
+Pseudo-Random Number Generators:
 
 - `Sfc32`: Doty-Humphrey 2018
 - `LaggedFibonacci`
@@ -17,15 +17,15 @@ System Random Number Generator:
 
 - `seedRandom`
 
-Random Functions:
+Random Number Functions:
 
-- `Random Functions`: Guide
+- `Random Number Functions`: Guide
 
-`Stream` methods:
+Stream Functions:
 
-- `next`: next item
-- `nextRandomFloat`: next float
-- `nextRandomInteger`: next integer
+- `next`
+- `nextRandomFloat`
+- `nextRandomInteger`
 
 Deterministic Functions:
 
@@ -33,4 +33,4 @@ Deterministic Functions:
 
 * * *
 
-Guides: Probability Distributions, Random Processes
+Guides: Probability Distributions, Random Number Functions, Random Processes

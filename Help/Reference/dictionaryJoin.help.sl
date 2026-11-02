@@ -1,8 +1,8 @@
 # dictionaryJoin
 
-- _dictionaryJoin(aCollection)_
+- _dictionaryJoin(c)_
 
-Answer a dictionary that has all of the keys of all of the dictionaries in _aCollection_.
+Answer a dictionary that has all of the keys of all of the dictionaries in the collection _c_.
 
 ```
 >>> [(x: 1), (y: 2), (z: 3)].dictionaryJoin
@@ -19,3 +19,5 @@ Keys visited later in the traversal replace existing entries:
 * * *
 
 See also: ++, catenate, join, stringJoin
+
+Guides: Dictionary Functions

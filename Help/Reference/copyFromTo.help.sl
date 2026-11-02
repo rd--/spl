@@ -88,5 +88,3 @@ Guides: Copying Functions, List Functions
 References:
 _Smalltalk_
 5.7.8.7
-
-Categories: Copying

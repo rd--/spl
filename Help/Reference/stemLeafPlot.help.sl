@@ -1,8 +1,8 @@
 # stemLeafPlot
 
-- _stemLeafPlot(aCollection)_
+- _stemLeafPlot(c)_
 
-Answer a stem-and-leaf plot for the real-valued integer in _aCollection_.
+Answer a stem-and-leaf plot for the real-valued integer in the collection _c_.
 
 Plot of real values scaled and rounded:
 

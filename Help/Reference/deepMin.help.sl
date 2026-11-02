@@ -1,6 +1,6 @@
 # deepMin
 
-- _deepMin(aCollection)_
+- _deepMin(c)_
 
 Answer `deepReduce` of `min`.
 

@@ -1,8 +1,8 @@
 # centralMoment
 
-- _centralMoment(aCollection, r)_
+- _centralMoment(c, r)_
 
-Answer the order _r_ central moment of _aCollection_.
+Answer the order _r_ central moment of the collection _c_.
 
 ```
 >>> 1:4.centralMoment(4)

@@ -37,7 +37,7 @@ HypergeometricDistribution(20, 50, 100)
 
 See also: BinomialDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Mathematica_

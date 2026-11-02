@@ -44,5 +44,3 @@ Guides: Copying Functions
 References:
 _Smalltalk_
 5.7.8.10
-
-Categories: Copying

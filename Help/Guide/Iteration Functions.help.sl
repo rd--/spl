@@ -11,6 +11,7 @@ Collection iteration:
 
 - `associationsDo`
 - `do`
+- `doSeparatedBy`
 - `fromToDo`
 - `fromToIndicesAndValuesDo`
 - `keysAndValuesDo`

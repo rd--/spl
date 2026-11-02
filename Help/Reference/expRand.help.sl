@@ -61,7 +61,7 @@ let r = Sfc32(678123);
 
 See also:IRand, linRand, nRand, rand, TexpRand, tRand, tiRand,  exp, log, nextRandomFloat
 
-Guides: Random Functions, Unit Generators
+Guides: Random Number Functions, Unit Generators
 
 References:
 _Csound_

@@ -53,7 +53,7 @@ let c = DiscreteUniformDistribution(
 
 See also: UniformDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Mathematica_

@@ -57,7 +57,7 @@
 - `Protocol Functions`
 - `Quantity Functions`
 - `Quaternion Functions`
-- `Random Functions`
+- `Random Number Functions`
 - `Reflection Functions`
 - `Regular Expression Functions`
 - `Rounding Functions`

@@ -1,10 +1,10 @@
 # detectIndexIfFoundIfNone
 
-- _detectIndexIfFoundIfNone(aSequence, predicate/1, ifFound/1, ifNotFound/0)_
+- _detectIndexIfFoundIfNone(a, f/1, g/1, h/0)_
 
-Detect index of first item at _aSequence_ that answers `true` for _predicate_,
-applying _ifFound_ to the located index,
-else evaluating _ifNotFound_.
+Detect index of first item at the sequence _a_ that answers `true` for the predicate block _f_,
+applying the block _g_ to the located index,
+else evaluating _h_.
 
 ```
 >>> let x = [];

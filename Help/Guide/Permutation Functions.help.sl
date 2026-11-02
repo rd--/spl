@@ -59,6 +59,10 @@ Enumeration:
 - `reversalPermutation`
 - `steinhausJohnsonTrotter`
 
+Indexing:
+
+- `nthLexicographicPermutation`
+
 Lists:
 
 - `ordering`: inverse of a permutation list
@@ -99,7 +103,7 @@ Properties:
 - `permutationSupport`: integers that are not fixed by permutation
 - `signature`: parity or sign
 
-Random Functions:
+Random Number Functions:
 
 - `randomSample`
 - `randomPermutation`

@@ -1,9 +1,9 @@
 # fetchTextWithDefault
 
-- _fetchText(aUrl, aString)_
+- _fetchText(u, s)_
 
-Answer a `Promise` that will resolve to a `String` having the contents of _aUrl_,
-or `aString` if the `fetch` fails.
+Answer a `Promise` that will resolve to a `String` having the contents of the Url _u_,
+or the string _s if the `fetch` fails.
 
 ~~~spl async
 system

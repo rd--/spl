@@ -210,7 +210,7 @@ Guides (A-Z):
 - `Quantity Functions`
 - `Quaternion Functions`
 - `Radix Syntax`
-- `Random Functions`
+- `Random Number Functions`
 - `Random Number Generators`
 - `Random Processes`
 - `Random Unit Generators`

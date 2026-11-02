@@ -41,8 +41,8 @@ Replace singular item with list:
 
 See also: copy
 
+Guides: Copying Functions
+
 References:
 _Smalltalk_
 5.7.8.8
-
-Categories: Copying

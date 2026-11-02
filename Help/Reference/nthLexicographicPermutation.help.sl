@@ -1,8 +1,8 @@
 # nthLexicographicPermutation
 
-- _nthLexicographicPermutation(aSequence, anInteger)_
+- _nthLexicographicPermutation([x₁ x₂ …], n)_
 
-Answer the _anInteger_-th lexicographic permutation of _aSequence_.
+Answer the _n_-th lexicographic permutation of _x_.
 
 The ninth lexicographic permutation of _1234_:
 
@@ -27,3 +27,5 @@ The 3333rd lexicographic permutation of _123456789_:
 * * *
 
 See also: lexicographicPermutations, lexicographicPermutationsDo
+
+Guides: Permutation Functions

@@ -1,8 +1,8 @@
 # lowBit
 
-- _lowBit(anInteger)_
+- _lowBit(n)_
 
-Answer the index of the low order one bit of _anInteger_.
+Answer the index of the low order one bit of the integer _n_.
 
 ```
 >>> 40.lowBit

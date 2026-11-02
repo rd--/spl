@@ -1,8 +1,8 @@
 # fourth
 
-- _fourth(aSequence)_
+- _fourth([x₁ x₂ …])_
 
-Answer the fourth element of _aSequence_.
+Answer the fourth element of the sequence _x_.
 
 ```
 >>> 1:6.fourth

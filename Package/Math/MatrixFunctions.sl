@@ -243,7 +243,7 @@
 			self.error('List>>gaussJordanInverse: matrix is not square')
 		};
 		1.toDo(m) { :i |
-			a[i].replaceFromToWith(1, m, self[i]);
+			a[i].replaceFromToWith!(1, m, self[i]);
 			a[i][m + i] := 1
 		};
 		a.reducedRowEchelonForm;

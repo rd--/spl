@@ -1,10 +1,10 @@
 # notify
 
-- _notify(anObject, aString)_
+- _notify(x, m)_
 
 User notification.
-Answer _anObject_, and also prints a notification.
-The notification gives the type of _anObject_, its value, and the message _aString_.
+Answer the object _x_, and also prints a notification.
+The notification gives the type of _x_, its value, and the message string _m_.
 
 ```
 >>> 1.pi.notify('pi')

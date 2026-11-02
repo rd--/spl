@@ -36,7 +36,7 @@ Probability density function, varying _d_:
 
 See also: SechDistribution, gamma
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Mathematica_

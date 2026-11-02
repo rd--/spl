@@ -1,6 +1,6 @@
 # adobeRgbEncode
 
-- _adobeRgbEncode(aNumber)_
+- _adobeRgbEncode(n)_
 
 Encode linear _Rgb_ values to non-linear _Rgb_ values using the _Adobe_ colour component transfer function (Cctf).
 Also called the companding or gamma function.

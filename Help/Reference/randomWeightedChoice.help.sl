@@ -33,7 +33,7 @@ Generate a weighted random string:
 ```
 
 Choose 48 characters randomly and with replacement from the sequence _ACGT_,
-according to the specified probabilities.
+according to the specified probabilities:
 
 ```
 >>> let r = Sfc32(36814);
@@ -45,7 +45,7 @@ according to the specified probabilities.
 'CTTGTAGGGTCCCGGAGGTCGCGG'
 ```
 
-Generate a 3×10 matrix of integers according to a _1 / n_ distribution:
+Generate a 3×10 matrix of integers according to a _1/n_ distribution:
 
 ```
 >>> Sfc32(38014)
@@ -61,10 +61,23 @@ Generate a 3×10 matrix of integers according to a _1 / n_ distribution:
 ]
 ```
 
+A 7×12 matrix of integers according to a _1/n_ distribution:
+
+~~~spl svg=A
+Sfc32(380514)
+.randomWeightedChoice(
+	1:16,
+	1 / 1:16,
+	[7 12]
+).matrixPlot
+~~~
+
+![](Help/Image/randomWeightedChoice-A.svg)
+
 * * *
 
 See also: anyOne, atRandom, randomChoice, randomInteger, randomSample
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 Categories: Random

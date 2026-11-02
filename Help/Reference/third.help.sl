@@ -1,8 +1,8 @@
 # third
 
-- _third(aSequence)_
+- _third([x₁ x₂ …])_
 
-Answer the third element of _aSequence_.
+Answer the third element of _x_.
 
 ```
 >>> 1:6.third

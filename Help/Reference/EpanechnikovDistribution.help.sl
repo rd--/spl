@@ -38,7 +38,7 @@ The Epanechnikov distribution can be viewed as a special case of a Beta distribu
 
 See also: BetaDistribution, epanechnikovKernel
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _W_

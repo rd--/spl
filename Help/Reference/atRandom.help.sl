@@ -60,7 +60,7 @@ system.seedRandom(297142);
 
 See also: anyOne, randomChoice, randomInteger, randomReal, randomSample, randomVariate, randomWeightedChoice
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 References:
 _Mathematica_

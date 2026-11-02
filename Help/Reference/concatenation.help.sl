@@ -130,5 +130,3 @@ _Smalltalk_
 5.7.8.1,
 _Tc39_
 [1](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.concat)
-
-Categories: Copying

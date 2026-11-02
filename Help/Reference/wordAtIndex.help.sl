@@ -1,8 +1,8 @@
 # wordAtIndex
 
-- _wordAtIndex(aString, anInteger)_
+- _wordAtIndex(s, n)_
 
-Answer the word in _aString_ at index _anInteger_:
+Answer the word in the string _s_ at index _n_:
 
 ```
 >>> let s = 'a list of words';
@@ -38,4 +38,4 @@ true
 
 See also: RegularExpression, String, whiteSpaceDelimitedWordAtIndex
 
-Categories: Accessing
+Guides: String Functions

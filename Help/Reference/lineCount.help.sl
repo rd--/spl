@@ -1,8 +1,8 @@
 # lineCount
 
-- _lineCount(aString)_
+- _lineCount(s)_
 
-Answer the number of lines at _aString_,
+Answer the number of lines at the string _s_,
 where the empty string has one line,
 and every line feed adds one line.
 

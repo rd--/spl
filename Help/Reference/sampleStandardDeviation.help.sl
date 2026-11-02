@@ -1,8 +1,9 @@
 # sampleStandardDeviation
 
-- _sampleStandardDeviation(aCollection)_
+- _sampleStandardDeviation(c)_
 
-Form of standard deviation where _aCollection_ represents the _entire_ population, not a subset.
+Form of standard deviation where the collection _c_ represents the _entire_ population,
+not a subset.
 
 ```
 >>> [2 4 4 4 5 5 7 9]

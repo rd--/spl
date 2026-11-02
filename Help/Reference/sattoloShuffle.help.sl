@@ -36,6 +36,6 @@ noting that the permutation contains only one cycle:
 
 See also: fisherYatesShuffle, shuffle
 
-Guides: Permutation Functions, Random Functions
+Guides: Permutation Functions, Random Number Functions
 
 Further Reading: Sattolo 1986

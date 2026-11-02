@@ -42,7 +42,7 @@ Probability density function, varying _α_:
 
 See also: InverseGaussianDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Mathematica_

@@ -132,7 +132,7 @@ Where supported `reverse` is displayed as ᴙ.
 
 See also: reverseDo, reverseWithDo
 
-Guides: In-Place Syntax, List Functions
+Guides: Copying Functions, List Functions
 
 References:
 _Apl_
@@ -150,5 +150,3 @@ _Smalltalk_
 5.7.8.26
 
 Unicode: U+1D19 ᴙ Latin Letter Small Capital Reversed R
-
-Categories: Copying, Rearranging

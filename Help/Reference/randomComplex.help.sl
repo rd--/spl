@@ -75,7 +75,7 @@ Sfc32(184293)
 
 See also: Complex, RandomNumberGenerator, randomInteger, randomLargeInteger, randomReal, seedRandom
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 References:
 _Mathematica_

@@ -506,7 +506,7 @@
 			(old.size = n).if {
 				let answer = self.copy;
 				indexList.do { :i |
-					answer.replaceFromToWith(i, i + n - 1, new)
+					answer.replaceFromToWith!(i, i + n - 1, new)
 				};
 				answer
 			} {
@@ -529,13 +529,13 @@
 		let newSize = self.size + end - stop;
 		let answer = self.newOfSize(newSize);
 		(start > 1).ifTrue {
-			answer.replaceFromToWithStartingAt(1, start - 1, self, 1)
+			answer.replaceFromToWithStartingAt!(1, start - 1, self, 1)
 		};
 		(start <= end).ifTrue {
-			answer.replaceFromToWithStartingAt(start, end, aCollection, 1)
+			answer.replaceFromToWithStartingAt!(start, end, aCollection, 1)
 		};
 		(end < newSize).ifTrue {
-			answer.replaceFromToWithStartingAt(end + 1, newSize, self, stop + 1)
+			answer.replaceFromToWithStartingAt!(end + 1, newSize, self, stop + 1)
 		};
 		answer
 	}
@@ -593,11 +593,11 @@
 		n.fromDigits(10)
 	}
 
-	deepReplace { :self :aBlock/1 |
+	deepReplace! { :self :aBlock/1 |
 		self.indicesDo { :index |
 			let entry = self[index];
 			entry.isSequence.if {
-				entry.deepReplace(aBlock/1)
+				entry.deepReplace!(aBlock/1)
 			} {
 				self[index] := aBlock(entry)
 			}
@@ -1173,7 +1173,7 @@
 	forceToPaddingWith { :self :length :anObject |
 		let answer = self.new(length);
 		answer.atAllPut!(anObject);
-		answer.replaceFromToWithStartingAt(1, self.size.min(length), self, 1);
+		answer.replaceFromToWithStartingAt!(1, self.size.min(length), self, 1);
 		answer
 	}
 
@@ -1254,7 +1254,7 @@
 				written < toWrite
 			}.whileTrue {
 				thisWrite := written.min(toWrite - written);
-				self.replaceFromToWithStartingAt(
+				self.replaceFromToWithStartingAt!(
 					startIndex + written,
 					startIndex + written + thisWrite - 1,
 					self,
@@ -1296,7 +1296,12 @@
 			{
 				index <= endIndex
 			}.whileTrue {
-				argumentList.replaceFromToWithStartingAt(1, argumentCount, self, index);
+				argumentList.replaceFromToWithStartingAt!(
+					1,
+					argumentCount,
+					self,
+					index
+				);
 				aBlock.applyList(argumentList);
 				index := index + argumentCount
 			}
@@ -1308,7 +1313,7 @@
 			self.copyFromTo(1, self.size + length)
 		} {
 			let answer = self.newOfSize(self.size + length);
-			answer.replaceFromToWithStartingAt(1, self.size, self, 1)
+			answer.replaceFromToWithStartingAt!(1, self.size, self, 1)
 		}
 	}
 
@@ -2191,7 +2196,7 @@
 		[s].replicate(n).catenate
 	}
 
-	replaceAllWith { :self :oldObject :newObject |
+	replaceAllWith! { :self :oldObject :newObject |
 		let index = 0;
 		{
 			index := self.indexOfStartingAtBy(oldObject, index + 1, isEqual/2);
@@ -2202,15 +2207,15 @@
 		self
 	}
 
-	replaceFromToWith { :self :start :stop :replacement |
+	replaceFromToWith! { :self :start :stop :replacement |
 		(replacement.size = (stop - start + 1)).if {
-			self.replaceFromToWithStartingAt(start, stop, replacement, 1)
+			self.replaceFromToWithStartingAt!(start, stop, replacement, 1)
 		} {
-			self.error('@Sequence>> replaceFromToWith: size of replacement does not match')
+			self.error('@Sequence>> replaceFromToWith!: size of replacement does not match')
 		}
 	}
 
-	replaceFromToWithStartingAt { :self :start :stop :replacement :replacementStart |
+	replaceFromToWithStartingAt! { :self :start :stop :replacement :replacementStart |
 		let replacementOffset = replacementStart - start;
 		let index = start;
 		{

@@ -1,8 +1,8 @@
 # not
 
-- _not(aBoolean)_
+- _not(b)_
 
-Answer `true` if argument is `false`, else `false`.
+Answer `true` if the boolean value _b_ is `false`, else `false`.
 
 ```
 >>> true.not
@@ -43,6 +43,13 @@ Truth table for `not`:
 	true false;
 	false true
 ]
+```
+
+It is an error if _b_ is not a boolean:
+
+```
+>>> { 0.not }.hasError
+true
 ```
 
 Where supported `not` is displayed as ¬.

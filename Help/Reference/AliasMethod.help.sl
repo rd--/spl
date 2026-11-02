@@ -35,7 +35,7 @@ The distribution is given as a sequence of probability values that `sum` to `one
 
 See also: Random, Sfc32, randomWeightedChoice
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 References:
 _W_

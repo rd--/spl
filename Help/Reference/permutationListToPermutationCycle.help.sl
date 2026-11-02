@@ -1,10 +1,10 @@
 # permutationListToPermutationCycle
 
-- _permutationListToPermutationCycle(aSequence, anInteger)_
+- _permutationListToPermutationCycle([x₁ x₂ …], n)_
 
-Answer the permutation cycle, or orbit, of the permutation list _aSequence_ beginning at _anInteger_.
+Answer the permutation cycle, or orbit, of the permutation list _x_ beginning at _n_.
 
-The answer begins at _anInteger_:
+The answer begins at _n_:
 
 ```
 >>> [4 3 2 1]

@@ -50,6 +50,6 @@ c.padRight.matrixPlot
 
 See also: staffordsAlgorithm, uUnifastAlgorithm, uUnifastDiscardAlgorithm
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 Further Reading: Kato & Yamasakial 2008

@@ -1,8 +1,9 @@
 # wordsBy
 
-- _wordsBy(aString, separators)_
+- _wordsBy(s₁, s₂)_
 
-Answer a `List` containing the substrings in _aString_ separated by the elements of _separators_.
+Answer a `List` containing the substrings in the string _s₁_,
+separated by any one of the elements of the string _s₂_.
 
 ```
 >>> 'abbccba'.wordsBy('ab')

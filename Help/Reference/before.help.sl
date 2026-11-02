@@ -1,9 +1,10 @@
 # before
 
-- _before(aCollection, anObject)_
+- _before(c, x)_
 
-Answer the element before _anObject_.
-Raise an error if _anObject_ is not in the _aCollection_, or if there are no elements before it.
+Answer the element in the collection _c_ before _x_.
+Raise an error if _x_ is not in _c_,
+or if there are no elements before it.
 
 ```
 >>> 1:9.before(5)
@@ -12,7 +13,9 @@ Raise an error if _anObject_ is not in the _aCollection_, or if there are no ele
 
 * * *
 
-See also: beforeIfAbsent
+See also: after, beforeIfAbsent
+
+Guides: Sequence Functions
 
 References:
 _Smalltalk_

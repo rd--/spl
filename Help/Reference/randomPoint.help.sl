@@ -62,7 +62,7 @@ Ball([0 0 0], 1)
 
 See also: circlePoints, randomVariate, spherePoints, spherePointsFibonacci
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 References:
 _Mathematica_

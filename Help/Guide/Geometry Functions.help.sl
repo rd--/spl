@@ -265,7 +265,7 @@
 - `vertexCount`
 - `vertexList`
 
-## Random Functions
+## Random Polygon Functions
 
 - `randomConvexHullPolygon`
 - `randomSimplePolygon`

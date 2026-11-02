@@ -1,8 +1,9 @@
 # randomIntegerBipolar
 
-- _randomIntegerBipolar(anInteger)_
+- _randomIntegerBipolar(n)_
 
-Generate a random integer between negative and positive _anInteger_, inclusive.
+Generate a random integer between negative and positive _n_,
+inclusive.
 
 Draw enough random numbers to form complete set:
 
@@ -19,4 +20,4 @@ Draw enough random numbers to form complete set:
 
 See also: randomRealBipolar
 
-Categories: Random
+Guides: Random Number Functions

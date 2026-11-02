@@ -20,7 +20,7 @@ NoncentralBetaDistribution(3, 2.5, 20)
 
 See also: BetaDistribution, GammaDistribution, NoncentralChiSquareDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Mathematica_

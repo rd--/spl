@@ -9,16 +9,20 @@ A random single cycle permutation of the symmetric group _S10_:
 
 ```
 >>> let r = Sfc32(12345);
->>> let c = [1 3 5 9 4 10 8 7 6 2];
->>> r.randomCycle(10)
-[c].cycles
+>>> let p = r.randomCycle(10);
+>>> let [c] = p.cycles;
+>>> (p, c)
+(
+	Permutation[3 1 5 10 9 2 6 7 4 8],
+	[1 3 5 9 4 10 8 7 6 2]
+)
 ```
 
 * * *
 
 See also: cycles, randomPermutation, randomSample, sattoloShuffle
 
-Guides: Permutation Functions, Random Functions
+Guides: Permutation Functions, Random Number Functions
 
 References:
 _Julia_

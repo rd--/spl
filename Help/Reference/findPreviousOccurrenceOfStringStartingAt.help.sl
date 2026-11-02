@@ -1,8 +1,8 @@
 # findPreviousOccurrenceOfStringStartingAt
 
-- _findPreviousOccurrenceOfStringStartingAt(aString, anotherString, anInteger)_
+- _findPreviousOccurrenceOfStringStartingAt(p, q, n)_
 
-Find the previous occurence of _anotherString_ in _aString_ starting at index _anInteger_.
+Find the previous occurence of the string _q_ in the string _p_ starting at index _n_.
 If no such match is found, answer 0.
 
 ```
@@ -42,3 +42,5 @@ If no such match is found, answer 0:
 * * *
 
 See also: findStringStartingAt
+
+Guides: String Functions

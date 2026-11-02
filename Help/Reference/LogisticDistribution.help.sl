@@ -43,7 +43,7 @@ LogisticDistribution(3, 2.5)
 
 See also: ExponentialDistribution, UniformDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Mathematica_

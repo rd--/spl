@@ -844,7 +844,7 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	permutationReplace { :self :aPermutation |
-		aPermutation.Permutation.replace(self)
+		Permutation(aPermutation).replace(self)
 	}
 
 	permutationRuns { :self |

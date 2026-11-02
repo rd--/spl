@@ -57,7 +57,7 @@ Mean and variance:
 
 See also: GammaDistribution, StudentTDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Mathematica_

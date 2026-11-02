@@ -35,7 +35,7 @@ noting that the permutation contains three cycles:
 
 See also: randomPermutation, sattoloShuffle, shuffle
 
-Guides: Permutation Functions, Random Functions
+Guides: Permutation Functions, Random Number Functions
 
 References:
 _W_

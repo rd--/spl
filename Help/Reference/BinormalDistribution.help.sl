@@ -44,7 +44,7 @@ BinormalDistribution([0 0], [1 1], -0.75)
 
 See also: MultinormalDistribution, NormalDistribution
 
-Guides: Probability Distributions, Random Functions, Statistics Functions
+Guides: Probability Distributions, Random Number Functions, Statistics Functions
 
 
 References:

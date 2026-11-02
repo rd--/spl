@@ -56,5 +56,3 @@ Guides: Copying Functions
 References:
 _Smalltalk_
 5.3.1.6
-
-Categories: Copying

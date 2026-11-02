@@ -513,7 +513,7 @@ OEIS [A036991](https://oeis.org/A036991):
 >>> 1:100.select { :n |
 >>> 	n.integerDigits(2)
 >>> 	.reverse
->>> 	.replaceAllWith(0, -1)
+>>> 	.replaceAllWith!(0, -1)
 >>> 	.accumulate
 >>> 	.min > -1
 >>> }

@@ -43,7 +43,7 @@ LaplaceDistribution(3, 3.5)
 
 See also: ExponentialDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Mathematica_

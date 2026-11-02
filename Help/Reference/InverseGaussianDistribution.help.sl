@@ -21,7 +21,7 @@ _Note_: The inverse Gaussian distribution is also known as the Wald distribution
 
 See also: NormalDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Mathematica_

@@ -55,7 +55,7 @@ v.histogramPlot
 
 See also: indexOfInBetween, normalizeRange, resample, tableRand
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 References:
 _SuperCollider_

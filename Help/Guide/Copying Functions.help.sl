@@ -31,6 +31,16 @@ Copying Properties:
 
 - `copySign`
 
+Replacing Functions:
+
+- `copyReplaceAllWith`
+- `copyReplaceFromToWithObject`
+- `copyReplaceFromToWith`
+- `replaceAllWith`
+- `replaceAllWith`
+- `replaceFromToWithStartingAt`
+- `replaceFromToWith`
+
 Array Functions:
 
 - `duplicate`, `!`

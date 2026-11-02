@@ -1,8 +1,8 @@
 # keplerTree
 
-- _keplerTree(anInteger)_
+- _keplerTree(n)_
 
-Answer Kepler’s tree of fractions to depth _anInteger_.
+Answer Kepler’s tree of fractions to depth _n_.
 
 The first five levels of the tree:
 

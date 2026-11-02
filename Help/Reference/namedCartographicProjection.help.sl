@@ -1,8 +1,8 @@
 # namedCartographicProjection
 
-- _namedCartographicProjection(aString)_
+- _namedCartographicProjection(p)_
 
-Answer a projection function for the named projection.
+Answer a projection function for the named projection _p_.
 
 ```
 >>> 'Mercator'.namedCartographicProjection

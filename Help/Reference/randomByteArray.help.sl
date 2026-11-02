@@ -28,6 +28,6 @@ each randomly initialized using the random number generator _r_.
 
 See also: randomInteger, randomLargeInteger, randomReal
 
-Guides: Random Functions, Random Number Generators
+Guides: Random Number Functions, Random Number Generators
 
 Categories: Random

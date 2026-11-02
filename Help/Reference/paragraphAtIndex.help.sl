@@ -1,8 +1,8 @@
 # paragraphAtIndex
 
-- _paragraphAtIndex(aString, anInteger)_
+- _paragraphAtIndex(s, n)_
 
-Answer the paragraph in _aString_ at index _anInteger_.
+Answer the paragraph in the string _s_ at index _n_.
 Paragraphs are delimited by an empty line,
 that is by two consecutive line feeds.
 
@@ -25,3 +25,5 @@ If the index points to a line feed look backwards for a paragraph.
 * * *
 
 See also: wordAtIndex
+
+Guides: String Functions

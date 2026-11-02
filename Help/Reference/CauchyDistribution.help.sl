@@ -102,7 +102,7 @@ u.anglePath(v, [0 0], 0).Line
 
 See also: NormalDistribution, StableDistribution, UniformDistribution, WeibullDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Csound_

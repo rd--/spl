@@ -1,8 +1,8 @@
 # zeroCrossingCount
 
-- _zeroCrossingCount(aSequence)_
+- _zeroCrossingCount([x₁ x₂ …])_
 
-Answer the number of `true` items in the `zeroCrossingDetect` of _aSequence_.
+Answer the number of `true` items in the `zeroCrossingDetect` of _x_.
 
 Zero crossings of a list:
 
@@ -31,3 +31,5 @@ Visiting zero is not a zero crossing:
 * * *
 
 See also: zeroCrossingDetect
+
+Guides: Signal Processing Functions

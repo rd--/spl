@@ -61,4 +61,4 @@ The `LaplaceDistribution` is also called the _Double Exponential Distribution_.
 
 * * *
 
-Guides: Random Functions, Random Number Generators, Random Processes
+Guides: Random Number Functions, Random Number Generators, Random Processes

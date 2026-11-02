@@ -2,7 +2,7 @@
 
 - _polygonInteriorAngles([x₁ y₁; x₂ y₂ …])_
 
-Answer the interior angles of the polygon given by _aSequence_.
+Answer the interior angles of the specified polygon.
 The angles are answered in the same sequence and begin at the same place as the coordinates.
 
 Interior and exterior angles of a triangle:

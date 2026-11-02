@@ -1,6 +1,6 @@
 # metallicMean
 
-- _metallicMean(anInteger)_
+- _metallicMean(n)_
 
 The metallic mean,
 also called the metallic ratio or noble mean,

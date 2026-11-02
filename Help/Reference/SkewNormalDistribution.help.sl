@@ -35,7 +35,7 @@ SkewNormalDistribution(0, 2, 3)
 
 See also: NormalDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Mathematica_

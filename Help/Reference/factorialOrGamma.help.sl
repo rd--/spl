@@ -65,5 +65,3 @@ Plot the volume of the unit hypersphere as a function of dimension:
 See also: !, factorial, gamma
 
 Guides: Combinatorial Functions, Special Functions
-
-Categories: Copying

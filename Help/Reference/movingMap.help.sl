@@ -1,9 +1,10 @@
 # movingMap
 
-- _movingMap(aBlock/1, aSequence, anInteger)_
+- _movingMap(f/1, [x₁ x₂ …], n)_
 
-Answer a `List` of the answers of applying _aBlock_ to successive windows of _aSequence_, each of _anInteger_ elements.
-The `size` of the answer is _aSequence.size - anInteger + 1_.
+Answer a `List` of the answers of applying the block _f_ to successive windows of the sequence _x_,
+each of _n_ elements.
+The `size` of the answer is _x.size - n + 1_.
 
 `movingMap` of `identity` over regular data is equivalent to `partition`:
 
@@ -54,6 +55,8 @@ Can implement `differences`:
 * * *
 
 See also: accumulate, blockMap, exponentialMovingAverage, mean, movingAverage, movingMedian, partition, windowedReduce
+
+Guides: List Functions
 
 References:
 _Mathematica_

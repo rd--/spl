@@ -1,8 +1,8 @@
 # moment
 
-- _moment(aCollection, r)_
+- _moment(, r)_
 
-Answer the order _r_ moment of _aCollection_.
+Answer the order _r_ moment of the collection _c_.
 
 Second moment of four-vector:
 
@@ -20,7 +20,7 @@ First moment of three-vector:
 
 * * *
 
-See also: centralMoment, mean
+See also: centralMoment, mean, standardizedMoment
 
 Guides: Statistics Functions
 

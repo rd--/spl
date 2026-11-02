@@ -1,8 +1,8 @@
 # skewness
 
-- _skewness(aCollection)_
+- _skewness(c)_
 
-Answer the coefficient of skewness estimate for the elements in _aCollection_.
+Answer the coefficient of skewness estimate for the elements in the collection _c_.
 
 Skewness for a list of values:
 

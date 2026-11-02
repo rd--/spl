@@ -1,9 +1,10 @@
 # after
 
-- _after(aCollection, anObject)_
+- _after(c, x)_
 
-Answer the element after _anObject_.
-Raise an error if _anObject_ is not in the _aCollection_, or if there are no elements after it.
+Answer the element in the collection _c_ after _x_.
+Raise an error if _x_ is not in _c_,
+or if there are no elements after it.
 
 ```
 >>> 1:9.after(4)
@@ -12,7 +13,9 @@ Raise an error if _anObject_ is not in the _aCollection_, or if there are no ele
 
 * * *
 
-See also: afterIfAbsent
+See also: afterIfAbsent, before
+
+Guides: Sequence Functions
 
 References:
 _Smalltalk_

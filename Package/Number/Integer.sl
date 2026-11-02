@@ -1424,6 +1424,33 @@
 		}
 	}
 
+	primitivePythagoreanTriples { :k |
+		let m = (2 * k) + 1;
+		let n = (2 * (k ^ 2)) + m;
+		let t = [[3, 4, 5]];
+		let i = 4;
+		let j = 5;
+		{
+			i < n
+		}.whileTrue {
+			(gcd(i, j) = 1).ifTrue {
+				let h = sqrt((i ^ 2) + (j ^ 2));
+				(h.isInteger & { j < n }).ifTrue {
+					t.add!([i, j, h])
+				}
+			};
+			(j < n).if {
+				j := j + 2
+			} {
+				i := i + 1;
+				j := i + 1
+			}
+		};
+		t.select { :p |
+			p[1] < m
+		}
+	}
+
 	printString { :self :radix |
 		(radix = 10).if {
 			self.uncheckedPrintString(10)

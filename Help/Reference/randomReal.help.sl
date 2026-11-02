@@ -81,7 +81,7 @@ Sfc32(814789)
 
 See also: RandomNumberGenerator, System, atRandom, nextRandomFloat, randomChoice, randomComplex, randomInteger, randomPoint, randomVariate
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 References:
 _Mathematica_

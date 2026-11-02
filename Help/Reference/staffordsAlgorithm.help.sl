@@ -31,6 +31,6 @@ Sfc32(361782)
 
 See also: randomRealFixedSum, uUnifastAlgorithm, uUnifastDiscardAlgorithm
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 Further Reading: Emberson 2010

@@ -1,8 +1,8 @@
 # lsPermutations
 
-- _lsPermutations(aSequence)_
+- _lsPermutations([x₁ x₂ …])_
 
-The permutations of _aSequence_ in lexicographic order.
+The permutations of the sequence _x_ in lexicographic order.
 
 All of _S3_:
 

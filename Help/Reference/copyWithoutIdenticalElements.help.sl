@@ -23,5 +23,3 @@ If _c_ is a sequence, the copy will preserve the order of elements.
 See also: IdentitySet, Set, ==, copy, copyWith, copyWithout, nub, unique
 
 Guides: Copying Functions
-
-Categories: Copying

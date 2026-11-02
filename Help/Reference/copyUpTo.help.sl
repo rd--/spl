@@ -1,12 +1,12 @@
 # copyUpTo
 
-- _copyUpTo(aSequence, anElement)_
+- _copyUpTo([x₁ x₂ …], y)_
 
-Answer all elements up to but not including anElement.
-If there is no such element, answer a copy of _aSequence_.
+Answer all elements of _x_ up to but not including _y_.
+If there is no such element, answer a copy of _x_.
 
 * * *
 
 See also: copy
 
-Categories: Copying
+Guides: Copying Functions

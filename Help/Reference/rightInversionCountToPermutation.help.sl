@@ -1,6 +1,6 @@
 # rightInversionCountToPermutation
 
-- _rightInversionCountToPermutation(aSequence)_
+- _rightInversionCountToPermutation([x₁ x₂ …])_
 
 Answer a permutation given its right inversion count, also called the Lehmer code.
 

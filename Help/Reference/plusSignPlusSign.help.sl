@@ -54,7 +54,7 @@ In Smalltalk and J the binary form is the comma operator.
 
 See also: +++, catenate, concatenation
 
-Guides: Dictionary Functions, List Functions, Operator Lists
+Guides: Copying Functions, Dictionary Functions, List Functions
 
 References:
 _Haskell_
@@ -66,5 +66,3 @@ _Smalltalk_
 5.7.8.1
 
 Unicode: U+29FA ⧺ Double plus
-
-Categories: Copying

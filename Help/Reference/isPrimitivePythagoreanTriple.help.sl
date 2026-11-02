@@ -43,20 +43,33 @@ sorted by _c_:
 ]
 ```
 
-Plot _a_ and _b_ of the first few primitive Pythagorean triples:
+Plot _a_ and _b_ of the first few primitive Pythagorean triples,
+symmetric form:
 
-~~~spl png=A
-let i = (-64 .. 64);
+~~~spl svg=A
+let i = (-63 .. 63);
 { :b :a |
 	isPrimitivePythagoreanTriple(a, b).boole
-}.table(i, i).Bitmap
+}.table(i, i).matrixPlot
 ~~~
 
-![](Help/Image/isPrimitivePythagoreanTriple-A.png)
+![](Help/Image/isPrimitivePythagoreanTriple-A.svg)
+
+Plot _a_ and _b_ of the first few primitive Pythagorean triples,
+positive quadrant only:
+
+~~~spl svg=B
+let i = (0 .. 127);
+{ :b :a |
+	isPrimitivePythagoreanTriple(a, b).boole
+}.table(i, i).matrixPlot
+~~~
+
+![](Help/Image/isPrimitivePythagoreanTriple-B.svg)
 
 * * *
 
-See also: euclidsFormula, isPythagoreanTriple
+See also: euclidsFormula, isPythagoreanTriple, primitivePythagoreanTriples
 
 Guides: Triangle Functions
 

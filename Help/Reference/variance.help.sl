@@ -1,6 +1,6 @@
 # variance
 
-- _variance(aCollection)_
+- _variance(c)_
 
 Variance gives the unbiased estimate of variance, the dispersion of data.
 

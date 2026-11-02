@@ -1,8 +1,8 @@
 # interquartileRange
 
-- _interquartileRange(aCollection, [a b; c d])_
+- _interquartileRange(c, m=[0.5 0; 0 1])_
 
-Answer the difference between the upper and lower quartiles for the elements in _aCollection_.
+Answer the difference between the upper and lower quartiles for the elements in the collection _c_.
 
 Interquartile range for a list of exact numbers:
 

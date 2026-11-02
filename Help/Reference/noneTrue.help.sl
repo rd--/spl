@@ -1,8 +1,8 @@
 # noneTrue
 
-- _noneTrue(aCollection)_
+- _noneTrue(c)_
 
-Answer `true` if no items in _aCollection_ are `true`, else `false`.
+Answer `true` if no items in the collection _c_ are `true`, else `false`.
 This is another name for `allFalse`.
 
 ```

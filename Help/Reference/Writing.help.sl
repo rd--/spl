@@ -1,8 +1,8 @@
 # Writing
 
-- _Writing(aString, coordinates)_
+- _Writing(s, c)_
 
-`Writing` is a `Type` holding a `String` with associated coordinates.
+`Writing` is a `Type` holding a `String` _s_ with associated coordinates _c_.
 
 Writing can be part of a line drawing:
 

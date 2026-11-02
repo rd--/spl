@@ -1,8 +1,8 @@
 # isPositiveOddInteger
 
-- _isPositiveOddInteger(aNumber)_
+- _isPositiveOddInteger(n)_
 
-Answers `true` if _aNumber_ is a positive integer and is odd.
+Answers `true` if _n_ is a positive integer and is odd.
 
 ```
 >>> 23.isPositiveOddInteger

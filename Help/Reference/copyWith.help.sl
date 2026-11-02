@@ -33,5 +33,3 @@ Multiset['x' 'x' 'y' 'y']
 See also: copy, copyFromTo, copyWithout
 
 Guides: Copying Functions
-
-Categories: Copying

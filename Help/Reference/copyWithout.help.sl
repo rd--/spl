@@ -7,7 +7,7 @@ Answer a copy of the collection _c_ that does not contain any elements equal to 
 At `List`:
 
 ```
->>> [1 3 5 7 9].copyWithout(5)
+>>> [1 3 5 7 5 9].copyWithout(5)
 [1 3 7 9]
 ```
 
@@ -30,5 +30,3 @@ At `Record`:
 See also: copy, copyFromTo, copyWith, copyWithoutIdenticalElements
 
 Guides: Copying Functions
-
-Categories: Copying

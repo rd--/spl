@@ -1,8 +1,8 @@
 # digitLength
 
-- _digitLength(anInteger)_
+- _digitLength(n)_
 
-Answer the number of bytes required to represent _anInteger_.
+Answer the number of bytes required to represent _n_.
 
 ```
 >>> [1 8 16 24 32 40 48 56 64].collect { :each |
@@ -32,3 +32,5 @@ A 128-bit (16-byte) integer:
 * * *
 
 See also: digitAt
+
+Guides: Bitwise Functions, Integer Functions

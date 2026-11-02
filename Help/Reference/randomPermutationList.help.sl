@@ -36,4 +36,4 @@ Two random permutation in the symmetric group _S10_:
 
 See also: cycles, randomPermutation, randomSample
 
-Guides: Permutation Functions, Random Functions
+Guides: Permutation Functions, Random Number Functions

@@ -12,5 +12,3 @@ This is the mechanism by which types can implement any neccesary further copying
 See also: Copy, copy, shallowCopy
 
 Guides: Copying Functions
-
-Categories: Copying

@@ -1,9 +1,9 @@
 # exponentialMovingAverage
 
-- _exponentialMovingAverage(aSequence, alpha)_
+- _exponentialMovingAverage([x₁ x₂ …], alpha)_
 
-Answer the gives the exponential moving average of list with smoothing constant α.
-The `size` of the answer is _aSequence.size_.
+Answer the gives the exponential moving average of the list _x_ with smoothing constant _α_.
+The `size` of the answer is size of _x_.
 
 Lists of integers yield rational numbers:
 
@@ -60,6 +60,8 @@ Exponential moving average with a smoothing coefficient of 1 is the original lis
 * * *
 
 See also: accumulate, mean, movingAverage, movingMap, movingMedian, partition
+
+Guides: Signal Processing Functions
 
 References:
 _Mathematica_

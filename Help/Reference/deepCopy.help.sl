@@ -40,5 +40,3 @@ A deep copy of a `Record`:
 See also: Copy, copy, postCopy, shallowCopy
 
 Guides: Copying Functions
-
-Categories: Copying

@@ -1,8 +1,8 @@
 # isStrictlyIncreasing
 
-- _isStrictlyIncreasing(aSequence)_
+- _isStrictlyIncreasing([x₁ x₂ …])_
 
-Answers `true` if _aSequence_ is strictly increasing,
+Answers `true` if the sequence _x_ is strictly increasing,
 that is if it `isFinite` and `isSortedBy` `<`.
 
 ```

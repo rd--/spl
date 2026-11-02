@@ -19,7 +19,7 @@ FRatioDistribution(25, 50)
 
 See also: ChiSquareDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Mathematica_

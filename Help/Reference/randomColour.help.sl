@@ -33,7 +33,7 @@ Sfc32(329743)
 
 See also: Colour, randomComplex, randomInteger, randomReal
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 References:
 _Mathematica_

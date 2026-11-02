@@ -141,7 +141,7 @@ varying μ:
 
 See also: MultinormalDistribution, ProbabilityDistribution, SkewNormalDistribution, StableDistribution, StudentTDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Csound_

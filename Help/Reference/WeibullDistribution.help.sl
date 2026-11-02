@@ -84,7 +84,7 @@ WeibullDistribution(3 / 4, 1, 0)
 
 See also: CauchyDistribution, NormalDistribution, UniformDistribution, cdf, pdf, randomVariate
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Csound_

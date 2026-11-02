@@ -1,8 +1,8 @@
 # downsampleSteinarsson
 
-- _downsampleSteinarsson(aVector | aMatrix, anInteger)_
+- _downsampleSteinarsson(m, n)_
 
-Downsample time series data at the two column _aMatrix_ to have _anInteger_ places.
+Downsample time series data at the two column matrix _m_ to have _n_ places.
 In the vector case provide indices as time series column.
 
 At `List`:
@@ -77,7 +77,7 @@ Sfc32(378916)
 
 See also: downsample, resample, upsample
 
-Guides: Interpolation Functions
+Guides: Interpolation Functions, Signal Processing Functions
 
 Further Reading: Steinarsson 2013
 

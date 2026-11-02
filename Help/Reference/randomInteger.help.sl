@@ -65,7 +65,7 @@ Sfc32(79143)
 
 See also: RandomNumberGenerator, atRandom, randomByteArray, randomLargeInteger, randomReal, randomSample
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 References:
 _Mathematica_

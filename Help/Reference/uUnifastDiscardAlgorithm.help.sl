@@ -34,4 +34,4 @@ Sfc32(361782)
 
 See also: katoYamasakiAlgorithm, staffordsAlgorithm, uUnifastAlgorithm
 
-Guides: Random Functions
+Guides: Random Number Functions

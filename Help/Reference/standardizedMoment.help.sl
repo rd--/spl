@@ -1,6 +1,6 @@
 # standardizedMoment
 
-- _standardizedMoment(aCollection, anInteger)_
+- _standardizedMoment(c, n)_
 
 The first standardized moment is zero, because the first moment about the mean is always zero.
 
@@ -49,6 +49,8 @@ The fourth standardized moment refers to the kurtosis:
 * * *
 
 See also: centralMoment, moment
+
+Guides: Statistics Functions
 
 References:
 _Mathematica_

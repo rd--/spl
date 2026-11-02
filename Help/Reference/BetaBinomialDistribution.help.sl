@@ -98,7 +98,7 @@ Mean:
 
 See also: BetaDistribution, BinomialDistribution
 
-Guides: Probability Distributions, Random Functions
+Guides: Probability Distributions, Random Number Functions
 
 References:
 _Mathematica_

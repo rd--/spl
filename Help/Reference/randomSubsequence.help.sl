@@ -33,7 +33,7 @@ With _p=0_ selects none of the input sequence:
 
 See also: randomChoice, randomCycle, randomPermutation, randomSample
 
-Guides: Random Functions
+Guides: Random Number Functions
 
 References:
 _Julia_

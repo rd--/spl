@@ -53,7 +53,7 @@ Plotting Functions:
 - `complexPlot`
 - `conformalPlot`
 
-Random Functions:
+Random Number Functions:
 
 - `randomComplex`
 

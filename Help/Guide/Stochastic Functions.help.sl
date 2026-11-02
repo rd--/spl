@@ -14,4 +14,4 @@ Methods:
 
 * * *
 
-Guides: Random Functions, Random Number Generators, Random Processes
+Guides: Random Number Functions, Random Number Generators, Random Processes

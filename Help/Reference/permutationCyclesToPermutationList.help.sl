@@ -1,8 +1,8 @@
 # permutationCyclesToPermutationList
 
-- _permutationCyclesToPermutationList(aPermutation, anInteger)_
+- _permutationCyclesToPermutationList(p, n)_
 
-Answer the permutation list corresponding to the cycle notation at _aPermutation_.
+Answer the permutation list corresponding to the permutation cycle notation at _p_.
 
 ```
 >>> [1 3 5; 2; 4]
@@ -11,7 +11,7 @@ Answer the permutation list corresponding to the cycle notation at _aPermutation
 ```
 
 In the unary case,
-the `size` of the list is given by the `permutationDegree` of the _aPermutation_:
+the `size` of the list is given by the `permutationDegree` of _p_:
 
 ```
 >>> [1 2 3; 9]
@@ -41,3 +41,5 @@ The binary form allows setting the size of the answer:
 * * *
 
 See also: Permutation, isPermutationCycles, permutationCycles, permutationDegree, permutationList
+
+Guides: Permutation Functions

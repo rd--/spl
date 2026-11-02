@@ -31,6 +31,4 @@ See `sattoloShuffle` for a variant algorithm generating only single cycle permut
 
 See also: fisherYatesShuffle, randomPermutation, sattoloShuffle
 
-Guides: Random Functions
-
-Categories: Copying, Rearranging, Random
+Guides: Random Number Functions

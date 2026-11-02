@@ -1,8 +1,8 @@
 # cubeGraph
 
-- _cubeGraph(anInteger)_
+- _cubeGraph(n)_
 
-Answer the _anInteger_ dimensional cube graph.
+Answer the _n_ dimensional cube graph.
 
 The number of vertices in the _n_-cube is _2 ^ n_,
 the number of edges is _2 ^ (n - 1) * n_.

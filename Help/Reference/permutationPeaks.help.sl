@@ -1,8 +1,8 @@
 # permutationPeaks
 
-- _permutationPeaks(aPermutation)_
+- _permutationPeaks(p)_
 
-Answer the indices of the peaks of a permutation.
+Answer the indices of the peaks of the permutation _p_.
 A peak has lower values at each side.
 
 ```

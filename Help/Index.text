@@ -208,7 +208,7 @@ Guide/Put Syntax.help.sl
 Guide/Quantity Functions.help.sl
 Guide/Quaternion Functions.help.sl
 Guide/Radix Syntax.help.sl
-Guide/Random Functions.help.sl
+Guide/Random Number Functions.help.sl
 Guide/Random Number Generators.help.sl
 Guide/Random Processes.help.sl
 Guide/Random Unit Generators.help.sl
@@ -3318,6 +3318,7 @@ Reference/primesList.help.sl
 Reference/primesUpToDo.help.sl
 Reference/primesUpTo.help.sl
 Reference/primitiveLoadPackageSequence.help.sl
+Reference/primitivePythagoreanTriples.help.sl
 Reference/primitiveRootList.help.sl
 Reference/primorial.help.sl
 Reference/printLine.help.sl

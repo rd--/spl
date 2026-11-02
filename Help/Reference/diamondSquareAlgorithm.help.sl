@@ -37,7 +37,7 @@ diamondSquareAlgorithm(r, 6, 0.85)
 
 See also: RandomNumberGenerator
 
-Guides: Geometry Functions, Random Functions
+Guides: Geometry Functions, Random Number Functions
 
 References:
 _W_

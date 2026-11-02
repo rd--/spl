@@ -1,8 +1,8 @@
 # isIso8601DurationString
 
-- _isIso8601DurationString(aString)_
+- _isIso8601DurationString(s)_
 
-Answer `true` if _aString_ is an ISO-8601 duration string,
+Answer `true` if the string _s_ is an ISO-8601 duration string,
 else `false`.
 
 Three days and four hours:

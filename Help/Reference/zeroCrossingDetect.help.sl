@@ -1,8 +1,8 @@
 # zeroCrossingDetect
 
-- _zeroCrossingDetect(aSequence)_
+- _zeroCrossingDetect([x₁ x₂ …])_
 
-Answer a boolean sequence in which `true` corresponds to zero crossings in _aSequence_.
+Answer a boolean sequence in which `true` corresponds to zero crossings in _x_.
 
 Zero crossings of a list:
 
@@ -34,6 +34,8 @@ Visiting zero is not a zero crossing:
 * * *
 
 See also: boole, count, zeroCrossingCount
+
+Guides: Signal Processing Functions
 
 References:
 _Mathematica_
