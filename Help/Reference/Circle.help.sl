@@ -42,7 +42,6 @@ Specify radii:
 
 ~~~spl svg=A
 Circle([0 0; 0 0; 0 0], [1 3 5])
-
 ~~~
 
 ![](Help/Image/Circle-A.svg)

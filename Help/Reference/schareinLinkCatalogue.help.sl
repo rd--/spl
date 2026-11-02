@@ -25,7 +25,6 @@ system
 .collect { :each |
 	each.columns([1 2]).Line
 }
-
 ~~~
 
 ![](Help/Image/schareinLinkCatalogue-A.svg)

@@ -54,6 +54,24 @@ system.helpFilesDo(
 }
 ~~~
 
+Print reference help files with code blocks that contain one or more blank lines:
+
+~~~spl console
+system.helpFilesDo(
+	'Reference', '.*', 0
+) { :h |
+	h.codeBlocksWithKey('spl').do { :c |
+		c['contents']
+		.includesSubstring('\n\n').ifTrue {
+			[
+				h.name,
+				c['attributes']
+			].printLine
+		}
+	}
+}
+~~~
+
 * * *
 
 See also: HelpFile, splDirectory, splFileName

@@ -33,7 +33,6 @@ Touching circles:
 { :c |
 	c.translate([2.sqrt 2.sqrt])
 }.nestList(Circle([-3 -3], 1), 4)
-
 ~~~
 
 ![](Help/Image/translate-A.svg)
@@ -45,7 +44,6 @@ let phi = 1.goldenRatio;
 { :c |
 	c.translate([1 1])
 }.nestList(Rectangle([0 0], [1 phi]), 4)
-
 ~~~
 
 ![](Help/Image/translate-B.svg)
@@ -56,7 +54,6 @@ Touching polygons:
 { :c |
 	c.translate([1 1.goldenRatio])
 }.nestList(5.regularPolygon([1 3], 1, 0), 4)
-
 ~~~
 
 ![](Help/Image/translate-C.svg)

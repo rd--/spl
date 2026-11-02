@@ -15,7 +15,6 @@ Draw Ford circles for the ninth-order Farey sequence:
 9.fareySequence
 .allButFirstAndLast
 .fordCircle
-
 ~~~
 
 ![](Help/Image/fordCircle-A.svg)

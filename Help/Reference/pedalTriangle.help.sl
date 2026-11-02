@@ -40,8 +40,14 @@ let c = a.pedalTriangle(b);
 let d = c.vertexCoordinates;
 let e = d.collect { :x | Line[b x] };
 let f = a.circumcircle;
-[a, Point(b), c, e, Point(c.orthocenter), f]
-
+[
+	a,
+	Point(b),
+	c,
+	e,
+	Point(c.orthocenter),
+	f
+]
 ~~~
 
 ![](Help/Image/pedalTriangle-C.svg)

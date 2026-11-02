@@ -27,7 +27,6 @@ system
 .collect { :each |
 	each.geometryValues('Gall-Peters')
 }
-
 ~~~
 
 ![](Help/Image/continentOutlines-A.svg)

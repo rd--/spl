@@ -1,3 +1,4 @@
+
 # poissonDiskSampling
 
 - _poissonDiskSampling(r, [x y], k, n=30)_
@@ -14,7 +15,6 @@ Draw circles centered at each sampled coordinate:
 Sfc32(3278194)
 .poissonDiskSampling([5 2], 0.2, 30)
 .Circle(0.1)
-
 ~~~
 
 ![](Help/Image/poissonDiskSampling-A.svg)
