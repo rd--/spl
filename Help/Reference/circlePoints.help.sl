@@ -61,7 +61,7 @@ Unit circles at each circle point:
 ~~~spl svg=B
 20.circlePoints([0 0], 1, 0).collect { :p |
 	Circle(p, 1)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/circlePoints-B.svg)
@@ -73,7 +73,7 @@ Three concentric complete graph drawings:
 	8.circlePoints([0 0], r * 100, 0)
 	.tuples(2)
 	.Line
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/circlePoints-C.svg)
@@ -92,7 +92,7 @@ let r = 12.circlePoints([0 0], 9 / 17, 0);
 	r.collect { :each |
 		Circle(each, 1 / 9)
 	}
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circlePoints-D.svg)
@@ -112,7 +112,7 @@ let rr = (theta.sec + theta.tan).square * r;
 	.collect { :each |
 		Circle(each, rho)
 	}
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circlePoints-E.svg)
@@ -129,7 +129,7 @@ Circle(
 		}.catenate
 	}.nestList([[0 0]], m).++,
 	1
-).LineDrawing
+)
 ~~~
 
 ![](Help/Image/circlePoints-F.svg)
@@ -142,7 +142,7 @@ let p = n.circlePoints([0 0], 1, 0);
 [
 	Circle([0 0], 2),
 	Circle(p, 1)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circlePoints-G.svg)
@@ -158,7 +158,7 @@ let q = [3 6 9; 1 4 2 8 5 7];
 	q.collect { :i |
 		p.atAll(i).Polygon
 	}
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circlePoints-H.svg)

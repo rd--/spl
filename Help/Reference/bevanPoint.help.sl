@@ -17,7 +17,7 @@ let t = sssTriangle(3, 4, 5);
 [
 	t,
 	t.bevanPoint.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/bevanPoint-A.svg)

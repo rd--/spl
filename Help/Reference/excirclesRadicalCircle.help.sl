@@ -12,7 +12,7 @@ let t = [4.5 3 5].sssTriangle;
 	t,
 	t.excirclesRadicalCircle,
 	t.spiekerCenter.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/excirclesRadicalCircle-A.svg)

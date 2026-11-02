@@ -14,7 +14,7 @@ let e = t.excentralTriangle;
 	t,
 	t.antipedalTriangle(t.incenter),
 	e.vertexCoordinates.PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/antipedalTriangle-A.svg)
@@ -28,7 +28,7 @@ let b = a.tangentialTriangle;
 	a,
 	b,
 	b.vertexCoordinates.PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/antipedalTriangle-B.svg)
@@ -42,7 +42,7 @@ let p = t.firstFermatPoint;
 	t,
 	t.antipedalTriangle(p),
 	p.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/antipedalTriangle-C.svg)

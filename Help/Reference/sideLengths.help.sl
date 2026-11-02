@@ -31,6 +31,23 @@ For a `Polygon` this is generalised to answer the side lengths between adjacent 
 [4.1231 3.6056 4.1231 7.0711 5.3852]
 ```
 
+A regular triangle and regular hexagon with integer coordinates in ℝ³:
+
+```
+>>> Polygon[0 0 0; 4 1 1; 1 4 1]
+>>> .sideLengths
+[4.24264 4.24264 4.24264]
+
+>>> Polygon[
+>>> 	0 0 0; 7 -2 1; 12 3 3;
+>>> 	10 10 4; 3 12 3; -2 7 1
+>>> ].sideLengths
+[
+	7.3484 7.3484 7.3484
+	7.3484 7.3484  7.3484
+]
+```
+
 * * *
 
 See also: Polygon, Triangle

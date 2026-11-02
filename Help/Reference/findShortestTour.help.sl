@@ -33,7 +33,7 @@ let c = p.atAll(t);
 [
 	p.PointSet,
 	c.Line
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/findShortestTour-A.svg)
@@ -68,7 +68,7 @@ let q = p.atAll(i);
 [
 	p.PointSet,
 	q.Line
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/findShortestTour-B.svg)

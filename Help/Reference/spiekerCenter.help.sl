@@ -24,7 +24,7 @@ let t = [3 4 5].sssTriangle;
 	t.medialTriangle,
 	t.spiekerCenter.Point,
 	t.spiekerCircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/spiekerCenter-A.svg)

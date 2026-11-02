@@ -12,7 +12,7 @@ let t = [12 6.5 9.5].sssTriangle;
 	t,
 	t.orthocenter.Point,
 	t.polarCircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/polarCircle-A.svg)
@@ -25,7 +25,7 @@ let t = [5 3.5 7].sssTriangle;
 	t,
 	t.orthocenter.Point,
 	t.polarCircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/polarCircle-B.svg)

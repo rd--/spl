@@ -23,7 +23,7 @@ let t = sssTriangle(1, 1, 1);
 	t,
 	t.centroid.Point,
 	t.orthocenter.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/orthocenter-A.svg)
@@ -35,7 +35,7 @@ let t = aasTriangle(1/6.pi, 1/3.pi, 1);
 [
 	t,
 	t.orthocenter.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/orthocenter-B.svg)
@@ -48,7 +48,7 @@ let t = asaTriangle(a, 1, a);
 [
 	t,
 	t.orthocenter.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/orthocenter-C.svg)

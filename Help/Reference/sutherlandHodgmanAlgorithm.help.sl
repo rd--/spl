@@ -21,7 +21,7 @@ let c = Polygon[
 	c,
 	s.sutherlandHodgmanAlgorithm(c)
 	.translate([400 0])
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/sutherlandHodgmanAlgorithm-A.svg)

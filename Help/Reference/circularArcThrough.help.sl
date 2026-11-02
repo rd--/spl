@@ -48,7 +48,7 @@ let a = p.circularArcThrough;
 	a,
 	PointSet(p),
 	Point(a.center)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circularArcThrough-A.svg)
@@ -64,7 +64,7 @@ let a = p.circularArcThrough;
 	Point(a.center),
 	[1/2 1/2].unitSquare,
 	a
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circularArcThrough-B.svg)
@@ -80,7 +80,7 @@ let a = p.circularArcThrough;
 	Point(a.center),
 	[1/2 1/2].unitSquare,
 	a
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circularArcThrough-C.svg)
@@ -96,7 +96,7 @@ let a = p.circularArcThrough;
 	Point(a.center),
 	[1/2 1/2].unitSquare,
 	a
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circularArcThrough-D.svg)
@@ -112,7 +112,7 @@ let a = p.circularArcThrough;
 	Point(a.center),
 	[1/2 1/2].unitSquare,
 	a
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circularArcThrough-E.svg)
@@ -128,7 +128,7 @@ let a = p.circularArcThrough;
 	Point(a.center),
 	[1/2 1/2].unitSquare,
 	a
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circularArcThrough-F.svg)

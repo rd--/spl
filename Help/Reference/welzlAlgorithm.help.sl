@@ -45,7 +45,7 @@ let p = [
 [
 	p.PointSet,
 	p.welzlAlgorithm
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/welzlAlgorithm-A.svg)
@@ -58,7 +58,7 @@ let p = [3 10; 6 3; 10 2; 2 8; 3 3];
 [
 	p.PointSet,
 	p.welzlAlgorithm
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/welzlAlgorithm-B.svg)

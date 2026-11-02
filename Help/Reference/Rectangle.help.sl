@@ -54,7 +54,7 @@ Rectangle[
 	0 0; 1 1
 	:;
 	0.5 0.5; 1.5 1.5
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Rectangle-A.svg)
@@ -66,7 +66,7 @@ let r = Rectangle[0 0; 1.goldenRatio 1];
 [
 	r,
 	r.Polygon.rotate(1/3.pi)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Rectangle-B.svg)
@@ -83,7 +83,7 @@ let rng = Sfc32(314920);
 		[x, y],
 		[x + 1, y + 1]
 	).Polygon.rotate(rng.next.pi)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/Rectangle-C.svg)
@@ -109,7 +109,7 @@ let f = { :n |
 0:7.collect { :k |
 	let [a, b, c, d] = f(k);
 	Rectangle[a -b; c -d]
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/Rectangle-D.svg)
@@ -125,7 +125,7 @@ let r = Rectangle[-2 -1; 2 1];
 	r.upperRightQuadrant
 ].collect { :each |
 	each.scale([0.95 0.9])
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/Rectangle-E.svg)
@@ -141,7 +141,7 @@ as the enclosure of three squares:
 		1/2.pi - (4 / 5).arcCos,
 		[0 0]
 	)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Rectangle-F.svg)

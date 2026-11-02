@@ -29,7 +29,7 @@ let i = p.convexHullIndices;
 [
 	p.PointCloud,
 	p.atAll(i).Polygon
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/convexHullIndices-A.svg)

@@ -30,7 +30,7 @@ let h = p.atAll(i);
 [
 	p.PointCloud,
 	h.Polygon
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/convexHull-A.svg)

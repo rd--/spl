@@ -44,7 +44,7 @@ Plot five- and six-orbits:
 	.nestList(v, 6)
 	.findRepeat
 	.Polygon
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/gingerbreadmanMap-A.svg)

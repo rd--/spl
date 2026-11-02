@@ -56,7 +56,7 @@ A two dimensional geometric series diagram by Nicole Oresme:
 	let k = 2.5;
 	let x = m - (n * m);
 	Rectangle([x, 0], [m, i * k])
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/geometricProgression-A.svg)

@@ -12,7 +12,7 @@ let t = [5 3.5 5].sssTriangle;
 	t,
 	t.cosineCircle,
 	t.symmedianPoint.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/cosineCircle-A.svg)

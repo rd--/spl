@@ -11,7 +11,7 @@ let t = Triangle([0 0; 5 0; 2 3]);
 [
 	t,
 	t.lemoineTriangle
-].GeometryCollection
+]
 ~~~
 
 ![](Help/Image/lemoineTriangle-A.svg)

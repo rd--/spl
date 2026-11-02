@@ -81,7 +81,7 @@ Draw a triangle in three dimensional space:
 [
 	Cuboid[0 0 0; 1 1 1],
 	Triangle[0 0 0; 1 0 1; 0 1 1]
-].PerspectiveDrawing
+]
 ~~~
 
 ![](Help/Image/Triangle-B.svg)
@@ -93,7 +93,7 @@ The flag of Guyana:
 	Rectangle[0 0; 5 3],
 	Triangle[0 0; 5 1.5; 0 3],
 	Triangle[0 0; 2.5 1.5; 0 3]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Triangle-C.svg)
@@ -112,7 +112,7 @@ let f = e - 4;
 	Triangle[24 c; 48 c; 36 d],
 	Triangle[24 c; 48 c; 36 e],
 	Triangle[25.5 c; 46.5 c; 36 f]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Triangle-D.svg)

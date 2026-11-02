@@ -18,7 +18,7 @@ let t = [5 4.5 6].sssTriangle;
 		t.secondBrocardPoint,
 		t.kimberlingCenter(182)
 	]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/brocardCircle-A.svg)

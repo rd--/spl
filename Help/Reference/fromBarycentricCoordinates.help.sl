@@ -30,7 +30,7 @@ let c = SmallFloat[
 	c.collect(
 		t.fromBarycentricCoordinates
 	).PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/fromBarycentricCoordinates-A.svg)
@@ -49,7 +49,7 @@ let c = [0, 0.1 .. 1].tuples(2).select { :each |
 		let [p, q] = each;
 		f([p, q, 1 - (p + q)])
 	}.PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/fromBarycentricCoordinates-B.svg)
@@ -71,7 +71,7 @@ let c = [0, 0.1 .. 1].tuples(2).select { :each |
 			f([p, q, 1 - (p + q)])
 		}
 	)
-].PerspectiveDrawing
+]
 ~~~
 
 ![](Help/Image/fromBarycentricCoordinates-C.svg)

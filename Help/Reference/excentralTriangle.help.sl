@@ -18,7 +18,7 @@ let t = [4 5 4].sssTriangle;
 [
 	t,
 	t.excentralTriangle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/excentralTriangle-A.svg)
@@ -31,7 +31,7 @@ Draw nested excentral triangles:
 }.nestList(
 	[3 4 5].sssTriangle,
 	4
-).LineDrawing
+)
 ~~~
 
 ![](Help/Image/excentralTriangle-B.svg)

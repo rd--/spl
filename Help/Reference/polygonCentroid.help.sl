@@ -17,7 +17,7 @@ let h = p.convexHull;
 [
 	h.Polygon,
 	h.polygonCentroid.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/polygonCentroid-A.svg)

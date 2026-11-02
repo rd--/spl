@@ -12,7 +12,7 @@ let t = [6 5 6].sssTriangle;
 	t,
 	t.symmedialTriangle,
 	t.symmedianPoint.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/symmedialTriangle-A.svg)

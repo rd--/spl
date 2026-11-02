@@ -31,7 +31,7 @@ HexagonalEfficientCoordinates[0 0 0]
 	let c = p.CartesianCoordinates.coordinates;
 	let r = 3.sqrt / 3 * 0.9;
 	6.regularPolygon(c, r, 0.5.pi)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/HexagonalEfficientCoordinates-A.svg)

@@ -15,7 +15,7 @@ let b = 9.annularSteinerChain(
 	0.475
 );
 let c = b.circleInversion(a);
-[a b c].LineDrawing
+[a b c]
 ```
 
 If _indices_ are specified the paragraphs at the relative locations are also given:

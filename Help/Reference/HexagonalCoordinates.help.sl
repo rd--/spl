@@ -54,7 +54,7 @@ HexagonalCoordinates[0 0 0]
 	let c = CartesianCoordinates(p).coordinates;
 	let r = 0.9;
 	6.regularPolygon(c, r, 0.5.pi)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/HexagonalCoordinates-A.svg)
@@ -70,7 +70,7 @@ HexagonalCoordinates[0 0 0]
 	let c = CartesianCoordinates(p).coordinates;
 	let r = 0.9;
 	6.regularPolygon(c, r, 0.5.pi)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/HexagonalCoordinates-B.svg)

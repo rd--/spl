@@ -22,7 +22,7 @@ let c = t.circumcenter;
 	t.feuerbachPoint.Point,
 	t.incircle,
 	t.ninePointCircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/feuerbachPoint-A.svg)

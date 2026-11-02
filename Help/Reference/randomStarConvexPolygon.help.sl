@@ -44,7 +44,7 @@ let r = Sfc32(123123);
 		rMin,
 		rMin + 2.3
 	)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/randomStarConvexPolygon-C.svg)

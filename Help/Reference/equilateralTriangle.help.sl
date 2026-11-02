@@ -27,7 +27,7 @@ let l = [];
 	r := r / 3.sqrt;
 	a := a + 0.5.pi
 };
-l.LineDrawing
+l
 ~~~
 
 ![](Help/Image/equilateralTriangle-B.svg)
@@ -45,7 +45,7 @@ let l = [];
 	r := r * 0.965;
 	a := a + 0.02
 };
-l.LineDrawing
+l
 ~~~
 
 ![](Help/Image/equilateralTriangle-C.svg)

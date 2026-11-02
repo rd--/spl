@@ -24,7 +24,7 @@ let h = p.bezierHull(0.5);
 	h.PointSet,
 	h.atAll([1 2 3]).Line,
 	h.atAll([4 5]).Line
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/bezierHull-A.svg)
@@ -53,7 +53,7 @@ let h = p.bezierHull(0.5);
 	h.atAll([1 2 3 4]).Line,
 	h.atAll([5 6 7]).Line,
 	h.atAll([8 9]).Line
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/bezierHull-B.svg)

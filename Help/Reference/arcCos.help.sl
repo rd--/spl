@@ -88,7 +88,7 @@ Phyllotaxis pattern:
 		i.goldenAngle.mod(2.pi, -1.pi),
 		(1 - (i / 1000)).arcCos
 	].fromSphericalCoordinates.Point
-}.PerspectiveDrawing
+}
 ~~~
 
 ![](Help/Image/arcCos-C.svg)

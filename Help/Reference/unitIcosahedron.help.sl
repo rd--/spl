@@ -25,8 +25,8 @@ Draw the _xz_ projection of the unit icosahedron:
 ~~~spl svg=A
 [0 0 0]
 .unitIcosahedron
-.PerspectiveDrawing { :each |
-	let [x, y, z] = each;
+.PerspectiveDrawing { :v |
+	let [x, y, z] = v;
 	[x, z]
 }
 ~~~

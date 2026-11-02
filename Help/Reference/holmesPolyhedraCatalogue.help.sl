@@ -21,7 +21,6 @@ A perspective drawing of the great rhombicosidodecahedron:
 system
 .holmesPolyhedraCatalogue
 .at('GreatRhombicosidodecahedron')
-.PerspectiveDrawing
 ~~~
 
 ![](Help/Image/holmesPolyhedraCatalogue-A.svg)

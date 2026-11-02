@@ -104,7 +104,7 @@ let y = psi ^ -3;
 	Rectangle([0, 0], [psi 1]),
 	Line([1 0; 1 1]),
 	Line([1 y; psi y])
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/supergoldenRatio-A.svg)

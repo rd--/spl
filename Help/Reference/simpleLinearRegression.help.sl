@@ -76,7 +76,7 @@ let y = (b * x) + a;
 [
 	p.PointCloud,
 	[0 a; x y].Line
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/simpleLinearRegression-A.svg)

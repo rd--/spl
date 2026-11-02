@@ -19,7 +19,7 @@ let q = c.collect(
 	p.PointSet,
 	t,
 	q.PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/fromTrilinearCoordinates-A.svg)
@@ -39,7 +39,7 @@ let q = c.collect { :each |
 	p.PointSet,
 	t,
 	q.PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/fromTrilinearCoordinates-B.svg)

@@ -22,7 +22,7 @@ let t = [4 5 4].sssTriangle;
 	t,
 	t.extouchTriangle,
 	t.nagelPoint.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/extouchTriangle-A.svg)

@@ -68,7 +68,6 @@ A parallelepiped can tile space:
 	let o = (v * [i j k]).sum;
 	Parallelepiped(o, v)
 }.table(1:3, 1:2, 1:3)
-.GeometryCollection
 ~~~
 
 ![](Help/Image/Parallelepiped-C.svg)

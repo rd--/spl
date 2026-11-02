@@ -147,7 +147,7 @@ let [r1, r2] = [0.5 0.75];
 	Line([p q2]),
 	Arc(p, [r1 r1], [a0 a3]),
 	Arc(p, [r2 r2], [a3 a0])
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/planarAngle-A.svg)

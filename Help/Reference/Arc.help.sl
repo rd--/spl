@@ -55,7 +55,7 @@ Two circular arcs, and a line:
 	Line[0 0; 2 0],
 	Arc([0 0], [1 1], [1.75.pi 0.5.pi]),
 	Arc([2 0], [1 1], [0.75.pi 1.5.pi])
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Arc-A.svg)
@@ -65,7 +65,7 @@ An elliptical arc, and a circle:
 ~~~spl svg=B
 let a = Arc([0 0], [1 2], [1.75.pi 0.75.pi]);
 let c = Circle([0 0], 1);
-[a c].LineDrawing
+[a c]
 ~~~
 
 ![](Help/Image/Arc-B.svg)
@@ -83,7 +83,7 @@ let c = circlePoints(12, [0 0], 1, 0);
 	Arc([0 1], [1 1], [-1.pi 0]),
 	Arc([0 -1], [1 1], [0 1.pi]),
 	PointSet(c)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Arc-C.svg)
@@ -97,7 +97,7 @@ let n = 2 * 6.sqrt;
 	Arc([5 0], [5 5], [1/2.pi 1.pi]),
 	Arc([3 0], [5 5], [0 1/2.pi]),
 	Line[4 0; 4 n]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Arc-D.svg)
@@ -111,7 +111,7 @@ let t = sssTriangle(1, 1, 1);
 }.zipWith(
 	t.vertexCoordinates,
 	[0, 2/3, 4/3].pi
-).LineDrawing
+)
 ~~~
 
 ![](Help/Image/Arc-E.svg)
@@ -127,7 +127,7 @@ Draw arcs between points on Farey sequences:
 		let c = (b - a) / 2;
 		Arc([a + c, 0], [c, c], [0, 1.pi])
 	}
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/Arc-F.svg)
@@ -151,7 +151,7 @@ drawn as a point cloud:
 ~~~spl svg=H
 let a = Arc([0 0], [1 1], [5/4 3/4].pi);
 let p = a.approximation.PointSet;
-[a p].LineDrawing
+[a p]
 ~~~
 
 ![](Help/Image/Arc-H.svg)

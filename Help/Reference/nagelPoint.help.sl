@@ -23,7 +23,7 @@ let e = t.cevianTriangle(n);
 	PointSet([n c i]),
 	Line([n c i]),
 	e
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/nagelPoint-A.svg)

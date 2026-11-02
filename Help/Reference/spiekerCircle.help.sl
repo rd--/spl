@@ -23,7 +23,7 @@ let t = [3 4 5].sssTriangle;
 	t,
 	t.medialTriangle,
 	t.spiekerCircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/spiekerCircle-A.svg)

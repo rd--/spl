@@ -23,7 +23,7 @@ let p = [5 5; 1 3; 10 0; 10 10];
 [
 	p.BezierCurve(3),
 	p.Line
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/bezierSplitAt-A.svg)
@@ -40,7 +40,7 @@ let [q, r] = p.bezierSplitAt(0.5);
 	p.Line,
 	q.Line,
 	r.Line
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/bezierSplitAt-B.svg)

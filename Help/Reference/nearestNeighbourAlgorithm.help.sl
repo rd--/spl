@@ -26,7 +26,7 @@ let c = p.atAll(t);
 [
 	p.PointSet,
 	c.Polygon
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/nearestNeighbourAlgorithm-A.svg)
@@ -41,7 +41,7 @@ let q = p.atAll(i);
 [
 	p.PointSet,
 	q.Polygon
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/nearestNeighbourAlgorithm-B.svg)

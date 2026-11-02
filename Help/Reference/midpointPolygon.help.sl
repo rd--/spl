@@ -23,7 +23,7 @@ let r = [0 0].unitSquare;
 [
 	r,
 	r.midpointPolygon
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/midpointPolygon-A.svg)
@@ -35,7 +35,7 @@ let h = 6.regularPolygon([0 0], 1, 0);
 [
 	h,
 	h.midpointPolygon
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/midpointPolygon-B.svg)
@@ -47,7 +47,7 @@ let t = Triangle[0 0; 1 0; 0 1];
 [
 	t,
 	t.midpointPolygon
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/midpointPolygon-C.svg)
@@ -58,7 +58,7 @@ Iteratively at `Polygon`, here a regular hexagon:
 midpointPolygon/1.nestList(
 	6.regularPolygon([0 0], 1, 0),
 	6
-).LineDrawing
+)
 ~~~
 
 ![](Help/Image/midpointPolygon-D.svg)

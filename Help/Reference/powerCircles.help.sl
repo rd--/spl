@@ -13,7 +13,7 @@ let m = t.medialTriangle;
 	t,
 	m.vertexCoordinates.PointSet,
 	t.powerCircles
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/powerCircles-A.svg)

@@ -10,7 +10,7 @@ Regular polygons, _n=1_:
 [1/3 1/2 2/3 3/4 5/7]
 .collect { :x |
 	[].spirolateral(1, x.pi)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/spirolateral-A.svg)

@@ -7,7 +7,7 @@ A `Type` that holds a collection of geometries.
 Draw a collection of objects with an `embeddingDimension` of two:
 
 ~~~spl svg=A
-[
+GeometryCollection[
 	Circle([0 0], 1),
 	Line([0 0; 0 -1]),
 	Point([0, 1 / 2]),
@@ -15,7 +15,7 @@ Draw a collection of objects with an `embeddingDimension` of two:
 	Rectangle([-1 -1], [1 1]),
 	regularPolygon(6, [0 0], 0.5, 0),
 	Triangle([-1 -0.75], [0 1], [1 -0.75])
-].GeometryCollection
+]
 ~~~
 
 ![](Help/Image/GeometryCollection-A.svg)

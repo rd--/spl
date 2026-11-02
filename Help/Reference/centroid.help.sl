@@ -47,7 +47,7 @@ Draw a regular eight polygon and its centroid:
 
 ~~~spl svg=A
 let p = 8.regularPolygon([0 0], 1, 0);
-[p, p.centroid.Point].LineDrawing
+[p, p.centroid.Point]
 ~~~
 
 ![](Help/Image/centroid-A.svg)

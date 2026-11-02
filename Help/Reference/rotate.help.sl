@@ -41,7 +41,7 @@ let g = [1 3].unitSquare;
 	g,
 	Point(g.centroid),
 	g.rotate(1/4.pi)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/rotate-A.svg)

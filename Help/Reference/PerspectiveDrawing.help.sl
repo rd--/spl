@@ -11,8 +11,8 @@ which is a square:
 ~~~spl svg=A
 [0 0 0]
 .unitCube
-.PerspectiveDrawing { :each |
-	let [x, y, z] = each;
+.PerspectiveDrawing { :v |
+	let [x, y, z] = v;
 	[x y]
 }
 ~~~
@@ -22,7 +22,7 @@ which is a square:
 The unary form provides a projection function:
 
 ~~~spl svg=B
-[0 0 0].unitCube.PerspectiveDrawing
+[0 0 0].unitCube
 ~~~
 
 ![](Help/Image/PerspectiveDrawing-B.svg)

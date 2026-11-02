@@ -22,7 +22,7 @@ let [p, q, r] = t.vertexCoordinates;
 	[p r b].circleThrough,
 	[q r b].circleThrough,
 	PointSet[b p q r]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/firstBrocardPoint-A.svg)

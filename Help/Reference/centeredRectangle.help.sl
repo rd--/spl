@@ -21,7 +21,7 @@ let phi = 1.goldenRatio;
 	Circle(c, 2.sqrt / 2),
 	centeredRectangle(c, [1, 1]),
 	centeredRectangle(c, [1 / phi, 1])
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/centeredRectangle-A.svg)

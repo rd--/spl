@@ -49,7 +49,7 @@ a line drawing of a complete graph with eleven vertices:
 ~~~spl svg=A
 [0, 2.pi / 11 .. 2.pi].collect { :t |
 	[t.cos, t.sin]
-}.tuples(2).Line.LineDrawing
+}.tuples(2).Line
 ~~~
 
 ![](Help/Image/Line-A.svg)
@@ -62,7 +62,7 @@ A vector field:
 		[x, y],
 		[x, y] + ([y, x] / 5) - 1
 	]
-}.table(0:10, 0:10).LineDrawing
+}.table(0:10, 0:10)
 ~~~
 
 ![](Help/Image/Line-B.svg)
@@ -73,7 +73,7 @@ A random walk on a regular lattice:
 let r = Sfc32(678215);
 let m = [-1 0; 1 0; 0 1; 0 -1];
 let p = m.randomChoice(r, [1000]).accumulate;
-p.Line.nest.LineDrawing
+p.Line.nest
 ~~~
 
 ![](Help/Image/Line-C.svg)
@@ -86,7 +86,7 @@ Moiré pattern:
 		[[x, 0], [1 - x, 1]],
 		[[0, x], [1, 1 - x]]
 	]
-}.Line.LineDrawing
+}.Line
 ~~~
 
 ![](Help/Image/Line-D.svg)
@@ -97,7 +97,7 @@ the drawing specifies a minimal bounding box of _[0 0; 1 1]_:
 ~~~spl svg=E
 [
 	Line[0 0; 1 0]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Line-E.svg)
@@ -110,7 +110,7 @@ Line[
 	0 0 1;
 	0 1 1;
 	1 1 1
-].PerspectiveDrawing
+]
 ~~~
 
 ![](Help/Image/Line-F.svg)
@@ -129,7 +129,7 @@ let c = b.polynomial;
 			[x, c.at(x)]
 		}
 	).PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Line-G.svg)
@@ -142,7 +142,7 @@ Draw circle tangent lines:
 	let u = [theta.cos, theta.sin];
 	let v = [theta.sin.-, theta.cos];
 	Line[u, u + (v * 2)]
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/Line-H.svg)

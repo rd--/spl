@@ -24,7 +24,7 @@ let t = sssTriangle(3, 2.5, 3);
 	t.isoperimetricPoint.Point,
 	t.tangentCircles,
 	t.outerSoddyCircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/isoperimetricPoint-A.svg)

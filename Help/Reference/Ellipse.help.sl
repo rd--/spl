@@ -41,7 +41,7 @@ A drawing of two ellipses:
 Ellipse(
 	[0 0; 0 0],
 	[3 4; 3 2]
-).LineDrawing
+)
 ~~~
 
 ![](Help/Image/Ellipse-A.svg)
@@ -61,7 +61,7 @@ let [v1, v2] = e.vertices;
 	[c f1 f2 v1 v2].PointSet,
 	[c f1 v2].Triangle,
 	Circle(c, 1)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Ellipse-B.svg)

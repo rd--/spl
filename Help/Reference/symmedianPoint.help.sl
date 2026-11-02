@@ -33,7 +33,7 @@ let c = p.centroid;
 	t,
 	p,
 	PointSet[s c]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/symmedianPoint-A.svg)

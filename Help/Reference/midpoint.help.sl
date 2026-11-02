@@ -86,7 +86,7 @@ let n = 7;
 	n - 1
 ).collect(
 	Polygon/1
-).LineDrawing
+)
 ~~~
 
 ![](Help/Image/midpoint-A.svg)

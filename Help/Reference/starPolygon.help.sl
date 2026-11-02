@@ -67,7 +67,7 @@ The three heptagrams _{7}+{7/2}+{7/3}_:
 ~~~spl svg=H
 [1 2 3].collect { :q |
 	7.starPolygon(q)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/starPolygon-H.svg)

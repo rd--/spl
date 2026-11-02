@@ -42,7 +42,7 @@ The curve enumerates the tiles of a hexagonal grid:
 ~~~spl svg=B
 2.gosperCurve.collect { :c |
 	6.regularPolygon(c, 0.5, 0.5.pi)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/gosperCurve-B.svg)

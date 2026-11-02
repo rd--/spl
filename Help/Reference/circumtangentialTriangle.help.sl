@@ -13,7 +13,7 @@ let t = Triangle([0 0.25; 5 0; 0.5 3.5]);
 	t,
 	t.circumcircle,
 	t.circumtangentialTriangle
-].GeometryCollection
+]
 ~~~
 
 ![](Help/Image/circumtangentialTriangle-A.svg)

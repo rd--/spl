@@ -91,7 +91,7 @@ let h = p.collect { :c |
 [
 	p.PointSet,
 	h
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/fromHexagonalCoordinates-A.svg)
@@ -104,7 +104,7 @@ eliding the _s_ coordinate which can be inferred:
 	let h = [q - (r // 2), r];
 	let c = h.fromHexagonalCoordinates;
 	6.regularPolygon(c, 0.9, 0.5.pi)
-}.table(1:6, 1:9).LineDrawing
+}.table(1:6, 1:9)
 ~~~
 
 ![](Help/Image/fromHexagonalCoordinates-B.svg)
@@ -117,7 +117,7 @@ without adjusting _q_ by _r_:
 	let c = [q, r]
 	.fromHexagonalCoordinates;
 	6.regularPolygon(c, 0.9, 0.5.pi)
-}.table(1:5, 1:5).LineDrawing
+}.table(1:5, 1:5)
 ~~~
 
 ![](Help/Image/fromHexagonalCoordinates-C.svg)
@@ -134,7 +134,7 @@ let theta = -30.degree;
 	let c = [q, r]
 	.fromHexagonalCoordinates(theta);
 	6.regularPolygon(c, 0.9, 0.pi)
-}.table(1:5, 1:5).LineDrawing
+}.table(1:5, 1:5)
 ~~~
 
 ![](Help/Image/fromHexagonalCoordinates-D.svg)
@@ -159,7 +159,7 @@ let b = [
 ];
 let c = [a, b].transpose;
 let d = c.fromHexagonalCoordinates;
-[d.PointSet, d.Line].LineDrawing
+[d.PointSet, d.Line]
 ~~~
 
 ![](Help/Image/fromHexagonalCoordinates-E.svg)

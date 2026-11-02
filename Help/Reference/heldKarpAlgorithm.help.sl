@@ -73,7 +73,7 @@ let q = p.atAll(t);
 [
 	PointSet(p),
 	Line(q)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/heldKarpAlgorithm-A.svg)

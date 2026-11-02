@@ -60,7 +60,7 @@ let x = n.recamanSequence;
 		[r r],
 		i.isEven.if { [0 1.pi] } { [1.pi 0] }
 	)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/recamanSequence-C.svg)

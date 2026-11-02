@@ -22,7 +22,7 @@ let t = sssTriangle(3, 4.4, 5);
 		t.orthocenter
 	].PointSet,
 	t.ninePointCircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/ninePointCenter-A.svg)

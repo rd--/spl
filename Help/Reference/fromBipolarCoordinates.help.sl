@@ -55,7 +55,7 @@ Plot varying σ:
 			[sigma, tau]
 		)
 	}.PointSet
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/fromBipolarCoordinates-D.svg)

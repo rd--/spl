@@ -24,7 +24,7 @@ let b = a.orthicTriangle;
 	Point(a.orthocenter),
 	b,
 	PointSet(b.excenters)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/orthicTriangle-A.svg)
@@ -40,7 +40,7 @@ let b = a.orthicTriangle;
 	b,
 	Point(a.orthocenter),
 	Point(b.incenter)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/orthicTriangle-B.svg)
@@ -50,7 +50,7 @@ The orthic triangle of a right triangle does not exist:
 ~~~spl svg=C
 let t = [3 4 5].sssTriangle;
 let c = t.orthicTriangle.vertexCoordinates;
-[t, PointSet(c)].LineDrawing
+[t, PointSet(c)]
 ~~~
 
 ![](Help/Image/orthicTriangle-C.svg)

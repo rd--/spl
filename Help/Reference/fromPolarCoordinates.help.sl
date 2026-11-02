@@ -94,7 +94,7 @@ let f = { :n |
 [
 	(0 .. n).collect(f/1).PointSet,
 	(0, 0.02 .. n).collect(f/1).Line
-].GeometryCollection
+]
 ~~~
 
 ![](Help/Image/fromPolarCoordinates-D.svg)

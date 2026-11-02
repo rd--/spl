@@ -35,7 +35,7 @@ an isosceles triangle such that the ratio of the hypotenuse to the base is equal
 
 ~~~spl svg=A
 let a = 2.pi / 5;
-[asaTriangle(a, 1, a)].LineDrawing
+[asaTriangle(a, 1, a)]
 ~~~
 
 ![](Help/Image/asaTriangle-A.svg)
@@ -46,7 +46,7 @@ an obtuse isosceles triangle such that the ratio of the hypotenuse to the base i
 ~~~spl svg=B
 [2.pi / 5, 1.pi / 5].collect { :a |
 	asaTriangle(a, 1, a)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/asaTriangle-B.svg)
@@ -56,7 +56,7 @@ Varying two angles together:
 ~~~spl svg=C
 (0.1, 0.14 .. 0.9).collect { :beta |
 	asaTriangle(1 - beta, 1, 1 + beta)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/asaTriangle-C.svg)

@@ -11,7 +11,7 @@ let c = [-5 -5; 5 -5; 5 5; -5 5];
 [
 	Polygon(c),
 	c.polygonalHexagonalGrid
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/polygonalHexagonalGrid-A.svg)
@@ -23,7 +23,7 @@ let c = [0 0; 10 0; 10 10];
 [
 	c.Polygon
 	c.polygonalHexagonalGrid
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/polygonalHexagonalGrid-B.svg)

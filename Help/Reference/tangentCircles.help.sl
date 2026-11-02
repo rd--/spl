@@ -14,7 +14,7 @@ let b = a.contactTriangle;
 	a.vertexCoordinates.PointSet,
 	a.tangentCircles,
 	b.vertexCoordinates.PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/tangentCircles-A.svg)

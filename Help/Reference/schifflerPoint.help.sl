@@ -21,7 +21,7 @@ let t = sssTriangle(3, 4, 5);
 [
 	t,
 	t.schifflerPoint.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/schifflerPoint-A.svg)

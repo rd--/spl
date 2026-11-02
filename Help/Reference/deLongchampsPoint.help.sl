@@ -21,7 +21,7 @@ let c = t.circumcenter;
 	t,
 	PointSet([d o c]),
 	Line([o d])
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/deLongchampsPoint-A.svg)

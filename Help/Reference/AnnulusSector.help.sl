@@ -35,7 +35,7 @@ let theta = 2.pi / n;
 		[i, i + 1],
 		[theta * j, theta * (j + 1)]
 	)
-}.table(1:m, 1:n).LineDrawing
+}.table(1:m, 1:n)
 ~~~
 
 ![](Help/Image/AnnulusSector-B.svg)

@@ -27,7 +27,7 @@ let r = Rectangle[-1 -1; 1 1];
 		Line(c)
 		.cohenSutherlandAlgorithm(r)
 	}
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/cohenSutherlandAlgorithm-A.svg)
@@ -40,7 +40,7 @@ let r = Rectangle[-0.25 -0.25; 0.25 0.25];
 	let theta = i.degree;
 	Line[0 0; theta.cos theta.sin]
 	.cohenSutherlandAlgorithm(r)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/cohenSutherlandAlgorithm-B.svg)

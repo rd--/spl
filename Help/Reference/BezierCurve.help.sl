@@ -95,7 +95,7 @@ let p = [0 0; 1 1; 2 -1; 3 0];
 	p.BezierCurve(3),
 	p.Line,
 	p.PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/BezierCurve-A.svg)
@@ -108,7 +108,7 @@ let p = [0 0; 1 1; 2 -1; 3 0; 5 2; 6 -1; 7 3];
 	p.BezierCurve(3),
 	p.Line,
 	p.PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/BezierCurve-B.svg)
@@ -132,7 +132,7 @@ threads over lists:
 Sfc32(314729)
 .randomInteger([1 100], [6 4 2])
 .BezierCurve(3)
-.LineDrawing
+
 ~~~
 
 ![](Help/Image/BezierCurve-D.svg)
@@ -145,7 +145,7 @@ let p = [0 0; 0 2; 2 0; 0 0];
 	p.BezierCurve(3),
 	p.Line,
 	p.PointCloud
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/BezierCurve-E.svg)
@@ -158,7 +158,7 @@ let p = [0 0; 1 1; 2 0];
 	p.BezierCurve(2),
 	p.Line,
 	p.PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/BezierCurve-F.svg)
@@ -179,7 +179,7 @@ let p = [1 1; 8 7; 2 8; 6 0];
 [
 	p.BezierCurve(3),
 	p.Line
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/BezierCurve-H.svg)
@@ -203,7 +203,7 @@ let p = [0 0; 1 2; 2 2; 3 0];
 	p.BezierCurve(3),
 	p.Line,
 	p.PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/BezierCurve-J.svg)
@@ -216,7 +216,7 @@ let p = [0 0; 1 3; 2 3; 3 0; 4 3; 5 0; 6 3];
 	p.BezierCurve(3),
 	p.Line,
 	p.PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/BezierCurve-K.svg)
@@ -231,7 +231,7 @@ let c = p.BezierCurve(3);
 	p.Line,
 	p.PointSet,
 	c.approximation.Line
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/BezierCurve-L.svg)
@@ -284,7 +284,7 @@ Approximation of circular arcs as a cubic Bézier curves:
 [0.2 0.5; 0.6 0.7; 1.1 1.4; 1.8 2.1].pi
 .collect { :a |
 	[0 0].approximateCircularArc(1, a)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/BezierCurve-P.svg)

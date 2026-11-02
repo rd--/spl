@@ -39,7 +39,7 @@ and that each edge as a unit:
 Draw the unit cube:
 
 ~~~spl svg=A
-[0 0 0].unitCube.PerspectiveDrawing
+[0 0 0].unitCube
 ~~~
 
 ![](Help/Image/unitCube-A.svg)
@@ -49,7 +49,6 @@ Draw two unit cubes:
 ~~~spl svg=B
 [0 0 0; 0.5 0.5 0.5]
 .collect(unitCube/1)
-.PerspectiveDrawing
 ~~~
 
 ![](Help/Image/unitCube-B.svg)

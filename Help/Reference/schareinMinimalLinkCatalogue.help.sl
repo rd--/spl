@@ -24,7 +24,7 @@ system
 .collect { :each |
 	each.columns([1 2]).closedLine
 }
-.LineDrawing
+
 ~~~
 
 ![](Help/Image/schareinMinimalLinkCatalogue-A.svg)

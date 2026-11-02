@@ -36,7 +36,7 @@ Drawing:
 	(0 -- 2.pi).discretize(50,
 		cycloid(1)
 	).PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/cycloid-C.svg)

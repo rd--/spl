@@ -109,3 +109,11 @@ AnnotatedGeometry : [Object, Geometry] {
 	}
 
 }
+
++List {
+
+	drawing { :self |
+		GeometryCollection(self).drawing
+	}
+
+}

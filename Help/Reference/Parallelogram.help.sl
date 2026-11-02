@@ -37,7 +37,7 @@ A parallelogram can tile the plane:
 		([3 0] * i) + ([1 4] * j),
 		[3 0; 1 4]
 	)
-}.table(1:5, 1:5).LineDrawing
+}.table(1:5, 1:5)
 ~~~
 
 ![](Help/Image/Parallelogram-C.svg)
@@ -51,7 +51,7 @@ let y = 1.85;
 	Parallelogram([0 0], [1 0; 0.5 y]),
 	Parallelogram([0 0], [1 0; -0.15 y]),
 	Parallelogram([0 0], [1 0; 1.65 y])
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Parallelogram-D.svg)
@@ -62,7 +62,7 @@ Any triangle is always of equal area to a certain parallelogram having an equal 
 [
 	Triangle([0 0; 1 0; 0.75 1.5]),
 	Parallelogram([0 0], [1 0; 0.375 0.75])
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Parallelogram-E.svg)

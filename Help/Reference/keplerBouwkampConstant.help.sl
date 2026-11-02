@@ -32,7 +32,7 @@ let g = [];
 	g.add!(regularPolygon(n, [0 0], r, 0));
 	r := r / (1.pi / n).cos
 };
-g.LineDrawing
+g
 ~~~
 
 ![](Help/Image/keplerBouwkampConstant-A.svg)
@@ -48,7 +48,7 @@ let g = [];
 	g.add!(regularPolygon(n, [0 0], r, 0));
 	r := r * (1.pi / n).cos
 };
-g.LineDrawing
+g
 ~~~
 
 ![](Help/Image/keplerBouwkampConstant-B.svg)

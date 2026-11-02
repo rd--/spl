@@ -23,7 +23,7 @@ Draw incenter:
 ~~~spl svg=A
 let t = [3 4 5].sssTriangle;
 let c = t.incenter;
-[t, Point(c)].LineDrawing
+[t, Point(c)]
 ~~~
 
 ![](Help/Image/incenter-A.svg)

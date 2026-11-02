@@ -55,7 +55,6 @@ A perspective drawing of the truncated icosidodecahedron:
 system
 .levskayaPolyhedraCatalogue
 .at('bD')
-.PerspectiveDrawing
 ~~~
 
 ![](Help/Image/levskayaPolyhedraCatalogue-A.svg)

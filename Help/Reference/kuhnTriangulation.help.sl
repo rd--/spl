@@ -11,7 +11,7 @@ In two dimensions divides a square into two triangles:
 ~~~spl svg=A
 2.kuhnTriangulation
 .collect(Triangle/1)
-.LineDrawing
+
 ~~~
 
 ![](Help/Image/kuhnTriangulation-A.svg)
@@ -28,7 +28,7 @@ let k = 3.kuhnTriangulation;
 			0
 		]
 	)
-}.PerspectiveDrawing
+}
 ~~~
 
 ![](Help/Image/kuhnTriangulation-B.svg)
@@ -36,5 +36,7 @@ let k = 3.kuhnTriangulation;
 * * *
 
 See also: Tetrahedron, Triangle, permutations
+
+Guides: Geometry Functions
 
 Further Reading: Coxeter 1932, Kuhn 1960, Moore 1992

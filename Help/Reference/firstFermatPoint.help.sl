@@ -23,7 +23,7 @@ let p = t.firstFermatPoint;
 	t,
 	t.antipedalTriangle(p),
 	p.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/firstFermatPoint-A.svg)

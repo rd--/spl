@@ -42,7 +42,7 @@ Specify radii:
 
 ~~~spl svg=A
 Circle([0 0; 0 0; 0 0], [1 3 5])
-.LineDrawing
+
 ~~~
 
 ![](Help/Image/Circle-A.svg)
@@ -50,7 +50,7 @@ Circle([0 0; 0 0; 0 0], [1 3 5])
 Specify centers:
 
 ~~~spl svg=B
-Circle([0 0; 1 1; 2 2], 1).LineDrawing
+Circle([0 0; 1 1; 2 2], 1)
 ~~~
 
 ![](Help/Image/Circle-B.svg)
@@ -64,7 +64,7 @@ The _Seed of Life_:
 		let x = (2.pi * i / 6);
 		Circle([x.cos x.sin], 1)
 	}.table(1:6)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Circle-C.svg)
@@ -74,7 +74,7 @@ The square packing of circles:
 ~~~spl svg=D
 { :i :j |
 	Circle([i j], 0.5)
-}.table(1:7, 1:5).LineDrawing
+}.table(1:7, 1:5)
 ~~~
 
 ![](Help/Image/Circle-D.svg)
@@ -90,7 +90,7 @@ The hexagonal packing of circles:
 		],
 		0.5
 	)
-}.table(1:7, 1:5).LineDrawing
+}.table(1:7, 1:5)
 ~~~
 
 ![](Help/Image/Circle-E.svg)
@@ -102,7 +102,7 @@ Compare the hexagonal packing of circles above to a simple half-width offset sch
 	let x = i + ((-1 ^ j + 1) / 4);
 	let y = j;
 	Circle([x, y], 0.5)
-}.table(1:7, 1:5).LineDrawing
+}.table(1:7, 1:5)
 ~~~
 
 ![](Help/Image/Circle-F.svg)
@@ -124,7 +124,7 @@ A geometric technique for finding twelve equally-spaced points around a circle:
 	PointSet(
 		12.circlePoints([0 0], 1, 0)
 	)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Circle-G.svg)
@@ -137,7 +137,7 @@ let m = 0 - n;
 [
 	Circle([0 0], 1),
 	Rectangle([m m], [n n])
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Circle-H.svg)
@@ -153,7 +153,7 @@ let h = 6.circlePoints(c, r, 0);
 	h.collect { :u |
 		Circle(u, 1)
 	}
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Circle-I.svg)
@@ -175,7 +175,7 @@ let b = [0 0] - a;
 			Circle(b - [d, 0], r)
 		]
 	}
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Circle-J.svg)
@@ -200,7 +200,7 @@ let l = (0.25 -- 2.5).discretize(5);
 [
 	(t.- ++ t).collect(alphaFamily/1),
 	(l.- ++ l).collect(betaFamily/1)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Circle-K.svg)
@@ -224,7 +224,7 @@ A family of circles:
 	let y = (2.pi * t / 20).sin;
 	let r = 1;
 	Circle([x y], 1)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/Circle-M.svg)

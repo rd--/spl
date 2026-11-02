@@ -27,7 +27,7 @@ let c = b.coordinateBoundingBoxArray([1 1]);
 [
 	PointSet(c.catenate),
 	Rectangle(b)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/coordinateBoundingBoxArray-A.svg)
@@ -47,7 +47,7 @@ let c = b.coordinateBoundingBoxArray(
 		Circle(each, 0.5)
 	},
 	b.Rectangle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/coordinateBoundingBoxArray-B.svg)

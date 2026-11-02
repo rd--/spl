@@ -50,7 +50,7 @@ draw a point and a unit circle at the origin:
 [
 	Point[0 0],
 	Circle([0 0], 1)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Point-A.svg)
@@ -60,7 +60,7 @@ Threads over lists:
 ~~~spl svg=B
 (0, 0.1 .. 2.pi).collect { :x |
 	[x x.sin]
-}.Point.LineDrawing
+}.Point
 ~~~
 
 ![](Help/Image/Point-B.svg)
@@ -68,17 +68,11 @@ Threads over lists:
 Use as a simple way to visualize volumes:
 
 ~~~spl svg=C
-let p = [];
-(-2, -1.8 .. 2).tuples(3).do { :each |
-	(
-		each.square.sum.isBetween(1, 2) & {
-			each.product >= 0
-		}
-	).ifTrue {
-		p.add!(each.Point)
+(-2, -1.8 .. 2).tuples(3).select { :c |
+	c.square.sum.isBetween(1, 2) & {
+		c.product >= 0
 	}
-};
-p.PerspectiveDrawing
+}.Point
 ~~~
 
 ![](Help/Image/Point-C.svg)

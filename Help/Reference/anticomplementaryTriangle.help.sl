@@ -16,7 +16,7 @@ let m = b.medialTriangle;
 	b,
 	Point(a.centroid),
 	PointSet(m.vertexCoordinates)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/anticomplementaryTriangle-A.svg)

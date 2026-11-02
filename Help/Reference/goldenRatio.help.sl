@@ -406,7 +406,7 @@ let y = phi - 1;
 [
 	Rectangle[0 0; 1 phi],
 	Line[0 y; 1 y]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/goldenRatio-C.svg)
@@ -434,7 +434,7 @@ let c = phi ^ 1/2;
 	Rectangle[0 0; a b],
 	Line[c 0; c b],
 	Line[0 1; c 1]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/goldenRatio-E.svg)

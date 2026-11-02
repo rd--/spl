@@ -116,7 +116,7 @@ let s = 1.silverRatio;
 let r = centeredRectangle([0 0], [s 1]);
 { :x |
 	x.rotate(1/4.pi).scale(1 / s)
-}.nestList(r, 4).LineDrawing
+}.nestList(r, 4)
 ~~~
 
 ![](Help/Image/silverRatio-E.svg)
@@ -132,7 +132,7 @@ let c = [2, s + 1, 2] / (s + 5);
 { :x |
 	let r = x.fromBarycentricCoordinates(c);
 	x.rotate(112.5.degree, r).scale(m)
-}.nestList(t, 6).LineDrawing
+}.nestList(t, 6)
 ~~~
 
 ![](Help/Image/silverRatio-F.svg)

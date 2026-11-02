@@ -21,7 +21,7 @@ let t = sssTriangle(3, 4, 5);
 [
 	t,
 	t.exeterPoint.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/exeterPoint-A.svg)

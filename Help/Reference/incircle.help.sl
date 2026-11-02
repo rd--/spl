@@ -13,7 +13,7 @@ let t = sssTriangle(3, 4, 5);
 	t,
 	t.incircle,
 	t.incenter.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/incircle-A.svg)
@@ -26,7 +26,7 @@ let r = Rectangle[0 0; 1 1];
 	r,
 	r.incircle,
 	r.center.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/incircle-B.svg)

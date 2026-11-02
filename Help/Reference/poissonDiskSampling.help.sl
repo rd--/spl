@@ -14,7 +14,7 @@ Draw circles centered at each sampled coordinate:
 Sfc32(3278194)
 .poissonDiskSampling([5 2], 0.2, 30)
 .Circle(0.1)
-.LineDrawing
+
 ~~~
 
 ![](Help/Image/poissonDiskSampling-A.svg)
@@ -31,7 +31,7 @@ let c = r.poissonDiskSampling(
 	Rectangle([0 0], [5 2]),
 	PointCloud(c),
 	Circle(c, 0.2)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/poissonDiskSampling-B.svg)

@@ -31,7 +31,7 @@ let q = p.atAll(i);
 [
 	p.PointCloud,
 	q.Polygon
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/grahamScan-A.svg)

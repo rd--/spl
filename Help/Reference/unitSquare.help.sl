@@ -23,7 +23,7 @@ A drawing:
 Threads over lists:
 
 ~~~spl svg=B
-[0 0; 1 1; 2 2].unitSquare.LineDrawing
+[0 0; 1 1; 2 2].unitSquare
 ~~~
 
 ![](Help/Image/unitSquare-B.svg)
@@ -39,7 +39,7 @@ Three rotated unit squares:
 }.map(
 	[0 .. 3],
 	1.pi / [2 13 11 7]
-).LineDrawing
+)
 ~~~
 
 ![](Help/Image/unitSquare-C.svg)

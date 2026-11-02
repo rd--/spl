@@ -13,7 +13,7 @@ let t = [3.5 2.5 4].sssTriangle;
 	t.tangentCircles,
 	t.equalDetourPoint.Point,
 	t.innerSoddyCircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/innerSoddyCircle-A.svg)

@@ -212,7 +212,7 @@ let p = c.realImaginary;
 	Circle([0 0], 1),
 	PointSet(p),
 	Line(p)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/exp-D.svg)

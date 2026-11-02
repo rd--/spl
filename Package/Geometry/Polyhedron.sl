@@ -34,8 +34,10 @@ Polyhedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 	}
 
 	Cuboid { :self |
-		let [p, q] = self;
-		Cuboid(p, q)
+		self.atMatrixOrElementwise { :each |
+			let [p, q] = each;
+			Cuboid(p, q)
+		}
 	}
 
 	Polyhedron { :vertexCoordinates :faceIndices |

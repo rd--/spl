@@ -34,7 +34,7 @@ let q = p.medialTriangle;
 	(p ++ q).PointSet,
 	p.Triangle,
 	q.Triangle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/medialTriangle-A.svg)
@@ -46,7 +46,7 @@ let t = sssTriangle(1, 1, 1);
 [
 	t,
 	t.medialTriangle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/medialTriangle-B.svg)
@@ -63,7 +63,7 @@ let [p, q, r] = m.vertexCoordinates;
 	m,
 	Line[a p; b q; c r],
 	Point(t.centroid)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/medialTriangle-C.svg)
@@ -89,7 +89,7 @@ Barymetric subdivision:
 }.iterate(
 	[sssTriangle(1, 1, 1)],
 	2
-).LineDrawing
+)
 ~~~
 
 ![](Help/Image/medialTriangle-D.svg)

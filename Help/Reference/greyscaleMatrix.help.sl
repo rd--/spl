@@ -13,7 +13,7 @@ A 3×3 matrix:
 	0 0 -1
 ].greyscaleMatrix
 .ColourGrid
-.LineDrawing
+
 ~~~
 
 ![](Help/Image/greyscaleMatrix-A.svg)
@@ -24,7 +24,7 @@ A 5×9 matrix:
 [5 9].iota
 .greyscaleMatrix
 .ColourGrid
-.LineDrawing
+
 ~~~
 
 ![](Help/Image/greyscaleMatrix-B.svg)

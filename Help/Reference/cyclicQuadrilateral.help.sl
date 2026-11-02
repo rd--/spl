@@ -11,7 +11,7 @@ A symmetric cyclic quadrilateral:
 	[0 0.25 0.75 1].pi
 	.cyclicQuadrilateral([0 0], 1, 0),
 	Circle([0 0], 1)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/cyclicQuadrilateral-A.svg)
@@ -23,7 +23,7 @@ A rotated cyclic quadrilateral:
 	[0 0.25 0.75 1.25].pi
 	.cyclicQuadrilateral([0 0], 1, 1/2.pi),
 	Circle([0 0], 1)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/cyclicQuadrilateral-B.svg)
@@ -39,7 +39,7 @@ let r = Sfc32(371841);
 		.cyclicQuadrilateral([0 0], 1, 0)
 	},
 	Circle([0 0], 1)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/cyclicQuadrilateral-C.svg)

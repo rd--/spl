@@ -9,7 +9,7 @@ Draw triangle excircles:
 ~~~spl svg=A
 let t = [3 4 5].sssTriangle;
 let c = t.excircles;
-[t, c].LineDrawing
+[t, c]
 ~~~
 
 ![](Help/Image/excircles-A.svg)

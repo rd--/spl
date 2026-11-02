@@ -12,7 +12,7 @@ let t = [3 2.5 3].sssTriangle;
 	t,
 	t.tangentCircles,
 	t.outerSoddyCircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/outerSoddyCircle-A.svg)
@@ -25,7 +25,7 @@ let t = sssTriangle(1, 5 / 6, 5 / 6);
 	t.tangentCircles,
 	t.innerSoddyCircle,
 	t.outerSoddyCircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/outerSoddyCircle-B.svg)

@@ -66,7 +66,7 @@ let h = { :x :y |
 		3 * i + (3 * (-1 ^ j + 1) / 4),
 		3.sqrt / 2 * j
 	)
-}.table(1:5, 1:10).LineDrawing
+}.table(1:5, 1:10)
 ~~~
 
 ![](Help/Image/Polygon-A.svg)
@@ -84,7 +84,7 @@ let d = 2.pi / 12;
 		(8 - r) * [1.dx.cos, 1.dx.sin],
 		(10 - r) * [0.dx.cos, 0.dx.sin]
 	]
-}.table(1:6, 1:12).LineDrawing
+}.table(1:6, 1:12)
 ~~~
 
 ![](Help/Image/Polygon-B.svg)
@@ -95,7 +95,6 @@ A dozen random triangles:
 Sfc32(147982)
 .randomReal([1 100], [12 3 2])
 .Polygon
-.LineDrawing
 ~~~
 
 ![](Help/Image/Polygon-C.svg)
@@ -115,10 +114,33 @@ Polygon[
 	1.875 2.5;
 	1.375 1.5;
 	2.375 1.5
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/Polygon-D.svg)
+
+A regular triangle and regular hexagon with integer coordinates in ℝ³:
+
+~~~spl svg=A
+[
+	Polygon[
+		0 0 0; 4 1 1; 1 4 1
+	],
+	Polygon[
+		0 0 0; 7 -2 1; 12 3 3;
+		10 10 4; 3 12 3; -2 7 1
+	],
+	Cuboid[
+		-2 -2 -2;
+		12 12 12
+	],
+	PointSet(
+		[-2 5 12].tuples(3)
+	)
+]
+~~~
+
+![](Help/Image/Polygon-E.svg)
 
 * * *
 

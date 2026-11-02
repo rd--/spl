@@ -35,7 +35,6 @@ A perspective drawing of Jessens orthogonal icosahedron:
 system
 .mcClurePolyhedraCatalogue
 .at('Jessens orthogonal icosahedron')
-.PerspectiveDrawing
 ~~~
 
 ![](Help/Image/mcClurePolyhedraCatalogue-A.svg)

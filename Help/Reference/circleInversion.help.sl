@@ -96,7 +96,7 @@ let q = p.circleInversion(c);
 	c,
 	PointSet[p q],
 	Line[p q]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circleInversion-A.svg)
@@ -116,7 +116,7 @@ let r = c.center;
 	c,
 	PointSet[p q r],
 	Line[p q]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circleInversion-B.svg)
@@ -134,7 +134,7 @@ let b = [0.15 0.25 0.35 0.45].collect { :r |
 	b.collect { :x |
 		x.circleInversion(a)
 	}
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circleInversion-C.svg)
@@ -153,7 +153,7 @@ let b = 9.annularSteinerChain(
 	0.475
 );
 let c = b.circleInversion(a);
-[a b c].LineDrawing
+[a b c]
 ~~~
 
 ![](Help/Image/circleInversion-E.svg)

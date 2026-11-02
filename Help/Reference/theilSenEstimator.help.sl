@@ -79,7 +79,7 @@ let [y0L, mL, _] = y.simpleLinearRegression;
 	[x y].transpose.PointCloud,
 	Line[[0, y0], [n, n * m]],
 	Line[[0, y0L], [n, n * mL]]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/theilSenEstimator-A.svg)

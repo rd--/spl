@@ -42,7 +42,7 @@ let d1 = d[1] * 0.2;
 	p.BezierCurve(3),
 	d1.Line,
 	d1.BezierCurve(2)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/bezierDerivatives-A.svg)
@@ -64,7 +64,7 @@ let l = (0, 0.01 .. 1).collect { :x |
 	d1.BezierCurve(3),
 	d2.Line,
 	d2.BezierCurve(2)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/bezierDerivatives-B.svg)
@@ -83,7 +83,7 @@ let l = (0, 0.01 .. 1).collect { :x |
 	l.Line,
 	d1.Line,
 	d1.BezierCurve(3)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/bezierDerivatives-C.svg)
@@ -111,7 +111,7 @@ let f = { :l |
 	f(p).Line,
 	d1.Line,
 	f(d1).Line
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/bezierDerivatives-D.svg)

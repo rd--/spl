@@ -12,7 +12,7 @@ let p = [-1 -1; 1 -1; 1 1; -1 1];
 	PointSet(p),
 	Polygon(p),
 	Polygon(p).midpointPolygon
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/PointSet-A.svg)

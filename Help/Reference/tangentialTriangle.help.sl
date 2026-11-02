@@ -13,7 +13,7 @@ let t = [1 1 1].sssTriangle;
 	t.tangentialTriangle,
 	t.circumcircle,
 	t.orthicTriangle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/tangentialTriangle-A.svg)
@@ -27,7 +27,7 @@ let t = [3 4.75 3].sssTriangle;
 	t.tangentialTriangle,
 	t.circumcircle,
 	t.orthicTriangle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/tangentialTriangle-B.svg)

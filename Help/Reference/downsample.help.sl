@@ -72,7 +72,10 @@ let r = Sfc32(738941);
 let p = r.randomStarConvexPolygon(
 	23, 0.5, 1
 );
-[p, p.downsample(4)].LineDrawing
+[
+	p,
+	p.downsample(4)
+]
 ~~~
 
 ![](Help/Image/downsample-C.svg)

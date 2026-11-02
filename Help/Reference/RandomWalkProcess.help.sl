@@ -62,7 +62,6 @@ RandomWalkProcess(0.5, 0.5)
 .valueList
 .transpose
 .Line
-.PerspectiveDrawing
 ~~~
 
 ![](Help/Image/RandomWalkProcess-E.svg)

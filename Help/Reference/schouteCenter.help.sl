@@ -16,7 +16,7 @@ let c = t.symmedianPoint;
 	t.circumcircle,
 	[a b].Line,
 	[a, b, c].PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/schouteCenter-A.svg)

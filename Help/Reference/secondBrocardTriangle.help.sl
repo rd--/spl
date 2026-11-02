@@ -15,7 +15,7 @@ let b = a.secondBrocardTriangle;
 	b,
 	a.schouteCenter.Point,
 	b.schouteCenter.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/secondBrocardTriangle-A.svg)

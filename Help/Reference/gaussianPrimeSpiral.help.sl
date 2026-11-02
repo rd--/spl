@@ -42,7 +42,7 @@ let [p, _] = 8J13.gaussianPrimeSpiral;
 [
 	p.realImaginary.PointSet,
 	p.realImaginary.Polygon
-].GeometryCollection
+]
 ~~~
 
 ![](Help/Image/gaussianPrimeSpiral-D.svg)

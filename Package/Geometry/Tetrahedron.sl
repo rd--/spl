@@ -1,4 +1,4 @@
-Tetrahedron : [Object, Store, Equal] {
+Tetrahedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 
 	| vertexCoordinates |
 
@@ -9,12 +9,7 @@ Tetrahedron : [Object, Store, Equal] {
 	Polyhedron { :self |
 		Polyhedron(
 			self.vertexCoordinates,
-			[
-				2 3 4;
-				3 2 1;
-				4 1 2;
-				1 4 3
-			]
+			self.faceIndices
 		)
 	}
 
@@ -50,6 +45,15 @@ Tetrahedron : [Object, Store, Equal] {
 		)
 	}
 
+	faceIndices { :unused |
+		[
+			2 3 4;
+			3 2 1;
+			4 1 2;
+			1 4 3
+		]
+	}
+
 	fromBarycentricCoordinates { :self |
 		let v = self.vertexCoordinates;
 		{ :lambda |
@@ -58,7 +62,7 @@ Tetrahedron : [Object, Store, Equal] {
 	}
 
 	project { :self :projection |
-		self.Polyhedron.project(projection)
+		Polyhedron(self).project(projection)
 	}
 
 	toBarycentricCoordinates { :self :c |

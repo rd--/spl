@@ -161,7 +161,7 @@ also called the block-stacking problem or the harmonic staircase:
 		0 - [x, (k + 1) / 10],
 		0 - [x - 1, k / 10]
 	)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/harmonicNumber-C.svg)

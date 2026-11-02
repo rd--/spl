@@ -54,7 +54,7 @@ Circle(
 	.randomComplex([0J0 10J10], [40])
 	.realImaginary,
 	1
-).LineDrawing
+)
 ~~~
 
 ![](Help/Image/randomComplex-A.svg)

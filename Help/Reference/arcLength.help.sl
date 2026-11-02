@@ -35,6 +35,10 @@ At `Rectangle`:
 At `Polygon`:
 
 ```
+>>> 4.regularPolygon([0 0], 2.sqrt / 2, 0)
+>>> .arcLength
+4
+
 >>> 5.regularPolygon([0 0], 1, 0)
 >>> .arcLength
 5.8779

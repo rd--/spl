@@ -21,7 +21,7 @@ let m = t.mittenpunkt;
 	e.PointSet,
 	m.Point,
 	e.collect { :x | Line([m x]) }
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/mittenpunkt-A.svg)
@@ -43,7 +43,7 @@ let s = t.spiekerCenter;
 	Line([c g]),
 	Line([i y]),
 	Line([o s])
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/mittenpunkt-B.svg)

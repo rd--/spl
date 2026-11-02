@@ -14,7 +14,7 @@ let l = x.collect { :each |
 	[each, each.sin * 4]
 };
 let d = l.ramerDouglasPeuckerAlgorithm(0.1);
-[l.Line, d.Line].LineDrawing
+[l.Line, d.Line]
 ~~~
 
 ![](Help/Image/ramerDouglasPeuckerAlgorithm-A.svg)
@@ -27,7 +27,7 @@ let l = x.collect { :each |
 	[each, each.sin * 4]
 };
 let d = l.ramerDouglasPeuckerAlgorithm(0.5);
-[l.Line, d.Line].LineDrawing
+[l.Line, d.Line]
 ~~~
 
 ![](Help/Image/ramerDouglasPeuckerAlgorithm-B.svg)

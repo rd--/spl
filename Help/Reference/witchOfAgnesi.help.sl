@@ -23,9 +23,9 @@ let c = t.collect(
 );
 [
 	Circle([0 1], 1),
-	c.Line,
+	Line(c),
 	Rectangle[-8 -8; 8 8]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/witchOfAgnesi-B.svg)

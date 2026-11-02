@@ -11,7 +11,7 @@ let c = [-5 -5; 5 5];
 [
 	c.Rectangle,
 	c.rectangularHexagonalGrid
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/rectangularHexagonalGrid-A.svg)
@@ -23,7 +23,7 @@ let c = [-3 -3; 2 9];
 [
 	c.Rectangle,
 	c.rectangularHexagonalGrid
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/rectangularHexagonalGrid-B.svg)

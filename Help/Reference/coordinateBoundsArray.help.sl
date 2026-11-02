@@ -35,7 +35,7 @@ let b = [3 8; -1 2];
 let c = b.coordinateBoundsArray([1 1]);
 let p = c.flatten(1).PointSet;
 let r = b.transpose.Rectangle;
-[p, r].LineDrawing
+[p, r]
 ~~~
 
 ![](Help/Image/coordinateBoundsArray-A.svg)
@@ -47,7 +47,6 @@ Draw an array of three-dimensional points with given discretization steps:
 .coordinateBoundsArray([0.7 1.5 0.5.pi])
 .flatten(2)
 .PointSet
-.PerspectiveDrawing
 ~~~
 
 ![](Help/Image/coordinateBoundsArray-B.svg)
@@ -68,7 +67,7 @@ let f = { :o |
 	f([0 0]).PointSet,
 	f([0.5 0.25]).PointSet,
 	b.transpose.Rectangle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/coordinateBoundsArray-C.svg)

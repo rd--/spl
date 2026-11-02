@@ -45,7 +45,6 @@ A perspective drawing of the 70th Johnson solid:
 system
 .fradinPolyhedraCatalogue
 .at('Johnson70')
-.PerspectiveDrawing
 ~~~
 
 ![](Help/Image/fradinPolyhedraCatalogue-A.svg)

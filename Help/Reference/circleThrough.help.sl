@@ -47,7 +47,7 @@ let p = [0 0; 0 1];
 	p.PointSet,
 	p.Line,
 	p.circleThrough
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circleThrough-A.svg)
@@ -60,7 +60,7 @@ let p = [0 0; 1 1];
 	p.PointSet,
 	p.Line,
 	p.circleThrough
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circleThrough-B.svg)
@@ -73,7 +73,7 @@ let p = [0 0; 0 1; 1 0];
 	p.PointSet,
 	p.Polygon,
 	p.circleThrough
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circleThrough-C.svg)
@@ -90,7 +90,7 @@ let p = [
 	p.PointSet,
 	p.Polygon,
 	p.circleThrough
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/circleThrough-D.svg)

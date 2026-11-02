@@ -27,7 +27,7 @@ let e = j.nadarayaWatsonEstimator(
 	[x, y].transpose.PointCloud,
 	[i, i.collect(m/1)].transpose.Line,
 	[j, e].transpose.Line
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/nadarayaWatsonEstimator-A.svg)

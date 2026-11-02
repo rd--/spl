@@ -209,7 +209,7 @@ let c = b.collect(reverse/1);
 		([m] * b).Line,
 		([m] * c).Line
 	]
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/fareySequence-E.svg)

@@ -19,7 +19,7 @@ let p = c.collect(
 [
 	t,
 	PointCloud(p)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/randomRealFixedSum-A.svg)

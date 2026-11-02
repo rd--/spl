@@ -28,7 +28,7 @@ let c = a.excenters;
 	b.incircle,
 	b.incenter.Point,
 	c.Triangle.circumcircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/extangentsTriangle-A.svg)

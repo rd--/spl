@@ -16,7 +16,7 @@ Draw a scaled triangulation of a simple four-polygon into two triangles:
 let c = [10 0; 0 50; 60 60; 70 10];
 Polygon(c).triangulation.collect { :each |
 	c.atAll(each).Triangle.scale(0.85)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/triangulation-A.svg)
@@ -29,7 +29,7 @@ let p = r.randomSimplePolygon(13);
 let c = p.vertexCoordinates;
 p.triangulation.collect { :each |
 	c.atAll(each).Triangle.scale(0.85)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/triangulation-B.svg)

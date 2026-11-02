@@ -10,7 +10,7 @@ Writing can be part of a line drawing:
 let c = Circle([0 0], 100);
 let w = Writing('Writing', [0, 0]);
 let r = w.boundingBox.Rectangle;
-[c, w, r].LineDrawing
+[c, w, r]
 ~~~
 
 ![](Help/Image/Writing-A.svg)
@@ -27,7 +27,7 @@ let w = l.collect { :each |
 		r.randomInteger([-70 70], [2])
 	)
 };
-[c, w].LineDrawing
+[c, w]
 ~~~
 
 ![](Help/Image/Writing-B.svg)

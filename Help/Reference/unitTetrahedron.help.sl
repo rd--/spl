@@ -27,8 +27,8 @@ Draw the _xy_ projection of the unit tetrahedron:
 ~~~spl svg=A
 [0 0 0]
 .unitTetrahedron
-.PerspectiveDrawing { :each |
-	let [x, y, z] = each;
+.PerspectiveDrawing { :v |
+	let [x, y, z] = v;
 	[x, y]
 }
 ~~~

@@ -19,7 +19,7 @@ let p = [0 0; 1 1; 2 0];
 [
 	p.BezierCurve(2),
 	p.Line
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/quadraticBezierToCubicBezier-A.svg)
@@ -33,7 +33,7 @@ let q = p.quadraticBezierToCubicBezier;
 	q.BezierCurve(3),
 	q.Line,
 	p.Line
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/quadraticBezierToCubicBezier-B.svg)

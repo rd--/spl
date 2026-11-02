@@ -21,7 +21,7 @@ Approximate circle as four sucessive arcs:
 [0 1/2; 1/2 1; 1 3/2; 3/2 2].pi
 .collect { :a |
 	[0 0].approximateCircularArc(1, a)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/approximateCircularArc-B.svg)

@@ -11,7 +11,7 @@ let c = 17.theodorusSpiral;
 let r = c.collect { :each |
 	Line([[0 0], each])
 };
-[c.Line, r].LineDrawing
+[c.Line, r]
 ~~~
 
 ![](Help/Image/theodorusSpiral-A.svg)

@@ -76,7 +76,7 @@ Varying one side length:
 ~~~spl svg=A
 (5.1, 5.25 .. 5.9).collect { :c |
 	[3 4 c].sssTriangle
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/sssTriangle-A.svg)
@@ -103,7 +103,7 @@ Draw pythagorean triples with equal area:
 ~~~spl svg=D
 [21 29 20; 35 37 12]
 .collect(sssTriangle/1)
-.LineDrawing
+
 ~~~
 
 ![](Help/Image/sssTriangle-D.svg)
@@ -116,7 +116,7 @@ Draw pythagorean triples with equal area:
 	8580 9109 3059;
 	19019 19069 1380
 ].collect(sssTriangle/1)
-.LineDrawing
+
 ~~~
 
 ![](Help/Image/sssTriangle-E.svg)
@@ -129,7 +129,7 @@ let t = sssTriangle(x ^ -1, 1, x);
 [
 	t,
 	t.circumcircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/sssTriangle-F.svg)
@@ -142,7 +142,7 @@ let t = sssTriangle(x ^ -1, 1, x);
 [
 	t,
 	t.circumcircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/sssTriangle-G.svg)
@@ -155,7 +155,7 @@ let t = sssTriangle(x ^ -1, 1, x);
 [
 	t,
 	t.circumcircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/sssTriangle-H.svg)

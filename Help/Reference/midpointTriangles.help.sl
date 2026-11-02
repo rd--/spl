@@ -12,7 +12,7 @@ Scaled midpoint triangles of a five-regular polygon:
 .midpointTriangles
 .collect { :t |
 	t.scale(0.75)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/midpointTriangles-A.svg)
@@ -26,7 +26,7 @@ let t = p.midpointTriangles;
 [
 	m,
 	t[1, 3, 5]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/midpointTriangles-B.svg)
@@ -40,7 +40,7 @@ midpointPolygon/1
 .nestList(p, 7)
 .collect { :x |
 	x.midpointTriangles.last
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/midpointTriangles-C.svg)

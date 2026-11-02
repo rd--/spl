@@ -28,7 +28,7 @@ let n = 13;
 	let y = (2.pi * t / n).sin;
 	let r = 1;
 	Annulus([x y], [0.9 1])
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/Annulus-B.svg)

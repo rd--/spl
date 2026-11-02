@@ -19,7 +19,7 @@ let s = t.midpointStretchingPolygon([0 0], 1, 1/2.pi);
 	c,
 	m,
 	s
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/midpointStretchingPolygon-A.svg)

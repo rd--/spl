@@ -23,7 +23,7 @@ Sfc32(3728914)
 	loziMap(a, -0.85)
 	.nestList([0 0], 25)
 	.PointCloud
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/loziMap-B.svg)

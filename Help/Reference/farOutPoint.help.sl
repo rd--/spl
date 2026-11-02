@@ -22,7 +22,7 @@ let c = t.farOutPoint;
 	t.circumcircle,
 	[a c].Line,
 	[a b c].PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/farOutPoint-A.svg)

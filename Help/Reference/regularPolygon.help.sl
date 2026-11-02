@@ -99,7 +99,7 @@ let t = c.collect { :each |
 	6.regularPolygon(each, 1, 0)
 };
 let p = PointSet(c);
-[p, t].LineDrawing
+[p, t]
 ~~~
 
 ![](Help/Image/regularPolygon-F.svg)
@@ -115,7 +115,7 @@ let p = {
 	let t = rng.randomReal([0 1.pi], []);
 	n.regularPolygon(c, r, t)
 } ! 23;
-p.LineDrawing
+p
 ~~~
 
 ![](Help/Image/regularPolygon-G.svg)
@@ -127,7 +127,7 @@ Overlap regular polygons of increasing radii and vertices:
 	let n = r + 2;
 	let t = (1 / n).pi - (1 / 2).pi;
 	n.regularPolygon([0 0], r, t)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/regularPolygon-H.svg)

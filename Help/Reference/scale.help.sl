@@ -52,7 +52,7 @@ Nested circles:
 { :c |
 	c.scale(1.goldenRatio)
 }.nestList(Circle([0 0], 1), 4)
-.LineDrawing
+
 ~~~
 
 ![](Help/Image/scale-A.svg)
@@ -64,7 +64,7 @@ let phi = 1.goldenRatio;
 { :c |
 	c.scale(phi)
 }.nestList(Rectangle[0 0; 1 phi], 4)
-.LineDrawing
+
 ~~~
 
 ![](Help/Image/scale-B.svg)
@@ -75,7 +75,7 @@ Nested polygons:
 { :c |
 	c.scale(1.goldenRatio)
 }.nestList(5.regularPolygon([1 3], 1, 0), 4)
-.LineDrawing
+
 ~~~
 
 ![](Help/Image/scale-C.svg)

@@ -23,7 +23,7 @@ let t = sssTriangle(1, 1.15, 1.3);
 	t.clawsonPoint.Point,
 	t.orthicTriangle,
 	t.excenters.PointSet
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/clawsonPoint-A.svg)

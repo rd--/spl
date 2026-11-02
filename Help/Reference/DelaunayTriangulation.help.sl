@@ -34,7 +34,7 @@ Draw the `vertexCoordinates` and `edgeList` of the Delaunay triangulation of a h
 ~~~spl svg=B
 DelaunayTriangulation(
 	6.circlePoints([0 0], 1)
-).LineDrawing
+)
 ~~~
 
 ![](Help/Image/DelaunayTriangulation-B.svg)
@@ -72,7 +72,7 @@ let c = d.faceIndices.collect { :each |
 	h.Polygon,
 	v.PointCloud,
 	c
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/DelaunayTriangulation-D.svg)
@@ -96,7 +96,7 @@ let e = d.voronoiEdgeList.collect { :each |
 	p.PointCloud,
 	v.PointCloud,
 	e.Line
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/DelaunayTriangulation-E.svg)

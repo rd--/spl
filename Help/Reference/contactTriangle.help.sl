@@ -17,7 +17,7 @@ let b = a.contactTriangle;
 	a.incircle,
 	a.gergonnePoint.Point,
 	b.symmedianPoint.Point
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/contactTriangle-A.svg)
@@ -30,7 +30,7 @@ Draw nested contact triangles:
 }.nestList(
 	[3 4 5].sssTriangle,
 	4
-).LineDrawing
+)
 ~~~
 
 ![](Help/Image/contactTriangle-B.svg)

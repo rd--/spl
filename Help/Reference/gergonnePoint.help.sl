@@ -22,7 +22,7 @@ let c = t.cevianTriangle(g);
 	PointSet[g],
 	i,
 	c
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/gergonnePoint-A.svg)

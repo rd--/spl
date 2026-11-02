@@ -55,7 +55,7 @@ With varying radii:
 ~~~spl svg=D
 [1 0.75 0.5].collect { :r |
 	StadiumShape([-1 -1; 1 1], r)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/StadiumShape-D.svg)
@@ -67,7 +67,7 @@ With varying coordinates:
 	StadiumShape([0 0; 2 2], 1),
 	StadiumShape([-2 2; 0 0], 1),
 	StadiumShape([0 0; 0 -2], 1)
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/StadiumShape-E.svg)
@@ -79,7 +79,7 @@ A family of stadiums:
 	let x = 3 * (2.pi * t / 30).cos;
 	let y = 3 * (2.pi * t / 30).sin;
 	StadiumShape([0 0; x y], 1)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/StadiumShape-F.svg)

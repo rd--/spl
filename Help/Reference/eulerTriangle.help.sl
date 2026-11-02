@@ -11,7 +11,7 @@ let t = [1 1 1].sssTriangle;
 [
 	t,
 	t.eulerTriangle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/eulerTriangle-A.svg)
@@ -26,7 +26,7 @@ let t = [6 5 6].sssTriangle;
 	t.medialTriangle,
 	t.orthicTriangle,
 	t.ninePointCircle
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/eulerTriangle-B.svg)

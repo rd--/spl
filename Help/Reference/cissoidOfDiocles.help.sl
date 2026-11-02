@@ -12,7 +12,7 @@ let t = (-1/3.pi -- 1/3.pi).discretize(100);
 [
 	Circle([1 0], 1),
 	Line(t.collect(cissoidOfDiocles(1)))
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/cissoidOfDiocles-A.svg)

@@ -12,7 +12,7 @@ let b = [2 2];
 let c = a.cevianTriangle(b);
 let d = c.vertexCoordinates;
 let e = d.collect { :x | Line([b, x]) };
-[a, Point(b), c, e].LineDrawing
+[a, Point(b), c, e]
 ~~~
 
 ![](Help/Image/cevianTriangle-A.svg)

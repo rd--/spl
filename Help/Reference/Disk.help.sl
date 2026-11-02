@@ -27,7 +27,7 @@ Draw seven random disks:
 let g = Sfc32(637812);
 let c = g.randomReal([-9 9], [7 2]);
 let r = g.randomReal([0.1 1], [7]);
-Disk(c, r).LineDrawing
+Disk(c, r)
 ~~~
 
 ![](Help/Image/Disk-B.svg)

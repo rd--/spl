@@ -18,7 +18,7 @@ let b = (1/10 * (25 - (11 * 5.sqrt))).sqrt;
 [
 	[0 0].pentagram(r, 1/10.pi),
 	Circle([0 0; 0 0; 0 0], [r a b])
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/pentagram-A.svg)

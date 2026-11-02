@@ -20,7 +20,7 @@ A drawing:
 Threads over lists:
 
 ~~~spl svg=B
-[0 0; 1 1; 2 2].unitCircle.LineDrawing
+[0 0; 1 1; 2 2].unitCircle
 ~~~
 
 ![](Help/Image/unitCircle-B.svg)

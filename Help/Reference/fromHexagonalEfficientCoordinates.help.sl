@@ -22,7 +22,7 @@ let h = p.collect { :c |
 [
 	p.PointSet,
 	h
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/fromHexagonalEfficientCoordinates-A.svg)
@@ -34,7 +34,7 @@ Use `mixedRadixEncode` to generate an 8×12 hexagonal grid:
 	let p = i.mixedRadixEncode([2 4 12]);
 	let c = p.fromHexagonalEfficientCoordinates;
 	6.regularPolygon(c, 0.5, 0.5.pi)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/fromHexagonalEfficientCoordinates-B.svg)

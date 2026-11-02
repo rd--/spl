@@ -41,7 +41,7 @@ Varying one angle:
 .subdivide(12)
 .collect { :alpha |
 	sasTriangle(1, alpha, 1)
-}.LineDrawing
+}
 ~~~
 
 ![](Help/Image/sasTriangle-A.svg)
@@ -57,7 +57,7 @@ let [_, _, c] = t.sideLengths;
 [
 	t,
 	PointSet[0 0; c 0; c a]
-].LineDrawing
+]
 ~~~
 
 ![](Help/Image/sasTriangle-B.svg)
