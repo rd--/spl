@@ -48,6 +48,17 @@ A regular triangle and regular hexagon with integer coordinates in ℝ³:
 ]
 ```
 
+Apart from the rectangle the octagon is the only equiangular lattice polygon,
+it is not however a regular polygon:
+
+```
+>>> Polygon[
+>>> 	1 0; 2 0; 3 1; 3 2;
+>>> 	2 3; 1 3; 0 2; 0 1
+>>> ].sideLengths
+[1.4142 1 1.4142 1 1.4142 1 1.4142 1]
+```
+
 * * *
 
 See also: Polygon, Triangle

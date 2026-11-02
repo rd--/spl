@@ -51,6 +51,16 @@ The interior angles of a non-convex polygon:
 )
 ```
 
+Apart from the rectangle the octagon is the only equiangular lattice polygon:
+
+```
+>>> Polygon[
+>>> 	1 0; 2 0; 3 1; 3 2;
+>>> 	2 3; 1 3; 0 2; 0 1
+>>> ].interiorAngles
+[2.3561] # [8]
+```
+
 * * *
 
 See also: planarAngle, polygonInteriorAngles, vectorAngle

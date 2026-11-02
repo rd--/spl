@@ -21,6 +21,14 @@ Values may have non-letter characters:
 (x: '1,2', y: '3,4', z: '-1,0')
 ```
 
+Parse implicit boolean:
+
+```
+>>> 'spl svg=B oeis=A007318'
+>>> .parseUnquotedAttributeList
+(spl: 'true', svg: 'B', oeis: 'A007318')
+```
+
 * * *
 
 See also: Record

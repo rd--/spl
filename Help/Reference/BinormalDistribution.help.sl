@@ -46,7 +46,6 @@ See also: MultinormalDistribution, NormalDistribution
 
 Guides: Probability Distributions, Random Number Functions, Statistics Functions
 
-
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BivariateNormalDistribution.html)

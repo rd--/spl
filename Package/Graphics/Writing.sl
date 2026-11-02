@@ -9,6 +9,10 @@ Writing : [Object, Geometry] {
 		]
 	}
 
+	embeddingDimension { :self |
+		self.lowerLeft.size
+	}
+
 	svgFragment { :self :options |
 		let precision = options['precision'];
 		let [x, y] = self.lowerLeft;

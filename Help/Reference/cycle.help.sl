@@ -20,7 +20,6 @@ answer a `List` of the sequence _x_ repeated _n_ times:
 
 Note relation to `recycle` for vectors:
 
-
 ```
 >>> [1 2 3].cycle(4)
 [1 2 3 1 2 3 1 2 3 1 2 3]

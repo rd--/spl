@@ -31,6 +31,10 @@ Ellipse : [Object, Equal, Geometry] {
 		(1 - (b / a).square).sqrt
 	}
 
+	embeddingDimension { :self |
+		self.center.size
+	}
+
 	foci { :self |
 		let c = self.center;
 		let e = self.linearEccentricity;

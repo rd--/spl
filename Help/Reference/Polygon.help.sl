@@ -121,7 +121,7 @@ Polygon[
 
 A regular triangle and regular hexagon with integer coordinates in ℝ³:
 
-~~~spl svg=A
+~~~spl svg=E
 [
 	Polygon[
 		0 0 0; 4 1 1; 1 4 1
@@ -141,6 +141,22 @@ A regular triangle and regular hexagon with integer coordinates in ℝ³:
 ~~~
 
 ![](Help/Image/Polygon-E.svg)
+
+Apart from the rectangle the octagon is the only equiangular lattice polygon:
+
+~~~spl svg=F
+[
+	Polygon[
+		1 0; 2 0; 3 1; 3 2;
+		2 3; 1 3; 0 2; 0 1
+	],
+	PointSet(
+		[0 .. 3].tuples(2)
+	)
+]
+~~~
+
+![](Help/Image/Polygon-F.svg)
 
 * * *
 

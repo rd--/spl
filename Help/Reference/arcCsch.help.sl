@@ -68,7 +68,6 @@ See also: arcCsc, arcSech, csc
 
 Guides: Hyperbolic Functions, Trigonometric Functions
 
-
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/InverseHyperbolicCosecant.html)
