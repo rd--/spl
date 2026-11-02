@@ -69,7 +69,6 @@
 - `Experimental Dictionary Syntax`
 - `Experimental Infix Method Syntax`
 - `Experimental Initialised Temporaries Syntax`
-- `Experimental Map Syntax`
 - `Experimental MessageSend Syntax`
 - `Experimental PutDelegateTo Syntax`
 - `Experimental Quoted AtIfAbsent Syntax`

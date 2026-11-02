@@ -1,29 +1,29 @@
-# Experimental Map Syntax
+# Map Syntax
 
-Rewrite rules:
+- _[:]_
+- _[k: v, …]_
 
-- _[:]_ ⟹ _Map([])_
-- _[k: v, …]_ ⟹ _Map([[k, v], …])_
-
+The notation _[:]_ answers an empty `Map`.
 The notation _[p: x, q: y]_ constructs a `Map` with associations _p → x_ and _q → y_.
 
+Rewrite rule:
+
 ```
->> 'Map[p x; q y]'.splSimplify
+>> '[p: x, q: y]'.splSimplify
 Map([[p, x], [q, y]])
 ```
 
 With `String` keys:
 
 ```
->>> Map['x' 1; 'y' 2; 'z' 3]
->>> .Record
-(x: 1, y: 2, z: 3)
+>>> ['x': 1, 'y': 2, 'z': 3]
+Map['x' 1; 'y' 2; 'z' 3]
 ```
 
 With `SmallFloat` keys:
 
 ```
->>> let m = Map[1 'x'; 2 'y'; 3 'z'];
+>>> let m = [1: 'x', 2: 'y', 3: 'z'];
 >>> (m.keys, m.values, m.associations)
 (
 	[1 2 3],
@@ -35,7 +35,7 @@ With `SmallFloat` keys:
 Empty `Map`:
 
 ```
->>> let d = Map[];
+>>> let d = [:];
 >>> (d.isMap, d.isEmpty)
 (true, true)
 ```

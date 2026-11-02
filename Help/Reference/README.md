@@ -3,7 +3,7 @@
 Run documentation tests:
 
 ~~~spl
-{ 'Help/Reference'.splFilePath.terseReferenceSummary((verboseLevel: 0, pattern: '.*')) }.timing
+{ 'Help/Reference'.splFilePath.terseReferenceSummary(['verboseLevel': 0, 'pattern': '.*']) }.timing
 ~~~
 
 Total => 19,626 (200 seconds)

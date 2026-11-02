@@ -1,10 +1,10 @@
 # Geometry Functions
 
-Traits:
+## Traits
 
 - `Geometry`
 
-Types:
+## Types
 
 - `AnnotatedGeometry`
 - `AnnulusSector`
@@ -38,14 +38,14 @@ Types:
 - `Triangle`
 - `TurtleGeometry`
 
-Analysis Functions:
+## Analysis Functions
 
 - `convexHullIndices`
 - `convexHull`
 - `delaunayMesh`
 - `grahamScan`
 
-Angle Functions:
+## Angle Functions
 
 - `anglePath`
 - `angleVector`
@@ -55,7 +55,7 @@ Angle Functions:
 - `signedVectorAngle`
 - `vectorAngle`
 
-Arc Functions
+## Arc Functions
 
 - `Arc`
 - `apothem`
@@ -77,7 +77,7 @@ Arc Functions
 - `segment`
 - `vertexCoordinates`
 
-Area Functions:
+## Area Functions
 
 - `area`
 - `cayleyMengerDeterminant`
@@ -88,7 +88,7 @@ Area Functions:
 - `shoelaceFormula`
 - `signedArea`
 
-Bezier Functions:
+## Bezier Functions
 
 - `bezierApproximation`
 - `bernsteinBasis`
@@ -106,11 +106,11 @@ Bezier Functions:
 - `quadraticBezierFunctionAt`
 - `quadraticBezierToCubicBezier`
 
-Chemistry:
+## Chemistry
 
 - `CrystalStructure`
 
-Catalogues:
+## Catalogues
 
 - `fradinPolyhedraCatalogue`
 - `holmesPolyhedraCatalogue`
@@ -127,11 +127,11 @@ Catalogues:
 - `schareinMinimalKnotCatalogue`
 - `schareinMinimalLinkCatalogue`
 
-Circle Functions:
+## Circle Functions
 
 - `Circle Functions`: Guide
 
-Computational Geometry:
+## Computational Geometry
 
 - `dijkstrasAlgorithm`
 - `findShortestPath`
@@ -139,15 +139,15 @@ Computational Geometry:
 - `heldKarpAlgorithm`
 - `nearest`
 
-Coordinate Transformations:
+## Coordinate Transformations
 
 - `Coordinate System Functions`: Guide
 
-Constants:
+## Constants
 
 - `degree`
 
-Constructors:
+## Constructors
 
 - `circlePoints`
 - `closedLine`
@@ -173,50 +173,55 @@ Constructors:
 - `unitSquare`
 - `unitTetrahedron`
 
-Converting Functions:
+## Converting Functions
 
-- `CartesianCoordinates`
-- `CylindricalCoordinates`
-- `PlanarCoordinates`
-- `PolarCoordinates`
-- `SphericalCoordinates`
 - `degreesToRadians`
+- `fromCylindricalCoordinates`
+- `fromPolarCoordinates`
+- `fromSphericalCoordinates`
 - `hessianNormalForm`
 - `radiansToDegrees`
+- `toCylindricalCoordinates`
+- `toPolarCoordinates`
+- `toSphericalCoordinates`
 
-Curve Functions:
+## Curve Functions
 
 - `Curve Functions`: Guide
 
-Distance Functions:
+## Distance Functions
 
 - `Distance Functions`: Guide
 
-Intersection Functions:
+## Intersection Functions
 
 - `lineLineIntersection`
 - `linePlaneIntersection`
 
-Line Functions:
+## Line Functions
 
+- `Line Functions`: Guide
 - `bresenhamLineAlgorithm`
 - `cohenSutherlandAlgorithm`
+- `connectLineSegments`
+- `lineEquation`
 - `midpoint`
 - `perpendicularBisector`
+- `slopeInterceptForm`
 
-Matrix Functions:
+## Matrix Functions
 
 - `eulerMatrix`
 - `reflectionMatrix`
 - `rotationMatrix`
 - `scalingMatrix`
 
-Path Functions:
+## Path Functions
 
 - `anglePath`
 - `staircasePath`
 
-Polygon Functions:
+## Polygon Functions
 
 - `crossingNumber`
 - `regularPolygon`
@@ -225,12 +230,12 @@ Polygon Functions:
 - `triangulation`
 - `windingNumber`
 
-Predicate Functions:
+## Predicate Functions
 
 - `isConvex`
 - `isOrigin`
 
-Query Functions:
+## Query Functions
 
 - `arcLength`
 - `area`
@@ -260,13 +265,13 @@ Query Functions:
 - `vertexCount`
 - `vertexList`
 
-Random Functions:
+## Random Functions
 
 - `randomConvexHullPolygon`
 - `randomSimplePolygon`
 - `randomStarConvexPolygon`
 
-Spiral Functions:
+## Spiral Functions
 
 - `archimedeanSpiral`
 - `diamondSpiral`
@@ -286,17 +291,14 @@ Spiral Functions:
 - `tractrixSpiral`
 - `triangularSpiralPoints`
 
-Triangle Functions:
+## Triangle Functions
 
 - `Triangle Functions`: Guide
 
-Uncategorized:
+## Uncategorized
 
-- `connectLineSegments`
-- `lineEquation`
-- `slopeInterceptForm`
 - `unitVector`
 
 * * *
 
-Guides: Circle Functions, Coordinate System Functions, Curve Functions, Distance Functions, Plotting Functions, Triangle Functions
+Guides: Circle Functions, Coordinate System Functions, Curve Functions, Distance Functions, Line Functions, Plotting Functions, Triangle Functions

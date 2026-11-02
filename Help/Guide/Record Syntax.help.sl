@@ -3,7 +3,7 @@
 - _(:)_
 - _(k: v, …)_
 
-The notation _(:)_ answers an empty `Record`
+The notation _(:)_ answers an empty `Record`.
 The notation _(p: x, q: y)_ constructs a `Record` with associations _'p' → x_ and _'q' → y_.
 
 Rewrite rules:
@@ -27,6 +27,6 @@ List of associations:
 
 See also: Record, :
 
-Guides: List Syntax, Property Read Syntax, Property Write Syntax
+Guides: List Syntax, Map Syntax, Property Read Syntax, Property Write Syntax
 
 Categories: Syntax

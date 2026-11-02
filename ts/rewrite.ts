@@ -464,6 +464,9 @@ const asSl: ohm.ActionDict<string> = {
 	EmptyListSyntax(_leftBracket, _rightBracket) {
 		return '[]';
 	},
+	EmptyMapSyntax(_l, _, _r) {
+		return 'Map()';
+	},
 	EmptyRecordSyntax(_leftParen, _colon, _rightParen) {
 		return 'Record()';
 	},
@@ -523,6 +526,9 @@ const asSl: ohm.ActionDict<string> = {
 	) {
 		return `listRange(${i.asSl}, ${j.asSl}, ${k.asSl})`;
 	},
+	MapSyntaxItem(lhs, _c, rhs) {
+		return `[${lhs.asSl}, ${rhs.asSl}]`;
+	},
 	MatrixSyntax(_l, items, _r) {
 		return `[${commaListSl(items.asIteration().children)}]`;
 	},
@@ -543,6 +549,9 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	NonEmptyParameterList(_leftParen, sq, _rightParen) {
 		return commaListSl(sq.asIteration().children);
+	},
+	NonEmptyMapSyntax(_l, d, _r) {
+		return `Map([${commaListSl(d.asIteration().children)}])`;
 	},
 	NonEmptyRecordSyntax(_l, d, _r) {
 		return `Record([${commaListSl(d.asIteration().children)}])`;

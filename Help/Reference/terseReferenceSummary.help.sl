@@ -12,10 +12,10 @@ Run reference file documentation tests:
 'Help/Reference'
 .splFilePath
 .terseReferenceSummary(
-	(
-		verboseLevel: 0,
-		pattern: '.*'
-	)
+	[
+		'verboseLevel': 0,
+		'pattern': '.*'
+	]
 )
 ~~~
 
@@ -25,10 +25,10 @@ Run guide file documentation tests:
 'Help/Guide'
 .splFilePath
 .terseReferenceSummary(
-	(
-		verboseLevel: 0,
-		pattern: '.*'
-	)
+	[
+		'verboseLevel': 0,
+		'pattern': '.*'
+	]
 )
 ~~~
 

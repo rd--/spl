@@ -95,6 +95,8 @@ Sl {
 		| ParenthesisedExpression
 		| EmptyRecordSyntax // S
 		| NonEmptyRecordSyntax // S
+		| EmptyMapSyntax // S
+		| NonEmptyMapSyntax // S
 		| TupleSyntax // S
 		| RangeSyntax // S
 		| ListRangeSyntax // S
@@ -123,6 +125,9 @@ Sl {
     RecordConstructorSyntax = methodName NonEmptyRecordSyntax
     StringConstructorSyntax = typeName singleQuotedStringLiteral
 	ParenthesisedExpression = "(" Expression ")"
+	EmptyMapSyntax = "[" ":" "]"
+	NonEmptyMapSyntax = "[" NonemptyListOf<MapSyntaxItem, ","> "]"
+	MapSyntaxItem = Expression ":" Expression
 	NonEmptyRecordSyntax = "(" NonemptyListOf<RecordSyntaxItem, ","> ")"
 	EmptyRecordSyntax = "(" ":" ")"
 	RecordSyntaxItem = RecordKeyAssociation | StringAssociation

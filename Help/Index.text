@@ -76,7 +76,6 @@ Guide/Experimental Dictionary Syntax.help.sl
 Guide/Experimental Implicit Dictionary.help.sl
 Guide/Experimental Infix Method Syntax.help.sl
 Guide/Experimental Initialised Temporaries Syntax.help.sl
-Guide/Experimental Map Syntax.help.sl
 Guide/Experimental MessageSend Syntax.help.sl
 Guide/Experimental PutDelegateTo Syntax.help.sl
 Guide/Experimental Quoted AtIfAbsentPut Syntax.help.sl
@@ -138,6 +137,7 @@ Guide/Leading Dot Notation.help.sl
 Guide/Let Syntax.help.sl
 Guide/Lexical Scoping.help.sl
 Guide/Library Catalogue.help.sl
+Guide/Line Functions.help.sl
 Guide/List Assignment Syntax.help.sl
 Guide/List Comprehensions.help.sl
 Guide/List Constructor Syntax.help.sl
@@ -150,6 +150,7 @@ Guide/Local Controls.help.sl
 Guide/Logical Operators.help.sl
 Guide/Low-Discrepancy Sequence Functions.help.sl
 Guide/Magic Square Functions.help.sl
+Guide/Map Syntax.help.sl
 Guide/Mathematical Constants.help.sl
 Guide/Mathematical Functions.help.sl
 Guide/Mathematical Sequences.help.sl
