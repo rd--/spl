@@ -101,7 +101,7 @@ Using `==` will signal an error if the list contains non-immediate values:
 
 See also: Set, =, ==, copyWithoutIdenticalElements, deleteDuplicates, nubSieve
 
-Guides: Copying Functions, Collection Functions, List Functions
+Guides: Collection Functions, Copying Functions, List Functions
 
 References:
 _Apl_

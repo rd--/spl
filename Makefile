@@ -12,6 +12,9 @@ add-help-files:
 	git add Help/Reference/*.sl
 	git add Help/Guide/*.sl
 
+add-program-files:
+	git add Program/SuperCollider/*/*.sp
+
 add-all: add-images add-help-files
 
 push-all:

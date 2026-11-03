@@ -1,4 +1,3 @@
-
 # poissonDiskSampling
 
 - _poissonDiskSampling(r, [x y], k, n=30)_

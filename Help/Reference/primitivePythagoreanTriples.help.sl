@@ -11,8 +11,7 @@ _b_=[A156678](https://oeis.org/A156678),
 _c_=[A156679](https://oeis.org/A156679):
 
 ```
->>> let k = 20;
->>> .primitivePythagoreanTriples
+>>> 20.primitivePythagoreanTriples
 >>> .transpose
 [
 	 3  5  7  8  9

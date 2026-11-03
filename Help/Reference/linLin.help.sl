@@ -5,9 +5,9 @@
 Maps a linear range of values to another linear range of values.
 
 - in: input to convert
-- srcLoq: lower limit of input range
+- srcLow: lower limit of input range
 - srcHigh: upper limit of input range
-- dstLoq: lower limit of output range
+- dstLow: lower limit of output range
 - dstHigh: upper limit of output range
 
 Map oscillator to frequency:

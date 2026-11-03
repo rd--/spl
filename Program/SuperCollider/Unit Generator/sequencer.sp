@@ -64,56 +64,22 @@ let snd = (r * 0.1 + x + z + [y, w]) * 0.4;
 (combN(snd, 0.51, 0.51, 4) * 0.4 + snd.reverse).softClip
 
 /* sequencer ; Jmcc */
-let z = 0; let a = 0.1; let b = 0.2; let c = 0.4;
-let p = dseq(1, [
-	dseq(2, [c z z z z z z z]),
-	dseq(2, [c z z b z z b z c z z z b z b a]),
-	drand(Infinity, [
-		dseq(2, [c z z b z z b z c z b z c z b z]),
-		dseq(2, [c z a b z a b z c z b z c a b a]),
-		dseq(2, [c a a b z a b a c z b z c a b a]),
-		dseq(2, [c a a b z a b a c z b z z b a a]),
-		dseq(2, [c z z z z z z z]),
-		dseq(2, [c z z b z z b z c z z z b z b a])
-	])
-]);
-let q = drand(Infinity, [
-	dseq(2, [c z b z a a a a b z b z z z b z]),
-	dseq(2, [c z z z z z z z b z b z z z c z]),
-	dseq(2, [c z z z a z z z b z b z a z c z])
-]);
-let clock = impulse(9, 0);
-/* bass drum */
-let trig1 = pulseDivider(clock, 16, 0);
-let r = sinOsc(80, 0) * decay2(trig1, 0.005, 0.5) * 0.3;
-/* drum */
-let trig2 = demandImpulseSequencer([p], clock);
-let exc2 = whiteNoise() * decay2(trig2, 0.005, 0.05);
-let x = ringzBank(exc2, { rand(80, 800) } ! 4, nil, { rand(0.05, 0.2) } ! 4).distort * 0.2;
-/* metallic */
-let trig3 = demandImpulseSequencer([q], clock);
-let exc3 = whiteNoise() * decay2(trig3, 0.005, 0.05);
-let s = ringzBank(exc3, { rand(3500, 4000) } ! 4, nil, { rand(0.05, 0.2) } ! 4).distort * 0.1;
-/* whine */
-let exc4 = greyNoise([0.0007] # 2, 0);
-let y = { :tr |
-	let env = sinOsc(tRand(1, 6, tr), { tRand(0, 2.pi, tr) } ! 2) * 0.5 + 0.5;
-	dynRingzBank(
-		exc4,
-		{ tiRand(200, 2500, tr) } ! 4,
-		[1],
-		{ tRand(0.2, 0.8, tr) } ! 4
-	) * env
-}.overlapTexture(4, 2, 2).mix.scaleNegative(mouseX(-1, 1, 0, 0.2));
-let snd = x + (y * 0.5) + s + r;
-6.timesRepeat {
-	snd := allpassN(lpz2(snd), 0.03, { rand(0, 0.03) } ! 2, 5)
+let middleC = 256.5;
+let pattern = [1/1 6/5 3/2 9/5 2/1 12/5 3 18/5] * middleC;
+let detune = [-0.04 0.04];
+let seq = { :a :b :c :d |
+	smoothSaw(
+		sequencer(
+			pattern * a,
+			impulse(b, 0)
+		) + detune,
+		c
+	) * d
 };
-snd
-
-/* sequencer ; Jmcc */
-let clock = impulse(xLine(24, 1, 12), 0);
-let x = sinOsc(demandSequencer(dwhite(Infinity, 2000, 12000), clock), 0) * decay2(clock, 0.002, 0.04);
-{
-	combN(x, 0.1, { expRand(0.02, 0.05) } ! 2, 2) * xLine(0.2, 0.001, 12)
-} !+ 2
+combN(
+	seq(0.25, 1, 5, 1.4)
+	+ seq(1, 2, 4, 1)
+	+ seq(2, 4, 3, 0.7),
+	3 / 8, 3 / 8,
+	4
+) * line(0, 0.1, 2)

@@ -240,6 +240,12 @@
 		}
 	}
 
+	smoothSaw { :freq :sharpness |
+		let p = lfSaw(freq, 0);
+		let w = 1 - (p.abs ^ (2 ^ sharpness));
+		p * w
+	}
+
 	splayAz { :numChannels :inList :spread :level :width :center :orientation :levelComp |
 		let n = 1.max(inList.size);
 		let pos = (n = 1).if {
