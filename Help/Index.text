@@ -1140,6 +1140,7 @@ Reference/dequanLiEquation.help.sl
 Reference/derangements.help.sl
 Reference/derivative.help.sl
 Reference/deriveDecimalFraction.help.sl
+Reference/derivedPolygon.help.sl
 Reference/deriveFractionOver.help.sl
 Reference/deriveRange.help.sl
 Reference/deriveRangeList.help.sl
@@ -3609,6 +3610,7 @@ Reference/rotaryHarmonographCurve.help.sl
 Reference/rotate2.help.sl
 Reference/rotate.help.sl
 Reference/rotateLeft.help.sl
+Reference/rotatePolygonVertices.help.sl
 Reference/rotateRight.help.sl
 Reference/rotationMatrix.help.sl
 Reference/roundDown.help.sl

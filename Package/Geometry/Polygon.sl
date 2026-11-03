@@ -98,6 +98,10 @@ Polygon : [Object, Store, Equal, Geometry] {
 		self.exteriorAngles.isVeryClose(2.pi)
 	}
 
+	derivedPolygon { :self :r |
+		self.vertexCoordinates.derivedPolygon(r).Polygon
+	}
+
 	midpointPolygon { :self |
 		self.vertexCoordinates.midpointPolygon.Polygon
 	}
@@ -218,6 +222,14 @@ Polygon : [Object, Store, Equal, Geometry] {
 		}
 	}
 
+	derivedPolygon { :self :r |
+		1.to(self.size).collect { :i |
+			let a = self.at(i);
+			let b = self.atWrap(i + 1);
+			(a * r) + (b * (1 - r))
+		}
+	}
+
 	midpointPolygon { :self |
 		1.to(self.size).collect { :i |
 			[self.at(i), self.atWrap(i + 1)].midpoint
@@ -293,6 +305,16 @@ Polygon : [Object, Store, Equal, Geometry] {
 		let q1 = self.atWrap(j + 1);
 		let q2 = self.atWrap(j - 1);
 		(p -> [q1, q2]).planarAngle
+	}
+
+	rotatePolygonVertices { :a :n :m |
+		let k = a.size;
+		let b = a ++ [a[1]];
+		b.partition(2, 1).collect { :u |
+			let [p, q] = u;
+			let [r, theta] = (q - p).toPolarCoordinates;
+			p + [r * m, theta + n].fromPolarCoordinates
+		}
 	}
 
 	windingNumber { :self :aPoint |

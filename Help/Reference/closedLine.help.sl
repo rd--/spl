@@ -7,7 +7,8 @@ Answer a `Line` where the last vertex in _v_ is connected to the first.
 Draw a diamond:
 
 ~~~spl svg=A
-[0 0; 1 1; 2 0; 1 -1].closedLine
+[0 0; 1 1; 2 0; 1 -1]
+.closedLine
 ~~~
 
 ![](Help/Image/closedLine-A.svg)
@@ -16,7 +17,8 @@ Compare to `Line` at the same matrix,
 which is not closed:
 
 ~~~spl svg=B
-[0 0; 1 1; 2 0; 1 -1].Line
+[0 0; 1 1; 2 0; 1 -1]
+.Line
 ~~~
 
 ![](Help/Image/closedLine-B.svg)
@@ -24,3 +26,5 @@ which is not closed:
 * * *
 
 See also: Line, Polygon
+
+Guides: Geometry Functions

@@ -165,6 +165,7 @@ let q = [3 6 9; 1 4 2 8 5 7];
 
 * * *
 
+
 See also: Circle, %, ^, angleVector, cos, fromPolarCoordinates, sin
 
 Guides: Circle Functions, Geometry Functions
