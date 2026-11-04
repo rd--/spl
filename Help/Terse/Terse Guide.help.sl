@@ -357,7 +357,7 @@ collect/2.argumentCount = 2 /* method arity */
 { { :i | i = nil }.apply }.hasError /* too few arguments, c.f. non-strict */
 { { :x | 0 - x }.apply(3, 4) = -3 }.hasError /* too many arguments, c.f. non-strict */
 collect/2.name = 'collect/2'
-let f = { :x | x * x }; [f(5), f/1.(5)] = [25, 25]
+let f = { :x | x * x }; [f(5), f/1.apply(5)] = [25, 25]
 let f = { :x | x * x }; let d = (p: f/1); d['p'].unaryApply(5) = 25
 { 0 }.cull(23) = 0 /* ignore one argument */
 { 0 }.cull(23, 3.141) = 0 /* ignore two arguments */
@@ -396,9 +396,8 @@ let f = { }; f/0 == f/0 /* identity */
 { :x | x }.printString = 'a Block'
 { }.typeName = 'Block'
 { }.apply = nil /* empty block evaluates to nil */
-{ var x; nil }.apply = nil /* a block cannot end with a var declaration */
 { let x = 1; nil }.apply = nil /* a block cannot end with a let binding */
-{ var c, a; c := [1]; a := { var a; a := 4; a }.apply; { var a; a := 2; c.add!(a); { var a; a := 3; c.add!(a) }.apply }.apply; c.add!(a); c }.apply = [1, 2, 3, 4]
+{ let c = nil; let a = nil; c := [1]; a := { let a = nil; a := 4; a }.apply; { let a = nil; a := 2; c.add!(a); { let a = nil; a := 3; c.add!(a) }.apply }.apply; c.add!(a); c }.apply = [1, 2, 3, 4]
 1.toDo(10) { :x | x } = nil /* answers nil */
 withReturn { :return/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 /* non-local return */
 1.pi.assert { true } = 1.pi /* assert that block evaluates to true, answers self */
@@ -1344,7 +1343,7 @@ system.unicodeFractionsTable.isDictionary = true
 system.unicodeFractionsTable.associations.isList = true
 let n = system.unicodeFractionsTable.associations.collect(value/1); n = n.sort
 '4/3'.parseFraction = 4/3 /* parse fraction */
-'4/3'.parseFraction('/') = 4/3 /* parse fraction given delimiter */
+'4/3'.parseFractionSeparatedBy('/') { } = 4/3 /* parse fraction given delimiter */
 { '4/3'.parseNumber = 4/3 }.hasError /* the fraction module does not modify parseNumber to parse fractions */
 let x = Fraction(2L ^ 55, 2); x != (x - 1) /* fractions of large small floats would behave strangely, enforce large integers  */
 let x = Fraction(2L ^ 55L, 2); x != (x - 1) /* fractions of large large integers behave ordinarily */
@@ -2239,13 +2238,13 @@ let i = 1; 1:3.do { :each | i := i + each.square }; i = 15 /* iterate over numbe
 system.includesPackage('Object') /* package */
 [1, 3, 5].typeName = 'List' /* name of type of object */
 [1, 3, 5].species == nilList/1
-[1, 3, 5].IdentitySet.species == IdentitySet/0
-[1, 3, 5].Multiset(==).species.arity = 0
-(x: 1, y: 3, z: 5).species == Record/0
+[1, 3, 5].IdentitySet.new(3) = IdentitySet()
+[1, 3, 5].Multiset(==).species.arity = 1
+(x: 1, y: 3, z: 5).new(3) = Record()
 'b'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) = 2
 { 'd'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) }.hasError
-'b'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) { :notFound | false } = 2
-'d'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) { :notFound | notFound = 'd' }
+'b'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) { false } = 2
+'d'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) { true }
 let z = ['a' -> { 1 + 1 }, 'b' -> { 2 + 2 }, 'c' -> { 3 + 3 } ]; 'b'.caseOf(z) = 4
 { let z = ['a' -> { 1 + 1 }, 'b' -> { 2 + 2 } ]; 'c'.caseOf(z) }.hasError
 3/2.perform('numerator') = 3 /* perform named unary method, name is not qualified */
@@ -2680,7 +2679,7 @@ let r = IdentitySet(); r.add!('x'); r.remove!('x'); r.size = 0
 system.includesPackage('Record') /* package */
 (:).typeName = 'Record' /* literal empty record syntax, typeName query */
 (:).isRecord /* record predicate */
-(:).species == Record/0 /* record species */
+(:).new = Record() /* record species */
 Record().isRecord /* empty record constructor */
 Record().includesIndex('x') = false /* includes key predicate */
 (w: 0, x: 1).includesIndex('x') = true /* includes key predicate */
@@ -3001,9 +3000,9 @@ let a = 'string'.characters; a.atAll([6, 4, 5, 3, 1, 2]) = a.sort
 [1, 3, 2, 5, 4].sortWithIndices = [1 -> 1, 2 -> 3, 3 -> 2, 4 -> 5, 5 -> 4]
 [1, 3, 2, 5, 4].atAll([1, 3, 2, 5, 4]) = [1 .. 5]
 let a = [2 .. 5]; let b = a.copyWithFirst(1); a != b & { b = [1 .. 5] } /* copy with new first element */
-let a = [1 .. 7]; a.replaceFromToWith(3, 5, [-3, -4, -5]); a = [1, 2, -3, -4, -5, 6, 7]
-{ [1 .. 7].replaceFromToWith(3, 5, [-3, -4]) }.hasError /* replacement must be of equal size */
-let a = [1 .. 7]; a.replaceFromToWithStartingAt(3, 5, [-3, -4, -5], 1); a = [1, 2, -3, -4, -5, 6, 7]
+let a = [1 .. 7]; a.replaceFromToWith!(3, 5, [-3, -4, -5]); a = [1, 2, -3, -4, -5, 6, 7]
+{ [1 .. 7].replaceFromToWith!(3, 5, [-3, -4]) }.hasError /* replacement must be of equal size */
+let a = [1 .. 7]; a.replaceFromToWithStartingAt!(3, 5, [-3, -4, -5], 1); a = [1, 2, -3, -4, -5, 6, 7]
 [1 .. 7].forceToPaddingWith(9, 0) = [1, 2, 3, 4, 5, 6, 7, 0, 0] /* copy of sequence with required length and initializer */
 [1 .. 7].forceToPaddingWith(5, 0) = [1 .. 5] /* partial copy */
 let a = [1 .. 4]; a += 8; a = [9 .. 12] /* in-place array/scalar addition */
@@ -3298,7 +3297,7 @@ let pi = 23; pi = 23 /* 1.pi is a constant, it can be shadowed */
 ```
 system.includesPackage('SortedList') /* sorted array package */
 SortedList().isSortedList /* sorted array */
-SortedList().species == SortedList/0 /* species is sorted array */
+SortedList().new(3) = SortedList() /* species is sorted array */
 SortedList().size = 0 /* query size */
 let a = SortedList(); a.add!(3); a.add!(1); a.add!(2); a.collection = [1 .. 3] /* add inserts items into sequence */
 let a = [3, 1].SortedList; a.add!(2); a.collection = [1 .. 3] /* sorted array from array */
@@ -3700,7 +3699,7 @@ var x, y, z; (x: x, y: y, z: z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [
 
 ## Syntax -- block application
 ```
-{ }.apply() = nil /* apply no argument block */
+{ }.apply = nil /* apply no argument block */
 { :n | n * n }.apply(23) = 529 /* apply one argument block */
 { :p :q | p ++ q }.apply('x', 'y') = 'xy' /* apply two argument block */
 ```

@@ -16,7 +16,7 @@
 'Program/SuperCollider/Unit Generator'.splFilePath.terseProgramSummary(isOutputSignal/1)
 ~~~
 
-=> 502
+=> 507
 
 ~~~
 'Program/SuperCollider/Texture'.splFilePath.terseProgramSummary(isTextureProgram/1)

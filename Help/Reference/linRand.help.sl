@@ -31,7 +31,7 @@ let minmax = mouseX(0, 1, 0, 0.2);
 
 * * *
 
-See also: BiLinRand, iRand, nRand, rand, rand2
+See also: biLinRand, iRand, nRand, rand, rand2
 
 Guides: Unit Generators
 

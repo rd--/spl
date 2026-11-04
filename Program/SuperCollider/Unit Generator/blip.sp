@@ -29,4 +29,3 @@ blip(
 /* detuned band-limited impulse trains harmonic count modulate by slow sine ; Jmcc */
 let h = sinOsc(1 / 20, 0.75).linLin(-1, 1, 1, 48);
 blip(36 + [0 0.13], h) * line(0, 0.1, 1)
-

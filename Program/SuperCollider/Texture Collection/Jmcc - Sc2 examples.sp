@@ -7,23 +7,23 @@ let n = 8; /* number of simultaneous events */
 	)
 }.overlapTextureProgram(4, 4, n)
 
-/********** Pond life ; Jmcc **********/
-let n = 8; /* number of simultaneous events */
-{
-	eqPan2(
-		(
-			sinOsc(sinOsc(20 + rand(0, 30), 0).*+(100 + rand(0, 300), 500 + linRand(0, 2000, 0)), 0)
-			*
-			lfPulse(3 / (1 + rand(0, 8)), 0, 0.2 + rand(0, 0.3)) * 0.04
-		),
-		rand(-1, 1)
-	)
-}.overlapTextureProgram(8, 4, n)
+	/********** Pond life ; Jmcc **********/
+	let n = 8; /* number of simultaneous events */
+	{
+		eqPan2(
+			(
+				sinOsc(sinOsc(20 + rand(0, 30), 0).*+(100 + rand(0, 300), 500 + linRand(0, 2000, 0)), 0)
+				*
+				lfPulse(3 / (1 + rand(0, 8)), 0, 0.2 + rand(0, 0.3)) * 0.04
+			),
+			rand(-1, 1)
+		)
+	}.overlapTextureProgram(8, 4, n)
 
 /********** Alien froggies ; Jmcc **********/
 let rate = 11;
-{ :rep |
-	rate := (rate * (0.2.BiLinRand.exp)).fold(1, 30);
+{
+	rate := (rate * (rand(-0.2, 0.2).exp)).fold(1, 30);
 	formant(rate, expRand(200, 3000), rand(0, 9) * rate + rate) * 0.05
 }.overlapTextureProgram(0.5, 0.25, 5)
 

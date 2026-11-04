@@ -300,6 +300,7 @@
 	}
 
 	listInterpolationQuinary { :self :aBlock/5 |
+		let k = self.size;
 		{ :x |
 			let i = x.integerPart;
 			(i = k).if {

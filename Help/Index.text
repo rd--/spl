@@ -88,6 +88,7 @@ Guide/Experimental Slot Assignment Syntax.help.sl
 Guide/Experimental Symbol Literals.help.sl
 Guide/Experimental Trailing Record Syntax.help.sl
 Guide/Experimental Tree Syntax.help.sl
+Guide/Experimental Value Apply Syntax.help.sl
 Guide/Feature Detection Functions.help.sl
 Guide/Fenced Code Blocks.help.sl
 Guide/File Extensions.help.sl
@@ -285,7 +286,6 @@ Guide/Unicode Symbols.help.sl
 Guide/Unit Generators.help.sl
 Guide/Unit Prefixes.help.sl
 Guide/Upper Case Methods.help.sl
-Guide/Value Apply Syntax.help.sl
 Guide/Value Protocol.help.sl
 Guide/Var Syntax.help.sl
 Guide/Vector Functions.help.sl
