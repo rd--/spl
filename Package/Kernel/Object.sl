@@ -12,10 +12,6 @@
 		self.assert('*unknown context*', aBlock/0)
 	}
 
-	caseOfError { :self |
-		self.error('@Object>>caseOfError: case not found and no otherwise clause')
-	}
-
 	caseOf { :self :aCollection :otherwise/0 |
 		withReturn { :return/1 |
 			aCollection.associationsDo { :each |
@@ -32,6 +28,10 @@
 		self.caseOf(aCollection) {
 			self.caseOfError
 		}
+	}
+
+	caseOfError { :self |
+		self.error('@Object>>caseOfError: case not found and no otherwise clause')
 	}
 
 	concisePrintString { :self |

@@ -283,19 +283,14 @@
 		}
 	}
 
-	listInterpolationTernary { :self :aBlock/3 |
-		let k = self.size;
-		{ :x |
-			let i = x.integerPart;
-			(i = k).if {
-				self.last
-			} {
-				aBlock(
-					self[i],
-					self[i + 1],
-					x.fractionalPart
-				)
-			}
+	listInterpolation { :self :aBlock |
+		aBlock.argumentCount.caseOf(
+			[
+				3 -> { listInterpolationTernary(self, aBlock) },
+				5 -> { listInterpolationQuinary(self, aBlock) }
+			]
+		) {
+			self.error('listInterpolation: not 3- or 5- argument block')
 		}
 	}
 
@@ -317,14 +312,19 @@
 		}
 	}
 
-	listInterpolation { :self :aBlock |
-		aBlock.argumentCount.caseOf(
-			[
-				3 -> { listInterpolationTernary(self, aBlock) },
-				5 -> { listInterpolationQuinary(self, aBlock) }
-			]
-		) {
-			self.error('listInterpolation: not 3- or 5- argument block')
+	listInterpolationTernary { :self :aBlock/3 |
+		let k = self.size;
+		{ :x |
+			let i = x.integerPart;
+			(i = k).if {
+				self.last
+			} {
+				aBlock(
+					self[i],
+					self[i + 1],
+					x.fractionalPart
+				)
+			}
 		}
 	}
 

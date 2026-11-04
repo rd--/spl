@@ -79,7 +79,6 @@ Guides (A-Z):
 - `Experimental Implicit Dictionary`
 - `Experimental Infix Method Syntax`
 - `Experimental Initialised Temporaries Syntax`
-- `Experimental Map Syntax`
 - `Experimental MessageSend Syntax`
 - `Experimental PutDelegateTo Syntax`
 - `Experimental Quoted AtIfAbsent Syntax`
@@ -92,6 +91,7 @@ Guides (A-Z):
 - `Experimental Symbol Literals`
 - `Experimental Trailing Record Syntax`
 - `Experimental Tree Syntax`
+- `Experimental Value Apply Syntax`
 - `Feature Detection Functions`
 - `Fenced Code Blocks`
 - `File Extensions`
@@ -141,6 +141,7 @@ Guides (A-Z):
 - `Let Syntax`
 - `Lexical Scoping`
 - `Library Catalogue`
+- `Line Functions`
 - `List Assignment Syntax`
 - `List Comprehensions`
 - `List Constructor Syntax`
@@ -153,6 +154,7 @@ Guides (A-Z):
 - `Logical Operators`
 - `Low-Discrepancy Sequence Functions`
 - `Magic Square Functions`
+- `Map Syntax`
 - `Mathematica Perspective`
 - `Mathematical Constants`
 - `Mathematical Functions`
@@ -287,7 +289,6 @@ Guides (A-Z):
 - `Unit Generators`
 - `Unit Prefixes`
 - `Upper Case Methods`
-- `Value Apply Syntax`
 - `Value Protocol`
 - `Var Syntax`
 - `Vector Functions`
@@ -531,6 +532,7 @@ Reference (A-Z):
 - `PngViewer`
 - `Point`
 - `PointCloud`
+- `PointSet`
 - `PoissonDistribution`
 - `PoissonProcess`
 - `Polar`
@@ -1423,6 +1425,7 @@ Reference (a-z):
 - `derangements`
 - `derivative`
 - `deriveDecimalFraction`
+- `derivedPolygon`
 - `deriveFractionOver`
 - `deriveRange`
 - `deriveRangeList`
@@ -2373,6 +2376,7 @@ Reference (a-z):
 - `isLoopFree`
 - `isLowerCase`
 - `isLowerTriangularMatrix`
+- `isLucasCarmichaelNumber`
 - `isLucasProbablePrime`
 - `isLukasiewiczWord`
 - `isLyndonWord`
@@ -3438,6 +3442,7 @@ Reference (a-z):
 - `primesUpTo`
 - `primesUpToDo`
 - `primitiveLoadPackageSequence`
+- `primitivePythagoreanTriples`
 - `primitiveRootList`
 - `primorial`
 - `printLine`
@@ -3705,6 +3710,7 @@ Reference (a-z):
 - `rotate`
 - `rotate2`
 - `rotateLeft`
+- `rotatePolygonVertices`
 - `rotateRight`
 - `rotationMatrix`
 - `round`

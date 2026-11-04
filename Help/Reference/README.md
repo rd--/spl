@@ -20,6 +20,8 @@ Write image files:
 { system.helpFilesDo('Reference', '.*', 1, writeImageFiles/1) }.timing
 ~~~
 
+(550 seconds)
+
 Update indices:
 
 - helpImageIndex
@@ -32,7 +34,7 @@ Count image files:
 ls ~/sw/spl/Help/Image/* | wc -l
 ~~~
 
-=> 5,089
+=> 5,104
 
 Count reference files:
 
@@ -40,7 +42,7 @@ Count reference files:
 $ (grep '!\[\](' ~/sw/spl/Help/Reference/* | wc -l)
 ~~~
 
-=> 5,079
+=> 5,094
 
 Run SuperCollider programs:
 
@@ -48,7 +50,7 @@ Run SuperCollider programs:
 'Help/Reference'.splFilePath.terseSuperColliderGraphSummary((verboseLevel: 2, pattern: '.*'))
 ~~~
 
-Total => 574
+Total => 571
 
 Lint reference files:
 
@@ -56,4 +58,4 @@ Lint reference files:
 $ (cd ~/sw/spl/Help/Reference; make lint)
 ~~~
 
-Linting: 4,173 file(s)
+Linting: 4,175 file(s)
