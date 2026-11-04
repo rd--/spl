@@ -43,9 +43,9 @@ ScSynth! : [Object] {
 		<primitive: return _self.readyState;>
 	}
 
-	removeOscListener { :self :address :onMessage |
-		<primitive: _self.removeOscListener(_address, _onMessage);>
-		onMessage
+	removeOscListener { :self :address :onMessage/1 |
+		<primitive: _self.removeOscListener(_address, _onMessage_1);>
+		onMessage/1
 	}
 
 	reset { :self |

@@ -69,7 +69,7 @@ HelpFile : [Object, Equal, Cache] {
 	}
 
 	definitionCodeBlocks { :self |
-		self.codeBlocksWithKey('define')
+		self.codeBlocksWithKey('definition')
 	}
 
 	description { :self |
@@ -87,7 +87,7 @@ HelpFile : [Object, Equal, Cache] {
 	}
 
 	evaluateDefinitionCodeBlocks { :self |
-		self.codeBlocksWithKey('define').do { :each |
+		self.codeBlocksWithKey('definition').do { :each |
 			system.evaluate(each['contents'])
 		}
 	}

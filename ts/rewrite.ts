@@ -25,7 +25,7 @@ function isSplArityQualifiedName(s: string): boolean {
 }
 
 function isJsArityQualifiedName(s: string): boolean {
-	const isSpecialSplVar = s.startsWith('__');
+	const isSpecialSplVar = s.startsWith('__SplVar');
 	return !isSpecialSplVar && s.includes('_', 1);
 }
 
@@ -496,6 +496,12 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	FinalStatement(e) {
 		return e.asSl;
+	},
+	WorkspaceVariableAssignment(_workspace, _dot, varName, _colonEquals, expr) {
+		return `workspaceVariableAssignment!(system, '${varName.asSl}', ${expr.asSl})`;
+	},
+	WorkspaceVariableReference(_workspace, _dot, varName) {
+		return `workspaceVariableReference(system, '${varName.asSl}')`;
 	},
 	LetBinding(_let, tmp) {
 		return `let ${tmp.asSl}`;

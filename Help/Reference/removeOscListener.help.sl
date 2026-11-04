@@ -3,19 +3,15 @@
 - _removeOscListener(s, a, f/1)_
 
 Remove a listener for Open Sound Control messages from an Open Sound Control source,
-for instance _ScSynth_.
+for instance `ScSynth`.
 
 ```
->>> system.workspace.includesKey('onDone').if {
->>> 	system
->>> 	.scSynth
->>> 	.removeOscListener(
->>> 		'/done',
->>> 		system.workspace['onDone']
->>> 	).isBlock
->>> } {
->>> 	true
->>> }
+>>> system
+>>> .scSynth
+>>> .removeOscListener(
+>>> 	'/done',
+>>> 	workspace.onDone
+>>> ).isBlock
 true
 ```
 

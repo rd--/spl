@@ -326,10 +326,18 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		<primitive: return _self.window;>
 	}
 
-	workspace { :self |
-		self.cached('workspace') {
+	workspaceVariableAssignment! { :self :aString :anObject |
+		self.workspaceVariableDictionary.put!(aString, anObject)
+	}
+
+	workspaceVariableDictionary { :self |
+		self.cached('workspaceVariableDicionary') {
 			Record()
 		}
+	}
+
+	workspaceVariableReference { :self :aString |
+		self.workspaceVariableDictionary.at(aString)
 	}
 
 }

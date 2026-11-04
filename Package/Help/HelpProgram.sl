@@ -50,7 +50,7 @@ HelpProgram : [Object] {
 	}
 
 	isDefinitionProgram { :self |
-		self.hasAnnotation('define')
+		self.hasAnnotation('definition')
 	}
 
 	isImageProgram { :self |

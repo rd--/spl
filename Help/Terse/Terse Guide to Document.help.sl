@@ -44,18 +44,18 @@ system.window.getSelectedText
 ## Navigator -- midi
 ```
 system.window.navigator.requestMidiAccess.thenElse { :midiAccess |
-	system.workspace['midi'] := midiAccess
-} {
-	:message | ('no midi: ' + message).printLine
+	workspace.midi := midiAccess
+} { :message |
+	('no midi: ' + message).printLine
 }
 
-system.workspace['midi'].inputs.do { :each |
+workspace.midi.inputs.do { :each |
 	each.printLine; each.onmidimessage { :event |
 		event.data.printLine
 	}
 }
 
-system.workspace['midi'].sysexEnabled
+workspace.midi.sysexEnabled
 ```
 
 ## TextButton

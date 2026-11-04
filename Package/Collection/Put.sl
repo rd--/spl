@@ -21,7 +21,7 @@
 		}
 	}
 
-	atModify! { :self :index :defaultValue :aBlock/1 |
+	atModify! { :self :index :aBlock/1 :defaultValue |
 		self.put!(
 			index,
 			aBlock(

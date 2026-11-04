@@ -8,7 +8,7 @@ When an osc message is received with the specified address _a_,
 the block _f_ is applied to the message.
 
 ```
->>> system.workspace['onDone'] := (
+>>> workspace.onDone := (
 >>> 	system
 >>> 	.scSynth
 >>> 	.addOscListener(
@@ -18,8 +18,8 @@ the block _f_ is applied to the message.
 >>> 		}
 >>> 	)
 >>> );
->>> system.workspace['onDone'].isBlock
-true
+>>> nil
+nil
 ```
 
 * * *

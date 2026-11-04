@@ -4,7 +4,7 @@ Guides (A-Z):
 
 - `Activation Functions`
 - `Adapt To Protocol`
-- `An Idiosyncratic Introduction to Spl`
+- `An Idiosyncratic Introduction to J`
 - `Apl Perspective`
 - `Apply Syntax`
 - `Arithmetic Functions`

@@ -379,7 +379,10 @@ Block! : [Object, Equal] {
 	}
 
 	[isEqual, =] { :self :anObject |
-		self.shouldNotImplement('equal')
+		anObject.isBlock.ifTrue {
+			self.shouldNotImplement('equal')
+		};
+		false
 	}
 
 	isImmediate { :unused |

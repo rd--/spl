@@ -283,7 +283,7 @@ If the string begins with a doctest, also delete all non doctest lines."
 (defconst spl-font-lock-keywords
   (list
    `(,(regexp-opt '("let" "var") 'symbols) . font-lock-keyword-face)
-   `(,(regexp-opt '("false" "nil" "true" "system") 'symbols) . font-lock-builtin-face)
+   `(,(regexp-opt '("false" "nil" "true" "system" "workspace") 'symbols) . font-lock-builtin-face)
    `(,(regexp-opt '("caseOf" "do" "doWhileFalse" "doWhileTrue" "if" "ifTrue" "ifFalse" "ifEmpty" "ifNotEmpty" "ifNil" "ifNotNil" "kr" "repeatForever" "repeatForeverWithBreak" "timesRepeat" "which" "whileFalse" "whileTrue" "withIndexDo" "withReturn") 'symbols) . font-lock-function-name-face)
    `(,(regexp-opt '("ensure" "error" "hasError" "ifError" "ignoreError" "signal" "warning") 'symbols) . font-lock-warning-face)
    '("\\<[A-Z][a-zA-Z0-9]*\\>" . font-lock-type-face)

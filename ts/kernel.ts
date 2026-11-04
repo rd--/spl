@@ -29,7 +29,7 @@ type QualifiedMethodName = string; // i.e. MethodName/Arity
 type MethodSourceCode = string;
 type MethodOrigin = Trait | Type;
 
-type SplObject = object & { _type: TypeName };
+type SplObject = object & { _splType: TypeName };
 type SplBlock = (...args: never) => unknown;
 
 type QualifiedMethodDictionary = Map<QualifiedMethodName, Method>;
@@ -84,7 +84,7 @@ function splObjectTypeName(anObject: SplObject): TypeName {
 	if (anObject instanceof WeakMap) {
 		return 'WeakMap';
 	}
-	const splType = anObject._type;
+	const splType = anObject._splType;
 	if (splType !== undefined) {
 		return splType;
 	}
@@ -97,7 +97,7 @@ function splObjectTypeName(anObject: SplObject): TypeName {
 /* This runs slower than the form above, is .constructor.name slow?
 function splObjectTypeName(anObject: SplObject): TypeName {
 	return anObject instanceof Uint8Array ? 'ByteArray' :
-		(anObject._type ||
+		(anObject._splType ||
 			(isRecord(anObject) ? 'Record' : anObject.constructor.name));
 }
 */
@@ -670,7 +670,7 @@ export function addType(
 	const nilSlots = slotNames.map((each) => `${each}: null`).join(', ');
 	const defNewType = isHostType
 		? ''
-		: `sl.addMethodToExistingType('Void', '${packageName}', 'new${typeName}', [], function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
+		: `sl.addMethodToExistingType('Void', '${packageName}', 'new${typeName}', [], function() { return {_splType: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
 	const defInitializeSlots = isHostType
 		? ''
 		: `sl.addMethodToExistingType('${typeName}', '${packageName}', 'initializeSlots', ${
@@ -799,6 +799,9 @@ export function checkSmallFloatOverflow(a: number, b: number, x: number): void {
 }
 
 export function splArityCheck(f: Function, n: number, c: string): void {
+	if (typeof f !== 'function') {
+		throw new Error(`splArityCheck: not block: context=${c}`);
+	};
 	const k = f.length;
 	if(k != n) {
 		const errorMessage = `splArityCheck: expected=${n}, actual=${k}, context=${c}`;

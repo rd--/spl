@@ -1,7 +1,7 @@
 Definitions/Smalltalk J20 Definitions.help.sl
 Guide/Activation Functions.help.sl
 Guide/Adapt To Protocol.help.sl
-Guide/An Idiosyncratic Introduction to Spl.help.sl
+Guide/An Idiosyncratic Introduction to J.help.sl
 Guide/Apl Perspective.help.sl
 Guide/Apply Syntax.help.sl
 Guide/Arithmetic Functions.help.sl
@@ -298,6 +298,7 @@ Guide/What is a Type.help.sl
 Guide/What is Spl.help.sl
 Guide/Why Spl.help.sl
 Guide/Window Functions.help.sl
+Guide/Workspace Variable Syntax.help.sl
 Guide/Writing Primitives.help.sl
 Guide/Xenharmonic Functions.help.sl
 Index/Help Index.help.sl

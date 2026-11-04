@@ -1,12 +1,11 @@
-# An Idiosyncratic Introduction to Sᴘʟ
+# An Idiosyncratic Introduction to J
 
 Hui, R.K.W.
-_An Idiosyncratic Introduction to J_
-[1](https://github.com/jsoftware/labs_labs/blob/master/core/intro.ijt)
+[An Idiosyncratic Introduction to J](https://github.com/jsoftware/labs_labs/blob/master/core/intro.ijt)
 
 ## Introduction
 
-Sᴘʟ is executable mathematical notation.
+J is executable mathematical notation:
 
 ```
 >>> 2 + 3
@@ -20,7 +19,7 @@ Sᴘʟ is executable mathematical notation.
 
 ## Functions
 
-There is a rich set of primitives.
+There is a rich set of primitives:
 
 ```
 >>> 2 + 3
@@ -50,7 +49,7 @@ There is a rich set of primitives.
 
 ## Arrays
 
-Functions apply to arrays.
+Functions apply to arrays:
 
 ```
 >>> 2 + [5 6 7]
@@ -74,7 +73,7 @@ Shorter lists are extended by _recyling_:
 ```
 
 Some functions make arrays.
-_iota(n)_ is a list of the integers from 1 to _n_.
+_iota(n)_ is a list of the integers from 1 to _n_:
 
 ```
 >>> 7.iota
@@ -90,7 +89,7 @@ _iota(n)_ is a list of the integers from 1 to _n_.
 [0 1 1.41421 1.73205 2 2.23607 2.44949]
 ```
 
-_reshape(v, s)_ makes an array of shape _s_ using the elements _v_.
+_reshape(v, s)_ makes an array of shape _s_ using the elements _v_:
 
 ```
 >>> [3 1 4 2].reshape([3 5])
@@ -111,7 +110,7 @@ _reshape(v, s)_ makes an array of shape _s_ using the elements _v_.
 
 ## Assignment
 
-An array or function can be assigned a name using _let_.
+An array or function can be assigned a name using `let`;
 
 ```
 >>> 7.iota
@@ -129,7 +128,8 @@ An array or function can be assigned a name using _let_.
 
 ## Monadic or Dyadic
 
-A function can be monadic or dyadic, depending on whether there is an argument on the right or on the left and right.
+A function can be monadic or dyadic,
+depending on whether there is an argument on the right or on the left and right:
 
 ```
 >>> 2 / 3
@@ -198,9 +198,10 @@ Thus, _reduce(+)_ is `sum` and _reduce(*)_ is `product`.
 
 These are the _big sigma_ and _big pi_ of conventional notation.
 
-Moreover, `reduce` can be applied to any function:
+Moreover, `reduce` can be applied to any function.
 `reduce` of `max` is maximum,
-`reduce` of `min` is minimum, &etc.
+`reduce` of `min` is minimum,
+&etc.:
 
 ```
 >>> 1:7.reduce(+)
@@ -248,9 +249,9 @@ Many of these idioms are already named:
 
 Adverbs modify verbs to produce new verbs.
 
-_outer_ is an adverb that means _function table_.
+`outer` is an adverb that means _function table_.
 
-Function tables are a good way to organize systematic experimentation on unfamiliar functions.
+Function tables are a good way to organize systematic experimentation on unfamiliar functions:
 
 ```
 >>> 0:8 +.outer 0:8
@@ -358,7 +359,7 @@ Function tables are a good way to organize systematic experimentation on unfamil
 ]
 ```
 
-The Hilbert matrix is a simple function on the addition table.
+The Hilbert matrix is a simple function on the addition table:
 
 ```
 >>> 1.R(1:7 +.outer 0:6)
@@ -373,7 +374,8 @@ The Hilbert matrix is a simple function on the addition table.
 ]
 ```
 
-The reciprocal determinant of the Hilbert matrix of order _n_, has prime factors that are the primes less than _2 * n_.
+The reciprocal determinant of the Hilbert matrix of order _n_,
+has prime factors that are the primes less than _2n_:
 
 ```
 >>> let n = 5L;
@@ -387,7 +389,7 @@ The _triangle_ of Pascal is an example of a function table,
 using the binomial coefficient function.
 
 An advantage of looking at it as a table rather than as a triangle,
-is that one can then apply matrix operations to it, such as matrix inverse.
+is that one can then apply matrix operations to it, such as matrix inverse:
 
 ```
 >>> let x = 0:4;
@@ -404,7 +406,7 @@ is that one can then apply matrix operations to it, such as matrix inverse.
 ## Prefix
 
 Prefix can be implemented as a unary adverb,
-applying a unary block to the prefixes of the argument.
+applying a unary block to the prefixes of the argument:
 
 ```
 >>> 1:7.prefixes
@@ -432,15 +434,18 @@ applying a unary block to the prefixes of the argument.
 ## Permutations
 
 The dyadic function `atAll` indexes a collection by a collection.
-If _p_ is a permutation, _y.atAll(p)_ permutes _y_ by _p_.
-(J is zero-indexed, hence adjustments.)
+If _p_ is a permutation, _y.atAll(p)_ permutes _y_ by _p_,
+J is zero-indexed,
+hence adjustments:
 
 ```
->>> let p = system.workspace['p'] := [
->>> 	04 22 16 15 18 14 07 08 00 21 03 13
->>> 	20 09 11 19 06 17 02 05 01 10 12
+>>> let p = [
+>>> 	04 22 16 15 18 14 07 08 00 21
+>>> 	03 13 20 09 11 19 06 17 02 05
+>>> 	01 10 12
 >>> ] + 1;
 >>> let u = p.atAll(p);
+>>> workspace.p := p;
 >>> [u - 1, u.atAll(p) - 1, p.atAll(u) - 1]
 [
 	18 12 06 19 02 11 08 00 04 10 15 09
@@ -454,22 +459,22 @@ If _p_ is a permutation, _y.atAll(p)_ permutes _y_ by _p_.
 ]
 ```
 
-Reducing _m_ copies of _p_ using `atAll` computes the _m_-th power of _p_.
+Reducing _m_ copies of _p_ using `atAll` computes the _m_-th power of _p_:
 
 ```
->>> let p = system.workspace['p'];
->>> p.reshape([3 23]).reduce(atAll/2) - 1
+>>> workspace.p
+>>> .reshape([3 23])
+>>> .reduce(atAll/2) - 1
 [
 	02 20 07 05 16 13 00 04 18 03 19 21
 	22 10 09 14 08 17 06 11 12 15 01
 ]
 ```
 
-The corresponding prefixes are the successive powers of _p_.
+The corresponding prefixes are the successive powers of _p_:
 
 ```
->>> let p = system.workspace['p'];
->>> let m = p.reshape([3 23]);
+>>> let m = workspace.p.reshape([3 23]);
 >>> m.prefixes.collect { :each |
 >>> 	each.reduce(atAll/2) - 1
 >>> }.middle
@@ -480,11 +485,11 @@ The corresponding prefixes are the successive powers of _p_.
 ```
 
 `permutationCycles` computes the cycles of a permutation.
-The `lcm` of the cycle lengths is the order of the subgroup generated by the permutation.
+The `lcm` of the cycle lengths is the order of the subgroup generated by the permutation:
 
 ```
->>> let p = system.workspace['p'];
->>> let c = p.permutationCycles;
->>> c.collect(size/1).lcm
+>>> workspace.p
+>>> .permutationCycles
+>>> .collect(size/1).lcm
 40
 ```
