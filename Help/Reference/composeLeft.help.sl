@@ -8,16 +8,18 @@ The blocks are composed right to left,
 i.e. _g_ is applied first and _f_ second.
 
 ```
->>> -.bindLeft(3)
+>>> let f/1 = -.bindLeft(3)
 >>> .composeLeft(
 >>> 	^.bindLeft(7)
->>> ). (5)
+>>> );
+>>> f(5)
 (3 - (7 ^ 5))
 
->>> -.bindRight(3)
+>>> let f/1 = -.bindRight(3)
 >>> .composeLeft(
 >>> 	^.bindRight(7)
->>> ). (5)
+>>> );
+>>> f(5)
 ((5 ^ 7) - 3)
 ```
 
@@ -25,7 +27,8 @@ Composition of inverses:
 
 ```
 >>> let n = system.nextRandomFloat;
->>> square/1.composeLeft(sqrt/1) . (n)
+>>> let f/1 = square/1.composeLeft(sqrt/1);
+>>> f(n)
 n
 ```
 
@@ -33,27 +36,32 @@ Sometimes `@*` is defined as an operator form:
 
 ```
 >>> let @* = composeLeft/2;
->>> (square/1 @* sqrt/1) . (23)
+>>> let f/1 = square/1 @* sqrt/1;
+>>> f(23)
 23
 ```
 
 Compare to `composeRight`:
 
 ```
->>> square/1.composeLeft(negate/1) . (7)
+>>> let f/1 = square/1.composeLeft(negate/1);
+>>> f(7)
 49
 
->>> square/1.composeRight(negate/1) . (7)
+>>> let f/1 = square/1.composeRight(negate/1);
+>>> f(7)
 -49
 ```
 
 At `List`:
 
 ```
->>> [square/1, negate/1].composeLeft . (7)
+>>> let f/1 = [square/1, negate/1].composeLeft;
+>>> f(7)
 49
 
->>> [square/1, negate/1].composeRight . (7)
+>>> let f/1 = [square/1, negate/1].composeRight;
+>>> f(7)
 -49
 ```
 

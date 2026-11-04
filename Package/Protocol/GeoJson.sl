@@ -173,11 +173,11 @@ GeoJson : [Object, Store] {
 	}
 
 	property { :self :key |
-		self.properties.ifNil {
+		let r = self.properties;
+		r.ifNil {
 			self.error('GeoJson>>property: nil properties')
-		} { :aRecord |
-			aRecord.at(key)
-		}
+		};
+		r.at(key)
 	}
 
 	simplyConnectedPolygonCoordinates { :self |

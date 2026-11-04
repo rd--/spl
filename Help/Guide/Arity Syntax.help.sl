@@ -35,7 +35,7 @@ and must be called using _apply_ or _applyList_.
 >>> 	9.sqrt,
 >>> 	sqrt/1.apply(9),
 >>> 	sqrt/1.applyList([9]),
->>> 	sqrt/1 . (9)
+>>> 	sqrt/1.unaryApply(9)
 >>> ]
 [3 3 3 3 3]
 ```

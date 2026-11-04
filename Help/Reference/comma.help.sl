@@ -23,13 +23,6 @@ Comma separates parameter items in `Apply Syntax`:
 3
 ```
 
-Comma separates parameter items in `Value Apply Syntax`:
-
-```
->>> min/2 . (3, 7)
-3
-```
-
 Comma separates parameter items in `Method Syntax`:
 
 ```

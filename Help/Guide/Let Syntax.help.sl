@@ -44,8 +44,8 @@ let f/1 = { :x | x }; f/1
 
 >>> let f = { :x | x * 2 + 1 };
 >>> (
->>> 	f/1 . (11),
->>> 	{ f . (11) }.hasError
+>>> 	f(11),
+>>> 	{ f.unaryApply(11) }.hasError
 >>> )
 (23, true)
 ```

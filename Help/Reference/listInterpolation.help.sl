@@ -1,6 +1,6 @@
 # listInterpolation
 
-- _listInterpolation([x₁ x₂ …], f)_
+- _listInterpolation([x₁ x₂ …], f/n)_
 
 Answer a `Block` that will interpolate into the sequence _x_ using the interpolation function defined at the block _f_,
 which should be of either three or five arguments.

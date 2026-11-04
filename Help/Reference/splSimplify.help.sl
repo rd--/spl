@@ -27,13 +27,13 @@ and `List Syntax` expressions are not rewritten:
 
 `Block` literals,
 `Assignment Syntax`,
-`Apply Syntax` and
-`Value Apply Syntax` are not rewritten:
+and `Apply Syntax`
+are not rewritten:
 
 ```
->> '{ :x | x := f(x); f . (x) }'
+>> '{ :x | x := f(x); f(x) }'
 >> .splSimplify
-{ :x | x := f(x); f . (x) }
+{ :x | x := f(x); f(x) }
 
 >> '{  }'
 >> .splSimplify

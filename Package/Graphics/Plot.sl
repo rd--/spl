@@ -1078,20 +1078,20 @@ Plot : [Object] {
 		)
 	}
 
-	revolutionPlot { :self :aBlock/2 |
-		self.revolutionPlot([15 15], aBlock/2)
+	revolutionPlot { :self :aBlock |
+		self.revolutionPlot([15 15], aBlock)
 	}
 
 }
 
 +Interval {
 
-	revolutionPlot { :self :divisions :aBlock/2 |
-		[self, 0 -- 2.pi].revolutionPlot(divisions, aBlock/2)
+	revolutionPlot { :self :divisions :aBlock |
+		[self, 0 -- 2.pi].revolutionPlot(divisions, aBlock)
 	}
 
-	revolutionPlot { :self :aBlock/2 |
-		self.revolutionPlot([15, 15], aBlock/2)
+	revolutionPlot { :self :aBlock |
+		self.revolutionPlot([15, 15], aBlock)
 	}
 
 }

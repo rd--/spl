@@ -5,7 +5,8 @@
 A colon prefix indicates argument names in `Block Syntax`:
 
 ```
->>> { :i | i * i } . (3)
+>>> let f = { :i | i * i };
+>>> f(3)
 9
 ```
 

@@ -31,7 +31,7 @@ The simple arity model allows eliding the arity qualifier (/1) in the expression
 
 In the complicated model the name _sqrt/1_ refers to a single argument block.
 It dispatches on the type of the first argument.
-In this model the notation _sqrt(9)_ is syntax for _sqrt/1 . (9)_.
+In this model the notation _sqrt(9)_ is syntax for something like _unaryApply(sqrt/1, 9)_.
 Where this model introduces a more complicated rule for method names,
 it requires only one indirection at each block application,
 and does not require variable arity blocks.

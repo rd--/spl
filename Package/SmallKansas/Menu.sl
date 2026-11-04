@@ -20,10 +20,16 @@ MenuItem : [Object, Compare] {
 		self.name ++ self.accessKeyDislayText
 	}
 
+	doSelect { :self :event |
+		let f/1 = self.onSelect;
+		f(event)
+	}
+
 	keyBinding { :self :event :where |
+		let f/1 = self.onSelect;
 		self.accessKey -> {
 			event.preventDefault;
-			self.onSelect . (where)
+			f(where)
 		}
 	}
 
@@ -31,8 +37,8 @@ MenuItem : [Object, Compare] {
 
 +String {
 
-	MenuItem { :self :accessKey :onSelect |
-		newMenuItem().initializeSlots(self, accessKey, onSelect)
+	MenuItem { :self :accessKey :onSelect/1 |
+		newMenuItem().initializeSlots(self, accessKey, onSelect/1)
 	}
 
 }
@@ -90,7 +96,7 @@ Menu : [Object, View] {
 			let listItem = TextOption(menuItem.displayText);
 			let pointerBegin = { :event |
 				event.stopPropagationAndPreventDefault;
-				menuItem.onSelect . (event);
+				menuItem.doSelect(event);
 				self.isTransient.ifTrue {
 					self.frame.ifNotNil {
 						self.frame.close

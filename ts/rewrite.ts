@@ -315,9 +315,6 @@ const asJs: ohm.ActionDict<string> = {
 			mb.children,
 		);
 	},
-	ValueApply(p, _d, a) {
-		return `${p.asJs}(${a.asJs})`;
-	},
 	VectorSyntax(_l, items, _r) { // Required for unit case. CF Help File
 		let c = items.children;
 		if (c.length === 1) {
@@ -443,7 +440,7 @@ const asSl: ohm.ActionDict<string> = {
 		while (opsArray.length > 0) {
 			const op = opsArray.shift();
 			const right = rhsArray.shift();
-			left = `(${op} . (${left}, ${right}))`;
+			left = `binaryApply(${op}, ${left}, ${right})`;
 		}
 		return left;
 	},
@@ -512,7 +509,7 @@ const asSl: ohm.ActionDict<string> = {
 		const slots = namesArray.map(
 			(name, index) => `${name} := at(${rhsListName}, ${index + 1})`,
 		).join('; ');
-		return `({ let ${rhsListName} = ${rhs.asSl}; ${slots} } . ())`;
+		return `nullaryApply({ let ${rhsListName} = ${rhs.asSl}; ${slots} })`;
 	},
 	ListConstructorSyntax(typ, lst) {
 		return `${typ.asSl}(${lst.asSl})`;
@@ -639,7 +636,7 @@ const asSl: ohm.ActionDict<string> = {
 			rhsDictionaryName,
 			keyVarNamesArray,
 		);
-		return `({ let ${rhsDictionaryName} = assertIsOfSize(${rhs.asSl}, ${keyVarNamesArray.length}); ${slots} } . ())`;
+		return `nullaryApply({ let ${rhsDictionaryName} = assertIsOfSize(${rhs.asSl}, ${keyVarNamesArray.length}); ${slots} })`;
 	},
 	RecordConstructorSyntax(typ, rcd) {
 		return `${typ.asSl}(${rcd.asSl})`;
@@ -689,9 +686,6 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	TypeExtension(_p, t, _l, n, b, _r) {
 		return rewriteTypeOrTraitExtensionToCore(t, n, b);
-	},
-	ValueApply(p, _d, a) {
-		return `${p.asSl} . (${a.asSl})`;
 	},
 	VarDeclaration(_var, tmp, _sc) {
 		let f = (x) => `let ${x.sourceString} = nil;`;
@@ -931,14 +925,6 @@ const asAst: ohm.ActionDict<SlAst> = {
 	},
 	Statements(nonFinal, final) {
 		return nonFinal.children.map((x) => x.asAst).concat([final.asAst]);
-	},
-	ValueApply(p, _d, a) {
-		return [
-			'Apply',
-			[p.asAst].concat(
-				a.asAst,
-			),
-		];
 	},
 
 	argumentName(_, x) {

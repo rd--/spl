@@ -11,7 +11,7 @@ all tell the arity of _f_.
 The method definition and `let` binding syntaxes define a _qualified_ name _f/n_,
 where _n_ is the arity of _f_.
 
-The application syntax _f(x)_ means _f/1 . (x)_.
+The application syntax _f(x)_ means the same as _unaryApply(f/1, x)_.
 
 This compiles away arity dispatch, and ensures arity correctness.
 

@@ -5,7 +5,8 @@
 An alias for `composeLeft`.
 
 ```
->>> -.bind(3).compose(^.bind(7)) . (5)
+>>> let f/1 = -.bind(3).compose(^.bind(7));
+>>> f(5)
 (3 - (7 ^ 5))
 ```
 

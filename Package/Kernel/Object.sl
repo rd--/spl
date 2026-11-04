@@ -159,11 +159,13 @@
 	}
 
 	perform { :self :aString |
-		system.methodLookupAtType(aString, 1, self.typeName).block . (self)
+		let f/1 = system.methodLookupAtType(aString, 1, self.typeName).block;
+		f(self)
 	}
 
 	perform { :self :aString :aValue |
-		system.methodLookupAtType(aString, 2, self.typeName).block . (self, aValue)
+		let f/2 = system.methodLookupAtType(aString, 2, self.typeName).block;
+		f(self, aValue)
 	}
 
 	primitiveIdentity { :self :anObject |

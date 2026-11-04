@@ -7,7 +7,8 @@ Sometimes define at `Block` as the operator (infix) form of `compose`:
 
 ```
 >>> let @* = compose/2;
->>> (square/1 @* sqrt/1) . (23)
+>>> let f/1 = square/1 @* sqrt/1;
+>>> f(23)
 23
 ```
 

@@ -1,13 +1,10 @@
 # () (leftParenthesisRightParenthesis)
 
-`()` is part of `Apply Syntax` and `Value Apply Syntax`,
+`()` is part of `Apply Syntax`,
 where it represents an empty parameter list:
 
 ```
 >>> List()
-[]
-
->>> List/0 . ()
 []
 ```
 

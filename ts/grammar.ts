@@ -67,7 +67,6 @@ Sl {
 		= PutSyntax // S
 		| AtAllSyntax // S
 		| AtSyntax // S
-		| ValueApply
 		| DotExpressionWithTrailingClosuresSyntax // S
 		| DotExpressionWithAssignmentSyntax // S
 		| DotExpression // S
@@ -101,7 +100,6 @@ Sl {
 	PutSyntax = Primary "[" Expression "]" ":=" Expression
 	AtSyntax = Primary "[" Expression "]"
 	AtAllSyntax = Primary (ListRangeSyntax | NonScalarListSyntax)
-	ValueApply = Primary "." ParameterList
 	ParameterList = "(" ListOf<Expression, ","> ")"
 	NonEmptyParameterList = "(" NonemptyListOf<Expression, ","> ")"
 

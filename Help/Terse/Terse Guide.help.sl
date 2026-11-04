@@ -85,7 +85,7 @@ NaN.isNaN /* literal for NaN */
 5.0 ^ 2.0 = 25.0 /* raisedTo (power) function */
 5 ^ 2 = 25 /* raisedTo integer */
 3 ^ 4 = 81 /* 3 * 3 * 3 * 3 = 81 */
-{ :each | each ^ 0.5 } . (16) = 4 /* square root */
+{ :each | each ^ 0.5 }.apply(16) = 4 /* square root */
 1.exp.isVeryClose(2.718281828459) /* exponential */
 -5.abs = 5 /* absolute value */
 (0 - 1.pi).abs = 1.pi /* absolute value of floating point numbers */
@@ -368,7 +368,7 @@ let f = { :x | x * x }; f(3) = 9
 { let f = { :x | x * x }; [3, 5, 7].collect(f) = [9 25 49] }.hasError /* f not bound */
 let f = { :x | x * x }; [3, 5, 7].collect(f/1) = [9 25 49]
 { :x | x * x }.table([3, 5, 7]) = [9 25 49] /* binary table is swap of collect */
-collect/2.swap . ({ :x | x * x }, [3 5 7]) = [9 25 49] /* swap of collect is map */
+collect/2.swap.apply({ :x | x * x }, [3 5 7]) = [9 25 49] /* swap of collect is map */
 { :x :y | x * y + y }.applyList([3.141, 23]) = 95.243
 { { :x | x }.applyList(0) }.hasError
 { { :x | x }.applyList([]) }.hasError
@@ -431,8 +431,8 @@ let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] /* closure */
 let f = -.swap; f.binaryApply(3, 1) = -2 /* swap arguments of two argument block */
 1 -.swap 3 = 2 /* swap arguments at binary operator */
 let f/1 = constant(3); f(4) = 3 /* block that answers a constant */
-3.constant . (4) = 3 /* block that answers a constant */
-42.constant . ('hello') = 42
+3.constant.apply(4) = 3 /* block that answers a constant */
+42.constant.apply('hello') = 42
 1:4.collect(42.constant) = [42 42 42 42]
 { :x | x ^ 2 }.iterate(2, 3) = 256 /* iterate */
 let x = 2; 3.timesRepeat { x := x ^ 2}; x = 256 /* timesRepeat loop */
@@ -3700,9 +3700,9 @@ var x, y, z; (x: x, y: y, z: z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [
 
 ## Syntax -- block application
 ```
-{ } . () = nil /* apply no argument block */
-{ :n | n * n } . (23) = 529 /* apply one argument block */
-{ :p :q | p ++ q } . ('x', 'y') = 'xy' /* apply two argument block */
+{ }.apply() = nil /* apply no argument block */
+{ :n | n * n }.apply(23) = 529 /* apply one argument block */
+{ :p :q | p ++ q }.apply('x', 'y') = 'xy' /* apply two argument block */
 ```
 
 ## Syntax -- temporaries

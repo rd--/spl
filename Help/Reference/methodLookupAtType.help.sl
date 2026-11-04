@@ -12,9 +12,10 @@ Lookup the `collect` method at `List`:
 >>> 	2,
 >>> 	'List'
 >>> );
+>>> let f/2 = m.block;
 >>> (
 >>> 	m.isMethod,
->>> 	m.block . ([4 9 16], sqrt/1)
+>>> 	f([4 9 16], sqrt/1)
 >>> )
 (true, [2 3 4])
 ```
@@ -27,9 +28,10 @@ Lookup the `+` method at `SmallFloat`:
 >>> 	2,
 >>> 	'SmallFloat'
 >>> );
+>>> let f/2 = m.block;
 >>> (
 >>> 	m.operatorTokenOrQualifiedName,
->>> 	m.block . (3, 4)
+>>> 	f(3, 4)
 >>> )
 ('+', 7)
 ```

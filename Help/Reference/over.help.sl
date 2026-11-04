@@ -8,11 +8,6 @@ Answer a `Block` that applies the unary block _f_ to pre-processes the arguments
 The pointwise maxima of the negation of two lists:
 
 ```
->>> max/2.over(negate/1) . (
->>> 	[3 1 2], [4 6 5]
->>> )
-[-3 -1 -2]
-
 >>> let f/2 = max/2.over(negate/1);
 >>> f([3 1 2], [4 6 5])
 [-3 -1 -2]
@@ -24,7 +19,8 @@ The pointwise maxima of the negation of two lists:
 Add the `max` of two lists:
 
 ```
->>> +.over(max/1) . ([3 1 2], [4 6 5])
+>>> let f/2 = +.over(max/1);
+>>> f([3 1 2], [4 6 5])
 9
 
 >>> [3 1 2] +.over(max/1) [4 6 5]

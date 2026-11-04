@@ -1,18 +1,30 @@
 # Apply Syntax
 
-Rewrite rule:
-
-- _f()_ ⟹ _f/0 . ()_
-- _f(x, …)_ ⟹ _fₙ . (x, ...)_
-
 Ordinarily block and method application is written _f(x, …)_,
 where _f_ is the _unqualified name_ of the block or method,
 and _x…_ are the arguments.
 
 ```
+>> 'f()'.splSimplify
+f()
+
+>> 'f(x)'.splSimplify
+f(x)
+
+>> 'f(x, y)'.splSimplify
+f(x, y)
+```
+
+Apply method directly:
+
+```
 >>> min(3, 4)
 3
+```
 
+Higher order methods:
+
+```
 >>> [3 4].reduce(min/2)
 3
 ```

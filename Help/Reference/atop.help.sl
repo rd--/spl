@@ -7,9 +7,8 @@ Answer a `Block` that applies the unary block _g_ to post-processes the result o
 The negation of the pointwise maximum of two lists:
 
 ```
->>> max/2.atop(negate/1) . (
->>> 	[3 1 2], [4 6 5]
->>> )
+>>> let f/2 = max/2.atop(negate/1);
+>>> f([3 1 2], [4 6 5])
 [-4 -6 -5]
 
 >>> [3 1 2].max([4 6 5]).-
@@ -19,7 +18,8 @@ The negation of the pointwise maximum of two lists:
 The maximum of the pointwise difference of two lists:
 
 ```
->>> -.atop(max/1) . ([3 1 2], [4 6 5])
+>>> let f/2 = -.atop(max/1);
+>>> f([3 1 2], [4 6 5])
 -1
 
 >>> ([3 1 2] - [4 6 5]).max
