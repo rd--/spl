@@ -31,6 +31,10 @@ Polygon : [Object, Store, Equal, Geometry] {
 		self.vertexCoordinates.crossingNumber(aPoint).isOdd
 	}
 
+	derivedPolygon { :self :r |
+		self.vertexCoordinates.derivedPolygon(r).Polygon
+	}
+
 	dimension { :self |
 		2
 	}
@@ -96,10 +100,6 @@ Polygon : [Object, Store, Equal, Geometry] {
 
 	isSimple { :self |
 		self.exteriorAngles.isVeryClose(2.pi)
-	}
-
-	derivedPolygon { :self :r |
-		self.vertexCoordinates.derivedPolygon(r).Polygon
 	}
 
 	midpointPolygon { :self |

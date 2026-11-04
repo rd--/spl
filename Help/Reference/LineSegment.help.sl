@@ -40,10 +40,40 @@ The `arcLength` in two-dimensions:
 The `arcLength` in three-dimensions:
 
 ```
->>> LineSegment([0 0 0], [1 1 1])
+>>> LineSegment[0 0 0; 1 1 1]
 >>> .arcLength
 3.sqrt
 ```
+
+Proof that it is possible to draw the classical Desargues configuration _D10_,
+using points in the set _{−3,−2,−1,0,1,2,3}²_:
+
+~~~spl svg=A
+let p = [
+	-3 -3; 0 -3; 3 -3;
+	-1 -1; 1 -1;
+	-3 0; 0 0; 3 0;
+	-3 3; 3 3
+];
+let [
+	a, b, c,
+	d, e,
+	f, g, h,
+	i, j
+] = p;
+[
+	Point(p),
+	LineSegment[
+		a c; a i; c j;
+		f h;
+		a h; c f;
+		b i; b j;
+		e i; d j
+	]
+]
+~~~
+
+![](Help/Image/LineSegment-A.svg)
 
 * * *
 

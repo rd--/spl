@@ -176,6 +176,17 @@
 		}
 	}
 
+	isLucasCarmichaelNumber { :n |
+		n.isPrime.not & {
+			let f = n.factorInteger.transpose;
+			let a = f[2].unique(==);
+			a = [1] & {
+				let b = ((n + 1) % (f[1] + 1)).unique(==);
+				b = [0]
+			}
+		}
+	}
+
 	isPowerfulNumber { :self |
 		self.primeFactorization.valuesAndCounts.allSatisfy { :each |
 			each > 1

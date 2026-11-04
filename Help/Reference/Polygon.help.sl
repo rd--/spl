@@ -158,6 +158,23 @@ Apart from the rectangle the octagon is the only equiangular lattice polygon:
 
 ![](Help/Image/Polygon-F.svg)
 
+The Minkowski version of the Chinese proof of the Pythagorean theorem,
+the side lengths of _s_ are equal to _c_:
+
+~~~spl svg=G
+let a = 5;
+let b = 1.25;
+let c = (a.square + b.square).sqrt;
+let d = a + b;
+let p = Rectangle[0 0; d d];
+let q = Rectangle[a 0; d b];
+let r = Rectangle[0 a; b d];
+let s = Polygon[0 0; a b; d d; b a];
+[p q r s]
+~~~
+
+![](Help/Image/Polygon-G.svg)
+
 * * *
 
 See also: PolygonWithHoles, area, centroid, interiorAngles, polygonCollection, randomPolygon, regularPolygon, vertexCoordinates

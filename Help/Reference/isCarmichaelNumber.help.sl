@@ -39,7 +39,7 @@ OEIS [A002997](https://oeis.org/A002997):
 
 ```
 >>> [561 1105 1729 2465 2821 6601 8911]
->>> .allSatisfy(isCarmichaelNumber/1)
+>>> .allTrue(isCarmichaelNumber/1)
 true
 ```
 

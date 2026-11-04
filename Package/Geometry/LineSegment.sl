@@ -69,6 +69,13 @@ LineSegment : [Object, Equal] {
 		newLineSegment().initializeSlots(u, v)
 	}
 
+	LineSegment { :self |
+		self.atMatrixOrElementwise { :m |
+			let [a, b] = m;
+			LineSegment(a, b)
+		}
+	}
+
 	connectLineSegments { :self :eq/2 |
 		let answer = [];
 		{

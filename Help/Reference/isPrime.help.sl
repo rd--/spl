@@ -382,6 +382,26 @@ OEIS [A091177](https://oeis.org/A091177):
 [1 3 5 7 9 10 13 15 16 17 20 23 24 26 28 30]
 ```
 
+The product of primes _p_ such that _p+1_ divides _n_,
+OEIS [A322702](https://oeis.org/A322702):
+
+```
+>>> 1:23.collect { :n |
+>>> 	n.divisors.product { :d |
+>>> 		(d - 1).isPrime.if {
+>>> 			d - 1
+>>> 		} {
+>>> 			1
+>>> 		}
+>>> 	}
+>>> }
+[
+	1 1 2 3 1 10 1 21 2 1
+	1 330 1 13 2 21 1 170 1 57
+	2 1 1
+]
+```
+
 Primes up to one-thousand,
 OEIS [A000040](https://oeis.org/A000040):
 
