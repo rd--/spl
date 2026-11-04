@@ -49,7 +49,7 @@ LibraryItem : [Object] {
 
 	request { :self |
 		Promise { :resolve/1 :reject/1 |
-			self.unparsedContents.ifNotNil { :unused |
+			self.unparsedContents.ifNotNil {
 				resolve(self.contents)
 			} {
 				self.cachedFetch.thenElse { :unused |

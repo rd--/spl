@@ -20,8 +20,19 @@ function deleteLeadingZeroes(s: string): string {
 	return s.replace(/^0+(?!\.|$)/, '');
 }
 
-function isArityQualifiedName(s: string): boolean {
+function isSplArityQualifiedName(s: string): boolean {
 	return s.includes('/');
+}
+
+function isJsArityQualifiedName(s: string): boolean {
+	const isSpecialSplVar = s.startsWith('__');
+	return !isSpecialSplVar && s.includes('_', 1);
+}
+
+function jsArityQualifiedNameParseArity(s: string): boolean {
+	const r = /_([0-9]+)$/
+	const m = s.match(r);
+	return Number(m[1]);
 }
 
 function rewriteInPlaceName(c1, cN, ip): string {
@@ -66,14 +77,29 @@ function genSym(prefix: string): string {
 }
 */
 
-function genArityCheck(k: number, a: string): string {
-	return [
-		'/* ArityCheck */',
-		`if(arguments.length !== ${k}) {`,
-		`	const errorMessage = 'Arity: expected ${k}, ${a}';`,
-		'	throw new Error(errorMessage);',
-		'}',
-	].join('\n');
+function genArityChecks(argJs: string, context: string): string {
+	const argList = argJs.split(', ');
+	// console.log('genArityChecks', argList);
+	const checks = argList.map(
+		function(nm) {
+			// console.log(`genArityChecks: '${nm}'`);
+			if (isJsArityQualifiedName(nm)) {
+				return `sl.splArityCheck(${nm}, ${jsArityQualifiedNameParseArity(nm)}, '${context}');`
+			};
+			return '';
+		}
+	);
+	// console.log('genArityChecks', checks);
+	return checks.join('');
+}
+
+function arityCheckInitializer(nameJs: string, rhsJs: string): string {
+		const binding = `${nameJs} = ${rhsJs}`;
+		// console.log('arityCheckInitializer', nameJs);
+		if (isJsArityQualifiedName(nameJs)) {
+			return `${binding}; ${genArityChecks(nameJs, 'Initializer: ' + nameJs)}`;
+		}
+		return binding;
 }
 
 // nList = names, bList = bodies
@@ -182,19 +208,14 @@ const asJs: ohm.ActionDict<string> = {
 	Arguments(arg, _vb) {
 		return commaListJs(arg.children);
 	},
-	Block(_l, arg, tmp, prm, stm, _r) {
+	Block(_l, arg, prm, stm, _r) {
 		const argJs = arg.asJs;
-		const tmpJs = tmp.asJs;
 		const prmJs = prm.asJs;
 		const stmJs = stm.asJs;
-		let arityCheck = '';
-		if (slOptions.insertArityCheck) {
-			arityCheck = genArityCheck(arg.arityOf, arg.asJs);
-		}
+		const arityCheck = genArityChecks(argJs, 'Block definition: ' + argJs);
 		return [
 			`sl.annotateFunction(function(${argJs}) {\n`,
 			arityCheck,
-			(tmpJs.length > 0) ? ('/* Temporaries */\n' + tmpJs + '\n') : '',
 			(prmJs.length > 0) ? ('/* Primitive */\n' + prmJs + '\n') : '',
 			(stmJs.length > 0) ? ('/* Statements */\n' + stmJs + '\n') : '',
 			`}, ${JSON.stringify(arg.parametersOf)})`,
@@ -202,7 +223,7 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	BlockLiteralInitializer(name, _equals, blk) {
 		/* Equivalent to ExpressionInitializer after simplifier, required as grammar is reused */
-		return `${name.asJs} = ${blk.asJs}`;
+		return arityCheckInitializer(name.asJs, blk.asJs);
 	},
 	ConciseSlotDefinitions(_l, slots, _r) {
 		// Space separated list of quoted names for internal use only, see makeTypeDefinition
@@ -220,7 +241,7 @@ const asJs: ohm.ActionDict<string> = {
 		return '[]';
 	},
 	ExpressionInitializer(name, _equals, exp) {
-		return `${name.asJs} = ${exp.asJs}`;
+		return arityCheckInitializer(name.asJs, exp.asJs);
 	},
 	FinalStatement(e) {
 		return `return ${e.asJs};`;
@@ -316,6 +337,9 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	infinityLiteral(s, i) {
 		return s.sourceString + i.sourceString;
+	},
+	lowercaseArityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
+		return `_${rewriteInPlaceName(c1, cN, ip)}_${a.sourceString}`;
 	},
 	smallIntegerLiteral(s, i) {
 		// Allow 03 for 3 and -03 for -3
@@ -423,14 +447,14 @@ const asSl: ohm.ActionDict<string> = {
 		}
 		return left;
 	},
-	Block(_l, arg, tmp, prm, stm, _r) {
+	Block(_l, arg, prm, stm, _r) {
 		const argSl = arg.asSl;
 		const vBar = (argSl === '') ? '' : ' | ';
-		return `{ ${argSl}${vBar}${tmp.asSl}${prm.asSl}${stm.asSl} }`;
+		return `{ ${argSl}${vBar}${prm.asSl}${stm.asSl} }`;
 	},
 	BlockLiteralInitializer(name, _equals, blk) {
 		let nameStr = name.asSl;
-		if (isArityQualifiedName(nameStr)) {
+		if (isSplArityQualifiedName(nameStr)) {
 			return `${nameStr} = ${blk.asSl}`;
 		}
 		{
@@ -746,6 +770,9 @@ const asSl: ohm.ActionDict<string> = {
 		return `Decimal(Fraction(${sT}${iT}L, 1L), ${kT})`;
 		/* return `parseDecimal('${s.sourceString}${i.sourceString}D${k.sourceString}')`; */
 	},
+	lowercaseArityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
+		return `${rewriteInPlaceName(c1, cN, ip)}/${a.sourceString}`;
+	},
 	smallIntegerLiteral(s, i) {
 		return s.sourceString + i.sourceString;
 	},
@@ -860,11 +887,10 @@ const asAst: ohm.ActionDict<SlAst> = {
 	Primitive(_l, s, _r) {
 		return ['Primitive', s.sourceString];
 	},
-	Block(_l, arg, tmp, prm, stm, _r) {
+	Block(_l, arg, prm, stm, _r) {
 		return ['Block'].concat(
 			[
 				arg.asAst,
-				tmp.asAst.flat(1),
 				prm.asAst,
 				stm.asAst.flat(1),
 			].flat(1),
@@ -1013,7 +1039,7 @@ const parametersOf: ohm.ActionDict<string[]> = {
 			(each) => dropFirstLetter(each.sourceString),
 		);
 	},
-	Block(_l, arg, _tmp, _prm, _stm, _r) {
+	Block(_l, arg, _prm, _stm, _r) {
 		return arg.parametersOf;
 	},
 	RecordInitializerItem(lhs, rhs) {

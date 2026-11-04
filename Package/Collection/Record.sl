@@ -97,7 +97,7 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 	}
 
 	species { :self |
-		Record/0
+		Record/0.emptySpecies
 	}
 
 	storeString { :self |

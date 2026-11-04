@@ -12,11 +12,11 @@
 		self.assert('*unknown context*', aBlock/0)
 	}
 
-	caseError { :self |
-		self.error('@Object>>caseError: case not found and no otherwise clause')
+	caseOfError { :self |
+		self.error('@Object>>caseOfError: case not found and no otherwise clause')
 	}
 
-	caseOf { :self :aCollection :otherwise/1 |
+	caseOf { :self :aCollection :otherwise/0 |
 		withReturn { :return/1 |
 			aCollection.associationsDo { :each |
 				(each.key = self).ifTrue {
@@ -24,13 +24,13 @@
 					f().return
 				}
 			};
-			otherwise/1.cull(self)
+			otherwise()
 		}
 	}
 
 	caseOf { :self :aCollection |
-		self.caseOf(aCollection) { :case |
-			self.caseError
+		self.caseOf(aCollection) {
+			self.caseOfError
 		}
 	}
 

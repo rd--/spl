@@ -30,7 +30,7 @@ RelativeRange : [Object, New, Store, Equal, Compare] {
 		self.error('size')
 	}
 
-	species { :self |
+	species { :unused |
 		nilList/1
 	}
 

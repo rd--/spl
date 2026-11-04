@@ -138,7 +138,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 		self
 	}
 
-	species { :self |
+	species { :unused |
 		nilList/1
 	}
 

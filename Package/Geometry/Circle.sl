@@ -208,7 +208,9 @@ Circle : [Object, Store, Equal, Geometry] {
 UnitCircle : [Object] {
 
 	randomPoint { :self :r |
-		var x1, x2, sum;
+		let x1 = nil;
+		let x2 = nil;
+		let sum = nil;
 		{
 			x1 := r.nextRandomFloat * 2 - 1;
 			x2 := r.nextRandomFloat * 2 - 1;

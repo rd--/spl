@@ -10,17 +10,12 @@ else it will be empty.
 `new` is the mechanism by which functions such as `collect` answer the appropriate type.
 The names `new` and `species` are from Smalltalk.
 
-The unary form, for collections where `species` answers a no-argument block:
+The unary form,
+ordinarily for collections where `species` ignores the requested size argument:
 
 ```
->>> IdentitySet().species
-IdentitySet/0
-
 >>> IdentitySet().new
 IdentitySet()
-
->>> LinkedList().species
-LinkedList/0
 
 >>> LinkedList().new
 LinkedList()
@@ -41,8 +36,9 @@ nilList/1
 true
 ```
 
-The binary form answers a collection of size _n_ only if the `species` of _c_ is unary,
-the method `newOfSize` exlpicityly adds items as required:
+The binary form does not necessarily answer a collection of size _n_,
+only if the `species` of _c_ is defined to do so.
+The method `newOfSize` explicitly adds items as required:
 
 ```
 >>> LinkedList().new(3)

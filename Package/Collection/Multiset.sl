@@ -191,7 +191,7 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 	}
 
 	species { :self |
-		{
+		{ :unused |
 			self.comparator.comparatorToMultiset
 		}
 	}

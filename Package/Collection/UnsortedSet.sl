@@ -41,8 +41,8 @@ UnsortedSet : [Object, New, Store, Equal, Do, Collection, Add, Remove, Unordered
 		self.collection.size
 	}
 
-	species { :self |
-		UnsortedSet/0
+	species { :unused |
+		UnsortedSet/0.emptySpecies
 	}
 
 	storeString { :self |

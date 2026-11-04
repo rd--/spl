@@ -22,11 +22,11 @@ Float32Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 		<primitive: return new Float32Array(_self);>
 	}
 
-	species { :self |
+	species { :unused |
 		zeroFloat32Array/1
 	}
 
-	storageType { :self |
+	storageType { :unused |
 		'Float32'
 	}
 

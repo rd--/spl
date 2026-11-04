@@ -1,20 +1,23 @@
 # ifNotNil
 
-- _ifNotNil(x, f/1, g/0)_
+- _ifNotNil(x, f/0, g/0={nil})_
 
 Conditional evaluation.
-If the object _x_ is not `nil` answer the result of _f(x)_,
+If the object _x_ is not `nil` answer the result of _f()_,
 else answer _g()_,
 or in the binary case `nil`.
 
 ```
->>> 23.ifNotNil { :x | x }
+>>> 23.ifNotNil { 23 }
 23
 
->>> nil.ifNotNil { :x | 23 }
+>>> 23.ifNotNil { 23 } { nil }
+23
+
+>>> nil.ifNotNil { 23 }
 nil
 
->>> nil.ifNotNil { :x | nil } { 23 }
+>>> nil.ifNotNil { nil } { 23 }
 23
 ```
 

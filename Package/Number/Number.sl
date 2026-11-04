@@ -1168,10 +1168,11 @@
 	toDoWithBreak { :self :end :aBlock/2 |
 		let index = self;
 		withReturn { :return/1 |
+			let break = { return(nil) };
 			{
 				index <= end
 			}.whileTrue {
-				aBlock(index, return/1);
+				aBlock(index, break/0);
 				index := index + 1
 			}
 		};

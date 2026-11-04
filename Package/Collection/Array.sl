@@ -332,11 +332,11 @@
 	}
 
 	shape { :self |
-		self.shapeOrNil.ifNil {
+		let answer = self.shapeOrNil;
+		answer.ifNil {
 			self.error('shape: irregular arrays do not have shape')
-		} { :answer |
-			answer
-		}
+		};
+		answer
 	}
 
 	shapeOrNil { :self |

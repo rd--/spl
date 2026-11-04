@@ -785,7 +785,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'countUtf16CodeUnits'
 	],
 	'error handling': [
-		'caseError'
+		'caseOfError'
 		'emptyCheck'
 		'error'
 		'errorEmptyCollection'

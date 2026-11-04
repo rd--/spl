@@ -50,7 +50,7 @@ AsciiString : [Object, New, Store, Copy, Equal, Do, At, Indices, Put, Collection
 		self.byteArray.size
 	}
 
-	species { :self |
+	species { :unused |
 		zeroAsciiString/1
 	}
 

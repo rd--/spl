@@ -73,8 +73,8 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, 
 		<primitive: return _self.size;>
 	}
 
-	species { :self |
-		Map/0
+	species { :unused |
+		Map/0.emptySpecies
 	}
 
 	storeString { :self |

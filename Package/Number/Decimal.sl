@@ -517,10 +517,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 					let i = parts[1].parseLargeInteger(elseClause/0);
 					let f = sign.copySign(parts[2].parseLargeInteger(elseClause/0));
 					let k = parts[2].size;
-					scaleOrNil.ifNotNil { :x |
-						(x >= k).if {
-							f := f * (10L ^ (x - k));
-							k := x
+					scaleOrNil.ifNotNil {
+						(scaleOrNil >= k).if {
+							f := f * (10L ^ (scaleOrNil - k));
+							k := scaleOrNil
 						} {
 							self.error('parseDecimal: invalid scale')
 						}

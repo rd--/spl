@@ -313,7 +313,7 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		<primitive: return Array.from(_self);>
 	}
 
-	species { :self |
+	species { :unused |
 		nilList/1
 	}
 

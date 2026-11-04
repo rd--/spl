@@ -33,10 +33,7 @@ Sl {
 		| LibraryItemExpression
 	LibraryItemLiteral = "LibraryItem" NonEmptyRecordSyntax
 	LibraryItemExpression = "LibraryItem" ApplySyntax
-	Program = VarDeclaration? ListOf<(LetBinding | Expression), ";">
-	Temporaries
-		= VarDeclaration // S
-		| ListOf<LetBinding, ";">
+	Program = VarDeclaration? ListOf<(LetBinding | Expression), ";"> // VarDeclaration retained for blksc3 only
 	Initializer =
 		| BlockLiteralInitializer // S* (Simplifier adds arity qualifier)
 		| ExpressionInitializer
@@ -112,7 +109,7 @@ Sl {
 	DotExpressionWithAssignmentSyntax = Primary "." selectorName ":=" Expression
 	DotExpression = Primary ("." (selectorName | operatorBound) ~("{" | ":=") NonEmptyParameterList? ~("{" | "("))+
 
-	Block = "{" Arguments? VarDeclaration? Primitive? Statements? "}"
+	Block = "{" Arguments? Primitive? Statements? "}"
 	Arguments = argumentName+ "|"
 	Primitive = "<primitive:" primitiveCharacter* ">"
 	Statements = NonFinalStatement* FinalStatement
@@ -158,6 +155,7 @@ Sl {
 	unqualifiedIdentifier = letter letterOrDigit* "!"?
 	negatedIdentifier = "-" lowercaseIdentifier
 	arityQualifiedIdentifier = letter letterOrDigit* "!"? ("/" digit+)
+	lowercaseArityQualifiedIdentifier = lower letterOrDigit* "!"? ("/" digit+)
 	identifier
 		= arityQualifiedIdentifier
 		| unqualifiedIdentifier
@@ -177,7 +175,7 @@ Sl {
 		| qualifiedTraitName
     lowercaseIdentifier = lower letterOrDigit* "!"?
 	varName
-		= arityQualifiedIdentifier // arity branch should be lowercase
+		= lowercaseArityQualifiedIdentifier
 		| lowercaseIdentifier
 		| systemVariableIdentifier
 	varNameOrUnused = (varName | unusedVariableIdentifier)

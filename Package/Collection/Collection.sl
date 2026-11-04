@@ -39,7 +39,7 @@
 
 	anyAs { :self :numberOfElements :aBlock/1 |
 		let index = 0;
-		let result = numberOfElements.aBlock;
+		let result = aBlock(numberOfElements);
 		withReturn { :return/1 |
 			result.fillFromWith!(self) { :each |
 				index := index + 1;

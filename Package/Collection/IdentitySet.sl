@@ -54,8 +54,8 @@ IdentitySet! : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Un
 		<primitive: return _self.size;>
 	}
 
-	species { :self |
-		IdentitySet/0
+	species { :unused |
+		IdentitySet/0.emptySpecies
 	}
 
 	storeString { :self |

@@ -5,7 +5,8 @@
 	}
 
 	gammaDistribution { :self :alpha :beta |
-		var a, aFix, u, v, x;
+		let a = nil;
+		let aFix = nil;
 		(alpha < 1).if {
 			a := alpha + 1;
 			aFix := self.nextRandomFloat ^ (1 / alpha)
@@ -15,6 +16,9 @@
 		};
 		let d = a - (1 / 3);
 		let c = 1 / (9 * d).sqrt;
+		let u = nil;
+		let v = nil;
+		let x = nil;
 		{
 			{
 				x := self.normalDistribution(0, 1);

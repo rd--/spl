@@ -259,6 +259,12 @@ Block! : [Object, Equal] {
 		}
 	}
 
+	emptySpecies { :self/0 |
+		{ :unused |
+			self()
+		}
+	}
+
 	ensure { :self :aBlock/0 |
 		<primitive:
 		let returnValue;

@@ -1,15 +1,8 @@
 @New {
 
-	species { :self |
-		self.typeReponsibility('species')
-	}
-
-}
-
-+@New {
-
 	new { :self :aNumber |
-		self.species.cull(aNumber)
+		let f/1 = self.species;
+		f(aNumber)
 	}
 
 	new { :self |
@@ -31,4 +24,9 @@
 		answer
 	}
 
+	species { :self |
+		self.typeReponsibility('species')
+	}
+
 }
+

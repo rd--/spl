@@ -52,7 +52,8 @@ Disk : [Object, Equal, Geometry] {
 UnitDisk : [Object] {
 
 	randomPoint { :self :r |
-		var x1, x2;
+		let x1 = nil;
+		let x2 = nil;
 		{
 			x1 := r.nextRandomFloat * 2 - 1;
 			x2 := r.nextRandomFloat * 2 - 1

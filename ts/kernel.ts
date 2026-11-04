@@ -797,3 +797,11 @@ export function checkSmallFloatOverflow(a: number, b: number, x: number): void {
 		}
 	}
 }
+
+export function splArityCheck(f: Function, n: number, c: string): void {
+	const k = f.length;
+	if(k != n) {
+		const errorMessage = `splArityCheck: expected=${n}, actual=${k}, context=${c}`;
+		throw new Error(errorMessage);
+	}
+}

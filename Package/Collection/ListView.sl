@@ -79,7 +79,7 @@ ListView : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Coll
 		self.endIndex - self.startIndex + 1
 	}
 
-	species { :self |
+	species { :unused |
 		nilList/1
 	}
 

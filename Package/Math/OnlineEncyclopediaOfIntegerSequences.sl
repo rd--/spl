@@ -474,10 +474,9 @@ OeisEntry : [Object, Store, Equal, OeisSequence] {
 	| identifier entryRecord bFileCache |
 
 	bFileData { :self |
-		self.bFileCache.ifNil {
+		let bFileData = self.bFileCache;
+		bFileData.ifNil {
 			self.error('bFileData: not fetched')
-		} { :bFileData |
-			bFileData
 		}
 	}
 
@@ -517,7 +516,8 @@ OeisEntry : [Object, Store, Equal, OeisSequence] {
 	}
 
 	fetchEntryRecord { :self |
-		self.entryRecord.ifNil {
+		let r = self.entryRecord;
+		r.ifNil {
 			self.jsonUrl.fetchMimeType(
 				'application/json'
 			).then { :data |
@@ -525,8 +525,8 @@ OeisEntry : [Object, Store, Equal, OeisSequence] {
 				self.entryRecord := entryRecord;
 				self
 			}
-		} { :entryRecord |
-			entryRecord.resolvedPromise
+		} {
+			r.resolvedPromise
 		}
 	}
 
@@ -539,11 +539,12 @@ OeisEntry : [Object, Store, Equal, OeisSequence] {
 	}
 
 	lookupField { :self :key |
-		self.entryRecord.ifNil {
+		let r = self.entryRecord;
+		r.ifNil {
 			self.fetchEntryRecord;
 			self.error('lookupField: entry record not fetched')
-		} { :entryRecord |
-			entryRecord.at(key)
+		} {
+			r.at(key)
 		}
 	}
 

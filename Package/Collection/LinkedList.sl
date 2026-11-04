@@ -254,8 +254,8 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		}
 	}
 
-	species { :self |
-		LinkedList/0
+	species { :unused |
+		LinkedList/0.emptySpecies
 	}
 
 	storeString { :self |

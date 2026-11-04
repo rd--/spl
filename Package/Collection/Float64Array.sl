@@ -18,11 +18,11 @@ Float64Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 		<primitive: return new Float64Array(_self);>
 	}
 
-	species { :self |
+	species { :unused |
 		zeroFloat64Array/1
 	}
 
-	storageType { :self |
+	storageType { :unused |
 		'Float64'
 	}
 

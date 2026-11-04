@@ -76,8 +76,8 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 	}
 
 	indexUpdate { :self :anObject :anIndex |
-		let f/2 = self.indexUpdateBlock;
 		self.indexUpdateBlock.ifNotNil {
+			let f/2 = self.indexUpdateBlock;
 			f(anObject, anIndex)
 		}
 	}

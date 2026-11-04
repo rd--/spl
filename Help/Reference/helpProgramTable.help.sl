@@ -10,7 +10,7 @@ Count help programs:
 ```
 >>> system.helpProgramTable
 >>> .size.round(25)
-5800
+5825
 ```
 
 A selection predicate may be specified,
@@ -20,7 +20,7 @@ count programs that answer images:
 >>> system.helpProgramTable(
 >>> 	isImageProgram/1
 >>> ).size.round(25)
-5075
+5100
 ```
 
 Count synthesiser programs:
@@ -46,7 +46,7 @@ and integer sequence programs:
 >>> 		.includesKey(k)
 >>> 	}.round(25)
 >>> }
-[4875 200 575 1825]
+[4900 200 575 1825]
 ```
 
 * * *

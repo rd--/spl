@@ -4,13 +4,22 @@
 Blocks have fixed arity and must be applied to the correct number of arguments.
 
 ```
->>> { true } . ()
+>>> let f = { true };
+>>> f()
 true
 
->>> { { true } . (true) }.hasError
+>>> {
+>>> 	let f = { true };
+>>> 	f(true)
+>>> }.hasError
 true
 
->>> { :x | x * x } . (9)
+>>> let f = { :x | x * x };
+>>> f(9)
+81
+
+>>> let f/1 = square/1;
+>>> f(9)
 81
 ```
 
@@ -34,7 +43,8 @@ The arity is given by `argumentCount`:
 The empty block answers `nil`:
 
 ```
->>> { } . ()
+>>> let f = { };
+>>> f()
 nil
 ```
 

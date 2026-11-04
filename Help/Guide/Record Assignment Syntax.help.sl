@@ -12,7 +12,10 @@ There is a record assignment syntax for both temporary variable initialisers:
 and for variable assignment:
 
 ```
->>> var d, x, y, z;
+>>> let d = nil;
+>>> let x = nil;
+>>> let y = nil;
+>>> let z = nil;
 >>> d := (x: 1 * 2, y: 3 * 4, z: 5 * 6);
 >>> (x: x, y: y, z: z) := d;
 >>> [z, y, x]
@@ -26,7 +29,8 @@ Fields may be accessed out of order:
 >>> (x, y)
 (1, 2)
 
->>> var x, y;
+>>> let x = nil;
+>>> let y = nil;
 >>> (y: y, x: x) := (x: 1, y: 2);
 >>> (x, y)
 (1, 2)
@@ -42,7 +46,8 @@ It is an error if a requested field is not present:
 true
 
 >>> {
->>> 	var x, y;
+>>> 	let x = nil;
+>>> 	let y = nil;
 >>> 	(x: x, y: y) := (x: 1);
 >>> 	nil
 >>> }.hasError
@@ -59,7 +64,8 @@ It is an error if not all fields are matched:
 true
 
 >>> {
->>> 	var x, y;
+>>> 	let x = nil;
+>>> 	let y = nil;
 >>> 	(x: x, y: y) := (x: 1, y: 2, z: 3);
 >>> 	(x, y)
 >>> }.hasError

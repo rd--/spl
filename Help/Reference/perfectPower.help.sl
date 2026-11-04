@@ -21,9 +21,10 @@ OEIS [A179126](https://oeis.org/A179126):
 
 ```
 >>> 1:144.select { :n |
->>> 	perfectPower(n).ifNil {
+>>> 	let r = perfectPower(n);
+>>> 	r.ifNil {
 >>> 		false
->>> 	} { :r |
+>>> 	} {
 >>> 		let [m, k] = r;
 >>> 		k % 2 = 0 & { k % 6 != 0 }
 >>> 	}
@@ -36,9 +37,10 @@ OEIS [A340585](https://oeis.org/A340585):
 
 ```
 >>> 1:144.select { :n |
->>> 	perfectPower(n).ifNil {
+>>> 	let r = perfectPower(n);
+>>> 	r.ifNil {
 >>> 		false
->>> 	} { :r |
+>>> 	} {
 >>> 		r[2] % 3 != 0
 >>> 	}
 >>> }

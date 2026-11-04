@@ -149,8 +149,8 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 		self.collection.size
 	}
 
-	species { :self |
-		SortedList/0
+	species { :unused |
+		SortedList/0.emptySpecies
 	}
 
 	storeString { :self |

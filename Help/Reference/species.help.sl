@@ -4,20 +4,25 @@
 
 Answers the primary factory method for the type of the object _x_,
 or a more specific constructor if required.
-The answer block may be nullary or unary.
+The answer block is unary,
+even for collection types that ignore the requested size argument.
 
 ```
->>> [1 3 5].species
-nilList/1
+>>> let f/1 = [1 3 5].species;
+>>> f(3)
+List(3, nil)
 
->>> (:).species
-Record/0
+>>> let f/1 = (:).species;
+>>> f(3)
+Record()
 
->>> Set([1 3 5], ==).species
-IdentitySet/0
+>>> let f/1 = Set([1 3 5], ==).species;
+>>> f(3)
+IdentitySet()
 
->>> (x: 1, y: 3, z: 5).species
-Record/0
+>>> let f/1 = (x: 1, y: 3, z: 5).species;
+>>> f(3)
+Record()
 ```
 
 This is the mechanism by which `Trait` methods can generate new values of the required `Type`:

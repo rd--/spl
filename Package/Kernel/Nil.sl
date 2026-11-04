@@ -20,7 +20,7 @@ Nil! : [Object, Copy, Store, Equal, Compare, Json] {
 		anObject
 	}
 
-	ifNil { :self :whenNil/0 :whenNotNil/1 |
+	ifNil { :self :whenNil/0 :whenNotNil/0 |
 		whenNil()
 	}
 
@@ -28,11 +28,11 @@ Nil! : [Object, Copy, Store, Equal, Compare, Json] {
 		whenNil()
 	}
 
-	ifNotNil { :self :whenNotNil/1 :whenNil/0 |
+	ifNotNil { :self :whenNotNil/0 :whenNil/0 |
 		whenNil()
 	}
 
-	[ifNotNil, !?] { :self :whenNotNil/1 |
+	[ifNotNil, !?] { :self :whenNotNil/0 |
 		nil
 	}
 
@@ -84,16 +84,16 @@ Nil! : [Object, Copy, Store, Equal, Compare, Json] {
 		self
 	}
 
-	ifNil { :self :whenNil/0 :whenNotNil/1 |
-		whenNotNil/1.cull(self)
+	ifNil { :self :whenNil/0 :whenNotNil/0 |
+		whenNotNil()
 	}
 
-	[ifNotNil, !?] { :self :whenNotNil/1 |
-		whenNotNil/1.cull(self)
+	[ifNotNil, !?] { :self :whenNotNil/0 |
+		whenNotNil()
 	}
 
-	ifNotNil { :self :whenNotNil/1 :whenNil/0 |
-		whenNotNil/1.cull(self)
+	ifNotNil { :self :whenNotNil/0 :whenNil/0 |
+		whenNotNil()
 	}
 
 	isNil { :self |

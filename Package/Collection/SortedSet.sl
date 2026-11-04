@@ -51,8 +51,8 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Set] 
 		self.sortedList.size
 	}
 
-	species { :self |
-		SortedSet/0
+	species { :unused |
+		SortedSet/0.emptySpecies
 	}
 
 	storeString { :self |

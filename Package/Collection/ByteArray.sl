@@ -105,11 +105,11 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		<primitive: return new Uint8Array(_self);>
 	}
 
-	species { :self |
+	species { :unused |
 		zeroByteArray/1
 	}
 
-	storageType { :self |
+	storageType { :unused |
 		'Byte'
 	}
 

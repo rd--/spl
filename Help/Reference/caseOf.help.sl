@@ -42,8 +42,8 @@ If no match is found, answer the result of evaluating the _otherwise_ clause:
 >>> 	'b' -> { 2 },
 >>> 	'c' -> { 3 }
 >>> ];
->>> 'd'.caseOf(c, identity/1)
-'d'
+>>> 'd'.caseOf(c) { '?' }
+'?'
 ```
 
 If no match is found, and no _otherwise_ clause is given, report an `error`:

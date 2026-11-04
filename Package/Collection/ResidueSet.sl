@@ -62,7 +62,7 @@ ResidueSet : [Object, New, Store, Equal, Do, Collection, Add, Remove] {
 	}
 
 	species { :self |
-		{
+		{ :unused |
 			ResidueSet([], self.modulus)
 		}
 	}

@@ -31,7 +31,9 @@ Evaluate a block that does not raise an error:
 Divide by zero is not an error:
 
 ```
->> { 0 / 0 }.ifError { '?' }
+>> {
+>> 	0 / 0
+>> }.ifError { :err | 0 }
 NaN
 ```
 
