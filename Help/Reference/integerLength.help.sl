@@ -38,10 +38,10 @@ Find how the number of digits in _100!_ decreases with the base:
 At `LargeInteger`:
 
 ```
->>> (23L ^ 23L).integerLength(10)
+>>> (23 ^ 23).integerLength(10)
 32
 
->>> (4L ^ 1397482L).integerLength(10)
+>>> (4 ^ 1397482).integerLength(10)
 841_369
 ```
 
@@ -176,7 +176,7 @@ not periodic,
 OEIS [A125144](https://oeis.org/A125144):
 
 ~~~spl svg=G oeis=A125144
-(4L ^ 1:85).integerLength(10)
+(4 ^ 1:85).integerLength(10)
 .differences
 .discretePlot
 ~~~

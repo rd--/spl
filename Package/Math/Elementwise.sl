@@ -1175,6 +1175,10 @@
 		anObject.adaptToCollectionAndApply(self, ieeeRemainder/2)
 	}
 
+	integerBinomial { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, integerBinomial/2)
+	}
+
 	integerDigits { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, integerDigits/2)
 	}

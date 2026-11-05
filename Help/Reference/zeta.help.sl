@@ -42,8 +42,8 @@ Threads over lists:
 	1.10941
 ]
 
->>> [1.1 -4 0.5 NaN].zeta
-[10.5844 0 -1.4604 NaN]
+>>> [1.1 -4 0.5].zeta
+[10.5844 0 -1.4604]
 ```
 
 At integer arguments:
@@ -103,6 +103,13 @@ At `Complex`:
 
 >>> zeta(0.8J-2.5)
 0.563654J0.204752
+```
+
+At `NaN`:
+
+```
+>> NaN.zeta
+NaN
 ```
 
 The fraction of pairs of the first 100 integers that are relatively prime:

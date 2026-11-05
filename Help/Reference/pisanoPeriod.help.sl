@@ -102,7 +102,7 @@ Pisano period of large integers:
 >>> 1_230_000.pisanoPeriod
 15_000
 
->>> (2L ^ 63 - 1).pisanoPeriod
+>>> (2 ^ 63 - 1).pisanoPeriod
 168_775_327_381_163_780L
 ```
 

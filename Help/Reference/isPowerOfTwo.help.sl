@@ -29,10 +29,10 @@ At `Fraction`:
 At `LargeInteger`:
 
 ```
->>> 13L.factorial.isPowerOfTwo
+>>> 13.factorial.isPowerOfTwo
 false
 
->>> (2L ^ 268_314).isPowerOfTwo
+>>> (2 ^ 268_314).isPowerOfTwo
 true
 ```
 
@@ -54,7 +54,7 @@ It is an error if the `SmallFloat` is not a `SmallInteger`:
 
 ```
 >>> {
->>> 	SmallFloat(2L ^ 672).isPowerOfTwo
+>>> 	SmallFloat(2 ^ 672).isPowerOfTwo
 >>> }.hasError
 true
 ```

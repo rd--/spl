@@ -24,7 +24,7 @@ OEIS [A051037](https://oeis.org/A051037):
 Hamming numbers up to 2^96:
 
 ```
->>> let h = (2L ^ 96).hammingNumbers;
+>>> let h = (2 ^ 96).hammingNumbers;
 >>> (h.size, h[1691], h.last)
 (
 	43210,

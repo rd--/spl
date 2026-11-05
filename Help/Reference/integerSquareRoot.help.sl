@@ -67,7 +67,7 @@ OEIS [A005408](https://oeis.org/A005408):
 The integer square root of odd powers of seven:
 
 ```
->>> (7L ^ 1:21:2).integerSquareRoot
+>>> (7 ^ 1:21:2).integerSquareRoot
 [
 	2
 	18
@@ -89,7 +89,7 @@ Integer square root of large integers:
 >>> (7L ^ 14).integerSquareRoot
 823543L
 
->>> (7L ^ 14).sqrt
+>>> (7 ^ 14).sqrt
 823543
 
 >>> (7L ^ 73).integerSquareRoot

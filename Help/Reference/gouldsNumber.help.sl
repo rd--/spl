@@ -7,6 +7,9 @@ Answer the _k_-th term of Goulds sequence.
 ```
 >>> 31.gouldsNumber
 32
+```
+
+Alternate implementation at `LargeInteger`:
 
 >>> 31L.gouldsNumber
 32L

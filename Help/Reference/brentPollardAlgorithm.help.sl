@@ -7,13 +7,13 @@ Implement the Brent-Pollard algorithm to factor the integer _n_.
 At `LargeInteger`:
 
 ```
->>> (2L ^ 64 - 585).brentPollardAlgorithm
+>>> (2 ^ 64 - 585).brentPollardAlgorithm
 9094863431L
 
->>> (2L ^ 64 - 585) / 9094863431L
+>>> (2 ^ 64 - 585) / 9094863431L
 2028259601L
 
->>> 9094863431L * 2028259601L
+>>> 9094863431 * 2028259601L
 18446744073709551031L
 ```
 
@@ -23,13 +23,13 @@ Confirm using `factorInteger` or `divisors`:
 >>> 10403L.brentPollardAlgorithm
 101L
 
->>> 10403L / 101L
-103L
+>>> 10403 / 101
+103
 
->>> 10403L.factorInteger
+>>> 10403.factorInteger
 [101 1; 103 1]
 
->>> 10403L.divisors
+>>> 10403.divisors
 [1 101 103 10403]
 ```
 

@@ -23,7 +23,7 @@ At `SmallFloat`:
 At `LargeInteger`:
 
 ```
->>> (10L ^ 17)
+>>> (10 ^ 17)
 >>> .floorLog(10)
 17
 ```

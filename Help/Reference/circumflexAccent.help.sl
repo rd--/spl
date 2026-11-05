@@ -6,8 +6,8 @@
 The binary form is `power`.
 
 ```
->>> 2L ^ 100L
-power(2L, 100L)
+>>> 2 ^ 100
+power(2, 100)
 ```
 
 The unary form is sometimes defined to be `exp`:

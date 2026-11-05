@@ -392,13 +392,13 @@ _2^F(n)_,
 OEIS [A000301](https://oeis.org/A000301):
 
 ```
->>> 2L ^ 0:10.fibonacci
+>>> 2 ^ 0:10.fibonacci
 [
 	1 2 2 4 8 32 256 8192 2097152
 	17179869184 36028797018963968L
 ]
 
->>> let c = 2L ^ 0:10.fibonacci;
+>>> let c = 2 ^ 0:10.fibonacci;
 >>> c.addFirst!(0);
 >>> c.fromContinuedFraction
 1.rabbitConstant
@@ -432,7 +432,7 @@ OEIS [A005203](https://oeis.org/A005203):
 >>> 		n
 >>> 	} {
 >>> 		let f = (n - 1).fibonacci;
->>> 		a[n - 1] * (2L ^ f) + a[n - 2]
+>>> 		a[n - 1] * (2 ^ f) + a[n - 2]
 >>> 	}
 >>> };
 >>> a[0 .. 10]

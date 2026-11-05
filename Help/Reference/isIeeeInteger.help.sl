@@ -6,11 +6,11 @@ Answer `true` if the `SmallFloat` _x_ is an integer,
 though it would answer `false` to `isInteger`.
 
 ```
->>> SmallFloat(2L ^ 54)
+>>> SmallFloat(2 ^ 54)
 >>> .isIeeeInteger
 true
 
->>> SmallFloat(2L ^ 54)
+>>> SmallFloat(2 ^ 54)
 >>> .isInteger
 false
 ```

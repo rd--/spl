@@ -22,7 +22,8 @@ At `SmallFloat` will a `LargeInteger` if the answer would overflow:
 25852016738884976640000L
 ```
 
-At `LargeInteger` answers a large integer:
+At `LargeInteger`,
+always answers a large integer:
 
 ```
 >>> 5L.factorial
@@ -35,7 +36,7 @@ At `LargeInteger` answers a large integer:
 A large factorial:
 
 ```
->> 52L.!
+>> 52.!
 80658175170943878571660
 63685640376697528950544
 0883277824000000000000L
@@ -75,7 +76,7 @@ The number of digits in _n!_,
 OEIS [A034886](https://oeis.org/A034886):
 
 ```
->>> 0L:20.!.collect(integerLength/1)
+>>> 0:20.!.collect(integerLength/1)
 [
 	1 1 1 1 2 3 3 4 5 6
 	7 8 9 10 11 13 14 15 16 18
@@ -108,7 +109,7 @@ Number of permutations of 6 elements:
 Exact `LargeInteger` and inexact `SmallFloat` results for 30! and 47!:
 
 ```
->>> 30L.factorial
+>>> 30.factorial
 265252859812191058636308480000000L
 
 >>> SmallFloat(30.factorial)
@@ -146,10 +147,10 @@ At `SmallFloat` factorial is accurate to 15 digits:
 
 ```
 >>> 23.factorial
-258520167388849E8
-
->>> 23L.factorial
 25852016738884976640000L
+
+>>> SmallFloat(23.factorial)
+2.585201673888498E+22
 ```
 
 Factorial of matrix elements:
@@ -434,7 +435,7 @@ OEIS [A008905](https://oeis.org/A008905):
 
 ~~~spl svg=B oeis=A008905
 let n = 0:85.!;
-(n // (10L ^ n.log10.floor))
+(n // (10 ^ n.log10.floor))
 .discretePlot
 ~~~
 

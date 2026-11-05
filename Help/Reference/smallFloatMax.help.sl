@@ -15,7 +15,7 @@ This is much, much larger than the largest small integer:
 >>> system.smallIntegerMax
 9_007_199_254_740_991
 
->>> 2L ^ 53 - 1
+>>> 2 ^ 53 - 1
 9_007_199_254_740_991
 ```
 

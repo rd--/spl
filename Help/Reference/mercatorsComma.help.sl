@@ -14,7 +14,7 @@ It is the amount by which 53 perfect fifths exceed 31 octaves.
 19342813113834066795298816L
 
 >>> 1.mercatorsComma
-(3L ^ 53) / (2L ^ 84)
+(3 ^ 53) / (2 ^ 84)
 
 >>> 1.mercatorsComma
 1.0021
@@ -27,7 +27,7 @@ It is also the amount by which a stack of four Pythagorean commas exceeds a Pyth
 
 ```
 >>> (
->>> 	4L.pythagoreanComma
+>>> 	4.pythagoreanComma
 >>> 	/
 >>> 	1.pythagoreanLimma
 >>> )
@@ -37,7 +37,7 @@ It is also the amount by which a stack of four Pythagorean commas exceeds a Pyth
 It is also the amount by which a stack of eight apotomes exceeds a 27/16 major sixth:
 
 ```
->>> 8L.pythagoreanChroma / 27/16
+>>> 8.pythagoreanChroma / 27/16
 1.mercatorsComma
 ```
 

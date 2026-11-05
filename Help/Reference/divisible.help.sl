@@ -67,11 +67,11 @@ false
 At `LargeInteger`:
 
 ```
->>> (10L ^ 3000 + 1)
->>> .divisible(16001L)
+>>> (10 ^ 3000 + 1)
+>>> .divisible(16001)
 true
 
->>> (10L ^ 3000 + 1) % 16001L
+>>> (10 ^ 3000 + 1) % 16001
 0L
 ```
 
@@ -135,13 +135,13 @@ Smaller numbers are not divisible by large numbers,
 although floating point calculations with approximate large numbers may suggest they are:
 
 ```
->>> 233.divisible(133L ^ 133)
+>>> 233.divisible(133 ^ 133)
 false
 
->>> 233 % SmallFloat(133L ^ 133)
+>>> 233 % SmallFloat(133 ^ 133)
 0
 
->>> 233L % (133L ^ 133L)
+>>> 233 % (133 ^ 133)
 233L
 ```
 
@@ -162,7 +162,7 @@ OEIS [A387662](https://oeis.org/A387662):
 ```
 >>> 1:35.collect { :n |
 >>> 	1:Infinity.detect { :k |
->>> 		1L:k.sum { :i |
+>>> 		1:k.sum { :i |
 >>> 			i ^ i
 >>> 		}.divisible(n)
 >>> 	}
@@ -355,7 +355,7 @@ OEIS [A387662](https://oeis.org/A387662):
 ~~~spl svg=M oeis=A387662
 1:35.collect { :n |
 	1:Infinity.detect { :k |
-		1L:k.sum { :i |
+		1:k.sum { :i |
 			i ^ i
 		}.divisible(n)
 	}

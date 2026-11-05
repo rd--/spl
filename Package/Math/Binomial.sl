@@ -25,7 +25,7 @@
 					}
 				} {
 					(n.isInteger & { k.isInteger }).if {
-						LargeInteger(n).integerBinomial(k).normalInteger
+						integerBinomial(n, k)
 					} {
 						n.binomialGamma(k)
 					}
@@ -70,18 +70,10 @@
 	}
 
 	uncheckedBinomialGamma { :n :k |
-		(
-			n.isInteger & {
-				k.isInteger
-			}
-		).if {
-			binomial(n, k)
-		} {
-			let a = (n + 1).gamma;
-			let b = (k + 1).gamma;
-			let c = (n - k + 1).gamma;
-			a / (b * c)
-		}
+		let a = (n + 1).gamma;
+		let b = (k + 1).gamma;
+		let c = (n - k + 1).gamma;
+		a / (b * c)
 	}
 
 }
@@ -290,14 +282,20 @@
 	}
 
 	integerBinomial { :n :k |
-		[
-			{ n = k } -> { 1 },
-			{ k = 1 } -> { n },
-			{ n = (k + 1) } -> { n },
-			{ n < k } -> { 0 },
-			{ k < 0 } -> { 0 },
-			{ true } -> { uncheckedIntegerBinomial(n, k) }
-		].which
+		k.isCollection.if {
+			k.collect { :each |
+				integerBinomial(n, each)
+			}
+		} {
+			[
+				{ n = k } -> { 1 },
+				{ k = 1 } -> { n },
+				{ n = (k + 1) } -> { n },
+				{ n < k } -> { 0 },
+				{ k < 0 } -> { 0 },
+				{ true } -> { uncheckedIntegerBinomial(n, k) }
+			].which
+		}
 	}
 
 	inverseTriangularNumber { :n |
@@ -500,8 +498,8 @@
 	}
 
 	uncheckedIntegerBinomial { :n :k |
-		let numerator = 1L;
-		let denominator = 1L;
+		let numerator = 1;
+		let denominator = 1;
 		n.toByDo(k.max(n - k) + 1, -1) { :factor |
 			numerator := numerator * factor
 		};
@@ -525,7 +523,7 @@
 
 	gouldsNumber { :n |
 		0L.to(n).collect { :k |
-			binomial(n, k) % 2L
+			binomial(n, k) % 2
 		}.sum
 	}
 

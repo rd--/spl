@@ -90,7 +90,7 @@ Test for large integers:
 >>> 3L.isPrime
 true
 
->>> (10L ^ 3000 + 1).isPrime
+>>> (10 ^ 3000 + 1).isPrime
 false
 ```
 
@@ -133,7 +133,7 @@ true
 The number _2 ^ 2 ^ 7 + 1_ is not a Fermat prime, & requires _millerRabinPrimalityTest_:
 
 ```
->>> let n = (2L ^ (2 ^ 7) + 1);
+>>> let n = (2 ^ (2 ^ 7) + 1);
 >>> n.millerRabinPrimalityTest(10)
 false
 ```
@@ -148,8 +148,8 @@ Recognize Wieferich primes, prime numbers _p_ such that _p^2_ divides _2^(p-1)-1
 >>> 		a % b = 0
 >>> 	}
 >>> };
->>> (1L .. 9999L).select(f/1)
-[1093L, 3511L]
+>>> (1 .. 9999).select(f/1)
+[1093, 3511]
 ```
 
 Find lesser of twin primes,
@@ -308,7 +308,7 @@ primes dividing order of Monster simple group,
 OEIS [A002267](https://oeis.org/A002267):
 
 ```
->>> let p = LargeInteger[
+>>> let p = [
 >>> 	2  3  5  7 11 13 17 19 23 29
 >>> 	31 41 47 59 71
 >>> ];
@@ -606,7 +606,7 @@ OEIS [A157242](https://oeis.org/A157242):
 		let c = a - (11 * (2 ^ x));
 		let d = 2.max(c).log2;
 		Range(1, c, 1).sum { :y |
-			let e = c - (2L ^ y);
+			let e = c - (2 ^ y);
 			(
 				e > 1 & {
 					e % 6 = 5 & {

@@ -121,20 +121,20 @@ At `LargeInteger`:
 Note errors in floating point math:
 
 ```
->>> 3L ^ 41 % 13
+>>> 3 ^ 41 % 13
 9
 
->>> SmallFloat(3L ^ 41) % 13
+>>> SmallFloat(3 ^ 41) % 13
 8
 ```
 
 Find last two digits or a large integer:
 
 ```
->>> 2L ^ 100 % 100
+>>> 2 ^ 100 % 100
 76
 
->>> 2L ^ 100
+>>> 2 ^ 100
 1267650600228229401496703205376L
 ```
 
@@ -1155,7 +1155,7 @@ OEIS [A090976](https://oeis.org/A090976):
 Binomial coefficients modulo two:
 
 ~~~spl png=C
-let k = [0L .. 64L];
+let k = [0 .. 64];
 { :i :j |
 	(i >= j).if {
 		i.binomial(j) % 2
@@ -1402,7 +1402,7 @@ OEIS [A003558](https://oeis.org/A003558):
 	let m = 1;
 	{
 		let a = 2 * n;
-		let b = (2L ^ m) % (a + 1);
+		let b = (2 ^ m) % (a + 1);
 		b = 1 | { b = a }
 	}.whileFalse {
 		m := m + 1

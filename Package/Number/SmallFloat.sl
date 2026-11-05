@@ -708,8 +708,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
 			const answer = _self + _operand;
-			sl.checkSmallIntegerOverflow(_self, _operand, answer, '+', _plus_2);
-			return answer;
+			return sl.checkSmallIntegerOverflow(_self, _operand, answer, '+', _plus_2);
 		}
 		>
 		operand.adaptToNumberAndApply(self, plus/2)
@@ -773,8 +772,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
 			let answer = Math.pow(_self, _operand);
-			sl.checkSmallIntegerOverflow(_self, _operand, answer, '^', _power_2);
-			return answer;
+			return sl.checkSmallIntegerOverflow(_self, _operand, answer, '^', _power_2);
 		}
 		>
 		'SmallFloat>>raisedToSmallFloat: not SmallFloat'.error
@@ -909,8 +907,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
 			const answer = _self - _operand;
-			sl.checkSmallIntegerOverflow(_self, _operand, answer, '-', _subtract_2);
-			return answer;
+			return sl.checkSmallIntegerOverflow(_self, _operand, answer, '-', _subtract_2);
 		}
 		>
 		operand.adaptToNumberAndApply(self, subtract/2)
@@ -928,8 +925,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
 			const answer = _self * _operand;
-			sl.checkSmallIntegerOverflow(_self, _operand, answer, '*', _times_2);
-			return answer;
+			return sl.checkSmallIntegerOverflow(_self, _operand, answer, '*', _times_2);
 		}
 		>
 		operand.adaptToNumberAndApply(self, times/2)
@@ -987,8 +983,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	uncheckedPower { :self :operand |
 		<primitive:
 		const answer = Math.pow(_self, _operand);
-		sl.checkSmallIntegerOverflow(_self, _operand, answer, '^', _power_2);
-		return answer;
+		return sl.checkSmallIntegerOverflow(_self, _operand, answer, '^', _power_2);
 		>
 	}
 

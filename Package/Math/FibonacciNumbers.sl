@@ -140,7 +140,7 @@
 	}
 
 	fibonacciSequence { :n |
-		n.lucasSequence('U', 1L, -1L)
+		n.lucasSequence('U', 1, -1)
 	}
 
 	fibonacciWord { :self |
@@ -179,7 +179,7 @@
 	}
 
 	lucasSequence { :self |
-		[1 1].linearRecurrence([2L 1L 3L], self)
+		[1 1].linearRecurrence([2 1 3], self)
 	}
 
 	lucasSequence { :n :p :q :a :b |
@@ -198,8 +198,8 @@
 	lucasSequence { :n :k :p :q |
 		k.caseOf(
 			[
-				'U' -> { lucasSequence(n, p, q, 0L, 1L) },
-				'V' -> { lucasSequence(n, p, q, 2L, p) }
+				'U' -> { lucasSequence(n, p, q, 0, 1) },
+				'V' -> { lucasSequence(n, p, q, 2, p) }
 			]
 		)
 	}
@@ -395,7 +395,7 @@
 			n.factorInteger.collect { :f |
 				pisanoPeriodPrimePower(f[1], f[2])
 			}.lcm
-		}.normalInteger
+		}
 	}
 
 	pisanoPeriodDirectForm { :n |
@@ -418,7 +418,7 @@
 	}
 
 	pisanoPeriodPrimePower { :n :k |
-		(n ^ (k - 1L)) * pisanoPeriodDirectForm(n)
+		(n ^ (k - 1)) * pisanoPeriodDirectForm(n)
 	}
 
 }

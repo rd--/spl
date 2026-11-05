@@ -19,8 +19,8 @@ An exponent of `zero` answers `one` of the correct type:
 >>> system.nextRandomFloat ^ 0
 1.0
 
->>> 23L ^ 0
-1L
+>>> 23 ^ 0
+1
 
 >>> 7/9 ^ 0
 1/1
@@ -71,13 +71,13 @@ Negative exponents:
 1 / [3 9 27 81 243 729 2187 6561 19683]
 ```
 
-At `LargeInteger`:
+At, and or answering, `LargeInteger`:
 
 ```
->>> (2L ^ 54) ^ 2
+>>> (2 ^ 54) ^ 2
 324518553658426726783156020576256L
 
->>> 23L.raisedToInteger(23L)
+>>> 23.raisedToInteger(23)
 20880467999847912034355032910567L
 ```
 

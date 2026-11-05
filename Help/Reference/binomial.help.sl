@@ -200,24 +200,24 @@ At `zero`:
 1
 ```
 
-At `LargeInteger`:
+May answer a `LargeInteger` with small integer arguments:
 
 ```
->>> 123L.binomial(45L)
+>>> binomial(123, 45)
 8966473191018617158916954970192684L
 ```
 
-Note that the answer is given in `normal` form:
+May answer a `SmallInteger` with large integer arguments:
 
 ```
->>> 6L.binomial(4L).isSmallInteger
+>>> binomial(6L, 4L).isSmallInteger
 true
 ```
 
 If _k_ is greater than _n_ the answer is zero:
 
 ```
->>> 3.binomial(6)
+>>> binomial(3, 6)
 0
 ```
 
@@ -970,7 +970,7 @@ OEIS [A284458](https://oeis.org/A284458):
 >>> 0:8.collect { :n |
 >>> 	0:n.sum { :k |
 >>> 		[
->>> 			-1L ^ k,
+>>> 			-1 ^ k,
 >>> 			binomial(n, k) ^ 2,
 >>> 			k.!,
 >>> 			n ^ (2 * (n - k))

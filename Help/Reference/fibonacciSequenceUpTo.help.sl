@@ -24,20 +24,31 @@ The sum of the even Fibonacci numbers less than four million:
 4613732
 ```
 
-The first Fibonacci
+The first eighty Fibonacci numbers:
 
-14472334024676221L.fibonacciSequenceUpTo
+```
+>>> 14472334024676221L
+>>> .fibonacciSequenceUpTo
+>>> .size
+80
+```
 
 Count Fibonacci numbers less than _9×10^23_:
 
 ```
->>> (9 * (10L ^ 23))
+>>> (9 * (10 ^ 23))
 >>> .fibonacciSequenceUpTo
 >>> .size
 117
 ```
 
-9E23.fibonacciSequenceUpTo.collect { :n | n -> n.isSmallInteger }
+The first Fibonacci number that is not a small integer:
+
+```
+>>> 9E23.fibonacciSequenceUpTo
+>>> .detect(isLargeInteger/1)
+14472334024676221L
+```
 
 * * *
 

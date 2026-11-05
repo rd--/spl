@@ -30,7 +30,7 @@ At a small `LargeInteger`:
 At a large `LargeInteger`:
 
 ```
->>> let x = 23L ^ 13;
+>>> let x = 23 ^ 13;
 >>> let y = Integer(x);
 >>> (y, x = y, x == y)
 (504036361936467383L, true, true)
@@ -60,7 +60,7 @@ answers a `SmallFloat` if the value would answer `true` for `isSmallInteger`:
 >>> (x, x.isLargeInteger)
 (23, false)
 
->>> let x = Integer(2L ^ 54);
+>>> let x = Integer(2 ^ 54);
 >>> (x, x.isLargeInteger)
 (18014398509481984L, true)
 ```

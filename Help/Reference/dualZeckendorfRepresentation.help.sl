@@ -8,7 +8,7 @@ also called the maximal or lazy Fibonacci representation.
 The Zeckendorf representation of 1⏨:
 
 ```
->>> (10L ^ 10).dualZeckendorfRepresentation
+>>> (10 ^ 10).dualZeckendorfRepresentation
 [
 	1 1 0 1 0 1 1 1 1 1 0 1 1 0 1 1 1 1 1 1
 	1 0 1 1 1 0 1 1 0 1 1 1 1 0 1 0 1 1 0 1
@@ -128,7 +128,7 @@ Of a not very small integer:
 Of a large integer:
 
 ```
->>> let n = (9 * (10L ^ 23));
+>>> let n = (9 * (10 ^ 23));
 >>> let z = n.dualZeckendorfRepresentation;
 >>> let m = z.fromZeckendorfRepresentation;
 >>> (z.size, m)
@@ -205,7 +205,7 @@ OEIS [A328212](https://oeis.org/A328212):
 Discrete plot of a dual Zeckendorf representation with 114 places:
 
 ~~~spl svg=A
-(9 * (10L ^ 23)).dualZeckendorfRepresentation
+(9 * (10 ^ 23)).dualZeckendorfRepresentation
 .discretePlot
 ~~~
 
@@ -215,7 +215,7 @@ Counts of above plot,
 indicating the proportions of zeroes and ones:
 
 ```
->>> (9 * (10L ^ 23)).dualZeckendorfRepresentation
+>>> (9 * (10 ^ 23)).dualZeckendorfRepresentation
 >>> .counts
 [0 -> 35, 1 -> 79]
 ```

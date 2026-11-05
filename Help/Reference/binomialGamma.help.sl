@@ -18,6 +18,9 @@ At _k=0_:
 ```
 >>> binomialGamma([-3 .. 3], 0)
 [1 1 1 1 1 1 1]
+
+>>> integerBinomial([-3 .. 3], 0)
+[0 0 0 1 1 1 1]
 ```
 
 At _n=0_:
@@ -25,15 +28,21 @@ At _n=0_:
 ```
 >>> binomialGamma(0, [-3 .. 3])
 [0 0 0 1 0 0 0]
+
+>>> integerBinomial(0, [-3 .. 3])
+[0, 0, 0, 1, 0, 0, 0]
 ```
 
 Negative _k_:
 
 ```
->>> 1.binomialGamma(-2)
+>>> binomialGamma(1, -2)
 0
 
->>> 8.5.binomialGamma(-4.2)
+>>> integerBinomial(1, -2)
+0
+
+>>> binomialGamma(8.5, -4.2)
 0.0000604992
 ```
 
@@ -57,7 +66,16 @@ Written out:
 At integer arguments:
 
 ```
+>>> binomialGamma(5, 2)
+10
+
+>>> integerBinomial(5, 2)
+10
+
 >>> binomialGamma(2, 5)
+0
+
+>>> integerBinomial(2, 5)
 0
 ```
 

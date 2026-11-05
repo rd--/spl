@@ -17,7 +17,7 @@ or signal an error if _f_ is elided.
 
 >>> '20880467999847912034355032910567'
 >>> .parseLargeInteger
-23L ^ 23
+23 ^ 23
 ```
 
 If the parse fails evaluate the else clause _f_,

@@ -101,7 +101,7 @@ OEIS [A129251](https://oeis.org/A129251):
 ~~~spl svg=C oeis=A129251
 2:115.collect { :n |
 	n.distinctPrimeFactors.count { :p |
-		n.divisible(p.L ^ p)
+		n.divisible(p ^ p)
 	}
 }.discretePlot
 ~~~

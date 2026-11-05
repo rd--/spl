@@ -44,6 +44,6 @@ Bitwise left-rotate of 32-bit integer:
 
 * * *
 
-See also: SmallFloat
+See also: Binary, Integer, SmallFloat, SmallInteger, LargeInteger
 
 Guides: Mathematical Functions

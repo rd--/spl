@@ -56,6 +56,9 @@ With negative exponent:
 At `LargeInteger`:
 
 ```
+>>> 2L ^ 2
+4L
+
 >>> 2L ^ 100
 1267650600228229401496703205376L
 
@@ -66,7 +69,7 @@ At `LargeInteger`:
 20880467999847912034355032910567L
 ```
 
-`LargeInteger` exponent:
+`LargeInteger` exponent at `SmallFloat`:
 
 ```
 >>> 2.5 ^ 3L
@@ -89,13 +92,13 @@ At `Fraction`:
 [1/729 1/81 1/9]
 ```
 
-Note floating point errors are introduced for small _m_ and _n_:
+Note that floating point errors are introduced for small _m_ and _n_:
 
 ```
->>> 13L ^ 16
+>>> 13 ^ 16
 665416609183179841L
 
->>> SmallFloat(13L ^ 16)
+>>> SmallFloat(13 ^ 16)
 665416609183179900.0
 ```
 
@@ -308,7 +311,7 @@ At `Fraction` answers a fraction if the exponent is an integer:
 >>> 23/17 ^ 2
 529/289
 
->>> (23L ^ 2) / (17L ^ 2)
+>>> (23L ^ 2) / (17 ^ 2)
 529/289
 
 >>> -5/2 ^ 15
@@ -484,7 +487,7 @@ Fermat numbers,
 OEIS [A000215](https://oeis.org/A000215):
 
 ```
->>> (0L .. 6).collect { :n |
+>>> (0 .. 6).collect { :n |
 >>> 	2 ^ (2 ^ n) + 1
 >>> }
 [
@@ -498,7 +501,7 @@ OEIS [A002416](https://oeis.org/A002416):
 
 ```
 >>> 1:9.collect { :n |
->>> 	2L ^ (n ^ 2)
+>>> 	2 ^ (n ^ 2)
 >>> }
 [
 	2
@@ -554,7 +557,9 @@ _(n^n)^n_ or _n^(n^2)_,
 OEIS [A002489](https://oeis.org/A002489):
 
 ```
->>> 0L:6.collect { :n | (n ^ n) ^ n }
+>>> 0:6.collect { :n |
+>>> 	(n ^ n) ^ n
+>>> }
 [
 	1
 	1
@@ -713,7 +718,7 @@ _2^(2^n)_,
 OEIS [A001146](https://oeis.org/A001146):
 
 ```
->>> 2L ^ (2 ^ 0:6)
+>>> 2 ^ (2 ^ 0:6)
 [
 	2 4 16 256 65536 4294967296
 	18446744073709551616L
@@ -724,7 +729,7 @@ _(10^n-1)^2/81_,
 OEIS [A002477](https://oeis.org/A002477):
 
 ```
->>> (10L ^ 1:9 - 1) ^ 2 / 81
+>>> (10 ^ 1:9 - 1) ^ 2 / 81
 [
 	1
 	121
@@ -999,15 +1004,15 @@ OEIS [A103889](https://oeis.org/A103889):
 Almost integers:
 
 ```
->>> let a = [1782 1841] ^ 12L;
->>> let b = 1922 ^ 12L;
+>>> let a = [1782 1841] ^ 12;
+>>> let b = 1922 ^ 12;
 >>> a.sum / b
-0.99999999972
+0.999999999
 
 >>> let a = [3987 4365] ^ 12L;
 >>> let b = 4472 ^ 12L;
 >>> a.sum / b
-1.0000000000189
+1.00000000001
 ```
 
 _2^n-n_,
@@ -1263,7 +1268,7 @@ Matrix plot of the power table modulo seventeen:
 
 ~~~spl svg=L
 let m = 17;
-let n = [0L .. m - 1];
+let n = [0 .. m - 1];
 { :i :j |
 	i ^ j % m
 }.table(n, n)
@@ -1301,7 +1306,7 @@ OEIS [A008952](https://oeis.org/A008952):
 
 ~~~spl svg=O oeis=A008952
 0:85.collect { :n |
-	(2L ^ n).integerDigits.first
+	(2 ^ n).integerDigits.first
 }.discretePlot
 ~~~
 

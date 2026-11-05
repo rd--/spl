@@ -262,7 +262,7 @@ OEIS [A260443](https://oeis.org/A260443):
 ~~~spl svg=H oeis=A260443
 let b = { :n |
 	n.factorInteger.product { :x |
-		x[1].nextPrime.L ^ x[2]
+		x[1].nextPrime ^ x[2]
 	}
 };
 let a = Map { :n |

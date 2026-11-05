@@ -11,7 +11,7 @@ answer a `SmallFloat` if the integer can be properly represented as such:
 >>> 23L.normalInteger
 23
 
->>> (23L ^ 13).normalInteger
+>>> (23 ^ 13).normalInteger
 504036361936467383L
 ```
 

@@ -106,6 +106,17 @@ Compare with continued fractions:
 ]
 ```
 
+Numbers _k_ such that _L(2k+1)_ is prime,
+OEIS [A117522](https://oeis.org/A117522):
+
+```
+>>> 1:25.select { :k |
+>>> 	let n = (2 * k + 1).lucasNumber;
+>>> 	n.round.isPrime
+>>> }
+[2 3 5 6 8 9 15 18 20 23]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

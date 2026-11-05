@@ -782,14 +782,14 @@ export function stringToSentences(str: string): Array<string> {
 	) || [];
 }
 
-export function checkSmallIntegerOverflow(a: number, b: number, x: number, o: string, f: Function): void {
+export function checkSmallIntegerOverflow(a: number, b: number, x: number, o: string, f: Function): number | bigint {
 	if (Number.isSafeInteger(a) && Number.isSafeInteger(b) && !Number.isSafeInteger(x)) {
 		const y = f(BigInt(a), BigInt(b));
-		console.debug(
-			`**** Check Small Integer Overflow: ${a} ${o} ${b} = ${x}: True answer ${y}`
-		);
-		throw new Error('checkSmallIntegerOverflow: overflow');
+		// console.debug(`**** Check Small Integer Overflow: ${a} ${o} ${b} = ${x}: True answer ${y}`);
+		// throw new Error('checkSmallIntegerOverflow: overflow');
+		return y
 	}
+	return x;
 }
 
 export function splArityCheck(f: Function, n: number, c: string): void {

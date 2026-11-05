@@ -1022,6 +1022,46 @@ OEIS [A235702](https://oeis.org/A235702):
 ]
 ```
 
+Bisection of Lucas sequence,
+OEIS [A002878](https://oeis.org/A002878):
+
+```
+>>> linearRecurrence([3 -1], [1 4], 30)
+[
+	1 4
+	11 29
+	76 199
+	521 1364
+	3571 9349
+	24476 64079
+	167761 439204
+	1149851 3010349
+	7881196 20633239
+	54018521 141422324
+	370248451 969323029
+	2537720636 6643838879
+	17393796001 45537549124
+	119218851371 312119004989
+	817138163596 2139295485799
+]
+```
+
+Primes in the bisection of the Lucas sequence,
+OEIS [A285992](https://oeis.org/A285992):
+
+```
+>>> linearRecurrence([3 -1], [1 4], 30)
+>>> .select(isPrime/1)
+[
+	11 29
+	199 521
+	3571 9349
+	3010349 54018521
+	370248451 6643838879
+	119218851371
+]
+```
+
 Draw spiral:
 
 ~~~spl svg=A
@@ -1077,7 +1117,7 @@ also Lucas _U(2,2)_ sequence,
 OEIS [A009545](https://oeis.org/A009545):
 
 ~~~spl svg=E oeis=A009545
-linearRecurrence([2L -2], [0 1], 110)
+linearRecurrence([2 -2], [0 1], 110)
 .discretePlot.logScale
 ~~~
 
@@ -1087,7 +1127,7 @@ Expansion of exponential generating function _cos(x)/exp(x)_,
 OEIS [A009116](https://oeis.org/A009116):
 
 ~~~spl svg=F oeis=A009116
-linearRecurrence([-2L -2], [1 -1], 110)
+linearRecurrence([-2 -2], [1 -1], 110)
 .discretePlot.logScale
 ~~~
 
@@ -1121,7 +1161,7 @@ Scaled Chebyshev U-polynomials evaluated at _√3/2_,
 OEIS [A057083](https://oeis.org/A057083):
 
 ~~~spl svg=I oeis=A057083
-[3L -3].linearRecurrence([1 3], 66)
+[3 -3].linearRecurrence([1 3], 66)
 .discretePlot.logScale
 ~~~
 

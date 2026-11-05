@@ -35,7 +35,7 @@ OEIS [A304971](https://oeis.org/A304971):
 ~~~spl svg=A oeis=A304971
 let m = 300;
 let a = [1];
-let s = 2L ^ a[1];
+let s = 2 ^ a[1];
 1.toDo((m / 2).ceiling) { :n |
 	let k = 1;
 	let p = a[n];
@@ -48,7 +48,7 @@ let s = 2L ^ a[1];
 			}
 		).ifTrue {
 			a := a ++ [q, r];
-			s := s + (2L ^ q) + (2L ^ r);
+			s := s + (2 ^ q) + (2 ^ r);
 			break()
 		};
 		k := k + 1

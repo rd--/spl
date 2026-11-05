@@ -39,7 +39,7 @@ the `sum` is calculated directly using a closed form:
 >>> (2 .. 1000).sum
 500499
 
->>> (23L, 37L .. 26781361428314L).sum
+>>> (23, 37 .. 26781361428314).sum
 25615761426939509660643648L
 
 >>> (1, 1.01 .. 5).sum
@@ -169,7 +169,7 @@ Number of ways to cover an _n_-set,
 OEIS [A003465](https://oeis.org/A003465):
 
 ```
->>> 0L:6.collect { :n |
+>>> 0:6.collect { :n |
 >>> 	0:n.sum { :j |
 >>> 		let a = binomial(n, j);
 >>> 		let b = 2 ^ (2 ^ (n - j) - 1);
@@ -278,9 +278,9 @@ OEIS [A119812](https://oeis.org/A119812):
 >>> 	1:20.collect { :n |
 >>> 		let k = 10 * n;
 >>> 		let x = 1:k.sum { :m |
->>> 			(m * t).floor / (2L ^ m)
+>>> 			(m * t).floor / (2 ^ m)
 >>> 		};
->>> 		(10L ^ n * x).floor % 10
+>>> 		(10 ^ n * x).floor % 10
 >>> 	}.truncate.Integer
 >>> }
 [
@@ -345,7 +345,7 @@ OEIS [A054244](https://oeis.org/A054244):
 let f = { :n |
 	0:n.sum { :k |
 		let a = binomial(n, k);
-		let b = 2L ^ (2 ^ (n - k));
+		let b = 2 ^ (2 ^ (n - k));
 		(-1 ^ k) * a * b
 	} / 2
 };
