@@ -245,13 +245,13 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	[divide, /] { :self :anObject |
+	[divide, /] { :self :operand |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self / _anObject;
+		if(sl.isSmallFloat(_operand)) {
+			return _self / _operand;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, divide/2)
+		operand.adaptToNumberAndApply(self, divide/2)
 	}
 
 	encodeFloat32 { :self :littleEndian |
@@ -310,13 +310,13 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive: return _self % 1;>
 	}
 
-	hypotenuse { :self :anObject |
+	hypotenuse { :self :operand |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return Math.hypot(_self, _anObject);
+		if(sl.isSmallFloat(_operand)) {
+			return Math.hypot(_self, _operand);
 		}
 		>
-		anObject.adaptToNumberAndApply(self, hypotenuse/2)
+		operand.adaptToNumberAndApply(self, hypotenuse/2)
 	}
 
 	i32BitRotateLeft { :self :anInteger |
@@ -427,12 +427,12 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	[isEqual, =] { :self :anObject |
-		anObject.isNumber.if {
-			anObject.isSmallFloat.if {
-				isIdentical(self, anObject)
+	[isEqual, =] { :self :operand |
+		operand.isNumber.if {
+			operand.isSmallFloat.if {
+				isIdentical(self, operand)
 			} {
-				anObject.adaptToNumberAndApply(self, isEqual/2)
+				operand.adaptToNumberAndApply(self, isEqual/2)
 			}
 		} {
 			false
@@ -468,22 +468,22 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		(self - self.round).abs < epsilon
 	}
 
-	[isLess, <] { :self :anObject |
+	[isLess, <] { :self :operand |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self < _anObject;
+		if(sl.isSmallFloat(_operand)) {
+			return _self < _operand;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, isLess/2)
+		operand.adaptToNumberAndApply(self, isLess/2)
 	}
 
-	[isLessOrEqual, <=] { :self :anObject |
+	[isLessOrEqual, <=] { :self :operand |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self <= _anObject;
+		if(sl.isSmallFloat(_operand)) {
+			return _self <= _operand;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, isLessOrEqual/2)
+		operand.adaptToNumberAndApply(self, isLessOrEqual/2)
 	}
 
 	isLiteral { :self |
@@ -564,22 +564,22 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		]
 	}
 
-	[maximum, max] { :self :anObject |
+	[maximum, max] { :self :operand |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return Math.max(_self, _anObject);
+		if(sl.isSmallFloat(_operand)) {
+			return Math.max(_self, _operand);
 		}
 		>
-		anObject.adaptToNumberAndApply(self, max/2)
+		operand.adaptToNumberAndApply(self, max/2)
 	}
 
-	[minimum, min] { :self :anObject |
+	[minimum, min] { :self :operand |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return Math.min(_self, _anObject);
+		if(sl.isSmallFloat(_operand)) {
+			return Math.min(_self, _operand);
 		}
 		>
-		anObject.adaptToNumberAndApply(self, min/2)
+		operand.adaptToNumberAndApply(self, min/2)
 	}
 
 	minkowskiQuestionMark { :x |
@@ -624,13 +624,13 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		y + (lo[1] / lo[2])
 	}
 
-	[mod, %] { :self :anObject |
+	[mod, %] { :self :operand |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return ((_self % _anObject) + _anObject) % _anObject;
+		if(sl.isSmallFloat(_operand)) {
+			return ((_self % _operand) + _operand) % _operand;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, mod/2)
+		operand.adaptToNumberAndApply(self, mod/2)
 	}
 
 	muLawDecode { :y |
@@ -708,7 +708,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
 			const answer = _self + _operand;
-			/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
+			sl.checkSmallIntegerOverflow(_self, _operand, answer, '+', _plus_2);
 			return answer;
 		}
 		>
@@ -773,7 +773,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
 			let answer = Math.pow(_self, _operand);
-			/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
+			sl.checkSmallIntegerOverflow(_self, _operand, answer, '^', _power_2);
 			return answer;
 		}
 		>
@@ -819,10 +819,10 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	remainder { :self :anObject |
+	remainder { :self :operand |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self % _anObject;
+		if(sl.isSmallFloat(_operand)) {
+			return _self % _operand;
 		}
 		>
 		self.error('remainder')
@@ -867,6 +867,19 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		*/
 	}
 
+	[signedPower, **] { :self :operand |
+		<primitive:
+		if (sl.isSmallFloat(_operand)) {
+			if(_self < 0) {
+				return 0 - Math.pow(0.0 - _self, _operand);
+			} {
+				return Math.pow(_self, _operand);
+			}
+		}
+		>
+		operand.adaptToNumberAndApply(self, signedPower/2)
+	}
+
 	signExponentMantissa { :self |
 		<primitive:
 		const float = new Float64Array(1);
@@ -896,7 +909,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
 			const answer = _self - _operand;
-			/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
+			sl.checkSmallIntegerOverflow(_self, _operand, answer, '-', _subtract_2);
 			return answer;
 		}
 		>
@@ -915,7 +928,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
 			const answer = _self * _operand;
-			/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
+			sl.checkSmallIntegerOverflow(_self, _operand, answer, '*', _times_2);
 			return answer;
 		}
 		>
@@ -974,7 +987,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	uncheckedPower { :self :operand |
 		<primitive:
 		const answer = Math.pow(_self, _operand);
-		/*sl.checkSmallFloatOverflow(_self, _operand, answer);*/
+		sl.checkSmallIntegerOverflow(_self, _operand, answer, '^', _power_2);
 		return answer;
 		>
 	}
@@ -1172,7 +1185,8 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 +List {
 
 	fromSignExponentMantissa { :self |
-		(-1 ^ self[1]) * (2 ^ self[2]) * self[3]
+		let [s, e, m] = self;
+		(-1 ^ s) * SmallFloat(2L ^ e) * m
 	}
 
 }

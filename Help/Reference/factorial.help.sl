@@ -434,7 +434,7 @@ OEIS [A008905](https://oeis.org/A008905):
 
 ~~~spl svg=B oeis=A008905
 let n = 0:85.!;
-(n // (10 ^ n.log10.floor))
+(n // (10L ^ n.log10.floor))
 .discretePlot
 ~~~
 

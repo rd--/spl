@@ -3209,7 +3209,7 @@ let r = nil; 1.to(0).do { :each | r := each }; r = nil
 eulersNumber() = 1.exp /* eulers number */
 1.e = eulersNumber() /* e is a constant, like 1.pi */
 system.smallFloatEpsilon < (10 ^ -15) /* the difference between 1 and the smallest SmallFloat greater than 1 */
-system.smallFloatEpsilon > (10 ^ -16)
+system.smallFloatEpsilon > (10 ** -16)
 1 - system.smallFloatEpsilon != 1 /* epsilon() is the difference between 1.0 and previous representable value */
 1.epsilon != system.smallFloatEpsilon /* epsilon is a constant, like 1.pi & e */
 1.pi = 3.141592653589793 /* 1.pi is a number */
@@ -3232,8 +3232,8 @@ Infinity.isFinite = false /* Infinity is not finite */
 [561, 2821, 6601, 10585, 15841, 256, 29996224275831].noneSatisfy(isPrime/1) /* no primes here */
 1.00001.reduce = 1 /* round if number is close to an integer */
 1.5.reduce = 1.5 /* identity if number is not close to an integer */
-let x = (2 ^ 54); x != (x - 1) = false /* large numbers behave strangely */
-let x = (2.0 ^ 54.0); x != (x - 1.0) = false /* large numbers behave strangely */
+let x = (2L ^ 54); x != (x - 1) /* large integers */
+let x = (2.0 ** 54.0); x != (x - 1.0) = false /* large floats behave strangely */
 [-1, 0, 1].collect(printString/1) = ['-1', '0', '1']
 Infinity.printString = 'Infinity' /* Infinity prints as Infinity */
 (0 - Infinity).printString = '-Infinity'
@@ -3241,12 +3241,12 @@ Infinity.printString = 'Infinity' /* Infinity prints as Infinity */
 1.pi.storeString = '3.141592653589793'
 23.isInteger /* is a small float an integer */
 23.isSmallInteger /* is a small float a small integer */
-(2 ^ 53) = 9007199254740992L /* a small float that is an integer that is beyond the range of small integers */
-(2 ^ 53).isIeeeInteger /* is a small float an Ieee integer */
-(2 ^ 53).isSmallInteger = false /* is a small float a small integer */
+(2 ** 53) = 9007199254740992.0 /* a small float that is an integer that is beyond the range of small integers */
+(2 ** 53).isIeeeInteger /* is a small float an Ieee integer */
+(2 ** 53).isSmallInteger = false /* is a small float a small integer */
 23.assertIsSmallInteger = 23 /* require that a number be a small integer */
 { 3.141.assertIsSmallInteger }.hasError /* raise an error if value is not a small integer */
-{ (2 ^ 53).assertIsSmallInteger }.hasError
+{ (2 ** 53).assertIsSmallInteger }.hasError
 100.factorial / 99.factorial ~ 100 /* small float factorial */
 let n = 9007199254740992.0; n + 0.1 = n /* ieee floating point */
 9007199254740990.0 + 10.1 = 9007199254741000.1 /* ieee floating point */
@@ -3259,7 +3259,7 @@ let n = 23453456; (n * n).sqrt = n /* floating point square and square root */
 [2.5, 1.5] ^ [2, 4] = [6.25, 5.0625] /* array raised to array */
 10 ^ [-1, -2] = [0.1, 0.01] /* raised to negative numbers */
 2 ^ [1.5, 2.4, 2.9, -2.2] ~ [2.82843 5.27803 7.46426 0.21764] /* non integer exponents */
-2 ^ 100 = 1267650600228229401496703205376.0 /* ieee precision */
+2 ** 100 = 1267650600228229401496703205376.0 /* ieee precision */
 2L ^ 100L = 1267650600228229401496703205376L /* large integers */
 (1 / 2).printString = '0.5' /* division prints as floating point */
 1.0 = 1 /* there is no distinct integer type */

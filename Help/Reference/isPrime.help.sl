@@ -606,7 +606,7 @@ OEIS [A157242](https://oeis.org/A157242):
 		let c = a - (11 * (2 ^ x));
 		let d = 2.max(c).log2;
 		Range(1, c, 1).sum { :y |
-			let e = c - (2 ^ y);
+			let e = c - (2L ^ y);
 			(
 				e > 1 & {
 					e % 6 = 5 & {

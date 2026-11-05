@@ -6,13 +6,22 @@ Remove a listener for Open Sound Control messages from an Open Sound Control sou
 for instance `ScSynth`.
 
 ```
+>>> let f = { :oscMessage |
+>>> 	['onDone', oscMessage].printLine
+>>> };
+>>> system
+>>> .scSynth
+>>> .addOscListener(
+>>> 	'/done',
+>>> 	f/1
+>>> );
 >>> system
 >>> .scSynth
 >>> .removeOscListener(
 >>> 	'/done',
->>> 	workspace.onDone
->>> ).isBlock
-true
+>>> 	f/1
+>>> )
+f/1
 ```
 
 * * *

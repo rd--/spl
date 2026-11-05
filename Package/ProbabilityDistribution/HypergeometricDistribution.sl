@@ -18,9 +18,9 @@ HypergeometricDistribution : [Object, Equal, ProbabilityDistribution] {
 			(x > n).if {
 				0
 			} {
-				s.binomial(x)
-				* (t - s).binomial(n - x)
-				/ t.binomial(n)
+				binomial(s, x).L
+				* binomial(t - s, n - x).L
+				/ binomial(t, n).L
 			}
 		}
 	}
@@ -49,7 +49,7 @@ HypergeometricDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[@Integer, Symbol] {
 
 	HypergeometricDistribution { :n :s :t |
 		newHypergeometricDistribution().initializeSlots(n, s, t)

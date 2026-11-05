@@ -327,7 +327,8 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	workspaceVariableAssignment! { :self :aString :anObject |
-		self.workspaceVariableDictionary.put!(aString, anObject)
+		self.workspaceVariableDictionary.put!(aString, anObject);
+		nil
 	}
 
 	workspaceVariableDictionary { :self |

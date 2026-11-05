@@ -47,7 +47,8 @@ Quadratic irrational numbers have continued fractions that are ultimately period
 At `String`:
 
 ```
->>> 'abcdedede'.findTransientRepeat(2)
+>>> 'abcdedede'
+>>> .findTransientRepeat(2)
 ['abc' 'de']
 ```
 

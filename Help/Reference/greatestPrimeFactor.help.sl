@@ -89,7 +89,7 @@ Least inverse of the Kempner function,
 OEIS [A046021](https://oeis.org/A046021):
 
 ~~~spl svg=C oeis=A046021
-2:150.collect { :n |
+2L:150.collect { :n |
 	let p = n.greatestPrimeFactor;
 	let m = ((n - 1).log / p.log).floor;
 	let q = 1:m.sum { :k |

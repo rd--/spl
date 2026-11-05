@@ -165,15 +165,15 @@ OEIS [A028387](https://oeis.org/A028387):
 [1 5 11 19 29 41 55 71 89 109 131 155 181]
 ```
 
-Show _catastrophic cancellation_ in calculating sum of squares,
+Show _catastrophic cancellation_ in calculating floating point sum of squares,
 and compare to correct value obtained by the alternative factoring:
 
 ```
->>> let x = 1 + (2 ^ -29);
->>> let y = 1 + (2 ^ -30);
+>>> let x = 1 + (2 ** -29);
+>>> let y = 1 + (2 ** -30);
 >>> let a = x.square - y.square;
 >>> let b = (x + y) * (x - y);
->>> let c = (2 ^ -59) + (2 ^ -60);
+>>> let c = (2 ** -59) + (2 ** -60);
 >>> let d = a + c;
 >>> (a, b, c, d, a.isVeryClose(b))
 (
@@ -183,6 +183,11 @@ and compare to correct value obtained by the alternative factoring:
 	1.862645151833042E-9,
 	false
 )
+
+>>> let x = 1 + (2L ^ -29);
+>>> let y = 1 + (2L ^ -30);
+>>> x.square - y.square
+2147483651/1152921504606846976
 ```
 
 Binary expansion of square numbers,

@@ -8,7 +8,7 @@
 				1
 			} {
 				let list = List(self, nil);
-				list[1] := 1;
+				list[1] := 1L;
 				2.toDo(self) { :i |
 					1.toDo(i - 2) { :j |
 						let k = i - j - 1;

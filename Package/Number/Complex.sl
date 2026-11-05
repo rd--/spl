@@ -22,7 +22,14 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
 		aBlock(
-			Complex(SmallFloat(aFraction), 0),
+			Complex(aFraction, 0),
+			self
+		)
+	}
+
+	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
+		aBlock(
+			Complex(anInteger, 0),
 			self
 		)
 	}
@@ -462,21 +469,29 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 +SmallFloat {
 
-	Complex { :real :imaginary |
-		real.isNaN.if {
-			NaN
-		} {
-			imaginary.isSmallFloat.if {
-				imaginary.isNaN.if {
-					NaN
-				} {
-					uncheckedComplex(real, imaginary)
-				}
+	[Complex, J] { :real :imaginary |
+		imaginary.isSmallFloat.if {
+			[real, imaginary].anyTrue(isNaN/1).if {
+				NaN
 			} {
-				imaginary.adaptToNumberAndApply(real, Complex/2)
+				uncheckedComplex(real, imaginary)
 			}
+		} {
+			imaginary.adaptToNumberAndApply(real, Complex/2)
 		}
 	}
+
+	Polar { :rho :phi |
+		phi.isSmallFloat.if {
+			Complex(rho * phi.cos, rho * phi.sin)
+		} {
+			phi.adaptToNumberAndApply(rho, Polar/2)
+		}
+	}
+
+}
+
++@Integer {
 
 	GaussianInteger { :real :imaginary |
 		imaginary.isInteger.if {
@@ -489,33 +504,27 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
-	Polar { :rho :phi |
-		phi.isSmallFloat.if {
-			Complex(rho * phi.cos, rho * phi.sin)
-		} {
-			phi.adaptToNumberAndApply(rho, Polar/2)
-		}
-	}
-
-	uncheckedComplex { :real :imaginary |
-		newComplex().initializeSlots(real, imaginary)
-	}
-
 }
 
 +@Number {
 
 	[Complex, J] { :real :imaginary |
+		uncheckedComplex(
+			real,
+			imaginary
+		)
+		/*
 		Complex(
 			SmallFloat(real),
 			SmallFloat(imaginary)
 		)
+		*/
 	}
 
 	I { :self |
-		Complex(
+		uncheckedComplex(
 			0,
-			SmallFloat(self)
+			self /* SmallFloat(self) */
 		)
 	}
 
@@ -546,7 +555,11 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	[toComplex, realToComplex] { :self |
-		Complex(SmallFloat(self), 0)
+		Complex(self, 0)
+	}
+
+	uncheckedComplex { :real :imaginary |
+		newComplex().initializeSlots(real, imaginary)
 	}
 
 }

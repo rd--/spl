@@ -21,8 +21,8 @@ The largest small integer:
 >>> (2L ^ 53) - 1
 9_007_199_254_740_991L
 
->>> let x = 9_007_199_254_740_991;
->>> let y = x + 1;
+>>> let x = (2L ^ 53) - 1;
+>>> let y = SmallFloat(x + 1);
 >>> (y, y.isSmallInteger, y + 1 = y)
 (9_007_199_254_740_992.0, false, true)
 ```
@@ -33,8 +33,8 @@ The least negative small integer:
 >>> (-2L ^ 53) + 1
 -9_007_199_254_740_991L
 
->>> let x = -9_007_199_254_740_991;
->>> let y = x - 1;
+>>> let x = (-2L ^ 53) + 1;
+>>> let y = SmallFloat(x - 1);
 >>> (y, y.isSmallInteger, y - 1 = y)
 (-9_007_199_254_740_992.0, false, true)
 ```
@@ -46,7 +46,7 @@ must also be a small integer:
 _2^54_ and _20!_ are integers:
 
 ```
->>> (2 ^ 54).isIeeeInteger
+>>> (2 ** 54).isIeeeInteger
 true
 
 >>> 20.!.isLargeInteger
@@ -56,7 +56,7 @@ true
 _2^54_ and _20!_ are not small integers:
 
 ```
->>> (2 ^ 54).isSmallInteger
+>>> (2 ** 54).isSmallInteger
 false
 
 >>> 20.!.isSmallInteger
@@ -66,7 +66,7 @@ false
 _2^54_ and _20!_ are accurately represented:
 
 ```
->>> (2 ^ 54) = (2L ^ 54)
+>>> (2 ** 54) = (2L ^ 54)
 true
 
 >>> 20.! = 20L.!
@@ -76,10 +76,14 @@ true
 _2^54_ and _20!_ are not uniquely represented:
 
 ```
->>> (2 ^ 54) = (2 ^ 54 - 1)
+>>> SmallFloat(2L ^ 54)
+>>> =
+>>> SmallFloat(2L ^ 54 - 1)
 true
 
->>> (2L ^ 54) = (2L ^ 54 - 1)
+>>> (2L ^ 54)
+>>> =
+>>> (2L ^ 54 - 1)
 false
 
 >>> 20.!.isLargeInteger

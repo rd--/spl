@@ -5,18 +5,19 @@ A `SmallFloat` is an IEEE 754 64-bit floating point number.
 Integers from _−2 ^ 53_ to _2 ^ 53_ can be exactly represented.
 
 ```
->>> (-2 ^ 53, 2 ^ 53)
-(-9007199254740992L, 9007199254740992L)
-
 >>> (-2L ^ 53, 2L ^ 53)
 (-9007199254740992L, 9007199254740992L)
+
+>>> (SmallFloat(-2L ^ 53), SmallFloat(2L ^ 53))
+(-9007199254740992.0, 9007199254740992.0)
 ```
 
 `LargeInteger` has an implementation dependent maximum size:
 
 ```
->>> 47L ^ 47L
-3877924263464448622666648186154330754898344901344205917642325627886496385062863L
+>> 47L ^ 47L
+3877924263464448622666648186154330754898
+344901344205917642325627886496385062863L
 
 >>> { (99L ^ (99L ^ 99)) }.hasError
 true
@@ -29,9 +30,10 @@ true
 >>> (1 + x) > x
 true
 
->>> let x = 2 ^ -53;
->>> (1 + x) = 1
-true
+>>> let x = 2L ^ -53;
+>>> let y = SmallFloat(x);
+>>> (x, (1 + y) = 1)
+(1/9007199254740992, true)
 ```
 
 Print a `SmallFloat` to a specified precision:

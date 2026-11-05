@@ -8,18 +8,16 @@ When an osc message is received with the specified address _a_,
 the block _f_ is applied to the message.
 
 ```
->>> workspace.onDone := (
->>> 	system
->>> 	.scSynth
->>> 	.addOscListener(
->>> 		'/done',
->>> 		{ :oscMessage |
->>> 			['onDone', oscMessage].printLine
->>> 		}
->>> 	)
->>> );
->>> nil
-nil
+>>> let f = { :oscMessage |
+>>> 	['onDone', oscMessage].printLine
+>>> };
+>>> system
+>>> .scSynth
+>>> .addOscListener(
+>>> 	'/done',
+>>> 	f/1
+>>> )
+f/1
 ```
 
 * * *

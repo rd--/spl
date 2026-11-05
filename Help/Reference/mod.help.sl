@@ -124,7 +124,7 @@ Note errors in floating point math:
 >>> 3L ^ 41 % 13
 9
 
->>> 3 ^ 41 % 13
+>>> SmallFloat(3L ^ 41) % 13
 8
 ```
 
@@ -1402,7 +1402,7 @@ OEIS [A003558](https://oeis.org/A003558):
 	let m = 1;
 	{
 		let a = 2 * n;
-		let b = (2 ^ m) % (a + 1);
+		let b = (2L ^ m) % (a + 1);
 		b = 1 | { b = a }
 	}.whileFalse {
 		m := m + 1

@@ -45,6 +45,13 @@ Fraction not-a-number becomes `NaN` on construction:
 (false, true)
 ```
 
+Threads over lists:
+
+```
+>>> [NaN Infinity].isNaN
+[true false]
+```
+
 * * *
 
 See also: NaN, SmallFloat, isFinite, isNaN

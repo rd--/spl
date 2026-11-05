@@ -300,7 +300,7 @@ OEIS [A368010](https://oeis.org/A368010):
 
 ~~~spl svg=S oeis=A368010
 let n = 0:115.!;
-(n // (10 ^ n.log10.floor))
+(n // (10L ^ n.log10.floor))
 .ordinalTransform.discretePlot
 ~~~
 

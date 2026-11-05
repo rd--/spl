@@ -4,6 +4,14 @@
 
 Answer the A-weighting curve used for measuring perceived loudness of sound.
 
+```
+>>> 0.aWeightingCurve
+0
+
+>>> 444.75.aWeightingCurve
+0.5
+```
+
 Linear plot:
 
 ~~~spl svg=A

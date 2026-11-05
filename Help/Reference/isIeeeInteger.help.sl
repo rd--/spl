@@ -6,10 +6,12 @@ Answer `true` if the `SmallFloat` _x_ is an integer,
 though it would answer `false` to `isInteger`.
 
 ```
->>> (2 ^ 54).isIeeeInteger
+>>> SmallFloat(2L ^ 54)
+>>> .isIeeeInteger
 true
 
->>> (2 ^ 54).isInteger
+>>> SmallFloat(2L ^ 54)
+>>> .isInteger
 false
 ```
 

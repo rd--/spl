@@ -138,15 +138,11 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 
 }
 
-+SmallFloat {
++@Number {
 
 	Quantity { :magnitude :unit |
 		newQuantity().initializeSlots(magnitude, unit)
 	}
-
-}
-
-+SmallFloat {
 
 	hertz { :self |
 		Quantity(self, 'hertz') /* Hz */

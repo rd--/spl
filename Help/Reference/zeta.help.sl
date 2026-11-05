@@ -41,6 +41,9 @@ Threads over lists:
 	1.08232
 	1.10941
 ]
+
+>>> [1.1 -4 0.5 NaN].zeta
+[10.5844 0 -1.4604 NaN]
 ```
 
 At integer arguments:
@@ -185,7 +188,7 @@ Plot over a subset of the reals:
 Plot the real part of the zeta function on the critical line:
 
 ~~~spl svg=B
-(1 -- 50).functionPlot { :t |
+(1 -- 45).functionPlot { :t |
 	zeta(0.5 + t.I).real
 }
 ~~~

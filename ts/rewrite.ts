@@ -25,8 +25,9 @@ function isSplArityQualifiedName(s: string): boolean {
 }
 
 function isJsArityQualifiedName(s: string): boolean {
-	const isSpecialSplVar = s.startsWith('__SplVar');
-	return !isSpecialSplVar && s.includes('_', 1);
+	// console.debug('isJsArityQualifiedName', s);
+	const isSpecialVar = s.startsWith('__Spl'); /* __SplVar or __SplUnused */
+	return !isSpecialVar && s.includes('_', 1);
 }
 
 function jsArityQualifiedNameParseArity(s: string): boolean {

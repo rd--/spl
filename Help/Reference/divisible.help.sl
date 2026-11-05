@@ -132,14 +132,14 @@ OEIS [A087811](https://oeis.org/A087811):
 ```
 
 Smaller numbers are not divisible by large numbers,
-although floating point modulo may suggest they are:
+although floating point calculations with approximate large numbers may suggest they are:
 
 ```
 >>> 233.divisible(133L ^ 133)
 false
 
->>> 233.0 % (133.0 ^ 133.0)
-0.0
+>>> 233 % SmallFloat(133L ^ 133)
+0
 
 >>> 233L % (133L ^ 133L)
 233L

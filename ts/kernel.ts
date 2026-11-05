@@ -782,19 +782,13 @@ export function stringToSentences(str: string): Array<string> {
 	) || [];
 }
 
-export function checkSmallFloatOverflow(a: number, b: number, x: number): void {
-	if (Number.isFinite(a) && Number.isFinite(b)) {
-		if (Math.abs(x) > 9_007_199_254_740_991) {
-			/*console.warn(`**** Check Small Float Overflow: ${x}`);*/
-			if (
-				Number.isFinite(x) && Number.isSafeInteger(a) && Number.isSafeInteger(b)
-			) {
-				console.log(
-					`!!!! Check Small Float Overflow: ${x}: Finite & both safe integers`,
-				);
-				/*throw new Error('checkSmallFloatOverflow: finite & integers');*/
-			}
-		}
+export function checkSmallIntegerOverflow(a: number, b: number, x: number, o: string, f: Function): void {
+	if (Number.isSafeInteger(a) && Number.isSafeInteger(b) && !Number.isSafeInteger(x)) {
+		const y = f(BigInt(a), BigInt(b));
+		console.debug(
+			`**** Check Small Integer Overflow: ${a} ${o} ${b} = ${x}: True answer ${y}`
+		);
+		throw new Error('checkSmallIntegerOverflow: overflow');
 	}
 }
 

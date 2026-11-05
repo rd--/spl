@@ -1704,7 +1704,7 @@
 	inverseBinomialTransform { :b/1 |
 		{ :n |
 			0.to(n).sum { :k |
-				(-1 ^ (n - k)) * binomial(n, k) * b(k)
+				(-1L ^ (n - k)) * binomial(n, k) * b(k)
 			}
 		}
 	}

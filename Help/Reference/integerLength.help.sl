@@ -125,7 +125,7 @@ Plot for base 2 from 1 to 1023:
 Plot for base 10 for factorials, minus pre-factorial value:
 
 ~~~spl svg=C
-1:50.functionPlot { :x |
+1L:50.functionPlot { :x |
 	x.!.integerLength(10) - x
 }
 ~~~

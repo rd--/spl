@@ -82,7 +82,7 @@ Implement the Frisch continuous-but-nowhere-differentiable function:
 
 ~~~spl svg=B
 let f = { :x :n |
-	1:n.sum { :k |
+	1L:n.sum { :k |
 		let a = (k * x).integerPart;
 		let b = ((k + 1) * x).integerPart;
 		(a = b).boole / (2 ^ k)

@@ -5,7 +5,7 @@
 	}
 
 	inAstronomicalUnits { :self |
-		self.inMetres / (1.495978707 * (10 ^ 11))
+		self.inMetres / 1.495978707E11
 	}
 
 	inCentimetres { :self |
@@ -25,7 +25,7 @@
 	}
 
 	inLightYears { :self |
-		self.inMetres / (9.4607 * (10 ^ 15))
+		self.inMetres / 9.4607E15
 	}
 
 	inMetres { :self |
@@ -53,7 +53,7 @@
 	}
 
 	inParsecs { :self |
-		self.inMetres / (3.0857 * (10 ^ 16))
+		self.inMetres / 3.0857E16
 	}
 
 	inPicas { :self |
@@ -74,22 +74,18 @@
 
 }
 
-+SmallFloat {
++@Number {
 
 	Length { :self |
 		Quantity(self, 'metre')
 	}
-
-}
-
-+@Number {
 
 	angstroms { :self |
 		(self * 1E-10).metres
 	}
 
 	astronomicalUnits { :self |
-		(self * (1.495978707 * (10 ^ 11))).metres
+		(self * 1.495978707E11).metres
 	}
 
 	centimetres { :self |
@@ -109,7 +105,7 @@
 	}
 
 	lightYears { :self |
-		(self * (9.4607 * (10 ^ 15))).metres
+		(self * 9.4607E15).metres
 	}
 
 	miles { :self |
@@ -129,7 +125,7 @@
 	}
 
 	parsecs { :self |
-		(self * (3.0857 * (10 ^ 16))).metres
+		(self * 3.0857E16).metres
 	}
 
 	picas { :self |

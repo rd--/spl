@@ -345,7 +345,7 @@ OEIS [A054244](https://oeis.org/A054244):
 let f = { :n |
 	0:n.sum { :k |
 		let a = binomial(n, k);
-		let b = 2 ^ (2 ^ (n - k));
+		let b = 2L ^ (2 ^ (n - k));
 		(-1 ^ k) * a * b
 	} / 2
 };

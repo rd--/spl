@@ -10,10 +10,10 @@ values that are not small integers _must_ be written as real numbers,
 or as large integers:
 
 ```
->>> 2 ^ 53 - 1
+>>> 2L ^ 53 - 1
 9007199254740991
 
->>> 9007199254740991 + 1
+>>> 9007199254740991L + 1
 9007199254740992.0
 
 >>> 9007199254740991L + 1

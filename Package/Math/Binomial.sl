@@ -61,6 +61,7 @@
 	}
 
 	trinomial { :n :k |
+		n := n.round(1E-16);
 		0.to(n).sum { :i |
 			binomial(n, i)
 			*
@@ -69,10 +70,18 @@
 	}
 
 	uncheckedBinomialGamma { :n :k |
-		let a = (n + 1).gamma;
-		let b = (k + 1).gamma;
-		let c = (n - k + 1).gamma;
-		a / (b * c)
+		(
+			n.isInteger & {
+				k.isInteger
+			}
+		).if {
+			binomial(n, k)
+		} {
+			let a = (n + 1).gamma;
+			let b = (k + 1).gamma;
+			let c = (n - k + 1).gamma;
+			a / (b * c)
+		}
 	}
 
 }

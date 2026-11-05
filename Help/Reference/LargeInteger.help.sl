@@ -21,8 +21,10 @@ It is an error if the value is not a small integer:
 >>> }.hasError
 true
 
+>>> let a = 2L ^ 56;
+>>> let b = SmallFloat(a);
 >>> {
->>> 	LargeInteger(2 ^ 56)
+>>> 	LargeInteger(b)
 >>> }.hasError
 true
 ```

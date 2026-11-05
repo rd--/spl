@@ -48,8 +48,9 @@ Large exponent:
 
 ```
 >>> let n = 1023;
->>> let x = (2 ^ n).fractionExponent;
->>> let y = 0.5 * (2 ^ 1) * (2 ^ n);
+>>> let m = SmallFloat(2L ^ n);
+>>> let x = m.fractionExponent;
+>>> let y = 0.5 * (2 ^ 1) * m;
 >>> (x, y)
 ([0.5 1024], 8.988E+307)
 
@@ -58,7 +59,7 @@ Large exponent:
 >>> (x.integerLength(10), x = y)
 (308, true)
 
->>> let x = 2 ^ 1023;
+>>> let x = SmallFloat(2L ^ 1023);
 >>> let y = ldexp(0.5, 1024);
 >>> (x, x = y)
 (8.988E+307, true)

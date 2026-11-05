@@ -218,16 +218,16 @@ Length equivalences:
 92955807.miles
 
 >>> 1.lightYears
-9460700000000.kilometres
+9460700000000L.kilometres
 
 >>> 1.lightYears
-63241.astronomicalUnits
+63241L.astronomicalUnits
 
 >>> 1.parsecs
 3.2615.lightYears
 
 >>> 1.parsecs
-206266.astronomicalUnits
+206266L.astronomicalUnits
 
 >>> 3000.picometres
 3.nanometres

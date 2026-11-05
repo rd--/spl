@@ -77,7 +77,7 @@ further terms are innacurate,
 OEIS [A000594](https://oeis.org/A000594):
 
 ~~~spl svg=B oeis=A000594
-1:85
+1L:85
 .collect(ramanujanTau/1)
 .discretePlot.logScale
 ~~~

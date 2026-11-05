@@ -53,6 +53,21 @@ The operator form is `**`:
 -0.353553
 ```
 
+In addition,
+this method at `SmallFloat` does not consider integer values specially,
+and will not report integer overflow:
+
+```
+>>> 2L ^ 59
+576460752303423488L
+
+>>> 2 ** 59
+576460752303423500.0
+
+>>> SmallFloat(2L ^ 59)
+576460752303423500.0
+```
+
 Symmetric power with _x=-0.25_ and _y_ in _0,1_:
 
 ~~~spl svg=A

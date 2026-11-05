@@ -228,7 +228,7 @@ Plot sums of digits:
 	stirlingS2(n, m)
 	.integerDigits
 	.sum
-}.table(2:17, 2:17).matrixPlot
+}.table(2L:17, 2:17).matrixPlot
 ~~~
 
 ![](Help/Image/stirlingS2-A.svg)
@@ -238,7 +238,7 @@ Plot parity:
 ~~~spl svg=B
 { :n :m |
 	stirlingS2(n, m) % 2
-}.table(2:23, 2:23).matrixPlot
+}.table(2L:23, 2:23).matrixPlot
 ~~~
 
 ![](Help/Image/stirlingS2-B.svg)
@@ -247,7 +247,7 @@ The triangle of Stirling numbers of the second kind,
 OEIS [A008277](https://oeis.org/A008277):
 
 ~~~spl svg=C oeis=A008277
-1:17.triangularArray(stirlingS2/2)
+1L:17.triangularArray(stirlingS2/2)
 .catenate.scatterPlot.log
 ~~~
 
@@ -257,7 +257,7 @@ The _n_-th derivative of the logistic function,
 OEIS [A163626](https://oeis.org/A163626):
 
 ~~~spl svg=D oeis=A163626
-0:17.triangularArray { :n :k |
+0L:17.triangularArray { :n :k |
 	(-1 ^ k)
 	*
 	k.!
@@ -272,7 +272,7 @@ Reflected triangle of Stirling numbers of the second kind,
 OEIS [A008278](https://oeis.org/A008278):
 
 ~~~spl svg=E oeis=A008278
-(1 .. 23).collect { :n |
+(1L .. 23).collect { :n |
 	(n .. 1; -1).collect { :k |
 		n.stirlingS2(k)
 	}

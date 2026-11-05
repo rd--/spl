@@ -22,14 +22,14 @@ Assign workspace variable,
 answers the assigned value:
 
 ```
->>> let x = workspace.x := 23;
->>> x
-23
+>>> let a = workspace.x := 23;
+>>> (a, workspace.x)
+(nil, 23)
 
->>> system
->>> .workspaceVariableDictionary['x']
->>> := 23
-23
+>>> let d = system.workspaceVariableDictionary;
+>>> let a = d['x'] := 23;
+>>> (a, d['x'])
+(23, 23)
 ```
 
 Reference workspace variable:

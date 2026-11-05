@@ -48,7 +48,7 @@ let s = 2L ^ a[1];
 			}
 		).ifTrue {
 			a := a ++ [q, r];
-			s := s + (2 ^ q) + (2 ^ r);
+			s := s + (2L ^ q) + (2L ^ r);
 			break()
 		};
 		k := k + 1

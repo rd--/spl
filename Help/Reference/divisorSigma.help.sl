@@ -599,7 +599,7 @@ Product of the proper divisors of _n_,
 OEIS [A007956](https://oeis.org/A007956):
 
 ~~~spl svg=K oeis=A007956
-1:200.collect { :n |
+1L:200.collect { :n |
 	n ^ (0.divisorSigma(n) / 2 - 1)
 }.scatterPlot.log
 ~~~

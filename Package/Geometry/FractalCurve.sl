@@ -434,7 +434,7 @@
 
 	weierstrassFunction { :x :a :b :n |
 		0.toCollect(n) { :i |
-			(a ^ i) * ((b ^ i) * x.pi).cos
+			(a ** i) * ((b ** i) * x.pi).cos
 		}.sum
 	}
 

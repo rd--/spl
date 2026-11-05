@@ -171,6 +171,7 @@
 		};
 		a * (b + (c * d))
 	}
+
 }
 
 +[SmallFloat, Complex] {

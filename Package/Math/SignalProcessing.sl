@@ -1,19 +1,19 @@
 +SmallFloat {
 
 	aWeightingCurve { :x |
-		let a = (12194 ^ 2) * (x ^ 4);
+		let a = (x ** 4) * (12194L ^ 2);
 		let b = (x ^ 2) + (20.6 ^ 2);
 		let c = (x ^ 2) + (107.7 ^ 2);
 		let d = (x ^ 2) + (737.9 ^ 2);
-		let e = (x ^ 2) + (12194 ^ 2);
+		let e = (x ** 2) + (12194L ^ 2);
 		a / (b * (c * d).sqrt * e)
 	}
 
 	bWeightingCurve { :x |
-		let a = (12194 ^ 2) * (x ^ 3);
+		let a = (x ** 3) * (12194L ^ 2);
 		let b = (x ^ 2) + (20.6 ^ 2);
 		let c = (x ^ 2) + (158.5 ^ 2);
-		let d = (x ^ 2) + (12194 ^ 2);
+		let d = (x ** 2) + (12194L ^ 2);
 		a / (b * c.sqrt * d)
 	}
 

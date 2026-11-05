@@ -3,7 +3,6 @@
 - _arcCoth(z)_
 
 Answers the inverse hyperbolic secant of the complex number _z_.
-Not defined for real _z_ in _(-1,1)_.
 
 `SmallFloat` arguments:
 
@@ -13,8 +12,14 @@ Not defined for real _z_ in _(-1,1)_.
 
 >>> 2.arcCoth
 0.549306
+```
 
->>> 0.arcCoth.isNaN
+Not defined for real _z_ in _(-1,1)_:
+
+```
+>>> [-0.99 .. 0.99; 0.01]
+>>> .arcCoth
+>>> .allTrue(isNaN/1)
 true
 ```
 
@@ -36,6 +41,11 @@ Infinity
 ```
 >>> 2.5J1.arcCoth
 0.351336J-0.154851
+
+>>> [-1J0 0J0 1J0]
+>>> .arcCoth
+>>> .allTrue(isNaN/1)
+true
 ```
 
 Threads elementwise over lists:
@@ -62,7 +72,13 @@ Plot over a subset of the reals:
 Plot of complex `arcCoth` function:
 
 ~~~spl png=B
-[-5J-5 5J5].complexPlot(arcCoth/1)
+[-5J-5 5J5].complexPlot { :x |
+	(x ~ 0).if {
+		NaN
+	} {
+		x.arcCoth
+	}
+}
 ~~~
 
 ![](Help/Image/arcCoth-B.png)

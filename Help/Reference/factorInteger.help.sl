@@ -59,8 +59,9 @@ The answer is sorted by factor.
 At `SmallFloat` requires _n_ be a small integer:
 
 ```
+>>> let x = SmallFloat(3L ^ 51);
 >>> {
->>> 	(3 ^ 51).factorInteger
+>>> 	x.factorInteger
 >>> }.hasError
 true
 
@@ -541,7 +542,7 @@ OEIS [A122111](https://oeis.org/A122111):
 	1:m.product { :i |
 		p.sum { :j |
 			(j >= i).boole
-		}.prime
+		}.prime.L
 	}
 }.scatterPlot.log
 ~~~

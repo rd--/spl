@@ -6,22 +6,6 @@ and the line _l_ moves in positive steps first along the _z_ axis,
 then the _y_ axis,
 then lastly the _x_ axis.
 
-~~~spl definition
-workspace.perspectiveScene := [
-	[	-2 -1 0;
-		+2 -1 0;
-		+2 +1 0;
-		-2 +1 0
-	].Polygon,
-	[
-		0 0 0;
-		0 0 1;
-		0 1 1;
-		1 1 1
-	].Line
-].GeometryCollection
-~~~
-
 One convention is that
 _x_ is back to front,
 _y_ is left to right, and
@@ -34,6 +18,19 @@ then right (_y_),
 then toward the front (_x_):
 
 ~~~spl svg=A
+workspace.perspectiveScene := [
+	[	-2 -1 0;
+		+2 -1 0;
+		+2 +1 0;
+		-2 +1 0
+	].Polygon,
+	[
+		0 0 0;
+		0 0 1;
+		0 1 1;
+		1 1 1
+	].Line
+].GeometryCollection;
 PerspectiveDrawing(
 	workspace.perspectiveScene,
 	AxonometricProjection[

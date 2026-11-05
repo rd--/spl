@@ -14,7 +14,7 @@ true
 >>> 3.141.isExact
 false
 
->>> (2 ^ 54).isExact
+>>> (2 ** 54).isExact
 false
 ```
 

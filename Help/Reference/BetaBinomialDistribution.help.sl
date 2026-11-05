@@ -8,7 +8,7 @@ Also known as a Pólya distribution.
 Probability mass function, varying α:
 
 ~~~spl svg=A
-(0 -- 20).functionPlot(
+(0 -- 19.5).functionPlot(
 	[0.5 1 3].collect { :alpha |
 		BetaBinomialDistribution(
 			alpha, 0.3, 20
@@ -22,7 +22,7 @@ Probability mass function, varying α:
 Probability mass function, varying β:
 
 ~~~spl svg=B
-(0 -- 20).functionPlot(
+(0 -- 19.5).functionPlot(
 	[0.5 2 3].collect { :beta |
 		BetaBinomialDistribution(
 			1.2, beta, 20

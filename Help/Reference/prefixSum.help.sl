@@ -225,7 +225,7 @@ Product of cumulative sums of divisors of _n_,
 OEIS [A197410](https://oeis.org/A197410):
 
 ~~~spl svg=G oeis=A197410
-1:85.collect { :n |
+1L:85.collect { :n |
 	n.divisors.prefixSum.product
 }.discretePlot.log
 ~~~

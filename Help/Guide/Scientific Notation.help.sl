@@ -45,14 +45,14 @@ The Planck length in metres:
 
 ```
 >>> 1.6E-35
-1.6 * (10 ^ -35)
+1.6 * (10L ^ -35)
 ```
 
 The Avogadro number:
 
 ```
 >>> 6.022E23
-6.022 * (10 ^ 23)
+6.022 * (10L ^ 23)
 ```
 
 The parser does not require that _1 <= a < 10_:

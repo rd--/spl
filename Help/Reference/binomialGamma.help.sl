@@ -54,6 +54,13 @@ Written out:
 )
 ```
 
+At integer arguments:
+
+```
+>>> binomialGamma(2, 5)
+0
+```
+
 Plot the binomial as a function of its parameter _n_:
 
 ~~~spl svg=A
