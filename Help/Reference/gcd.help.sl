@@ -83,8 +83,10 @@ Gcd threads elementwise over lists:
 Compute for large integers:
 
 ```
->>> [20L.factorial, 10L ^ 100 + 3].gcd
-7L
+>>> let a = 20.factorial;
+>>> let b = 10 ^ 100 + 3;
+>>> gcd(a, b)
+7
 ```
 
 In a divisibility network, two numbers are connected if they share a common divisor:
@@ -303,7 +305,7 @@ Greatest common divisor of _n!_ and _n^n_,
 OEIS [A051696](http://oeis.org/A051696):
 
 ~~~spl svg=I oeis=A051696
-(1L .. 200L).collect { :n |
+(1 .. 200).collect { :n |
 	gcd(n.!, n ^ n)
 }.scatterPlot.log
 ~~~
@@ -329,7 +331,7 @@ OEIS [A014491](https://oeis.org/A014491):
 ~~~spl svg=K oeis=A014491
 (
 	1:100.collect { :n |
-		n.gcd(2L ^ n - 1)
+		n.gcd(2 ^ n - 1)
 	} - 1
 ).discretePlot
 ~~~
@@ -376,7 +378,7 @@ let t = { :n :m |
 	} {
 		let a = t(n - 1, m);
 		let b = t(n - 1, m + 1);
-		a * b / (gcd(a, b) ^ 2L)
+		a * b / (gcd(a, b) ^ 2)
 	}
 };
 0:12.triangularArray { :d :n |

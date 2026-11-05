@@ -11,7 +11,7 @@ Approximate an infinite sum numerically:
 
 ```
 >>> { :i |
->>> 	-5L ^ i / i.factorial
+>>> 	-5 ^ i / i.factorial
 >>> }.convergentSeries(0)
 0.00673795
 
@@ -23,12 +23,12 @@ Sum the even terms of a series:
 
 ```
 >>> { :i |
->>> 	1L / (2L ^ i)
->>> }.convergentSeries(0, Infinity, 2, 10L ^ -16, +)
+>>> 	1 / (2 ^ i)
+>>> }.convergentSeries(0, Infinity, 2, 10 ^ -16, +)
 1.33333
 
 >>> { :i |
->>> 	1 / (2L ^ (2 * i))
+>>> 	1 / (2 ^ (2 * i))
 >>> }.convergentSeries(0)
 1.33333
 ```
@@ -46,14 +46,14 @@ Maclaurin series for calculating the error function,
 this requires working with very large fractional numbers:
 
 ```
->>> let z = Complex(7/2, -5/2);
+>>> let z = 3.5J-2.5;
 >>> let c = 2 / 1.pi.sqrt;
 >>> c * { :n |
 >>> 	let m = 2 * n + 1;
 >>> 	let a = ((-1 ^ n) * (z ^ m));
 >>> 	let b = (n.factorial * m);
 >>> 	a / b
->>> }.convergentSeries(0L)
+>>> }.convergentSeries(0)
 0.9997653J0.0002203
 
 >>> 3.5J-2.5.erf

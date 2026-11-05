@@ -18,10 +18,10 @@ false
 The largest small integer:
 
 ```
->>> (2L ^ 53) - 1
+>>> (2 ^ 53) - 1
 9_007_199_254_740_991L
 
->>> let x = (2L ^ 53) - 1;
+>>> let x = (2 ^ 53) - 1;
 >>> let y = SmallFloat(x + 1);
 >>> (y, y.isSmallInteger, y + 1 = y)
 (9_007_199_254_740_992.0, false, true)
@@ -30,10 +30,10 @@ The largest small integer:
 The least negative small integer:
 
 ```
->>> (-2L ^ 53) + 1
+>>> (-2 ^ 53) + 1
 -9_007_199_254_740_991L
 
->>> let x = (-2L ^ 53) + 1;
+>>> let x = (-2 ^ 53) + 1;
 >>> let y = SmallFloat(x - 1);
 >>> (y, y.isSmallInteger, y - 1 = y)
 (-9_007_199_254_740_992.0, false, true)
@@ -63,33 +63,37 @@ false
 false
 ```
 
-_2^54_ and _20!_ are accurately represented:
+_2^54_ is accurately represented:
 
 ```
->>> (2 ** 54) = (2L ^ 54)
-true
+>>> let a = 2 ^ 54;
+>>> let b = 2 ** 54;
+>>> (a = b, a == b)
+(true, false)
 
->>> 20.! = 20L.!
-true
+>>> let a = 20.!;
+>>> let b = SmallFloat(a);
+>>> (a = b, a == b)
+(true, false)
 ```
 
 _2^54_ and _20!_ are not uniquely represented:
 
 ```
->>> SmallFloat(2L ^ 54)
->>> =
->>> SmallFloat(2L ^ 54 - 1)
+>>> let a = SmallFloat(2 ^ 54);
+>>> a = (a - 1)
 true
 
->>> (2L ^ 54)
->>> =
->>> (2L ^ 54 - 1)
+>>> let a = (2 ^ 54);
+>>> a = (a - 1)
 false
 
->>> 20.!.isLargeInteger
+>>> let a = SmallFloat(20.!);
+>>> a = (a - 1)
 true
 
->>> 20.! = (20.! - 1)
+>>> let a = 20.!;
+>>> a = (a - 1)
 false
 ```
 
@@ -100,7 +104,7 @@ answers `true` is the value is an integer and if that integer is a safe integer:
 >>> 23L.isSmallInteger
 true
 
->>> let x = (2L ^ 54);
+>>> let x = (2 ^ 54);
 >>> (x.isInteger, x.isSmallInteger)
 (true, false)
 
@@ -111,7 +115,7 @@ true
 >>> (x.isInteger, x.isSmallInteger)
 (false, false)
 
->>> let x = Fraction(2L ^ 54, 1);
+>>> let x = Fraction(2 ^ 54, 1);
 >>> (x.isInteger, x.isSmallInteger)
 (true, false)
 

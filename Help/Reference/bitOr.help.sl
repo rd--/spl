@@ -22,7 +22,7 @@ Answers the bitwise or of the integers _i_ and _j_.
 At `LargeInteger`:
 
 ```
->>> (3L ^ 40).bitOr(5L ^ 40)
+>>> (3 ^ 40).bitOr(5 ^ 40)
 9094947020656640004005559649L
 ```
 

@@ -248,6 +248,11 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	[divide, /] { :self :operand |
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
+			/*
+			if(Number.isInteger(_self) && Number.isInteger(_operand)) {
+				return _Fraction_2(_self, _operand);
+			}
+			*/
 			return _self / _operand;
 		}
 		>

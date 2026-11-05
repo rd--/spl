@@ -23,7 +23,7 @@ seed _s_.
 The first four states given parameters for the Knuth MMIX generator:
 
 ```
->>> let m = 2L ^ 64;
+>>> let m = 2 ^ 64;
 >>> let a = 6364136223846793005L;
 >>> let c = 1442695040888963407L;
 >>> let r = LinearCongruential([a c m], 1);

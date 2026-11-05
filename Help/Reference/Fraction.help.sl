@@ -256,7 +256,7 @@ a `Fraction` whose elements are of type `LargeInteger` will behave ordinarily.
 The `Fraction` constructor constructs fractions with `LargeInteger` components.
 
 ```
->>> let x = Fraction(2L ^ 55L, 2);
+>>> let x = Fraction(2 ^ 55, 2);
 >>> (x, x - 1, x = (x - 1))
 (
 	18014398509481984/1,

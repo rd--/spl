@@ -331,7 +331,20 @@ const asJs: ohm.ActionDict<string> = {
 		return `_${rewriteInPlaceName(c1, cN, ip)}_${a.sourceString}`;
 	},
 	floatLiteral(s, i, _, f) {
-		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
+		const sStr = s.sourceString;
+		const iStr = i.sourceString;
+		const fStr = f.sourceString;
+		/*
+		if(fStr === '0') {
+			const k = 14 - iStr.length;
+			if(k > 0) {
+				const extendedF = fStr.padEnd(k, '0') + '1';
+				console.debug('floatLiteral', sStr, iStr, fStr, extendedF);
+				return `${s.sourceString}${iStr}.${extendedF}`;
+			}
+		};
+		*/
+		return `${s.sourceString}${iStr}.${fStr}`;
 	},
 	infinityLiteral(s, i) {
 		return s.sourceString + i.sourceString;

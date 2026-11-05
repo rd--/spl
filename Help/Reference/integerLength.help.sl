@@ -187,7 +187,7 @@ The number of decimal digits of _4^n_,
 OEIS [A210434](https://oeis.org/A210434):
 
 ~~~spl svg=H oeis=A210434
-(4L ^ 1:85).integerLength(10)
+(4 ^ 1:85).integerLength(10)
 .discretePlot
 ~~~
 

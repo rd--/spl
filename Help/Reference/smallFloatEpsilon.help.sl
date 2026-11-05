@@ -18,7 +18,7 @@ answers _n_ times ε:
 true
 ```
 
-For numbers smaller than this value the answer will equal `one`:
+For numbers smaller than this value the answer will equal to `one`:
 
 ```
 >>> let x = 0.5.smallFloatEpsilon;
