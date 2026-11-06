@@ -1,4 +1,4 @@
-+SmallFloat {
++[SmallFloat, LargeInteger] {
 
 	beta { :self :aNumber |
 		aNumber.isCollection.if {
@@ -70,17 +70,17 @@
 		/* Jose Bernardo, Algorithm AS 103, Applied Statistics 25/3, 1976 */
 		(z <= 0.000001).if {
 			let eulerMascheroni = 0.57721566490153286060;
-			0 - eulerMascheroni - (1 / z) + (1.6449340668482264365 * z)
+			0.0 - eulerMascheroni - (1.0 / z) + (1.6449340668482264365 * z)
 		} {
-			let answer = 0;
+			let answer = 0.0;
 			{ z < 8.5 }.whileTrue {
-				answer := answer - (1 / z);
-				z := z + 1
+				answer := answer - (1.0 / z);
+				z := z + 1.0
 			};
-			let r = 1 / z;
+			let r = 1.0 / z;
 			answer := answer + z.log - (0.5 * r);
 			r := r * r;
-			answer - (r * (1 / 12 - (r * (1 / 120 - (r * (1 / 252 - (r * (1 / 240 - (r * (1 / 132))))))))))
+			answer - (r * (1.0 / 12.0 - (r * (1.0 / 120.0 - (r * (1.0 / 252.0 - (r * (1.0 / 240.0 - (r * (1.0 / 132.0))))))))))
 		}
 	}
 

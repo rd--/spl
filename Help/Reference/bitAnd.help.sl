@@ -19,7 +19,7 @@ Answers the bitwise and of the integers _i_ and _j_.
 It is an `error` if _i_ answers `false` to `isBinary`:
 
 ```
->>> 13.factorial.isBinary
+>>> SmallFloat(13.factorial).isBinary
 false
 
 >>> 13.factorial.bitLength
@@ -29,6 +29,9 @@ false
 >>> 	13.factorial.bitAnd(127)
 >>> }.hasError
 true
+
+>>> 13L.factorial.bitAnd(127)
+0
 ```
 
 At `LargeInteger`:

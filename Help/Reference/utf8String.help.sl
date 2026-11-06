@@ -6,10 +6,12 @@ Answer a String of the Utf-8 decoding of _b_,
 which must be a valid Utf-8 sequence.
 
 ```
->>> [226 130 172].utf8String
+>>> [226 130 172]
+>>> .utf8String
 '€'
 
->>> '€'.utf8ByteArray.utf8String
+>>> '€'.utf8ByteArray
+>>> .utf8String
 '€'
 ```
 

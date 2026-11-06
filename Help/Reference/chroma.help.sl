@@ -8,7 +8,7 @@ Method _R_ answers the difference between the minima and maxima of _(r,g,b)_.
 Method _P_ answers a polar coordinate based chromathe differences between the minima and maxima of _(r,g,b)_.
 
 ```
->>> let c = RgbColour([0.75 1 0.75], 1);
+>>> let c = RgbColour([0.75 1.0 0.75], 1.0);
 >>> (c.chroma('R'), c.chroma('P'))
 (1/4, 1/4)
 ```
@@ -26,7 +26,7 @@ The values are not always equal:
 Threads over lists:
 
 ```
->>> [1.red 1.green 1.blue]
+>>> [1.0.red 1.0.green 1.0.blue]
 >>> .chroma('R')
 [1 1 1]
 ```

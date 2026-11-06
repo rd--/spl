@@ -13,7 +13,10 @@ SoundFile! : [Object, Equal] {
 	}
 
 	channelData { :self :index |
-		<primitive: return _self.channelData(_index - 1);>
+		<primitive:
+		const zeroIndex = sl.toFloat(_index) - 1;
+		return _self.channelData(zeroIndex);
+		>
 	}
 
 	interleavedData { :self |

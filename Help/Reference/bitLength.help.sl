@@ -13,15 +13,17 @@ Sometimes called the bit width.
 33
 ```
 
-For negative _n_, equivalent to _n.bitNot.bitLength_,
-threads over lists:
+For negative _n_,
+`SmallFloat` and `LargeInteger` answer differently.
+Equivalent to _n.bitNot.bitLength_.
+Threads over lists:
 
 ```
->>> [1 -1 64 -64].bitLength
-[1 0 7 6]
+>>> [1 -1.0 -1L 64 -64].bitLength
+[1 0 1 7 6]
 
->>> [1 -1 64 -64].bitNot.bitLength
-[1 0 7 6]
+>>> [1 -1.0 -1L 64 -64].bitNot.bitLength
+[1 0 1 7 6]
 ```
 
 Equivalent to `floor` of `log` base two plus `one`:
@@ -32,15 +34,15 @@ Equivalent to `floor` of `log` base two plus `one`:
 ```
 
 First few terms,
-OEIS [A029837](https://oeis.org/A029837),
-also
 OEIS [A070939](https://oeis.org/A070939)
-if first terms is instead `one`:
+also
+OEIS [A029837](https://oeis.org/A029837),
+if the first term is instead `zero`:
 
 ```
 >>> 0:23.bitLength
 [
-	0 1 2 2 3 3 3 3 4 4
+	1 1 2 2 3 3 3 3 4 4
 	4 4 4 4 4 4 5 5 5 5
 	5 5 5 5
 ]

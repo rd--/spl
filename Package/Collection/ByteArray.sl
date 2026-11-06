@@ -1,11 +1,15 @@
 ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Collection, Sequence] {
 
 	[String, utf8String] { :self |
-		<primitive: return new TextDecoder('utf-8').decode(_self).normalize('NFC');>
+		<primitive:
+		return new TextDecoder('utf-8').decode(_self).normalize('NFC');
+		>
 	}
 
 	asciiString { :self |
-		<primitive: return new TextDecoder('ascii').decode(_self);>
+		<primitive:
+		return new TextDecoder('ascii').decode(_self);
+		>
 	}
 
 	base16Encode { :self |
@@ -92,17 +96,21 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		hash.normalInteger
 	}
 
-	put! { :self :index :aByte |
+	put! { :self :index :anObject |
 		<primitive:
-		if(sl.arrayCheckIndex(_self, _index) && sl.isByte(_aByte)) {
-			_self[_index - 1] = _aByte;
-			return _aByte;
+		const zeroIndex = sl.arrayCheckIndex(_self, _index);
+		const aFloat = sl.toFloat(_anObject);
+		if(zeroIndex > -1 && sl.isByte(aFloat)) {
+			_self[zeroIndex] = aFloat;
+			return _anObject;
 		}>
 		self.error('put!: invalid index or value not a byte')
 	}
 
 	shallowCopy { :self |
-		<primitive: return new Uint8Array(_self);>
+		<primitive:
+		return new Uint8Array(_self);
+		>
 	}
 
 	species { :unused |
@@ -114,7 +122,9 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 	}
 
 	utf16String { :self |
-		<primitive: return new TextDecoder('utf-16').decode(_self).normalize('NFC');>
+		<primitive:
+		return new TextDecoder('utf-16').decode(_self).normalize('NFC');
+		>
 	}
 
 }
@@ -126,7 +136,13 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 	}
 
 	utf16String { :self |
-		<primitive: return String.fromCodePoint(..._self);>
+		SmallFloat(self).uncheckedUtf16String
+	}
+
+	uncheckedUtf16String { :self |
+		<primitive:
+		return String.fromCodePoint(..._self);
+		>
 	}
 
 	utf8String { :self |
@@ -135,7 +151,7 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 
 }
 
-+SmallFloat {
++@Integer {
 
 	[ByteArray, constantByteArray] { :n :x |
 		x.isByte.ifFalse {
@@ -145,7 +161,9 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 	}
 
 	uncheckedByteArray { :self :aByte |
-		<primitive: return new Uint8Array(_self).fill(_aByte);>
+		<primitive:
+		return new Uint8Array(Number(_self)).fill(Number(_aByte));
+		>
 	}
 
 	zeroByteArray { :n |
@@ -157,23 +175,24 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 +List {
 
 	[ByteArray, listToByteArray] { :self |
-		self.isEmpty.if {
-			ByteArray(0, 0)
-		} {
+		self.atVectorOrElementwise { :aList |
+			let floatList = SmallFloat(aList);
 			(
-				self.isSmallFloatVector & {
-					self.allSatisfy(isByte/1)
+				floatList.isSmallFloatVector & {
+					floatList.allSatisfy(isByte/1)
 				}
 			).if {
-				self.uncheckedByteArray
+				floatList.uncheckedByteArray
 			} {
-				self.error('List>>ByteArray: invalid')
+				self.error('List>>ByteArray')
 			}
 		}
 	}
 
 	uncheckedByteArray { :self |
-		<primitive: return new Uint8Array(_self);>
+		<primitive:
+		return new Uint8Array(_self);
+		>
 	}
 
 }
@@ -216,4 +235,19 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		self.utf8ByteArray.crc16
 	}
 
+}
+
++ByteArray {
+
+	decodeLargeInteger { :self :littleEndian |
+		let k = self.size;
+		let f = { :n |
+			littleEndian.if { n - 1L } { k - n } * 8
+		};
+		let answer = 0L;
+		self.withIndexDo { :each :i |
+			answer := answer + (each << f(i))
+		};
+		answer
+	}
 }

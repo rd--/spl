@@ -172,7 +172,7 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 
 }
 
-+SmallFloat {
++@Integer {
 
 	Character { :self |
 		Character(self.fromCodePoint, self)

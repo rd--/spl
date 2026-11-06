@@ -101,7 +101,9 @@
 	}
 
 	[bitShiftRightUnsigned, >>>] { :self :anInteger |
-		self.typeResponsibility('@Binary>>bitShiftRightUnsigned')
+		SmallFloat(self).bitShiftRightUnsigned(
+			anInteger
+		)
 	}
 
 	bitXor { :self :anInteger |
@@ -263,6 +265,30 @@
 				self.error('@Binary>>previousPowerOfTwo: non-positive')
 			}
 		}
+	}
+
+}
+
++@Binary {
+
+	encodeFloat32 { :self :littleEndian |
+		<primitive: return sc.encodeFloat32(sl.toFloat(_self), _littleEndian);>
+	}
+
+	encodeFloat64 { :self :littleEndian |
+		<primitive: return sc.encodeFloat64(sl.toFloat(_self), _littleEndian);>
+	}
+
+	encodeInt16 { :self :littleEndian |
+		<primitive: return sc.encodeInt16(sl.toFloat(_self), _littleEndian);>
+	}
+
+	encodeInt32 { :self :littleEndian |
+		<primitive: return sc.encodeInt32(sl.toFloat(_self), _littleEndian);>
+	}
+
+	encodeInt8 { :self |
+		<primitive: return sc.encodeInt8(sl.toFloat(_self));>
 	}
 
 }

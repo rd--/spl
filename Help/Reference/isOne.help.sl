@@ -7,42 +7,42 @@ Answer `true` if the number _x_ is `one`.
 At `SmallFloat`:
 
 ```
->>> 1.isOne
-true
+>>> (1.isOne, 1 = 1)
+(true, true)
 
->>> 0.isOne
-false
+>>> (0.isOne, 0 = 1)
+(false, false)
 
->>> 1.pi.isOne
-false
+>>> (1.pi.isOne, 1.pi = 1)
+(false, false)
 ```
 
-Note that the literal notation _1.0_ is defined to _not be equal to one_:
+The literal notation _1.0_ is one:
 
 ```
->>> 1.0.isOne
-false
+>>> (1.0.isOne, 1.0 = 1)
+(true, true)
 ```
 
 At `Complex`:
 
 ```
->>> 1J0.isOne
-true
+>>> (1J0.isOne, 1J0 = 1)
+(true, true)
 ```
 
 At `Decimal`:
 
 ```
->>> 1D.isOne
-true
+>>> (1D.isOne, 1D = 1)
+(true, true)
 ```
 
 Note the rule if `scale` is not zero:
 
 ```
->>> 1.0D.isOne
-false
+>>> (1.0D.isOne, 1.0D = 1)
+(false, false)
 ```
 
 

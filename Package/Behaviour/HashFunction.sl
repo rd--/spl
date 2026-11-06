@@ -19,7 +19,7 @@
 
 	murmurHashGenerator { :self :seed |
 		<primitive:
-		let h = _seed >>> 0;
+		let h = sl.toFloat(_seed) >>> 0;
 		function rotateLeft(n, r) {
 			return (n << r) | (n >>> (32 - r));
 		}

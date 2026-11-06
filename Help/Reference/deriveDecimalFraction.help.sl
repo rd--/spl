@@ -30,6 +30,13 @@ At `Fraction`:
 ```
 >>> 1/7.deriveDecimalFraction(10)
 1428571429/10000000000
+
+>>> 10000000000000000/7000000000000000
+>>> .deriveDecimalFraction(3)
+1429 / 1000
+
+>>> 1/23.deriveDecimalFraction(22)
+1326851222826087/30517578125000000
 ```
 
 At `Integer`,

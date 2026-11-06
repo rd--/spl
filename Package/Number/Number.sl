@@ -274,8 +274,8 @@
 
 	divisorSigma { :k :n |
 		n.isNumber.if {
-			(k = 0).if {
-				(n = 1).if {
+			k.isZero.if {
+				n.isOne.if {
 					1
 				} {
 					(n.factorInteger.column(2) + 1).product
@@ -487,8 +487,8 @@
 	}
 
 	isBit { :self |
-		self = 0 | {
-			self = 1
+		self.isZero | {
+			self.isOne
 		}
 	}
 
@@ -550,12 +550,16 @@
 		true
 	}
 
+	isPositive { :self |
+		self > self.zero
+	}
+
 	isOne { :self |
 		self = 1
 	}
 
-	isPositive { :self |
-		self > self.zero
+	isZero { :self |
+		self = 0
 	}
 
 	isScalar { :self |
@@ -570,12 +574,8 @@
 		self.isCloseBy(aNumber, 0.000000000001)
 	}
 
-	isZero { :self |
-		self = 0
-	}
-
 	kroneckerDelta { :self |
-		(self = 0).boole
+		self.isZero.boole
 	}
 
 	kroneckerDelta { :self :aNumber |
@@ -832,7 +832,7 @@
 
 	quotientBy { :self :aNumber :aBlock/1 |
 		aNumber.isNumber.if {
-			(aNumber = 0).if {
+			aNumber.isZero.if {
 				'@Number>>quotient: divideByZero'.error
 			} {
 				aBlock(self / aNumber)
@@ -859,10 +859,10 @@
 		operand.isInteger.ifFalse {
 			'Number>>raisedToInteger: operand is not an Integer'.error
 		};
-		(operand = 0).if {
+		operand.isZero.if {
 			self.one
 		} {
-			(operand = 1).if {
+			operand.isOne.if {
 				self
 			} {
 				(operand < 0).if {
@@ -888,7 +888,7 @@
 			count > 0
 		}.whileTrue {
 			result := result.square;
-			(operand.bitAnd(count) = 0).ifFalse {
+			operand.bitAnd(count).isZero.ifFalse {
 				result := result * self
 			};
 			count := count.bitShiftRight(1)
@@ -1053,13 +1053,13 @@
 	}
 
 	sign { :self |
-		(self > 0).if {
-			1
+		(self > self.zero).if {
+			self.one
 		} {
-			(self < 0).if {
-				-1
+			(self < self.zero).if {
+				self.one.negate
 			} {
-				0
+				self.zero
 			}
 		}
 	}
@@ -1133,7 +1133,7 @@
 	}
 
 	toByDo { :self :stop :step :aBlock/1 |
-		(step = 0).if {
+		step.isZero.if {
 			'@Number>>toByDo: step must be non-zero'.error
 		} {
 			let nextValue = self;

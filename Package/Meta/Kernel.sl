@@ -9,6 +9,7 @@
 	'Equal'
 	'Json'
 	'Number'
+	'ImplicitFloat'
 	'RandomNumberGenerator'
 	'Store'
 	'Binary' /* > Cache */
@@ -40,6 +41,7 @@
 	'Promise'
 	'Request'
 	'SmallFloat'
+	'LargeInteger'
 	'Character'
 	'String' /* Character */
 	'System'

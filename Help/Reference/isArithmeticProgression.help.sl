@@ -32,7 +32,7 @@ false
 Taking into account small errors:
 
 ```
->>> (1, 1.1 .. 9)
+>>> (1.0, 1.1 .. 9.0)
 >>> .isArithmeticProgression(0.1, =)
 false
 

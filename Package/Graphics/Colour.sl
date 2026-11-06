@@ -17,8 +17,8 @@
 			[
 				'P' -> {
 					let [r, g, b] = self.rgb;
-					let alpha = 0.5 * ((2 * r) - g - b);
-					let beta = (3.sqrt / 2) * (g - b);
+					let alpha = 0.5 * ((2.0 * r) - g - b);
+					let beta = (3.sqrt / 2.0) * (g - b);
 					(alpha.square + beta.square).sqrt
 				},
 				'R' -> {
@@ -44,7 +44,11 @@
 	}
 
 	hexTriplet { :self |
-		let c = (self.alpha = 1).if { self.rgb } { self.rgba };
+		let c = self.alpha.isOne.if {
+			self.rgb
+		} {
+			self.rgba
+		};
 		'#' ++ c.collect { :each |
 			(each * 255).round.byteHexString
 		}.stringCatenate
@@ -63,7 +67,7 @@
 	}
 
 	isBlack { :self |
-		self.isGreyOf(0)
+		self.isGreyOf(0.0)
 	}
 
 	isBlue { :self |
@@ -128,7 +132,7 @@
 	}
 
 	isTransparent { :self |
-		self.alpha = 0
+		self.alpha.isZero
 	}
 
 	isValid { :self |
@@ -188,28 +192,31 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	| rgb alpha |
 
 	initialize! { :self |
-		self.rgb := [0, 0, 0];
+		self.rgb := [0.0 0.0 0.0];
 		self.alpha := 1;
 		self
 	}
 
 	lighten { :self :aNumber |
 		RgbColour(
-			self.rgb.linearInterpolation([1 1 1], aNumber),
+			self.rgb.linearInterpolation(
+				[1.0 1.0 1.0],
+				aNumber
+			),
 			self.alpha
 		)
 	}
 
 	[negate, -] { :self |
 		RgbColour(
-			1 - self.rgb,
+			1.0 - self.rgb,
 			self.alpha
 		)
 	}
 
 	over { :self :aColour |
-		let alpha = 1 - ((1 - aColour.alpha) * (1 - self.alpha));
-		let m = self.alpha * (1 - aColour.alpha) / alpha;
+		let alpha = 1.0 - ((1.0 - aColour.alpha) * (1.0 - self.alpha));
+		let m = self.alpha * (1.0 - aColour.alpha) / alpha;
 		let n = aColour.alpha / alpha;
 		RgbColour(
 			(self.rgb * m) + (aColour.rgb * n),
@@ -234,7 +241,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 			let a = each.SmallFloat;
 			a.size.caseOf(
 				[
-					3 -> { RgbColour(a, 1) },
+					3 -> { RgbColour(a, 1.0) },
 					4 -> { RgbColour(a.first(3), a[4]) }
 				]
 			) {
@@ -251,7 +258,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	HsvColour { :self |
-		HsvColour(self, 1)
+		HsvColour(self, 1.0)
 	}
 
 	RgbColour { :self :alpha |
@@ -263,7 +270,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	RgbColour { :self |
 		self.atVectorOrElementwise { :v |
-			RgbColour(v, 1)
+			RgbColour(v, 1.0)
 		}
 	}
 
@@ -274,7 +281,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	RybColour { :ryb |
-		RybColour(ryb, 1)
+		RybColour(ryb, 1.0)
 	}
 
 	isBlue { :self |
@@ -322,7 +329,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	blue { :alpha |
-		RgbColour([0 0 1], alpha)
+		RgbColour([0.0 0.0 1.0], alpha)
 	}
 
 	cubeHelix { :start :rotations :hue :gamma |
@@ -340,7 +347,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	green { :alpha |
-		RgbColour([0 1 0], alpha)
+		RgbColour([0.0 1.0 0.0], alpha)
 	}
 
 	greyLevel { :level :alpha |
@@ -348,12 +355,12 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	greyLevel { :level |
-		level.greyLevel(1)
+		level.greyLevel(1.0)
 	}
 
 	greyLevelOrTransparent { :level |
-		level.isVeryClose(1).if {
-			greyLevel(1, 0)
+		level.isVeryClose(1.0).if {
+			greyLevel(1.0, 0.0)
 		} {
 			level.greyLevel
 		}
@@ -372,35 +379,35 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	red { :alpha |
-		RgbColour([1 0 0], alpha)
+		RgbColour([1.0 0.0 0.0], alpha)
 	}
 
 	saturate { :self |
-		self.clip(0, 1)
+		self.clip(0.0, 1.0)
 	}
 
 	srgbDecode { :self |
-		(self = 1).if {
-			1
+		self.isOne.if {
+			self
 		} {
 			(self <= 0.04045).if {
 				self / 12.92
 			} {
 				let a = 0.055;
-				((self + a) / (1 + a)) ^ 2.4
+				((self + a) / (1.0 + a)) ^ 2.4
 			}
 		}
 	}
 
 	srgbEncode { :self |
-		(self = 1).if {
-			1
+		self.isOne.if {
+			self
 		} {
 			(self <= 0.0031308).if {
 				12.92 * self
 			} {
 				let a = 0.055;
-				(1 + a) * (self ^ (1 / 2.4)) - a
+				(1.0 + a) * (self ^ (1.0 / 2.4)) - a
 			}
 		}
 	}
@@ -426,7 +433,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	white { :alpha |
-		RgbColour([1 1 1], alpha)
+		RgbColour([1.0 1.0 1.0], alpha)
 	}
 
 }

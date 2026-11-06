@@ -2,8 +2,9 @@
 
 	scheduleAfter { :self/0 :delay |
 		<primitive:
-		if(sl.isSmallFloat(_delay)) {
-			return setTimeout(_self_0, _delay * 1000);
+		const floatDelay = sl.toFloat(_delay);
+		if(sl.isSmallFloat(floatDelay)) {
+			return setTimeout(_self_0, floatDelay * 1000);
 		}
 		>
 		self/0.error('Block>>scheduleAfter: not a number')

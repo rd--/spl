@@ -665,7 +665,9 @@
 +List {
 
 	clump { :self :groupSize |
-		<primitive: return sc.clump(_self, _groupSize);>
+		<primitive:
+		return sc.clump(_self, sl.toFloat(_groupSize));
+		>
 	}
 
 }

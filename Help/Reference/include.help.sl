@@ -41,6 +41,14 @@ At `UnsortedSet`:
 (1.00001, [1], 1)
 ```
 
+At `SortedList`:
+
+```
+>>> let s = SortedList[1 3 5];
+>>> (s.include!(4), s.items)
+(4, [1 3 4 5])
+```
+
 Attempting to `include` a non-immediate object in an `IdentitySet` is an `error`:
 
 ```

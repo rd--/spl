@@ -1,4 +1,4 @@
-+[SmallFloat, Fraction, List] {
++[SmallFloat, LargeInteger, Fraction, List] {
 
 	bilinearInterpolation { :q11 :q21 :q12 :q22 :mu1 :mu2 |
 		linearInterpolation(
@@ -412,8 +412,10 @@
 
 +List {
 
-	basicDownsampleSteinarsson { :self :threshold |
-		<primitive: return sc.downsampleSteinarsson(_self, _threshold);>
+	uncheckedDownsampleSteinarsson { :self :threshold |
+		<primitive:
+		return sc.downsampleSteinarsson(_self, sl.toFloat(_threshold));
+		>
 	}
 
 	downsample { :self :n :phase |
@@ -427,10 +429,14 @@
 	}
 
 	downsampleSteinarsson { :self :threshold |
-		self.isVector.if {
-			[self.indices, self].transpose.basicDownsampleSteinarsson(threshold)
+		let floatData = SmallFloat(self);
+		floatData.isVector.if {
+			[
+				SmallFloat(floatData.indices),
+				floatData
+			].transpose.uncheckedDownsampleSteinarsson(threshold)
 		} {
-			self.basicDownsampleSteinarsson(threshold)
+			floatData.uncheckedDownsampleSteinarsson(threshold)
 		}
 	}
 

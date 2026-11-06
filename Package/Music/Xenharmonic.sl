@@ -31,7 +31,7 @@
 
 }
 
-+[@Integer, Fraction] {
++[SmallFloat, Fraction] {
 
 	barlowDisharmonicity { :self |
 		self.isOne.if {
@@ -76,6 +76,9 @@
 	}
 
 	octaveReduce { :self :octaveRatio |
+		self.isRational.ifFalse {
+			self.error('octaveReduce: not rational')
+		};
 		{ self < 1 }.whileTrue {
 			self := self * octaveRatio
 		};
@@ -86,7 +89,7 @@
 	}
 
 	octaveReduce { :self |
-		self.octaveReduce(2)
+		self.octaveReduce(2L)
 	}
 
 	octaveReduceLogRule { :self :octaveRatio |
@@ -141,13 +144,6 @@
 			let factors = self.primeFactors;
 			factors.sum - factors.size + 1
 		}
-	}
-
-	octaveReduce { :self |
-		self.isInteger.ifFalse {
-			self.error('octaveReduce: not integer')
-		};
-		Fraction(self, 1).octaveReduce(2)
 	}
 
 }
@@ -255,7 +251,7 @@
 	tonalityDiamond { :self |
 		let n = [1, 3 .. self];
 		let o = n.collect { :i |
-			Fraction(i, 1).octaveReduce
+			i.octaveReduce
 		}.sort;
 		let u = 1 / o;
 		{ :i :j |

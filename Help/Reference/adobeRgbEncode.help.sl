@@ -15,14 +15,14 @@ At `SmallFloat`:
 At `List`:
 
 ```
->>> [1 0.8 0.25].adobeRgbEncode
-[1 0.9035 0.5324]
+>>> [1.0 0.8 0.25].adobeRgbEncode
+[1.0 0.9035 0.5324]
 ```
 
 Plot curve:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	adobeRgbEncode/1
 )
 ~~~
@@ -32,7 +32,7 @@ Plot curve:
 Inverse is `adobeRgbDecode`:
 
 ~~~spl svg=B
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	x.adobeRgbEncode.adobeRgbDecode
 }
 ~~~

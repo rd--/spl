@@ -334,12 +334,12 @@ const asJs: ohm.ActionDict<string> = {
 		const sStr = s.sourceString;
 		const iStr = i.sourceString;
 		const fStr = f.sourceString;
-		if(fStr === '0') {
+		/*if(fStr === '0') {
 			let a = Number(iStr);
 			let b = a + (Math.max(a, 1) * Number.EPSILON);
 			console.debug('floatLiteral', sStr, iStr, fStr, a, b);
 			return sStr + String(b)
-		};
+		};*/
 		return `${s.sourceString}${iStr}.${fStr}`;
 	},
 	infinityLiteral(s, i) {
@@ -350,12 +350,15 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	smallIntegerLiteral(s, i) {
 		// Allow 03 for 3 and -03 for -3
-		const x = parseInt(deleteUnderscores(i.sourceString));
+		const sStr = s.sourceString;
+		const iStr = i.sourceString;
+		const x = parseInt(deleteUnderscores(iStr));
 		if (Number.isSafeInteger(x)) {
-			return `${s.sourceString + x}`;
+			return `${sStr + x}`;
 		} else {
 			throw new Error('smallIntegerLiteral: not small integer: ' + x);
 		}
+		/* return `BigInt(${sStr + x})`; */
 	},
 	largeIntegerLiteral(s, i, _l) {
 		const sT = s.sourceString;
@@ -743,15 +746,15 @@ const asSl: ohm.ActionDict<string> = {
 		return `DoubleQuotedString('${s.sourceString}')`;
 	},
 	floatDecimalLiteral(s, i, _, f, _d, k) {
-		const sT = s.sourceString;
-		const iT = i.sourceString;
-		const fT = f.sourceString;
-		let kT = k.sourceString;
-		const e = 10n ** BigInt(fT.length);
-		if (kT.length === 0) {
-			kT = fT.length;
+		const sStr = s.sourceString;
+		const iStr = i.sourceString;
+		const fStr = f.sourceString;
+		let kStr = k.sourceString;
+		const e = 10n ** BigInt(fStr.length);
+		if (kStr.length === 0) {
+			kStr = fStr.length;
 		}
-		return `Decimal(Fraction(${sT}${iT}${fT}L, ${e.toString(10)}L), ${kT})`;
+		return `Decimal(Fraction(${sStr}${iStr}${fStr}L, ${e.toString(10)}L), ${kStr})`;
 		/* return `parseDecimal('${s.sourceString}${i.sourceString}.${f.sourceString}D${k.sourceString}')`; */
 	},
 	floatLiteral(s, i, _dot, f) {

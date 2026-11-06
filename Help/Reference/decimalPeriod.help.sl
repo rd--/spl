@@ -52,7 +52,7 @@ First few terms,
 OEIS [A051626](https://oeis.org/A051626):
 
 ```
->>> (1 / 1:90)
+>>> (1L / 1:90)
 >>> .collect(decimalPeriod/1)
 [
 	 0  0  1  0  0  1  6  0  1 0

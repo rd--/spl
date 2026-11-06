@@ -260,7 +260,7 @@ Line : [Object, Store, Equal, Geometry] {
 
 }
 
-+SmallFloat {
++@Integer {
 
 	cohenSutherlandAlgorithm { :x0 :y0 :x1 :y1 :xMin :yMin :xMax :yMax |
 		let inside = 2b0000;

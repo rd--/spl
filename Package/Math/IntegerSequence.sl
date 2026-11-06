@@ -66,7 +66,7 @@
 
 }
 
-+[SmallFloat, Fraction] {
++[SmallFloat, LargeInteger, Fraction] {
 
 	cantorStaircase { :x :n |
 		let f = { :x :n |
@@ -208,11 +208,11 @@
 
 	calkinWilfSequence { :self |
 		let answer = List(self, nil);
-		answer[1] := 1/1;
+		answer[1] := 1L;
 		2.toDo(self) { :i |
 			let p = answer[i - 1];
 			let t = p.floor * 2 - p + 1;
-			answer[i] := 1 / t
+			answer[i] := 1L / t
 		};
 		answer
 	}
@@ -594,7 +594,7 @@
 
 	harmonicNumber { :n :r |
 		1.to(n).sum { :i |
-			1 / (i ^ r)
+			1L / (i ^ r)
 		}
 	}
 
@@ -1518,7 +1518,7 @@
 
 }
 
-+SmallFloat {
++@Integer {
 
 	faurePermutation { :n |
 		(n = 1).if {

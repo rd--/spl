@@ -1,6 +1,6 @@
 # Float32Array
 
-- _Float32Array(n, x=0)_
+- _Float32Array(n, x=0.0)_
 - _Float32Array([x₁ x₂ …])_
 
 A `Float32Array` is a `Type`,
@@ -12,13 +12,13 @@ answer a `Float32Array` with the values of the list,
 which must have element type `SmallFloat`:
 
 ```
->>> let l = [1 2 3 4 5];
+>>> let l = [1.0 2.0 3.0 4.0 5.0];
 >>> let a = Float32Array(l);
 >>> (
 >>> 	l.elementType,
 >>> 	a.isFloat32Array,
 >>> 	a.size,
->>> 	a.List
+>>> 	List(a)
 >>> )
 (
 	'SmallFloat',
@@ -32,12 +32,21 @@ At matrices and arrays:
 
 ```
 >>> Float32Array[1 2 3; 4 5 6]
-[Float32Array[1 2 3], Float32Array[4 5 6]]
+[
+	Float32Array[1 2 3],
+	Float32Array[4 5 6]
+]
 
 >>> Float32Array[1 2; 3 4:; 5 6; 7 8]
 [
-	[Float32Array[1 2], Float32Array[3 4]],
-	[Float32Array[5 6], Float32Array[7 8]]
+	[
+		Float32Array[1 2],
+		Float32Array[3 4]
+	],
+	[
+		Float32Array[5 6],
+		Float32Array[7 8]
+	]
 ]
 ```
 
@@ -61,6 +70,15 @@ Zero array of _n_ places:
 ```
 >>> 5.zeroFloat32Array
 Float32Array[0 0 0 0 0]
+```
+
+Mutate array:
+
+```
+>>> let a = 5.zeroFloat32Array;
+>>> let b = a.put!(3, -3);
+>>> (a, b)
+(Float32Array[0 0 -3 0 0], -3)
 ```
 
 Species:

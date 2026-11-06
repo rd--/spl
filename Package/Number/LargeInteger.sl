@@ -1,6 +1,6 @@
-/* Requires: SmallFloat String */
+/* Requires: List SmallFloat String */
 
-LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, ImplicitFloat] {
+LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, ImplicitFloat] {
 
 	[Integer, normalInteger] { :self |
 		self.isSmallInteger.if {
@@ -117,6 +117,10 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		}
 	}
 
+	[encodeJson, smallFloatToJson] { :self |
+		SmallFloat(self).uncheckedEncodeJson
+	}
+
 	floorLog { :self :radix |
 		(self <= 0).if {
 			self.error('LargeInteger>>floorLog: is only defined for x > 0', [radix])
@@ -203,7 +207,8 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 	}
 
 	isImmediate { :unused |
-		false /* 1L !== 1 */
+		/* 1L !== 1 */
+		false
 	}
 
 	isInteger { :unused |
@@ -262,10 +267,6 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 
 	isVeryClose { :self :aNumber |
 		self = aNumber
-	}
-
-	isZero { :self |
-		self = 0L
 	}
 
 	[mod, %] { :self :anObject |
@@ -397,8 +398,14 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		>
 	}
 
+	uncheckedLargeInteger { :self |
+		self
+	}
+
 	uncheckedPrintString { :self :radix |
-		<primitive: return _self.toString(_radix).toUpperCase();>
+		<primitive:
+		return _self.toString(Number(_radix)).toUpperCase();
+		>
 	}
 
 	uncheckedRaisedToInteger { :self :anInteger |
@@ -462,21 +469,6 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		<primitive: return BigInt(_self);>
 	}
 
-}
-
-+ByteArray {
-
-	decodeLargeInteger { :self :littleEndian |
-		let k = self.size;
-		let f = { :n |
-			littleEndian.if { n - 1L } { k - n } * 8
-		};
-		let answer = 0L;
-		self.withIndexDo { :each :i |
-			answer := answer + (each << f(i))
-		};
-		answer
-	}
 }
 
 +List {

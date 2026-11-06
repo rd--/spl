@@ -102,28 +102,18 @@ Date! : [Object, Store, Equal, Compare] {
 
 }
 
-+SmallFloat {
++@Integer {
 
 	[Date, absoluteTimeToDate] { :self |
-		<primitive: return new Date(_self * 1000);>
+		<primitive:
+		return new Date(sl.toFloat(_self) * 1000);
+		>
 	}
 
 	Date { :year :month :dayOfMonth |
-		<primitive:
-		const d = new Date(
-			Date.UTC(
-				_year,
-				_month - 1,
-				_dayOfMonth,
-				0,
-				0,
-				0,
-				0
-			)
-		);
-		d.setFullYear(_year);
-		return d;
-		>
+		Date(
+			[year, month, dayOfMonth]
+		)
 	}
 
 	JulianDate { :year :month :day |
@@ -141,12 +131,35 @@ Date! : [Object, Store, Equal, Compare] {
 
 }
 
++SmallFloat {
+
+	primitiveDate { :year :month :dayOfMonth |
+		<primitive:
+		const d = new Date(
+			Date.UTC(
+				_year,
+				_month - 1,
+				_dayOfMonth,
+				0,
+				0,
+				0,
+				0
+			)
+		);
+		d.setFullYear(_year);
+		return d;
+		>
+	}
+
+}
+
 +List {
 
 	[Date, listToDate] { :self |
-		self.atVectorOrElementwise { :each |
-			let [year, month, dayOfMonth] = each;
-			Date(year, month, dayOfMonth)
+		self.atVectorOrElementwise { :aList |
+			let floatList = SmallFloat(aList);
+			let [year, month, dayOfMonth] = floatList;
+			primitiveDate(year, month, dayOfMonth)
 		}
 	}
 

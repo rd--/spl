@@ -1197,16 +1197,16 @@
 
 	fromContinuedFraction { :self |
 		(self ~ [0]).if {
-			0
+			0L
 		} {
-			let answer = 0/1;
+			let answer = 0L;
 			self.reverseDo { :each |
 				let nextDivisor = (each + answer);
 				(nextDivisor != 0).ifTrue {
-					answer := 1 / nextDivisor
+					answer := 1L / nextDivisor
 				}
 			};
-			1 / answer
+			1L / answer
 		}
 	}
 

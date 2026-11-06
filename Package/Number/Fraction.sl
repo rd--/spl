@@ -82,8 +82,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		(powerMod(10, n, n) = 0).if {
 			0
 		} {
-			let a = 2 ^ n.integerExponent(2);
-			let b = 5 ^ n.integerExponent(5);
+			let a = 2L ^ n.integerExponent(2);
+			let b = 5L ^ n.integerExponent(5);
 			let c = n / a / b;
 			10.multiplicativeOrder(c)
 		}
@@ -141,21 +141,13 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		self.denominator.isPowerOfTwo
 	}
 
-	[isEqual, =] { :self :operand |
+	isEqualBy { :self :operand :aBlock/2 |
 		operand.isFraction.if {
 			self.numerator = operand.numerator & {
 				self.denominator = operand.denominator
 			}
 		} {
-			false
-		}
-	}
-
-	isEqualBy { :self :operand :aBlock/2 |
-		operand.isFraction.if {
-			self = operand
-		} {
-			operand.isSmallFloat.if {
+			operand.isNumber.if {
 				isEqualBy(SmallFloat(self), operand, aBlock/2)
 			} {
 				false
@@ -178,6 +170,14 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	isInteger { :unused |
+		false
+	}
+
+	isOne { :unused |
+		false
+	}
+
+	isZero { :unused |
 		false
 	}
 
@@ -306,7 +306,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		let m = a.size;
 		a0 + (
 			2 * [1L .. m].sum { :n |
-				(-1 ^ (n + 1)) / (2 ^ a.take(n).sum)
+				(-1L ^ (n + 1)) / (2L ^ a.take(n).sum)
 			}
 		)
 	}
@@ -666,16 +666,24 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
+}
+
++@Integer {
+
 	[rationalize, approximateFraction] { :self :epsilon |
-		let c = self.abs.continuedFraction(16);
-		let l = c.semiconvergents(epsilon);
-		withReturn { :return/1 |
-			l.do { :r |
-				((self - r).abs < epsilon).ifTrue {
-					self.copySign(r).return
-				}
-			};
-			self.copySign(l.last)
+		self.isInteger.if {
+			self
+		} {
+			let c = self.abs.continuedFraction(16);
+			let l = c.semiconvergents(epsilon);
+			withReturn { :return/1 |
+				l.do { :r |
+					((self - r).abs < epsilon).ifTrue {
+						self.copySign(r).return
+					}
+				};
+				self.copySign(l.last)
+			}
 		}
 	}
 
@@ -746,7 +754,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 			self
 		} {
 			Fraction(
-				(self * denominator).round,
+				(self * denominator).round.uncheckedLargeInteger,
 				denominator
 			)
 		}

@@ -13,7 +13,7 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Set] 
 		sortedList.includes(anObject).if {
 			self.error('add: item already present')
 		} {
-			sortedList.include!(anObject)
+			sortedList.add!(anObject)
 		}
 	}
 
@@ -28,7 +28,7 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Set] 
 	}
 
 	include! { :self :anObject |
-		self.sortedList.addIfNotPresent!(anObject)
+		self.sortedList.include!(anObject)
 	}
 
 	includes { :self :anObject |

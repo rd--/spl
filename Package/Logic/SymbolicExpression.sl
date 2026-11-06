@@ -80,7 +80,7 @@
 		'abs'.symbolicPrimitive([self])
 	}
 
-	adaptToNumberAndApply { :self :receiver :aBlock/2 |
+	[adaptToIntegerAndApply, adaptToNumberAndApply] { :self :receiver :aBlock/2 |
 		SymbolicExpression(
 			aBlock/2.unqualifiedName,
 			[receiver, self]

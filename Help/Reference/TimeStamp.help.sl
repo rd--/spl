@@ -9,7 +9,7 @@ represented as the signed number of seconds from 1 January, 1970.
 Make a time stamp:
 
 ```
->>> TimeStamp(0)
+>>> TimeStamp(0.0)
 >>> .dateAndTimeString
 '1970-01-01T00:00:00.000Z'
 

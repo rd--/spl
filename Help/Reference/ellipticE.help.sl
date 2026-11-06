@@ -13,17 +13,17 @@ At specific values:
 >>> 0.123456789.ellipticE
 1.5211
 
->>> -1.ellipticE
+>>> -1.0.ellipticE
 1.9101
 ```
 
 At `one` and `zero`:
 
 ```
->>> 0.ellipticE
+>>> 0.0.ellipticE
 1/2.pi
 
->>> 1.ellipticE
+>>> 1.0.ellipticE
 1
 ```
 

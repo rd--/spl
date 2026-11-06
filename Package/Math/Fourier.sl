@@ -57,11 +57,12 @@
 
 	fft { :self |
 		self.size.isPowerOfTwo.if {
-			(self.elementType = 'SmallFloat').if {
-				self.basicRealFft.deinterleaveComplexData
+			(self.elementType = 'Complex').if {
+				self.interleaveComplexData.basicComplexFft.deinterleaveComplexData
 			} {
-				(self.elementType = 'Complex').if {
-					self.interleaveComplexData.basicComplexFft.deinterleaveComplexData
+				let floatData = SmallFloat(self);
+				(floatData.elementType = 'SmallFloat').if {
+					floatData.basicRealFft.deinterleaveComplexData
 				} {
 					self.error('fft: not SmallFloat or Complex elements')
 				}
@@ -168,7 +169,7 @@
 
 }
 
-+SmallFloat {
++[SmallFloat, LargeInteger] {
 
 	dirichletKernel { :n |
 		{ :x |
@@ -223,7 +224,7 @@
 
 	lanczosKernel { :a |
 		{ :x |
-			x.isBetween(a.-, a).if {
+			x.isBetween(-a, a).if {
 				x.sincNormalized * (x / a).sincNormalized
 			} {
 				0

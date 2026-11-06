@@ -710,14 +710,21 @@ export function addType(
 	eval?.(`"use strict"; ${allDef}`);
 }
 
-// Spl is one-indexed.
-// NB. The index is not decremented because in Js '1' - 1 is 0 &etc.
+// Spl is one-indexed. Check index is valid and return zero-index or -1.
 export function arrayCheckIndex(
 	anArray: unknown[],
 	anInteger: number | bigint,
-): boolean {
-	return isSmallFloatInteger(anInteger) && (anInteger >= 1) &&
-		(anInteger <= anArray.length);
+): number {
+	const typeName = typeof anInteger;
+	if(typeName === 'number' || typeName === 'bigint') {
+		const zeroIndex = Number(anInteger) - 1;
+		if (Number.isInteger(zeroIndex)
+			&& (zeroIndex > -1)
+			&& (zeroIndex < anArray.length)) {
+			return zeroIndex;
+		}
+		return -1;
+	}
 }
 
 export function initializeLocalPackages(
@@ -801,4 +808,15 @@ export function splArityCheck(f: Function, n: number, c: string): void {
 		const errorMessage = `splArityCheck: expected=${n}, actual=${k}, context=${c}`;
 		throw new Error(errorMessage);
 	}
+}
+
+export function toFloat(x: number | bigint): number {
+	const xType = typeof x;
+	if(xType === 'number') {
+		return x;
+	}
+	if(xType === 'bigint') {
+		return Number(x);
+	}
+	throw new Error('toFloat: not SmallFloat or LargeInteger', x);
 }

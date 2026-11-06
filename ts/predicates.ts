@@ -30,6 +30,12 @@ export function isSmallFloatInteger(anObject: unknown): anObject is number {
 	return isSmallFloat(anObject) && Number.isInteger(anObject);
 }
 
+/*
+export function isInteger(anObject: unknown): anObject is number | bigint {
+	return isLargeInteger(anObject) || isSmallFloatInteger(anObject);
+}
+*/
+
 export function isByte(anObject: unknown): boolean {
 	return isSmallFloatInteger(anObject) && anObject >= 0 && anObject < 256;
 }

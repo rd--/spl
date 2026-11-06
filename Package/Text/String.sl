@@ -154,7 +154,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	capitalize { :self |
-		<primitive: return _self[0].toUpperCase() + _self.slice(1);>
+		<primitive:
+		return _self[0].toUpperCase() + _self.slice(1);
+		>
 	}
 
 	characterCounts { :self |
@@ -196,7 +198,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	codePointAt { :self :index |
-		<primitive: return _self.codePointAt(_index - 1);>
+		<primitive:
+		const zeroIndex = sl.toFloat(_index) - 1;
+		return _self.codePointAt(zeroIndex);
+		>
 	}
 
 	codePointCompare { :self :operand |
@@ -288,11 +293,15 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	countUtf16CodeUnits { :self |
-		<primitive: return _self.length;>
+		<primitive:
+		return _self.length;
+		>
 	}
 
 	decapitalize { :self |
-		<primitive: return _self[0].toLowerCase() + _self.slice(1);>
+		<primitive:
+		return _self[0].toLowerCase() + _self.slice(1);
+		>
 	}
 
 	difference { :self :operand |
@@ -364,7 +373,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	findPreviousOccurrenceOfStringStartingAt { :self :subString :start |
-		<primitive: return _self.lastIndexOf(_subString, _start - 1) + 1;>
+		<primitive:
+		const zeroIndex = sl.toFloat(_start) - 1;
+		return _self.lastIndexOf(_subString, zeroIndex) + 1;
+		>
 	}
 
 	findString { :self :aString |
@@ -504,7 +516,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	isAllWhiteSpace { :self |
-		<primitive: return !/[^\t\n\r ]/.test(_self);>
+		<primitive:
+		return !/[^\t\n\r ]/.test(_self);
+		>
 	}
 
 	isAscii { :self |
@@ -565,7 +579,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	isLowerCase { :self |
-		<primitive: return /^[a-z]+$/.test(_self);>
+		<primitive:
+		return /^[a-z]+$/.test(_self);
+		>
 	}
 
 	isNotEmpty { :self |
@@ -587,7 +603,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	isPunctuation { :self |
-		<primitive: return /\p{Punctuation}/u.test(_self);>
+		<primitive:
+		return /\p{Punctuation}/u.test(_self);
+		>
 	}
 
 	isSameAs { :self :aString |
@@ -609,11 +627,15 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	isUpperCase { :self |
-		<primitive: return /^[A-Z]+$/.test(_self);>
+		<primitive:
+		return /^[A-Z]+$/.test(_self);
+		>
 	}
 
 	isWellFormed { :self |
-		<primitive: return _self.isWellFormed();>
+		<primitive:
+		return _self.isWellFormed();
+		>
 	}
 
 	last { :self |
@@ -743,7 +765,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	normalizeWhitespace { :self |
-		<primitive: return _self.replace(/\s+/g, ' ').trim();>
+		<primitive:
+		return _self.replace(/\s+/g, ' ').trim();
+		>
 	}
 
 	nub { :self |
@@ -790,11 +814,15 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	padLeft { :self :aList :aString |
-		<primitive: return _self.padStart(_aList[0], _aString);>
+		<primitive:
+		return _self.padStart(sl.toFloat(_aList[0]), _aString);
+		>
 	}
 
 	padRight { :self :aList :aString |
-		<primitive: return _self.padEnd(_aList[0], _aString);>
+		<primitive:
+		return _self.padEnd(sl.toFloat(_aList[0]), _aString);
+		>
 	}
 
 	paragraphAtIndex { :self :index |
@@ -810,11 +838,15 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	paragraphs { :self |
-		<primitive: return _self.split('\n\n');>
+		<primitive:
+		return _self.split('\n\n');
+		>
 	}
 
 	parseIni { :self |
-		<primitive: return sl.parseIni(_self);>
+		<primitive:
+		return sl.parseIni(_self);
+		>
 	}
 
 	parseJson { :self :elseClause |
@@ -830,7 +862,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	parseJson { :self |
-		<primitive: return JSON.parse(_self);>
+		<primitive:
+		return JSON.parse(_self);
+		>
 	}
 
 	partition { :self :n :d |
@@ -881,15 +915,21 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	removePunctuation { :self |
-		<primitive: return _self.replace(/\p{Punctuation}/gu, '');>
+		<primitive:
+		return _self.replace(/\p{Punctuation}/gu, '');
+		>
 	}
 
 	removeQuotationMarks { :self |
-		<primitive: return _self.replace(/[\u0022\u0027]/gu, '');>
+		<primitive:
+		return _self.replace(/[\u0022\u0027]/gu, '');
+		>
 	}
 
 	replaceApostropheWithRightSingleQuotationMark { :self |
-		<primitive: return _self.replace("\u{27}", "\u{2019}");>
+		<primitive:
+		return _self.replace("\u{27}", "\u{2019}");
+		>
 	}
 
 	replaceString { :self :stringToFind :stringToReplaceWith |
@@ -933,7 +973,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	sentences { :self |
-		<primitive: return sl.stringToSentences(_self);>
+		<primitive:
+		return sl.stringToSentences(_self);
+		>
 	}
 
 	shallowCopy { :self |
@@ -953,11 +995,15 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	splitOnLimitedTo { :self :aString :count |
-		<primitive: return _self.split(_aString, _count);>
+		<primitive:
+		return _self.split(_aString, sl.toFloat(_count));
+		>
 	}
 
 	storeString { :self |
-		<primitive: return `'${_self}'`;>
+		<primitive:
+		return `'${_self}'`;
+		>
 	}
 
 	stringInsert { :s1 :s2 :n |
@@ -985,7 +1031,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	[stringRepeat, repeat] { :s :n |
-		<primitive: return _s.repeat(_n);>
+		<primitive:
+		return _s.repeat(sl.toFloat(_n));
+		>
 		/* List(n, self).stringCatenate */
 	}
 
@@ -994,7 +1042,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	[stringSplit, splitOn] { :self :aString |
-		<primitive: return _self.split(_aString);>
+		<primitive:
+		return _self.split(_aString);
+		>
 	}
 
 	suffixes { :self |
@@ -1020,15 +1070,21 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	toLowerCase { :self |
-		<primitive: return _self.toLowerCase();>
+		<primitive:
+		return _self.toLowerCase();
+		>
 	}
 
 	toUpperCase { :self |
-		<primitive: return _self.toUpperCase(); >
+		<primitive:
+		return _self.toUpperCase();
+		>
 	}
 
 	trim { :self |
-		<primitive: return _self.trim();>
+		<primitive:
+		return _self.trim();
+		>
 	}
 
 	uncheckedAt { :self :index |
@@ -1042,11 +1098,15 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	uncheckedConcatenation { :self :aString |
-		<primitive: return _self + _aString;>
+		<primitive:
+		return _self + _aString;
+		>
 	}
 
 	uncheckedCopyFromTo { :self :start :end |
-		<primitive: return _self.substring(_start - 1, _end);>
+		<primitive:
+		return _self.substring(sl.toFloat(_start) - 1, sl.toFloat(_end));
+		>
 	}
 
 	uncheckedLocaleCompare { :self :operand |
@@ -1071,11 +1131,15 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	uncheckedReplaceString { :self :stringToFind :stringToReplaceWith |
-		<primitive: return _self.replace(_stringToFind, _stringToReplaceWith);>
+		<primitive:
+		return _self.replace(_stringToFind, _stringToReplaceWith);
+		>
 	}
 
 	uncheckedReplaceStringAll { :self :stringToFind :stringToReplaceWith |
-		<primitive: return _self.replaceAll(_stringToFind, _stringToReplaceWith);>
+		<primitive:
+		return _self.replaceAll(_stringToFind, _stringToReplaceWith);
+		>
 	}
 
 	uniqueString { :self |
@@ -1083,7 +1147,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	utf16CodePointAt { :self :index |
-		<primitive: return _self.charCodeAt(_index - 1);>
+		<primitive:
+		const zeroIndex = sl.toFloat(_index) - 1;
+		return _self.charCodeAt(zeroIndex);
+		>
 	}
 
 	utf16List { :self |
@@ -1123,7 +1190,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	withoutLeadingBlanks { :self |
-		<primitive: return _self.trimStart();>
+		<primitive:
+		return _self.trimStart();
+		>
 	}
 
 	withoutQuoting { :self |
@@ -1144,7 +1213,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	withoutTrailingBlanks { :self |
-		<primitive: return _self.trimEnd();>
+		<primitive:
+		return _self.trimEnd();
+		>
 	}
 
 	withoutTrailingLineFeed { :self |
@@ -1170,7 +1241,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 }
 
-+SmallFloat {
++@Integer {
 
 	String { :self :letter |
 		letter.assertIsCharacter;
@@ -1186,7 +1257,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	fromCodePoint { :self |
-		<primitive: return String.fromCodePoint(_self);>
+		<primitive:
+		return String.fromCodePoint(sl.toFloat(_self));
+		>
 	}
 
 	isAsciiCodePoint { :self |
@@ -1239,7 +1312,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	fromCharacterCode { :self :encoding |
-		self.allSatisfy(isSmallFloat/1).if {
+		self.allSatisfy(isInteger/1).if {
 			encoding.caseOf(
 				[
 					'Ascii' -> { self.asciiString },
@@ -1321,7 +1394,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	uncheckedStringIntercalate { :self :aString |
-		<primitive: return _self.join(_aString);>
+		<primitive:
+		return _self.join(_aString);
+		>
 	}
 
 	unlines { :self |

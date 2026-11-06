@@ -1,9 +1,9 @@
-+SmallFloat {
++[SmallFloat, LargeInteger] {
 
 	ellipticKFukushima { :m |
 		/* https://observablehq.com/@dan-reznik/jacobi-elliptic-functions */
 		<primitive:
-		const m = _m;
+		const m = sl.toFloat(_m);
 		const D1 = 1.0 / 16.0, D2 = 1.0 / 32.0, D3 = 21.0 / 1024.0;
 		const D4 = 31.0 / 2048.0, D5 = 6257.0 / 524288.0, D6 = 10293.0 / 1048576.0;
 		const PIINV = 0.318309886;
@@ -273,20 +273,20 @@
 
 	zeta { :s |
 		/* http://numbers.computation.free.fr/Constants/Miscellaneous/zetaevaluations.pdf */
-		let p = 8;
+		let p = 8.0;
 		let n = ((1.3 * p) + (0.9 * s.imaginary.abs)).round;
 		let e = { :k |
 			k.to(n).sum { :j |
 				binomial(n, j)
 			}
 		};
-		let a = 1 / (1 - (2 ^ (1 - s)));
+		let a = 1.0 / (1.0 - (2.0 ^ (1.0 - s)));
 		let b = 1.to(n).sum { :k |
-			(-1 ^ (k - 1)) / (k ^ s)
+			(-1.0 ^ (k - 1.0)) / (k ^ s)
 		};
-		let c = 1 / (2 ^ n);
+		let c = 1.0 / (2.0 ^ n);
 		let d = (n + 1).to(2 * n).sum { :k |
-			((-1 ^ (k - 1)) * e(k - n)) / (k ^ s)
+			((-1.0 ^ (k - 1.0)) * e(k - n)) / (k ^ s)
 		};
 		a * (b + (c * d))
 	}
@@ -318,7 +318,7 @@
 
 }
 
-+[SmallFloat, Fraction] {
++[SmallFloat, LargeInteger, Fraction] {
 
 	ellipticE { :m |
 		/* https://github.com/duetosymmetry/elliptic-integrals-js */

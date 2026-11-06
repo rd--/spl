@@ -11,7 +11,7 @@ cubed.
 >>> 1.aperysConstant
 1.20206
 
->>> zeta(3)
+>>> zeta(3.0)
 1.aperysConstant
 ```
 

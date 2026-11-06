@@ -7,21 +7,21 @@ Answer `true` if the number _x_ is `zero`.
 At `SmallFloat`:
 
 ```
->>> 0.isZero
-true
+>>> (0.0.isZero, 0.0 = 0)
+(true, true)
 
->>> -0.isZero
-true
+>>> (-0.0.isZero, -0.0 = 0)
+(true, true)
 
->>> 1.isZero
-false
+>>> (1.0.isZero, 1.0 = 0)
+(false, false)
 ```
 
 At `Fraction`:
 
 ```
->>> 3/4.isZero
-false
+>>> (3/4.isZero, 3/4 = 0)
+(false, false)
 
 >>> 0/3.isZero
 true

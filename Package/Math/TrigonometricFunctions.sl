@@ -362,6 +362,10 @@
 		)
 	}
 
+	[csc, cosecant] { :self |
+		SmallFloat(self).cos
+	}
+
 	cos { :self |
 		SmallFloat(self).cos
 	}

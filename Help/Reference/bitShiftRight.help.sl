@@ -45,13 +45,16 @@ At negative integer:
 At `SmallFloat` _n_ must answer `true` to `isBinary`:
 
 ```
->>> 13.!.isBinary
+>>> SmallFloat(13.!).isBinary
 false
 
 >>> {
 >>> 	13.!.bitShiftRight(7)
 >>> }.hasError
 true
+
+>>> 13L.!.bitShiftRight(7)
+48648600L
 ```
 
 At `LargeInteger` works with numbers of any size:

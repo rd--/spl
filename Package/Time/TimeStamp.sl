@@ -59,6 +59,14 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 
 }
 
++LargeInteger {
+
+	TimeStamp { :self |
+		TimeStamp(SmallFloat(self))
+	}
+
+}
+
 +@Collection {
 
 	TimeStamp { :self |

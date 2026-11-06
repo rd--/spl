@@ -86,8 +86,8 @@ The octave is not included,
 that is it is reduced to a unison:
 
 ```
->>> 2/1.octaveReduce
-1/1
+>>> 2.octaveReduce
+1
 ```
 
 Threads over lists:

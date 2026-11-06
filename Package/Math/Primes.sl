@@ -1267,7 +1267,7 @@
 
 }
 
-+SmallFloat {
++@Integer {
 
 	erdosTuranConstruction { :n |
 		(
@@ -1387,7 +1387,7 @@
 
 }
 
-+SmallFloat {
++@Integer {
 
 	ellipticCurveOverFiniteField { :a :b :q |
 		let p = UnivariatePolynomial([b, a, 0, 1]);
@@ -1476,7 +1476,7 @@
 		<primitive:
 		/* https://github.com/Yaffle/PollardsRho/blob/main/PollardsRho.js */
 		const n = _self;
-		const maxSteps = _limit;
+		const maxSteps = sl.toFloat(_limit);
 		function gcd(a, b) {
 			while (b !== 0n) {
 				const r = a % b;

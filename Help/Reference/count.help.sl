@@ -8,7 +8,8 @@ Answer the number of elements that answered `true`.
 At `Range`:
 
 ```
->>> 1:9.count(isEven/1)
+>>> 1:9
+>>> .count(isEven/1)
 4
 ```
 

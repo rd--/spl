@@ -893,7 +893,7 @@ Triangle : [Object, Store, Equal, Geometry] {
 
 }
 
-+SmallFloat {
++@Integer {
 
 	kimberlingCenter { :n |
 		{ :t |

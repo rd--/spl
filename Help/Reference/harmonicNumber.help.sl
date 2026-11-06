@@ -8,20 +8,20 @@ The _n_-th harmonic number is the `sum` of the `reciprocal` of the range _1:n_.
 >>> 11.harmonicNumber
 83711/27720
 
->>> 1:11.reciprocal.sum
+>>> 1L:11.reciprocal.sum
 83711/27720
 ```
 
-With `SmallFloat` exponent will calculate using floating point division:
+Answers large fractions for small _n_:
 
 ```
->>> 43.harmonicNumber(1.0)
+>>> 43.harmonicNumber
 4.35
 
->>> 4550.harmonicNumber(1.0)
+>>> 4550.harmonicNumber
 9.00
 
->>> 12367.harmonicNumber(1.0)
+>>> 12367.harmonicNumber
 10.00
 ```
 

@@ -31,7 +31,7 @@
 
 }
 
-+@Number {
++[SmallFloat, LargeInteger] {
 
 	besselAsympt0 { :x |
 		let xsq = 64 / (x * x);
@@ -135,7 +135,7 @@
 			ret *= besseli(x, 0) / bi;
 			return x < 0 && (n%2) ? -ret : ret;
 		};
-		return besseli(_x, _n);
+		return besseli(sl.toFloat(_x), sl.toFloat(_n));
 		>
 	}
 
@@ -247,7 +247,7 @@
 				return bessel_iter(x, n, b0, b1, sign);
 			};
 		}
-		return bessel_wrap(bessel0, bessel1, 'BESSELK', 2, 1)(_z, _n);
+		return bessel_wrap(bessel0, bessel1, 'BESSELK', 2, 1)(sl.toFloat(_z), sl.toFloat(_n));
 		>
 	}
 
@@ -318,7 +318,7 @@
 				return bessel_iter(x, n, b0, b1, sign);
 			};
 		}
-		return bessel_wrap(bessel0, bessel1, 'BESSELY', 1, -1)(_z, _n);
+		return bessel_wrap(bessel0, bessel1, 'BESSELY', 1, -1)(sl.toFloat(_z), sl.toFloat(_n));
 		>
 	}
 
@@ -412,7 +412,7 @@
 			}
 			return ret;
 		};
-		return besselj(_x, _n);
+		return besselj(sl.toFloat(_x), sl.toFloat(_n));
 		>
 	}
 

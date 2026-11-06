@@ -1,25 +1,33 @@
 Float32Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Collection, Sequence] {
 
 	buffer { :self |
-		<primitive: return _self.buffer;>
+		<primitive:
+		return _self.buffer;
+		>
 	}
 
 	encode { :self :littleEndian |
-		<primitive: return sc.encodeFloat32Array(_self, _littleEndian);>
+		<primitive:
+		return sc.encodeFloat32Array(_self, _littleEndian);
+		>
 	}
 
-	put! { :self :index :aFloat |
+	put! { :self :index :anObject |
 		<primitive:
-		if(sl.arrayCheckIndex(_self, _index) && sl.isSmallFloat(_aFloat)) {
-			_self[_index - 1] = _aFloat;
-			return _aFloat;
+		const zeroIndex = sl.arrayCheckIndex(_self, _index);
+		const aFloat = sl.toFloat(_anObject);
+		if(zeroIndex > -1) {
+			_self[zeroIndex] = aFloat;
+			return _anObject;
 		}
 		>
 		self.errorInvalidIndex('put!', index)
 	}
 
 	shallowCopy { :self |
-		<primitive: return new Float32Array(_self);>
+		<primitive:
+		return new Float32Array(_self);
+		>
 	}
 
 	species { :unused |
@@ -32,10 +40,16 @@ Float32Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 
 }
 
-+SmallFloat {
++@Integer {
 
 	[Float32Array, constantFloat64Array] { :n :x |
-		<primitive: return new Float32Array(_n).fill(_x);>
+		<primitive:
+		return new Float32Array(
+			sl.toFloat(_n)
+		).fill(
+			sl.toFloat(_x)
+		);
+		>
 	}
 
 	zeroFloat32Array { :n |
@@ -47,7 +61,13 @@ Float32Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 +ArrayBuffer {
 
 	arrayBufferToFloat32Array { :self :byteOffset :size |
-		<primitive: return new Float32Array(_self, _byteOffset, _size);>
+		<primitive:
+		return new Float32Array(
+			_self,
+			sl.toFloat(_byteOffset),
+			sl.toFloat(_size)
+		);
+		>
 	}
 
 }
@@ -55,9 +75,10 @@ Float32Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 +List {
 
 	[Float32Array, listToFloat32Array] { :self |
-		self.atVectorOrElementwise { :each |
-			each.isSmallFloatVector.if {
-				each.uncheckedFloat32Array
+		self.atVectorOrElementwise { :aList |
+			let floatList = SmallFloat(aList);
+			floatList.isSmallFloatVector.if {
+				floatList.uncheckedFloat32Array
 			} {
 				self.error('List>>Float32Array')
 			}
@@ -65,7 +86,9 @@ Float32Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 	}
 
 	uncheckedFloat32Array { :self |
-		<primitive: return new Float32Array(_self);>
+		<primitive:
+		return new Float32Array(_self);
+		>
 	}
 
 }

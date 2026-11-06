@@ -11,7 +11,7 @@ Reconstructs a number from the list of its continued fraction terms.
 >>> [2 1 3 4].fromContinuedFraction
 47/17
 
->>> 2 + (1 / (1 + (1 / (3 + (1 / 4)))))
+>>> 2 + (1 / (1 + (1 / (3 + (1L / 4)))))
 47/17
 
 >>> [2 1 3 4]

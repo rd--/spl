@@ -42,7 +42,7 @@ A random walk of three-hundred places:
 
 ~~~spl svg=A
 Sfc32(378916)
-.randomReal([-1 1], 300)
+.randomReal([-1 1], [300])
 .accumulate
 .linePlot
 ~~~

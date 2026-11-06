@@ -16,6 +16,14 @@
 		.alternatingSum
 	}
 
+	amusicalPermutation { :n |
+		n.isEven.if {
+			3 * n / 2
+		} {
+			((3 * n + 2) / 4).floor
+		}
+	}
+
 	antiDivisors { :n |
 		let m = n - 1;
 		2.to(m).select { :x |

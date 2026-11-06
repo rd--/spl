@@ -55,6 +55,13 @@ At negative _n_:
 -2
 ```
 
+At `LargeInteger`:
+
+```
+>>> (13 ^ 17).round
+8650415919381337933L
+```
+
 At `Fraction`:
 
 ```
@@ -63,6 +70,10 @@ At `Fraction`:
 
 >>> -3141/1000.round
 -3
+
+>>> (1/23 * (10 ^ 22))
+>>> .round
+434782608695652173913L
 ```
 
 At `Complex` applies separately to real and imaginary parts:

@@ -34,14 +34,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	amusicalPermutation { :n |
-		n.isEven.if {
-			3 * n / 2
-		} {
-			((3 * n + 2) / 4).floor
-		}
-	}
-
 	assertIsFinite { :self :message |
 		self.assert(message) {
 			self.isFinite
@@ -64,8 +56,9 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	bitAnd { :self :anObject |
 		<primitive:
-		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
-			return _self & _anObject;
+		const aFloat = sl.toFloat(_anObject);
+		if(sl.isBitwise(_self) && sl.isBitwise(aFloat)) {
+			return _self & aFloat;
 		}
 		>
 		self.isBinary.if {
@@ -86,8 +79,9 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	bitOr { :self :anObject |
 		<primitive:
-		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
-			return _self | _anObject;
+		const aFloat = sl.toFloat(_anObject);
+		if(sl.isBitwise(_self) && sl.isBitwise(aFloat)) {
+			return _self | aFloat;
 		}
 		>
 		self.isBinary.if {
@@ -99,8 +93,9 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	[bitShiftLeft, <<] { :self :anObject |
 		<primitive:
-		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
-			return _self << _anObject;
+		const aFloat = sl.toFloat(_anObject);
+		if(sl.isBitwise(_self) && sl.isBitwise(aFloat)) {
+			return _self << aFloat;
 		}
 		>
 		self.isBinary.if {
@@ -112,8 +107,9 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	[bitShiftRight, >>] { :self :anObject |
 		<primitive:
-		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
-			return _self >> _anObject;
+		const aFloat = sl.toFloat(_anObject);
+		if(sl.isBitwise(_self) && sl.isBitwise(aFloat)) {
+			return _self >> aFloat;
 		}
 		>
 		self.isBinary.if {
@@ -125,8 +121,9 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	[bitShiftRightUnsigned, >>>] { :self :anObject |
 		<primitive:
-		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
-			return _self >>> _anObject;
+		const aFloat = sl.toFloat(_anObject);
+		if(sl.isBitwise(_self) && sl.isBitwise(aFloat)) {
+			return _self >>> aFloat;
 		}
 		>
 		self.isBinary.if {
@@ -142,8 +139,9 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	bitXor { :self :anObject |
 		<primitive:
-		if(sl.isBitwise(_self) && sl.isBitwise(_anObject)) {
-			return _self ^ _anObject;
+		const aFloat = sl.toFloat(_anObject);
+		if(sl.isBitwise(_self) && sl.isBitwise(aFloat)) {
+			return _self ^ aFloat;
 		}
 		>
 		self.isBinary.if {
@@ -224,36 +222,16 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	[divide, /] { :self :operand |
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
-			if(_operand === 0 || _operand === 1) {
+			/*if(_operand === 0 || _operand === 1) {
 				return _self / _operand;
 			}
 			if(Number.isSafeInteger(_self) && Number.isSafeInteger(_operand)) {
 				return _Fraction_2(BigInt(_self), BigInt(_operand));
-			}
+			}*/
 			return _self / _operand;
 		}
 		>
 		operand.adaptToNumberAndApply(self, divide/2)
-	}
-
-	encodeFloat32 { :self :littleEndian |
-		<primitive: return sc.encodeFloat32(_self, _littleEndian);>
-	}
-
-	encodeFloat64 { :self :littleEndian |
-		<primitive: return sc.encodeFloat64(_self, _littleEndian);>
-	}
-
-	encodeInt16 { :self :littleEndian |
-		<primitive: return sc.encodeInt16(_self, _littleEndian);>
-	}
-
-	encodeInt32 { :self :littleEndian |
-		<primitive: return sc.encodeInt32(_self, _littleEndian);>
-	}
-
-	encodeInt8 { :self |
-		<primitive: return sc.encodeInt8(_self);>
 	}
 
 	[encodeJson, smallFloatToJson] { :self |
@@ -301,19 +279,21 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		operand.adaptToNumberAndApply(self, hypotenuse/2)
 	}
 
-	i32BitRotateLeft { :self :anInteger |
+	i32BitRotateLeft { :self :anObject |
 		<primitive:
-		if(sl.isBitwise(_self) && sl.isBitwise(_anInteger)) {
-			return (_self << _anInteger) | (_self >>> (32 - _anInteger));
+		const aFloat = sl.toFloat(_anObject);
+		if(sl.isBitwise(_self) && sl.isBitwise(aFloat)) {
+			return (_self << aFloat) | (_self >>> (32 - aFloat));
 		}
 		>
 		self.error('SmallFloat>>i32BitRotateLeft', [anInteger])
 	}
 
-	i32BitRotateRight { :self :anInteger |
+	i32BitRotateRight { :self :anObject |
 		<primitive:
-		if(sl.isBitwise(_self) && sl.isBitwise(_anInteger)) {
-			return (_self >> _anInteger) | (_self << (32 - _anInteger));
+		const aFloat = sl.toFloat(_anObject);
+		if(sl.isBitwise(_self) && sl.isBitwise(aFloat)) {
+			return (_self >> aFloat) | (_self << (32 - aFloat));
 		}
 		>
 		self.error('SmallFloat>>i32BitRotateRight', [anInteger])
@@ -389,10 +369,10 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		aNumber.isNumber.not.if {
 			false
 		} {
-			(self = 0).if {
+			(self = 0.0).if {
 				aNumber.abs < epsilon
 			} {
-				(aNumber = 0).if {
+				(aNumber = 0.0).if {
 					self.abs < epsilon
 				} {
 					let other = SmallFloat(aNumber);
@@ -409,28 +389,19 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	[isEqual, =] { :self :operand |
-		<primitive:
-		if(sl.isSmallFloat(_operand)) {
-			return _self === _operand;
-		}
-		>
-		[
-			{ operand.isLargeInteger } -> {
-				LargeInteger(self) = operand
-			},
-			{ operand.isComplex } -> {
-				Complex(self, 0) = operand
-			},
-			{ true } -> { false }
-		].which
-	}
-
 	isEqualBy { :self :operand :aBlock/2 |
-		operand.isNumber.if {
-			aBlock(self, SmallFloat(operand))
+		operand.isSmallFloat.if {
+			isIdentical(self, operand)
 		} {
-			false
+			operand.isComplex.if {
+				aBlock(operand, self)
+			} {
+				operand.isNumber.if {
+					aBlock(self, SmallFloat(operand))
+				} {
+					false
+				}
+			}
 		}
 	}
 
@@ -539,7 +510,9 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	}
 
 	log { :self :base |
-		<primitive: return Math.log(_self) / Math.log(_base)>
+		<primitive:
+		return Math.log(_self) / Math.log(Number(_base))
+		>
 	}
 
 	log10 { :self |
@@ -703,8 +676,9 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	printStringToFixed { :self :anInteger |
 		<primitive:
-		if(sl.isSmallFloatInteger(_anInteger)) {
-			return _self.toFixed(_anInteger);
+		const aFloat = sl.toFloat(_anInteger);
+		if(sl.isSmallFloatInteger(aFloat)) {
+			return _self.toFixed(aFloat);
 		}
 		>
 		'SmallFloat>>printStringToFixed: not integer precision'.error
@@ -712,8 +686,9 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 
 	printStringToPrecision { :self :anInteger |
 		<primitive:
-		if(sl.isSmallFloatInteger(_anInteger)) {
-			return _self.toPrecision(_anInteger);
+		const aFloat = sl.toFloat(_anInteger);
+		if(sl.isSmallFloatInteger(aFloat)) {
+			return _self.toPrecision(aFloat);
 		}
 		>
 		'SmallFloat>>printStringToPrecision: not integer precision'.error
@@ -757,11 +732,11 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		} {
 			let x = self.abs;
 			(x = 0).if {
-				[List(size, 0), 1]
+				[List(size, 0.0), 1.0]
 			} {
-				let exponent = (x.log10 + 1).round;
+				let exponent = (x.log10 + 1.0).round;
 				[
-					(x * (10 ^ (size - exponent))).round.integerDigits(10, size),
+					(x * (10.0 ^ (size - exponent))).round.integerDigits(10, size),
 					exponent
 				]
 			}
@@ -962,7 +937,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 			return "-0"
 		};
 		if(Number.isFinite(_self)) {
-			return _self.toString(_radix).toUpperCase();
+			return _self.toString(Number(_radix)).toUpperCase();
 		};
 		return _self.toString();
 		>

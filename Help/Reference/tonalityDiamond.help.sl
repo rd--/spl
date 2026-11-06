@@ -2,7 +2,9 @@
 
 - _tonalityDiamond(n)_
 
-A multiplication table of the odd integers _1, 3 .. n_, reduced to an octave and sorted, with their reciprocals.
+A multiplication table of the odd integers _1, 3 .. n_,
+reduced to an octave and sorted,
+with their reciprocals.
 The first row contain the harmonics (Otonality) and the first column the subharmonics (Utonality).
 
 Five limit:

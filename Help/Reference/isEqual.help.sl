@@ -10,10 +10,20 @@ The operator form is `=`.
 At `SmallFloat`:
 
 ```
->>> 3 = 1
+>>> 3.0 = 1.0
 false
 
->>> 2 = 2
+>>> 2.0 = 2.0
+true
+```
+
+Compare equal `SmallFloat` and `LargeInteger`:
+
+```
+>>> 2.0 = 2L
+true
+
+>>> 2L = 2.0
 true
 ```
 
@@ -61,6 +71,9 @@ true
 
 >>> 1J0 = 1
 true
+
+>>> 1 = 1J0
+true
 ```
 
 At `Fraction`:
@@ -68,16 +81,19 @@ At `Fraction`:
 ```
 >>> 6/4 = 3/2
 true
+
+>>> 3/2 = 1.5
+true
 ```
 
 At `SmallFloat` and `Fraction`:
 
 ```
 >>> 3/2 = 1.5
-false
+true
 
 >>> 1.5 = 3/2
-false
+true
 
 >>> 3/2 ~ 1.5
 true
@@ -90,10 +106,10 @@ At `SmallFloat` and `Decimal`:
 
 ```
 >>> 1.5D = 1.5
-false
+true
 
 >>> 1.5 = 1.5D
-false
+true
 
 >>> 1.5D ~ 1.5
 true
@@ -135,7 +151,7 @@ Select the numbers that are equal to zero:
 >>> [-1 0 1E-10 1 0.0].select(
 >>> 	isEqual(0)
 >>> )
-[0]
+[0 0.0]
 ```
 
 * * *

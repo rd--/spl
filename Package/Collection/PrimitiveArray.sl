@@ -4,11 +4,12 @@
 
 	atIfAbsent { :self :index :ifAbsent/0 |
 		<primitive:
-		if(sl.arrayCheckIndex(_self, _index)) {
-			return _self[_index - 1];
+		const zeroIndex = sl.arrayCheckIndex(_self, _index);
+		if(zeroIndex > -1) {
+			return _self[zeroIndex];
 		}
-		return _ifAbsent_0();
 		>
+		ifAbsent()
 	}
 
 	collect { :self :aBlock/1 |
@@ -60,13 +61,15 @@
 
 	includesIndex { :self :index |
 		<primitive:
-		return Number.isInteger(_index) && 0 < _index && _index <= _self.length;
+		const zeroIndex = sl.arrayCheckIndex(_self, _index);
+		return (zeroIndex > -1);
 		>
 	}
 
 	insertAt! { :self :anObject :index |
 		<primitive:
-		_self.splice(_index - 1, 0, _anObject);
+		const zeroIndex = sl.arrayCheckIndex(_self, _index);
+		_self.splice(zeroIndex, 0, _anObject);
 		>
 		anObject
 	}
@@ -112,16 +115,22 @@
 	}
 
 	uncheckedAt { :self :index |
-		<primitive: return _self[_index - 1];>
+		<primitive:
+		return _self[Number(_index) - 1];
+		>
 	}
 
 	uncheckedPut! { :self :index :value |
-		<primitive: _self[_index - 1] = _value;>
+		<primitive:
+		_self[Number(_index) - 1] = _value;
+		>
 		value
 	}
 
 	uncheckedRemoveAt { :self :index |
-		<primitive: return _self.splice(_index - 1, 1)[0];>
+		<primitive:
+		return _self.splice(Number(_index) - 1, 1)[0];
+		>
 	}
 
 	uncheckedSortComparing { :self :compareBlock/2 |

@@ -8,7 +8,8 @@ Also called the inverse companding or gamma function.
 At `SmallFloat`:
 
 ```
->>> 0.73536.adobeRgbDecode
+>>> 0.73536
+>>> .adobeRgbDecode
 0.5086
 ```
 
@@ -24,7 +25,7 @@ At `List`:
 Plot curve:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	adobeRgbDecode/1
 )
 ~~~

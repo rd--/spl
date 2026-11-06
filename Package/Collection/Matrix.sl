@@ -787,7 +787,7 @@
 
 }
 
-+SmallFloat {
++@Integer {
 
 	antidiagonalIndices { :k |
 		let answer = [];

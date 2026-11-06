@@ -1,14 +1,20 @@
 @ImplicitFloat {
 
+	cubeRoot { :self |
+		SmallFloat(self).cubeRoot
+	}
+
 	exp { :self |
 		SmallFloat(self).exp
 	}
 
 	isCloseBy { :self :aNumber :epsilon |
-		SmallFloat(self).isCloseBy(
-			SmallFloat(aNumber),
-			epsilon
-		)
+		aNumber.isNumber & {
+			SmallFloat(self).isCloseBy(
+				SmallFloat(aNumber),
+				epsilon
+			)
+		}
 	}
 
 	log { :self :base |

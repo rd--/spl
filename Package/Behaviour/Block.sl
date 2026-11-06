@@ -617,11 +617,11 @@ Block! : [Object, Equal] {
 	typeCheckedCompareBlock { :compareBlock/2 |
 		<primitive:
 		return function(p, q) {
-			const c = _compareBlock_2(p, q);
+			const c = sl.toFloat(_compareBlock_2(p, q));
 			if (c === -1 || c === 0 || c === 1) {
 				return c;
 			} {
-				throw new Error('Non-ternary compare block');
+				throw new Error('Non-ternary compare block', [p, q, c]);
 			}
 		};
 		>

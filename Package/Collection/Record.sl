@@ -22,7 +22,9 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 	}
 
 	encodeIni { :self |
-		<primitive: return sl.encodeIni(_self);>
+		<primitive:
+		return sl.encodeIni(_self);
+		>
 	}
 
 	[encodeJson, recordToJson] { :self |
@@ -34,11 +36,15 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 	}
 
 	includesKey { :self :key |
-		<primitive: return Object.hasOwn(_self, _key);>
+		<primitive:
+		return Object.hasOwn(_self, _key);
+		>
 	}
 
 	[indices, keys] { :self |
-		<primitive: return Object.keys(_self);>
+		<primitive:
+		return Object.keys(_self);
+		>
 	}
 
 	isJson { :self |
@@ -63,11 +69,15 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 	}
 
 	propertyRead { :self :aString |
-		<primitive: return _self[_aString];>
+		<primitive:
+		return _self[_aString];
+		>
 	}
 
 	propertyWrite { :self :aString :anObject |
-		<primitive: return _self[_aString] = _anObject;>
+		<primitive:
+		return _self[_aString] = _anObject;
+		>
 	}
 
 	put! { :self :aString :anObject |
@@ -93,7 +103,9 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 	}
 
 	size { :self |
-		<primitive: return Object.keys(_self).length;>
+		<primitive:
+		return Object.keys(_self).length;
+		>
 	}
 
 	species { :self |
@@ -132,16 +144,22 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 	}
 
 	uncheckedAt { :self :key |
-		<primitive: return _self[_key];>
+		<primitive:
+		return _self[_key];
+		>
 	}
 
 	uncheckedPut! { :self :key :value |
-		<primitive: _self[_key] = _value;>
+		<primitive:
+		_self[_key] = _value;
+		>
 		value
 	}
 
 	values { :self |
-		<primitive: return Object.values(_self);>
+		<primitive:
+		return Object.values(_self);
+		>
 	}
 
 }
@@ -171,7 +189,9 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 	}
 
 	uncheckedMatrixToRecord { :self |
-		<primitive: return Object.fromEntries(_self);>
+		<primitive:
+		return Object.fromEntries(_self);
+		>
 	}
 
 }
@@ -179,7 +199,9 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 +Void {
 
 	Record {
-		<primitive: return Object.create(null);>
+		<primitive:
+		return Object.create(null);
+		>
 	}
 
 }

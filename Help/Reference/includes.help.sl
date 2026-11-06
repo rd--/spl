@@ -100,6 +100,13 @@ Map over matrix:
 ]
 ```
 
+At `SortedList`:
+
+```
+>>> SortedList[1 3 5].includes(5)
+true
+```
+
 Numbers congruent to one or five modulo six,
 OEIS [A007310](https://oeis.org/A007310):
 

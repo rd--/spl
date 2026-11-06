@@ -56,6 +56,9 @@ Threads over lists:
 ```
 >>> SmallFloat[1L 3/4]
 [1 0.75]
+
+>>> SmallFloat[1 2; 3 4]
+[1 2; 3 4]
 ```
 
 Literal syntaxes:

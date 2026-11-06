@@ -370,7 +370,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 }
 
-+SmallFloat {
++@Integer {
 
 	bellB { :n |
 		(n = 0).if {
@@ -390,6 +390,10 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 	cardanosAlgorithm { :a :b :c :d |
 		<primitive:
+		_a = sl.toFloat(_a);
+		_b = sl.toFloat(_b);
+		_c = sl.toFloat(_c);
+		_d = sl.toFloat(_d);
 		/* https://www.mosismath.com/Cardano/Cardano.html */
 		function xroot(a, x) {
 			const i = (a < 0) ? -1 : 1;

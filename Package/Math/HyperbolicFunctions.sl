@@ -56,11 +56,11 @@
 +Complex {
 
 	arcCosh { :z |
-		(z + ((z ^ 2) - 1).sqrt).log /* (((z + 1).sqrt * (z - 1).sqrt) + z).log */
+		(z + ((z ^ 2) - 1.0).sqrt).log /* (((z + 1).sqrt * (z - 1).sqrt) + z).log */
 	}
 
 	arcCoth { :z |
-		(1 / z).arcTanh /* ((z + 1).log - (z - 1).log) / 2 */
+		(1.0 / z).arcTanh /* ((z + 1).log - (z - 1).log) / 2 */
 	}
 
 	arcCsch { :z |
@@ -79,11 +79,11 @@
 	}
 
 	arcSinh { :z |
-		(z + ((z ^ 2) + 1).sqrt).log
+		(z + ((z ^ 2.0) + 1).sqrt).log
 	}
 
 	arcTanh { :z |
-		((z + 1).log - (1 - z).log) / 2
+		((z + 1.0).log - (1.0 - z).log) / 2.0
 	}
 
 	cosh { :z |
@@ -96,8 +96,8 @@
 	}
 
 	coth { :z |
-		let n = (2 * z).exp;
-		(n + 1) / (n - 1)
+		let n = (2.0 * z).exp;
+		(n + 1.0) / (n - 1.0)
 	}
 
 	sinh { :z |
@@ -134,8 +134,8 @@
 	}
 
 	inverseGudermannian { :z |
-		z.isVeryClose(0).if {
-			0
+		z.isVeryClose(0.0).if {
+			0.0
 		} {
 			((z * 0.5) + 0.25.pi).tan.log
 		}
@@ -243,6 +243,26 @@
 
 	arcTanh { :self |
 		SmallFloat(self).arcTanh
+	}
+
+	cosh { :self |
+		SmallFloat(self).cosh
+	}
+
+	coth { :self |
+		SmallFloat(self).coth
+	}
+
+	sech { :self |
+		SmallFloat(self).sech
+	}
+
+	sinh { :self |
+		SmallFloat(self).sinh
+	}
+
+	tanh { :self |
+		SmallFloat(self).tanh
 	}
 
 }

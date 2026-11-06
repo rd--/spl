@@ -384,19 +384,28 @@
 	}
 
 	includesSubstring { :self :aString |
-		<primitive: return _self.includes(_aString);>
+		<primitive:
+		return _self.includes(_aString);
+		>
 	}
 
 	indexOfSubstring { :self :aString |
-		<primitive: return _self.indexOf(_aString) + 1;>
+		<primitive:
+		return _self.indexOf(_aString) + 1;
+		>
 	}
 
 	indexOfSubstringStartingAt { :self :aString :anInteger |
-		<primitive: return _self.indexOf(_aString, _anInteger - 1) + 1;>
+		<primitive:
+		const zeroIndex = sl.toFloat(_anInteger) - 1;
+		return _self.indexOf(_aString, zeroIndex) + 1;
+		>
 	}
 
 	lastIndexOfSubstring { :self :subString |
-		<primitive: return _self.lastIndexOf(_subString) + 1;>
+		<primitive:
+		return _self.lastIndexOf(_subString) + 1;
+		>
 	}
 
 	longestCommonSubsequence { :self :aString |

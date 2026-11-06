@@ -1,21 +1,27 @@
 Float64Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Collection, Sequence] {
 
 	encode { :self :littleEndian |
-		<primitive: return sc.encodeFloat64Array(_self, _littleEndian);>
+		<primitive:
+		return sc.encodeFloat64Array(_self, _littleEndian);
+		>
 	}
 
-	put! { :self :index :aFloat |
+	put! { :self :index :anObject |
 		<primitive:
-		if(sl.arrayCheckIndex(_self, _index) && sl.isSmallFloat(_aFloat)) {
-			_self[_index - 1] = _aFloat;
-			return _aFloat;
+		const zeroIndex = sl.arrayCheckIndex(_self, _index);
+		const aFloat = sl.toFloat(_anObject);
+		if(zeroIndex > -1) {
+			_self[zeroIndex] = aFloat;
+			return _anObject;
 		}
 		>
 		self.errorInvalidIndex('put!', index)
 	}
 
 	shallowCopy { :self |
-		<primitive: return new Float64Array(_self);>
+		<primitive:
+		return new Float64Array(_self);
+		>
 	}
 
 	species { :unused |
@@ -28,10 +34,12 @@ Float64Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 
 }
 
-+SmallFloat {
++@Integer {
 
 	[Float64Array, constantFloat64Array] { :n :x |
-		<primitive: return new Float64Array(_n).fill(_x);>
+		<primitive:
+		return new Float64Array(Number(_n)).fill(Number(_x));
+		>
 	}
 
 	zeroFloat64Array { :n |
@@ -43,16 +51,19 @@ Float64Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 +List {
 
 	[Float64Array, listToFloat64Array] { :self |
-		self.atVectorOrElementwise { :each |
-			each.isSmallFloatVector.ifFalse {
+		self.atVectorOrElementwise { :aList |
+			let floatList = SmallFloat(aList);
+			floatList.isSmallFloatVector.ifFalse {
 				self.error('Float64Array: invalid input')
 			};
-			each.uncheckedFloat64Array
+			floatList.uncheckedFloat64Array
 		}
 	}
 
 	uncheckedFloat64Array { :self |
-		<primitive: return new Float64Array(_self);>
+		<primitive:
+		return new Float64Array(_self);
+		>
 	}
 
 }
@@ -60,7 +71,9 @@ Float64Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 +Range {
 
 	[Float64Array, rangeToFloat64Array] { :self |
-		uncheckedFloat64Array(List(self))
+		uncheckedFloat64Array(
+			List(self)
+		)
 	}
 
 }

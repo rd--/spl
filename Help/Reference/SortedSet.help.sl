@@ -26,10 +26,13 @@ true
 true
 ```
 
-Use `add` to insert non-existing items:
+Use `add` and `addAll` to insert non-existing items:
 
 ```
->>> let c = SortedSet[1 3 5];
+>>> let c = SortedSet();
+>>> c.add!(1);
+>>> c.add!(3);
+>>> c.add!(5);
 >>> c.add!(2);
 >>> c.add!(4);
 >>> c

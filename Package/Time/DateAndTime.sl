@@ -25,11 +25,15 @@ DateAndTime : [Object, Store, Equal, Compare] {
 	}
 
 	absoluteTime { :self |
-		<primitive: return _self.hiddenRepresentation.getTime() / 1000.0;>
+		<primitive:
+		return _self.hiddenRepresentation.getTime() / 1000.0;
+		>
 	}
 
 	absoluteTimeInMilliseconds { :self |
-		<primitive: return _self.hiddenRepresentation.getTime();>
+		<primitive:
+		return _self.hiddenRepresentation.getTime();
+		>
 	}
 
 	components { :self |
@@ -44,15 +48,21 @@ DateAndTime : [Object, Store, Equal, Compare] {
 	}
 
 	dateAndTimeString { :self |
-		<primitive: return _self.hiddenRepresentation.toISOString();>
+		<primitive:
+		return _self.hiddenRepresentation.toISOString();
+		>
 	}
 
 	dayOfMonth { :self |
-		<primitive: return _self.hiddenRepresentation.getUTCDate();>
+		<primitive:
+		return _self.hiddenRepresentation.getUTCDate();
+		>
 	}
 
 	dayOfWeek { :self |
-		<primitive: return _self.hiddenRepresentation.getUTCDay() + 1;>
+		<primitive:
+		return _self.hiddenRepresentation.getUTCDay() + 1;
+		>
 	}
 
 	fractionalSecond { :self |
@@ -60,7 +70,9 @@ DateAndTime : [Object, Store, Equal, Compare] {
 	}
 
 	hour { :self |
-		<primitive: return _self.hiddenRepresentation.getUTCHours();>
+		<primitive:
+		return _self.hiddenRepresentation.getUTCHours();
+		>
 	}
 
 	isEqualBy { :self :anObject :aBlock/2 |
@@ -74,23 +86,33 @@ DateAndTime : [Object, Store, Equal, Compare] {
 	}
 
 	localeTimeString { :self :localeName |
-		<primitive: return _self.hiddenRepresentation.toLocaleTimeString(_localeName);>
+		<primitive:
+		return _self.hiddenRepresentation.toLocaleTimeString(_localeName);
+		>
 	}
 
 	millisecond { :self |
-		<primitive: return _self.hiddenRepresentation.getUTCMilliseconds();>
+		<primitive:
+		return _self.hiddenRepresentation.getUTCMilliseconds();
+		>
 	}
 
 	minute { :self |
-		<primitive: return _self.hiddenRepresentation.getUTCMinutes();>
+		<primitive:
+		return _self.hiddenRepresentation.getUTCMinutes();
+		>
 	}
 
 	month { :self |
-		<primitive: return _self.hiddenRepresentation.getUTCMonth() + 1;>
+		<primitive:
+		return _self.hiddenRepresentation.getUTCMonth() + 1;
+		>
 	}
 
 	offsetWholeSeconds { :self |
-		<primitive: return Math.round(_self.hiddenRepresentation.getTimezoneOffset() * 60);>
+		<primitive:
+		return Math.round(_self.hiddenRepresentation.getTimezoneOffset() * 60);
+		>
 	}
 
 	storeString { :self |
@@ -102,31 +124,41 @@ DateAndTime : [Object, Store, Equal, Compare] {
 	}
 
 	wholeSecond { :self |
-		<primitive: return _self.hiddenRepresentation.getUTCSeconds();>
+		<primitive:
+		return _self.hiddenRepresentation.getUTCSeconds();
+		>
 	}
 
 	year { :self |
-		<primitive: return _self.hiddenRepresentation.getUTCFullYear();>
+		<primitive:
+		return _self.hiddenRepresentation.getUTCFullYear();
+		>
+	}
+
+}
+
++@Integer {
+
+	DateAndTime { :self |
+		newDateAndTime().initializeSlots(
+			SmallFloat(self).primitiveDateAndTime
+		)
+	}
+
+	DateAndTime { :year :month :dayOfMonth :hour :minute :second |
+		DateAndTime(
+			[year, month, dayOfMonth, hour, minute, second]
+		)
 	}
 
 }
 
 +SmallFloat {
 
-	DateAndTime { :self |
-		newDateAndTime().initializeSlots(
-			self.primitiveDateAndTime
-		)
-	}
-
-	DateAndTime { :year :month :dayOfMonth :hour :minute :second |
-		newDateAndTime().initializeSlots(
-			primitiveDateAndTime(year, month, dayOfMonth, hour, minute, second)
-		)
-	}
-
 	primitiveDateAndTime { :self |
-		<primitive: return new Date(_self * 1000);>
+		<primitive:
+		return new Date(_self * 1000);
+		>
 	}
 
 	primitiveDateAndTime { :year :month :dayOfMonth :hour :minute :second |
@@ -152,9 +184,12 @@ DateAndTime : [Object, Store, Equal, Compare] {
 +List {
 
 	[DateAndTime, listToDateAndTime] { :self |
-		self.atVectorOrElementwise { :each |
-			let [year, month, dayOfMonth, hour, minute, second] = each;
-			DateAndTime(year, month, dayOfMonth, hour, minute, second)
+		self.atVectorOrElementwise { :aList |
+			let floatList = SmallFloat(aList);
+			let [year, month, dayOfMonth, hour, minute, second] = floatList;
+			newDateAndTime().initializeSlots(
+				primitiveDateAndTime(year, month, dayOfMonth, hour, minute, second)
+			)
 		}
 	}
 

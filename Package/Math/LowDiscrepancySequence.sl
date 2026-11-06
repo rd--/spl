@@ -31,7 +31,7 @@
 			let j = (i - 1).rulerFunction;
 			x[i] := x[i - 1].bitXor(v[j])
 		};
-		(x / (2 ^ 32))
+		(x / (2L ^ 32))
 	}
 
 	sobolSequenceData { :d |

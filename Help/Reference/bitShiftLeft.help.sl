@@ -37,13 +37,13 @@ Shift seven places to the left:
 At `SmallFloat` the integers are taken to be 32-bit signed integers:
 
 ```
->>> 1.bitShiftLeft(31)
+>>> 1.0.bitShiftLeft(31)
 -2147483648
 
 >>> 1L.bitShiftLeft(31)
 2147483648L
 
->>> 1.bitShiftLeft(32)
+>>> 1.0.bitShiftLeft(32)
 1
 
 >>> 1L.bitShiftLeft(32)
@@ -74,8 +74,11 @@ where supported `<<` is displayed as ≪:
 >>> 32 << 7
 4096
 
->>> -2 << 31
+>>> -2.0 << 31
 0
+
+>>> -2L << 31
+-4294967296L
 ```
 
 At `LargeInteger`:

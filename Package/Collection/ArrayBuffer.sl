@@ -3,31 +3,45 @@
 ArrayBuffer! : [Object] {
 
 	[ByteArray, arrayBufferToByteArray] { :self |
-		<primitive: return new Uint8Array(_self);>
+		<primitive:
+		return new Uint8Array(_self);
+		>
 	}
 
 	[Float32Array, arrayBufferToFloat32Array] { :self |
-		<primitive: return new Float32Array(_self);>
+		<primitive:
+		return new Float32Array(_self);
+		>
 	}
 
 	[Float64Array, arrayBufferToFloat64Array] { :self |
-		<primitive: return new Float64Array(_self);>
+		<primitive:
+		return new Float64Array(_self);
+		>
 	}
 
 	byteSize { :self |
-		<primitive: return _self.byteLength;>
+		<primitive:
+		return _self.byteLength;
+		>
 	}
 
 	isDetached { :self |
-		<primitive: return _self.detached;>
+		<primitive:
+		return _self.detached;
+		>
 	}
 
 	isResizable { :self |
-		<primitive: return _self.resizable;>
+		<primitive:
+		return _self.resizable;
+		>
 	}
 
 	maxByteSize { :self |
-		<primitive: return _self.maxByteLength;>
+		<primitive:
+		return _self.maxByteLength;
+		>
 	}
 
 	size { :self |
@@ -36,10 +50,12 @@ ArrayBuffer! : [Object] {
 
 }
 
-+SmallFloat {
++@Integer {
 
 	ArrayBuffer { :self |
-		<primitive: return new ArrayBuffer(_self);>
+		<primitive:
+		return new ArrayBuffer(sl.toFloat(_self));
+		>
 	}
 
 }
