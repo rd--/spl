@@ -11,8 +11,12 @@ Specific values:
 >>> 2.takagiFunction(5)
 0
 
->>> (12 / 19).takagiFunction(15)
-6296 / 9709
+>>> 12/19.takagiFunction(15)
+50465/77824
+
+>>> SmallFloat(12/19)
+>>> .takagiFunction(15)
+0.64845
 
 >>> 1.273.takagiFunction(19)
 0.58656

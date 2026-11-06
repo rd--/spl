@@ -2,11 +2,13 @@
 
 - _rationalize(x, ε=1E-5)_
 
-Answer a `Fraction` that approximates the floating point number _x_ given an error bound ε.
+Answer a `Fraction`,
+or an `Integer`,
+that approximates the floating point number _x_ given an error bound ε.
 
 ```
 >>> 8.rationalize(1E-5)
-8/1
+8
 
 >>> 1.pi.rationalize(1E-5)
 355/113
@@ -22,10 +24,10 @@ At `zero` and `one`:
 
 ```
 >>> 0.rationalize
-0/1
+0
 
 >>> 1.rationalize
-1/1
+1
 ```
 
 Find rational approximations to within a given tolerance:

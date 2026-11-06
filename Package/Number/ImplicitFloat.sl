@@ -13,7 +13,7 @@
 
 	log { :self :base |
 		SmallFloat(self).log(
-			SmallFloat(base)
+			base
 		)
 	}
 
@@ -37,6 +37,13 @@
 
 	printStringToFixed { :self :anInteger |
 		SmallFloat(self).printStringToFixed(anInteger)
+	}
+
+	realDigits { :self :base :size |
+		SmallFloat(self).realDigits(
+			base,
+			size
+		)
 	}
 
 	realExponent { :x :b |

@@ -12,7 +12,7 @@ Subdivide the unit interval into 10 equal parts:
 >>> 10.subdivide
 Range(0, 1, 1/10, 11)
 
->>> 10.subdivide.List
+>>> List(10.subdivide)
 [
 	0/1 1/10 1/5 3/10 2/5
 	1/2 3/5 7/10 4/5 9/10
@@ -24,7 +24,7 @@ Subdivide the interval `zero` to `one` into 100 equal parts:
 
 ```
 >>> (0 -- 1).subdivide(100)
-Range(0, 1, 0.01, 101)
+Range(0, 1, 1/100, 101)
 ```
 
 Subdivide the interval 0 to 10 into 5 equal parts:
@@ -38,7 +38,7 @@ Subdivide the interval -1 to 1 into 8 equal parts:
 
 ```
 >>> (-1 -- 1).subdivide(8)
-Range(-1, 1, 0.25, 9)
+Range(-1, 1, 1/4, 9)
 ```
 
 Subdivide the interval from `e` to `pi`:
@@ -83,7 +83,7 @@ Range(3, 11, 2, 5)
 [3 5 7 9 11]
 
 >>> (-1 -- 2).subdivide(5)
-Range(-1, 2, 0.6, 6)
+Range(-1, 2, 3/5, 6)
 
 >>> (-1, -0.4 .. 2)
 Range(-1, 2, 0.6, 6)
@@ -105,14 +105,18 @@ Range(1, 10, 1, 10)
 The last value is treated especially to avoid range errors:
 
 ```
->>> let r = (1 -- 5).subdivide(100);
->>> let l = r.List;
->>> (r, l[100] > 4.96, l[101] > 5)
+>>> let r = (0 -- 2.pi).subdivide(100);
+>>> let l = List(r);
+>>> let a = 2.pi / 100;
+>>> let b = 99 * a;
+>>> let c = 100 * a;
+>>> (r, l[100] = b, l[101] = c)
 (
-	Range(1, 5, 0.04, 101),
-	true,
-	false
+	Range(0, 2.pi, 2.pi / 100, 101),
+	false,
+	true
 )
+
 ```
 
 A cyclical sine table of _n_ places,

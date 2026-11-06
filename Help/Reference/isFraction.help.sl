@@ -34,14 +34,14 @@ A `List` is not a fraction:
 >>> [1/2 3/4].isFraction
 false
 
->>> [1/2 3/3].allTrue(isFraction/1)
+>>> [1/2 3/4].allTrue(isFraction/1)
 true
 ```
 
 _Rationale_:
 `isFraction` is a `Type` predicate,
 `SmallFloat` values that represent fractions or integers,
-for instance _0.5_ and _1.0_,
+for instance _0.5_ and _1_,
 answer `false`,
 as do `LargeInteger` values.
 The predicate `isRational` will answer `true` for integer values.

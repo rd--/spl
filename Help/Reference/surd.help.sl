@@ -53,7 +53,8 @@ Continued fraction for cube root of seventy-one,
 OEIS [A010299](https://oeis.org/A010299):
 
 ```
->>> 71.surd(3).continuedFraction(15)
+>>> 71.surd(3)
+>>> .continuedFraction(15)
 [4 7 9 1 6 2 1 3 1 1 2 4 7 1 5]
 ```
 

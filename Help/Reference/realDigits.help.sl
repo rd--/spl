@@ -44,7 +44,7 @@ Digits of π in base ten:
 Digits of 19/7 in base ten:
 
 ```
->>> (19 / 7).realDigits(10, 15)
+>>> 19/7.realDigits(10, 15)
 [[2 7 1 4 2 8 5 7 1 4 2 8 5 7 1], 1]
 ```
 

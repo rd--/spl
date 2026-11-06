@@ -14,7 +14,7 @@ Ascending:
 >>> 1 + 1 <=> 3
 -1
 
->>> (7 / 3).gamma <=> 2.sqrt
+>>> 7/3.gamma <=> 2.sqrt
 -1
 ```
 
@@ -51,7 +51,16 @@ Mixed numeric types, ascending and descending:
 Mixed numeric types, equal to:
 
 ```
+>>> 3/2 <=> 1.5
+0
+
 >>> 1.5 <=> 3/2
+0
+
+>>> 1.5D <=> 3/2
+0
+
+>>> 3/2 <=> 1.5D
 0
 ```
 

@@ -6,7 +6,7 @@
 				n.besselJ(each)
 			}
 		} {
-			uncheckedBesselJ(n, x)
+			uncheckedBesselJ(n, SmallFloat(x))
 			/*
 			(n = 0).if {
 				besselJ0(x)

@@ -2,13 +2,20 @@
 
 - _signBit(x)_
 
-Answer `true` if the number _x_ has sign bit set,
+Answer `true` if the number _x_ has the sign bit set,
 including the case of IEEE-754 negative-zero and negative infinity,
 else `false`.
 
 ```
 >>> [-Infinity -1 -0 0 1 Infinity].collect(signBit/1)
 [true true true false false false]
+```
+
+At non-`SmallFloat` values:
+
+```
+>>> [-2/3 3/4 -2L 3L].collect(signBit/1)
+[true false true false]
 ```
 
 * * *

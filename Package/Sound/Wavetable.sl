@@ -58,7 +58,7 @@
 		2.toByDo(aList.size, 2) { :i |
 			let n = aList[i];
 			let y2 = aList[i + 1];
-			let z = (y2 / y1) ^ (1 / n);
+			let z = (y2 / y1) ^ (1.0 / n);
 			n.timesRepeat {
 				answer.add!(y1);
 				y1 := y1 * z

@@ -1,12 +1,12 @@
 # fromDms
 
-- _fromDms([d, m, s])_
+- _fromDms([d m s])_
 
 Answer angle in decimal degrees given a sequence of _degrees, minutes, seconds_.
 
 ```
 >>> [30 10 4].fromDms
-30.1678
+27151/900
 
 >>> [27 12 3.45].fromDms
 27.201
@@ -15,7 +15,7 @@ Answer angle in decimal degrees given a sequence of _degrees, minutes, seconds_.
 652823/24000
 
 >>> [20 10 12].fromDms
-20.17
+2017/100
 ```
 
 A signed angle:

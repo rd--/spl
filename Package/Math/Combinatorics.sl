@@ -633,7 +633,7 @@
 
 }
 
-+[SmallFloat, Complex] {
++[SmallFloat, Fraction, Complex] {
 
 	generalisedDoubleFactorial { :self |
 		let n = self + 2;

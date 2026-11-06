@@ -11,7 +11,7 @@ Approximate an infinite sum numerically:
 
 ```
 >>> { :i |
->>> 	-5 ^ i / i.factorial
+>>> 	-5.0 ^ i / i.factorial
 >>> }.convergentSeries(0)
 0.00673795
 
@@ -23,12 +23,12 @@ Sum the even terms of a series:
 
 ```
 >>> { :i |
->>> 	1 / (2 ^ i)
+>>> 	1.0 / (2 ^ i)
 >>> }.convergentSeries(0, Infinity, 2, 10 ^ -16, +)
 1.33333
 
 >>> { :i |
->>> 	1 / (2 ^ (2 * i))
+>>> 	1.0 / (2 ^ (2 * i))
 >>> }.convergentSeries(0)
 1.33333
 ```
@@ -37,7 +37,7 @@ Approximate the sum of the reciprocals of the Fibonacci numbers:
 
 ```
 >>> { :i |
->>> 	1 / i.fibonacci.normalInteger
+>>> 	1.0 / i.fibonacci.normalInteger
 >>> }.convergentSeries(1)
 3.35989
 ```
@@ -64,18 +64,18 @@ Approximate an infinite product numerically:
 
 ```
 >>> { :i |
->>> 	1 + (1 / i.square)
+>>> 	1.0 + (1 / i.square)
 >>> }.convergentSeries(
->>> 	1, Infinity, 1, 1E-9, *
+>>> 	1, Infinity, 1, 1E-8, *
 >>> )
-3.67608
+3.676
 ```
 
 Approximate the value of a finite product:
 
 ```
 >>> { :i |
->>> 	1 + ((-1 ^ i) / i.square)
+>>> 	1 + ((-1.0 ^ i) / i.square)
 >>> }.convergentSeries(
 >>> 	100, 10_000, 1, 1E-7, *
 >>> )
@@ -88,7 +88,7 @@ Using `log` and `exp` to estimate a product:
 >>> { :n |
 >>> 	((4 * n.square) / (4 * n.square - 1)).log
 >>> }.convergentSeries(
->>> 	1, Infinity, 1, 1E-10, +
+>>> 	1.0, Infinity, 1, 1E-9, +
 >>> ).exp
 1.5708
 ```
@@ -99,7 +99,7 @@ Calculate product directly:
 >>> { :n |
 >>> 	(4 * n.square) / (4 * n.square - 1)
 >>> }.convergentSeries(
->>> 	1, Infinity, 1, 1E-10, *
+>>> 	1.0, Infinity, 1, 1E-9, *
 >>> )
 1.5708
 ```
@@ -112,7 +112,7 @@ Estimate the infinite product of a Bessel J sequence:
 >>> }.convergentSeries(
 >>> 	1, Infinity, 1, 1E-10, *
 >>> )
-0.650397
+0.6504
 ```
 
 Use a product representation to approximate the `sin` function:

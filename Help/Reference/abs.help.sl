@@ -24,6 +24,13 @@ of the number _z_.
 3/7
 ```
 
+At `LargeInteger`:
+
+```
+>>> -23L.abs
+23L
+```
+
 `abs` is defined at `Complex`,
 where it is also called the complex modulus or `norm`:
 

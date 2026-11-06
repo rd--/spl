@@ -92,6 +92,16 @@ At `Fraction`:
 [1/729 1/81 1/9]
 ```
 
+`SmallFloat` base and `Fraction` exponent:
+
+```
+>>> 2.5 ^ 3/4
+1.988
+
+>>> 2 ^ 3/4
+1.6818
+```
+
 Note that floating point errors are introduced for small _m_ and _n_:
 
 ```

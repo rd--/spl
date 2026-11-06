@@ -25,6 +25,13 @@ Find the integer part of a negative real number:
 -2
 ```
 
+At `LargeInteger`:
+
+```
+>>> 23L.integerPart
+23L
+```
+
 At `Fraction`:
 
 ```

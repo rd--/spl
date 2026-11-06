@@ -13,7 +13,7 @@ Answer the Lagrange interpolating polynomial for the coordinates _c_.
 >>> [1 1; 2 4; 3 9; 4 16]
 >>> .lagrangeInterpolatingPolynomial
 >>> .coefficientList
-[0 0 1 0]
+[0 0 1]
 
 >>> [-1 4; 0 2; 1 6]
 >>> .lagrangeInterpolatingPolynomial

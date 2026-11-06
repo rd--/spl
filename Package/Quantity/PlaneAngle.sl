@@ -78,7 +78,7 @@
 
 	dmsList { :self |
 		let b = [60 60];
-		(self.abs * 60 * 60).mixedRadixEncode(b) * self.sign
+		SmallFloat(self.abs * 60 * 60).mixedRadixEncode(b) * self.sign
 	}
 
 	dmsString { :self |

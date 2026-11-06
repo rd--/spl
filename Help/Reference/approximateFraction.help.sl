@@ -7,7 +7,7 @@ Alias for `rationalize`.
 
 ```
 >>> [-1 -2 -3].collect { :each |
->>> 	(27 / 32).approximateFraction(
+>>> 	(27.0 / 32.0).approximateFraction(
 >>> 		10 ^ each
 >>> 	)
 >>> }

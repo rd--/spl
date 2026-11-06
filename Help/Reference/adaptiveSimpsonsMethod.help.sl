@@ -11,10 +11,10 @@ Implememt the adaptive Simpson’s method for calculating the integral of the un
 
 >>> identity/1
 >>> .adaptiveSimpsonsMethod([0 9])
-40.5
+81/2
 
 >>> { :x |
->>> 	1 / (x.cube + 1)
+>>> 	1.0 / (x.cube + 1)
 >>> }.adaptiveSimpsonsMethod([0 1])
 ((2 * 3.sqrt.pi) + 64.log) / 18
 
@@ -26,12 +26,12 @@ Implememt the adaptive Simpson’s method for calculating the integral of the un
 >>> { :x |
 >>> 	x ^ 2
 >>> }.adaptiveSimpsonsMethod([0 4])
-21.33333
+64/3
 
 >>> { :x |
 >>> 	x ^ 3
 >>> }.adaptiveSimpsonsMethod([0 9])
-1640.25
+6561/4
 
 >>> { :x |
 >>> 	(0 - x).exp
@@ -58,7 +58,7 @@ Integrate a cubic function:
 
 ```
 >>> { :x |
->>> 	1 / (x.cube - (2 * x) - 5)
+>>> 	1.0 / (x.cube - (2 * x) - 5)
 >>> }.adaptiveSimpsonsMethod([0 2])
 -0.46050
 ```
@@ -86,7 +86,7 @@ Fails for oscillatory and other complicated functions:
 ~~~spl diverging
 {
 	{ :x |
-		(1 / x) * (x.log / x).cos
+		(1.0 / x) * (x.log / x).cos
 	}.adaptiveSimpsonsMethod([0 1])
 }.hasError
 ~~~

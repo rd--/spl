@@ -97,7 +97,7 @@ true
 false
 ```
 
-At `LargeInteger` and `Fraction`,
+At `LargeInteger`,
 answers `true` is the value is an integer and if that integer is a safe integer:
 
 ```
@@ -115,15 +115,20 @@ true
 >>> (x.isInteger, x.isSmallInteger)
 (false, false)
 
->>> let x = Fraction(2 ^ 54, 1);
->>> (x.isInteger, x.isSmallInteger)
-(true, false)
-
 >>> 3.000D.isSmallInteger
 true
 
 >>> 3.141D.isSmallInteger
 false
+```
+
+A `Fraction` is never an integer,
+small or large:
+
+```
+>>> let x = 23/7;
+>>> (x.isInteger, x.isSmallInteger)
+(false, false)
 ```
 
 A `List` is not a small integer:

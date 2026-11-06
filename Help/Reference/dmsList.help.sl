@@ -20,6 +20,9 @@ Convert an angle given in decimal degrees to _(degree, minute, second)_:
 Canonicalize a Dms list:
 
 ```
+>>> [11 -30 5].fromDms
+7561/720
+
 >>> [11 -30 5].dmsList
 [10 30 5]
 ```

@@ -31,9 +31,6 @@ or `zero` if the expansion terminates.
 Fractions with terminating decimal expansions:
 
 ```
->>> (1/1.decimalPeriod, 1 / 1)
-(0, 1.0)
-
 >>> (1/2.decimalPeriod, 1 / 2)
 (0, 0.5)
 
@@ -41,18 +38,21 @@ Fractions with terminating decimal expansions:
 (0, 0.2)
 ```
 
-Defined at `LargeInteger` since `divide` does not always answer a `Fraction`:
+Defined at `Integer` since `divide` does not always answer a `Fraction`:
 
 ```
->>> (12L / 4L).decimalPeriod
-0
+>>> (1/1, 1.decimalPeriod)
+(1, 0)
+
+>>> (12/4, 12/4.decimalPeriod)
+(3, 0)
 ```
 
 First few terms,
 OEIS [A051626](https://oeis.org/A051626):
 
 ```
->>> (1L /  1:90)
+>>> (1 / 1:90)
 >>> .collect(decimalPeriod/1)
 [
 	 0  0  1  0  0  1  6  0  1 0

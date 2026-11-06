@@ -60,7 +60,7 @@ Compare the representations for a rational number with an infinite decimal part:
 >>> d.findTransientRepeat(2)
 [1; 5 7 1 4 2 8]
 
->>> (11 / 7).printString
+>>> Float(11 / 7).printString
 >>> .findTransientRepeat(2)
 ['1.' '571428']
 ```

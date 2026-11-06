@@ -7,24 +7,8 @@ Answers the number _x_ raised to the fraction _n/d_.
 
 At `Fraction`:
 
-```
->>> 3/1.raisedToFraction(2/1)
-9/1
-
->>> 3 ^ 2
-9
-
->>> 9/1.raisedToFraction(1/2)
-3/1
-
->>> 9 ^ 0.5
-3
-
 >>> 1/9.raisedToFraction(3/2)
 1/27
-
->>> (1 / 9) ^ (3 / 2)
-0.0370370
 ```
 
 `^` at `Fraction` utilises `raisedToFraction`:
@@ -34,27 +18,27 @@ At `Fraction`:
 1/27
 ```
 
-`^` at `SmallFloat` utilises `raisedToFraction`:
+Compare to `^` at `SmallFloat`:
 
 ```
->>> (4 ^ 3/2, 4 ^ 1.5)
-(8/1, 8)
+>>> SmallFloat(1/9) ^ 3/2
+0.0370370
 
->>> (
->>> 	-8/1 ^ -2/3,
->>> 	-8 ^ (-2 / 3)
->>> )
-(
-	-0.125J-0.216506,
-	-0.125J-0.216506
-)
+>>> 1/9 ^ SmallFloat(3/2)
+0.0370370
+
+>>> (4 ^ 3/2, 4 ^ 1.5)
+(8, 8)
+
+>>> -8 ^ -2/3
+-0.125J-0.216506
 ```
 
 The answer may not be a `Fraction`:
 
 ```
->>> 2/1.raisedToFraction(1/2)
-2.sqrt
+>>> 1/2.raisedToFraction(1/2)
+2.sqrt / 2
 ```
 
 * * *

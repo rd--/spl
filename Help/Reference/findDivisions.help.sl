@@ -20,6 +20,13 @@ Find five divisions of the interval _(7, 95)_:
 [0 20 40 60 80 100]
 ```
 
+Find eleven divisions of the interval _(1, 99)_:
+
+```
+>>> (1 -- 99).findDivisions(11)
+Range(0, 100, 10)
+```
+
 Multiples of ten,
 OEIS [A008592](https://oeis.org/A008592):
 

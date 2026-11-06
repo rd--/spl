@@ -2,7 +2,8 @@
 
 - _isWeirdNumber(n)_
 
-Answer `true` if the integer _n_ is a weird number, and `false` otherwise.
+Answer `true` if the integer _n_ is a weird number,
+and `false` otherwise.
 
 The first few weird numbers:
 

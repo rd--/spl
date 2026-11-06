@@ -67,7 +67,8 @@ OEIS [A005408](https://oeis.org/A005408):
 The integer square root of odd powers of seven:
 
 ```
->>> (7 ^ 1:21:2).integerSquareRoot
+>>> (7 ^ 1:21:2)
+>>> .integerSquareRoot
 [
 	2
 	18

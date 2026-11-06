@@ -23,6 +23,13 @@ Copy sign to `zero`:
 -0
 ```
 
+To `Infinity`:
+
+```
+>>> -5/3.copySign(Infinity)
+-Infinity
+```
+
 * * *
 
 See also: negate, sign, signBit

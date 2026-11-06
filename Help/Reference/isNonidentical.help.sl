@@ -31,10 +31,10 @@ false
 Numbers in different representations are not identical but are equal:
 
 ```
->>> 1/1 !== 1
+>>> 1D !== 1
 true
 
->>> 1/1 != 1
+>>> 1D != 1
 false
 
 >>> 1L !== 1

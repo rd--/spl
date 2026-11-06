@@ -14,6 +14,9 @@ At `SmallFloat`:
 >>> -1.arg
 1.pi
 
+>>> -123.arg
+1.pi
+
 >> NaN.arg
 NaN
 ```
@@ -26,6 +29,9 @@ At `Complex`:
 
 >>> 0.5J1.arg
 1.10715
+
+>>> 123J-456.arg
+-1.3073
 ```
 
 Real numbers are a special kind of complex number:
@@ -49,13 +55,22 @@ Threads elementwise over lists and matrices:
 
 >>> [1J0 0J1 -1J0 0J-1].arg
 [0 1/2.pi 1.pi -1/2.pi]
+
+>>> [1/2 -1; -5/3 1/2].arg
+[0 1.pi; 1.pi 0]
+
+>>> [2I -1/3 1].arg
+[1/2.pi 1.pi 0]
 ```
 
 Values at `zero` & `Infinity`:
 
 ```
->>> [0 Infinity].arg
-[0 0]
+>>> [-Infinity 0 Infinity].arg
+[1.pi 0 0]
+
+>>> 0J0.arg
+0
 ```
 
 Polar decomposition of a complex number:
@@ -63,6 +78,15 @@ Polar decomposition of a complex number:
 ```
 >>> (1J3.abs, 1J3.arg)
 (10.sqrt, 3.arcTan)
+```
+
+Evaluate for complex exponentials:
+
+```
+>>> 1:8.collect { :k |
+>>> 	k.I * 3.pi / 8
+>>> }.exp.arg
+[3/8 3/4 -7/8 -1/2 -1/8 1/4 5/8 1/1].pi
 ```
 
 Plot over a subset of the reals:

@@ -17,14 +17,14 @@ A Fraction can be written using the literal syntax _1/3_:
 Fraction(1, 3)
 ```
 
-Zero and one:
+Zero and one are integers:
 
 ```
 >>> 0/1
-0/1
+0
 
 >>> 1/1
-1/1
+1
 ```
 
 Arithmetic is exact:
@@ -33,7 +33,7 @@ Arithmetic is exact:
 >>> (31/10 - 1) / (11/10 - 1) = 21
 true
 
->>> (31 / 10 - 1) / (11 / 10 - 1) < 21
+>>> (31 / 10 - 1) / (11 / 10 - 1) = 21
 true
 ```
 
@@ -69,15 +69,29 @@ The `Fraction` method reduces fractions on construction:
 ```
 >>> Fraction(2, 4)
 1/2
+
+>>> Fraction([2 3], 3)
+[2/3 1]
+
+>>> Fraction(6, [4 3])
+[3/2 2]
 ```
 
 The `uncheckedFraction` method does not,
 it assumes the fraction being specified is in reduced form:
 
 ```
->>> uncheckedFraction(2, 4)
+>>> uncheckedFraction(2, 3)
 >>> .numeratorDenominator
-[2 4]
+[2 3]
+
+>>> uncheckedFraction(2, 1)
+>>> .numeratorDenominator
+[2 1]
+
+>>> uncheckedFraction(2, 0)
+>>> .numeratorDenominator
+[2 0]
 ```
 
 At `Fraction` is an alias for `divide`:
@@ -87,17 +101,18 @@ At `Fraction` is an alias for `divide`:
 9/10
 ```
 
-Convert an integer to a fraction:
+Fractions are never integers,
+and integers are never fractions:
 
 ```
->>> 23.integerToFraction
-23/1
+>>> 3/4.isInteger
+false
 
->>> 23 / 1L
-23L
+>>> 23/1.isFraction
+false
 
->>> -23L.integerToFraction
--23/1
+>>> -23/1
+-23
 ```
 
 A `Fraction` can be derived from a `SmallFloat` using `rationalize`:
@@ -171,12 +186,8 @@ is `numeratorDenominator`:
 
 Literal fractions are `normal` and have the following invariants:
 
-- the denominator shall always be positive
+- the denominator shall always greater than one
 - the numerator and denominator shall never have common multiples
-
-Properly simplified fractions have the additional invariant:
-
-- the denominator shall always be positive
 
 For instance:
 
@@ -188,13 +199,12 @@ Fraction(-3, 2)
 Fraction(4, 3)
 ```
 
-Fractions do not simplify to integers:
+Fractions simplify to integers:
 
 ```
 >>> Fraction(2, 1)
->>> .simplify
 >>> .isFraction
-true
+false
 ```
 
 A Fraction that does not conform to the above invariants could be the cause of undefined behavior and unexpected results.
@@ -217,7 +227,7 @@ Note that `Fraction` and `Integer` represent together the set of Rational number
 
 ```
 >>> 2/3 + 4/3
-2/1
+2
 
 >>> 2/3 * 3/4
 1/2
@@ -239,7 +249,7 @@ Operands may be collections:
 
 ```
 >>> 5/4 * 3:7
-[15/4 5/1 25/4 15/2 35/4]
+[15/4 5 25/4 15/2 35/4]
 
 >>> 5/4 / 3:7
 [5/12 5/16 1/4 5/24 5/28]
@@ -469,9 +479,9 @@ Print `String`:
 >>> 23/17.printString
 '23/17'
 
->>> 20880467999847912034355032910567/1
+>>> 2088046799984791/2034355032910567
 >>> .printString
-'20880467999847912034355032910567/1'
+'2088046799984791/2034355032910567'
 ```
 
 * * *

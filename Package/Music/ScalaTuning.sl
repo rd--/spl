@@ -65,7 +65,7 @@ ScalaTuning : [Object, Tuning] {
 
 	ratios { :self |
 		let answer = self.pitches;
-		answer.allSatisfy(isFraction/1).ifFalse {
+		answer.allSatisfy(isRational/1).ifFalse {
 			self.error('ratios: non-ratio pitch')
 		};
 		answer.addFirst!(1/1);
@@ -120,7 +120,7 @@ ScalaTuning : [Object, Tuning] {
 
 }
 
-+Fraction {
++[@Integer, Fraction] {
 
 	intervalName { :self |
 		system.scalaIntervalArchive.keyAtValueIfAbsent(

@@ -36,6 +36,6 @@ Copying form at `Fraction`:
 
 * * *
 
-See also: Fraction, normal, uncheckedFraction
+See also: Fraction, normalInteger, uncheckedFraction
 
 Guides: Number Functions

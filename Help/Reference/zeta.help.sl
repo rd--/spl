@@ -6,10 +6,10 @@ Answer the Riemann zeta function _ζ(s)_,
 the generalisation of the harmonic series.
 
 ```
->>> zeta(2)
+>>> zeta(2.0)
 (1.pi ^ 2) / 6
 
->>> zeta(4)
+>>> zeta(4.0)
 (1.pi ^ 4) / 90
 
 >>> zeta(5 / 4)
@@ -34,7 +34,7 @@ the generalisation of the harmonic series.
 Threads over lists:
 
 ```
->>> zeta([0.7 0J1 4 11/3])
+>>> zeta([0.7 0J1 4.0 11/3])
 [
 	-2.778388
 	0.00330J-0.41816
@@ -49,13 +49,13 @@ Threads over lists:
 At integer arguments:
 
 ```
->>> 2.zeta
+>>> 2.0.zeta
 1.pi.square / 6
 
->>> 4.zeta
+>>> 4.0.zeta
 (1.pi ^ 4) / 90
 
->>> 6.zeta
+>>> 6.0.zeta
 (1.pi ^ 6) / 945
 ```
 
@@ -70,7 +70,7 @@ Value at `zero` and `one`:
 
 ```
 >>> zeta(0)
--0.5
+-1/2
 
 >>> zeta(1)
 Infinity
@@ -119,7 +119,7 @@ The fraction of pairs of the first 100 integers that are relatively prime:
 >>> .catenate.boole.mean
 0.6087
 
->>> 1 / zeta(2)
+>>> 1 / zeta(2.0)
 0.60792
 ```
 
@@ -129,11 +129,11 @@ Euler’s product formula:
 >>> let k = 99;
 >>> let s = 3;
 >>> k.primesList.collect { :n |
->>> 	1 - (1 / (n ^ s))
+>>> 	1 - (1.0 / (n ^ s))
 >>> }.product./
 1.202057
 
->>> zeta(3)
+>>> zeta(3.0)
 1.202057
 ```
 

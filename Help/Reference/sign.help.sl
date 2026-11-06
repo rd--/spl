@@ -36,6 +36,16 @@ See also `signBit`:
 true
 ```
 
+At `Fraction`:
+
+```
+>>> 3/4.sign
+1
+
+>>> -2/3.sign
+-1
+```
+
 Threads over lists:
 
 ```
@@ -67,7 +77,7 @@ At `Fraction`:
 ```
 >>> let z = -3/4.sign;
 >>> (z, z.isFraction)
-(-1/1, true)
+(-1, false)
 ```
 
 At `LargeInteger`:
@@ -75,10 +85,11 @@ At `LargeInteger`:
 ```
 >>> let z = -23L.sign;
 >>> (z, z.isLargeInteger)
-(-1L, true)
+(-1, false)
 ```
 
-Complex numbers, division by absolute value:
+At `Complex` numbers,
+defined as division by absolute value:
 
 ```
 >>> 1.4J2.3.sign
@@ -107,7 +118,8 @@ Element-wise sign function:
 [-1 -0 0 1 1]
 ```
 
-The binary form answers a `Number` with the same sign as the operand _b_ and the same magnitude as the number _a_:
+The binary form answers a `Number` with the same sign as the operand _b_,
+and the same magnitude as the number _a_:
 
 ```
 >>> 3.sign(-2)

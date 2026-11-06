@@ -248,17 +248,6 @@
 		}
 	}
 
-	fussCatalanNumber { :p :r :m |
-		let a = (m * p) + r;
-		(r / a) * binomial(a, m)
-	}
-
-	fussCatalanNumber { :p :r |
-		{ :m |
-			fussCatalanNumber(p, r, m)
-		}
-	}
-
 	generalisedCatalanNumber { :n |
 		let a/1 = { :n |
 			(n = 0L).if {
@@ -507,6 +496,21 @@
 			denominator := denominator * factor
 		};
 		numerator // denominator
+	}
+
+}
+
++[@Integer, Fraction] {
+
+	fussCatalanNumber { :p :r :m |
+		let a = (m * p) + r;
+		(r / a) * binomial(a, m)
+	}
+
+	fussCatalanNumber { :p :r |
+		{ :m |
+			fussCatalanNumber(p, r, m)
+		}
 	}
 
 }

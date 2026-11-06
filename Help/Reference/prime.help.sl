@@ -266,7 +266,7 @@ OEIS [A005597](https://oeis.org/A005597):
 
 ```
 >>> 2:5000.prime.product { :p |
->>> 	1 - (1 / (p - 1).square)
+>>> 	1 - (1.0 / (p - 1).square)
 >>> }
 0.66016
 

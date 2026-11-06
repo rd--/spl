@@ -190,18 +190,6 @@
 		}
 	}
 
-	gammaRegularized { :a :z |
-		1 - incompleteGamma(z, a).last
-	}
-
-	gammaRegularized { :a :b :z |
-		(b = 0).if {
-			incompleteGamma(z, a).last
-		} {
-			'gammaRegularized: b non-zero'.error
-		}
-	}
-
 	hadjicostassFormula { :s |
 		gamma(s + 2) * (zeta(s + 2) - (1 / (s + 1)))
 	}
@@ -399,6 +387,22 @@
 	}
 }
 
++[SmallFloat, Fraction] {
+
+	gammaRegularized { :a :z |
+		1 - incompleteGamma(z, a).last
+	}
+
+	gammaRegularized { :a :b :z |
+		(b = 0).if {
+			incompleteGamma(z, a).last
+		} {
+			'gammaRegularized: b non-zero'.error
+		}
+	}
+
+}
+
 +Complex {
 
 	gamma { :z |
@@ -439,7 +443,7 @@
 
 }
 
-+[SmallFloat, Complex] {
++[SmallFloat, Fraction, Complex] {
 
 	pochhammer { :a :n |
 		(a.isInteger & { n.isInteger }).if {
@@ -463,10 +467,31 @@
 
 }
 
-+Fraction {
++@ImplicitFloat {
+
+	beta { :self :operand |
+		SmallFloat(self).beta(operand)
+	}
+
+	betaRegularized { :x :a :b |
+		SmallFloat(x).betaRegularized(
+			SmallFloat(a),
+			SmallFloat(b)
+		)
+	}
+
+	incompleteGamma { :x :a |
+		SmallFloat(x).incompleteGamma(
+			SmallFloat(a)
+		)
+	}
 
 	gamma { :self |
 		SmallFloat(self).gamma
+	}
+
+	logGamma { :self |
+		SmallFloat(self).logGamma
 	}
 
 }

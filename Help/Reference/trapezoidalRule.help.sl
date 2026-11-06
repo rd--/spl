@@ -31,7 +31,7 @@ Integrate the `reciprocal` function over _(1,100)_:
 
 ```
 >>> reciprocal/1
->>> .trapezoidalRule([1 100], 5000)
+>>> .trapezoidalRule([1.0 100], 5000)
 4.6052
 ```
 

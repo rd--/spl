@@ -50,8 +50,12 @@ The unary form:
 
 >>> [-12 9 57].gcd
 3
+```
 
->>> [1/3 2/5 3/7].gcd
+At `Fraction`:
+
+```
+>>> [1/3 2/5 3/7 1].gcd
 1/105
 ```
 
@@ -482,7 +486,7 @@ _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:gcd),
 _Mathematica_
 [1](https://mathworld.wolfram.com/GreatestCommonDivisor.html)
-[2](https://mathworld.wolfram.com/GCD.html)
+[2](https://reference.wolfram.com/language/ref/GCD.html)
 [3](https://reference.wolfram.com/language/ref/PolynomialGCD.html),
 _OEIS_
 [1](https://oeis.org/A008364)

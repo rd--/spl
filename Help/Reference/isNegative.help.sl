@@ -33,10 +33,11 @@ false
 true
 ```
 
-Threads over lists:
+Threads over lists,
+applies at `Fraction` and `LargeInteger`:
 
 ```
->>> [1.6, 3/4, 1.pi, 0, -5, (10 ^ 5).sin]
+>>> [1.6, 3/4, 1.pi, 0L, -5L, (10 ^ 5).sin]
 >>> .isNegative
 [false false false false true false]
 ```

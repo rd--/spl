@@ -37,10 +37,11 @@ An `Association` `List` of numbers to nice numbers:
 Nice numbers starting from integers:
 
 ```
->>> [7 11 23 31 64 78].collect(
+>>> [7 11 23 31 64 78 98]
+>>> .collect(
 >>> 	niceNumberAbove/1
 >>> )
-[7.5 15 25 50 75 100]
+[7.5 15 25 50 75 100 100]
 ```
 
 One is already a nice number:
@@ -48,6 +49,13 @@ One is already a nice number:
 ```
 >>> 1.niceNumberAbove
 1
+```
+
+At `Fraction`:
+
+```
+>>> 100/11.niceNumberAbove
+10
 ```
 
 * * *

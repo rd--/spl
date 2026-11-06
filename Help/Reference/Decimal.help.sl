@@ -21,6 +21,13 @@ It is able to accurately represent arbitrary precision decimal fractions.
 53_846/100_000
 ```
 
+With scale of `zero`:
+
+```
+>>> Decimal(23, 0)
+23D
+```
+
 Threads over lists:
 
 ```
@@ -357,6 +364,9 @@ Rounding:
 ```
 >>> 3.141D.round
 3.000D
+
+>>> -3.141D.round
+-3.000D
 
 >>> [-0.500D 0.500D].round
 [-1.000D 1.000D]

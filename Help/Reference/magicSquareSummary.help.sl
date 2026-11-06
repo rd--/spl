@@ -187,8 +187,7 @@ OEIS [A125519](https://oeis.org/A125519):
 >>> 	158 683 742 415;
 >>> 	425 732 673 168
 >>> ].magicSquareSummary.values
-[34, [1998] # 4, [1998] # 4, 1998, 1998, 4]
-
+[34, [1998] # 4, [1998] # 4, 1998, 1998, 3]
 ```
 
 Benjamin Franklin’s 16×16 magic square,

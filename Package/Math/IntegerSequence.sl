@@ -66,6 +66,34 @@
 
 }
 
++[SmallFloat, Fraction] {
+
+	cantorStaircase { :x :n |
+		let f = { :x :n |
+			(n = 0).if {
+				x
+			} {
+				let y = 3 * x;
+				(y < 1).if {
+					f(y, n - 1) / 2
+				} {
+					(y < 2).if {
+						1/2
+					} {
+						1/2 + (f(y - 2, n - 1) / 2)
+					}
+				}
+			}
+		};
+		f(x, n)
+	}
+
+	cantorStaircase { :x |
+		x.cantorStaircase(12)
+	}
+
+}
+
 +@Integer {
 
 	aliquotSequence { :n :k |
@@ -565,7 +593,7 @@
 	}
 
 	harmonicNumber { :n :r |
-		n.one.to(n).sum { :i |
+		1.to(n).sum { :i |
 			1 / (i ^ r)
 		}
 	}

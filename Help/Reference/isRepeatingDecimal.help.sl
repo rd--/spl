@@ -8,7 +8,7 @@ Every rational number is either a terminating or repeating decimal.
 First few unit fractions that are repeating:
 
 ```
->>> (1L / 1:20)
+>>> (1 / 1:20)
 >>> .select(isRepeatingDecimal/1)
 [
 	1/3  1/6  1/7  1/9  1/11

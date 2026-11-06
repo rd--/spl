@@ -75,6 +75,15 @@ Compare the answers given by specific distance functions:
 [[1.25 1.25]]
 ```
 
+With fractional _x_:
+
+```
+>>> let e = [1 1.5 2 2.5 5 7.5 10];
+>>> let x = 100/11;
+>>> e.nearest(x)
+[10]
+```
+
 Plot the `nearest` of a list of numbers:
 
 ~~~spl svg=A

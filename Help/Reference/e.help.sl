@@ -50,7 +50,7 @@ Expressions that approach _e_:
 
 ```
 >>> let n = 1E4;
->>> (1 + (1 / n)) ^ n
+>>> (1 + (1.0 / n)) ^ n
 1.e
 
 >>> let n = 10;

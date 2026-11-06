@@ -73,6 +73,7 @@
 	'Residue'
 	'Fraction' /* LargeInteger */
 	'Decimal' /* Fraction */
+	'Real' /* Fraction */
 
 	/* Protocol */
 	'GeoJson'

@@ -12,7 +12,7 @@ however it may change the type of the value.
 At `SmallFloat`:
 
 ```
->>> let x = 23.0;
+>>> let x = 23;
 >>> let y = Integer(x);
 >>> (y, x = y, x == y)
 (23, true, true)
@@ -36,15 +36,6 @@ At a large `LargeInteger`:
 (504036361936467383L, true, true)
 ```
 
-At `Fraction`:
-
-```
->>> let x = 23/1;
->>> let y = Integer(x);
->>> (y, x = y, x == y)
-(23, true, false)
-```
-
 At `Decimal`:
 
 ```
@@ -65,16 +56,20 @@ answers a `SmallFloat` if the value would answer `true` for `isSmallInteger`:
 (18014398509481984L, true)
 ```
 
-At `SmallFloat`, `Fraction` and `Decimal` it is an error if the value is not an integer:
+At `SmallFloat` and `Decimal` it is an error if the value is not an integer:
 
 ```
 >>> { Integer(1.pi) }.hasError
 true
 
->>> { Integer(22/7) }.hasError
-true
-
 >>> { Integer(3.142D) }.hasError
+true
+```
+
+It is not defined at `Fraction`:
+
+```
+>>> { Integer(22/7) }.hasError
 true
 ```
 
@@ -129,7 +124,7 @@ To parse a `String` as an integer use `parseDecimalInteger`:
 Threads over lists:
 
 ```
->>> Integer[23 23.0 23L]
+>>> Integer[23 23D 23L]
 [23 23 23]
 ```
 

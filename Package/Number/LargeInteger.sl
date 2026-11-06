@@ -97,10 +97,6 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		self.integerDigits(base, wordSize).takeWhile(isZero/1).size
 	}
 
-	decimalPeriod { :unused |
-		0
-	}
-
 	denominator { :self |
 		1L
 	}
@@ -319,13 +315,13 @@ LargeInteger! : [Object, Copy, Store, Equal, Compare, Binary, Number, Integer, I
 		self
 	}
 
-	[quotient, //] { :self :anObject |
+	[quotient, //] { :self :operand |
 		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self / BigInt(_anObject);
+		if (sl.isLargeInteger(_operand) || sl.isSmallFloatInteger(_operand)) {
+			return _self / BigInt(_operand);
 		};
 		>
-		anObject.adaptToIntegerAndApply(self, quotient/2)
+		operand.adaptToIntegerAndApply(self, quotient/2)
 	}
 
 	raisedToInteger { :self :operand |

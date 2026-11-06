@@ -25,7 +25,7 @@ AliasMethod : [Object, Equal, Iterator] {
 		let count = probabilities.size;
 		let probability = List(count, nil);
 		let alias = List(count, nil);
-		let average = 1 / count;
+		let average = SmallFloat(1 / count);
 		let small = [];
 		let large = [];
 		1.toDo(count) { :i |
@@ -43,7 +43,7 @@ AliasMethod : [Object, Equal, Iterator] {
 			probability[less] := probabilities[less] * count;
 			alias[less] := more;
 			probabilities[more] := probabilities[more] + probabilities[less] - average;
-			(probabilities[more] >= (1 / count)).if {
+			(probabilities[more] >= average).if {
 				large.addLast!(more)
 			} {
 				small.addLast!(more)

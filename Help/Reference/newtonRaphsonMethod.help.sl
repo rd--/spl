@@ -14,7 +14,7 @@ Implementation of `sqrt` using `newtonRaphsonMethod`:
 ```
 >>> let squareRoot = { :n |
 >>> 	newtonRaphsonMethod(
->>> 		1E-9, 1E-9, 1E4, 1
+>>> 		1E-9, 1E-9, 1E4, 1.0
 >>> 	) { :x |
 >>> 		(x ^ 2) - n
 >>> 	} { :x |

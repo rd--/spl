@@ -45,6 +45,9 @@ _arcTan(x, y)_ gives the angle of the point _(x, y)_:
 
 >>> arcTan(-1, -1)
 -0.75.pi
+
+>>> arcTan(0, 0)
+0
 ```
 
 Evaluate for `Complex` arguments:
@@ -52,6 +55,9 @@ Evaluate for `Complex` arguments:
 ```
 >>> 2.5J1.arcTan
 1.23343J0.12367
+
+>>> 0J0.arcTan
+0
 ```
 
 The two-argument form supports `Complex` numbers:

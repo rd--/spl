@@ -334,16 +334,12 @@ const asJs: ohm.ActionDict<string> = {
 		const sStr = s.sourceString;
 		const iStr = i.sourceString;
 		const fStr = f.sourceString;
-		/*
 		if(fStr === '0') {
-			const k = 14 - iStr.length;
-			if(k > 0) {
-				const extendedF = fStr.padEnd(k, '0') + '1';
-				console.debug('floatLiteral', sStr, iStr, fStr, extendedF);
-				return `${s.sourceString}${iStr}.${extendedF}`;
-			}
+			let a = Number(iStr);
+			let b = a + (Math.max(a, 1) * Number.EPSILON);
+			console.debug('floatLiteral', sStr, iStr, fStr, a, b);
+			return sStr + String(b)
 		};
-		*/
 		return `${s.sourceString}${iStr}.${fStr}`;
 	},
 	infinityLiteral(s, i) {

@@ -8,7 +8,7 @@ Answer the Jacobi elliptic function _sn(u|m)_.
 >>> jacobiSn(2.5, 0.5)
 0.890615
 
->>> jacobiSn(2, 1 / 3)
+>>> jacobiSn(2, 1/3)
 0.976309
 
 >>> jacobiSn(2, 0.3)
@@ -21,6 +21,9 @@ At _m=0_ and _m=1_:
 >>> let z = 0.65;
 >>> (z.jacobiSn(0), z.jacobiSn(1))
 (z.sin, z.tanh)
+
+>>> 1.ellipticKFukushima
+Infinity
 ```
 
 The Jacobi elliptic function:

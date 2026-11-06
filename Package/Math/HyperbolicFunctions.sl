@@ -14,11 +14,11 @@
 	}
 
 	arcCsch { :self |
-		(1 / self).arcSinh
+		(1.0 / self).arcSinh
 	}
 
 	arcSech { :self |
-		(1 / self).arcCosh
+		(1.0 / self).arcCosh
 	}
 
 	arcSinh { :self |
@@ -64,7 +64,7 @@
 	}
 
 	arcCsch { :z |
-		(1 / z).arcSinh /* ((1 / z) + ((1 / (z ^ 2)) + 1).sqrt).log */
+		(1.0 / z).arcSinh /* ((1 / z) + ((1 / (z ^ 2)) + 1).sqrt).log */
 	}
 
 	arcSech { :z |
@@ -74,7 +74,7 @@
 			z.imaginary.isZero.ifTrue {
 				z.imaginary := system.smallFloatMin
 			};
-			(1 / z).arcCosh
+			(1.0 / z).arcCosh
 		}
 	}
 
@@ -118,11 +118,11 @@
 +[SmallFloat, Complex] {
 
 	csch { :self |
-		1 / self.sinh
+		1.0 / self.sinh
 	}
 
 	sech { :self |
-		1 / self.cosh
+		1.0 / self.cosh
 	}
 
 }
@@ -197,6 +197,10 @@
 		self.collect(arcSinh/1)
 	}
 
+	arcTanh { :self |
+		self.collect(arcTanh/1)
+	}
+
 	cosh { :self |
 		self.collect(cosh/1)
 	}
@@ -215,6 +219,30 @@
 
 	tanh { :self |
 		self.collect(tanh/1)
+	}
+
+}
+
++@ImplicitFloat {
+
+	arcCosh { :self |
+		SmallFloat(self).arcCosh
+	}
+
+	arcCoth { :self |
+		SmallFloat(self).arcCoth
+	}
+
+	arcCsch { :self |
+		SmallFloat(self).arcCsch
+	}
+
+	arcSech { :self |
+		SmallFloat(self).arcSech
+	}
+
+	arcTanh { :self |
+		SmallFloat(self).arcTanh
 	}
 
 }

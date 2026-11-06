@@ -47,7 +47,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	[argument, arg] { :self |
 		self.isZero.if {
-			self.error('Zero has no argument')
+			0
 		} {
 			self.real.arcTan(self.imaginary)
 		}
@@ -239,8 +239,8 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		true
 	}
 
-	isNaN { :self |
-		self.shouldNotImplement('isNaN')
+	isNaN { :unused |
+		false
 	}
 
 	isNegative { :self |

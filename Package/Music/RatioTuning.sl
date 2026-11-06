@@ -11,7 +11,7 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] {
 	}
 
 	integers { :self |
-		(self.ratios / self.ratios.reduce(gcd/2)).collect(Integer/1)
+		self.ratios / self.ratios.reduce(gcd/2)
 	}
 
 	intervalMatrix { :self |
@@ -51,7 +51,7 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] {
 	}
 
 	isRational { :self |
-		self.ratios.allSatisfy(isFraction/1)
+		self.ratios.allSatisfy(isRational/1)
 	}
 
 	primeLimit { :self |

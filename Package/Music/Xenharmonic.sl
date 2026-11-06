@@ -31,7 +31,7 @@
 
 }
 
-+Fraction {
++[@Integer, Fraction] {
 
 	barlowDisharmonicity { :self |
 		self.isOne.if {

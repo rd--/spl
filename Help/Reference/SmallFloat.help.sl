@@ -71,13 +71,14 @@ Literal syntaxes:
 'SmallFloat'
 ```
 
-There is no distinct small integer type:
+There is no distinct small integer type,
+however literals written with a trailing `zero` are treated specially:
 
 ```
->>> 23 = 23.0
+>>> 23 != 23.0
 true
 
->>> 23 == 23.0
+>>> 23.isVeryClose(23.0)
 true
 ```
 

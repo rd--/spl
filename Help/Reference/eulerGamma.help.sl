@@ -24,7 +24,7 @@ with numerical value ~0.5772.
 
 ```
 >>> let n = 9999;
->>> n.harmonicNumber - n.log
+>>> n.harmonicNumber(1.0) - n.log
 1.eulerGamma
 ```
 

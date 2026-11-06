@@ -23,7 +23,7 @@ The Leibniz formula for π,
 called the Madhava–Leibniz series:
 
 ```
->>> (1 / [1, 3 .. 10_000])
+>>> (1.0 / [1, 3 .. 10_000])
 >>> .alternatingSum
 0.7854
 

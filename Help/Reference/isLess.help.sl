@@ -25,6 +25,15 @@ At `Fraction`:
 ```
 >>> 3/4 < 5/6
 true
+
+>>> 3/4 < [1/2 5/6]
+[false true]
+
+>>> 1 < 4/3
+true
+
+>>> 2/3 < 1
+true
 ```
 
 At `Complex`, inequalities are defined only for real numbers:

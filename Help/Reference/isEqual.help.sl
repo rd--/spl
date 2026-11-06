@@ -73,7 +73,32 @@ true
 At `SmallFloat` and `Fraction`:
 
 ```
->>> 3/2 = 1.5 & { 1.5 = 3/2 }
+>>> 3/2 = 1.5
+false
+
+>>> 1.5 = 3/2
+false
+
+>>> 3/2 ~ 1.5
+true
+
+>>> 1.5 ~ 3/2
+true
+```
+
+At `SmallFloat` and `Decimal`:
+
+```
+>>> 1.5D = 1.5
+false
+
+>>> 1.5 = 1.5D
+false
+
+>>> 1.5D ~ 1.5
+true
+
+>>> 1.5 ~ 1.5D
 true
 ```
 
@@ -110,7 +135,7 @@ Select the numbers that are equal to zero:
 >>> [-1 0 1E-10 1 0.0].select(
 >>> 	isEqual(0)
 >>> )
-[0 0.0]
+[0]
 ```
 
 * * *

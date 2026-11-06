@@ -418,6 +418,16 @@
 		x.riemannFunction(2, 100)
 	}
 
+	weierstrassFunction { :x :a :b :n |
+		0.toCollect(n) { :i |
+			(a ** i) * ((b ** i) * x.pi).cos
+		}.sum
+	}
+
+}
+
++[SmallFloat, Fraction] {
+
 	takagiFunction { :x :n |
 		let s = { :x |
 			let d = x - floor(x);
@@ -430,12 +440,6 @@
 
 	takagiFunction { :x |
 		takagiFunction(x, 100)
-	}
-
-	weierstrassFunction { :x :a :b :n |
-		0.toCollect(n) { :i |
-			(a ** i) * ((b ** i) * x.pi).cos
-		}.sum
 	}
 
 }

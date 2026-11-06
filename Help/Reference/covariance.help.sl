@@ -16,10 +16,10 @@ Covariance between vectors of real numbers:
 11.2604
 
 >>> [1 2 5 6].covariance([2 3 6 8])
-6.5
+13/2
 
 >>> [3 6 4].covariance([7 12 -9])
-6.8333
+41/6
 ```
 
 Covariance between vectors of complex numbers:
@@ -28,10 +28,11 @@ Covariance between vectors of complex numbers:
 >>> let v = [2J1 3J-2 5J4];
 >>> let w = [0J1 1J2 10J-5];
 >>> v.covariance(w)
-((-7 / 3) + (0J56 / 3))
+Complex(-7/3, 56/3)
 ```
 
-Covariance between an identity matrix and itself
+Covariance between an identity matrix and itself,
+also called the `crossCovarianceMatrix`:
 
 ```
 >>> let m = 3.identityMatrix;
@@ -77,21 +78,22 @@ Covariance of a 3×4 matrix:
 >>> let m = [5 0 3 7; 1 -5 7 3; 4 9 8 10];
 >>> m.covariance(m)
 [
-	 4.3333  8.8333 -3.0000  5.6666;
-	 8.8333 50.3333  6.5000 24.1666;
-	-3.0000  6.5000  7.0000  1.0000;
-	 5.6666 24.1666  1.0000 12.3333
+	13/3  53/6 -3    17/3;
+	53/6 151/3 13/2 145/6;
+	-3    13/2 7     1;
+	17/3 145/6  1   37/3
 ]
 ```
 
 Compute the covariance for a `gcd` array:
 
-~~~spl png=A
-let m = gcd/2.table(1:100, 1:100);
-(1 - m.covariance(m).rescale).Greymap
+~~~spl svg=A
+let m = gcd/2.table(1:16, 1:16);
+m.covariance(m)
+.matrixPlot
 ~~~
 
-![](Help/Image/covariance-A.png)
+![](Help/Image/covariance-A.svg)
 
 The covariance tends to be large only on the diagonal of a random matrix:
 

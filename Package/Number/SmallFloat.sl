@@ -165,30 +165,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	cantorStaircase { :x :n |
-		let f = { :x :n |
-			(n = 0).if {
-				x
-			} {
-				let y = 3 * x;
-				(y < 1).if {
-					f(y, n - 1) / 2
-				} {
-					(y < 2).if {
-						0.5
-					} {
-						0.5 + (f(y - 2, n - 1) / 2)
-					}
-				}
-			}
-		};
-		f(x, n)
-	}
-
-	cantorStaircase { :x |
-		x.cantorStaircase(12)
-	}
-
 	chop { :self :epsilon |
 		(self.abs < epsilon).if {
 			0
@@ -248,11 +224,12 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	[divide, /] { :self :operand |
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
-			/*
-			if(Number.isInteger(_self) && Number.isInteger(_operand)) {
-				return _Fraction_2(_self, _operand);
+			if(_operand === 0 || _operand === 1) {
+				return _self / _operand;
 			}
-			*/
+			if(Number.isSafeInteger(_self) && Number.isSafeInteger(_operand)) {
+				return _Fraction_2(BigInt(_self), BigInt(_operand));
+			}
 			return _self / _operand;
 		}
 		>
@@ -418,7 +395,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 				(aNumber = 0).if {
 					self.abs < epsilon
 				} {
-					let other = aNumber.SmallFloat;
+					let other = SmallFloat(aNumber);
 					self = other | {
 						let z = self.abs;
 						(z < epsilon).if {
@@ -433,12 +410,25 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	}
 
 	[isEqual, =] { :self :operand |
+		<primitive:
+		if(sl.isSmallFloat(_operand)) {
+			return _self === _operand;
+		}
+		>
+		[
+			{ operand.isLargeInteger } -> {
+				LargeInteger(self) = operand
+			},
+			{ operand.isComplex } -> {
+				Complex(self, 0) = operand
+			},
+			{ true } -> { false }
+		].which
+	}
+
+	isEqualBy { :self :operand :aBlock/2 |
 		operand.isNumber.if {
-			operand.isSmallFloat.if {
-				isIdentical(self, operand)
-			} {
-				operand.adaptToNumberAndApply(self, isEqual/2)
-			}
+			aBlock(self, SmallFloat(operand))
 		} {
 			false
 		}
@@ -575,7 +565,15 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 			return Math.max(_self, _operand);
 		}
 		>
-		operand.adaptToNumberAndApply(self, max/2)
+		operand.isNumber.if {
+			(self > operand).if {
+				self
+			} {
+				operand
+			}
+		} {
+			operand.adaptToNumberAndApply(self, max/2)
+		}
 	}
 
 	[minimum, min] { :self :operand |
@@ -584,7 +582,15 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 			return Math.min(_self, _operand);
 		}
 		>
-		operand.adaptToNumberAndApply(self, min/2)
+		operand.isNumber.if {
+			(self <= operand).if {
+				self
+			} {
+				operand
+			}
+		} {
+			operand.adaptToNumberAndApply(self, min/2)
+		}
 	}
 
 	minkowskiQuestionMark { :x |
@@ -606,29 +612,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		y
 	}
 
-	minkowskiQuestionMarkInverse { :x |
-		let y = (x / 1).floor;
-		let bits = x % 1;
-		let lo = [0 1];
-		let hi = [1 1];
-		let iterationCount = 0;
-		{
-			iterationCount < 152 & {
-				(y + (lo[1] / lo[2])) < (y + (hi[1] / hi[2]))
-			}
-		}.whileTrue {
-			let bit = (2 * bits / 1).floor;
-			bits := 2 * bits % 1;
-			(bit > 0).if {
-				lo := lo + hi
-			} {
-				hi := hi + lo
-			};
-			iterationCount := iterationCount + 1
-		};
-		y + (lo[1] / lo[2])
-	}
-
 	[mod, %] { :self :operand |
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
@@ -636,18 +619,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 		>
 		operand.adaptToNumberAndApply(self, mod/2)
-	}
-
-	muLawDecode { :y |
-		let mu = 255;
-		let a = ((1 + mu) ^ y.abs) - 1;
-		y.sign * (a / mu)
-	}
-
-	muLawEncode { :x |
-		let mu = 255;
-		let a = (1 + (mu * x.abs)).log;
-		x.sign * (a / (1 + mu).log)
 	}
 
 	newtonRaphsonMethod { :epsilon :tolerance :iterationCount :x0 :f/1 :fPrime/1 |
@@ -658,7 +629,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 				let x1 = (yPrime.abs > epsilon).if {
 					x0 - (y / yPrime)
 				} {
-					'newtonRaphsonMethod: y < ε'.error
+					ε.error('newtonRaphsonMethod: y < ε', [tolerance, iterationCount])
 				};
 				((x1 - x0).abs <= tolerance).ifTrue {
 					x1.return
@@ -670,35 +641,22 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	}
 
 	nthRoot { :self :aPositiveInteger |
-		(aPositiveInteger.isInteger.not | {
-			aPositiveInteger.isNegative
-		}).ifTrue {
+		(
+			aPositiveInteger.isInteger.not | {
+				aPositiveInteger.isNegative
+		}
+		).ifTrue {
 			'nthRoot: only defined for positive integers'.error
 		};
 		self.isNegative.if {
 			aPositiveInteger.isOdd.if {
-				(self.negate ^ (1 / aPositiveInteger)).negate
+				(self.negate ^ Float(1 / aPositiveInteger)).negate
 			} {
 				'nthRoot: negative numbers do not have even roots.'.error
 			}
 		} {
-			self ^ (1 / aPositiveInteger)
+			self ^ Float(1 / aPositiveInteger)
 		}
-	}
-
-	numberExpand { :self :base |
-		let i = self.abs.truncate;
-		let f = self.abs.fractionalPart;
-		let d = i.integerDigits(base);
-		let k = d.size;
-		let m = k.toBy(1, -1).collect { :each |
-			base ^ (each - 1)
-		};
-		let l = (d * m);
-		(f = 0).ifFalse {
-			l[k] := l[k] + f
-		};
-		l * self.sign
 	}
 
 	numerator { :self |
@@ -870,19 +828,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		*/
 	}
 
-	[signedPower, **] { :self :operand |
-		<primitive:
-		if (sl.isSmallFloat(_operand)) {
-			if(_self < 0) {
-				return 0 - Math.pow(0.0 - _self, _operand);
-			} {
-				return Math.pow(_self, _operand);
-			}
-		}
-		>
-		operand.adaptToNumberAndApply(self, signedPower/2)
-	}
-
 	signExponentMantissa { :self |
 		<primitive:
 		const float = new Float64Array(1);
@@ -894,6 +839,19 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		bytes[6] |= 0xf0;
 		return [sign, exponent, float[0]];
 		>
+	}
+
+	[signedPower, **] { :self :operand |
+		<primitive:
+		if (sl.isSmallFloat(_operand)) {
+			if(_self < 0) {
+				return 0 - Math.pow(0.0 - _self, _operand);
+			} {
+				return Math.pow(_self, _operand);
+			}
+		}
+		>
+		operand.adaptToNumberAndApply(self, signedPower/2)
 	}
 
 	[squareRoot, sqrt] { :self |
@@ -922,7 +880,7 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		(x < 0).if {
 			0 - surd(0 - x, n)
 		} {
-			x ^ (1 / n)
+			x ^ Float(1 / n)
 		}
 	}
 
@@ -982,6 +940,12 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 		n &= -n;
 		return 31 - Math.clz32(n);
+		>
+	}
+
+	uncheckedDivide { :self :operand |
+		<primitive:
+		return _self / _operand;
 		>
 	}
 

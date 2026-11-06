@@ -29,7 +29,7 @@ At integer values:
 At non-integer real values:
 
 ```
->>> (15 / 17).fibonacci
+>>> 15/17.fibonacci
 0.95652
 
 >>> (15 / 17).fibonacci(2)

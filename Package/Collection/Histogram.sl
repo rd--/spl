@@ -65,19 +65,31 @@
 	histogramList { :self :b |
 		let [start, stop, step] = b;
 		self.histogramListFor(
-			Range(start, stop, step).List
+			List(
+				Range(start, stop, step)
+			)
 		)
 	}
 
 	histogramList { :self |
+		self.histogramListFor(
+			List(
+				self.histogramListFindDivisions
+			)
+		)
+	}
+
+	histogramListFindDivisions { :self |
 		let k = self.size.sqrt.ceiling + 1;
 		let [min, max] = self.minMax;
-		let b = (min -- max).findDivisions(k);
-		self.histogramListFor(b.List)
+		(min -- max).findDivisions(k)
 	}
 
 	histogramListFor { :self :b |
-		[b, self.binListsFor(b).collect(size/1)]
+		[
+			b,
+			self.binListsFor(b).collect(size/1)
+		]
 	}
 
 	histogramOf { :self |

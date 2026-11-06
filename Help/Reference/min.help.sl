@@ -298,10 +298,17 @@ let f = { :x :y |
 ![](Help/Image/min-E.svg)
 
 _Subtleties_:
-The current implementation of `min` can answer a different type:
+The implementation of `min` must not answer a different type of value,
+in the case of equal values biases left:
 
 ```
 >>> min(1, 2L)
+1
+
+>>> min(1L, 2)
+1L
+
+>>> min(1L, 1)
 1L
 ```
 

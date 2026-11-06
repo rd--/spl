@@ -46,6 +46,13 @@ The Euclidean distance in one dimension is the absolute value of the difference:
 ```
 >>> 3.euclideanDistance(1)
 (1 - 3).abs
+
+>>> let [u, v] = [10, 100/11];
+>>> (
+>>> 	euclideanDistance(u, v),
+>>> 	euclideanDistance(v, u)
+>>> )
+(10/11, 10/11)
 ```
 
 The Euclidean distance in two dimensions is the straight line distance:

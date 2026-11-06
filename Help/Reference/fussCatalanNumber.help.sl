@@ -21,7 +21,7 @@ Evaluate at integers:
 Evaluate at half-integers:
 
 ```
->>> fussCatalanNumber(3 / 2, 1, 7)
+>>> fussCatalanNumber(3/2, 1, 7)
 46189/1024
 ```
 

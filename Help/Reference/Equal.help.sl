@@ -1,13 +1,6 @@
 # Equal
 
-`Equal` is a `Trait` collecting behaviours for objects that are equatable.
-
-```
->>> system
->>> .traitDictionary['@Equal']
->>> .isTrait
-true
-```
+`Equal` is a trait collecting behaviours for objects that are equatable.
 
 The required method is either:
 
@@ -22,6 +15,15 @@ The implemented methods are:
 
 - `isSimilar`, `~`
 - `isDissimilar`, `!~`
+
+`Equal` is a `Trait`:
+
+```
+>>> system
+>>> .traitDictionary['@Equal']
+>>> .isTrait
+true
+```
 
 * * *
 

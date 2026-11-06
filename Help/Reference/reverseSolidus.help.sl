@@ -12,12 +12,12 @@ At `SmallFloat`:
 >>> let a = 3;
 >>> let b = 4;
 >>> (a \ b, a / b)
-(3/4, 0.75)
+(3/4, 3/4)
 ```
 
 At `LargeInteger`,
 `/` answers a `Fraction`,
-even if the `denominator` is `one`:
+unless the `denominator` is `one`:
 
 ```
 >>> let a = 3L;
@@ -31,7 +31,7 @@ even if the `denominator` is `one`:
 >>> let c = a \ b;
 >>> let d = a / b;
 >>> (c, c.isFraction, d, d.isFraction)
-(3/1, true, 3L, false)
+(3, false, 3, false)
 ```
 
 The name of this operator is `reverseSolidus`.

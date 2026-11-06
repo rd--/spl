@@ -25,7 +25,7 @@ Parse a `Fraction` number type:
 ```
 >>> ['2/3' '23' '2.3' '']
 >>> .parseSchemaType('Fraction') { nil }
-[2/3 23/1 nil nil]
+[2/3 nil nil nil]
 ```
 
 Parse a `Complex` number type:

@@ -7,7 +7,7 @@ answer the intervals specified as integers.
 
 ```
 >>> RatioTuning[
->>> 	1/1 8/7 4/3 14/9 16/9
+>>> 	1 8/7 4/3 14/9 16/9
 >>> ].integers
 [63 72 84 98 112]
 ```
@@ -15,11 +15,10 @@ answer the intervals specified as integers.
 The answer is `ratios` divided by their greatest common divisor:
 
 ```
->>> [1/1 8/7 4/3 14/9 16/9].gcd
-1/63
 
->>> [1/1 8/7 4/3 14/9 16/9] * 63
-[63 72 84 98 112]
+>>> let r = [1 8/7 4/3 14/9 16/9];
+>>> (r.gcd, r / r.gcd)
+(1/63, [63 72 84 98 112])
 ```
 
 * * *

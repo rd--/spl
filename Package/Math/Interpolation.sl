@@ -1,4 +1,4 @@
-+[SmallFloat, List] {
++[SmallFloat, Fraction, List] {
 
 	bilinearInterpolation { :q11 :q21 :q12 :q22 :mu1 :mu2 |
 		linearInterpolation(

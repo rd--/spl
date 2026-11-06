@@ -44,7 +44,7 @@ Note that `UnsortedSet` may be significantly less efficient than `IdentitySet`,
 however `==` has some subtle behaviours:
 
 ```
->>> 1/1 == 1/1
+>>> 1/2 == 1/2
 false
 
 >>> 1 == 1L

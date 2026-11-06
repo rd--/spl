@@ -13,19 +13,6 @@ Convert the fraction _n/d_ to normal form.
 ([2 4], [1 2])
 ```
 
-The normal form of a `Fraction` with a unit denominator is a `Fraction`:
-
-```
->>> 3/1.normalFraction
-3/1
-
->>> 3/1.normalFraction.isFraction
-true
-
->>> 3.isFraction
-false
-```
-
 Fractions are ordinarily normalized by construction.
 
 ```
@@ -34,6 +21,19 @@ Fractions are ordinarily normalized by construction.
 >>> 	2/4.components
 >>> )
 ([1 2], [1 2])
+```
+
+A `Fraction` is never an integer,
+and integer does not implemet `normalFraction`:
+
+```
+>>> {
+>>> 	3/1.normalFraction
+>>> }.hasError
+true
+
+>>> 3/1.isFraction
+false
 ```
 
 * * *

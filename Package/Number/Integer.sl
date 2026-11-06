@@ -37,14 +37,6 @@
 		}
 	}
 
-	arithmeticDerivative { :n |
-		(n.abs < 2).if {
-			0
-		} {
-			Fraction(n, 1).arithmeticDerivative.Integer
-		}
-	}
-
 	assertIsInteger { :self :origin |
 		self.isInteger.if {
 			self
@@ -268,6 +260,11 @@
 		n.integerDigits(10)
 	}
 
+	decimalPeriod { :self |
+		self.assertIsInteger('decimalPeriod');
+		0
+	}
+
 	dedekindPsi { :n |
 		let m = n.divisorSum { :d |
 			d.moebiusMu ^ 2 / d
@@ -343,8 +340,8 @@
 		a
 	}
 
-	dividesImmediately { :self :aNumber |
-		Fraction(self, 1).dividesImmediately(Fraction(aNumber, 1))
+	dividesImmediately { :self :operand |
+		(self / operand).isPrime
 	}
 
 	divisorSum { :self :aBlock/1 |
@@ -490,7 +487,7 @@
 			};
 			a
 		} {
-			anInteger.adaptToNumberAndApply(self, gcd/2)
+			anInteger.adaptToIntegerAndApply(self, gcd/2)
 		}
 	}
 
@@ -762,6 +759,7 @@
 		self.integerReverse(10)
 	}
 
+	/*
 	[integerSquareRoot, isqrt] { :self |
 		(self < 0).if {
 			self.error('integerSquareRoot: negative')
@@ -786,6 +784,7 @@
 			r
 		}
 	}
+	*/
 
 	integerString { :self :radix |
 		self.uncheckedPrintString(radix)
@@ -1036,6 +1035,10 @@
 		self.primeLimit <= 5
 	}
 
+	isRepeatingDecimal { :self |
+		self.decimalPeriod > 0
+	}
+
 	isRoughNumber { :self :k |
 		self.primeFactors.allSatisfy { :each |
 			each >= k
@@ -1103,6 +1106,14 @@
 				6064949221531200
 			].includes(n)
 		}
+	}
+
+	isSuperparticular { :self |
+		self = 2
+	}
+
+	isTerminatingDecimal { :self |
+		self.decimalPeriod = 0
 	}
 
 	isTriangularNumber { :self |

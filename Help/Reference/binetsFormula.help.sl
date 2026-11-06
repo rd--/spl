@@ -31,10 +31,10 @@ C.f. `fibonacci`:
 Note loss of precision for large values:
 
 ```
->>> 100.fibonacci
-354224848179262260000L
+>>> 100.binetsFormula
+354224848179263100000.0
 
->>> 101.fibonacciSequence.last
+>>> 100.fibonacci
 354224848179261915075L
 ```
 

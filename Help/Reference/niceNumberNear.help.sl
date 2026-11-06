@@ -13,6 +13,13 @@ Find three nice numbers:
 [0.05 0.075 0.1]
 ```
 
+At `Fraction`:
+
+```
+>>> 100/11.niceNumberNear
+10
+```
+
 An `Association` `List` of numbers to nice numbers:
 
 ```

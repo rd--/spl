@@ -55,6 +55,16 @@ At negative _n_:
 -2
 ```
 
+At `Fraction`:
+
+```
+>>> 3141/1000.round
+3
+
+>>> -3141/1000.round
+-3
+```
+
 At `Complex` applies separately to real and imaginary parts:
 
 ```

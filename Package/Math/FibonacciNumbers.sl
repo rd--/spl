@@ -59,12 +59,7 @@
 
 }
 
-+@Integer {
-
-	binetsFormula { :n |
-		let z = 5.sqrt;
-		((1 + z) ^ n) - ((1 - z) ^ n) / ((2 ^ n) * z)
-	}
++[@Integer, Fraction] {
 
 	fibonacci { :n :x |
 		(x = 1).if {
@@ -102,6 +97,35 @@
 		let phi = 1.goldenRatio;
 		let r = ((phi ^ n) - (n.pi.cos * (phi ^ n.-))) / 5.sqrt;
 		r
+	}
+
+	lucasL { :n :x |
+		let a = (x.square + 4).sqrt;
+		(2 ^ -n)
+		*
+		(
+			((x - a) ^ n)
+			+
+			((x + a) ^ n)
+		)
+	}
+
+	lucasL { :n |
+		n.lucasL(1)
+	}
+
+	lucasNumber { :self |
+		let phi = 1.goldenRatio;
+		(phi ^ self) + (self.pi.cos * (phi ^ self.negate))
+	}
+
+}
+
++@Integer {
+
+	binetsFormula { :n |
+		let z = 5.sqrt;
+		((1 + z) ^ n) - ((1 - z) ^ n) / ((2 ^ n) * z)
 	}
 
 	fibonacciEntryPoint { :n |
@@ -156,26 +180,6 @@
 			let phi = 1.goldenRatio;
 			(phi ^ self).round
 		}
-	}
-
-	lucasL { :n :x |
-		let a = (x.square + 4).sqrt;
-		(2 ^ -n)
-		*
-		(
-			((x - a) ^ n)
-			+
-			((x + a) ^ n)
-		)
-	}
-
-	lucasL { :n |
-		n.lucasL(1)
-	}
-
-	lucasNumber { :self |
-		let phi = 1.goldenRatio;
-		(phi ^ self) + (self.pi.cos * (phi ^ self.negate))
 	}
 
 	lucasSequence { :self |

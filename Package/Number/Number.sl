@@ -669,7 +669,7 @@
 		let n = self;
 		let m = 10 ^ n.abs.log10.floor.negate;
 		let steps = [1 1.5 2 2.5 5 7.5 10];
-		let z = steps.aBlock(n * m);
+		let z = aBlock(steps, n * m);
 		z / m
 	}
 
@@ -1054,12 +1054,12 @@
 
 	sign { :self |
 		(self > 0).if {
-			self.one
+			1
 		} {
 			(self < 0).if {
-				self.one.negate
+				-1
 			} {
-				self.zero
+				0
 			}
 		}
 	}

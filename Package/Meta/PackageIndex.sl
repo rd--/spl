@@ -256,6 +256,7 @@
 	'Number-LargeInteger'
 	'Number-Number'
 	'Number-Quaternion'
+	'Number-Real'
 	'Number-Residue'
 	'Number-SmallFloat'
 	'ProbabilityDistribution-ArcSinDistribution'

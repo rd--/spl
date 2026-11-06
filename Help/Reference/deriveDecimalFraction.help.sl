@@ -30,13 +30,23 @@ At `Fraction`:
 ```
 >>> 1/7.deriveDecimalFraction(10)
 1428571429/10000000000
+```
 
->>> 23/1.deriveDecimalFraction(0)
-23/1
+At `Integer`,
+the `identity` function:
+
+```
+>>> 23.deriveDecimalFraction(0)
+23
+
+>>> 23L.deriveDecimalFraction(0)
+23L
 ```
 
 * * *
 
 See also: Decimal, Fraction, limitDenominator, rationalize
+
+Guides: Fraction Functions
 
 Categories: Converting, Math

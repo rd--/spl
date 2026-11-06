@@ -144,7 +144,7 @@ An infinite series by Nilakantha, 15th century:
 >>> let k = 47;
 >>> 3 + 1:k.sum { :n |
 >>> 	let m = n * 2;
->>> 	let z = 0 - (-1 ^ n);
+>>> 	let z = 0 - (-1.0 ^ n);
 >>> 	(4 * z) / (m + [0 1 2]).product
 >>> }
 1.pi
@@ -166,14 +166,14 @@ An infinite series by Nilakantha, 15th century:
 ```
 >>> let k = 1E3;
 >>> 1:k.product { :n |
->>> 	let m = 4 * (n ^ 2);
+>>> 	let m = 4.0 * (n ^ 2);
 >>> 	m / (m - 1)
 >>> } * 2
 3.141
 
 >>> let k = 1E3;
 >>> 1:k.product { :n |
->>> 	let m = 2 * n;
+>>> 	let m = 2.0 * n;
 >>> 	(m / (m - 1)) * (m / (m + 1))
 >>> } * 2
 3.141

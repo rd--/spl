@@ -76,8 +76,6 @@ Select entries from the Svg colour catalogue that are within 30° of blue (240°
 	'darkslateblue'
 	'ghostwhite'
 	'lavender'
-	'lightslategray'
-	'lightslategrey'
 	'lightsteelblue'
 	'mediumblue'
 	'mediumpurple'
@@ -86,8 +84,6 @@ Select entries from the Svg colour catalogue that are within 30° of blue (240°
 	'navy'
 	'royalblue'
 	'slateblue'
-	'slategray'
-	'slategrey'
 ]
 ```
 

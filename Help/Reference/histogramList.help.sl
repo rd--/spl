@@ -55,7 +55,10 @@ Histogram of the first ninety-nine integers:
 ]
 
 >>> 1:99.histogramList([0 100 20])
-[0 20 40 60 80 100; 19 20 20 20 20]
+[
+	 0 20 40 60 80 100;
+	19 20 20 20 20
+]
 ```
 
 Histogram of numbers between `zero` and `one`:
@@ -63,12 +66,15 @@ Histogram of numbers between `zero` and `one`:
 ```
 >>> (0, 0.02 .. 1).histogramList
 [
-	0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1;
-	5 6 5 4 5 5 5 5 5 6
+	0 1/10 1/5 3/10 2/5 1/2 3/5 7/10 4/5 9/10 1;
+	6 5 5 4 5 5 5 5 5 6
 ]
 
 >>> (0, 0.02 .. 1).histogramList([0 1 0.25])
-[0 0.25 0.5 0.75 1; 13 12 13 13]
+[
+	0 0.25 0.5 0.75 1;
+	13 12 13 13
+]
 ```
 
 Histogram of a small list of small integers,
@@ -78,6 +84,12 @@ since the last bin is treated especially:
 
 ```
 >>> [1 3 2 1 4 5 6 2].histogramList
+[
+	0 1.5 3 4.5 6;
+	2 2 2 2
+]
+
+>>> [1 3 2 1 4 5 6 2].histogramList([1 6 1])
 [
 	1 2 3 4 5 6;
 	2 2 1 1 2

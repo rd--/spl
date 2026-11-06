@@ -64,11 +64,20 @@ Relation to `csc`:
 z.csc.square
 ```
 
-The continued fraction is highly regular:
+The continued fraction is highly regular,
+OEIS [A093178](https://oeis.org/A093178):
 
 ```
 >>> 1.cot.continuedFraction(17)
 [0 1 1 1 3 1 5 1 7 1 9 1 11 1 13 1 15]
+
+>>> 1.tan.continuedFraction(17)
+[1 1 1 3 1 5 1 7 1 9 1 11 1 13 1 15 1]
+
+>>> 0:16.collect { :n |
+>>> 	n.isEven.if { 1 } { n }
+>>> }
+[1 1 1 3 1 5 1 7 1 9 1 11 1 13 1 15 1]
 ```
 
 Plot over a subset of the reals:

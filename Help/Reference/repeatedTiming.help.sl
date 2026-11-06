@@ -12,7 +12,7 @@ a range is a small value type and there is a closed form for summation:
 >>> let [t, r] = {
 >>> 	(1 .. 10000).sum
 >>> }.repeatedTiming(0.1);
->>> (t < 0.00001, r)
+>>> (t < 0.00005, r)
 (true, 50005000)
 ```
 

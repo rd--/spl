@@ -111,7 +111,7 @@ Product representation of π:
 ```
 >>> let n = 1E4;
 >>> 2 * 1:n.product { :k |
->>> 	let m = 2 * k;
+>>> 	let m = 2.0 * k;
 >>> 	(4 * (k ^ 2)) / ((m - 1) * (m + 1))
 >>> }
 3.1415

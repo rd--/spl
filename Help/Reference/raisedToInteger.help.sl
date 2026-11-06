@@ -3,7 +3,19 @@
 - _raisedToInteger(n, m)_
 
 Special case of `^` where the exponent is an integer.
-Work by successive squaring.
+Works by successive squaring.
+
+At `Integer`:
+
+```
+>>> 3.raisedToInteger(2)
+9
+
+>>> 3 ^ 2
+9
+```
+
+At `SmallFloat`:
 
 ```
 >>> 2.5 ^ 9
@@ -11,6 +23,19 @@ Work by successive squaring.
 
 >>> 2.5.square.square.square * 2.5
 3814.7
+```
+
+At `Fraction`:
+
+```
+>>> 5/2 ^ 9
+1953125/512
+
+>>> 5/2.square.square.square * 5/2
+1953125/512
+
+>>> 1/1 ^ 9
+1/1
 ```
 
 An exponent of `zero` answers `one` of the correct type:

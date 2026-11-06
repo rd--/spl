@@ -15,10 +15,10 @@ At `SmallFloat`:
 7
 
 >>> 2 / 4
-0.5
+1/2
 
 >>> 1 / 81
-0.01234567
+1/81
 ```
 
 Divide threads element-wise over lists:
@@ -28,7 +28,7 @@ Divide threads element-wise over lists:
 [2/3 1 4/3 5/3]
 
 >>> [2 1 5] / [4 1 2]
-[0.5 1 2.5]
+[1/2 1 5/2]
 
 >>> [3J1 2.5 4J5] / [2 1J1 0.2]
 [1.5J0.5 1.25J-1.25 20J25]
@@ -44,18 +44,18 @@ Divide is applied sequentially:
 (3 / (5 * 7 * 9))
 ```
 
-At `LargeInteger` answers either a `LargeInteger` or a `Fraction`:
+At `LargeInteger` answers either a `LargeInteger` or a `SmallFloat` or a `Fraction`:
 
 ```
 >>> let r = 12L / 3L;
 >>> (r, r.isLargeInteger)
-(4L, true)
+(4, false)
 
 >>> 12L / 3
-4L
+4
 
 >>> 12 / 3L
-4L
+4
 
 >>> let r = 2L / 3L;
 >>> (r, r.isFraction)
@@ -66,6 +66,9 @@ At `LargeInteger` answers either a `LargeInteger` or a `Fraction`:
 
 >>> 2L / 3
 2/3
+
+>>> 17 ^ 17 / 17
+48661191875666868481L
 ```
 
 At `LargeInteger`, with collection operand:
@@ -75,15 +78,14 @@ At `LargeInteger`, with collection operand:
 [1 1/2 1/3 1/4 1/5 1/6 1/7 1/8 1/9]
 ```
 
-At `SmallFloat` answers a `SmallFloat`,
-to answer a `Fraction` divide by a `LargeInteger` or a `Fraction`:
+At `SmallFloat` integers answers a `Fraction`:
 
 ```
->>> [1 2 3] / 4L
+>>> [1 2 3] / 4
 [1/4 1/2 3/4]
 
->>> [1 2 3] / 4/1
-[1/4 1/2 3/4]
+>>> 1 / [2 3 4]
+[1/2 1/3 1/4]
 ```
 
 At `Complex` answers a `Complex`:
@@ -116,11 +118,14 @@ even if the answer is a whole number:
 3/7
 ```
 
-Division by `zero` may be `Infinity`, `NaN` or an `error`:
+Division by `zero` may be `Infinity` or `NaN`:
 
 ```
 >>> 5 / 0
 Infinity
+
+>>> -5 / 0
+-Infinity
 
 >>> (0 / 0).isNaN
 true
@@ -128,15 +133,18 @@ true
 >>> (5J3 / 0).isNaN
 true
 
->>> { 5/3 / 0 }.hasError
-true
+>>> 5/3 / 0
+Infinity
+
+>>> -5/3 / 0
+-Infinity
 ```
 
 Integer division does not neccesarily answer an integer, c.f. `//`:
 
 ```
 >>> 7 / 3
-2.3333
+7/3
 
 >>> 7 // 3
 2

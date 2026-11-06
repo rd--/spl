@@ -172,11 +172,11 @@ Multiplication of `LargeInteger` and `SmallFloat` values:
 34.5
 ```
 
-Division by `zero` signals an `error`:
+Division by `zero` answers `Infinity`:
 
 ```
->>> { 23L / 0 }.hasError
-true
+>>> 23L / 0
+Infinity
 ```
 
 Math with a `Fraction` answers a `Fraction`:

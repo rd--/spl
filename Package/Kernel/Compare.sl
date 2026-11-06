@@ -72,7 +72,7 @@
 	}
 
 	[minimum, min] { :self :operand |
-		minBy(self, operand, isLess/2)
+		minBy(self, operand, <=)
 	}
 
 	[precedes, <|] { :self :anObject |
@@ -85,13 +85,13 @@
 
 	[strictCompare, <=>] { :self :operand |
 		/* self.typeResponsibility('@Compare>>strictCompare') */
-		(self = operand).if {
-			0
+		(self > operand).if {
+			1
 		} {
 			(self < operand).if {
 				-1
 			} {
-				1
+				0
 			}
 		}
 	}

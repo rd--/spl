@@ -49,7 +49,7 @@
 
 }
 
-+SmallFloat {
++[SmallFloat, Fraction] {
 
 	Time { :self |
 		Quantity(self, 'second')

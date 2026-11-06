@@ -14,19 +14,19 @@ ranging from _i_ to _j_ by step _k_ and having _n_ places.
 Compare to ternary form of `Range`:
 
 ```
->>> let k = 1 / (100 - 1);
+>>> let k = Float(1 / (100 - 1));
 >>> let r = FiniteRange(0, 1, k, 100);
 >>> (r.size, r.step, r.last)
 (100, 0.010101, 1)
 
->>> let k = 1 / (100 - 1);
+>>> let k = Float(1 / (100 - 1));
 >>> let r = Range(0, 1, k);
 >>> (r.size, r.step, r.last)
 (99, 0.010101, 0.989898)
 
->>> let k = 1 / (100 - 1);
->>> (1 / k, 1.quotient(k))
-(98.999999, 98)
+>>> let k = Float(1 / (100 - 1));
+>>> (1 / k < 99, 1.quotient(k))
+(true, 98)
 ```
 
 _Rationale_:

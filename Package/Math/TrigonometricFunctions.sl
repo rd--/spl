@@ -12,7 +12,7 @@
 		self.isZero.if {
 			Infinity
 		} {
-			(1 / self).arcSin
+			Float(1 / self).arcSin
 		}
 	}
 
@@ -20,7 +20,7 @@
 		self.isZero.if {
 			Infinity
 		} {
-			(1 / self).arcCos
+			Float(1 / self).arcCos
 		}
 	}
 
@@ -36,17 +36,17 @@
 		<primitive: return Math.atan(_self)>
 	}
 
-	arcTan { :self :anObject |
-		anObject.atan2(self)
+	arcTan { :self :operand |
+		operand.atan2(self)
 	}
 
-	atan2 { :self :anObject |
+	atan2 { :self :operand |
 		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return Math.atan2(_self, _anObject);
+		if(sl.isSmallFloat(_operand)) {
+			return Math.atan2(_self, _operand);
 		}
 		>
-		anObject.adaptToNumberAndApply(self, atan2/2)
+		operand.adaptToNumberAndApply(self, atan2/2)
 	}
 
 	cos { :self |
@@ -54,31 +54,19 @@
 	}
 
 	[cot, cotangent] { :self |
-		1 / self.tan
+		Float(1 / self.tan)
 	}
 
 	[csc, cosecant] { :self |
-		1 / self.sin
+		Float(1 / self.sin)
 	}
 
 	[sec, secant] { :self |
-		1 / self.cos
+		Float(1 / self.cos)
 	}
 
 	sin { :self |
 		<primitive: return Math.sin(_self)>
-	}
-
-	sincHistorical { :self |
-		self.isZero.if {
-			1
-		} {
-			self.sin / self
-		}
-	}
-
-	sincNormalized { :self |
-		self.pi.sincHistorical
 	}
 
 	tan { :self |
@@ -221,11 +209,11 @@
 	}
 
 	[arcHarversine, inverseHaversine] { :self |
-		2 * self.sqrt.arcSin
+		2.0 * self.sqrt.arcSin
 	}
 
 	haversine { :self |
-		0.5 * (1 - self.cos)
+		0.5 * (1.0 - self.cos)
 	}
 
 }
@@ -234,6 +222,18 @@
 
 	cosDegrees { :self |
 		(90 - (180 + self % 360 - 180).abs).degreesToRadians.sin
+	}
+
+	sincHistorical { :self |
+		self.isZero.if {
+			1
+		} {
+			self.sin / self
+		}
+	}
+
+	sincNormalized { :self |
+		self.pi.sincHistorical
 	}
 
 	sinDegrees { :self |
@@ -338,8 +338,28 @@
 		SmallFloat(self).arcCos
 	}
 
+	[arcCot, arcCotangent] { :self |
+		SmallFloat(self).arcCot
+	}
+
 	arcSin { :self |
 		SmallFloat(self).arcSin
+	}
+
+	arcTan { :self |
+		SmallFloat(self).arcTan
+	}
+
+	arcTan { :self :operand |
+		SmallFloat(self).arcTan(
+			SmallFloat(operand)
+		)
+	}
+
+	atan2 { :self :operand |
+		SmallFloat(self).atan2(
+			SmallFloat(operand)
+		)
 	}
 
 	cos { :self |

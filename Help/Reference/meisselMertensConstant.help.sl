@@ -24,7 +24,7 @@ and the function _ln(ln(n))_ are separated by the Meissel–Mertens constant:
 >>> let k = 2000;
 >>> let p = k.primesList;
 >>> let n = p.last;
->>> (1 / p).sum - (n + 1).log.log
+>>> (1.0 / p).sum - (n + 1).log.log
 0.26223
 ```
 

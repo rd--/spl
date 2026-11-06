@@ -29,6 +29,20 @@ A `LargeInteger` is never not a number:
 false
 ```
 
+A `Fraction` is never not a number:
+
+```
+>>> 2/3.isNaN
+false
+```
+
+A `Complex` is never not a number:
+
+```
+>>> 2J3.isNaN
+false
+```
+
 Complex not-a-number becomes `NaN` on construction:
 
 ```
