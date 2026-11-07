@@ -135,14 +135,14 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		ByteArray(self).asciiString
 	}
 
-	utf16String { :self |
-		SmallFloat(self).uncheckedUtf16String
-	}
-
 	uncheckedUtf16String { :self |
 		<primitive:
 		return String.fromCodePoint(..._self);
 		>
+	}
+
+	utf16String { :self |
+		SmallFloat(self).uncheckedUtf16String
 	}
 
 	utf8String { :self |
@@ -245,8 +245,9 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 			littleEndian.if { n - 1L } { k - n } * 8
 		};
 		let answer = 0L;
-		self.withIndexDo { :each :i |
-			answer := answer + (each << f(i))
+		self.withIndexDo { :n :i |
+			let m = LargeInteger(n);
+			answer := answer + (m << f(i))
 		};
 		answer
 	}

@@ -40,7 +40,7 @@ OEIS [A029837](https://oeis.org/A029837),
 if the first term is instead `zero`:
 
 ```
->>> 0:23.bitLength
+>>> 0L:23.bitLength
 [
 	1 1 2 2 3 3 3 3 4 4
 	4 4 4 4 4 4 5 5 5 5

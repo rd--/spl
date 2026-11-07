@@ -11,6 +11,12 @@ answers the index where the object _x_ would be inserted.
 >>> 	a.indexForInserting(i)
 >>> }
 [1 2 2 2 3 3 4 4 4 5 5 6 6]
+
+>>> let a = SortedList[1];
+>>> let b = a.indexForInserting(3);
+>>> a.add!(3);
+>>> (a, b)
+(SortedList([1 3], 2))
 ```
 
 * * *

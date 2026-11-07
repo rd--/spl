@@ -14,8 +14,9 @@ Complex(1, 0)
 At `Fraction`:
 
 ```
->>> 1/3.one
-1/1
+>>> let x = 1/3.one;
+>>> (x, x.isFraction)
+(1/1, true)
 ```
 
 At `SmallFloat`:
@@ -32,11 +33,15 @@ At `LargeInteger`:
 1L
 ```
 
-At `Decimal`:
+At `Decimal`,
+answers with the same `scale`:
 
 ```
 >>> 3.141D.one
-1D
+1.000D
+
+>>> 1.000D.isOne
+true
 ```
 
 List answers with a unit collection of the same shape:

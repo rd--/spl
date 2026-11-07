@@ -64,26 +64,4 @@
 		l * self.sign
 	}
 
-	phiWeightedMediant { :self :operand |
-		self.weightedMediant(operand, 1, 1.goldenRatio)
-	}
-
-	weightedMediant { :self :operand :m :n |
-		let a = self.numerator;
-		let b = self.denominator;
-		let c = operand.numerator;
-		let d = operand.denominator;
-		(m.isFraction && n.isFraction).if {
-			((m * a) + (n * c)) / ((m * b) + (n * d))
-		} {
-			(
-				(m * SmallFloat(a)) + (n * SmallFloat(c))
-			)
-			/
-			(
-				(m * SmallFloat(b)) + (n * SmallFloat(d))
-			)
-		}
-	}
-
 }

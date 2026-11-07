@@ -555,11 +555,17 @@
 	}
 
 	isOne { :self |
-		self = 1
+		self = self.one
 	}
 
 	isZero { :self |
-		self = 0
+		self = self.zero
+	}
+
+	isZeroOrOne { :self |
+		self.isZero | {
+			self.isOne
+		}
 	}
 
 	isScalar { :self |

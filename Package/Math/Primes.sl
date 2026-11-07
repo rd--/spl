@@ -1049,7 +1049,7 @@
 	primeFactors { :self :convention |
 		let a = self.numerator.primeFactors(convention);
 		let b = self.denominator.primeFactors(convention).collect { :each |
-			uncheckedFraction(1, each)
+			uncheckedFraction(1L, each)
 		};
 		a ++ b
 	}

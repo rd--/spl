@@ -14,7 +14,7 @@ At integer sequence:
 ```
 
 At sequence with integers, reals and fractions,
-note that a `Fraction` is not a duplicate of an equalivalent `SmallFloat`:
+note how `=` and `==` compare equivalent `Fraction` and `SmallFloat` values:
 
 ```
 >>> [
@@ -22,8 +22,8 @@ note that a `Fraction` is not a duplicate of an equalivalent `SmallFloat`:
 >>> 	2, 4.sqrt,
 >>> 	3/2, 1.5,
 >>> 	1
->>> ].deleteAdjacentDuplicates
-[3 2 3/2 1.5 1]
+>>> ].deleteAdjacentDuplicates(=)
+[3 2 3/2 1]
 ```
 
 Delete elements unless they are larger than the preceding ones:

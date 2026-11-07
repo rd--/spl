@@ -224,6 +224,10 @@
 		(90 - (180 + self % 360 - 180).abs).degreesToRadians.sin
 	}
 
+	sinDegrees { :self |
+		(90 - self).cosDegrees
+	}
+
 	sincHistorical { :self |
 		self.isZero.if {
 			1
@@ -234,10 +238,6 @@
 
 	sincNormalized { :self |
 		self.pi.sincHistorical
-	}
-
-	sinDegrees { :self |
-		(90 - self).cosDegrees
 	}
 
 	sobolevaModifiedTanh { :a :b :c :d |
@@ -362,11 +362,11 @@
 		)
 	}
 
-	[csc, cosecant] { :self |
+	cos { :self |
 		SmallFloat(self).cos
 	}
 
-	cos { :self |
+	[csc, cosecant] { :self |
 		SmallFloat(self).cos
 	}
 

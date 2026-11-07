@@ -69,6 +69,9 @@ At `LargeInteger` answers either a `LargeInteger` or a `SmallFloat` or a `Fracti
 
 >>> 17 ^ 17 / 17
 48661191875666868481L
+
+>>> 1L / 1/1
+1/1
 ```
 
 At `LargeInteger`, with collection operand:

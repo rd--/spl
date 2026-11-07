@@ -20,26 +20,19 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		(self.real * self.real) + (self.imaginary * self.imaginary)
 	}
 
-	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
+	[adaptToFractionAndApply, adaptToIntegerAndApply] { :self :operand :aBlock/2 |
 		aBlock(
-			Complex(aFraction, 0.0),
+			Complex(SmallFloat(operand), 0.0),
 			self
 		)
 	}
 
-	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
-		aBlock(
-			Complex(anInteger, 0.0),
-			self
-		)
-	}
-
-	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		aNumber.isNaN.if {
+	adaptToNumberAndApply { :self :operand :aBlock/2 |
+		operand.isNaN.if {
 			NaN
 		} {
 			aBlock(
-				Complex(aNumber, 0.0),
+				Complex(SmallFloat(operand), 0.0),
 				self
 			)
 		}
@@ -47,6 +40,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	[argument, arg] { :self |
 		self.isZero.if {
+			/* self.error('Zero has no argument') */
 			0.0
 		} {
 			self.real.arcTan(self.imaginary)
@@ -330,15 +324,16 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 			aNumber.isInteger.if {
 				self.raisedToInteger(aNumber)
 			} {
-				(aNumber = 0.0).if {
+				aNumber.isZero.if {
 					self.one
 				} {
-					(aNumber = 1.0).if {
+					aNumber.isOne.if {
 						self
 					} {
-						(self = 0.0).if {
+						self.isZero.if {
 							(aNumber < 0.0).if {
-								self.error('^: zero divide')
+								/* self.error('^: zero divide') */
+								NaN
 							} {
 								self
 							}
@@ -374,10 +369,11 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	reciprocal { :self |
-		(self = 0.0).if {
-			self.error('reciprocal: zero divide')
+		self.isZero.if {
+			/* self.error('reciprocal: zero divide') */
+			Infinity
 		} {
-			1.0 / self
+			1J0 / self
 		}
 	}
 
@@ -402,7 +398,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	[squareRoot, sqrt] { :self |
 		(
-			self.imaginary = 0.0 & {
+			self.imaginary.isZero & {
 				self.real >= 0.0
 			}
 		).if {
@@ -456,7 +452,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	zero { :self |
-		Complex(0, 0)
+		Complex(0.0, 0.0)
 	}
 
 }
@@ -481,6 +477,13 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		} {
 			phi.adaptToNumberAndApply(rho, Polar/2)
 		}
+	}
+
+	uncheckedComplex { :real :imaginary |
+		newComplex().initializeSlots(
+			real,
+			imaginary
+		)
 	}
 
 }
@@ -550,10 +553,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	[toComplex, realToComplex] { :self |
 		Complex(self, 0)
-	}
-
-	uncheckedComplex { :real :imaginary |
-		newComplex().initializeSlots(real, imaginary)
 	}
 
 }
@@ -686,8 +685,8 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		let allPieces = { :p |
 			p.dihedral.collect(canonical/1).unique(=)
 		};
-		(n = 1).if {
-			[[0.0]]
+		n.isOne.if {
+			[[0J0]]
 		} {
 			let a = [];
 			let fig = (n - 1).polyominoes.collect { :f |

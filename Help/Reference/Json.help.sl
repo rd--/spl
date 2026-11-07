@@ -17,6 +17,7 @@ Types implementing `Json`:
 >>> .sort
 [
 	'Boolean'
+	'LargeInteger'
 	'List'
 	'Nil'
 	'Record'
@@ -30,6 +31,7 @@ Json is a simple plain text data-interchange format.
 The types implementing the trait are:
 
 - `Boolean`
+- `LargeInteger`
 - `List`
 - `Nil`
 - `Record`

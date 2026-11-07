@@ -31,7 +31,7 @@
 
 }
 
-+[SmallFloat, Fraction] {
++Fraction {
 
 	barlowDisharmonicity { :self |
 		self.isOne.if {
@@ -144,6 +144,13 @@
 			let factors = self.primeFactors;
 			factors.sum - factors.size + 1
 		}
+	}
+
+	octaveReduce { :self |
+		self.isInteger.ifFalse {
+			self.error('octaveReduce: not integer')
+		};
+		Fraction(self, 1L).octaveReduce(2)
 	}
 
 }

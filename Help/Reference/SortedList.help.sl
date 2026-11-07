@@ -15,6 +15,19 @@ The `collection` method answers the underlying sorted list without copying.
 [1 2 3]
 ```
 
+Use `add` and `addAll` to insert non-existing items:
+
+```
+>>> let c = SortedList();
+>>> c.add!(1);
+>>> c.add!(3);
+>>> c.add!(5);
+>>> c.add!(2);
+>>> c.add!(4);
+>>> c
+SortedList[1 2 3 4 5]
+```
+
 `addAll` adds each item in turn,
 `collection` answers the underlying sorted list without copying:
 

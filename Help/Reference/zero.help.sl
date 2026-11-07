@@ -17,29 +17,33 @@ Complex(0, 0)
 At `Fraction`:
 
 ```
->>> 1/3.zero
-Fraction(0, 1)
+>>> let x = 1/3.zero;
+>>> (x, x.isFraction)
+(0/1, true)
 ```
 
 At `SmallFloat`:
 
 ```
->>> 3.141.zero
-0.0
+>>> let x = 3.141.zero;
+>>> (x, x.isSmallFloat)
+(0.0, true)
 ```
 
 At `LargeInteger`:
 
 ```
->>> 23L.zero
-0L
+>>> let x = 23L.zero;
+>>> (x, x.isLargeInteger)
+(0L, true)
 ```
 
 At `Decimal`:
 
 ```
->>> 3.141D.zero
-0D
+>>> let x = 3.141D.zero;
+>>> (x, x.isDecimal, x.isZero)
+(0.000D, true, true)
 ```
 
 At `List`, answers with a zeroed collection of the same `shape`:

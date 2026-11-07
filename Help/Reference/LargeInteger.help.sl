@@ -157,6 +157,9 @@ Division by an integer answers either a `LargeInteger` or a `Fraction`:
 
 >>> 0.5 / 23L
 1/46
+
+>>> (1L / 1, 1L / 1L, 1L / 1/1)
+(1L, 1L, 1/1)
 ```
 
 Multiplication of `LargeInteger` and `SmallFloat` values:

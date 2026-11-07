@@ -587,7 +587,7 @@
 	}
 
 	durationGate { :dur |
-		 <primitive: return sc.DurationGate(_dur);>
+		<primitive: return sc.DurationGate(_dur);>
 	}
 
 	dust { :density |

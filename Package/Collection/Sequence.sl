@@ -1197,16 +1197,16 @@
 
 	fromContinuedFraction { :self |
 		(self ~ [0]).if {
-			0L
+			0/1
 		} {
-			let answer = 0L;
+			let answer = 0/1;
 			self.reverseDo { :each |
-				let nextDivisor = (each + answer);
-				(nextDivisor != 0).ifTrue {
-					answer := 1L / nextDivisor
+				let nextDivisor = each + answer;
+				nextDivisor.isZero.ifFalse {
+					answer := 1 / nextDivisor
 				}
 			};
-			1L / answer
+			1 / answer
 		}
 	}
 
@@ -1654,7 +1654,7 @@
 	}
 
 	isUnimodal { :x |
-		x.isUnimodal(<=)
+		x.isUnimodal(isLessOrEqual/2)
 	}
 
 	isVeryClose { :self :anObject |

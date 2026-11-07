@@ -10,7 +10,7 @@ OEIS [A006487](https://oeis.org/A006487):
 ```
 >>> 'Sqrt(2)'
 >>> .namedConstant
->>> .egyptianFraction(7)
+>>> .egyptianFraction(7L)
 [
 	1
 	3

@@ -13,10 +13,10 @@ To simplify a fraction in-place see `simplify`.
 To answer a new simplified fraction use `simplified`.
 
 ```
->>> uncheckedFraction(2, 4).components
+>>> uncheckedFraction(2L, 4L).components
 [2 4]
 
->>> uncheckedFraction(2, 4).simplify
+>>> uncheckedFraction(2L, 4L).simplify!
 1/2
 ```
 

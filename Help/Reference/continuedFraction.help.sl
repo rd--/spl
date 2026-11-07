@@ -34,6 +34,9 @@ at `Fraction`:
 
 >>> 11/37.continuedFraction
 [0 3 2 1 3]
+
+>>> 1/1.continuedFraction
+[1]
 ```
 
 At negative _x_:

@@ -89,17 +89,11 @@ true
 At `SmallFloat` and `Fraction`:
 
 ```
->>> 3/2 = 1.5
-true
+>>> (3/2 = 1.5, 1.5 = 3/2)
+(true, true)
 
->>> 1.5 = 3/2
-true
-
->>> 3/2 ~ 1.5
-true
-
->>> 1.5 ~ 3/2
-true
+>>> (3/2 ~ 1.5, 1.5 ~ 3/2)
+(true, true)
 ```
 
 At `SmallFloat` and `Decimal`:

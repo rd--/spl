@@ -34,7 +34,7 @@ Arithmetic is exact:
 true
 
 >>> (31 / 10 - 1) / (11 / 10 - 1) = 21
-true
+false
 ```
 
 Fractions can be converted to floating point numbers:
@@ -78,20 +78,21 @@ The `Fraction` method reduces fractions on construction:
 ```
 
 The `uncheckedFraction` method does not,
-it assumes the fraction being specified is in reduced form:
+it assumes the fraction being specified is in reduced form,
+and requires the arguments be `LargeInteger` values:
 
 ```
->>> uncheckedFraction(2, 3)
+>>> uncheckedFraction(2L, 3L)
 >>> .numeratorDenominator
-[2 3]
+[2L 3L]
 
->>> uncheckedFraction(2, 1)
+>>> uncheckedFraction(2L, 1L)
 >>> .numeratorDenominator
-[2 1]
+[2L 1L]
 
->>> uncheckedFraction(2, 0)
+>>> uncheckedFraction(2L, 0L)
 >>> .numeratorDenominator
-[2 0]
+[2L 0L]
 ```
 
 At `Fraction` is an alias for `divide`:
@@ -101,18 +102,22 @@ At `Fraction` is an alias for `divide`:
 9/10
 ```
 
-Fractions are never integers,
-and integers are never fractions:
+In this system Fractions may be integers,
+in the same way that `Complex` numbers may be real,
+integers, however, are not fractions:
 
 ```
->>> 3/4.isInteger
-false
+>>> [3/4 23/1 23]
+>>> .collect(isInteger/1)
+[false true true]
 
->>> 23/1.isFraction
-false
+>>> [3/4 23/1 23]
+>>> .collect(isFraction/1)
+[true true false]
 
->>> -23/1
--23
+>>> [3/4 23/1 23]
+>>> .collect(isRational/1)
+[true true true]
 ```
 
 A `Fraction` can be derived from a `SmallFloat` using `rationalize`:
@@ -199,12 +204,12 @@ Fraction(-3, 2)
 Fraction(4, 3)
 ```
 
-Fractions simplify to integers:
+Fractions do not automatically simplify to integers:
 
 ```
 >>> Fraction(2, 1)
 >>> .isFraction
-false
+true
 ```
 
 A Fraction that does not conform to the above invariants could be the cause of undefined behavior and unexpected results.

@@ -88,13 +88,13 @@
 
 	maxDetect { :self |
 		1.to(self.size).collect { :i |
-			self.isLocalMinimaBy(i, 0, >=)
+			self.isLocalMinimaBy(i, 0, isGreaterOrEqual/2)
 		}.boole
 	}
 
 	minDetect { :self |
 		1.to(self.size).collect { :i |
-			self.isLocalMinimaBy(i, 0, <=)
+			self.isLocalMinimaBy(i, 0, isLessOrEqual/2)
 		}.boole
 	}
 

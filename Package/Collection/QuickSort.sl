@@ -9,7 +9,7 @@
 	}
 
 	quickSort! { :self |
-		self.quickSort!(<)
+		self.quickSort!(isLess/2)
 	}
 
 	quickSortFromToBy { :self :from :to :sortBlock/2 |

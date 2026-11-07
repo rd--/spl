@@ -480,14 +480,14 @@
 		)
 	}
 
+	gamma { :self |
+		SmallFloat(self).gamma
+	}
+
 	incompleteGamma { :x :a |
 		SmallFloat(x).incompleteGamma(
 			SmallFloat(a)
 		)
-	}
-
-	gamma { :self |
-		SmallFloat(self).gamma
 	}
 
 	logGamma { :self |

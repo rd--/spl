@@ -12,7 +12,7 @@ At `SmallFloat`:
 >>> let a = 3;
 >>> let b = 4;
 >>> (a \ b, a / b)
-(3/4, 3/4)
+(3/4, 0.75)
 ```
 
 At `LargeInteger`,
@@ -31,7 +31,7 @@ unless the `denominator` is `one`:
 >>> let c = a \ b;
 >>> let d = a / b;
 >>> (c, c.isFraction, d, d.isFraction)
-(3, false, 3, false)
+(3/1, true, 3L, false)
 ```
 
 The name of this operator is `reverseSolidus`.

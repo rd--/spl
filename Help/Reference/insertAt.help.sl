@@ -6,6 +6,16 @@ Inserts the object _x_ at integer index (position) _n_ in the sequential collect
 so that afterwards it is accessible at the specified index.
 Answer _x_.
 
+```
+>>> let x = 3;
+>>> let n = 2;
+>>> let a = [1];
+>>> let b = a.insertAt!(x, n);
+>>> let c = a.at(n);
+>>> (x, n, a, b, c)
+(3, 2, [1 3], 3, 3)
+```
+
 Insert _x_ to be at position three:
 
 ```

@@ -19,6 +19,9 @@ Thread over lists:
 ```
 >>> 1:5.isEven
 [false true false true false]
+
+>>> [4/1 4/2 4/3 4/4].isEven
+[true true false false]
 ```
 
 Negative numbers may be even:
@@ -83,7 +86,7 @@ false
 Only defined for numbers:
 
 ```
->>> { nil.isEven}.hasError
+>>> { nil.isEven }.hasError
 true
 ```
 

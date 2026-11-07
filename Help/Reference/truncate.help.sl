@@ -43,17 +43,18 @@ Compare to `ceiling` and `floor`:
 ]
 ```
 
-At `Fraction`:
+At `Fraction`,
+answers a `LargeInteger` value:
 
 ```
 >>> 22/7.truncate
-3
+3L
 
 >>> -22/7.truncate
--3
+-3L
 
 >>> 7/8.truncate
-0
+0L
 ```
 
 At `Complex`:

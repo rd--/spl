@@ -68,8 +68,7 @@
 
 	insertAt! { :self :anObject :index |
 		<primitive:
-		const zeroIndex = sl.arrayCheckIndex(_self, _index);
-		_self.splice(zeroIndex, 0, _anObject);
+		_self.splice(sl.toFloat(_index - 1), 0, _anObject);
 		>
 		anObject
 	}
@@ -116,20 +115,20 @@
 
 	uncheckedAt { :self :index |
 		<primitive:
-		return _self[Number(_index) - 1];
+		return _self[sl.toFloat(_index) - 1];
 		>
 	}
 
 	uncheckedPut! { :self :index :value |
 		<primitive:
-		_self[Number(_index) - 1] = _value;
+		_self[sl.toFloat(_index) - 1] = _value;
 		>
 		value
 	}
 
 	uncheckedRemoveAt { :self :index |
 		<primitive:
-		return _self.splice(Number(_index) - 1, 1)[0];
+		return _self.splice(sl.toFloat(_index) - 1, 1)[0];
 		>
 	}
 

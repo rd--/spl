@@ -38,7 +38,7 @@ to read digits see `digitAt`:
 [1L 3L 5L 7L]
 ```
 
-At a thireen-place array:
+At a thirteen-place array:
 
 ```
 >>> ByteArray[

@@ -412,12 +412,6 @@
 
 +List {
 
-	uncheckedDownsampleSteinarsson { :self :threshold |
-		<primitive:
-		return sc.downsampleSteinarsson(_self, sl.toFloat(_threshold));
-		>
-	}
-
 	downsample { :self :n :phase |
 		(1 + phase).toBy(self.size, n).collect { :i |
 			self[i]
@@ -455,6 +449,12 @@
 		0.to(newSize - 1).collect { :each |
 			self.atBlend(1 + (each * factor))
 		}
+	}
+
+	uncheckedDownsampleSteinarsson { :self :threshold |
+		<primitive:
+		return sc.downsampleSteinarsson(_self, sl.toFloat(_threshold));
+		>
 	}
 
 	upsample { :self :anInteger |

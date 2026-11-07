@@ -113,7 +113,7 @@
 
 	isMonotonicallyIncreasing { :self |
 		self.allTrue(isFinite/1) & {
-			self.isSortedBy(<=)
+			self.isSortedBy(isLessOrEqual/2)
 		}
 	}
 
@@ -507,7 +507,7 @@
 	}
 
 	bubbleSortWithMonitor { :self :monitorBlock/1 |
-		self.bubbleSortWithMonitor(<, monitorBlock/1)
+		self.bubbleSortWithMonitor(isLess/2, monitorBlock/1)
 	}
 
 }
@@ -547,7 +547,7 @@
 	}
 
 	insertionSortWithMonitor { :self :monitorBlock/1 |
-		self.insertionSortWithMonitor(<, monitorBlock/1)
+		self.insertionSortWithMonitor(isLess/2, monitorBlock/1)
 	}
 
 }
@@ -563,12 +563,12 @@
 	}
 
 	shellSort! { :self |
-		self.shellSort!([5, 3, 1], <)
+		self.shellSort!([5, 3, 1], isLess/2)
 	}
 
 	shellSortMatrix { :self :t |
 		let m = [self.copy];
-		self.shellSortWithMonitor(t, <) { :x |
+		self.shellSortWithMonitor(t, isLess/2) { :x |
 			m.add!(x.copy)
 		};
 		m
@@ -601,11 +601,11 @@
 	}
 
 	shellSortWithMonitor { :self :t :monitorBlock/1 |
-		self.shellSortWithMonitor(t, <, monitorBlock/1)
+		self.shellSortWithMonitor(t, isLess/2, monitorBlock/1)
 	}
 
 	shellSortWithMonitor { :self :monitorBlock/1 |
-		self.shellSortWithMonitor([5, 3, 1], <, monitorBlock/1)
+		self.shellSortWithMonitor([5, 3, 1], isLess/2, monitorBlock/1)
 	}
 
 }
@@ -652,7 +652,7 @@
 	}
 
 	combSortWithMonitor { :self :monitorBlock/1 |
-		self.combSortWithMonitor(<, monitorBlock/1)
+		self.combSortWithMonitor(isLess/2, monitorBlock/1)
 	}
 
 }
@@ -793,7 +793,7 @@
 	}
 
 	bitonicSortWithMonitor { :self :monitorBlock/1 |
-		self.bitonicSortWithMonitor(<, monitorBlock/1)
+		self.bitonicSortWithMonitor(isLess/2, monitorBlock/1)
 	}
 
 }
@@ -883,7 +883,7 @@
 	}
 
 	oddEvenSortWithMonitor { :self :monitorBlock/1 |
-		self.oddEvenSortWithMonitor(<, monitorBlock/1)
+		self.oddEvenSortWithMonitor(isLess/2, monitorBlock/1)
 	}
 
 }
@@ -928,7 +928,7 @@
 	}
 
 	gnomeSortWithMonitor { :self :monitorBlock/1 |
-		self.gnomeSortWithMonitor(<, monitorBlock/1)
+		self.gnomeSortWithMonitor(isLess/2, monitorBlock/1)
 	}
 
 }
@@ -983,7 +983,7 @@
 	}
 
 	shuffleSortWithMonitor { :self :monitorBlock/1 |
-		self.shuffleSortWithMonitor(<, monitorBlock/1)
+		self.shuffleSortWithMonitor(isLess/2, monitorBlock/1)
 	}
 
 }

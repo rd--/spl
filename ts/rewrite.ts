@@ -751,11 +751,12 @@ const asSl: ohm.ActionDict<string> = {
 		const fStr = f.sourceString;
 		let kStr = k.sourceString;
 		const e = 10n ** BigInt(fStr.length);
+		const eStr = e.toString(10);
 		if (kStr.length === 0) {
 			kStr = fStr.length;
 		}
-		return `Decimal(Fraction(${sStr}${iStr}${fStr}L, ${e.toString(10)}L), ${kStr})`;
-		/* return `parseDecimal('${s.sourceString}${i.sourceString}.${f.sourceString}D${k.sourceString}')`; */
+		return `Decimal(Fraction(${sStr}${iStr}${fStr}L, ${eStr}L), ${kStr})`;
+		/* return `parseDecimal('${sStr}${iStr}.${fStr}D${kStr}')`; */
 	},
 	floatLiteral(s, i, _dot, f) {
 		return s.sourceString +
@@ -774,14 +775,14 @@ const asSl: ohm.ActionDict<string> = {
 		return validateSign(s.sourceString) + i.sourceString;
 	},
 	integerDecimalLiteral(s, i, _d, k) {
-		const sT = s.sourceString;
-		const iT = i.sourceString;
-		let kT = k.sourceString;
-		if (kT.length === 0) {
-			kT = 0;
+		const sStr = s.sourceString;
+		const iStr = i.sourceString;
+		let kStr = k.sourceString;
+		if (kStr.length === 0) {
+			kStr = 0;
 		}
-		return `Decimal(Fraction(${sT}${iT}L, 1L), ${kT})`;
-		/* return `parseDecimal('${s.sourceString}${i.sourceString}D${k.sourceString}')`; */
+		return `Decimal(Fraction(${sStr}${iStr}L, 1L), ${kStr})`;
+		/* return `parseDecimal('${sStr}${iStr}D${kStr}')`; */
 	},
 	lowercaseArityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
 		return `${rewriteInPlaceName(c1, cN, ip)}/${a.sourceString}`;

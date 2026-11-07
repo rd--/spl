@@ -30,7 +30,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	[absoluteValue, abs] { :self |
-		uncheckedDecimal(self.decimalFraction.abs, self.scale)
+		uncheckedDecimal(
+			self.decimalFraction.abs,
+			self.scale
+		)
 	}
 
 	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
@@ -60,10 +63,6 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	ceiling { :self |
 		Decimal(self.decimalFraction.ceiling, self.scale)
-	}
-
-	continuedFraction { :self :limit |
-		self.decimalFraction.continuedFraction(limit)
 	}
 
 	denominator { :self |
@@ -107,7 +106,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	integerPart { :self |
 		uncheckedDecimal(
-			self.decimalFraction.integerPart,
+			Fraction(
+				self.decimalFraction.integerPart,
+				1L
+			),
 			self.scale
 		)
 	}
@@ -116,17 +118,22 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		SmallFloat(self).isCloseBy(aNumber.SmallFloat, epsilon)
 	}
 
-	isEqualBy { :self :operand :aBlock/2 |
+	[isEqual, =] { :self :operand |
 		operand.isDecimal.if {
-			self.decimalFraction = operand.decimalFraction & {
-				self.scale = operand.scale
+			isEqualOn(
+				self,
+				operand,
+				scale/1
+			) & {
+				let m = 10L ^ self.scale;
+				isEqualOn(
+					self,
+					operand,
+					{ :x | (SmallFloat(x) * m).round }
+				)
 			}
 		} {
-			operand.isNumber.if {
-				isEqualBy(SmallFloat(self), operand, aBlock/2)
-			} {
-				false
-			}
+			false
 		}
 	}
 
@@ -174,7 +181,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	one { :self |
-		1D
+		Decimal(1/1, self.scale)
 	}
 
 	[plus, +] { :self :operand |
@@ -202,7 +209,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	printString { :self |
 		let scale = self.scale;
-		(scale = 0).if {
+		scale.isZero.if {
 			LargeInteger(self.integerPart)
 			.uncheckedPrintString(10) ++ 'D'
 		} {
@@ -287,7 +294,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	square { :self |
 		uncheckedDecimal(
 			self.decimalFraction.square,
-			self.scale
+			self.scale * 2
 		)
 	}
 
@@ -354,7 +361,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	zero { :self |
-		0D
+		Decimal(0/1, self.scale)
 	}
 
 }
@@ -381,13 +388,9 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		)
 	}
 
-}
-
-+[Fraction, LargeInteger] {
-
-	uncheckedDecimal { :fractionOrInteger :scale |
+	uncheckedDecimal { :fraction :scale |
 		newDecimal().initializeSlots(
-			fractionOrInteger,
+			fraction,
 			scale
 		)
 	}
@@ -395,10 +398,6 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 }
 
 +SmallFloat {
-
-	uncheckedDecimal { :self :scale |
-		uncheckedDecimal(LargeInteger(self), scale)
-	}
 
 	Decimal { :self :scale |
 		scale.isCollection.if {
@@ -408,12 +407,14 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		} {
 			self.isInteger.if {
 				uncheckedDecimal(
-					LargeInteger(self),
+					Fraction(self, 1L),
 					scale
 				)
 			} {
 				Decimal(
-					self.deriveDecimalFraction(scale),
+					self.deriveDecimalFraction(
+						scale
+					),
 					scale
 				)
 			}
@@ -426,7 +427,6 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 				receiver,
 				Decimal(self, 0)
 			)
-
 		} {
 			aBlock(
 				SmallFloat(receiver),
@@ -440,7 +440,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 +LargeInteger {
 
 	[Decimal, largeIntegerToDecimal] { :self :scale |
-		uncheckedDecimal(self, scale)
+		uncheckedDecimal(
+			Fraction(self, 1L),
+			scale
+		)
 	}
 
 	adaptToDecimalAndApply { :self :aNumber :aBlock/2 |
@@ -517,7 +520,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 			[
 				1 -> {
 					uncheckedDecimal(
-						parts[1].parseLargeInteger(elseClause/0),
+						uncheckedFraction(
+							parts[1].parseLargeInteger(elseClause/0),
+							1L
+						),
 						scaleOrNil.ifNil { 0 }
 					)
 				},

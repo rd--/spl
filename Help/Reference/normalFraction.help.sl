@@ -5,7 +5,7 @@
 Convert the fraction _n/d_ to normal form.
 
 ```
->>> let n = uncheckedFraction(2, 4);
+>>> let n = uncheckedFraction(2L, 4L);
 >>> (
 >>> 	n.components,
 >>> 	n.normalFraction.components

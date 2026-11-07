@@ -18,6 +18,12 @@ Reconstructs a number from the list of its continued fraction terms.
 >>> .prefixes
 >>> .collect(fromContinuedFraction/1)
 [2 3 11/4 47/17]
+
+>>> [1].fromContinuedFraction
+1/1
+
+>>> [0].fromContinuedFraction
+0/1
 ```
 
 The continued fraction of the square root of two,

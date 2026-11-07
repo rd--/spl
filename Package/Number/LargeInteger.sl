@@ -15,7 +15,9 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 	}
 
 	[SmallFloat, Float, largeIntegerToSmallFloat] { :self |
-		<primitive: return Number(_self);>
+		<primitive:
+		return Number(_self);
+		>
 	}
 
 	[SmallInteger, largeIntegerToSmallInteger]  { :self |
@@ -50,7 +52,9 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 	}
 
 	bitNot { :self |
-		<primitive: return ~_self;>
+		<primitive:
+		return ~_self;
+		>
 	}
 
 	bitOr { :self :anObject |
@@ -97,6 +101,10 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 		self.integerDigits(base, wordSize).takeWhile(isZero/1).size
 	}
 
+	decimalPeriod { :unused |
+		0
+	}
+
 	denominator { :self |
 		1L
 	}
@@ -107,7 +115,11 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 				self,
 				LargeInteger(anObject)
 			);
-			fraction.isInteger.if {
+			(
+				anObject.isFraction.not & {
+					fraction.isInteger
+				}
+			).if {
 				fraction.numerator
 			} {
 				fraction
@@ -356,7 +368,12 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 	}
 
 	signedInteger { :self :bitCount |
-		<primitive: return BigInt.asIntN(_bitCount, _self);>
+		<primitive:
+		return BigInt.asIntN(
+			sl.toFloat(_bitCount),
+			_self
+		);
+		>
 	}
 
 	storeString { :self |
@@ -409,15 +426,21 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 	}
 
 	uncheckedRaisedToInteger { :self :anInteger |
-		<primitive: return _self ** BigInt(_anInteger);>
+		<primitive:
+		return _self ** BigInt(_anInteger);
+		>
 	}
 
 	uncheckedRemainder { :self :anInteger |
-		<primitive: return _self % BigInt(_anInteger);>
+		<primitive:
+		return _self % BigInt(_anInteger);
+		>
 	}
 
 	unsignedInteger { :self :bitCount |
-		<primitive: return BigInt.asUintN(_bitCount, _self);>
+		<primitive:
+		return BigInt.asUintN(_bitCount, _self);
+		>
 	}
 
 	zero { :unused |
@@ -441,7 +464,9 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 	}
 
 	uncheckedLargeInteger { :self |
-		<primitive: return BigInt(_self);>
+		<primitive:
+		return BigInt(_self);
+		>
 	}
 
 }
@@ -466,7 +491,9 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 	}
 
 	uncheckedParseLargeInteger { :self |
-		<primitive: return BigInt(_self);>
+		<primitive:
+		return BigInt(_self);
+		>
 	}
 
 }

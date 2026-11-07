@@ -39,15 +39,12 @@ At `Fraction`:
 1326851222826087/30517578125000000
 ```
 
-At `Integer`,
+At integer fractions,
 the `identity` function:
 
 ```
->>> 23.deriveDecimalFraction(0)
-23
-
->>> 23L.deriveDecimalFraction(0)
-23L
+>>> 23/1.deriveDecimalFraction(0)
+23/1
 ```
 
 * * *
