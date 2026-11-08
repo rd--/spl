@@ -83,6 +83,15 @@ false
 false
 ```
 
+Unsafe small integers signal errors:
+
+```
+>>> {
+>>> 	345321100728254656.0.isEven
+>>> }.hasError
+true
+```
+
 Only defined for numbers:
 
 ```
@@ -122,9 +131,6 @@ false
 true
 
 >>> 345321100728254656L.isEven
-true
-
->>> 345321100728254656.0.isEven
 true
 ```
 

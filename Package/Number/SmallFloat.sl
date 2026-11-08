@@ -437,9 +437,14 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	}
 
 	isEven { :self |
-		/* self % 2 = 0 */
 		<primitive:
-		return _self % 2 === 0;
+		if(Number.isInteger(_self)) {
+			if(!Number.isSafeInteger(_self)) {
+				throw new Error('isEven: unsafe');
+			};
+			return (_self % 2) === 0;
+		};
+		return false;
 		>
 	}
 
@@ -508,9 +513,14 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 	}
 
 	isOdd { :self |
-		/* (self % 2).abs = 1 */
 		<primitive:
-		return Math.abs(_self % 2) === 1;
+		if(Number.isInteger(_self)) {
+			if(!Number.isSafeInteger(_self)) {
+				throw new Error('isOdd: unsafe');
+			};
+			return Math.abs(_self % 2) === 1;
+		};
+		return false;
 		>
 	}
 
