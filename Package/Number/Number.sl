@@ -550,22 +550,12 @@
 		true
 	}
 
-	isPositive { :self |
-		self > self.zero
-	}
-
 	isOne { :self |
 		self = self.one
 	}
 
-	isZero { :self |
-		self = self.zero
-	}
-
-	isZeroOrOne { :self |
-		self.isZero | {
-			self.isOne
-		}
+	isPositive { :self |
+		self > self.zero
 	}
 
 	isScalar { :self |
@@ -578,6 +568,16 @@
 
 	isVeryClose { :self :aNumber |
 		self.isCloseBy(aNumber, 0.000000000001)
+	}
+
+	isZero { :self |
+		self = self.zero
+	}
+
+	isZeroOrOne { :self |
+		self.isZero | {
+			self.isOne
+		}
 	}
 
 	kroneckerDelta { :self |

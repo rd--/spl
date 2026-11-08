@@ -71,13 +71,6 @@
 		}
 	}
 
-	uncheckedInsertAt! { :self :anObject :index |
-		<primitive:
-		_self.splice(sl.toFloat(_index - 1), 0, _anObject);
-		>
-		anObject
-	}
-
 	putFloat! { :self :index :anObject |
 		<primitive:
 		const zeroIndex = sl.arrayCheckIndex(_self, _index);
@@ -134,6 +127,13 @@
 		<primitive:
 		return _self[sl.toFloat(_index) - 1];
 		>
+	}
+
+	uncheckedInsertAt! { :self :anObject :index |
+		<primitive:
+		_self.splice(sl.toFloat(_index - 1), 0, _anObject);
+		>
+		anObject
 	}
 
 	uncheckedPut! { :self :index :value |

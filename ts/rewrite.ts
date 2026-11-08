@@ -31,7 +31,7 @@ function isJsArityQualifiedName(s: string): boolean {
 }
 
 function jsArityQualifiedNameParseArity(s: string): boolean {
-	const r = /_([0-9]+)$/
+	const r = /_([0-9]+)$/;
 	const m = s.match(r);
 	return Number(m[1]);
 }
@@ -82,25 +82,27 @@ function genArityChecks(argJs: string, context: string): string {
 	const argList = argJs.split(', ');
 	// console.log('genArityChecks', argList);
 	const checks = argList.map(
-		function(nm) {
+		function (nm) {
 			// console.log(`genArityChecks: '${nm}'`);
 			if (isJsArityQualifiedName(nm)) {
-				return `sl.splArityCheck(${nm}, ${jsArityQualifiedNameParseArity(nm)}, '${context}');`
-			};
+				return `sl.splArityCheck(${nm}, ${
+					jsArityQualifiedNameParseArity(nm)
+				}, '${context}');`;
+			}
 			return '';
-		}
+		},
 	);
 	// console.log('genArityChecks', checks);
 	return checks.join('');
 }
 
 function arityCheckInitializer(nameJs: string, rhsJs: string): string {
-		const binding = `${nameJs} = ${rhsJs}`;
-		// console.log('arityCheckInitializer', nameJs);
-		if (isJsArityQualifiedName(nameJs)) {
-			return `${binding}; ${genArityChecks(nameJs, 'Initializer: ' + nameJs)}`;
-		}
-		return binding;
+	const binding = `${nameJs} = ${rhsJs}`;
+	// console.log('arityCheckInitializer', nameJs);
+	if (isJsArityQualifiedName(nameJs)) {
+		return `${binding}; ${genArityChecks(nameJs, 'Initializer: ' + nameJs)}`;
+	}
+	return binding;
 }
 
 // nList = names, bList = bodies

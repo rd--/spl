@@ -14,18 +14,6 @@
 		}
 	}
 
-	muLawDecode { :y |
-		let mu = 255;
-		let a = ((1 + mu) ^ y.abs) - 1;
-		y.sign * (a / mu)
-	}
-
-	muLawEncode { :x |
-		let mu = 255;
-		let a = (1 + (mu * x.abs)).log;
-		x.sign * (a / (1 + mu).log)
-	}
-
 	minkowskiQuestionMarkInverse { :x |
 		let y = (x / 1).floor;
 		let bits = x % 1;
@@ -47,6 +35,18 @@
 			iterationCount := iterationCount + 1
 		};
 		y + (lo[1] / lo[2])
+	}
+
+	muLawDecode { :y |
+		let mu = 255;
+		let a = ((1 + mu) ^ y.abs) - 1;
+		y.sign * (a / mu)
+	}
+
+	muLawEncode { :x |
+		let mu = 255;
+		let a = (1 + (mu * x.abs)).log;
+		x.sign * (a / (1 + mu).log)
 	}
 
 	numberExpand { :self :base |

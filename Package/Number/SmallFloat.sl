@@ -93,37 +93,17 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	uncheckedBitShiftLeft { :self :operand |
-		<primitive:
-		const aFloat = sl.toFloat(_operand);
-		if(sl.isBitwise(_self) && sl.isBitwise(aFloat)) {
-			return _self << aFloat;
-		}
-		>
-		self.error('uncheckedBitShiftLeft', [operand])
-	}
-
 	[bitShiftLeft, <<] { :self :operand |
 		operand.isInteger.if {
-			uncheckedBitShiftLeft(self, operand)
+			checkedBitShiftLeft(self, operand)
 		} {
 			operand.adaptToNumberAndApply(self, bitShiftLeft/2)
 		}
 	}
 
-	uncheckedBitShiftRight { :self :operand |
-		<primitive:
-		const aFloat = sl.toFloat(_operand);
-		if(sl.isBitwise(_self) && sl.isBitwise(aFloat)) {
-			return _self >> aFloat;
-		}
-		>
-		self.error('uncheckedBitShiftRight')
-	}
-
 	[bitShiftRight, >>] { :self :operand |
 		operand.isInteger.if {
-			uncheckedBitShiftRight(self, operand)
+			checkedBitShiftRight(self, operand)
 		} {
 			operand.adaptToNumberAndApply(self, bitShiftRight/2)
 		}
@@ -171,6 +151,26 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 				'SmallFloat>>byteHexString: not a byte'
 			)
 		}
+	}
+
+	checkedBitShiftLeft { :self :operand |
+		<primitive:
+		const aFloat = sl.toFloat(_operand);
+		if(sl.isBitwise(_self) && sl.isBitwise(aFloat)) {
+			return _self << aFloat;
+		}
+		>
+		self.error('bitShiftLeft', [operand])
+	}
+
+	checkedBitShiftRight { :self :operand |
+		<primitive:
+		const aFloat = sl.toFloat(_operand);
+		if(sl.isBitwise(_self) && sl.isBitwise(aFloat)) {
+			return _self >> aFloat;
+		}
+		>
+		self.error('bitShiftRight')
 	}
 
 	chop { :self :epsilon |
@@ -231,6 +231,15 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
+	[divide, divideToFloat, /] { :self :operand |
+		<primitive:
+		if(sl.isSmallFloat(_operand)) {
+			return _self / _operand;
+		}
+		>
+		operand.adaptToNumberAndApply(self, divide/2)
+	}
+
 	divideToFraction { :self :operand |
 		<primitive:
 		if(sl.isSmallFloat(_operand)) {
@@ -244,15 +253,6 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 		>
 		operand.adaptToNumberAndApply(self, divideToFraction/2)
-	}
-
-	[divide, divideToFloat, /] { :self :operand |
-		<primitive:
-		if(sl.isSmallFloat(_operand)) {
-			return _self / _operand;
-		}
-		>
-		operand.adaptToNumberAndApply(self, divide/2)
 	}
 
 	[encodeJson, smallFloatToJson] { :self |

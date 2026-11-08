@@ -88,7 +88,7 @@ where supported `<<` is displayed as ≪:
 At `LargeInteger`:
 
 ```
->>> (1L << 31, 1 << 31)
+>>> (1 << 31, 1L << 31)
 (-2147483648, 2147483648L)
 
 >>> 1L.bitShiftLeft(0:9)

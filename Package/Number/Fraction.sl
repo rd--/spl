@@ -266,7 +266,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	isPowerOfTwo { :self |
-                self.isIntegerAnd(isPowerOfTwo/1)
+		self.isIntegerAnd(isPowerOfTwo/1)
 	}
 
 	isPrime { :self |

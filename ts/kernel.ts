@@ -716,11 +716,13 @@ export function arrayCheckIndex(
 	anInteger: number | bigint,
 ): number {
 	const typeName = typeof anInteger;
-	if(typeName === 'number' || typeName === 'bigint') {
+	if (typeName === 'number' || typeName === 'bigint') {
 		const zeroIndex = Number(anInteger) - 1;
-		if (Number.isInteger(zeroIndex)
-			&& (zeroIndex > -1)
-			&& (zeroIndex < anArray.length)) {
+		if (
+			Number.isInteger(zeroIndex) &&
+			(zeroIndex > -1) &&
+			(zeroIndex < anArray.length)
+		) {
 			return zeroIndex;
 		}
 	}
@@ -789,12 +791,21 @@ export function stringToSentences(str: string): Array<string> {
 	) || [];
 }
 
-export function checkSmallIntegerOverflow(a: number, b: number, x: number, o: string, f: Function): number | bigint {
-	if (Number.isSafeInteger(a) && Number.isSafeInteger(b) && !Number.isSafeInteger(x)) {
+export function checkSmallIntegerOverflow(
+	a: number,
+	b: number,
+	x: number,
+	o: string,
+	f: Function,
+): number | bigint {
+	if (
+		Number.isSafeInteger(a) && Number.isSafeInteger(b) &&
+		!Number.isSafeInteger(x)
+	) {
 		const y = f(BigInt(a), BigInt(b));
 		// console.debug(`**** Check Small Integer Overflow: ${a} ${o} ${b} = ${x}: True answer ${y}L`);
 		// throw new Error('checkSmallIntegerOverflow: overflow');
-		return y
+		return y;
 	}
 	return x;
 }
@@ -802,20 +813,21 @@ export function checkSmallIntegerOverflow(a: number, b: number, x: number, o: st
 export function splArityCheck(f: Function, n: number, c: string): void {
 	if (typeof f !== 'function') {
 		throw new Error(`splArityCheck: not block: context=${c}`);
-	};
+	}
 	const k = f.length;
-	if(k != n) {
-		const errorMessage = `splArityCheck: expected=${n}, actual=${k}, context=${c}`;
+	if (k != n) {
+		const errorMessage =
+			`splArityCheck: expected=${n}, actual=${k}, context=${c}`;
 		throw new Error(errorMessage);
 	}
 }
 
 export function toFloat(x: number | bigint): number {
 	const xType = typeof x;
-	if(xType === 'number') {
+	if (xType === 'number') {
 		return x;
 	}
-	if(xType === 'bigint') {
+	if (xType === 'bigint') {
 		return Number(x);
 	}
 	throw new Error('toFloat: not SmallFloat or LargeInteger', x);
