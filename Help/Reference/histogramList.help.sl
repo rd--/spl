@@ -66,8 +66,14 @@ Histogram of numbers between `zero` and `one`:
 ```
 >>> (0, 0.02 .. 1).histogramList
 [
-	0 1/10 1/5 3/10 2/5 1/2 3/5 7/10 4/5 9/10 1;
-	6 5 5 4 5 5 5 5 5 6
+	0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0;
+	5 6 5 4 5 5 5 5 5 6
+]
+
+>>> (0L, 1/50 .. 1L).histogramList([0 1 1/10])
+[
+	0 1/10 1/5 3/10 2/5 1/2 3/5 7/10 4/5 9/10 1/1;
+	5 5 5 5 5 5 5 5 5 6
 ]
 
 >>> (0, 0.02 .. 1).histogramList([0 1 0.25])
@@ -83,7 +89,7 @@ despite being at the right edge of the last bin,
 since the last bin is treated especially:
 
 ```
->>> [1 3 2 1 4 5 6 2].histogramList
+>>> [1 3 2 1 4 5 6 2].histogramList([0 6 1.5])
 [
 	0 1.5 3 4.5 6;
 	2 2 2 2

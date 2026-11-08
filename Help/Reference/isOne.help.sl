@@ -34,15 +34,17 @@ At `Complex`:
 At `Decimal`:
 
 ```
->>> (1D.isOne, 1D = 1)
-(true, true)
+>>> let x = 1D;
+>>> (x.isOne, x = x.one, x = 1)
+(true, true, true)
 ```
 
 Note the rule if `scale` is not zero:
 
 ```
->>> (1.0D.isOne, 1.0D = 1)
-(false, false)
+>>> let x = 1.000D;
+>>> (x.isOne, x = x.one, x = 1)
+(true, true, false)
 ```
 
 

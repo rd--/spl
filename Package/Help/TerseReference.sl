@@ -6,6 +6,7 @@
 		let testCount = 0;
 		let passCount = 0;
 		let errorCount = 0;
+		let verboseLevel = 1;
 		directoryName
 		.readDirectoryFileNames
 		.select { :fileName |
@@ -17,10 +18,17 @@
 					each.beginsWith('# ').not
 				}
 			};
-			[fileName, programTexts.size].printLine;
+			(verboseLevel >= 1).ifTrue {
+				[fileName, programTexts.size].printLine
+			};
 			programTexts.do { :each |
+				(verboseLevel >= 3).ifTrue {
+					each.printLine
+				};
 				let result = system.evaluate(each);
-				result.concisePrintString;
+				(verboseLevel >= 2).ifTrue {
+					result.concisePrintString.printLine
+				};
 				testCount := testCount + 1;
 				result.answerPredicate.if {
 					passCount := passCount + 1

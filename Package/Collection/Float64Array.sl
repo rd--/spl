@@ -7,15 +7,7 @@ Float64Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 	}
 
 	put! { :self :index :anObject |
-		<primitive:
-		const zeroIndex = sl.arrayCheckIndex(_self, _index);
-		const aFloat = sl.toFloat(_anObject);
-		if(zeroIndex > -1) {
-			_self[zeroIndex] = aFloat;
-			return _anObject;
-		}
-		>
-		self.errorInvalidIndex('put!', index)
+		self.putFloat!(index, anObject)
 	}
 
 	shallowCopy { :self |

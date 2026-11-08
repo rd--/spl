@@ -28,7 +28,7 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Set] 
 	}
 
 	include! { :self :anObject |
-		self.sortedList.include!(anObject)
+		self.sortedList.addIfNotPresent!(anObject)
 	}
 
 	includes { :self :anObject |

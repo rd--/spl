@@ -594,7 +594,7 @@
 
 	harmonicNumber { :n :r |
 		1.to(n).sum { :i |
-			1L / (i ^ r)
+			n.one / (i ^ r)
 		}
 	}
 

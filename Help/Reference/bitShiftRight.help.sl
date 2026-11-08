@@ -57,13 +57,6 @@ true
 48648600L
 ```
 
-At `LargeInteger` works with numbers of any size:
-
-```
->>> (2 ^ 111 - 1).bitShiftRight(7)
-20282409603651670423947251286015L
-```
-
 `bitShiftRight` automatically threads itself over lists:
 
 ```
@@ -72,6 +65,19 @@ At `LargeInteger` works with numbers of any size:
 
 >>> [1 2 4 16] // (2 ^ 2)
 [0 0 1 4]
+
+>>> 256 >> 0:9
+[256 128 64 32 16 8 4 2 1 0]
+```
+
+At `LargeInteger` works with numbers of any size:
+
+```
+>>> (2 ^ 111 - 1).bitShiftRight(7)
+20282409603651670423947251286015L
+
+>>> 256L >> 0:9
+[256 128 64 32 16 8 4 2 1 0]
 ```
 
 Index from the right of the first zero bit of _n_,

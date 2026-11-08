@@ -16,7 +16,7 @@ answers the index where the object _x_ would be inserted.
 >>> let b = a.indexForInserting(3);
 >>> a.add!(3);
 >>> (a, b)
-(SortedList([1 3], 2))
+(SortedList([1 3]), 2)
 ```
 
 * * *

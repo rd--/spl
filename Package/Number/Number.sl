@@ -674,7 +674,7 @@
 	niceNumberBy { :self :aBlock/2 |
 		let n = self;
 		let m = 10 ^ n.abs.log10.floor.negate;
-		let steps = [1 1.5 2 2.5 5 7.5 10];
+		let steps = [1 1.5 2 2.5 5 7.5 10]; /* [1 3/2 2 5/2 5 3/4 10] */
 		let z = aBlock(steps, n * m);
 		z / m
 	}

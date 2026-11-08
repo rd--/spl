@@ -4,21 +4,27 @@
 
 Answer the Lagrange interpolating polynomial for the coordinates _c_.
 
+With `SmallFloat` _c_:
+
 ```
->>> [1 1; 2 4; 3 1; 4 5]
->>> .lagrangeInterpolatingPolynomial
->>> .coefficientList
-[-21 215/6 -16 13/6]
-
->>> [1 1; 2 4; 3 9; 4 16]
->>> .lagrangeInterpolatingPolynomial
->>> .coefficientList
-[0 0 1]
-
 >>> [-1 4; 0 2; 1 6]
 >>> .lagrangeInterpolatingPolynomial
 >>> .coefficientList
 [2 1 3]
+```
+
+With `LargeInteger` _c_:
+
+```
+>>> LargeInteger[1 1; 2 4; 3 1; 4 5]
+>>> .lagrangeInterpolatingPolynomial
+>>> .coefficientList
+[-21 215/6 -16 13/6]
+
+>>> LargeInteger[1 1; 2 4; 3 9; 4 16]
+>>> .lagrangeInterpolatingPolynomial
+>>> .coefficientList
+[0 0 1]
 ```
 
 Plot interpolation over five points:

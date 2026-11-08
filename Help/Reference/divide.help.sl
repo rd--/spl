@@ -44,18 +44,20 @@ Divide is applied sequentially:
 (3 / (5 * 7 * 9))
 ```
 
-At `LargeInteger` answers either a `LargeInteger` or a `SmallFloat` or a `Fraction`:
+At `LargeInteger`,
+or at `SmallFloat` with a `LargeInteger` operand,
+answers either a `LargeInteger` or a `Fraction`:
 
 ```
 >>> let r = 12L / 3L;
 >>> (r, r.isLargeInteger)
-(4, false)
+(4L, true)
 
 >>> 12L / 3
-4
+4L
 
 >>> 12 / 3L
-4
+4L
 
 >>> let r = 2L / 3L;
 >>> (r, r.isFraction)

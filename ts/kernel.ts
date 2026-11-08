@@ -723,8 +723,8 @@ export function arrayCheckIndex(
 			&& (zeroIndex < anArray.length)) {
 			return zeroIndex;
 		}
-		return -1;
 	}
+	return -1;
 }
 
 export function initializeLocalPackages(

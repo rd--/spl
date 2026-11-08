@@ -1243,7 +1243,7 @@
 	}
 
 	[timesPlus, *+] { :self :mul :add |
-		self * mul + add
+		(self * mul) + add
 	}
 
 	trinomial { :self :anObject |

@@ -4,6 +4,19 @@
 
 Answer whether the collection _c_ has an index equal to _i_.
 
+At `List`:
+
+```
+>>> [1 .. 5].includesIndex(3)
+true
+
+>>> [1 .. 5].includesIndex(0)
+false
+
+>>> [1 .. 5].includesIndex(7)
+false
+```
+
 At `Range`:
 
 ```

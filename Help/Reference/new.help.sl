@@ -76,10 +76,10 @@ AsciiString(String(ByteArray[0 0 0]))
 At `ByteArray`:
 
 ```
->>> ByteArray[].new
-ByteArray[]
+>>> ByteArray(0, 0).new
+ByteArray(0, 0)
 
->>> ByteArray[].new(3)
+>>> ByteArray(0, 0).new(3)
 ByteArray[0 0 0]
 ```
 

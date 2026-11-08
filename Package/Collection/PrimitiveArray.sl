@@ -5,7 +5,7 @@
 	atIfAbsent { :self :index :ifAbsent/0 |
 		<primitive:
 		const zeroIndex = sl.arrayCheckIndex(_self, _index);
-		if(zeroIndex > -1) {
+		if(zeroIndex != -1) {
 			return _self[zeroIndex];
 		}
 		>
@@ -59,18 +59,35 @@
 		>
 	}
 
-	includesIndex { :self :index |
-		<primitive:
-		const zeroIndex = sl.arrayCheckIndex(_self, _index);
-		return (zeroIndex > -1);
-		>
+	insertAt! { :self :anObject :index |
+		(
+			index.isInteger & {
+				index.isBetween(1, self.size + 1)
+			}
+		).if {
+			uncheckedInsertAt!(self, anObject, index)
+		} {
+			self.error('insertAt!', [anObject, index])
+		}
 	}
 
-	insertAt! { :self :anObject :index |
+	uncheckedInsertAt! { :self :anObject :index |
 		<primitive:
 		_self.splice(sl.toFloat(_index - 1), 0, _anObject);
 		>
 		anObject
+	}
+
+	putFloat! { :self :index :anObject |
+		<primitive:
+		const zeroIndex = sl.arrayCheckIndex(_self, _index);
+		const aFloat = sl.toFloat(_anObject);
+		if(zeroIndex != -1) {
+			_self[zeroIndex] = aFloat;
+			return _anObject;
+		}
+		>
+		self.errorInvalidIndex('putFloat!', index)
 	}
 
 	reverse! { :self |

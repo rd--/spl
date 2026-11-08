@@ -35,12 +35,13 @@ let offset = line(0, -0.02, 60); /* causes sound to separate and fade */
 		0
 	).*+( /* freq of partial */
 		max(
-			0, /* clip negative amplitudes to zero */
 			lfNoise1(
-				6 + [rand(-4, 4), rand(-4, 4)]).*+( /* amplitude rate */
-					0.02, /* amplitude scale */
-					offset /* amplitude offset */
-				)
+				6 + [rand(-4, 4), rand(-4, 4)]
+			).*+( /* amplitude rate */
+				0.02, /* amplitude scale */
+				offset /* amplitude offset */
+			),
+			0 /* clip negative amplitudes to zero */
 		),
 		z
 	)
@@ -63,7 +64,7 @@ let trig = xLine([10, 10], 0.1, 60); /* trigger probability decreases over time 
 			0.005, /* grain attack time */
 			rand(0, 0.5) /* grain decay time */
 		),
-			z
+		z
 	)
 };
 z
@@ -461,7 +462,7 @@ let dadd = dmul.- + amp;
 let signal = sum( /* mix a list of 4 instruments */
 	{
 		/* if amplitude is below zero it is clipped, density determines the probability of being above zero */
-		let excitation = pinkNoise() * max(0, lfNoise1(8).*+(dmul, dadd));
+		let excitation = pinkNoise() * max(lfNoise1(8).*+(dmul, dadd), 0);
 		let freq = lag( /* lag the pitch so it glissandos between pitches */
 			lfNoise0( /* use low freq step noise as a pitch control */
 				[1, 0.5, 0.25].atRandom /* choose a frequency of pitch change */

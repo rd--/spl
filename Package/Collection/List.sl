@@ -187,7 +187,7 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	put! { :self :index :anObject |
 		<primitive:
 		const zeroIndex = sl.arrayCheckIndex(_self, _index);
-		if(zeroIndex > -1) {
+		if(zeroIndex != -1) {
 			_self[zeroIndex] = _anObject;
 			return _anObject;
 		}

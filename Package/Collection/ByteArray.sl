@@ -100,7 +100,7 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		<primitive:
 		const zeroIndex = sl.arrayCheckIndex(_self, _index);
 		const aFloat = sl.toFloat(_anObject);
-		if(zeroIndex > -1 && sl.isByte(aFloat)) {
+		if(zeroIndex != -1 && sl.isByte(aFloat)) {
 			_self[zeroIndex] = aFloat;
 			return _anObject;
 		}>

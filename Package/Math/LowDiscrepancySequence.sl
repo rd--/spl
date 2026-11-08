@@ -4,12 +4,13 @@
 		let l = n.bitLength;
 		let v = List(l, nil);
 		let x = List(n, 0);
-		(d = 1).if {
+		d.isOne.if {
 			1.toDo(l) { :i |
 				v[i] := 1L << (32 - i)
 			}
 		} {
 			let [_, s, a, m] = d.sobolSequenceData;
+			m := LargeInteger(m);
 			(l <= s).if {
 				1.toDo(l) { :i |
 					v[i] := m[i] << (32L - i)

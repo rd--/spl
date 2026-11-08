@@ -164,10 +164,10 @@ sinOsc(freq * carRatio + modOsc, 0) * carAmp
 let freq = 440; let phase = 0; let amp = 0.1;
 sinOsc(freq, phase) * amp
 
-/* sinOsc ; requires 0.max(aUgen) */
+/* sinOsc ; required 0.max(u) */
 let n = 16;
 {
-	let amp = 0.max(sinOsc(expRand(0.1, 1), rand(0, 2.pi))) / n / 2;
+	let amp = sinOsc(expRand(0.1, 1), rand(0, 2.pi)).max(0) / n / 2;
 	eqPan(
 		sinOsc(expRand(100, 1000), 0) * amp,
 		rand(-1, 1)

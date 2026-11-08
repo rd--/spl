@@ -569,7 +569,7 @@ let b = ByteArray(4, 0); b[2] := 15; b[4] := 240; b.base16Encode = '000F00F0'
 let b = ByteArray(4, 0); b.atAllPut!(15); b.base16Encode = '0F0F0F0F'
 'string'.asciiByteArray.List = [115, 116, 114, 105, 110, 103] /* array from ByteArray */
 { [1, 2, 3].ByteArray.add!(4) }.hasError /* ByteArrays are not extensible */
-1:9.ByteArray.select { :each | false } = [].ByteArray /* select nothing */
+1:9.ByteArray.select { :each | false } = ByteArray(0, 0) /* select nothing */
 1:9.ByteArray != [1 .. 9] /* ByteArray and List of equal elements are not equal */
 1:9.ByteArray.hasEqualElements(1:9) /* ByteArray and List of equal elements */
 [1, 13 .. 253].ByteArray.base64Encode = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' /* base 64 encoding */
@@ -1218,7 +1218,7 @@ system.includesPackage('Fraction') /* fraction package */
 Fraction(2, 3).isFraction /* fractional type */
 2/3 = Fraction(2, 3) /* literal syntax */
 Fraction(4, 6) = 2/3 /* Fraction normalises */
-uncheckedFraction(4, 6) != 2/3 /* uncheckedFraction assumes fraction is normal, and will construct a non-reduced fraction */
+uncheckedFraction(4L, 6L) != 2/3 /* uncheckedFraction assumes fraction is normal, and will construct a non-reduced fraction */
 2/3 = 4/6 /* literals are reduced by construction */
 2 / 3/4 = 8/3 /* division */
 2/3 + 2/3 = 4/3 /* addition */
@@ -1267,7 +1267,7 @@ let n = 9/5; n.reciprocal * n = 1 /* mutiplicative inverse */
 Fraction(6, 4) = Fraction(3, 2) /* Fraction normalizes */
 Fraction(-6, 4) = Fraction(-3, 2) /* Fraction normalizes */
 Fraction(6, -4) = Fraction(-3, 2) /* Fraction normalizes */
-{ Fraction(6, 0) }.hasError
+Fraction(6, 0) = Infinity
 1/2 = 2/4 = true
 1/2 * 2 = 1
 2 * 1/2 = 1
@@ -1315,8 +1315,8 @@ Fraction(3, 1) = 3/1
 4/6.numerator = 2 /* literal fractions are reduced */
 4/6.denominator = 3 /* literal fractions are reduced */
 4/2 = 2
-uncheckedFraction(4, 6).numerator = 4 /* uncheckedFraction is not initially reduced */
-uncheckedFraction(4, 6).denominator = 6 /* uncheckedFraction is not initially reduced */
+uncheckedFraction(4L, 6L).numerator = 4 /* uncheckedFraction is not initially reduced */
+uncheckedFraction(4L, 6L).denominator = 6 /* uncheckedFraction is not initially reduced */
 Fraction(4, 6).numerator = 2
 Fraction(4, 6).denominator = 3
 3/2.truncate = 1
@@ -1670,7 +1670,7 @@ let x = (2L ^ 54L); x != (x - 1) /* large integers behave ordinarily */
 2L ^ 100L = 1267650600228229401496703205376L /* raised to */
 let n = 2L; n.copy == n /* copy is identity */
 23L.SmallFloat = 23 /* large integer to small float */
-let a = [9, 8 .. 1]; { a[5L] }.hasError /* large integers are not valid indices */
+let a = [9, 8 .. 1]; a[5L] = 5 /* large integers are valid indices */
 58909L.printStringHexadecimal = '16bE61D' /* hexadecimal representation */
 20L.factorial = 2432902008176640000L /* large integer factorial */
 7L << 23 = 58720256L /* left shift large integer */

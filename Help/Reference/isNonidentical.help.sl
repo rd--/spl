@@ -28,20 +28,20 @@ true
 false
 ```
 
-Numbers in different representations are not identical but are equal:
+Numbers in different representations are not identical but may be equal or similar to each other:
 
 ```
 >>> 1D !== 1
 true
 
->>> 1D != 1
-false
+>>> 1D ~ 1
+true
 
 >>> 1L !== 1
 true
 
->>> 1L != 1
-false
+>>> 1L = 1
+true
 ```
 
 * * *

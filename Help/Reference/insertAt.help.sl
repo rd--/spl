@@ -4,7 +4,31 @@
 
 Inserts the object _x_ at integer index (position) _n_ in the sequential collection _c_ in-place,
 so that afterwards it is accessible at the specified index.
-Answer _x_.
+It is possible to insert at the start of _c_,
+at index `one`,
+and at the end,
+at index _#c+1_.
+Answers _x_.
+
+Insert at start:
+
+```
+>>> let a = [2 3 4];
+>>> let b = a.insertAt!(1, 1);
+>>> (a, b)
+([1, 2, 3, 4], 1)
+```
+
+Insert at end:
+
+```
+>>> let a = [1 2 3];
+>>> let b = a.insertAt!(4, 4);
+>>> (a, b)
+([1, 2, 3, 4], 4)
+```
+
+Insert three to be at position two:
 
 ```
 >>> let x = 3;

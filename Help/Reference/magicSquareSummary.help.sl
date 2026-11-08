@@ -181,7 +181,7 @@ A 4×4 permutation-free magic square,
 OEIS [A125519](https://oeis.org/A125519):
 
 ```
->>> [
+>>> LargeInteger[
 >>> 	831 326 267 574;
 >>> 	584 257 316 841;
 >>> 	158 683 742 415;

@@ -142,7 +142,7 @@ let b = z(o + g) + 1 / 2 ^ (z(g / i) + 1 * 8 + 0.1) * 8000 + 40;
 let c = moogFf(a, b, 2, 0);
 splay(c, z(1))
 
-/* SCSCC-12 "Emergency Sauce" 223 bytes ; https://github.com/lukiss/SCSCC/ */
+/* SCSCC-12 "Emergency Sauce" 223 bytes ; https://github.com/lukiss/SCSCC/ ; wait... */
 let z = { :x | lfSaw(x, 0) };
 let m = { 1 << (lfNoise2(2) + 1 * 2.2) };
 let x = 36;

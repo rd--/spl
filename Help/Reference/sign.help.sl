@@ -77,7 +77,7 @@ At `Fraction`:
 ```
 >>> let z = -3/4.sign;
 >>> (z, z.isFraction)
-(-1, false)
+(-1/1, true)
 ```
 
 At `LargeInteger`:
@@ -85,7 +85,7 @@ At `LargeInteger`:
 ```
 >>> let z = -23L.sign;
 >>> (z, z.isLargeInteger)
-(-1, false)
+(-1L, true)
 ```
 
 At `Complex` numbers,

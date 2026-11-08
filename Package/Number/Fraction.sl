@@ -760,6 +760,13 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
+	[integerToFraction, toFraction] { :self |
+		uncheckedFraction(
+			LargeInteger(self),
+			1L
+		)
+	}
+
 	numeratorDenominator { :self |
 		[
 			LargeInteger(self),

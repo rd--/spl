@@ -23,17 +23,14 @@ Fractions are ordinarily normalized by construction.
 ([1 2], [1 2])
 ```
 
-A `Fraction` is never an integer,
-and integer does not implemet `normalFraction`:
+A `Fraction` may be an integer:
 
 ```
->>> {
->>> 	3/1.normalFraction
->>> }.hasError
-true
+>>> 3/1.normalFraction
+3/1
 
 >>> 3/1.isFraction
-false
+true
 ```
 
 * * *

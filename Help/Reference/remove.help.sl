@@ -15,6 +15,15 @@ At `List`:
 ([1 2 4 5], 3)
 ```
 
+At `SortedList`:
+
+```
+>>> let c = SortedList[1 2 3];
+>>> let x = c.remove!(3);
+>>> (c, x)
+(SortedList[1 2], 3)
+```
+
 Removes only one matching element:
 
 ```

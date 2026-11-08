@@ -102,7 +102,7 @@ At `SmallFloat` and `Decimal`:
 >>> 1.5D = 1.5
 true
 
->>> 1.5 = 1.5D
+>>> { 1.5 = 1.5D }.hasError
 true
 
 >>> 1.5D ~ 1.5

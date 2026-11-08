@@ -75,13 +75,10 @@ Literal syntaxes:
 ```
 
 There is no distinct small integer type,
-however literals written with a trailing `zero` are treated specially:
+and literals written with a trailing `zero` are not treated specially:
 
 ```
->>> 23 != 23.0
-true
-
->>> 23.isVeryClose(23.0)
+>>> 23 == 23.0
 true
 ```
 

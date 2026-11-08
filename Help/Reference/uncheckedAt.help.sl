@@ -39,7 +39,7 @@ nil
 ```
 
 At `List`,
-non-integer indices answer `nil`:
+non-integer numeric indices answer `nil`:
 
 ```
 >>> [1 .. 9].uncheckedAt(1.pi)
@@ -47,11 +47,13 @@ nil
 ```
 
 At `List`,
-string indices answer `nil`:
+non-numeric indices signal errors:
 
 ```
->>> [1 .. 9].uncheckedAt('x')
-nil
+>>> {
+>>> 	[1 .. 9].uncheckedAt('x')
+>>> }.hasError
+true
 ```
 
 * * *

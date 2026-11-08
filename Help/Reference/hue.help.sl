@@ -62,12 +62,12 @@ system.svgColourDictionary
 
 ![](Help/Image/hue-A.svg)
 
-Select entries from the Svg colour catalogue that are within 30° of blue (240°):
+Select entries from the Svg colour catalogue that are within 27° of blue (240°):
 
 ```
 >>> system.svgColourDictionary
 >>> .select { :c |
->>> 	(c.hue - 2/3).abs < 1/12
+>>> 	(c.hue - 240/360).abs < 27/360
 >>> }.keys
 [
 	'blue'

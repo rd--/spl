@@ -127,6 +127,15 @@ It is an error if the index is a collection:
 true
 ```
 
+It is an error if the index is of an invalid type:
+
+```
+>>> {
+>>> 	[1 2 3].at('1')
+>>> }.hasError
+true
+```
+
 * * *
 
 See also: Indexable, atAll, atFold, atIfAbsent, atIfPresent, atIfPresentIfAbsent, atMod, atPath, atPin, atSymmetrical, atWrap, put, size

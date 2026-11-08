@@ -3,6 +3,7 @@
 - _bitShiftLeft(n, k)_
 
 Shift the binary bits in the integer _n_ to the left by _k_ places.
+The operator form is `<<`.
 
 Left shift, towards most significant:
 
@@ -65,6 +66,9 @@ At `SmallFloat` the integers are taken to be 32-bit signed integers:
 
 >>> [1 2 4 16] * (2 ^ 2)
 [4 8 16 64]
+
+>>> 1.bitShiftLeft(0:9)
+[1 2 4 8 16 32 64 128 256 512]
 ```
 
 The operator form is `<<`,
@@ -84,11 +88,11 @@ where supported `<<` is displayed as ≪:
 At `LargeInteger`:
 
 ```
->>> 1L << 31
-2147483648L
+>>> (1L << 31, 1 << 31)
+(-2147483648, 2147483648L)
 
->>> 1 << 31
--2147483648
+>>> 1L.bitShiftLeft(0:9)
+[1 2 4 8 16 32 64 128 256 512]
 ```
 
 Sierpiński’s triangle,

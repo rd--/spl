@@ -93,31 +93,39 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 		}
 	}
 
-	[bitShiftLeft, <<] { :self :operand |
+	uncheckedBitShiftLeft { :self :operand |
 		<primitive:
 		const aFloat = sl.toFloat(_operand);
 		if(sl.isBitwise(_self) && sl.isBitwise(aFloat)) {
 			return _self << aFloat;
 		}
 		>
-		self.isBinary.if {
-			operand.adaptToNumberAndApply(self, bitShiftLeft/2)
+		self.error('uncheckedBitShiftLeft', [operand])
+	}
+
+	[bitShiftLeft, <<] { :self :operand |
+		operand.isInteger.if {
+			uncheckedBitShiftLeft(self, operand)
 		} {
-			self.error('SmallFloat>>bitShiftLeft')
+			operand.adaptToNumberAndApply(self, bitShiftLeft/2)
 		}
 	}
 
-	[bitShiftRight, >>] { :self :operand |
+	uncheckedBitShiftRight { :self :operand |
 		<primitive:
 		const aFloat = sl.toFloat(_operand);
 		if(sl.isBitwise(_self) && sl.isBitwise(aFloat)) {
 			return _self >> aFloat;
 		}
 		>
-		self.isBinary.if {
-			operand.adaptToNumberAndApply(self, bitShiftRight/2)
+		self.error('uncheckedBitShiftRight')
+	}
+
+	[bitShiftRight, >>] { :self :operand |
+		operand.isInteger.if {
+			uncheckedBitShiftRight(self, operand)
 		} {
-			self.error('SmallFloat>>bitShiftRight')
+			operand.adaptToNumberAndApply(self, bitShiftRight/2)
 		}
 	}
 
@@ -581,14 +589,14 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 			return Math.max(_self, _operand);
 		}
 		>
-		operand.isNumber.if {
+		operand.isCollection.if {
+			operand.adaptToNumberAndApply(self, max/2)
+		} {
 			(self > operand).if {
 				self
 			} {
 				operand
 			}
-		} {
-			operand.adaptToNumberAndApply(self, max/2)
 		}
 	}
 
@@ -598,14 +606,14 @@ SmallFloat! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binar
 			return Math.min(_self, _operand);
 		}
 		>
-		operand.isNumber.if {
+		operand.isCollection.if {
+			operand.adaptToNumberAndApply(self, min/2)
+		} {
 			(self <= operand).if {
 				self
 			} {
 				operand
 			}
-		} {
-			operand.adaptToNumberAndApply(self, min/2)
 		}
 	}
 

@@ -115,22 +115,20 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	isCloseBy { :self :aNumber :epsilon |
-		SmallFloat(self).isCloseBy(aNumber.SmallFloat, epsilon)
+		SmallFloat(self).isCloseBy(
+			SmallFloat(aNumber),
+			epsilon
+		)
 	}
 
-	[isEqual, =] { :self :operand |
-		operand.isDecimal.if {
-			isEqualOn(
-				self,
-				operand,
-				scale/1
-			) & {
-				let m = 10L ^ self.scale;
-				isEqualOn(
-					self,
-					operand,
-					{ :x | (SmallFloat(x) * m).round }
-				)
+	isEqualBy { :self :anObject :aBlock/2 |
+		anObject.isNumber.if {
+			anObject.isDecimal.if {
+				self.scale = anObject.scale & {
+					self.decimalFraction = anObject.decimalFraction
+				}
+			} {
+				anObject.adaptToDecimalAndApply(self, aBlock/2)
 			}
 		} {
 			false

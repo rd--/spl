@@ -53,11 +53,11 @@ true
 
 Note that numbers written using floating point literal notation,
 where the fractional part is zero,
-answer `false`:
+answer `true`:
 
 ```
 >>> 23.0.isInteger
-false
+true
 ```
 
 At `LargeInteger`:

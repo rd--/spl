@@ -74,7 +74,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 			return _self << BigInt(_anObject);
 		}
 		>
-		self.error('bitShiftLeft: operand not a LargeInteger or SmallInteger')
+		anObject.adaptToIntegerAndApply(self, bitShiftLeft/2)
 	}
 
 	[bitShiftRight, >>] { :self :anObject |
@@ -83,7 +83,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 			return _self >> BigInt(_anObject);
 		}
 		>
-		self.error('bitShiftRight: operand not a LargeInteger or SmallInteger')
+		anObject.adaptToIntegerAndApply(self, bitShiftRight/2)
 	}
 
 	bitXor { :self :anObject |
