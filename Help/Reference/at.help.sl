@@ -8,11 +8,17 @@ If the collection does not support indexing,
 or if the index is not valid,
 report an _error_.
 
-All sequenceable collections, including `List`, are indexable:
+All sequenceable collections,
+including `List`,
+are indexable,
+the indices being the ordinal numbers from `one` up to the size of the collection:
 
 ```
 >>> ['x' 'y'].at(1)
 'x'
+
+>>> ['x' 'y'].at(2L)
+'y'
 ```
 
 Invalid indices signal an `error`:
