@@ -2,18 +2,6 @@
 
 +[Fraction, SmallFloat] {
 
-	isEven { :self |
-		self.isInteger & {
-			(self % 2) = 0
-		}
-	}
-
-	isOdd { :self |
-		self.isInteger & {
-			(self % 2).abs = 1
-		}
-	}
-
 	minkowskiQuestionMarkInverse { :x |
 		let y = (x / 1).floor;
 		let bits = x % 1;

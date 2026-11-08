@@ -66,7 +66,7 @@ and the denominator on the _y_-axis:
 
 ~~~spl svg=B
 200.calkinWilfSequence
-.collect(components/1)
+.collect(numeratorDenominator/1)
 .scatterPlot
 ~~~
 

@@ -120,6 +120,12 @@ false
 
 >>> 1234567890L.isEven
 true
+
+>>> 345321100728254656L.isEven
+true
+
+>>> 345321100728254656.0.isEven
+true
 ```
 
 Either _n_ or _2n_,

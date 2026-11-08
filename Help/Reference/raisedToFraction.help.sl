@@ -41,6 +41,16 @@ The answer may not be a `Fraction`:
 2.sqrt / 2
 ```
 
+At `LargeInteger`:
+
+```
+>>> 27L ^ 1/3
+3/1
+
+>>> 81L ^ 1/2
+9/1
+```
+
 * * *
 
 See also: ^, raisedToInteger

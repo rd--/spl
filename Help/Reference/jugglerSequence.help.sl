@@ -5,11 +5,41 @@
 Answer the juggler sequence beggining with the integer _a₁_,
 and continuing until the sequence reaches `one`.
 
+A juggler sequence:
+
+```
+>>> 115.jugglerSequence
+[
+	115
+	1233
+	43295
+	9008585
+	27038641711
+	4446080344234036
+	66678934
+	8165
+	737792
+	858
+	29
+	156
+	12
+	3
+	5
+	11
+	36
+	6
+	2
+	1
+]
+```
+
 The first few juggler sequences,
 OEIS [A389383](https://oeis.org/A389383):
 
 ```
->>> 1:10.collect(jugglerSequence/1)
+>>> 1:10.collect(
+>>> 	jugglerSequence/1
+>>> )
 [
 	1;
 	2 1;
@@ -22,6 +52,14 @@ OEIS [A389383](https://oeis.org/A389383):
 	9 27 140 11 36 6 2 1;
 	10 3 5 11 36 6 2 1
 ]
+```
+
+Very large numbers are required,
+large floating point numbers cannot be reliably tested for evenness:
+
+```
+>>> { 113.jugglerSequence }.hasError
+true
 ```
 
 The size of the first few juggler sequences,
@@ -62,6 +100,12 @@ OEIS [A094716](https://oeis.org/A094716):
 	172 36 2598 36 2978
 	36 24906114455136 38 233046 40
 ]
+
+>>> 37.jugglerSequence.max
+24906114455136
+
+>>> 115.jugglerSequence.max
+4446080344234036
 ```
 
 The juggler sequence function,
@@ -93,7 +137,7 @@ The size of the first few juggler sequences,
 OEIS [A007320](https://oeis.org/A007320):
 
 ~~~spl svg=A oeis=A007320
-1:150.collect { :a |
+1L:112.collect { :a |
 	a.jugglerSequence.size - 1
 }.scatterPlot
 ~~~
@@ -105,7 +149,7 @@ log scale plot,
 OEIS [A094716](https://oeis.org/A094716):
 
 ~~~spl svg=B oeis=A094716
-1:250.collect { :a |
+1:112.collect { :a |
 	a.jugglerSequence.max
 }.scatterPlot.log
 ~~~

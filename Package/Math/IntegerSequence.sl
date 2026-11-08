@@ -208,11 +208,11 @@
 
 	calkinWilfSequence { :self |
 		let answer = List(self, nil);
-		answer[1] := 1L;
+		answer[1] := 1/1;
 		2.toDo(self) { :i |
 			let p = answer[i - 1];
 			let t = p.floor * 2 - p + 1;
-			answer[i] := 1L / t
+			answer[i] := 1 / t
 		};
 		answer
 	}
@@ -734,17 +734,29 @@
 	}
 
 	jugglerMap { :n |
-		let e = n.isEven.if { 0.5 } { 1.5 };
-		(n ^ e).floor
+		n.isSmallInteger.if {
+			n.isEven.if {
+				n.sqrt
+			} {
+				let m = n.cube;
+				m.sqrt
+			}.floor
+		} {
+			n.error('jugglerMap: not small integer')
+		}
 	}
 
-	jugglerSequence { :n |
-		(n < 1).if {
+	jugglerSequence { :self |
+		(self < 1).if {
 			[]
 		} {
+			let n = self;
 			let a = [n];
 			{ n != 1 }.whileTrue {
 				n := n.jugglerMap;
+				n.isFinite.ifFalse {
+					self.error('jugglerSequence: not finite', [n])
+				};
 				a.add!(n)
 			};
 			a
