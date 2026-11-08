@@ -221,6 +221,23 @@ OEIS [A000557](https://oeis.org/A000557):
 [1 2 8 50 416 4322 53888 783890 13031936]
 ```
 
+Triangle of number of labeled rooted trees with _n_ nodes and _k_ leaves,
+OEIS [A055302](https://oeis.org/A055302):
+
+```
+>>> 1:6.triangularArray { :n :k |
+>>> 	n.! / k.! * stirlingS2(n - 1, n - k)
+>>> }
+[
+	1;
+	2 0;
+	6 3 0;
+	24 36 4 0;
+	120 360 140 5 0;
+	720 3600 3000 450 6 0
+]
+```
+
 Plot sums of digits:
 
 ~~~spl svg=A

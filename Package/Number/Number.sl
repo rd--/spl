@@ -1,3 +1,7 @@
+@Integer {
+
+}
+
 @Number {
 
 	E { :self :aNumber |

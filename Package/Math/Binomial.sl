@@ -235,8 +235,8 @@
 			0
 		} {
 			let f/1 = { :m |
-				let n = m / 2;
-				(n = 0).if {
+				let n = m // 2;
+				n.isZero.if {
 					1
 				} {
 					1.toCollect(n) { :k |

@@ -168,7 +168,8 @@ OEIS [A155085](https://oeis.org/A155085):
 [2 5 7 11 11 18 15 23 22 28 23 40 27]
 ```
 
-Recognize perfect numbers, numbers _n_ such that the sum of their divisors is equal to _2n_:
+Recognize perfect numbers,
+numbers _n_ such that the sum of their divisors is equal to _2n_:
 
 ```
 >>> 1:30.select { :n |
@@ -453,6 +454,15 @@ OEIS [A067291](https://oeis.org/A067291):
 >>> }
 [1 5 7 11 13 17 19 23 25 29 31 33 34 35]
 ```
+
+Numbers _k_ such that _σ(k)+2_ is prime,
+OEIS [A249763](https://oeis.org/A249763):
+
+```
+>>> 1:300.select { :n |
+>>> 	isPrime(divisorSigma(1, n) + 2)
+>>> }
+[1, 2, 8, 18, 49, 72, 98, 128, 196, 200, 242, 288]
 
 Divisor function _σ₀(n)_ up to _n=100_,
 OEIS [A000005](https://oeis.org/A000005):

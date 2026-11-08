@@ -8,12 +8,11 @@
 	'Copy'
 	'Equal'
 	'Json'
-	'Number'
+	'Number' /* & Integer */
 	'ImplicitFloat'
 	'RandomNumberGenerator'
 	'Store'
 	'Binary' /* > Cache */
-	'Integer' /* > Cache */
 
 	/* Collection Traits */
 	'Add'

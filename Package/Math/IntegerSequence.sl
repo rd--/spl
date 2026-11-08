@@ -260,7 +260,7 @@
 		let a = [z];
 		let e = nil;
 		{ :break/0 |
-			let x = z * p + 1L;
+			let x = z * p + 1;
 			let y = x.divideOutAll(q);
 			y.do { :i |
 				a.includes(i).if {

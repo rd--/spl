@@ -57,6 +57,16 @@ The binary form threads over lists:
 [0:3 2:5 0:7]
 ```
 
+With `Fraction` _j_ and _k_:
+
+```
+>>> 1.to(19/2).sum
+45
+
+>>> 1.to(19/2, 1/2).sum
+189/2
+```
+
 _Rationale_:
 The behaviour when _j<i_ is inherited from Smalltalk,
 and mirrors the behaviour at Haskell.

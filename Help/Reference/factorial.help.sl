@@ -411,6 +411,27 @@ OEIS [A007680](https://oeis.org/A007680):
 [1 3 10 42 216 1320 9360 75600 685440 6894720]
 ```
 
+A generalized Riordan array,
+OEIS [A247500](https://oeis.org/A247500):
+
+```
+>>> 0:6.triangularArray { :n :k |
+>>> 	n.!
+>>> 	/ k.!
+>>> 	* binomial(n + 2, k + 1)
+>>> 	/ (n + 2)
+>>> }
+[
+	1;
+	1 1;
+	2 3 1;
+	6 12 6 1;
+	24 60 40 10 1;
+	120 360 300 100 15 1;
+	720 2520 2520 1050 210 21 1
+]
+```
+
 The [Kempner_function](https://en.wikipedia.org/wiki/Kempner_function),
 also sometimes called the Smarandache function or Kempner numbers,
 the smallest positive integer _m_ such that _n_ divides _m!_,

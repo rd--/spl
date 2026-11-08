@@ -1047,6 +1047,29 @@ OEIS [A109466](https://oeis.org/A109466):
 ]
 ```
 
+Triangle of Narayana,
+OEIS [A090181](https://oeis.org/A090181):
+
+```
+>>> 0:9.triangularArray { :n :k |
+>>> 	binomial(n, n - k)
+>>> 	* binomial(n - 1, n - k)
+>>> 	/ (n - k + 1)
+>>> }
+[
+	1;
+	0 1;
+	0 1 1;
+	0 1 3 1;
+	0 1 6 6 1;
+	0 1 10 20 10 1;
+	0 1 15 50 50 15 1;
+	0 1 21 105 175 105 21 1;
+	0 1 28 196 490 490 196 28 1;
+	0 1 36 336 1176 1764 1176 336 36 1
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A

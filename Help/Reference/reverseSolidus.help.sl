@@ -17,7 +17,7 @@ At `SmallFloat`:
 
 At `LargeInteger`,
 `/` answers a `Fraction`,
-unless the `denominator` is `one`:
+even if the `denominator` is `one`:
 
 ```
 >>> let a = 3L;
@@ -31,7 +31,7 @@ unless the `denominator` is `one`:
 >>> let c = a \ b;
 >>> let d = a / b;
 >>> (c, c.isFraction, d, d.isFraction)
-(3/1, true, 3L, false)
+(3/1, true, 3/1, true)
 ```
 
 The name of this operator is `reverseSolidus`.

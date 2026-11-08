@@ -1125,6 +1125,15 @@ OEIS [A003953](https://oeis.org/A003953):
 [11 110 1100 11000 110000 1100000]
 ```
 
+Number of labeled rooted trees with _n_ nodes,
+OEIS [A000169](https://oeis.org/A000169):
+
+```
+>>> let n = 1:9;
+>>> n ^ (n - 1)
+[1 2 9 64 625 7776 117649 2097152 43046721]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

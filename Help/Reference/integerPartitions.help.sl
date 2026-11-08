@@ -655,6 +655,33 @@ OEIS [A359901](https://oeis.org/A359901):
 
 ![](Help/Image/integerPartitions-I.svg)
 
+Lagrange inversion of a function,
+in terms of the coefficients of the Taylor series expansion of its reciprocal,
+OEIS [A248120](https://oeis.org/A248120):
+
+~~~spl svg=J oeis=A248120
+1:12.collect { :k |
+	let p = (k - 1).integerPartitions;
+	p.reverse.collect { :v |
+		let n = v.sum;
+		let s = v.deleteDuplicates(=);
+		(n + 1)
+		* (n.! ^ 2)
+		// (
+			(n - v.size + 1 ).!
+			* s.product { :x |
+				let c = v.select { :y |
+					y = x
+				}.size;
+				x.! ^ c * c.!
+			}
+		)
+	}
+}.catenate.scatterPlot.log
+~~~
+
+![](Help/Image/integerPartitions-J.svg)
+
 * * *
 
 See also: integerPartitionsOdd, integerPartitionsStrict, integerPartitionsTable, partitionFunctionP, partitionFunctionQ, qBinomial, setPartitions

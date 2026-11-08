@@ -1,6 +1,6 @@
 /* Requires: List String */
 
-@Integer {
++@Integer {
 
 	additivePersistence { :x :b |
 		x.digitalRootSet(b, sum/1).second.size - 1
@@ -342,7 +342,7 @@
 			} {
 				break()
 			};
-			n := n / m;
+			n := n // m;
 			a.add!(n)
 		}.repeatForeverWithBreak;
 		a

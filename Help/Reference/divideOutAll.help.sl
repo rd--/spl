@@ -5,10 +5,10 @@
 Answer the list, starting with _n_, and dividing out each of _d_ in turn.
 
 ```
->>> 12210.divideOutAll(23.primesUpTo)
+>>> 12210L.divideOutAll(23.primesUpTo)
 [12210 6105 2035 407 37]
 
->>> 12210.primeFactors
+>>> 12210L.primeFactors
 [2 3 5 11 37]
 
 >>> 12210 / 2
@@ -27,3 +27,5 @@ Answer the list, starting with _n_, and dividing out each of _d_ in turn.
 * * *
 
 See also: divide
+
+Guides: Integer Functions

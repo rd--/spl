@@ -192,6 +192,7 @@
 	'GrayCode'
 	'GroupTheory'
 	'HyperbolicFunctions'
+	'IntegerFunctions'
 	'IntegerPartition'
 	'IntegerSequence'
 	'Integrals'

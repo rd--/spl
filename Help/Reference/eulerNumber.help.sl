@@ -18,7 +18,11 @@ Calculate Euler numbers:
 
 >>> 20.eulerNumber
 370371188237525
+```
 
+At `LargeInteger`:
+
+```
 >>> 22L.eulerNumber
 -69348874393137901L
 ```

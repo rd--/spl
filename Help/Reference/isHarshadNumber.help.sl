@@ -34,7 +34,7 @@ Harshad chain of twelve places:
 true
 
 >>> { :n |
->>> 	n / n.integerDigits.sum
+>>> 	n // n.integerDigits.sum
 >>> }.nestList(
 >>> 	2016502858579884466176L,
 >>> 	11
