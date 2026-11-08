@@ -104,7 +104,7 @@ in siteswaps the number of 1-bits is a constant:
 ```
 >>> [5 2 5 1 2 6 3 3 0 4]
 >>> .foldList(2b111) { :n :k |
->>> 	n.bitXor(1 << k) - 1 / 2
+>>> 	n.bitXor(1 << k) - 1 // 2
 >>> }
 [
 	2b000111 2b010011 2b001011
@@ -276,11 +276,11 @@ let a = Map { :n |
 	[
 		{ n <= 1 } -> { n },
 		{ n.isEven } -> {
-			let m = a[n / 2];
+			let m = a[n // 2];
 			bitXor(2 * m, m)
 		},
 		{ n.isOdd } -> {
-			let m = a[(n - 1) / 2];
+			let m = a[(n - 1) // 2];
 			bitXor(m, 2 * m + 1)
 		}
 	].which
@@ -418,7 +418,7 @@ OEIS [A142149](https://oeis.org/A142149):
 	n.isOdd.if {
 		n
 	} {
-		n.bitXor(n / 2)
+		n.bitXor(n // 2)
 	}
 }.discretePlot
 ~~~

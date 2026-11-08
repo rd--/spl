@@ -334,12 +334,12 @@ let s = [1];
 let t = 1:15.collect { :unused |
 	let u = s.select { :x |
 		x % 3 = 1 & {
-			let y = (x - 1) / 3;
+			let y = (x - 1) // 3;
 			y.isOdd & {
 				y > 1
 			}
 		}
-	} - 1 / 3;
+	} - 1 // 3;
 	s := ((2 * s) ++ u).nub.sort!;
 	s
 };
@@ -362,8 +362,8 @@ The sequence starting at _1/3_:
 The first few sequences:
 
 ```
->>> let n = 3:13:2;
->>> (1L / n)
+>>> let n = 3L:13:2;
+>>> (1 / n)
 >>> .collect(collatzSequence/1) * n
 [
 	1 6 3 12 6;
@@ -390,8 +390,8 @@ Sequence lengths for Collatz problem with rational numbers,
 OEIS [A210468](https://oeis.org/A210468):
 
 ~~~spl svg=F oeis=A210468
-1:66.collect { :n |
-	let x = 1L / (2 * n + 1);
+1L:66.collect { :n |
+	let x = 1 / (2 * n + 1);
 	let y = x.collatzSequence;
 	let k = y.size;
 	let e = y.last;

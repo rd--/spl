@@ -986,7 +986,7 @@ Graph : [Object, Graph] {
 		} {
 			(k.isOdd & { n.isEven }).if {
 				let e = hararyGraphEdgeList(k - 1, n);
-				let m = n / 2;
+				let m = n // 2;
 				1.toDo(m) { :i |
 					e.add!([i, i + m])
 				};

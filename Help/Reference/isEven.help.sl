@@ -186,7 +186,7 @@ let a = Map { :n |
 		1
 	} {
 		n.isEven.if {
-			a[n / 2]
+			a[n // 2]
 		} {
 			a[n - 1] + a[n - 2]
 		}
@@ -206,9 +206,9 @@ let a = Map { :n |
 		0
 	} {
 		n.isEven.if {
-			2 * a[n / 2]
+			2 * a[n // 2]
 		} {
-			-2 * a[(n - 1) / 2] - 1
+			-2 * a[(n - 1) // 2] - 1
 		}
 	}
 };
@@ -244,9 +244,15 @@ OEIS [A007063](https://oeis.org/A007063):
 let k = { :i :j |
 	(j < (2 * i - 3)).if {
 		j.isEven.if {
-			k(i - 1, i - (j / 2) - 1)
+			k(
+				i - 1,
+				i - (j // 2) - 1
+			)
 		} {
-			k(i - 1, i + ((j - 1) / 2))
+			k(
+				i - 1,
+				i + ((j - 1) // 2)
+			)
 		}
 	} {
 		i + j - 1
@@ -265,9 +271,9 @@ OEIS [A069981](https://oeis.org/A069981):
 ~~~spl svg=E oeis=A069981
 1:35.collect { :n |
 	n.isEven.if {
-		((n + 8) * (n - 2)) / 8
+		((n + 8) * (n - 2)) // 8
 	} {
-		(n ^ 2 - 1) / 8
+		(n ^ 2 - 1) // 8
 	}
 }.stepPlot
 ~~~
@@ -299,9 +305,9 @@ let a = Map { :n |
 		n + 1
 	} {
 		n.isEven.if {
-			2 * a[n / 2]
+			2 * a[n // 2]
 		} {
-			f(a[n - 1 / 2])
+			f(a[n - 1 // 2])
 		}
 	}
 };
@@ -322,7 +328,7 @@ let a = Map { :n |
 			0
 		} {
 			let m = n + 1;
-			(m / 2).prime - a[n - 2]
+			(m // 2).prime - a[n - 2]
 		}
 	}
 };
@@ -344,7 +350,7 @@ let b = Map { :n |
 			0
 		} {
 			let m = n + 1;
-			(m / 2).prime - b[n - 2]
+			(m // 2).prime - b[n - 2]
 		}
 	}
 };
@@ -358,7 +364,7 @@ let a = Map { :n |
 			}
 		} {
 			let m = n - 1;
-			2 * (m / 2 + 1).prime
+			2 * (m // 2 + 1).prime
 		}
 	}
 };
@@ -375,7 +381,7 @@ OEIS [A186421](https://oeis.org/A186421):
 	n.isEven.if {
 		n
 	} {
-		2 * (n / 4).floor + 1
+		2 * (n // 4).floor + 1
 	}
 }.discretePlot
 ~~~
@@ -390,7 +396,7 @@ OEIS [A186422](https://oeis.org/A186422):
 	n.isEven.if {
 		n
 	} {
-		2 * (n / 4).floor + 1
+		2 * (n // 4).floor + 1
 	}
 }.differences.discretePlot
 ~~~

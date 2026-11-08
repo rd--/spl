@@ -328,7 +328,7 @@ OEIS [A237048](https://oeis.org/A237048):
 		k.isOdd.if {
 			n.divisible(k)
 		} {
-			(n - (k / 2)).divisible(k)
+			(n - (k // 2)).divisible(k)
 		}.boole
 	}
 }.catenate.discretePlot

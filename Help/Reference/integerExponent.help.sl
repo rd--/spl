@@ -239,7 +239,7 @@ OEIS [A000378](https://oeis.org/A000378):
 >>> 0:23.select { :n |
 >>> 	let k = n.integerExponent(2);
 >>> 	k.isOdd | {
->>> 		n / (2 ^ k) % 8 != 7
+>>> 		n // (2 ^ k) % 8 != 7
 >>> 	}
 >>> }
 [
@@ -255,7 +255,7 @@ OEIS [A004215](https://oeis.org/A004215):
 ```
 >>> 1:120.select { :n |
 >>> 	let m = n.integerExponent(4);
->>> 	n / (4 ^ m) % 8 = 7
+>>> 	n // (4 ^ m) % 8 = 7
 >>> }
 [
 	  7  15  23  28  31
@@ -598,7 +598,7 @@ let a = Map { :n |
 		} {
 			(2 + n.integerExponent(2))
 			*
-			a[n / 2]
+			a[n // 2]
 		}
 	}
 };

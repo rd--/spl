@@ -75,7 +75,7 @@ OEIS [A033479](https://oeis.org/A033479):
 >>> 	n.isOdd.if {
 >>> 		3 * n + 1
 >>> 	} {
->>> 		n / 2
+>>> 		n // 2
 >>> 	}
 >>> }.nestWhileList(9) { :n |
 >>> 	n > 1

@@ -184,7 +184,7 @@ OEIS [A073531](https://oeis.org/A073531):
 [0 1 2 3 4 5 6 7 8 9 10 12]
 
 >>> 1:10.collect { :n |
->>> 	9 * 9.! / (10 - n).!
+>>> 	9 * 9.! // (10 - n).!
 >>> }
 [
 	9 81 648 4536 27216 136080 544320
@@ -403,7 +403,7 @@ OEIS [A073504](https://oeis.org/A073504):
 
 ~~~spl svg=R oeis=A073504
 1:50.collect { :n |
-	2 * (n - n.digitCount(-2, 1)) / 3
+	2 * (n - n.digitCount(-2, 1)) // 3
 }.scatterPlot
 ~~~
 
