@@ -46,18 +46,19 @@ Divide is applied sequentially:
 
 At `LargeInteger`,
 or at `SmallFloat` with a `LargeInteger` operand,
-answers either a `LargeInteger` or a `Fraction`:
+answers a `Fraction`,
+even if answer is an integer:
 
 ```
 >>> let r = 12L / 3L;
->>> (r, r.isLargeInteger)
-(4L, true)
+>>> (r, r.isFraction)
+(4/1, true)
 
 >>> 12L / 3
-4L
+4/1
 
 >>> 12 / 3L
-4L
+4/1
 
 >>> let r = 2L / 3L;
 >>> (r, r.isFraction)
@@ -70,7 +71,7 @@ answers either a `LargeInteger` or a `Fraction`:
 2/3
 
 >>> 17 ^ 17 / 17
-48661191875666868481L
+48661191875666868481/1
 
 >>> 1L / 1/1
 1/1

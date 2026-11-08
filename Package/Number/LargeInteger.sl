@@ -111,19 +111,10 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 	[divide, /] { :self :anObject |
 		anObject.isInteger.if {
-			let fraction = Fraction(
+			Fraction(
 				self,
 				LargeInteger(anObject)
-			);
-			(
-				anObject.isFraction.not & {
-					fraction.isInteger
-				}
-			).if {
-				fraction.numerator
-			} {
-				fraction
-			}
+			)
 		} {
 			anObject.adaptToIntegerAndApply(self, divide/2)
 		}
