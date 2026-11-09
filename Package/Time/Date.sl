@@ -17,7 +17,9 @@ Date! : [Object, Store, Equal, Compare] {
 	}
 
 	absoluteTime { :self |
-		<primitive: return _self.getTime() / 1000;>
+		<primitive:
+		return _self.getTime() / 1000;
+		>
 	}
 
 	components { :self |
@@ -37,11 +39,15 @@ Date! : [Object, Store, Equal, Compare] {
 	}
 
 	dayOfMonth { :self |
-		<primitive: return _self.getUTCDate();>
+		<primitive:
+		return _self.getUTCDate();
+		>
 	}
 
 	dayOfWeek { :self |
-		<primitive: return _self.getUTCDay() + 1;>
+		<primitive:
+		return _self.getUTCDay() + 1;
+		>
 	}
 
 	dayOfYear { :self |
@@ -76,7 +82,9 @@ Date! : [Object, Store, Equal, Compare] {
 	}
 
 	month { :self |
-		<primitive: return _self.getUTCMonth() + 1;>
+		<primitive:
+		return _self.getUTCMonth() + 1;
+		>
 	}
 
 	ordinalDateString { :self |
@@ -97,7 +105,9 @@ Date! : [Object, Store, Equal, Compare] {
 	}
 
 	year { :self |
-		<primitive: return _self.getUTCFullYear();>
+		<primitive:
+		return _self.getUTCFullYear();
+		>
 	}
 
 }
@@ -138,8 +148,8 @@ Date! : [Object, Store, Equal, Compare] {
 		const d = new Date(
 			Date.UTC(
 				_year,
-				_month - 1,
-				_dayOfMonth,
+				sl.toFloat(_month) - 1,
+				sl.toFloat(_dayOfMonth),
 				0,
 				0,
 				0,
@@ -186,7 +196,9 @@ Date! : [Object, Store, Equal, Compare] {
 	}
 
 	uncheckedParseDate { :self |
-		<primitive: return new Date(_self);>
+		<primitive:
+		return new Date(_self);
+		>
 	}
 
 }
@@ -194,12 +206,14 @@ Date! : [Object, Store, Equal, Compare] {
 +System {
 
 	currentDate { :unused |
-		<primitive: return new Date();>
+		<primitive:
+		return new Date();
+		>
 	}
 
 }
 
-+Float {
++[Float, Integer] {
 
 	gregorianToJulianDay { :year :month :day |
 		/* https://www.fourmilab.ch/documents/calendar/calendar.js */
@@ -243,7 +257,7 @@ Date! : [Object, Store, Equal, Compare] {
 	julianDayToGregorian { :self |
 		/* https://www.fourmilab.ch/documents/calendar/calendar.js */
 		<primitive:
-		let jd = _self;
+		let jd = sl.toFloat(_self);
 		function mod(a, b) { return a - (b * Math.floor(a / b)); }
 		let wjd = Math.floor(jd - 0.5) + 0.5;
 		let gregorianEpoch = 1721425.5;
@@ -274,7 +288,7 @@ Date! : [Object, Store, Equal, Compare] {
 	julianDayToJulian { :self |
 		/* https://www.fourmilab.ch/documents/calendar/calendar.js */
 		<primitive:
-		let td = _self + 0.5;
+		let td = sl.toFloat(_self) + 0.5;
 		let z = Math.floor(td);
 		let a = z;
 		let b = a + 1524;

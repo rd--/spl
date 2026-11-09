@@ -44,10 +44,6 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 	}
 
-	assertIsSmallInteger { :self |
-		self.assertIsSmallInteger('')
-	}
-
 	atRandom { :self |
 		system.nextRandomFloat(0, self)
 	}
@@ -543,7 +539,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		/* https://blog.codefrau.net/2014/08/deconstructing-floats-frexp-and-ldexp.html */
 		<primitive:
 		let mantissa = _self;
-		let exponent = _operand;
+		let exponent = sl.toFloat(_operand);
 		let steps = Math.min(3, Math.ceil(Math.abs(exponent) / 1023));
 		let result = mantissa;
 		for (let i = 0; i < steps; i++) {

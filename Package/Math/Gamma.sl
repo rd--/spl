@@ -443,7 +443,7 @@
 
 }
 
-+[Float, Fraction, Complex] {
++[Complex, Float, Fraction, Integer] {
 
 	pochhammer { :a :n |
 		(a.isInteger & { n.isInteger }).if {

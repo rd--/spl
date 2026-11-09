@@ -543,6 +543,10 @@
 	}
 
 	kuhnMunkresAlgorithm { :self |
+		Float(self).uncheckedKuhnMunkresAlgorithm
+	}
+
+	uncheckedKuhnMunkresAlgorithm { :self |
 		<primitive:
 		const C = _self;
 		const J = C.length;
@@ -1441,7 +1445,9 @@
 				[1 1; 1 -1]
 			} {
 				n.isPowerOfTwo.if {
-					[1 1; 1 -1].kroneckerProduct((n / 2).hadamardMatrix)
+					[1 1; 1 -1].kroneckerProduct(
+						(n // 2).hadamardMatrix
+					)
 				} {
 					n.error('@Integer>>hadamardMatrix: not power of two')
 				}

@@ -374,7 +374,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		} {
 			uncheckedDecimal(
 				self.deriveDecimalFraction(scale),
-				scale.assertIsSmallInteger('Decimal')
+				scale.assertIsInteger('Decimal')
 			)
 		}
 	}

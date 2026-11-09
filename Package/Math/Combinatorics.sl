@@ -112,13 +112,14 @@
 		let t1 = 0;
 		1.toDo(n) { :d |
 			((n % d) = 0).ifTrue {
-				t1 := t1 + (d.eulerPhi * (k ^ (n / d)))
+				t1 := t1 + (d.eulerPhi * (k ^ (n // d)))
 			}
 		};
 		n.isEven.if {
-			(t1 + ((n / 2) * (1 + k) * (k ^ (n / 2)))) / (2 * n)
+			let m = n // 2;
+			(t1 + (m * (1 + k) * (k ^ m))) // (2 * n)
 		} {
-			(t1 + (n * (k ^ ((n + 1) / 2)))) / (2 * n)
+			(t1 + (n * (k ^ ((n + 1) // 2)))) // (2 * n)
 		}
 	}
 
@@ -133,8 +134,8 @@
 	braceletsDo { :n :k :receive/1 |
 		/* https://www.jasondavies.com/necklaces/necklaces.js */
 		<primitive:
-		let n = _n;
-		let k = _k;
+		let n = sl.toFloat(_n);
+		let k = sl.toFloat(_k);
 		let a = [];
 		let i = -1;
 		function checkRev(t, i) {
@@ -396,11 +397,11 @@
 		k.isList.if {
 			let [m] = k;
 			n.divisors.sum { :d |
-				d.eulerPhi * stirlingS2(n / d, m) * m.factorial
-			} / n
+				d.eulerPhi * stirlingS2(n // d, m) * m.factorial
+			} // n
 		} {
 			n.divisors.sum { :d |
-				d.eulerPhi * (k ^ (n / d)) / n
+				d.eulerPhi * (k ^ (n // d)) // n
 			}
 		}
 	}

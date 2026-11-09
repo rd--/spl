@@ -576,7 +576,7 @@
 	vonNeumannNeighborhood { :dimensions :range |
 		let size = range * 2 + 1;
 		let iterations = size ^ dimensions;
-		let center = (iterations - 1) / 2;
+		let center = (iterations - 1) // 2;
 		let neighbors = [];
 		0.toDo(iterations - 1) { :i |
 			(i = center).ifFalse {
@@ -585,7 +585,7 @@
 				let remaining = i;
 				0.toDo(dimensions - 1) { :d |
 					let remainder = remaining % (size ^ (d + 1));
-					let value = remainder / (size ^ d) - range;
+					let value = remainder // (size ^ d) - range;
 					neighbor[d + 1] := value;
 					distance := distance + value.abs;
 					remaining :=  remaining - remainder

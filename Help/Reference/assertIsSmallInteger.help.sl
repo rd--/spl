@@ -5,7 +5,7 @@
 Require that the object _x_ be a small integer:
 
 ```
->>> 23.assertIsSmallInteger
+>>> 23.0.assertIsSmallInteger
 23
 ```
 

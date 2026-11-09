@@ -6,7 +6,7 @@ Convert the floating-point number _x_ to fractional and integral components.
 The inverse is `loadExponent`.
 
 ```
->>> 4.fractionExponent
+>>> 4.0.fractionExponent
 [0.5 3]
 
 >>> 0.5 * (2 ^ 3)
@@ -26,10 +26,10 @@ Threads over lists,
 zero, negative zero, infinity:
 
 ```
->>> [0 -0 Infinity].fractionExponent
+>>> [0.0 -0.0 Infinity].fractionExponent
 [0 0; -0 0; Infinity 1025]
 
->>> [0 0; -0 0; Infinity 1025]
+>>> [0.0 0; -0.0 0; Infinity 1025]
 >>> .loadExponent
 [0 -0 Infinity]
 ```
@@ -37,10 +37,10 @@ zero, negative zero, infinity:
 Compare to `mantissaExponent`:
 
 ```
->>> 1027.fractionExponent
+>>> 1027.0.fractionExponent
 [1027/2048 11]
 
->>> 1027.mantissaExponent(2)
+>>> 1027.0.mantissaExponent(2)
 [1027/2048 11]
 ```
 

@@ -89,7 +89,7 @@ ChordDiagram : [Object, Store] {
 				}
 			};
 			(2 * n).divisors.sum { :p |
-				let q = (2 * n) / p;
+				let q = (2 * n) // p;
 				alpha(p, q) * eulerPhi(q)
 			} / (2 * n)
 		}

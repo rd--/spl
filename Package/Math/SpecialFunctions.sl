@@ -92,8 +92,8 @@
 
 	fresnel { :x :k :n |
 		<primitive:
-		let x = _x;
-		let n = _n;
+		let x = sl.toFloat(_x);
+		let n = sl.toFloat(_n);
 		let f = (_k === 'C') ? Math.cos : Math.sin;
 		const pi = Math.PI;
 		const dx = x / n;

@@ -9,7 +9,7 @@ _zNear_ specifies the distance from the viewer to the near clipping plane (alway
 _zFar_ specifies the distance from the viewer to the far clipping plane (always positive).
 
 ```
->>> gluPerspective(30, 1, 1, 100)
+>>> gluPerspective(30.0, 1.0, 1.0, 100.0)
 [
 	3.732 0 0 0;
 	0 3.732 0 0;
@@ -21,7 +21,7 @@ _zFar_ specifies the distance from the viewer to the far clipping plane (always 
 Combination of `gluPerspective` and `gluLookAt`:
 
 ```
->>> let m1 = gluPerspective(30, 1, 1, 100);
+>>> let m1 = gluPerspective(30.0, 1.0, 1.0, 100.0);
 >>> let m2 = gluLookAt(
 >>> 	[0 0 10],
 >>> 	[0 0 0],
@@ -39,6 +39,8 @@ Combination of `gluPerspective` and `gluLookAt`:
 * * *
 
 See also: dot, gluLookAt
+
+Guides: Geometry Functions
 
 References:
 _Khronos_

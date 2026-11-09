@@ -241,6 +241,10 @@
 		Float(self).arcSech
 	}
 
+	arcSinh { :self |
+		Float(self).arcSinh
+	}
+
 	arcTanh { :self |
 		Float(self).arcTanh
 	}
@@ -251,6 +255,10 @@
 
 	coth { :self |
 		Float(self).coth
+	}
+
+	csch { :self |
+		Float(self).csch
 	}
 
 	sech { :self |

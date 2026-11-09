@@ -1025,7 +1025,8 @@
 			(p[x][y] >= 4).ifTrue {
 				p[x][y] := p[x][y] - 4;
 				shape.matrixNeighboursDo(
-					n, [x y]
+					n,
+					[x y]
 				) { :i :j |
 					p[i][j] := p[i][j] + 1;
 					(p[i][j] >= 4).ifTrue {

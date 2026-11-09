@@ -13,9 +13,9 @@ _Hsv_ is a cylindrical-coordinate representation of points in an _Rgb_ colour mo
 Threads over lists:
 
 ```
->>> [1.red 1.green 1.blue].hsv
+>>> [1.0.red 1.0.green 1.0.blue].hsv
 [
-	  0 1 1;
+	0/1 1 1;
 	1/3 1 1;
 	2/3 1 1
 ]

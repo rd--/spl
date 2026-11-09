@@ -72,8 +72,8 @@ OEIS [A000358](https://oeis.org/A000358):
 ```
 >>> 1:16.collect { :n |
 >>> 	n.divisorSum { :m |
->>> 		(n / m).eulerPhi * m.lucasL
->>> 	} / n
+>>> 		(n // m).eulerPhi * m.lucasL
+>>> 	} // n
 >>> }
 [1 2 2 3 3 5 5 8 10 15 19 31 41 64 94 143]
 ```

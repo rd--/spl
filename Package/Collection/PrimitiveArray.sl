@@ -131,7 +131,7 @@
 
 	uncheckedInsertAt! { :self :anObject :index |
 		<primitive:
-		_self.splice(sl.toFloat(_index - 1), 0, _anObject);
+		_self.splice(sl.toFloat(_index) - 1, 0, _anObject);
 		>
 		anObject
 	}

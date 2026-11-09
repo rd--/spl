@@ -7,9 +7,9 @@ Implement the continuous μ-law decoding algorithm.
 Specific values:
 
 ```
->>> [0 0.752101 0.875703 0.948355 1]
+>>> [0.0 0.752101 0.875703 0.948355 1.0]
 >>> .collect(muLawDecode/1)
-[0 0.25 0.5 0.75 1]
+[0.0 0.25 0.5 0.75 1.0]
 ```
 
 The continuous μ-law decoder:

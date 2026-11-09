@@ -299,11 +299,16 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	removeLast! { :self |
-		<primitive: return _self.pop();>
+		<primitive:
+		return _self.pop();
+		>
 	}
 
 	removeLast! { :self :count |
-		<primitive: return _self.splice(_self.length - _count, _count);>
+		<primitive:
+		const k = sl.toFloat(_count);
+		return _self.splice(_self.length - k, k);
+		>
 	}
 
 	scalingMatrix { :self |

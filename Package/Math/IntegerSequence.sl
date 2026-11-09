@@ -1,4 +1,4 @@
-+Float {
++@Integer {
 
 	decimalSelvageNumber { :k :d |
 		k.caseOf(
@@ -11,16 +11,6 @@
 				6 -> { [5 0 5] }
 			]
 		).decimalSelvageNumber(d)
-	}
-
-	kimberlingFractalSequence { :r :k |
-		1.toCollect(k) { :n |
-			let x = (Range(1, n) * r).fractionalPart;
-			let y = x.sort;
-			y.collect { :z |
-				x.indexOf(z)
-			}
-		}
 	}
 
 	mahonianNumber { :n :k |
@@ -61,6 +51,20 @@
 				x := (a * x / b).ceiling
 			};
 			x - 1
+		}
+	}
+
+}
+
++Float {
+
+	kimberlingFractalSequence { :r :k |
+		1.toCollect(k) { :n |
+			let x = (Range(1, n) * r).fractionalPart;
+			let y = x.sort;
+			y.collect { :z |
+				x.indexOf(z)
+			}
 		}
 	}
 
@@ -1537,12 +1541,12 @@
 			[0]
 		} {
 			n.isEven.if {
-				let a = 2 * (n / 2).faurePermutation;
+				let a = 2 * (n // 2).faurePermutation;
 				let b = a + 1;
 				a ++ b
 			} {
 				let a = (n - 1).faurePermutation;
-				let b = (n - 1) / 2;
+				let b = (n - 1) // 2;
 				let c = a.collect { :x |
 					(x >= b).if {
 						x + 1
@@ -1815,7 +1819,7 @@
 		let k = a.size;
 		1.toCollect(k) { :n |
 			n.divisorSum { :d |
-				(n / d).moebiusMu * a[d]
+				(n // d).moebiusMu * a[d]
 			}
 		}
 	}

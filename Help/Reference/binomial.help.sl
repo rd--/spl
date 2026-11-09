@@ -1177,7 +1177,7 @@ OEIS [A047996](https://oeis.org/A047996):
 		n.gcd(k).divisorSum { :d |
 			d.eulerPhi
 			*
-			binomial(n / d, k / d)
+			binomial(n // d, k // d)
 		} / n
 	}
 }.catenate.discretePlot.log

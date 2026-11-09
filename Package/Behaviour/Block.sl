@@ -189,7 +189,7 @@ Block! : [Object, Equal] {
 	dirichletConvolve { :f/1 :g/1 |
 		{ :n |
 			n.divisorSum { :d |
-				f(d) * g(n / d)
+				f(d) * g(n // d)
 			}
 		}
 	}
@@ -200,7 +200,7 @@ Block! : [Object, Equal] {
 				1 / f(1)
 			} {
 				-1 / f(1) * n.divisors.allButLast.sum { :d |
-					f(n / d) * i(d)
+					f(n // d) * i(d)
 				}
 			}
 		}.memoize;

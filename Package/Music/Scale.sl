@@ -217,7 +217,7 @@ Scale : [Object, Store] {
 
 }
 
-+Float {
++@Integer {
 
 	momentOfSymmetry { :generator :period :maxDepth |
 		let i = generator;

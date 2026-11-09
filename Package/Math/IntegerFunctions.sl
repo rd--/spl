@@ -18,7 +18,7 @@
 
 	amusicalPermutation { :n |
 		n.isEven.if {
-			3 * n / 2
+			3 * n // 2
 		} {
 			((3 * n + 2) / 4).floor
 		}
@@ -1126,7 +1126,7 @@
 			}
 		} {
 			n.divisorSum { :d |
-				(d ^ k) * (n / d).moebiusMu
+				(d ^ k) * (n // d).moebiusMu
 			}
 		}
 	}
@@ -1791,7 +1791,7 @@
 
 	unitaryDivisors { :n |
 		n.divisors.select { :d |
-			d.gcd(n / d) = 1
+			d.gcd(n // d) = 1
 		}
 	}
 

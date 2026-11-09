@@ -49,7 +49,7 @@
 
 }
 
-+Float {
++[Float, Integer] {
 
 	gradyTuningLatticeCoordinates { :m :n |
 		[

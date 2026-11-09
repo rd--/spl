@@ -48,7 +48,7 @@ let t = { :n :m |
 	} {
 		n.divisorSum { :x |
 			let y = x > 1 & { x <= m};
-			y.boole * t(n / x, x)
+			y.boole * t(n // x, x)
 		}
 	}
 };
@@ -66,7 +66,7 @@ OEIS [A007427](https://oeis.org/A007427):
 1:81.collect { :n |
 	n.divisorSum { :d |
 		let a = moebiusMu(d);
-		let b = moebiusMu(n / d);
+		let b = moebiusMu(n // d);
 		a * b
 	}
 }.discretePlot

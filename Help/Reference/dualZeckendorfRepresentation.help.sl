@@ -190,7 +190,7 @@ Dual Zeckendorf-Niven numbers,
 OEIS [A328212](https://oeis.org/A328212):
 
 ```
->>> 0:99.select { :n |
+>>> 1:99.select { :n |
 >>> 	let z = n.dualZeckendorfRepresentation;
 >>> 	let m = z.occurrencesOf(1);
 >>> 	n.divisible(m)

@@ -5,7 +5,7 @@
 Answer the _hue_ of the colour _c_.
 
 ```
->>> RgbColour[0.75 1 0.75].hue
+>>> RgbColour[0.75 1.0 0.75].hue
 1/3
 ```
 
@@ -22,7 +22,7 @@ Answer the _hue_ of the colour _c_.
 Threads over lists:
 
 ```
->>> [1.red 1.green 1.blue].hue
+>>> [1.0.red 1.0.green 1.0.blue].hue
 [0 1 2] / 3
 ```
 

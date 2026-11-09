@@ -5,12 +5,16 @@
 	}
 
 	ncsToRgb { :self |
+		self.assertIsOfSize(5).uncheckedNcsToRgb
+	}
+
+	uncheckedNcsToRgb { :self |
 		/* https://github.com/m90/ncs-color/ */
 		<primitive:
-		let Sn = _self[0];
-		let Cn = _self[1];
+		let Sn = sl.toFloat(_self[0]);
+		let Cn = sl.toFloat(_self[1]);
 		let C1 = _self[2];
-		let N = _self[3];
+		let N = sl.toFloat(_self[3]);
 		if (C1 !== 'N') {
 			const S = (1.05 * Sn - 5.25);
 			const C = Cn;

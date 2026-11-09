@@ -81,7 +81,7 @@ OEIS [A027375](https://oeis.org/A027375):
 ```
 >>> 0:11.collect { :n |
 >>> 	n.divisorSum { :d |
->>> 		(n / d).moebiusMu * (2 ^ d)
+>>> 		(n // d).moebiusMu * (2 ^ d)
 >>> 	}
 >>> }
 [0 2 2 6 12 30 54 126 240 504 990 2046]
@@ -139,7 +139,7 @@ OEIS [A007427](https://oeis.org/A007427):
 >>> 1:81.collect { :n |
 >>> 	n.divisorSum { :d |
 >>> 		let a = moebiusMu(d);
->>> 		let b = moebiusMu(n / d);
+>>> 		let b = moebiusMu(n // d);
 >>> 		a * b
 >>> 	}
 >>> }
@@ -165,11 +165,11 @@ OEIS [A006575](https://oeis.org/A006575):
 >>> 		(bitAnd(i, 1) = 1).if {
 >>> 			moebiusMu(i)
 >>> 			*
->>> 			(3 ^ (n / i) - 1)
+>>> 			(3 ^ (n // i) - 1)
 >>> 		} {
 >>> 			0
 >>> 		}
->>> 	} / (2 * n)
+>>> 	} // (2 * n)
 >>> }
 [
 	1 2 4 10 24 60 156 410 1092 2952
@@ -191,7 +191,7 @@ OEIS [A037227](https://oeis.org/A037227):
 		*
 		d.moebiusMu
 		*
-		0.divisorSigma(n / d)
+		0.divisorSigma(n // d)
 	}
 }.scatterPlot
 ~~~
@@ -209,7 +209,7 @@ let a/1 = { :n |
 		(n - 2).divisors.sum { :d |
 			a(d)
 			*
-			((n - 2) / d).moebiusMu
+			((n - 2) // d).moebiusMu
 		}
 	}
 }.memoize(true);
@@ -227,7 +227,7 @@ OEIS [A046692](http://oeis.org/A046692):
 	1.toDo(n) { :d |
 		(n % d = 0).ifTrue {
 			let a = d.moebiusMu;
-			let b = (n / d).moebiusMu;
+			let b = (n // d).moebiusMu;
 			k := k + (d * a * b)
 		}
 	};
@@ -317,7 +317,7 @@ OEIS [A054525](https://oeis.org/A054525):
 ~~~spl svg=L oeis=A054525
 1:17.triangularArray { :n :k |
 	n.divisible(k).if {
-		(n / k).moebiusMu
+		(n // k).moebiusMu
 	} {
 		0
 	}

@@ -88,7 +88,7 @@ WeibullDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[Float, Symbol] {
++[Float, Integer, Symbol] {
 
 	WeibullDistribution { :alpha :beta :mu |
 		newWeibullDistribution().initializeSlots(alpha, beta, mu)

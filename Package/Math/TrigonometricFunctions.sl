@@ -342,6 +342,14 @@
 		Float(self).arcCot
 	}
 
+	[arcCsc, arcCosecant] { :self |
+		Float(self).arcCsc
+	}
+
+	[arcSec, arcSecant] { :self |
+		Float(self).arcSec
+	}
+
 	arcSin { :self |
 		Float(self).arcSin
 	}
@@ -368,6 +376,10 @@
 
 	[csc, cosecant] { :self |
 		Float(self).cos
+	}
+
+	haversine { :self |
+		Float(self).haversine
 	}
 
 	sin { :self |

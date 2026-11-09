@@ -83,7 +83,7 @@ OEIS [A047713](https://oeis.org/A047713):
 
 ```
 >>> 3L:5000:2.select { :n |
->>> 	let a = 2 ^ ((n - 1) / 2);
+>>> 	let a = 2 ^ ((n - 1) // 2);
 >>> 	let b = 2.jacobiSymbol(n);
 >>> 	(a - b % n) = 0 & {
 >>> 		n.isPrime.not
