@@ -39,7 +39,7 @@ the `sum` is calculated directly using a closed form:
 >>> (2 .. 1000).sum
 500499
 
->>> (23, 37 .. 26781361428314).sum
+>>> (23L, 37L .. 26781361428314L).sum
 25615761426939509660643648L
 
 >>> (1, 1.01 .. 5).sum
@@ -169,8 +169,8 @@ Number of ways to cover an _n_-set,
 OEIS [A003465](https://oeis.org/A003465):
 
 ```
->>> 0:6.collect { :n |
->>> 	0:n.sum { :j |
+>>> 0L:6.collect { :n |
+>>> 	0L:n.sum { :j |
 >>> 		let a = binomial(n, j);
 >>> 		let b = 2 ^ (2 ^ (n - j) - 1);
 >>> 		(-1 ^ j) * a * b
@@ -275,9 +275,9 @@ OEIS [A119812](https://oeis.org/A119812):
 ```
 >>> let c = 'Sqrt(2)'.namedConstant;
 >>> [c, c / 2].collect { :t |
->>> 	1:20.collect { :n |
+>>> 	1L:20.collect { :n |
 >>> 		let k = 10 * n;
->>> 		let x = 1:k.sum { :m |
+>>> 		let x = 1L:k.sum { :m |
 >>> 			(m * t).floor / (2 ^ m)
 >>> 		};
 >>> 		(10 ^ n * x).floor % 10

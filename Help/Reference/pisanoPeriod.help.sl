@@ -514,7 +514,7 @@ OEIS [A001179](https://oeis.org/A001179):
 >>> 		ll(x // 5, k + 1)
 >>> 	}
 >>> };
->>> let a = Map { :n |
+>>> let a = Dictionary { :n |
 >>> 	(n = 1).if {
 >>> 		0
 >>> 	} {

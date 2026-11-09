@@ -1,4 +1,4 @@
-+Float {
++@Integer {
 
 	finiteAbelianGroupCount { :n |
 		n.factorInteger

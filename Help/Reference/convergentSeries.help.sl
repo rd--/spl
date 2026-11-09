@@ -7,37 +7,43 @@ Implements both sums and products.
 The sum, or product, runs from _i_ to _j_ in steps of size _k_.
 The series is said to have converged if the difference between steps falls below ε.
 
-Approximate an infinite sum numerically:
+Approximate an infinite sum numerically,
+calculate exactly:
 
 ```
 >>> { :i |
->>> 	-5.0 ^ i / i.factorial
->>> }.convergentSeries(0)
+>>> 	-5 ^ i / i.factorial
+>>> }.convergentSeries(0L)
 0.00673795
 
 >>> -5.exp
 0.00673795
 ```
 
-Sum the even terms of a series:
+Sum the even terms of a series,
+calculate exactly:
 
 ```
 >>> { :i |
->>> 	1.0 / (2 ^ i)
->>> }.convergentSeries(0, Infinity, 2, 10 ^ -16, +)
-1.33333
+>>> 	1 / (2 ^ i)
+>>> }.convergentSeries(
+>>> 	0L, Infinity, 2, 10L ^ -16, +
+>>> )
+4/3
 
 >>> { :i |
->>> 	1.0 / (2 ^ (2 * i))
->>> }.convergentSeries(0)
-1.33333
+>>> 	1 / (2 ^ (2 * i))
+>>> }.convergentSeries(0L)
+4/3
 ```
 
-Approximate the sum of the reciprocals of the Fibonacci numbers:
+Approximate the sum of the reciprocals of the Fibonacci numbers,
+calculate approximately:
 
 ```
 >>> { :i |
->>> 	1.0 / i.fibonacci.normalInteger
+>>> 	let f = i.fibonacci;
+>>> 	1 / Float(f)
 >>> }.convergentSeries(1)
 3.35989
 ```
@@ -46,14 +52,14 @@ Maclaurin series for calculating the error function,
 this requires working with very large fractional numbers:
 
 ```
->>> let z = 3.5J-2.5;
+>>> let z = Complex(7/2, -5/2);
 >>> let c = 2 / 1.pi.sqrt;
 >>> c * { :n |
 >>> 	let m = 2 * n + 1;
 >>> 	let a = ((-1 ^ n) * (z ^ m));
 >>> 	let b = (n.factorial * m);
 >>> 	a / b
->>> }.convergentSeries(0)
+>>> }.convergentSeries(0L)
 0.9997653J0.0002203
 
 >>> 3.5J-2.5.erf

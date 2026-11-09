@@ -128,8 +128,9 @@ Euler’s product formula:
 ```
 >>> let k = 99;
 >>> let s = 3;
->>> k.primesList.collect { :n |
->>> 	1 - (1.0 / (n ^ s))
+>>> k.primesList
+>>> .collect { :n |
+>>> 	1 - (1 / (Float(n) ^ s))
 >>> }.product./
 1.202057
 

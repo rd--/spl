@@ -18,7 +18,7 @@ OEIS [A000668](https://oeis.org/A000668):
 
 ```
 >>> let e = 1:10.mersennePrimeExponent;
->>> (2 ^ e) - 1
+>>> (2L ^ e) - 1
 [
 	3
 	7

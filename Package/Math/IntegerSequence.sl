@@ -738,13 +738,13 @@
 	}
 
 	jugglerMap { :n |
-		n.isSmallInteger.if {
+		n.isInteger.if {
 			n.isEven.if {
-				n.sqrt
+				n.isqrt
 			} {
 				let m = n.cube;
-				m.sqrt
-			}.floor
+				m.isqrt
+			}
 		} {
 			n.error('jugglerMap: not small integer')
 		}
@@ -1745,10 +1745,12 @@
 		b/1
 	}
 
-	inverseBinomialTransform { :b/1 |
+	inverseBinomialTransform { :f/1 |
 		{ :n |
 			0L.to(n).sum { :k |
-				(-1L ^ (n - k)) * binomial(n, k) * b(k)
+				let a = -1L ^ (n - k);
+				let b = binomial(n, k);
+				a * b * f(k)
 			}
 		}
 	}
@@ -1864,15 +1866,13 @@
 	}
 
 	zeroIndexedListTransform { :self :aBlock/1 |
-		let n = self.size - 1;
-		0.toCollect(
-			n,
-			aBlock(
-				{ :i |
-					(self[i + 1])
-				}
-			)
-		)
+		let n = self.size - 1L;
+		let f/1 = aBlock(
+			{ :i |
+				self[i + 1]
+			}
+		);
+		0L.toCollect(n, f/1)
 	}
 
 }

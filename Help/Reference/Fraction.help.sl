@@ -277,7 +277,7 @@ a `Fraction` whose elements are of type `Integer` will behave ordinarily.
 The `Fraction` constructor constructs fractions with `Integer` components.
 
 ```
->>> let x = Fraction(2 ^ 55, 2);
+>>> let x = Fraction(2L ^ 55, 2L);
 >>> (x, x - 1, x = (x - 1))
 (
 	18014398509481984/1,

@@ -118,7 +118,7 @@ n.integerDigits(k).reverse.fromDigits(k)
 Evaluate for large arguments:
 
 ```
->> 50.!.vanDerCorputNumber(10L)
+>> 50L.!.vanDerCorputNumber(10L)
 >> .numerator
 215069865146773448867460661
 80621634087331710239041403L

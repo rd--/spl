@@ -8,8 +8,9 @@ else `false`.
 First few Lucas-Carmichael numbers:
 
 ```
->>> [2 .. 3000]
->>> .select(isLucasCarmichaelNumber/1)
+>>> [2 .. 3000].select(
+>>> 	isLucasCarmichaelNumber/1
+>>> )
 [399 935 2015 2915]
 
 >>> 399.factorInteger

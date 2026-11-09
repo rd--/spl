@@ -9,8 +9,8 @@ Answer _n_ times Artin’s constant.
 0.37396
 
 >>> 1:1000.product { :k |
->>> 	let p = k.prime;
->>> 	1 - (1.0 / (p * (p - 1)))
+>>> 	let p = Float(k.prime);
+>>> 	1 - (1 / (p * (p - 1)))
 >>> }
 1.artinsConstant
 ```

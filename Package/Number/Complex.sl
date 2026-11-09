@@ -471,6 +471,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
+	I { :imaginary |
+		Complex(0.0, imaginary)
+	}
+
 	Polar { :rho :phi |
 		phi.isFloat.if {
 			Complex(rho * phi.cos, rho * phi.sin)
@@ -478,6 +482,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 			phi.adaptToNumberAndApply(rho, Polar/2)
 		}
 	}
+
+}
+
++@Number {
 
 	uncheckedComplex { :real :imaginary |
 		newComplex().initializeSlots(
@@ -490,11 +498,11 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 +@Integer {
 
-	GaussianInteger { :real :imaginary |
+	[Complex, J, GaussianInteger] { :real :imaginary |
 		imaginary.isInteger.if {
 			uncheckedComplex(
-				real.assertIsSmallInteger('GaussianInteger'),
-				imaginary
+				Integer(real),
+				Integer(imaginary)
 			)
 		} {
 			imaginary.adaptToNumberAndApply(real, GaussianInteger/2)
@@ -504,26 +512,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 }
 
 +@Number {
-
-	[Complex, J] { :real :imaginary |
-		/*
-		uncheckedComplex(
-			real,
-			imaginary
-		)
-		*/
-		Complex(
-			Float(real),
-			Float(imaginary)
-		)
-	}
-
-	I { :self |
-		uncheckedComplex(
-			0,
-			self /* Float(self) */
-		)
-	}
 
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
 		self.isNaN.if {

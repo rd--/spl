@@ -70,7 +70,7 @@ At large integers:
 
 ```
 >>> tonelliShanksAlgorithm(
->>> 	665820697, 1000000009
+>>> 	665820697L, 1000000009L
 >>> )
 378633312
 
@@ -102,9 +102,9 @@ At large integers:
 >>> 	5 0 2 1 3 5 7 3 6 8
 >>> 	7 1 1 3 6 9 0 7 5 1
 >>> ].fromDigits(10);
->>> let p = 10 ^ 50 + 151;
+>>> let p = 10L ^ 50 + 151;
 >>> let q = tonelliShanksAlgorithm(n, p);
->>> (q, (m ^ 2) % (10 ^ 50 + 151))
+>>> (q, (m ^ 2) % (10L ^ 50 + 151))
 (m, n)
 
 >>> let n = [
@@ -121,9 +121,9 @@ At large integers:
 >>> 	0 0 0 3 8 9 0 3 7 2
 >>> 	5 2 6 6 6 3 4 5 0 8
 >>> ].fromDigits(10);
->>> let p = 10 ^ 50 + 577;
+>>> let p = 10L ^ 50 + 577;
 >>> let q = tonelliShanksAlgorithm(n, p);
->>> (q, (m ^ 2) % (10 ^ 50 + 577))
+>>> (q, (m ^ 2) % (10L ^ 50 + 577))
 (m, n)
 ```
 

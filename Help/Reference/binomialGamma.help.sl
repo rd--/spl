@@ -71,12 +71,6 @@ At integer arguments:
 
 >>> integerBinomial(5, 2)
 10
-
->>> binomialGamma(2, 5)
-0
-
->>> integerBinomial(2, 5)
-0
 ```
 
 Plot the binomial as a function of its parameter _n_:

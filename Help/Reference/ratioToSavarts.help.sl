@@ -96,19 +96,19 @@ At fractions with large components,
 from a table of lyŭ according to the system of Jing Fang (Daniélou 1943):
 
 ```
->>> ((3 ^ 36) / (2 ^ 57))
+>>> ((3L ^ 36) / (2L ^ 57))
 >>> .ratioToSavarts
 17.655
 
->>> ((3 ^ 48) / (2 ^ 76))
+>>> ((3L ^ 48) / (2L ^ 76))
 >>> .ratioToSavarts
 23.541
 
->>> ((3 ^ 31) / (2 ^ 49))
+>>> ((3L ^ 31) / (2L ^ 49))
 >>> .ratioToSavarts
 40.289
 
->>> ((3 ^ 14) / (2 ^ 22))
+>>> ((3L ^ 14) / (2L ^ 22))
 >>> .ratioToSavarts
 57.038
 ```

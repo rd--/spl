@@ -433,7 +433,8 @@
 	chineseRemainder { :r :m |
 		let p = m.product;
 		let q = m.withCollect(r) { :i :j |
-			j * (p / i).modularInverse(i) * (p / i)
+			let a = p // i;
+			j * a.modularInverse(i) * a
 		}.sum;
 		q % p
 	}

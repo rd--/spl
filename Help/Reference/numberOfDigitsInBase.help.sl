@@ -50,11 +50,11 @@ Negative numbers:
 At `Integer`:
 
 ```
->>> 52.factorial
+>>> 52L.factorial
 >>> .numberOfDigitsInBase(10)
 68
 
->> 52.factorial
+>> 52L.factorial
 80658175170943878571660
 63685640376697528950544
 0883277824000000000000L

@@ -265,8 +265,8 @@ Decimal expansion of the twin prime constant,
 OEIS [A005597](https://oeis.org/A005597):
 
 ```
->>> 2:5000.prime.product { :p |
->>> 	1 - (1.0 / (p - 1).square)
+>>> 2:500.prime.product { :p |
+>>> 	1 - (1 / (Float(p) - 1).square)
 >>> }
 0.66016
 
@@ -349,9 +349,9 @@ let f = { :n :i :x |
 		x
 	} {
 		n.isEven.if {
-			f(n / 2, i + 1, x)
+			f(n // 2, i + 1, x)
 		} {
-			f((n - 1) / 2, i, x * i.prime)
+			f((n - 1) // 2, i, x * i.prime)
 		}
 	}
 };

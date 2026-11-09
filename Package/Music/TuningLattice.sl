@@ -3,7 +3,7 @@
 +[Fraction, @Integer] {
 
 	tuningLatticePrimes { :self :includeOctave |
-		let answer = Set([], ==);
+		let answer = Set([], =);
 		answer.includeAll!(self.numerator.primeFactors);
 		answer.includeAll!(self.denominator.primeFactors);
 		includeOctave.ifFalse {
@@ -138,7 +138,7 @@
 	}
 
 	tuningLatticePrimes { :self :includeOctave |
-		let p = Set([], ==);
+		let p = Set([], =);
 		self.ratios.do { :each |
 			p.includeAll!(
 				each.tuningLatticePrimes(

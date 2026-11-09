@@ -41,12 +41,18 @@ Rational numbers:
 ```
 >>> 7/2.primePi
 2
+
+>>> 7/2.floor.primePi
+2
 ```
 
 Real numbers:
 
 ```
 >>> 15.25.primePi
+6
+
+>>> 15.25.floor.primePi
 6
 ```
 

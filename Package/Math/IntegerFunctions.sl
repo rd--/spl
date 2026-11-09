@@ -1785,7 +1785,7 @@
 				b := a % c;
 				a := c
 			};
-			(ab / a).abs
+			(ab // a).abs
 		}
 	}
 
@@ -1832,7 +1832,7 @@
 	}
 
 	withoutTrailingZeroes { :self |
-		self / (10 ^ self.integerExponent(10))
+		self // (10 ^ self.integerExponent(10))
 	}
 
 	wrapIndex { :self :size |

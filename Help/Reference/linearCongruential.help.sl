@@ -9,7 +9,7 @@ The first five terms given parameters for the Knuth MMIX generator:
 ```
 >>> let a = 6364136223846793005L;
 >>> let c = 1442695040888963407L;
->>> let m = 2 ^ 64;
+>>> let m = 2L ^ 64;
 >>> [a c m].linearCongruential(1L, [5])
 [
 	                   1L

@@ -1,5 +1,40 @@
 # Terse Guide to Libraries
 
+## CategoryDictionary -- categorization type
+```
+system.categoryDictionary.typeName = 'CategoryDictionary'
+system.categoryDictionary.isCategoryDictionary
+system.categoryDictionary.categoryOf('put') = 'accessing' /* category of in any domain */
+system.categoryDictionary.categoryOf('type', 'RgbColour') = 'Graphics' /* category of in given domain */
+system.categoryDictionary.categoryOf('type', 'Set') = 'Collection' /* category of in given domain */
+```
+
+## System -- categoryDictionary
+```
+system.includesPackage('CategoryDictionary') /* category dictionary package */
+system.categoryDictionary.typeName = 'CategoryDictionary' /* type of category dictionary */
+system.categoryDictionary.isCategoryDictionary = true /* category dictionary predicate */
+system.categoryDictionary.isCategoryName('method', 'accessing') = true
+system.categoryDictionary.isCategoryName('accessing') = true
+system.categoryDictionary.category('method', 'accessing').isSet = true
+system.categoryDictionary.categoriesOf('method', 'at').includes('accessing') = true
+system.categoryDictionary.categoriesOf('at').includes('accessing') = true
+system.categoryDictionary.categoriesOf('method', 'notInCategorySystem') = []
+system.categoryDictionary.categoriesOf('notInCategorySystem') = []
+system.categoryDictionary.isCategorized('method', 'at') = true
+system.categoryDictionary.isCategorized('at') = true
+system.categoryDictionary.isCategorized('method', 'notInCategorySystem') = false
+system.categoryDictionary.isCategorized('notInCategorySystem') = false
+'Collection-Unordered'.categoryNameParts = ['Collection', 'Unordered']
+system.categoryDictionary.categoryOf('method', 'at') = 'accessing'
+system.categoryDictionary.categoryOf('at') = 'accessing'
+system.categoryDictionary.categoryOf('method', 'notInCategorySystem') = '*Uncategorized*'
+system.categoryDictionary.categoryOf('notInCategorySystem') = '*Uncategorized*'
+system.categoryDictionary.categorizeAll('type', 'NameOfMajorCategory-NameOfMinorCategory', ['NameOfType']); true
+system.categoryDictionary.categorizeAll('method', 'name of category', ['nameOfMethod']); true
+system.categoryDictionary.multiplyCategorized('method').isEmpty /* the set of topics with multiple categories in a domain */
+```
+
 ## Tuple
 let t = (1, 2); t[1] := 3; t = (3, 2) /* mutate first */
 let t = (1, 2); t[2] := 3; t = (1, 3) /* mutate second */

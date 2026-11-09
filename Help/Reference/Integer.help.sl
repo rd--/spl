@@ -86,7 +86,7 @@ it is an error if the value is not an integer:
 >>> }.hasError
 true
 
->>> let a = 2 ^ 56;
+>>> let a = 2L ^ 56;
 >>> let b = Float(a);
 >>> {
 >>> 	Integer(b)

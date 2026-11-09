@@ -2,6 +2,24 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	| numerator denominator |
 
+	[Complex, J] { :real :imaginary |
+		imaginary.isFraction.if {
+			uncheckedComplex(
+				real,
+				imaginary
+			)
+		} {
+			imaginary.adaptToFractionAndApply(real, Complex/2)
+		}
+	}
+
+	I { :self |
+		uncheckedComplex(
+			0/1,
+			self
+		)
+	}
+
 	[Float, Float, fractionToFloat] { :self |
 		Float(self.numerator)
 		/

@@ -7,7 +7,7 @@ Answer the Euler gamma function.
 Positive integer values, threads over lists:
 
 ```
->>> 1:10.gamma
+>>> 1L:10.gamma
 [1 1 2 6 24 120 720 5040 40320 362880]
 ```
 
@@ -59,8 +59,8 @@ For integers, _n.gamma = (n - 1).!_:
 Relation to the double factorial:
 
 ```
->>> 2:16:2.collect { :n |
->>> 	let m = n / 2;
+>>> 2L:16:2.collect { :n |
+>>> 	let m = n // 2;
 >>> 	(2 ^ m) * (m + 1).gamma
 >>> }
 [2 8 48 384 3840 46080 645120 10321920]
@@ -76,7 +76,7 @@ Relation to the double factorial:
 >>> }
 [1 3 15 105 945 10395 135135 2027025]
 
->>> 1:15:2.!!
+>>> 1L:15:2.!!
 [1 3 15 105 945 10395 135135 2027025]
 ```
 

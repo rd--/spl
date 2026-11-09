@@ -1,2 +1,3 @@
-*.sl linguist-language=Simple-Programming-Language
-*.sp linguist-language=Simple-Programming-Language
+# SimpleProgrammingLanguage
+*.sl linguist-language=SuperCollider
+*.sp linguist-language=SuperCollider

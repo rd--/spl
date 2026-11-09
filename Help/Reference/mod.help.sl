@@ -121,20 +121,20 @@ At `Integer`:
 Note errors in floating point math:
 
 ```
->>> 3 ^ 41 % 13
+>>> 3L ^ 41 % 13
 9
 
->>> Float(3 ^ 41) % 13
+>>> Float(3L ^ 41) % 13
 8
 ```
 
 Find last two digits or a large integer:
 
 ```
->>> 2 ^ 100 % 100
+>>> 2L ^ 100 % 100
 76
 
->>> 2 ^ 100
+>>> 2L ^ 100
 1267650600228229401496703205376L
 ```
 
@@ -250,7 +250,7 @@ Fermats little theorem:
 >>> 7.gcd(11)
 1
 
->>> 7 ^ (11 - 1) % 12
+>>> 7L ^ (11 - 1) % 12
 1
 ```
 

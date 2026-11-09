@@ -75,7 +75,7 @@ with and without fractional part:
 
 >>> '20880467999847912034355032910567D'
 >>> .parseDecimal
-23 ^ 23
+23L ^ 23
 ```
 
 Literal syntax,
@@ -459,10 +459,10 @@ At `Float`:
 At `Integer`:
 
 ```
->>> Decimal(2 ^ 54 - 1, 0)
+>>> Decimal(2L ^ 54 - 1, 0)
 18014398509481983D
 
->>> Decimal(23 ^ 23, 0)
+>>> Decimal(23L ^ 23, 0)
 20880467999847912034355032910567D
 
 >>> Decimal(23, 23)

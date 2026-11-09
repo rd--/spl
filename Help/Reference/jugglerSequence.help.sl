@@ -5,10 +5,31 @@
 Answer the juggler sequence beggining with the integer _a₁_,
 and continuing until the sequence reaches `one`.
 
-A juggler sequence:
+Two juggler sequences:
 
 ```
->>> 115.jugglerSequence
+>>> 113L.jugglerSequence
+[
+	113
+	1201
+	41621
+	8491194
+	2913
+	157221
+	62339861
+	492208086413
+	345321100728254679L
+	202924588924125339424550328L
+	14245160192996
+	3774276
+	1942
+	44
+	6
+	2
+	1
+]
+
+>>> 115L.jugglerSequence
 [
 	115
 	1233
@@ -54,19 +75,18 @@ OEIS [A389383](https://oeis.org/A389383):
 ]
 ```
 
-Very large numbers are required,
-large floating point numbers cannot be reliably tested for evenness:
+Large integers are visited for small initial terms:
 
 ```
->>> { 113.jugglerSequence }.hasError
-true
+>>> 113L.jugglerSequence.max
+202924588924125339424550328L
 ```
 
 The size of the first few juggler sequences,
 OEIS [A007320](https://oeis.org/A007320):
 
 ```
->>> 1:97.collect { :a |
+>>> 1L:97.collect { :a |
 >>> 	a.jugglerSequence.size - 1
 >>> }
 [
@@ -87,7 +107,7 @@ The largest value in trajectory of under the juggler map,
 OEIS [A094716](https://oeis.org/A094716):
 
 ```
->>> 1:40.collect { :a |
+>>> 1L:40.collect { :a |
 >>> 	a.jugglerSequence.max
 >>> }
 [
@@ -101,10 +121,13 @@ OEIS [A094716](https://oeis.org/A094716):
 	36 24906114455136 38 233046 40
 ]
 
->>> 37.jugglerSequence.max
+>>> 37L.jugglerSequence.max
 24906114455136
 
->>> 115.jugglerSequence.max
+>>> 113L.jugglerSequence.max
+202924588924125339424550328L
+
+>>> 115L.jugglerSequence.max
 4446080344234036
 ```
 
@@ -149,7 +172,7 @@ log scale plot,
 OEIS [A094716](https://oeis.org/A094716):
 
 ~~~spl svg=B oeis=A094716
-1:112.collect { :a |
+1L:112.collect { :a |
 	a.jugglerSequence.max
 }.scatterPlot.log
 ~~~
@@ -161,7 +184,7 @@ log plot,
 OEIS [A389383](https://oeis.org/A389383):
 
 ~~~spl svg=C oeis=A389383
-1:23.collect(jugglerSequence/1)
+1L:23.collect(jugglerSequence/1)
 .catenate.scatterPlot.log
 ~~~
 
@@ -169,7 +192,7 @@ OEIS [A389383](https://oeis.org/A389383):
 
 * * *
 
-See also: ^, isEven
+See also: ^, isqrt, isEven
 
 Guides: Integer Sequence Functions
 

@@ -64,13 +64,13 @@
 	}
 
 	factorInteger { :self |
-		self.assertIsInteger('factorInteger');
-		[-1 0 1].includes(self).if {
-			[[self, 1]]
+		let i = Integer(self);
+		[-1L 0L 1L].includes(i).if {
+			[[i, 1]]
 		} {
 			self.isNegative.if {
 				let answer = self.negate.factorInteger;
-				answer.addFirst!([-1, 1]);
+				answer.addFirst!([-1L, 1]);
 				answer
 			} {
 				self.primeFactorization
@@ -181,7 +181,7 @@
 			let f = n.factorInteger.transpose;
 			let a = f[2].unique(==);
 			a = [1] & {
-				let b = ((n + 1) % (f[1] + 1)).unique(==);
+				let b = ((n + 1) % (f[1] + 1)).unique(=);
 				b = [0]
 			}
 		}
@@ -590,21 +590,27 @@
 	}
 
 	primeFactors { :self :rule |
-		(rule = 'Extended').if {
-			(self < 0).if {
-				let factors = self.negate.primeFactors(true);
-				factors.addFirst!(-1);
-				factors
-			} {
-				(self < 2).if {
-					[self]
-				} {
-					self.uncheckedPrimeFactors
+		let i = Integer(self);
+		rule.caseOf(
+			[
+				'Extended' -> {
+					(i < 0).if {
+						let factors = i.negate.primeFactors;
+						factors.addFirst!(-1L);
+						factors
+					} {
+						(i < 2).if {
+							[self]
+						} {
+							i.uncheckedPrimeFactors
+						}
+					}
+				},
+				'Standard' -> {
+					i.primeFactors
 				}
-			}
-		} {
-			self.primeFactors
-		}
+			]
+		)
 	}
 
 	primeFactors { :self |
@@ -617,14 +623,14 @@
 	}
 
 	primeFactorsTrialDivision { :self |
-		let n = self;
-		let m = 3;
+		let n = Integer(self);
+		let m = 3L;
 		let answer = [];
 		{
-			n % 2 = 0
+			n % 2L = 0
 		}.whileTrue {
-			answer.add!(2);
-			n := n // 2
+			answer.add!(2L);
+			n := n // 2L
 		};
 		{
 			m * m <= n
@@ -633,36 +639,37 @@
 				answer.add!(m);
 				n := n // m
 			} {
-				m := m + 2
+				m := m + 2L
 			}
 		};
-		(n != 1).ifTrue {
+		(n != 1L).ifTrue {
 			answer.add!(n)
 		};
 		answer
 	}
 
-	primeFactorsWheel { :n |
+	primeFactorsWheel { :self |
+		let n = Integer(self);
 		let inc = [4 2 4 2 4 6 2 6];
 		let factors = [];
-		let k = 7;
+		let k = 7L;
 		let i = 1;
 		{ divisible(n, 2) }.whileTrue {
-			factors.add!(2);
-			n := n / 2
+			factors.add!(2L);
+			n := n // 2
 		};
 		{ divisible(n, 3) }.whileTrue {
-			factors.add!(3);
-			n := n / 3
+			factors.add!(3L);
+			n := n // 3
 		};
 		{ divisible(n, 5) }.whileTrue {
-			factors.add!(5);
-			n := n / 5
+			factors.add!(5L);
+			n := n // 5
 		};
 		{ k * k <= n }.whileTrue {
 			divisible(n, k).if {
 				factors.add!(k);
-				n := n / k
+				n := n // k
 			} {
 				k := k + inc[i];
 				i := (i < 8).if { i + 1 } { 1 }
@@ -914,8 +921,8 @@
 
 	uncheckedPrimeFactors { :self |
 		withReturn { :return/1 |
-			let index = 1;
-			let k = self;
+			let index = 1L;
+			let k = Integer(self);
 			let answer = [];
 			{
 				let p = index.prime;
@@ -924,12 +931,12 @@
 				}.whileTrue {
 					answer.add!(p);
 					k := k // p;
-					(k = 1).ifTrue {
+					k.isOne.ifTrue {
 						answer.return
 					}
 				};
 				(p.square > k).ifTrue {
-					answer.add!(k.normalInteger);
+					answer.add!(k);
 					answer.return
 				};
 				index := index + 1
@@ -1014,9 +1021,9 @@
 
 	primeExponents { :self |
 		let p = self.factorInteger;
-		let n = p.last.at(1);
+		let [q, _] = p.last;
 		let m = p.matrixToMap;
-		n.primesUpTo.collect { :each |
+		q.primesUpTo.collect { :each |
 			m.atIfAbsent(each) {
 				0
 			}
@@ -1200,7 +1207,7 @@
 
 	cachedPrimesList { :self |
 		self.cached('primesList') {
-			200L.wheelSieve
+			Integer(200.wheelSieve)
 		}
 	}
 
@@ -1208,7 +1215,7 @@
 		let primesList = self.cachedPrimesList;
 		(anInteger > primesList.size).ifTrue {
 			let limit = anInteger.primeBounds.max.ceiling;
-			primesList := limit.wheelSieve;
+			primesList := Integer(limit.wheelSieve);
 			self.cache.put!('primesList', primesList)
 		};
 		primesList

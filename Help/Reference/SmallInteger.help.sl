@@ -71,17 +71,17 @@ true
 Arithmetic at small integers overflows to `Integer` as required:
 
 ```
->>> 17 ^ 17
+>>> 17L ^ 17
 827240261886336764177L
 
->>> let a = 2 ^ 49;
+>>> let a = 2L ^ 49;
 >>> (a, a.square)
 (
 	562949953421312,
 	316912650057057350374175801344L
 )
 
->>> let a = 2 ^ 49;
+>>> let a = 2L ^ 49;
 >>> (-a, -a - (a * 17))
 (
 	-562949953421312,

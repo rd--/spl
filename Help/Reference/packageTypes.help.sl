@@ -15,7 +15,7 @@ answer the `List` of `Type`s defined in the named `Package` _p_.
 >>> 	t[1].name,
 >>> 	t[1].category
 >>> )
-('Type', 1, 'Complex', 'Number')
+('Type', 1, 'Complex', '*Uncategorized*')
 ```
 
 * * *

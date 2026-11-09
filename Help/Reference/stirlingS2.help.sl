@@ -121,8 +121,8 @@ Number of necklaces of partitions of _n+1_ labeled beads,
 OEIS [A000629](https://oeis.org/A000629):
 
 ```
->>> 0:8.collect { :n |
->>> 	0:n.sum { :k |
+>>> 0L:8.collect { :n |
+>>> 	0L:n.sum { :k |
 >>> 		[
 >>> 			-1 ^ (n - k),
 >>> 			n.stirlingS2(k),
@@ -188,7 +188,7 @@ OEIS [A000182](https://oeis.org/A000182):
 
 ```
 >>> 0L:9.collect { :n |
->>> 	(1 .. 2 * n + 1).sum { :k |
+>>> 	(1L .. 2 * n + 1).sum { :k |
 >>> 		(2 ^ (2 * n + 1 - k))
 >>> 		*
 >>> 		(-1 ^ (n + k + 1))

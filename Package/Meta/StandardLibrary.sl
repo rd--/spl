@@ -335,7 +335,6 @@
 	'TimeInterval' /* TimeStamp */
 
 	/* Meta */
-	'Categories'
 
 	/* Help */
 	'DocumentationTest'

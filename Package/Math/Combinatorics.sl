@@ -321,7 +321,7 @@
 	}
 
 	kempnerFunction { :n |
-		let m = 1;
+		let m = 1L;
 		{
 			m.!.divisible(n)
 		}.whileFalse {

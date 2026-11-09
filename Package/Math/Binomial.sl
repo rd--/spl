@@ -310,9 +310,12 @@
 
 	lassalleNumber { :m |
 		let a = List(m, m.one);
-		2.toDo(m) { :n |
+		2L.toDo(m) { :n |
 			let z = 1.to(n - 1).collect { :j |
-				-1L ^ j * (2 * n - 1).binomial(2 * j - 1) * a[j] * (n - j).catalanNumber
+				(-1L ^ j)
+				* (2 * n - 1).binomial(2 * j - 1)
+				* a[j]
+				* (n - j).catalanNumber
 			}.sum;
 			a[n] := -1 ^ (n - 1) * (n.catalanNumber + z)
 		};

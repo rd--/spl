@@ -150,11 +150,11 @@ Binomial transform of Catalan numbers,
 OEIS [A007317](https://oeis.org/A007317):
 
 ```
->>> 0:13.collect(catalanNumber/1)
+>>> 0:12.collect(catalanNumber/1)
 >>> .binomialTransform
 [
 	1 2 5 15 51 188 731 2950 12235 51822
-	223191 974427 4302645 19181100
+	223191 974427 4302645
 ]
 
 >>> [1 2 5 15 51 188 731 2950 12235]

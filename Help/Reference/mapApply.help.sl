@@ -16,11 +16,11 @@ Compute the angles with respect to the positive _x_ axis for a list of ordered p
 Apply `^` to each factor of _20!_:
 
 ```
->>> 20.!.factorInteger
+>>> 20L.!.factorInteger
 [2 18; 3 8; 5 4; 7 2; 11 1; 13 1; 17 1; 19 1]
 
 >>> ^.mapApply(
->>> 	20.!.factorInteger
+>>> 	20L.!.factorInteger
 >>> )
 [262144 6561 625 49 11 13 17 19]
 ```

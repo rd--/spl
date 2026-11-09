@@ -36,13 +36,13 @@ Factorial is product of a `Range` from `one` with step size `one`:
 There is a closed form for arithmetic series:
 
 ```
->>> 1:19.product
+>>> 1L:19.product
 121645100408832000L
 
 >>> 1L:19.reduce(*)
 121645100408832000L
 
->>> 3:23.product
+>>> 3L:23.product
 12926008369442488320000L
 
 >>> 3L:23.reduce(*)

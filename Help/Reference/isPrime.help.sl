@@ -308,7 +308,7 @@ primes dividing order of Monster simple group,
 OEIS [A002267](https://oeis.org/A002267):
 
 ```
->>> let p = [
+>>> let p = Integer[
 >>> 	2  3  5  7 11 13 17 19 23 29
 >>> 	31 41 47 59 71
 >>> ];

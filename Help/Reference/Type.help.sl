@@ -31,11 +31,11 @@ A `Type` holds a `methodDictionary`:
 `Type` implements `category`, `name` and `packageName`:
 
 ```
->>> let c = system.typeLookup(
+>>> let t = system.typeLookup(
 >>> 	'RgbColour'
 >>> );
->>> (c.category, c.name, c.packageName)
-('Graphics', 'RgbColour', 'Colour')
+>>> (t.category, t.name, t.packageName)
+('*Uncategorized*', 'RgbColour', 'Colour')
 ```
 
 * * *

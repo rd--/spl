@@ -104,7 +104,7 @@ Maclaurin series:
 0.479426
 
 >>> let x = 0.5;
->>> 0:23.sum { :n |
+>>> 0L:23.sum { :n |
 >>> 	let m = (2 * n) + 1;
 >>> 	let c = (-1 ^ n) / m.!;
 >>> 	c * (x ^ m)

@@ -28,7 +28,7 @@ The final nonzero digit of _n!_,
 OEIS [A008904](https://oeis.org/A008904):
 
 ```
->>> 0:98.!.withoutTrailingZeroes % 10
+>>> 0L:98.!.withoutTrailingZeroes % 10
 [
 	1 1 2 6 4 2 2 4 2 8 8 8 6 8 2 8 8 6 8 2
 	4 4 8 4 6 4 4 8 4 6 8 8 6 8 2 2 2 4 2 8

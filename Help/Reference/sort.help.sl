@@ -12,6 +12,7 @@ The copying form first shallow copies the input and then sorts it in-place,
 answering the new sorted sequence.
 If the sort block is omitted,
 sort by `precedes`.
+The sort is _stable_.
 
 The sort block _f_ should take two arguments,
 and answer `true` if the first element should preceed the second one.
@@ -198,6 +199,19 @@ With _or-equal_ comparison:
 ```
 >>> [3 1 5 3 7 5 9].sort!(<=)
 [1 3 3 5 5 7 9]
+```
+
+The sort is stable:
+
+```
+>>> [
+>>> 	6 'f'; 5 'c'; 10 'h'; 5 'd';
+>>> 	7 'g'; 4 'b';  5 'e'; 1 'a'
+>>> ].sort
+[
+	1 'a'; 4 'b'; 5 'c';  5 'd';
+	5 'e'; 6 'f'; 7 'g'; 10 'h'
+]
 ```
 
 Show comparisons made in doing a sort:

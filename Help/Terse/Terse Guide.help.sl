@@ -615,15 +615,6 @@ CylindricalCoordinates([1, 1, 1]).CartesianCoordinates.Record = (x: 1.cos, y: 1.
 CartesianCoordinates([1.cos, 1.sin, 1]).CylindricalCoordinates.Record = (rho: 1, phi: 1, z: 1)
 ```
 
-## CategoryDictionary -- categorization type
-```
-system.categoryDictionary.typeName = 'CategoryDictionary'
-system.categoryDictionary.isCategoryDictionary
-system.categoryDictionary.categoryOf('put') = 'accessing' /* category of in any domain */
-system.categoryDictionary.categoryOf('type', 'RgbColour') = 'Graphics' /* category of in given domain */
-system.categoryDictionary.categoryOf('type', 'Set') = 'Collection' /* category of in given domain */
-```
-
 ## Character -- text type
 ```
 system.includesPackage('Character') /* character package */
@@ -1533,12 +1524,12 @@ system.cache['primesList'][23] = 83 /* prime extends the primesList cache as req
 [2, 2, 3, 5].product = 60 /* product is the inverse of primeFactors */
 1.primeFactors = [] /* the prime factors of one is empty */
 60.primeFactors.product = 60 /* product of prime factors is identity */
-315.primeFactors.IdentitySet = [3, 5, 7].IdentitySet /* prime factors, set */
+315.primeFactors.Set = Set[3, 5, 7] /* prime factors, set */
 2588.primeFactors = [2, 2, 647] /* prime factors */
 2:15.select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
 2:999.allSatisfy { :each | each = each.primeFactors.product } = true /* equality with product of factors */
-10071203840.primeFactors.sortedElements(==) = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1] /* prime factor histogram */
-6606028800.primeFactors.sortedCounts(==) = [22 -> 2, 2 -> 3, 2 -> 5, 1 -> 7]
+10071203840.primeFactors.sortedElements(=) = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1] /* prime factor histogram */
+6606028800.primeFactors.sortedCounts(=) = [22 -> 2, 2 -> 3, 2 -> 5, 1 -> 7]
 8589298611.primeFactors = [3, 2863099537] /* large prime factors */
 120.factorInteger = [2 3; 3 1; 5 1]
 60.factorInteger = [2 2; 3 1; 5 1]
@@ -3815,32 +3806,6 @@ let f = { system.cached('aUniqueKey') { (0 -- 1).atRandom } }; f() = f() & { f()
 let f = { { (0 -- 1).atRandom }.once(system, 'anotherUniqueKey') }; f() = f() & { f() = system.cache['anotherUniqueKey'] }
 ```
 
-## System -- categoryDictionary
-```
-system.includesPackage('CategoryDictionary') /* category dictionary package */
-system.categoryDictionary.typeName = 'CategoryDictionary' /* type of category dictionary */
-system.categoryDictionary.isCategoryDictionary = true /* category dictionary predicate */
-system.categoryDictionary.isCategoryName('method', 'accessing') = true
-system.categoryDictionary.isCategoryName('accessing') = true
-system.categoryDictionary.category('method', 'accessing').isSet = true
-system.categoryDictionary.categoriesOf('method', 'at').includes('accessing') = true
-system.categoryDictionary.categoriesOf('at').includes('accessing') = true
-system.categoryDictionary.categoriesOf('method', 'notInCategorySystem') = []
-system.categoryDictionary.categoriesOf('notInCategorySystem') = []
-system.categoryDictionary.isCategorized('method', 'at') = true
-system.categoryDictionary.isCategorized('at') = true
-system.categoryDictionary.isCategorized('method', 'notInCategorySystem') = false
-system.categoryDictionary.isCategorized('notInCategorySystem') = false
-'Collection-Unordered'.categoryNameParts = ['Collection', 'Unordered']
-system.categoryDictionary.categoryOf('method', 'at') = 'accessing'
-system.categoryDictionary.categoryOf('at') = 'accessing'
-system.categoryDictionary.categoryOf('method', 'notInCategorySystem') = '*Uncategorized*'
-system.categoryDictionary.categoryOf('notInCategorySystem') = '*Uncategorized*'
-system.categoryDictionary.categorizeAll('type', 'NameOfMajorCategory-NameOfMinorCategory', ['NameOfType']); true
-system.categoryDictionary.categorizeAll('method', 'name of category', ['nameOfMethod']); true
-system.categoryDictionary.multiplyCategorized('method').isEmpty /* the set of topics with multiple categories in a domain */
-```
-
 ## System -- evaluate
 ```
 system.evaluate('3 + 4') = 7 /* evaluate a string */
@@ -4059,7 +4024,7 @@ let t = (1, 2, 3); t[3] = 3 /* at protocol */
 ```
 system.typeLookup('RgbColour').typeName = 'Type' /* type of type */
 system.typeLookup('RgbColour').isType /* is type predicate */
-system.typeLookup('RgbColour').category = 'Graphics' /* category of type */
+system.typeLookup('RgbColour').category = '*Uncategorized*' /* category of type */
 system.typeLookup('RgbColour').constructorName = 'newRgbColour/0' /* constructor name for type */
 system.typeLookup('RgbColour').instanceOf.isRgbColour /* initialized instance of type */
 system.typeLookup('RgbColour').name = 'RgbColour' /* name of type */

@@ -105,10 +105,10 @@ At `Fraction`:
 Note that floating point errors are introduced for small _m_ and _n_:
 
 ```
->>> 13 ^ 16
+>>> 13L ^ 16
 665416609183179841L
 
->>> Float(13 ^ 16)
+>>> Float(13L ^ 16)
 665416609183179900.0
 ```
 
@@ -497,7 +497,7 @@ Fermat numbers,
 OEIS [A000215](https://oeis.org/A000215):
 
 ```
->>> (0 .. 6).collect { :n |
+>>> 0L:6.collect { :n |
 >>> 	2 ^ (2 ^ n) + 1
 >>> }
 [
@@ -510,7 +510,7 @@ Two to the power of _n_ to the power of two,
 OEIS [A002416](https://oeis.org/A002416):
 
 ```
->>> 1:9.collect { :n |
+>>> 1L:9.collect { :n |
 >>> 	2 ^ (n ^ 2)
 >>> }
 [
@@ -567,7 +567,7 @@ _(n^n)^n_ or _n^(n^2)_,
 OEIS [A002489](https://oeis.org/A002489):
 
 ```
->>> 0:6.collect { :n |
+>>> 0L:6.collect { :n |
 >>> 	(n ^ n) ^ n
 >>> }
 [
@@ -728,7 +728,7 @@ _2^(2^n)_,
 OEIS [A001146](https://oeis.org/A001146):
 
 ```
->>> 2 ^ (2 ^ 0:6)
+>>> 2L ^ (2 ^ 0:6)
 [
 	2 4 16 256 65536 4294967296
 	18446744073709551616L
@@ -739,7 +739,7 @@ _(10^n-1)^2/81_,
 OEIS [A002477](https://oeis.org/A002477):
 
 ```
->>> (10 ^ 1:9 - 1) ^ 2 / 81
+>>> (10L ^ 1:9 - 1) ^ 2 // 81
 [
 	1
 	121
@@ -1014,7 +1014,7 @@ OEIS [A103889](https://oeis.org/A103889):
 Almost integers:
 
 ```
->>> let a = [1782 1841] ^ 12;
+>>> let a = [1782 1841] ^ 12L;
 >>> let b = 1922L ^ 12;
 >>> a.sum / b
 0.999999999

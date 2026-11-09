@@ -125,6 +125,9 @@ At `Fraction` the prime factors of the denominator are given with negative expon
 
 >>> 1/25.factorInteger
 [[5 -2]]
+
+>>> 135/124.factorInteger
+[2 -2; 3 3; 5 1; 31 -1]
 ```
 
 Every positive integer can be represented as a product of prime factors:
