@@ -1,11 +1,11 @@
-# smallFloatMax
+# floatMax
 
-- _smallFloatMax(x)_
+- _floatMax(x)_
 
 Answers the largest number that may be represented as a `Float`.
 
 ```
->> system.smallFloatMax
+>> system.floatMax
 1.7976931348623157E+308
 ```
 
@@ -21,7 +21,7 @@ This is much, much larger than the largest small integer:
 
 * * *
 
-See also: Float, epsilon, one, smallFloatEpsilon
+See also: Float, epsilon, one, floatEpsilon
 
 Guides: Numerical Precision
 

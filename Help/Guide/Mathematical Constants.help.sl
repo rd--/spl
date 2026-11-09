@@ -51,7 +51,7 @@ Mathematical Constants:
 - `sierpinskiConstant`: _S_
 - `silverConstant`: _B(7)_
 - `silverRatio`: δs
-- `smallFloatEpsilon`: ε
+- `floatEpsilon`: ε
 - `soldnersConstant`: μ
 - `stieltjesGamma`: γₙ
 - `stolarskyHarborthConstant`: β

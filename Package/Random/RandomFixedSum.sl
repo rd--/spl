@@ -36,7 +36,7 @@
 		let k = u.floor.min(n - 1);
 		let s1 = u - range(k, k - n, -1);
 		let s2 = range(k + n, k, -1) - u;
-		let tiny = system.smallFloatEpsilon;
+		let tiny = system.floatEpsilon;
 		let huge = system.smallIntegerMax;
 		let w = [n, n + 1].zeroMatrix;
 		let t = [n - 1, n].zeroMatrix;

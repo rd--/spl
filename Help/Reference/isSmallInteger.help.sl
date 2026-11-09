@@ -122,10 +122,17 @@ true
 false
 ```
 
-A `Fraction` is never an integer,
-small or large:
+At `Fraction`:
 
 ```
+>>> let x = 23/1;
+>>> (x.isInteger, x.isSmallInteger)
+(true, true)
+
+>>> let x = 9904578032905937/1;
+>>> (x.isInteger, x.isSmallInteger)
+(true, false)
+
 >>> let x = 23/7;
 >>> (x.isInteger, x.isSmallInteger)
 (false, false)

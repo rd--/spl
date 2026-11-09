@@ -6,7 +6,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		self
 	}
 
-	[SmallInteger, normalInteger, smallFloatToSmallInteger] { :self |
+	[SmallInteger, normalInteger, floatToSmallInteger] { :self |
 		self.isSmallInteger.if {
 			self
 		} {
@@ -251,7 +251,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		operand.adaptToNumberAndApply(self, divideToFraction/2)
 	}
 
-	[encodeJson, smallFloatToJson] { :self |
+	[encodeJson, floatToJson] { :self |
 		self.uncheckedEncodeJson
 	}
 

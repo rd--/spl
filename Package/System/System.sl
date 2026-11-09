@@ -204,15 +204,15 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		<primitive: return performance.now();>
 	}
 
-	smallFloatEpsilon { :unused |
+	floatEpsilon { :unused |
 		<primitive: return Number.EPSILON;>
 	}
 
-	smallFloatMax { :unused |
+	floatMax { :unused |
 		<primitive: return Number.MAX_VALUE;>
 	}
 
-	smallFloatMin { :unused |
+	floatMin { :unused |
 		<primitive: return Number.MIN_VALUE;>
 	}
 

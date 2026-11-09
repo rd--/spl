@@ -960,28 +960,28 @@ const asAst: ohm.ActionDict<SlAst> = {
 	},
 	floatLiteral(s, i, _, f) {
 		const x = s.sourceString + i.sourceString + '.' + f.sourceString;
-		return ['SmallFloat', x];
+		return ['Float', x];
 	},
 	infinityLiteral(s, i) {
-		return ['SmallFloat', s.sourceString + i.sourceString];
+		return ['Float', s.sourceString + i.sourceString];
 	},
 	smallIntegerLiteral(s, i) {
 		return ['SmallInteger', s.sourceString + i.sourceString];
 	},
 	largeIntegerLiteral(s, i, _l) {
-		return ['LargeInteger', s.sourceString + i.sourceString + 'L'];
+		return ['Integer', s.sourceString + i.sourceString + 'L'];
 	},
 	lowercaseIdentifier(c1, cN, ip) {
 		return ['Identifier', rewriteInPlaceName(c1, cN, ip)];
 	},
 	nanLiteral(_n) {
-		return ['SmallFloat', 'NaN'];
+		return ['Float', 'NaN'];
 	},
 	reservedIdentifier(x) {
 		return ['ReservedIdentifier', x.sourceString];
 	},
 	scientificLiteral(b, _letterE, e) {
-		return ['SmallFloat', b.sourceString + 'E' + e.sourceString];
+		return ['Float', b.sourceString + 'E' + e.sourceString];
 	},
 	singleQuotedStringLiteral(_l, s, _r) {
 		return ['String', s.sourceString];

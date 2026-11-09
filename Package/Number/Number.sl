@@ -86,7 +86,7 @@
 	}
 
 	barronCurve { :s :t |
-		let epsilon = 1.smallFloatEpsilon;
+		let epsilon = 1.floatEpsilon;
 		{ :x |
 			(x < t).if {
 				(t * x) / (x + (s * (t - x)) + epsilon)
@@ -1114,12 +1114,12 @@
 		}
 	}
 
-	smallFloatEpsilon { :self |
-		self * system.smallFloatEpsilon
+	floatEpsilon { :self |
+		self * system.floatEpsilon
 	}
 
-	smallFloatMax { :self |
-		self * system.smallFloatMax
+	floatMax { :self |
+		self * system.floatMax
 	}
 
 	softClip { :self |

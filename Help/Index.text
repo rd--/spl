@@ -1529,7 +1529,9 @@ Reference/flatTopWindow.help.sl
 Reference/flipLeftRight.help.sl
 Reference/Float32Array.help.sl
 Reference/Float64Array.help.sl
+Reference/floatEpsilon.help.sl
 Reference/Float.help.sl
+Reference/floatMax.help.sl
 Reference/floor.help.sl
 Reference/floorLog.help.sl
 Reference/fnv1aHash.help.sl
@@ -2106,6 +2108,7 @@ Reference/isEven.help.sl
 Reference/isExact.help.sl
 Reference/isFareyPair.help.sl
 Reference/isFinite.help.sl
+Reference/isFloat.help.sl
 Reference/isFloatString.help.sl
 Reference/isFormFeed.help.sl
 Reference/isFraction.help.sl
@@ -2277,7 +2280,6 @@ Reference/isSinglyEven.help.sl
 Reference/isSiPrefix.help.sl
 Reference/isSiteswap.help.sl
 Reference/isSiUnit.help.sl
-Reference/isSmallFloat.help.sl
 Reference/isSmallInteger.help.sl
 Reference/isSmoothNumber.help.sl
 Reference/isSortedBetween.help.sl
@@ -3833,9 +3835,6 @@ Reference/slopeInterceptForm.help.sl
 Reference/slotList.help.sl
 Reference/slotNameList.help.sl
 Reference/slotValueList.help.sl
-Reference/smallFloatEpsilon.help.sl
-Reference/SmallFloat.help.sl
-Reference/smallFloatMax.help.sl
 Reference/SmallInteger.help.sl
 Reference/SmallKansan.help.sl
 Reference/SmallKansas.help.sl

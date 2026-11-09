@@ -3208,10 +3208,10 @@ let r = nil; 1.to(0).do { :each | r := each }; r = nil
 1729.divisors = [1, 7, 13, 19, 91, 133, 247, 1729]
 eulersNumber() = 1.exp /* eulers number */
 1.e = eulersNumber() /* e is a constant, like 1.pi */
-system.smallFloatEpsilon < (10 ^ -15) /* the difference between 1 and the smallest Float greater than 1 */
-system.smallFloatEpsilon > (10 ** -16)
-1 - system.smallFloatEpsilon != 1 /* epsilon() is the difference between 1.0 and previous representable value */
-1.epsilon != system.smallFloatEpsilon /* epsilon is a constant, like 1.pi & e */
+system.floatEpsilon < (10 ^ -15) /* the difference between 1 and the smallest Float greater than 1 */
+system.floatEpsilon > (10 ** -16)
+1 - system.floatEpsilon != 1 /* epsilon() is the difference between 1.0 and previous representable value */
+1.epsilon != system.floatEpsilon /* epsilon is a constant, like 1.pi & e */
 1.pi = 3.141592653589793 /* 1.pi is a number */
 1.epsilon = 0.000000000000001 /* epsilon is a number */
 1.e = 2.718281828459045 /* e is a number */

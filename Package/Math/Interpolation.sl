@@ -105,7 +105,7 @@
 		let differences = List(n, nil);
 		let weights = List(n, nil);
 		let firstDerivative = List(n + 1, nil);
-		let epsilon = 1.smallFloatEpsilon;
+		let epsilon = 1.floatEpsilon;
 		let differentiateThreePoint = { :i :j1 :j2 :j3 |
 			let x0 = y[j1];
 			let x1 = y[j2];

@@ -26,7 +26,7 @@ undocumented,
 type specific alias:
 
 ```
->>> smallFloatToInteger(3.0)
+>>> floatToInteger(3.0)
 3L
 
 >>> fractionToInteger(3/1)

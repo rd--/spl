@@ -23,10 +23,10 @@ Integers from _−2 ^ 53_ to _2 ^ 53_ can be exactly represented.
 true
 ```
 
-`smallFloatEpsilon` answers the smallest number that may be added to one to make a number greater than one.
+`floatEpsilon` answers the smallest number that may be added to one to make a number greater than one.
 
 ```
->>> let x = system.smallFloatEpsilon;
+>>> let x = system.floatEpsilon;
 >>> (1 + x) > x
 true
 
@@ -52,6 +52,6 @@ Round a `Float` to a specified precision:
 
 * * *
 
-See also: Integer, Float, printStringShowingDecimalPlaces, round, smallFloatEpsilon
+See also: Integer, Float, printStringShowingDecimalPlaces, round, floatEpsilon
 
 Guides: Numeric Types

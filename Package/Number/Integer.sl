@@ -120,7 +120,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		}
 	}
 
-	[encodeJson, smallFloatToJson] { :self |
+	[encodeJson, floatToJson] { :self |
 		Float(self).uncheckedEncodeJson
 	}
 
@@ -442,7 +442,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 +Float {
 
-	[Integer, L, smallFloatToInteger] { :self |
+	[Integer, L, floatToInteger] { :self |
 		self.isNaN.if {
 			NaN
 		} {

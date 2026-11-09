@@ -3918,8 +3918,8 @@ Reference (a-z):
 - `slotList`
 - `slotNameList`
 - `slotValueList`
-- `smallFloatEpsilon`
-- `smallFloatMax`
+- `floatEpsilon`
+- `floatMax`
 - `smootherStep`
 - `smoothStep`
 - `smoothStepFunction`

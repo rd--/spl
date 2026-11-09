@@ -1,11 +1,11 @@
-# smallFloatEpsilon
+# floatEpsilon
 
-- _smallFloatEpsilon(n)_
+- _floatEpsilon(n)_
 
 Answer the smallest number that may be added to `one` to make a number greater than one.
 
 ```
->>> system.smallFloatEpsilon
+>>> system.floatEpsilon
 2.22E-16
 ```
 
@@ -13,7 +13,7 @@ At `Number`,
 answers _n_ times ε:
 
 ```
->>> let x = 1.smallFloatEpsilon;
+>>> let x = 1.floatEpsilon;
 >>> (1 + x) > x
 true
 ```
@@ -21,7 +21,7 @@ true
 For numbers smaller than this value the answer will equal to `one`:
 
 ```
->>> let x = 0.5.smallFloatEpsilon;
+>>> let x = 0.5.floatEpsilon;
 >>> (1 + x) = 1
 true
 ```
@@ -29,13 +29,13 @@ true
 Value is less than _10^-15_:
 
 ```
->>> 1.smallFloatEpsilon < 1E-15
+>>> 1.floatEpsilon < 1E-15
 true
 ```
 
 * * *
 
-See also: Float, epsilon, one, smallFloatMax
+See also: Float, epsilon, one, floatMax
 
 Guides: Numerical Precision
 

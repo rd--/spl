@@ -72,7 +72,7 @@
 			Infinity
 		} {
 			z.imaginary.isZero.ifTrue {
-				z.imaginary := system.smallFloatMin
+				z.imaginary := system.floatMin
 			};
 			(1.0 / z).arcCosh
 		}

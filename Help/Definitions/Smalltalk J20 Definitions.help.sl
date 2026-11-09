@@ -2726,7 +2726,7 @@ floating point characterization requirement _epsilon_. The return value is equal
 
 *Return Value*: ⧼Float⧽
 
-Cf: epsilon, smallFloatEpsilon
+Cf: epsilon, floatEpsilon
 
 ### 5.6.8.10
 
