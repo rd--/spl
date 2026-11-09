@@ -47,7 +47,6 @@ Note the rule if `scale` is not zero:
 (true, true, false)
 ```
 
-
 * * *
 
 See also: isEven, isNegative, isOdd, isPositive, isZero, one

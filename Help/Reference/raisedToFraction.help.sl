@@ -7,6 +7,7 @@ Answers the number _x_ raised to the fraction _n/d_.
 
 At `Fraction`:
 
+```
 >>> 1/9.raisedToFraction(3/2)
 1/27
 ```

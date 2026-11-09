@@ -1360,7 +1360,7 @@ Graph : [Object, Graph] {
 					{
 						z.isNil
 					}.whileTrue {
-						let y = r.randomInteger([1 n], []);
+						let y = r.randomSmallInteger([1 n], []);
 						z := i --- y;
 						(
 							z.isSelfLoop | {

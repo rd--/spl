@@ -11,6 +11,7 @@ Answer the _k_-th term of Goulds sequence.
 
 Alternate implementation at `Integer`:
 
+```
 >>> 31L.gouldsNumber
 32L
 ```

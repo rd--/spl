@@ -474,7 +474,7 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		let f = { :l :i |
 			t.level([l]).do { :each |
 				(i > 0).ifTrue {
-					let j = r.randomInteger([1, i], []);
+					let j = r.randomSmallInteger([1, i], []);
 					each.subTrees := p.removeFirst!(j).collect { :m | Tree(m, []) };
 					i := i - j
 				}

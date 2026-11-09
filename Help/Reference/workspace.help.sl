@@ -22,7 +22,6 @@ true
 'y'
 ```
 
-
 * * *
 
 See also: Record, System, at, put, system

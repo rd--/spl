@@ -301,6 +301,7 @@ Guides (A-Z):
 - `What is Spl`
 - `Why Spl`
 - `Window Functions`
+- `Workspace Variable Syntax`
 - `Writing Primitives`
 - `Xenharmonic Functions`
 
@@ -466,7 +467,6 @@ Reference (A-Z):
 - `L`
 - `LaggedFibonacci`
 - `LaplaceDistribution`
-- `Integer`
 - `Length`
 - `LevyDistribution`
 - `LibraryItem`
@@ -581,7 +581,6 @@ Reference (A-Z):
 - `Simplex`
 - `SiUnit`
 - `SkewNormalDistribution`
-- `Float`
 - `SmallInteger`
 - `SmallKansan`
 - `SmallKansas`
@@ -1783,6 +1782,8 @@ Reference (a-z):
 - `flattenTo`
 - `flatTopWindow`
 - `flipLeftRight`
+- `floatEpsilon`
+- `floatMax`
 - `floor`
 - `floorLog`
 - `fnv1aHash`
@@ -2312,6 +2313,7 @@ Reference (a-z):
 - `isExact`
 - `isFareyPair`
 - `isFinite`
+- `isFloat`
 - `isFloatString`
 - `isFormFeed`
 - `isFraction`
@@ -2359,7 +2361,6 @@ Reference (a-z):
 - `isJson`
 - `isKaprekarNumber`
 - `isKeithNumber`
-- `isInteger`
 - `isLatinSquare`
 - `isLatticeWord`
 - `isLeaf`
@@ -2483,7 +2484,6 @@ Reference (a-z):
 - `isSiPrefix`
 - `isSiteswap`
 - `isSiUnit`
-- `isFloat`
 - `isSmallInteger`
 - `isSmoothNumber`
 - `isSorted`
@@ -3229,8 +3229,8 @@ Reference (a-z):
 - `parseHexTriplet`
 - `parseHtml`
 - `parseIni`
-- `parseJson`
 - `parseInteger`
+- `parseJson`
 - `parseMethodSignature`
 - `parseNcs`
 - `parseNumber`
@@ -3535,9 +3535,6 @@ Reference (a-z):
 - `randomConvexHullPolygon`
 - `randomCycle`
 - `randomFunction`
-- `randomSmallInteger`
-- `randomSmallIntegerBipolar`
-- `randomSmallIntegerExcluding`
 - `randomInteger`
 - `randomPermutation`
 - `randomPermutationList`
@@ -3547,6 +3544,9 @@ Reference (a-z):
 - `randomRealFixedSum`
 - `randomSample`
 - `randomSimplePolygon`
+- `randomSmallInteger`
+- `randomSmallIntegerBipolar`
+- `randomSmallIntegerExcluding`
 - `randomStarConvexPolygon`
 - `randomSubsequence`
 - `randomTable`
@@ -3918,8 +3918,6 @@ Reference (a-z):
 - `slotList`
 - `slotNameList`
 - `slotValueList`
-- `floatEpsilon`
-- `floatMax`
 - `smootherStep`
 - `smoothStep`
 - `smoothStepFunction`
@@ -4438,6 +4436,7 @@ Reference (a-z):
 - `wordCounts`
 - `words`
 - `wordsBy`
+- `workspace`
 - `wrap`
 - `wrapExclusive`
 - `wrapIndex`

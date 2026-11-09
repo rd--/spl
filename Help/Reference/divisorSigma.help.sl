@@ -462,7 +462,8 @@ OEIS [A249763](https://oeis.org/A249763):
 >>> 1:300.select { :n |
 >>> 	isPrime(divisorSigma(1, n) + 2)
 >>> }
-[1, 2, 8, 18, 49, 72, 98, 128, 196, 200, 242, 288]
+[1 2 8 18 49 72 98 128 196 200 242 288]
+```
 
 Divisor function _σ₀(n)_ up to _n=100_,
 OEIS [A000005](https://oeis.org/A000005):
