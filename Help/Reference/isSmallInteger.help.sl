@@ -18,10 +18,10 @@ false
 The largest small integer:
 
 ```
->>> (2 ^ 53) - 1
+>>> (2L ^ 53) - 1
 9_007_199_254_740_991L
 
->>> let x = (2 ^ 53) - 1;
+>>> let x = (2L ^ 53) - 1;
 >>> let y = Float(x + 1);
 >>> (y, y.isSmallInteger, y + 1 = y)
 (9_007_199_254_740_992.0, false, true)
@@ -30,10 +30,10 @@ The largest small integer:
 The least negative small integer:
 
 ```
->>> (-2 ^ 53) + 1
+>>> (-2L ^ 53) + 1
 -9_007_199_254_740_991L
 
->>> let x = (-2 ^ 53) + 1;
+>>> let x = (-2L ^ 53) + 1;
 >>> let y = Float(x - 1);
 >>> (y, y.isSmallInteger, y - 1 = y)
 (-9_007_199_254_740_992.0, false, true)
@@ -49,7 +49,7 @@ _2^54_ and _20!_ are integers:
 >>> (2 ** 54).isIeeeInteger
 true
 
->>> 20.!.isInteger
+>>> 20L.!.isInteger
 true
 ```
 
@@ -59,19 +59,19 @@ _2^54_ and _20!_ are not small integers:
 >>> (2 ** 54).isSmallInteger
 false
 
->>> 20.!.isSmallInteger
+>>> 20L.!.isSmallInteger
 false
 ```
 
 _2^54_ is accurately represented:
 
 ```
->>> let a = 2 ^ 54;
+>>> let a = 2L ^ 54;
 >>> let b = 2 ** 54;
 >>> (a = b, a == b)
 (true, false)
 
->>> let a = 20.!;
+>>> let a = 20L.!;
 >>> let b = Float(a);
 >>> (a = b, a == b)
 (true, false)
@@ -80,19 +80,19 @@ _2^54_ is accurately represented:
 _2^54_ and _20!_ are not uniquely represented:
 
 ```
->>> let a = Float(2 ^ 54);
+>>> let a = Float(2L ^ 54);
 >>> a = (a - 1)
 true
 
->>> let a = (2 ^ 54);
+>>> let a = (2L ^ 54);
 >>> a = (a - 1)
 false
 
->>> let a = Float(20.!);
+>>> let a = Float(20L.!);
 >>> a = (a - 1)
 true
 
->>> let a = 20.!;
+>>> let a = 20L.!;
 >>> a = (a - 1)
 false
 ```
@@ -104,7 +104,7 @@ answers `true` is the value is an integer and if that integer is a safe integer:
 >>> 23L.isSmallInteger
 true
 
->>> let x = (2 ^ 54);
+>>> let x = (2L ^ 54);
 >>> (x.isInteger, x.isSmallInteger)
 (true, false)
 

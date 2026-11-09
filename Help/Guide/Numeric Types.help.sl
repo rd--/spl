@@ -4,11 +4,11 @@ Types:
 
 - `Complex`
 - `Decimal`
+- `Float`
 - `Fraction`
 - `Integer`
 - `Quaternion`
 - `Residue`
-- `Float`
 
 The primitive numeric types are `Float`:
 
@@ -54,6 +54,6 @@ true
 
 * * *
 
-See also: Binary, Complex, Decimal, Float, Fraction, Integer, Integer, Number, Residue, isImmediate
+See also: Binary, Complex, Decimal, Float, Fraction, Integer, Number, Residue, isImmediate
 
 Guides: Number Syntax, Numerical Precision

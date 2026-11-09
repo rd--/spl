@@ -14,14 +14,14 @@ Answer the number of bytes required to represent _n_.
 A thirteen byte integer:
 
 ```
->>> (2 ^ 99).digitLength
+>>> (2L ^ 99).digitLength
 13
 ```
 
 A 128-bit (16-byte) integer:
 
 ```
->>> let n = 2 ^ 128 - 1;
+>>> let n = 2L ^ 128 - 1;
 >>> (n, n.digitLength)
 (
 	340282366920938463463374607431768211455L,

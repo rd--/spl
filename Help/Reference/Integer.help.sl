@@ -44,7 +44,7 @@ At a small `Integer` value:
 At a large `Integer` value:
 
 ```
->>> let x = 23 ^ 13;
+>>> let x = 23L ^ 13;
 >>> let y = Integer(x);
 >>> (y, x = y, x == y)
 (504036361936467383L, true, true)

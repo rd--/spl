@@ -56,7 +56,7 @@ OEIS [A000108](https://oeis.org/A000108):
 >>> 		1 - n, -n, 2, 1
 >>> 	)
 >>> }
-0:20.catalanNumber
+0L:20.catalanNumber
 ```
 
 Motzkin numbers,

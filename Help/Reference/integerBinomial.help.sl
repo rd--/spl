@@ -13,7 +13,7 @@ even if _n_ and _k_ are not.
 >>> integerBinomial(8, 5)
 56
 
->>> integerBinomial(333, 22)
+>>> integerBinomial(333L, 22)
 13647019435783910848559925263032560L
 ```
 

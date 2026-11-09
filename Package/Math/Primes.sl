@@ -82,7 +82,7 @@
 
 	fermatQuotient { :a :p |
 		let n = a ^ (p - 1) - 1;
-		n / p
+		n // p
 	}
 
 	fortunateNumber { :n |
@@ -1200,7 +1200,7 @@
 
 	cachedPrimesList { :self |
 		self.cached('primesList') {
-			200.wheelSieve
+			200L.wheelSieve
 		}
 	}
 

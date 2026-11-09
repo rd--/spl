@@ -212,10 +212,10 @@ Use a non-integer step:
 `Range` of `Integer`:
 
 ```
->>> Range(1, 2 ^ 90).size
+>>> Range(1, 2L ^ 90).size
 1237940039285380274899124224L
 
->>> Range(2 ^ 90, 2 ^ 90 + 2, 2)
+>>> Range(2L ^ 90, 2L ^ 90 + 2, 2)
 >>> .List
 [
 	1237940039285380274899124224L

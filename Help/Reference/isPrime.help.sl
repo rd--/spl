@@ -90,7 +90,7 @@ Test for large integers:
 >>> 3L.isPrime
 true
 
->>> (10 ^ 3000 + 1).isPrime
+>>> (10L ^ 3000 + 1).isPrime
 false
 ```
 
@@ -126,14 +126,14 @@ OEIS [A010051](https://oeis.org/A010051):
 Recognize Fermat primes, prime numbers of the form _2 ^ 2 ^ n + 1_:
 
 ```
->>> (2 ^ (2 ^ 3) + 1).isPrime
+>>> (2L ^ (2 ^ 3) + 1).isPrime
 true
 ```
 
 The number _2 ^ 2 ^ 7 + 1_ is not a Fermat prime, & requires _millerRabinPrimalityTest_:
 
 ```
->>> let n = (2 ^ (2 ^ 7) + 1);
+>>> let n = (2L ^ (2 ^ 7) + 1);
 >>> n.millerRabinPrimalityTest(10)
 false
 ```
@@ -148,7 +148,7 @@ Recognize Wieferich primes, prime numbers _p_ such that _p^2_ divides _2^(p-1)-1
 >>> 		a % b = 0
 >>> 	}
 >>> };
->>> (1 .. 9999).select(f/1)
+>>> (1L .. 9999).select(f/1)
 [1093, 3511]
 ```
 

@@ -217,9 +217,9 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 
 	denominator { :self |
 		self.isInteger.if {
-			1
+			1L
 		} {
-			self.error('denominator')
+			self.error('denominator: not integer')
 		}
 	}
 
@@ -686,7 +686,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 	}
 
 	numerator { :self |
-		self.assertIsSmallInteger('numerator')
+		Integer(self)
 	}
 
 	one { :self |

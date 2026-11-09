@@ -312,7 +312,7 @@ OEIS [A145768](https://oeis.org/A145768):
 
 ~~~spl svg=J oeis=A145768
 bitXor/2
-.foldList(0, 0:125 ^ 2)
+.foldList(0, 0L:125 ^ 2)
 .allButFirst
 .discretePlot
 ~~~

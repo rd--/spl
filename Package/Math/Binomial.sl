@@ -14,8 +14,8 @@
 		k.isCollection.if {
 			k.adaptToNumberAndApply(n, binomial/2)
 		} {
-			(k = 0).if {
-				1
+			k.isZero.if {
+				n.one
 			} {
 				(n < 0 & { k.isInteger }).if {
 					(k >= 0).if {
@@ -40,10 +40,10 @@
 				binomialGamma(n, m)
 			}
 		} {
-			(k = 0).if {
-				1
+			k.isZero.if {
+				n.one
 			} {
-				(n = 0).if {
+				n.isZero.if {
 					k.pi.sin / k.pi
 				} {
 					uncheckedBinomialGamma(n, k)
@@ -277,11 +277,11 @@
 			}
 		} {
 			[
-				{ n = k } -> { 1 },
+				{ n = k } -> { n.one },
 				{ k = 1 } -> { n },
 				{ n = (k + 1) } -> { n },
-				{ n < k } -> { 0 },
-				{ k < 0 } -> { 0 },
+				{ n < k } -> { n.zero },
+				{ k < 0 } -> { n.zero },
 				{ true } -> { uncheckedIntegerBinomial(n, k) }
 			].which
 		}
@@ -487,8 +487,8 @@
 	}
 
 	uncheckedIntegerBinomial { :n :k |
-		let numerator = 1;
-		let denominator = 1;
+		let numerator = n.one;
+		let denominator = n.one;
 		n.toByDo(k.max(n - k) + 1, -1) { :factor |
 			numerator := numerator * factor
 		};

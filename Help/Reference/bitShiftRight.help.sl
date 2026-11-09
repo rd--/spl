@@ -80,7 +80,7 @@ true
 At `Integer` works with numbers of any size:
 
 ```
->>> (2 ^ 111 - 1).bitShiftRight(7)
+>>> (2L ^ 111 - 1).bitShiftRight(7)
 20282409603651670423947251286015L
 
 >>> 256L >> 0:9

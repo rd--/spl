@@ -203,14 +203,15 @@ At `zero`:
 May answer a `Integer` with small integer arguments:
 
 ```
->>> binomial(123, 45)
+>>> binomial(123L, 45L)
 8966473191018617158916954970192684L
 ```
 
-May answer a `SmallInteger` with large integer arguments:
+Answer an `Integer` with large integer arguments:
 
 ```
->>> binomial(6L, 4L).isSmallInteger
+>>> binomial(6L, 4L)
+>>> .isInteger
 true
 ```
 
@@ -347,7 +348,7 @@ The first few central binomial coefficients,
 OEIS [A000984](https://oeis.org/A000984):
 
 ```
->>> 0:27.collect { :n |
+>>> 0L:27.collect { :n |
 >>> 	binomial(2 * n, n)
 >>> }
 [

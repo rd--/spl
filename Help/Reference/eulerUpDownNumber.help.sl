@@ -9,7 +9,7 @@ The Euler or up/down numbers,
 OEIS [A000111](https://oeis.org/A000111):
 
 ```
->>> 0:26.collect(
+>>> 0L:26.collect(
 >>> 	eulerUpDownNumber/1
 >>> )
 [

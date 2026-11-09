@@ -31,7 +31,7 @@ Show a single number in successive bases from 4 to 36:
 
 ```
 >>> 4:36.collect { :b |
->>> 	20.!.integerString(b)
+>>> 	20L.!.integerString(b)
 >>> }
 [
 	'2013003121313302002231000000000'

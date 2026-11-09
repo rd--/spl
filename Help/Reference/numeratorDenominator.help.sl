@@ -7,23 +7,34 @@ Answer a `List` of the numerator and denominator of the `Fraction` _n/d_.
 ```
 >>> 1/3.numeratorDenominator
 [1L 3L]
-
->>> 1/3.components
-[1 3]
 ```
 
-At integer:
+Aliased to `components`:
+
+```
+>>> 1/3.components
+[1L 3L]
+```
+
+At `Integer`:
 
 ```
 >>> 3L.numeratorDenominator
-[3 1]
+[3L 1L]
+```
+
+At `Float`:
+
+```
+>>> 3.numeratorDenominator
+[3L 1L]
 ```
 
 * * *
 
 See also: Fraction, List
 
-Guides: List Functions
+Guides: Fraction Functions
 
 References:
 _J_

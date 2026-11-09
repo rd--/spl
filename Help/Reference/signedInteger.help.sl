@@ -12,7 +12,7 @@ represented using two’s-complement notation.
 >>> (2b11001, 2b0110 + 1 * -1)
 (25, -7)
 
->>> 2 ^ 63 - 1
+>>> 2L ^ 63 - 1
 9223372036854775807L
 
 >>> (2L ^ 63 - 1).signedInteger(64)

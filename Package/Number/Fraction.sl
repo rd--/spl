@@ -71,13 +71,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
-	components { :self |
-		[
-			self.numerator.normalInteger,
-			self.denominator.normalInteger
-		]
-	}
-
 	continuedFraction { :self |
 		let i = self.integerPart;
 		let f = self - i;
@@ -408,7 +401,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
-	numeratorDenominator { :self |
+	[numeratorDenominator, components] { :self |
 		[self.numerator, self.denominator]
 	}
 

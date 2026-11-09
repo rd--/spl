@@ -60,7 +60,7 @@ Threads over lists:
 In the binary case, take the `ceiling` instead if _x_ is within ε:
 
 ```
->>> let x = (7 ^ 1:7).geometricMean;
+>>> let x = (7L ^ 1:7).geometricMean;
 >>> (x.floor, x.floor(1E-12))
 (2400, 2401)
 ```

@@ -39,7 +39,8 @@ It is an error if the value is cannot be represented as a small integer:
 true
 ```
 
-At `Fraction`, must be an integer:
+At `Fraction`,
+value must be an integer:
 
 ```
 >>> SmallInteger(23/1)
@@ -51,7 +52,8 @@ At `Fraction`, must be an integer:
 true
 ```
 
-At `Decimal`, must be an integer:
+At `Decimal`,
+value must be an integer:
 
 ```
 >>> SmallInteger(23D)
@@ -66,10 +68,37 @@ At `Decimal`, must be an integer:
 true
 ```
 
+Arithmetic at small integers overflows to `Integer` as required:
+
+```
+>>> 17 ^ 17
+827240261886336764177L
+
+>>> let a = 2 ^ 49;
+>>> (a, a.square)
+(
+	562949953421312,
+	316912650057057350374175801344L
+)
+
+>>> let a = 2 ^ 49;
+>>> (-a, -a - (a * 17))
+(
+	-562949953421312,
+	-10133099161583616L
+)
+```
+
+_Rationale_:
+Arithmetic overflow of `SmallInteger` values is particularly confusing,
+the answers remain approximately accurate,
+and it is very easy to miss that overflow has occurred.
+It is possible to have the interpreter print a message when overflow occurs.
+The help files should generally run without requiring overflow,
+i.e. calculations which would overflow are written using `Integer` values.
+
 * * *
 
-See also: Float, Fraction, Integer, Integer, isSmallInteger
+See also: Float, Fraction, Integer, isSmallInteger
 
 Guides: Bitwise Functions, Integer Functions, Number Functions
-
-Categories: Converting

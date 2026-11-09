@@ -37,7 +37,8 @@ Partial sums of Catalan numbers,
 OEIS [A014137](https://oeis.org/A014137):
 
 ```
->>> 0:14.catalanNumber.accumulate
+>>> 0L:14.catalanNumber
+>>> .accumulate
 [
 	1 2 4 9 23 65 197 626 2056 6918
 	23714 82500 290512 1033412 3707852
@@ -48,7 +49,7 @@ The largest Catalan number _≤n_,
 OEIS [A081290](https://oeis.org/A081290):
 
 ```
->>> let c = 0:14.catalanNumber;
+>>> let c = 0L:14.catalanNumber;
 >>> let r = c.reverse;
 >>> 0:73.collect { :n |
 >>> 	r.detectIfNone { :x |

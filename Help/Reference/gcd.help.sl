@@ -87,8 +87,8 @@ Gcd threads elementwise over lists:
 Compute for large integers:
 
 ```
->>> let a = 20.factorial;
->>> let b = 10 ^ 100 + 3;
+>>> let a = 20L.factorial;
+>>> let b = 10L ^ 100 + 3;
 >>> gcd(a, b)
 7
 ```

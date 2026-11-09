@@ -25,9 +25,11 @@ it is an error if the value is not an integer:
 
 ```
 >>> 2.denominator
-1
+1L
 
->>> { 3.141.denominator }.hasError
+>>> {
+>>> 	3.141.denominator
+>>> }.hasError
 true
 ```
 
@@ -48,7 +50,7 @@ Threads over lists:
 
 ```
 >>> [4/6 5/7].denominator
-[3 7]
+[3L 7L]
 ```
 
 Largest odd divisor of _n!_,
@@ -92,7 +94,7 @@ OEIS [A061038](https://oeis.org/A061038):
 
 * * *
 
-See also: Fraction, numerator
+See also: Fraction, numerator, numeratorDenominator
 
 Guides: Fraction Functions
 
@@ -104,5 +106,3 @@ _OEIS_
 [1](https://oeis.org/A061036),
 _Smalltalk_
 5.6.3.1
-
-Categories: Arithmetic

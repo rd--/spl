@@ -3,7 +3,7 @@
 - _TypedDictionary([k → v, …], t)_
 
 A `TypedDictionary` is a `Type` representing a `Dictionary` where the keys _k_ are all of type _t_.
-_t_ may be inferred if dictionary is not initially empty.
+_t_ may be inferred if the dictionary is not initially empty.
 
 Create an empty dictionary where the keys must be of type `String`:
 

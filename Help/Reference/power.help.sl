@@ -421,8 +421,8 @@ for example a right argument of _1/2_ gives the square root:
 Disprove Euler’s conjecture (Lander & Parkin 1966):
 
 ```
->>> ([27 84 110 133] ^ 5).sum
-144 ^ 5
+>>> ([27 84 110 133] ^ 5L).sum
+144L ^ 5
 ```
 
 At `Symbol`:
@@ -1015,12 +1015,12 @@ Almost integers:
 
 ```
 >>> let a = [1782 1841] ^ 12;
->>> let b = 1922 ^ 12;
+>>> let b = 1922L ^ 12;
 >>> a.sum / b
 0.999999999
 
 >>> let a = [3987 4365] ^ 12L;
->>> let b = 4472 ^ 12L;
+>>> let b = 4472L ^ 12L;
 >>> a.sum / b
 1.00000000001
 ```

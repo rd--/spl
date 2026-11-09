@@ -17,7 +17,7 @@ Find the number of decimal digits in 123456789:
 The number of binary digits in _100!_:
 
 ```
->>> 100.!.integerLength(2)
+>>> 100L.!.integerLength(2)
 525
 ```
 
@@ -25,7 +25,7 @@ Find how the number of digits in _100!_ decreases with the base:
 
 ```
 >>> 2:20.collect { :n |
->>> 	100.!.integerLength(n)
+>>> 	100L.!.integerLength(n)
 >>> }
 [
 	525 332 263 227 204
@@ -38,10 +38,10 @@ Find how the number of digits in _100!_ decreases with the base:
 At `Integer`:
 
 ```
->>> (23 ^ 23).integerLength(10)
+>>> (23L ^ 23).integerLength(10)
 32
 
->>> (4 ^ 1397482).integerLength(10)
+>>> (4L ^ 1397482).integerLength(10)
 841_369
 ```
 

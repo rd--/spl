@@ -426,7 +426,7 @@
 			let b = 2 ^ a;
 			let c = a.bernoulliNumber;
 			let d = b * (b - 1) * c;
-			(d / a).abs
+			(d // a).abs
 		}
 	}
 
@@ -451,14 +451,14 @@
 	}
 
 	finesSequence { :self |
-		0.toCollect(self) { :n |
-			0.to(n).collect { :m |
-				(-1 ^ (m + n))
+		0L.toCollect(self) { :n |
+			0L.to(n).collect { :m |
+				(-1L ^ (m + n))
 				*
 				((n + m).! / n.! / m.!)
 				*
 				((n - m + 1) / (n + 1))
-			}.sum
+			}.sum.Integer
 		}
 	}
 
@@ -1747,7 +1747,7 @@
 
 	inverseBinomialTransform { :b/1 |
 		{ :n |
-			0.to(n).sum { :k |
+			0L.to(n).sum { :k |
 				(-1L ^ (n - k)) * binomial(n, k) * b(k)
 			}
 		}
@@ -1790,7 +1790,9 @@
 	}
 
 	inverseBinomialTransform { :self |
-		self.zeroIndexedListTransform(inverseBinomialTransform/1)
+		self.zeroIndexedListTransform(
+			inverseBinomialTransform/1
+		)
 	}
 
 	inverseMoebiusTransform { :a |

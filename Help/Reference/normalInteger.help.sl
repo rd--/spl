@@ -17,7 +17,7 @@ if the value would answer `true` for `isSmallInteger`:
 >>> (x, x.isFloat, x.isSmallInteger)
 (23, true, true)
 
->>> let x = normalInteger(2 ^ 54);
+>>> let x = normalInteger(2L ^ 54);
 >>> (x, x.isInteger)
 (18014398509481984L, true)
 ```
@@ -49,7 +49,7 @@ it is only defined at `Float` and `Integer`.
 
 * * *
 
-See also: Integer, Integer, SmallInteger
+See also: Float, Integer, SmallInteger
 
 Guides: Number Functions
 

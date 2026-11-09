@@ -30,10 +30,10 @@ With _a=10_ and _p=7_:
 With _a=10_ and _p=17_:
 
 ```
->>> 10.fermatQuotient(17)
+>>> 10L.fermatQuotient(17)
 588235294117647
 
->>> 2:16 * 0588235294117647
+>>> 2:16 * 0588235294117647L
 [
 	1176470588235294
 	1764705882352941
@@ -67,7 +67,7 @@ the Wieferich primes 1093 and 3511:
 
 ```
 >>> [1093 3511].collect { :p |
->>> 	2.fermatQuotient(p) % p
+>>> 	2L.fermatQuotient(p) % p
 >>> }
 [0 0]
 ```

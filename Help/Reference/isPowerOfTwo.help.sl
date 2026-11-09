@@ -32,7 +32,7 @@ At `Integer`:
 >>> 13.factorial.isPowerOfTwo
 false
 
->>> (2 ^ 268_314).isPowerOfTwo
+>>> (2L ^ 268_314).isPowerOfTwo
 true
 ```
 
@@ -54,7 +54,7 @@ It is an error if the `Float` is not a `SmallInteger`:
 
 ```
 >>> {
->>> 	Float(2 ^ 672).isPowerOfTwo
+>>> 	Float(2L ^ 672).isPowerOfTwo
 >>> }.hasError
 true
 ```

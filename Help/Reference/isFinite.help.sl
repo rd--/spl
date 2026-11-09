@@ -15,7 +15,7 @@ false
 At `Integer`:
 
 ```
->>> (23 ^ 23).isFinite
+>>> (23L ^ 23).isFinite
 true
 ```
 

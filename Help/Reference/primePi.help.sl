@@ -366,7 +366,7 @@ Number of primes between _n^2_ and _(n+1)^2_,
 OEIS [A014085](https://oeis.org/A014085):
 
 ~~~spl svg=J oeis=A014085
-(0:100 ^ 2).primePi
+(0L:100 ^ 2).primePi
 .differences
 .scatterPlot
 ~~~

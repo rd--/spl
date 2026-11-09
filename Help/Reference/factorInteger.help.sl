@@ -25,15 +25,15 @@ The answer is sorted by factor.
 >>> 2000.factorInteger
 [2 4; 5 3]
 
->>> 7.!.factorInteger
+>>> 7L.!.factorInteger
 [2 4; 3 2; 5 1; 7 1]
 
->>> 7.!.factorInteger.product { :f |
+>>> 7L.!.factorInteger.product { :f |
 >>> 	f[1] ^ f[2]
 >>> }
 7.!
 
->>> 20.!.factorInteger
+>>> 20L.!.factorInteger
 [
 	 2 18;
 	 3  8;
@@ -59,13 +59,13 @@ The answer is sorted by factor.
 At `Float` requires _n_ be a small integer:
 
 ```
->>> let x = Float(3 ^ 51);
+>>> let x = Float(3L ^ 51);
 >>> {
 >>> 	x.factorInteger
 >>> }.hasError
 true
 
->>> (3 ^ 51).factorInteger
+>>> (3L ^ 51).factorInteger
 [[3 51]]
 ```
 
@@ -86,7 +86,7 @@ A prime power has one prime factor:
 At `Integer`:
 
 ```
->>> (2 ^ 64 - 1).factorInteger
+>>> (2L ^ 64 - 1).factorInteger
 [
 	3 1;
 	5 1;
@@ -97,7 +97,7 @@ At `Integer`:
 	6700417 1
 ]
 
->>> 23.!.factorInteger
+>>> 23L.!.factorInteger
 [
 	2 19; 3 9; 5 4; 7 3; 11 2;
 	13 1; 17 1; 19 1; 23 1

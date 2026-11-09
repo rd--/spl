@@ -142,7 +142,9 @@ Base φ:
 >>> (1.goldenRatio ^ [-4 -1 3]).sum
 5
 
->>> ([-4 -1 3] + 1).fibonacci.sum
+>>> ([-4 -1 3] + 1)
+>>> .fibonacci
+>>> .sum
 5
 ```
 

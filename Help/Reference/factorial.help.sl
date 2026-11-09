@@ -18,7 +18,7 @@ The `product` of the integers from `one` up to _n_.
 At `Float` will a `Integer` if the answer would overflow:
 
 ```
->>> 23.factorial
+>>> 23L.factorial
 25852016738884976640000L
 ```
 
@@ -36,7 +36,7 @@ always answers a large integer:
 A large factorial:
 
 ```
->> 52.!
+>> 52L.!
 80658175170943878571660
 63685640376697528950544
 0883277824000000000000L
@@ -76,7 +76,7 @@ The number of digits in _n!_,
 OEIS [A034886](https://oeis.org/A034886):
 
 ```
->>> 0:20.!.collect(integerLength/1)
+>>> 0L:20.!.collect(integerLength/1)
 [
 	1 1 1 1 2 3 3 4 5 6
 	7 8 9 10 11 13 14 15 16 18
@@ -88,7 +88,7 @@ Leading digit of _n!_,
 OEIS [A008905](https://oeis.org/A008905):
 
 ```
->>> 0:20.!.leadingDigit(10)
+>>> 0L:20.!.leadingDigit(10)
 [
 	1 1 2 6 2 1 7 5 4 3
 	3 3 4 6 8 1 2 3 6 1
@@ -109,10 +109,10 @@ Number of permutations of 6 elements:
 Exact `Integer` and inexact `Float` results for 30! and 47!:
 
 ```
->>> 30.factorial
+>>> 30L.factorial
 265252859812191058636308480000000L
 
->>> Float(30.factorial)
+>>> Float(30L.factorial)
 2.6525285981219107E32
 
 >> 47L.factorial
@@ -121,7 +121,7 @@ Exact `Integer` and inexact `Float` results for 30! and 47!:
 611979969197632
 389120000000000L
 
->> Float(47.factorial)
+>> Float(47L.factorial)
 2.5862324151116818E+59
 ```
 
@@ -139,17 +139,17 @@ Notable limits, the largest factorials that can fit into a specified type
 >>> 18.factorial.log2.floor
 52
 
->>> 20.factorial.log2.floor
+>>> 20L.factorial.log2.floor
 61
 ```
 
 At `Float` factorial is accurate to 15 digits:
 
 ```
->>> 23.factorial
+>>> 23L.factorial
 25852016738884976640000L
 
->>> Float(23.factorial)
+>>> Float(23L.factorial)
 2.585201673888498E+22
 ```
 
@@ -197,7 +197,7 @@ The reciprocals of factorials produce a convergent series for `e`:
 Relation to `gamma`:
 
 ```
->>> let n = 23;
+>>> let n = 23L;
 >>> n.factorial = (n + 1).gamma
 true
 ```
@@ -208,11 +208,12 @@ OEIS [A005130](https://oeis.org/A005130):
 ```
 >>> 1:17.collect { :n |
 >>> 	let m = n - 1;
->>> 	0:m.product { :k |
->>> 		(3 * k + 1).factorial.R(
->>> 			(n + k).factorial
->>> 		)
->>> 	}
+>>> 	let p = 0L:m.product { :k |
+>>> 		let a = (3 * k + 1).factorial;
+>>> 		let b = (n + k).factorial;
+>>> 		a / b
+>>> 	};
+>>> 	Integer(p)
 >>> }
 [
 	1
@@ -275,7 +276,7 @@ Least factorial multiple of _n_,
 OEIS [A092495](https://oeis.org/A092495):
 
 ```
->>> let f = 1:30.!;
+>>> let f = 1L:30.!;
 >>> 1:28.collect { :n |
 >>> 	f.detect { :x |
 >>> 		x.divisible(n)
@@ -361,7 +362,7 @@ A factorial sequence related to the Hausdorff power moment problem,
 OEIS [A394642](https://oeis.org/A394642):
 
 ```
->>> let n = 0:8;
+>>> let n = 0L:8;
 >>> (7 * n).! /  (n.! * (((2 * n).!) ^ 3L))
 [
 	1

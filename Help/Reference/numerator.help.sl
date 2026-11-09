@@ -10,7 +10,7 @@ At `Fraction`:
 
 ```
 >>> 2/3.numerator
-2
+2L
 ```
 
 At `Integer`:
@@ -25,9 +25,11 @@ it is an error if the value is not an integer:
 
 ```
 >>> 2.numerator
-2
+2L
 
->>> { 3.141.numerator }.hasError
+>>> {
+>>> 	3.141.numerator
+>>> }.hasError
 true
 ```
 
@@ -35,10 +37,10 @@ At negative fractions the `numerator` is negative:
 
 ```
 >>> -3/4.numerator
--3
+-3L
 
 >>> -3/4.denominator
-4
+4L
 
 >>> Fraction(3, -4).numerator
 -3
@@ -48,7 +50,7 @@ Threads over lists:
 
 ```
 >>> [4/6 5/7].numerator
-[2 5]
+[2L 5L]
 ```
 
 Numerator of _n/12_,
@@ -140,10 +142,7 @@ OEIS [A017665](https://oeis.org/A017665):
 ![](Help/Image/numerator-E.svg)
 
 _Note_:
-The elementwise forms of `numerator` and `denominator` answer small integers.
-This is a little confusing.
-Should numerator and denominator always answer small integers?
-Should there be separate forms to answer small integers?
+`numerator` and `denominator` always answer `Integer` values.
 
 * * *
 

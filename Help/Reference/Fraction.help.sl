@@ -210,6 +210,12 @@ Fractions do not automatically simplify to integers:
 >>> Fraction(2, 1)
 >>> .isFraction
 true
+
+>>> 3/2 * 2
+3/1
+
+>>> 9L / 3L
+3/1
 ```
 
 A Fraction that does not conform to the above invariants could be the cause of undefined behavior and unexpected results.
@@ -218,8 +224,8 @@ The message `normal` obtains a normal Fraction.
 
 Note that `Fraction` and `Integer` represent together the set of Rational numbers:
 
-- Integer is a subset of rational (those which are whole numbers)
-- Fraction is used for representing the complementary subset of rational (those which are not whole numbers)
+- `Integer` is a subset of rational (those which are whole numbers)
+- `Fraction` is used for representing the complementary subset of rational (those which are not whole numbers)
 
 `Integer` defines `/` to answer a `Fraction`:
 
@@ -489,11 +495,16 @@ Print `String`:
 '2088046799984791/2034355032910567'
 ```
 
+_Rationale_:
+`Fraction` does not automatically simplify to `Integer`.
+This makes the typing rules simpler to understand.
+`divide` at both `Integer` and `Fraction` always answers a `Fraction`.
+
 * * *
 
 See also: Float, /, denominator, normalized, numerator, rationalize, reduced, uncheckedFraction
 
-Guides: Fraction Syntax, Numeric Types
+Guides: Fraction Functions, Fraction Syntax, Mathematical Functions, Numeric Types
 
 References:
 _Haskell_
@@ -509,5 +520,3 @@ _Smalltalk_
 _W_
 [1](https://en.wikipedia.org/wiki/Fraction)
 [2](https://en.wikipedia.org/wiki/Rational_number)
-
-Categories: Arithmetic, Math

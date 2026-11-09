@@ -17,7 +17,7 @@ The number of trailing zeroes:
 At `Integer`:
 
 ```
->>> (40 ^ 30).integerExponent(10)
+>>> (40L ^ 30).integerExponent(10)
 30L
 ```
 
@@ -152,7 +152,7 @@ OEIS [A011371](https://oeis.org/A011371):
 
 ```
 >>> 0:51.collect { :n |
->>> 	(2 * n).!.integerExponent(2)
+>>> 	(2L * n).!.integerExponent(2)
 >>> }
 [
 	 0  1  3  4  7  8 10 11 15 16
@@ -170,7 +170,7 @@ OEIS [A055938](https://oeis.org/A055938):
 ```
 >>> 0:99.complement(
 >>> 	0:51.collect { :n |
->>> 		(2 * n).!.integerExponent(2)
+>>> 		(2L * n).!.integerExponent(2)
 >>> 	}
 >>> )
 [
