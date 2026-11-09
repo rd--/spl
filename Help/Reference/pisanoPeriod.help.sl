@@ -96,14 +96,14 @@ true
 Pisano period of large integers:
 
 ```
->>> (2 ^ 31 + 2).pisanoPeriod
-46_200
-
 >>> 1_230_000.pisanoPeriod
 15_000
 
+>>> (2 ^ 31 + 2).pisanoPeriod
+46_200
+
 >>> (2 ^ 63 - 1).pisanoPeriod
-168_775_327_381_163_780L
+168_775_327_381_163_776L
 ```
 
 The Fibonacci sequence modulo three has period eight,

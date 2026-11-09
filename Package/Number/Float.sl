@@ -686,7 +686,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 	}
 
 	numerator { :self |
-		self.assertIsSmallInteger
+		self.assertIsSmallInteger('numerator')
 	}
 
 	one { :self |

@@ -1,4 +1,4 @@
-# { (leftCurlyBracket)
+# \{ (leftCurlyBracket)
 
 `{` is a balanced syntax token, closed by `}`, it is not an operator.
 
@@ -12,5 +12,3 @@ The name of this syntax token is `leftCurlyBracket`.
 See also: (, ), }
 
 Guides: Block Syntax, Syntax Tokens, Trailing Block Syntax
-
-Categories: Syntax

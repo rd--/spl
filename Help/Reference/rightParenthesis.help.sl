@@ -1,4 +1,4 @@
-# ) (rightParenthesis)
+# \) (rightParenthesis)
 
 `)` is a syntax token, it is not an operator.
 
@@ -12,6 +12,6 @@ The name of this syntax token is `rightParenthesis`.
 
 * * *
 
-See also: (
+See also: leftParenthesis
 
 Guides: Apply Syntax, Method Syntax, Tuple Syntax

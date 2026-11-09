@@ -5,7 +5,7 @@
 Require that the object _x_ be a small integer:
 
 ```
->>> 23.0.assertIsSmallInteger
+>>> 23.0.assertIsSmallInteger('')
 23
 ```
 
@@ -13,7 +13,7 @@ Raise an error if value is not a small integer:
 
 ```
 >>> {
->>> 	3.141.assertIsSmallInteger
+>>> 	3.141.assertIsSmallInteger('')
 >>> }.hasError
 true
 ```

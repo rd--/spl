@@ -65,6 +65,21 @@ Find area of a parallelogram:
 4
 ```
 
+The ratios of the areas
+of the midpoint triangles
+of succesive midpoint polygons
+of a six-regular polygon:
+
+```
+>>> let p = 6.regularPolygon;
+>>> midpointPolygon/1
+>>> .nestList(p, 7)
+>>> .collect { :x |
+>>> 	x.midpointTriangles.last
+>>> }.collect(area/1).ratios
+[3/4 3/4 3/4 3/4 3/4 3/4 3/4]
+```
+
 * * *
 
 See also: Circle, Polygon, Rectangle, Triangle, arcLength, cross, perimeter, shoelaceFormula

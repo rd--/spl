@@ -1,4 +1,4 @@
-# [ (leftSquareBracket)
+# \[ (leftSquareBracket)
 
 `[` is a balanced syntax token, closed by `]`, it is not an operator.
 
@@ -26,6 +26,6 @@ The name of this syntax token is `leftSquareBracket`.
 
 * * *
 
-See also: ]
+See also: rightSquareBracket
 
 Guides: List Syntax, Matrix Syntax, Vector Syntax, Volume Syntax

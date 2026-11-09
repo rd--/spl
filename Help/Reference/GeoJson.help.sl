@@ -66,8 +66,7 @@ Draw the Gall-Peters projection of the geographic regions labeled 'Africa' and '
 		].includes(
 			each.property('NAME')
 		)
-	}
-	.collect { :each |
+	}.collect { :each |
 		each
 		.polygonList('Gall-Peters')
 		.collect { :p |
@@ -75,7 +74,6 @@ Draw the Gall-Peters projection of the geographic regions labeled 'Africa' and '
 		}
 		.select(isPolygon/1)
 	}
-	
 }
 ~~~
 
@@ -93,13 +91,11 @@ Draw the Gall stereographic projection of the country labeled 'Australia':
 		each.property('NAME')
 		=
 		'Australia'
-	}
-	.collect { :each |
+	}.collect { :each |
 		each.polygonList(
 			'Gall Stereographic'
 		)
 	}
-	
 }
 ~~~
 
@@ -117,8 +113,7 @@ Draw the Mercator projection of the sub-region labeled 'Australia and New Zealan
 		each.property('SUBREGION')
 		=
 		'Australia and New Zealand'
-	}
-	.collect { :each |
+	}.collect { :each |
 		each.polygonList('Mercator')
 	}
 }
@@ -141,9 +136,7 @@ Draw the Plate Carrée projection of the island groups labeled 'Micronesia' and 
 		].includes(
 			each.property('NAME')
 		)
-	}
-	.collect(geometryValues/1)
-	
+	}.collect(geometryValues/1)
 }
 ~~~
 

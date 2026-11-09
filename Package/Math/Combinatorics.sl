@@ -401,7 +401,7 @@
 			} // n
 		} {
 			n.divisors.sum { :d |
-				d.eulerPhi * (k ^ (n // d)) // n
+				d.eulerPhi * (k ^ (n // d)) / n
 			}
 		}
 	}

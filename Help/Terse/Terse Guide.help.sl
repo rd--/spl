@@ -3244,9 +3244,9 @@ Infinity.printString = 'Infinity' /* Infinity prints as Infinity */
 (2 ** 53) = 9007199254740992.0 /* a small float that is an integer that is beyond the range of small integers */
 (2 ** 53).isIeeeInteger /* is a small float an Ieee integer */
 (2 ** 53).isSmallInteger = false /* is a small float a small integer */
-23.assertIsSmallInteger = 23 /* require that a number be a small integer */
-{ 3.141.assertIsSmallInteger }.hasError /* raise an error if value is not a small integer */
-{ (2 ** 53).assertIsSmallInteger }.hasError
+23.assertIsSmallInteger('') = 23 /* require that a number be a small integer */
+{ 3.141.assertIsSmallInteger('') }.hasError /* raise an error if value is not a small integer */
+{ (2 ** 53).assertIsSmallInteger('') }.hasError
 100.factorial / 99.factorial ~ 100 /* small float factorial */
 let n = 9007199254740992.0; n + 0.1 = n /* ieee floating point */
 9007199254740990.0 + 10.1 = 9007199254741000.1 /* ieee floating point */
