@@ -10,6 +10,10 @@
 		self * (10 ^ aNumber)
 	}
 
+	Float { :self |
+		self.collect(Float/1)
+	}
+
 	I { :self |
 		self.collect(I/1)
 	}
@@ -20,10 +24,6 @@
 
 	Number { :self |
 		self.collect(Number/1)
-	}
-
-	Float { :self |
-		self.collect(Float/1)
 	}
 
 	SmallInteger { :self |

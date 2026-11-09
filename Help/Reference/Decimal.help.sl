@@ -579,7 +579,7 @@ which may not have arbitrary precision.
 
 * * *
 
-See also: Complex, Fraction, Integer, Float, decimalFraction, parseDecimal
+See also: Complex, Float, Fraction, Integer, decimalFraction, parseDecimal
 
 Guides: Decimal Number Syntax, Mathematical Functions, Number Functions
 

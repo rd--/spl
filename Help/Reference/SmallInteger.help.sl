@@ -68,7 +68,7 @@ true
 
 * * *
 
-See also: Fraction, Integer, Integer, Float, isSmallInteger
+See also: Float, Fraction, Integer, Integer, isSmallInteger
 
 Guides: Bitwise Functions, Integer Functions, Number Functions
 

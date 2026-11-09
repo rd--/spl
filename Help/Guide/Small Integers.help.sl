@@ -27,4 +27,4 @@ Non-type predicates:
 
 * * *
 
-See also: Integer, Float, isInteger, isSmallInteger
+See also: Float, Integer, isInteger, isSmallInteger

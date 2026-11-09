@@ -208,14 +208,6 @@
 		}
 	}
 
-	isMatrix { :self :aBlock/1 |
-		self.isArray(2, aBlock/1)
-	}
-
-	isMatrix { :self |
-		self.arrayDepth = 2
-	}
-
 	isFloatMatrix { :self |
 		self.arrayDepth = 2 & {
 			self.deepAllSatisfy(isFloat/1)
@@ -224,6 +216,14 @@
 
 	isFloatVector { :self |
 		self.allSatisfy(isFloat/1)
+	}
+
+	isMatrix { :self :aBlock/1 |
+		self.isArray(2, aBlock/1)
+	}
+
+	isMatrix { :self |
+		self.arrayDepth = 2
 	}
 
 	isVector { :self :aBlock/1 |

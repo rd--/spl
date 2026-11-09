@@ -21,7 +21,7 @@ This is much, much larger than the largest small integer:
 
 * * *
 
-See also: Float, epsilon, one, floatEpsilon
+See also: Float, epsilon, floatEpsilon, one
 
 Guides: Numerical Precision
 

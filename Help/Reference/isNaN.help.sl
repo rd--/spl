@@ -68,7 +68,7 @@ Threads over lists:
 
 * * *
 
-See also: NaN, Float, isFinite, isNaN
+See also: Float, NaN, isFinite, isNaN
 
 Guides: Mathematical Constants
 

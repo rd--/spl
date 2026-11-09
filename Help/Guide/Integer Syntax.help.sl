@@ -65,7 +65,7 @@ including when a radix is indicated:
 
 * * *
 
-See also: Integer, Integer, Float
+See also: Float, Integer, Integer
 
 Guides: Number Syntax, Radix Syntax
 

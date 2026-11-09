@@ -283,7 +283,7 @@ The specific type predicates are `isFraction`, `isFloat`, `isDecimal`.
 
 * * *
 
-See also: Integer, Number, isFraction, isGaussianInteger, isInteger, isNumber, isFloat, isSmallInteger, parseInteger, parseSmallInteger
+See also: Integer, Number, isFloat, isFraction, isGaussianInteger, isInteger, isNumber, isSmallInteger, parseInteger, parseSmallInteger
 
 Guides: Integer Functions, Predicate Functions
 

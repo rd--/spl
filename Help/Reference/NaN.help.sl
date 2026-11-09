@@ -103,7 +103,7 @@ NaN values are removed from plots:
 
 * * *
 
-See also: Infinity, Float, ifNaN, isFinite, isMissing, isNaN, replaceNaN
+See also: Float, Infinity, ifNaN, isFinite, isMissing, isNaN, replaceNaN
 
 Guides: Error Functions, Mathematical Constants
 

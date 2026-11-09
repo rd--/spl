@@ -56,7 +56,7 @@ Inverse is `srgbDecode`:
 
 * * *
 
-See also: Colour, List, RgbColour, Float, srgbDecode
+See also: Colour, Float, List, RgbColour, srgbDecode
 
 Guides: Colour Functions
 

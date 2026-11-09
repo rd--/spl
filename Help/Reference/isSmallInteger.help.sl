@@ -157,7 +157,7 @@ false
 
 * * *
 
-See also: Float, isGaussianInteger, isInteger, isInteger, isNumber, isFloat
+See also: Float, isFloat, isGaussianInteger, isInteger, isInteger, isNumber
 
 Guides: Integer Functions
 

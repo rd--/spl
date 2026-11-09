@@ -187,7 +187,7 @@ a.discretePlot
 
 * * *
 
-See also: NaN, Float, e, pi
+See also: Float, NaN, e, pi
 
 Guides: Mathematical Constants
 

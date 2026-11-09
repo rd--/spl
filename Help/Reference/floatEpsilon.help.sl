@@ -35,7 +35,7 @@ true
 
 * * *
 
-See also: Float, epsilon, one, floatMax
+See also: Float, epsilon, floatMax, one
 
 Guides: Numerical Precision
 

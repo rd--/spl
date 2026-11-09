@@ -52,6 +52,6 @@ Round a `Float` to a specified precision:
 
 * * *
 
-See also: Integer, Float, printStringShowingDecimalPlaces, round, floatEpsilon
+See also: Float, Integer, floatEpsilon, printStringShowingDecimalPlaces, round
 
 Guides: Numeric Types

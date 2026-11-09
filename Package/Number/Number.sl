@@ -322,6 +322,14 @@
 		}
 	}
 
+	floatEpsilon { :self |
+		self * system.floatEpsilon
+	}
+
+	floatMax { :self |
+		self * system.floatMax
+	}
+
 	floor { :self :epsilon |
 		let x = self.ceiling;
 		((self - x).abs < epsilon).if {
@@ -1112,14 +1120,6 @@
 		} {
 			self.sqrt
 		}
-	}
-
-	floatEpsilon { :self |
-		self * system.floatEpsilon
-	}
-
-	floatMax { :self |
-		self * system.floatMax
 	}
 
 	softClip { :self |

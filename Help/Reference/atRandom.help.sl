@@ -58,7 +58,7 @@ system.seedRandom(297142);
 
 * * *
 
-See also: anyOne, randomChoice, randomSmallInteger, randomReal, randomSample, randomVariate, randomWeightedChoice
+See also: anyOne, randomChoice, randomReal, randomSample, randomSmallInteger, randomVariate, randomWeightedChoice
 
 Guides: Random Number Functions
 

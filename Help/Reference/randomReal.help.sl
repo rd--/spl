@@ -83,7 +83,7 @@ Sfc32(814789)
 
 * * *
 
-See also: RandomNumberGenerator, System, atRandom, nextRandomFloat, randomChoice, randomComplex, randomSmallInteger, randomPoint, randomVariate
+See also: RandomNumberGenerator, System, atRandom, nextRandomFloat, randomChoice, randomComplex, randomPoint, randomSmallInteger, randomVariate
 
 Guides: Random Number Functions
 

@@ -39,6 +39,6 @@ Random non-zero integers:
 
 * * *
 
-See also: randomSmallInteger, randomReal
+See also: randomReal, randomSmallInteger
 
 Guides: Random Number Functions

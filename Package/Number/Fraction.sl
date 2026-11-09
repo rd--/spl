@@ -2,8 +2,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	| numerator denominator |
 
-	normalInteger { :self |
-		Integer(self).normalInteger
+	[Float, Float, fractionToFloat] { :self |
+		Float(self.numerator)
+		/
+		Float(self.denominator)
 	}
 
 	[Integer, L, fractionToInteger] { :self |
@@ -19,12 +21,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 			numerator: self.numerator.Integer,
 			denominator: self.denominator.Integer
 		)
-	}
-
-	[Float, Float, fractionToFloat] { :self |
-		Float(self.numerator)
-		/
-		Float(self.denominator)
 	}
 
 	[SmallInteger, fractionToSmallInteger] { :self |
@@ -393,6 +389,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	normalFraction { :self |
 		self.copy.normalize
+	}
+
+	normalInteger { :self |
+		Integer(self).normalInteger
 	}
 
 	normalize { :self |

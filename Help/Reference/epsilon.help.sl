@@ -27,7 +27,7 @@ Where supported `epsilon` is displayed as ε.
 
 * * *
 
-See also: ~, isClose, isVeryClose, pi, floatEpsilon
+See also: ~, floatEpsilon, isClose, isVeryClose, pi
 
 Guides: Mathematical Constants
 

@@ -9,8 +9,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		)
 	}
 
-	normalInteger { :self |
-		Integer(self).normalInteger
+	[Float, Float, decimalToFloat] { :self |
+		Float(self.decimalFraction)
 	}
 
 	[Integer, L, decimalToInteger] { :self |
@@ -19,10 +19,6 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		} {
 			self.error('Decimal>>Integer')
 		}
-	}
-
-	[Float, Float, decimalToFloat] { :self |
-		Float(self.decimalFraction)
 	}
 
 	[SmallInteger, decimalToSmallInteger] { :self |
@@ -172,6 +168,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 			self.decimalFraction.negate,
 			self.scale
 		)
+	}
+
+	normalInteger { :self |
+		Integer(self).normalInteger
 	}
 
 	numerator { :self |

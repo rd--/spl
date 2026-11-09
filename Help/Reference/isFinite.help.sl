@@ -54,7 +54,7 @@ false
 
 * * *
 
-See also: Infinity, NaN, Number, Float, /, isInteger, replaceNaN, zero
+See also: Float, Infinity, NaN, Number, /, isInteger, replaceNaN, zero
 
 Guides: Mathematical Functions
 

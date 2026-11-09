@@ -374,7 +374,7 @@ Methods for arithmetic:
 
 * * *
 
-See also: Binary, ByteArray, Float, Fraction, Integer, Number, Float, SmallInteger, parseInteger
+See also: Binary, ByteArray, Float, Float, Fraction, Integer, Number, SmallInteger, parseInteger
 
 Guides: Integer Functions, Number Functions
 

@@ -31,7 +31,7 @@ Sfc32(329743)
 
 * * *
 
-See also: Colour, randomComplex, randomSmallInteger, randomReal
+See also: Colour, randomComplex, randomReal, randomSmallInteger
 
 Guides: Random Number Functions
 

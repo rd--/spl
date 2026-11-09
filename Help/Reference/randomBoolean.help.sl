@@ -44,7 +44,7 @@ biased towards `true` values:
 
 * * *
 
-See also: atRandom, randomBit, randomComplex, randomSmallInteger, randomReal, seedRandom
+See also: atRandom, randomBit, randomComplex, randomReal, randomSmallInteger, seedRandom
 
 Guides: Random Number Functions
 

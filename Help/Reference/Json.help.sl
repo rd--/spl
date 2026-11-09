@@ -40,7 +40,7 @@ The types implementing the trait are:
 
 * * *
 
-See also: Boolean, List, Nil, Record, Float, String, encodeJson, isJson, json, parseJson
+See also: Boolean, Float, List, Nil, Record, String, encodeJson, isJson, json, parseJson
 
 Guides: Protocol Functions, String Functions
 

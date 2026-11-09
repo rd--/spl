@@ -759,10 +759,6 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 	}
 
-	raisedToPositiveSmallInteger { :self :operand |
-		self.uncheckedPower(operand)
-	}
-
 	raisedToFloat { :self :operand |
 		<primitive:
 		if(sl.isFloat(_operand)) {
@@ -771,6 +767,10 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 		>
 		'Float>>raisedToFloat: not Float'.error
+	}
+
+	raisedToPositiveSmallInteger { :self :operand |
+		self.uncheckedPower(operand)
 	}
 
 	ramanujansSum { :q :n |

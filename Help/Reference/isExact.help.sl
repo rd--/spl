@@ -59,7 +59,7 @@ true
 
 * * *
 
-See also: isComplex, isFraction, isInteger, isNumber, isFloat, isSmallInteger
+See also: isComplex, isFloat, isFraction, isInteger, isNumber, isSmallInteger
 
 Guides: Predicate Functions
 

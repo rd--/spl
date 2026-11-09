@@ -96,7 +96,7 @@ let a = NumericArray([7 23].iota);
 
 * * *
 
-See also: ByteArray, List, Float, SparseArray, Float32Array, Float64Array
+See also: ByteArray, Float, List, SparseArray, Float32Array, Float64Array
 
 Guides: Array Functions, Matrix Functions, Vector Functions
 

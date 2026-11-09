@@ -70,6 +70,18 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		<primitive: return sl.evaluateForSignalling('*Interactive*', _aString);>
 	}
 
+	floatEpsilon { :unused |
+		<primitive: return Number.EPSILON;>
+	}
+
+	floatMax { :unused |
+		<primitive: return Number.MAX_VALUE;>
+	}
+
+	floatMin { :unused |
+		<primitive: return Number.MIN_VALUE;>
+	}
+
 	homeDirectory { :self |
 		self.environmentVariable('HOME').ifNil {
 			self.error('homeDirectory: not set')
@@ -202,18 +214,6 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 	sessionTimeInMilliseconds { :unused |
 		<primitive: return performance.now();>
-	}
-
-	floatEpsilon { :unused |
-		<primitive: return Number.EPSILON;>
-	}
-
-	floatMax { :unused |
-		<primitive: return Number.MAX_VALUE;>
-	}
-
-	floatMin { :unused |
-		<primitive: return Number.MIN_VALUE;>
 	}
 
 	smallIntegerMax { :unused |

@@ -55,30 +55,6 @@
 		anInteger.iota.sattoloShuffle!(self).Permutation
 	}
 
-	randomSmallInteger { :self :range :shape |
-		let min = range.min;
-		let max = range.max;
-		self.randomReal([min, max + 1], shape).floor
-	}
-
-	randomSmallIntegerExcluding { :self :range :aBlock/1 :shape |
-		let min = range.min;
-		let max = range.max;
-		{
-			let x = nil;
-			{
-				x := (self.nextRandomFloat * (max + 1 - min) + min).floor
-			}.doWhileTrue {
-				aBlock(x)
-			};
-			x
-		} ! shape
-	}
-
-	randomSmallIntegerExcludingZero { :self :range :shape |
-		self.randomSmallIntegerExcluding(range, isZero/1, shape)
-	}
-
 	randomInteger { :self :range :shape |
 		let [a, b] = range;
 		{
@@ -163,6 +139,30 @@
 		answer
 	}
 
+	randomSmallInteger { :self :range :shape |
+		let min = range.min;
+		let max = range.max;
+		self.randomReal([min, max + 1], shape).floor
+	}
+
+	randomSmallIntegerExcluding { :self :range :aBlock/1 :shape |
+		let min = range.min;
+		let max = range.max;
+		{
+			let x = nil;
+			{
+				x := (self.nextRandomFloat * (max + 1 - min) + min).floor
+			}.doWhileTrue {
+				aBlock(x)
+			};
+			x
+		} ! shape
+	}
+
+	randomSmallIntegerExcludingZero { :self :range :shape |
+		self.randomSmallIntegerExcluding(range, isZero/1, shape)
+	}
+
 	randomSubsequence { :self :aSequence :aNumber |
 		let answer = [];
 		aSequence.do { :each |
@@ -227,10 +227,6 @@
 
 +Float {
 
-	randomSmallIntegerBipolar { :max |
-		system.randomSmallInteger([max.negate, max], [])
-	}
-
 	randomReal { :max :shape |
 		system.randomReal([0, max], shape)
 	}
@@ -241,6 +237,10 @@
 
 	randomRealBipolar { :max |
 		system.randomReal([max.negate, max], [])
+	}
+
+	randomSmallIntegerBipolar { :max |
+		system.randomSmallInteger([max.negate, max], [])
 	}
 
 }

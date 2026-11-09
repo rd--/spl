@@ -2,22 +2,14 @@
 
 Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, ImplicitFloat] {
 
-	normalInteger { :self |
-		self.isSmallInteger.if {
-			Float(self)
-		} {
-			self
-		}
-	}
-
-	[Integer, L] { :self |
-		self
-	}
-
 	[Float, largeIntegerToFloat] { :self |
 		<primitive:
 		return Number(_self);
 		>
+	}
+
+	[Integer, L] { :self |
+		self
 	}
 
 	[SmallInteger, largeIntegerToSmallInteger]  { :self |
@@ -280,6 +272,14 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		}
 		>
 		anObject.adaptToIntegerAndApply(self, mod/2)
+	}
+
+	normalInteger { :self |
+		self.isSmallInteger.if {
+			Float(self)
+		} {
+			self
+		}
 	}
 
 	numberOfDigitsInBase { :self :radix |
