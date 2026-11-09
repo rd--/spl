@@ -7,8 +7,8 @@ Traits:
 Types:
 
 - `EisensteinInteger`
-- `SmallFloat`
-- `LargeInteger`
+- `Float`
+- `Integer`
 
 Psuedo-Types:
 
@@ -136,7 +136,7 @@ Partition Functions:
 
 Parsing Functions:
 
-- `parseLargeInteger`
+- `parseInteger`
 - `parseSmallInteger`
 
 Predicates:
@@ -147,7 +147,7 @@ Predicates:
 - `isHarmonicDivisorNumber`
 - `isInteger`
 - `isIntegerArray`
-- `isLargeInteger`
+- `isInteger`
 - `isNonNegativeInteger`
 - `isNonZero`
 - `isOne`

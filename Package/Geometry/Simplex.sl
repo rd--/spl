@@ -16,7 +16,7 @@ Simplex : [Object, Equal] {
 
 }
 
-+SmallFloat {
++Float {
 
 	kuhnTriangulation { :self |
 		let basisVector = { :n :m |

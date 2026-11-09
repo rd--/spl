@@ -26,7 +26,7 @@ At `Fraction`:
 [false true]
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 13.factorial.isPowerOfTwo
@@ -36,7 +36,7 @@ false
 true
 ```
 
-Answers correctly for `SmallFloat` values that answer `false` for `isBinary`,
+Answers correctly for `Float` values that answer `false` for `isBinary`,
 but `true` for `isSmallInteger`:
 
 ```
@@ -50,11 +50,11 @@ true
 false
 ```
 
-It is an error if the `SmallFloat` is not a `SmallInteger`:
+It is an error if the `Float` is not a `SmallInteger`:
 
 ```
 >>> {
->>> 	SmallFloat(2 ^ 672).isPowerOfTwo
+>>> 	Float(2 ^ 672).isPowerOfTwo
 >>> }.hasError
 true
 ```

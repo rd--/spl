@@ -20,13 +20,13 @@ Lookup the `collect` method at `List`:
 (true, [2 3 4])
 ```
 
-Lookup the `+` method at `SmallFloat`:
+Lookup the `+` method at `Float`:
 
 ```
 >>> let m = system.methodLookupAtType(
 >>> 	'plusSign',
 >>> 	2,
->>> 	'SmallFloat'
+>>> 	'Float'
 >>> );
 >>> let f/2 = m.block;
 >>> (

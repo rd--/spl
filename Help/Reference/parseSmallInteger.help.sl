@@ -2,7 +2,7 @@
 
 - _parseSmallInteger(s, r=10, f/0)_
 
-Answer the `SmallFloat` of the integer indicated by the string _s_,
+Answer the `Float` of the integer indicated by the string _s_,
 which must be in radix _r_ notation.
 If the string is not an integer,
 evaluate the else clause _f_,
@@ -111,6 +111,6 @@ true
 
 * * *
 
-See also: SmallFloat, isRadixIntegerString, parseDecimalInteger, parseFraction, parseLargeInteger, parseNumber
+See also: Float, isRadixIntegerString, parseDecimalInteger, parseFraction, parseInteger, parseNumber
 
 Guides: Integer Functions, Parsing Functions

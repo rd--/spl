@@ -20,7 +20,7 @@ Parse `Boolean`:
 [true false]
 ```
 
-Parse `SmallFloat`:
+Parse `Float`:
 
 ```
 >>> ['3.141' '23'].collect(parseJson/1)

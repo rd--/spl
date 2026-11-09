@@ -40,7 +40,7 @@ false
 Fractions can be converted to floating point numbers:
 
 ```
->>> 3/4.SmallFloat
+>>> 3/4.Float
 0.75
 
 >>> 3/4.Float
@@ -79,7 +79,7 @@ The `Fraction` method reduces fractions on construction:
 
 The `uncheckedFraction` method does not,
 it assumes the fraction being specified is in reduced form,
-and requires the arguments be `LargeInteger` values:
+and requires the arguments be `Integer` values:
 
 ```
 >>> uncheckedFraction(2L, 3L)
@@ -120,7 +120,7 @@ integers, however, are not fractions:
 [true true true]
 ```
 
-A `Fraction` can be derived from a `SmallFloat` using `rationalize`:
+A `Fraction` can be derived from a `Float` using `rationalize`:
 
 ```
 >>> 1.pi.rationalize
@@ -221,7 +221,7 @@ Note that `Fraction` and `Integer` represent together the set of Rational number
 - Integer is a subset of rational (those which are whole numbers)
 - Fraction is used for representing the complementary subset of rational (those which are not whole numbers)
 
-`LargeInteger` defines `/` to answer a `Fraction`:
+`Integer` defines `/` to answer a `Fraction`:
 
 ```
 >>> 2L / 3L
@@ -266,9 +266,9 @@ Operands may be collections:
 ]
 ```
 
-A `Fraction` whose elements are of type `SmallFloat` will have odd behaviour for large components,
-a `Fraction` whose elements are of type `LargeInteger` will behave ordinarily.
-The `Fraction` constructor constructs fractions with `LargeInteger` components.
+A `Fraction` whose elements are of type `Float` will have odd behaviour for large components,
+a `Fraction` whose elements are of type `Integer` will behave ordinarily.
+The `Fraction` constructor constructs fractions with `Integer` components.
 
 ```
 >>> let x = Fraction(2 ^ 55, 2);
@@ -429,9 +429,9 @@ Sometimes `\` is defined as the operator form of `Fraction`:
 (1/3, [1/3 3/5 5/7])
 ```
 
-A `Fraction` multiplied by a `SmallFloat`,
+A `Fraction` multiplied by a `Float`,
 and vice-versa,
-answers a `SmallFloat`:
+answers a `Float`:
 
 ```
 >>> 1/3 * 0.333

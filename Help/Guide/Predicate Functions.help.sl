@@ -6,12 +6,12 @@ Numeric Trait & Type Predicates:
 - `isDecimal`
 - `isFraction`
 - `isInteger`
-- `isLargeInteger
+- `isInteger
 - `isNumber`
 - `isRational`
 - `isReal`
 - `isScalar`
-- `isSmallFloat`
+- `isFloat`
 - `isSmallInteger`
 
 Number Predicates:

@@ -5,7 +5,7 @@
 Answers the arc sine of the complex number _z_.
 The arc sine is the inverse sine function.
 
-`SmallFloat` arguments:
+`Float` arguments:
 
 ```
 >>> 1.arcSin

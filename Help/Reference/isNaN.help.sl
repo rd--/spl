@@ -15,14 +15,14 @@ false
 true
 ```
 
-Not a number is a `SmallFloat` value:
+Not a number is a `Float` value:
 
 ```
->>> NaN.isSmallFloat
+>>> NaN.isFloat
 true
 ```
 
-A `LargeInteger` is never not a number:
+A `Integer` is never not a number:
 
 ```
 >>> 23L.isNaN
@@ -68,7 +68,7 @@ Threads over lists:
 
 * * *
 
-See also: NaN, SmallFloat, isFinite, isNaN
+See also: NaN, Float, isFinite, isNaN
 
 Guides: Mathematical Constants
 

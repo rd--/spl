@@ -48,7 +48,7 @@ Large exponent:
 
 ```
 >>> let n = 1023;
->>> let m = SmallFloat(2 ^ n);
+>>> let m = Float(2 ^ n);
 >>> let x = m.fractionExponent;
 >>> let y = 0.5 * (2 ^ 1) * m;
 >>> (x, y)
@@ -59,7 +59,7 @@ Large exponent:
 >>> (x.integerLength(10), x = y)
 (308, true)
 
->>> let x = SmallFloat(2 ^ 1023);
+>>> let x = Float(2 ^ 1023);
 >>> let y = ldexp(0.5, 1024);
 >>> (x, x = y)
 (8.988E+307, true)
@@ -67,7 +67,7 @@ Large exponent:
 
 * * *
 
-See also: SmallFloat, loadExponent, mantissaExponent
+See also: Float, loadExponent, mantissaExponent
 
 Guides: Floating Point Functions
 

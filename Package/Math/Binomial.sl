@@ -523,7 +523,7 @@
 
 }
 
-+LargeInteger {
++Integer {
 
 	gouldsNumber { :n |
 		0L.to(n).collect { :k |

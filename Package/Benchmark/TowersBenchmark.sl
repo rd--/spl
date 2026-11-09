@@ -4,7 +4,7 @@ TowersDisk : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	TowersDisk { :self |
 		newTowersDisk().initializeSlots(self, nil)

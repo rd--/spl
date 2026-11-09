@@ -1,63 +1,63 @@
-# SmallFloat
+# Float
 
-- _SmallFloat(x)_
+- _Float(x)_
 
 A `Type` representing floating-point numbers like 23 or 3.141.
 
-In the `Fraction` case, answer the nearest `SmallFloat`:
+In the `Fraction` case, answer the nearest `Float`:
 
 ```
->>> SmallFloat(1/4)
+>>> Float(1/4)
 0.25
 ```
 
 At `Decimal`:
 
 ```
->>> SmallFloat(3.141D)
+>>> Float(3.141D)
 3.141
 ```
 
-In the `LargeInteger` case:
+In the `Integer` case:
 
 ```
->>> SmallFloat(23L)
+>>> Float(23L)
 23
 
->>> SmallFloat(2L ^ 54)
+>>> Float(2L ^ 54)
 18014398509481984.0
 
->>> SmallFloat(2L ^ 99)
+>>> Float(2L ^ 99)
 6.33825E29
 ```
 
-In the `SmallFloat` case answer _identity_:
+In the `Float` case answer _identity_:
 
 ```
->>> SmallFloat(23)
+>>> Float(23)
 23
 
->>> SmallFloat(1.pi)
+>>> Float(1.pi)
 1.pi
 
->> SmallFloat(NaN)
+>> Float(NaN)
 NaN
 ```
 
 At `Infinity`:
 
 ```
->>> SmallFloat(Infinity)
+>>> Float(Infinity)
 Infinity
 ```
 
 Threads over lists:
 
 ```
->>> SmallFloat[1L 3/4]
+>>> Float[1L 3/4]
 [1 0.75]
 
->>> SmallFloat[1 2; 3 4]
+>>> Float[1 2; 3 4]
 [1 2; 3 4]
 ```
 
@@ -65,13 +65,13 @@ Literal syntaxes:
 
 ```
 >>> 3.141.typeName
-'SmallFloat'
+'Float'
 
 >>> 23.typeName
-'SmallFloat'
+'Float'
 
 >>> 2.3E3.typeName
-'SmallFloat'
+'Float'
 ```
 
 There is no distinct small integer type,
@@ -151,10 +151,10 @@ Count leading zeroes:
 7
 ```
 
-List traits implemented by `SmallFloat`:
+List traits implemented by `Float`:
 
 ```
->>> system.typeLookup('SmallFloat')
+>>> system.typeLookup('Float')
 >>> .traitNameList
 >>> .sort!
 [
@@ -172,7 +172,7 @@ List traits implemented by `SmallFloat`:
 
 * * *
 
-See also: Complex, Float, Fraction, Integer, LargeInteger
+See also: Complex, Float, Fraction, Integer, Integer
 
 Guides: Numeric Types
 

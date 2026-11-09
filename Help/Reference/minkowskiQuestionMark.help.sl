@@ -12,7 +12,7 @@ At a quadratic irrational number:
 2/7
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> (1 + 5.sqrt / 7)

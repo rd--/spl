@@ -4,7 +4,7 @@
 
 Derive a `Fraction` for the number _x_ where the integer _n_ is the number of decimal places.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 1.pi.deriveDecimalFraction(2)

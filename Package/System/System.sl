@@ -387,7 +387,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 }
 
-+[SmallFloat, String] {
++[Float, String] {
 
 	seedRandom { :self |
 		system.seedRandom(self)
@@ -488,8 +488,8 @@ System! : [Object, Cache, RandomNumberGenerator] {
 					'Identifier' -> {
 						Symbol(p[1])
 					},
-					'LargeInteger' -> {
-						p[1].allButLast.parseLargeInteger
+					'Integer' -> {
+						p[1].allButLast.parseInteger
 					},
 					'Let' -> {
 						SymbolicExpression('≔', p.collect(f/1))
@@ -512,7 +512,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 							]
 						)
 					},
-					'SmallFloat' -> {
+					'Float' -> {
 						p[1].parseNumber
 					},
 					'SmallInteger' -> {

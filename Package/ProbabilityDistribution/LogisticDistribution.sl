@@ -47,7 +47,7 @@ LogisticDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	LogisticDistribution { :mu :beta |
 		newLogisticDistribution().initializeSlots(mu, beta)

@@ -6,7 +6,7 @@ Answer a `String` that is a description of the object _x_.
 In the case that the object is an integer the radix _r_ may be specified.
 In the case that the object is a floating point number the precision _k_ may be specified.
 
-At integer `SmallFloat`:
+At integer `Float`:
 
 ```
 >>> 23.printString
@@ -16,14 +16,14 @@ At integer `SmallFloat`:
 '-23'
 ```
 
-At fractional `SmallFloat`:
+At fractional `Float`:
 
 ```
 >>> 3.141.printString
 '3.141'
 ```
 
-At `SmallFloat` with radix argument,
+At `Float` with radix argument,
 the answer is a valid Sᴘʟ expression:
 
 ```
@@ -37,7 +37,7 @@ the answer is a valid Sᴘʟ expression:
 -42
 ```
 
-At `LargeInteger`,
+At `Integer`,
 with and without radix argument:
 
 ```
@@ -80,7 +80,7 @@ At `Decimal`:
 '-2D'
 ```
 
-At `SmallFloat` with precision:
+At `Float` with precision:
 
 ```
 >>> 1.pi.printString(10, 3)

@@ -8,7 +8,7 @@ and parameter list _p_.
 
 ```
 >>> 3.141.errorMessage('Not an integer', [])
-'SmallFloat: Not an integer: []: (3.141)'
+'Float: Not an integer: []: (3.141)'
 ```
 
 * * *

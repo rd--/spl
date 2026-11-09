@@ -334,7 +334,7 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 				[
 					lhs,
 					self.operands.collect { :each |
-						each.isSmallFloat.if {
+						each.isFloat.if {
 							each.recogniseSymbolicExpression
 						} {
 							each
@@ -430,7 +430,7 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 
 }
 
-+[SmallFloat] {
++[Float] {
 
 	isEqualSymbolicExpression { :self :anObject |
 		self == anObject
@@ -438,7 +438,7 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 
 }
 
-+SmallFloat {
++Float {
 
 	recogniseSymbolicExpression { :self |
 		self.caseOf(

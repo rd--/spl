@@ -1,56 +1,56 @@
-# isSmallFloat
+# isFloat
 
-- _isSmallFloat(x)_
+- _isFloat(x)_
 
-Answers `true` if the object _x_ is a `SmallFloat`, else `false`.
+Answers `true` if the object _x_ is a `Float`, else `false`.
 
 Floating point literal:
 
 ```
->>> 3.141.isSmallFloat
+>>> 3.141.isFloat
 true
 ```
 
-Integer literals define `SmallFloat` values:
+Integer literals define `Float` values:
 
 ```
->>> 23.isSmallFloat
+>>> 23.isFloat
 true
 ```
 
 Fraction literals:
 
 ```
->>> (2/3.isSmallFloat, 2/3.isFraction)
+>>> (2/3.isFloat, 2/3.isFraction)
 (false, true)
 ```
 
 Complex literals:
 
 ```
->>> (2J3.isSmallFloat, 2J3.isComplex)
+>>> (2J3.isFloat, 2J3.isComplex)
 (false, true)
 ```
 
 Large integer literals:
 
 ```
->>> (23L.isSmallFloat, 23L.isLargeInteger)
+>>> (23L.isFloat, 23L.isInteger)
 (false, true)
 ```
 
 A `List` is not a number:
 
 ```
->>> [1 2 3].isSmallFloat
+>>> [1 2 3].isFloat
 false
 
->>> [1 2 3].allTrue(isSmallFloat/1)
+>>> [1 2 3].allTrue(isFloat/1)
 true
 ```
 
 * * *
 
-See also: SmallFloat, isComplex, isFraction, isLargeInteger, isNumber
+See also: Float, isComplex, isFraction, isInteger, isNumber
 
 Guides: Floating Point Functions, Predicate Functions

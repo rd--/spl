@@ -5,7 +5,7 @@
 The non-generalised factorial function,
 the `product` of the integers from `one` up to _n_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 5.integerFactorial
@@ -15,7 +15,7 @@ At `SmallFloat`:
 6227020800
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 5L.integerFactorial

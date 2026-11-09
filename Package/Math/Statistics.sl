@@ -401,7 +401,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	logarithmicMean { :x :y |
 		(x = y).if {

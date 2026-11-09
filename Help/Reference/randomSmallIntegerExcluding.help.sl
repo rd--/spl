@@ -1,6 +1,6 @@
-# randomIntegerExcluding
+# randomSmallIntegerExcluding
 
-- _randomIntegerExcluding(r, [min max], f/1, shape)_
+- _randomSmallIntegerExcluding(r, [min max], f/1, shape)_
 
 Answer an array of the indicated _shape_ containing random integer between _min_ and _max_,
 that do not match the predicate function _f_.
@@ -9,7 +9,7 @@ Random odd integers:
 
 ```
 >>> let r = Sfc32(37194);
->>> r.randomIntegerExcluding(
+>>> r.randomSmallIntegerExcluding(
 >>> 	[1 23], isEven/1, [5 5]
 >>> )
 [
@@ -25,7 +25,7 @@ Random non-zero integers:
 
 ```
 >>> let r = Sfc32(37194);
->>> r.randomIntegerExcluding(
+>>> r.randomSmallIntegerExcluding(
 >>> 	[-23 23], isZero/1, [5 5]
 >>> )
 [
@@ -39,6 +39,7 @@ Random non-zero integers:
 
 * * *
 
-See also: randomInteger, randomReal
+See also: randomSmallInteger, randomReal
 
-Categories: Random
+Guides: Random Number Functions
+

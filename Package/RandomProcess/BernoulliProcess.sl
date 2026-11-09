@@ -16,7 +16,7 @@ BernoulliProcess : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	BernoulliProcess { :p |
 		newBernoulliProcess().initializeSlots(p)

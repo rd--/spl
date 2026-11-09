@@ -40,10 +40,10 @@ true
 'Unknown'
 ```
 
-The `SmallFloat` constructor represents missing values as `NaN`:
+The `Float` constructor represents missing values as `NaN`:
 
 ```
->> SmallFloat(Missing('Invalid'))
+>> Float(Missing('Invalid'))
 NaN
 ```
 

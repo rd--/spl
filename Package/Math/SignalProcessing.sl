@@ -1,4 +1,4 @@
-+SmallFloat {
++Float {
 
 	aWeightingCurve { :x |
 		let a = (x ** 4) * (12194L ^ 2);

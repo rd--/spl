@@ -72,10 +72,10 @@ At `zero` and `one`:
 [1]
 ```
 
-Rational number as `SmallFloat`:
+Rational number as `Float`:
 
 ```
->>> SmallFloat(47/17).continuedFraction(4)
+>>> Float(47/17).continuedFraction(4)
 [2 1 3 4]
 
 >>> 2 + (1 / (1 + (1 / (3 + 1/4))))
@@ -84,18 +84,18 @@ Rational number as `SmallFloat`:
 >>> 0.84375.continuedFraction
 [0 1 5 2 2]
 
->>> SmallFloat(22/45).continuedFraction
+>>> Float(22/45).continuedFraction
 [0 2 22]
 
 >>> (-151 / 77).continuedFraction
 [-2 25 1 2]
 ```
 
-At `SmallFloat`,
+At `Float`,
 does not simplify final term:
 
 ```
->>> SmallFloat(13/27).continuedFraction
+>>> Float(13/27).continuedFraction
 [0 2 12 1]
 
 >>> 0 + (1 / (2 + (1 / (12 + 1/1))))

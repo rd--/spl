@@ -2,7 +2,7 @@
 
 - _julianYears(t)_
 
-At `SmallFloat`,
+At `Float`,
 answer a `Quantity` representing _x_ Julian years.
 A Julian year is a unit of measurement of time defined as exactly 365.25 days of 86400 seconds each.
 

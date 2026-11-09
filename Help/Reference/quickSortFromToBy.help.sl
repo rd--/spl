@@ -22,7 +22,7 @@ Sort the first half of a random sequence of integers:
 
 ```
 >>> let r = Sfc32(178942);
->>> let l = r.randomInteger([1 23], [10]);
+>>> let l = r.randomSmallInteger([1 23], [10]);
 >>> [
 >>> 	l,
 >>> 	l.copy.quickSortFromToBy(

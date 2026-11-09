@@ -1,4 +1,4 @@
-+[SmallFloat, LargeInteger] {
++[Float, Integer] {
 
 	ellipticKFukushima { :m |
 		/* https://observablehq.com/@dan-reznik/jacobi-elliptic-functions */
@@ -262,7 +262,7 @@
 		z.isZero.if {
 			0.5
 		} {
-			(z.isSmallFloat & { z < 0 }).if {
+			(z.isFloat & { z < 0 }).if {
 				riemannXi(1 - z)
 			} {
 				/* ((z - 1) * gamma((0.5 * z) + 1) * zeta(z)) / sqrt(1.pi ^ z) */
@@ -293,7 +293,7 @@
 
 }
 
-+[SmallFloat, Complex] {
++[Float, Complex] {
 
 	hypergeometric2F1 { :a :b :c :z |
 		let tolerance = 1E-10;
@@ -318,7 +318,7 @@
 
 }
 
-+[SmallFloat, LargeInteger, Fraction] {
++[Float, Integer, Fraction] {
 
 	ellipticE { :m |
 		/* https://github.com/duetosymmetry/elliptic-integrals-js */
@@ -434,16 +434,16 @@
 	}
 
 	jacobiCn { :u :m |
-		u := SmallFloat(u);
-		m := SmallFloat(m);
+		u := Float(u);
+		m := Float(m);
 		let r = jacobianEllipticFunctions(u, m);
 		let cn = r['cn'];
 		cn
 	}
 
 	jacobiDn { :u :m |
-		u := SmallFloat(u);
-		m := SmallFloat(m);
+		u := Float(u);
+		m := Float(m);
 		let r = jacobianEllipticFunctions(u, m);
 		let dn = r['dn'];
 		dn
@@ -457,8 +457,8 @@
 				d - (-v % d)
 			}
 		};
-		u := SmallFloat(u);
-		m := SmallFloat(m);
+		u := Float(u);
+		m := Float(m);
 		let r = jacobianEllipticFunctions(u, m);
 		let sn = r['sn'];
 		let k = m.ellipticKFukushima;
@@ -488,7 +488,7 @@
 		dyadicRationals(x, n).sum { :k |
 			(
 				-1 ^ digitSum(
-					LargeInteger(k * (2 ^ n)),
+					Integer(k * (2 ^ n)),
 					2
 				)
 			)
@@ -513,19 +513,19 @@
 
 	hypergeometric2F1 { :a :b :c :z |
 		hypergeometric2F1(
-			SmallFloat(a),
-			SmallFloat(b),
-			SmallFloat(c),
-			SmallFloat(z)
+			Float(a),
+			Float(b),
+			Float(c),
+			Float(z)
 		)
 	}
 
 	lambertW { :x |
-		lambertW(SmallFloat(x))
+		lambertW(Float(x))
 	}
 
 	productLog { :self |
-		productLog(SmallFloat(self))
+		productLog(Float(self))
 	}
 
 }

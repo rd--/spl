@@ -18,7 +18,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	Mass { :self |
 		Quantity(self, 'kilogram')

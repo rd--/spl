@@ -19,10 +19,10 @@ true
 -1.infinity
 ```
 
-Infinity is a `SmallFloat` value:
+Infinity is a `Float` value:
 
 ```
->>> 1.infinity.isSmallFloat
+>>> 1.infinity.isFloat
 true
 ```
 

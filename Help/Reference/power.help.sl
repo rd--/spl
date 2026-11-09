@@ -5,7 +5,7 @@
 Answers the number _m_ raised to the power of _n_.
 The operator form is `^`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 2.square ^ 3
@@ -53,7 +53,7 @@ With negative exponent:
 [1/25 1/1000 1/16]
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 2L ^ 2
@@ -69,7 +69,7 @@ At `LargeInteger`:
 20880467999847912034355032910567L
 ```
 
-`LargeInteger` exponent at `SmallFloat`:
+`Integer` exponent at `Float`:
 
 ```
 >>> 2.5 ^ 3L
@@ -92,7 +92,7 @@ At `Fraction`:
 [1/729 1/81 1/9]
 ```
 
-`SmallFloat` base and `Fraction` exponent:
+`Float` base and `Fraction` exponent:
 
 ```
 >>> 2.5 ^ 3/4
@@ -108,7 +108,7 @@ Note that floating point errors are introduced for small _m_ and _n_:
 >>> 13 ^ 16
 665416609183179841L
 
->>> SmallFloat(13 ^ 16)
+>>> Float(13 ^ 16)
 665416609183179900.0
 ```
 
@@ -337,7 +337,7 @@ At `Fraction` answers a fraction if the exponent is an integer:
 9
 ```
 
-and a `SmallFloat` if not:
+and a `Float` if not:
 
 ```
 >>> 3/2 ^ 1/2
@@ -432,7 +432,7 @@ At `Symbol`:
 (^ m n)
 ```
 
-Can overflow `LargeInteger`:
+Can overflow `Integer`:
 
 ```
 >>> {

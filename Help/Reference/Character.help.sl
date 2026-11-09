@@ -12,7 +12,7 @@ At `String`:
 99
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> Character(99)

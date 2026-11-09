@@ -14,7 +14,7 @@ At integer sequence:
 ```
 
 At sequence with integers, reals and fractions,
-note how `=` and `==` compare equivalent `Fraction` and `SmallFloat` values:
+note how `=` and `==` compare equivalent `Fraction` and `Float` values:
 
 ```
 >>> [

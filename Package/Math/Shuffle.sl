@@ -4,7 +4,7 @@
 		aList.size.toByDo(2, -1) { :each |
 			aList.swapWith!(
 				each,
-				self.nextRandomInteger(1, each)
+				self.nextRandomSmallInteger(1, each)
 			)
 		};
 		aList
@@ -15,7 +15,7 @@
 		{
 			i > 1
 		}.whileTrue {
-			let j = self.nextRandomInteger(1, i - 1);
+			let j = self.nextRandomSmallInteger(1, i - 1);
 			aList.swapWith!(i, j);
 			i := i - 1
 		};
@@ -179,7 +179,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	milkShuffleIndices { :n |
 		let m = n // 2;

@@ -5,7 +5,7 @@
 Decode non-linear _Rgb_ values to linear _Rgb_ values using the _Adobe_ colour component transfer function (Cctf).
 Also called the inverse companding or gamma function.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 0.73536

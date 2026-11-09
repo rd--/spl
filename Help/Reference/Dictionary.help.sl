@@ -113,7 +113,7 @@ A `Dictionary` with `String` keys:
 ['x' 1; 'y' 2; 'z' 3]
 ```
 
-A `Dictionary` with `SmallFloat` keys:
+A `Dictionary` with `Float` keys:
 
 ```
 >>> let d = Dictionary[

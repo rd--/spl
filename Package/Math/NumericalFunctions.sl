@@ -1,4 +1,4 @@
-+[SmallFloat, Fraction] {
++[Float, Fraction] {
 
 	cosineWave { :x |
 		(x * 2.pi).cos

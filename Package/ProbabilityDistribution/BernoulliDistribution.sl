@@ -77,7 +77,7 @@ BernoulliDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Fraction, Symbol] {
++[Float, Fraction, Symbol] {
 
 	BernoulliDistribution { :p |
 		newBernoulliDistribution().initializeSlots(p)

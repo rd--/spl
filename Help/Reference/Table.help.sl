@@ -13,7 +13,7 @@ the `columnLabels` and `columnTypes` answer the column labels and types:
 >>> let t = Table(
 >>> 	[1 2; 3 4],
 >>> 	['A' 'B'],
->>> 	['SmallFloat' 'SmallFloat']
+>>> 	['Float' 'Float']
 >>> );
 >>> (
 >>> 	t.cellMatrix,
@@ -23,7 +23,7 @@ the `columnLabels` and `columnTypes` answer the column labels and types:
 (
 	[1 2; 3 4],
 	['A' 'B'],
-	['SmallFloat' 'SmallFloat']
+	['Float' 'Float']
 )
 ```
 

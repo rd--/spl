@@ -54,7 +54,7 @@ GeometricDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	GeometricDistribution { :p |
 		newGeometricDistribution().initializeSlots(p)

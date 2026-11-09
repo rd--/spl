@@ -7,7 +7,7 @@ answers `true` if the object _x_ is equal to another object _y_, else `false`.
 The meaning of equality is determined by the type of _x_.
 The operator form is `=`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 3.0 = 1.0
@@ -17,7 +17,7 @@ false
 true
 ```
 
-Compare equal `SmallFloat` and `LargeInteger`:
+Compare equal `Float` and `Integer`:
 
 ```
 >>> 2.0 = 2L
@@ -86,7 +86,7 @@ true
 true
 ```
 
-At `SmallFloat` and `Fraction`:
+At `Float` and `Fraction`:
 
 ```
 >>> (3/2 = 1.5, 1.5 = 3/2)
@@ -96,7 +96,7 @@ At `SmallFloat` and `Fraction`:
 (true, true)
 ```
 
-At `SmallFloat` and `Decimal`:
+At `Float` and `Decimal`:
 
 ```
 >>> 1.5D = 1.5

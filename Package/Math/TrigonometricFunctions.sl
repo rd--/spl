@@ -1,4 +1,4 @@
-+SmallFloat {
++Float {
 
 	arcCos { :self |
 		self.isBetween(-1, 1).if {
@@ -42,7 +42,7 @@
 
 	atan2 { :self :operand |
 		<primitive:
-		if(sl.isSmallFloat(_operand)) {
+		if(sl.isFloat(_operand)) {
 			return Math.atan2(_self, _operand);
 		}
 		>
@@ -202,7 +202,7 @@
 
 }
 
-+[SmallFloat, Complex] {
++[Float, Complex] {
 
 	[arcCot, arcCotangent] { :self |
 		(1 / self).arcTan
@@ -335,47 +335,47 @@
 +@ImplicitFloat {
 
 	arcCos { :self |
-		SmallFloat(self).arcCos
+		Float(self).arcCos
 	}
 
 	[arcCot, arcCotangent] { :self |
-		SmallFloat(self).arcCot
+		Float(self).arcCot
 	}
 
 	arcSin { :self |
-		SmallFloat(self).arcSin
+		Float(self).arcSin
 	}
 
 	arcTan { :self |
-		SmallFloat(self).arcTan
+		Float(self).arcTan
 	}
 
 	arcTan { :self :operand |
-		SmallFloat(self).arcTan(
-			SmallFloat(operand)
+		Float(self).arcTan(
+			Float(operand)
 		)
 	}
 
 	atan2 { :self :operand |
-		SmallFloat(self).atan2(
-			SmallFloat(operand)
+		Float(self).atan2(
+			Float(operand)
 		)
 	}
 
 	cos { :self |
-		SmallFloat(self).cos
+		Float(self).cos
 	}
 
 	[csc, cosecant] { :self |
-		SmallFloat(self).cos
+		Float(self).cos
 	}
 
 	sin { :self |
-		SmallFloat(self).sin
+		Float(self).sin
 	}
 
 	tan { :self |
-		SmallFloat(self).tan
+		Float(self).tan
 	}
 
 }

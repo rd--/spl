@@ -21,7 +21,7 @@ Random integers:
 
 ```
 >>> Sfc32(38014)
->>> .randomInteger([1 9], [99])
+>>> .randomSmallInteger([1 9], [99])
 >>> .nub(==)
 [9 4 8 3 2 1 6 7 5]
 ```

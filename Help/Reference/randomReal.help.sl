@@ -7,28 +7,32 @@ Answer an array of the indicated _shape_ containing random real numbers between 
 Uniform distribution, uni-polar:
 
 ```
->>> Sfc32(1684).randomReal([0 1], [])
+>>> Sfc32(1684)
+>>> .randomReal([0 1], [])
 0.6949
 ```
 
 Uniform distribution, bi-polar:
 
 ```
->>> Sfc32(19442).randomReal([-1 1], [])
+>>> Sfc32(19442)
+>>> .randomReal([-1 1], [])
 -0.7021
 ```
 
 A vector of five random numbers:
 
 ```
->>> Sfc32(37194).randomReal([-1 1], [5])
+>>> Sfc32(37194)
+>>> .randomReal([-1 1], [5])
 [0.2422 0.8461 -0.4622 -0.9531 0.4011]
 ```
 
 A 3×4 matrix of random numbers:
 
 ```
->>> Sfc32(73198).randomReal([-1 1], [3 4])
+>>> Sfc32(73198)
+>>> .randomReal([-1 1], [3 4])
 [
 	-0.83962 -0.72375 -0.67470 -0.03642;
 	-0.62561 -0.33655  0.32850 -0.81299;
@@ -79,7 +83,7 @@ Sfc32(814789)
 
 * * *
 
-See also: RandomNumberGenerator, System, atRandom, nextRandomFloat, randomChoice, randomComplex, randomInteger, randomPoint, randomVariate
+See also: RandomNumberGenerator, System, atRandom, nextRandomFloat, randomChoice, randomComplex, randomSmallInteger, randomPoint, randomVariate
 
 Guides: Random Number Functions
 

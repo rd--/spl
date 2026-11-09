@@ -1,14 +1,14 @@
 # Integer Types
 
-There is only one integer type, `LargeInteger`.
+There is only one integer type, `Integer`.
 
-However `SmallFloat` is adopted as a pseudo-type for small integers.
+However `Float` is adopted as a pseudo-type for small integers.
 
-In particular, indexing operations expect `SmallFloat` values,
-not `LargeInteger` values.
+In particular, indexing operations expect `Float` values,
+not `Integer` values.
 
-Primitive mathematical operations that overflow at `SmallFloat` are checked,
-and answer `LargeInteger` values:
+Primitive mathematical operations that overflow at `Float` are checked,
+and answer `Integer` values:
 
 ```
 >>> (3 ^ 23).square

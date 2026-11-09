@@ -14,7 +14,7 @@ Specific values:
 >>> 12/19.takagiFunction(15)
 50465/77824
 
->>> SmallFloat(12/19)
+>>> Float(12/19)
 >>> .takagiFunction(15)
 0.64845
 

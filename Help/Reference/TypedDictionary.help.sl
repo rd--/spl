@@ -41,7 +41,7 @@ If the keys are of an _immediate_ type, the underlying dictionary is a `Map`:
 >>> )
 (
 	'TypedDictionary',
-	'SmallFloat',
+	'Float',
 	[1 2 3],
 	['x' 'y' 'z'],
 	[1 -> 'x', 2 -> 'y', 3 -> 'z'],

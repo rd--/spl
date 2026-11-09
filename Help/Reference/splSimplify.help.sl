@@ -15,8 +15,8 @@ and `List Syntax` expressions are not rewritten:
 [nil, true, false, []]
 ```
 
-`SmallFloat`,
-`LargeInteger` and
+`Float`,
+`Integer` and
 `String` literals are not rewritten:
 
 ```
@@ -99,7 +99,7 @@ Fraction(-3L, 4L)
 Residue(5, 12)
 ```
 
-`Radix Syntax` integer literals are rewritten as `SmallFloat` literals:
+`Radix Syntax` integer literals are rewritten as `Float` literals:
 
 ```
 >> '16bFF'.splSimplify

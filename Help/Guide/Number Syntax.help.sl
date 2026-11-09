@@ -79,7 +79,7 @@ Complex(3, 4)
 0.10000D
 ```
 
-`LargeInteger` literals:
+`Integer` literals:
 
 ```
 >>> 23L ^ 23L
@@ -112,7 +112,7 @@ Underscores are allowed as separators:
 
 * * *
 
-See also: SmallFloat
+See also: Float
 
 Guides: Complex Number Syntax, Decimal Number Syntax, Fraction Syntax, Integer Syntax, Radix Syntax, Real Number Syntax, Scientific Notation
 

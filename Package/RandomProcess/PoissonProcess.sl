@@ -24,7 +24,7 @@ PoissonProcess : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	PoissonProcess { :mu |
 		newPoissonProcess().initializeSlots(mu)

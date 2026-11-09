@@ -50,7 +50,7 @@ StableDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+SmallFloat {
++Float {
 
 	StableDistribution { :alpha :beta :mu :sigma |
 		newStableDistribution().initializeSlots(alpha, beta, mu, sigma)

@@ -49,7 +49,7 @@ represented using two’s-complement notation.
 
 * * *
 
-See also: LargeInteger, unsignedInteger
+See also: Integer, unsignedInteger
 
 References:
 _W_

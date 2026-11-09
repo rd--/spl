@@ -76,6 +76,6 @@ true
 
 * * *
 
-See also: Decimal, parseDecimalInteger, parseLargeInteger, parseNumber, parseSmallInteger
+See also: Decimal, parseDecimalInteger, parseInteger, parseNumber, parseSmallInteger
 
 Guides: Parsing Functions

@@ -1,6 +1,6 @@
 /* Requires: Fraction */
 
-+SmallFloat {
++Float {
 
 	plompLeveltDissonance { :f1 :f2 :u1 :u2 |
 		let a = -3.51;
@@ -268,7 +268,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	yunikSwiftConsonanceTable { :self :operand |
 		2.toCollect(self) { :n |

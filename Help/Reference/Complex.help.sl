@@ -374,7 +374,7 @@ Traits implemented by `Complex`:
 
 * * *
 
-See also: EisensteinInteger, Float, Integer, Number, Polar, SmallFloat, abs, absArg, arg, conjugate, i, imaginary, isGaussianInteger, j, real
+See also: EisensteinInteger, Float, Integer, Number, Polar, Float, abs, absArg, arg, conjugate, i, imaginary, isGaussianInteger, j, real
 
 Guides: Complex Number Functions
 

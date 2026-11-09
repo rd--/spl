@@ -4,7 +4,7 @@
 
 Answer `true` if the number _x_ is `zero` or `one`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 0.isBit

@@ -193,7 +193,7 @@ Quaternion : [Object, Store, Equal, Number] {
 
 	Quaternion { :a :b :c :d |
 		Quaternion(
-			SmallFloat[a, b, c, d]
+			Float[a, b, c, d]
 		)
 	}
 

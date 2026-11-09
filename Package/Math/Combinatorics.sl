@@ -601,7 +601,7 @@
 
 	[doubleFactorial, !!] { :self |
 		self.isInteger.if {
-			LargeInteger(self).integerDoubleFactorial
+			Integer(self).integerDoubleFactorial
 		} {
 			self.generalisedDoubleFactorial
 		}
@@ -633,7 +633,7 @@
 
 }
 
-+[SmallFloat, Fraction, Complex] {
++[Float, Fraction, Complex] {
 
 	generalisedDoubleFactorial { :self |
 		let n = self + 2;
@@ -645,7 +645,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	factorial { :self |
 		self.isNonNegativeInteger.if {
@@ -657,7 +657,7 @@
 
 }
 
-+LargeInteger {
++Integer {
 
 	factorial { :self |
 		self.isNonNegativeInteger.if {

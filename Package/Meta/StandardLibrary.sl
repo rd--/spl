@@ -69,7 +69,7 @@
 	'Interval'
 	'Quaternion'
 	'Residue'
-	'Fraction' /* LargeInteger */
+	'Fraction' /* Integer */
 	'Decimal' /* Fraction */
 	'Real' /* Fraction */
 

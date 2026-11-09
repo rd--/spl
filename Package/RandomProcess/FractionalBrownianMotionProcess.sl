@@ -8,7 +8,7 @@ FractionalBrownianMotionProcess : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	FractionalBrownianMotionProcess { :h |
 		newFractionalBrownianMotionProcess().initializeSlots(0, 1, h)
@@ -16,7 +16,7 @@ FractionalBrownianMotionProcess : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	basicHoskingMethod { :n :h :l :cum :snorm |
 		<primitive:

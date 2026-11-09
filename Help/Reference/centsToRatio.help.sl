@@ -2,7 +2,7 @@
 
 - _centsToRatio(c)_
 
-Answer a `SmallFloat` representing the size of the interval _c_ cents as a ratio.
+Answer a `Float` representing the size of the interval _c_ cents as a ratio.
 There are 1200 cents in an octave.
 
 ```

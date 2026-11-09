@@ -1,4 +1,4 @@
-+[SmallFloat, LargeInteger] {
++[Float, Integer] {
 
 	beta { :self :aNumber |
 		aNumber.isCollection.if {
@@ -387,7 +387,7 @@
 	}
 }
 
-+[SmallFloat, Fraction] {
++[Float, Fraction] {
 
 	gammaRegularized { :a :z |
 		1 - incompleteGamma(z, a).last
@@ -443,7 +443,7 @@
 
 }
 
-+[SmallFloat, Fraction, Complex] {
++[Float, Fraction, Complex] {
 
 	pochhammer { :a :n |
 		(a.isInteger & { n.isInteger }).if {
@@ -470,28 +470,28 @@
 +@ImplicitFloat {
 
 	beta { :self :operand |
-		SmallFloat(self).beta(operand)
+		Float(self).beta(operand)
 	}
 
 	betaRegularized { :x :a :b |
-		SmallFloat(x).betaRegularized(
-			SmallFloat(a),
-			SmallFloat(b)
+		Float(x).betaRegularized(
+			Float(a),
+			Float(b)
 		)
 	}
 
 	gamma { :self |
-		SmallFloat(self).gamma
+		Float(self).gamma
 	}
 
 	incompleteGamma { :x :a |
-		SmallFloat(x).incompleteGamma(
-			SmallFloat(a)
+		Float(x).incompleteGamma(
+			Float(a)
 		)
 	}
 
 	logGamma { :self |
-		SmallFloat(self).logGamma
+		Float(self).logGamma
 	}
 
 }

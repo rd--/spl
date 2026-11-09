@@ -10,7 +10,7 @@ FRatioDistribution : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	FRatioDistribution { :n :m |
 		newFRatioDistribution().initializeSlots(n, m)

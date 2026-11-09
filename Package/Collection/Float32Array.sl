@@ -68,8 +68,8 @@ Float32Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 
 	[Float32Array, listToFloat32Array] { :self |
 		self.atVectorOrElementwise { :aList |
-			let floatList = SmallFloat(aList);
-			floatList.isSmallFloatVector.if {
+			let floatList = Float(aList);
+			floatList.isFloatVector.if {
 				floatList.uncheckedFloat32Array
 			} {
 				self.error('List>>Float32Array')

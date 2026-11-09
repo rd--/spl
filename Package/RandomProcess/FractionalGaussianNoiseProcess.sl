@@ -8,7 +8,7 @@ FractionalGaussianNoiseProcess : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	FractionalGaussianNoiseProcess { :h |
 		newFractionalGaussianNoiseProcess().initializeSlots(0, 1, h)

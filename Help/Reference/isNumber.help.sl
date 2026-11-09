@@ -5,20 +5,20 @@
 Answers `true` if the object _x_ implements the trait `Number`,
 else `false`.
 
-At `SmallFloat`, where the value is a fraction:
+At `Float`, where the value is a fraction:
 
 ```
 >>> 3.141.isNumber & {
->>> 	3.141.isSmallFloat
+>>> 	3.141.isFloat
 >>> }
 true
 ```
 
-At `SmallFloat`, where the value is an integer:
+At `Float`, where the value is an integer:
 
 ```
 >>> 23.isNumber & {
->>> 	23.isSmallFloat & {
+>>> 	23.isFloat & {
 >>> 		23.isInteger
 >>> 	}
 >>> }
@@ -29,7 +29,7 @@ At `Infinity`:
 
 ```
 >>> Infinity.isNumber & {
->>> 	Infinity.isSmallFloat & {
+>>> 	Infinity.isFloat & {
 >>> 		Infinity.isFinite.not
 >>> 	}
 >>> }
@@ -40,16 +40,16 @@ At `NaN`:
 
 ```
 >>> NaN.isNumber & {
->>> 	NaN.isSmallFloat
+>>> 	NaN.isFloat
 >>> }
 true
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 23L.isNumber & {
->>> 	23L.isLargeInteger
+>>> 	23L.isInteger
 >>> }
 true
 ```
@@ -125,7 +125,7 @@ true
 
 * * *
 
-See also: Number, isAtom, isFinite, isFraction, isInteger, isLargeInteger, isSmallFloat
+See also: Number, isAtom, isFinite, isFraction, isInteger, isInteger, isFloat
 
 Guides: Mathematical Functions
 

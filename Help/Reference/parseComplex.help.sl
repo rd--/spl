@@ -44,6 +44,6 @@ At `Record`:
 
 * * *
 
-See also: Complex, parseDecimal, parseLargeInteger, parseNumber, parseSmallInteger
+See also: Complex, parseDecimal, parseInteger, parseNumber, parseSmallInteger
 
 Guides: Complex Number Functions, Parsing Functions

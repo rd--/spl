@@ -18,7 +18,7 @@ BinomialProcess : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	BinomialProcess { :p |
 		newBinomialProcess().initializeSlots(p)

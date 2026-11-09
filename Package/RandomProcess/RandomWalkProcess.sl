@@ -27,7 +27,7 @@ RandomWalkProcess : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	RandomWalkProcess { :p :q |
 		newRandomWalkProcess().initializeSlots(p, q)

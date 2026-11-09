@@ -1,69 +1,37 @@
 # randomInteger
 
-- _randomInteger(r, [min max], shape)_
+- _randomInteger(r, [min max], ⍴)_
 
-Answer an array of the indicated _shape_ containing random integer between _min_ and _max_.
+Random `Integer` number generator.
+Generate an array of shape _⍴_ containing random large integers between _min_ and _max_.
 
-Generate a random integer between one and nine, inclusive:
-
-```
->>> Sfc32(79143)
->>> .randomInteger([1 9], [])
-5
-```
-
-Generate a random integer between 3 and 11, inclusive:
+At `Integer`:
 
 ```
->>> Sfc32(79143)
->>> .randomInteger([3 11], [])
-7
-```
-
-Generate a `List` of 13 random integers:
-
-```
->>> Sfc32(76941)
->>> .randomInteger([1 9], [13])
-[4 1 3 5 4 2 6 4 9 1 3 8 4]
-```
-
-A 3×4 matrix of random integers:
-
-```
->>> Sfc32(49825)
->>> .randomInteger([1 9], [3 4])
+>>> Sfc32(36814)
+>>> .randomInteger(
+>>> 	[1, 2 ^ 99],
+>>> 	[1]
+>>> )
 [
-	5 8 5 7;
-	8 3 7 4;
-	2 6 8 1
+	115777880821482561199158557813L
+]
+
+>>> Sfc32(37914)
+>>> .randomInteger(
+>>> 	[2 ^ 98, 2 ^ 99],
+>>> 	[3]
+>>> )
+[
+	629038020770705179907744355227L
+	617042161714087101872431446458L
+	605496568649108732708844194715L
 ]
 ```
 
-A 2×2×2 array of random integers:
-
-```
->>> let r = Sfc32(12345);
->>> r.randomInteger([1 9], [2 2 2])
-[8 5; 9 9:; 4 7; 5 8]
-```
-
-Constrained random points on a circle:
-
-~~~spl svg=A
-Sfc32(79143)
-.randomInteger([-15 15], [100 2])
-.select { :p |
-	let h = p.square.sum.sqrt;
-	h >= 10 & { h <= 15 }
-}.PointCloud
-~~~
-
-![](Help/Image/randomInteger-A.svg)
-
 * * *
 
-See also: RandomNumberGenerator, atRandom, randomByteArray, randomLargeInteger, randomReal, randomSample
+See also: atRandom, randomByteArray, randomInteger, randomReal, randomSample
 
 Guides: Random Number Functions
 

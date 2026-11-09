@@ -1,4 +1,4 @@
-+[SmallFloat, LargeInteger, Fraction, List] {
++[Float, Integer, Fraction, List] {
 
 	bilinearInterpolation { :q11 :q21 :q12 :q22 :mu1 :mu2 |
 		linearInterpolation(
@@ -423,10 +423,10 @@
 	}
 
 	downsampleSteinarsson { :self :threshold |
-		let floatData = SmallFloat(self);
+		let floatData = Float(self);
 		floatData.isVector.if {
 			[
-				SmallFloat(floatData.indices),
+				Float(floatData.indices),
 				floatData
 			].transpose.uncheckedDownsampleSteinarsson(threshold)
 		} {
@@ -478,7 +478,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	inverseSmoothStep { :x |
 		0.5 - ((1 - (2 * x)).arcSin / 3).sin
@@ -507,7 +507,7 @@
 
 }
 
-+[SmallFloat, Fraction] {
++[Float, Fraction] {
 
 	smoothStep { :x |
 		x * x * (3 - (2 * x))

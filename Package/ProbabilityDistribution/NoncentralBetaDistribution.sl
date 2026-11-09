@@ -26,7 +26,7 @@ NoncentralBetaDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	NoncentralBetaDistribution { :alpha :beta :delta |
 		newNoncentralBetaDistribution().initializeSlots(alpha, beta, delta)

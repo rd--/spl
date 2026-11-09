@@ -20,14 +20,14 @@ At `Boolean`:
 true
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 3.141.isAtom
 true
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 23L.isAtom

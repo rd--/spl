@@ -6,7 +6,7 @@ Calculate an interpolated point that lies between _y1_ and _y2_ at _mu_,
 where _mu_ of `zero` answers _y1_,
 and _mu_ of `one` answers _y2_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> (0, 0.2 .. 1).collect { :x |

@@ -200,7 +200,7 @@ At `zero`:
 1
 ```
 
-May answer a `LargeInteger` with small integer arguments:
+May answer a `Integer` with small integer arguments:
 
 ```
 >>> binomial(123, 45)

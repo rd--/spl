@@ -1,22 +1,22 @@
-# parseLargeInteger
+# parseInteger
 
-- _parseLargeInteger(s, f/0)_
+- _parseInteger(s, f/0)_
 
-Answer the `LargeInteger` value of the decimal integer held in the string _s_.
+Answer the `Integer` value of the decimal integer held in the string _s_.
 The parser allows, but does not require, a trailing upper case letter "L".
 If the parse fails evaluate _f_,
 or signal an error if _f_ is elided.
 
 ```
->>> '23L'.parseLargeInteger
+>>> '23L'.parseInteger
 23L
 
 >>> '16719231864812753'
->>> .parseLargeInteger
+>>> .parseInteger
 16719231864812753L
 
 >>> '20880467999847912034355032910567'
->>> .parseLargeInteger
+>>> .parseInteger
 23 ^ 23
 ```
 
@@ -24,17 +24,17 @@ If the parse fails evaluate the else clause _f_,
 or signal an `error`:
 
 ```
->>> '2.3'.parseLargeInteger { nil }
+>>> '2.3'.parseInteger { nil }
 nil
 
 >>> {
->>> 	'23X'.parseLargeInteger
+>>> 	'23X'.parseInteger
 >>> }.hasError
 true
 ```
 
 * * *
 
-See also: LargeInteger, parseDecimal, parseFraction, parseNumber, parseSmallInteger
+See also: Integer, parseDecimal, parseFraction, parseNumber, parseSmallInteger
 
 Guides: Integer Functions, Parsing Functions

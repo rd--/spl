@@ -9,7 +9,7 @@ At `List`:
 
 ```
 >>> [1 2 3; 4 5 6]
->>> .isMatrixOf('SmallFloat')
+>>> .isMatrixOf('Float')
 true
 
 >>> [1/2 3/4; 5/6 7/6]
@@ -25,7 +25,7 @@ true
 true
 
 >>> [1L 2L; 3L 4L]
->>> .isMatrixOf('LargeInteger')
+>>> .isMatrixOf('Integer')
 true
 
 >>> [1 2; 3 4:; 5 6; 7 8]

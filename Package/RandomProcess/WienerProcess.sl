@@ -16,7 +16,7 @@ WienerProcess : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	WienerProcess { :mu :sigma |
 		newWienerProcess().initializeSlots(mu, sigma)

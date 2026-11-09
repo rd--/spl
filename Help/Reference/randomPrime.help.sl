@@ -29,7 +29,7 @@ true
 
 * * *
 
-See also: isPrime, nextPrime, randomInteger
+See also: isPrime, nextPrime, randomInteger, randomSmallInteger
 
 Guides: Prime Number Functions, Random Number Functions
 

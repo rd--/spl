@@ -2,9 +2,9 @@
 
 - _Float(x)_
 
-Answer a `SmallFloat` that closely approximates the value of the number _x_.
+Answer a `Float` that closely approximates the value of the number _x_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> Float(23)
@@ -21,7 +21,7 @@ At `Fraction`:
 0.75
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> Float(23L)
@@ -37,7 +37,7 @@ Threads over lists:
 
 _Note:_
 At present there is only one floating point type,
-and `Float` is simply an alias for `SmallFloat`.
+and `Float` is simply an alias for `Float`.
 
 * * *
 

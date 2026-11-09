@@ -11,7 +11,7 @@ else `false`.
 [true true true false false false]
 ```
 
-At non-`SmallFloat` values:
+At non-`Float` values:
 
 ```
 >>> [-2/3 3/4 -2L 3L].collect(signBit/1)

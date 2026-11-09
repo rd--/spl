@@ -19,10 +19,10 @@ true
 true
 ```
 
-In particular, `Infinity` is a `SmallFloat`:
+In particular, `Infinity` is a `Float`:
 
 ```
->>> Infinity.isSmallFloat
+>>> Infinity.isFloat
 true
 ```
 
@@ -187,7 +187,7 @@ a.discretePlot
 
 * * *
 
-See also: NaN, SmallFloat, e, pi
+See also: NaN, Float, e, pi
 
 Guides: Mathematical Constants
 

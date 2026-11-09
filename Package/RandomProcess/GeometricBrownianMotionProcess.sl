@@ -15,7 +15,7 @@ GeometricBrownianMotionProcess : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	GeometricBrownianMotionProcess { :mu :sigma :x0 |
 		newGeometricBrownianMotionProcess().initializeSlots(mu, sigma, x0)

@@ -507,7 +507,7 @@
 			high,
 			step,
 			randomNumberGenerator,
-			randomIntegerExcludingZero/3
+			randomSmallIntegerExcludingZero/3
 		).take(length)
 	}
 

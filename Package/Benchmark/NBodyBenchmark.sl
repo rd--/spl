@@ -13,7 +13,7 @@ Body : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	Body { :x :y :z :vx :vy :vz :mass |
 		let daysPerYear = 365.24;

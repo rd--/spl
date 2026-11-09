@@ -5,7 +5,7 @@
 Answers _true_ if the number _x_ is greater than or equal to the number _y_.
 The operator form is `>=`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 1.pi >= 1.e

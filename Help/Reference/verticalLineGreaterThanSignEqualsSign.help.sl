@@ -5,7 +5,7 @@
 Answer `true` if _a_ succeeds or is equal to _b_,
 else `false`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 3 |>= 2

@@ -9,11 +9,11 @@ At a heterogeneous `List`:
 ```
 >>> [1 2/3 4J5 '6' 7L].elementTypes
 [
-	'SmallFloat'
+	'Float'
 	'Fraction'
 	'Complex'
 	'String'
-	'LargeInteger'
+	'Integer'
 ]
 ```
 
@@ -21,7 +21,7 @@ At a `Range`:
 
 ```
 >>> 1:9.elementTypes
-['SmallFloat']
+['Float']
 ```
 
 At a _matrix_:
@@ -36,7 +36,7 @@ At `NumericArray`:
 ```
 >>> NumericArray([2 3].iota)
 >>> .elementTypes
-['SmallFloat']
+['Float']
 ```
 
 * * *

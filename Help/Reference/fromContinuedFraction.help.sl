@@ -113,7 +113,7 @@ Rational approximation to π:
 >>> [3 7 15].fromContinuedFraction
 333/106
 
->>> 333/106.SmallFloat
+>>> 333/106.Float
 3.1415
 ```
 

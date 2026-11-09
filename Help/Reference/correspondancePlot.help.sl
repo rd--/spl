@@ -31,7 +31,7 @@ With random index sequences:
 
 ~~~spl svg=C
 Sfc32(267814)
-.randomInteger([1 23], [2 43])
+.randomSmallInteger([1 23], [2 43])
 .correspondancePlot
 ~~~
 

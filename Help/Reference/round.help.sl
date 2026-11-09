@@ -55,7 +55,7 @@ At negative _n_:
 -2
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> (13 ^ 17).round

@@ -4,7 +4,7 @@
 
 Answer `true` if the number _x_ is an exact real or complex number, and `false` otherwise.
 
-At `SmallFloat`,
+At `Float`,
 answers `true` if `isSmallInteger` would answer `true`:
 
 ```
@@ -31,7 +31,7 @@ false
 false
 ```
 
-All `LargeInteger`, `Fraction`, `Decimal` and `Residue` values are exact:
+All `Integer`, `Fraction`, `Decimal` and `Residue` values are exact:
 
 ```
 >>> 23L.isExact
@@ -59,7 +59,7 @@ true
 
 * * *
 
-See also: isComplex, isFraction, isInteger, isNumber, isSmallFloat, isSmallInteger
+See also: isComplex, isFraction, isInteger, isNumber, isFloat, isSmallInteger
 
 Guides: Predicate Functions
 

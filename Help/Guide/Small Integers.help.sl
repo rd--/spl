@@ -1,7 +1,7 @@
 # Small Integers
 
 Sᴘʟ, at present, has no distinct small integer type.
-There is a `SmallFloat` type,
+There is a `Float` type,
 an IEEE 754 64-bit double-precision floating-point number,
 which allows for correct 53-bit small integer math.
 
@@ -27,4 +27,4 @@ Non-type predicates:
 
 * * *
 
-See also: LargeInteger, SmallFloat, isInteger, isSmallInteger
+See also: Integer, Float, isInteger, isSmallInteger

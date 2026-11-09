@@ -91,7 +91,7 @@ StudentTDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	StudentTDistribution { :mu :sigma :nu |
 		newStudentTDistribution().initializeSlots(mu, sigma, nu)

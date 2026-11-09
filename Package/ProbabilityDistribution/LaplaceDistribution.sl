@@ -58,7 +58,7 @@ LaplaceDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	LaplaceDistribution { :mu :beta |
 		newLaplaceDistribution().initializeSlots(mu, beta)

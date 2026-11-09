@@ -19,7 +19,7 @@ Plot specific points:
 
 ~~~spl svg=A
 let t = sssTriangle(1, 1, 1);
-let c = SmallFloat[
+let c = Float[
 	1 0 0; 0 1 0; 0 0 1;
 	1/2 1/2 0; 0 1/2 1/2; 1/2 0 1/2;
 	1/2 1/4 1/4; 1/4 1/2 1/4; 1/4 1/4 1/2;

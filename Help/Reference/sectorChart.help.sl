@@ -71,7 +71,7 @@ A ten sector chart of random integers:
 
 ~~~spl svg=H
 Sfc32(813749)
-.randomInteger([1 4], [10 2])
+.randomSmallInteger([1 4], [10 2])
 .sectorChart
 ~~~
 

@@ -40,7 +40,7 @@ ParetoDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	ParetoDistribution { :k :alpha |
 		newParetoDistribution().initializeSlots(k, alpha)

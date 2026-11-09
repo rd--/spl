@@ -18,7 +18,7 @@ HyperbolicDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+SmallFloat {
++Float {
 
 	HyperbolicDistribution { :alpha :beta :delta :mu |
 		newHyperbolicDistribution().initializeSlots(alpha, beta, delta, mu)

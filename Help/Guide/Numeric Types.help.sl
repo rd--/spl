@@ -5,22 +5,22 @@ Types:
 - `Complex`
 - `Decimal`
 - `Fraction`
-- `LargeInteger`
+- `Integer`
 - `Quaternion`
 - `Residue`
-- `SmallFloat`
+- `Float`
 
-The primitive numeric types are `SmallFloat`:
+The primitive numeric types are `Float`:
 
 ```
->>> 3.141.isSmallFloat
+>>> 3.141.isFloat
 true
 ```
 
-and `LargeInteger`:
+and `Integer`:
 
 ```
->>> 23L.isLargeInteger
+>>> 23L.isInteger
 true
 ```
 
@@ -54,6 +54,6 @@ true
 
 * * *
 
-See also: Binary, Complex, Decimal, Fraction, Integer, LargeInteger, Number, Residue, SmallFloat, isImmediate
+See also: Binary, Complex, Decimal, Fraction, Integer, Integer, Number, Residue, Float, isImmediate
 
 Guides: Number Syntax, Numerical Precision

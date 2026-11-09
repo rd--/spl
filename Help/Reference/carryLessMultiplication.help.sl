@@ -18,7 +18,7 @@ Carry-less multiplication in base two:
 2b101100011101100
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 9L.carryLessMultiplication(7, 2)

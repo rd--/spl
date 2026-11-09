@@ -942,12 +942,6 @@
 		self.sqrt.isInteger(1E-14)
 	}
 
-	isPositiveInteger { :self |
-		self.isInteger & {
-			self.isPositive
-		}
-	}
-
 	isPositiveOddInteger { :self |
 		self.isPositiveInteger & {
 			self % 2 = 1
@@ -1228,7 +1222,7 @@
 	}
 
 	multiplicativeOrder { :k :n :r |
-		k := LargeInteger(k);
+		k := Integer(k);
 		r := r % n;
 		(n = 1).if {
 			1
@@ -1879,14 +1873,6 @@
 			length := length + 1
 		};
 		length
-	}
-
-}
-
-+@Object {
-
-	isInteger { :self |
-		false
 	}
 
 }

@@ -53,7 +53,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	siteswapStateAllowedTransitions { :sigma :h |
 		sigma.integerDigits(2, h).reverse.siteswapStateAllowedTransitions

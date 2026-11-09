@@ -17,11 +17,11 @@ Types implementing `Json`:
 >>> .sort
 [
 	'Boolean'
-	'LargeInteger'
+	'Float'
+	'Integer'
 	'List'
 	'Nil'
 	'Record'
-	'SmallFloat'
 	'String'
 ]
 ```
@@ -31,16 +31,16 @@ Json is a simple plain text data-interchange format.
 The types implementing the trait are:
 
 - `Boolean`
-- `LargeInteger`
+- `Integer`
 - `List`
 - `Nil`
 - `Record`
-- `SmallFloat`
+- `Float`
 - `String`
 
 * * *
 
-See also: Boolean, List, Nil, Record, SmallFloat, String, encodeJson, isJson, json, parseJson
+See also: Boolean, List, Nil, Record, Float, String, encodeJson, isJson, json, parseJson
 
 Guides: Protocol Functions, String Functions
 

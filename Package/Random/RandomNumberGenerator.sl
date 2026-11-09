@@ -16,7 +16,7 @@
 		self.nextRandomFloat * (max - min) + min
 	}
 
-	nextRandomInteger { :self :min :max |
+	nextRandomSmallInteger { :self :min :max |
 		self.nextRandomFloat(min, max + 1).floor
 	}
 
@@ -31,7 +31,7 @@
 	}
 
 	randomByteArray { :self :n |
-		self.randomInteger([0, 255], n).ByteArray
+		self.randomSmallInteger([0, 255], n).ByteArray
 	}
 
 	randomColour { :self :shape |
@@ -55,13 +55,13 @@
 		anInteger.iota.sattoloShuffle!(self).Permutation
 	}
 
-	randomInteger { :self :range :shape |
+	randomSmallInteger { :self :range :shape |
 		let min = range.min;
 		let max = range.max;
 		self.randomReal([min, max + 1], shape).floor
 	}
 
-	randomIntegerExcluding { :self :range :aBlock/1 :shape |
+	randomSmallIntegerExcluding { :self :range :aBlock/1 :shape |
 		let min = range.min;
 		let max = range.max;
 		{
@@ -75,25 +75,25 @@
 		} ! shape
 	}
 
-	randomIntegerExcludingZero { :self :range :shape |
-		self.randomIntegerExcluding(range, isZero/1, shape)
+	randomSmallIntegerExcludingZero { :self :range :shape |
+		self.randomSmallIntegerExcluding(range, isZero/1, shape)
 	}
 
-	randomLargeInteger { :self :range :shape |
+	randomInteger { :self :range :shape |
 		let [a, b] = range;
 		{
-			a + self.randomLargeIntegerUpTo(b - a)
+			a + self.randomIntegerUpTo(b - a)
 		} ! shape
 	}
 
-	randomLargeIntegerUpTo { :self :u |
+	randomIntegerUpTo { :self :u |
 		let k = u.digitLength;
 		let h = u.highBitOfInteger;
 		let m = (2L ^ h) - 1;
 		let x = nil;
 		{
 			let bytes = self.randomByteArray(k);
-			x := bytes.decodeLargeInteger(true).bitAnd(m);
+			x := bytes.decodeInteger(true).bitAnd(m);
 			x <= 0 || (x > u)
 		}.whileTrue;
 		x
@@ -208,7 +208,7 @@
 		}.whileTrue {
 			i := i + (self.nextRandomFloat.log / (1 - w).log).floor + 1;
 			(i <= n).ifTrue {
-				r[self.nextRandomInteger(1, k)] := s[i];
+				r[self.nextRandomSmallInteger(1, k)] := s[i];
 				w := w * (self.nextRandomFloat.log / k).exp
 			}
 		};
@@ -225,10 +225,10 @@
 
 }
 
-+SmallFloat {
++Float {
 
-	randomIntegerBipolar { :max |
-		system.randomInteger([max.negate, max], [])
+	randomSmallIntegerBipolar { :max |
+		system.randomSmallInteger([max.negate, max], [])
 	}
 
 	randomReal { :max :shape |

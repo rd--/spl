@@ -5,7 +5,7 @@
 Encode linear _Rgb_ values to non-linear _Rgb_ values using the _Adobe_ colour component transfer function (Cctf).
 Also called the companding or gamma function.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 0.5.adobeRgbEncode
@@ -41,6 +41,6 @@ Inverse is `adobeRgbDecode`:
 
 * * *
 
-See also: Colour, List, RgbColour, SmallFloat, adobeRgbDecode
+See also: Colour, List, RgbColour, Float, adobeRgbDecode
 
 Guides: Colour Functions

@@ -121,7 +121,7 @@ OEIS [A005843](https://oeis.org/A005843):
 [0 2 4 6 8 10 12 14 16 18 20 22 24]
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 3L.isEven

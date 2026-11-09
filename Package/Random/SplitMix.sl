@@ -1,6 +1,6 @@
 /* Requires: RandomNumberGenerator Iterator Stream */
 
-+SmallFloat {
++Float {
 
 	splitMix32RandomNumberGenerator { :self |
 		<primitive:
@@ -40,7 +40,7 @@ SplitMix : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 }
 
-+SmallFloat {
++Float {
 
 	SplitMix { :self |
 		newSplitMix().initialize!(self)

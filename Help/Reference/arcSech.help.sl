@@ -4,7 +4,7 @@
 
 Answers the inverse hyperbolic secant of the complex number _z_.
 
-`SmallFloat` arguments:
+`Float` arguments:
 
 ```
 >>> 0.5.arcSech

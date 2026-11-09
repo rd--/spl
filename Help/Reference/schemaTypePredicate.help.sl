@@ -36,7 +36,7 @@ Predicate for `Real` number type:
 
 ```
 >>> 'Real'.schemaTypePredicate
-isSmallFloat/1
+isFloat/1
 ```
 
 Predicate for `Date` type:

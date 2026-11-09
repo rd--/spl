@@ -5,7 +5,7 @@
 Answer _x_ divided by one hundred,
 or, equally, multiplied by _1/100_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 1.percent

@@ -24,7 +24,7 @@ of the number _z_.
 3/7
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> -23L.abs

@@ -4,7 +4,7 @@
 
 Answer `true` if the point _p_ is at the origin.
 
-At `SmallFloat`, the real number line:
+At `Float`, the real number line:
 
 ```
 >>> 0.isOrigin

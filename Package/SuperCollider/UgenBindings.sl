@@ -464,7 +464,7 @@
 
 }
 
-+[List, Ugen, SmallFloat] {
++[List, Ugen, Float] {
 
 	ampComp { :freq :root :exp |
 		<primitive: return sc.AmpComp(_freq, _root, _exp);>
@@ -980,7 +980,7 @@
 
 }
 
-+[SmallFloat, List] {
++[Float, List] {
 
 	bufRd { :numChan :bufnum :phase :loop :interpolation |
 		<primitive: return sc.BufRd(_numChan, _bufnum, _phase, _loop, _interpolation);>
@@ -1052,7 +1052,7 @@
 
 }
 
-+[List, SmallFloat, Ugen] {
++[List, Float, Ugen] {
 
 	analogFoldOsc { :freq :amp |
 		<primitive: return sc.AnalogFoldOsc(_freq, _amp);>
@@ -1216,7 +1216,7 @@
 
 }
 
-+[List, SmallFloat, Ugen] {
++[List, Float, Ugen] {
 
 	expRandRange { :self :anObject |
 		<primitive: return sc.ExpRandRange(_self, _anObject);>
@@ -1560,7 +1560,7 @@
 
 	medianFilter { :in :r |
 		<primitive:
-		if(sl.isSmallFloat(_r)) {
+		if(sl.isFloat(_r)) {
 			return sc.Median(_r * 2 + 1, _in);
 		}
 		>

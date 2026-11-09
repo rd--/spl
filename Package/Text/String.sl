@@ -566,7 +566,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	isImmediateTypeName { :self |
-		['Nil', 'Boolean', 'Block', 'SmallFloat', 'LargeInteger', 'String']
+		['Nil', 'Boolean', 'Block', 'Float', 'Integer', 'String']
 		.includes(self)
 	}
 

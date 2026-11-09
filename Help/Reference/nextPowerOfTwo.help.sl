@@ -17,7 +17,7 @@ Answers the next power of two greater than or equal to the integer _n_.
 2 ^ 1:9
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 13L.factorial.nextPowerOfTwo

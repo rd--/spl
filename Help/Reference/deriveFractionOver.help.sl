@@ -4,7 +4,7 @@
 
 Derive a `Fraction` where _n_ is the unreduced denominator.
 
-At `SmallFloat`,
+At `Float`,
 where _x_ is not close to a simple fraction:
 
 ```

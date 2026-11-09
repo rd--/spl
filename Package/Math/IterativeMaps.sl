@@ -1,4 +1,4 @@
-+SmallFloat {
++Float {
 
 	bakersMap { :a :b |
 		let alpha = 0.5;

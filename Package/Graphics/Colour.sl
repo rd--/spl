@@ -238,7 +238,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	Colour { :self |
 		self.atVectorOrElementwise { :each |
-			let a = each.SmallFloat;
+			let a = each.Float;
 			a.size.caseOf(
 				[
 					3 -> { RgbColour(a, 1.0) },
@@ -252,7 +252,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	HsvColour { :self :alpha |
 		RgbColour(
-			SmallFloat(self).hsvToRgb,
+			Float(self).hsvToRgb,
 			alpha
 		)
 	}
@@ -314,7 +314,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 }
 
-+SmallFloat {
++Float {
 
 	adobeRgbDecode { :self |
 		self ^ (563 / 256)
@@ -685,7 +685,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	uncheckedHsvToRgb { :self |
-		let [hue, saturation, brightness] = SmallFloat(self);
+		let [hue, saturation, brightness] = Float(self);
 		let s = saturation.min(1).max(0);
 		let v = brightness.min(1).max(0);
 		let h = (hue * 360) % 360;
@@ -709,7 +709,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	uncheckedRgbToHsv { :self |
-		let [r, g, b] = SmallFloat(self);
+		let [r, g, b] = Float(self);
 		let v = [r g b].max;
 		let c = v - [r g b].min;
 		let s = (v = 0).if { 0 } { c / v };

@@ -6,7 +6,7 @@ Waveshaping.
 Bilateral clipping.
 Clips _a_ to +/- _b_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> (-2 .. 2).collect { :each |

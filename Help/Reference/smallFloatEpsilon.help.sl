@@ -35,7 +35,7 @@ true
 
 * * *
 
-See also: SmallFloat, epsilon, one, smallFloatMax
+See also: Float, epsilon, one, smallFloatMax
 
 Guides: Numerical Precision
 

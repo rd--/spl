@@ -12,7 +12,7 @@ true
 false
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 23L.isByte

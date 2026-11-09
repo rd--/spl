@@ -62,7 +62,7 @@ EisensteinInteger : [Object, Store, Equal] {
 
 }
 
-+SmallFloat {
++Float {
 
 	EisensteinInteger { :a :b |
 		b.isInteger.if {

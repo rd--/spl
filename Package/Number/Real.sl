@@ -1,6 +1,6 @@
-/* Requires: Fraction, SmallFloat */
+/* Requires: Fraction, Float */
 
-+[Fraction, SmallFloat] {
++[Fraction, Float] {
 
 	minkowskiQuestionMarkInverse { :x |
 		let y = (x / 1).floor;

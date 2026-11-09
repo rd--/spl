@@ -98,7 +98,7 @@ The determinant of a _7×7_ `Integer` matrix:
 320
 ```
 
-The determinant of a _3×3_ `SmallFloat` matrix:
+The determinant of a _3×3_ `Float` matrix:
 
 ```
 >>> [

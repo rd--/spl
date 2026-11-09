@@ -8,7 +8,7 @@ one criteria for which is that an instance will compare `==` when it compares `=
 Immediate objects are suitable for inclusion in `IdentitySet` and `Multiset` of `==`,
 as for use as keys in `Map` (the identity dictionary).
 
-`Nil`, `Boolean`, `SmallFloat`, `String` and `Block` values are all immediate.
+`Nil`, `Boolean`, `Float`, `String` and `Block` values are all immediate.
 
 ```
 >>> [
@@ -17,7 +17,7 @@ as for use as keys in `Map` (the identity dictionary).
 [true true true true true true]
 ```
 
-`LargeInteger`, `Character`, `Complex`, `Fraction`, `List`, `Record` and `Tuple` values are all non-immediate:
+`Integer`, `Character`, `Complex`, `Fraction`, `List`, `Record` and `Tuple` values are all non-immediate:
 
 ```
 >>> [
@@ -44,7 +44,7 @@ true
 ```
 
 _Rationale_:
-`LargeInteger` is not considered immediate because of the subtle behaviour regarding `=` and `==` with `SmallFloat`:
+`Integer` is not considered immediate because of the subtle behaviour regarding `=` and `==` with `Float`:
 
 ```
 >>> 1 == 1L

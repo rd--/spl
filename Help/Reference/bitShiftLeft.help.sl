@@ -35,7 +35,7 @@ Shift seven places to the left:
 4096
 ```
 
-At `SmallFloat` the integers are taken to be 32-bit signed integers:
+At `Float` the integers are taken to be 32-bit signed integers:
 
 ```
 >>> 1.bitShiftLeft(31)
@@ -85,7 +85,7 @@ where supported `<<` is displayed as ≪:
 -4294967296L
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> (1 << 31, 1L << 31)

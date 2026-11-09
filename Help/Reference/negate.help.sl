@@ -7,7 +7,7 @@ Equivalent to multiplication by negative `one`.
 also called inversion.
 The operator form in `-`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 3.-
@@ -17,7 +17,7 @@ At `SmallFloat`:
 3
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 23L.negate

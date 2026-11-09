@@ -20,7 +20,7 @@ With `String` keys:
 Map['x' 1; 'y' 2; 'z' 3]
 ```
 
-With `SmallFloat` keys:
+With `Float` keys:
 
 ```
 >>> let m = [1: 'x', 2: 'y', 3: 'z'];

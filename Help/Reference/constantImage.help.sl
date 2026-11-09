@@ -2,7 +2,7 @@
 
 - _constantImage(c, [w h])_
 
-At `SmallFloat`,
+At `Float`,
 answer a constant gray image:
 
 ~~~spl png=A

@@ -126,7 +126,7 @@ NormalDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Fraction, Symbol] {
++[Float, Fraction, Symbol] {
 
 	NormalDistribution { :mu :sigma |
 		newNormalDistribution().initializeSlots(mu, sigma)

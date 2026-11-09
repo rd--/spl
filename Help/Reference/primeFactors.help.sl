@@ -85,7 +85,7 @@ At answer of `^`:
 [2 5 5 13 41 61 1321]
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> (2 ^ 63 - 1).primeFactors

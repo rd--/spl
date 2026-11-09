@@ -49,7 +49,7 @@ Converting:
 
 - `boole`
 - `BitSet`
-- `LargeInteger`
+- `Integer`
 - `integerDigits`
 - `fromDigits`
 

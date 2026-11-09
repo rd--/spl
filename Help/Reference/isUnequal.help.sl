@@ -7,7 +7,7 @@ it answers `false` if the object _x_ is equal to another object _y_, else `true`
 The meaning is determined by the type of _x_.
 The operator form is `!=`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 2 != 2.5

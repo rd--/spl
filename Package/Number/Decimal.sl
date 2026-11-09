@@ -9,24 +9,24 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		)
 	}
 
-	Integer { :self |
-		LargeInteger(self).normalInteger
+	normalInteger { :self |
+		Integer(self).normalInteger
 	}
 
-	[LargeInteger, L, decimalToLargeInteger] { :self |
+	[Integer, L, decimalToInteger] { :self |
 		self.isInteger.if {
-			LargeInteger(self.decimalFraction)
+			Integer(self.decimalFraction)
 		} {
-			self.error('Decimal>>LargeInteger')
+			self.error('Decimal>>Integer')
 		}
 	}
 
-	[SmallFloat, Float, decimalToSmallFloat] { :self |
-		SmallFloat(self.decimalFraction)
+	[Float, Float, decimalToFloat] { :self |
+		Float(self.decimalFraction)
 	}
 
 	[SmallInteger, decimalToSmallInteger] { :self |
-		SmallInteger(LargeInteger(self))
+		SmallInteger(Integer(self))
 	}
 
 	[absoluteValue, abs] { :self |
@@ -115,8 +115,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	isCloseBy { :self :aNumber :epsilon |
-		SmallFloat(self).isCloseBy(
-			SmallFloat(aNumber),
+		Float(self).isCloseBy(
+			Float(aNumber),
 			epsilon
 		)
 	}
@@ -208,7 +208,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	printString { :self |
 		let scale = self.scale;
 		scale.isZero.if {
-			LargeInteger(self.integerPart)
+			Integer(self.integerPart)
 			.uncheckedPrintString(10) ++ 'D'
 		} {
 			let fraction = self.decimalFraction;
@@ -395,7 +395,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 }
 
-+SmallFloat {
++Float {
 
 	Decimal { :self :scale |
 		scale.isCollection.if {
@@ -427,7 +427,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 			)
 		} {
 			aBlock(
-				SmallFloat(receiver),
+				Float(receiver),
 				self
 			)
 		}
@@ -435,7 +435,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 }
 
-+LargeInteger {
++Integer {
 
 	[Decimal, largeIntegerToDecimal] { :self :scale |
 		uncheckedDecimal(
@@ -519,7 +519,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 				1 -> {
 					uncheckedDecimal(
 						uncheckedFraction(
-							parts[1].parseLargeInteger(elseClause/0),
+							parts[1].parseInteger(elseClause/0),
 							1L
 						),
 						scaleOrNil.ifNil { 0 }
@@ -527,8 +527,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 				},
 				2 -> {
 					let sign = self.beginsWith('-').if { -1 } { 1 };
-					let i = parts[1].parseLargeInteger(elseClause/0);
-					let f = sign.copySign(parts[2].parseLargeInteger(elseClause/0));
+					let i = parts[1].parseInteger(elseClause/0);
+					let f = sign.copySign(parts[2].parseInteger(elseClause/0));
 					let k = parts[2].size;
 					scaleOrNil.ifNotNil {
 						(scaleOrNil >= k).if {

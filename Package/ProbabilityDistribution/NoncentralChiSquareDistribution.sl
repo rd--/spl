@@ -35,7 +35,7 @@ NoncentralChiSquareDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	NoncentralChiSquareDistribution { :nu :lambda |
 		newNoncentralChiSquareDistribution().initializeSlots(nu, lambda)

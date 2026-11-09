@@ -24,7 +24,7 @@ let l = 'greek'.namedAlphabet;
 let w = l.collect { :each |
 	Writing(
 		each,
-		r.randomInteger([-70 70], [2])
+		r.randomSmallInteger([-70 70], [2])
 	)
 };
 [c, w]

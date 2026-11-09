@@ -17,7 +17,7 @@ Answers a power of two that is not greater than the integer _n_.
 2 ^ 0:8
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 13L.factorial.previousPowerOfTwo

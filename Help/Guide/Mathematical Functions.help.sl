@@ -336,9 +336,9 @@ Function List:
 - `isComplex`: is complex number predicate
 - `isFraction`: is fraction predicate
 - `isInteger`: is small integer predicate
-- `isLargeInteger`: is large integer predicate
+- `isInteger`: is large integer predicate
 - `isNumber`: is number predicate
-- `isSmallFloat`: is small float predicate
+- `isFloat`: is small float predicate
 
 ## Vector Functions
 

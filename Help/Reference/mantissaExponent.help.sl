@@ -4,7 +4,7 @@
 
 Answer the base-_b_ mantissa and exponent of _x_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> (3.4 * 1E13).mantissaExponent(10)

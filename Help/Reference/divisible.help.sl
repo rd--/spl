@@ -48,7 +48,7 @@ true
 true
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 2.pi.divisible(0.5.pi)
@@ -64,7 +64,7 @@ false
 false
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> (10 ^ 3000 + 1)
@@ -138,7 +138,7 @@ although floating point calculations with approximate large numbers may suggest 
 >>> 233.divisible(133 ^ 133)
 false
 
->>> 233 % SmallFloat(133 ^ 133)
+>>> 233 % Float(133 ^ 133)
 0
 
 >>> 233 % (133 ^ 133)

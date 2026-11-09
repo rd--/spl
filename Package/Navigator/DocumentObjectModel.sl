@@ -913,7 +913,7 @@ DOMPointReadOnly! : [Object, DOMPointReadOnly] {
 
 }
 
-+SmallFloat {
++Float {
 
 	DOMPoint { :self :y :z :w |
 		<primitive: return new DOMPoint(_self, _y, _z, _w);>
@@ -1143,7 +1143,7 @@ HTMLImageElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-+SmallFloat {
++Float {
 
 	Image { :self :height |
 		<primitive: return new Image(_self, _height);>
@@ -1555,7 +1555,7 @@ OffscreenCanvasRenderingContext2D! : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	OffscreenCanvas { :self :height |
 		<primitive: return new OffscreenCanvas(_self, _height);>

@@ -1,4 +1,4 @@
-+SmallFloat {
++Float {
 
 	sobolSequence { :n :d |
 		let l = n.bitLength;
@@ -10,7 +10,7 @@
 			}
 		} {
 			let [_, s, a, m] = d.sobolSequenceData;
-			m := LargeInteger(m);
+			m := Integer(m);
 			(l <= s).if {
 				1.toDo(l) { :i |
 					v[i] := m[i] << (32L - i)

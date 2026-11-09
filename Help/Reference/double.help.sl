@@ -4,7 +4,7 @@
 
 Answer the number _x_ multiplied by two.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 2.double

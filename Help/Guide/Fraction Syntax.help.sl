@@ -97,7 +97,7 @@ while binary operators are written with delimiting white space.
 ```
 
 If the `Fraction` package is not installed,
-the `SmallFloat` package can implement `Fraction` as `/`.
+the `Float` package can implement `Fraction` as `/`.
 
 * * *
 

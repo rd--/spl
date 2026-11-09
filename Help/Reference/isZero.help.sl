@@ -4,7 +4,7 @@
 
 Answer `true` if the number _x_ is `zero`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> (0.0.isZero, 0.0 = 0)

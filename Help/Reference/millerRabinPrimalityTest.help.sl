@@ -5,7 +5,7 @@
 A primality test that provides an efficient probabilistic algorithm for determining if a given number, _n_, is prime.
 It is based on the properties of strong pseudoprimes.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> [1 .. 30].select { :n |
@@ -14,7 +14,7 @@ At `SmallFloat`:
 [2 3 5 7 11 13 17 19 23 29]
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> [1L .. 131L].select { :n |
@@ -53,7 +53,7 @@ The number _2^(2^7)+1_ is not a Fermat prime, & requires `millerRabinPrimalityTe
 )
 ```
 
-Can overflow the `LargeInteger` type even for moderate queries:
+Can overflow the `Integer` type even for moderate queries:
 
 ```
 >>> {

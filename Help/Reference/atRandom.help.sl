@@ -4,7 +4,7 @@
 
 Select elements at random from the object _x_.
 
-At `LargeInteger`,
+At `Integer`,
 select between `one` and _n_ at random:
 
 ```
@@ -17,7 +17,7 @@ select between `one` and _n_ at random:
 ]
 ```
 
-At `SmallFloat`,
+At `Float`,
 select between `zero` and _n_ at random:
 
 ```
@@ -58,7 +58,7 @@ system.seedRandom(297142);
 
 * * *
 
-See also: anyOne, randomChoice, randomInteger, randomReal, randomSample, randomVariate, randomWeightedChoice
+See also: anyOne, randomChoice, randomSmallInteger, randomReal, randomSample, randomVariate, randomWeightedChoice
 
 Guides: Random Number Functions
 

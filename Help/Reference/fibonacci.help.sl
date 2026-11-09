@@ -71,8 +71,8 @@ Values at fixed points:
 [1 2 5 10 17 26 37 50 65 82]
 ```
 
-The last Fibonacci that can be correctly represented as a `SmallFloat`,
-and the first that requires being represented as a `LargeInteger`:
+The last Fibonacci that can be correctly represented as a `Float`,
+and the first that requires being represented as a `Integer`:
 
 ```
 >>> 78.fibonacci
@@ -303,7 +303,7 @@ to only the 65th term:
 ```
 
 For positive integer values where _x=1_ `fibonacci` is equivalent to `fibonacciNumber`,
-which consults a cached table, is accurate, and may answer a `LargeInteger`:
+which consults a cached table, is accurate, and may answer a `Integer`:
 
 ```
 >>> 175.fibonacci

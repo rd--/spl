@@ -170,7 +170,7 @@ Cf: =
 
 - _Float_:
 A number stored in IEEE-754 double-precision floating-point format.
-Cf: SmallFloat
+Cf: Float
 
 - _Fraction_:
 A numeric type that stores rational real numbers as a _numerator_ and _denominator_.
@@ -270,7 +270,7 @@ Cf: Number
 
 - _Numeric_:
 A type of value representing numbers.
-Cf: Complex, Fraction, LargeInteger, SmallFloat
+Cf: Complex, Fraction, Integer, Float
 
 - _Object_:
 A _trait_ that implement the fundamental behaviours for values in the system,

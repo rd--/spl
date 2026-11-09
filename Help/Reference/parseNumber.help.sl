@@ -2,7 +2,7 @@
 
 - _parseNumber(s, f/0)_
 
-Answer the `SmallFloat` represented by the string _s_,
+Answer the `Float` represented by the string _s_,
 else evaluate _f_ is specified else signal an `error`.
 
 Parse decimal integer:
@@ -92,6 +92,6 @@ true
 
 * * *
 
-See also: Number, parseDecimalInteger, parseFraction, parseLargeInteger, parseSmallInteger, printString, storeString
+See also: Number, parseDecimalInteger, parseFraction, parseInteger, parseSmallInteger, printString, storeString
 
 Guides: Parsing Functions

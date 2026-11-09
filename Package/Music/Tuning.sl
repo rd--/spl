@@ -118,7 +118,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	oddLimitSet { :self |
 		let n = 1.toBy(self, 2);

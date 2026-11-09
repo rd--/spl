@@ -5,7 +5,7 @@
 Encode linear _Rgb_ values to non-linear _Rgb_ values using the _Srgb_ colour component transfer function (Cctf).
 Also called the companding or gamma function.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 0.5.srgbEncode
@@ -56,7 +56,7 @@ Inverse is `srgbDecode`:
 
 * * *
 
-See also: Colour, List, RgbColour, SmallFloat, srgbDecode
+See also: Colour, List, RgbColour, Float, srgbDecode
 
 Guides: Colour Functions
 

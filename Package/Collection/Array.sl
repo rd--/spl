@@ -216,14 +216,14 @@
 		self.arrayDepth = 2
 	}
 
-	isSmallFloatMatrix { :self |
+	isFloatMatrix { :self |
 		self.arrayDepth = 2 & {
-			self.deepAllSatisfy(isSmallFloat/1)
+			self.deepAllSatisfy(isFloat/1)
 		}
 	}
 
-	isSmallFloatVector { :self |
-		self.allSatisfy(isSmallFloat/1)
+	isFloatVector { :self |
+		self.allSatisfy(isFloat/1)
 	}
 
 	isVector { :self :aBlock/1 |
@@ -634,8 +634,8 @@
 		[self.size]
 	}
 
-	isSmallFloatVector { :self |
-		self.elementType = 'SmallFloat'
+	isFloatVector { :self |
+		self.elementType = 'Float'
 	}
 
 	rank { :self |

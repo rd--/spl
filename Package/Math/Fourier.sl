@@ -60,11 +60,11 @@
 			(self.elementType = 'Complex').if {
 				self.interleaveComplexData.basicComplexFft.deinterleaveComplexData
 			} {
-				let floatData = SmallFloat(self);
-				(floatData.elementType = 'SmallFloat').if {
+				let floatData = Float(self);
+				(floatData.elementType = 'Float').if {
 					floatData.basicRealFft.deinterleaveComplexData
 				} {
-					self.error('fft: not SmallFloat or Complex elements')
+					self.error('fft: not Float or Complex elements')
 				}
 			}
 		} {
@@ -169,7 +169,7 @@
 
 }
 
-+[SmallFloat, LargeInteger] {
++[Float, Integer] {
 
 	dirichletKernel { :n |
 		{ :x |

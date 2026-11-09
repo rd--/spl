@@ -59,7 +59,7 @@ NumericArray : [Object, Store, Equal, Compare, Do, At, Indices, Put, Collection,
 	}
 
 	elementType { :unused |
-		'SmallFloat'
+		'Float'
 	}
 
 	isArray { :unused |

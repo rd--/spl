@@ -45,6 +45,6 @@ At `Record`:
 
 * * *
 
-See also: Fraction, parseDecimal, parseLargeInteger, parseNumber, parseSmallInteger
+See also: Fraction, parseDecimal, parseInteger, parseNumber, parseSmallInteger
 
 Guides: Fraction Functions, Parsing Functions

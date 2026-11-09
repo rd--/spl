@@ -13,7 +13,7 @@ true
 true
 ```
 
-At `SmallFloat`, `LargeInteger` and `Fraction`:
+At `Float`, `Integer` and `Fraction`:
 
 ```
 >>> 1.pi > 1.e

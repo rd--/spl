@@ -28,7 +28,7 @@ Threads over lists:
 [0 0 0 0 0]
 ```
 
-At `SmallFloat` and `LargeInteger` and `Fraction`:
+At `Float` and `Integer` and `Fraction`:
 
 ```
 >>> [3.141 23L 5/7].real

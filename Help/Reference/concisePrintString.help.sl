@@ -11,7 +11,7 @@ Generic implementation at `Collection`:
 'a ByteArray (size: 100)'
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 3.141.concisePrintString

@@ -5,7 +5,7 @@
 Sometimes defined as the operator form of `Fraction`,
 usually written infix as `R`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> let \ = R/2;
@@ -15,7 +15,7 @@ At `SmallFloat`:
 (3/4, 0.75)
 ```
 
-At `LargeInteger`,
+At `Integer`,
 `/` answers a `Fraction`,
 even if the `denominator` is `one`:
 

@@ -240,7 +240,7 @@ Line : [Object, Store, Equal, Geometry] {
 
 }
 
-+SmallFloat {
++Float {
 
 	spirangle { :n :m :center :radii :initialAngle |
 		let [radiusIncrement, initialRadial] = radii;

@@ -352,7 +352,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		let p = normalInteger/1.keyMap(self);
 		p.keyType.caseOf(
 			[
-				'SmallFloat' -> { UnivariatePolynomial(p) },
+				'Float' -> { UnivariatePolynomial(p) },
 				'List' -> { BivariatePolynomial(p) }
 			]
 		) {

@@ -4,7 +4,7 @@
 
 Answer the `floor` of the `log` base _b_ of the number _n_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 100.floorLog(10)
@@ -20,7 +20,7 @@ At `SmallFloat`:
 -2
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> (10 ^ 17)

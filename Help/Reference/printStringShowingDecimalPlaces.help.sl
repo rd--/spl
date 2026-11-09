@@ -56,7 +56,7 @@ Truncate simple fraction:
 '0.33333'
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 3.01507

@@ -19,7 +19,7 @@ MeixnerDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	MeixnerDistribution { :a :b :m :d |
 		newMeixnerDistribution().initializeSlots(a, b, m, d)

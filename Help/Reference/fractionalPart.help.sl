@@ -19,7 +19,7 @@ x
 x
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 0.5.fractionalPart

@@ -5,19 +5,19 @@ In Sᴘʟ type constructors are ordinary methods, capitalized by convention.
 As a rule, unary type constructors are used to convert values to the required type,
 there are no separate _as_ or _to_ prefixed forms.
 
-For instance, the `LargeInteger` constructor will convert appropriate instances of
-a `SmallFloat`,
+For instance, the `Integer` constructor will convert appropriate instances of
+a `Float`,
 a `Fraction` and
 a `Decimal` to a large integer:
 
 ```
->>> LargeInteger(3.0)
+>>> Integer(3.0)
 3L
 
->>> LargeInteger(3/1)
+>>> Integer(3/1)
 3L
 
->>> LargeInteger(3.0D)
+>>> Integer(3.0D)
 3L
 ```
 
@@ -26,13 +26,13 @@ undocumented,
 type specific alias:
 
 ```
->>> smallFloatToLargeInteger(3.0)
+>>> smallFloatToInteger(3.0)
 3L
 
->>> fractionToLargeInteger(3/1)
+>>> fractionToInteger(3/1)
 3L
 
->>> decimalToLargeInteger(3.0D)
+>>> decimalToInteger(3.0D)
 3L
 ```
 
@@ -40,71 +40,71 @@ The conversion must,
 however,
 be correct,
 non-integer values signal errors.
-`L` is an alias for `LargeInteger` that mirrors the literal syntax:
+`L` is an alias for `Integer` that mirrors the literal syntax:
 
 ```
->>> { LargeInteger(3.141) }.hasError
+>>> { Integer(3.141) }.hasError
 true
 
 >>> 3.141.truncate.L
 3L
 
->>> { LargeInteger(13/5) }.hasError
+>>> { Integer(13/5) }.hasError
 true
 
 >>> 13/5.round.L
 3L
 
->>> { LargeInteger(3.141D) }.hasError
+>>> { Integer(3.141D) }.hasError
 true
 
 >>> 3.141D.ceiling.L
 4L
 ```
 
-`LargeInteger` is also defined as `identity` at `LargeInteger`:
+`Integer` is also defined as `identity` at `Integer`:
 
 ```
->>> LargeInteger(3L)
+>>> Integer(3L)
 3L
 ```
 
 It also threads over lists:
 
 ```
->>> LargeInteger([3, 3L, 3/1, 3D])
+>>> Integer([3, 3L, 3/1, 3D])
 [3L, 3L, 3L, 3L]
 ```
 
 Using `List Constructor Syntax`:
 
 ```
->>> LargeInteger[3 3L 3/1 3D]
+>>> Integer[3 3L 3/1 3D]
 [3L 3L 3L 3L]
 
->>> LargeInteger[3 3L; 3/1 3D]
+>>> Integer[3 3L; 3/1 3D]
 [3L 3L; 3L 3L]
 ```
 
-`SmallFloat` behaves similarly:
+`Float` behaves similarly:
 
 ```
->>> SmallFloat(3L)
+>>> Float(3L)
 3.0
 
->>> SmallFloat(3.141D)
+>>> Float(3.141D)
 3.141
 
->>> SmallFloat(3/4)
+>>> Float(3/4)
 0.75
 
->>> SmallFloat(23.0)
+>>> Float(23.0)
 23.0
 
->>> SmallFloat[3L 3D 3/1 3]
+>>> Float[3L 3D 3/1 3]
 [3 3 3 3]
 
->>> SmallFloat[3L 3D; 3/1 3]
+>>> Float[3L 3D; 3/1 3]
 [3 3; 3 3]
 ```
 

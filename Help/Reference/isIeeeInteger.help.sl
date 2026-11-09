@@ -2,21 +2,21 @@
 
 - _isIeeeInteger(x)_
 
-Answer `true` if the `SmallFloat` _x_ is an integer,
+Answer `true` if the `Float` _x_ is an integer,
 though it would answer `false` to `isInteger`.
 
 ```
->>> SmallFloat(2 ^ 54)
+>>> Float(2 ^ 54)
 >>> .isIeeeInteger
 true
 
->>> SmallFloat(2 ^ 54)
+>>> Float(2 ^ 54)
 >>> .isInteger
 false
 ```
 
 * * *
 
-See also: SmallFloat, SmallInteger, isInteger
+See also: Float, SmallInteger, isInteger
 
 Guides: Floating Point Functions

@@ -40,7 +40,7 @@ The sum of the sample correlation function is constant:
 ```
 >>> let n = 100;
 >>> Sfc32(2678123)
->>> .randomInteger([1 n], [n])
+>>> .randomSmallInteger([1 n], [n])
 >>> .correlationFunction([1 .. n - 1])
 >>> .sum
 -0.5

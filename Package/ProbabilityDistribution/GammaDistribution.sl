@@ -81,7 +81,7 @@ GammaDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	ChiSquareDistribution { :nu |
 		newGammaDistribution().initializeSlots(nu / 2, 2)

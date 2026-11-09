@@ -25,7 +25,7 @@ Threads over lists:
 1:5.sqrt
 ```
 
-At `SmallFloat` and `LargeInteger` and `Fraction`:
+At `Float` and `Integer` and `Fraction`:
 
 ```
 >>> [3.141 23L 5/7].imaginary

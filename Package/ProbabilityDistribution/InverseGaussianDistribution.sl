@@ -28,7 +28,7 @@ InverseGaussianDistribution : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	InverseGaussianDistribution { :mu :lambda |
 		newInverseGaussianDistribution().initializeSlots(mu, lambda)

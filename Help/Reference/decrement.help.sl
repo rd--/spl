@@ -4,7 +4,7 @@
 
 Answer _x_ minus `one`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> -5.decrement

@@ -2,7 +2,7 @@
 
 - _metres(x)_
 
-At `SmallFloat`,
+At `Float`,
 answer a `Quantity` representing _x_ metres.
 _Note:_ English spelling.
 

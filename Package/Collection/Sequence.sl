@@ -2172,7 +2172,7 @@
 	randomChoice { :self :r :shape |
 		let k = self.size;
 		{
-			let i = r.nextRandomInteger(1, k);
+			let i = r.nextRandomSmallInteger(1, k);
 			self[i]
 		} ! shape
 	}

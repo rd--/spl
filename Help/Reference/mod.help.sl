@@ -109,7 +109,7 @@ At negative _n_, relation to `\\`:
 (7, 7)
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> -3213213213213213432453243L
@@ -124,7 +124,7 @@ Note errors in floating point math:
 >>> 3 ^ 41 % 13
 9
 
->>> SmallFloat(3 ^ 41) % 13
+>>> Float(3 ^ 41) % 13
 8
 ```
 
@@ -184,7 +184,7 @@ For a positive real number _x_, _x%1_ answers the fractional part of _x_:
 0.14
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 2.5 % [2 3]

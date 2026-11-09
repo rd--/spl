@@ -33,7 +33,7 @@ SechDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	SechDistribution { :mu :sigma |
 		newSechDistribution().initializeSlots(mu, sigma)

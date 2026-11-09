@@ -25,7 +25,7 @@ LevyDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+SmallFloat {
++Float {
 
 	LevyDistribution { :mu :sigma |
 		newLevyDistribution().initializeSlots(mu, sigma)

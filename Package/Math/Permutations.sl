@@ -1117,7 +1117,7 @@ Permutation : [Object, Store, Equal] {
 
 }
 
-+SmallFloat {
++Float {
 
 	mahonianNumber { :n :k |
 		(n = 0 & { k = 0 }).if {

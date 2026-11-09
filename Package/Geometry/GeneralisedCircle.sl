@@ -90,7 +90,7 @@ GeneralisedCircle : [Object, Store, Equal, Geometry] {
 
 }
 
-+SmallFloat {
++Float {
 
 	GeneralisedCircle { :c :alpha :d |
 		newGeneralisedCircle().initializeSlots(c, alpha, d)

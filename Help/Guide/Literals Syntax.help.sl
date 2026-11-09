@@ -1,12 +1,12 @@
 # Literals Syntax
 
-The four primitive immediate types are `Nil`, `Boolean`, `SmallFloat` and `String`.
+The four primitive immediate types are `Nil`, `Boolean`, `Float` and `String`.
 
 - _nil_ ⇒ `Nil`
 - _true_ ⇒ `Boolean`
 - _false_ ⇒ `Boolean`
-- _23_ ⇒ `SmallFloat`
-- _3.141_ ⇒ `SmallFloat`
+- _23_ ⇒ `Float`
+- _3.141_ ⇒ `Float`
 - _'xyz'_ ⇒ `String`
 
 The _Block_ syntax is similar to Smalltalk,

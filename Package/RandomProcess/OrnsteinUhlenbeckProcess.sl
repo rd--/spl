@@ -22,7 +22,7 @@ OrnsteinUhlenbeckProcess : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	OrnsteinUhlenbeckProcess { :mu :sigma :theta |
 		newOrnsteinUhlenbeckProcess().initializeSlots(mu, sigma, theta, nil)

@@ -41,7 +41,7 @@ High bit is not defined for negative integers:
 true
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 52L.factorial.highBit

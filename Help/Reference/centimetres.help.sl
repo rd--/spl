@@ -2,7 +2,7 @@
 
 - _centimetres(x)_
 
-At `SmallFloat`,
+At `Float`,
 answer a `Quantity` representing _x_ centimetres.
 _Note:_ English spelling.
 

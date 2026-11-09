@@ -1,4 +1,4 @@
-+SmallFloat {
++Float {
 
 	decimalSelvageNumber { :k :d |
 		k.caseOf(
@@ -66,7 +66,7 @@
 
 }
 
-+[SmallFloat, LargeInteger, Fraction] {
++[Float, Integer, Fraction] {
 
 	cantorStaircase { :x :n |
 		let f = { :x :n |
@@ -1763,7 +1763,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	runLengthTransform { :n :f/1 |
 		runLengthTransform(Range(0, n - 1, 1), f/1)
@@ -2028,7 +2028,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	langtonsAntPath { :n :c :b :d |
 		let steps = [1 0; 0 1; -1 0; 0 -1];
@@ -2144,7 +2144,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	rationalOrderingFibonacci { :self |
 		{ :r |

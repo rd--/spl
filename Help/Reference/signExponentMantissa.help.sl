@@ -34,6 +34,6 @@ The reconstruction is _(-1 ^ sign) * (2 ^ exponent) * mantissa_.
 
 * * *
 
-See also: SmallFloat, fractionExponent, fromSignExponentMantissa, mantissaExponent
+See also: Float, fractionExponent, fromSignExponentMantissa, mantissaExponent
 
 Guides: Floating Point Functions

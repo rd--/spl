@@ -259,7 +259,7 @@ OEIS [A000196](https://oeis.org/A000196):
 
 * * *
 
-See also: Integer, LargeInteger, isqrt, sqrt, squareRoot
+See also: Integer, Integer, isqrt, sqrt, squareRoot
 
 Guides: Integer Functions
 

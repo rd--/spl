@@ -4,7 +4,7 @@
 
 Answer the value of an apparent byte-indexable field in the integer _n_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> let n = 1 + (2 << 8) + (3 << 16) + (4 << 24);
@@ -20,7 +20,7 @@ At `SmallFloat`:
 )
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> let m = [

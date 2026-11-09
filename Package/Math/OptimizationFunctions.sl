@@ -168,7 +168,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	ackleyFunction { :a :b :c |
 		{ :x |

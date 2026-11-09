@@ -17,7 +17,7 @@ false
 false
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 1.5.isHalfInteger

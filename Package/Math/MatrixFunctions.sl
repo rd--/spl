@@ -966,7 +966,7 @@
 	}
 
 	singularValueDecomposition { :self |
-		let [u, q, v] = SmallFloat(self).singularValueDecompositionGolubReinsch;
+		let [u, q, v] = Float(self).singularValueDecompositionGolubReinsch;
 		let s = q.diagonalMatrix(0, self.shape);
 		[u, s, v]
 	}

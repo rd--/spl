@@ -5,7 +5,7 @@
 Answer a `Quantity` of _n_ synodic months.
 A synodic month is the average period of the Moon’s orbit with respect to the line joining the Sun and Earth.
 
-At `SmallFloat` answer a `Quantity`:
+At `Float` answer a `Quantity`:
 
 ```
 >>> 1.synodicMonths

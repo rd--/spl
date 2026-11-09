@@ -14,7 +14,7 @@ The number of trailing zeroes:
 4
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> (40 ^ 30).integerExponent(10)

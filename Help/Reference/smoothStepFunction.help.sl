@@ -7,7 +7,7 @@ The zeroeth function is a straight line.
 The first function is `smoothStep`.
 The second function is `smootherstep`.
 
-Evaluate at `SmallFloat`:
+Evaluate at `Float`:
 
 ```
 >>> let f/1 = 3.smoothStepFunction;
@@ -31,7 +31,7 @@ Evaluate at `Fraction`:
 false
 ```
 
-Evaluate at `SmallFloat`:
+Evaluate at `Float`:
 
 ```
 >>> let f/1 = 3.smoothStepFunction;

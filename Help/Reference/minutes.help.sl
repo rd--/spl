@@ -2,7 +2,7 @@
 
 - _minutes(t)_
 
-At `SmallFloat`,
+At `Float`,
 answer a `Quantity` value:
 
 ```

@@ -9,7 +9,7 @@ Answer the _k_-th term of Goulds sequence.
 32
 ```
 
-Alternate implementation at `LargeInteger`:
+Alternate implementation at `Integer`:
 
 >>> 31L.gouldsNumber
 32L

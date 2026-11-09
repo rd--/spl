@@ -49,7 +49,7 @@ BetaDistribution : [Object, Store, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	BetaDistribution { :alpha :beta |
 		newBetaDistribution().initializeSlots(alpha, beta)

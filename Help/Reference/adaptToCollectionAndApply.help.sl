@@ -5,7 +5,7 @@
 Request that the object _x_ adapt itself to operating with the collection _c_ elementwise,
 and then apply the block _f_ with itself as the second parameter.
 
-At `SmallFloat`, adapting to `List`:
+At `Float`, adapting to `List`:
 
 ```
 >>> 4.adaptToCollectionAndApply(

@@ -37,7 +37,7 @@ Compare with `>>`:
 1073741821
 ```
 
-Not defined at `LargeInteger`.
+Not defined at `Integer`.
 
 `>>>` is also a syntax token used when writing `Documentation Tests`.
 It is only such a token when it appears at the start of a line,

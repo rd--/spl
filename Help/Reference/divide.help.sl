@@ -5,7 +5,7 @@
 Answers the number _m_ divided by the number _n_.
 The operator form is `/`, also called `solidus`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 77 / 11
@@ -44,8 +44,8 @@ Divide is applied sequentially:
 (3 / (5 * 7 * 9))
 ```
 
-At `LargeInteger`,
-or at `SmallFloat` with a `LargeInteger` operand,
+At `Integer`,
+or at `Float` with a `Integer` operand,
 answers a `Fraction`,
 even if answer is an integer:
 
@@ -77,14 +77,14 @@ even if answer is an integer:
 1/1
 ```
 
-At `LargeInteger`, with collection operand:
+At `Integer`, with collection operand:
 
 ```
 >>> 1L / 1:9
 [1 1/2 1/3 1/4 1/5 1/6 1/7 1/8 1/9]
 ```
 
-At `SmallFloat` integers answers a `Fraction`:
+At `Float` integers answers a `Fraction`:
 
 ```
 >>> [1 2 3] / 4

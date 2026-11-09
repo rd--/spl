@@ -34,7 +34,7 @@ true
 ```
 
 Threads over lists,
-applies at `Fraction` and `LargeInteger`:
+applies at `Fraction` and `Integer`:
 
 ```
 >>> [1.6, 3/4, 1.pi, 0L, -5L, (10 ^ 5).sin]

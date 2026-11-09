@@ -57,7 +57,7 @@ let rng = Sfc32(698412);
 
 * * *
 
-See also: RandomNumberGenerator, nextRandomInteger, randomReal
+See also: RandomNumberGenerator, nextRandomSmallInteger, randomReal
 
 Guides: Random Number Generators
 

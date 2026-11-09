@@ -73,7 +73,7 @@ Sfc32(184293)
 
 * * *
 
-See also: Complex, RandomNumberGenerator, randomInteger, randomLargeInteger, randomReal, seedRandom
+See also: Complex, RandomNumberGenerator, randomSmallInteger, randomInteger, randomReal, seedRandom
 
 Guides: Random Number Functions
 

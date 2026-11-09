@@ -48,7 +48,7 @@ BasicBlock : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	BasicBlock { :self |
 		newBasicBlock().initialize!(self)

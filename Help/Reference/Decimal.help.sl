@@ -105,7 +105,7 @@ Multiplication with small integer:
 37.214D
 ```
 
-Multiplication with `LargeInteger`:
+Multiplication with `Integer`:
 
 ```
 >>> 3.1416D * 2L
@@ -182,12 +182,12 @@ Decimal values may be unequal even if their fraction and floating point values a
 >>> 	(x, y),
 >>> 	x = y,
 >>> 	x.decimalFraction = y.decimalFraction,
->>> 	SmallFloat(x) = SmallFloat(y)
+>>> 	Float(x) = Float(y)
 >>> )
 ((0.429D, 0.4290D), false, true, true)
 ```
 
-Exact addition, c.f. `SmallFloat`:
+Exact addition, c.f. `Float`:
 
 ```
 >>> 1.1D + 2.2D = 3.3D
@@ -197,7 +197,7 @@ true
 false
 ```
 
-Exact addition and subtraction, c.f. `SmallFloat`:
+Exact addition and subtraction, c.f. `Float`:
 
 ```
 >>> (0.1D + 0.1D + 0.1D - 0.3D).isZero
@@ -301,10 +301,10 @@ A `Decimal` may be an integer even the `scale` is not `zero`:
 >>> 3.00000000D.isInteger
 true
 
->>> LargeInteger(3D)
+>>> Integer(3D)
 3L
 
->>> LargeInteger(3.000000D)
+>>> Integer(3.000000D)
 3L
 ```
 
@@ -449,14 +449,14 @@ At negative `Fraction`:
 -1.181818D
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> Decimal(1.pi, 5)
 3.14159D
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> Decimal(2 ^ 54 - 1, 0)
@@ -574,12 +574,12 @@ OEIS [A010680](https://oeis.org/A010680):
 
 _Note_:
 The implentation is in terms of `Fraction`,
-which is in terms of `LargeInteger`,
+which is in terms of `Integer`,
 which may not have arbitrary precision.
 
 * * *
 
-See also: Complex, Fraction, LargeInteger, SmallFloat, decimalFraction, parseDecimal
+See also: Complex, Fraction, Integer, Float, decimalFraction, parseDecimal
 
 Guides: Decimal Number Syntax, Mathematical Functions, Number Functions
 

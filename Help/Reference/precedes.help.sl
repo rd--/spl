@@ -6,7 +6,7 @@ Answer `true` if _p_ precedes _q_,
 ordinarily according to `<` if the arguments are numbers or else `compare` if they are collections,
 else `false`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 1.precedes(3)

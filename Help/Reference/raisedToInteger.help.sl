@@ -15,7 +15,7 @@ At `Integer`:
 9
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 2.5 ^ 9
@@ -96,7 +96,7 @@ Negative exponents:
 1 / [3 9 27 81 243 729 2187 6561 19683]
 ```
 
-At, and or answering, `LargeInteger`:
+At, and or answering, `Integer`:
 
 ```
 >>> (2 ^ 54) ^ 2

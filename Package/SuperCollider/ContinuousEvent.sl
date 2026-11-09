@@ -115,7 +115,7 @@ ContinuousEvent : [Object] {
 
 }
 
-+[SmallFloat, List] {
++[Float, List] {
 
 	keyDown { :voiceNumber |
 		<primitive: return sc.KeyDown(_voiceNumber);>

@@ -4,7 +4,7 @@
 
 Implement the Brent-Pollard algorithm to factor the integer _n_.
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> (2 ^ 64 - 585).brentPollardAlgorithm

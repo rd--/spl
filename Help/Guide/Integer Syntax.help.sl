@@ -1,16 +1,16 @@
 # Integer Syntax
 
-Integer literals evaluate to the type `SmallFloat`.
+Integer literals evaluate to the type `Float`.
 
 ```
 >>> 3.typeName
-'SmallFloat'
+'Float'
 ```
 
-There is a `LargeInteger` type, written with an _L_ suffix:
+There is a `Integer` type, written with an _L_ suffix:
 
 ```
->>> 23L.isLargeInteger
+>>> 23L.isInteger
 true
 ```
 
@@ -65,7 +65,7 @@ including when a radix is indicated:
 
 * * *
 
-See also: Integer, LargeInteger, SmallFloat
+See also: Integer, Integer, Float
 
 Guides: Number Syntax, Radix Syntax
 

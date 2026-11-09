@@ -40,7 +40,7 @@ AxonometricProjection : [Object, Equal] {
 
 }
 
-+SmallFloat {
++Float {
 
 	AxonometricProjection { :gamma :beta :alpha :z :y :x |
 		newAxonometricProjection()

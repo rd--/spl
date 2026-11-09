@@ -4,7 +4,7 @@
 
 Answer the hypergeometric function _₂F₁(a,b;c;z)_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> let [a, b, c] = [1 / 2, 1 / 3, 2];

@@ -44,7 +44,7 @@ Compare to `ceiling` and `floor`:
 ```
 
 At `Fraction`,
-answers a `LargeInteger` value:
+answers a `Integer` value:
 
 ```
 >>> 22/7.truncate

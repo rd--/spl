@@ -173,7 +173,7 @@
 ## Converting
 
 - `Boolean`, `boole`
-- `Complex`, `Decimal`, `Float`, `Fraction`, `Integer`, `LargeInteger`, `Number`, `SmallFloat`
+- `Complex`, `Decimal`, `Float`, `Fraction`, `Integer`, `Integer`, `Number`, `Float`
 - `Character`, `codePoint`, `hexDigitCharacter`
 - `RegularExpression`, `displayString`, `toLowerCase`, `toUpperCase`
 - `inEnglishWords`
@@ -300,7 +300,7 @@
 
 ## Floating Point
 
-- `Float`, `SmallFloat`
+- `Float`, `Float`
 - `fromSignExponentMantissa`, `signExponentMantissa`
 
 ## Fractal Functions
@@ -498,12 +498,12 @@
 ## Numeric Types & Traits
 
 - `Binary`, `Integer`, `Magnitude`, `Number`
-- `Complex`, `Fraction`, `Interval`, `SmallFloat`, `LargeInteger`
+- `Complex`, `Fraction`, `Interval`, `Float`, `Integer`
 - `RandomNumberGenerator`
 
 ## Numerical Properties
 
-- `isComplex`, `isFraction`, `isInteger`, `isLargeInteger`, `isNumber`, `isSmallFloat`, `isZero`
+- `isComplex`, `isFraction`, `isInteger`, `isInteger`, `isNumber`, `isFloat`, `isZero`
 - `isEven`, `isNegative`, `isOdd`, `isPositive`
 - `isCoprime`, `isPrime`
 
@@ -527,7 +527,7 @@
 
 ## Parsing Numbers
 
-- `parseLargeInteger`, `parseSmallInteger`
+- `parseInteger`, `parseSmallInteger`
 - `parseComplex`, `parseDecimal`, `parseFraction`
 - `parseDecimalInteger`
 

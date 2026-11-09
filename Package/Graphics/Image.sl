@@ -66,7 +66,7 @@ Image : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	constantImage { :self :shape |
 		shape.constantArray(

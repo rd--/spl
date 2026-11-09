@@ -11,14 +11,14 @@ At `Fraction`:
 true
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 23L.isFraction
 false
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 23.isFraction
@@ -40,10 +40,10 @@ true
 
 _Rationale_:
 `isFraction` is a `Type` predicate,
-`SmallFloat` values that represent fractions or integers,
+`Float` values that represent fractions or integers,
 for instance _0.5_ and _1_,
 answer `false`,
-as do `LargeInteger` values.
+as do `Integer` values.
 The predicate `isRational` will answer `true` for integer values.
 
 * * *

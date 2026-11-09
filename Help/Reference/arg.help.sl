@@ -8,7 +8,7 @@ the phase angle in radians between -pi and +pi.
 
 The answer is given in radians:
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> -1.arg

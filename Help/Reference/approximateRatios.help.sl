@@ -3,7 +3,7 @@
 - _approximateRatios(t)_
 
 At `CentsTuning`,
-answer a list of `SmallFloat` values (c.f. `rationalize`):
+answer a list of `Float` values (c.f. `rationalize`):
 
 ```
 >>> 12.equalTemperamentTuning

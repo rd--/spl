@@ -18,7 +18,7 @@ CoxIngersollRossProcess : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	CoxIngersollRossProcess { :mu :sigma :theta :x0 |
 		newCoxIngersollRossProcess().initializeSlots(mu, sigma, theta, x0)

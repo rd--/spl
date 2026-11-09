@@ -9,7 +9,7 @@ Unlike `List`, a `Float32Array` is of fixed size.
 
 At `List`,
 answer a `Float32Array` with the values of the list,
-which must have element type `SmallFloat`:
+which must have element type `Float`:
 
 ```
 >>> let l = [1.0 2.0 3.0 4.0 5.0];
@@ -21,7 +21,7 @@ which must have element type `SmallFloat`:
 >>> 	List(a)
 >>> )
 (
-	'SmallFloat',
+	'Float',
 	true,
 	5,
 	[1 2 3 4 5]

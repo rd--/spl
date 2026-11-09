@@ -46,7 +46,7 @@ ExtremeValueDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	ExtremeValueDistribution { :alpha :beta |
 		newExtremeValueDistribution().initializeSlots(alpha, beta)

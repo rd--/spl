@@ -2,12 +2,12 @@
 
 - _SmallInteger(x)_
 
-Answer the `SmallFloat` that is equal to the number _x_,
+Answer the `Float` that is equal to the number _x_,
 which must be an integer value.
 `SmallInteger` is a pseudo-type,
 it has a pseudo-type predicate `isSmallInteger`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> SmallInteger(23)
@@ -23,7 +23,7 @@ It is an error if the value is not an integer:
 true
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> SmallInteger(8388608L)
@@ -68,7 +68,7 @@ true
 
 * * *
 
-See also: Fraction, Integer, LargeInteger, SmallFloat, isSmallInteger
+See also: Fraction, Integer, Integer, Float, isSmallInteger
 
 Guides: Bitwise Functions, Integer Functions, Number Functions
 

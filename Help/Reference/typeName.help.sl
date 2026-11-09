@@ -9,7 +9,7 @@ The names of the primitive atomic types:
 
 ```
 >>> 3.141.typeName
-'SmallFloat'
+'Float'
 
 >>> true.typeName
 'Boolean'

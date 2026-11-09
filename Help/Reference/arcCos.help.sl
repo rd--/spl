@@ -5,7 +5,7 @@
 Answers the arc cosine of the complex number _z_ in radians.
 The arc cosine is the inverse cosine function.
 
-`SmallFloat` arguments:
+`Float` arguments:
 
 ```
 >>> 0.arcCos

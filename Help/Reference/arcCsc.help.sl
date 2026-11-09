@@ -4,7 +4,7 @@
 
 Answers the arc cosecant of the complex number _z_ in radians.
 
-`SmallFloat` arguments:
+`Float` arguments:
 
 ```
 >>> 1.arcCsc

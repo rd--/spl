@@ -4,7 +4,7 @@
 
 Answer the square of the absolute value of the number _x_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> -3.absSquare

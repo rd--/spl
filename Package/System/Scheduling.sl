@@ -3,7 +3,7 @@
 	scheduleAfter { :self/0 :delay |
 		<primitive:
 		const floatDelay = sl.toFloat(_delay);
-		if(sl.isSmallFloat(floatDelay)) {
+		if(sl.isFloat(floatDelay)) {
 			return setTimeout(_self_0, floatDelay * 1000);
 		}
 		>
@@ -12,7 +12,7 @@
 
 	scheduleAfterWith { :self/1 :delay :anObject |
 		<primitive:
-		if(sl.isSmallFloat(_delay)) {
+		if(sl.isFloat(_delay)) {
 			return setTimeout(_self_1, _delay * 1000, _anObject);
 		}
 		>
@@ -31,7 +31,7 @@
 
 	scheduleEvery { :self/0 :delay |
 		<primitive:
-		if(sl.isSmallFloat(_delay)) {
+		if(sl.isFloat(_delay)) {
 			return setInterval(_self_0, _delay * 1000);
 		}
 		>
@@ -40,7 +40,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	cancel { :self |
 		<primitive: clearTimeout(_self);>

@@ -15,7 +15,7 @@ true
 29
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 3.nextPrime
@@ -43,7 +43,7 @@ At `SmallFloat`:
 true
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> [2L 3L 4L 5L].collect(nextPrime/1)
@@ -57,7 +57,7 @@ At `Rational`:
 5
 ```
 
-At non-integral `SmallFloat`:
+At non-integral `Float`:
 
 ```
 >>> 100.5.nextPrime

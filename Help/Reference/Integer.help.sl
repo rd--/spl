@@ -2,32 +2,46 @@
 
 - _Integer(x)_
 
-`Integer` is both a `Trait` for numbers,
-and a generalised constructor for both small and large integers.
+`Integer` is a both a type representing an arbitrary precision integral number,
+and a trait for integral numberic types.
 
-Answers the value _x_ as the either a small or large integer as required.
-In the `Integer` case this will answer a value that is equal to _x_,
-however it may change the type of the value.
-
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> let x = 23;
 >>> let y = Integer(x);
 >>> (y, x = y, x == y)
-(23, true, true)
+(23L, true, false)
+
+>>> let i = 2 ^ 23;
+>>> let j = Integer(i);
+>>> (i, j, i = j, i == j, j.isInteger)
+(8388608, 8388608L, true, false, true)
 ```
 
-At a small `LargeInteger`:
+At `NaN`:
+
+```
+>> Integer(NaN)
+NaN
+
+>> 3L + NaN
+NaN
+
+>> NaN + 3L
+NaN
+```
+
+At a small `Integer` value:
 
 ```
 >>> let x = 23L;
 >>> let y = Integer(x);
 >>> (y, x = y, x == y)
-(23, true, false)
+(23L, true, true)
 ```
 
-At a large `LargeInteger`:
+At a large `Integer` value:
 
 ```
 >>> let x = 23 ^ 13;
@@ -36,40 +50,52 @@ At a large `LargeInteger`:
 (504036361936467383L, true, true)
 ```
 
+At `Fraction`:
+
+```
+>>> Integer(23/1)
+23L
+
+>>> {
+>>> 	Integer(22/7)
+>>> }.hasError
+true
+```
+
 At `Decimal`:
 
 ```
->>> Integer(3D)
-3
-```
+>>> Integer(23D)
+23L
 
-At `LargeInteger`,
-answers a `SmallFloat` if the value would answer `true` for `isSmallInteger`:
+>>> Integer(23.000D)
+23L
 
-```
->>> let x = Integer(23L);
->>> (x, x.isLargeInteger)
-(23, false)
-
->>> let x = Integer(2 ^ 54);
->>> (x, x.isLargeInteger)
-(18014398509481984L, true)
-```
-
-At `SmallFloat` and `Decimal` it is an error if the value is not an integer:
-
-```
->>> { Integer(1.pi) }.hasError
-true
-
->>> { Integer(3.142D) }.hasError
+>>> {
+>>> 	Integer(3.141D)
+>>> }.hasError
 true
 ```
 
-It is not defined at `Fraction`:
+At `Float` and `Decimal`,
+it is an error if the value is not an integer:
 
 ```
->>> { Integer(22/7) }.hasError
+>>> {
+>>> 	Integer(1.pi)
+>>> }.hasError
+true
+
+>>> let a = 2 ^ 56;
+>>> let b = Float(a);
+>>> {
+>>> 	Integer(b)
+>>> }.hasError
+true
+
+>>> {
+>>> 	Integer(3.142D)
+>>> }.hasError
 true
 ```
 
@@ -121,11 +147,199 @@ To parse a `String` as an integer use `parseDecimalInteger`:
 23
 ```
 
-Threads over lists:
+Threads over list:
 
 ```
->>> Integer[23 23D 23L]
-[23 23 23]
+>>> Integer[1 3D 5L 7/1 9.0]
+[1L 3L 5L 7L 9L]
+```
+
+Integers have a distinct literal syntax indicated by an _L_ suffix:
+
+```
+>>> Integer(23)
+23L
+
+>>> 23L.typeName
+'Integer'
+```
+
+Equality with `Float`:
+
+```
+>>> 1L = 1
+true
+```
+
+Non-identity with `Float`:
+
+```
+>>> 1 == 1L
+false
+
+>>> 1 == 1
+true
+
+>>> 1L == 1L
+true
+```
+
+Equal values are also identical,
+however `Integer` values are not considered immediate because the do not compare identically with `Float` values:
+
+```
+>>> 23L == 23L
+true
+
+>>> 23L.isImmediate
+false
+```
+
+Adapts left and right operands to `Integers`:
+
+```
+>>> 23L ^ 23
+20880467999847912034355032910567L
+
+>>> 23 ^ 23L
+20880467999847912034355032910567L
+
+>>> 23L ^ 0.5
+23.sqrt
+
+>>> 10L ^ [16 8 0]
+[10000000000000000L 100000000L 1L]
+```
+
+Division by an integer answers either a `Integer` or a `Fraction`:
+
+```
+>>> 32L / 4
+8L
+
+>>> 23L / 5
+23/5
+
+>>> 23L / 1/2
+46
+
+>>> 23L / 0.5
+46
+
+>>> 0.5 / 23L
+1/46
+
+>>> (1L / 1, 1L / 1L, 1L / 1/1)
+(1L, 1L, 1/1)
+```
+
+Multiplication of `Integer` and `Float` values:
+
+```
+>>> 23L * 5
+115L
+
+>>> 23 * 5L
+115L
+
+>>> 23L * 1.5
+34.5
+```
+
+Division by `zero` answers `Infinity`:
+
+```
+>>> 23L / 0
+Infinity
+```
+
+Math with a `Fraction` answers a `Fraction`:
+
+```
+>>> 23L - 2/3
+67/3
+
+>>> 23L + 2/3
+71/3
+
+>>> 23L * 2/3
+46/3
+
+>>> 23L / 2/3
+69/2
+```
+
+`negate` answers a `Integer`:
+
+```
+>>> 23L.negate
+-23L
+```
+
+Integer powers:
+
+```
+>>> 3L ^ [-3 .. 3]
+[1/27 1/9 1/3 1 3 9 27]
+```
+
+Can be implicitly converted to a `Float`:
+
+```
+>>> 23L * 2.5
+57.5
+
+>>> Float(23L) * 2.5
+57.5
+```
+
+`floor` and `ceiling` are identity:
+
+```
+>>> 23L.floor
+23L
+
+>>> 23L.ceiling
+23L
+```
+
+Multiplication of integers:
+
+```
+>>> 7612058254738945
+>>> *
+>>> 9263591128439081L
+70514995317761165008628990709545L
+```
+
+Print & store `String`:
+
+```
+>>> (23L ^ 23).printString
+'20880467999847912034355032910567L'
+
+>>> (23L ^ 23).storeString
+'20880467999847912034355032910567L'
+```
+
+Zero:
+
+```
+>>> 0L.isZero
+true
+
+>>> 1L.zero
+0L
+```
+
+One:
+
+```
+>>> 1L.isOne
+true
+
+>>> 0L.one
+1L
 ```
 
 `Integer` is a `Trait`:
@@ -144,8 +358,8 @@ Types implementing `Integer`:
 >>> .traitTypes('@Integer')
 >>> .sort!
 [
-	'LargeInteger'
-	'SmallFloat'
+	'Float'
+	'Integer'
 	'Symbol'
 ]
 ```
@@ -160,7 +374,7 @@ Methods for arithmetic:
 
 * * *
 
-See also: Binary, Float, Fraction, LargeInteger, Number, SmallFloat, SmallInteger
+See also: Binary, ByteArray, Float, Fraction, Integer, Number, Float, SmallInteger, parseInteger
 
 Guides: Integer Functions, Number Functions
 
@@ -168,6 +382,9 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Integer.html),
 _Smalltalk_
-5.6.2.16
-
-Categories: Converting, Numeric, Trait
+5.6.2.16,
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-bigint-objects),
+_W_
+[1](https://en.wikipedia.org/wiki/Integer)
+[2](https://en.wikipedia.org/wiki/Integer_(computer_science))

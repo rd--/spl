@@ -19,14 +19,14 @@ At `Fraction`:
 (1/1, true)
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 3.141.one
 1.0
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 23L.one

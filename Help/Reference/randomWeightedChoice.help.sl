@@ -76,7 +76,7 @@ Sfc32(380514)
 
 * * *
 
-See also: anyOne, atRandom, randomChoice, randomInteger, randomSample
+See also: anyOne, atRandom, randomChoice, randomSmallInteger, randomSample
 
 Guides: Random Number Functions
 

@@ -4,14 +4,14 @@
 
 Answer the high bit of the integer _n_ in the range (0, 255).
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 32.highBitOfByte
 6
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 128L.highBitOfByte

@@ -159,7 +159,7 @@ Sort vectors by the Euclidean norm:
 
 ```
 >>> Sfc32(367814)
->>> .randomInteger([-5 5], [10 3])
+>>> .randomSmallInteger([-5 5], [10 3])
 >>> .sort!(<=, norm/1)
 [
 	 3  1 -1;

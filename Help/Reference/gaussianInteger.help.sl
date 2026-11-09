@@ -5,7 +5,7 @@
 Round the real and imaginary components of a `Complex` number.
 This is an alias for `round`.
 
-This may be required when using operations that introduce errors when operating on `Complex` numbers with `SmallFloat` components.
+This may be required when using operations that introduce errors when operating on `Complex` numbers with `Float` components.
 
 ```
 >>> (1J1 ^ 3.0000001).isGaussianInteger

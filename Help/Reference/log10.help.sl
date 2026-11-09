@@ -6,7 +6,7 @@ Answers the base-10 logarithm of the number _x_,
 _log₁₀(x)_,
 also called the common logarithm.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> (10 ^ 6).log10
@@ -36,7 +36,7 @@ At `Fraction`:
 0.243038
 ```
 
-At `SmallFloat`,
+At `Float`,
 compare with `log` with base ten:
 
 ```

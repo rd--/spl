@@ -200,7 +200,7 @@ Polyhedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 
 }
 
-+SmallFloat {
++Float {
 
 	oloid { :nPolygons |
 		/* https://www.cs.cmu.edu/~kmcrane/Projects/ModelRepository/#oloid */

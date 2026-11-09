@@ -4,7 +4,7 @@
 
 Answers the arc secant of the complex number _z_ in radians.
 
-`SmallFloat` arguments:
+`Float` arguments:
 
 ```
 >>> 2.arcSec

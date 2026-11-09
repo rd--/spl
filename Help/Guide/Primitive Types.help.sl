@@ -8,7 +8,7 @@ The primitive types are:
 - `Map`
 - `Nil`
 - `Record`
-- `SmallFloat`
+- `Float`
 - `String`
 
 The following types are implemented as primitives if the underlying system implements them:
@@ -18,7 +18,7 @@ The following types are implemented as primitives if the underlying system imple
 - `Float32Array`
 - `Float64Array`
 - `IdentitySet`
-- `LargeInteger`
+- `Integer`
 - `PriorityQueue`
 - `Promise`
 - `RegularExpression`

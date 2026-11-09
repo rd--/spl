@@ -65,7 +65,7 @@ CauchyDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	CauchyDistribution { :x0 :gamma |
 		newCauchyDistribution().initializeSlots(x0, gamma)

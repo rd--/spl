@@ -15,14 +15,14 @@ The `product` of the integers from `one` up to _n_.
 6402373705728000
 ```
 
-At `SmallFloat` will a `LargeInteger` if the answer would overflow:
+At `Float` will a `Integer` if the answer would overflow:
 
 ```
 >>> 23.factorial
 25852016738884976640000L
 ```
 
-At `LargeInteger`,
+At `Integer`,
 always answers a large integer:
 
 ```
@@ -106,13 +106,13 @@ Number of permutations of 6 elements:
 720
 ```
 
-Exact `LargeInteger` and inexact `SmallFloat` results for 30! and 47!:
+Exact `Integer` and inexact `Float` results for 30! and 47!:
 
 ```
 >>> 30.factorial
 265252859812191058636308480000000L
 
->>> SmallFloat(30.factorial)
+>>> Float(30.factorial)
 2.6525285981219107E32
 
 >> 47L.factorial
@@ -121,7 +121,7 @@ Exact `LargeInteger` and inexact `SmallFloat` results for 30! and 47!:
 611979969197632
 389120000000000L
 
->> SmallFloat(47.factorial)
+>> Float(47.factorial)
 2.5862324151116818E+59
 ```
 
@@ -143,13 +143,13 @@ Notable limits, the largest factorials that can fit into a specified type
 61
 ```
 
-At `SmallFloat` factorial is accurate to 15 digits:
+At `Float` factorial is accurate to 15 digits:
 
 ```
 >>> 23.factorial
 25852016738884976640000L
 
->>> SmallFloat(23.factorial)
+>>> Float(23.factorial)
 2.585201673888498E+22
 ```
 

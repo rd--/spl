@@ -4,7 +4,7 @@
 
 Answer `true` if the number _x_ is `one`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> (1.isOne, 1 = 1)

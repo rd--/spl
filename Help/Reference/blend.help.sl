@@ -8,14 +8,14 @@ apply the interpolation function block _f_ to interpolate between _y1_ and _y2_ 
 which should be in _(0, 1)_.
 In the ternary case a linear interpolation function is used.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 1.blend(9, 0.4)
 4.2
 ```
 
-At `SmallFloat` with `List` of _mu_:
+At `Float` with `List` of _mu_:
 
 ```
 >>> 1.blend(5, [0 0.5 1])
@@ -28,7 +28,7 @@ At `SmallFloat` with `List` of _mu_:
 [1 2.6 4.2 5 9]
 ```
 
-At `SmallFloat` with nested `List` of _mu_:
+At `Float` with nested `List` of _mu_:
 
 ```
 >>> 1.blend(9, [0 0.2 0.4; 0.5 0.75 1])

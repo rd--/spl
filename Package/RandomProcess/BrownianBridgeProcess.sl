@@ -25,7 +25,7 @@ BrownianBridgeProcess : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	BrownianBridgeProcess { :sigma :start :end |
 		newBrownianBridgeProcess().initializeSlots(sigma, start, end)

@@ -65,7 +65,7 @@ BinomialDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	BinomialDistribution { :n :p |
 		newBinomialDistribution().initializeSlots(n, p)

@@ -4,7 +4,7 @@
 
 Answer the number _x_ divided by two.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 4.halve

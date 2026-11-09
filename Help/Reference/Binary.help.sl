@@ -31,8 +31,8 @@ Types implementing `Binary`:
 >>> .traitTypes('@Binary')
 >>> .sort!
 [
-	'LargeInteger'
-	'SmallFloat'
+	'Float'
+	'Integer'
 ]
 ```
 

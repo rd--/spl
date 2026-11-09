@@ -44,8 +44,8 @@ Float64Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 
 	[Float64Array, listToFloat64Array] { :self |
 		self.atVectorOrElementwise { :aList |
-			let floatList = SmallFloat(aList);
-			floatList.isSmallFloatVector.ifFalse {
+			let floatList = Float(aList);
+			floatList.isFloatVector.ifFalse {
 				self.error('Float64Array: invalid input')
 			};
 			floatList.uncheckedFloat64Array

@@ -25,7 +25,7 @@ LogNormalDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	LogNormalDistribution { :mu :sigma |
 		newLogNormalDistribution().initializeSlots(mu, sigma)

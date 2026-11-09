@@ -2,7 +2,7 @@
 
 - _degrees(x)_
 
-At `SmallFloat`,
+At `Float`,
 answer a `Quantity` value:
 
 ```

@@ -41,7 +41,7 @@
 				'Integer' -> { isInteger/1 },
 				'Fraction' -> { isFraction/1 },
 				'Complex' -> { isComplex/1 },
-				'Real' -> { isSmallFloat/1 },
+				'Real' -> { isFloat/1 },
 				'Date' -> { isDate/1 },
 				'DateAndTime' -> { isDateAndTime/1 },
 				'Duration' -> { isDuration/1 },

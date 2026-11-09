@@ -1,10 +1,10 @@
-+SmallFloat {
++Float {
 
 	nimMultiplication { :x :y |
 		y.isInteger.if {
 			nimMultiplication(
-				LargeInteger(x),
-				LargeInteger(y)
+				Integer(x),
+				Integer(y)
 			).normalInteger
 		} {
 			y.adaptToIntegerAndApply(
@@ -16,11 +16,11 @@
 
 }
 
-+LargeInteger {
++Integer {
 
 	nimMultiplication { :x :y |
 		y.isInteger.if {
-			uncheckedNimMultiplication(x, LargeInteger(y))
+			uncheckedNimMultiplication(x, Integer(y))
 		} {
 			y.adaptToIntegerAndApply(x, nimMultiplication/2)
 		}

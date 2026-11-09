@@ -109,7 +109,7 @@ NaN.isNaN /* literal for NaN */
 [-4, -3, -2.9, -2, -1, -0.9, 0, 0.9, 1, 2, 2.9, 3, 4].collect { :each | each.roundDown(2) } = [-4, -4, -4, -2, -2, -2, 0, 0, 0, 2, 2, 2, 4]
 3.99.floor = 3 /* round down */
 3.99.ceiling = 4 /* round up */
-5.factorial = 120 /* factorial of SmallFloat */
+5.factorial = 120 /* factorial of Float */
 18.factorial = 6402373705728000 /* large small integer factorial */
 20.factorial = 2432902008176640000L /* large small float factorial */
 20.factorial.isSmallInteger = false /* 20! is not a small integer */
@@ -775,7 +775,7 @@ let d = (w: (x: (y: (z: 1)))); d.atPathPut!(['w', 'x', 'y', 'z'], -1); d['w']['x
 let a = []; [1, 2].cartesianProductDo([3, 4]) { :x :y | a.add!(x -> y) }; a = [1 -> 3, 1 -> 4, 2 -> 3, 2 -> 4]
 [1 2].cartesianProduct([3 4]) = [1 3; 1 4; 2 3; 2 4]
 [1 2].cartesianProduct([3 4 5]) = [1 3; 1 4; 1 5; 2 3; 2 4; 2 5]
-[1 2].elementType = 'SmallFloat'
+[1 2].elementType = 'Float'
 [1 2; 3 4; 5 6].elementType = 'List'
 ```
 
@@ -983,9 +983,9 @@ Infinity.isNumber /* Infinity constant */
 23.Float = 23.0 /* integer as float */
 23L.Float = 23.0 /* large integer as float */
 { '23'.Float }.hasError /* Float is not a parser */
-1.pi.SmallFloat = 1.pi /* identity */
-3/4.SmallFloat = 0.75 /* fraction to small float */
-23.SmallFloat = 23.0 /* integral to small float */
+1.pi.Float = 1.pi /* identity */
+3/4.Float = 0.75 /* fraction to small float */
+23.Float = 23.0 /* integral to small float */
 true.boole = 1 /* boolean as integer, c.f. boole */
 false.boole = 0 /* boolean as integer, boole */
 '~'.Character.codePoint = 126 /* character as integer, c.f. codePoint */
@@ -1331,7 +1331,7 @@ Fraction(4, 6).denominator = 3
 -3/2 * -4/3 = 2
 -3/2 * 4/3 = -2
 5/3 + 1/3 = 2
-3/2.SmallFloat = 1.5 /* fraction as float */
+3/2.Float = 1.5 /* fraction as float */
 0.5 < 2/3 = true
 2/3 > 0.5 = true
 1 < 3/2 = true
@@ -1376,8 +1376,8 @@ Fraction(-4, -12) = 1/3
 5/12 - 1/4 = 1/6
 5/8 * 3/12 = 5/32
 6/5 / 10/7 = 21/25
-(3/4).SmallFloat = 0.75
-(1/2).SmallFloat = (1 / 2)
+(3/4).Float = 0.75
+(1/2).Float = (1 / 2)
 -1/3.typeName = 'Fraction'
 3/5 + 1 = 8/5
 3/5 - 0.5 ~ 0.1
@@ -1638,17 +1638,17 @@ let a = []; 1:9.rejectThenDo(isEven/1) { :each | a.add!(each * 3) }; a = [3, 9, 
 let a = []; 1:9.selectThenDo(isEven/1) { :each | a.add!(each * 3) }; a = [6, 12, 18, 24] /* avoid intermediate collection */
 ```
 
-## LargeInteger -- numeric type
+## Integer -- numeric type
 ```
-system.includesPackage('LargeInteger') /* LargeInteger package */
-23L.typeName = 'LargeInteger' /* syntax for large integer literals */
+system.includesPackage('Integer') /* Integer package */
+23L.typeName = 'Integer' /* syntax for large integer literals */
 (2L ^ 53 - 1).square.printString = '81129638414606663681390495662081L'
 (2L ^ 37).square.storeString = '18889465931478580854784L'
-'324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
+'324518553658426726783156020576256'.parseInteger.isInteger = true
 2971215073L.isPrime = true
-23L.factorial = 25852016738884976640000L /* factorial of LargeInteger */
-100L.factorial = 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000L /* factorial of LargeInteger */
-170L.factorial = 7257415615307998967396728211129263114716991681296451376543577798900561843401706157852350749242617459511490991237838520776666022565442753025328900773207510902400430280058295603966612599658257104398558294257568966313439612262571094946806711205568880457193340212661452800000000000000000000000000000000000000000L /* factorial of LargeInteger */
+23L.factorial = 25852016738884976640000L /* factorial of Integer */
+100L.factorial = 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000L /* factorial of Integer */
+170L.factorial = 7257415615307998967396728211129263114716991681296451376543577798900561843401706157852350749242617459511490991237838520776666022565442753025328900773207510902400430280058295603966612599658257104398558294257568966313439612262571094946806711205568880457193340212661452800000000000000000000000000000000000000000L /* factorial of Integer */
 [-1L, 0L, 1L].collect(sign/1) = [-1L, 0L, 1L]
 6L / 8L = Fraction(3L, 4L)
 2 / 3L = Fraction(2L, 3L)
@@ -1658,7 +1658,7 @@ let x = (2L ^ 54L); x != (x - 1) /* large integers behave ordinarily */
 [10L % 5L, -4L % 3L, 4L % -3L, -4L % -3L] = [0L, 2L, -2L, -1L] /* modulo, negative operands */
 13L % 7L % 4L = 2L /* left assocative */
 13L + 1L % 7L = 0L /* equal precedence */
-(2L ^ 170 - 1).isPowerOfTwo = false /* LargeInteger power of two test */
+(2L ^ 170 - 1).isPowerOfTwo = false /* Integer power of two test */
 324518553658426726783156020576256L.isEven = true /* is large integer even */
 324518553658426726783156020576257L.isOdd = true /* is large integer odd */
 100L.factorial / 99L.factorial = 100L /* large integer factorial, c.f. small float */
@@ -1669,7 +1669,7 @@ let x = (2L ^ 54L); x != (x - 1) /* large integers behave ordinarily */
 92233720368L * 100000000L + 54775807L = 9223372036854775807L /* reader for large integer literals */
 2L ^ 100L = 1267650600228229401496703205376L /* raised to */
 let n = 2L; n.copy == n /* copy is identity */
-23L.SmallFloat = 23 /* large integer to small float */
+23L.Float = 23 /* large integer to small float */
 let a = [9, 8 .. 1]; a[5L] = 5 /* large integers are valid indices */
 58909L.printStringHexadecimal = '16bE61D' /* hexadecimal representation */
 20L.factorial = 2432902008176640000L /* large integer factorial */
@@ -1756,7 +1756,7 @@ system.includesPackage('List') /* list package */
 [].isEmpty = true /* the empty array is empty */
 [].copy = [] /* copy empty array */
 List() = [] /* Void constructor makes the empty List */
-List(0, nil) = [] /* SmallFloat constructor makes an initialised sized List */
+List(0, nil) = [] /* Float constructor makes an initialised sized List */
 List(3, nil).size = 3 /* new array of indicated size */
 List(5, nil) = [nil, nil, nil, nil, nil] /* array slots are initialised to nil */
 List(5, 0) = [0, 0, 0, 0, 0] /* array can have slots initialised to a value */
@@ -3132,11 +3132,11 @@ let s = IdentitySet(); s.includeAll!([4 / 2, 4, 2]); s.size = 2 /* 4 / 2 = 2 */
 let s = IdentitySet(); [5 4 6 7 8 9 10 11 3].do { :each | s.include!(each) }; s = 3:11.IdentitySet /* out of order insertion */
 ```
 
-## SmallFloat -- numeric type
+## Float -- numeric type
 ```
-system.includesPackage('SmallFloat') /* package */
-3.141.typeName = 'SmallFloat'
-3.141.SmallFloat == 3.141 /* SmallFloat is identity, c.f. Fraction>>SmallFloat */
+system.includesPackage('Float') /* package */
+3.141.typeName = 'Float'
+3.141.Float == 3.141 /* Float is identity, c.f. Fraction>>Float */
 0 = -0 = true
 1 = 1 = true
 1 >= 1 = true
@@ -3208,7 +3208,7 @@ let r = nil; 1.to(0).do { :each | r := each }; r = nil
 1729.divisors = [1, 7, 13, 19, 91, 133, 247, 1729]
 eulersNumber() = 1.exp /* eulers number */
 1.e = eulersNumber() /* e is a constant, like 1.pi */
-system.smallFloatEpsilon < (10 ^ -15) /* the difference between 1 and the smallest SmallFloat greater than 1 */
+system.smallFloatEpsilon < (10 ^ -15) /* the difference between 1 and the smallest Float greater than 1 */
 system.smallFloatEpsilon > (10 ** -16)
 1 - system.smallFloatEpsilon != 1 /* epsilon() is the difference between 1.0 and previous representable value */
 1.epsilon != system.smallFloatEpsilon /* epsilon is a constant, like 1.pi & e */
@@ -3281,7 +3281,7 @@ let pi = 23; pi = 23 /* 1.pi is a constant, it can be shadowed */
 { -2.nthRoot(1.24) }.hasError
 ```
 
-## SmallFloat -- modulo
+## Float -- modulo
 ```
 3 % 2 = 1
 3 % 3 = 0
@@ -3870,7 +3870,7 @@ system.methodDictionary.includesIndex('collect') = true
 system.allMethods.collect { :each | each.signature }.includes('@Do>>do/2') = true
 '@Do>>do/2'.parseMethodSignature = ['@Do', 'do/2']
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
-let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorTokenOrQualifiedName = '+'
+let m = system.methodLookupAtType('plusSign', 2, 'Float'); m.operatorTokenOrQualifiedName = '+'
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('@Collection') = true
 system.methodSignatures('addInPlace').includes('@Dictionary>>addInPlace/2') = true
 '@Do>>sum/1'.parseMethodSignature = ['@Do', 'sum/1']
@@ -3916,7 +3916,7 @@ system.traitDictionary.includesIndex('@Collection') = true
 system.traitTypes('@Collection').includes('List') = true
 system.methodTraits('atRandom/1').includesAll(['@Collection', '@Sequence']) = true
 system.methodTraits('sum/1') = ['@ArithmeticProgression', '@Do', '@Collection']
-system.traitTypes('@Object').includes('SmallFloat') = true
+system.traitTypes('@Object').includes('Float') = true
 system.traitLookup('@Object').methodDictionary.includesIndex('respondsTo/2') = true
 system.traitLookup('@Collection').isTrait = true
 system.traitLookup('@Do').methodDictionary.includesIndex('do/2') = true

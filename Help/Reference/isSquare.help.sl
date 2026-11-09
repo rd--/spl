@@ -15,7 +15,7 @@ OEIS [A000290](https://oeis.org/A000290):
 [0 1 4 9 16 25 36 49 64 81]
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 81.isSquare

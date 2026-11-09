@@ -4,7 +4,7 @@
 
 Answer the hyperbolic tangent of the number _x_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 2.2.tanh

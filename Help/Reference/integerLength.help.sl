@@ -35,7 +35,7 @@ Find how the number of digits in _100!_ decreases with the base:
 ]
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> (23 ^ 23).integerLength(10)

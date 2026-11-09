@@ -124,7 +124,7 @@ ExponentialDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Fraction, Symbol] {
++[Float, Fraction, Symbol] {
 
 	ExponentialDistribution { :lambda |
 		newExponentialDistribution().initializeSlots(lambda)

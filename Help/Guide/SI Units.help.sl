@@ -51,8 +51,8 @@ A metric prefix is a unit prefix that precedes a basic unit of measure to indica
 ```
 
 Unlike scientific literals,
-which always answer `SmallFloat` values,
-the SI prefix methods can answer `LargeInteger` values:
+which always answer `Float` values,
+the SI prefix methods can answer `Integer` values:
 
 ```
 >>> [1L.kilo 1L.mega 1L.giga 1L.terra]

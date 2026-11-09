@@ -1094,7 +1094,7 @@ Reference/decimalPeriod.help.sl
 Reference/decimalSelvageNumber.help.sl
 Reference/declareFrom.help.sl
 Reference/decodeB2.help.sl
-Reference/decodeLargeInteger.help.sl
+Reference/decodeInteger.help.sl
 Reference/decodeUri.help.sl
 Reference/decrement.help.sl
 Reference/dedekindPsi.help.sl
@@ -2153,7 +2153,6 @@ Reference/isIterator.help.sl
 Reference/isJson.help.sl
 Reference/isKaprekarNumber.help.sl
 Reference/isKeithNumber.help.sl
-Reference/isLargeInteger.help.sl
 Reference/isLatinSquare.help.sl
 Reference/isLatticeWord.help.sl
 Reference/isLeaf.help.sl
@@ -2434,7 +2433,6 @@ Reference/landauConstant.help.sl
 Reference/landauRamanujanConstant.help.sl
 Reference/langtonsAntPath.help.sl
 Reference/LaplaceDistribution.help.sl
-Reference/LargeInteger.help.sl
 Reference/lassalleNumber.help.sl
 Reference/last.help.sl
 Reference/lastIndexOf.help.sl
@@ -2912,7 +2910,7 @@ Reference/nextPowerOf.help.sl
 Reference/nextPowerOfTwo.help.sl
 Reference/nextPrime.help.sl
 Reference/nextRandomFloat.help.sl
-Reference/nextRandomInteger.help.sl
+Reference/nextRandomSmallInteger.help.sl
 Reference/nextSatisfy.help.sl
 Reference/nextUntil.help.sl
 Reference/nextWhile.help.sl
@@ -3087,8 +3085,8 @@ Reference/parseHexColour.help.sl
 Reference/parseHexTriplet.help.sl
 Reference/parseHtml.help.sl
 Reference/parseIni.help.sl
+Reference/parseInteger.help.sl
 Reference/parseJson.help.sl
-Reference/parseLargeInteger.help.sl
 Reference/parseMethodSignature.help.sl
 Reference/parseNcs.help.sl
 Reference/parseNumber.help.sl
@@ -3421,10 +3419,7 @@ Reference/randomComplex.help.sl
 Reference/randomConvexHullPolygon.help.sl
 Reference/randomCycle.help.sl
 Reference/randomFunction.help.sl
-Reference/randomIntegerBipolar.help.sl
-Reference/randomIntegerExcluding.help.sl
 Reference/randomInteger.help.sl
-Reference/randomLargeInteger.help.sl
 Reference/RandomNumberGenerator.help.sl
 Reference/randomPermutation.help.sl
 Reference/randomPermutationList.help.sl
@@ -3434,6 +3429,9 @@ Reference/randomRealFixedSum.help.sl
 Reference/randomReal.help.sl
 Reference/randomSample.help.sl
 Reference/randomSimplePolygon.help.sl
+Reference/randomSmallIntegerBipolar.help.sl
+Reference/randomSmallIntegerExcluding.help.sl
+Reference/randomSmallInteger.help.sl
 Reference/randomStarConvexPolygon.help.sl
 Reference/randomSubsequence.help.sl
 Reference/randomTable.help.sl

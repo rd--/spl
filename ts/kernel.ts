@@ -14,7 +14,7 @@ import { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.
 
 import * as evaluate from './evaluate.ts';
 import { slOptions } from './options.ts';
-import { isSmallFloatInteger } from './predicates.ts';
+import { isSmallInteger } from './predicates.ts';
 
 export { slGrammar, slParse, slSemantics } from './grammar.ts';
 
@@ -113,11 +113,11 @@ export function splTypeName(anObject: unknown): TypeName {
 		case 'function':
 			return 'Block';
 		case 'number':
-			return 'SmallFloat';
+			return 'Float';
 		case 'string':
 			return 'String';
 		case 'bigint':
-			return 'LargeInteger';
+			return 'Integer';
 		case 'object':
 			return splObjectTypeName(<SplObject> anObject);
 		default:
@@ -256,7 +256,7 @@ export async function evaluatePackageArrayInSequence(pkgArray: Package[]) {
 
 // Required if methods are added before type definition. This should all be cleared up.
 // Void is not an ordinary type, it names the place in the method table for no-argument blocks.
-const preinstalledTypes = ['List', 'SmallFloat', 'String', 'Void'];
+const preinstalledTypes = ['List', 'Float', 'String', 'Void'];
 
 export class System {
 	methodDictionary: MethodDictionary;
@@ -830,5 +830,5 @@ export function toFloat(x: number | bigint): number {
 	if (xType === 'bigint') {
 		return Number(x);
 	}
-	throw new Error('toFloat: not SmallFloat or LargeInteger', x);
+	throw new Error('toFloat: not Float or Integer', x);
 }

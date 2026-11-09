@@ -51,7 +51,7 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 
 }
 
-+SmallFloat {
++Float {
 
 	TimeStamp { :self |
 		newTimeStamp().initializeSlots(self)
@@ -59,10 +59,10 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 
 }
 
-+LargeInteger {
++Integer {
 
 	TimeStamp { :self |
-		TimeStamp(SmallFloat(self))
+		TimeStamp(Float(self))
 	}
 
 }

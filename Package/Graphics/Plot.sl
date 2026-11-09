@@ -411,7 +411,7 @@ Plot : [Object] {
 	}
 
 	matrixPlot { :self |
-		[SmallFloat(self)].Plot('matrix')
+		[Float(self)].Plot('matrix')
 	}
 
 	periodogramPlot { :self |
@@ -670,14 +670,14 @@ Plot : [Object] {
 	}
 
 	typedPlot { :self :format |
-		self := SmallFloat(self);
+		self := Float(self);
 		self.isVector.if {
 			[self].typedVectorPlot(format)
 		} {
 			self.isColumnVector.if {
 				[self.catenate].typedVectorPlot(format)
 			} {
-				self.isSmallFloatMatrix.if {
+				self.isFloatMatrix.if {
 					let [m, n] = self.shape;
 					(n <= 3).if {
 						[self].Plot(format)
@@ -841,7 +841,7 @@ Plot : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	matlabPeaksFunction { :x :y |
 		(3 * (1 - x).square * (0 - x.square - (y + 1).square).exp)
@@ -1389,7 +1389,7 @@ Plot : [Object] {
 	}
 }
 
-+SmallFloat {
++Float {
 
 	fareyDiagram { :n :kind |
 		kind.caseOf(
@@ -1403,8 +1403,8 @@ Plot : [Object] {
 		let l = [];
 		let pt = { :x |
 			[
-				SmallFloat(x) * 100,
-				100 / SmallFloat(x.denominator)
+				Float(x) * 100,
+				100 / Float(x.denominator)
 			]
 		};
 		2.toDo(n) { :i |
@@ -1468,7 +1468,7 @@ Plot : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	spokePlot { :n :x |
 		let p = n.circlePoints([0 0], 1, 2/3.pi);

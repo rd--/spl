@@ -19,7 +19,7 @@ Answers the bitwise or of the integers _i_ and _j_.
 [1 1 1 1 0 1; 0 0 1 1 1 1; 1 1 1 1 1 1]
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> (3 ^ 40).bitOr(5 ^ 40)

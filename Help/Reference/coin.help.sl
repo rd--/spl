@@ -41,7 +41,7 @@ sinOsc(440, 0) * coin(dc(0.999)) * 0.1
 
 * * *
 
-See also: randomBit, randomBoolean, randomComplex, randomInteger, randomReal
+See also: randomBit, randomBoolean, randomComplex, randomSmallInteger, randomReal
 
 Guides: Random Number Functions
 

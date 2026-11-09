@@ -42,7 +42,7 @@ EpanechnikovDistribution : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	EpanechnikovDistribution { :c |
 		newEpanechnikovDistribution().initializeSlots(c)

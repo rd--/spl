@@ -50,7 +50,7 @@ SkewNormalDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	SkewNormalDistribution { :mu :sigma :alpha |
 		newSkewNormalDistribution().initializeSlots(mu, sigma, alpha)

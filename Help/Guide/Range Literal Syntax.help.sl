@@ -31,14 +31,14 @@ Range(1, 9)
 Range(1, 9)
 ```
 
-A `Range` of `LargeInteger` values:
+A `Range` of `Integer` values:
 
 ```
 >>> 1L:9L
 Range(1L, 9L)
 
 >>> 1L:9.elementType
-'LargeInteger'
+'Integer'
 ```
 
 As with `Fraction` literals,

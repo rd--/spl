@@ -14,7 +14,7 @@ Evaluate symbolically:
 )
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 0.1.gaussianWindow(0.3)

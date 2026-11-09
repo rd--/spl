@@ -1,4 +1,4 @@
-/* Requires: SmallFloat */
+/* Requires: Float */
 
 ArrayBuffer! : [Object] {
 

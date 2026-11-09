@@ -141,7 +141,7 @@ DateAndTime : [Object, Store, Equal, Compare] {
 
 	DateAndTime { :self |
 		newDateAndTime().initializeSlots(
-			SmallFloat(self).primitiveDateAndTime
+			Float(self).primitiveDateAndTime
 		)
 	}
 
@@ -153,7 +153,7 @@ DateAndTime : [Object, Store, Equal, Compare] {
 
 }
 
-+SmallFloat {
++Float {
 
 	primitiveDateAndTime { :self |
 		<primitive:
@@ -185,7 +185,7 @@ DateAndTime : [Object, Store, Equal, Compare] {
 
 	[DateAndTime, listToDateAndTime] { :self |
 		self.atVectorOrElementwise { :aList |
-			let floatList = SmallFloat(aList);
+			let floatList = Float(aList);
 			let [year, month, dayOfMonth, hour, minute, second] = floatList;
 			newDateAndTime().initializeSlots(
 				primitiveDateAndTime(year, month, dayOfMonth, hour, minute, second)

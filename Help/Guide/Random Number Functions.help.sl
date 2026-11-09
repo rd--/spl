@@ -5,7 +5,7 @@ Random Numbers:
 - `randomBit`
 - `randomComplex`
 - `randomInteger`
-- `randomLargeInteger`
+- `randomInteger`
 - `randomPrime`
 - `randomRealFixedSum`
 - `randomReal`

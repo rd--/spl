@@ -1,4 +1,4 @@
-+SmallFloat {
++Float {
 
 	blinnWyvillRaisedInvertedCosine { :x |
 		let x2 = x * x;

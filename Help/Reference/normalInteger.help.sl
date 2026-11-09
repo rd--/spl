@@ -3,20 +3,27 @@
 - _normalInteger(x)_
 
 Convert the object _x_ to a normal integer from a special form.
+Answers either a small or large integer as required.
+`normalInteger` will answer a value that is equal to _x_,
+however it may change the type of the value.
 
-At `LargeInteger`,
-answer a `SmallFloat` if the integer can be properly represented as such:
+At `Integer`,
+answer a `Float` if the integer can be properly represented as such,
+that is,
+if the value would answer `true` for `isSmallInteger`:
 
 ```
->>> 23L.normalInteger
-23
+>>> let x = normalInteger(23L);
+>>> (x, x.isFloat, x.isSmallInteger)
+(23, true, true)
 
->>> (23 ^ 13).normalInteger
-504036361936467383L
+>>> let x = normalInteger(2 ^ 54);
+>>> (x, x.isInteger)
+(18014398509481984L, true)
 ```
 
-At `SmallFloat`,
-answer a `SmallFloat` if it is an integer,
+At `Float`,
+answer a `Float` if it is an integer,
 else signal an error:
 
 ```
@@ -29,13 +36,20 @@ else signal an error:
 true
 ```
 
+Threads over lists:
+
+```
+>>> [23 23D 23L].normalInteger
+[23 23 23]
+```
+
 _Rationale_:
 `normalInteger` is a subset of `Integer`,
-it is only defined at `SmallFloat` and `LargeInteger`.
+it is only defined at `Float` and `Integer`.
 
 * * *
 
-See also: Integer, LargeInteger, SmallInteger
+See also: Integer, Integer, SmallInteger
 
 Guides: Number Functions
 

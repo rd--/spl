@@ -56,10 +56,10 @@ The answer is sorted by factor.
 ]
 ```
 
-At `SmallFloat` requires _n_ be a small integer:
+At `Float` requires _n_ be a small integer:
 
 ```
->>> let x = SmallFloat(3 ^ 51);
+>>> let x = Float(3 ^ 51);
 >>> {
 >>> 	x.factorInteger
 >>> }.hasError
@@ -83,7 +83,7 @@ A prime power has one prime factor:
 [[5 2]]
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> (2 ^ 64 - 1).factorInteger

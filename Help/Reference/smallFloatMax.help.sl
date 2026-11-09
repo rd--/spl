@@ -2,7 +2,7 @@
 
 - _smallFloatMax(x)_
 
-Answers the largest number that may be represented as a `SmallFloat`.
+Answers the largest number that may be represented as a `Float`.
 
 ```
 >> system.smallFloatMax
@@ -21,7 +21,7 @@ This is much, much larger than the largest small integer:
 
 * * *
 
-See also: SmallFloat, epsilon, one, smallFloatEpsilon
+See also: Float, epsilon, one, smallFloatEpsilon
 
 Guides: Numerical Precision
 

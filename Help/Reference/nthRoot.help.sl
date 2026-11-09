@@ -4,7 +4,7 @@
 
 Answer the real-valued _n_-th root of _x_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> -32.nthRoot(5)
@@ -38,7 +38,7 @@ At `SmallFloat`:
 0.92228
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 27L.nthRoot(3)

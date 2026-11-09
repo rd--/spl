@@ -15,7 +15,7 @@ Equal to the reciprocal of `sin`:
 2
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 1.2.csc

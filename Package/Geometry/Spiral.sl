@@ -1,4 +1,4 @@
-+SmallFloat {
++Float {
 
 	archimedeanSpiral { :a :n |
 		{ :theta |

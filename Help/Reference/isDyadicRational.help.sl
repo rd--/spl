@@ -14,7 +14,7 @@ true
 false
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 3.isDyadicRational

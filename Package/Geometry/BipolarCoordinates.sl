@@ -1,4 +1,4 @@
-+SmallFloat {
++Float {
 
 	fromBipolarCoordinates { :a :v |
 		v.isVector.if {

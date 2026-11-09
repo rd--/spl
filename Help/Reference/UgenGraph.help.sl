@@ -17,7 +17,7 @@ true
 Accessors are:
 
 - `name`: the name of the graph
-- `constantList`: the list of `SmallFloat` constants referred to in the graph
+- `constantList`: the list of `Float` constants referred to in the graph
 - `controlList`: the list of `LocalControl` inputs
 - `ugenList`: the sorted list of `ScUgen` values
 

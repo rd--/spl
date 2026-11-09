@@ -6,13 +6,13 @@ implicit zeroes are not allowed.
 
 ```
 >>> 3.141.typeName
-'SmallFloat'
+'Float'
 
 >>> 3.0.typeName
-'SmallFloat'
+'Float'
 
 >>> 3.typeName
-'SmallFloat'
+'Float'
 ```
 
 Both positive and negative signs are allowed:
@@ -60,6 +60,6 @@ Underscores are allowed as separators in the integer part:
 
 * * *
 
-See also: SmallFloat
+See also: Float
 
 Guides: Number Syntax, Scientific Notation

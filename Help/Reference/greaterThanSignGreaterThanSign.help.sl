@@ -70,7 +70,7 @@ Signed and unsigned shifts:
 -2
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >> 52.! >> 2

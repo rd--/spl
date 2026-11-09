@@ -26,7 +26,7 @@ true
 true
 ```
 
-A `SmallFloat` can be close to a `LargeInteger`:
+A `Float` can be close to a `Integer`:
 
 ```
 >>> 23L.isClose(23.001)

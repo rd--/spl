@@ -45,7 +45,7 @@ BetaBinomialDistribution : [Object, Store, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Fraction, Symbol] {
++[Float, Fraction, Symbol] {
 
 	BetaBinomialDistribution { :alpha :beta :n |
 		newBetaBinomialDistribution().initializeSlots(alpha, beta, n)

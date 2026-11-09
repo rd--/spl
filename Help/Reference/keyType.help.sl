@@ -17,10 +17,10 @@ At `Map`:
 ```
 >>> Map[1 -> 'x', 2 -> 'y', 3 -> 'z']
 >>> .keyType
-'SmallFloat'
+'Float'
 ```
 
-A map that has keys of both `SmallFloat` and `LargeInteger` has no key type:
+A map that has keys of both `Float` and `Integer` has no key type:
 
 ```
 >>> Map[1 -> 'x', 2L -> 'y'].keyType

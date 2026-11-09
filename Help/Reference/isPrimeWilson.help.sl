@@ -9,7 +9,7 @@ Wilson’s theorem states that a natural number _n > 1_ is a prime number if,
 and only if,
 the product of all the positive integers less than _n_ is one less than a multiple of _n_.
 
-Using `LargeInteger` since the `factorial` quickly exceeds the precision of `SmallFloat`:
+Using `Integer` since the `factorial` quickly exceeds the precision of `Float`:
 
 ```
 >>> (1L .. 99L).select(isPrimeWilson/1)

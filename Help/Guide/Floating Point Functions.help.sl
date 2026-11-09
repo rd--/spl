@@ -2,7 +2,7 @@
 
 Types:
 
-- `SmallFloat`
+- `Float`
 
 Predicates:
 
@@ -10,7 +10,7 @@ Predicates:
 - `isIeeeInteger`
 - `isNaN`
 - `isNegativeZero`
-- `isSmallFloat`
+- `isFloat`
 - `isSmallInteger`
 
 Arithemetic:

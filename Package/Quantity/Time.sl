@@ -49,7 +49,7 @@
 
 }
 
-+[SmallFloat, LargeInteger, Fraction] {
++[Float, Integer, Fraction] {
 
 	Time { :self |
 		Quantity(self, 'second')
@@ -86,7 +86,7 @@
 	}
 }
 
-+[SmallFloat, LargeInteger] {
++[Float, Integer] {
 
 	anomalisticMonths { :self |
 		(self * 27.554551).days

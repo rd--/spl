@@ -32,14 +32,14 @@ Read local Oeis sequence file and collect the `identifier`, `name`, `offset`, `d
 ```
 
 The data field stores integers in normal form,
-that is as `SmallFloat` values if applicable,
-else as `LargeInteger` values:
+that is as `Float` values if applicable,
+else as `Integer` values:
 
 ```
 >>> OeisSequenceFile('A394642')
 >>> .data
 >>> .elementTypes
-['SmallFloat' 'LargeInteger']
+['Float' 'Integer']
 ```
 
 Write summary record,

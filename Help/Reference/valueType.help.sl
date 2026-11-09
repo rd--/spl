@@ -10,7 +10,7 @@ At `Record`:
 ```
 >>> let a = (x: 1, y: 2, z: 3);
 >>> (a.keyType, a.valueType, a.elementType)
-('String', 'SmallFloat', 'SmallFloat')
+('String', 'Float', 'Float')
 
 >>> (x: 1, y: 2/3).valueType
 nil
@@ -21,7 +21,7 @@ At `Map`:
 ```
 >>> let a = Map[1 -> 'x', 2 -> 'y', 3 -> 'z'];
 >>> (a.keyType, a.valueType, a.elementType)
-('SmallFloat', 'String', 'String')
+('Float', 'String', 'String')
 
 >>> Map[1 -> 2, 3 -> 4/5].valueType
 nil

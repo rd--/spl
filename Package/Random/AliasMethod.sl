@@ -7,7 +7,7 @@ AliasMethod : [Object, Equal, Iterator] {
 	}
 
 	nextRandom { :self :r |
-		let column = r.nextRandomInteger(1, self.probability.size);
+		let column = r.nextRandomSmallInteger(1, self.probability.size);
 		let coinToss = r.nextRandomFloat < self.probability[column];
 		coinToss.if {
 			column

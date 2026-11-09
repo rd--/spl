@@ -1,4 +1,4 @@
-/* Requires: List SmallFloat */
+/* Requires: List Float */
 
 @Binary {
 
@@ -103,7 +103,7 @@
 	[bitShiftRightUnsigned, >>>] { :self :anInteger |
 		self.typeResponsibility('@Binary>>bitShiftRightUnsigned')
 		/*
-		SmallFloat(self).bitShiftRightUnsigned(
+		Float(self).bitShiftRightUnsigned(
 			anInteger
 		)
 		*/
@@ -227,7 +227,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	xorShift32 { :n :shape |
 		let k = shape.product;

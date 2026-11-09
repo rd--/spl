@@ -286,7 +286,7 @@ OEIS [A001203](https://oeis.org/A001203):
 ]
 ```
 
-At `SmallFloat` the continued fraction expansion is accurate to thirteen places:
+At `Float` the continued fraction expansion is accurate to thirteen places:
 
 ```
 >>> 1.pi.continuedFraction(13)

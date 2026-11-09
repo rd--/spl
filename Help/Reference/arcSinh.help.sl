@@ -4,7 +4,7 @@
 
 Answers the inverse hyperbolic sine of the complex number _z_.
 
-`SmallFloat` arguments:
+`Float` arguments:
 
 ```
 >>> 1.5.arcSinh

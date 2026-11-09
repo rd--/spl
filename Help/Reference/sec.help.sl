@@ -22,7 +22,7 @@ Very large for _x_ where `cos` of _x_ approaches zero:
 true
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 1/6.pi.sec

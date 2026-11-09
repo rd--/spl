@@ -42,24 +42,24 @@ At negative integer:
 -2
 ```
 
-At `SmallFloat` _n_ must answer `true` to `isBinary`:
+At `Float` _n_ must answer `true` to `isBinary`:
 
 ```
->>> SmallFloat(13.!)
+>>> Float(13.!)
 >>> .isBinary
 false
 
 >>> {
->>> 	SmallFloat(13.!)
+>>> 	Float(13.!)
 >>> 	.bitShiftRight(7)
 >>> }.hasError
 true
 
->>> LargeInteger(13.!)
+>>> Integer(13.!)
 >>> .isBinary
 true
 
->>> LargeInteger(13.!)
+>>> Integer(13.!)
 >>> .bitShiftRight(7)
 48648600L
 ```
@@ -77,7 +77,7 @@ true
 [256 128 64 32 16 8 4 2 1 0]
 ```
 
-At `LargeInteger` works with numbers of any size:
+At `Integer` works with numbers of any size:
 
 ```
 >>> (2 ^ 111 - 1).bitShiftRight(7)

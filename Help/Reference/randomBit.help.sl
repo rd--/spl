@@ -55,7 +55,7 @@ Sfc32(701459)
 
 * * *
 
-See also: atRandom, randomBoolean, randomComplex, randomInteger, randomReal, seedRandom
+See also: atRandom, randomBoolean, randomComplex, randomSmallInteger, randomReal, seedRandom
 
 Guides: Random Number Functions
 

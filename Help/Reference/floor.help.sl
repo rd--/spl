@@ -14,7 +14,7 @@ At `Integer`:
 -2
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 1.1.floor

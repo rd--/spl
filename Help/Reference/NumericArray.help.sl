@@ -23,7 +23,7 @@ construct a `NumericArray` from a _n_-dimensional array:
 (
 	[2 3],
 	2,
-	'SmallFloat',
+	'Float',
 	'Float64',
 	[1 2 3; 4 5 6],
 	[1 2 3 4 5 6],
@@ -42,7 +42,7 @@ The binary form allows specifying the storage type:
 >>> 	a.storageType,
 >>> 	a.elementType
 >>> )
-([32], 1, 'Byte', 'SmallFloat')
+([32], 1, 'Byte', 'Float')
 ```
 
 Convert a matrix of reals to a numeric array:
@@ -56,7 +56,7 @@ Convert a matrix of reals to a numeric array:
 >>> 	a.storageType,
 >>> 	a.elementType
 >>> )
-([5 5], 2, 'Float32', 'SmallFloat')
+([5 5], 2, 'Float32', 'Float')
 ```
 
 Scalar math at `NumericArray`:
@@ -96,7 +96,7 @@ let a = NumericArray([7 23].iota);
 
 * * *
 
-See also: ByteArray, List, SmallFloat, SparseArray, Float32Array, Float64Array
+See also: ByteArray, List, Float, SparseArray, Float32Array, Float64Array
 
 Guides: Array Functions, Matrix Functions, Vector Functions
 

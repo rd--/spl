@@ -30,7 +30,7 @@ true
 
 * * *
 
-See also: Boolean, isBooleanString, parseDecimalInteger, parseFraction, parseLargeInteger, parseNumber
+See also: Boolean, isBooleanString, parseDecimalInteger, parseFraction, parseInteger, parseNumber
 
 Guides: Parsing Functions
 

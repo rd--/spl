@@ -1,8 +1,8 @@
 # isNonNegativeInteger
 
-- _isNonNegativeInteger(x)_
+- _isNonNegativeInteger(n)_
 
-Answer `true` if the object _x_ is an integer and is greater than or equal to `zero`.
+Answer `true` if the number _n_ is an integer and is greater than or equal to `zero`.
 
 ```
 >>> 23.isNonNegativeInteger
@@ -12,7 +12,7 @@ true
 true
 ```
 
-Other values anwser `false`:
+Other numeric values anwser `false`:
 
 ```
 >>> 2.3.isNonNegativeInteger
@@ -26,6 +26,18 @@ false
 
 >>> NaN.isNonNegativeInteger
 false
+
+>>> 1/3.isNonNegativeInteger
+false
+```
+
+Not defined at non-number values:
+
+```
+>>> {
+>>> 	'3'.isNonNegativeInteger
+>>> }.hasError
+true
 ```
 
 * * *

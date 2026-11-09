@@ -20,7 +20,7 @@ Calculate Euler numbers:
 370371188237525
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 22L.eulerNumber

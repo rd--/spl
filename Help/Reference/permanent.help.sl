@@ -98,7 +98,7 @@ The permanent of a _5×5_ `Integer` matrix:
 6778800
 ```
 
-The permanent of a _3×3_ `SmallFloat` matrix:
+The permanent of a _3×3_ `Float` matrix:
 
 ```
 >>> [

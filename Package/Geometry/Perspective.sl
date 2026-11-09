@@ -1,4 +1,4 @@
-+SmallFloat {
++Float {
 
 	glFrustum { :left :right :bottom :top :nearVal :farVal |
 		let x = (2 * nearVal) / (right - left);

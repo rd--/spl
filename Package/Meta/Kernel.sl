@@ -39,8 +39,8 @@
 	'Adverb' /* Block */
 	'Promise'
 	'Request'
-	'SmallFloat'
-	'LargeInteger'
+	'Float'
+	'Integer'
 	'Character'
 	'String' /* Character */
 	'System'

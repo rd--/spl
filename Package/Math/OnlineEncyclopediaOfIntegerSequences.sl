@@ -291,7 +291,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	oeisA004001Terms { :k |
 		let a = Map { :n |
@@ -367,7 +367,7 @@
 		self.dataText
 		.splitOn(',')
 		.collect { :x |
-			x.parseLargeInteger.normalInteger
+			x.parseInteger.normalInteger
 		}
 	}
 
@@ -688,7 +688,7 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 			}
 		}.collect { :s |
 			s.splitOn(' ').collect { :n |
-				n.parseLargeInteger.normalInteger
+				n.parseInteger.normalInteger
 			}
 		}
 	}

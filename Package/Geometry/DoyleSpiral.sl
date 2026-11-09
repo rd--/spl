@@ -1,4 +1,4 @@
-+SmallFloat {
++Float {
 
 	doyleSpiral { :p :q :l |
 		let [a, b, r] = doyleSpiralParameters(p, q);

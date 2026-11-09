@@ -10,11 +10,11 @@ export function isFunction(anObject: unknown): anObject is Function {
 	return anObject instanceof Function;
 }
 
-export function isSmallFloat(anObject: unknown): anObject is number {
+export function isFloat(anObject: unknown): anObject is number {
 	return typeof anObject === 'number';
 }
 
-export function isLargeInteger(anObject: unknown): anObject is bigint {
+export function isInteger(anObject: unknown): anObject is bigint {
 	return typeof anObject === 'bigint';
 }
 
@@ -26,22 +26,16 @@ export function isString(anObject: unknown): anObject is string {
 	return typeof anObject === 'string';
 }
 
-export function isSmallFloatInteger(anObject: unknown): anObject is number {
-	return isSmallFloat(anObject) && Number.isInteger(anObject);
+export function isSmallInteger(anObject: unknown): anObject is number {
+	return isFloat(anObject) && Number.isInteger(anObject);
 }
-
-/*
-export function isInteger(anObject: unknown): anObject is number | bigint {
-	return isLargeInteger(anObject) || isSmallFloatInteger(anObject);
-}
-*/
 
 export function isByte(anObject: unknown): boolean {
-	return isSmallFloatInteger(anObject) && anObject >= 0 && anObject < 256;
+	return isSmallInteger(anObject) && anObject >= 0 && anObject < 256;
 }
 
 // Signed 32-bit integer? 2^31=2147483648 2^32=4294967296
 export function isBitwise(anObject: unknown): boolean {
-	return isSmallFloatInteger(anObject) && (anObject >= -2147483648) &&
+	return isSmallInteger(anObject) && (anObject >= -2147483648) &&
 		(anObject <= 2147483647);
 }

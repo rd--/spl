@@ -157,7 +157,7 @@ Elementary cellular automaton rule 184 from a random initial state:
 ~~~spl png=H
 184.elementaryCellularAutomaton(
 	Sfc32(378452)
-	.randomInteger([0 1], [101]),
+	.randomSmallInteger([0 1], [101]),
 	101
 ).Bitmap
 ~~~
@@ -200,7 +200,7 @@ note multiple independent local repeating patterns:
 ~~~spl png=K
 109.elementaryCellularAutomaton(
 	Sfc32(385724)
-	.randomInteger([0 1], [101]),
+	.randomSmallInteger([0 1], [101]),
 	101
 ).Bitmap
 ~~~

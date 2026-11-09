@@ -5,7 +5,7 @@
 Answers `true` if the object _x_ is an integer that can be accurately represented as an IEEE-754 double precision number,
 and whose IEEE-754 representation cannot be the result of rounding any other integer to fit the IEEE-754 representation.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 23.isSmallInteger
@@ -22,7 +22,7 @@ The largest small integer:
 9_007_199_254_740_991L
 
 >>> let x = (2 ^ 53) - 1;
->>> let y = SmallFloat(x + 1);
+>>> let y = Float(x + 1);
 >>> (y, y.isSmallInteger, y + 1 = y)
 (9_007_199_254_740_992.0, false, true)
 ```
@@ -34,12 +34,12 @@ The least negative small integer:
 -9_007_199_254_740_991L
 
 >>> let x = (-2 ^ 53) + 1;
->>> let y = SmallFloat(x - 1);
+>>> let y = Float(x - 1);
 >>> (y, y.isSmallInteger, y - 1 = y)
 (-9_007_199_254_740_992.0, false, true)
 ```
 
-A `SmallFloat` that is an integer,
+A `Float` that is an integer,
 according to `isInteger`,
 must also be a small integer:
 
@@ -49,7 +49,7 @@ _2^54_ and _20!_ are integers:
 >>> (2 ** 54).isIeeeInteger
 true
 
->>> 20.!.isLargeInteger
+>>> 20.!.isInteger
 true
 ```
 
@@ -72,7 +72,7 @@ _2^54_ is accurately represented:
 (true, false)
 
 >>> let a = 20.!;
->>> let b = SmallFloat(a);
+>>> let b = Float(a);
 >>> (a = b, a == b)
 (true, false)
 ```
@@ -80,7 +80,7 @@ _2^54_ is accurately represented:
 _2^54_ and _20!_ are not uniquely represented:
 
 ```
->>> let a = SmallFloat(2 ^ 54);
+>>> let a = Float(2 ^ 54);
 >>> a = (a - 1)
 true
 
@@ -88,7 +88,7 @@ true
 >>> a = (a - 1)
 false
 
->>> let a = SmallFloat(20.!);
+>>> let a = Float(20.!);
 >>> a = (a - 1)
 true
 
@@ -97,7 +97,7 @@ true
 false
 ```
 
-At `LargeInteger`,
+At `Integer`,
 answers `true` is the value is an integer and if that integer is a safe integer:
 
 ```
@@ -150,7 +150,7 @@ false
 
 * * *
 
-See also: SmallFloat, isGaussianInteger, isInteger, isLargeInteger, isNumber, isSmallFloat
+See also: Float, isGaussianInteger, isInteger, isInteger, isNumber, isFloat
 
 Guides: Integer Functions
 

@@ -1,6 +1,6 @@
 # Numerical Precision
 
-A `SmallFloat` is an IEEE 754 64-bit floating point number.
+A `Float` is an IEEE 754 64-bit floating point number.
 
 Integers from _−2 ^ 53_ to _2 ^ 53_ can be exactly represented.
 
@@ -8,11 +8,11 @@ Integers from _−2 ^ 53_ to _2 ^ 53_ can be exactly represented.
 >>> (-2L ^ 53, 2L ^ 53)
 (-9007199254740992L, 9007199254740992L)
 
->>> (SmallFloat(-2L ^ 53), SmallFloat(2L ^ 53))
+>>> (Float(-2L ^ 53), Float(2L ^ 53))
 (-9007199254740992.0, 9007199254740992.0)
 ```
 
-`LargeInteger` has an implementation dependent maximum size:
+`Integer` has an implementation dependent maximum size:
 
 ```
 >> 47L ^ 47L
@@ -31,19 +31,19 @@ true
 true
 
 >>> let x = 2L ^ -53;
->>> let y = SmallFloat(x);
+>>> let y = Float(x);
 >>> (x, (1 + y) = 1)
 (1/9007199254740992, true)
 ```
 
-Print a `SmallFloat` to a specified precision:
+Print a `Float` to a specified precision:
 
 ```
 >>> (1 / 3).printStringShowingDecimalPlaces(3)
 '0.333'
 ```
 
-Round a `SmallFloat` to a specified precision:
+Round a `Float` to a specified precision:
 
 ```
 >>> (1 / 3).round(1E-3).printString
@@ -52,6 +52,6 @@ Round a `SmallFloat` to a specified precision:
 
 * * *
 
-See also: LargeInteger, SmallFloat, printStringShowingDecimalPlaces, round, smallFloatEpsilon
+See also: Integer, Float, printStringShowingDecimalPlaces, round, smallFloatEpsilon
 
 Guides: Numeric Types

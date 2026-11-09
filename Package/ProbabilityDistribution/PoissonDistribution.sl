@@ -60,7 +60,7 @@ PoissonDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[SmallFloat, Symbol] {
++[Float, Symbol] {
 
 	PoissonDistribution { :mu |
 		newPoissonDistribution().initializeSlots(mu)

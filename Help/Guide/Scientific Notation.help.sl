@@ -16,7 +16,7 @@ While in many implementations the _E_ may be written in either upper or lower ca
 Sᴘʟ requires the E be in upper case.
 
 Both integer and floating point numbers may be written in E notation,
-the answer is in both cases a `SmallFloat` value:
+the answer is in both cases a `Float` value:
 
 ```
 >>> 1E0
@@ -62,7 +62,7 @@ The parser does not require that _1 <= a < 10_:
 1E3
 ```
 
-Equivalent `LargeInteger`:
+Equivalent `Integer`:
 
 ```
 >>> 1E20

@@ -21,7 +21,7 @@ With `String` keys:
 Dictionary(['x' -> 1, 'y' -> 2, 'z' -> 3])
 ```
 
-With `SmallFloat` keys:
+With `Float` keys:
 
 ```
 >>> let d = Dictionary[1 'x'; 2 'y'; 3 'z'];

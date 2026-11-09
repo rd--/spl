@@ -12,7 +12,7 @@ The reserverd words `nil` (of type `Nil`) and `true` and `false` (of type `Boole
 [true true true]
 ```
 
-As can `SmallFloat` and `String` values:
+As can `Float` and `String` values:
 
 ```
 >>> 3.141.isJson
@@ -38,7 +38,7 @@ true
 
 * * *
 
-See also: Boolean, Json, List, Nil, Record, SmallFloat, String, encodeJson, isImmediate, json, parseJson
+See also: Boolean, Json, List, Nil, Record, Float, String, encodeJson, isImmediate, json, parseJson
 
 Guides: Protocol Functions
 

@@ -2,7 +2,7 @@
 
 - _fromSignExponentMantissa([s e m])_
 
-Answer a `SmallFloat` reconstructed from the components of the Ieee 754 floating point representation.
+Answer a `Float` reconstructed from the components of the Ieee 754 floating point representation.
 The components are, in sequence, _sign_, _exponent_ and _mantissa_.
 The reconstruction is _(-1 ^ sign) * (2 ^ exponent) * mantissa_.
 
@@ -16,6 +16,6 @@ The reconstruction is _(-1 ^ sign) * (2 ^ exponent) * mantissa_.
 
 * * *
 
-See also: SmallFloat, signExponentMantissa
+See also: Float, signExponentMantissa
 
 Guides: Floating Point Functions

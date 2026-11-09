@@ -18,13 +18,13 @@ At `Fraction`:
 1/27
 ```
 
-Compare to `^` at `SmallFloat`:
+Compare to `^` at `Float`:
 
 ```
->>> SmallFloat(1/9) ^ 3/2
+>>> Float(1/9) ^ 3/2
 0.0370370
 
->>> 1/9 ^ SmallFloat(3/2)
+>>> 1/9 ^ Float(3/2)
 0.0370370
 
 >>> (4 ^ 3/2, 4 ^ 1.5)
@@ -41,7 +41,7 @@ The answer may not be a `Fraction`:
 2.sqrt / 2
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 27L ^ 1/3

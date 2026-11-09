@@ -19,7 +19,7 @@ Answers the bitwise and of the integers _i_ and _j_.
 It is an `error` if _i_ answers `false` to `isBinary`:
 
 ```
->>> SmallFloat(13.factorial).isBinary
+>>> Float(13.factorial).isBinary
 false
 
 >>> 13.factorial.bitLength
@@ -34,7 +34,7 @@ true
 0
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> let n = 13L.factorial;
@@ -60,7 +60,7 @@ Threads over lists,
 -3:18 % 8
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> (3 ^ 100).bitAnd(5 ^ 100)

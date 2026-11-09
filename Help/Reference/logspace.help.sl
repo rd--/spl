@@ -4,7 +4,7 @@
 
 Answer an _n_ point logarithmically spaced list from _10^a_ to _10^b_.
 
-At `SmallFloat`,
+At `Float`,
 create a `List` of seven logarithmically spaced points in the interval _10^1 -- 10^5_:
 
 ```

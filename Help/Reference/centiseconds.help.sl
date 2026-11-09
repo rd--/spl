@@ -2,7 +2,7 @@
 
 - _centiseconds(x)_
 
-At `SmallFloat` answer a `Quantity` value:
+At `Float` answer a `Quantity` value:
 
 ```
 >>> 1.centiseconds

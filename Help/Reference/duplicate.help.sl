@@ -101,7 +101,7 @@ With external state:
 
 >>> let r = Sfc32(12345);
 >>> {
->>> 	r.nextRandomInteger(1, 9)
+>>> 	r.nextRandomSmallInteger(1, 9)
 >>> } ! [5]
 [8 5 9 9 4]
 ```

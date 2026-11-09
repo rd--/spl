@@ -8,7 +8,7 @@ On a circle there are two distances between two points,
 the arcs traversed clockwise and counterclockwise.
 The modular distance is the least of the two arcs.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> modularDistance(11, 2, 12)

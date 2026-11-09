@@ -7,7 +7,7 @@ The unary form answers the natural logarithm of _z_,
 the logarithm to base _e_,
 sometimes written _ln_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 1000.log
@@ -37,14 +37,14 @@ At `zero` and `one`:
 ```
 
 At `Fraction`,
-implicitly converts to `SmallFloat`:
+implicitly converts to `Float`:
 
 ```
 >>> 3/2.log
 0.405465
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 8L.log

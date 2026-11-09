@@ -25,7 +25,7 @@ Find the integer part of a negative real number:
 -2
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 23L.integerPart

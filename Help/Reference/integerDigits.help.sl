@@ -71,7 +71,7 @@ Threads over lists:
 [1 1 0; 1 1 1; 1 0; 0; 1 1 0 1]
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> let i = 5752090994058710841670361653731519L;

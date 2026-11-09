@@ -2,7 +2,7 @@
 
 - _parseDecimalInteger(s, f/0)_
 
-Answer the `SmallFloat` of the decimal integer indicated by the string _s_,
+Answer the `Float` of the decimal integer indicated by the string _s_,
 which must be in decimal notation.
 If the string is not a decimal integer,
 evaluate the else clause _f_ or signal an `error`.
@@ -52,6 +52,6 @@ true
 
 * * *
 
-See also: asInteger, isDecimalIntegerString, parseDecimal, parseLargeInteger, parseNumber, parseSmallInteger
+See also: asInteger, isDecimalIntegerString, parseDecimal, parseInteger, parseNumber, parseSmallInteger
 
 Guides: Parsing Functions

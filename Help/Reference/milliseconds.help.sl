@@ -2,7 +2,7 @@
 
 - _milliseconds(t)_
 
-At `SmallFloat`,
+At `Float`,
 construct a `Quantity` value holding _t_ milliseconds:
 
 ```

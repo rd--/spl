@@ -7,7 +7,7 @@ The encoding is defined by _ECMA-404: The JSON Data Interchange Standard_.
 Answers a `String`.
 
 The following types have standard Json encodings:
-`Nil`, `Boolean`, `SmallFloat`, `String`, `List` and `Record`.
+`Nil`, `Boolean`, `Float`, `String`, `List` and `Record`.
 
 Any type or trait may implement `encodeJson`,
 however only the types listed above will be answered by `parseJson`.
@@ -27,7 +27,7 @@ At `Boolean`:
 ['true' 'false']
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> [3.141 23].collect(encodeJson/1)

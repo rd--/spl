@@ -6,7 +6,7 @@ At `Number`,
 answer _x_ times the constant representing the number of radians in one degree,
 approximately equal to _0.01745_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 1.degree

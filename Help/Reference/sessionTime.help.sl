@@ -7,7 +7,7 @@ This clock may be more accurate that the clock read by `absoluteTime`.
 
 ```
 >>> let t = system.sessionTime;
->>> (t.isSmallFloat, t > 0)
+>>> (t.isFloat, t > 0)
 (true, true)
 ```
 

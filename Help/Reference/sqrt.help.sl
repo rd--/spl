@@ -72,7 +72,7 @@ At `Complex`:
 0J5
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 81L.isqrt

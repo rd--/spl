@@ -25,7 +25,7 @@ OscParameter : [Object, Store] {
 
 }
 
-+SmallFloat {
++Float {
 
 	OscParameter { :self |
 		self.isInteger.if {
@@ -94,7 +94,7 @@ OscBundle : [Object, Store] {
 
 }
 
-+SmallFloat {
++Float {
 
 	OscBundle { :self :messageList |
 		newOscBundle().initializeSlots(self, messageList)

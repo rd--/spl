@@ -130,7 +130,7 @@ threads over lists:
 
 ~~~spl svg=D
 Sfc32(314729)
-.randomInteger([1 100], [6 4 2])
+.randomSmallInteger([1 100], [6 4 2])
 .BezierCurve(3)
 ~~~
 

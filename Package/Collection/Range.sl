@@ -58,7 +58,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 	}
 
 	[plus, +] { :self :operand |
-		operand.isSmallFloat.if {
+		operand.isFloat.if {
 			Range(
 				self.start + operand,
 				self.stop + operand,
@@ -143,7 +143,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 	}
 
 	[subtract, -] { :self :operand |
-		operand.isSmallFloat.if {
+		operand.isFloat.if {
 			Range(
 				self.start - operand,
 				self.stop - operand,

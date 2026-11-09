@@ -2,9 +2,14 @@
 
 - _isInteger(x, ε)_
 
-Answers `true` if the number _x_ is an `Integer`, else `false`.
+Answers `true` if the object _x_ is an `Integer`,
+else `false`.
+This is both the type predicate for the `Integer` type,
+and also the predicate at real numeric types,
+such as `Float` and `Fraction`,
+to distinguish integer values.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 23.isInteger
@@ -24,7 +29,7 @@ Not-a-number is not an integer:
 false
 ```
 
-At `SmallFloat`,
+At `Float`,
 values that are integers but not small integers answer `false`,
 see also `isIeeeInteger`:
 
@@ -60,7 +65,7 @@ answer `true`:
 true
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 23L.isInteger
@@ -269,16 +274,16 @@ OEIS [A153151](https://oeis.org/A153151):
 ![](Help/Image/isInteger-F.svg)
 
 _Rationale_:
-Note that this is not a `Type` predicate,
-it tests a property of a specific instance of a number.
-`Fraction`, `SmallFloat` and `Decimal` values may each possibly represent an integer.
+Note that this is both a `Type` predicate,
+and also a test for a property of a specific instance of a number.
+`Fraction`, `Float` and `Decimal` values may each possibly represent an integer.
 In this sense it is like `isEven` and `isOdd`,
 however it unlike in that it is defined to be false for non number values.
-The type predicates are `isFraction`, `isSmallFloat`, `isDecimal`, `isLargeInteger`.
+The specific type predicates are `isFraction`, `isFloat`, `isDecimal`.
 
 * * *
 
-See also: Integer, Number, isFraction, isGaussianInteger, isLargeInteger, isNumber, isSmallFloat, isSmallInteger, parseLargeInteger, parseSmallInteger
+See also: Integer, Number, isFraction, isGaussianInteger, isInteger, isNumber, isFloat, isSmallInteger, parseInteger, parseSmallInteger
 
 Guides: Integer Functions, Predicate Functions
 

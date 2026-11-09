@@ -5,7 +5,7 @@
 Answer _n_ points, the spacing between the points is _(x2-x1)/(n-1)_.
 For real values equivalent to `discretize`.
 
-At `SmallFloat`, create a `List` of seven evenly spaced points in the interval -5 -- 5:
+At `Float`, create a `List` of seven evenly spaced points in the interval -5 -- 5:
 
 ```
 >>> -5.linspace(5, 7)

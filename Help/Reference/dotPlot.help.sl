@@ -9,7 +9,7 @@ A dot plot of fifty random values from zero to nine:
 
 ~~~spl svg=A
 Sfc32(367814)
-.randomInteger([0 9], 50)
+.randomSmallInteger([0 9], 50)
 .dotPlot
 ~~~
 
@@ -19,7 +19,7 @@ A dot plot of one-hundred random values from one to twenty-five:
 
 ~~~spl svg=B
 Sfc32(638174)
-.randomInteger([1 25], 100)
+.randomSmallInteger([1 25], 100)
 .dotPlot
 ~~~
 

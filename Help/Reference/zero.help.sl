@@ -22,19 +22,19 @@ At `Fraction`:
 (0/1, true)
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> let x = 3.141.zero;
->>> (x, x.isSmallFloat)
+>>> (x, x.isFloat)
 (0.0, true)
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> let x = 23L.zero;
->>> (x, x.isLargeInteger)
+>>> (x, x.isInteger)
 (0L, true)
 ```
 

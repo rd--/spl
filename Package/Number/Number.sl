@@ -528,6 +528,12 @@
 		self < self.zero
 	}
 
+	isNegativeInteger { :self |
+		self.isInteger & {
+			self.isNegative
+		}
+	}
+
 	isNegativeZero { :self |
 		false
 	}
@@ -546,6 +552,12 @@
 		self <= self.zero
 	}
 
+	isNonPositiveInteger { :self |
+		self.isInteger & {
+			self.isNonPositive
+		}
+	}
+
 	isNonZero { :self |
 		self != 0
 	}
@@ -560,6 +572,12 @@
 
 	isPositive { :self |
 		self > self.zero
+	}
+
+	isPositiveInteger { :self |
+		self.isInteger & {
+			self.isPositive
+		}
 	}
 
 	isScalar { :self |
@@ -597,11 +615,11 @@
 	}
 
 	log2 { :self |
-		SmallFloat(self).log2
+		Float(self).log2
 	}
 
 	logScale { :self :c |
-		let x = SmallFloat(self);
+		let x = Float(self);
 		x.sign * (1 + (x / c).abs).log10
 	}
 
@@ -885,7 +903,7 @@
 	}
 
 	raisedToPositiveInteger { :self :operand |
-		operand.isLargeInteger.ifTrue {
+		operand.isInteger.ifTrue {
 			operand := SmallInteger(operand)
 		};
 		self.raisedToPositiveSmallInteger(operand)

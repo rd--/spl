@@ -4,7 +4,7 @@
 
 A specialised variant of `binomial`,
 where _n_ and _k_ are integers.
-The answer may be a `LargeInteger`,
+The answer may be a `Integer`,
 even if _n_ and _k_ are not.
 
 `binomial` can give large answers for small _n_ and _k_:

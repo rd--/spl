@@ -36,7 +36,7 @@ The provided methods are:
 - `randomComplex`
 - `randomCycle`
 - `randomInteger`
-- `randomLargeInteger`
+- `randomSmallInteger`
 - `randomPermutation`
 - `randomPermutationList`
 - `randomPoint`
@@ -51,7 +51,7 @@ The provided methods are:
 
 * * *
 
-See also: Iterator, Stream, Sfc32, randomChoice, randomComplex, randomInteger, randomLargeInteger, randomReal, randomWeightedChoice
+See also: Iterator, Stream, Sfc32, randomChoice, randomComplex, randomInteger, randomInteger, randomReal, randomWeightedChoice
 
 Guides: Random Number Generators
 

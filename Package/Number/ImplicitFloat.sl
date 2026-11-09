@@ -1,65 +1,65 @@
 @ImplicitFloat {
 
 	cubeRoot { :self |
-		SmallFloat(self).cubeRoot
+		Float(self).cubeRoot
 	}
 
 	exp { :self |
-		SmallFloat(self).exp
+		Float(self).exp
 	}
 
 	isCloseBy { :self :aNumber :epsilon |
 		aNumber.isNumber & {
-			SmallFloat(self).isCloseBy(
-				SmallFloat(aNumber),
+			Float(self).isCloseBy(
+				Float(aNumber),
 				epsilon
 			)
 		}
 	}
 
 	log { :self :base |
-		SmallFloat(self).log(
+		Float(self).log(
 			base
 		)
 	}
 
 	log { :self |
-		SmallFloat(self).log
+		Float(self).log
 	}
 
 	log10 { :self |
-		SmallFloat(self).log10
+		Float(self).log10
 	}
 
 	log2 { :self |
-		SmallFloat(self).log2
+		Float(self).log2
 	}
 
 	nthRoot { :self :aNumber |
-		SmallFloat(self).nthRoot(
-			SmallFloat(aNumber)
+		Float(self).nthRoot(
+			Float(aNumber)
 		)
 	}
 
 	printStringToFixed { :self :anInteger |
-		SmallFloat(self).printStringToFixed(anInteger)
+		Float(self).printStringToFixed(anInteger)
 	}
 
 	realDigits { :self :base :size |
-		SmallFloat(self).realDigits(
+		Float(self).realDigits(
 			base,
 			size
 		)
 	}
 
 	realExponent { :x :b |
-		SmallFloat(x).abs.log(
-			SmallFloat(b)
+		Float(x).abs.log(
+			Float(b)
 		)
 	}
 
 	[squareRoot, sqrt] { :self |
-		SmallFloat(self).sqrt
+		Float(self).sqrt
 	}
 
 }

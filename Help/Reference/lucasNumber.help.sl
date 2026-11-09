@@ -26,7 +26,7 @@ or [A000204](https://oeis.org/A000204) _i=1,3_:
 [1 3 4 7 11 18 29 47 76 123 199 322 521]
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> (11 / 3).lucasNumber

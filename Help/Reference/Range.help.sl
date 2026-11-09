@@ -209,7 +209,7 @@ Use a non-integer step:
 ]
 ```
 
-`Range` of `LargeInteger`:
+`Range` of `Integer`:
 
 ```
 >>> Range(1, 2 ^ 90).size

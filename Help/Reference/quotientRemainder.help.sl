@@ -42,7 +42,7 @@ At `Fraction`:
 [5 5/12]
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 5.89.quotientRemainder(2.4)

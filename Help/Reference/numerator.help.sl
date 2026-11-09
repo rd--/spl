@@ -13,14 +13,14 @@ At `Fraction`:
 2
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 2L.numerator
 2L
 ```
 
-At `SmallFloat`,
+At `Float`,
 it is an error if the value is not an integer:
 
 ```

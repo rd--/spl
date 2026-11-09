@@ -2,8 +2,8 @@
 
 - _L(x)_
 
-Answer a `LargeInteger`.
-`L` is an alias for `LargeInteger`.
+Answer a `Integer`.
+`L` is an alias for `Integer`.
 `L` mirrors the literal syntax for large integers.
 
 ```
@@ -29,6 +29,6 @@ Threads over lists:
 
 * * *
 
-See also: LargeInteger
+See also: Integer
 
 Guides: Integer Functions

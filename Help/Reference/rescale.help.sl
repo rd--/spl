@@ -7,7 +7,7 @@ answer _x_ rescaled to run from _y⌊_ to _y⌈_ over the range _⌊_ to _⌈_.
 In the binary case _y⌊_ and _y⌈_ are set to `zero` and `one`.
 In the unary case _⌊_ and _⌈_ are set to the (deep) ⌊ and ⌈ of the collection _x_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 2.5.rescale([-10 10])
@@ -30,7 +30,7 @@ At `Fraction`:
 1/8
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 1.pi.rescale([0 2.5])

@@ -9,7 +9,7 @@ At `Range`:
 
 ```
 >>> 1:9.elementType
-'SmallFloat'
+'Float'
 ```
 
 At `List`:
@@ -31,7 +31,7 @@ At `NumericArray`:
 >>> 	4 5 6;
 >>> 	7 8 9
 >>> ].NumericArray.elementType
-'SmallFloat'
+'Float'
 ```
 
 At a heterogeneous `List`:
@@ -52,7 +52,7 @@ At `Record`:
 
 ```
 >>> (x: 1, y: 2, z: 3).elementType
-'SmallFloat'
+'Float'
 ```
 
 The binary case evaluates the block _f_ if there is no uniform type,
@@ -75,7 +75,7 @@ At one element list:
 
 ```
 >>> [23].elementType { 'Any' }
-'SmallFloat'
+'Float'
 ```
 
 At `List` of `String`:

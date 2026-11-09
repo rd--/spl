@@ -31,7 +31,7 @@ TextureProgram : [Object] {
 
 }
 
-+[List, SmallFloat, Ugen] {
++[List, Float, Ugen] {
 
 	withOverlapEnvelope { :aUgen :sustainTime :transitionTime |
 		let env = Env(

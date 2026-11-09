@@ -1,6 +1,6 @@
 /* Requires: Ugen */
 
-+[List, SmallFloat, Ugen] {
++[List, Float, Ugen] {
 
 	blendXFade { :y1 :y2 :mu |
 		let signedMu = mu.linLin(0, 1, -1, 1);
@@ -61,7 +61,7 @@
 
 }
 
-+[List, SmallFloat, Ugen] {
++[List, Float, Ugen] {
 
 	audioOut { :channelsList |
 		out(0, channelsList)
@@ -277,8 +277,8 @@
 
 	tChoose { :tr :inList |
 		(
-			inList.elementType = 'SmallFloat' |  {
-				inList.isMatrixOf('SmallFloat')
+			inList.elementType = 'Float' |  {
+				inList.isMatrixOf('Float')
 			}
 		).if {
 			tBufChoose(tr, localBuf(inList))
@@ -318,7 +318,7 @@
 
 }
 
-+[List, SmallFloat, Ugen] {
++[List, Float, Ugen] {
 
 	Env { :levels :times :curves :releaseNode :loopNode :offset |
 		<primitive: return new sc.Env(_levels, _times, _curves, _releaseNode, _loopNode, _offset);>

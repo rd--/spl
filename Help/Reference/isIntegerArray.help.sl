@@ -41,7 +41,7 @@ An irregular array is not an array:
 false
 ```
 
-Element type of `SmallFloat`:
+Element type of `Float`:
 
 ```
 >>> [1 2].isIntegerArray

@@ -142,7 +142,7 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 	}
 
 	utf16String { :self |
-		SmallFloat(self).uncheckedUtf16String
+		Float(self).uncheckedUtf16String
 	}
 
 	utf8String { :self |
@@ -176,9 +176,9 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 
 	[ByteArray, listToByteArray] { :self |
 		self.atVectorOrElementwise { :aList |
-			let floatList = SmallFloat(aList);
+			let floatList = Float(aList);
 			(
-				floatList.isSmallFloatVector & {
+				floatList.isFloatVector & {
 					floatList.allSatisfy(isByte/1)
 				}
 			).if {
@@ -239,14 +239,14 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 
 +ByteArray {
 
-	decodeLargeInteger { :self :littleEndian |
+	decodeInteger { :self :littleEndian |
 		let k = self.size;
 		let f = { :n |
 			littleEndian.if { n - 1L } { k - n } * 8
 		};
 		let answer = 0L;
 		self.withIndexDo { :n :i |
-			let m = LargeInteger(n);
+			let m = Integer(n);
 			answer := answer + (m << f(i))
 		};
 		answer

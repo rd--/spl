@@ -65,7 +65,7 @@ Quotient table:
 ]
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 3213213213213213432453243L
@@ -84,7 +84,7 @@ At `Fraction`:
 2
 ```
 
-At `SmallFloat`, i.e. inexact numbers:
+At `Float`, i.e. inexact numbers:
 
 ```
 >>> 4.56 // 2.5

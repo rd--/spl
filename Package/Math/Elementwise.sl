@@ -22,8 +22,8 @@
 		self.collect(Number/1)
 	}
 
-	[SmallFloat, Float] { :self |
-		self.collect(SmallFloat/1)
+	Float { :self |
+		self.collect(Float/1)
 	}
 
 	SmallInteger { :self |
@@ -187,9 +187,7 @@
 	}
 
 	denominator { :self |
-		self.collect { :each |
-			each.denominator.Integer
-		}
+		self.collect(denominator/1)
 	}
 
 	diagonalIndexToCartesianIndex { :self |
@@ -683,10 +681,12 @@
 		self.collect(nimSquareRoot/1)
 	}
 
+	normalInteger { :self |
+		self.collect(normalInteger/1)
+	}
+
 	numerator { :self |
-		self.collect { :each |
-			each.numerator.Integer
-		}
+		self.collect(numerator/1)
 	}
 
 	numeratorDenominator { :self |

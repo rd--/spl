@@ -30,7 +30,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	Frequency { :self |
 		Quantity(self, 'hertz')

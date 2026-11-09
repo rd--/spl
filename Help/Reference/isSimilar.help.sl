@@ -6,7 +6,7 @@ Answer `true` if the object _p_ is similar to (or almost equal to or close to) a
 else `false`.
 The meaning of _similar_ is determined by the type of _p_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 1.e ~ 2.7183
@@ -26,7 +26,7 @@ At `Interval`:
 true
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 23L ~ 23.001

@@ -46,13 +46,13 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'WeakMap'
 	],
 	'Number-Kernel': [
-		'SmallFloat'
+		'Float'
 	],
 	'Number': [
 		'Complex'
 		'Fraction'
 		'Interval'
-		'LargeInteger'
+		'Integer'
 	],
 	'System': [
 		'BinaryLargeObject'
@@ -870,7 +870,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'UgenGraph'
 		'WeakMap'
 		'WebSocket'
-		'LargeInteger'
+		'Integer'
 		'instanceOf'
 		'new'
 		'newFrom'
@@ -1016,7 +1016,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'parseBase16'
 		'parseSmallInteger'
 		'parseJson'
-		'parseLargeInteger'
+		'parseInteger'
 		'parseMethodSignature'
 		'parseQualifiedMethodName'
 		'parseNumber'
@@ -1082,7 +1082,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	'random': [
 		'nextRandomFloat'
 		'randomInteger'
-		'randomLargeInteger'
+		'randomInteger'
 		'randomComplex'
 		'randomReal'
 	],
@@ -1316,7 +1316,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isFrequency'
 		'isGraph'
 		'isHeap'
-		'isLargeInteger'
+		'isInteger'
 		'isLibraryItem'
 		'isLinkedList'
 		'isList'
@@ -1333,7 +1333,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isResponse'
 		'isRunArray'
 		'isSet'
-		'isSmallFloat'
+		'isFloat'
 		'isSortedList'
 		'isStack'
 		'isStorage'

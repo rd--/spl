@@ -113,7 +113,7 @@ Matrix plot of _k=3_ minors of a random boolean matrix:
 
 ~~~spl svg=A
 Sfc32(683714)
-.randomInteger([0 1], [6 6])
+.randomSmallInteger([0 1], [6 6])
 .minors(3)
 .matrixPlot
 ~~~

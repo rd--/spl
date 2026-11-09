@@ -6,7 +6,7 @@ Parse Numbers:
 - `parseDecimalInteger`
 - `parseDecimalNumeral`
 - `parseFraction`
-- `parseLargeInteger`
+- `parseInteger`
 - `parseNumber`
 - `parseSexagesimal`
 - `parseSmallInteger`

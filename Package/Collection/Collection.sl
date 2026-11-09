@@ -1,14 +1,8 @@
 @Collection {
 
-	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
+	[adaptToIntegerAndApply, adaptToNumberAndApply] { :self :operand :aBlock/2 |
 		self.collect { :each |
-			aBlock(anInteger, each)
-		}
-	}
-
-	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		self.collect { :each |
-			aBlock(aNumber, each)
+			aBlock(operand, each)
 		}
 	}
 
@@ -549,7 +543,7 @@
 
 	randomChoice { :self :r :shape |
 		{
-			let randomIndex = r.nextRandomInteger(1, self.size);
+			let randomIndex = r.nextRandomSmallInteger(1, self.size);
 			let index = 1;
 			withReturn { :return/1 |
 				self.do { :each |

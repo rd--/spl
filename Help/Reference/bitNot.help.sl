@@ -27,7 +27,7 @@ Threads over lists:
 [-2, -3 .. -11]
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 1L:10.bitNot

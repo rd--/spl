@@ -5,7 +5,7 @@
 	}
 
 	adaptToCollectionAndApply { :self :aCollection :aBlock/2 |
-		aBlock(aCollection, self.List)
+		aBlock(aCollection, List(self))
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |

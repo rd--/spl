@@ -7,7 +7,7 @@ Each value in Sᴘʟ is an _instance_ of a type.
 
 ```
 >>> 3.141.typeName
-'SmallFloat'
+'Float'
 ```
 
 `typeDefinition` answers the `Type` of a value:
@@ -15,7 +15,7 @@ Each value in Sᴘʟ is an _instance_ of a type.
 ```
 >>> let t = 3.141.typeDefinition;
 >>> (t.isType, t.typeName, t.name)
-(true, 'Type', 'SmallFloat')
+(true, 'Type', 'Float')
 ```
 
 * * *

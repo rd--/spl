@@ -41,7 +41,7 @@ ListElement : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	ListElement { :self |
 		newListElement().initializeSlots(self, nil)

@@ -1,4 +1,4 @@
-+SmallFloat {
++Float {
 
 	arcCosh { :self |
 		<primitive:
@@ -115,7 +115,7 @@
 
 }
 
-+[SmallFloat, Complex] {
++[Float, Complex] {
 
 	csch { :self |
 		1.0 / self.sinh
@@ -143,7 +143,7 @@
 
 }
 
-+[SmallFloat, Complex] {
++[Float, Complex] {
 
 	hyperbolicArcCosine { :self |
 		self.arcCosh
@@ -226,43 +226,43 @@
 +@ImplicitFloat {
 
 	arcCosh { :self |
-		SmallFloat(self).arcCosh
+		Float(self).arcCosh
 	}
 
 	arcCoth { :self |
-		SmallFloat(self).arcCoth
+		Float(self).arcCoth
 	}
 
 	arcCsch { :self |
-		SmallFloat(self).arcCsch
+		Float(self).arcCsch
 	}
 
 	arcSech { :self |
-		SmallFloat(self).arcSech
+		Float(self).arcSech
 	}
 
 	arcTanh { :self |
-		SmallFloat(self).arcTanh
+		Float(self).arcTanh
 	}
 
 	cosh { :self |
-		SmallFloat(self).cosh
+		Float(self).cosh
 	}
 
 	coth { :self |
-		SmallFloat(self).coth
+		Float(self).coth
 	}
 
 	sech { :self |
-		SmallFloat(self).sech
+		Float(self).sech
 	}
 
 	sinh { :self |
-		SmallFloat(self).sinh
+		Float(self).sinh
 	}
 
 	tanh { :self |
-		SmallFloat(self).tanh
+		Float(self).tanh
 	}
 
 }

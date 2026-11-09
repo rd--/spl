@@ -36,7 +36,7 @@ At `Integer`:
 (type: 'i', value: 23)
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> OscParameter(3.141)

@@ -25,7 +25,7 @@ Stream Functions:
 
 - `next`
 - `nextRandomFloat`
-- `nextRandomInteger`
+- `nextRandomSmallInteger`
 
 Deterministic Functions:
 

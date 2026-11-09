@@ -6,7 +6,7 @@ At `Number`,
 answer `true` if the number is either an `Integer` or a `Fraction`,
 else `false`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 23.isRational
@@ -16,7 +16,7 @@ true
 false
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 23L.isRational

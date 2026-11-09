@@ -43,7 +43,7 @@ At `List`:
 false
 ```
 
-At `SmallFloat`,
+At `Float`,
 negative zero is equal to,
 and therefore identical to,
 zero:

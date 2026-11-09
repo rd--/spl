@@ -7,7 +7,7 @@ Answer -1 if _x_ precedes _y_,
 answer 0 if _x_ equals _y_,
 answer 1 if _x_ succeeds _y_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> (compare(1, 2), 1 < 2)

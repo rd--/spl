@@ -26,7 +26,7 @@ each randomly initialized using the random number generator _r_.
 
 * * *
 
-See also: randomInteger, randomLargeInteger, randomReal
+See also: randomInteger, randomSmallInteger, randomReal
 
 Guides: Random Number Functions, Random Number Generators
 

@@ -62,7 +62,7 @@ Duration : [Object, Store, Equal, Compare] {
 
 }
 
-+[SmallFloat, LargeInteger, Fraction] {
++[Float, Integer, Fraction] {
 
 	Duration { :self |
 		newDuration().initializeSlots(self)

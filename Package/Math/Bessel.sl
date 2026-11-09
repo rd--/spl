@@ -6,7 +6,7 @@
 				n.besselJ(each)
 			}
 		} {
-			uncheckedBesselJ(n, SmallFloat(x))
+			uncheckedBesselJ(n, Float(x))
 			/*
 			(n = 0).if {
 				besselJ0(x)
@@ -31,7 +31,7 @@
 
 }
 
-+[SmallFloat, LargeInteger] {
++[Float, Integer] {
 
 	besselAsympt0 { :x |
 		let xsq = 64 / (x * x);

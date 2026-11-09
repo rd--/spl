@@ -12,7 +12,7 @@ The reserverd words `nil` (of type `Nil`) and `true` and `false` (of type `Boole
 [true true true]
 ```
 
-`SmallFloat` and `LargeInteger` values are literals:
+`Float` and `Integer` values are literals:
 
 ```
 >>> [3.141 23L].collect(isLiteral/1)

@@ -20,7 +20,7 @@ All bits that are unset in both inputs will be set in the output.
 2b000100001011000
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 30371L.bitNor(20774L, 15)

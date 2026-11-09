@@ -2,7 +2,7 @@ Missing : [Object, Store, Equal] {
 
 	| reasonMissing value |
 
-	SmallFloat { :unused |
+	Float { :unused |
 		NaN
 	}
 
@@ -58,7 +58,7 @@ Missing : [Object, Store, Equal] {
 
 }
 
-+SmallFloat {
++Float {
 
 	isMissing { :self |
 		self.isNaN

@@ -104,7 +104,7 @@ shiftRegisterSequence(i, t, n)
 
 * * *
 
-See also: deBruijnGraph, deBruijnSequence, elementaryCellularAutomaton, linearRecurrence, nestList, randomInteger
+See also: deBruijnGraph, deBruijnSequence, elementaryCellularAutomaton, linearRecurrence, nestList, randomSmallInteger
 
 Guides: Automata Functions
 

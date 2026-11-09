@@ -58,7 +58,7 @@ Generate _n_ positive integers less than _m_ and construct a sorted set:
 >>> let n = 3000;
 >>> SortedSet(
 >>> 	Sfc32(325671)
->>> 	.randomInteger([1 m], [n])
+>>> 	.randomSmallInteger([1 m], [n])
 >>> ).size
 944
 ```

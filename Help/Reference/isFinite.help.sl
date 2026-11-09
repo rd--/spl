@@ -12,7 +12,7 @@ true
 false
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> (23 ^ 23).isFinite
@@ -54,7 +54,7 @@ false
 
 * * *
 
-See also: Infinity, NaN, Number, SmallFloat, /, isInteger, replaceNaN, zero
+See also: Infinity, NaN, Number, Float, /, isInteger, replaceNaN, zero
 
 Guides: Mathematical Functions
 

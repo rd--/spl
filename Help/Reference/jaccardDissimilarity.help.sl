@@ -26,8 +26,8 @@ Compute dissimilarity between any 0, 1 vectors of equal length:
 
 ```
 >>> let r = Sfc32(934712);
->>> let u = r.randomInteger([0 1], 1000);
->>> let v = r.randomInteger([0 1], 1000);
+>>> let u = r.randomSmallInteger([0 1], 1000);
+>>> let v = r.randomSmallInteger([0 1], 1000);
 >>> u.jaccardDissimilarity(v)
 281/418
 ```

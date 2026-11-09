@@ -54,7 +54,7 @@ The operator form is `**`:
 ```
 
 In addition,
-this method at `SmallFloat` does not consider integer values specially,
+this method at `Float` does not consider integer values specially,
 and will not report integer overflow:
 
 ```
@@ -64,7 +64,7 @@ and will not report integer overflow:
 >>> 2 ** 59
 576460752303423500.0
 
->>> SmallFloat(2L ^ 59)
+>>> Float(2L ^ 59)
 576460752303423500.0
 ```
 

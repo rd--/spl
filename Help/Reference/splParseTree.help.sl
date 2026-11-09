@@ -77,16 +77,16 @@ At a `Number` constant:
 ['SmallInteger', '23']
 
 >>> '-Infinity'.splParseTree[2]
-['SmallFloat', '-Infinity']
+['Float', '-Infinity']
 
 >>> '3.141'.splParseTree[2]
-['SmallFloat', '3.141']
+['Float', '3.141']
 
 >>> '23L'.splParseTree[2]
-['LargeInteger', '23L']
+['Integer', '23L']
 
 >>> '2.3E1'.splParseTree[2]
-['SmallFloat', '2.3E1']
+['Float', '2.3E1']
 ```
 
 At a `List` expression:
@@ -179,8 +179,8 @@ Dot application is not recorded especially:
 [
 	'Apply',
 	['Identifier', 'Fraction'],
-	['LargeInteger', '3L'],
-	['LargeInteger', '4L']
+	['Integer', '3L'],
+	['Integer', '4L']
 ]
 
 >>> '3J4'.splParseTree[2]

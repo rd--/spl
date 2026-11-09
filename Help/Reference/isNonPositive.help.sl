@@ -12,6 +12,15 @@ else `false`.
 [true true false]
 ```
 
+Not defined at non-number values:
+
+```
+>>> {
+>>> 	'-1'.isNonPositive
+>>> }.hasError
+true
+```
+
 * * *
 
 See also: isNegative, isNonNegative, isPositive, negate

@@ -6,7 +6,7 @@ Answer `true` if a number _n_ is close to another number _m_,
 according to _ε_,
 else `false`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 1.isCloseBy(1.001, 1E-3)
@@ -28,7 +28,7 @@ true
 false
 ```
 
-A `SmallFloat` can be close to a `LargeInteger`:
+A `Float` can be close to a `Integer`:
 
 ```
 >>> 1.001.isCloseBy(1L, 1E-3)

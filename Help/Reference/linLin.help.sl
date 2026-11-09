@@ -57,7 +57,7 @@ let f = lfSaw(1, 1).linLin(-1, 1, 220, 440);
 sinOsc(f.lag(0.05), 0) * 0.1
 ~~~
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> [0 0.5 1].collect { :each |

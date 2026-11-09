@@ -2,7 +2,7 @@
 
 - _hours(t)_
 
-At `SmallFloat` answer a `Quantity` value:
+At `Float` answer a `Quantity` value:
 
 ```
 >>> 3.hours

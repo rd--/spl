@@ -55,7 +55,7 @@ Plus threads element-wise over lists:
 [3 3; 5 5; 7 7]
 ```
 
-Plus at `SmallFloat` is not always associative:
+Plus at `Float` is not always associative:
 
 ```
 >>> 1E20 + (-1E20 + 1)

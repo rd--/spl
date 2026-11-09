@@ -322,7 +322,7 @@ UnitCircle : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	annularSteinerChain { :n :c :r |
 		let theta = 1.pi / n;

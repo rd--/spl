@@ -6,7 +6,7 @@ Answer _x_ multipled by _i_, the imaginary unit.
 
 Unlike `I` _i_ is implemented at `Complex`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 3.i

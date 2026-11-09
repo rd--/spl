@@ -1,20 +1,20 @@
-/* Requires: List SmallFloat String */
+/* Requires: List Float String */
 
-LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, ImplicitFloat] {
+Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, ImplicitFloat] {
 
-	[Integer, normalInteger] { :self |
+	normalInteger { :self |
 		self.isSmallInteger.if {
-			SmallFloat(self)
+			Float(self)
 		} {
 			self
 		}
 	}
 
-	[LargeInteger, L] { :self |
+	[Integer, L] { :self |
 		self
 	}
 
-	[SmallFloat, Float, largeIntegerToSmallFloat] { :self |
+	[Float, largeIntegerToFloat] { :self |
 		<primitive:
 		return Number(_self);
 		>
@@ -22,33 +22,33 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 	[SmallInteger, largeIntegerToSmallInteger]  { :self |
 		self.isSmallInteger.if {
-			SmallFloat(self)
+			Float(self)
 		} {
-			self.error('LargeInteger>>SmallInteger: not small integer')
+			self.error('Integer>>SmallInteger: not small integer')
 		}
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		aNumber.isInteger.if {
-			aBlock(LargeInteger(aNumber), self)
+			aBlock(Integer(aNumber), self)
 		} {
-			aBlock(aNumber, SmallFloat(self))
+			aBlock(aNumber, Float(self))
 		}
 	}
 
 	atRandom { :self |
-		system.nextRandomInteger(1, SmallFloat(self))
+		system.nextRandomSmallInteger(1, Float(self))
 	}
 
 	bitAnd { :self :anObject |
 		<primitive:
-		if(sl.isLargeInteger(_anObject)) {
+		if(sl.isInteger(_anObject)) {
 			return _self & _anObject;
-		} else if(sl.isSmallFloat(_anObject)) {
+		} else if(sl.isFloat(_anObject)) {
 			return _self & BigInt(_anObject);
 		}
 		>
-		self.error('bitAnd: operand not a LargeInteger or SmallFloat')
+		self.error('bitAnd: operand not a Integer or Float')
 	}
 
 	bitNot { :self |
@@ -59,18 +59,18 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 	bitOr { :self :anObject |
 		<primitive:
-		if(sl.isLargeInteger(_anObject)) {
+		if(sl.isInteger(_anObject)) {
 			return _self | _anObject;
-		} else if(sl.isSmallFloat(_anObject)) {
+		} else if(sl.isFloat(_anObject)) {
 			return _self | BigInt(_anObject);
 		}
 		>
-		self.error('bitOr: operand not a LargeInteger or SmallFloat')
+		self.error('bitOr: operand not a Integer or Float')
 	}
 
 	[bitShiftLeft, <<] { :self :anObject |
 		<primitive:
-		if(sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+		if(sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
 			return _self << BigInt(_anObject);
 		}
 		>
@@ -79,7 +79,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 	[bitShiftRight, >>] { :self :anObject |
 		<primitive:
-		if(sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+		if(sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
 			return _self >> BigInt(_anObject);
 		}
 		>
@@ -88,13 +88,13 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 	bitXor { :self :anObject |
 		<primitive:
-		if(sl.isLargeInteger(_anObject)) {
+		if(sl.isInteger(_anObject)) {
 			return _self ^ _anObject;
-		} else if(sl.isSmallFloat(_anObject)) {
+		} else if(sl.isFloat(_anObject)) {
 			return _self ^ BigInt(_anObject);
 		}
 		>
-		self.error('bitXor: operand not a LargeInteger or SmallFloat')
+		self.error('bitXor: operand not a Integer or Float')
 	}
 
 	countLeadingZeroes { :self :base :wordSize |
@@ -113,7 +113,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 		anObject.isInteger.if {
 			Fraction(
 				self,
-				LargeInteger(anObject)
+				Integer(anObject)
 			)
 		} {
 			anObject.adaptToIntegerAndApply(self, divide/2)
@@ -121,12 +121,12 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 	}
 
 	[encodeJson, smallFloatToJson] { :self |
-		SmallFloat(self).uncheckedEncodeJson
+		Float(self).uncheckedEncodeJson
 	}
 
 	floorLog { :self :radix |
 		(self <= 0).if {
-			self.error('LargeInteger>>floorLog: is only defined for x > 0', [radix])
+			self.error('Integer>>floorLog: is only defined for x > 0', [radix])
 		} {
 			self.numberOfDigitsInBase(radix) - 1
 		}
@@ -144,7 +144,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 					0.return
 				}
 			};
-			SmallFloat(lastDigit).highBitOfByte + (8 * (realLength - 1))
+			Float(lastDigit).highBitOfByte + (8 * (realLength - 1))
 		}
 	}
 
@@ -153,7 +153,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 			self.abs.uncheckedPrintString(radix).characters.digitValue
 		} {
 			SmallInteger(self).integerDigits(radix)
-		}.collect(LargeInteger/1)
+		}.collect(Integer/1)
 	}
 
 	integerLength { :self :radix |
@@ -190,7 +190,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 	[isEqual, =] { :self :anObject |
 		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
 			return _self === BigInt(_anObject);
 		};
 		>
@@ -224,7 +224,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 	[isLess, <] { :self :anObject |
 		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
 			return _self < BigInt(_anObject);
 		}
 		>
@@ -252,7 +252,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 	}
 
 	[isSimilar, ~] { :self :anObject |
-		SmallFloat(self) ~ anObject
+		Float(self) ~ anObject
 	}
 
 	isSmallInteger { :self |
@@ -274,7 +274,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 	[mod, %] { :self :anObject |
 		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
 			const i = BigInt(_anObject);
 			return ((_self % i) + i) % i;
 		}
@@ -296,7 +296,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 	[plus, +] { :self :anObject |
 		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
 			return _self + BigInt(_anObject);
 		}
 		>
@@ -321,7 +321,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 	[quotient, //] { :self :operand |
 		<primitive:
-		if (sl.isLargeInteger(_operand) || sl.isSmallFloatInteger(_operand)) {
+		if (sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
 			return _self / BigInt(_operand);
 		};
 		>
@@ -338,7 +338,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 	raisedToPositiveInteger { :self :operand |
 		<primitive:
-		if (sl.isLargeInteger(_operand) || sl.isSmallFloatInteger(_operand)) {
+		if (sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
 			return _self ** BigInt(_operand);
 		}
 		>
@@ -347,7 +347,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 	[remainder, \\] { :self :operand |
 		<primitive:
-		if (sl.isLargeInteger(_operand) || sl.isSmallFloatInteger(_operand)) {
+		if (sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
 			return _self % BigInt(_operand);
 		}
 		>
@@ -377,7 +377,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 	[subtract, -] { :self :anObject |
 		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
 			return _self - BigInt(_anObject);
 		}
 		>
@@ -386,7 +386,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 	[times, *] { :self :anObject |
 		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
 			return _self * BigInt(_anObject);
 		}
 		>
@@ -406,7 +406,7 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 		>
 	}
 
-	uncheckedLargeInteger { :self |
+	uncheckedInteger { :self |
 		self
 	}
 
@@ -440,21 +440,21 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 }
 
-+SmallFloat {
++Float {
 
-	[LargeInteger, L, smallFloatToLargeInteger] { :self |
+	[Integer, L, smallFloatToInteger] { :self |
 		self.isNaN.if {
 			NaN
 		} {
 			self.isSmallInteger.if {
-				self.uncheckedLargeInteger
+				self.uncheckedInteger
 			} {
-				self.error('LargeInteger: not SmallInteger')
+				self.error('Integer: not SmallInteger')
 			}
 		}
 	}
 
-	uncheckedLargeInteger { :self |
+	uncheckedInteger { :self |
 		<primitive:
 		return BigInt(_self);
 		>
@@ -464,24 +464,24 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 +String {
 
-	parseLargeInteger { :self :elseClause/0 |
+	parseInteger { :self :elseClause/0 |
 		self.endsWith('L').ifTrue {
 			self := self.allButLast
 		};
 		self.isDecimalIntegerString.if {
-			self.uncheckedParseLargeInteger
+			self.uncheckedParseInteger
 		} {
 			elseClause()
 		}
 	}
 
-	parseLargeInteger { :self |
-		self.parseLargeInteger {
-			self.error('parseLargeInteger: invalid input')
+	parseInteger { :self |
+		self.parseInteger {
+			self.error('parseInteger: invalid input')
 		}
 	}
 
-	uncheckedParseLargeInteger { :self |
+	uncheckedParseInteger { :self |
 		<primitive:
 		return BigInt(_self);
 		>
@@ -491,8 +491,8 @@ LargeInteger! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Inte
 
 +List {
 
-	[LargeInteger, L] { :self |
-		self.collect(LargeInteger/1)
+	[Integer, L] { :self |
+		self.collect(Integer/1)
 	}
 
 }

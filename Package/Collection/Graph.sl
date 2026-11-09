@@ -1339,8 +1339,8 @@ Graph : [Object, Graph] {
 		let v = [1 .. n];
 		let e = [];
 		{ e.size < m }.whileTrue {
-			let a = r.nextRandomInteger(1, n);
-			let b = r.nextRandomInteger(1, n);
+			let a = r.nextRandomSmallInteger(1, n);
+			let b = r.nextRandomSmallInteger(1, n);
 			let c = [a, b].sort;
 			(a != b & { e.includes(c).not }).ifTrue {
 				e.add!(c)

@@ -27,7 +27,7 @@ TelegraphProcess : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	TelegraphProcess { :mu |
 		newTelegraphProcess().initializeSlots(mu)

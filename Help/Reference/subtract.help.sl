@@ -6,7 +6,7 @@ Answers the number _n_ subtracted from _m_,
 or equally _m_ plus the negation of _n_.
 The operator form is `-`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 3 - 4

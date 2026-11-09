@@ -46,7 +46,9 @@ The first Fibonacci number that is not a small integer:
 
 ```
 >>> 9E23.fibonacciSequenceUpTo
->>> .detect(isLargeInteger/1)
+>>> .detect { :n |
+>>> 	n.isSmallInteger.not
+>>> }
 14472334024676221L
 ```
 

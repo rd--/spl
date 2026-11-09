@@ -7,7 +7,7 @@ answer _x_ divided by three-hundred and sixty.
 Where `degree` scales _x_ to lie in _(0,2π)_,
 `unitDegree` scales _x_ to lie in _(0,1)_.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 60.unitDegree

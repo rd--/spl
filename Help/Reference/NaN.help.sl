@@ -9,10 +9,10 @@
 true
 ```
 
-In particular, `NaN` is a `SmallFloat`:
+In particular, `NaN` is a `Float`:
 
 ```
->>> NaN.isSmallFloat
+>>> NaN.isFloat
 true
 ```
 
@@ -103,7 +103,7 @@ NaN values are removed from plots:
 
 * * *
 
-See also: Infinity, SmallFloat, ifNaN, isFinite, isMissing, isNaN, replaceNaN
+See also: Infinity, Float, ifNaN, isFinite, isMissing, isNaN, replaceNaN
 
 Guides: Error Functions, Mathematical Constants
 

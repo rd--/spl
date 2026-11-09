@@ -7,7 +7,7 @@ else `false`.
 This function will convert and number into a `Boolean` value,
 following the convention that `zero` if `false` and all other values are `true`.
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 0.isNonZero

@@ -55,8 +55,8 @@ Value at `zero`:
 1
 ```
 
-At `LargeInteger` answers `normal` integer,
-at `SmallFloat` may answer `LargeInteger`:
+At `Integer` answers `normal` integer,
+at `Float` may answer `Integer`:
 
 ```
 >>> 27L.doubleFactorial

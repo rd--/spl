@@ -52,7 +52,7 @@ ReciprocalDistribution : [Object] {
 
 }
 
-+SmallFloat {
++Float {
 
 	ReciprocalDistribution { :a :b |
 		newReciprocalDistribution().initializeSlots(a, b)

@@ -466,7 +466,7 @@ Reference (A-Z):
 - `L`
 - `LaggedFibonacci`
 - `LaplaceDistribution`
-- `LargeInteger`
+- `Integer`
 - `Length`
 - `LevyDistribution`
 - `LibraryItem`
@@ -581,7 +581,7 @@ Reference (A-Z):
 - `Simplex`
 - `SiUnit`
 - `SkewNormalDistribution`
-- `SmallFloat`
+- `Float`
 - `SmallInteger`
 - `SmallKansan`
 - `SmallKansas`
@@ -1379,7 +1379,7 @@ Reference (a-z):
 - `decimalSelvageNumber`
 - `declareFrom`
 - `decodeB2`
-- `decodeLargeInteger`
+- `decodeInteger`
 - `decodeUri`
 - `decrement`
 - `dedekindPsi`
@@ -2359,7 +2359,7 @@ Reference (a-z):
 - `isJson`
 - `isKaprekarNumber`
 - `isKeithNumber`
-- `isLargeInteger`
+- `isInteger`
 - `isLatinSquare`
 - `isLatticeWord`
 - `isLeaf`
@@ -2483,7 +2483,7 @@ Reference (a-z):
 - `isSiPrefix`
 - `isSiteswap`
 - `isSiUnit`
-- `isSmallFloat`
+- `isFloat`
 - `isSmallInteger`
 - `isSmoothNumber`
 - `isSorted`
@@ -3073,7 +3073,7 @@ Reference (a-z):
 - `nextPowerOfTwo`
 - `nextPrime`
 - `nextRandomFloat`
-- `nextRandomInteger`
+- `nextRandomSmallInteger`
 - `nextSatisfy`
 - `nextUntil`
 - `nextWhile`
@@ -3230,7 +3230,7 @@ Reference (a-z):
 - `parseHtml`
 - `parseIni`
 - `parseJson`
-- `parseLargeInteger`
+- `parseInteger`
 - `parseMethodSignature`
 - `parseNcs`
 - `parseNumber`
@@ -3535,10 +3535,10 @@ Reference (a-z):
 - `randomConvexHullPolygon`
 - `randomCycle`
 - `randomFunction`
+- `randomSmallInteger`
+- `randomSmallIntegerBipolar`
+- `randomSmallIntegerExcluding`
 - `randomInteger`
-- `randomIntegerBipolar`
-- `randomIntegerExcluding`
-- `randomLargeInteger`
 - `randomPermutation`
 - `randomPermutationList`
 - `randomPoint`

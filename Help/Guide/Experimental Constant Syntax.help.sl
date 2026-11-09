@@ -2,7 +2,7 @@
 
 Constants can be defined using the experimental syntax _Constant.name = value_.
 
-The package _SmallFloat_ defines a number of constants.
+The package _Float_ defines a number of constants.
 
 ~~~
 Constant.pi = 3.1415926535897932384626433;

@@ -1,4 +1,4 @@
-+SmallFloat {
++Float {
 
 	easeBounceFunction { :t :c :a |
 		if(t = 1) {

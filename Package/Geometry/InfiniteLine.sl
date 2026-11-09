@@ -74,7 +74,7 @@ InfiniteLine : [Object, Store, Equal] {
 
 }
 
-+SmallFloat {
++Float {
 
 	InfiniteLine { :a :b :c |
 		(a = 0).if {

@@ -13,7 +13,7 @@ At `Integer`:
 true
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 3.4 < 5.6

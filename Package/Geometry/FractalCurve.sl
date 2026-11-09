@@ -405,7 +405,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	riemannFunction { :x :a :n |
 		1.to(n).sum { :i |
@@ -426,7 +426,7 @@
 
 }
 
-+[SmallFloat, Fraction] {
++[Float, Fraction] {
 
 	takagiFunction { :x :n |
 		let s = { :x |

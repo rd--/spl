@@ -5,7 +5,7 @@
 In scientific notation, nonzero numbers are written in the form _m × (10 ^ n)_.
 The exponent _n_ is an integer, the coefficient _m_ is a non-zero real number.
 In E notation this is written _mEn_.
-Answer `true` if the string _s_ would be parsed as a `SmallFloat` by `parseScientificNotation`.
+Answer `true` if the string _s_ would be parsed as a `Float` by `parseScientificNotation`.
 
 With integer coefficient:
 
@@ -59,6 +59,6 @@ true
 
 * * *
 
-See also: SmallFloat, parseScientificNotation
+See also: Float, parseScientificNotation
 
 Guides: Parsing Functions

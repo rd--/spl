@@ -62,7 +62,7 @@
 
 }
 
-+SmallFloat {
++Float {
 
 	PlaneAngle { :self |
 		Quantity(self, 'radians')
@@ -78,7 +78,7 @@
 
 	dmsList { :self |
 		let b = [60 60];
-		SmallFloat(self.abs * 60 * 60).mixedRadixEncode(b) * self.sign
+		Float(self.abs * 60 * 60).mixedRadixEncode(b) * self.sign
 	}
 
 	dmsString { :self |

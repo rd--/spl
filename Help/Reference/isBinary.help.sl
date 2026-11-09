@@ -15,7 +15,7 @@ false
 false
 ```
 
-At `SmallFloat` only 31-bit integer values answer `true`:
+At `Float` only 31-bit integer values answer `true`:
 
 ```
 >>> 2 ^ 31 - 1
@@ -31,7 +31,7 @@ true
 true
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 2_166_136_261.isBinary

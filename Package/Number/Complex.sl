@@ -22,7 +22,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	[adaptToFractionAndApply, adaptToIntegerAndApply] { :self :operand :aBlock/2 |
 		aBlock(
-			Complex(SmallFloat(operand), 0.0),
+			Complex(Float(operand), 0.0),
 			self
 		)
 	}
@@ -32,7 +32,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 			NaN
 		} {
 			aBlock(
-				Complex(SmallFloat(operand), 0.0),
+				Complex(Float(operand), 0.0),
 				self
 			)
 		}
@@ -457,10 +457,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 }
 
-+SmallFloat {
++Float {
 
 	[Complex, J] { :real :imaginary |
-		imaginary.isSmallFloat.if {
+		imaginary.isFloat.if {
 			[real, imaginary].anyTrue(isNaN/1).if {
 				NaN
 			} {
@@ -472,7 +472,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	Polar { :rho :phi |
-		phi.isSmallFloat.if {
+		phi.isFloat.if {
 			Complex(rho * phi.cos, rho * phi.sin)
 		} {
 			phi.adaptToNumberAndApply(rho, Polar/2)
@@ -513,15 +513,15 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		)
 		*/
 		Complex(
-			SmallFloat(real),
-			SmallFloat(imaginary)
+			Float(real),
+			Float(imaginary)
 		)
 	}
 
 	I { :self |
 		uncheckedComplex(
 			0,
-			self /* SmallFloat(self) */
+			self /* Float(self) */
 		)
 	}
 

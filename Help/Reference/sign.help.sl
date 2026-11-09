@@ -15,7 +15,7 @@ Real numbers:
 
 ```
 >>> let z = -2.5.sign;
->>> (z, z.isSmallFloat)
+>>> (z, z.isFloat)
 (-1, true)
 
 >>> 3.14.sign
@@ -80,11 +80,11 @@ At `Fraction`:
 (-1/1, true)
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> let z = -23L.sign;
->>> (z, z.isLargeInteger)
+>>> (z, z.isInteger)
 (-1L, true)
 ```
 

@@ -10,7 +10,7 @@ This is the same as osc except that the table is a sine table of 8192 entries.
 
 Constant frequency,
 a list specifies two oscillators,
-one of the frequencies is specified as a `LargeInteger`:
+one of the frequencies is specified as a `Integer`:
 
 ~~~spl syn=A
 sinOsc([200 201L], 0) * 0.25

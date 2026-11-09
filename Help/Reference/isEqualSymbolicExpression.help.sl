@@ -21,7 +21,7 @@ false
 false
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> 3.141.isEqualSymbolicExpression(`x`)
@@ -46,4 +46,4 @@ false
 
 * * *
 
-See also: SmallFloat, Symbol, SymbolicExpression, =, ==
+See also: Float, Symbol, SymbolicExpression, =, ==

@@ -131,7 +131,7 @@ Date! : [Object, Store, Equal, Compare] {
 
 }
 
-+SmallFloat {
++Float {
 
 	primitiveDate { :year :month :dayOfMonth |
 		<primitive:
@@ -157,7 +157,7 @@ Date! : [Object, Store, Equal, Compare] {
 
 	[Date, listToDate] { :self |
 		self.atVectorOrElementwise { :aList |
-			let floatList = SmallFloat(aList);
+			let floatList = Float(aList);
 			let [year, month, dayOfMonth] = floatList;
 			primitiveDate(year, month, dayOfMonth)
 		}
@@ -199,7 +199,7 @@ Date! : [Object, Store, Equal, Compare] {
 
 }
 
-+SmallFloat {
++Float {
 
 	gregorianToJulianDay { :year :month :day |
 		/* https://www.fourmilab.ch/documents/calendar/calendar.js */

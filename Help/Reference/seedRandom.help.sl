@@ -22,7 +22,7 @@ The seed can be a `String`:
 
 * * *
 
-See also: hash, randomChoice, randomComplex, randomInteger, randomPrime, randomReal, randomSample, randomSubsequence, randomVariate
+See also: hash, randomChoice, randomComplex, randomSmallInteger, randomPrime, randomReal, randomSample, randomSubsequence, randomVariate
 
 Guides: Random Number Generators
 

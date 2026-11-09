@@ -11,22 +11,15 @@ Types:
 - `Complex`
 - `Decimal`
 - `Fraction`
-- `LargeInteger`
+- `Integer`
 - `Quaternion`
 - `Residue`
-- `SmallFloat`
+- `Float`
 
 Converting:
 
 - `boole`
-- `Complex`
-- `Float`
-- `Integer`
-- `LargeInteger`
-- `Number`
-- `SmallFloat`
-- `SmallInteger`
-- `boole`
+- `normalInteger`
 - `rationalize`
 
 Predicates:
@@ -56,7 +49,7 @@ Type Predicates:
 - `isComplex`
 - `isDecimal`
 - `isFraction`
-- `isLargeInteger`
+- `isInteger`
 - `isQuaternion`
 - `isResidue`
 

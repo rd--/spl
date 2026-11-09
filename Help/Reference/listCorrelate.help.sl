@@ -27,7 +27,7 @@ At `Fraction`:
 ]
 ```
 
-At `SmallFloat`:
+At `Float`:
 
 ```
 >>> let u = 1:10.square.differences;

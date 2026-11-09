@@ -14,7 +14,7 @@ Sometimes called the bit width.
 ```
 
 For negative _n_,
-`SmallFloat` and `LargeInteger` answer differently.
+`Float` and `Integer` answer differently.
 Equivalent to _n.bitNot.bitLength_.
 Threads over lists:
 

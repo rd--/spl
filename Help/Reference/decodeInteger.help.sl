@@ -1,25 +1,25 @@
-# decodeLargeInteger
+# decodeInteger
 
-- _decodeLargeInteger(b, e=⊤)_
+- _decodeInteger(b, e=⊤)_
 
-Decode litte-endian binary data at the `ByteArray` _b_ as a `LargeInteger`,
+Decode litte-endian binary data at the `ByteArray` _b_ as a `Integer`,
 in _little endian_ format if the _e_ is `true`.
 
 ```
 >>> ByteArray[1 0 0 0]
->>> .decodeLargeInteger(true)
+>>> .decodeInteger(true)
 1L
 
 >>> ByteArray[0 0 0 1]
->>> .decodeLargeInteger(false)
+>>> .decodeInteger(false)
 1L
 
 >>> ByteArray[0 0 0 1]
->>> .decodeLargeInteger(true)
+>>> .decodeInteger(true)
 16777216L
 
 >>> ByteArray[1 0 0 0]
->>> .decodeLargeInteger(false)
+>>> .decodeInteger(false)
 16777216L
 ```
 
@@ -28,7 +28,7 @@ to read digits see `digitAt`:
 
 ```
 >>> ByteArray[1 3 5 7]
->>> .decodeLargeInteger(true)
+>>> .decodeInteger(true)
 1L + (3 << 8) + (5 << 16) + (7 << 24)
 
 >>> let n = 117768961L;
@@ -46,13 +46,13 @@ At a thirteen-place array:
 >>> 	184 104  49 179
 >>> 	174 168   5  89
 >>> 	18
->>> ].decodeLargeInteger(true)
+>>> ].decodeInteger(true)
 1453657932340170668622419557621L
 ```
 
 * * *
 
-See also: encode, encodeFloat32, encodeFloat64, encodeInt16, encodeInt8, randomLargeInteger
+See also: encode, encodeFloat32, encodeFloat64, encodeInt16, encodeInt8, randomInteger
 
 Guides: Bitwise Functions
 

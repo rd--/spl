@@ -91,7 +91,7 @@ also the binary 4-tuples combined by `bitXor`:
 ]
 ```
 
-At `LargeInteger`:
+At `Integer`:
 
 ```
 >>> 2166136261L.bitXor(70)
