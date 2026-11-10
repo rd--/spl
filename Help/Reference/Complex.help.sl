@@ -188,6 +188,31 @@ Combinations of operands of different types:
 -4J0
 ```
 
+Adapts elementwise:
+
+```
+>>> let a = [1J2 1J3 1J4 1J5 1J6];
+>>> let b = a * 0.5;
+>>> (b, b = (0.5 * a))
+([0.5J1 0.5J1.5 0.5J2 0.5J2.5 0.5J3], true)
+```
+
+`Complex` with `Integer` components:
+
+```
+>>> Complex(1L, 2.5)
+1J2.5
+
+>>> Complex(-1L, 2L) ^ 2
+Complex(-3L, -4L)
+
+>>> Complex(0L, 1L) * 0.5J0
+0J0.5
+
+>>> Complex[-1L 2L; 3L -4L; 0L 1L] * 0.5
+[-0.5J1 1.5J-2 0J0]
+```
+
 `real` & `imaginary` & `realImaginary` answer the components:
 
 ```

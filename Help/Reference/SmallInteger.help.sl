@@ -90,12 +90,16 @@ Arithmetic at small integers overflows to `Integer` as required:
 ```
 
 _Rationale_:
-Arithmetic overflow of `SmallInteger` values is particularly confusing,
-the answers remain approximately accurate,
+Arithmetic overflow of `SmallInteger` values is particularly confusing.
+The answers remain approximately accurate,
 and it is very easy to miss that overflow has occurred.
-It is possible to have the interpreter print a message when overflow occurs.
-The help files should generally run without requiring overflow,
-i.e. calculations which would overflow are written using `Integer` values.
+The interpreter promotes answers that would overflow to the type `Integer`.
+It is possible to have the interpreter print a message when overflow occurs,
+and also to treat overflow as an error.
+The help files generally run without requiring type promotion,
+by writing integer literals in expressions that would otherwise overflow with an `L` suffix.
+That is,
+calculations which would overflow are written using `Integer` values.
 
 * * *
 

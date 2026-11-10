@@ -169,7 +169,7 @@
 
 	rgbString { :self |
 		self.isValid.if {
-			let [r, g, b] = (self.rgb * 255).round;
+			let [r, g, b] = (Float(self.rgb) * 255).round;
 			let alpha = self.alpha;
 			(alpha = 1).if {
 				'rgb(%,%,%)'.format([r, g, b])
@@ -314,7 +314,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 }
 
-+Float {
++[Float, Fraction, Integer] {
 
 	adobeRgbDecode { :self |
 		self ^ (563 / 256)

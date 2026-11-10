@@ -209,7 +209,8 @@ kroneckerSymbol/2
 	(x < 0).if {
 		nil
 	} {
-		x.greyLevel
+		Float(x)
+		.greyLevel
 	}
 }
 ~~~

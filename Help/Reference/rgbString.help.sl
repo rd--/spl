@@ -7,8 +7,17 @@ Answer the _Svg_ or _Css_ format _rgb_-notation string for the colour _c_.
 At `RgbColour`, with unit alpha:
 
 ```
->>> RgbColour([1 0.8 0.25], 1).rgbString
+>>> RgbColour([1 0.8 0.25], 1)
+>>> .rgbString
 'rgb(255,204,64)'
+```
+
+With `Fraction` components:
+
+```
+>>> let c = RgbColour[0/1 1/3 1/3];
+>>> (c.rgbString, c.isRed)
+('rgb(0,85,85)', true)
 ```
 
 With `alpha`:

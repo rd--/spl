@@ -1,6 +1,6 @@
-# SimpleProgrammingLanguageHelp
-*.help.sl linguist-language=Markdown
-
 # SimpleProgrammingLanguage
 *.sl linguist-language=SuperCollider
 *.sp linguist-language=SuperCollider
+
+# SimpleProgrammingLanguageHelp
+# *.help.sl linguist-language=Markdown

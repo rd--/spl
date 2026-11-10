@@ -1,4 +1,4 @@
-/* Requires: Compare List Number Object */
+/* Requires: Compare Fraction List Number Object */
 
 Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
@@ -434,10 +434,9 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 			let b = self.imaginary;
 			let c = anObject.real;
 			let d = anObject.imaginary;
-			Complex(
-				(a * c) - (b * d),
-				(a * d) + (b * c)
-			)
+			let r = (a * c) - (b * d);
+			let i = (a * d) + (b * c);
+			Complex(r, i)
 		} {
 			anObject.adaptToComplexAndApply(self, times/2)
 		}
@@ -505,23 +504,36 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 				Integer(imaginary)
 			)
 		} {
-			imaginary.adaptToNumberAndApply(real, GaussianInteger/2)
+			imaginary.adaptToIntegerAndApply(real, Complex/2)
 		}
+	}
+
+	I { :imaginary |
+		Complex(0L, Integer(imaginary))
 	}
 
 }
 
-+@Number {
++[Float, Fraction, Integer] {
 
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
 		self.isNaN.if {
 			NaN
 		} {
-			aComplexNumber.aBlock(
-				self.toComplex
+			aBlock(
+				aComplexNumber,
+				self.realToComplex
 			)
 		}
 	}
+
+	[toComplex, realToComplex] { :self |
+		Complex(self, self.zero)
+	}
+
+}
+
++@Number {
 
 	cayleyTransform { :z |
 		(z - 0J1) / (z + 0J1)
@@ -537,10 +549,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	isReal { :self |
 		true
-	}
-
-	[toComplex, realToComplex] { :self |
-		Complex(self, 0)
 	}
 
 }

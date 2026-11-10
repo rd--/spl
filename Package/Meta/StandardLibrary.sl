@@ -64,13 +64,13 @@
 	'Missing'
 
 	/* Number */
-	'Complex'
 	'EisensteinInteger'
 	'Interval'
-	'Quaternion'
 	'Residue'
 	'Fraction' /* Integer */
+	'Complex' /* Fraction */
 	'Decimal' /* Fraction */
+	'Quaternion' /* Complex */
 	'Real' /* Fraction */
 
 	/* Protocol */

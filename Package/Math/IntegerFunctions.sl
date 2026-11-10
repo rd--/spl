@@ -1107,8 +1107,8 @@
 
 	jacobiSymbol { :n :m |
 		m.isOdd.if {
-			(m = 1).if {
-				1
+			m.isOne.if {
+				1L
 			} {
 				m.factorInteger.collect { :each |
 					n.legendreSymbol(each[1]) ^ each[2]
@@ -1137,7 +1137,7 @@
 				a.jacobiSymbol(b)
 			} {
 				a.isEven.if {
-					0
+					0L
 				} {
 					let r = a % 8;
 					(r = 1 | { r = 7 }).if {
@@ -1155,7 +1155,7 @@
 					a.kroneckerSymbol(0 - b)
 				}
 			} {
-				(a.abs = 1).boole
+				Integer((a.abs = 1).boole)
 			}
 		}
 	}

@@ -108,7 +108,7 @@ OEIS [A216371](https://oeis.org/A216371):
 
 ~~~spl svg=E oeis=A216371
 1:85.prime.select { :p |
-	let a = (p - 1) / 2;
+	let a = Float(p - 1) / 2;
 	let b = 2 * a + 1;
 	let c = b.eulerPhi;
 	let d = 2 * 2.multiplicativeSuborder(b);

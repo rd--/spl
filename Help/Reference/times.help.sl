@@ -326,6 +326,17 @@ OEIS [A017173](https://oeis.org/A017173):
 [1 10 19 28 37 46 55 64 73 82 91 100 109 118]
 ```
 
+At `LargeInteger` and `Float`,
+the answer type is `Float`:
+
+```
+>>> 23L * 0.5
+11.5
+
+>>> 0.5 * 0L
+0.0
+```
+
 Quiet and quieter pink noise:
 
 ~~~spl syn=A

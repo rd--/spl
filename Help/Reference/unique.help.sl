@@ -68,7 +68,7 @@ let n = nil;
 	t.addAll!(2:n.primePi.prime ^ k);
 	k := 2 * k
 };
-t.unique(==).scatterPlot
+t.unique(=).scatterPlot
 ~~~
 
 ![](Help/Image/unique-B.svg)

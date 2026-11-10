@@ -212,8 +212,8 @@ OEIS [A109015](https://oeis.org/A109015):
 Matrix plot of table:
 
 ~~~spl png=B
-(1 - gcd/2.table(1:100, 1:100).rescale)
-.Greymap
+let t = gcd/2.table(1:100, 1:100);
+(1 - t.rescale).Greymap
 ~~~
 
 ![](Help/Image/gcd-B.png)

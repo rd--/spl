@@ -7,7 +7,10 @@ EisensteinInteger : [Object, Store, Equal] {
 	}
 
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
-		aBlock(aComplexNumber, self.toComplex)
+		aBlock(
+			aComplexNumber,
+			self.eisensteinIntegerToComplex
+		)
 	}
 
 	components { :self |
@@ -52,11 +55,11 @@ EisensteinInteger : [Object, Store, Equal] {
 				(b * c) + (a * d) - (b * d)
 			)
 		} {
-			self.toComplex * operand
+			self.eisensteinIntegerToComplex * operand
 		}
 	}
 
-	[toComplex, eisensteinIntegerToComplex] { :self |
+	[eisensteinIntegerToComplex, toComplex] { :self |
 		self.a + self.b.eisensteinOmega
 	}
 
