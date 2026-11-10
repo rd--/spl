@@ -4,7 +4,8 @@
 
 Answer the number that, multiplied with itself, is _n_.
 
-Pythagoras’ constant:
+Pythagoras’ constant,
+OEIS [A002193](https://oeis.org/A002193):
 
 ```
 >>> 2.sqrt
@@ -14,7 +15,8 @@ Pythagoras’ constant:
 1.41421
 ```
 
-Theodorus’ constant
+Theodorus’ constant,
+OEIS [A002194](https://oeis.org/A002194):
 
 ```
 >>> 3.sqrt
@@ -50,19 +52,26 @@ Particular values:
 
 >>> 0.5.sqrt
 2.sqrt / 2
+
+>>> 4.41.sqrt
+2.1
 ```
 
 Negative numbers have imaginary square roots:
 
 ```
 >>> -4.sqrt
-0J2
+2I
 
 >>> -9.sqrt
-0J3
+3I
+
+>>> -25.sqrt
+5I
 ```
 
-At `Complex`:
+At `Complex`,
+answers the _principal_ square root:
 
 ```
 >>> 5J1.sqrt
@@ -70,6 +79,18 @@ At `Complex`:
 
 >>> -25J0.sqrt
 0J5
+
+>>> -2I.sqrt
+1J-1
+
+>>> let z = 1.5J1.0;
+>>> let a = 1J0 / z.square + 1;
+>>> let b = a.sqrt;
+>>> (b, b.square)
+(1.065877J-0.133235, a)
+
+>>> [-1.0J0.001 -1.0J-0.001].sqrt
+[0.0005J1.0 0.0005J-1.0]
 ```
 
 At `Integer`:
@@ -96,6 +117,9 @@ Threads elementwise over lists and matrices:
 
 >>> 1:4.sqrt
 [1 1.4142 1.7321 2]
+
+>>> [-4 -2 -1 1 2 4].sqrt
+[2I 2.sqrt.I 1I 1 2.sqrt 2]
 ```
 
 Values at `zero` and infinity:
@@ -447,6 +471,14 @@ let n = 1:65;
 
 ![](Help/Image/sqrt-J.svg)
 
+Polar plot:
+
+~~~spl svg=K
+(0 -- 6.pi).polarPlot(sqrt/1)
+~~~
+
+![](Help/Image/sqrt-K.svg)
+
 `sqrt` is an alias for `squareRoot`.
 
 Where supported `sqrt` is displayed as √.
@@ -460,7 +492,8 @@ Guides: Mathematical Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SquareRoot.html)
-[2](https://reference.wolfram.com/language/ref/Sqrt.html),
+[2](https://mathworld.wolfram.com/PrincipalSquareRoot.html)
+[3](https://reference.wolfram.com/language/ref/Sqrt.html),
 _OEIS_
 [1](https://oeis.org/A007336)
 [2](https://oeis.org/A000037),

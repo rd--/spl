@@ -10,11 +10,18 @@ Answers the inverse hyperbolic secant of the complex number _z_.
 >>> 4.5.arcCsch
 0.22043
 
->>> 5.arcCsch
+>>> 5.0.arcCsch
 0.19869
 
->>> 2.arcCsch
+>>> 2.0.arcCsch
 1.goldenRatio.log
+```
+
+At `zero`:
+
+```
+>>> 0.0.arcCsch
+Infinity
 ```
 
 At `Fraction`:
@@ -27,21 +34,21 @@ At `Fraction`:
 Relation to `arcSinh`:
 
 ```
->>> let z = 3;
+>>> let z = 3.0;
 >>> z.arcSinh
-(1 / z).arcCsch
+(1.0 / z).arcCsch
 ```
 
 `Complex` arguments:
 
 ```
->>> 1.5J1.arcCsch
--0.463599J-2.861035
+>>> 1.5J1.0.arcCsch
+0.463599J-0.281035
 
 >>> 0J2.arcCsch
 -1/6.pi.I
 
->>> (1 / 0J2).arcSinh
+>>> (1J0 / 0J2).arcSinh
 -1/6.pi.I
 
 >>> 0J-2.arcCsch
@@ -54,18 +61,20 @@ Relation to `arcSinh`:
 0J0.323946
 ```
 
-Branch cut:
-
-```
->>> 1.5J1.arcCsch
--0.463599.J(0.281035  - 1.pi)
-```
-
 Threads elementwise over lists:
 
 ```
 >>> [2 -3].arcCsch
 [0.48121 -0.32745]
+```
+
+Inverse of `csch`:
+
+```
+>>> let x = 0.35;
+>>> let y = x.csch;
+>>> (y, y.arcCsch)
+(2.7996, 0.35)
 ```
 
 Plot over a subset of the reals:
@@ -80,7 +89,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: arcCsc, arcSech, csc
+See also: arcCsc, arcSech, arcSinh, csc
 
 Guides: Hyperbolic Functions, Trigonometric Functions
 

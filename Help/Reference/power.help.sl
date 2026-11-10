@@ -226,13 +226,16 @@ At `Complex`:
 
 >>> 1.5J2.3 ^ 3L
 -20.430J3.358
+
+>>> -0.5J0 ^ 2.0
+0.25J0
 ```
 
 Complex number powers of _i_:
 
 ```
->>> 1I ^ [2 3 4]
-[-1J0 0J-1 1J0]
+>>> 1I ^ [0 1 2 3 4 5]
+[1J0 0J1 -1J0 0J-1 1J0 0J1]
 ```
 
 De Moivre’s formula:

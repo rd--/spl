@@ -56,15 +56,15 @@
 +Complex {
 
 	arcCosh { :z |
-		(z + ((z ^ 2) - 1.0).sqrt).log /* (((z + 1).sqrt * (z - 1).sqrt) + z).log */
+		(z + (z.square - 1.0).sqrt).log /* (((z + 1).sqrt * (z - 1).sqrt) + z).log */
 	}
 
 	arcCoth { :z |
-		(1.0 / z).arcTanh /* ((z + 1).log - (z - 1).log) / 2 */
+		(1J0 / z).arcTanh /* ((z + 1.0).log - (z - 1.0).log) / 2 */
 	}
 
 	arcCsch { :z |
-		(1.0 / z).arcSinh /* ((1 / z) + ((1 / (z ^ 2)) + 1).sqrt).log */
+		(1J0 / z).arcSinh /* ((1J0 / z) + ((1J0 / z.square) + 1J0).sqrt).log */
 	}
 
 	arcSech { :z |
@@ -74,12 +74,12 @@
 			z.imaginary.isZero.ifTrue {
 				z.imaginary := system.floatMin
 			};
-			(1.0 / z).arcCosh
+			(1J0 / z).arcCosh
 		}
 	}
 
 	arcSinh { :z |
-		(z + ((z ^ 2.0) + 1.0).sqrt).log
+		(z + (z.square + 1.0).sqrt).log
 	}
 
 	arcTanh { :z |

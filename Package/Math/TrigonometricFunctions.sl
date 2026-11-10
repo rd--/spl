@@ -117,11 +117,15 @@
 	}
 
 	[arcCsc, arcCosecant] { :z |
-		-1I * ((1 - (1 / z.square)).sqrt + (1I / z)).log
+		let a = (1J0 - (1J0 / z.square)).sqrt;
+		let b = (a + (1I / z)).log;
+		-1I * b
 	}
 
 	[arcSec, arcSecant] { :z |
-		-1I * (((1 - z.square).sqrt + 1).log - z.log)
+		let a = (1J0 - (1J0 / z.square)).sqrt;
+		let b = (a + (1I / z)).log;
+		0.5.pi + (1I * b)
 	}
 
 	arcSin { :self |

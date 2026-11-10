@@ -552,7 +552,6 @@ Reference/base16Decode.help.sl
 Reference/base16Encode.help.sl
 Reference/base64Decode.help.sl
 Reference/base64Encode.help.sl
-Reference/baseForm.help.sl
 Reference/baumSweetSequence.help.sl
 Reference/beattySequence.help.sl
 Reference/before.help.sl
@@ -1534,6 +1533,7 @@ Reference/Float64Array.help.sl
 Reference/floatEpsilon.help.sl
 Reference/Float.help.sl
 Reference/floatMax.help.sl
+Reference/floatString.help.sl
 Reference/floor.help.sl
 Reference/floorLog.help.sl
 Reference/fnv1aHash.help.sl

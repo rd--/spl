@@ -10,7 +10,7 @@ Answers the inverse hyperbolic sine of the complex number _z_.
 >>> 1.5.arcSinh
 1.19476
 
->>> 1.arcSinh
+>>> 1.0.arcSinh
 0.8814
 ```
 
@@ -28,6 +28,19 @@ Answers the inverse hyperbolic sine of the complex number _z_.
 
 >>> (1J2 * 0J1).arcSin / 0J1
 1.4694J1.0634
+
+>>> let z = 0J-0.5;
+>>> ((z.square + 1).sqrt + z).log
+-1/6.pi.I
+
+.arcSinh
+```
+
+At `Fraction`:
+
+```
+>>> 3/4.arcSinh - 2.log
+0.0
 ```
 
 Threads elementwise over lists:
@@ -35,13 +48,20 @@ Threads elementwise over lists:
 ```
 >>> [2 -3 1J2].arcSinh
 [1.4436 -1.8184 1.4694J1.0634]
+
+>>> let n = -2:2;
+>>> (n / 2).I.arcSinh
+[-1/2 -1/6 0 1/6 1/2].pi.I
 ```
 
-At `zero`:
+At `zero` and `Infinity`:
 
 ```
->>> 0.arcSinh
-0
+>>> 0.0.arcSinh
+0.0
+
+>>> Infinity.arcSinh
+Infinity
 ```
 
 Inverse is `sinh`:
@@ -80,6 +100,16 @@ Plot `arcSinh` and real part of `arcCosh`:
 ~~~
 
 ![](Help/Image/arcSinh-C.svg)
+
+Polar plot:
+
+~~~spl svg=D
+(-3.pi -- 3.pi).polarPlot(
+	arcSinh/1
+)
+~~~
+
+![](Help/Image/arcSinh-D.svg)
 
 * * *
 

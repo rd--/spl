@@ -7,30 +7,30 @@ Answers the arc secant of the complex number _z_ in radians.
 `Float` arguments:
 
 ```
->>> 2.arcSec
+>>> 2.0.arcSec
 1/3.pi
 
->>> 5.arcSec
+>>> 5.0.arcSec
 1.36944
 
->>> (2 / 3.sqrt).arcSec
+>>> (2.0 / 3.sqrt).arcSec
 1/6.pi
 ```
 
 At `one`:
 
 ```
->>> 1.arcSec
+>>> 1.0.arcSec
 0
 
->>> -1.arcSec
+>>> -1.0.arcSec
 1.pi
 ```
 
 `arcSec` is not defined for the interval _(-1,1)_:
 
 ```
->>> [-0.5 0 0.5].arcSec
+>>> [-0.5 0.0 0.5].arcSec
 >>> .isFinite
 [true false true]
 ```
@@ -38,7 +38,8 @@ At `one`:
 `Complex` arguments:
 
 ```
->>> 0.5J2.3.arcSec
+>>> let z = 0.5J2.3;
+>>> z.arcSec
 1.487388J0.405414
 ```
 

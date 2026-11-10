@@ -17,7 +17,9 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	[absoluteValueSquare, absSquare] { :self |
-		(self.real * self.real) + (self.imaginary * self.imaginary)
+		let x = self.real;
+		let y = self.imaginary;
+		(x * x) + (y * y)
 	}
 
 	[adaptToFractionAndApply, adaptToIntegerAndApply] { :self :operand :aBlock/2 |
@@ -321,7 +323,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 				self ^ each
 			}
 		} {
-			aNumber.isInteger.if {
+			aNumber.isIntegerValuedNumber.if {
 				self.raisedToInteger(aNumber)
 			} {
 				aNumber.isZero.if {
@@ -397,19 +399,19 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	[squareRoot, sqrt] { :self |
-		(
-			self.imaginary.isZero & {
-				self.real >= 0.0
+		let x = self.real;
+		let y = self.imaginary;
+		y.isZero.if {
+			x.isNonNegative.if {
+				Complex(x.sqrt, 0.0)
+			} {
+				Complex(0.0, -x.sqrt)
 			}
-		).if {
-			Complex(
-				self.real.sqrt,
-				0.0
-			)
 		} {
-			let v = (self.abs - self.real / 2.0).sqrt;
-			let u = self.imaginary / 2.0 / v;
-			Complex(u, v)
+			let a = ((x * x) + (y * y)).sqrt;
+			let u = (a + x).sqrt;
+			let v = y.sign * (a - x).sqrt;
+			0.5 * 2.sqrt * Complex(u, v)
 		}
 	}
 

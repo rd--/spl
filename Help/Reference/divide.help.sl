@@ -108,6 +108,9 @@ At `Complex` answers a `Complex`:
 
 >>> 8J2 / 2J1
 3.6J-0.8
+
+>>> 1.0J0.0 / 1.5J1.0
+0.461538J-0.307692
 ```
 
 At `Fraction` answers a `Fraction`,

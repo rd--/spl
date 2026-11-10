@@ -5,6 +5,8 @@
 Answer the square of _n_,
 the number _n_ multiplied by itself.
 
+At `Float`:
+
 ```
 >>> (3 * 3, 3 ^ 2, 3.square)
 (9, 9, 9)
@@ -14,11 +16,22 @@ the number _n_ multiplied by itself.
 
 >>> 25840.square + 43776.square
 2584043776
+```
 
+At `Integer`:
+
+```
 >>> 1675455088L.square
 >>> +
 >>> 3734621953L.square
 16754550883734621953L
+```
+
+At `Complex`:
+
+```
+>>> 1.5J1.0.square
+1.25J3.0
 ```
 
 Squares of real and imaginary integers:

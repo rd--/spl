@@ -113,6 +113,14 @@ does not simplify final term:
 
 Quadratic irrationals have recurring continued fractions.
 
+The continued fraction of the square root of two,
+OEIS [A040000](https://oeis.org/A040000):
+
+```
+>>> 2.sqrt.continuedFraction(19)
+[1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+```
+
 Continued fraction of _√3_,
 OEIS [A040001](https://oeis.org/A040001):
 
