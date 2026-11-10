@@ -253,7 +253,25 @@ a[0 .. 750].log.denseScatterPlot
 
 ![](Help/Image/Map-G.png)
 
-Note: `Map` is _IdentityDictionary_ in Smalltalk.
+Depths of term-referencing trees,
+OEIS [A399998](https://oeis.org/A399998):
+
+~~~spl svg=H oeis=A399998
+let a = Map { :n |
+	(n = 0).if {
+		0
+	} {
+		let m = n - 1;
+		a[m - (a[a[m]] ^ 2)] + 1
+	}
+};
+a[0 .. 200].scatterPlot
+~~~
+
+![](Help/Image/Map-H.svg)
+
+_Note_:
+`Map` is _IdentityDictionary_ in Smalltalk.
 
 * * *
 

@@ -210,7 +210,7 @@ Complex(-3L, -4L)
 0J0.5
 
 >>> Complex[-1L 2L; 3L -4L; 0L 1L] * 0.5
-[-0.5J1 1.5J-2 0J0]
+[-0.5J1 1.5J-2 0J0.5]
 ```
 
 `real` & `imaginary` & `realImaginary` answer the components:

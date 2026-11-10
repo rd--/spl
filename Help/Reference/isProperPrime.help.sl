@@ -8,8 +8,12 @@ First few terms,
 OEIS [A073761](https://oeis.org/A073761):
 
 ```
->>> 1:600.select(isProperPrime/1)
-[61 131 181 461 491 541 571]
+>>> 1:200.select(isProperPrime/1)
+[61 131 181]
+
+>>> [61 131 181 461 491 541 571]
+>>> .allTrue(isProperPrime/1)
+true
 ```
 
 The decimal expansion of _1/n_ is equidistributed in base ten:

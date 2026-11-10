@@ -114,6 +114,31 @@ true
 true
 ```
 
+The halving Recaman walk,
+OEIS [A400939](https://oeis.org/A400939):
+
+~~~spl svg=A oeis=A400939
+let s = Set([1], ==);
+let p = 1;
+let a = [1];
+2:135.do { :i |
+	(
+		p.isEven & {
+			s.includes(p // 2).not
+		}
+	).if {
+		p := p // 2
+	} {
+		p := p + i
+	};
+	s.include!(p);
+	a.add!(p)
+};
+a.discretePlot
+~~~
+
+![](Help/Image/Set-A.svg)
+
 `Set` is a `Trait`:
 
 ```

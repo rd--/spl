@@ -40,7 +40,7 @@ true
 ```
 
 At `Fraction`,
-value must be an integer:
+the value must be an integer:
 
 ```
 >>> SmallInteger(23/1)
@@ -53,7 +53,7 @@ true
 ```
 
 At `Decimal`,
-value must be an integer:
+the value must be an integer:
 
 ```
 >>> SmallInteger(23D)
@@ -87,6 +87,26 @@ Arithmetic at small integers overflows to `Integer` as required:
 	-562949953421312,
 	-10133099161583616L
 )
+```
+
+Small integers behave differently from `Integer` for division.
+Small integers answer a `Float`,
+that may be a small integer,
+whereas `Integer` answers a `Fraction`,
+which is not an `Integer`:
+
+```
+>>> 12 / 4
+3
+
+>>> 12L / 4L
+3/1
+
+>>> 11 / 4
+2.75
+
+>>> 11L / 4L
+11/4
 ```
 
 _Rationale_:

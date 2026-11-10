@@ -15,9 +15,9 @@ At `RgbColour`, with unit alpha:
 With `Fraction` components:
 
 ```
->>> let c = RgbColour[0/1 1/3 1/3];
->>> (c.rgbString, c.isRed)
-('rgb(0,85,85)', true)
+>>> RgbColour[0/1 1/3 1/3]
+>>> .rgbString
+'rgb(0,85,85)'
 ```
 
 With `alpha`:
