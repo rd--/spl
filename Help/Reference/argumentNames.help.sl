@@ -22,7 +22,7 @@ At the block implementing a method:
 ```
 >>> system.methodLookupAtType(
 >>> 	'collect',
->>> 	2,
+>>> 	2.0,
 >>> 	'List'
 >>> ).block.argumentNames
 ['self' 'aBlock/1']

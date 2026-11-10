@@ -10,6 +10,16 @@ Instance variables are:
 - `numerator`: the number appearing before the fraction bar (above)
 - `denominator`: the number appearing after the fraction bar (below)
 
+Constructor:
+
+```
+>>> Fraction(1L, 3L)
+1/3
+
+>>> Fraction(1.0, 3.0)
+1/3
+```
+
 A Fraction can be written using the literal syntax _1/3_:
 
 ```
@@ -40,10 +50,10 @@ false
 Fractions can be converted to floating point numbers:
 
 ```
->>> 3/4.Float
+>>> Float(3/4)
 0.75
 
->>> 3/4.Float
+>>> Float(3/4)
 0.75
 ```
 
@@ -108,7 +118,7 @@ integers, however, are not fractions:
 
 ```
 >>> [3/4 23/1 23]
->>> .collect(isInteger/1)
+>>> .collect(isIntegerValuedNumber/1)
 [false true true]
 
 >>> [3/4 23/1 23]

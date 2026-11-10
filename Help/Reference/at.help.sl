@@ -30,6 +30,16 @@ Invalid indices signal an `error`:
 true
 ```
 
+At `Range`:
+
+```
+>>> 3L:19L.at(15)
+17L
+
+>>> 3L + (1 * (15 - 1))
+17L
+```
+
 With secondary index:
 
 ```

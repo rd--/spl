@@ -44,6 +44,9 @@ with and without radix argument:
 >>> 254L.printString
 '254L'
 
+>>> 33L.printString(2)
+'2b100001'
+
 >>> 254L.printString(16)
 '16bFE'
 ```
@@ -185,13 +188,14 @@ At `Range`:
 
 * * *
 
-See also: String, concisePrintString, displayString, printLine, storeString
+See also: String, concisePrintString, displayString, integerString, printLine, storeString
 
 Guides: Printing Functions, String Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/ToString.html),
+[1](https://reference.wolfram.com/language/ref/ToString.html)
+[2](https://reference.wolfram.com/language/ref/BaseForm.html),
 _Smalltalk_
 5.3.1.18
 

@@ -8,17 +8,17 @@ Works by successive squaring.
 At `Integer`:
 
 ```
->>> 3.raisedToInteger(2)
-9
+>>> 3L.raisedToInteger(2L)
+9L
 
->>> 3 ^ 2
-9
+>>> 3L ^ 2L
+9L
 ```
 
 At `Float`:
 
 ```
->>> 2.5 ^ 9
+>>> 2.5 ^ 9.0
 3814.7
 
 >>> 2.5.square.square.square * 2.5
@@ -44,8 +44,8 @@ An exponent of `zero` answers `one` of the correct type:
 >>> system.nextRandomFloat ^ 0
 1.0
 
->>> 23 ^ 0
-1
+>>> 23L ^ 0
+1L
 
 >>> 7/9 ^ 0
 1/1

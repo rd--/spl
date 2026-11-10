@@ -20,7 +20,7 @@
 			).if {
 				e
 			} {
-				n.log(2).isInteger.if {
+				n.log(2).isIntegerValuedNumber.if {
 					e / 2
 				} {
 					n.factorInteger.collect { :x |
@@ -209,7 +209,7 @@
 	}
 
 	isPrimeTrialDivision { :self |
-		self.isInteger & {
+		self.isIntegerValuedNumber & {
 			(self <= 1).if {
 				false
 			} {
@@ -1659,7 +1659,7 @@
 			self.allSatisfy { :each |
 				let [p, e] = each;
 				p.isPrime & {
-					e.isInteger
+					e.isIntegerValuedNumber
 				}
 			}
 		}

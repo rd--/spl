@@ -245,7 +245,7 @@
 	}
 
 	atSymmetrical { :self :index |
-		index.isInteger.ifFalse {
+		index.isIntegerValuedNumber.ifFalse {
 			self.error('atSymmetrical: invalid index')
 		};
 		(index > 0).if {
@@ -1361,7 +1361,7 @@
 	}
 
 	includesIndex { :self :index |
-		index.isInteger & {
+		index.isIntegerValuedNumber & {
 			index > 0 & {
 				index <= self.size
 			}
@@ -1552,7 +1552,7 @@
 
 	isOctetSequence { :self |
 		self.allSatisfy { :each |
-			each.isInteger & {
+			each.isIntegerValuedNumber & {
 				each.isBetween(0, 255)
 			}
 		}
@@ -2230,7 +2230,7 @@
 
 	replicate { :items :counts :aBlock/1 |
 		let k = items.size;
-		counts.isInteger.ifTrue {
+		counts.isIntegerValuedNumber.ifTrue {
 			counts := List(k, counts)
 		};
 		(counts.size != k).if {

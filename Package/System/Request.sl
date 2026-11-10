@@ -1,7 +1,9 @@
 Request! : [Object] {
 
 	url { :self |
-		<primitive: return _self.url;>
+		<primitive:
+		return _self.url;
+		>
 	}
 
 }
@@ -9,7 +11,9 @@ Request! : [Object] {
 +String {
 
 	Request { :self |
-		<primitive: return new Request(_self);>
+		<primitive:
+		return new Request(_self);
+		>
 	}
 
 }

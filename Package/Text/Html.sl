@@ -29,7 +29,7 @@ Html : [Object, Store, Equal] {
 	integerPartitionsTable { :self |
 		let period = self.anyOne.sum;
 		let cell = { :c |
-			c.isInteger.ifFalse {
+			c.isIntegerValuedNumber.ifFalse {
 				self.error('integerPartitionsTable: not integer')
 			};
 			(c = 1).if {

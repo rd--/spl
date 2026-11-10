@@ -9,8 +9,8 @@ The ternary form allow setting the _by_ value, and is an alias for `toBy`.
 >>> 1.to(5)
 Range(1, 5, 1)
 
->>> to(6, 10).List
-[6 7 8 9 10]
+>>> List(to(6L, 10))
+[6L 7L 8L 9L 10L]
 ```
 
 If _j_ is less than _i_ the `Range` is empty:

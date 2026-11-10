@@ -159,10 +159,10 @@
 			} {
 				let k = i;
 				{ (k % 4) = 0 }.whileTrue {
-					k := k / 4
+					k := k // 4
 				};
 				k.isOdd.if {
-					a((k - 1) / 2)
+					a((k - 1) // 2)
 				} {
 					0
 				}
@@ -245,15 +245,15 @@
 
 	collatzFunction { :n |
 		n.isEven.if {
-			n / 2
+			n // 2
 		} {
-			(n * 3 + 1) / 2
+			(n * 3 + 1) // 2
 		}
 	}
 
 	collatzMap { :n |
 		n.isEven.if {
-			n / 2
+			n // 2
 		} {
 			n * 3 + 1
 		}
@@ -738,7 +738,7 @@
 	}
 
 	jugglerMap { :n |
-		n.isInteger.if {
+		n.isIntegerValuedNumber.if {
 			n.isEven.if {
 				n.isqrt
 			} {
@@ -1173,9 +1173,9 @@
 				n
 			} {
 				n.isEven.if {
-					f(n / 2)
+					f(n // 2)
 				} {
-					let m = (n - 1) / 2;
+					let m = (n - 1) // 2;
 					f(m) + f(m + 1)
 				}
 			}
@@ -1669,7 +1669,7 @@
 					let x = m[i];
 					let y = m[j];
 					let a = (3 * x * y + sqrt((-4 * (x ^ 2)) - (4 * (y ^ 2)) + (9 * (x ^ 2) * (y ^ 2)))) / 2;
-					a.isInteger.ifTrue {
+					a.isIntegerValuedNumber.ifTrue {
 						m.addIfNotPresent!(a)
 					}
 				}

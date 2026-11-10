@@ -56,7 +56,8 @@ the answer has the same `scale` as the initial decimal value:
 >>> 3.14159D.integerPart
 3.00000D
 
->>> 3.14159D.integerPart.isInteger
+>>> 3.14159D.integerPart
+>>> .isIntegerValuedNumber
 true
 ```
 

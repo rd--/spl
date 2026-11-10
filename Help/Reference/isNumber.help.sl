@@ -5,7 +5,8 @@
 Answers `true` if the object _x_ implements the trait `Number`,
 else `false`.
 
-At `Float`, where the value is a fraction:
+At `Float`,
+where the value is a fraction:
 
 ```
 >>> 3.141.isNumber & {
@@ -14,12 +15,13 @@ At `Float`, where the value is a fraction:
 true
 ```
 
-At `Float`, where the value is an integer:
+At `Float`,
+where the value is an integer:
 
 ```
->>> 23.isNumber & {
->>> 	23.isFloat & {
->>> 		23.isInteger
+>>> 23.0.isNumber & {
+>>> 	23.0.isFloat & {
+>>> 		23.0.isIntegerValuedNumber
 >>> 	}
 >>> }
 true
@@ -125,7 +127,7 @@ true
 
 * * *
 
-See also: Number, isAtom, isFinite, isFloat, isFraction, isInteger, isInteger
+See also: Number, isAtom, isFinite, isFloat, isFraction, isInteger
 
 Guides: Mathematical Functions
 

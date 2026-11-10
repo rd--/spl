@@ -263,7 +263,8 @@ true
 The elements of a simple integer range are all integers:
 
 ```
->>> (1 .. 999).allSatisfy(isInteger/1)
+>>> (1L .. 999L)
+>>> .allSatisfy(isInteger/1)
 true
 ```
 

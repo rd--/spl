@@ -109,7 +109,7 @@
 +@Object {
 
 	maxOn { :self :operand :aBlock/1 |
-		(self.aBlock > operand.aBlock).if {
+		(aBlock(self) > aBlock(operand)).if {
 			self
 		} {
 			operand

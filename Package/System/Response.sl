@@ -1,7 +1,9 @@
 Response! : [Object] {
 
 	arrayBuffer { :self |
-		<primitive: return _self.arrayBuffer();>
+		<primitive:
+		return _self.arrayBuffer();
+		>
 	}
 
 	asMimeType { :self :mimeType :onError |
@@ -29,15 +31,21 @@ Response! : [Object] {
 	}
 
 	binaryLargeObject { :self |
-		<primitive: return _self.blob();>
+		<primitive:
+		return _self.blob();
+		>
 	}
 
 	body { :self |
-		<primitive: return _self.body;>
+		<primitive:
+		return _self.body;
+		>
 	}
 
 	bodyUsed { :self |
-		<primitive: return _self.bodyUsed;>
+		<primitive:
+		return _self.bodyUsed;
+		>
 	}
 
 	byteArray { :self |
@@ -49,19 +57,27 @@ Response! : [Object] {
 	}
 
 	clone { :self |
-		<primitive: return _self.clone();>
+		<primitive:
+		return _self.clone();
+		>
 	}
 
 	headers { :self |
-		<primitive: return _self.headers;>
+		<primitive:
+		return _self.headers;
+		>
 	}
 
 	json { :self |
-		<primitive: return _self.json();>
+		<primitive:
+		return _self.json();
+		>
 	}
 
 	ok { :self |
-		<primitive: return _self.ok;>
+		<primitive:
+		return _self.ok;
+		>
 	}
 
 	pseudoSlotNameList { :self |
@@ -69,23 +85,33 @@ Response! : [Object] {
 	}
 
 	status { :self |
-		<primitive: return _self.status;>
+		<primitive:
+		return _self.status;
+		>
 	}
 
 	statusText { :self |
-		<primitive: return _self.statusText;>
+		<primitive:
+		return _self.statusText;
+		>
 	}
 
 	text { :self |
-		<primitive: return _self.text();>
+		<primitive:
+		return _self.text();
+		>
 	}
 
 	type { :self |
-		<primitive: return _self.type;>
+		<primitive:
+		return _self.type;
+		>
 	}
 
 	url { :self |
-		<primitive: return _self.url;>
+		<primitive:
+		return _self.url;
+		>
 	}
 
 }
@@ -93,7 +119,9 @@ Response! : [Object] {
 +[ArrayBuffer, BinaryLargeObject, ByteArray, Float32Array, Float64Array, String] {
 
 	Response { :self :options |
-		<primitive: return new Response(_self, _options);>
+		<primitive:
+		return new Response(_self, _options);
+		>
 	}
 
 	Response { :self |

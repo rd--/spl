@@ -7,7 +7,9 @@ Trait! : [Object, Equal] {
 	}
 
 	methodDictionary { :self |
-		<primitive: return _self.methodDictionary;>
+		<primitive:
+		return _self.methodDictionary;
+		>
 	}
 
 	methodList { :self |
@@ -15,11 +17,15 @@ Trait! : [Object, Equal] {
 	}
 
 	name { :self |
-		<primitive: return _self.name;>
+		<primitive:
+		return _self.name;
+		>
 	}
 
 	packageName { :self |
-		<primitive: return _self.packageName;>
+		<primitive:
+		return _self.packageName;
+		>
 	}
 
 	printString { :self |

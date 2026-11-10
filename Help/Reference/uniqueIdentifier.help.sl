@@ -7,7 +7,7 @@ Identifiers are integers, and are unique only for the lifetime of `system`.
 
 ```
 >>> let k = system.uniqueIdentifier;
->>> k.isInteger & { k >= 1 }
+>>> k.isSmallInteger & { k >= 1 }
 true
 ```
 

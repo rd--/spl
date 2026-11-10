@@ -7,7 +7,7 @@ but where _%_ characters are replaced with items from the sequence _x_.
 Items in _x_ are formatted using `displayString`.
 
 ```
->>> 'pi=% & e=%'.format([3.141, 2.718])
+>>> 'pi=% & e=%'.format([3.141 2.718])
 'pi=3.141 & e=2.718'
 
 >>> '11^11=%'.format([11 ^ 11])

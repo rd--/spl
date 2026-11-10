@@ -32,14 +32,16 @@ DelaunayTriangulation : [Object] {
 	}
 
 	faceCount { :self |
-		<primitive: return (_self.triangulation.triangles.length / 3);>
+		<primitive:
+		return (_self.triangulation.triangles.length / 3);
+		>
 	}
 
 	faceIndices { :self |
 		let indicesVector = self.uncheckedFaceIndices;
 		let answer = [];
 		let index = 0;
-		(indicesVector.size / 3).timesRepeat {
+		(indicesVector.size // 3).timesRepeat {
 			answer.add!(indicesVector.atAll(index + [1 2 3]) + 1);
 			index := index + 3
 		};
@@ -60,11 +62,15 @@ DelaunayTriangulation : [Object] {
 	}
 
 	uncheckedConvexHullIndices { :self |
-		<primitive: return Array.from(_self.triangulation.hull);>
+		<primitive:
+		return Array.from(_self.triangulation.hull);
+		>
 	}
 
 	uncheckedCoordinates { :self |
-		<primitive: return _self.triangulation.coords;>
+		<primitive:
+		return _self.triangulation.coords;
+		>
 	}
 
 	uncheckedEdgeList { :self |
@@ -83,11 +89,15 @@ DelaunayTriangulation : [Object] {
 	}
 
 	uncheckedFaceIndices { :self |
-		<primitive: return Array.from(_self.triangulation.triangles);>
+		<primitive:
+		return Array.from(_self.triangulation.triangles);
+		>
 	}
 
 	uncheckedHalfEdges { :self |
-		<primitive: return Array.from(_self.triangulation.halfedges);>
+		<primitive:
+		return Array.from(_self.triangulation.halfedges);
+		>
 	}
 
 	uncheckedVoronoiEdgeList { :self |

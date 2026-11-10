@@ -98,7 +98,7 @@ with and without fractional part and scale specifier:
 Multiplication with small integer:
 
 ```
->>> 3.1416D * 2
+>>> 3.1416D * 2L
 6.2832D
 
 >>> 23 * 1.618D
@@ -295,10 +295,10 @@ Integer exponent:
 A `Decimal` may be an integer even the `scale` is not `zero`:
 
 ```
->>> (3D.isInteger, 3D.scale)
+>>> (3D.isIntegerValuedNumber, 3D.scale)
 (true, 0)
 
->>> 3.00000000D.isInteger
+>>> 3.00000000D.isIntegerValuedNumber
 true
 
 >>> Integer(3D)

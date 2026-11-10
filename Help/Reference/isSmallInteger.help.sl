@@ -40,7 +40,7 @@ The least negative small integer:
 ```
 
 A `Float` that is an integer,
-according to `isInteger`,
+according to `isIntegerValuedNumber`,
 must also be a small integer:
 
 _2^54_ and _20!_ are integers:
@@ -98,27 +98,28 @@ false
 ```
 
 At `Integer`,
-answers `true` is the value is an integer and if that integer is a safe integer:
+answers `true` the value can be accurately represented as a small integer:
 
 ```
 >>> 23L.isSmallInteger
 true
 
 >>> let x = (2L ^ 54);
->>> (x.isInteger, x.isSmallInteger)
+>>> (x.isIntegerValuedNumber, x.isSmallInteger)
 (true, false)
+```
 
->>> 2/1.isSmallInteger
-true
+At `Decimal`:
 
->>> let x = 3/2;
->>> (x.isInteger, x.isSmallInteger)
-(false, false)
-
+```
 >>> 3.000D.isSmallInteger
 true
 
 >>> 3.141D.isSmallInteger
+false
+
+>>> 9904578032905937D
+>>> .isSmallInteger
 false
 ```
 
@@ -126,22 +127,24 @@ At `Fraction`:
 
 ```
 >>> let x = 23/1;
->>> (x.isInteger, x.isSmallInteger)
+>>> (x.isIntegerValuedNumber, x.isSmallInteger)
 (true, true)
 
 >>> let x = 9904578032905937/1;
->>> (x.isInteger, x.isSmallInteger)
+>>> (x.isIntegerValuedNumber, x.isSmallInteger)
 (true, false)
 
 >>> let x = 23/7;
->>> (x.isInteger, x.isSmallInteger)
+>>> (x.isIntegerValuedNumber, x.isSmallInteger)
 (false, false)
 ```
 
 A `List` is not a small integer:
 
 ```
->>> { [1 2 3].isSmallInteger }.hasError
+>>> {
+>>> 	[1 2 3].isSmallInteger
+>>> }.hasError
 true
 
 >>> [1 2 3].allTrue(isSmallInteger/1)
@@ -157,7 +160,7 @@ false
 
 * * *
 
-See also: Float, isFloat, isGaussianInteger, isInteger, isInteger, isNumber
+See also: Float, isFloat, isGaussianInteger, isInteger, isNumber
 
 Guides: Integer Functions
 

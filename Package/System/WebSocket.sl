@@ -2,15 +2,10 @@
 
 WebSocket! : [Object, EventTarget] {
 
-	basicOnOpen { :self :aBlock/1 |
-		<primitive:
-		_self.onopen = _aBlock_1;
-		return _self;
-		>
-	}
-
 	binaryType { :self |
-		<primitive: return _self.binaryType;>
+		<primitive:
+		return _self.binaryType;
+		>
 	}
 
 	binaryType { :self :value |
@@ -21,19 +16,27 @@ WebSocket! : [Object, EventTarget] {
 	}
 
 	bufferedAmount { :self |
-		<primitive: return _self.bufferedAmount;>
+		<primitive:
+		return _self.bufferedAmount;
+		>
 	}
 
 	close { :self |
-		<primitive: return _self.close();>
+		<primitive:
+		return _self.close();
+		>
 	}
 
 	close { :self :code :reason |
-		<primitive: return _self.close(_code, _reason);>
+		<primitive:
+		return _self.close(sl.toFloat(_code), _reason);
+		>
 	}
 
 	extensions { :self |
-		<primitive: return _self.extensions;>
+		<primitive:
+		return _self.extensions;
+		>
 	}
 
 	onClose { :self :aBlock/1 |
@@ -51,25 +54,40 @@ WebSocket! : [Object, EventTarget] {
 	}
 
 	onOpen { :self :aBlock |
-		self.basicOnOpen { :event |
+		self.uncheckedOnOpen { :event |
 			aBlock.cull(event)
 		}
 	}
 
 	protocol { :self |
-		<primitive: return _self.protocol;>
+		<primitive:
+		return _self.protocol;
+		>
 	}
 
 	readyState { :self |
-		<primitive: return _self.readyState;>
+		<primitive:
+		return _self.readyState;
+		>
 	}
 
 	send { :self :data |
-		<primitive: return _self.send(_data);>
+		<primitive:
+		return _self.send(_data);
+		>
+	}
+
+	uncheckedOnOpen { :self :aBlock/1 |
+		<primitive:
+		_self.onopen = _aBlock_1;
+		return _self;
+		>
 	}
 
 	url { :self |
-		<primitive: return _self.url;>
+		<primitive:
+		return _self.url;
+		>
 	}
 
 }
@@ -77,11 +95,15 @@ WebSocket! : [Object, EventTarget] {
 +[String, URL] {
 
 	WebSocket { :self |
-		<primitive: return new WebSocket(_self);>
+		<primitive:
+		return new WebSocket(_self);
+		>
 	}
 
 	WebSocket { :self :protocols |
-		<primitive: return new WebSocket(_self, _protocols);>
+		<primitive:
+		return new WebSocket(_self, _protocols);
+		>
 	}
 
 }

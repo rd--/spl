@@ -21,7 +21,8 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		aNumber.isInteger.if {
+		/* Model: SmallInteger | Integer */
+		aNumber.isIntegerValuedNumber.if {
 			aBlock(Integer(aNumber), self)
 		} {
 			aBlock(aNumber, Float(self))
@@ -62,6 +63,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	[bitShiftLeft, <<] { :self :anObject |
 		<primitive:
+		/* Model: SmallInteger | Integer */
 		if(sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
 			return _self << BigInt(_anObject);
 		}
@@ -71,6 +73,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	[bitShiftRight, >>] { :self :anObject |
 		<primitive:
+		/* Model: SmallInteger | Integer */
 		if(sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
 			return _self >> BigInt(_anObject);
 		}
@@ -102,10 +105,11 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	[divide, /] { :self :anObject |
-		anObject.isInteger.if {
+		/* Model: SmallInteger | Integer */
+		anObject.isIntegerValuedNumber.if {
 			Fraction(
 				self,
-				Integer(anObject)
+				anObject
 			)
 		} {
 			anObject.adaptToIntegerAndApply(self, divide/2)
@@ -202,15 +206,16 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	isImmediate { :unused |
+		/* Model: SmallInteger | Integer */
 		/* 1L !== 1 */
 		false
 	}
 
-	isInteger { :unused |
+	[isInteger, isIntegerValuedNumber] { :unused |
 		true
 	}
 
-	isInteger { :unusedSelf :unusedEpsilon |
+	isNearInteger { :unusedSelf :unusedEpsilon |
 		true
 	}
 
@@ -236,6 +241,10 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	isRational { :unused |
+		true
+	}
+
+	isRealValuedNumber { :unused |
 		true
 	}
 
@@ -266,12 +275,17 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	[mod, %] { :self :anObject |
 		<primitive:
+		/* Model: SmallInteger | Integer */
 		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
 			const i = BigInt(_anObject);
 			return ((_self % i) + i) % i;
 		}
 		>
 		anObject.adaptToIntegerAndApply(self, mod/2)
+	}
+
+	[negate, -] { :self |
+		self * -1L
 	}
 
 	normalInteger { :self |
@@ -296,6 +310,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	[plus, +] { :self :anObject |
 		<primitive:
+		/* Model: SmallInteger | Integer */
 		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
 			return _self + BigInt(_anObject);
 		}
@@ -304,8 +319,10 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	[power, ^] { :self :anObject |
-		anObject.isInteger.if {
-			self.raisedToInteger(anObject)
+		anObject.isIntegerValuedNumber.if {
+			self.raisedToInteger(
+				Integer(anObject)
+			)
 		} {
 			anObject.adaptToIntegerAndApply(self, power/2)
 		}
@@ -321,6 +338,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	[quotient, //] { :self :operand |
 		<primitive:
+		/* Model: SmallInteger | Integer */
 		if (sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
 			return _self / BigInt(_operand);
 		};
@@ -336,17 +354,24 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		}
 	}
 
-	raisedToPositiveInteger { :self :operand |
+	uncheckedRaisedToPositiveInteger { :self :operand |
 		<primitive:
 		if (sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
 			return _self ** BigInt(_operand);
 		}
 		>
-		self.error('raisedToPositiveInteger: not integer')
+		self.error('uncheckedRaisedToPositiveInteger: not integer')
+	}
+
+	raisedToPositiveInteger { :self :operand |
+		self.uncheckedRaisedToPositiveInteger(
+			Integer(operand)
+		)
 	}
 
 	[remainder, \\] { :self :operand |
 		<primitive:
+		/* Model: SmallInteger | Integer */
 		if (sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
 			return _self % BigInt(_operand);
 		}
@@ -377,6 +402,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	[subtract, -] { :self :anObject |
 		<primitive:
+		/* Model: SmallInteger | Integer */
 		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
 			return _self - BigInt(_anObject);
 		}
@@ -386,6 +412,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	[times, *] { :self :anObject |
 		<primitive:
+		/* Model: SmallInteger | Integer */
 		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
 			return _self * BigInt(_anObject);
 		}

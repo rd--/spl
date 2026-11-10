@@ -418,9 +418,9 @@ Triangle : [Object, Store, Equal, Geometry] {
 	isHeronian { :self |
 		let epsilon = 1E-9;
 		self.sideLengths.allSatisfy { :each |
-			each.isInteger(epsilon)
+			each.isNearInteger(epsilon)
 		} & {
-			self.area.isInteger(epsilon)
+			self.area.isNearInteger(epsilon)
 		}
 	}
 

@@ -212,8 +212,8 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	isGaussianInteger { :self |
-		self.real.isInteger & {
-			self.imaginary.isInteger
+		self.real.isIntegerValuedNumber & {
+			self.imaginary.isIntegerValuedNumber
 		}
 	}
 
@@ -221,11 +221,11 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		[1J0 -1J0 0J1 0J-1].includes(self)
 	}
 
-	isInteger { :unused |
+	isIntegerValuedNumber { :unused |
 		false
 	}
 
-	isInteger { :unusedSelf :unusedEpsilon |
+	isNearInteger { :unusedSelf :unusedEpsilon |
 		false
 	}
 
@@ -544,7 +544,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	isGaussianInteger { :self |
-		self.isInteger
+		self.isIntegerValuedNumber
 	}
 
 	isReal { :self |

@@ -17,7 +17,11 @@
 			k.isZero.if {
 				n.one
 			} {
-				(n < 0 & { k.isInteger }).if {
+				(
+					n < 0 & {
+						k.isIntegerValuedNumber
+					}
+				).if {
 					(k >= 0).if {
 						(-1 ^ k) * binomial(k - n - 1, k)
 					} {

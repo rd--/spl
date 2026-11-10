@@ -16,7 +16,9 @@ Answer the `String` items of the list _s_ joined togther with a comma and space 
 It is an error if any list item is not a string:
 
 ```
->>> { [1 2 3].commaSeparated }.hasError
+>>> {
+>>> 	[1 2 3].commaSeparated
+>>> }.hasError
 true
 ```
 

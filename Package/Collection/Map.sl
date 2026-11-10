@@ -11,14 +11,18 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, 
 	}
 
 	[indices, keys] { :self |
-		<primitive: return Array.from(_self.keys());>
+		<primitive:
+		return Array.from(_self.keys());
+		>
 	}
 
 	keysAndValuesDo { :self :aBlock/2 |
 		<primitive:
-		_self.forEach(function(value, key, _) {
-			_aBlock_2(key, value);
-		});
+		_self.forEach(
+			function(value, key, _unusedMap) {
+				_aBlock_2(key, value);
+			}
+		);
 		>
 		nil
 	}
@@ -53,7 +57,9 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, 
 	}
 
 	removeAll! { :self |
-		<primitive: _self.clear();>
+		<primitive:
+		_self.clear();
+		>
 		nil
 	}
 
@@ -66,11 +72,15 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, 
 	}
 
 	shallowCopy { :self |
-		<primitive: return new Map(_self);>
+		<primitive:
+		return new Map(_self);
+		>
 	}
 
 	size { :self |
-		<primitive: return _self.size;>
+		<primitive:
+		return sl.toInteger(_self.size);
+		>
 	}
 
 	species { :unused |
@@ -114,16 +124,22 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, 
 	}
 
 	uncheckedMapToRecord { :self |
-		<primitive: return Object.fromEntries(_self);>
+		<primitive:
+		return Object.fromEntries(_self);
+		>
 	}
 
 	uncheckedPut! { :self :key :value |
-		<primitive: _self.set(_key, _value);>
+		<primitive:
+		_self.set(_key, _value);
+		>
 		value
 	}
 
 	values { :self |
-		<primitive: return Array.from(_self.values());>
+		<primitive:
+		return Array.from(_self.values());
+		>
 	}
 
 }
@@ -168,7 +184,9 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, 
 	}
 
 	uncheckedMatrixToMap { :self |
-		<primitive: return new Map(_self);>
+		<primitive:
+		return new Map(_self);
+		>
 	}
 
 }
@@ -176,7 +194,9 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, 
 +Void {
 
 	Map {
-		<primitive: return new Map();>
+		<primitive:
+		return new Map();
+		>
 	}
 
 }
@@ -184,7 +204,9 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, 
 +Record {
 
 	[Map, recordToMap] { :self |
-		<primitive: return new Map(Object.entries(_self));>
+		<primitive:
+		return new Map(Object.entries(_self));
+		>
 	}
 
 }

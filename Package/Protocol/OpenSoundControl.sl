@@ -28,7 +28,7 @@ OscParameter : [Object, Store] {
 +Float {
 
 	OscParameter { :self |
-		self.isInteger.if {
+		self.isIntegerValuedNumber.if {
 			OscParameter('i', self)
 		} {
 			OscParameter('f', self)

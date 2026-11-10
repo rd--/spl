@@ -11,7 +11,7 @@ The will be at least entries for _isFile_, _isDirectory_, _size_ and _mtime_.
 >>> (
 >>> 	i['isFile'],
 >>> 	i['isDirectory'],
->>> 	i['size'].isInteger,
+>>> 	i['size'].isSmallInteger,
 >>> 	i['mtime'].isDate
 >>> )
 (false, true, true, true)

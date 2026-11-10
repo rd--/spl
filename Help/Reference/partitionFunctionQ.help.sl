@@ -11,7 +11,7 @@ since there are four partitions of 10 into three distinct parts:
 {1,2,7}, {1,3,6}, {1,4,5}, and {2,3,5}.
 
 ```
->>> 10.partitionFunctionQ(3)
+>>> partitionFunctionQ(10, 3)
 4
 
 >>> let n = 10;

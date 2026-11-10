@@ -17,6 +17,13 @@ Answers the inverse hyperbolic secant of the complex number _z_.
 1.goldenRatio.log
 ```
 
+At `Fraction`:
+
+```
+>>> 4/3.arcCsch - 2.log
+0
+```
+
 Relation to `arcSinh`:
 
 ```
@@ -28,10 +35,19 @@ Relation to `arcSinh`:
 `Complex` arguments:
 
 ```
+>>> 1.5J1.arcCsch
+-0.463599J-2.861035
+
 >>> 0J2.arcCsch
 -1/6.pi.I
 
+>>> (1 / 0J2).arcSinh
+-1/6.pi.I
+
 >>> 0J-2.arcCsch
+1/6.pi.I
+
+>>> (1 / 0J-2).arcSinh
 1/6.pi.I
 
 >>> -1I.pi.arcCsch

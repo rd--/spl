@@ -123,7 +123,7 @@
 		'gamma'.symbolicPrimitive([self])
 	}
 
-	isInteger { :unused |
+	isIntegerValuedNumber { :unused |
 		false
 	}
 

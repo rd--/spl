@@ -15,9 +15,11 @@
 	collect { :self :aBlock/1 |
 		<primitive:
 		if(_aBlock_1 instanceof Function) {
-			return _self.map(function(element, _unusedIndex, _unusedArray) {
-				return _aBlock_1(element);
-			});
+			return _self.map(
+				function(element, _unusedIndex, _unusedArray) {
+					return _aBlock_1(element);
+				}
+			);
 		}
 		>
 		self.error('@collect: not a block')
@@ -25,43 +27,51 @@
 
 	detectIfFoundIfNone { :self :aBlock/1 :whenFound/1 :whenNone/0 |
 		<primitive:
-		const item = _self.find(function(element) {
-			return _aBlock_1(element);
-		});
+		const item = _self.find(
+			function(element) {
+				return _aBlock_1(element);
+			}
+		);
 		return (item !== undefined) ? _whenFound_1(item) : _whenNone_0();
 		>
 	}
 
 	do { :self :aBlock/1 |
 		<primitive:
-		_self.forEach(function(item) {
-			return _aBlock_1(item)
-		});
+		_self.forEach(
+			function(item, _unusedIndex, _unusedArray) {
+				return _aBlock_1(item)
+			}
+		);
 		>
 		nil
 	}
 
 	findFirst { :self :aBlock/1 |
 		<primitive:
-		const index = _self.findIndex(function(element) {
-			return _aBlock_1(element);
-		});
-		return index + 1;
+		const index = _self.findIndex(
+			function(element) {
+				return _aBlock_1(element);
+			}
+		);
+		return sl.toInteger(index + 1);
 		>
 	}
 
 	findFirstElement { :self :aBlock/1 |
 		<primitive:
-		const item = _self.find(function(element) {
-			return _aBlock_1(element);
-		});
+		const item = _self.find(
+			function(element) {
+				return _aBlock_1(element);
+			}
+		);
 		return (item === undefined) ? null : item;
 		>
 	}
 
 	insertAt! { :self :anObject :index |
 		(
-			index.isInteger & {
+			index.isIntegerValuedNumber & {
 				index.isBetween(1, self.size + 1)
 			}
 		).if {
@@ -84,11 +94,15 @@
 	}
 
 	reverse! { :self |
-		<primitive: return _self.reverse();>
+		<primitive:
+		return _self.reverse();
+		>
 	}
 
 	size { :self |
-		<primitive: return _self.length;>
+		<primitive:
+		return sl.toInteger(_self.length);
+		>
 	}
 
 	[sort, sortBy] { :self :sortBlock/2 |
@@ -105,9 +119,11 @@
 
 	[sort!, sortByOn!] { :self :sortBlock/2 :keyBlock/1 |
 		<primitive:
-		return _self.sort(function(p, q) {
-			return _sortBlock_2(_keyBlock_1(p), _keyBlock_1(q)) ? -1 : 1
-		});
+		return _self.sort(
+			function(p, q) {
+				return _sortBlock_2(_keyBlock_1(p), _keyBlock_1(q)) ? -1 : 1
+			}
+		);
 		>
 	}
 
@@ -150,11 +166,15 @@
 	}
 
 	uncheckedSortComparing { :self :compareBlock/2 |
-		<primitive: return _self.toSorted(_compareBlock_2);>
+		<primitive:
+		return _self.toSorted(_compareBlock_2);
+		>
 	}
 
 	uncheckedSortComparing! { :self :compareBlock/2 |
-		<primitive: return _self.sort(_compareBlock_2);>
+		<primitive:
+		return _self.sort(_compareBlock_2);
+		>
 	}
 
 }
@@ -169,7 +189,7 @@
 		'%(%)'.format(
 			[
 				self.typeName,
-				self.List.storeString
+				List(self).storeString
 			]
 		)
 	}

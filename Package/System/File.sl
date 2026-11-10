@@ -3,11 +3,15 @@
 File! : [Object, BinaryLargeObject] {
 
 	lastModified { :self |
-		<primitive: return _self.lastModified;>
+		<primitive:
+		return _self.lastModified;
+		>
 	}
 
 	name { :self |
-		<primitive: return _self.name;>
+		<primitive:
+		return _self.name;
+		>
 	}
 
 }
@@ -15,7 +19,9 @@ File! : [Object, BinaryLargeObject] {
 +List {
 
 	File { :fileBits :fileName :options |
-		<primitive: return new File(_fileBits, _fileName, _options);>
+		<primitive:
+		return new File(_fileBits, _fileName, _options);
+		>
 	}
 
 }

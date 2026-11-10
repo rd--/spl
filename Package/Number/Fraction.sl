@@ -27,7 +27,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	[Integer, L, fractionToInteger] { :self |
-		self.isInteger.if {
+		self.isIntegerValuedNumber.if {
 			self.numerator
 		} {
 			self.error('Fraction>>Integer: not integer')
@@ -56,7 +56,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	adaptToNumberAndApply { :self :operand :aBlock/2 |
-		operand.isInteger.if {
+		/* Model: SmallInteger | Integer */
+		operand.isIntegerValuedNumber.if {
 			/* self.adaptToIntegerAndApply(operand, aBlock/2) */
 			aBlock(
 				Fraction(
@@ -209,7 +210,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	isEven { :self |
-		self.isIntegerAnd(isEven/1)
+		self.isIntegerValuedNumberAnd(isEven/1)
 	}
 
 	isExact { :unused |
@@ -227,11 +228,11 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		true
 	}
 
-	isInteger { :self |
+	isIntegerValuedNumber { :self |
 		self.denominator.isOne
 	}
 
-	isIntegerAnd { :self :aBlock/1 |
+	isIntegerValuedNumberAnd { :self :aBlock/1 |
 		self.denominator.isOne & {
 			aBlock(self.numerator)
 		}
@@ -261,7 +262,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	isOdd { :self |
-		self.isIntegerAnd(isOdd/1)
+		self.isIntegerValuedNumberAnd(isOdd/1)
 	}
 
 	isPhiWeightedMediantNoble { :self :operand |
@@ -273,14 +274,18 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	isPowerOfTwo { :self |
-		self.isIntegerAnd(isPowerOfTwo/1)
+		self.isIntegerValuedNumberAnd(isPowerOfTwo/1)
 	}
 
 	isPrime { :self |
-		self.isIntegerAnd(isPrime/1)
+		self.isIntegerValuedNumberAnd(isPrime/1)
 	}
 
 	isRational { :unused |
+		true
+	}
+
+	isRealValuedNumber { :unused |
 		true
 	}
 
@@ -289,7 +294,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	isSmallInteger { :self |
-		self.isIntegerAnd(isSmallInteger/1)
+		self.isIntegerValuedNumberAnd(isSmallInteger/1)
 	}
 
 	isSquareSuperparticular { :self |
@@ -460,12 +465,14 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	[power, ^] { :self :operand |
-		operand.isInteger.if {
-			self.raisedToInteger(Integer(operand))
+		operand.isIntegerValuedNumber.if {
+			self.raisedToInteger(
+				Integer(operand)
+			)
 		} {
 			operand.isFraction.if {
 				self.isNegative.if {
-					Complex(Float(self), 0) ^ operand
+					Complex(Float(self), 0.0) ^ operand
 				} {
 					self.raisedToFraction(operand)
 				}
@@ -732,7 +739,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		numerator.isNaN.if {
 			NaN
 		} {
-			denominator.isInteger.if {
+			denominator.isIntegerValuedNumber.if {
 				uncheckedFraction(
 					Integer(numerator),
 					Integer(denominator)
@@ -837,7 +844,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 +Float {
 
 	adaptToFractionAndApply { :self :operand :aBlock/2 |
-		self.isInteger.if {
+		/* Model: SmallInteger | Integer */
+		self.isIntegerValuedNumber.if {
 			aBlock(
 				operand,
 				Fraction(
@@ -928,7 +936,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	deriveFractionOver { :self :denominator |
-		self.isInteger.if {
+		self.isIntegerValuedNumber.if {
 			uncheckedFraction(
 				Integer(self),
 				1L

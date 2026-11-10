@@ -20,7 +20,9 @@ Package! : [Object, Equal, Compare] {
 	}
 
 	category { :self |
-		<primitive: return _self.category;>
+		<primitive:
+		return _self.category;
+		>
 	}
 
 	compare { :self :aPackage |
@@ -42,7 +44,9 @@ Package! : [Object, Equal, Compare] {
 	}
 
 	isLoaded { :self |
-		<primitive: return _self.isLoaded;>
+		<primitive:
+		return _self.isLoaded;
+		>
 	}
 
 	load { :self |
@@ -50,7 +54,9 @@ Package! : [Object, Equal, Compare] {
 	}
 
 	name { :self |
-		<primitive: return _self.name;>
+		<primitive:
+		return _self.name;
+		>
 	}
 
 	pseudoSlotNameList { :self |
@@ -65,15 +71,21 @@ Package! : [Object, Equal, Compare] {
 	}
 
 	requires { :self |
-		<primitive: return _self.requires;>
+		<primitive:
+		return _self.requires;
+		>
 	}
 
 	text { :self |
-		<primitive: return _self.text;>
+		<primitive:
+		return _self.text;
+		>
 	}
 
 	url { :self |
-		<primitive: return _self.url;>
+		<primitive:
+		return _self.url;
+		>
 	}
 
 }
@@ -110,7 +122,9 @@ Package! : [Object, Equal, Compare] {
 +String {
 
 	Package { :self :name :requires :url :text |
-		<primitive: return new sl.Package(_self, _name, _requires, _url, _text);>
+		<primitive:
+		return new sl.Package(_self, _name, _requires, _url, _text);
+		>
 	}
 
 	isQualifiedPackageName { :self |

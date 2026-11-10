@@ -18,7 +18,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 
 	add! { :self :anInteger |
 		self.assert {
-			anInteger.isInteger & {
+			anInteger.isIntegerValuedNumber & {
 				self.includes(anInteger).not
 			}
 		};
@@ -121,7 +121,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 	}
 
 	includesIndex { :self :anInteger |
-		anInteger.isInteger & {
+		anInteger.isIntegerValuedNumber & {
 			0 <= anInteger & {
 				anInteger < self.capacity
 			}

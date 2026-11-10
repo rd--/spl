@@ -1312,7 +1312,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	fromCharacterCode { :self :encoding |
-		self.allSatisfy(isInteger/1).if {
+		self.allSatisfy(isIntegerValuedNumber/1).if {
 			encoding.caseOf(
 				[
 					'Ascii' -> { self.asciiString },

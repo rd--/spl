@@ -1,8 +1,12 @@
 @MidiMap {
 
-	do { :self :aBlock |
+	do { :self :aBlock/1 |
 		<primitive:
-		_self.forEach(_aBlock);
+		_self.forEach(
+			function(item) {
+				return _aBlock_1(item);
+			}
+		);
 		>
 		nil
 	}

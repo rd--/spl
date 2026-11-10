@@ -33,7 +33,7 @@ Truncate to integer:
 >>> 3.141D.truncateScale(0)
 3D
 
->>> 3D.isInteger
+>>> 3D.isIntegerValuedNumber
 true
 ```
 

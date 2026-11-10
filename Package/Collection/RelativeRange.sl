@@ -51,7 +51,7 @@ RelativeRange : [Object, New, Store, Equal, Compare] {
 	}
 
 	isIntegerRange { :start :stop :step |
-		[start stop step].allSatisfy(isInteger/1)
+		[start stop step].allSatisfy(isIntegerValuedNumber/1)
 	}
 
 	isRelativeRange { :start :stop :step |

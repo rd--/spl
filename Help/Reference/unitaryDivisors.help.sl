@@ -42,7 +42,7 @@ OEIS [A063937](https://oeis.org/A063937):
 ```
 >>> 2:200.select { :n |
 >>> 	let m = n.unitaryDivisors.sum;
->>> 	m.sqrt.isInteger
+>>> 	m.sqrt.isSmallInteger
 >>> }
 [
 	  3   8  22  24  66
@@ -59,7 +59,7 @@ OEIS [A006086](https://oeis.org/A006086):
 >>> 1L:650.select { :n |
 >>> 	n.unitaryDivisors
 >>> 	.harmonicMean
->>> 	.isInteger
+>>> 	.isSmallInteger
 >>> }
 [1 6 45 60 90 420 630]
 ```

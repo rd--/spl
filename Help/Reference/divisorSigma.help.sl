@@ -305,7 +305,7 @@ OEIS [A003601](https://oeis.org/A003601):
 >>> 1:99.select { :n |
 >>> 	let tau = 0.divisorSigma(n);
 >>> 	let sigma = 1.divisorSigma(n);
->>> 	(sigma / tau).isInteger
+>>> 	(sigma / tau).isIntegerValuedNumber
 >>> }
 [
 	 1  3  5  6  7 11 13 14 15 17
@@ -343,7 +343,7 @@ OEIS [A001600](https://oeis.org/A001600):
 >>> 	let tau = 0.divisorSigma(n);
 >>> 	let sigma = 1.divisorSigma(n);
 >>> 	n * tau / sigma
->>> }.select(isInteger/1)
+>>> }.select(isIntegerValuedNumber/1)
 [1 2 3 5 6 5]
 ```
 
@@ -429,7 +429,7 @@ Numerator of sum of reciprocals of divisors of _n_,
 OEIS [A017665](https://oeis.org/A017665):
 
 ```
->>> 1:16.collect { :n |
+>>> 1L:16.collect { :n |
 >>> 	1L.divisorSigma(n) / n
 >>> }.numerator
 [1 3 4 7 6 2 8 15 13 9 12 7 14 12 8 31]

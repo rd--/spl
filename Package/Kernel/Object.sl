@@ -120,7 +120,9 @@
 	}
 
 	[isIdentical, ==] { :self :anObject |
-		<primitive: return _self === _anObject;>
+		<primitive:
+		return _self === _anObject;
+		>
 	}
 
 	isImmediate { :unused |
@@ -136,7 +138,9 @@
 	}
 
 	[isNonidentical, !==] { :self :anObject |
-		<primitive: return _self !== _anObject;>
+		<primitive:
+		return _self !== _anObject;
+		>
 	}
 
 	leftIdentity { :self :anObject |
@@ -169,15 +173,21 @@
 	}
 
 	primitiveIdentity { :self :anObject |
-		<primitive: return _self === _anObject;>
+		<primitive:
+		return _self === _anObject;
+		>
 	}
 
 	primitiveObjectDeepCopy { :self |
-		<primitive: return structuredClone(_self);>
+		<primitive:
+		return structuredClone(_self);
+		>
 	}
 
 	primitiveObjectShallowCopy { :self |
-		<primitive: return Object.assign({}, _self);>
+		<primitive:
+		return Object.assign({}, _self);
+		>
 	}
 
 	printString { :self |
@@ -232,22 +242,29 @@
 	}
 
 	typeName { :self |
-		<primitive: return sl.splTypeName(_self);>
+		<primitive:
+		return sl.splTypeName(_self);
+		>
 	}
 
 	uncheckedSlotRead { :self :key |
-		<primitive: return _self[_key];>
+		<primitive:
+		return _self[_key];
+		>
 	}
 
 	uncheckedSlotReadList { :self :keyList |
-		<primitive: return _keyList.map(function (key) {
+		<primitive:
+		return _keyList.map(function (key) {
 			return _self[key];
 		});
 		>
 	}
 
 	uncheckedSlotWrite { :self :key :value |
-		<primitive: _self[_key] = _value;>
+		<primitive:
+		_self[_key] = _value;
+		>
 		nil
 	}
 

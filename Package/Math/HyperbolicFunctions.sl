@@ -79,7 +79,7 @@
 	}
 
 	arcSinh { :z |
-		(z + ((z ^ 2.0) + 1).sqrt).log
+		(z + ((z ^ 2.0) + 1.0).sqrt).log
 	}
 
 	arcTanh { :z |

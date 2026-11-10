@@ -506,7 +506,7 @@ Permutation : [Object, Store, Equal] {
 			(self.depth = 3) & {
 				let entries = self.catenate;
 				entries.allSatisfy { :each |
-					each.isInteger & {
+					each.isIntegerValuedNumber & {
 						each.isPositive
 					}
 				} & {

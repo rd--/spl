@@ -1,7 +1,7 @@
 +Float {
 
 	nimMultiplication { :x :y |
-		y.isInteger.if {
+		y.isIntegerValuedNumber.if {
 			nimMultiplication(
 				Integer(x),
 				Integer(y)

@@ -24,7 +24,7 @@ Where _x_ is close to a simple fraction:
 >>> 6.75.deriveFractionOver(1E11)
 27/4
 
->>> 23.deriveFractionOver(1E11)
+>>> 23.0.deriveFractionOver(1E11)
 23/1
 ```
 

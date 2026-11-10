@@ -147,7 +147,7 @@
 	}
 
 	octaveReduce { :self |
-		self.isInteger.ifFalse {
+		self.isIntegerValuedNumber.ifFalse {
 			self.error('octaveReduce: not integer')
 		};
 		Fraction(self, 1L).octaveReduce(2)

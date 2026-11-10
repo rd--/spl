@@ -27,6 +27,13 @@ Maximum base is thirty-six:
 4FM720CC1S00000000000
 ```
 
+Threads over lists:
+
+```
+>>> [3 23 47].integerString(3)
+['10' '212' '1202']
+```
+
 Show a single number in successive bases from 4 to 36:
 
 ```

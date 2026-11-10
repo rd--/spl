@@ -79,7 +79,7 @@ InfinitePlane : [Object, Store, Equal] {
 		let b = (z1 * (x2 - x3)) + (z2 * (x3 - x1)) + (z3 * (x1 - x2));
 		let c = (x1 * (y2 - y3)) + (x2 * (y3 - y1)) + (x3 * (y1 - y2));
 		let d = ([a b c] * p1).sum.negate;
-		[a b c].allSatisfy(isInteger/1).ifTrue {
+		[a b c].allSatisfy(isIntegerValuedNumber/1).ifTrue {
 			let z = [a b c].gcd;
 			[a, b, c, d] := [a b c d] / z
 		};

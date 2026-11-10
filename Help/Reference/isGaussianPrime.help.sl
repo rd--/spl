@@ -52,10 +52,10 @@ Recognize Gaussian Mersenne primes,
 prime numbers _n_ such that _1J1^n - 1_ is a Gaussian prime.
 
 ```
->>> 1:30.select { :each |
->>> 	each.isPrime & {
->>> 		let n = (1J1 ^ each - 1);
->>> 		n.isGaussianPrime
+>>> 1L:30.select { :n |
+>>> 	n.isPrime & {
+>>> 		(1J1 ^ n - 1)
+>>> 		.isGaussianPrime
 >>> 	}
 >>> }
 [2 3 5 7 11 19 29]

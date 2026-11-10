@@ -141,7 +141,7 @@ Select first few squares:
 
 ```
 >>> 0:100.select { :n |
->>> 	n.sqrt.isInteger
+>>> 	n.sqrt.isSmallInteger
 >>> }
 [0 1 4 9 16 25 36 49 64 81 100]
 ```
@@ -198,7 +198,7 @@ OEIS [A023531](https://oeis.org/A023531):
 ```
 >>> 0:27.collect { :n |
 >>> 	(((9 + (8 * n)).sqrt - 3) / 2)
->>> 	.isInteger
+>>> 	.isSmallInteger
 >>> 	.boole
 >>> }
 [

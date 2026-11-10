@@ -319,7 +319,8 @@ OEIS [A018819](https://oeis.org/A018819):
 >>> 1:16.collect { :n |
 >>> 	n.integerPartitions.count { :p |
 >>> 		p.allSatisfy { :i |
->>> 			i.log2.isInteger
+>>> 			i.log2
+>>> 			.isIntegerValuedNumber
 >>> 		}
 >>> 	}
 >>> }

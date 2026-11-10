@@ -1,39 +1,57 @@
 Window! : [Object] {
 
 	alert { :self :aString |
-		<primitive: return _self.alert(_aString);>
+		<primitive:
+		return _self.alert(_aString);
+		>
 	}
 
 	caches { :self |
-		<primitive: return _self.caches;>
+		<primitive:
+		return _self.caches;
+		>
 	}
 
 	confirm { :self :aString |
-		<primitive: return _self.confirm(_aString);>
+		<primitive:
+		return _self.confirm(_aString);
+		>
 	}
 
 	document { :self |
-		<primitive: return _self.document;>
+		<primitive:
+		return _self.document;
+		>
 	}
 
 	localStorage { :self |
-		<primitive: return _self.localStorage;>
+		<primitive:
+		return _self.localStorage;
+		>
 	}
 
 	location { :self |
-		<primitive: return _self.location;>
+		<primitive:
+		return _self.location;
+		>
 	}
 
 	name { :self |
-		<primitive: return _self.name;>
+		<primitive:
+		return _self.name;
+		>
 	}
 
 	navigator { :self |
-		<primitive: return _self.navigator;>
+		<primitive:
+		return _self.navigator;
+		>
 	}
 
-	prompt { :self :message :defaultValue |
-		<primitive: return _self.prompt(_message, _defaultValue);>
+	prompt { :self :message :defaultValueString |
+		<primitive:
+		return _self.prompt(_message, _defaultValueString);
+		>
 	}
 
 	pseudoSlotNameList { :self |
@@ -41,11 +59,15 @@ Window! : [Object] {
 	}
 
 	requestAnimationFrame { :self :aBlock/1 |
-		<primitive: return _self.requestAnimationFrame(_aBlock_1);>
+		<primitive:
+		return _self.requestAnimationFrame(_aBlock_1);
+		>
 	}
 
 	sessionStorage { :self |
-		<primitive: return _self.sessionStorage;>
+		<primitive:
+		return _self.sessionStorage;
+		>
 	}
 
 }

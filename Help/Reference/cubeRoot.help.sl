@@ -55,7 +55,8 @@ OEIS [A007412](https://oeis.org/A007412):
 
 ```
 >>> 1:30.reject { :n |
->>> 	n.cubeRoot.isInteger
+>>> 	n.cubeRoot
+>>> 	.isIntegerValuedNumber
 >>> }
 [
 	 2  3  4  5  6  7  9 10 11 12
@@ -94,7 +95,8 @@ OEIS [A330271](https://oeis.org/A330271):
 ~~~spl svg=B oeis=A330271
 0:127.collect { :n |
 	0:Infinity.detect { :k |
-		n.bitXor(k).cubeRoot.isInteger
+		n.bitXor(k).cubeRoot
+		.isIntegerValuedNumber
 	}
 }.discretePlot
 ~~~

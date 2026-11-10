@@ -43,7 +43,9 @@
 +Float {
 
 	cancel { :self |
-		<primitive: clearTimeout(_self);>
+		<primitive:
+		clearTimeout(_self);
+		>
 		nil
 	}
 
@@ -52,7 +54,9 @@
 Timeout! : [Object] {
 
 	cancel { :self |
-		<primitive: clearTimeout(_self);>
+		<primitive:
+		clearTimeout(_self);
+		>
 		nil
 	}
 

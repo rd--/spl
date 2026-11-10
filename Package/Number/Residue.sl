@@ -65,7 +65,7 @@ Residue : [Object, Store, Equal, Compare, Number] {
 		true
 	}
 
-	isInteger { :unused |
+	isIntegerValuedNumber { :unused |
 		true
 	}
 
@@ -103,7 +103,7 @@ Residue : [Object, Store, Equal, Compare, Number] {
 +@Integer {
 
 	Residue { :n :m |
-		m.isInteger.if {
+		m.isIntegerValuedNumber.if {
 			uncheckedResidue(n, m)
 		} {
 			m.adaptToIntegerAndApply(n, Residue/2)
@@ -148,7 +148,7 @@ Residue : [Object, Store, Equal, Compare, Number] {
 +@Number {
 
 	adaptToResidueAndApply { :self :aResidue :aBlock/2 |
-		self.isInteger.if {
+		self.isIntegerValuedNumber.if {
 			aBlock(aResidue, Residue(self, aResidue.modulus))
 		} {
 			self.error('@Number>>adaptToResidueAndApply: not integer')

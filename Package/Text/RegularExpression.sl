@@ -15,11 +15,15 @@ RegExp! : [Object, Store, Equal] {
 	}
 
 	flags { :self |
-		<primitive: return _self.flags;>
+		<primitive:
+		return _self.flags;
+		>
 	}
 
 	hasIndices { :self |
-		<primitive: return _self.hasIndices;>
+		<primitive:
+		return _self.hasIndices;
+		>
 	}
 
 	isEqualBy { :self :anObject :aBlock/2 |
@@ -31,7 +35,9 @@ RegExp! : [Object, Store, Equal] {
 	}
 
 	isGlobal { :self |
-		<primitive: return _self.global;>
+		<primitive:
+		return _self.global;
+		>
 	}
 
 	isRegularExpression { :unused |
@@ -39,7 +45,9 @@ RegExp! : [Object, Store, Equal] {
 	}
 
 	lastIndex { :self |
-		<primitive: return _self.lastIndex;>
+		<primitive:
+		return _self.lastIndex;
+		>
 	}
 
 	match { :self :aString |
@@ -91,7 +99,9 @@ RegExp! : [Object, Store, Equal] {
 	}
 
 	source { :self |
-		<primitive: return _self.source;>
+		<primitive:
+		return _self.source;
+		>
 	}
 
 	split { :self :aString |
@@ -100,11 +110,15 @@ RegExp! : [Object, Store, Equal] {
 	}
 
 	storeString { :self |
-		<primitive: return `RegularExpression('${_self.source}', '${_self.flags}')`;>
+		<primitive:
+		return `RegularExpression('${_self.source}', '${_self.flags}')`;
+		>
 	}
 
 	stringLiteral { :self |
-		<primitive: return _self.toString();>
+		<primitive:
+		return _self.toString();
+		>
 	}
 
 	uncheckedExec { :self :aString |
@@ -134,19 +148,27 @@ RegExp! : [Object, Store, Equal] {
 	}
 
 	uncheckedReplaceAllWith { :self :aString :replacementString |
-		<primitive: return _aString.replaceAll(_self, _replacementString);>
+		<primitive:
+		return _aString.replaceAll(_self, _replacementString);
+		>
 	}
 
 	uncheckedReplaceWith { :self :aString :replacementString |
-		<primitive: return _aString.replace(_self, _replacementString);>
+		<primitive:
+		return _aString.replace(_self, _replacementString);
+		>
 	}
 
 	uncheckedSearch { :self :aString |
-		<primitive: return _self.test(_aString);>
+		<primitive:
+		return _self.test(_aString);
+		>
 	}
 
 	uncheckedSplit { :self :aString |
-		<primitive: return _aString.split(_self);>
+		<primitive:
+		return _aString.split(_self);
+		>
 	}
 
 }
@@ -154,11 +176,15 @@ RegExp! : [Object, Store, Equal] {
 +String {
 
 	RegularExpression { :self :flags |
-		<primitive: return new RegExp(_self, _flags);>
+		<primitive:
+		return new RegExp(_self, _flags);
+		>
 	}
 
 	RegularExpression { :self |
-		<primitive: return new RegExp(_self, 'd');>
+		<primitive:
+		return new RegExp(_self, 'd');
+		>
 	}
 
 	allRegularExpressionMatches { :self :regexp |
@@ -173,7 +199,9 @@ RegExp! : [Object, Store, Equal] {
 	}
 
 	escapeForRegularExpression { :self |
-		<primitive: return RegExp.escape(self);>
+		<primitive:
+		return RegExp.escape(self);
+		>
 	}
 
 	isAllDigits { :self |

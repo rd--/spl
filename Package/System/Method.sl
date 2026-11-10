@@ -1,23 +1,33 @@
 MethodInformation! : [Object] {
 
 	arity { :self |
-		<primitive: return _self.arity;>
+		<primitive:
+		return _self.arity;
+		>
 	}
 
 	name { :self |
-		<primitive: return _self.name;>
+		<primitive:
+		return _self.name;
+		>
 	}
 
 	origin { :self |
-		<primitive: return _self.origin;>
+		<primitive:
+		return _self.origin;
+		>
 	}
 
 	packageName { :self |
-		<primitive: return _self.packageName;>
+		<primitive:
+		return _self.packageName;
+		>
 	}
 
 	parameterNames { :self |
-		<primitive: return _self.parameterNames;>
+		<primitive:
+		return _self.parameterNames;
+		>
 	}
 
 	pseudoSlotNameList { :self |
@@ -25,7 +35,9 @@ MethodInformation! : [Object] {
 	}
 
 	sourceCode { :self |
-		<primitive: return _self.sourceCode;>
+		<primitive:
+		return _self.sourceCode;
+		>
 	}
 
 }
@@ -37,7 +49,9 @@ Method! : [Object, Equal] {
 	}
 
 	block { :self |
-		<primitive: return _self.block;>
+		<primitive:
+		return _self.block;
+		>
 	}
 
 	definition { :self |
@@ -57,7 +71,9 @@ Method! : [Object, Equal] {
 	}
 
 	information { :self |
-		<primitive: return _self.information;>
+		<primitive:
+		return _self.information;
+		>
 	}
 
 	[isEqual, =] { :self :anObject |

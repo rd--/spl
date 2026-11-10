@@ -272,7 +272,7 @@
 
 	hyperfactorial { :self |
 		let one = self.one;
-		self.isInteger.if {
+		self.isIntegerValuedNumber.if {
 			one.to(self).collect { :k |
 				k ^ k
 			}.product
@@ -601,7 +601,7 @@
 +@Number {
 
 	[doubleFactorial, !!] { :self |
-		self.isInteger.if {
+		self.isIntegerValuedNumber.if {
 			Integer(self).integerDoubleFactorial
 		} {
 			self.generalisedDoubleFactorial

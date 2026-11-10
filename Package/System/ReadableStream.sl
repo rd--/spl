@@ -1,7 +1,9 @@
 ReadableStream! : [Object] {
 
 	locked { :self |
-		<primitive: return _self.locked;>
+		<primitive:
+		return _self.locked;
+		>
 	}
 
 }

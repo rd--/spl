@@ -3,14 +3,18 @@
 IdentitySet! : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unordered, Set] {
 
 	[List, identitySetToList] { :self |
-		<primitive: return Array.from(_self);>
+		<primitive:
+		return Array.from(_self);
+		>
 	}
 
-	do { :self :aBlock |
+	do { :self :aBlock/1 |
 		<primitive:
-		_self.forEach(function(item) {
-			_aBlock(item);
-		});
+		_self.forEach(
+			function(item, _unusedKey, _unusedSet) {
+				_aBlock_1(item);
+			}
+		);
 		>
 		nil
 	}
@@ -23,7 +27,9 @@ IdentitySet! : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Un
 	}
 
 	includes { :self :anObject |
-		<primitive: return _self.has(_anObject);>
+		<primitive:
+		return _self.has(_anObject);
+		>
 	}
 
 	pseudoSlotNameList { :self |
@@ -31,7 +37,9 @@ IdentitySet! : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Un
 	}
 
 	removeAll! { :self |
-		<primitive: _self.clear();>
+		<primitive:
+		_self.clear();
+		>
 		nil
 	}
 
@@ -47,11 +55,15 @@ IdentitySet! : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Un
 	}
 
 	shallowCopy { :self |
-		<primitive: return new Set(_self);>
+		<primitive:
+		return new Set(_self);
+		>
 	}
 
 	size { :self |
-		<primitive: return _self.size;>
+		<primitive:
+		return sl.toInteger(_self.size);
+		>
 	}
 
 	species { :unused |
@@ -63,7 +75,9 @@ IdentitySet! : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Un
 	}
 
 	uncheckedInclude! { :self :anObject |
-		<primitive: _self.add(_anObject);>
+		<primitive:
+		_self.add(_anObject);
+		>
 		anObject
 	}
 
@@ -88,7 +102,9 @@ IdentitySet! : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Un
 +Void {
 
 	IdentitySet {
-		<primitive: return new Set();>
+		<primitive:
+		return new Set();
+		>
 	}
 
 }
@@ -121,7 +137,9 @@ IdentitySet! : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Un
 	}
 
 	uncheckedIdentitySet { :self |
-		<primitive: return new Set(_self);>
+		<primitive:
+		return new Set(_self);
+		>
 	}
 
 }

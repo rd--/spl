@@ -144,7 +144,8 @@ OEIS [A003401](https://oeis.org/A003401):
 
 ```
 >>> 1:99.select { :n |
->>> 	n.eulerPhi.log(2).isInteger
+>>> 	n.eulerPhi.log(2)
+>>> 	.isIntegerValuedNumber
 >>> }
 [
 	 1  2  3  4  5  6  8 10 12 15
@@ -404,7 +405,7 @@ OEIS [A118778](https://oeis.org/A118778):
 			s := s + (2 * a * c)
 		}
 	};
-	n.sqrt.isInteger.ifTrue {
+	n.sqrt.isSmallInteger.ifTrue {
 		s := s + eulerPhi(n.sqrt)
 	};
 	s

@@ -17,7 +17,10 @@ true
 Predicate for `Integer` number type:
 
 ```
->>> 23.isSchemaType('Integer')
+>>> 23.0.isSchemaType('Integer')
+true
+
+>>> 23L.isSchemaType('Integer')
 true
 ```
 

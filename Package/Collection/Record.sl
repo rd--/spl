@@ -104,7 +104,9 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 
 	size { :self |
 		<primitive:
-		return Object.keys(_self).length;
+		return sl.toInteger(
+			Object.keys(_self).length
+		);
 		>
 	}
 

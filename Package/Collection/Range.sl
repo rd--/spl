@@ -29,9 +29,9 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 	}
 
 	isIntegerRange { :self |
-		self.start.isInteger & {
-			self.stop.isInteger & {
-				self.step.isInteger
+		self.start.isIntegerValuedNumber & {
+			self.stop.isIntegerValuedNumber & {
+				self.step.isIntegerValuedNumber
 			}
 		}
 	}
@@ -206,7 +206,9 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 		to.isSequence.if {
 			listRange([from], to, by)
 		} {
-			nonEmptyRange(from, to, by).List
+			List(
+				nonEmptyRange(from, to, by)
+			)
 		}
 	}
 

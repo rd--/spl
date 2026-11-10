@@ -24,7 +24,7 @@ At `Float`,
 it is an error if the value is not an integer:
 
 ```
->>> 2.denominator
+>>> 2.0.denominator
 1L
 
 >>> {
@@ -57,8 +57,9 @@ Largest odd divisor of _n!_,
 OEIS [A049606](https://oeis.org/A049606):
 
 ```
->>> let n = 0L:16;
->>> ((2 ^ n) / n.!).denominator
+>>> let n = 0:16;
+>>> ((2L ^ n) / n.!)
+>>> .denominator
 [
 	1 1 1 3 3 15 45 315 315 2835 14175
 	155925 467775 6081075 42567525

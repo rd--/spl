@@ -6,11 +6,11 @@ Answer the sum of the numbers _m_ and _n_.
 The operator form is `+`.
 
 ```
->>> 3 + 4
-7
+>>> 3.0 + 4L
+7L
 
->>> 158 + 249
-407
+>>> 158L + 249.0
+407L
 
 >>> 1 + 2 + 3
 6

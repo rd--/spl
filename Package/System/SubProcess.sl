@@ -1,48 +1,70 @@
 +System {
 
 	currentWorkingDirectory { :unused |
-		<primitive: return host.currentWorkingDirectory();>
+		<primitive:
+		return host.currentWorkingDirectory();
+		>
 	}
 
 	currentWorkingDirectory { :unused :aPath |
-		<primitive: host.changeCurrentWorkingDirectory(_aPath);>
+		<primitive:
+		host.changeCurrentWorkingDirectory(_aPath);
+		>
 		aPath
 	}
 
 	environmentVariable { :unused :name |
-		<primitive: return host.environmentVariableGet(_name);>
+		<primitive:
+		return host.environmentVariableGet(_name);
+		>
 	}
 
 	environmentVariable { :unused :name :aString |
-		<primitive: return host.environmentVariableSet(_name, _aString);>
+		<primitive:
+		return host.environmentVariableSet(_name, _aString);
+		>
 	}
 
 	environmentVariables { :unused |
-		<primitive: return host.environmentVariables();>
+		<primitive:
+		return host.environmentVariables();
+		>
 	}
 
 	exit { :unused :exitCode |
-		<primitive: host.exit(_exitCode);>
+		<primitive:
+		host.exit(sl.toFloat(_exitCode));
+		>
 	}
 
 	hostName { :unused |
-		<primitive: return host.hostName();>
+		<primitive:
+		return host.hostName();
+		>
 	}
 
 	instructionSetArchitecture { :unused |
-		<primitive: return host.instructionSetArchitecture();>
+		<primitive:
+		return host.instructionSetArchitecture();
+		>
 	}
 
 	operatingSystem { :unused |
-		<primitive: return host.operatingSystem();>
+		<primitive:
+		return host.operatingSystem();
+		>
 	}
 
 	primitiveSystemCommand { :unused :commandName :arguments |
-		<primitive: return host.systemCommand(_commandName, _arguments);>
+		<primitive:
+		return host.systemCommand(_commandName, _arguments);
+		>
 	}
 
 	scriptArguments { :unused |
-		<primitive: return Deno.args;>
+		<primitive:
+		return Deno.args;
+		>
 	}
 
 	systemCommand { :self :commandName :arguments |

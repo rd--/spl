@@ -106,27 +106,39 @@ FilePath : [Object, Store, Equal] {
 	}
 
 	pathBaseName { :self |
-		<primitive: return sc.pathBaseName(_self);>
+		<primitive:
+		return sc.pathBaseName(_self);
+		>
 	}
 
 	pathDirectory { :self |
-		<primitive: return sc.pathDirectory(_self);>
+		<primitive:
+		return sc.pathDirectory(_self);
+		>
 	}
 
 	pathExtension { :self |
-		<primitive: return sc.pathExtension(_self);>
+		<primitive:
+		return sc.pathExtension(_self);
+		>
 	}
 
 	pathIsAbsolute { :self |
-		<primitive: return sc.pathIsAbsolute(_self);>
+		<primitive:
+		return sc.pathIsAbsolute(_self);
+		>
 	}
 
 	pathNormalize { :self |
-		<primitive: return sc.pathNormalize(_self);>
+		<primitive:
+		return sc.pathNormalize(_self);
+		>
 	}
 
 	pathStem { :self |
-		<primitive: return sc.pathStem(_self);>
+		<primitive:
+		return sc.pathStem(_self);
+		>
 	}
 
 	splFilePath { :self |
@@ -138,7 +150,9 @@ FilePath : [Object, Store, Equal] {
 +List {
 
 	pathJoin { :self |
-		<primitive: return sc.pathJoin(_self);>
+		<primitive:
+		return sc.pathJoin(_self);
+		>
 	}
 
 }

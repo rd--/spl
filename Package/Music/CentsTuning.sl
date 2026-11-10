@@ -29,11 +29,11 @@ CentsTuning : [Object, Store, Equal, Tuning] {
 +@Integer {
 
 	equalTemperamentTuning { :self |
-		let step = 1200 / self;
+		let step = 1200.0 / self;
 		CentsTuning(
 			'ET-' ++ self.printString,
 			self.inEnglishWords.capitalize ++ ' tone equal-temperament',
-			[0, step .. 1200 - step],
+			[0.0, step .. 1200.0 - step],
 			2
 		)
 	}

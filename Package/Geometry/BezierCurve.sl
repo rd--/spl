@@ -93,7 +93,7 @@ BezierCurve : [Object, Equal, Cache, Geometry] {
 	}
 
 	isValid { :self |
-		self.componentCount.isInteger
+		self.componentCount.isIntegerValuedNumber
 	}
 
 	size { :self |

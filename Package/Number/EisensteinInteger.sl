@@ -65,10 +65,10 @@ EisensteinInteger : [Object, Store, Equal] {
 
 }
 
-+Float {
++@Integer {
 
 	EisensteinInteger { :a :b |
-		b.isInteger.if {
+		b.isIntegerValuedNumber.if {
 			uncheckedEisensteinInteger(a, b)
 		} {
 			b.adaptToIntegerAndApply(a, EisensteinInteger/2)

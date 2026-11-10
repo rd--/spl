@@ -22,7 +22,9 @@ Type! : [Object, Equal] {
 	}
 
 	methodDictionary { :self |
-		<primitive: return _self.methodDictionary;>
+		<primitive:
+		return _self.methodDictionary;
+		>
 	}
 
 	methodList { :self |
@@ -30,11 +32,15 @@ Type! : [Object, Equal] {
 	}
 
 	name { :self |
-		<primitive: return _self.name;>
+		<primitive:
+		return _self.name;
+		>
 	}
 
 	packageName { :self |
-		<primitive: return _self.packageName;>
+		<primitive:
+		return _self.packageName;
+		>
 	}
 
 	printString { :self |
@@ -46,7 +52,9 @@ Type! : [Object, Equal] {
 	}
 
 	slotNameList { :self |
-		<primitive: return _self.slotNameArray;>
+		<primitive:
+		return _self.slotNameArray;
+		>
 	}
 
 	traitList { :self |
@@ -56,7 +64,9 @@ Type! : [Object, Equal] {
 	}
 
 	traitNameList { :self |
-		<primitive: return _self.traitNameArray;>
+		<primitive:
+		return _self.traitNameArray;
+		>
 	}
 
 }

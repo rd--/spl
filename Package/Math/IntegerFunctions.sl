@@ -46,7 +46,7 @@
 	}
 
 	assertIsInteger { :self :origin |
-		self.isInteger.if {
+		self.isIntegerValuedNumber.if {
 			self
 		} {
 			self.error('Not an integer', [origin])
@@ -483,7 +483,7 @@
 	}
 
 	gcd { :self :anInteger |
-		anInteger.isInteger.if {
+		anInteger.isIntegerValuedNumber.if {
 			let a = self.abs;
 			let b = anInteger.abs;
 			{
@@ -700,7 +700,7 @@
 				1 -> { self.unaryExpansion }
 			]
 		) {
-			base.isInteger.if {
+			base.isIntegerValuedNumber.if {
 				let numDigits = self.isZero.if {
 					1
 				} {
@@ -786,7 +786,7 @@
 	}
 
 	isByte { :self |
-		self.isInteger & {
+		self.isIntegerValuedNumber & {
 			self.isBetween(0, 255)
 		}
 	}
@@ -827,7 +827,7 @@
 	}
 
 	isDyadicRational { :self |
-		self.isInteger
+		self.isIntegerValuedNumber
 	}
 
 	isFundamentalDiscriminant { :n |
@@ -846,7 +846,11 @@
 	}
 
 	isHarmonicDivisorNumber { :n |
-		isInteger(n * divisorSigma(0, n) / divisorSigma(1, n))
+		(
+			n * divisorSigma(0, n)
+			/
+			divisorSigma(1, n)
+		).isIntegerValuedNumber
 	}
 
 	isHighlyAbundantNumber { :n |
@@ -863,13 +867,13 @@
 		}
 	}
 
-	isInteger { :self |
-		self.typeResponsibility('@Integer>>isInteger')
+	isIntegerValuedNumber { :self |
+		self.typeResponsibility('@Integer>>isIntegerValuedNumber')
 	}
 
 	isIntegerSquare { :self |
-		self.isInteger & {
-			self.sqrt.isInteger
+		self.isIntegerValuedNumber & {
+			self.sqrt.isIntegerValuedNumber
 		}
 	}
 
@@ -920,7 +924,7 @@
 	}
 
 	isPerfectCube { :n |
-		n.cubeRoot.isInteger(1E-14)
+		n.cubeRoot.isNearInteger(1E-14)
 	}
 
 	isPerfectDigitalInvariant { :self :base :power |
@@ -939,7 +943,7 @@
 	}
 
 	isPerfectSquare { :self |
-		self.sqrt.isInteger(1E-14)
+		self.sqrt.isNearInteger(1E-14)
 	}
 
 	isPositiveOddInteger { :self |
@@ -955,7 +959,7 @@
 	}
 
 	isPrimitivePythagoreanTriple { :a :b :c |
-		[a, b, c].allSatisfy(isInteger/1) & {
+		[a, b, c].allSatisfy(isIntegerValuedNumber/1) & {
 			a.isCoprime(b) & {
 				[a, b].collect(isOdd/1).boole.sum = 1 & {
 					(a.square + b.square) = c.square
@@ -984,7 +988,7 @@
 	}
 
 	isPythagoreanTriple { :a :b :c |
-		[a, b, c].allSatisfy(isInteger/1) & {
+		[a, b, c].allSatisfy(isIntegerValuedNumber/1) & {
 			(a.square + b.square) = c.square
 		}
 	}
@@ -1161,7 +1165,7 @@
 	}
 
 	lcm { :self :anInteger |
-		anInteger.isInteger.if {
+		anInteger.isIntegerValuedNumber.if {
 			self.uncheckedLcm(anInteger)
 		} {
 			anInteger.adaptToNumberAndApply(self, lcm/2)
@@ -1280,7 +1284,7 @@
 				x.numberDigit(m, b)
 			}
 		} {
-			x.isInteger.if {
+			x.isIntegerValuedNumber.if {
 				n.timesRepeat {
 					x := x // b
 				};
@@ -1421,7 +1425,7 @@
 		}.whileTrue {
 			(gcd(i, j) = 1).ifTrue {
 				let h = sqrt((i ^ 2) + (j ^ 2));
-				(h.isInteger & { j < n }).ifTrue {
+				(h.isIntegerValuedNumber & { j < n }).ifTrue {
 					t.add!([i, j, h])
 				}
 			};
@@ -1583,7 +1587,7 @@
 			d.caseOf(
 				[
 					1 -> {
-						n.sqrt.isInteger.boole * 2
+						n.sqrt.isIntegerValuedNumber.boole * 2
 					},
 					2 -> {
 						let f = { :c |
@@ -1889,13 +1893,19 @@
 		}
 	}
 
+	integerString { :self :radix |
+		self.collect { :each |
+			each.integerString(radix)
+		}
+	}
+
 	isAmicablePair { :self |
 		let [m, n] = self;
 		isAmicablePair(m, n)
 	}
 
 	isIntegerArray { :self |
-		self.isArray(self.arrayDepth, isInteger/1)
+		self.isArray(self.arrayDepth, isIntegerValuedNumber/1)
 	}
 
 }

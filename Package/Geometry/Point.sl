@@ -134,7 +134,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 		let b = x1 - x2;
 		let c = (y1 * (x2 - x1)) - (x1 * (y2 - y1));
 		let e = [a, b, c];
-		e.allSatisfy(isInteger/1).if {
+		e.allSatisfy(isIntegerValuedNumber/1).if {
 			e / e.gcd
 		} {
 			e

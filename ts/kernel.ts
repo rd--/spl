@@ -811,6 +811,7 @@ export function checkSmallIntegerOverflow(
 }
 
 export function splArityCheck(f: Function, n: number, c: string): void {
+	// console.debug('splArityCheck', f, n, c);
 	if (typeof f !== 'function') {
 		throw new Error(`splArityCheck: not block: context=${c}`);
 	}
@@ -831,4 +832,15 @@ export function toFloat(x: number | bigint): number {
 		return Number(x);
 	}
 	throw new Error('toFloat: not Float or Integer', x);
+}
+
+export function toInteger(x: number | bigint): number {
+	const xType = typeof x;
+	if (xType === 'number') {
+		return x; /* BigInt(x) */
+	}
+	if (xType === 'bigint') {
+		return Number(x); /* x */
+	}
+	throw new Error('toInteger: not Float or Integer', x);
 }

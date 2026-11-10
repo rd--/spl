@@ -6,7 +6,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		self
 	}
 
-	[SmallInteger, normalInteger, floatToSmallInteger] { :self |
+	[SmallInteger, normalInteger] { :self |
 		self.isSmallInteger.if {
 			self
 		} {
@@ -24,11 +24,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		self.isNaN.if {
 			NaN
 		} {
-			anInteger.isInteger.if {
-				aBlock(Float(anInteger), self)
-			} {
-				self.error('Float>>adaptToIntegerAndApply', anInteger)
-			}
+			aBlock(Float(anInteger), self) /* SmallInteger */
 		}
 	}
 
@@ -86,7 +82,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 	}
 
 	[bitShiftLeft, <<] { :self :operand |
-		operand.isInteger.if {
+		operand.isIntegerValuedNumber.if {
 			checkedBitShiftLeft(self, operand)
 		} {
 			operand.adaptToNumberAndApply(self, bitShiftLeft/2)
@@ -94,7 +90,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 	}
 
 	[bitShiftRight, >>] { :self :operand |
-		operand.isInteger.if {
+		operand.isIntegerValuedNumber.if {
 			checkedBitShiftRight(self, operand)
 		} {
 			operand.adaptToNumberAndApply(self, bitShiftRight/2)
@@ -216,10 +212,10 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 	}
 
 	denominator { :self |
-		self.isInteger.if {
+		self.isIntegerValuedNumber.if {
 			1L
 		} {
-			self.error('denominator: not integer')
+			self.error('denominator: not integer valued number')
 		}
 	}
 
@@ -255,6 +251,19 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		<primitive:
 		return Math.exp(_self)
 		>
+	}
+
+	floatString { :self :radix |
+		Integer(self).integerString(radix)
+	}
+
+	floatString { :self :radix :k |
+		'%.%'.format(
+			[
+				self.integerPart.integerString(radix),
+				self.fractionalPart.integerString(radix).drop(2).take(k)
+			]
+		)
 	}
 
 	floor { :self |
@@ -444,7 +453,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		self.isSmallInteger
 	}
 
-	isFinite { :self |
+	[isFinite, isRealValuedNumber] { :self |
 		<primitive:
 		return Number.isFinite(_self);
 		>
@@ -460,13 +469,13 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		true
 	}
 
-	isInteger { :self |
+	isIntegerValuedNumber { :self |
 		<primitive:
 		return Number.isSafeInteger(_self);
 		>
 	}
 
-	isInteger { :self :epsilon |
+	isNearInteger { :self :epsilon |
 		(self - self.round).abs < epsilon
 	}
 
@@ -517,7 +526,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 	}
 
 	isRational { :self |
-		self.isInteger
+		self.isIntegerValuedNumber
 	}
 
 	isSmallInteger { :self |
@@ -668,7 +677,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 
 	nthRoot { :self :aPositiveInteger |
 		(
-			aPositiveInteger.isInteger.not | {
+			aPositiveInteger.isIntegerValuedNumber.not | {
 				aPositiveInteger.isNegative
 			}
 		).ifTrue {
@@ -690,7 +699,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 	}
 
 	one { :self |
-		1
+		1.0
 	}
 
 	[plus, +] { :self :operand |
@@ -705,8 +714,10 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 
 	[power, ^] { :self :anObject |
 		anObject.isFloat.if {
-			anObject.isInteger.if {
-				self.raisedToInteger(anObject)
+			anObject.isIntegerValuedNumber.if {
+				self.raisedToInteger(
+					Integer(anObject)
+				)
 			} {
 				self.isNegative.if {
 					Complex(self, 0) ^ anObject
@@ -720,7 +731,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 	}
 
 	printStringToAtMostPlaces { :self :anInteger |
-		self.isInteger.if {
+		self.isIntegerValuedNumber.if {
 			self.printString
 		} {
 			self.printStringToFixed(anInteger)
@@ -1032,7 +1043,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 	}
 
 	zero { :self |
-		0
+		0.0
 	}
 
 }

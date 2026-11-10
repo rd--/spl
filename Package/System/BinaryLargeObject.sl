@@ -3,7 +3,9 @@
 @BinaryLargeObject {
 
 	arrayBuffer { :self |
-		<primitive: return _self.arrayBuffer();>
+		<primitive:
+		return _self.arrayBuffer();
+		>
 	}
 
 	isBinaryLargeObject { :unused |
@@ -15,19 +17,31 @@
 	}
 
 	size { :self |
-		<primitive: return _self.size;>
+		<primitive:
+		return sl.toInteger(_self.size);
+		>
 	}
 
 	slice { :self :start :end :contentType |
-		<primitive: return _self.slice(_start, _end, _contentType);>
+		<primitive:
+		return _self.slice(
+			sl.toFloat(_start),
+			sl.toFloat(_end),
+			_contentType
+		);
+		>
 	}
 
 	text { :self |
-		<primitive: return _self.text();>
+		<primitive:
+		return _self.text();
+		>
 	}
 
 	type { :self |
-		<primitive: return _self.type;>
+		<primitive:
+		return _self.type;
+		>
 	}
 
 }
@@ -47,7 +61,9 @@ BinaryLargeObject! : [Object, Equal, BinaryLargeObject] {
 +List {
 
 	BinaryLargeObject { :self :options |
-		<primitive: return new Blob(_self, _options);>
+		<primitive:
+		return new Blob(_self, _options);
+		>
 	}
 
 }

@@ -290,7 +290,7 @@
 
 	isIntegerMatrix { :self |
 		self.isMatrix & {
-			self.deepAllSatisfy(isInteger/1)
+			self.deepAllSatisfy(isIntegerValuedNumber/1)
 		}
 	}
 

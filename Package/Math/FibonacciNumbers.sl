@@ -86,7 +86,11 @@
 		let f = b ^ (0 - n);
 		let g = n.pi.cos;
 		let r = ((c * e) - (d * f * g)) / a;
-		(n.isInteger & { x.isInteger }).if {
+		(
+			n.isIntegerValuedNumber & {
+				x.isIntegerValuedNumber
+			}
+		).if {
 			r.round
 		} {
 			r
@@ -125,7 +129,7 @@
 
 	binetsFormula { :n |
 		let z = 5.sqrt;
-		((1 + z) ^ n) - ((1 - z) ^ n) / ((2L ^ n) * z)
+		((1.0 + z) ^ n) - ((1.0 - z) ^ n) / ((2.0 ^ n) * z)
 	}
 
 	fibonacciEntryPoint { :n |
@@ -305,7 +309,9 @@
 	}
 
 	stolarskyIndex { :n |
-		n.wythoffIndex(stolarskyArray/2)
+		n.wythoffIndex(
+			stolarskyArray/2
+		)
 	}
 
 	tribonacciNumber { :n |
@@ -459,7 +465,7 @@
 
 	cachedStolarskyArray { :self |
 		self.cached('stolarskyArray') {
-			Map()
+			Dictionary()
 		}
 	}
 

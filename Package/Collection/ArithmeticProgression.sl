@@ -16,7 +16,7 @@
 
 	atIfAbsent { :self :index :ifAbsent/0 |
 		self.includesIndex(index).if {
-			self.step * (index - 1) + self.start
+			self.start + (self.step * (index - 1))
 		} {
 			ifAbsent()
 		}
@@ -99,8 +99,8 @@
 	}
 
 	isIntegerArithmeticSeries { :self |
-		self.start.isInteger & {
-			self.step.isInteger
+		self.start.isIntegerValuedNumber & {
+			self.step.isIntegerValuedNumber
 		}
 	}
 

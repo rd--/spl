@@ -28,11 +28,15 @@ URLSearchParams! : [Object, Do, UrlQueryParameters] {
 	}
 
 	at { :self :name |
-		<primitive: return _self.get(_name);>
+		<primitive:
+		return _self.get(_name);
+		>
 	}
 
 	atAllEntries { :self :name |
-		<primitive: return _self.getAll(_name);>
+		<primitive:
+		return _self.getAll(_name);
+		>
 	}
 
 	do { :self :aBlock/1 |
@@ -42,7 +46,9 @@ URLSearchParams! : [Object, Do, UrlQueryParameters] {
 	}
 
 	includes { :self :name |
-		<primitive: return _self.has(_name);>
+		<primitive:
+		return _self.has(_name);
+		>
 	}
 
 	[indices, keys] { :self |
@@ -67,28 +73,38 @@ URLSearchParams! : [Object, Do, UrlQueryParameters] {
 
 	keysAndValuesDo { :self :aBlock/2 |
 		<primitive:
-		_self.forEach(function(value, key, _myself) {
-			_aBlock_2(key, value);
-		});
+		_self.forEach(
+			function(value, key, _myself) {
+				_aBlock_2(key, value);
+			}
+		);
 		>
 		nil
 	}
 
 	put! { :self :name :value |
-		<primitive: return _self.set(_name, _value);>
+		<primitive:
+		return _self.set(_name, _value);
+		>
 	}
 
 	queryString { :self |
-		<primitive: return _self.toString();>
+		<primitive:
+		return _self.toString();
+		>
 	}
 
 	removeKey! { :self :name |
-		<primitive: _self.delete(_name);>
+		<primitive:
+		_self.delete(_name);
+		>
 		nil
 	}
 
 	size { :self :name |
-		<primitive: return _self.size;>
+		<primitive:
+		return sl.toInteger(_self.size);
+		>
 	}
 
 	sort! { :self |
@@ -99,7 +115,9 @@ URLSearchParams! : [Object, Do, UrlQueryParameters] {
 	}
 
 	uncheckedAppend { :self :name :value |
-		<primitive: return _self.append(_name, _value);>
+		<primitive:
+		return _self.append(_name, _value);
+		>
 	}
 
 	values { :self |
@@ -125,7 +143,9 @@ URLSearchParams! : [Object, Do, UrlQueryParameters] {
 +String {
 
 	UrlQueryParameters { :self |
-		<primitive: return new URLSearchParams(_self);>
+		<primitive:
+		return new URLSearchParams(_self);
+		>
 	}
 
 }
@@ -133,7 +153,9 @@ URLSearchParams! : [Object, Do, UrlQueryParameters] {
 +Record {
 
 	UrlQueryParameters { :self |
-		<primitive: return new URLSearchParams(_self);>
+		<primitive:
+		return new URLSearchParams(_self);
+		>
 	}
 
 }

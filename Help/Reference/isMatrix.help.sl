@@ -27,10 +27,12 @@ At `List`:
 Require that the matrix be of integers:
 
 ```
->>> [3 3].iota.isMatrix(isInteger/1)
+>>> [3 3].iota
+>>> .isMatrix(isSmallInteger/1)
 true
 
->>> [1 2; 3 4.5].isMatrix(isInteger/1)
+>>> [1 2; 3 4.5]
+>>> .isMatrix(isIntegerValuedNumber/1)
 false
 ```
 

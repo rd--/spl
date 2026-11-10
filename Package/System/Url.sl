@@ -19,19 +19,27 @@
 	}
 
 	fragment { :self |
-		<primitive: return _self.hash;>
+		<primitive:
+		return _self.hash;
+		>
 	}
 
 	host { :self |
-		<primitive: return _self.host;>
+		<primitive:
+		return _self.host;
+		>
 	}
 
 	hostName { :self |
-		<primitive: return _self.hostname;>
+		<primitive:
+		return _self.hostname;
+		>
 	}
 
 	href { :self |
-		<primitive: return _self.href;>
+		<primitive:
+		return _self.href;
+		>
 	}
 
 	isUrl { :self |
@@ -39,23 +47,33 @@
 	}
 
 	origin { :self |
-		<primitive: return _self.origin;>
+		<primitive:
+		return _self.origin;
+		>
 	}
 
 	pathName { :self |
-		<primitive: return _self.pathname;>
+		<primitive:
+		return _self.pathname;
+		>
 	}
 
 	port { :self |
-		<primitive: return _self.port;>
+		<primitive:
+		return _self.port;
+		>
 	}
 
 	protocol { :self |
-		<primitive: return _self.protocol;>
+		<primitive:
+		return _self.protocol;
+		>
 	}
 
 	query { :self |
-		<primitive: return _self.search;>
+		<primitive:
+		return _self.search;
+		>
 	}
 
 }
@@ -67,11 +85,15 @@ URL! : [Object, Store, Equal, Url] {
 	}
 
 	password { :self |
-		<primitive: return _self.password;>
+		<primitive:
+		return _self.password;
+		>
 	}
 
 	queryParameters { :self |
-		<primitive: return _self.searchParams;>
+		<primitive:
+		return _self.searchParams;
+		>
 	}
 
 	storeString { :self |
@@ -79,7 +101,9 @@ URL! : [Object, Store, Equal, Url] {
 	}
 
 	userName { :self |
-		<primitive: return _self.username;>
+		<primitive:
+		return _self.username;
+		>
 	}
 
 }
@@ -95,27 +119,39 @@ URL! : [Object, Store, Equal, Url] {
 +String {
 
 	Url { :self |
-		<primitive: return new URL(_self);>
+		<primitive:
+		return new URL(_self);
+		>
 	}
 
 	Url { :self :base |
-		<primitive: return new URL(_self, _base);>
+		<primitive:
+		return new URL(_self, _base);
+		>
 	}
 
 	decodeUri { :self |
-		<primitive: return decodeURI(_self);>
+		<primitive:
+		return decodeURI(_self);
+		>
 	}
 
 	decodeUriComponent { :self |
-		<primitive: return decodeURIComponent(_self);>
+		<primitive:
+		return decodeURIComponent(_self);
+		>
 	}
 
 	encodeUri { :self |
-		<primitive: return encodeURI(_self);>
+		<primitive:
+		return encodeURI(_self);
+		>
 	}
 
 	encodeUriComponent { :self |
-		<primitive: return encodeURIComponent(_self);>
+		<primitive:
+		return encodeURIComponent(_self);
+		>
 	}
 
 	fileUrl { :self |
@@ -123,7 +159,9 @@ URL! : [Object, Store, Equal, Url] {
 	}
 
 	revokeObjectUrl { :self |
-		<primitive: return URL.revokeObjectURL(_self);>
+		<primitive:
+		return URL.revokeObjectURL(_self);
+		>
 	}
 
 }
@@ -131,7 +169,9 @@ URL! : [Object, Store, Equal, Url] {
 +[File, BinaryLargeObject] {
 
 	createObjectUrl { :self |
-		<primitive: return URL.createObjectURL(_self);>
+		<primitive:
+		return URL.createObjectURL(_self);
+		>
 	}
 
 }
@@ -139,7 +179,9 @@ URL! : [Object, Store, Equal, Url] {
 +[URL, String] {
 
 	fetch { :self |
-		<primitive: return fetch(_self);>
+		<primitive:
+		return fetch(_self);
+		>
 	}
 
 	fetchBinaryLargeObject { :self |

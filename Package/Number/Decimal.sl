@@ -14,7 +14,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	[Integer, L, decimalToInteger] { :self |
-		self.isInteger.if {
+		self.isIntegerValuedNumber.if {
 			Integer(self.decimalFraction)
 		} {
 			self.error('Decimal>>Integer')
@@ -39,21 +39,22 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		)
 	}
 
-	adaptToIntegerAndApply { :self :receiver :aBlock/2 |
+	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
 		aBlock(
-			Decimal(receiver, 0),
+			Decimal(anInteger, 0),
 			self
 		)
 	}
 
-	adaptToNumberAndApply { :self :receiver :aBlock/2 |
-		receiver.isInteger.if {
+	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
+		/* Model: SmallInteger | Integer */
+		aNumber.isIntegerValuedNumber.if {
 			aBlock(
-				Decimal(receiver, 0),
+				Decimal(aNumber, 0),
 				self
 			)
 		} {
-			self.error('Decimal>>adaptToNumberAndApply: not integer')
+			self.error('Decimal>>adaptToNumberAndApply: not integer', [aNumber])
 		}
 	}
 
@@ -135,8 +136,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		true
 	}
 
-	isInteger { :self |
-		self.decimalFraction.isInteger
+	isIntegerValuedNumber { :self |
+		self.decimalFraction.isIntegerValuedNumber
 	}
 
 	[isLess, <] { :self :operand |
@@ -157,6 +158,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	isPowerOfTwo { :self |
 		self.decimalFraction.isPowerOfTwo
+	}
+
+	isRealValuedNumber { :unused |
+		true
 	}
 
 	isSmallInteger { :self |
@@ -194,7 +199,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	[power, ^] { :self :aNumber |
-		aNumber.isInteger.if {
+		/* Model: SmallInteger | Integer */
+		aNumber.isIntegerValuedNumber.if {
 			self.raisedToInteger(aNumber)
 		} {
 			self.unimplementedCase('power')
@@ -236,7 +242,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	raisedToInteger { :self :aNumber |
 		uncheckedDecimal(
 			self.decimalFraction.raisedToInteger(aNumber),
-			self.isInteger.if {
+			self.isIntegerValuedNumber.if {
 				self.scale
 			} {
 				self.scale * aNumber
@@ -403,7 +409,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 				Decimal(self, each)
 			}
 		} {
-			self.isInteger.if {
+			/* Model: SmallInteger | Integer */
+			self.isIntegerValuedNumber.if {
 				uncheckedDecimal(
 					Fraction(self, 1L),
 					scale
@@ -420,7 +427,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	adaptToDecimalAndApply { :self :receiver :aBlock/2 |
-		self.isInteger.if {
+		/* Model: SmallInteger | Integer */
+		self.isIntegerValuedNumber.if {
 			aBlock(
 				receiver,
 				Decimal(self, 0)

@@ -31,7 +31,9 @@ Storage! : [Object, Collection, Dictionary] {
 	}
 
 	removeAll! { :self |
-		<primitive: _self.clear();>
+		<primitive:
+		_self.clear();
+		>
 		nil
 	}
 
@@ -50,15 +52,21 @@ Storage! : [Object, Collection, Dictionary] {
 	}
 
 	size { :self |
-		<primitive: return _self.length;>
+		<primitive:
+		return sl.toInteger(_self.length);
+		>
 	}
 
 	uncheckedAt { :self :key |
-		<primitive: return _self.getItem(_key);>
+		<primitive:
+		return _self.getItem(_key);
+		>
 	}
 
 	uncheckedPut! { :self :key :value |
-		<primitive: _self.setItem(_key, _value);>
+		<primitive:
+		_self.setItem(_key, _value);
+		>
 		value
 	}
 

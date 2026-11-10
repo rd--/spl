@@ -159,7 +159,7 @@ Interval : [Object, Store, Equal, Compare, Number] {
 	}
 
 	one { :self |
-		1.numberToInterval
+		self.min.one.numberToInterval
 	}
 
 	[plus, +] { :self :operand |

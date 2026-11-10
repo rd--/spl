@@ -23,7 +23,7 @@ answer the nearest `Float`:
 >>> Float(1/4)
 0.25
 
->>> 1 / 4
+>>> 1.0 / 4.0
 0.25
 ```
 
@@ -32,13 +32,16 @@ At `Decimal`:
 ```
 >>> Float(3.141D)
 3.141
+
+>>> 3141.0 / 1000.0
+3.141
 ```
 
 In the `Integer` case:
 
 ```
 >>> Float(23L)
-23
+23.0
 
 >>> Float(2L ^ 54)
 18014398509481984.0
@@ -50,8 +53,8 @@ In the `Integer` case:
 In the `Float` case answer _identity_:
 
 ```
->>> Float(23)
-23
+>>> Float(23.0)
+23.0
 
 >>> Float(1.pi)
 1.pi
@@ -71,10 +74,10 @@ Threads over lists:
 
 ```
 >>> Float[1L 3/4]
-[1 0.75]
+[1.0 0.75]
 
 >>> Float[1 2; 3 4]
-[1 2; 3 4]
+[1.0 2.0; 3.0 4.0]
 
 ```
 
@@ -84,7 +87,7 @@ Literal syntaxes:
 >>> 3.141.typeName
 'Float'
 
->>> 23.typeName
+>>> 23.0.typeName
 'Float'
 
 >>> 2.3E3.typeName
@@ -95,7 +98,10 @@ There is no distinct small integer type,
 and literals written with a trailing `zero` are not treated specially:
 
 ```
->>> 23 == 23.0
+>>> (22.0 + 1.0) == 23.0
+true
+
+>>> 23L !== 23.0
 true
 ```
 

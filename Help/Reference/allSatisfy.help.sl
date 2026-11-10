@@ -32,7 +32,7 @@ Does not traverse tree structures, see `deepAllSatisfy`:
 >>> let m = [3 3].iota;
 >>> (
 >>> 	m.allSatisfy(isList/1),
->>> 	m.deepAllSatisfy(isInteger/1)
+>>> 	m.deepAllSatisfy(isIntegerValuedNumber/1)
 >>> )
 (true, true)
 ```

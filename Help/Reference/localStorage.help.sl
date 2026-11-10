@@ -9,7 +9,7 @@ Answer the local `Storage` value of `system`.
 >>> (
 >>> 	s.isStorage,
 >>> 	s.isDictionary,
->>> 	s.size.isInteger
+>>> 	s.size.isSmallInteger
 >>> )
 (true, true, true)
 ```

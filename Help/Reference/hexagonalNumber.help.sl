@@ -46,7 +46,7 @@ Test if a number is hexagonal:
 ```
 >>> 1:100.select { :x |
 >>> 	let n = (8 * x + 1).sqrt + 1;
->>> 	(n / 4).isInteger
+>>> 	(n / 4).isIntegerValuedNumber
 >>> }
 [1 6 15 28 45 66 91]
 ```

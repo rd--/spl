@@ -10,21 +10,21 @@ Integer literals evaluate to the type `Float`.
 There is a `Integer` type, written with an _L_ suffix:
 
 ```
->>> 23L.isInteger
-true
+>>> 23L.typeName
+'Integer'
 ```
 
 Leading zeroes are allowed:
 
 ```
->>> [01 01L 0 0L]
+>>> [01 01L 00 00L]
 [1 1L 0 0L]
 ```
 
 There is an `Integer` trait:
 
 ```
->>> [23, 23L].collect(isInteger/1)
+>>> [23 23L].collect(isInteger/1)
 [true true]
 ```
 

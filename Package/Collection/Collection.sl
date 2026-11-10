@@ -401,7 +401,7 @@
 	}
 
 	isEmpty { :self |
-		self.size = 0
+		self.size.isZero
 	}
 
 	isIntersecting { :self :aCollection |

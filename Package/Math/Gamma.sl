@@ -86,7 +86,7 @@
 
 	gamma { :self |
 		(
-			self.isInteger & {
+			self.isIntegerValuedNumber & {
 				(self >= 1)
 			}
 		).if {
@@ -446,7 +446,10 @@
 +[Complex, Float, Fraction, Integer] {
 
 	pochhammer { :a :n |
-		(a.isInteger & { n.isInteger }).if {
+		(
+			a.isIntegerValuedNumber & {
+				n.isIntegerValuedNumber }
+		).if {
 			(a + 0.to(n - 1)).product
 		} {
 			let p = gamma(a + n);

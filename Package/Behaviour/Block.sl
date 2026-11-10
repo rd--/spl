@@ -40,11 +40,15 @@ Block! : [Object, Equal] {
 	}
 
 	[argumentCount, arity] { :self |
-		<primitive: return _self.length;>
+		<primitive:
+		return _self.length;
+		>
 	}
 
 	argumentNames { :self |
-		<primitive: return _self.argumentNames;>
+		<primitive:
+		return _self.argumentNames;
+		>
 	}
 
 	array { :aBlock :shape |
@@ -240,7 +244,11 @@ Block! : [Object, Equal] {
 	}
 
 	elementwise { :self/2 :x :y |
-		(x.isAtom & { y.isAtom }).if {
+		(
+			x.isAtom & {
+				y.isAtom
+			}
+		).if {
 			self(x, y)
 		} {
 			x.nest.withCollect(y.nest) { :i :j |
@@ -250,7 +258,13 @@ Block! : [Object, Equal] {
 	}
 
 	elementwise { :self/3 :x :y :z |
-		(x.isAtom & { y.isAtom & { z.isAtom }}).if {
+		(
+			x.isAtom & {
+				y.isAtom & {
+					z.isAtom
+				}
+			}
+		).if {
 			self(x, y, z)
 		} {
 			x.nest.withWithCollect(y.nest, z.nest) { :i :j :k |
@@ -506,7 +520,9 @@ Block! : [Object, Equal] {
 	}
 
 	name { :self |
-		<primitive: return _self.name;>
+		<primitive:
+		return _self.name;
+		>
 	}
 
 	neighbourhoodMap { :aBlock/2 :x :r |
@@ -536,7 +552,9 @@ Block! : [Object, Equal] {
 	}
 
 	parameterNames { :self |
-		<primitive: return _self.parameterNames;>
+		<primitive:
+		return _self.parameterNames;
+		>
 	}
 
 	pointwise { :f/2 :p/1 :q/1 |
@@ -636,11 +654,15 @@ Block! : [Object, Equal] {
 	}
 
 	uncheckedApplyList { :self :argumentsList |
-		<primitive: return _self.apply(null, _argumentsList);>
+		<primitive:
+		return _self.apply(null, _argumentsList);
+		>
 	}
 
 	unqualifiedName { :self |
-		<primitive: return _self.name.split('/')[0];>
+		<primitive:
+		return _self.name.split('/')[0];
+		>
 	}
 
 	whileFalse { :self/0 |

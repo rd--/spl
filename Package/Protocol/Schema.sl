@@ -38,7 +38,7 @@
 		self.caseOf(
 			[
 				'Boolean' -> { isBoolean/1 },
-				'Integer' -> { isInteger/1 },
+				'Integer' -> { isIntegerValuedNumber/1 },
 				'Fraction' -> { isFraction/1 },
 				'Complex' -> { isComplex/1 },
 				'Real' -> { isFloat/1 },

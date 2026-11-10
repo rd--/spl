@@ -66,7 +66,9 @@ Quaternion : [Object, Store, Equal, Number] {
 	}
 
 	isHamiltonianInteger { :self |
-		self.components.allSatisfy(isInteger/1)
+		self.components.allSatisfy(
+			isIntegerValuedNumber/1
+		)
 	}
 
 	isReal { :self |
@@ -102,7 +104,7 @@ Quaternion : [Object, Store, Equal, Number] {
 	}
 
 	one { :self |
-		Quaternion([1, 0, 0, 0])
+		Quaternion([1.0, 0.0, 0.0, 0.0])
 	}
 
 	[plus, +] { :self :anObject |
@@ -167,7 +169,7 @@ Quaternion : [Object, Store, Equal, Number] {
 	}
 
 	zero { :self |
-		Quaternion([0, 0, 0, 0])
+		Quaternion([0.0, 0.0, 0.0, 0.0])
 	}
 
 }
@@ -205,7 +207,7 @@ Quaternion : [Object, Store, Equal, Number] {
 	}
 
 	isHamiltonianInteger { :self |
-		self.isInteger
+		self.isIntegerValuedNumber
 	}
 
 	[toQuaternion, realToQuaternion] { :a |

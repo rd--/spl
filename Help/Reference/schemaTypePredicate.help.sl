@@ -15,7 +15,7 @@ Predicate for `Integer` number type:
 
 ```
 >>> 'Integer'.schemaTypePredicate
-isInteger/1
+isIntegerValuedNumber/1
 ```
 
 Predicate for `Fraction` number type:

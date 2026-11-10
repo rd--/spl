@@ -1,19 +1,27 @@
 @Event {
 
 	cancelable { :self |
-		<primitive: return _self.cancelable;>
+		<primitive:
+		return _self.cancelable;
+		>
 	}
 
 	preventDefault { :self |
-		<primitive: return _self.preventDefault();>
+		<primitive:
+		return _self.preventDefault();
+		>
 	}
 
 	stopImmediatePropagation { :self |
-		<primitive: return _self.stopImmediatePropagation();>
+		<primitive:
+		return _self.stopImmediatePropagation();
+		>
 	}
 
 	stopPropagation { :self |
-		<primitive: return _self.stopPropagation();>
+		<primitive:
+		return _self.stopPropagation();
+		>
 	}
 
 	stopPropagationAndPreventDefault { :self |
@@ -24,15 +32,21 @@
 	}
 
 	target { :self |
-		<primitive: return _self.target;>
+		<primitive:
+		return _self.target;
+		>
 	}
 
 	timeStamp { :self |
-		<primitive: return _self.timeStamp;>
+		<primitive:
+		return _self.timeStamp;
+		>
 	}
 
 	type { :self |
-		<primitive: return _self.type;>
+		<primitive:
+		return _self.type;
+		>
 	}
 
 }
@@ -44,7 +58,9 @@ Event! : [Object, Event] {
 +String {
 
 	Event { :self |
-		<primitive: return new Event(_self);>
+		<primitive:
+		return new Event(_self);
+		>
 	}
 
 }

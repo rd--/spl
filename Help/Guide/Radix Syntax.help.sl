@@ -133,6 +133,13 @@ other radices may raise errors.
 23
 ```
 
+A large binary integer:
+
+```
+>>> 2b10110111011110111110111111011111110111111110111111111
+6_455_773_865_180_671L
+```
+
 _Rational_:
 This is the _J_ language notation for radix integers.
 It is similar to the _Smalltalk_ notation,

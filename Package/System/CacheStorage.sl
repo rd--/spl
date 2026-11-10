@@ -33,15 +33,21 @@ CacheStorage! : [Object] {
 	}
 
 	uncheckedDelete { :self :key |
-		<primitive: return _self.delete(_key);>
+		<primitive:
+		return _self.delete(_key);
+		>
 	}
 
 	uncheckedHas { :self :key |
-		<primitive: return _self.has(_key);>
+		<primitive:
+		return _self.has(_key);
+		>
 	}
 
 	uncheckedOpen { :self :key |
-		<primitive: return _self.open(_key);>
+		<primitive:
+		return _self.open(_key);
+		>
 	}
 
 	validateKey { :self :key |

@@ -192,7 +192,7 @@ OEIS [A209229](https://oeis.org/A209229):
 [0 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0]
 
 >>> 0:21.collect { :n |
->>> 	n.log2.isInteger
+>>> 	n.log2.isIntegerValuedNumber
 >>> }.boole
 [0 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0]
 

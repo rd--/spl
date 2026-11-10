@@ -1,23 +1,33 @@
 MessageEvent! : [Object, Event] {
 
 	data { :self |
-		<primitive: return _self.data;>
+		<primitive:
+		return _self.data;
+		>
 	}
 
 	lastEventId { :self |
-		<primitive: return _self.lastEventId;>
+		<primitive:
+		return _self.lastEventId;
+		>
 	}
 
 	origin { :self |
-		<primitive: return _self.origin;>
+		<primitive:
+		return _self.origin;
+		>
 	}
 
 	ports { :self |
-		<primitive: return _self.ports;>
+		<primitive:
+		return _self.ports;
+		>
 	}
 
 	source { :self |
-		<primitive: return _self.source;>
+		<primitive:
+		return _self.source;
+		>
 	}
 
 }

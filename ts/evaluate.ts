@@ -12,7 +12,7 @@ export function evaluateForSignalling(
 	packageName: string,
 	slText: string,
 ): unknown {
-	// console.debug(`evaluateForSignalling: ${packageName}, ${text}`);
+	// console.debug(`evaluateForSignalling: ${packageName}, ${slText}`);
 	if (onlyBlanks(slText)) {
 		throw new Error('Empty string');
 	} else {

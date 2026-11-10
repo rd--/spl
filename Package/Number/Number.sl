@@ -197,7 +197,7 @@
 
 	continuedFraction { :self :limit |
 		let answer = [];
-		let i = self.floor;
+		let i = self.floor.normalInteger;
 		let f = self - i;
 		{
 			(limit > 1) & {
@@ -206,7 +206,7 @@
 		}.whileTrue {
 			answer.add!(i);
 			f := 1 / f;
-			i := f.floor;
+			i := f.floor.normalInteger;
 			f := f - i;
 			limit := limit - 1
 		};
@@ -243,7 +243,7 @@
 	}
 
 	diracComb { :x :z |
-		x.isInteger.if {
+		x.isIntegerValuedNumber.if {
 			z
 		} {
 			0
@@ -280,9 +280,9 @@
 		n.isNumber.if {
 			k.isZero.if {
 				n.isOne.if {
-					1
+					k.one
 				} {
-					(n.factorInteger.column(2) + 1).product
+					(n.factorInteger.column(2) + k.one).product
 				}
 			} {
 				(n.divisors ^ k).sum
@@ -537,7 +537,7 @@
 	}
 
 	isNegativeInteger { :self |
-		self.isInteger & {
+		self.isIntegerValuedNumber & {
 			self.isNegative
 		}
 	}
@@ -551,7 +551,7 @@
 	}
 
 	isNonNegativeInteger { :self |
-		self.isInteger & {
+		self.isIntegerValuedNumber & {
 			self.isNonNegative
 		}
 	}
@@ -561,7 +561,7 @@
 	}
 
 	isNonPositiveInteger { :self |
-		self.isInteger & {
+		self.isIntegerValuedNumber & {
 			self.isNonPositive
 		}
 	}
@@ -583,7 +583,7 @@
 	}
 
 	isPositiveInteger { :self |
-		self.isInteger & {
+		self.isIntegerValuedNumber & {
 			self.isPositive
 		}
 	}
@@ -892,7 +892,7 @@
 	}
 
 	raisedToInteger { :self :operand |
-		operand.isInteger.ifFalse {
+		operand.isIntegerValuedNumber.ifFalse {
 			'Number>>raisedToInteger: operand is not an Integer'.error
 		};
 		operand.isZero.if {
@@ -911,8 +911,8 @@
 	}
 
 	raisedToPositiveInteger { :self :operand |
-		operand.isInteger.ifTrue {
-			operand := SmallInteger(operand)
+		operand.isIntegerValuedNumber.ifTrue {
+			operand := Float(operand)
 		};
 		self.raisedToPositiveSmallInteger(operand)
 	}
@@ -1301,7 +1301,15 @@
 
 +@Object {
 
+	isIntegerValuedNumber { :unused |
+		false
+	}
+
 	isNumber { :self |
+		false
+	}
+
+	isRealValuedNumber { :unused |
 		false
 	}
 

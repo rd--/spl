@@ -1,10 +1,14 @@
 # isIntegerRange
 
-- _isIntegerRange(aRange)_
+- _isIntegerRange(r)_
 
-Answers `true` if _aRange_ has integral `start`, `end` and `step` values.
+Answers `true` if the `Range` _r_ has integral `start`, `end` and `step` values.
 
 ```
+>>> (1L .. 23L)
+>>> .isIntegerRange
+true
+
 >>> (1 .. 9)
 >>> .isIntegerRange
 true

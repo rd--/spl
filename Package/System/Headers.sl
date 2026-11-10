@@ -3,15 +3,19 @@ Headers! : [Object] {
 	Record { :self |
 		<primitive:
 		const answer = {};
-		_self.forEach(function(value, key) {
-			answer[key] = value;
-		});
+		_self.forEach(
+			function(value, key) {
+				answer[key] = value;
+			}
+		);
 		return answer;
 		>
 	}
 
 	at { :self :name |
-		<primitive: return _self.get(_name);>
+		<primitive:
+		return _self.get(_name);
+		>
 	}
 
 	atIfAbsent { :self :name :aBlock/0 |
@@ -29,15 +33,21 @@ Headers! : [Object] {
 	}
 
 	includesKey { :self :name |
-		<primitive: return _self.has(_name);>
+		<primitive:
+		return _self.has(_name);
+		>
 	}
 
 	put! { :self :name :value |
-		<primitive: return _self.set(_name, _value);>
+		<primitive:
+		return _self.set(_name, _value);
+		>
 	}
 
 	removeKey! { :self :name |
-		<primitive: return _self.delete(_name);>
+		<primitive:
+		return _self.delete(_name);
+		>
 	}
 
 }
@@ -45,7 +55,9 @@ Headers! : [Object] {
 +Record {
 
 	Headers { :self |
-		<primitive: return new Headers(_self);>
+		<primitive:
+		return new Headers(_self);
+		>
 	}
 
 }

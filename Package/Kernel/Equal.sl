@@ -30,7 +30,8 @@
 	}
 
 	isEqualByAtNamedSlots { :self :anObject :slotNameList :aBlock/2 |
-		<primitive: return _slotNameList.every(function (key) {
+		<primitive:
+		return _slotNameList.every(function (key) {
 			return _aBlock_2(_self[key], _anObject[key]);
 		});
 		>

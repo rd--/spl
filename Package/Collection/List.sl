@@ -175,9 +175,11 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	printString { :self :toString/1 |
-		'[%]'.format([
-			self.collect(toString/1).commaSeparated
-		])
+		'[%]'.format(
+			[
+				self.collect(toString/1).commaSeparated
+			]
+		)
 	}
 
 	printString { :self |

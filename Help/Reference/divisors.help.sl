@@ -123,8 +123,8 @@ OEIS [A178858](https://oeis.org/A178858) _n=5040_:
 Divisors of 30:
 
 ```
->>> 30.divisors
-[1 2 3 5 6 10 15 30]
+>>> 30L.divisors
+[1L 2L 3L 5L 6L 10L 15L 30L]
 ```
 
 Divisors of 60:

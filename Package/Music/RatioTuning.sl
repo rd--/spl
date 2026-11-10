@@ -61,7 +61,7 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] {
 	}
 
 	primeLimit { :self :anInteger |
-		anInteger.isInteger.if {
+		anInteger.isIntegerValuedNumber.if {
 			self.cache['primeLimit'] := anInteger
 		} {
 			self.error('primeLimit: invalid limit')

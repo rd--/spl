@@ -360,7 +360,7 @@ const asJs: ohm.ActionDict<string> = {
 		} else {
 			throw new Error('smallIntegerLiteral: not small integer: ' + x);
 		}
-		/* return `BigInt(${sStr + x})`; */
+		/* return `${sStr + x}n`; */
 	},
 	largeIntegerLiteral(s, i, _l) {
 		const sT = s.sourceString;

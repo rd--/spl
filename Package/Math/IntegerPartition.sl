@@ -132,7 +132,7 @@
 	integerPartitionsDimensions { :self |
 		let h = { :l |
 			let n = l.size;
-			l.sum.factorial / Range(1, n, 1).product { :i |
+			l.sum.factorial // Range(1, n, 1).product { :i |
 				let m = l[i];
 				Range(1, m, 1).product { :j |
 					1 + m - j + Range(i + 1, n, 1).count { :k |
@@ -148,7 +148,7 @@
 				(i < 1).if {
 					[0]
 				} {
-					Range(0, n / i, 1).collect { :j |
+					Range(0, n // i, 1).collect { :j |
 						g(n - (i * j), i - 1, l ++ List(j, i))
 					}.catenate
 				}
@@ -238,16 +238,19 @@
 
 	[partitionFunctionQ, partitionsQ] { :n |
 		(n < 1).if {
-			1
+			1L
 		} {
-			1.to(n).sum { :k |
+			1L.to(n).sum { :k |
 				partitionFunctionQ(n, k)
 			}
 		}
 	}
 
 	partitionFunctionQ { :n :k |
-		partitionFunctionP(n - k.binomial(2), k)
+		partitionFunctionP(
+			n - integerBinomial(k, 2L),
+			k
+		)
 	}
 
 }
@@ -327,7 +330,7 @@
 	hookLengthFormula { :p |
 		let n = p.sum;
 		let h = p.hookLengths.catenate;
-		n.! / h.product
+		n.! // h.product
 	}
 
 	hookLengths { :p |

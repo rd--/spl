@@ -1294,7 +1294,7 @@
 	squareForm { :u |
 		let k = u.size;
 		let n = (1 + sqrt(1 + (8 * k))) / 2;
-		n.isInteger.if {
+		n.isIntegerValuedNumber.if {
 			let p = u.takeList((n - 1).toBy(0, -1));
 			let q = p.collect { :each |
 				each.padLeft([n], 0)

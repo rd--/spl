@@ -17,7 +17,7 @@ Table : [Object, Store, Equal] {
 				i
 			}
 		} {
-			j.isInteger.if {
+			j.isIntegerValuedNumber.if {
 				j
 			} {
 				self.error('columnIndex: invalid column index')

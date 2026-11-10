@@ -7,11 +7,15 @@ Location! : [Object, Url] {
 	}
 
 	reload { :self |
-		<primitive: return _self.reload();>
+		<primitive:
+		return _self.reload();
+		>
 	}
 
 	replace { :self :url |
-		<primitive: return _self.reload(_url);>
+		<primitive:
+		return _self.reload(_url);
+		>
 	}
 
 }

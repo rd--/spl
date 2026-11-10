@@ -145,13 +145,13 @@ _Note_: Both the integer and generalised forms can be requested especially:
 >>> 7.integerDoubleFactorial
 105
 
->>> 7.generalisedDoubleFactorial
+>>> 7.0.generalisedDoubleFactorial
 105
 
 >>> 0.integerDoubleFactorial
 1
 
->>> 0.generalisedDoubleFactorial
+>>> 0.0.generalisedDoubleFactorial
 1
 ```
 

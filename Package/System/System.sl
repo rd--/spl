@@ -1,11 +1,15 @@
 System! : [Object, Cache, RandomNumberGenerator] {
 
 	absoluteTime { :unused |
-		<primitive: return Date.now() / 1000.0;>
+		<primitive:
+		return Date.now() / 1000.0;
+		>
 	}
 
 	absoluteTimeInMilliseconds { :unused |
-		<primitive: return Date.now();>
+		<primitive:
+		return Date.now();
+		>
 	}
 
 	byteOrdering { :self |
@@ -17,11 +21,15 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	cache { :self |
-		<primitive: return _self.cache;>
+		<primitive:
+		return _self.cache;
+		>
 	}
 
 	caches { :self |
-		<primitive: return _self.window.caches;>
+		<primitive:
+		return _self.window.caches;
+		>
 	}
 
 	consoleClear { :unused |
@@ -67,19 +75,27 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	evaluateOrSignalError { :unused :aString |
-		<primitive: return sl.evaluateForSignalling('*Interactive*', _aString);>
+		<primitive:
+		return sl.evaluateForSignalling('*Interactive*', _aString);
+		>
 	}
 
 	floatEpsilon { :unused |
-		<primitive: return Number.EPSILON;>
+		<primitive:
+		return Number.EPSILON;
+		>
 	}
 
 	floatMax { :unused |
-		<primitive: return Number.MAX_VALUE;>
+		<primitive:
+		return Number.MAX_VALUE;
+		>
 	}
 
 	floatMin { :unused |
-		<primitive: return Number.MIN_VALUE;>
+		<primitive:
+		return Number.MIN_VALUE;
+		>
 	}
 
 	homeDirectory { :self |
@@ -89,7 +105,9 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	hostNextRandomFloat { :self |
-		<primitive: return Math.random();>
+		<primitive:
+		return Math.random();
+		>
 	}
 
 	isBigEndian { :unused |
@@ -105,15 +123,21 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	loadFile { :unused :fileName |
-		<primitive: evaluateFile(_fileName);>
+		<primitive:
+		evaluateFile(_fileName);
+		>
 	}
 
 	loadUrl { :unused :url |
-		<primitive: evaluateUrl(_url);>
+		<primitive:
+		evaluateUrl(_url);
+		>
 	}
 
 	localStorage { :self |
-		<primitive: return _self.window.localStorage;>
+		<primitive:
+		return _self.window.localStorage;
+		>
 	}
 
 	localTimeZoneOffsetInMinutes { :unused |
@@ -124,7 +148,9 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	methodDictionary { :self |
-		<primitive: return _self.methodDictionary;>
+		<primitive:
+		return _self.methodDictionary;
+		>
 	}
 
 	nextRandomFloat { :self |
@@ -132,7 +158,9 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	packageDictionary { :self |
-		<primitive: return _self.packageDictionary;>
+		<primitive:
+		return _self.packageDictionary;
+		>
 	}
 
 	preference { :self :path :defaultValue |
@@ -146,7 +174,9 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	preferencesRead { :self :key |
-		<primitive: return sl.preferencesRead(_preferences_1(_self), _key);>
+		<primitive:
+		return sl.preferencesRead(_preferences_1(_self), _key);
+		>
 	}
 
 	preferencesReadPath { :self :path :defaultValue |
@@ -188,7 +218,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 	randomByteArray { :unused :anInteger |
 		<primitive:
-		let bytes = new Uint8Array(_anInteger);
+		let bytes = new Uint8Array(sl.toFloat(_anInteger));
 		crypto.getRandomValues(bytes);
 		return bytes;
 		>
@@ -209,19 +239,27 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	sessionTime { :unused |
-		<primitive: return performance.now() / 1000.0;>
+		<primitive:
+		return performance.now() / 1000.0;
+		>
 	}
 
 	sessionTimeInMilliseconds { :unused |
-		<primitive: return performance.now();>
+		<primitive:
+		return performance.now();
+		>
 	}
 
 	smallIntegerMax { :unused |
-		<primitive: return Number.MAX_SAFE_INTEGER;>
+		<primitive:
+		return Number.MAX_SAFE_INTEGER;
+		>
 	}
 
 	smallIntegerMin { :unused |
-		<primitive: return Number.MIN_SAFE_INTEGER;>
+		<primitive:
+		return Number.MIN_SAFE_INTEGER;
+		>
 	}
 
 	splDirectory { :self |
@@ -284,11 +322,15 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	splPunctuationCharacterNameTable { :unused |
-		<primitive: return sl.splPunctuationCharacterNameTable;>
+		<primitive:
+		return sl.splPunctuationCharacterNameTable;
+		>
 	}
 
 	splPunctuationCharacters { :unused |
-		<primitive: return sl.splPunctuationCharacters.split('');>
+		<primitive:
+		return sl.splPunctuationCharacters.split('');
+		>
 	}
 
 	splUrl { :self :aString |
@@ -303,11 +345,15 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	traitDictionary { :self |
-		<primitive: return _self.traitDictionary;>
+		<primitive:
+		return _self.traitDictionary;
+		>
 	}
 
 	typeDictionary { :self |
-		<primitive: return _self.typeDictionary;>
+		<primitive:
+		return _self.typeDictionary;
+		>
 	}
 
 	uniqueIdentifier { :self |
@@ -323,7 +369,9 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	window { :self |
-		<primitive: return _self.window;>
+		<primitive:
+		return _self.window;
+		>
 	}
 
 	workspaceVariableAssignment! { :self :aString :anObject |
@@ -398,27 +446,39 @@ System! : [Object, Cache, RandomNumberGenerator] {
 +String {
 
 	isSplOperatorCharacter { :self |
-		<primitive: return sl.isSplOperatorCharacter(_self);>
+		<primitive:
+		return sl.isSplOperatorCharacter(_self);
+		>
 	}
 
 	isSplOperatorToken { :self |
-		<primitive: return sl.isSplOperatorToken(_self);>
+		<primitive:
+		return sl.isSplOperatorToken(_self);
+		>
 	}
 
 	isSplPunctuationCharacter { :self |
-		<primitive: return sl.isSplPunctuationCharacter(_self);>
+		<primitive:
+		return sl.isSplPunctuationCharacter(_self);
+		>
 	}
 
 	isSplPunctuationToken { :self |
-		<primitive: return sl.isSplPunctuationToken(_self);>
+		<primitive:
+		return sl.isSplPunctuationToken(_self);
+		>
 	}
 
 	isSplSyntaxCharacter { :self |
-		<primitive: return sl.isSplSyntaxCharacter(_self);>
+		<primitive:
+		return sl.isSplSyntaxCharacter(_self);
+		>
 	}
 
 	isSplSyntaxToken { :self |
-		<primitive: return sl.isSplSyntaxToken(_self);>
+		<primitive:
+		return sl.isSplSyntaxToken(_self);
+		>
 	}
 
 	splCondenseProgramText { :self |
@@ -530,7 +590,9 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	splParseTree { :self |
-		<primitive: return sl.rewriteSlToAst(_self);>
+		<primitive:
+		return sl.rewriteSlToAst(_self);
+		>
 	}
 
 	splPunctuationTokenName { :self :table |
@@ -546,7 +608,9 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	splSimplify { :self |
-		<primitive: return sl.rewriteSlToCore(_self);>
+		<primitive:
+		return sl.rewriteSlToCore(_self);
+		>
 	}
 
 }
