@@ -4,10 +4,14 @@
 
 Answer a string consisting of the base-_b_ digits in the integer _n_.
 
-Convert to binary, giving the result as a string:
+Convert to binary,
+giving the result as a string:
 
 ```
->>> 17651.integerString(2)
+>>> 23.0.integerString(2)
+'10111'
+
+>>> 17651L.integerString(2)
 '100010011110011'
 ```
 
@@ -30,7 +34,7 @@ Maximum base is thirty-six:
 Threads over lists:
 
 ```
->>> [3 23 47].integerString(3)
+>>> [3.0 23 47L].integerString(3)
 ['10' '212' '1202']
 ```
 
@@ -79,7 +83,7 @@ Show a single number in successive bases from 4 to 36:
 
 * * *
 
-See also: digitSum, fromDigits, integerDigits, integerLength, romanNumeral
+See also: digitSum, floatString, fromDigits, integerDigits, integerLength, printString, romanNumeral
 
 Guides: Integer Functions
 

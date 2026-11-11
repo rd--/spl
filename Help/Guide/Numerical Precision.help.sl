@@ -39,19 +39,26 @@ true
 Print a `Float` to a specified precision:
 
 ```
->>> (1 / 3).printStringShowingDecimalPlaces(3)
-'0.333'
+>>> 1.pi.printStringToPrecision(4)
+'3.142'
+```
+
+Print a `Float` to a specified scale:
+
+```
+>>> 1.pi.printStringToFixed(3)
+'3.142'
 ```
 
 Round a `Float` to a specified precision:
 
 ```
->>> (1 / 3).round(1E-3).printString
-'0.333'
+>>> 1.pi.round(0.001).printString
+'3.142'
 ```
 
 * * *
 
-See also: Float, Integer, floatEpsilon, printStringShowingDecimalPlaces, round
+See also: Float, Integer, floatEpsilon, printStringToFixed, round
 
 Guides: Numeric Types

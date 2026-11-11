@@ -1,18 +1,16 @@
 # printString
 
-- _printString(x, r=10, k=∞)_
+- _printString(x)_
 
 Answer a `String` that is a description of the object _x_.
-In the case that the object is an integer the radix _r_ may be specified.
-In the case that the object is a floating point number the precision _k_ may be specified.
 
 At integer `Float`:
 
 ```
->>> 23.printString
+>>> 23.0.printString
 '23'
 
->>> -23.printString
+>>> -23.0.printString
 '-23'
 ```
 
@@ -23,32 +21,12 @@ At fractional `Float`:
 '3.141'
 ```
 
-At `Float` with radix argument,
-the answer is a valid Sᴘʟ expression:
-
-```
->>> 254.printString(16)
-'16bFE'
-
->>> -42.printString(16)
-'-16b2A'
-
->>> system.evaluate('-16b2A')
--42
-```
-
 At `Integer`,
-with and without radix argument:
+without radix argument:
 
 ```
 >>> 254L.printString
 '254L'
-
->>> 33L.printString(2)
-'2b100001'
-
->>> 254L.printString(16)
-'16bFE'
 ```
 
 At `Complex`:
@@ -81,13 +59,6 @@ At `Decimal`:
 
 >>> -2D.printString
 '-2D'
-```
-
-At `Float` with precision:
-
-```
->>> 1.pi.printString(10, 3)
-'3.142'
 ```
 
 Negative zero is printed as it is typed:
@@ -124,6 +95,30 @@ At `Residue`:
 '5Z12'
 ```
 
+In the case that the object is a small integer,
+to specify the radix _r_ see `radixString` and `floatString`:
+
+```
+>>> 23.0.radixString(2)
+'2b10111'
+
+>>> 23.0.floatString(2)
+'10111.0'
+```
+
+In the case that the object is a floating point number,
+to specify the precision or scale see `printStringToPrecision` and `printStringToFixed`:
+
+At `Float` with precision:
+
+```
+>>> 1.pi.printStringToPrecision(4)
+'3.142'
+
+>>> 1.pi.printStringToFixed(3)
+'3.142'
+```
+
 At `Boolean`:
 
 ```
@@ -144,8 +139,8 @@ At `Nil`:
 At `String`, the string is quoted:
 
 ```
->>> 'x'.printString.size
-3
+>> 'x'.printString
+'x'
 
 >>> 'x'.printString != 'x'.displayString
 true
@@ -197,6 +192,8 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ToString.html)
 [2](https://reference.wolfram.com/language/ref/BaseForm.html),
 _Smalltalk_
-5.3.1.18
+5.3.1.18,
+_W_
+[1](https://en.wikipedia.org/wiki/Radix)
 
 Categories: Printing

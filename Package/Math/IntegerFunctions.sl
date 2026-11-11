@@ -768,7 +768,7 @@
 	}
 
 	integerString { :self :radix |
-		self.uncheckedPrintString(radix)
+		self.uncheckedPrintStringWithRadix(radix)
 	}
 
 	integerString { :self |
@@ -867,14 +867,14 @@
 		}
 	}
 
-	isIntegerValuedNumber { :self |
-		self.typeResponsibility('@Integer>>isIntegerValuedNumber')
-	}
-
 	isIntegerSquare { :self |
 		self.isIntegerValuedNumber & {
 			self.sqrt.isIntegerValuedNumber
 		}
+	}
+
+	isIntegerValuedNumber { :self |
+		self.typeResponsibility('@Integer>>isIntegerValuedNumber')
 	}
 
 	isKaprekarNumber { :self :base :power |
@@ -1441,28 +1441,8 @@
 		}
 	}
 
-	printString { :self :radix |
-		(radix = 10).if {
-			self.uncheckedPrintString(10)
-		} {
-			let unsignedAnswer = '%b%'.format([
-				radix.uncheckedPrintString(10),
-				self.abs.uncheckedPrintString(radix)
-			]);
-			self.isNegative.if {
-				'-' ++ unsignedAnswer
-			} {
-				unsignedAnswer
-			}
-		}
-	}
-
-	printString { :self |
-		self.printString(10)
-	}
-
 	printStringHexadecimal { :self |
-		self.printString(16)
+		self.radixString(16)
 	}
 
 	quadraticNonresidues { :p |

@@ -1490,7 +1490,7 @@ let a = []; 5.toDo(1) { :each | a.add!(each) }; a = [] /* non-ascending sequence
 6.choose(3) = ((6 * 5 * 4) / (1 * 2 * 3))
 3.choose(6) = 0 /* if k is greater than n answer is zero */
 58909.printStringHexadecimal = '16bE61D' /* hexadecimal representation */
-58909.printString(16) = '16bE61D' /* hexadecimal representation */
+58909.radixString(16) = '16bE61D' /* hexadecimal representation */
 let a = []; List(2, 1:3).tuplesDo { :each | a.add!(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
 let a = []; List(2, 1:3).tuplesDo { :each | a.add!(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
 let a = []; List(3, 1:2).tuplesDo { :each | a.add!(each.sum) }; a = [3 4 4 5 4 5 5 6]

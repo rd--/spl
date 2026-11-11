@@ -174,16 +174,16 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		}
 	}
 
-	printString { :self :toString/1 |
+	printString { :self |
+		self.printStringUsing(printString/1)
+	}
+
+	printStringUsing { :self :toString/1 |
 		'[%]'.format(
 			[
 				self.collect(toString/1).commaSeparated
 			]
 		)
-	}
-
-	printString { :self |
-		self.printString(printString/1)
 	}
 
 	put! { :self :index :anObject |
@@ -326,7 +326,7 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	storeString { :self |
-		self.printString(storeString/1)
+		self.printStringUsing(storeString/1)
 	}
 
 	unenclose { :self |

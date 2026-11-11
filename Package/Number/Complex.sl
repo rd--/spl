@@ -227,15 +227,15 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		false
 	}
 
-	isNearInteger { :unusedSelf :unusedEpsilon |
-		false
-	}
-
 	isLiteral { :unused |
 		true
 	}
 
 	isNaN { :unused |
+		false
+	}
+
+	isNearInteger { :unusedSelf :unusedEpsilon |
 		false
 	}
 
@@ -355,10 +355,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		].stringIntercalate('J')
 	}
 
-	printStringShowingDecimalPlaces { :self :places |
+	printStringToFixed { :self :k |
 		[
-			self.real.printStringShowingDecimalPlaces(places),
-			self.imaginary.printStringShowingDecimalPlaces(places)
+			self.real.printStringToFixed(k),
+			self.imaginary.printStringToFixed(k)
 		].stringIntercalate('J')
 	}
 

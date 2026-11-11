@@ -13,17 +13,17 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
+	[Float, Float, fractionToFloat] { :self |
+		Float(self.numerator)
+		/
+		Float(self.denominator)
+	}
+
 	I { :self |
 		uncheckedComplex(
 			0/1,
 			self
 		)
-	}
-
-	[Float, Float, fractionToFloat] { :self |
-		Float(self.numerator)
-		/
-		Float(self.denominator)
 	}
 
 	[Integer, L, fractionToInteger] { :self |
@@ -593,10 +593,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		self.storeStringLiteral
 	}
 
-	storeStringLiteral { :self |
+	[storeString, storeStringLiteral] { :self |
 		[
-			self.numerator.uncheckedPrintString(10),
-			self.denominator.uncheckedPrintString(10)
+			self.numerator.uncheckedPrintStringWithRadix(10),
+			self.denominator.uncheckedPrintStringWithRadix(10)
 		].stringIntercalate('/')
 	}
 

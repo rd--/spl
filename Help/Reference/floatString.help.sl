@@ -1,20 +1,24 @@
 # floatString
 
-- _floatString(x, r, k)_
+- _floatString(x, r, k=∞)_
 
-Print the number _x_ in radix _r_ with _k_ places after the point.
+Print the number _x_ in radix _r_.
+If _k_ is specified the answer will have at most _k_ places after the point.
 
 An an integer:
 
 ```
 >>> 33.0.floatString(2)
+'100001.0'
+
+>>> 33.0.floatString(2, 0)
 '100001'
 ```
 
 `pi` in base five:
 
 ```
->>> 1.pi.floatString(5, 22)
+>>> 1.pi.floatString(5)
 '3.0323221430334324112412'
 ```
 
@@ -29,7 +33,7 @@ Base sixteen:
 
 ```
 >>> 397_997.0.floatString(16)
-'612AD'
+'612AD.0'
 ```
 
 One half in bases from two through ten:

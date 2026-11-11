@@ -2,15 +2,15 @@
 
 - _printStringWithCommas(n)_
 
-Answer the number _n_ formatted with commas every three digits.
+Answer the `Float` number _n_ formatted with commas every three digits.
 
 At integers:
 
 ```
->>> 123_456_789.printStringWithCommas
+>>> 123_456_789.0.printStringWithCommas
 '123,456,789'
 
->>> 13_579.printStringWithCommas
+>>> 13_579.0.printStringWithCommas
 '13,579'
 ```
 

@@ -422,7 +422,7 @@
 			printString/1
 		} {
 			{ :n |
-				n.printStringShowingDecimalPlaces(decimalPlaces)
+				n.printStringToFixed(decimalPlaces)
 			}
 		};
 		let header = [m, '×', n].stringJoin;

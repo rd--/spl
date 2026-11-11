@@ -215,7 +215,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		let scale = self.scale;
 		scale.isZero.if {
 			Integer(self.integerPart)
-			.uncheckedPrintString(10) ++ 'D'
+			.uncheckedPrintStringWithRadix(10) ++ 'D'
 		} {
 			let fraction = self.decimalFraction;
 			'%%.%D'.format(
@@ -228,10 +228,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 					fraction
 					.integerPart
 					.abs
-					.uncheckedPrintString(10),
+					.uncheckedPrintStringWithRadix(10),
 					(fraction.fractionalPart.abs * (10L ^ scale))
 					.round
-					.uncheckedPrintString(10)
+					.uncheckedPrintStringWithRadix(10)
 					.padLeft([scale], '0')
 				]
 			)

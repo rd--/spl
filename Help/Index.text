@@ -3333,7 +3333,7 @@ Reference/printLine.help.sl
 Reference/printString.help.sl
 Reference/printStringHexadecimal.help.sl
 Reference/printStringLimitedTo.help.sl
-Reference/printStringShowingDecimalPlaces.help.sl
+Reference/printStringToFixed.help.sl
 Reference/printStringWithCommas.help.sl
 Reference/PriorityQueue.help.sl
 Reference/prismGraph.help.sl
@@ -3402,6 +3402,7 @@ Reference/radical.help.sl
 Reference/radius.help.sl
 Reference/radixSort.help.sl
 Reference/radixSortMatrix.help.sl
+Reference/radixString.help.sl
 Reference/ragisma.help.sl
 Reference/rahnNormalForm.help.sl
 Reference/rahnPrimeForm.help.sl

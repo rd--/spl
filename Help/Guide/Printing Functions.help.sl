@@ -14,7 +14,6 @@ Converting:
 - `matrixPrintString`
 - `printStringHexadecimal`
 - `printStringLimitedTo`
-- `printStringShowingDecimalPlaces`
 - `printStringToAtMostPlaces`
 - `printStringToFixed`
 - `printStringToPrecision`

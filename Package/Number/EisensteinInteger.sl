@@ -24,6 +24,10 @@ EisensteinInteger : [Object, Store, Equal] {
 		)
 	}
 
+	[eisensteinIntegerToComplex, toComplex] { :self |
+		self.a + self.b.eisensteinOmega
+	}
+
 	imaginary { :self |
 		self.b * 3.sqrt / 2
 	}
@@ -57,10 +61,6 @@ EisensteinInteger : [Object, Store, Equal] {
 		} {
 			self.eisensteinIntegerToComplex * operand
 		}
-	}
-
-	[eisensteinIntegerToComplex, toComplex] { :self |
-		self.a + self.b.eisensteinOmega
 	}
 
 }

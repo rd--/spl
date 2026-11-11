@@ -833,35 +833,6 @@
 		answer
 	}
 
-	printString { :self :radix :placesDesired |
-		(radix = 10).if {
-			self.printStringShowingDecimalPlaces(placesDesired)
-		} {
-			self.error('printString: r≠10 & k≠∞')
-		}
-	}
-
-	printStringShowingDecimalPlaces { :self :placesDesired |
-		(placesDesired <= 0).if {
-			self.round.printString
-		} {
-			let rounder = 10 ^ placesDesired;
-			let round = self.round(rounder.reciprocal);
-			let prefix = round.isNegative.if { '-' } { '' };
-			let roundFractionPart = (round.abs.fractionalPart * rounder).round; /* truncate? */
-			[
-				prefix,
-				round.abs.integerPart.truncate.printString,
-				'.',
-				roundFractionPart.printString.padLeft([placesDesired], '0')
-			].stringCatenate
-		}
-	}
-
-	printStringWithCommas { :self |
-		<primitive: return _self.toLocaleString('en-US');>
-	}
-
 	[quotient, //] { :self :aNumber |
 		self.quotientBy(aNumber, truncate/1)
 	}

@@ -146,14 +146,14 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	integerDigits { :self :radix |
 		radix.isBetween(2, 36).if {
-			self.abs.uncheckedPrintString(radix).characters.digitValue
+			self.abs.uncheckedPrintStringWithRadix(radix).characters.digitValue
 		} {
 			SmallInteger(self).integerDigits(radix)
 		}.collect(Integer/1)
 	}
 
 	integerLength { :self :radix |
-		self.uncheckedPrintString(radix).size
+		self.uncheckedPrintStringWithRadix(radix).size
 	}
 
 	[integerSquareRoot, isqrt] { :self |
@@ -215,10 +215,6 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		true
 	}
 
-	isNearInteger { :unusedSelf :unusedEpsilon |
-		true
-	}
-
 	[isLess, <] { :self :anObject |
 		<primitive:
 		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
@@ -234,6 +230,10 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	isNaN { :unused |
 		false
+	}
+
+	isNearInteger { :unusedSelf :unusedEpsilon |
+		true
 	}
 
 	isOdd { :self |
@@ -354,15 +354,6 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		}
 	}
 
-	uncheckedRaisedToPositiveInteger { :self :operand |
-		<primitive:
-		if (sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
-			return _self ** BigInt(_operand);
-		}
-		>
-		self.error('uncheckedRaisedToPositiveInteger: not integer')
-	}
-
 	raisedToPositiveInteger { :self :operand |
 		self.uncheckedRaisedToPositiveInteger(
 			Integer(operand)
@@ -397,7 +388,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	storeStringLiteral { :self |
-		self.uncheckedPrintString(10) ++ 'L'
+		self.uncheckedPrintStringWithRadix(10) ++ 'L'
 	}
 
 	[subtract, -] { :self :anObject |
@@ -437,9 +428,11 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		self
 	}
 
-	uncheckedPrintString { :self :radix |
+	uncheckedPrintStringWithRadix { :self :radix |
 		<primitive:
-		return _self.toString(Number(_radix)).toUpperCase();
+		return _self.toString(
+			Number(_radix)
+		).toUpperCase();
 		>
 	}
 
@@ -447,6 +440,15 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		<primitive:
 		return _self ** BigInt(_anInteger);
 		>
+	}
+
+	uncheckedRaisedToPositiveInteger { :self :operand |
+		<primitive:
+		if (sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
+			return _self ** BigInt(_operand);
+		}
+		>
+		self.error('uncheckedRaisedToPositiveInteger: not integer')
 	}
 
 	uncheckedRemainder { :self :anInteger |

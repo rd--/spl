@@ -2472,6 +2472,8 @@ characters. The result is undefined if base is less than two or greater than
 
 *Return Value*: ⧼string⧽
 
+Cf. radixString
+
 ## 5.6.7
 
 *Protocol*: ⧼Float⧽
