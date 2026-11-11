@@ -25,6 +25,19 @@
 		self.error('@collect: not a block')
 	}
 
+	select { :self :aBlock/1 |
+		<primitive:
+		if(_aBlock_1 instanceof Function) {
+			return _self.filter(
+				function(element, _unusedIndex, _unusedArray) {
+					return _aBlock_1(element);
+				}
+			);
+		}
+		>
+		self.error('@select: not a block')
+	}
+
 	detectIfFoundIfNone { :self :aBlock/1 :whenFound/1 :whenNone/0 |
 		<primitive:
 		const item = _self.find(

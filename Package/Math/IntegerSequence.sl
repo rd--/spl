@@ -14,43 +14,43 @@
 	}
 
 	mahonianNumber { :n :k |
-		[1 .. n].permutations.count { :p |
+		[1L .. n].permutations.count { :p |
 			p.majorIndex = k
 		}
 	}
 
 	mahonianNumbers { :r |
-		1.toCollect(r) { :n |
-			let m = (n - 1).triangularNumber;
-			0.toCollect(m) { :k |
+		1L.toCollect(r) { :n |
+			let m = (n - 1L).triangularNumber;
+			0L.toCollect(m) { :k |
 				mahonianNumber(n, k)
 			}
 		}
 	}
 
 	noergaardInfinityNumber { :n |
-		let w = n.integerDigits(2);
-		let a = 1;
-		let b = 0;
-		1.toDo(w.size) { :i |
-			(w[i] = 0).if {
-				b := b * -1
+		let w = n.integerDigits(2L);
+		let a = 1L;
+		let b = 0L;
+		1L.toDo(w.size) { :i |
+			(w[i] = 0L).if {
+				b := b * -1L
 			} {
-				b := b + 1
+				b := b + 1L
 			}
 		};
 		b.clearZeroSignBit
 	}
 
 	tchoukaillonNumbers { :self |
-		0.toCollect(self - 1) { :n |
-			let x = 1;
+		0L.toCollect(self - 1L) { :n |
+			let x = 1L;
 			x.toDo(n) { :p |
-				let a = n + 2 - p;
-				let b = n + 1 - p;
+				let a = n + 2L - p;
+				let b = n + 1L - p;
 				x := (a * x / b).ceiling
 			};
-			x - 1
+			x - 1L
 		}
 	}
 
@@ -196,18 +196,18 @@
 	}
 
 	butcherTreeCount { :self |
-		let a = Map { :n |
-			(n < 2).if {
+		let a = Dictionary { :n |
+			(n < 2L).if {
 				n
 			} {
-				Range(1, n - 1).sum { :m |
-					Range(1, (n - 1) / m).sum { :k |
+				Range(1L, n - 1L).sum { :m |
+					Range(1L, (n - 1L) / m).sum { :k |
 						m * a[m] * a[n - (k * m)]
 					}
-				} / (n - 1)
+				} // (n - 1L)
 			}
 		};
-		a[1 .. self]
+		a[1L .. self]
 	}
 
 	calkinWilfSequence { :self |
@@ -215,7 +215,7 @@
 		answer[1] := 1/1;
 		2.toDo(self) { :i |
 			let p = answer[i - 1];
-			let t = p.floor * 2 - p + 1;
+			let t = p.floor * 2L - p + 1L;
 			answer[i] := 1 / t
 		};
 		answer
@@ -630,15 +630,15 @@
 	}
 
 	inventorySequence { :terms |
-		let number = 0;
-		let answer = [0];
-		let inventory = Multiset([0], ==);
-		2.toDo(terms) { :n |
+		let number = 0L;
+		let answer = [0L];
+		let inventory = Multiset([0L], =);
+		2L.toDo(terms) { :n |
 			let count = inventory.occurrencesOf(number);
-			number := (count = 0).if {
+			number := (count = 0L).if {
 				0
 			} {
-				number + 1
+				number + 1L
 			};
 			answer.add!(count);
 			inventory.add!(count)
@@ -770,7 +770,7 @@
 	kaprekarMap { :self :base :fixedLength |
 		let d = self.integerDigits(base);
 		fixedLength.ifNotNil {
-			d := d.padLeft([fixedLength], 0)
+			d := d.padLeft([fixedLength], 0L)
 		};
 		d.sort(isGreater/2).fromDigits(base) - d.sort(isLess/2).fromDigits(base)
 	}
@@ -780,12 +780,14 @@
 	}
 
 	kaprekarMap { :self |
-		self.kaprekarMap(10)
+		self.kaprekarMap(10L)
 	}
 
 	kaprekarSequence { :self :base :fixedLength |
 		let answer = [];
-		{ answer.includes(self) }.whileFalse {
+		{
+			answer.includes(self)
+		}.whileFalse {
 			answer.add!(self);
 			self := self.kaprekarMap(base, fixedLength)
 		};
@@ -797,28 +799,28 @@
 	}
 
 	kaprekarSequence { :self |
-		self.kaprekarSequence(10, nil)
+		self.kaprekarSequence(10L, nil)
 	}
 
 	kolakoskiSequence { :n |
-		let a = [1 2 2];
-		[3 .. n].injectInto(a) { :i :j |
-			i ++ List(i[j], mod(j, 2, 1))
+		let a = [1L 2L 2L];
+		[3L .. n].injectInto(a) { :i :j |
+			i ++ List(i[j], mod(j, 2L, 1L))
 		}.take(n)
 	}
 
 	kolakoskiSequence { :k :s |
 		let n = s.size;
 		let a = [];
-		let i = 1;
+		let i = 1L;
 		{
 			a.size < k
 		}.whileTrue {
-			let j = (i - 1) % n + 1;
+			let j = (i - 1L) % n + 1L;
 			let u = (i > a.size).if { s } { a };
 			let m = u[i];
 			a := a ++ List(m, s[j]);
-			i := i + 1
+			i := i + 1L
 		};
 		(a.size = k).if {
 			a
@@ -836,7 +838,7 @@
 	}
 
 	lookAndSay { :n |
-		n.lookAndSay(10)
+		n.lookAndSay(10L)
 	}
 
 	lookAndSaySequence { :m :k |
@@ -848,10 +850,10 @@
 						.collectCatenate { :x |
 							[x.size, x.first]
 						}
-					}.nestList([1], m - 1)
+					}.nestList([1L], m - 1L)
 				},
 				'LS' -> {
-					0.to(m - 1).collect(lookAndSay/1)
+					0L.to(m - 1L).collect(lookAndSay/1)
 				}
 			]
 		)
@@ -866,7 +868,7 @@
 	}
 
 	mersennePrimeExponent { :self |
-		[
+		Integer[
 			2 3 5 7 13 17 19 31 61 89
 			107 127 521 607 1279 2203 2281 3217 4253 4423
 			9689 9941 11213 19937 21701 23209 44497 86243 110503 132049
@@ -876,8 +878,8 @@
 	}
 
 	moserDeBruijnSequence { :self |
-		0.toCollect(self - 1) { :n |
-			n.integerDigits(2).riffle([0]).fromDigits(2)
+		0L.toCollect(self - 1L) { :n |
+			n.integerDigits(2L).riffle([0L]).fromDigits(2L)
 		}
 	}
 
@@ -886,20 +888,20 @@
 	}
 
 	motzkinSequence { :k |
-		let s = [1, 1];
-		2.toDo(k - 1) { :n |
-			let a = ((2 * n) + 1) / (n + 2);
-			let b = ((3 * n) - 3) / (n + 2);
-			let c = (a * s[n]) + (b * s[n - 1]);
+		let s = [1L, 1L];
+		2L.toDo(k - 1L) { :n |
+			let a = ((2L * n) + 1L) // (n + 2L);
+			let b = ((3L * n) - 3L) // (n + 2L);
+			let c = (a * s[n]) + (b * s[n - 1L]);
 			s.add!(c)
 		};
 		s
 	}
 
 	narayanaSequence { :self |
-		let answer = [1 1 1];
-		4.toDo(self) { :i |
-			answer.add!(answer[i - 1] + answer[i - 3])
+		let answer = [1L 1L 1L];
+		4L.toDo(self) { :i |
+			answer.add!(answer[i - 1L] + answer[i - 3L])
 		};
 		answer
 	}
@@ -910,46 +912,46 @@
 				'A' -> {
 					let f/1 = { :n |
 						[
-							{ n = 0 } -> { 0 },
-							{ n % 2 = 0 } -> { 0 - f(n // 2) },
-							{ n % 2 = 1 } -> { f((n - 1) // 2) + 1 }
+							{ n = 0L } -> { 0L },
+							{ n % 2L = 0L } -> { 0L - f(n // 2L) },
+							{ n % 2L = 1L } -> { f((n - 1L) // 2L) + 1L }
 						].which
-					}.memoize(true);
-					0.toCollect(self - 1, f/1)
+					}.memoize(false);
+					0L.toCollect(self - 1L, f/1)
 				},
 				'B' -> {
 					let f/1 = { :n |
 						[
-							{ n = 0 } ->  { 0 },
-							{ n % 3 = 0 } -> { 0 - f(n // 3) },
-							{ n % 3 = 1 } -> { f(n // 3) - 2 },
-							{ n % 3 = 2 } -> { f(n // 3) - 1 }
+							{ n = 0L } ->  { 0L },
+							{ n % 3L = 0L } -> { 0L - f(n // 3L) },
+							{ n % 3L = 1L } -> { f(n // 3L) - 2L },
+							{ n % 3L = 2L } -> { f(n // 3L) - 1L }
 						].which
-					}.memoize(true);
-					0.toCollect(self - 1, f/1)
+					}.memoize(false);
+					0L.toCollect(self - 1L, f/1)
 				},
 				'C' -> {
 					let f/1 = { :n |
 						[
-							{ n = 0 } ->  { 0 },
-							{ n % 3 = 0 } -> { 0 - f(n // 3) },
-							{ n % 3 = 1 } -> { f(n // 3) - 3 },
-							{ n % 3 = 2 } -> { -2 - f(n // 3) }
+							{ n = 0L } ->  { 0L },
+							{ n % 3 = 0L } -> { 0L - f(n // 3L) },
+							{ n % 3 = 1L } -> { f(n // 3L) - 3L },
+							{ n % 3 = 2L } -> { -2L - f(n // 3L) }
 						].which
-					}.memoize(true);
-					0.toCollect(self - 1, f/1)
+					}.memoize(false);
+					0L.toCollect(self - 1L, f/1)
 				},
 				'Z' -> {
 					let f/1 = { :n |
 						[
-							{ n = 0 } ->  { 0 },
-							{ n % 4 = 0 } -> { f(n // 4) },
-							{ n % 4 = 1 } -> { f(n // 4) - 2 },
-							{ n % 4 = 2 } -> { -1 - f(n // 4) },
-							{ n % 4 = 3 } -> { 2 + f(n // 4) }
+							{ n = 0L } ->  { 0L },
+							{ n % 4 = 0L } -> { f(n // 4L) },
+							{ n % 4 = 1L } -> { f(n // 4L) - 2L },
+							{ n % 4 = 2L } -> { -1L - f(n // 4L) },
+							{ n % 4 = 3L } -> { 2L + f(n // 4L) }
 						].which
-					}.memoize(true);
-					0.toCollect(self - 1, f/1)
+					}.memoize(false);
+					0L.toCollect(self - 1L, f/1)
 				}
 			]
 		)
@@ -960,13 +962,13 @@
 	}
 
 	noergaardRhythmicInfinitySystem { :n |
-		let z = [3];
-		1.toDo(n - 1) { :i |
+		let z = [3L];
+		1L.toDo(n - 1L) { :i |
 			z.add!(
 				(
-					i.integerDigits(2)
+					i.integerDigits(2L)
 					.split(isEqual/2)
-					.size + 4
+					.size + 4L
 				).fibonacci
 			)
 		};
@@ -975,43 +977,43 @@
 
 	padovanSequence { :self :initial |
 		let answer = initial.copy;
-		4.toDo(self) { :i |
-			answer.add!(answer[i - 2] + answer[i - 3])
+		4L.toDo(self) { :i |
+			answer.add!(answer[i - 2L] + answer[i - 3L])
 		};
 		answer
 	}
 
 	padovanSequence { :self |
-		self.padovanSequence([1 1 1])
+		self.padovanSequence([1L 1L 1L])
 	}
 
 	periodDoublingSequence { :n |
-		let k = n.log(2).ceiling;
+		let k = n.log(2L).ceiling;
 		[
-			0 -> [0 1],
-			1 -> [0 0]
-		].substitutionSystem([0 1], k)
+			0L -> [0L 1L],
+			1L -> [0L 0L]
+		].substitutionSystem([0L 1L], k)
 		.last
 		.first(n)
 	}
 
 	perrinSequence { :self |
-		self.padovanSequence([3 0 2])
+		self.padovanSequence([3L 0L 2L])
 	}
 
 	pinnDSequence { :self |
-		let a = Map { :n |
-			(n < 3).if {
-				1
+		let a = Dictionary { :n |
+			(n < 3L).if {
+				1L
 			} {
-				a[a[n - 1]] + a[n - a[n - 2] - 1]
+				a[a[n - 1L]] + a[n - a[n - 2L] - 1L]
 			}
 		};
-		a[1 .. self]
+		a[1L .. self]
 	}
 
 	politeness { :n |
-		(n.divisors.count(isOdd/1) - 1).max(0)
+		(n.divisors.count(isOdd/1) - 1L).max(0L)
 	}
 
 	rationalUnrank { :n :m |
@@ -1026,7 +1028,7 @@
 				'CalkinWilf' -> {
 					Fraction(
 						n.sternBrocotNumber,
-						(n + 1).sternBrocotNumber
+						(n + 1L).sternBrocotNumber
 					)
 				}
 			]
@@ -1034,39 +1036,39 @@
 	}
 
 	recamanSequence { :self |
-		let answer = List(self, 0);
-		let seen = IdentitySet([0]);
-		1.toDo(self - 1) { :n |
+		let answer = List(self, 0L);
+		let seen = Set([0L], =);
+		1L.toDo(self - 1L) { :n |
 			let nextItem = answer[n] - n;
 			(
-				(nextItem <= 0) | {
+				(nextItem <= 0L) | {
 					seen.includes(nextItem)
 				}
 			).ifTrue {
 				nextItem := answer[n] + n
 			};
-			answer[n + 1] := nextItem;
+			answer[n + 1L] := nextItem;
 			seen.include!(nextItem)
 		};
 		answer
 	}
 
 	regularPaperfoldingSequence { :self |
-		0.toCollect(self - 1) { :n |
-			let a = n + 1;
-			let b = 2 ^ integerExponent(a, 2);
-			let c = ((a / b) - 1) / 2;
+		0L.toCollect(self - 1L) { :n |
+			let a = n + 1L;
+			let b = 2L ^ integerExponent(a, 2L);
+			let c = ((a / b) - 1L) / 2L;
 			c.isEven.boole
 		}
 	}
 
 	repunit { :n :b |
-		(b ^ n - 1) / (b - 1)
+		(b ^ n - 1L) / (b - 1L)
 	}
 
 	rowlandsSequence { :k :m :f/2 |
 		{ :a :n |
-			a[n - 1] + f(a[n - 1], n)
+			a[n - 1L] + f(a[n - 1L], n)
 		}.recurrenceTable([k], m)
 	}
 
@@ -1079,10 +1081,10 @@
 	}
 
 	schroderSequence { :k |
-		let s = [1, 2];
-		2.toDo(k - 1) { :n |
-			let a = ((6L * n) - 3) / (n + 1);
-			let b = (n - 2L) / (n + 1);
+		let s = [1L, 2L];
+		2L.toDo(k - 1L) { :n |
+			let a = ((6L * n) - 3L) / (n + 1L);
+			let b = (n - 2L) / (n + 1L);
 			let c = (a * s[n]) - (b * s[n - 1]);
 			s.add!(Integer(c))
 		};
@@ -1091,7 +1093,7 @@
 
 	seidelEntringerArnoldTriangle { :self |
 		let answer = self.entringerTriangle;
-		2.toByDo(self, 2) { :i |
+		2L.toByDo(self, 2L) { :i |
 			answer[i].reverse!
 		};
 		answer
@@ -1099,52 +1101,55 @@
 
 	seidelTriangle { :m |
 		let t/2 = { :n :k |
-			(n = 1 & { k = 1 } ).if {
-				1
+			(
+				n = 1L & {
+					k = 1L }
+			).if {
+				1L
 			} {
 				(
-					1 <= k & {
-						k <= ((n + 1) / 2)
+					1L <= k & {
+						k <= ((n + 1L) / 2L)
 					}
 				).if {
 					n.isEven.if {
 						Range(k, m).sum { :i |
-							t(n - 1, i)
+							t(n - 1L, i)
 						}
 					} {
-						Range(1, k).sum { :i |
-							t(n - 1, i)
+						Range(1L, k).sum { :i |
+							t(n - 1L, i)
 						}
 					}
 				} {
-					0
+					0L
 				}
 			}
-		}.memoize(true);
-		1.toCollect(m) { :n |
-			1.toCollect((n + 1) // 2) { :k |
+		}.memoize(false);
+		1L.toCollect(m) { :n |
+			1L.toCollect((n + 1L) // 2L) { :k |
 				t(n, k)
 			}
 		}
 	}
 
 	selfCountingNumber { :n |
-		(0.5 + (2 * n).sqrt).floor
+		(0.5 + (2L * n).sqrt).floor
 	}
 
 	selfCountingSequence { :k |
-		1.toCollect(k, selfCountingNumber/1)
+		1L.toCollect(k, selfCountingNumber/1)
 	}
 
 	somosSequence { :k :m |
 		let a = List(m, nil);
-		0.toDo(m - 1) { :n |
-			a[n + 1] := (n < k).if {
+		0L.toDo(m - 1L) { :n |
+			a[n + 1L] := (n < k).if {
 				1L
 			} {
-				1.to((k / 2).floor).sum { :j |
-					a[n - j + 1] * a[n - (k - j) + 1]
-				} / a[n - k + 1]
+				1L.to((k / 2L).floor).sum { :j |
+					a[n - j + 1L] * a[n - (k - j) + 1L]
+				} / a[n - k + 1L]
 			}
 		};
 		a
@@ -1169,17 +1174,17 @@
 
 	sternBrocotNumber { :self |
 		let f/1 = { :n |
-			(n < 2).if {
+			(n < 2L).if {
 				n
 			} {
 				n.isEven.if {
-					f(n // 2)
+					f(n // 2L)
 				} {
-					let m = (n - 1) // 2;
-					f(m) + f(m + 1)
+					let m = (n - 1L) // 2L;
+					f(m) + f(m + 1L)
 				}
 			}
-		}.memoize(true);
+		}.memoize(false);
 		f(self)
 	}
 
@@ -1731,17 +1736,17 @@
 
 	eulerTransform { :a/1 |
 		let b/1 = { :n |
-			(n = 0).if {
-				1
+			(n = 0L).if {
+				1L
 			} {
-				let s = 1.to(n).sum { :j |
+				let s = 1L.to(n).sum { :j |
 					j.divisors.sum { :d |
 						d * a(d)
 					} * b(n - j)
 				};
 				s // n
 			}
-		}.memoize(true);
+		}.memoize(false);
 		b/1
 	}
 

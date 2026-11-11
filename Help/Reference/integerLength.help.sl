@@ -7,24 +7,24 @@ Answer the number of digits in the base _radix_ representation of the integer _n
 Find the number of decimal digits in 123456789:
 
 ```
->>> 123456789.integerLength(10)
-9
+>>> 123456789L.integerLength(10L)
+9L
 
->>> 123456789.log(10).floor + 1
-9
+>>> 123456789.0.log(10.0).floor + 1.0
+9.0
 ```
 
 The number of binary digits in _100!_:
 
 ```
->>> 100L.!.integerLength(2)
-525
+>>> 100L.!.integerLength(2L)
+525L
 ```
 
 Find how the number of digits in _100!_ decreases with the base:
 
 ```
->>> 2:20.collect { :n |
+>>> 2L:20L.collect { :n |
 >>> 	100L.!.integerLength(n)
 >>> }
 [
@@ -38,17 +38,17 @@ Find how the number of digits in _100!_ decreases with the base:
 At `Integer`:
 
 ```
->>> (23L ^ 23).integerLength(10)
+>>> (23L ^ 23L).integerLength(10L)
 32
 
->>> (4L ^ 1397482).integerLength(10)
+>>> (4L ^ 1397482L).integerLength(10L)
 841_369
 ```
 
 Threads over lists:
 
 ```
->>> [999 1000].integerLength(10)
+>>> [999L 1000L].integerLength(10L)
 [3 4]
 ```
 

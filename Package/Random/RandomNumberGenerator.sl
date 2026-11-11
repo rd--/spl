@@ -65,12 +65,12 @@
 	randomIntegerUpTo { :self :u |
 		let k = u.digitLength;
 		let h = u.highBitOfInteger;
-		let m = (2L ^ h) - 1;
+		let m = (2L ^ h) - 1L;
 		let x = nil;
 		{
 			let bytes = self.randomByteArray(k);
 			x := bytes.decodeInteger(true).bitAnd(m);
-			x <= 0 || (x > u)
+			x <= 0L || (x > u)
 		}.whileTrue;
 		x
 	}

@@ -7,7 +7,7 @@ Answers `nil`.
 
 ```
 >>> let l = [];
->>> 1.toDo(9) { :each | l.add!(each) };
+>>> 1L.toDo(9) { :each | l.add!(each) };
 >>> l
 [1 2 3 4 5 6 7 8 9]
 ```

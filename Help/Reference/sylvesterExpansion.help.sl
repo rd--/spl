@@ -54,7 +54,7 @@ OEIS [A050205](http://oeis.org/A050205):
 
 ```
 >>> (2L .. 11).collect { :i |
->>> 	(1 .. i - 1).collect { :j |
+>>> 	(1L .. i - 1L).collect { :j |
 >>> 		(j / i).sylvesterExpansion.size
 >>> 	}
 >>> }

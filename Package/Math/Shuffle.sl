@@ -4,7 +4,7 @@
 		aList.size.toByDo(2, -1) { :each |
 			aList.swapWith!(
 				each,
-				self.nextRandomSmallInteger(1, each)
+				self.nextRandomSmallInteger(1.0, each)
 			)
 		};
 		aList
@@ -13,11 +13,11 @@
 	sattoloShuffle! { :self :aList |
 		let i = aList.size;
 		{
-			i > 1
+			i > 1L
 		}.whileTrue {
-			let j = self.nextRandomSmallInteger(1, i - 1);
+			let j = self.nextRandomSmallInteger(1.0, i - 1.0);
 			aList.swapWith!(i, j);
-			i := i - 1
+			i := i - 1L
 		};
 		aList
 	}
@@ -36,36 +36,40 @@
 
 	guyShuffle { :c |
 		let n = c.size;
-		let d = c ++ (n + [1, 2]);
-		d.partition(n // 2 + 1).reverse.transpose.catenate
+		let d = c ++ (n + [1L, 2L]);
+		d.partition(n // 2L + 1L).reverse.transpose.catenate
 	}
 
 	inShuffle { :self |
 		let n = self.size;
-		let m = n.isOdd.if { (n - 1) / 2 } { n / 2 };
-		let p = self.copyFromTo(1, m);
-		let q = self.copyFromTo(m + 1, n);
+		let m = n.isOdd.if { (n - 1L) // 2L } { n // 2L };
+		let p = self.copyFromTo(1L, m);
+		let q = self.copyFromTo(m + 1L, n);
 		q.riffle(p)
 	}
 
 	inShuffle { :self :n |
 		let x = self;
-		{ n > 0 }.whileTrue {
+		{
+			n > 0L
+		}.whileTrue {
 			x := x.inShuffle;
-			n := n - 1
+			n := n - 1L
 		};
 		x
 	}
 
 	klondikeShuffle { :self |
 		let r = [];
-		let i = 1;
+		let i = 1L;
 		let j = self.size;
-		{ i < j }.whileTrue {
+		{
+			i < j
+		}.whileTrue {
 			r.addFirst!(self[j]);
 			r.addFirst!(self[i]);
-			i := i + 1;
-			j := j - 1
+			i := i + 1L;
+			j := j - 1L
 		};
 		(i = j).ifTrue {
 			r.addFirst!(self[i])
@@ -75,9 +79,11 @@
 
 	klondikeShuffle { :self :n |
 		let x = self;
-		{ n > 0 }.whileTrue {
+		{
+			n > 0L
+		}.whileTrue {
 			x := x.klondikeShuffle;
-			n := n - 1
+			n := n - 1L
 		};
 		x
 	}
@@ -104,26 +110,30 @@
 
 	mongesShuffle { :self :n |
 		let x = self;
-		{ n > 0 }.whileTrue {
+		{
+			n > 0L
+		}.whileTrue {
 			x := x.mongesShuffle;
-			n := n - 1
+			n := n - 1L
 		};
 		x
 	}
 
 	outShuffle { :self |
 		let n = self.size;
-		let m = n.isOdd.if { (n + 1) / 2 } { n / 2 };
-		let p = self.copyFromTo(1, m);
-		let q = self.copyFromTo(m + 1, n);
+		let m = n.isOdd.if { (n + 1L) // 2 } { n // 2 };
+		let p = self.copyFromTo(1L, m);
+		let q = self.copyFromTo(m + 1L, n);
 		p.riffle(q)
 	}
 
 	outShuffle { :self :n |
 		let x = self;
-		{ n > 0 }.whileTrue {
+		{
+			n > 0L
+		}.whileTrue {
 			x := x.outShuffle;
-			n := n - 1
+			n := n - 1L
 		};
 		x
 	}
@@ -156,7 +166,9 @@
 		let a = self.copyList;
 		let b = [];
 		let c = true;
-		{ a.isEmpty }.whileFalse {
+		{
+			a.isEmpty
+		}.whileFalse {
 			let x = a.removeFirst!;
 			c.if {
 				b.addFirst!(x)
@@ -170,21 +182,23 @@
 
 	spiralShuffle { :self :n |
 		let x = self;
-		{ n > 0 }.whileTrue {
+		{
+			n > 0L
+		}.whileTrue {
 			x := x.spiralShuffle;
-			n := n - 1
+			n := n - 1L
 		};
 		x
 	}
 
 }
 
-+Float {
++@Integer {
 
 	milkShuffleIndices { :n |
 		let m = n // 2;
-		let a = [1 .. m].reverse;
-		let b = [m + 1 .. n];
+		let a = [1L .. m].reverse;
+		let b = [m + 1L .. n];
 		(a.size >= b.size).if {
 			a.riffle(b)
 		} {

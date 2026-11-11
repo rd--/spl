@@ -379,11 +379,11 @@ This is a close approximation to 2.sqrt:
 ```
 >>> let f = { :r |
 >>> 	let [x, y] = r.numeratorDenominator;
->>> 	(x ^ 2 + (2 * (y ^ 2))).R(2 * x * y)
+>>> 	(x ^ 2L + (2L * (y ^ 2L))).R(2L * x * y)
 >>> };
 >>> (
->>> 	f/1.iterate(3/2, 4),
->>> 	f/1.iterate(3/2, 5)
+>>> 	f/1.iterate(3/2, 4L),
+>>> 	f/1.iterate(3/2, 5L)
 >>> )
 (
 	Fraction(

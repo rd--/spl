@@ -248,7 +248,7 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 
 	size { :self |
 		self.isEmpty.if {
-			0
+			0L
 		} {
 			self.firstLink.size
 		}

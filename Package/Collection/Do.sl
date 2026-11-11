@@ -87,10 +87,10 @@
 	}
 
 	count { :self :aBlock/1 |
-		let answer = 0;
+		let answer = 0L;
 		self.do { :each |
 			aBlock(each).ifTrue {
-				answer := answer + 1
+				answer := answer + 1L
 			}
 		};
 		answer
@@ -113,15 +113,15 @@
 
 	countIntegers { :self :operand |
 		let [p, q] = operand;
-		let answer = List(q - p + 1, 0);
+		let answer = List(q - p + 1L, 0L);
 		self.do { :each |
 			(
 				each >= p & {
 					each <= q
 				}
 			).ifTrue {
-				let index = each - p + 1;
-				answer[index] := answer[index] + 1
+				let index = each - p + 1L;
+				answer[index] := answer[index] + 1L
 			}
 		};
 		answer
@@ -195,8 +195,8 @@
 			self.do { :each |
 				aBlock(each).ifTrue {
 					answer.add!(each);
-					count := count - 1;
-					(count < 1).ifTrue {
+					count := count - 1L;
+					(count < 1L).ifTrue {
 						answer.return
 					}
 				}
@@ -267,7 +267,7 @@
 	}
 
 	detectSum { :self :aBlock/1 |
-		let sum = 0;
+		let sum = 0L;
 		self.do { :each |
 			sum := sum + aBlock(each)
 		};
@@ -534,17 +534,17 @@
 	}
 
 	occurrencesOf { :self :anObject |
-		let tally = 0;
+		let tally = 0L;
 		self.do { :each |
 			(anObject = each).ifTrue {
-				tally := tally + 1
+				tally := tally + 1L
 			}
 		};
 		tally
 	}
 
 	oneSatisfies { :self :aBlock/1 |
-		self.count(aBlock/1) = 1
+		self.count(aBlock/1) = 1L
 	}
 
 	[or, |] { :self |
@@ -553,7 +553,7 @@
 
 	product { :self :aBlock/1 |
 		self.isEmpty.if {
-			1
+			1L
 		} {
 			let a = aBlock(self.first);
 			let b = self.allButFirst;
@@ -565,7 +565,7 @@
 
 	product { :self |
 		self.ifEmpty {
-			1
+			1L
 		} {
 			self.reduce(times/2)
 		}
@@ -613,16 +613,16 @@
 	}
 
 	size { :self |
-		let tally = 0;
+		let tally = 0L;
 		self.do { :each |
-			tally := tally + 1
+			tally := tally + 1L
 		};
 		tally
 	}
 
 	sum { :self :aBlock/1 |
 		self.isEmpty.if {
-			0
+			0L
 		} {
 			let a = aBlock(self.first);
 			let b = self.allButFirst;
@@ -644,7 +644,7 @@
 		let type = self.typeName;
 		self.do { :each |
 			(each.typeName = type).if {
-				each.withLevelDo(aBlock/2, level + 1);
+				each.withLevelDo(aBlock/2, level + 1L);
 				aBlock(each, level)
 			} {
 				aBlock(each, level)
@@ -653,8 +653,8 @@
 	}
 
 	withLevelDo { :self :aBlock/2 |
-		self.withLevelDo(aBlock/2, 1);
-		aBlock(self, 0);
+		self.withLevelDo(aBlock/2, 1L);
+		aBlock(self, 0L);
 		nil
 	}
 

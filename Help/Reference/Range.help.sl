@@ -11,17 +11,20 @@ The range is closed, it includes both the lower and upper bound.
 >>> .concisePrintString
 '1:9'
 
->>> Range(1, 9).List
+>>> Range(1, 9)
+>>> .List
 [1 2 3 4 5 6 7 8 9]
 
->>> Range(1, 9, 2).List
+>>> Range(1, 9, 2)
+>>> .List
 [1 3 5 7 9]
 ```
 
 `step` may be negative:
 
 ```
->>> Range(9, 1, -2).List
+>>> Range(9, 1, -2)
+>>> .List
 [9 7 5 3 1]
 ```
 
@@ -42,7 +45,8 @@ Count backwards by seven,
 OEIS [A115020](https://oeis.org/A115020):
 
 ```
->>> Range(100, 2, -7).List
+>>> Range(100, 2, -7)
+>>> .List
 [
 	100  93  86  79  72  65
 	 58  51  44  37  30  23
@@ -57,11 +61,11 @@ in which case it is not a proper range:
 
 ```
 >>> let x = Range(1, 9, 3);
->>> (x.List, x.isProper)
+>>> (List(x), x.isProper)
 ([1 4 7], false)
 
 >>> let x = Range(0, 10, 3);
->>> (x.List, x.isProper)
+>>> (List(x), x.isProper)
 ([0 3 6 9], false)
 ```
 
@@ -69,7 +73,7 @@ Note in particular that with non-integer values _stop_ may not be in the list of
 
 ```
 >>> let x = Range(1.2, 2.2, 0.15);
->>> (x.size, x.List, x.isProper)
+>>> (x.size, List(x), x.isProper)
 (
 	7,
 	[1.2 1.35 1.5 1.65 1.8 1.95 2.1],
@@ -212,10 +216,10 @@ Use a non-integer step:
 `Range` of `Integer`:
 
 ```
->>> Range(1, 2L ^ 90).size
+>>> Range(1L, 2L ^ 90L).size
 1237940039285380274899124224L
 
->>> Range(2L ^ 90, 2L ^ 90 + 2, 2)
+>>> Range(2L ^ 90L, 2L ^ 90L + 2L, 2L)
 >>> .List
 [
 	1237940039285380274899124224L
@@ -287,7 +291,7 @@ Range(1, 4)
 Range(1, 9, 2)
 
 >>> Range(1, 9)
->>> .rangeLiteralSyntaxString
+>>> .concisePrintString
 '1:9'
 ```
 

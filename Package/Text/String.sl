@@ -241,8 +241,8 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
-	concisePrintString { :self |
-		self.contractTo(32)
+	abbreviatedPrintString { :self |
+		self.contractTo(32).printString
 	}
 
 	contractTo { :self :smallSize |

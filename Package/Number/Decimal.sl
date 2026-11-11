@@ -41,7 +41,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
 		aBlock(
-			Decimal(anInteger, 0),
+			Decimal(anInteger, 0L),
 			self
 		)
 	}
@@ -50,7 +50,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		/* Model: SmallInteger | Integer */
 		aNumber.isIntegerValuedNumber.if {
 			aBlock(
-				Decimal(aNumber, 0),
+				Decimal(aNumber, 0L),
 				self
 			)
 		} {
@@ -59,7 +59,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	ceiling { :self |
-		Decimal(self.decimalFraction.ceiling, self.scale)
+		Decimal(self.decimalFraction.ceiling, 0L)
 	}
 
 	denominator { :self |
@@ -82,7 +82,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	floor { :self |
-		Decimal(self.decimalFraction.floor, self.scale)
+		Decimal(self.decimalFraction.floor, 0L)
 	}
 
 	fractionalPart { :self |
@@ -94,8 +94,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	[integerDigits, decimalExpansion] { :self |
 		let [d, n] = self.realDigits;
-		(n < 0).if {
-			List(n.abs, 0) ++ d
+		(n < 0L).if {
+			List(n.abs, 0L) ++ d
 		} {
 			d
 		}
@@ -208,14 +208,14 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	precision { :self |
-		self.truncate.integerLength(10) + self.scale
+		self.truncate.integerLength(10L) + self.scale
 	}
 
 	printString { :self |
 		let scale = self.scale;
 		scale.isZero.if {
 			Integer(self.integerPart)
-			.uncheckedPrintStringWithRadix(10) ++ 'D'
+			.uncheckedPrintStringWithRadix(10L) ++ 'D'
 		} {
 			let fraction = self.decimalFraction;
 			'%%.%D'.format(
@@ -228,10 +228,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 					fraction
 					.integerPart
 					.abs
-					.uncheckedPrintStringWithRadix(10),
+					.uncheckedPrintStringWithRadix(10L),
 					(fraction.fractionalPart.abs * (10L ^ scale))
 					.round
-					.uncheckedPrintStringWithRadix(10)
+					.uncheckedPrintStringWithRadix(10L)
 					.padLeft([scale], '0')
 				]
 			)
@@ -252,7 +252,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	realDigits { :self :base :size |
 		self.isZero.if {
-			[List(size, 0), 1]
+			[List(size, 0L), 1]
 		} {
 			let x = self.abs;
 			let l = x.decimalFraction.log(base).floor;
@@ -272,9 +272,9 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	realDigits { :self |
 		self.isZero.if {
-			[List(self.precision, 0), 1]
+			[List(self.precision, 0L), 1]
 		} {
-			let l = self.decimalFraction.log(10).floor;
+			let l = self.decimalFraction.log(10L).floor;
 			let u = self.unscaledInteger.integerDigits;
 			[u, l + 1]
 		}
@@ -286,13 +286,13 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		} {
 			Decimal(
 				self.decimalFraction.reciprocal,
-				self.scale.max(1)
+				self.scale.max(1L)
 			)
 		}
 	}
 
 	round { :self |
-		Decimal(self.decimalFraction.round, self.scale)
+		Decimal(self.decimalFraction.round, 0L)
 	}
 
 	square { :self |
@@ -380,7 +380,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		} {
 			uncheckedDecimal(
 				self.deriveDecimalFraction(scale),
-				scale.assertIsInteger('Decimal')
+				Integer(scale)
 			)
 		}
 	}
@@ -431,7 +431,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		self.isIntegerValuedNumber.if {
 			aBlock(
 				receiver,
-				Decimal(self, 0)
+				Decimal(self, 0L)
 			)
 		} {
 			aBlock(
@@ -453,7 +453,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	adaptToDecimalAndApply { :self :aNumber :aBlock/2 |
-		aBlock(aNumber, Decimal(self, 0))
+		aBlock(aNumber, Decimal(self, 0L))
 	}
 
 }

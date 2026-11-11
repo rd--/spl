@@ -12,7 +12,7 @@ Per Nørgårds infinity sequence,
 OEIS [A004718](https://oeis.org/A004718):
 
 ```
->>> 0:22.collect(
+>>> 0L:22L.collect(
 >>> 	noergaardInfinityNumber/1
 >>> )
 [

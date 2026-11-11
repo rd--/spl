@@ -11,7 +11,7 @@ ResidueSet : [Object, New, Store, Equal, Do, Collection, Add, Remove] {
 		)
 	}
 
-	IdentitySet { :self |
+	SortedSet { :self |
 		self.commonResidueSet.copy
 	}
 
@@ -31,11 +31,11 @@ ResidueSet : [Object, New, Store, Equal, Do, Collection, Add, Remove] {
 	}
 
 	boxNotation { :self |
-		self.BitSet.boxNotation
+		BitSet(self).boxNotation
 	}
 
 	complement { :self |
-		self.BitSet.complement.ResidueSet
+		BitSet(self).complement.ResidueSet
 	}
 
 	do { :self :aBlock/1 |
@@ -54,7 +54,7 @@ ResidueSet : [Object, New, Store, Equal, Do, Collection, Add, Remove] {
 	}
 
 	positionVector { :self |
-		self.commonResidueSet.List.sort
+		List(self.commonResidueSet).sort
 	}
 
 	size { :self |
@@ -106,7 +106,7 @@ ResidueSet : [Object, New, Store, Equal, Do, Collection, Add, Remove] {
 +@Collection {
 
 	ResidueSet { :self :modulus |
-		let r = newResidueSet().initializeSlots(IdentitySet(), modulus);
+		let r = newResidueSet().initializeSlots(SortedSet(), modulus);
 		r.includeAll!(self % modulus);
 		r
 	}
@@ -117,7 +117,7 @@ ResidueSet : [Object, New, Store, Equal, Do, Collection, Add, Remove] {
 
 	ResidueSet { :self |
 		ResidueSet(
-			self.positionVector,
+			Integer(self.positionVector),
 			self.capacity
 		)
 	}

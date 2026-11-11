@@ -25,15 +25,11 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 	}
 
 	boole { :self |
-		self.if { 1 } { 0 }
+		self.if { 1L } { 0L }
 	}
 
 	compare { :self :operand |
 		compareOn(self, operand, boole/1)
-	}
-
-	concisePrintString { :self |
-		self.printString
 	}
 
 	[encodeJson, booleanToJson] { :self |

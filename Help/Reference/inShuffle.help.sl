@@ -7,7 +7,7 @@ Shuffle the list _x_ using an _in_-Faro shuffle _n_ times.
 Shuffle a `Range` once, answering a `List`:
 
 ```
->>> 1:12.inShuffle
+>>> 1L:12L.inShuffle
 [7 1 8 2 9 3 10 4 11 5 12 6]
 
 >>> 1:10.inShuffle

@@ -349,9 +349,9 @@ Number of residues modulo _n_ of the maximum order,
 OEIS [A111725](https://oeis.org/A111725):
 
 ```
->>> 1:86.collect { :n |
->>> 	1:n.select { :k |
->>> 		k.gcd(n) = 1
+>>> 1L:86L.collect { :n |
+>>> 	1L:n.select { :k |
+>>> 		k.gcd(n) = 1L
 >>> 	}.collect { :k |
 >>> 		k.multiplicativeOrder(n)
 >>> 	}

@@ -44,6 +44,46 @@ The operator form is `//`:
 2
 ```
 
+Compare to ceiling and floor division:
+
+```
+>>> -7 / 3
+-2.3333
+
+>>> -7L // 3L
+-2L
+
+>>> -7L.ceilingDivide(3L)
+-2L
+
+>>> -7L.floorDivide(3L)
+-3L
+
+>>> -7 / -3
+2.3333
+
+>>> -7L // -3L
+2L
+
+>>> -7L.ceilingDivide(-3L)
+3L
+
+>>> -7L.floorDivide(-3L)
+2L
+
+>>> 7 / -3
+-2.3333
+
+>>> 7L // -3L
+-2L
+
+>>> 7L.ceilingDivide(-3L)
+-2L
+
+>>> 7L.floorDivide(-3L)
+-3L
+```
+
 At `Infinity`:
 
 ```

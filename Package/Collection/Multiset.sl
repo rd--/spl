@@ -30,7 +30,7 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 	}
 
 	add! { :self :anObject |
-		self.addWithOccurrences!(anObject, 1)
+		self.addWithOccurrences!(anObject, 1L)
 	}
 
 	addWithOccurrences! { :self :anObject :anInteger |
@@ -55,7 +55,7 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 
 	cumulativeCounts { :self |
 		let s = self.size / 100.0;
-		let n = 0;
+		let n = 0.0;
 		self.sortedCounts.collect { :a |
 			n := n + a.key;
 			(n / s.round(0.1)) -> a.value
@@ -89,7 +89,7 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 			let i = each.value;
 			let j = operand.occurrencesOf(x);
 			let k = i.min(j);
-			(k > 0).ifTrue {
+			(k > 0L).ifTrue {
 				answer.addWithOccurrences!(x, k)
 			}
 		};
@@ -128,7 +128,7 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 
 	occurrencesOf { :self :anObject |
 		self.valuesAndCounts.atIfAbsent(anObject) {
-			0
+			0L
 		}
 	}
 
@@ -153,10 +153,10 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 	removeIfAbsent! { :self :oldObject :whenAbsent/0 |
 		self.includes(oldObject).if {
 			let count = self.valuesAndCounts[oldObject];
-			(count = 1).if {
+			(count = 1L).if {
 				self.valuesAndCounts.removeKey!(oldObject)
 			} {
-				self.valuesAndCounts[oldObject] := count - 1
+				self.valuesAndCounts[oldObject] := count - 1L
 			}
 		} {
 			whenAbsent()
@@ -165,7 +165,7 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 	}
 
 	size { :self |
-		let tally = 0;
+		let tally = 0L;
 		self.valuesAndCounts.do { :each |
 			tally := tally + each
 		};
@@ -200,7 +200,7 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 		self.ifEmpty {
 			self.error('sum: empty')
 		} {
-			let sum = 0;
+			let sum = 0L;
 			self.valuesAndCounts.withIndexDo { :count :value |
 				sum := sum + (value * count)
 			};

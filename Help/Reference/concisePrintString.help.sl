@@ -4,21 +4,24 @@
 
 Answer a concise string representation of the object _x_.
 
-Generic implementation at `Collection`:
+At integer `Float`:
 
 ```
->>> ByteArray(100, 0).concisePrintString
-'a ByteArray (size: 100)'
+>>> 23.0.concisePrintString
+'23'
+
+>>> -23.0.concisePrintString
+'-23'
+
+>>> -0.0.concisePrintString
+'-0'
 ```
 
-At `Float`:
+At fractional `Float`:
 
 ```
 >>> 3.141.concisePrintString
 '3.141'
-
->>> 23.concisePrintString
-'23'
 
 >>> 1E-19.concisePrintString
 '1E-19'
@@ -35,6 +38,16 @@ At `Complex`:
 
 >>> 3J0.concisePrintString
 '3'
+```
+
+At `Integer`:
+
+```
+>>> 23L.concisePrintString
+'23'
+
+>>> -23L.concisePrintString
+'-23'
 ```
 
 At `Nil`:
@@ -72,22 +85,19 @@ At `Tuple`:
 '(1, 3, 5, 7, 9)'
 ```
 
-At `String`:
+At `String`,
+the string is quoted:
 
 ```
->>> 'short text'.concisePrintString
-'short text'
-
->>> 'a text that is rather a lot longer'
->>> .concisePrintString
-'a text that is ...r a lot longer'
+>> 'text'.concisePrintString
+'text'
 ```
 
 At `List`:
 
 ```
->>> [1 .. 100].concisePrintString
-'a List (size: 100)'
+>>> [1L .. 10L].concisePrintString
+'[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]'
 ```
 
 * * *

@@ -9,7 +9,8 @@ The ternary form allow setting the _by_ value, and is an alias for `toBy`.
 >>> 1.to(5)
 Range(1, 5, 1)
 
->>> List(to(6L, 10))
+>>> to(6L, 10L)
+>>> .List
 [6L 7L 8L 9L 10L]
 ```
 

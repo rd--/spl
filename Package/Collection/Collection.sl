@@ -124,11 +124,11 @@
 		answer
 	}
 
-	concisePrintString { :self |
+	abbreviatedPrintString { :self |
 		'% (size: %)'.format(
 			[
 				self.typeName.withIndefiniteArticle,
-				self.size
+				self.size.concisePrintString
 			]
 		)
 	}

@@ -8,7 +8,9 @@ HuffmanCoding : [Object, Store, Equal] {
 		}.reverse;
 		let codes = self.encoding;
 		let symbols = [];
-		{ codes.isEmpty }.whileFalse {
+		{
+			codes.isEmpty
+		}.whileFalse {
 			let code = codeTable.detect { :each |
 				codes.beginsWith(each.value)
 			};
@@ -48,14 +50,16 @@ HuffmanCoding : [Object, Store, Equal] {
 			weights.sortedCounts(comparator/2).do { :each |
 				heap.add!(each.key -> [each.value -> []])
 			};
-			{ heap.size > 1 }.whileTrue {
+			{
+				heap.size > 1L
+			}.whileTrue {
 				let low = heap.removeFirst!;
 				let high = heap.removeFirst!;
 				low.value.do { :each |
-					each.value.addFirst!(0)
+					each.value.addFirst!(0L)
 				};
 				high.value.do { :each |
-					each.value.addFirst!(1)
+					each.value.addFirst!(1L)
 				};
 				heap.add!((low.key + high.key) -> (low.value ++ high.value))
 			};

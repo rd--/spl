@@ -23,8 +23,8 @@ The operator form is `\\`.
 The operator form is `\\`:
 
 ```
->>> 9 \\ 4
-1
+>>> 9.0 \\ 4.0
+1.0
 
 >>> -9 \\ [4 5]
 [-1 -4]
@@ -37,6 +37,22 @@ The operator form is `\\`:
 
 >>> 8.625 \\ 0.75
 0.375
+
+>>> 23.0 \\ 3.141
+1.013
+```
+
+At `Integer`:
+
+```
+>>> 9L \\ 4L
+1L
+
+>>> 39L \\ 3L
+0L
+
+>>> 23L \\ 3.141
+1.013
 ```
 
 Quotient & remainder:

@@ -3,7 +3,7 @@ RunArray : [Object, Equal, Store, At, Indices] {
 	| runLengths values cachedIndex cachedRun cachedOffset |
 
 	IdentitySet { :self |
-		self.values.IdentitySet
+		IdentitySet(self.values)
 	}
 
 	[List, runArrayToList] { :self |
@@ -48,9 +48,11 @@ RunArray : [Object, Equal, Store, At, Indices] {
 		let limit = self.runLengths.size;
 		let run = nil;
 		let offset = nil;
-		(self.cachedIndex == nil | {
-			index < self.cachedIndex
-		}).if {
+		(
+			self.cachedIndex == nil | {
+				index < self.cachedIndex
+			}
+		).if {
 			run := 1;
 			offset := index - 1
 		} {
@@ -221,23 +223,23 @@ RunArray : [Object, Equal, Store, At, Indices] {
 	runArrayWith { :self :aBlock/1 |
 		let runLengths = [];
 		let values = [];
-		let lastLength = 0;
+		let lastLength = 0L;
 		let lastValue = nil;
 		let lastIndex = nil;
 		self.do { :each |
 			let value = aBlock(each);
 			(lastValue = value).if {
-				lastLength := lastLength + 1
+				lastLength := lastLength + 1L
 			} {
-				(lastLength > 0).ifTrue {
+				(lastLength > 0L).ifTrue {
 					runLengths.add!(lastLength);
 					values.add!(lastValue)
 				};
-				lastLength := 1;
+				lastLength := 1L;
 				lastValue := value
 			}
 		};
-		(lastLength > 0).ifTrue {
+		(lastLength > 0L).ifTrue {
 			runLengths.add!(lastLength);
 			values.add!(lastValue)
 		};
@@ -249,11 +251,11 @@ RunArray : [Object, Equal, Store, At, Indices] {
 +List {
 
 	runLengths { :self |
-		self.RunArray.runLengths
+		RunArray(self).runLengths
 	}
 
 	runLengthsOf { :self :anObject |
-		self.RunArray.runLengthsOf(anObject)
+		RunArray(self).runLengthsOf(anObject)
 	}
 
 }

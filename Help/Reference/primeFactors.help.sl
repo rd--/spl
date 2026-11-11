@@ -88,7 +88,7 @@ At answer of `^`:
 At `Integer`:
 
 ```
->>> (2L ^ 63 - 1).primeFactors
+>>> (2L ^ 63L - 1L).primeFactors
 [7 7 73 127 337 92737 649657]
 
 >>> [7 7 73 127 337 92737 649657L]

@@ -9,9 +9,9 @@ Table of Mahonian numbers,
 OEIS [A008302](https://oeis.org/A008302):
 
 ```
->>> 1:5.collect { :n |
->>> 	let m = (n - 1).triangularNumber;
->>> 	0:m.collect { :k |
+>>> 1L:5L.collect { :n |
+>>> 	let m = (n - 1L).triangularNumber;
+>>> 	0L:m.collect { :k |
 >>> 		mahonianNumber(n, k)
 >>> 	}
 >>> }

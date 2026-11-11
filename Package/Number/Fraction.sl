@@ -90,6 +90,12 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
+	ceiling { :self |
+		self.numerator.ceilingDivide(
+			self.denominator
+		)
+	}
+
 	continuedFraction { :self |
 		let i = self.integerPart;
 		let f = self - i;
@@ -157,6 +163,12 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 			x := x * y - 1
 		};
 		a
+	}
+
+	floor { :self |
+		self.numerator.floorDivide(
+			self.denominator
+		)
 	}
 
 	fullSimplify { :self |
@@ -342,10 +354,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 			(self.denominator <= maxDenominator).if {
 				self
 			} {
-				let p0 = 0;
-				let q0 = 1;
-				let p1 = 1;
-				let q1 = 0;
+				let p0 = 0L;
+				let q0 = 1L;
+				let p1 = 1L;
+				let q1 = 0L;
 				let n = self.numerator;
 				let d = self.denominator;
 				let continue = true;
@@ -530,6 +542,19 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 				self.denominator,
 				self.numerator
 			)
+		}
+	}
+
+	round { :self |
+		let [n, d] = self.numeratorDenominator;
+		(d < 0L).ifTrue {
+			n := -n;
+			d := -d
+		};
+		(n >= 0L).if {
+			(n + (d // 2L)) // d
+		} {
+			((-n + (d // 2L)) // d).negate
 		}
 	}
 
@@ -932,7 +957,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 +[Fraction, Float] {
 
 	deriveDecimalFraction { :self :scale |
-		self.deriveFractionOver(10L ^ scale)
+		self.deriveFractionOver(10L ^ Integer(scale))
 	}
 
 	deriveFractionOver { :self :denominator |
@@ -943,7 +968,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 			)
 		} {
 			Fraction(
-				(self * denominator).round,
+				(self * Integer(denominator)).round,
 				denominator
 			)
 		}

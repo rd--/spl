@@ -22,26 +22,26 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		/* Model: SmallInteger | Integer */
-		aNumber.isIntegerValuedNumber.if {
+		/*aNumber.isIntegerValuedNumber.if {
 			aBlock(Integer(aNumber), self)
-		} {
+		} {*/
 			aBlock(aNumber, Float(self))
-		}
+		/*}*/
 	}
 
 	atRandom { :self |
 		system.nextRandomSmallInteger(1, Float(self))
 	}
 
-	bitAnd { :self :anObject |
+	bitAnd { :self :operand |
 		<primitive:
-		if(sl.isInteger(_anObject)) {
-			return _self & _anObject;
-		} else if(sl.isFloat(_anObject)) {
-			return _self & BigInt(_anObject);
+		if(sl.isInteger(_operand)) {
+			return _self & _operand;
+		} else if(sl.isFloat(_operand)) {
+			return _self & BigInt(_operand);
 		}
 		>
-		self.error('bitAnd: operand not a Integer or Float')
+		self.error('bitAnd: operand not a Integer or Float', [operand])
 	}
 
 	bitNot { :self |
@@ -50,46 +50,50 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		>
 	}
 
-	bitOr { :self :anObject |
+	bitOr { :self :operand |
 		<primitive:
-		if(sl.isInteger(_anObject)) {
-			return _self | _anObject;
-		} else if(sl.isFloat(_anObject)) {
-			return _self | BigInt(_anObject);
+		if(sl.isInteger(_operand)) {
+			return _self | _operand;
+		} else if(sl.isFloat(_operand)) {
+			return _self | BigInt(_operand);
 		}
 		>
-		self.error('bitOr: operand not a Integer or Float')
+		self.error('bitOr: operand not a Integer or Float', [operand])
 	}
 
-	[bitShiftLeft, <<] { :self :anObject |
+	[bitShiftLeft, <<] { :self :operand |
 		<primitive:
 		/* Model: SmallInteger | Integer */
-		if(sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
-			return _self << BigInt(_anObject);
+		if(sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
+			return _self << BigInt(_operand);
 		}
 		>
-		anObject.adaptToIntegerAndApply(self, bitShiftLeft/2)
+		operand.adaptToIntegerAndApply(self, bitShiftLeft/2)
 	}
 
-	[bitShiftRight, >>] { :self :anObject |
+	[bitShiftRight, >>] { :self :operand |
 		<primitive:
 		/* Model: SmallInteger | Integer */
-		if(sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
-			return _self >> BigInt(_anObject);
+		if(sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
+			return _self >> BigInt(_operand);
 		}
 		>
-		anObject.adaptToIntegerAndApply(self, bitShiftRight/2)
+		operand.adaptToIntegerAndApply(self, bitShiftRight/2)
 	}
 
-	bitXor { :self :anObject |
+	bitXor { :self :operand |
 		<primitive:
-		if(sl.isInteger(_anObject)) {
-			return _self ^ _anObject;
-		} else if(sl.isFloat(_anObject)) {
-			return _self ^ BigInt(_anObject);
+		if(sl.isInteger(_operand)) {
+			return _self ^ _operand;
+		} else if(sl.isFloat(_operand)) {
+			return _self ^ BigInt(_operand);
 		}
 		>
-		self.error('bitXor: operand not a Integer or Float')
+		self.error('bitXor: operand not a Integer or Float', [operand])
+	}
+
+	concisePrintString { :self |
+		self.integerString(10)
 	}
 
 	countLeadingZeroes { :self :base :wordSize |
@@ -153,7 +157,9 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	integerLength { :self :radix |
-		self.uncheckedPrintStringWithRadix(radix).size
+		Integer(
+			self.uncheckedPrintStringWithRadix(radix).size
+		)
 	}
 
 	[integerSquareRoot, isqrt] { :self |
@@ -276,7 +282,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	[mod, %] { :self :anObject |
 		<primitive:
 		/* Model: SmallInteger | Integer */
-		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
+		if (sl.isInteger(_anObject) /* || sl.isSmallInteger(_anObject) */) {
 			const i = BigInt(_anObject);
 			return ((_self % i) + i) % i;
 		}
@@ -311,7 +317,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	[plus, +] { :self :anObject |
 		<primitive:
 		/* Model: SmallInteger | Integer */
-		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
+		if (sl.isInteger(_anObject) /*|| sl.isSmallInteger(_anObject) */) {
 			return _self + BigInt(_anObject);
 		}
 		>
@@ -336,10 +342,38 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		self
 	}
 
+	ceilingDivide { :a :b |
+		(b < 0L).ifTrue {
+			a := -a;
+			b := -b
+		};
+		let q = a // b;
+		let r = a \\ b;
+		(r > 0L).if {
+			q + 1L
+		} {
+			q
+		}
+	}
+
+	floorDivide { :a :b |
+		let q = a // b;
+		let r = a \\ b;
+		(
+			r != 0L & {
+				((r < 0L) != (b < 0L))
+			}
+		).if  {
+			q - 1L
+		} {
+			q
+		}
+	}
+
 	[quotient, //] { :self :operand |
 		<primitive:
 		/* Model: SmallInteger | Integer */
-		if (sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
+		if (sl.isInteger(_operand) /*|| sl.isSmallInteger(_operand) */) {
 			return _self / BigInt(_operand);
 		};
 		>
@@ -363,11 +397,11 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	[remainder, \\] { :self :operand |
 		<primitive:
 		/* Model: SmallInteger | Integer */
-		if (sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
+		if (sl.isInteger(_operand) /*|| sl.isSmallInteger(_operand) */) {
 			return _self % BigInt(_operand);
 		}
 		>
-		self.error('remainder: not integer')
+		operand.adaptToIntegerAndApply(self, remainder/2)
 	}
 
 	shallowCopy { :self |
@@ -394,7 +428,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	[subtract, -] { :self :anObject |
 		<primitive:
 		/* Model: SmallInteger | Integer */
-		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
+		if (sl.isInteger(_anObject) /* || sl.isSmallInteger(_anObject) */) {
 			return _self - BigInt(_anObject);
 		}
 		>
@@ -404,7 +438,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	[times, *] { :self :anObject |
 		<primitive:
 		/* Model: SmallInteger | Integer */
-		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
+		if (sl.isInteger(_anObject) /*|| sl.isSmallInteger(_anObject)*/) {
 			return _self * BigInt(_anObject);
 		}
 		>
@@ -448,7 +482,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 			return _self ** BigInt(_operand);
 		}
 		>
-		self.error('uncheckedRaisedToPositiveInteger: not integer')
+		self.error('uncheckedRaisedToPositiveInteger: not integer', [operand])
 	}
 
 	uncheckedRemainder { :self :anInteger |
@@ -459,7 +493,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	unsignedInteger { :self :bitCount |
 		<primitive:
-		return BigInt.asUintN(_bitCount, _self);
+		return BigInt.asUintN(sl.toFloat(_bitCount), _self);
 		>
 	}
 

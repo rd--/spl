@@ -131,32 +131,32 @@ OEIS [A000055](https://oeis.org/A000055)
 
 ```
 >>> let b/1 = { :n |
->>> 	(n < 2).if {
+>>> 	(n < 2L).if {
 >>> 		n
 >>> 	} {
->>> 		let m = n - 1;
->>> 		1:m.sum { :j |
+>>> 		let m = n - 1L;
+>>> 		1L:m.sum { :j |
 >>> 			j.divisors.sum { :d |
 >>> 				d * b(d) * b(n - j)
 >>> 			}
 >>> 		} / m
 >>> 	}
->>> }.memoize(true);
+>>> }.memoize(false);
 >>> let a/1 = { :n |
->>> 	(n = 1).if {
->>> 		1
+>>> 	(n = 1L).if {
+>>> 		1L
 >>> 	} {
->>> 		let c = 0:n.sum { :k |
+>>> 		let c = 0L:n.sum { :k |
 >>> 			b(k) * b(n - k)
->>> 		} - (n % 2 = 0).if {
->>> 			b(n / 2)
+>>> 		} - (n % 2L = 0L).if {
+>>> 			b(n / 2L)
 >>> 		} {
->>> 			0
+>>> 			0L
 >>> 		};
->>> 		b(n) - (c / 2)
+>>> 		b(n) - (c / 2L)
 >>> 	}
->>> }.memoize(true);
->>> 1:20.collect(a/1)
+>>> }.memoize(false);
+>>> 1L:20L.collect(a/1)
 [
 	1 1 1 2 3
 	6 11 23 47 106
@@ -172,8 +172,8 @@ OEIS [A003465](https://oeis.org/A003465):
 >>> 0L:6.collect { :n |
 >>> 	0L:n.sum { :j |
 >>> 		let a = binomial(n, j);
->>> 		let b = 2 ^ (2 ^ (n - j) - 1);
->>> 		(-1 ^ j) * a * b
+>>> 		let b = 2L ^ (2L ^ (n - j) - 1L);
+>>> 		(-1L ^ j) * a * b
 >>> 	}
 >>> }
 [
@@ -314,22 +314,22 @@ OEIS [A282634](https://oeis.org/A282634):
 
 ~~~spl svg=B oeis=A282634
 let b/2 = { :n :m |
-	(n = 1).if {
-		(m = 0).boole
+	(n = 1L).if {
+		(m = 0L).boole
 	} {
-		(n > 1).if {
-			b(n - 1, m)
+		(n > 1L).if {
+			b(n - 1L, m)
 			-
-			b(n - 1, m - n + 1)
+			b(n - 1L, m - n + 1L)
 		} {
-			0
+			0L
 		}
 	}
-}.memoize(true);
-(1 .. 17).collect { :n |
-	(0 .. n - 1).collect { :m |
-		let o = (n - 1) / 2 - (m / n);
-		(0 .. o.round).sum { :i |
+}.memoize(false);
+(1L .. 17L).collect { :n |
+	(0L .. n - 1L).collect { :m |
+		let o = (n - 1L) / 2L - (m / n);
+		(0L .. o.round).sum { :i |
 			b(n, i * n + m)
 		}
 	}

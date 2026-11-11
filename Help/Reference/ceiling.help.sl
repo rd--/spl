@@ -34,11 +34,14 @@ At real numbers:
 At `Fraction`:
 
 ```
+>>> 1/5.ceiling
+1L
+
 >>> 3/2.ceiling
-2
+2L
 
 >>> -3/2.ceiling
--1
+-1L
 ```
 
 Threads over lists:

@@ -5,6 +5,16 @@
 Print the number _x_ in radix _r_.
 If _k_ is specified the answer will have at most _k_ places after the point.
 
+Base ten:
+
+```
+>>> 23.0.floatString(10)
+23.0
+
+>>> 1.pi.floatString(10)
+'3.141592653589793'
+```
+
 An an integer:
 
 ```

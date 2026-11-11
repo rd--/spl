@@ -3,40 +3,42 @@
 	sobolSequence { :n :d |
 		let l = n.bitLength;
 		let v = List(l, nil);
-		let x = List(n, 0);
+		let x = List(n, 0L);
 		d.isOne.if {
-			1.toDo(l) { :i |
-				v[i] := 1L << (32 - i)
+			1L.toDo(l) { :i |
+				v[i] := 1L << (32L - i)
 			}
 		} {
 			let [_, s, a, m] = d.sobolSequenceData;
 			m := Integer(m);
 			(l <= s).if {
-				1.toDo(l) { :i |
+				1L.toDo(l) { :i |
 					v[i] := m[i] << (32L - i)
 				}
 			} {
-				1.toCollect(s) { :i |
+				1L.toCollect(s) { :i |
 					v[i] := m[i] << (32L - i)
 				};
-				(s + 1).toDo(l) { :i |
+				(s + 1L).toDo(l) { :i |
 					v[i] := v[i - s].bitXor(v[i - s] >> s);
-					1.toDo(2 - 1) { :k |
-						v[i] := v[i].bitXor((a >> (s - 1 - k)).bitAnd(1) * v[i - k])
+					1L.toDo(2L - 1L) { :k | /* 2 - 1 */
+						v[i] := v[i].bitXor(
+							(a >> (s - 1L - k)).bitAnd(1L) * v[i - k]
+						)
 					};
 					v
 				}
 			}
 		};
-		2.toDo(n) { :i |
-			let j = (i - 1).rulerFunction;
-			x[i] := x[i - 1].bitXor(v[j])
+		2L.toDo(n) { :i |
+			let j = (i - 1L).rulerFunction;
+			x[i] := x[i - 1L].bitXor(v[j])
 		};
-		(x / (2L ^ 32))
+		(x / (2L ^ 32L))
 	}
 
 	sobolSequenceData { :d |
-		system.sobolSequenceData.at(d - 1)
+		system.sobolSequenceData.at(d - 1L)
 	}
 
 }
@@ -45,7 +47,7 @@
 
 	sobolSequence { :shape |
 		let [m, n] = shape;
-		1.toCollect(n) { :d |
+		1L.toCollect(n) { :d |
 			sobolSequence(m, d)
 		}.transpose
 	}

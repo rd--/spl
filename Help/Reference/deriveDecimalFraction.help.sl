@@ -35,8 +35,8 @@ At `Fraction`:
 >>> .deriveDecimalFraction(3)
 1429 / 1000
 
->>> 1/23.deriveDecimalFraction(22)
-1326851222826087/30517578125000000
+>>> 1/23.deriveDecimalFraction(19L)
+217391304347826087/5000000000000000000
 ```
 
 At integer fractions,

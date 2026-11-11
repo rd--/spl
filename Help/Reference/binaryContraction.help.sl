@@ -6,15 +6,15 @@ Answer the binary contraction of _b_,
 called binary words or binary vectors.
 
 ```
->>> [1 0 1 0].binaryContraction
-10
+>>> [1L 0L 1L 0L].binaryContraction
+10L
 
->>> 10.binaryExpansion
+>>> 10L.binaryExpansion
 [1 0 1 0]
 
 >>> [1 0 1 1 0 0 1 1 1 0 0 0 1 1 1 1]
 >>> .binaryContraction
-45967
+45967L
 
 >>> 45967.binaryExpansion
 [1 0 1 1 0 0 1 1 1 0 0 0 1 1 1 1]

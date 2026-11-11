@@ -32,7 +32,7 @@ At `Integer`:
 >>> 13.factorial.isPowerOfTwo
 false
 
->>> (2L ^ 268_314).isPowerOfTwo
+>>> (2L ^ 268_314L).isPowerOfTwo
 true
 ```
 

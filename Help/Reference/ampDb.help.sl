@@ -56,7 +56,7 @@ Evaluate symbolically:
 
 ```
 >> ampDb(`x`)
-(* (log x 10) 20)
+(* (log x 10.0) 20.0)
 ```
 
 * * *

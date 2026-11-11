@@ -9,7 +9,7 @@ The Copeland-Erdős sequence,
 OEIS [A033308](https://oeis.org/A033308):
 
 ```
->>> 101.copelandErdosSequence
+>>> 101L.copelandErdosSequence
 [
 	2 3 5 7 1 1 1 3 1 7
 	1 9 2 3 2 9 3 1 3 7
@@ -29,7 +29,7 @@ Continued fraction for Copeland-Erdős constant,
 OEIS [A030168](https://oeis.org/A030168):
 
 ```
->>> let k = 500;
+>>> let k = 500L;
 >>> let a = k.copelandErdosSequence;
 >>> let n = a.fromDigits;
 >>> let m = n / (10L ^ k);
@@ -54,7 +54,7 @@ discrete plot,
 OEIS [A033308](https://oeis.org/A033308):
 
 ~~~spl svg=A oeis=A033308
-85.copelandErdosSequence
+85L.copelandErdosSequence
 .discretePlot
 ~~~
 
@@ -65,7 +65,7 @@ scatter plot,
 OEIS [A033308](https://oeis.org/A033308):
 
 ~~~spl svg=B oeis=A033308
-150.copelandErdosSequence
+150L.copelandErdosSequence
 .scatterPlot
 ~~~
 

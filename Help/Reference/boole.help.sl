@@ -33,7 +33,9 @@ allows `zero` or `one`:
 At other integers it is an error:
 
 ```
->>> { 2.boole }.hasError
+>>> {
+>>> 	2.boole
+>>> }.hasError
 true
 ```
 

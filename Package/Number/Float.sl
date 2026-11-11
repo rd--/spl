@@ -173,14 +173,6 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		self.chop(1E-10)
 	}
 
-	clearZeroSignBit { :n |
-		n.isZero.if {
-			0
-		} {
-			n
-		}
-	}
-
 	countLeadingOnes { :self :base :wordSize |
 		self.bitNot.countLeadingZeroes(base, wordSize)
 	}
@@ -740,8 +732,12 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 	}
 
-	printString { :self |
+	concisePrintString { :self |
 		self.uncheckedPrintStringWithRadix(10)
+	}
+
+	printString { :self |
+		self.floatString(10)
 	}
 
 	printStringToAtMostPlaces { :self :anInteger |
@@ -762,11 +758,11 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		self.error('printStringToFixed: not integer precision', [anInteger])
 	}
 
-	printStringToFixedNonPrimitive { :self :placesDesired |
-		(placesDesired <= 0).if {
+	printStringToFixedWithoutPrimitive { :self :places |
+		(places <= 0).if {
 			self.round.printString
 		} {
-			let rounder = 10 ^ placesDesired;
+			let rounder = 10 ^ places;
 			let round = self.round(rounder.reciprocal);
 			let prefix = round.isNegative.if { '-' } { '' };
 			let roundFractionPart = (round.abs.fractionalPart * rounder).round; /* truncate? */
@@ -774,7 +770,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 				prefix,
 				round.abs.integerPart.truncate.printString,
 				'.',
-				roundFractionPart.printString.padLeft([placesDesired], '0')
+				roundFractionPart.printString.padLeft([places], '0')
 			].stringCatenate
 		}
 	}
@@ -866,21 +862,13 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		x.abs.log(b)
 	}
 
-	reduce { :self |
-		self.isClose(self.round).if {
-			self.round
-		} {
-			self
-		}
-	}
-
 	remainder { :self :operand |
 		<primitive:
 		if(sl.isFloat(_operand)) {
 			return _self % _operand;
 		}
 		>
-		self.error('remainder')
+		operand.adaptToNumberAndApply(self, remainder/2)
 	}
 
 	replaceNaN { :x :y |

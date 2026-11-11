@@ -79,7 +79,8 @@ true
 ```
 
 `Complex`,
-`Fraction` and
+`Fraction`,
+`Decimal` and
 `Residue` literals are rewritten as `Apply Syntax`:
 
 ```
@@ -94,6 +95,9 @@ Fraction(3L, 4L)
 
 >> '-3/4'.splSimplify
 Fraction(-3L, 4L)
+
+>> '3.141D'.splSimplify
+Decimal(Fraction(3141L, 1000L), 3L)
 
 >> '5Z12'.splSimplify
 Residue(5, 12)

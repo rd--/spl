@@ -99,9 +99,14 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	concisePrintString { :self |
 		[
-			{ self.isReal } -> { self.real.printString },
-			{ self.isPurelyImaginary } -> { self.imaginary.printString ++ 'I' },
-			{ true } -> { self.printString }
+			{ self.isReal } -> { self.real.concisePrintString },
+			{ self.isPurelyImaginary } -> { self.imaginary.concisePrintString ++ 'I' },
+			{ true } -> {
+				[
+					self.real.concisePrintString,
+					self.imaginary.concisePrintString
+				].stringIntercalate('J')
+			}
 		].which
 	}
 

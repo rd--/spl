@@ -34,7 +34,7 @@ OEIS [A002487](https://oeis.org/A002487):
 	11 19  8 21 13 18  5 17 12 19
 ]
 
->>> 2:21.collect(sternBrocotNumber/1)
+>>> 2L:21L.collect(sternBrocotNumber/1)
 [
 	 1  2  1  3  2  3  1  4  3  5
 	 2  5  3  4  1  5  4  7  3  8

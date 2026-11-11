@@ -21,7 +21,7 @@ A thirteen byte integer:
 A 128-bit (16-byte) integer:
 
 ```
->>> let n = 2L ^ 128 - 1;
+>>> let n = 2L ^ 128L - 1L;
 >>> (n, n.digitLength)
 (
 	340282366920938463463374607431768211455L,

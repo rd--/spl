@@ -62,7 +62,7 @@
 +[@Integer, Fraction] {
 
 	fibonacci { :n :x |
-		(x = 1).if {
+		(x = 1L).if {
 			n.fibonacci
 		} {
 			n.fibonacciClosedForm(x)
@@ -105,7 +105,7 @@
 
 	lucasL { :n :x |
 		let a = (x.square + 4).sqrt;
-		(2 ^ -n)
+		(2L ^ -n)
 		*
 		(
 			((x - a) ^ n)
@@ -115,7 +115,7 @@
 	}
 
 	lucasL { :n |
-		n.lucasL(1)
+		n.lucasL(1L)
 	}
 
 	lucasNumber { :self |
@@ -144,7 +144,7 @@
 		n.isZero.if {
 			0L
 		} {
-			let m = n + 1;
+			let m = n + 1L;
 			system
 			.cachedFibonacciSequenceExtendedTo(m)
 			.at(m)
@@ -152,12 +152,15 @@
 	}
 
 	fibonacciPolynomial { :n |
-		(n = 0 | { n = 1 }).if {
+		(
+			n = 0L | {
+				n = 1L }
+		).if {
 			UnivariatePolynomial([n])
 		} {
-			let x = UnivariatePolynomial([0 1]);
-			let a = fibonacciPolynomial(n - 1);
-			let b = fibonacciPolynomial(n - 2);
+			let x = UnivariatePolynomial([0L 1L]);
+			let a = fibonacciPolynomial(n - 1L);
+			let b = fibonacciPolynomial(n - 2L);
 			(x * a) + b
 		}
 	}
@@ -172,20 +175,20 @@
 	}
 
 	fibonacciSequence { :n |
-		n.lucasSequence('U', 1, -1)
+		n.lucasSequence('U', 1L, -1L)
 	}
 
 	fibonacciWord { :self |
 		let a = self.goldenRatio.floor;
-		let b = (self + 1).goldenRatio.floor;
-		2 + a - b
+		let b = (self + 1L).goldenRatio.floor;
+		2L + a - b
 	}
 
 	lucasInteger { :self |
-		(self = 1).if {
-			1
+		(self = 1L).if {
+			1L
 		} {
-			let phi = 1.goldenRatio;
+			let phi = 1.0.goldenRatio;
 			(phi ^ self).round
 		}
 	}
@@ -196,13 +199,13 @@
 
 	lucasSequence { :n :p :q :a :b |
 		let answer = [a];
-		let i = 1;
+		let i = 1L;
 		{ i < n }.whileTrue {
 			let c = b;
 			answer.add!(b);
 			b := (p * b) - (q * a);
 			a := c;
-			i := i + 1
+			i := i + 1L
 		};
 		answer
 	}
@@ -218,7 +221,7 @@
 
 	moduloFibonacciSequence { :n :m :i |
 		{ :a :k |
-			(a[k - 1] + a[k - 2]) % m
+			(a[k - 1L] + a[k - 2L]) % m
 		}.recurrenceTable(i, n)
 	}
 
@@ -257,18 +260,18 @@
 	}
 
 	semiFibonacciSequence { :m |
-		let a = Map { :n |
-			(n = 1).if {
-				1
+		let a = Dictionary { :n |
+			(n = 1L).if {
+				1L
 			} {
 				n.isEven.if {
-					a[n // 2]
+					a[n // 2L]
 				} {
-					a[n - 1] + a[n - 2]
+					a[n - 1L] + a[n - 2L]
 				}
 			}
 		};
-		a[1 .. m]
+		a[1L .. m]
 	}
 
 	stolarskyArray { :m :n |
@@ -386,16 +389,16 @@
 	}
 
 	wythoffLower { :self |
-		(self * 1.goldenRatio).floor
+		(self * 1.0.goldenRatio).floor
 	}
 
 	wythoffPair { :self |
-		let phi = 1.goldenRatio;
+		let phi = 1.0.goldenRatio;
 		[(self * phi).floor, (self * phi.square).floor]
 	}
 
 	wythoffUpper { :self |
-		(self * 1.goldenRatio.square).floor
+		(self * 1.0.goldenRatio.square).floor
 	}
 
 }
@@ -413,18 +416,18 @@
 	}
 
 	pisanoPeriodDirectForm { :n |
-		(n <= 1).if {
-			1
+		(n <= 1L).if {
+			1L
 		} {
-			let a = 0;
-			let b = 1;
-			let k = 0;
+			let a = 0L;
+			let b = 1L;
+			let k = 0L;
 			{
 				[a, b] := [b, (a + b) % n];
-				k := k + 1
+				k := k + 1L
 			}.doWhileFalse {
-				a = 0 & {
-					b = 1
+				a = 0L & {
+					b = 1L
 				}
 			};
 			k
@@ -432,7 +435,7 @@
 	}
 
 	pisanoPeriodPrimePower { :n :k |
-		(n ^ (k - 1)) * pisanoPeriodDirectForm(n)
+		(n ^ (k - 1L)) * pisanoPeriodDirectForm(n)
 	}
 
 }
@@ -450,7 +453,7 @@
 
 	cachedFibonacciSequence { :self |
 		self.cached('fibonacciSequence') {
-			200.fibonacciSequence
+			200L.fibonacciSequence
 		}
 	}
 

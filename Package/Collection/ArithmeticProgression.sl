@@ -16,7 +16,7 @@
 
 	atIfAbsent { :self :index :ifAbsent/0 |
 		self.includesIndex(index).if {
-			self.start + (self.step * (index - 1))
+			self.start + (self.step * (index - 1L))
 		} {
 			ifAbsent()
 		}
@@ -24,24 +24,24 @@
 
 	collect { :self :aBlock/1 |
 		let result = List(self.size, nil);
-		let index = 1;
+		let index = 1L;
 		self.do { :nextValue |
 			result[index] := aBlock(nextValue);
-			index := index + 1
+			index := index + 1L
 		};
 		result
 	}
 
 	copyFromTo { :self :startIndex :endIndex |
 		(
-			startIndex = 1 & {
+			startIndex = 1L & {
 				endIndex = self.size
 			}
 		).if {
 			self
 		} {
 			(startIndex > endIndex).if {
-				1.to(0)
+				1L.to(0L)
 			} {
 				self[startIndex].toBy(self[endIndex], self.step)
 			}
@@ -53,13 +53,13 @@
 		let count = self.size;
 		let stepSize = self.step;
 		{
-			count > 1
+			count > 1L
 		}.whileTrue {
 			aBlock(nextValue);
 			nextValue := nextValue + stepSize;
-			count := count - 1
+			count := count - 1L
 		};
-		(count > 0).ifTrue {
+		(count > 0L).ifTrue {
 			aBlock(self.end)
 		};
 		nil
@@ -70,7 +70,7 @@
 	}
 
 	end { :self |
-		self.start + (self.size - 1 * self.step)
+		self.start + (self.size - 1L * self.step)
 	}
 
 	increment { :self |
@@ -78,11 +78,11 @@
 	}
 
 	indexOf { :self :aNumber |
-		let i = (aNumber - self.start) / self.step + 1;
+		let i = (aNumber - self.start) / self.step + 1L;
 		self.includesIndex(i).if {
 			i
 		} {
-			0
+			0L
 		}
 	}
 
@@ -95,7 +95,7 @@
 	}
 
 	isEmpty { :self |
-		self.size = 0
+		self.size = 0L
 	}
 
 	isIntegerArithmeticSeries { :self |
@@ -148,7 +148,7 @@
 		let a = self.start;
 		let d = self.step;
 		let n = self.size;
-		(d = 1).if {
+		(d = 1L).if {
 			(a + n).gamma / a.gamma
 		} {
 			let m = a / d;
@@ -161,13 +161,13 @@
 		let count = self.size;
 		let stepSize = self.step.negate;
 		{
-			count > 1
+			count > 1L
 		}.whileTrue {
 			aBlock(nextValue);
 			nextValue := nextValue + stepSize;
-			count := count - 1
+			count := count - 1L
 		};
-		(count > 0).ifTrue {
+		(count > 0L).ifTrue {
 			aBlock(self.start)
 		};
 		nil
@@ -186,16 +186,16 @@
 	}
 
 	sum { :self |
-		self.size * ((self.size - 1) * self.step + (self.start * 2)) / 2
+		self.size * ((self.size - 1L) * self.step + (self.start * 2L)) / 2L
 	}
 
 	uncheckedAt { :self :index |
-		self.step * (index - 1) + self.start
+		self.step * (index - 1L) + self.start
 	}
 
 	withIndexDo { :self :aBlock/2 |
 		let nextValue = self.start;
-		let nextIndex = 1;
+		let nextIndex = 1L;
 		let endIndex = self.size;
 		let stepSize = self.step;
 		{
@@ -203,7 +203,7 @@
 		}.whileTrue {
 			aBlock(nextValue, nextIndex);
 			nextValue := nextValue + stepSize;
-			nextIndex := nextIndex + 1
+			nextIndex := nextIndex + 1L
 		};
 		aBlock(self.end, endIndex);
 		nil

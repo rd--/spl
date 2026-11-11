@@ -8,10 +8,6 @@ Nil! : [Object, Copy, Store, Equal, Compare, Json] {
 		}
 	}
 
-	concisePrintString { :self |
-		self.printString
-	}
-
 	[encodeJson, nilToJson] { :self |
 		self.uncheckedEncodeJson
 	}

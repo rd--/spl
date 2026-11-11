@@ -61,9 +61,9 @@ The number of reduced words can be calculated directly:
 >>> .reducedWords.size
 768
 
->>> 5.binomial(2).!
->>> /
->>> ((1 ^ 4) * (3 ^ 3) * (5 ^ 2) * (7 ^ 1))
+>>> 5L.binomial(2L).!
+>>> //
+>>> ((1L ^ 4L) * (3L ^ 3L) * (5L ^ 2L) * (7L ^ 1L))
 768
 ```
 

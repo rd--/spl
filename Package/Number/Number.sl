@@ -4,6 +4,18 @@
 
 @Number {
 
+	clearZeroSignBit { :n |
+		n.isZero.if {
+			n.zero
+		} {
+			n
+		}
+	}
+
+	abbreviatedPrintString { :self |
+		self.concisePrintString
+	}
+
 	E { :self :aNumber |
 		self * (10 ^ aNumber)
 	}
@@ -86,12 +98,12 @@
 	}
 
 	barronCurve { :s :t |
-		let epsilon = 1.floatEpsilon;
+		let epsilon = 1.0.floatEpsilon;
 		{ :x |
 			(x < t).if {
 				(t * x) / (x + (s * (t - x)) + epsilon)
 			} {
-				((1 - t) * (x - 1)) / (1 - x - (s * (t - x)) + epsilon) + 1
+				((1.0 - t) * (x - 1.0)) / (1.0 - x - (s * (t - x)) + epsilon) + 1.0
 			}
 		}
 	}
@@ -142,13 +154,13 @@
 
 	ceiling { :self |
 		let truncation = self.truncate;
-		(self <= 0).if {
+		(self <= 0.0).if {
 			truncation
 		} {
 			(self = truncation).if {
 				truncation
 			} {
-				truncation + 1
+				truncation + 1.0
 			}
 		}
 	}
@@ -189,10 +201,6 @@
 
 	clip { :self |
 		self.clip(-1, 1, -1, 1)
-	}
-
-	concisePrintString { :self |
-		self.printString
 	}
 
 	continuedFraction { :self :limit |
@@ -280,9 +288,9 @@
 		n.isNumber.if {
 			k.isZero.if {
 				n.isOne.if {
-					k.one
+					n.one
 				} {
-					(n.factorInteger.column(2) + k.one).product
+					(n.factorInteger.column(2) + 1L).product
 				}
 			} {
 				(n.divisors ^ k).sum
@@ -293,7 +301,7 @@
 	}
 
 	double { :self |
-		self * 2
+		self * 2L
 	}
 
 	downToDo { :self :anInteger :aBlock/1 |
@@ -301,13 +309,15 @@
 	}
 
 	egyptianFraction { :x :n |
-		let a = [];
+		let answer = [];
 		n.timesRepeat {
-			let s = (1 / x).ceiling;
-			a.add!(s);
-			x := x - (1 / s)
+			let a = (1L / x);
+			let b = a.ceiling;
+			let c = Integer(b);
+			answer.add!(c);
+			x := x - (1L / c)
 		};
-		a
+		answer
 	}
 
 	epanechnikovKernel { :u |
@@ -318,7 +328,7 @@
 		self.isNonNegativeInteger.if {
 			self.factorial
 		} {
-			(1 + self).gamma
+			(1L + self).gamma
 		}
 	}
 
@@ -437,7 +447,7 @@
 	}
 
 	increment { :self |
-		self + 1
+		self + 1L
 	}
 
 	infinity { :self |
@@ -737,25 +747,25 @@
 	}
 
 	perlinGainFunction { :g |
-		let p = (1 / (1 - g)) - 2;
+		let p = (1.0 / (1.0 - g)) - 2.0;
 		{ :x |
-			let q = 1 - (2 * x);
+			let q = 1.0 - (2.0 * x);
 			(x < 0.5).if {
 				x / ((p * q) + 1)
 			} {
-				1 - ((2 - (2 * x)) / (2 * ((p * q.-) + 1)))
+				1.0 - ((2.0 - (2.0 * x)) / (2.0 * ((p * q.-) + 1.0)))
 			}
 		}
 	}
 
 	perrinFunction { :n |
-		let rho = 1.plasticRatio;
-		let theta = ((rho ^ 3).sqrt.- / 2).arcCos;
-		(rho ^ n) + (2 * (n * theta).cos * (rho ^ n.-).sqrt)
+		let rho = 1.0.plasticRatio;
+		let theta = ((rho ^ 3.0).sqrt.- / 2.0).arcCos;
+		(rho ^ n) + (2.0 * (n * theta).cos * (rho ^ n.-).sqrt)
 	}
 
 	planckRadiationLaw { :nuOrLambda :t |
-		(nuOrLambda > 1).if {
+		(nuOrLambda > 1.0).if {
 			nuOrLambda.planckRadiationLawFrequency(t)
 		} {
 			nuOrLambda.planckRadiationLawWavelength(t)
@@ -763,24 +773,24 @@
 	}
 
 	planckRadiationLawFrequency { :nu :t |
-		let c = 1.speedOfLight;
+		let c = 1.0.speedOfLight;
 		let h = 1.planckConstant;
 		let k = 1.boltzmannConstant;
-		((2 * h * nu.cube) / (c.square)) * (1 / (((h * nu) / (k * t)).exp - 1))
+		((2.0 * h * nu.cube) / (c.square)) * (1.0 / (((h * nu) / (k * t)).exp - 1.0))
 	}
 
 	planckRadiationLawWavelength { :lambda :t |
-		let c = 1.speedOfLight;
-		let h = 1.planckConstant;
-		let k = 1.boltzmannConstant;
-		((2 * h * c.square) / (lambda ^ 5)) * (1 / (((h * c) / (lambda * k * t)).exp - 1))
+		let c = 1.0.speedOfLight;
+		let h = 1.0.planckConstant;
+		let k = 1.0.boltzmannConstant;
+		((2.0 * h * c.square) / (lambda ^ 5.0)) * (1.0 / (((h * c) / (lambda * k * t)).exp - 1.0))
 	}
 
 	plancksRadiationFunction { :x |
-		(x <= 0).if {
-			0
+		(x <= 0.0).if {
+			0.0
 		} {
-			(15 / (1.pi ^ 4)) * (1 / ((x ^ 5) * ((1.e ^ (1 / x)) - 1)))
+			(15.0 / (1.0.pi ^ 4.0)) * (1.0 / ((x ^ 5.0) * ((1.0.e ^ (1.0 / x)) - 1.0)))
 		}
 	}
 
@@ -794,20 +804,20 @@
 				base.powerMod(each, modulo)
 			}
 		} {
-			(exponent > 0).if {
-				(modulo = 1).if {
-					0
+			(exponent > 0L).if {
+				(modulo = 1L).if {
+					0L
 				} {
-					let r = 1;
+					let r = 1L;
 					let b = base % modulo;
 					let e = exponent;
 					let m = modulo;
-					{ e > 0 }.whileTrue {
-						((e % 2) = 1).ifTrue {
+					{ e > 0L }.whileTrue {
+						((e % 2L) = 1L).ifTrue {
 							r := (r * b) % m
 						};
 						b := (b * b) % m;
-						e := (e / 2).floor
+						e := Integer((e / 2L).floor)
 					};
 					r
 				}
@@ -1160,7 +1170,7 @@
 			index <= end
 		}.whileTrue {
 			aBlock(index);
-			index := index + 1
+			index := index + 1L
 		}
 	}
 
@@ -1172,7 +1182,7 @@
 				index <= end
 			}.whileTrue {
 				aBlock(index, break/0);
-				index := index + 1
+				index := index + 1L
 			}
 		};
 		self

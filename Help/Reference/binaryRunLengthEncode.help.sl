@@ -9,7 +9,7 @@ First few terms,
 threads over lists:
 
 ```
->>> 0:21.binaryRunLengthEncode
+>>> 0L:21L.binaryRunLengthEncode
 [
 	;
 	1;
@@ -41,7 +41,7 @@ the most significant bit is necessarily a `one`,
 after which zeroes and ones alternate:
 
 ```
->>> 0:21.collect { :n |
+>>> 0L:21L.collect { :n |
 >>> 	let e = n.binaryRunLengthEncode;
 >>> 	let m = e.binaryRunLengthDecode;
 >>> 	(n, e, n == m)
@@ -76,10 +76,10 @@ The partition encoded in the run lengths of the binary expansion of _n_,
 OEIS [A227739](https://oeis.org/A227739):
 
 ```
->>> 1:16.collect { :n |
+>>> 1L:16L.collect { :n |
 >>> 	let e = n.binaryRunLengthEncode.reverse;
->>> 	let k = e.size - 1;
->>> 	let d = [0 1] # [1 k];
+>>> 	let k = e.size - 1L;
+>>> 	let d = [0L 1L] # [1L k];
 >>> 	(e - d).prefixSum
 >>> }
 [
@@ -106,10 +106,10 @@ The sum of the partition encoded in the run lengths of the binary expansion of _
 OEIS [A227183](https://oeis.org/A227183):
 
 ~~~spl svg=A oeis=A227183
-1:115.collect { :n |
+1L:115L.collect { :n |
 	let e = n.binaryRunLengthEncode.reverse;
-	let k = e.size - 1;
-	let d = [0 1] # [1 k];
+	let k = e.size - 1L;
+	let d = [0L 1L] # [1L k];
 	(e - d).prefixSum.sum
 }.scatterPlot
 ~~~

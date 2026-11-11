@@ -5,21 +5,21 @@
 Answer the _n_-th triangular number.
 
 ```
->>> 23.triangularNumber
+>>> 23L.triangularNumber
 276
 
->>> 276.inverseTriangularNumber
+>>> 276L.inverseTriangularNumber
 23
 
->>> (276 * 8 + 1).isSquare
+>>> (276L * 8L + 1L).isSquare
 true
 ```
 
 Relation to `binomial`:
 
 ```
->>> 23.triangularNumber
-(23 + 1).binomial(2)
+>>> 23L.triangularNumber
+(23L + 1L).binomial(2L)
 ```
 
 First few triangular numbers,
@@ -27,7 +27,7 @@ threads over lists,
 OEIS [A000217](https://oeis.org/A000217):
 
 ```
->>> 0:23.triangularNumber
+>>> 0L:23L.triangularNumber
 [
 	  0   1   3   6  10  15  21  28
 	 36  45  55  66  78  91 105 120
@@ -43,7 +43,7 @@ OEIS [A003056](https://oeis.org/A003056):
 >>> let inverse = { :n |
 >>> 	(((1 + (8 * n)).sqrt - 1) / 2).floor
 >>> };
->>> let a = 0:27;
+>>> let a = 0L:27L;
 >>> let b = a.triangularNumber;
 >>> let c = a.collect(inverse/1);
 >>> let d = b.collect(inverse/1);
@@ -61,8 +61,8 @@ OEIS [A003056](https://oeis.org/A003056):
 The _n_-th partial sum of the natural integer series is the _n_-th triangular number:
 
 ```
->>> 1:23.sum
-23.triangularNumber
+>>> 1L:23L.sum
+23L.triangularNumber
 ```
 
 Calculate arithmetic series starting at `zero`:

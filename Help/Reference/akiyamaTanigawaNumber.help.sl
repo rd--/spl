@@ -9,7 +9,7 @@ read by antidiagonals,
 OEIS [A051714](https://oeis.org/A051714):
 
 ```
->>> 0:10.antidiagonalArray(
+>>> 0L:10L.antidiagonalArray(
 >>> 	akiyamaTanigawaNumber/2
 >>> ).numerator
 [
@@ -32,7 +32,7 @@ read by antidiagonals,
 OEIS [A051715](https://oeis.org/A051715):
 
 ```
->>> 0:9.antidiagonalArray(
+>>> 0L:9L.antidiagonalArray(
 >>> 	akiyamaTanigawaNumber/2
 >>> ).denominator
 [
@@ -54,7 +54,7 @@ read by antidiagonals,
 OEIS [A051714](https://oeis.org/A051714):
 
 ~~~spl svg=A oeis=A051714
-0:21.antidiagonalArray(
+0L:21L.antidiagonalArray(
 	akiyamaTanigawaNumber/2
 ).numerator
 .catenate.scatterPlot.logScale
@@ -67,7 +67,7 @@ read by antidiagonals,
 OEIS [A051715](https://oeis.org/A051715):
 
 ~~~spl svg=B oeis=A051715
-0:21.antidiagonalArray(
+0L:21L.antidiagonalArray(
 	akiyamaTanigawaNumber/2
 ).denominator
 .catenate.scatterPlot.logScale
@@ -79,7 +79,7 @@ Akiyama-Tanigawa numbers,
 read by antidiagonals:
 
 ~~~spl svg=C
-5:21.antidiagonalArray(
+5L:21L.antidiagonalArray(
 	akiyamaTanigawaNumber/2
 ).catenate.scatterPlot.logScale
 ~~~

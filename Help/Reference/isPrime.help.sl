@@ -133,8 +133,8 @@ true
 The number _2 ^ 2 ^ 7 + 1_ is not a Fermat prime, & requires _millerRabinPrimalityTest_:
 
 ```
->>> let n = (2L ^ (2 ^ 7) + 1);
->>> n.millerRabinPrimalityTest(10)
+>>> let n = (2L ^ (2L ^ 7L) + 1L);
+>>> n.millerRabinPrimalityTest(10L)
 false
 ```
 

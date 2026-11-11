@@ -7,7 +7,7 @@ Answer the Kaprekar sequence of _n_ in base _b_.
 Sequences arriving at Kaprekar’s constant, 6174:
 
 ```
->>> 1234.kaprekarSequence
+>>> 1234L.kaprekarSequence
 [1234 3087 8352 6174]
 
 >>> [
@@ -18,23 +18,23 @@ Sequences arriving at Kaprekar’s constant, 6174:
 >>> ]
 [3087 8352 6174 6147]
 
->>> 8991.kaprekarSequence
+>>> 8991L.kaprekarSequence
 [8991 8082 8532 6174]
 
->>> 3524.kaprekarSequence
+>>> 3524L.kaprekarSequence
 [3524 3087 8352 6174]
 ```
 
 Perfect digital invariants, sequence length of one:
 
 ```
->>> 495.kaprekarSequence
+>>> 495L.kaprekarSequence
 [495]
 
->>> 549945.kaprekarSequence
+>>> 549945L.kaprekarSequence
 [549945]
 
->>> 631764.kaprekarSequence
+>>> 631764L.kaprekarSequence
 [631764]
 ```
 
@@ -42,19 +42,19 @@ Least sequence of lengths one through five,
 OEIS [A151959](https://oeis.org/A151959)
 
 ```
->>> 0.kaprekarSequence
+>>> 0L.kaprekarSequence
 [0]
 
->>> 53955.kaprekarSequence
+>>> 53955L.kaprekarSequence
 [53955 59994]
 
->>> 64308654.kaprekarSequence
+>>> 64308654L.kaprekarSequence
 [64308654 83208762 86526432]
 
->>> 61974.kaprekarSequence
+>>> 61974L.kaprekarSequence
 [61974 82962 75933 63954]
 
->>> 86420987532.kaprekarSequence
+>>> 86420987532L.kaprekarSequence
 [
 	86420987532
 	96641975331
@@ -67,7 +67,7 @@ OEIS [A151959](https://oeis.org/A151959)
 Sequence of length seven:
 
 ```
->>> 420876.kaprekarSequence
+>>> 420876L.kaprekarSequence
 [420876 851742 750843 840852 860832 862632 642654]
 ```
 
@@ -76,9 +76,9 @@ OEIS [A164887](https://oeis.org/A164887):
 
 ```
 >>> let a = [];
->>> let b = IdentitySet();
->>> 0:1000.collect { :n |
->>> 	let p = n.kaprekarSequence(2);
+>>> let b = SortedSet();
+>>> 0L:1000L.collect { :n |
+>>> 	let p = n.kaprekarSequence(2L);
 >>> 	let q = p.last;
 >>> 	b.includes(q).ifFalse {
 >>> 		a.add!(n);
@@ -99,8 +99,8 @@ fixing the length of the integer digits of _x_ to four,
 partitioned into a 100×100 matrix:
 
 ~~~spl png=A
-0:9999.collect { :x |
-	x.kaprekarSequence(10, 4).size
+0L:9999L.collect { :x |
+	x.kaprekarSequence(10L, 4L).size
 }.reshape([100 100]).rescale.Greymap
 ~~~
 
@@ -110,9 +110,9 @@ The Kaprekar binary numbers in decimal,
 OEIS [A160761](https://oeis.org/A160761):
 
 ~~~spl svg=B oeis=A160761
-0:100.collect { :n |
-	n.kaprekarSequence(2).last
-}.without!(0).stepPlot
+0L:100L.collect { :n |
+	n.kaprekarSequence(2L).last
+}.without!(0L).stepPlot
 ~~~
 
 ![](Help/Image/kaprekarSequence-B.svg)

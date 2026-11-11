@@ -299,15 +299,14 @@
 	}
 
 	integerFactorial { :self |
-		let one = self.one;
 		self.isNegative.ifTrue {
 			self.error('integerFactorial: not valid for negative integers')
 		};
-		(self <= one).if {
-			one
+		(self <= 1L).if {
+			1L
 		} {
-			let answer = one;
-			1.toDo(self) { :each |
+			let answer = 1L;
+			1L.toDo(self) { :each |
 				answer := answer * each
 			};
 			answer
@@ -325,7 +324,7 @@
 		{
 			m.!.divisible(n)
 		}.whileFalse {
-			m := m + 1
+			m := m + 1L
 		};
 		m
 	}
@@ -557,21 +556,21 @@
 	}
 
 	stirlingS1 { :n :k |
-		(k = 0).if {
-			(n < 1).boole
+		(k = 0L).if {
+			(n < 1L).boole
 		} {
 			(k > n).if {
-				0
+				0L
 			} {
-				stirlingS1(n - 1, k - 1) - ((n - 1) * stirlingS1(n - 1, k))
+				stirlingS1(n - 1L, k - 1L) - ((n - 1L) * stirlingS1(n - 1L, k))
 			}
 		}
 	}
 
 	stirlingS2 { :n :k |
 		(
-			(1 / k.factorial) * 0.to(k).sum { :i |
-				(-1 ^ (k - i)) * binomial(k, i) * (i ^ n)
+			(1L / k.factorial) * 0L.to(k).sum { :i |
+				(-1L ^ (k - i)) * binomial(k, i) * (i ^ n)
 			}
 		).round
 	}

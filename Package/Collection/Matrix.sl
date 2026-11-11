@@ -357,9 +357,9 @@
 	isPermutationMatrix { :m |
 		m.isSquareMatrix & {
 			let [_, c] = m.shape;
-			let e = [0 -> (c - 1), 1 -> 1];
+			let e = [0L -> (c - 1L), 1L -> 1L];
 			m.allSatisfy { :r |
-				r.sortedElements(==) = e
+				r.sortedElements(=) = e
 			}
 		}
 	}
@@ -367,7 +367,7 @@
 	isSignatureMatrix { :self |
 		self.isDiagonalMatrix & {
 			self.diagonal.allSatisfy { :n |
-				n.abs = 1
+				n.abs = 1L
 			}
 		}
 	}

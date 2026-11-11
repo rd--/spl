@@ -54,7 +54,7 @@ At `Float` the integers are taken to be 32-bit signed integers:
 `bitShiftLeft` works with numbers of any size:
 
 ```
->>> (2L ^ 100 - 1).bitShiftLeft(7)
+>>> (2L ^ 100L - 1L).bitShiftLeft(7L)
 162259276829213363391578010288000L
 ```
 

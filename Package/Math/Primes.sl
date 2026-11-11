@@ -45,12 +45,12 @@
 
 	copelandErdosSequence { :n |
 		let answer = [];
-		let i = 1;
+		let i = 1L;
 		{ answer.size < n }.whileTrue {
 			answer.addAll!(
-				i.prime.integerDigits(10)
+				i.prime.integerDigits(10L)
 			);
-			i := i + 1
+			i := i + 1L
 		};
 		answer.take(n)
 	}
@@ -66,11 +66,11 @@
 	factorInteger { :self |
 		let i = Integer(self);
 		[-1L 0L 1L].includes(i).if {
-			[[i, 1]]
+			[[i, 1L]]
 		} {
 			self.isNegative.if {
 				let answer = self.negate.factorInteger;
-				answer.addFirst!([-1L, 1]);
+				answer.addFirst!([-1L, 1L]);
 				answer
 			} {
 				self.primeFactorization
@@ -179,10 +179,10 @@
 	isLucasCarmichaelNumber { :n |
 		n.isPrime.not & {
 			let f = n.factorInteger.transpose;
-			let a = f[2].unique(==);
-			a = [1] & {
-				let b = ((n + 1) % (f[1] + 1)).unique(=);
-				b = [0]
+			let a = f[2].unique(=);
+			a = [1L] & {
+				let b = ((n + 1L) % (f[1] + 1L)).unique(=);
+				b = [0L]
 			}
 		}
 	}
@@ -438,40 +438,40 @@
 
 	millerRabinPrimalityTest { :self :k |
 		withReturn { :return/1 |
-			(self = 1).ifTrue {
+			(self = 1L).ifTrue {
 				false.return
 			};
-			(self <= 3).ifTrue {
+			(self <= 3L).ifTrue {
 				true.return
 			};
 			self.isEven.ifTrue {
 				false.return
 			};
-			let d = self - 1;
-			let s = 0;
+			let d = self - 1L;
+			let s = 0L;
 			{
-				d \\ 2 = 0
+				d \\ 2L = 0L
 			}.whileTrue {
-				d := d // 2;
-				s := s + 1
+				d := d // 2L;
+				s := s + 1L
 			};
 			{
-				k := k - 1;
-				k >= 0
+				k := k - 1L;
+				k >= 0L
 			}.whileTrue {
-				let [a] = system.randomSmallInteger([self.one * 2, self - 2], [1]);
+				let [a] = system.randomSmallInteger([2L, self - 2L], [1L]);
 				let x = (a ^ d) \\ self;
-				(x = 1).ifFalse {
-					let r = -1;
+				(x = 1L).ifFalse {
+					let r = -1L;
 					{
-						r := r + 1;
+						r := r + 1L;
 						r < s & {
-							x != (self - 1)
+							x != (self - 1L)
 						}
 					}.whileTrue {
-						x := (x ^ 2) \\ self
+						x := (x ^ 2L) \\ self
 					};
-					(x != (self - 1)).ifTrue {
+					(x != (self - 1L)).ifTrue {
 						false.return
 					}
 				}

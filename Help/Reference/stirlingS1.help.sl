@@ -113,13 +113,13 @@ Numerators of Cauchy numbers of second type,
 OEIS [A002657](https://oeis.org/A002657):
 
 ```
->>> 0:8.collect { :n |
->>> 	0:n.sum { :k |
+>>> 0L:8L.collect { :n |
+>>> 	0L:n.sum { :k |
 >>> 		(-1L ^ (n - k))
 >>> 		*
 >>> 		n.stirlingS1(k)
 >>> 		/
->>> 		(k + 1)
+>>> 		(k + 1L)
 >>> 	}
 >>> }.numerator
 [1 1 5 9 251 475 19087 36799 1070017]
@@ -129,13 +129,13 @@ Denominators of Cauchy numbers of second type,
 OEIS [A002790](https://oeis.org/A002790):
 
 ```
->>> 0:13.collect { :n |
->>> 	0:n.sum { :k |
+>>> 0L:13L.collect { :n |
+>>> 	0L:n.sum { :k |
 >>> 		(-1L ^ k)
 >>> 		*
 >>> 		n.stirlingS1(k)
 >>> 		/
->>> 		(k + 1)
+>>> 		(k + 1L)
 >>> 	}
 >>> }.denominator
 [1 2 6 4 30 12 84 24 90 20 132 24 5460 840]
@@ -157,7 +157,7 @@ Expansion of exponential generating function _1/(1-log(1+x))_,
 OEIS [A006252](https://oeis.org/A006252):
 
 ```
->>> 0:14.triangularArray { :n :k |
+>>> 0L:14L.triangularArray { :n :k |
 >>> 	k.! * stirlingS1(n, k)
 >>> }.collect(sum/1)
 [
@@ -171,8 +171,8 @@ _S(n+2,n)_,
 OEIS [A000914](https://oeis.org/A000914):
 
 ```
->>> 0:10.collect { :n |
->>> 	(n + 2).stirlingS1(n)
+>>> 0L:10L.collect { :n |
+>>> 	(n + 2L).stirlingS1(n)
 >>> }
 [0 2 11 35 85 175 322 546 870 1320 1925]
 ```
@@ -180,11 +180,11 @@ OEIS [A000914](https://oeis.org/A000914):
 Unsigned Stirling numbers of the first kind count the number of permutations of _k_ elements with exactly _j_ disjoint cycles:
 
 ```
->>> stirlingS1([4 5 6], 1)
+>>> stirlingS1([4L 5L 6L], 1L)
 [-6 24 -120]
 
->>> [4 5 6].collect { :n |
->>> 	[1 .. n].permutations.select { :p |
+>>> [4L 5L 6L].collect { :n |
+>>> 	[1L .. n].permutations.select { :p |
 >>> 		let c = p.permutationCycles;
 >>> 		c.collect(size/1) = [n]
 >>> 	}.size
@@ -196,7 +196,7 @@ Surface plot of Stirling numbers on a logarithmic scale:
 
 ~~~spl svg=A
 stirlingS1/2
-.table(1:12, 1:12)
+.table(1L:12L, 1L:12L)
 .abs
 .logScale
 .surfacePlot
@@ -209,7 +209,7 @@ Sums of digits:
 ~~~spl svg=B
 { :n :m |
 	stirlingS1(n, m).integerDigits.sum
-}.table(1:16, 1:16).matrixPlot
+}.table(1L:16L, 1L:16L).matrixPlot
 ~~~
 
 ![](Help/Image/stirlingS1-B.svg)
@@ -218,15 +218,15 @@ Triangle of arctangent numbers,
 OEIS [A008309](https://oeis.org/A008309):
 
 ~~~spl svg=C oeis=A008309
-(1 .. 11).collect { :n |
-	let m = 2 - (n % 2);
-	(m .. n; 2).collect { :k |
-		let a = -1 ^ ((3 * n + k) / 2);
-		let b = n.! / (2 ^ k);
+(1L .. 11L).collect { :n |
+	let m = 2L - (n % 2L);
+	(m .. n; 2L).collect { :k |
+		let a = -1L ^ ((3L * n + k) / 2L);
+		let b = n.! / (2L ^ k);
 		let c = (k .. n).sum { :i |
-			(2 ^ i)
+			(2L ^ i)
 			*
-			binomial(n - 1, i - 1)
+			binomial(n - 1L, i - 1L)
 			*
 			stirlingS1(i, k)
 			/
@@ -243,8 +243,8 @@ Triangle of _s(n,n-k+1)_,
 OEIS [A008276](https://oeis.org/A008276):
 
 ~~~spl svg=D oeis=A008276
-1:11.triangularArray { :n :k |
-	stirlingS1(n, n - k + 1)
+1L:11L.triangularArray { :n :k |
+	stirlingS1(n, n - k + 1L)
 }.catenate.discretePlot.logScale
 ~~~
 
@@ -254,7 +254,7 @@ The triangle of signed Stirling numbers of the first kind,
 OEIS [A008275](http://oeis.org/A008275):
 
 ~~~spl svg=E oeis=A008275
-1:17.triangularArray(stirlingS1/2)
+1L:17L.triangularArray(stirlingS1/2)
 .catenate.scatterPlot.logScale
 ~~~
 
@@ -264,13 +264,13 @@ Generalized Stirling number triangle of first kind,
 OEIS [A049444](https://oeis.org/A049444):
 
 ~~~spl svg=F oeis=A049444
-0:13.triangularArray { :n :i |
+0L:13L.triangularArray { :n :i |
 	let m = n - i;
-	0:m.sum { :k |
+	0L:m.sum { :k |
 		[
-			-1 ^ k,
+			-1L ^ k,
 			binomial(n, k),
-			(k + 1).!,
+			(k + 1L).!,
 			stirlingS1(n - k, i)
 		].product
 	}
@@ -283,7 +283,7 @@ _k!×S1(n,k)_,
 OEIS [A048594](https://oeis.org/A048594):
 
 ~~~spl svg=G oeis=A048594
-1:12.triangularArray { :n :k |
+1L:12L.triangularArray { :n :k |
 	k.! * stirlingS1(n, k)
 }.catenate.discretePlot.logScale
 ~~~

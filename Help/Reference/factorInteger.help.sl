@@ -59,13 +59,13 @@ The answer is sorted by factor.
 At `Float` requires _n_ be a small integer:
 
 ```
->>> let x = Float(3L ^ 51);
+>>> let x = Float(3L ^ 51L);
 >>> {
 >>> 	x.factorInteger
 >>> }.hasError
 true
 
->>> (3L ^ 51).factorInteger
+>>> (3L ^ 51L).factorInteger
 [[3 51]]
 ```
 
@@ -86,7 +86,7 @@ A prime power has one prime factor:
 At `Integer`:
 
 ```
->>> (2L ^ 64 - 1).factorInteger
+>>> (2L ^ 64L - 1L).factorInteger
 [
 	3 1;
 	5 1;

@@ -19,8 +19,8 @@
 	}
 
 	adjacentPairsAllSatisfy { :self :aBlock/2 |
-		1.to(self.size - 1).allSatisfy { :i |
-			aBlock(self[i], self[i + 1])
+		1L.to(self.size - 1L).allSatisfy { :i |
+			aBlock(self[i], self[i + 1L])
 		}
 	}
 
@@ -312,7 +312,7 @@
 	}
 
 	binaryContraction { :n |
-		n.fromDigits(2)
+		n.fromDigits(2L)
 	}
 
 	binaryDetectIndex { :self :aBlock/1 |
@@ -1215,11 +1215,11 @@
 		self.isVector.if {
 			let answer = 0L;
 			let m = 1L;
-			self.reverseDo { :each |
+			Integer(self).reverseDo { :each |
 				answer := answer + (each * m);
 				m := m * radix
 			};
-			answer.normalInteger
+			answer
 		} {
 			self.collect { :each |
 				each.fromDigits(radix)
@@ -1228,7 +1228,7 @@
 	}
 
 	fromDigits { :self |
-		self.fromDigits(10)
+		self.fromDigits(10L)
 	}
 
 	fromToDo { :self :start :stop :aBlock/1 |
@@ -1415,7 +1415,7 @@
 	}
 
 	indicesDo { :self :aBlock/1 |
-		1.toDo(self.size, aBlock/1);
+		1L.toDo(self.size, aBlock/1);
 		nil
 	}
 
@@ -2198,10 +2198,10 @@
 	}
 
 	replaceAllWith! { :self :oldObject :newObject |
-		let index = 0;
+		let index = 0L;
 		{
-			index := self.indexOfStartingAtBy(oldObject, index + 1, isEqual/2);
-			index = 0
+			index := self.indexOfStartingAtBy(oldObject, index + 1L, isEqual/2);
+			index = 0L
 		}.whileFalse {
 			self[index] := newObject
 		};
@@ -2209,8 +2209,8 @@
 	}
 
 	replaceFromToWith! { :self :start :stop :replacement |
-		(replacement.size = (stop - start + 1)).if {
-			self.replaceFromToWithStartingAt!(start, stop, replacement, 1)
+		(replacement.size = (stop - start + 1L)).if {
+			self.replaceFromToWithStartingAt!(start, stop, replacement, 1L)
 		} {
 			self.error('@Sequence>> replaceFromToWith!: size of replacement does not match')
 		}
@@ -2223,7 +2223,7 @@
 			index <= stop
 		}.whileTrue {
 			self[index] := replacement[replacementOffset + index];
-			index := index + 1
+			index := index + 1L
 		};
 		self
 	}
@@ -2255,27 +2255,27 @@
 	}
 
 	reverse { :self :level |
-		(level <= 1).if {
+		(level <= 1L).if {
 			let answer = self.newOfSize(self.size);
-			let fromIndex = self.size + 1;
+			let fromIndex = self.size + 1L;
 			self.indicesDo { :toIndex |
-				answer[toIndex] := self[fromIndex - 1];
-				fromIndex := fromIndex - 1
+				answer[toIndex] := self[fromIndex - 1L];
+				fromIndex := fromIndex - 1L
 			};
 			answer
 		} {
 			self.collect { :each |
-				each.reverse(level - 1)
+				each.reverse(level - 1L)
 			}
 		}
 	}
 
 	reverse { :self |
-		self.reverse(1)
+		self.reverse(1L)
 	}
 
 	reverseDo { :self :aBlock/1 |
-		self.size.toByDo(1, -1) { :index |
+		self.size.toByDo(1L, -1L) { :index |
 			aBlock(self[index])
 		}
 	}
@@ -2284,7 +2284,7 @@
 		(self.size != aList.size).if {
 			self.error('@Sequence>> reverseWithDo: unequal size')
 		} {
-			self.size.toByDo(1, -1) { :index |
+			self.size.toByDo(1L, -1L) { :index |
 				aBlock(self[index], aList[index])
 			}
 		}

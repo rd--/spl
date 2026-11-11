@@ -9,7 +9,7 @@ Table of Mahonian numbers,
 OEIS [A008302](https://oeis.org/A008302):
 
 ```
->>> 5.mahonianNumbers
+>>> 5L.mahonianNumbers
 [
 	1;
 	1 1;

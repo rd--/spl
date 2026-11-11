@@ -5,10 +5,10 @@
 Answers _(a ^ b) % m_.
 
 ```
->>> 2.powerMod(10, 3)
+>>> 2L.powerMod(10L, 3L)
 1
 
->>> 3.powerMod(2, 7)
+>>> 3L.powerMod(2L, 7L)
 2
 
 >>> 3.powerMod(5, 7)
@@ -103,7 +103,7 @@ At large integers:
 >>> 	1 6 3 3 1 2 9 2 6 9
 >>> 	5 2 4 2 3 7 9 1 0 2
 >>> 	3 0 7 8 8 7 6 1 3 9
->>> ].fromDigits(10);
+>>> ].fromDigits(10L);
 >>> let b = [
 >>> 	2 3 5 1 3 9 9 3 0 3
 >>> 	3 7 3 4 6 4 4 8 6 4
@@ -112,7 +112,7 @@ At large integers:
 >>> 	9 7 5 2 3 3 4 1 5 5
 >>> 	4 4 0 7 2 9 9 2 6 5
 >>> 	6 8 8 1 2 4 0 3 1 9
->>> ].fromDigits(10);
+>>> ].fromDigits(10L);
 >>> let m = 10L ^ 40;
 >>> powerMod(a, b, m)
 [
@@ -120,7 +120,7 @@ At large integers:
 	5 8 5 2 4 8 4 5 0 0
 	1 6 8 0 8 9 5 8 3 4
 	3 7 4 0 4 5 3 0 5 9
-].fromDigits(10)
+].fromDigits(10L)
 ```
 
 Period of decimal expansion of the reciprocal of the _n_-th prime,

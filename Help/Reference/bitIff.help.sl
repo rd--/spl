@@ -13,6 +13,9 @@ Illustrate in radix two notation:
 >>> 2b0011.bitIff(2b0101)
 2b0001
 
+>>> 3L.bitIff(5L)
+1L
+
 >>> let p = 2b110001010110111;
 >>> let q = 2b011001001000101;
 >>> let r = 2b010111100001101;
@@ -24,8 +27,8 @@ _1+Iff(k-1,n-k)_,
 OEIS [A327490](https://oeis.org/A327490):
 
 ```
->>> 1:12.triangularArray { :n :k |
->>> 	1 + bitIff(k - 1, n - k)
+>>> 1L:12L.triangularArray { :n :k |
+>>> 	1L + bitIff(k - 1L, n - k)
 >>> }
 [
 	1;

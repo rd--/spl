@@ -173,13 +173,21 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	printString { :self |
+	literalPrintStringUsing { :self :aBlock/1 |
 		'(% -- %)'.format(
 			[
-				self.min,
-				self.max
+				aBlock(self.min),
+				aBlock(self.max)
 			]
 		)
+	}
+
+	concisePrintString { :self |
+		self.literalPrintStringUsing(concisePrintString/1)
+	}
+
+	printString { :self |
+		self.literalPrintStringUsing(printString/1)
 	}
 
 	radius { :self |

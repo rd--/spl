@@ -28,10 +28,10 @@ At `Fraction`:
 
 ```
 >>> 3/2.floor
-1
+1L
 
 >>> -3/2.floor
--2
+-2L
 ```
 
 Floor of division:

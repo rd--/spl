@@ -8,14 +8,14 @@ At `Float`,
 where _x_ is not close to a simple fraction:
 
 ```
->>> 1.pi.deriveFractionOver(1E2)
+>>> 1.pi.deriveFractionOver(100L)
 314/100
 
->>> 1.pi.deriveFractionOver(1E5)
-314159/100000
+>>> 1.pi.deriveFractionOver(10_000L)
+314_159/10_0000
 
 >>> 1.pi.deriveFractionOver(1E11)
-314159265359/100000000000
+314_159_265_359/100_000_000_000
 ```
 
 Where _x_ is close to a simple fraction:

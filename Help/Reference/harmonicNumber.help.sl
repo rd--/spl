@@ -124,8 +124,8 @@ Numerator of the _2n_-th alternating harmonic number,
 OEIS [A082687](https://oeis.org/A082687):
 
 ```
->>> 1L:9.collect { :n |
->>> 	(2 * n).harmonicNumber
+>>> 1L:9L.collect { :n |
+>>> 	(2L * n).harmonicNumber
 >>> 	-
 >>> 	n.harmonicNumber
 >>> }.numerator

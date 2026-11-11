@@ -8,7 +8,10 @@ Residue : [Object, Store, Equal, Compare, Number] {
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
 		aBlock(
-			Residue(anInteger, self.modulus),
+			Residue(
+				Integer(anInteger),
+				self.modulus
+			),
 			self
 		)
 	}
@@ -87,7 +90,9 @@ Residue : [Object, Store, Equal, Compare, Number] {
 	}
 
 	storeStringLiteral { :self |
-		self.commonResidue.storeString ++ 'Z' ++ self.modulus.storeString
+		self.commonResidue.concisePrintString
+		++ 'Z'
+		++ self.modulus.concisePrintString
 	}
 
 	[subtract, -] { :self :aNumber |
@@ -100,10 +105,10 @@ Residue : [Object, Store, Equal, Compare, Number] {
 
 }
 
-+@Integer {
++Integer {
 
 	Residue { :n :m |
-		m.isIntegerValuedNumber.if {
+		m.isInteger.if {
 			uncheckedResidue(n, m)
 		} {
 			m.adaptToIntegerAndApply(n, Residue/2)
@@ -127,8 +132,8 @@ Residue : [Object, Store, Equal, Compare, Number] {
 +List {
 
 	[Residue, listToResidue] { :self |
-		self.atVectorOrElementwise { :each |
-			let [n, m] = each;
+		self.atVectorOrElementwise { :r |
+			let [n, m] = Integer(r);
 			Residue(n, m)
 		}
 	}
@@ -149,7 +154,10 @@ Residue : [Object, Store, Equal, Compare, Number] {
 
 	adaptToResidueAndApply { :self :aResidue :aBlock/2 |
 		self.isIntegerValuedNumber.if {
-			aBlock(aResidue, Residue(self, aResidue.modulus))
+			aBlock(
+				aResidue,
+				Residue(Integer(self), aResidue.modulus)
+			)
 		} {
 			self.error('@Number>>adaptToResidueAndApply: not integer')
 		}

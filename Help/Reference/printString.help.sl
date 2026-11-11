@@ -8,10 +8,10 @@ At integer `Float`:
 
 ```
 >>> 23.0.printString
-'23'
+'23.0'
 
 >>> -23.0.printString
-'-23'
+'-23.0'
 ```
 
 At fractional `Float`:
@@ -32,17 +32,17 @@ without radix argument:
 At `Complex`:
 
 ```
->>> 1J2.printString
-'1J2'
+>>> 1.0J2.0.printString
+'1.0J2.0'
 
->>> 1J0.printString
-'1J0'
+>>> 1.0J0.0.printString
+'1.0J0.0'
 
->>> 0J1.printString
-'0J1'
+>>> 0.0J1.0.printString
+'0.0J1.0'
 
->>> 1I.printString
-'0J1'
+>>> 1.0I.printString
+'0.0J1.0'
 ```
 
 At `Decimal`:
@@ -64,8 +64,8 @@ At `Decimal`:
 Negative zero is printed as it is typed:
 
 ```
->>> -0.printString
-'-0'
+>>> -0.0.printString
+'-0.0'
 ```
 
 Infinities and non-numbers:
@@ -119,6 +119,13 @@ At `Float` with precision:
 '3.142'
 ```
 
+At `Interval`:
+
+```
+>>> (1.0 -- 9.0).printString
+'(1.0 -- 9.0)'
+```
+
 At `Boolean`:
 
 ```
@@ -142,7 +149,9 @@ At `String`, the string is quoted:
 >> 'x'.printString
 'x'
 
->>> 'x'.printString != 'x'.displayString
+>>> 'x'.printString
+>>> !=
+>>> 'x'.displayString
 true
 ```
 
@@ -170,20 +179,20 @@ At `Record`:
 At `Association`:
 
 ```
->>> (23 -> 3.141).printString
-'23 -> 3.141'
+>>> (23.0 -> 3.141).printString
+'23.0 -> 3.141'
 ```
 
 At `Range`:
 
 ```
->>> 1:99.printString
-'Range(1, 99, 1, 99)'
+>>> Range(1L, 99L, 1L).printString
+'Range(1L, 99L, 1, 99L)'
 ```
 
 * * *
 
-See also: String, concisePrintString, displayString, integerString, printLine, storeString
+See also: String, concisePrintString, displayString, floatString, integerString, printLine, storeString
 
 Guides: Printing Functions, String Functions
 

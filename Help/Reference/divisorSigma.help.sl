@@ -429,7 +429,7 @@ Numerator of sum of reciprocals of divisors of _n_,
 OEIS [A017665](https://oeis.org/A017665):
 
 ```
->>> 1L:16.collect { :n |
+>>> 1L:16L.collect { :n |
 >>> 	1L.divisorSigma(n) / n
 >>> }.numerator
 [1 3 4 7 6 2 8 15 13 9 12 7 14 12 8 31]

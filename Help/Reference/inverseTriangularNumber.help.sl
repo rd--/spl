@@ -5,10 +5,10 @@
 Answer the inverse triangular number of _n_.
 
 ```
->>> 276.inverseTriangularNumber
+>>> 276L.inverseTriangularNumber
 23
 
->>> 23.triangularNumber
+>>> 23L.triangularNumber
 276
 ```
 
@@ -17,14 +17,14 @@ and the first element of column _k_ is in row _k(k+1)/2_,
 OEIS [A196020](https://oeis.org/A196020):
 
 ~~~spl svg=A oeis=A196020
-1:24.collect { :n |
+1L:24L.collect { :n |
 	let m = n.inverseTriangularNumber;
-	1:m.collect { :k |
-		let m = n - (k * (k + 1) / 2);
-		(m % k = 0).if {
-			2 * n / k - k
+	1L:m.collect { :k |
+		let m = n - (k * (k + 1L) / 2L);
+		(m % k = 0L).if {
+			2L * n // k - k
 		} {
-			0
+			0L
 		}
 	}
 }.catenate.discretePlot

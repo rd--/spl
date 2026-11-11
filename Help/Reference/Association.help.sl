@@ -69,15 +69,15 @@ false
 The print string is given using the `->` operator:
 
 ```
->>> (0 -> 1).printString
-'0 -> 1'
+>>> (0.0 -> 1.0).printString
+'0.0 -> 1.0'
 ```
 
 The store string is given using the constructor:
 
 ```
->>> (0 -> 1).storeString
-'Association(0, 1)'
+>>> (0.0 -> 1.0).storeString
+'Association(0.0, 1.0)'
 ```
 
 Fetch both key and value:

@@ -45,8 +45,8 @@ At `Integer`:
 The number _2^(2^7)+1_ is not a Fermat prime, & requires `millerRabinPrimalityTest`:
 
 ```
->>> let n = (2L ^ (2 ^ 7) + 1);
->>> (n, n.millerRabinPrimalityTest(10))
+>>> let n = (2L ^ (2L ^ 7L) + 1L);
+>>> (n, n.millerRabinPrimalityTest(10L))
 (
 	340282366920938463463374607431768211457L,
 	false

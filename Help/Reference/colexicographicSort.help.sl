@@ -80,8 +80,8 @@ Colexicographic sort of the integer partitions of six:
 Colexicographic sort of the 5-cycle permutations of _1:5_:
 
 ```
->>> [1 .. 5].permutations.select { :p |
->>> 	p.isCyclicPermutation(5)
+>>> [1L .. 5L].permutations.select { :p |
+>>> 	p.isCyclicPermutation(5L)
 >>> }.colexicographicSort!
 [
 	3 5 4 2 1;

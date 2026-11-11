@@ -88,7 +88,7 @@ Compute for large integers:
 
 ```
 >>> let a = 20L.factorial;
->>> let b = 10L ^ 100 + 3;
+>>> let b = 10L ^ 100L + 3L;
 >>> gcd(a, b)
 7
 ```

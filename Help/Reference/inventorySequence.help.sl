@@ -30,7 +30,8 @@ Positions of zeroes,
 OEIS [A343880](https://oeis.org/A343880):
 
 ```
->>> 200.inventorySequence.indicesOf(0)
+>>> 200.inventorySequence
+>>> .indicesOf(0L)
 [
 	  1   4   8  14  20
 	 28  37  46  57  69
@@ -44,7 +45,8 @@ discrete plot,
 OEIS [A342585](https://oeis.org/A342585):
 
 ~~~spl svg=A oeis=A342585
-99.inventorySequence.discretePlot
+99.inventorySequence
+.discretePlot
 ~~~
 
 ![](Help/Image/inventorySequence-A.svg)

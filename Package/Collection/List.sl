@@ -4,6 +4,10 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		self
 	}
 
+	concisePrintString { :self |
+		self.printStringUsing(concisePrintString/1)
+	}
+
 	addFirst { :self :anObject |
 		[anObject] ++ self
 	}
@@ -217,8 +221,8 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		let k = self.size;
 		let m = self.first;
 		let r = [m];
-		let p = [1];
-		2.toDo(k) { :i |
+		let p = [1L];
+		2L.toDo(k) { :i |
 			let n = self[i];
 			aBlock(n, m).ifTrue {
 				m := n;

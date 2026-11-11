@@ -9,7 +9,7 @@ The Euler transform of the identity function counts the number of planar partiti
 OEIS [A000219](https://oeis.org/A000219):
 
 ```
->>> 0:23.collect(
+>>> 0L:23L.collect(
 >>> 	identity/1.eulerTransform
 >>> )
 [
@@ -25,7 +25,7 @@ The Euler transform of the square function,
 OEIS [A023871](https://oeis.org/A023871):
 
 ```
->>> 0:9.collect(
+>>> 0L:9L.collect(
 >>> 	square/1.eulerTransform
 >>> )
 [1 1 5 14 40 101 266 649 1593 3765]
@@ -35,8 +35,8 @@ Euler transform of the power of two function,
 OEIS [A034899](https://oeis.org/A034899):
 
 ```
->>> 0:9.collect(
->>> 	{ :x | 2 ^ x }.eulerTransform
+>>> 0L:9L.collect(
+>>> 	{ :x | 2L ^ x }.eulerTransform
 >>> )
 [1 2 7 20 59 162 449 1200 3194 8348]
 ```
@@ -45,7 +45,7 @@ Euler transform of the Fibonacci function,
 OEIS [A166861](https://oeis.org/A166861):
 
 ```
->>> 0:23.collect(
+>>> 0L:23L.collect(
 >>> 	fibonacci/1.eulerTransform
 >>> )
 [

@@ -76,13 +76,13 @@
 	}
 
 	stemLeafPlot { :self |
-		let negative = Map();
-		let positive = Map();
+		let negative = Dictionary();
+		let positive = Dictionary();
 		self.collect { :each |
 			let d = each.integerDigits;
 			let rhs = d.last;
-			let lhsList = (d.size > 1).if { d.allButLast } { [0] };
-			let lhs = each.copySign(lhsList.fromDigits(10));
+			let lhsList = (d.size > 1L).if { d.allButLast } { [0L] };
+			let lhs = each.copySign(lhsList.fromDigits(10L));
 			let map = each.isNegative.if { negative } { positive };
 			map.atIfPresentIfAbsent(lhs) { :entry |
 				entry.add!(rhs)
@@ -734,12 +734,16 @@
 +List {
 
 	bitonicMergeWithMonitor { :a :low :count :direction :sortBlock/2 :monitorBlock/1 |
-		(count > 1).ifTrue {
-			let k = count / 2;
-			low.toDo(low + k - 1) { :i |
+		(count > 1L).ifTrue {
+			let k = count // 2L;
+			low.toDo(low + k - 1L) { :i |
 				(
-					direction = 1 & { sortBlock(a[i + k], a[i]) } | {
-						direction = 0 & { sortBlock(a[i], a[i + k]) }
+					direction = 1L & {
+						sortBlock(a[i + k], a[i])
+					} | {
+						direction = 0L & {
+							sortBlock(a[i], a[i + k])
+						}
 					}
 				).ifTrue {
 					a.swapWith!(i, i + k);
@@ -774,10 +778,10 @@
 	}
 
 	bitonicSortWithMonitor { :a :low :count :direction :sortBlock/2 :monitorBlock/1 |
-		(count > 1).ifTrue {
-			let k = count / 2;
-			bitonicSortWithMonitor(a, low, k, 1, sortBlock/2, monitorBlock/1);
-			bitonicSortWithMonitor(a, low + k, k, 0, sortBlock/2, monitorBlock/1);
+		(count > 1L).ifTrue {
+			let k = count // 2L;
+			bitonicSortWithMonitor(a, low, k, 1L, sortBlock/2, monitorBlock/1);
+			bitonicSortWithMonitor(a, low + k, k, 0L, sortBlock/2, monitorBlock/1);
 			bitonicMergeWithMonitor(a, low, count, direction, sortBlock/2, monitorBlock/1)
 		}
 	}
@@ -785,7 +789,7 @@
 	bitonicSortWithMonitor { :a :sortBlock/2 :monitorBlock/1 |
 		let n = a.size;
 		n.isPowerOfTwo.if {
-			bitonicSortWithMonitor(a, 1, a.size, 1, sortBlock/2, monitorBlock/1);
+			bitonicSortWithMonitor(a, 1L, a.size, 1L, sortBlock/2, monitorBlock/1);
 			a
 		} {
 			a.error('bitonicSort: size must be power of two')

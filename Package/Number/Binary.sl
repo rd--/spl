@@ -239,8 +239,8 @@
 +@Binary {
 
 	isPowerOfTwo { :self |
-		self != 0 & {
-			self.promoteBinary.bitAnd(self - 1) = 0
+		self != 0L & {
+			self.promoteBinary.bitAnd(self - 1L) = 0L
 		}
 	}
 

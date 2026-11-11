@@ -6,20 +6,20 @@
 A `Residue` is a `Type` holding an `Integer` and a constant modulus.
 
 ```
->>> Residue(5, 12)
+>>> Residue(5L, 12L)
 5Z12
 ```
 
 Threads over lists:
 
 ```
->>> Residue([1 3 5], [9 12 15])
+>>> Residue([1L 3L 5L], [9L 12L 15L])
 [1Z9 3Z12 5Z15]
 
->>> Residue([1 3 5], 12)
+>>> Residue([1L 3L 5L], 12L)
 [1Z12 3Z12 5Z12]
 
->>> Residue(3, [9 12 15])
+>>> Residue(3L, [9L 12L 15L])
 [3Z9 3Z12 3Z15]
 ```
 
@@ -27,7 +27,7 @@ There is a literal syntax for residues, _nZm_:
 
 ```
 >>> 3Z5
-Residue(3, 5)
+Residue(3L, 5L)
 ```
 
 `commonResidue` and `modulus` answer the components of a `Residue`:
@@ -166,7 +166,7 @@ or a collection:
 >>> 9Z12 + [2 5]
 [11Z12 2Z12]
 
->>> 9 + [2 5] % 12
+>>> 9L + [2L 5L] % 12L
 [11 2]
 
 >>> [2 5] + 9Z12

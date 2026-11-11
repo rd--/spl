@@ -31,7 +31,10 @@ Copying form at `Range`,
 answers a `List`:
 
 ```
->>> 2:14:4.collect { :x |
+>>> 1L:9L.collect(identity/1)
+[1L .. 9L]
+
+>>> 2L:14L:4L.collect { :x |
 >>> 	x * x
 >>> }
 [4 36 100 196]
@@ -58,9 +61,9 @@ In-place form at `Record`:
 At `Multiset`:
 
 ```
->>> Multiset([2, 6 .. 14], ==)
+>>> Multiset([2, 6 .. 14], =)
 >>> .collect(square/1)
-Multiset([4 36 100 196], ==)
+Multiset([4 36 100 196], =)
 ```
 
 At `IdentitySet`:

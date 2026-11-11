@@ -8,7 +8,7 @@ else `false`.
 First few Lucas-Carmichael numbers:
 
 ```
->>> [2 .. 3000].select(
+>>> [2L .. 3000L].select(
 >>> 	isLucasCarmichaelNumber/1
 >>> )
 [399 935 2015 2915]

@@ -21,7 +21,7 @@ Count the number of entries for each vertex count:
 >>> .sageSmallGraphCatalogue
 >>> .collect(vertexCount/1)
 >>> .values
->>> .sortedElements(==)
+>>> .sortedElements(=)
 [
 	3 -> 4,
 	4 -> 11,

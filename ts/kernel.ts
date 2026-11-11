@@ -837,10 +837,10 @@ export function toFloat(x: number | bigint): number {
 export function toInteger(x: number | bigint): number {
 	const xType = typeof x;
 	if (xType === 'number') {
-		return x; /* BigInt(x) */
+		return BigInt(x); /* x */
 	}
 	if (xType === 'bigint') {
-		return Number(x); /* x */
+		return x; /* Number(x) */
 	}
 	throw new Error('toInteger: not Float or Integer', x);
 }

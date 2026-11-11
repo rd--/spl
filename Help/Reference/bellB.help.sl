@@ -40,6 +40,9 @@ Compute the first 10 complementary Bell numbers:
 >>> 	n.bellB(-1)
 >>> }
 [-1 0 1 1 -2 -9 -9 50 267 413]
+```
+
+Relation to `stirlingS2`:
 
 >>> 1:10.collect { :n |
 >>> 	0:n.sum { :k |
@@ -54,7 +57,7 @@ OEIS [A024429](https://oeis.org/A024429):
 
 ```
 >>> 0:9.collect { :n |
->>> 	(n.bellB(1) - n.bellB(-1)) / 2
+>>> 	(n.bellB(1) - n.bellB(-1)) // 2
 >>> }
 [0 1 1 2 7 27 106 443 2045 10440]
 ```
@@ -87,7 +90,7 @@ Evaluate symbolically:
 
 ```
 >> 3.bellB.at(`x`)
-(* x (+ (* x (+ x 3)) 1))
+(* x (+ (* x (+ x 3L)) 1L))
 ```
 
 * * *

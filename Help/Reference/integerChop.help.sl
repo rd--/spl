@@ -8,10 +8,10 @@ Round a real number close to seven:
 
 ```
 >>> 7.00000000001.integerChop
-7
+7.0
 
 >>> 6.99999999999.integerChop
-7
+7.0
 ```
 
 Retain differences greater than epsilon:
@@ -28,10 +28,10 @@ Specify epsilon:
 
 ```
 >>> 7.0001.integerChop(1E-4)
-7
+7.0
 
 >>> 6.9999.integerChop(1E-4)
-7
+7.0
 ```
 
 Drop small imaginary parts:
@@ -53,7 +53,7 @@ Drop small imaginary parts:
 
 * * *
 
-See also: chop, round
+See also: chop, isNearInteger, round
 
 Guides: Rounding Functions
 

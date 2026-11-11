@@ -68,7 +68,7 @@
 
 	recurrenceTable { :self/2 :i :n |
 		let r = i.copy;
-		(i.size + 1).toDo(n) { :m |
+		(i.size + 1L).toDo(n) { :m |
 			let z = self(r, m);
 			r.add!(z)
 		};

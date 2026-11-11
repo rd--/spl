@@ -11,7 +11,7 @@ threads over lists,
 OEIS [A002034](https://oeis.org/A002034):
 
 ```
->>> 1:19.kempnerFunction
+>>> 1L:19L.kempnerFunction
 [1 2 3 4 5 3 7 4 6 5 11 4 13 7 5 6 17 6 19]
 ```
 
@@ -20,7 +20,7 @@ the prime numbers plus one and four,
 OEIS [A046022](https://oeis.org/A046022):
 
 ```
->>> 1:45.kempnerFunction.recordValues
+>>> 1L:45L.kempnerFunction.recordValues
 [1 2 3 4 5 7 11 13 17 19 23 29 31 37 41 43]
 ```
 
@@ -30,7 +30,7 @@ and
 OEIS [A094372](https://oeis.org/A094372):
 
 ```
->>> let n = 1L:200;
+>>> let n = 1L:200L;
 >>> let a = n.kempnerFunction;
 >>> let b = a / n;
 >>> b.reciprocal.recordValues.reciprocal
@@ -45,7 +45,7 @@ The Kempner function,
 OEIS [A002034](https://oeis.org/A002034):
 
 ~~~spl svg=A oeis=A002034
-1:65.kempnerFunction.stepPlot
+1L:65L.kempnerFunction.stepPlot
 ~~~
 
 ![](Help/Image/kempnerFunction-A.svg)

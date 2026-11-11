@@ -757,7 +757,7 @@ const asSl: ohm.ActionDict<string> = {
 		if (kStr.length === 0) {
 			kStr = fStr.length;
 		}
-		return `Decimal(Fraction(${sStr}${iStr}${fStr}L, ${eStr}L), ${kStr})`;
+		return `Decimal(Fraction(${sStr}${iStr}${fStr}L, ${eStr}L), ${kStr}L)`;
 		/* return `parseDecimal('${sStr}${iStr}.${fStr}D${kStr}')`; */
 	},
 	floatLiteral(s, i, _dot, f) {
@@ -852,7 +852,7 @@ const asSl: ohm.ActionDict<string> = {
 		return `Range(${start.asSl}, ${end.asSl})`;
 	},
 	residueLiteral(i, _z, m) {
-		return `Residue(${i.sourceString}, ${m.sourceString})`;
+		return `Residue(${i.sourceString}L, ${m.sourceString}L)`;
 	},
 	scientificLiteral(b, _letterE, e) {
 		return b.sourceString + 'E' + e.sourceString;

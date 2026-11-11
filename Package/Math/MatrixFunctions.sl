@@ -1290,7 +1290,7 @@
 	}
 
 	thomasAlgorithm { :a :b :c :d |
-		let n = a.size;
+		let n = SmallInteger(a.size);
 		let x = List(n, nil);
 		thomasAlgorithm(a, b, c, d, x, n);
 		x

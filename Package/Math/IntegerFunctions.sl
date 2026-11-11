@@ -100,11 +100,11 @@
 	}
 
 	binaryExpansion { :n :k |
-		n.integerDigits(2, k)
+		n.integerDigits(2L, k)
 	}
 
 	binaryExpansion { :n |
-		n.integerDigits(2)
+		n.integerDigits(2L)
 	}
 
 	binaryExponents { :self |
@@ -118,10 +118,10 @@
 	}
 
 	binaryRunLengthEncode { :self |
-		(self < 0).if {
+		(self < 0L).if {
 			self.error('binaryRunLengthEncode: negative integer')
 		} {
-			(self = 0).if {
+			(self = 0L).if {
 				[]
 			} {
 				self.binaryExpansion.runLengths
@@ -131,7 +131,7 @@
 
 	bitIff { :p :q |
 		let k = p.bitLength.max(q.bitLength);
-		Range(k, 1, -1).collect { :i |
+		Range(k, 1L, -1L).collect { :i |
 			p.bitAt(i) = q.bitAt(i)
 		}.boole.binaryContraction
 	}
@@ -143,10 +143,10 @@
 	}
 
 	bitLength { :self |
-		(self >= 0).if {
-			self.integerLength(2)
+		(self >= 0L).if {
+			self.integerLength(2L)
 		} {
-			self.bitNot.integerLength(2)
+			self.bitNot.integerLength(2L)
 		}
 	}
 
@@ -155,8 +155,8 @@
 	}
 
 	bitNot { :self :k |
-		let d = self.integerDigits(2, k);
-		(1 - d).fromDigits(2)
+		let d = self.integerDigits(2L, k);
+		(1L - d).fromDigits(2L)
 	}
 
 	bjorklundsAlgorithm { :k :n |
@@ -164,11 +164,11 @@
 	}
 
 	bjorklundsAlgorithmDo { :k :n :aBlock/1 |
-		let s = 1.toCollect(n) { :i |
+		let s = 1L.toCollect(n) { :i |
 			(i <= k).if {
-				[1]
+				[1L]
 			} {
-				[0]
+				[0L]
 			}
 		};
 		let d = n - k;
@@ -177,8 +177,8 @@
 		n := k.max(d);
 		k := k.min(d);
 		{
-			z > 0 | {
-				k > 1
+			z > 0L | {
+				k > 1L
 			}
 		}.whileTrue {
 			1.toDo(k) { :i |
@@ -204,10 +204,10 @@
 
 	boole { :self |
 		self.isZero.if {
-			0
+			0L
 		} {
 			self.isOne.if {
-				1
+				1L
 			} {
 				self.error('boole')
 			}
@@ -364,8 +364,9 @@
 	}
 
 	divisors { :self |
-		self.one.to(self).select { :each |
-			self \\ each = 0
+		let n = Integer(self);
+		1L.to(n).select { :each |
+			n \\ each = 0L
 		}
 	}
 
@@ -681,7 +682,7 @@
 	}
 
 	integerConcatenation { :m :n |
-		integerConcatenation(m, n, 10)
+		integerConcatenation(m, n, 10L)
 	}
 
 	integerDigits { :self :base :numDigits |
@@ -729,30 +730,30 @@
 	}
 
 	integerExponent { :n :b |
-		let answer = n.zero;
+		let answer = 0L;
 		{
-			n.divisible(b ^ (answer + 1))
+			n.divisible(b ^ (answer + 1L))
 		}.whileTrue {
-			answer := answer + 1
+			answer := answer + 1L
 		};
 		answer
 	}
 
 	integerLength { :self :radix |
 		self.isZero.if {
-			0
+			0L
 		} {
-			let n = 1;
-			let m = self.abs;
+			let n = 1L;
+			let m = Integer(self).abs;
 			{ m >= (radix ^ n) }.whileTrue {
-				n := n + 1
+				n := n + 1L
 			};
 			n
 		}
 	}
 
 	integerLength { :self |
-		self.integerLength(10)
+		self.integerLength(10L)
 	}
 
 	integerReverse { :self :base :length |
@@ -1177,9 +1178,9 @@
 	}
 
 	legendreSymbol { :a :p |
-		let e = (p - 1) // 2;
+		let e = (p - 1L) // 2L;
 		let r = powerMod(a, e, p);
-		(r > 1).if { r - p } { r }
+		(r > 1L).if { r - p } { r }
 	}
 
 	minimalResidue { :self :modulus |
@@ -1193,24 +1194,24 @@
 	}
 
 	modularInverse { :a :n |
-		let t = 0;
-		let t1 = 1;
-		let r = (n < 0).if { n.negate } { n };
-		let r1 = (a < 0).if { (n - (a.negate % n)) % n } { a % n };
+		let t = 0L;
+		let t1 = 1L;
+		let r = (n < 0L).if { n.negate } { n };
+		let r1 = (a < 0L).if { (n - (a.negate % n)) % n } { a % n };
 		{
-			r1 != 0
+			r1 != 0L
 		}.whileTrue {
 			let quotient = r // r1;
 			[t, t1] := [t1, t - (quotient * t1)];
 			[r, r1] := [r1, r - (quotient * r1)]
 		};
-		(r > 1).if {
+		(r > 1L).if {
 			'@Integer>>modularInverse: not invertible'.error
 		} {
-			(t < 0).ifTrue {
+			(t < 0L).ifTrue {
 				t := t + n
 			};
-			(n < 0).ifTrue {
+			(n < 0L).ifTrue {
 				t := t + n
 			};
 			t
@@ -1222,21 +1223,21 @@
 	}
 
 	multiplicativeDigitalRoot { :x |
-		x.multiplicativeDigitalRoot(10)
+		x.multiplicativeDigitalRoot(10L)
 	}
 
 	multiplicativeOrder { :k :n :r |
 		k := Integer(k);
 		r := r % n;
 		(n = 1).if {
-			1
+			1L
 		} {
 			k.isCoprime(n).if {
 				let m = k.one;
 				{
 					r.includes(k ^ m % n)
 				}.whileFalse {
-					m := m + 1
+					m := m + 1L
 				};
 				m
 			} {
@@ -1246,23 +1247,23 @@
 	}
 
 	multiplicativeOrder { :k :n |
-		k.multiplicativeOrder(n, [1])
+		k.multiplicativeOrder(n, [1L])
 	}
 
 	multiplicativePersistence { :x :b |
-		x.digitalRootSet(b, product/1).second.size - 1
+		x.digitalRootSet(b, product/1).second.size - 1L
 	}
 
 	multiplicativeSuborder { :a :n |
 		(
-			n > 1 & {
-				a.gcd(n) = 1
+			n > 1L & {
+				a.gcd(n) = 1L
 			}
 		).if {
-			let m = n - 1;
+			let m = n - 1L;
 			1L.to(Infinity).detect { :e |
 				let r = (a ^ e) % n;
-				r = 1 | { r = m }
+				r = 1L | { r = m }
 			}
 		} {
 			0
@@ -1390,14 +1391,14 @@
 	}
 
 	perfectPower { :self |
-		(self < 4).if {
+		(self < 4L).if {
 			nil
 		} {
 			let a = self.factorInteger;
-			let b = a.column(2);
+			let b = a.column(2L);
 			let c = b.gcd;
-			(c > 1).if {
-				let d = a.column(1);
+			(c > 1L).if {
+				let d = a.column(1L);
 				[d.product, c]
 			} {
 				nil
@@ -1678,36 +1679,44 @@
 	}
 
 	tonelliShanksAlgorithm { :n :p |
-		(legendreSymbol(n, p) != 1).if {
+		(legendreSymbol(n, p) != 1L).if {
 			[n, p].error('tonelliShanksAlgorithm: not square')
 		} {
-			let q = p - 1;
-			let s = 0;
+			let q = p - 1L;
+			let s = 0L;
 			{ q.isEven }.whileTrue {
-				q := q / 2;
-				s := s + 1
+				q := q / 2L;
+				s := s + 1L
 			};
-			(s = 1).if {
-				powerMod(n, (p + 1) / 4, p)
+			(s = 1L).if {
+				powerMod(n, (p + 1L) / 4L, p)
 			} {
-				let z = 2;
+				let z = 2L;
 				let m = s;
-				{ z < p & { legendreSymbol(z, p) != -1 } }.whileTrue {
-					z := z + 1
+				{
+					z < p & {
+						legendreSymbol(z, p) != -1L }
+				}.whileTrue {
+					z := z + 1L
 				};
 				let c = powerMod(z, q, p);
-				let r = powerMod(n, (q + 1) / 2, p);
+				let r = powerMod(n, (q + 1L) / 2L, p);
 				let t = powerMod(n, q, p);
-				{ (t - 1) % p != 0 }.whileTrue {
-					let t2 = (t ^ 2) % p;
-					let i = 1;
-					{ i < m & { (t2 - 1) % p != 0 } }.whileTrue {
-						t2 := (t2 ^ 2) % p;
-						i := i + 1
+				{
+					(t - 1L) % p != 0L
+				}.whileTrue {
+					let t2 = (t ^ 2L) % p;
+					let i = 1L;
+					{
+						i < m & {
+							(t2 - 1L) % p != 0L }
+					}.whileTrue {
+						t2 := (t2 ^ 2L) % p;
+						i := i + 1L
 					};
-					let b = powerMod(c, 2 ^ (m - i - 1), p);
+					let b = powerMod(c, 2L ^ (m - i - 1L), p);
 					r := (r * b) % p;
-					c := (b ^ 2) % p;
+					c := (b ^ 2L) % p;
 					t := (t * c) % p;
 					m := i
 				};
@@ -1717,7 +1726,7 @@
 	}
 
 	totientSummatoryFunction { :n |
-		1.to(n).sum(eulerPhi/1)
+		1L.to(n).sum(eulerPhi/1)
 	}
 
 	truncate { :self |
@@ -1725,9 +1734,9 @@
 	}
 
 	twosComplement { :self :wordSize |
-		let m = 2 ^ wordSize;
+		let m = 2L ^ wordSize;
 		let u = self % m;
-		(u >= (m / 2)).if {
+		(u >= (m / 2L)).if {
 			u - m
 		} {
 			u
@@ -1828,33 +1837,34 @@
 +@Integer {
 
 	digitAt { :self :n |
-		(n = 1).if {
-			(self < 0).if {
-				-256 - self.bitAnd(255)
+		let value = Integer(self);
+		(n = 1L).if {
+			(value < 0L).if {
+				-256L - value.bitAnd(255L)
 			} {
-				self.bitAnd(255)
+				value.bitAnd(255L)
 			}
 		} {
-			(self < 0).if {
-				(-256 - self.bitShift(-8) + 1).digitAt(n - 1)
+			(value < 0L).if {
+				(-256L - value.bitShift(-8L) + 1L).digitAt(n - 1L)
 			} {
-				self.bitShift(8 - n.bitShift(3)).bitAnd(255)
+				value.bitShift(8L - n.bitShift(3L)).bitAnd(255L)
 			}
 		}
 	}
 
 	digitLength { :self |
-		let value = self;
-		let length = 1;
-		(value < -255).ifTrue {
-			length := 2;
-			value := (-256 - self.bitShift(-8)) + 1
+		let value = Integer(self);
+		let length = 1L;
+		(value < -255L).ifTrue {
+			length := 2L;
+			value := (-256L - self.bitShift(-8L)) + 1L
 		};
 		{
-			value > 255
+			value > 255L
 		}.whileTrue {
-			value := value.bitShift(-8);
-			length := length + 1
+			value := value.bitShift(-8L);
+			length := length + 1L
 		};
 		length
 	}
@@ -1865,10 +1875,10 @@
 
 	binaryRunLengthDecode { :self |
 		self.isEmpty.if {
-			0
+			0L
 		} {
 			let k = self.size;
-			let b = [1 0].reshape([k]);
+			let b = [1L 0L].reshape([k]);
 			b.replicate(self).binaryContraction
 		}
 	}
@@ -1972,12 +1982,12 @@
 	akiyamaTanigawaFunction { :self |
 		self.cached('akiyamaTanigawaFunction') {
 			let a/2 = { :n :m |
-				(n = 0).if {
-					Fraction(1, m + 1)
+				(n = 0L).if {
+					1L / (m + 1L)
 				} {
-					(m + 1) * (a(n - 1, m) - a(n - 1, m + 1))
+					(m + 1L) * (a(n - 1L, m) - a(n - 1L, m + 1L))
 				}
-			}.memoize(true);
+			}.memoize(false);
 			a/2
 		}
 	}
@@ -1988,7 +1998,7 @@
 
 	akiyamaTanigawaNumber { :n :m |
 		let f/2 = system.akiyamaTanigawaFunction;
-		f(n, m)
+		f(Integer(n), Integer(m))
 	}
 
 }

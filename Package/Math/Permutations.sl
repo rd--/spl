@@ -13,7 +13,7 @@ Permutation : [Object, Store, Equal] {
 		} {
 			let answer = List(length, nil);
 			let indices = self.list(length);
-			1.toDo(length) { :i |
+			1L.toDo(length) { :i |
 				answer[indices[i]] := aSequence[i]
 			};
 			answer
@@ -24,8 +24,8 @@ Permutation : [Object, Store, Equal] {
 		let p = self.list;
 		let k = p.size;
 		let answer = [];
-		1.toDo(k - 1) { :i |
-			aBlock(p[i], p[i + 1]).ifTrue {
+		1L.toDo(k - 1L) { :i |
+			aBlock(p[i], p[i + 1L]).ifTrue {
 				answer.add!(i)
 			}
 		};
@@ -51,15 +51,17 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	dictionary { :self |
-		1.toCollect(self.degree) { :i |
-			i -> self.image(i)
-		}.Map
+		Dictionary(
+			1L.toCollect(self.degree) { :i |
+				i -> self.image(i)
+			}
+		)
 	}
 
 	[fixedPoints, permutationFixedPoints] { :self |
-		let support = self.support.IdentitySet;
+		let support = Set(self.support, =);
 		let answer = [];
-		1.toDo(self.degree) { :each |
+		1L.toDo(self.degree) { :each |
 			support.includes(each).ifFalse {
 				answer.add!(each)
 			}
@@ -93,8 +95,8 @@ Permutation : [Object, Store, Equal] {
 		withReturn { :return/1 |
 			self.cycles.do { :each |
 				let i = each.indexOf(anInteger);
-				(i > 0).ifTrue {
-					each.atWrap(i + 1).return
+				(i > 0L).ifTrue {
+					each.atWrap(i + 1L).return
 				}
 			};
 			anInteger
@@ -111,12 +113,12 @@ Permutation : [Object, Store, Equal] {
 		let list = self.list;
 		let n = list.size;
 		let answer = List(n, nil);
-		1.toDo(n) { :i |
+		1L.toDo(n) { :i |
 			let j = list.indexOf(i);
-			let c = 0;
-			1.toDo(j) { :k |
+			let c = 0L;
+			1L.toDo(j) { :k |
 				(list[k] > i).ifTrue {
-					c := c + 1
+					c := c + 1L
 				}
 			};
 			answer[i] := c
@@ -127,9 +129,9 @@ Permutation : [Object, Store, Equal] {
 	inversions { :self |
 		let list = self.list;
 		let answer = [];
-		1.toDo(list.size) { :j |
+		1L.toDo(list.size) { :j |
 			let e = list[j];
-			1.toDo(j - 1) { :i |
+			1L.toDo(j - 1L) { :i |
 				(list[i] > e).ifTrue {
 					answer.add!([i j])
 				}
@@ -140,8 +142,8 @@ Permutation : [Object, Store, Equal] {
 
 	[isCyclic, isCyclicPermutation] { :self :anInteger |
 		let c = self.cycles;
-		(c.size = 1) & {
-			c[1].size = anInteger
+		(c.size = 1L) & {
+			c[1L].size = anInteger
 		}
 	}
 
@@ -161,7 +163,7 @@ Permutation : [Object, Store, Equal] {
 
 	isInvolution { :self |
 		self.cycles.allSatisfy { :each |
-			each.size <= 2
+			each.size <= 2L
 		}
 	}
 
@@ -169,7 +171,7 @@ Permutation : [Object, Store, Equal] {
 		let i = p.permutationMax;
 		let j = p.permutationLength;
 		(i = j) & {
-			p.list.isRotation([1 .. i])
+			p.list.isRotation([1L .. i])
 		}
 	}
 
@@ -185,11 +187,11 @@ Permutation : [Object, Store, Equal] {
 		let list = self.list;
 		let n = list.size;
 		let answer = List(n, nil);
-		1.toDo(n) { :i |
-			let c = 0;
-			1.toDo(i) { :k |
+		1L.toDo(n) { :i |
+			let c = 0L;
+			1L.toDo(i) { :k |
 				(list[k] > list[i]).ifTrue {
-					c := c + 1
+					c := c + 1L
 				}
 			};
 			answer[i] := c
@@ -217,8 +219,8 @@ Permutation : [Object, Store, Equal] {
 		let list = self.list(anInteger);
 		let answer = [];
 		list.do { :each |
-			let row = List(anInteger, 0);
-			row[each] := 1;
+			let row = List(anInteger, 0L);
+			row[each] := 1L;
 			answer.add!(row)
 		};
 		answer
@@ -230,7 +232,7 @@ Permutation : [Object, Store, Equal] {
 
 	[max, permutationMax] { :self |
 		self.isIdentity.if {
-			0
+			0L
 		} {
 			self.support.max
 		}
@@ -246,7 +248,7 @@ Permutation : [Object, Store, Equal] {
 
 	[order, permutationOrder] { :self |
 		self.isIdentity.if {
-			1
+			1L
 		} {
 			self.cycles.collect(size/1).lcm
 		}
@@ -268,7 +270,7 @@ Permutation : [Object, Store, Equal] {
 		let list = self.list;
 		let k = list.size;
 		let answer = [];
-		1.to(k).powerSetDo { :each |
+		1L.to(k).powerSetDo { :each |
 			let subsequence = list.atAll(each);
 			(subsequence.reducedPermutation = pattern).ifTrue {
 				answer.add!(each)
@@ -279,9 +281,9 @@ Permutation : [Object, Store, Equal] {
 
 	peaks { :self |
 		let p = self.list;
-		2.to(p.size - 1).select { :i |
-			p[i - 1] < p[i] & {
-				p[i] > p[i + 1]
+		2L.to(p.size - 1L).select { :i |
+			p[i - 1L] < p[i] & {
+				p[i] > p[i + 1L]
 			}
 		}
 	}
@@ -304,7 +306,7 @@ Permutation : [Object, Store, Equal] {
 
 	rank { :self |
 		let c = self.rightInversionCount;
-		let r = self.degree.toBy(1, -1);
+		let r = self.degree.toBy(1L, -1L);
 		c.mixedRadixDecode(r)
 	}
 
@@ -319,8 +321,8 @@ Permutation : [Object, Store, Equal] {
 	reducedWordsDo { :self :aBlock/1 |
 		let f = { :p |
 			let isIdentity = true;
-			1.toDo(p.size - 1) { :d |
-				let e = d + 1;
+			1L.toDo(p.size - 1L) { :d |
+				let e = d + 1L;
 				(p[d] > p[e]).ifTrue {
 					isIdentity := false;
 					p.swapWith!(d, e);
@@ -352,11 +354,11 @@ Permutation : [Object, Store, Equal] {
 		let list = self.list;
 		let n = list.size;
 		let answer = List(n, nil);
-		1.toDo(n) { :i |
-			let c = 0;
-			(i + 1).toDo(n) { :k |
+		1L.toDo(n) { :i |
+			let c = 0L;
+			(i + 1L).toDo(n) { :k |
 				(list[k] < list[i]).ifTrue {
-					c := c + 1
+					c := c + 1L
 				}
 			};
 			answer[i] := c
@@ -373,7 +375,7 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	signature { :self |
-		-1 ^ self.inversions.size
+		-1L ^ self.inversions.size
 	}
 
 	stackSort { :self |
@@ -493,7 +495,7 @@ Permutation : [Object, Store, Equal] {
 		p.isPermutationList & {
 			let k = p.size;
 			let q = p.differences.abs.sort;
-			q = [1 .. k - 1]
+			q = [1L .. k - 1L]
 		}
 	}
 
@@ -503,14 +505,14 @@ Permutation : [Object, Store, Equal] {
 
 	isPermutationCycles { :self |
 		self.isEmpty | {
-			(self.depth = 3) & {
+			(self.depth = 3L) & {
 				let entries = self.catenate;
 				entries.allSatisfy { :each |
 					each.isIntegerValuedNumber & {
 						each.isPositive
 					}
 				} & {
-					entries.isDuplicateFree(==)
+					entries.isDuplicateFree(=)
 				}
 			}
 		}
@@ -522,7 +524,7 @@ Permutation : [Object, Store, Equal] {
 		} {
 			let ascending = self.sort;
 			ascending.isArithmeticProgression & {
-				ascending.first = 1 & {
+				ascending.first = 1L & {
 					ascending.last = self.size
 				}
 			}
@@ -583,8 +585,8 @@ Permutation : [Object, Store, Equal] {
 	minimumChangePermutationsDo { :self :aBlock/1 |
 		let a = self.copy;
 		let n = a.size;
-		let c = List(n, 1);
-		let i = 2;
+		let c = List(n, 1L);
+		let i = 2L;
 		let swap = { :i :j |
 			let t = a[i];
 			a[i] := a[j];
@@ -596,16 +598,16 @@ Permutation : [Object, Store, Equal] {
 		}.whileTrue {
 			(c[i] < i).if {
 				i.isOdd.if {
-					swap(1, i)
+					swap(1L, i)
 				} {
 					swap(c[i], i)
 				};
 				aBlock(a);
-				c[i] := c[i] + 1;
-				i := 2
+				c[i] := c[i] + 1L;
+				i := 2L
 			} {
-				c[i] := 1;
-				i := i + 1
+				c[i] := 1L;
+				i := i + 1L
 			}
 		}
 	}
@@ -619,45 +621,45 @@ Permutation : [Object, Store, Equal] {
 		let n = self.size;
 		let k = n;
 		{
-			k > 1 & {
-				self[k - 1] >= self[k]
+			k > 1L & {
+				self[k - 1L] >= self[k]
 			}
 		}.whileTrue {
-			k := k - 1
+			k := k - 1L
 		};
-		k := k - 1;
-		(k = 0).if {
+		k := k - 1L;
+		(k = 0L).if {
 			nil
 		} {
 			let l = n;
 			{
 				self[l] <= self[k]
 			}.whileTrue {
-				l := l - 1
+				l := l - 1L
 			};
 			swap(k, l);
-			k := k + 1;
+			k := k + 1L;
 			l := n;
 			{
 				l > k
 			}.whileTrue {
 				swap(k, l);
-				l := l - 1;
-				k := k + 1
+				l := l - 1L;
+				k := k + 1L
 			};
 			self
 		}
 	}
 
 	nthLexicographicPermutation { :self :n |
-		let index = 1;
+		let index = 1L;
 		let answer = nil;
 		self.lexicographicPermutationsDo { :each |
 			(index = n).if {
 				answer := each.copy;
 				false
 			} {
-				index := index + 1;
+				index := index + 1L;
 				true
 			}
 		};
@@ -666,10 +668,10 @@ Permutation : [Object, Store, Equal] {
 
 	partialInversePermutation { :self |
 		let m = self.min;
-		(m = 1).if {
-			let u = 1.to(Infinity);
-			let x = self.minimumExcludedValue(u) - 1;
-			1.toCollect(x) { :i |
+		(m = 1L).if {
+			let u = 1L.to(Infinity);
+			let x = self.minimumExcludedValue(u) - 1L;
+			1L.toCollect(x) { :i |
 				self.indexOfIfAbsent(i) { nil }
 			}
 		} {
@@ -698,13 +700,13 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	permutationCyclesToPermutationList { :self :anInteger |
-		(anInteger = 0).if {
+		(anInteger = 0L).if {
 			[]
 		} {
 			let answer = anInteger.iota;
 			self.do { :each |
-				1.toDo(each.size) { :index |
-					answer[each[index]] := each.atWrap(index + 1)
+				1L.toDo(each.size) { :index |
+					answer[each[index]] := each.atWrap(index + 1L)
 				}
 			};
 			answer
@@ -714,7 +716,7 @@ Permutation : [Object, Store, Equal] {
 	permutationDegree { :self |
 		self.isPermutationCycles.if {
 			self.isEmpty.if {
-				0
+				0L
 			} {
 				self.catenate.max
 			}
@@ -772,9 +774,9 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	permutationListToPermutationCycles { :self :deleteUnaryCycles |
-		let visited = IdentitySet();
+		let visited = SortedSet();
 		let answer = [];
-		1.toDo(self.size) { :each |
+		1L.toDo(self.size) { :each |
 			visited.includes(each).ifFalse {
 				let cycle = self.permutationListToPermutationCycle(each);
 				visited.addAll!(cycle);
@@ -783,7 +785,7 @@ Permutation : [Object, Store, Equal] {
 		};
 		deleteUnaryCycles.if {
 			answer.reject { :each |
-				each.size = 1
+				each.size = 1L
 			}
 		} {
 			answer
@@ -819,7 +821,7 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	permutationPower { :self :anInteger |
-		(anInteger = 0).if {
+		(anInteger = 0L).if {
 			Permutation(self.permutationDegree.iota)
 		} {
 			Permutation(self) ^ anInteger
@@ -831,7 +833,7 @@ Permutation : [Object, Store, Equal] {
 		entries.isEmpty.if {
 			[].cycles
 		} {
-			(entries.size = 1).if {
+			(entries.size = 1L).if {
 				entries.first
 			} {
 				entries.reduce(times/2)
@@ -857,9 +859,9 @@ Permutation : [Object, Store, Equal] {
 
 	permutationSymbol { :self |
 		self.isPermutationList.if {
-			-1 ^ self.permutationInversions.size
+			-1L ^ self.permutationInversions.size
 		} {
-			0
+			0L
 		}
 	}
 
@@ -878,7 +880,7 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	permutationsDo { :self :aBlock/1 |
-		self.copy.permutationsStartingAtDo(1, aBlock/1)
+		self.copy.permutationsStartingAtDo(1L, aBlock/1)
 	}
 
 	permutationsStartingAtDo { :self :anInteger :aBlock/1 |
@@ -888,7 +890,7 @@ Permutation : [Object, Store, Equal] {
 			} {
 				anInteger.toDo(self.size) { :index |
 					self.swapWith!(anInteger, index);
-					self.permutationsStartingAtDo(anInteger + 1, aBlock/1);
+					self.permutationsStartingAtDo(anInteger + 1L, aBlock/1);
 					self.swapWith!(anInteger, index)
 				}
 			}
@@ -912,7 +914,7 @@ Permutation : [Object, Store, Equal] {
 		let p = self.copy;
 		let q = self.copy;
 		let n = p.size;
-		let d = List(n, -1);
+		let d = List(n, -1L);
 		let move = { :x :y |
 			let z = p[q[x] + y];
 			p[q[x]] := z;
@@ -924,15 +926,15 @@ Permutation : [Object, Store, Equal] {
 			(i > n).if {
 				aBlock(p)
 			} {
-				perm(i + 1);
-				(i - 1).timesRepeat {
+				perm(i + 1L);
+				(i - 1L).timesRepeat {
 					move(i, d[i]);
-					perm(i + 1)
+					perm(i + 1L)
 				};
-				d[i] := 0 - d[i]
+				d[i] := 0L - d[i]
 			}
 		};
-		perm(1);
+		perm(1L);
 		nil
 	}
 
@@ -956,7 +958,7 @@ Permutation : [Object, Store, Equal] {
 	rightInversionCountToPermutationList { :self |
 		let list = self.size.iota;
 		self.collect { :each |
-			list.removeAt!(each + 1)
+			list.removeAt!(each + 1L)
 		}
 	}
 
@@ -964,7 +966,7 @@ Permutation : [Object, Store, Equal] {
 		self.isPermutationList.if {
 			Permutation(self).signature
 		} {
-			0
+			0L
 		}
 	}
 
@@ -1003,8 +1005,8 @@ Permutation : [Object, Store, Equal] {
 +@Integer {
 
 	bitReversalPermutation { :k |
-		let n = 2 ^ k - 1;
-		0.toCollect(n) { :i |
+		let n = 2L ^ k - 1L;
+		0L.toCollect(n) { :i |
 			i.bitReverse(k)
 		} + 1
 	}
@@ -1021,11 +1023,11 @@ Permutation : [Object, Store, Equal] {
 			]
 		);
 		let f/1 = { :n |
-			(n = 1).if {
-				[[1]]
+			(n = 1L).if {
+				[[1L]]
 			} {
-				f(n - 1).collect { :x |
-					[1 .. n].reorder.collect { :i |
+				f(n - 1L).collect { :x |
+					[1L .. n].reorder.collect { :i |
 						let y = x.copy;
 						y.insertAt!(n, i);
 						y
@@ -1042,12 +1044,12 @@ Permutation : [Object, Store, Equal] {
 
 	permutationUnrank { :rank :degree |
 		rank.mixedRadixEncode(
-			degree.toBy(1, -1)
+			degree.toBy(1L, -1L)
 		).rightInversionCountToPermutation
 	}
 
 	[plainChanges, steinhausJohnsonTrotter] { :self |
-		(self < 1).if {
+		(self < 1L).if {
 			self.error('@Integer>>plainChanges: n < 1')
 		} {
 			self.iota.plainChanges
@@ -1055,7 +1057,7 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	reversalPermutation { :n :b |
-		[0 .. b ^ n - 1].collect { :i |
+		[0L .. b ^ n - 1].collect { :i |
 			i.integerReverse(b, n) + 1
 		}
 	}
@@ -1065,7 +1067,7 @@ Permutation : [Object, Store, Equal] {
 +List {
 
 	multisetPermutations { :self |
-		(self.size = 1).if {
+		(self.size = 1L).if {
 			[self]
 		} {
 			let answer = [];
@@ -1086,7 +1088,7 @@ Permutation : [Object, Store, Equal] {
 		let n = self.size;
 		let l = LinkedList(self.sort(succeeds/2));
 		let h = l.firstLink;
-		let i = l.linkAt(n - 1);
+		let i = l.linkAt(n - 1L);
 		let j = l.lastLink;
 		visit(h);
 		{
@@ -1120,20 +1122,28 @@ Permutation : [Object, Store, Equal] {
 +Float {
 
 	mahonianNumber { :n :k |
-		(n = 0 & { k = 0 }).if {
-			1
+		(
+			n = 0L & {
+				k = 0L
+			}
+		).if {
+			1L
 		} {
-			(n = -1).if {
-				0
+			(n = -1L).if {
+				0L
 			} {
-				let m = n * (n - 1) / 2;
-				(k >= 0 & { k <= m }).if {
-					let a = mahonianNumber(n, k - 1);
-					let b = mahonianNumber(n - 1, k);
-					let c = mahonianNumber(n - 1, k - n);
+				let m = n * (n - 1L) / 2L;
+				(
+					k >= 0L & {
+						k <= m
+					}
+				).if {
+					let a = mahonianNumber(n, k - 1L);
+					let b = mahonianNumber(n - 1L, k);
+					let c = mahonianNumber(n - 1L, k - n);
 					a + b - c
 				} {
-					0
+					0L
 				}
 			}
 		}

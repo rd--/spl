@@ -131,10 +131,10 @@ Reciprocal retains scale, unless it is zero:
 Division by integer:
 
 ```
->>> 3.1416D / 2
+>>> 3.1416D / 2L
 1.5708D
 
->>> 23 / 1.618D
+>>> 23L / 1.618D
 14.215D
 
 >>> (2.01D / 2, 2.01D * 0.5D)
@@ -363,26 +363,26 @@ Rounding:
 
 ```
 >>> 3.141D.round
-3.000D
+3D
 
 >>> -3.141D.round
--3.000D
+-3D
 
 >>> [-0.500D 0.500D].round
-[-1.000D 1.000D]
+[-1D 1D]
 
 >>> 3.141D.floor
-3.000D
+3D
 
 >>> 3.141D.ceiling
-4.000D
+4D
 ```
 
 Truncating:
 
 ```
 >>> [-0.500D 0.500D].truncate
-[0 0]
+[0L 0L]
 
 >>> [-0.500D 0.500D].truncateScale(0)
 [0D 0D]
@@ -459,13 +459,13 @@ At `Float`:
 At `Integer`:
 
 ```
->>> Decimal(2L ^ 54 - 1, 0)
+>>> Decimal(2L ^ 54L - 1L, 0L)
 18014398509481983D
 
->>> Decimal(23L ^ 23, 0)
+>>> Decimal(23L ^ 23L, 0L)
 20880467999847912034355032910567D
 
->>> Decimal(23, 23)
+>>> Decimal(23L, 23L)
 23.00000000000000000000000D
 ```
 

@@ -7,7 +7,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 	}
 
 	concisePrintString { :self |
-		self.rangeLiteralSyntaxString
+		self.literalPrintStringUsing(concisePrintString/1)
 	}
 
 	elementType { :self |
@@ -15,7 +15,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 	}
 
 	empty { :unused |
-		Range(1, 0, 1, 0)
+		Range(1L, 0L, 1L, 0L)
 	}
 
 	isEqualBy { :self :operand :aBlock/2 |
@@ -70,24 +70,24 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 		}
 	}
 
-	rangeLiteralSyntaxString { :self |
+	literalPrintStringUsing { :self :aBlock/1 |
 		(
-			self.step = 1 & {
+			self.step.isOne & {
 				self.isEmpty.not
 			}
 		).if {
 			'%:%'.format(
 				[
-					self.start,
-					self.stop
+					aBlock(self.start),
+					aBlock(self.stop)
 				]
 			)
 		} {
 			'%:%:%'.format(
 				[
-					self.start.printString,
-					self.step.printString,
-					self.stop.printString
+					aBlock(self.start),
+					aBlock(self.step),
+					aBlock(self.stop)
 				]
 			)
 		}
@@ -99,7 +99,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 		} {
 			let removed = self.start;
 			self.start := self.start + self.step;
-			self.size := self.size - 1;
+			self.size := self.size - 1L;
 			removed
 		}
 	}
@@ -110,7 +110,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 		} {
 			let removed = self.stop;
 			self.stop := self.stop - self.step;
-			self.size := self.size - 1;
+			self.size := self.size - 1L;
 			removed
 		}
 	}
@@ -123,7 +123,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 		let start = self.start;
 		self.start := self.last;
 		self.stop := start;
-		self.step := 0 - self.step;
+		self.step := 0L - self.step;
 		self
 	}
 
@@ -132,7 +132,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 	}
 
 	sort! { :self |
-		(self.step < 0).ifTrue {
+		(self.step < 0L).ifTrue {
 			self.reverse!
 		};
 		self
@@ -179,23 +179,23 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 	}
 
 	[Range, to] { :from :to |
-		Range(from, to, 1)
+		Range(from, to, 1L)
 	}
 
 	inferredRangeSize { :start :stop :step |
-		let k = (stop - start).quotient(step) + 1;
+		let k = (stop - start).quotient(step) + 1L;
 		k.isFinite.ifTrue {
-			k := k.normalInteger
+			k := Integer(k)
 		};
-		(step < 0).if {
+		(step < 0L).if {
 			(start < stop).if {
-				0
+				0L
 			} {
 				k
 			}
 		} {
 			(stop < start).if {
-				0
+				0L
 			} {
 				k
 			}
@@ -213,7 +213,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 	}
 
 	listRange { :from :to |
-		let by = 1;
+		let by = 1L;
 		listRange(from, to, by)
 	}
 
@@ -246,9 +246,9 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 			self,
 			stop,
 			(self <= stop).if {
-				1
+				1L
 			} {
-				-1
+				-1L
 			}
 		)
 	}
@@ -264,7 +264,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 	}
 
 	[Range, to] { :start :stop |
-		Range(start, stop, 1)
+		Range(start, stop, 1L)
 	}
 
 	listRange { :from :to :by |
@@ -274,8 +274,8 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 	}
 
 	listRange { :from :to |
-		let by = 1;
-		listRange(from, to, 1)
+		let by = 1L;
+		listRange(from, to, by)
 	}
 
 	listThenTo { :from :then :to |
@@ -289,7 +289,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 	}
 
 	nonEmptyRange { :start :stop |
-		nonEmptyRange(start, stop, 1)
+		nonEmptyRange(start, stop, 1L)
 	}
 
 	upOrDownTo { :start :stop |
@@ -304,10 +304,10 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 		(
 			start.isFinite & {
 				stop.isFinite & {
-					step != 0 & {
+					step.isZero.not & {
 						size.isFinite
 					} & {
-						let calculatedStop = start + (step * (size - 1));
+						let calculatedStop = start + (step * (size - 1L));
 						calculatedStop.isVeryClose(stop)
 					}
 				}

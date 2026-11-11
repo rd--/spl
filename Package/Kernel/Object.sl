@@ -34,8 +34,12 @@
 		self.error('@Object>>caseOfError: case not found and no otherwise clause')
 	}
 
-	concisePrintString { :self |
+	abbreviatedPrintString { :self |
 		self.typeName.withIndefiniteArticle
+	}
+
+	concisePrintString { :self |
+		self.printString
 	}
 
 	constant { :self :argumentCount |

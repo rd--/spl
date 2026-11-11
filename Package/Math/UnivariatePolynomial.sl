@@ -374,12 +374,12 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 	bellB { :n |
 		(n = 0).if {
-			UnivariatePolynomial([1])
+			UnivariatePolynomial([1L])
 		} {
-			1.to(n).sum { :k |
-				let x = UnivariatePolynomial([0 1]);
-				let c = UnivariatePolynomial([binomial(n - 1, k - 1)]);
-				x * c * bellB(k - 1)
+			1L.to(n).sum { :k |
+				let x = UnivariatePolynomial([0L 1L]);
+				let c = UnivariatePolynomial([integerBinomial(n - 1L, k - 1L)]);
+				x * c * bellB(k - 1L)
 			}
 		}
 	}
@@ -540,8 +540,8 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 	cachedCyclotomic { :self |
 		self.cached('cyclotomic') {
-			Map(
-				[1 -> UnivariatePolynomial([-1 1])]
+			Dictionary(
+				[1L -> UnivariatePolynomial([-1L 1L])]
 			)
 		}
 	}
@@ -555,15 +555,17 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		c.includesKey(self).if {
 			c.at(self)
 		} {
-			let p = (self = 0).if {
-				UnivariatePolynomial([1])
+			let p = (self = 0L).if {
+				UnivariatePolynomial([1L])
 			} {
 				self.isPrime.if {
 					UnivariatePolynomial(
-						List(self, 1)
+						List(self, 1L)
 					)
 				} {
-					let p = UnivariatePolynomial([-1] ++ List(self - 1, 0) ++ [1]);
+					let p = UnivariatePolynomial(
+						[-1L] ++ List(self - 1L, 0L) ++ [1L]
+					);
 					self.divisors.allButLast.do { :d |
 						p := p.quotient(d.cyclotomic)
 					};
@@ -578,29 +580,29 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 	legendreP { :self |
 		self.caseOf(
 			[
-				0 -> { UnivariatePolynomial([1]) },
-				1 -> { UnivariatePolynomial([0 1]) }
+				0L -> { UnivariatePolynomial([1L]) },
+				1L -> { UnivariatePolynomial([0L 1L]) }
 			]
 		) {
-			let n = self - 1;
-			let a = UnivariatePolynomial([0, (2 * n) + 1]);
+			let n = self - 1L;
+			let a = UnivariatePolynomial([0L, (2L * n) + 1L]);
 			let b = legendreP(n);
-			let c = legendreP(n - 1);
-			let d = 1 / (n + 1);
+			let c = legendreP(n - 1L);
+			let d = 1L / (n + 1L);
 			((a * b) - (c * n)) * d
 		}
 	}
 
 	lucasPolynomial { :n |
-		(n = 0).if {
-			Polynomial([2])
+		(n = 0L).if {
+			Polynomial([2L])
 		} {
-			(n = 1).if {
-				Polynomial([0 1])
+			(n = 1L).if {
+				Polynomial([0L 1L])
 			} {
-				let a = lucasPolynomial(n - 1);
-				let b = lucasPolynomial(n - 2);
-				(a * Polynomial([0 1])) + b
+				let a = lucasPolynomial(n - 1L);
+				let b = lucasPolynomial(n - 2L);
+				(a * Polynomial([0L 1L])) + b
 			}
 		}
 	}
