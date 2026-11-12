@@ -254,8 +254,8 @@ Plot parity:
 
 ~~~spl svg=B
 { :n :m |
-	stirlingS2(n, m) % 2
-}.table(2L:23, 2:23).matrixPlot
+	stirlingS2(n, m) % 2L
+}.table(2L:23L, 2L:23L).matrixPlot
 ~~~
 
 ![](Help/Image/stirlingS2-B.svg)

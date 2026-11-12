@@ -2,6 +2,16 @@
 
 +@Integer {
 
+	ramanujansSum { :q :n |
+		1.to(q).sum { :a |
+			(a.gcd(q) = 1).if {
+				(2I.pi * (a / q) * n).exp
+			} {
+				0
+			}
+		}.real.round
+	}
+
 	additivePersistence { :x :b |
 		x.digitalRootSet(b, sum/1).second.size - 1
 	}
@@ -1792,7 +1802,7 @@
 
 	unitaryDivisors { :n |
 		n.divisors.select { :d |
-			d.gcd(n // d) = 1
+			d.gcd(n // d) = 1L
 		}
 	}
 

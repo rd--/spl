@@ -70,8 +70,8 @@ Shadow transform of _C(n+7,8)_,
 OEIS [A144869](https://oeis.org/A144869):
 
 ~~~spl svg=C oeis=A144869
-0:125.collect { :n |
-	binomial(n + 7, 8)
+0L:125L.collect { :n |
+	binomial(n + 7L, 8L)
 }.shadowTransform
 .scatterPlot
 ~~~

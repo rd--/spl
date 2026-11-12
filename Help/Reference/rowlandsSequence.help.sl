@@ -278,9 +278,9 @@ OEIS [A135506](https://oeis.org/A135506):
 OEIS [A361470](https://oeis.org/A361470):
 
 ~~~spl svg=H oeis=A361470
-let k = 100;
-1L.rowlandsSequence(k - 1, lcm/2)
-.gcd(2:k)
+let k = 100L;
+1L.rowlandsSequence(k - 1L, lcm/2)
+.gcd(2L:k)
 .scatterPlot.log
 ~~~
 

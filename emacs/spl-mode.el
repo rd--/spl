@@ -66,8 +66,11 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   (let ((rgx (concat "^" (region-or-thing-at-point 'symbol) "\\.help\\.sl$")))
     (spl-find-files (concat spl-directory "Help/") rgx)))
 
-(defvar spl-help-url-prefix "http://localhost/rd/index.cgi"
-  "The Spl help browser Url prefix.")
+(defvar spl-help-local-url-prefix "http://localhost/rd/index.cgi"
+  "The Spl local help browser Url prefix.")
+
+(defvar spl-help-remote-url-prefix "http://rohandrape.net/"
+  "The Spl remote help browser Url prefix.")
 
 (defun region-or-thing-at-point (thing)
   "Get region if selected, else thing at point."
@@ -78,17 +81,26 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
     (when bounds
       (buffer-substring-no-properties (car bounds) (cdr bounds)))))
 
-(defun spl-browse-help ()
+(defun spl-browse-help-at (prefix)
   "Lookup up the name at point in the Spl help files."
-  (interactive)
   (let* ((topic (region-or-thing-at-point 'symbol))
 	 (kind (if (string-match-p " " topic) "Guide" "Reference")))
     (browse-url
      (format
       "%s?t=spl&e=Help/%s/%s.help.sl"
-      spl-help-url-prefix
+      prefix
       kind
       topic))))
+
+(defun spl-browse-local-help ()
+  "Lookup up the name at point in the Spl help files."
+  (interactive)
+  (spl-browse-help-at spl-help-local-url-prefix))
+
+(defun spl-browse-remote-help ()
+  "Lookup up the name at point in the Spl help files."
+  (interactive)
+  (spl-browse-help-at spl-help-remote-url-prefix))
 
 (defun spl-insert-empty-at-quoted ()
   (interactive)
@@ -545,7 +557,7 @@ If the string begins with a doctest, also delete all non doctest lines."
   "Install Spl keybindings into MAP."
   (define-key map (kbd "C-c >") 'spl-see-spl)
   (define-key map (kbd "C-c C-h") 'spl-help)
-  (define-key map (kbd "C-c C-b") 'spl-browse-help)
+  (define-key map (kbd "C-c C-b") 'spl-browse-local-help)
   (define-key map (kbd "C-c C-a") 'spl-play-paragraph)
   (define-key map (kbd "C-c C-g") 'spl-draw-paragraph)
   (define-key map (kbd "C-c C-p") 'spl-print-promise)

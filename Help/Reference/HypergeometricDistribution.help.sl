@@ -9,12 +9,12 @@ containing _s_ successes.
 Probability mass function, varying _n_:
 
 ~~~spl svg=A
-0:32.functionPlot(
-	[10 20 50].collect { :n |
+0L:32L.functionPlot(
+	[10L 20L 50L].collect { :n |
 		HypergeometricDistribution(
 			n,
-			50,
-			100
+			50L,
+			100L
 		).pdf
 	}
 )
@@ -26,9 +26,9 @@ Generate a sample of pseudo-random numbers:
 
 ~~~spl svg=B
 let r = Sfc32(678324);
-HypergeometricDistribution(20, 50, 100)
-.randomVariate(r, 10 ^ 4)
-.histogramPlot([4.5 16.5 1])
+HypergeometricDistribution(20L, 50L, 100L)
+.randomVariate(r, 10L ^ 4L)
+.histogramPlot([4.5 16.5 1.0])
 ~~~
 
 ![](Help/Image/HypergeometricDistribution-B.svg)

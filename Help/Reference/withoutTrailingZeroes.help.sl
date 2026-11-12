@@ -43,7 +43,7 @@ OEIS [A008904](https://oeis.org/A008904):
 
 ~~~spl svg=A oeis=A008904
 let n = 0:65.!.withoutTrailingZeroes;
-(n % 10).stepPlot
+(n % 10L).stepPlot
 ~~~
 
 ![](Help/Image/withoutTrailingZeroes-A.svg)

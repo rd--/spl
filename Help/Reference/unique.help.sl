@@ -83,8 +83,8 @@ let a = [4];
 let b = [];
 16.timesRepeat {
 	let c = (a ++ b);
-	let d = c.unique(==);
-	let e = Multiset(c, ==).sortedElements;
+	let d = c.unique(=);
+	let e = Multiset(c, =).sortedElements;
 	let f = e.collect(value/1);
 	b.addAll!(d);
 	a.addAll!(f)

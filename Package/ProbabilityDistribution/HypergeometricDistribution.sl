@@ -16,11 +16,11 @@ HypergeometricDistribution : [Object, Equal, ProbabilityDistribution] {
 		let t = self.t;
 		{ :x |
 			(x > n).if {
-				0
+				0L
 			} {
-				binomial(s, x).L
-				* binomial(t - s, n - x).L
-				/ binomial(t, n).L
+				binomial(s, x)
+				* binomial(t - s, n - x)
+				/ binomial(t, n)
 			}
 		}
 	}
@@ -30,18 +30,18 @@ HypergeometricDistribution : [Object, Equal, ProbabilityDistribution] {
 			let n = self.n;
 			let s = self.s;
 			let t = self.t;
-			let x = 0;
+			let x = 0L;
 			{
 				let p = s / t;
 				let u = rng.nextRandomFloat;
 				(u < p).ifTrue {
-					x := x + 1;
-					s := s - 1
+					x := x + 1L;
+					s := s - 1L
 				};
-				p := p - 1;
-				n := n - 1
+				p := p - 1L;
+				n := n - 1L
 			}.doWhileTrue {
-				n > 0
+				n > 0L
 			};
 			x
 		} ! shape
@@ -49,7 +49,7 @@ HypergeometricDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[@Integer, Symbol] {
++[Integer, Symbol] {
 
 	HypergeometricDistribution { :n :s :t |
 		newHypergeometricDistribution().initializeSlots(n, s, t)

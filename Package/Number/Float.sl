@@ -835,16 +835,6 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		self.uncheckedPower(operand)
 	}
 
-	ramanujansSum { :q :n |
-		1.to(q).sum { :a |
-			(a.gcd(q) = 1).if {
-				(2I.pi * (a / q) * n).exp
-			} {
-				0
-			}
-		}.real.round
-	}
-
 	realDigits { :self :base :size |
 		(base != 10).if {
 			self.error('Float>>realDigits: not implemented unless base=10')
