@@ -360,10 +360,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		].stringIntercalate('J')
 	}
 
-	printStringToFixed { :self :k |
+	decimalStringToScale { :self :k |
 		[
-			self.real.printStringToFixed(k),
-			self.imaginary.printStringToFixed(k)
+			self.real.decimalStringToScale(k),
+			self.imaginary.decimalStringToScale(k)
 		].stringIntercalate('J')
 	}
 

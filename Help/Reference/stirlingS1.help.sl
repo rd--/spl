@@ -145,9 +145,9 @@ Numerators of Cauchy numbers of first type,
 OEIS [A006232](https://oeis.org/A006232):
 
 ```
->>> 0L:9.collect { :n |
->>> 	0:n.sum { :k |
->>> 		n.stirlingS1(k) / (k + 1)
+>>> 0L:9L.collect { :n |
+>>> 	0L:n.sum { :k |
+>>> 		n.stirlingS1(k) / (k + 1L)
 >>> 	}
 >>> }.numerator
 [1 1 -1 1 -19 9 -863 1375 -33953 57281]

@@ -2,6 +2,26 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	| numerator denominator |
 
+	realDigits { :self :base :size |
+		self.isZero.if {
+			[List(size, 0L), 1L]
+		} {
+			let x = self.abs;
+			let l = x.log(base).floor;
+			let a = x.floor.truncate;
+			let b = (a = 0L).if { [] } { a.integerDigits(base) };
+			let c = (x - a) * base;
+			let d = { :x |
+				let d = x.floor;
+				(x - d) * base
+			}.nestList(
+				c,
+				size - b.size - 1L
+			).floor.truncate;
+			[b ++ d, l + 1L]
+		}
+	}
+
 	[Complex, J] { :real :imaginary |
 		imaginary.isFraction.if {
 			uncheckedComplex(
@@ -13,7 +33,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
-	[Float, Float, fractionToFloat] { :self |
+	[Float, F, fractionToFloat] { :self |
 		Float(self.numerator)
 		/
 		Float(self.denominator)
@@ -119,18 +139,20 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	decimalExpansion { :self :places |
-		Decimal(self, places + 1).decimalExpansion.allButLast
+		Decimal(self, places + 1)
+		.decimalExpansion
+		.allButLast
 	}
 
 	decimalPeriod { :self |
 		let n = self.denominator;
-		powerMod(10, n, n).isZero.if {
-			0/1
+		powerMod(10L, n, n).isZero.if {
+			0L
 		} {
-			let a = 2L ^ n.integerExponent(2);
-			let b = 5L ^ n.integerExponent(5);
+			let a = 2L ^ integerExponent(n, 2L);
+			let b = 5L ^ integerExponent(n, 5L);
 			let c = n / a / b;
-			10.multiplicativeOrder(c)
+			multiplicativeOrder(10L, c)
 		}
 	}
 
@@ -302,7 +324,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	isRepeatingDecimal { :self |
-		self.decimalPeriod > 0
+		self.decimalPeriod > 0L
 	}
 
 	isSmallInteger { :self |
@@ -316,11 +338,13 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	isSuperparticular { :self |
-		self.numerator - 1 = self.denominator
+		self.numerator - 1L = self.denominator
 	}
 
 	isSuperpartient { :self |
-		self > 1 & { self.isSuperparticular.not }
+		self > 1L & {
+			self.isSuperparticular.not
+		}
 	}
 
 	isTerminatingDecimal { :self |
@@ -348,7 +372,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	limitDenominator { :self :maxDenominator |
-		(maxDenominator < 1).if {
+		(maxDenominator < 1L).if {
 			self.error('limitDenominator: illegal maxDenominator')
 		} {
 			(self.denominator <= maxDenominator).if {
@@ -620,8 +644,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	[storeString, storeStringLiteral] { :self |
 		[
-			self.numerator.uncheckedPrintStringWithRadix(10),
-			self.denominator.uncheckedPrintStringWithRadix(10)
+			self.numerator.integerString(10),
+			self.denominator.integerString(10)
 		].stringIntercalate('/')
 	}
 

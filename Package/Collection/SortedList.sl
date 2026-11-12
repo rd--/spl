@@ -97,14 +97,16 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 
 	occurrencesOf { :self :anObject |
 		let i = self.indexOf(anObject);
-		(i = 0).if {
-			0
+		(i = 0L).if {
+			0L
 		} {
 			let j = i;
 			let c = self.collection;
 			{
-				j := j - 1;
-				j > 0 & { c[j] = anObject }
+				j := j - 1L;
+				j > 0 & {
+					c[j] = anObject
+				}
 			}.whileTrue;
 			i - j
 		}

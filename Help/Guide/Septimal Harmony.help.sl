@@ -80,7 +80,7 @@ A table of useful unison vectors for septimal harmony:
 	[
 		e.commaSeparatedString,
 		r,
-		c.printStringToFixed(2)
+		c.decimalStringToScale(2)
 	]
 }.Table.htmlString
 ~~~

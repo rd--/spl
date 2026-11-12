@@ -26,7 +26,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 	}
 
 	degree { :self |
-		self.coefficientList.size - 1
+		self.coefficientList.size - 1L
 	}
 
 	discriminant { :self |
@@ -63,8 +63,8 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 	isNormal { :self |
 		self.isSymbolic | {
 			let c = self.coefficientList;
-			(c.size = 0) | {
-				c.last != 0
+			(c.size = 0L) | {
+				c.last != 0L
 			}
 		}
 	}
@@ -96,15 +96,15 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 	}
 
 	[negate, -] { :self |
-		self * -1
+		self * -1L
 	}
 
 	normalize { :self |
 		self.isSymbolic.not.ifTrue {
 			let c = self.coefficientList;
 			{
-				c.size > 0 & {
-					c.last = 0
+				c.size > 0L & {
+					c.last = 0L
 				}
 			}.whileTrue {
 				c.removeLast!
@@ -118,7 +118,9 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		let c2 = operand.coefficientList;
 		let n = c1.size.max(c2.size);
 		UnivariatePolynomial(
-			c1.padRight([n], 0) + c2.padRight([n], 0)
+			c1.padRight([n], 0L)
+			+
+			c2.padRight([n], 0L)
 		)
 	}
 
@@ -143,11 +145,11 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 	}
 
 	[power, ^] { :self :operand |
-		(operand = 0).if {
-			Polynomial([1])
+		(operand = 0L).if {
+			Polynomial([1L])
 		} {
 			let answer = self;
-			(operand - 1).timesRepeat {
+			(operand - 1L).timesRepeat {
 				answer := answer * self
 			};
 			answer
@@ -167,7 +169,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		{ remainder.degree >= denominatorDegree }.whileTrue {
 			let exponent = remainder.degree - denominatorDegree;
 			let coefficient = remainder.leadingCoefficient / denominatorLeadingCoefficient;
-			let temporary = UnivariatePolynomial(Map([[exponent, coefficient]]));
+			let temporary = UnivariatePolynomial(Dictionary([[exponent, coefficient]]));
 			quotient := quotient + temporary;
 			remainder := remainder - (temporary * denominator)
 		};
@@ -190,10 +192,12 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 	}
 
 	terms { :self |
-		let answer = Map();
+		let answer = Dictionary();
 		self.coefficientList.withIndexDo { :c :i |
-			(c != 0).ifTrue {
-				answer.add!((i - 1) -> c)
+			(c != 0L).ifTrue {
+				answer.add!(
+					(i - 1L) -> c
+				)
 			}
 		};
 		answer
@@ -205,10 +209,10 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 			let b = operand.coefficientList;
 			let m = a.size;
 			let n = b.size;
-			let c = List(m + n - 1, 0);
-			1.toDo(m) { :i |
-				1.toDo(n) { :j |
-					c[i + j - 1] := c[i + j - 1] + (a[i] * b[j])
+			let c = List(m + n - 1L, 0L);
+			1L.toDo(m) { :i |
+				1L.toDo(n) { :j |
+					c[i + j - 1L] := c[i + j - 1L] + (a[i] * b[j])
 				}
 			};
 			UnivariatePolynomial(c)
@@ -233,71 +237,73 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 	}
 
 	discriminant { :self |
-		(self.size - 1).caseOf([
-			1 -> { 1 },
-			2 -> {
-				let [c, b, a] = self;
-				b.square - (4 * a * c)
-			},
-			3 -> {
-				let [d, c, b, a] = self;
-				(b.square * c.square)
-				- (4 * a * c.cube)
-				- (4 * b.cube * d)
-				- (27 * a.square * d.square)
-				+ (18 * a * b * c * d)
-			},
-			4 -> {
-				/*
-				256a³e³
-				-192a²bde²
-				-128a²c²e²
-				+144a²cd²e
-				-27a²d⁴
-				+144ab²ce²
-				-6ab²d²e
-				-80abc²de
-				+18abcd³
-				+16ac⁴e
-				-4ac³d²
-				-27b⁴e²
-				+18b³cde
-				-4b³d³
-				-4b²c³e
-				+b²c²d²
-				*/
-				let [e, d, c, b, a] = self;
-				[
-					256 * a.cube * e.cube,
-					-192 * a.square * b * d * e.square,
-					-128 * a.square * c.square * e.square,
-					144 * a.square * c * d.square * e,
-					-27 * a.square * (d ^ 4),
-					144 * a * b.square * c * e.square,
-					-6 * a * b.square * d.square * e,
-					-80 * a * b * c.square * d * e,
-					18 * a * b * c * d.cube,
-					16 * a * (c ^ 4) * e,
-					-4 * a * c.cube * d.square,
-					-27 * (b ^ 4) * e.square,
-					18 * b.cube * c * d * e,
-					-4 * b.cube * d.cube,
-					-4 * b.square * c.cube * e,
-					1 * b.square * c.square * d.square
-				].sum
-			}
-		]) {
+		(self.size - 1L).caseOf(
+			[
+				1L -> { 1L },
+				2L -> {
+					let [c, b, a] = self;
+					b.square - (4L * a * c)
+				},
+				3L -> {
+					let [d, c, b, a] = self;
+					(b.square * c.square)
+					- (4L * a * c.cube)
+					- (4L * b.cube * d)
+					- (27L * a.square * d.square)
+					+ (18L * a * b * c * d)
+				},
+				4L -> {
+					/*
+						256a³e³
+						-192a²bde²
+						-128a²c²e²
+						+144a²cd²e
+						-27a²d⁴
+						+144ab²ce²
+						-6ab²d²e
+						-80abc²de
+						+18abcd³
+						+16ac⁴e
+						-4ac³d²
+						-27b⁴e²
+						+18b³cde
+						-4b³d³
+						-4b²c³e
+						+b²c²d²
+					*/
+					let [e, d, c, b, a] = self;
+					[
+						256L * a.cube * e.cube,
+						-192L * a.square * b * d * e.square,
+						-128L * a.square * c.square * e.square,
+						144L * a.square * c * d.square * e,
+						-27L * a.square * (d ^ 4),
+						144L * a * b.square * c * e.square,
+						-6L * a * b.square * d.square * e,
+						-80L * a * b * c.square * d * e,
+						18L * a * b * c * d.cube,
+						16L * a * (c ^ 4) * e,
+						-4L * a * c.cube * d.square,
+						-27L * (b ^ 4) * e.square,
+						18L * b.cube * c * d * e,
+						-4L * b.cube * d.cube,
+						-4L * b.square * c.cube * e,
+						1L * b.square * c.square * d.square
+					].sum
+				}
+			]
+		) {
 			self.error('discriminant: degree≠{1,2,3,4}')
 		}
 	}
 
 	evaluateUnivariatePolynomial { :coefficientList :x |
 		let n = coefficientList.size;
-		(n = 0).if {
-			0
+		(n = 0L).if {
+			0L
 		} {
 			let answer = coefficientList[n];
-			(n - 1).downToDo(1) { :i |
+			(n - 1L).downToDo(1L) { :i |
 				answer := x * answer + coefficientList[i]
 			};
 			answer
@@ -307,17 +313,39 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 	evaluateUnivariatePolynomialDirectForm { :coefficientList :x |
 		let c = coefficientList.reverse;
 		let n = coefficientList.size;
-		(n = 0).if {
-			0
+		(n = 0L).if {
+			0L
 		} {
-			let answer = c[1] * (x ^ (n - 1));
-			2.toDo(n) { :i |
+			let answer = c[1L] * (x ^ (n - 1L));
+			2L.toDo(n) { :i |
 				let m = c[i];
 				let j = n - i;
-				let t = (j = 0).if { 1 } { (j = 1).if { x } { x ^ (n - i) } };
-				let f/2 = (m < 0).if { - } { + };
-				(m != 0).ifTrue {
-					answer := f(answer, (m == 1).if { t } { (t == 1).if { m.abs } { m.abs * t } })
+				let t = (j = 0L).if {
+					1L
+				} {
+					(j = 1L).if {
+						x
+					} {
+						x ^ (n - i) }
+				};
+				let f/2 = (m < 0L).if {
+					-
+				} {
+					+
+				};
+				(m != 0L).ifTrue {
+					answer := f(
+						answer,
+						(m = 1L).if {
+							t
+						} {
+							(t = 1L).if {
+								m.abs
+							} {
+								m.abs * t
+							}
+						}
+					)
 				}
 			};
 			answer
@@ -327,15 +355,15 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 	lagrangeInterpolatingPolynomial { :c |
 		let n = c.size;
 		let [x, y] = c.transpose;
-		let p = List(n, UnivariatePolynomial([1]));
-		1.toDo(n) { :i |
-			1.toDo(n) { :j |
+		let p = List(n, UnivariatePolynomial([1L]));
+		1L.toDo(n) { :i |
+			1L.toDo(n) { :j |
 				(i = j).ifFalse {
-					let q = UnivariatePolynomial([0 - x[j], 1]);
+					let q = UnivariatePolynomial([0L - x[j], 1L]);
 					p[i] := p[i] * q
 				}
 			};
-			p[i] := p[i] * (1 / p[i].at(x[i]))
+			p[i] := p[i] * (1L / p[i].at(x[i]))
 		};
 		(p * y).sum
 	}
@@ -346,7 +374,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 }
 
-+Map {
++Dictionary {
 
 	Polynomial { :self |
 		let p = normalInteger/1.keyMap(self);
@@ -362,8 +390,8 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 	UnivariatePolynomial { :self |
 		let n = self.keys.max;
-		let c = 0.to(n).collect { :i |
-			self.atIfAbsent(i) { 0 }
+		let c = 0L.to(n).collect { :i |
+			self.atIfAbsent(i) { 0L }
 		};
 		UnivariatePolynomial(c)
 	}
@@ -373,7 +401,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 +@Integer {
 
 	bellB { :n |
-		(n = 0).if {
+		(n = 0L).if {
 			UnivariatePolynomial([1L])
 		} {
 			1L.to(n).sum { :k |
@@ -449,20 +477,20 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 	chebyshevPolynomial { :self :kind |
 		self.caseOf(
 			[
-				0 -> { UnivariatePolynomial([1]) },
-				1 -> { UnivariatePolynomial([0 kind]) }
+				0L -> { UnivariatePolynomial([1L]) },
+				1L -> { UnivariatePolynomial([0L kind]) }
 			]
 		) {
-			let n = self - 1;
-			let a = UnivariatePolynomial([0 2]);
+			let n = self - 1L;
+			let a = UnivariatePolynomial([0L 2L]);
 			let b = chebyshevPolynomial(n, kind);
-			let c = chebyshevPolynomial(n - 1, kind);
+			let c = chebyshevPolynomial(n - 1L, kind);
 			(a * b) - c
 		}
 	}
 
 	chebyshevT { :self |
-		self.chebyshevPolynomial(1)
+		self.chebyshevPolynomial(1L)
 	}
 
 	chebyshevT { :n :x |
@@ -470,20 +498,20 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 	}
 
 	chebyshevU { :self |
-		self.chebyshevPolynomial(2)
+		self.chebyshevPolynomial(2L)
 	}
 
 	quadraticEquationRoots { :a :b :c |
-		let d = sqrt((b ^ 2) - (4 * a * c));
-		(0 < b).if {
+		let d = sqrt((b ^ 2L) - (4L * a * c));
+		(0L < b).if {
 			[
-				(2 * c) / (0 - b - d),
-				(0 - b - d) / (2 * a)
+				(2L * c) / (0L - b - d),
+				(0L - b - d) / (2L * a)
 			]
 		} {
 			[
-				(0 - b + d) / (2 * a),
-				(2 * c) / (0 - b + d)
+				(0L - b + d) / (2L * a),
+				(2L * c) / (0L - b + d)
 			]
 		}
 	}
@@ -548,7 +576,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 }
 
-+@Integer {
++Integer {
 
 	cyclotomic { :self |
 		let c = system.cachedCyclotomic;
@@ -567,7 +595,9 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 						[-1L] ++ List(self - 1L, 0L) ++ [1L]
 					);
 					self.divisors.allButLast.do { :d |
-						p := p.quotient(d.cyclotomic)
+						p := p.quotient(
+							d.cyclotomic
+						)
 					};
 					p
 				}

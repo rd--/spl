@@ -29,14 +29,14 @@ The identity matrix is involutory:
 true
 ```
 
-The twenty-six length five permutation that give involutory matrices,
+The twenty-six out of one-hundred and twenty length five permutation that give involutory matrices,
 `involutionNumber` counts such matrices:
 
 ```
 >>> 5.involutionNumber
 26
 
->>> [1 .. 5].permutations
+>>> [1L .. 5L].permutations
 >>> .select { :p |
 >>> 	p.permutationMatrix
 >>> 	.isInvolutoryMatrix

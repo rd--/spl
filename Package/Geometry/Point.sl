@@ -44,9 +44,9 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 		let scaleFactor = options['scaleFactor'];
 		self.isPlanar.if {
 			'<circle cx="%" cy="%" r="%" />'.format([
-				self.coordinates[1].printStringToFixed(precision),
-				self.coordinates[2].printStringToFixed(precision),
-				(0.5 / scaleFactor).printStringToFixed(precision)
+				self.coordinates[1].decimalStringToScale(precision),
+				self.coordinates[2].decimalStringToScale(precision),
+				(0.5 / scaleFactor).decimalStringToScale(precision)
 			])
 		} {
 			self.error('svgFragment: not planar')

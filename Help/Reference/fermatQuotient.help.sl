@@ -66,7 +66,7 @@ The quotient with _a=2_ is known to be congruent to `zero` _(mod p)_ for only tw
 the Wieferich primes 1093 and 3511:
 
 ```
->>> [1093 3511].collect { :p |
+>>> [1093L 3511L].collect { :p |
 >>> 	2L.fermatQuotient(p) % p
 >>> }
 [0 0]

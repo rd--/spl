@@ -38,12 +38,12 @@ Threads over lists:
 ['10' '212' '1202']
 ```
 
-Show a single number in successive bases from 4 to 36:
+Show a single number in successive bases from 4 to 36,
+threads over lists:
 
 ```
->>> 4:36.collect { :b |
->>> 	20L.!.integerString(b)
->>> }
+>>> 20L.!
+>>> .integerString(4:36)
 [
 	'2013003121313302002231000000000'
 	'130402040313000221204440000'

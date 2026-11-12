@@ -2,7 +2,7 @@
 
 	asciiValue { :self |
 		let c = self.codePoint;
-		(c > 127).if {
+		(c > 127L).if {
 			self.error('asciiValue: not ascii')
 		} {
 			c
@@ -17,7 +17,7 @@
 
 	digitValue { :self |
 		let integerValue = self.codePoint;
-		system.digitValueTable[integerValue + 1]
+		system.digitValueTable[integerValue + 1L]
 	}
 
 	isAlphaNumeric { :self |
@@ -27,11 +27,11 @@
 	}
 
 	isApostrophe { :self |
-		self.codePoint = 39
+		self.codePoint = 39L
 	}
 
 	isAscii { :self |
-		self.codePoint < 128
+		self.codePoint < 128L
 	}
 
 	isBlank { :self |
@@ -41,19 +41,19 @@
 	}
 
 	isCarriageReturn { :self |
-		self.codePoint = 13
+		self.codePoint = 13L
 	}
 
 	isDigit { :self |
-		self.codePoint.isBetween(48, 57)
+		self.codePoint.isBetween(48L, 57L)
 	}
 
 	isFormFeed { :self |
-		self.codePoint = 12
+		self.codePoint = 12L
 	}
 
 	isGraveAccent { :self |
-		self.codePoint = 96
+		self.codePoint = 96L
 	}
 
 	isLetter { :self |
@@ -63,15 +63,15 @@
 	}
 
 	isLineFeed { :self |
-		self.codePoint = 10
+		self.codePoint = 10L
 	}
 
 	isLowerCase { :self |
-		self.codePoint.isBetween(97, 122)
+		self.codePoint.isBetween(97L, 122L)
 	}
 
 	isPrintableAscii { :self |
-		self.codePoint.isBetween(32, 126)
+		self.codePoint.isBetween(32L, 126L)
 	}
 
 	isPunctuation { :self |
@@ -79,11 +79,11 @@
 	}
 
 	isQuotationMark { :self |
-		self.codePoint = 34
+		self.codePoint = 34L
 	}
 
 	isReverseSolidus { :self |
-		self.codePoint = 92
+		self.codePoint = 92L
 	}
 
 	isSeparator { :self |
@@ -91,23 +91,25 @@
 	}
 
 	isSpace { :self |
-		self.codePoint = 32
+		self.codePoint = 32L
 	}
 
 	isStartOfHeading { :self |
-		self.codePoint = 1
+		self.codePoint = 1L
 	}
 
 	isTab { :self |
-		self.codePoint = 9
+		self.codePoint = 9L
 	}
 
 	isUpperCase { :self |
-		self.codePoint.isBetween(65, 90)
+		self.codePoint.isBetween(65L, 90L)
 	}
 
 	isVowel { :self |
-		[65 69 73 79 85].includes(self.toUpperCase.codePoint)
+		[65 69 73 79 85].includes(
+			self.toUpperCase.codePoint
+		)
 	}
 
 	morseCode { :self |
@@ -152,7 +154,7 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 
 	toLowerCase { :self |
 		self.isUpperCase.if {
-			(self.codePoint + 32).Character
+			Character(self.codePoint + 32L)
 		} {
 			self
 		}
@@ -160,7 +162,7 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 
 	toUpperCase { :self |
 		self.isLowerCase.if {
-			(self.codePoint - 32).Character
+			Character(self.codePoint - 32L)
 		} {
 			self
 		}
@@ -175,16 +177,19 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 +@Integer {
 
 	Character { :self |
-		Character(self.fromCodePoint, self)
+		Character(
+			self.fromCodePoint,
+			Integer(self)
+		)
 	}
 
 	digitCharacter { :self |
-		self.isBetween(0, 35).if {
+		self.isBetween(0L, 35L).if {
 			(
-				self + (self < 10).if {
-					48
+				self + (self < 10L).if {
+					48L
 				} {
-					55
+					55L
 				}
 			).fromCodePoint
 		} {
@@ -199,7 +204,10 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 	Character { :self :codePoint |
 		self.isCharacter.if {
 			system.characterDictionary.atIfAbsentPut!(self) {
-				newCharacter().initializeSlots(self, codePoint)
+				newCharacter().initializeSlots(
+					self,
+					Integer(codePoint)
+				)
 			}
 		} {
 			self.error('String>>Character: not character?')
@@ -207,7 +215,10 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 	}
 
 	Character { :self |
-		Character(self, self.codePoint)
+		Character(
+			self,
+			self.codePoint
+		)
 	}
 
 }
@@ -222,13 +233,13 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 
 	digitValueTable { :self |
 		self.cache.atIfAbsentPut!('digitValueTable') {
-			let answer = List(256, -1);
-			0.toDo(9) { :i |
-				answer[48 + i + 1] := i
+			let answer = List(256L, -1L);
+			0L.toDo(9L) { :i |
+				answer[48L + i + 1L] := i
 			};
-			10.toDo(35) { :i |
-				answer[55 + i + 1] := i;
-				answer[87 + i + 1] := i
+			10L.toDo(35L) { :i |
+				answer[55L + i + 1L] := i;
+				answer[87L + i + 1L] := i
 			};
 			answer
 		}
@@ -262,8 +273,8 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 	equalIgnoringExtraWhitespace { :a :b :f/1 |
 		let p = a.size;
 		let q = b.size;
-		let i = 1;
-		let j = 1;
+		let i = 1L;
+		let j = 1L;
 		let mismatch = false;
 		let isAtEnd = false;
 		{
@@ -274,11 +285,11 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 					f(a[i]) & { f(b[j]) }
 				}
 			).if {
-				i := i + 1;
-				j := j + 1
+				i := i + 1L;
+				j := j + 1L
 			} {
 				f(b[j]).if {
-					j := j + 1
+					j := j + 1L
 				} {
 					isAtEnd := true;
 					mismatch := true

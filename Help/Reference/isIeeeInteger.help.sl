@@ -6,11 +6,11 @@ Answer `true` if the `Float` _x_ is an integer,
 though it would answer `false` to `isInteger`.
 
 ```
->>> Float(2L ^ 54)
+>>> Float(2L ^ 54L)
 >>> .isIeeeInteger
 true
 
->>> Float(2L ^ 54)
+>>> Float(2L ^ 54L)
 >>> .isInteger
 false
 ```

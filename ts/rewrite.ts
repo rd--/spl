@@ -783,7 +783,7 @@ const asSl: ohm.ActionDict<string> = {
 		if (kStr.length === 0) {
 			kStr = 0;
 		}
-		return `Decimal(Fraction(${sStr}${iStr}L, 1L), ${kStr})`;
+		return `Decimal(Fraction(${sStr}${iStr}L, 1L), ${kStr}L)`;
 		/* return `parseDecimal('${sStr}${iStr}D${kStr}')`; */
 	},
 	lowercaseArityQualifiedIdentifier(c1, cN, ip, _solidus, a) {

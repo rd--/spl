@@ -66,8 +66,8 @@ false
 _2^54_ is accurately represented:
 
 ```
->>> let a = 2L ^ 54;
->>> let b = 2 ** 54;
+>>> let a = 2L ^ 54L;
+>>> let b = 2.0 ** 54.0;
 >>> (a = b, a == b)
 (true, false)
 
@@ -80,20 +80,20 @@ _2^54_ is accurately represented:
 _2^54_ and _20!_ are not uniquely represented:
 
 ```
->>> let a = Float(2L ^ 54);
->>> a = (a - 1)
+>>> let a = Float(2L ^ 54L);
+>>> a = (a - 1.0)
 true
 
->>> let a = (2L ^ 54);
->>> a = (a - 1)
+>>> let a = (2L ^ 54L);
+>>> a = (a - 1L)
 false
 
 >>> let a = Float(20L.!);
->>> a = (a - 1)
+>>> a = (a - 1.0)
 true
 
 >>> let a = 20L.!;
->>> a = (a - 1)
+>>> a = (a - 1L)
 false
 ```
 

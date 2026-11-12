@@ -197,10 +197,10 @@ OEIS [A105955](https://oeis.org/A105955):
 `findRepeat` agrees with `pisanoPeriod`:
 
 ```
->>> 1:67.allSatisfy { :n |
+>>> 1L:67L.allSatisfy { :n |
 >>> 	let m = n.pisanoPeriod;
->>> 	let k = m * 2 + 1;
->>> 	let x = 1:k.fibonacci;
+>>> 	let k = m * 2L + 1L;
+>>> 	let x = 1L:k.fibonacci;
 >>> 	let r = (x % n).findRepeat;
 >>> 	(r.size = m)
 >>> }
@@ -211,7 +211,7 @@ Number of different residues of _F(i)%n_ over all _i_,
 OEIS [A066853](https://oeis.org/A066853):
 
 ```
->>> 1:73.collect { :n |
+>>> 1L:73L.collect { :n |
 >>> 	let k = n.pisanoPeriod;
 >>> 	let f = k.fibonacciSequence;
 >>> 	(f % n).nub.size
@@ -232,7 +232,7 @@ Numbers _n_ such that the _mF(k,n)_ form the complete residue set,
 OEIS [A079002](https://oeis.org/A079002):
 
 ```
->>> 1:73.select { :n |
+>>> 1L:73L.select { :n |
 >>> 	let k = n.pisanoPeriod;
 >>> 	let f = k.fibonacciSequence;
 >>> 	(f % n).nub.size = n
@@ -258,7 +258,7 @@ OEIS [A105955](https://oeis.org/A105955) for _n=11_,
 OEIS [A089911](https://oeis.org/A089911) for _n=12_:
 
 ```
->>> 1:14.collect { :m |
+>>> 1L:14L.collect { :m |
 >>> 	let k = m.pisanoPeriod;
 >>> 	k.fibonacciSequence % m
 >>> }
@@ -309,7 +309,7 @@ Sum of the terms of the Pisano period mod _n_,
 OEIS [A214300](https://oeis.org/A214300):
 
 ```
->>> 1:14.collect { :m |
+>>> 1L:14L.collect { :m |
 >>> 	let k = m.pisanoPeriod;
 >>> 	(k.fibonacciSequence % m).sum
 >>> }
@@ -325,11 +325,11 @@ the number of _mod n_ operations in one cycle of the Fibonacci sequence modulo _
 OEIS [A088551](https://oeis.org/A088551):
 
 ```
->>> 2:27.collect { :n |
+>>> 2L:27L.collect { :n |
 >>> 	let p = n.pisanoPeriod;
->>> 	1:p.sum { :k |
+>>> 	1L:p.sum { :k |
 >>> 		k.fibonacci % n
->>> 	} / n
+>>> 	} // n
 >>> }
 [
 	 1  3  2  8 11  7  4 11 28  3
@@ -342,7 +342,8 @@ Pisano periods for primes: period of Fibonacci numbers _mod prime(n)_,
 OEIS [A060305](https://oeis.org/A060305):
 
 ```
->>> 1:59.prime.pisanoPeriod
+>>> 1:59.prime
+>>> .pisanoPeriod
 [
 	3 8 20 16 10
 	28 36 18 48 14
@@ -363,10 +364,10 @@ Number of zeros in fundamental period of Fibonacci numbers _mod n_,
 OEIS [A001176](https://oeis.org/A001176):
 
 ```
->>> 1:105.collect { :m |
+>>> 1L:105L.collect { :m |
 >>> 	let k = m.pisanoPeriod;
 >>> 	let a = k.fibonacciSequence % m;
->>> 	a.occurrencesOf(0)
+>>> 	a.occurrencesOf(0L)
 >>> }
 [
 	1 1 2 1 4 2 2 2 2 4 1 2 4 2 2 2 4 2 1 2
@@ -382,7 +383,7 @@ Irregular triangle of the set of residues of the Fibonacci sequence modulo _n_,
 OEIS [A189768](https://oeis.org/A189768):
 
 ```
->>> 1:17.collect { :m |
+>>> 1L:17L.collect { :m |
 >>> 	let k = m.pisanoPeriod;
 >>> 	(k.fibonacciSequence % m)
 >>> 	.unique(=)
@@ -412,9 +413,9 @@ Number of missing residues in Fibonacci sequence modulo _n_,
 OEIS [A118965](https://oeis.org/A118965):
 
 ```
->>> 1:72.collect { :m |
+>>> 1L:72L.collect { :m |
 >>> 	let k = m.pisanoPeriod;
->>> 	[0 .. m - 1].complement(
+>>> 	[0L .. m - 1L].complement(
 >>> 		(k.fibonacciSequence % m)
 >>> 		.unique(=)
 >>> 	).size
@@ -435,7 +436,8 @@ Number of distinct residues in Fibonacci sequence modulo _p(n)_,
 OEIS [A137750](https://oeis.org/A137750):
 
 ```
->>> 1:56.prime.collect { :m |
+>>> 1:56.prime
+>>> .collect { :m |
 >>> 	let k = m.pisanoPeriod;
 >>> 	(k.fibonacciSequence % m)
 >>> 	.unique(=).size
@@ -463,7 +465,8 @@ the sequence visits 24 of the 110 residues:
 >>> 110.pisanoPeriod
 60
 
->>> (60.fibonacciSequence % 110).unique(=)
+>>> (60.fibonacciSequence % 110L)
+>>> .unique(=)
 [
 	0 1 2 3 5
 	8 13 21 34 47
@@ -481,7 +484,7 @@ this is not unusual (Haek 2008):
 >>> 22.pisanoPeriod
 30
 
->>> let a = 30.fibonacciSequence % 22;
+>>> let a = 30.fibonacciSequence % 22L;
 >>> a.partition(2).transpose
 [
 	0 1 3 8 21 11 12 3 19 10 11 1 14 19 21;
@@ -495,7 +498,7 @@ A palindrome at the Fibonacci sequence modulo 84:
 >>> 84.pisanoPeriod
 48
 
->>> let a = 48.fibonacciSequence % 84;
+>>> let a = 48.fibonacciSequence % 84L;
 >>> a.partition(2).column(2)
 [
 	1 2 5 13 34 5 65 22 1 65 26 13
@@ -508,25 +511,25 @@ OEIS [A001179](https://oeis.org/A001179):
 
 ```
 >>> let ll = { :x :k |
->>> 	(x = 1).if {
+>>> 	(x = 1L).if {
 >>> 		k
 >>> 	} {
->>> 		ll(x // 5, k + 1)
+>>> 		ll(x // 5, k + 1L)
 >>> 	}
 >>> };
 >>> let a = Dictionary { :n |
->>> 	(n = 1).if {
->>> 		0
+>>> 	(n = 1L).if {
+>>> 		0L
 >>> 	} {
 >>> 		let p = n.pisanoPeriod;
 >>> 		(p = n).if {
->>> 			ll(p // 24, 1)
+>>> 			ll(p // 24, 1L)
 >>> 		} {
 >>> 			a[p]
 >>> 		}
 >>> 	}
 >>> };
->>> a[1 .. 72]
+>>> a[1L .. 72L]
 [
 	0 1 1 1 2 1 1 1 1 2 2 1 1 1 2 1 1 1 1 2
 	1 2 1 1 3 1 1 1 1 2 2 1 2 1 2 1 1 1 1 2
@@ -539,8 +542,8 @@ Integers k such that the Pisano period of _k_ equals _2(k+1)_,
 OEIS [A071774](https://oeis.org/A071774):
 
 ```
->>> 1:400.select { :k |
->>> 	let n = 2 * (k + 1);
+>>> 1L:400L.select { :k |
+>>> 	let n = 2L * (k + 1L);
 >>> 	k.pisanoPeriod = n
 >>> }
 [
@@ -563,11 +566,11 @@ OEIS [A001178](https://oeis.org/A001178):
 >>> 	(x = y).if {
 >>> 		j
 >>> 	} {
->>> 		f(j + 1, y)
+>>> 		f(j + 1L, y)
 >>> 	}
 >>> };
->>> 1:69.collect { :n |
->>> 	f(0, n)
+>>> 1L:69L.collect { :n |
+>>> 	f(0L, n)
 >>> }
 [
 	0 4 3 2 3 1 2 2 1 2 3 1 3 2 3 1 2 1 2 2
@@ -582,8 +585,8 @@ OEIS [A216067](https://oeis.org/A216067):
 
 ```
 >>> 2:75.prime.select { :p |
->>> 	[2 3].includes(p % 5) & {
->>> 		p.pisanoPeriod != (2 * (p + 1))
+>>> 	[2L 3L].includes(p % 5L) & {
+>>> 		p.pisanoPeriod != (2L * (p + 1L))
 >>> 	}
 >>> }
 [47 107 113 233 263 307 347 353]
@@ -602,7 +605,7 @@ Number of different residues for the Fibonacci numbers modulo _n_,
 OEIS [A066853](https://oeis.org/A066853):
 
 ~~~spl svg=B oeis=A066853
-1:125.collect { :n |
+1L:125L.collect { :n |
 	let k = n.pisanoPeriod;
 	let f = k.fibonacciSequence;
 	(f % n).nub.size
@@ -614,7 +617,7 @@ OEIS [A066853](https://oeis.org/A066853):
 First differences of Pisano periods:
 
 ~~~spl svg=C
-1:43.pisanoPeriod.differences
+1L:43L.pisanoPeriod.differences
 .discretePlot
 ~~~
 
@@ -624,7 +627,7 @@ Fixed point of Pisano period _n_,
 OEIS [A235249](https://oeis.org/A235249):
 
 ~~~spl svg=D oeis=A235249
-1:65.collect { :n |
+1L:65L.collect { :n |
 	pisanoPeriod/1
 	.fixedPoint(n, =)
 }.stepPlot.log
@@ -636,7 +639,7 @@ Table of the fundamental Pisano period of the Fibonacci sequence modulo _n_,
 OEIS [A161553](https://oeis.org/A161553):
 
 ~~~spl svg=E oeis=A161553
-1:13.collect { :m |
+1L:13L.collect { :m |
 	let k = m.pisanoPeriod;
 	k.fibonacciSequence % m
 }.catenate.scatterPlot
@@ -648,9 +651,9 @@ Number of missing residues in Fibonacci sequence modulo _n_,
 OEIS [A118965](https://oeis.org/A118965):
 
 ~~~spl svg=F oeis=A118965
-1:85.collect { :m |
+1L:85L.collect { :m |
 	let k = m.pisanoPeriod;
-	[0 .. m - 1].complement(
+	[0 .. m - 1L].complement(
 		(k.fibonacciSequence % m)
 		.unique(=)
 	).size
@@ -677,9 +680,9 @@ the number of _mod n_ operations in one cycle of the Fibonacci sequence modulo _
 OEIS [A088551](https://oeis.org/A088551):
 
 ~~~spl svg=H oeis=A088551
-2:77.collect { :n |
+2L:77L.collect { :n |
 	let p = n.pisanoPeriod;
-	1:p.sum { :k |
+	1L:p.sum { :k |
 		k.fibonacci % n
 	} / n
 }.discretePlot
@@ -690,10 +693,10 @@ OEIS [A088551](https://oeis.org/A088551):
 State space visualization of the Pisano period for _n=5_:
 
 ~~~spl svg=I
-let n = 5;
+let n = 5L;
 let k = n.pisanoPeriod;
-((k + 2).fibonacciSequence % n)
-.partition(2, 1)
+((k + 2L).fibonacciSequence % n)
+.partition(2L, 1L)
 .pathPlot
 ~~~
 

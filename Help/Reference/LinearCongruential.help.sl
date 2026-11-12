@@ -11,7 +11,7 @@ seed _s_.
 `LinearCongruential` implements `RandomNumberGenerator` and `Stream`:
 
 ```
->>> let rng = LinearCongruential([1 2 3], 4);
+>>> let rng = LinearCongruential([1 2 3], 4L);
 >>> (
 >>> 	rng.isLinearCongruential,
 >>> 	rng.isRandomNumberGenerator,
@@ -23,10 +23,10 @@ seed _s_.
 The first four states given parameters for the Knuth MMIX generator:
 
 ```
->>> let m = 2L ^ 64;
+>>> let m = 2L ^ 64L;
 >>> let a = 6364136223846793005L;
 >>> let c = 1442695040888963407L;
->>> let r = LinearCongruential([a c m], 1);
+>>> let r = LinearCongruential([a c m], 1L);
 >>> { r.nextState } ! 4
 [
 	 7806831264735756412L
@@ -39,7 +39,7 @@ The first four states given parameters for the Knuth MMIX generator:
 The first three random numbers given the seed _12345_:
 
 ```
->>> let s = 12345;
+>>> let s = 12345L;
 >>> numericalRecipesLinearCongruential(s)
 >>> .next(3)
 [0.15776 0.86476 0.89335]
@@ -49,7 +49,7 @@ Equal values on `reset`:
 
 ```
 >>> let k = 23;
->>> let s = 12345;
+>>> let s = 12345L;
 >>> let r = s.numericalRecipesLinearCongruential;
 >>> let x = r.next(k);
 >>> r.reset!;
@@ -61,7 +61,7 @@ The first few internal state values,
 OEIS [A385459](https://oeis.org/A385459):
 
 ```
->>> let r = numericalRecipesLinearCongruential(1);
+>>> let r = numericalRecipesLinearCongruential(1L);
 >>> { r.nextState } ! 35
 [
 	33450 104855  85336 132861  49430
@@ -77,7 +77,7 @@ OEIS [A385459](https://oeis.org/A385459):
 Plot random floating point numbers between `zero` and `one`:
 
 ~~~spl svg=A
-numericalRecipesLinearCongruential(98765)
+numericalRecipesLinearCongruential(98765L)
 .next(99)
 .linePlot
 ~~~
@@ -87,7 +87,7 @@ numericalRecipesLinearCongruential(98765)
 Plot histogram:
 
 ~~~spl svg=B
-numericalRecipesLinearCongruential(387912)
+numericalRecipesLinearCongruential(387912L)
 .next(10 ^ 4)
 .histogramPlot
 ~~~
@@ -97,7 +97,7 @@ numericalRecipesLinearCongruential(387912)
 Difference between empirical and expected mean and standard deviation:
 
 ```
->>> let r = numericalRecipesLinearCongruential(387912);
+>>> let r = numericalRecipesLinearCongruential(387912L);
 >>> let n = r.next(10 ^ 4);
 >>> (
 >>> 	0.5 - n.mean,

@@ -483,28 +483,28 @@
 
 	boustrophedonTriangle { :a |
 		let m = a.size;
-		let t = 1.to(m).triangularArray { :i :j |
+		let t = 1L.to(m).triangularArray { :i :j |
 			a[i]
 		};
-		1.to(m).triangularArrayDo(
+		1L.to(m).triangularArrayDo(
 			{ :k :n |
-				(n != 1).ifTrue {
-					t[k][n] := t[k][n - 1] + t[k - 1][k - n + 1]
+				(n != 1L).ifTrue {
+					t[k][n] := t[k][n - 1L] + t[k - 1L][k - n + 1L]
 				}
 			},
-			0
+			0L
 		);
 		t
 	}
 
 	iota { :shape :start :step |
 		let count = shape.product;
-		let end = start + (count - 1 * step);
+		let end = start + (count - 1L * step);
 		Range(start, end, step).reshape(shape)
 	}
 
 	iota { :shape |
-		1.to(shape.product).reshape(shape)
+		1L.to(shape.product).reshape(shape)
 	}
 
 	isVectorOf { :self :elementType |
@@ -515,7 +515,7 @@
 
 	[reshape, !] { :self :shape |
 		let [n] = shape.shape;
-		(n = 0).if {
+		(n = 0L).if {
 			self.error('reshape: not vector or empty shape?')
 		} {
 			self
@@ -526,11 +526,11 @@
 	}
 
 	reshapeLike { :self :another |
-		let index = 1;
+		let index = 1L;
 		let items = self.flatten;
 		another.deepCollect { :unusedItem |
 			let item = items.atWrap(index);
-			index := index + 1;
+			index := index + 1L;
 			item
 		}
 	}
@@ -540,20 +540,22 @@
 +@Integer {
 
 	antidiagonalArray { :n :f/2 |
-		1.toCollect(n) { :i |
-			1.toCollect(i) { :j |
-				f(j, i - j + 1)
+		1L.toCollect(n) { :i |
+			1L.toCollect(i) { :j |
+				f(j, i - j + 1L)
 			}
 		}
 	}
 
 	iota { :count :start :step |
-		let end = start + (count - 1 * step);
-		Range(start, end, step).List
+		let end = start + (count - 1L * step);
+		List(
+			Range(start, end, step)
+		)
 	}
 
 	iota { :count |
-		iota(count, 1, 1)
+		iota(count, 1L, 1L)
 	}
 
 	mooreNeighborhood { :dimensions :range |
@@ -671,7 +673,7 @@
 +Range {
 
 	antidiagonalArray { :self :f/2 |
-		let a = self[1];
+		let a = self[1L];
 		self.collect { :i |
 			a.toCollect(i) { :j |
 				f(j, i - j + a)
@@ -680,7 +682,7 @@
 	}
 
 	triangularArray { :self :aBlock/2 :k |
-		let a = self[1];
+		let a = self[1L];
 		self.collect { :n |
 			a.to(max(a, n + k)).collect { :m |
 				aBlock(n, m)
@@ -689,7 +691,7 @@
 	}
 
 	triangularArray { :self :aBlock/2 |
-		triangularArray(self, aBlock/2, 0)
+		triangularArray(self, aBlock/2, 0L)
 	}
 
 	triangularArrayDo { :self :aBlock/2 :k |
@@ -708,14 +710,14 @@
 	isTriangularArray { :self |
 		let k = self.size;
 		let l = self.collect(size/1);
-		l.hasEqualElements(Range(1, k, 1)) | {
-			l.hasEqualElements(Range(k, 1, -1))
+		l.hasEqualElements(Range(1L, k, 1L)) | {
+			l.hasEqualElements(Range(k, 1L, -1L))
 		}
 	}
 
 	triangularArray { :self :aBlock/2 |
 		let k = self.size;
-		1.to(k).triangularArray { :i :j |
+		1L.to(k).triangularArray { :i :j |
 			aBlock(self[i], self[j])
 		}
 	}

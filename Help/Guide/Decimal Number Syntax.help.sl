@@ -7,19 +7,19 @@ Rewrite rules:
 
 ```
 >> '23D'.splSimplify
-Decimal(Fraction(23L, 1L), 0)
+Decimal(Fraction(23L, 1L), 0L)
 
 >> '23D3'.splSimplify
-Decimal(Fraction(23L, 1L), 3)
+Decimal(Fraction(23L, 1L), 3L)
 
 >> '3.14D'.splSimplify
-Decimal(Fraction(314L, 100L), 2)
+Decimal(Fraction(314L, 100L), 2L)
 
 >> '3.14D3'.splSimplify
-Decimal(Fraction(314L, 100L), 3)
+Decimal(Fraction(314L, 100L), 3L)
 
 >> '0.1D3'.splSimplify
-Decimal(Fraction(01L, 10L), 3)
+Decimal(Fraction(01L, 10L), 3L)
 ```
 
 Implicit scale:

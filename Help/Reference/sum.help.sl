@@ -91,11 +91,14 @@ Sum is implemented efficiently for `Multiset` as a sum of products:
 (3 * 3) + (5 * 5)
 ```
 
-The sum of an empty collection is `zero`:
+The sum of an empty collection is the `Integer` `zero`:
 
 ```
 >>> [].sum
-0
+0L
+
+>>> [].sum.isInteger
+true
 ```
 
 Difference between a sum squared, and the sum of squares:
@@ -109,11 +112,11 @@ Difference between a sum squared, and the sum of squares:
 The binary form applies the block _f_ to each element before summing:
 
 ```
->>> 1:10.sum(square/1)
-385
+>>> 1L:10L.sum(square/1)
+385L
 
->>> 1:10.square.sum
-385
+>>> 1L:10L.square.sum
+385L
 ```
 
 An instance of a family of cutoff, or weighting, functions that answer _-1/12_ for a partial sum of the integers:
@@ -275,17 +278,17 @@ OEIS [A119812](https://oeis.org/A119812):
 ```
 >>> let c = 'Sqrt(2)'.namedConstant;
 >>> [c, c / 2].collect { :t |
->>> 	1L:20.collect { :n |
+>>> 	1:10.collect { :n |
 >>> 		let k = 10 * n;
->>> 		let x = 1L:k.sum { :m |
->>> 			(m * t).floor / (2 ^ m)
+>>> 		let x = 1:k.sum { :m |
+>>> 			(t * m).floor / (2 ^ m)
 >>> 		};
->>> 		(10 ^ n * x).floor % 10
->>> 	}.truncate.Integer
+>>> 		(x * (10 ^ n)).floor % 10
+>>> 	}
 >>> }
 [
-	3 2 2 5 8 8 5 2 2 5 8 8 0 6 7 7 3 0 1 2;
-	8 5 8 2 6 7 6 5 6 4 6 1 0 0 2 0 5 5 7 9
+	3 2 2 5 8 8 5 2 2 5;
+	8 5 8 2 6 7 6 5 6 4
 ]
 ```
 

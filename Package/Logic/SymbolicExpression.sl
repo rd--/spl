@@ -338,7 +338,7 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 							each.recogniseSymbolicExpression
 						} {
 							each
-						}.printString
+						}.concisePrintString
 					}.unwords
 				]
 			)

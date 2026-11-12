@@ -215,7 +215,7 @@ Counts of above plot,
 indicating the proportions of zeroes and ones:
 
 ```
->>> (9 * (10L ^ 23)).dualZeckendorfRepresentation
+>>> (9L * (10L ^ 23L)).dualZeckendorfRepresentation
 >>> .counts
 [0 -> 35, 1 -> 79]
 ```

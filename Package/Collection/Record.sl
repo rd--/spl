@@ -114,7 +114,19 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 		Record/0.emptySpecies
 	}
 
+	concisePrintString { :self |
+			self.storeStringUsing(concisePrintString/1)
+	}
+
+	printString { :self |
+			self.storeStringUsing(printString/1)
+	}
+
 	storeString { :self |
+			self.storeStringUsing(storeString/1)
+	}
+
+	storeStringUsing { :self :aBlock/1 |
 		let formatKey = { :k |
 			k.includes(' ').if {
 				k.storeString
@@ -125,24 +137,8 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 		self.storeStringLiteral(
 			'(:)',
 			'(', ')',
-			formatKey/1, ': ', storeString/1
+			formatKey/1, ': ', aBlock/1
 		)
-		/*self.isEmpty.if {
-			'(:)'
-		} {
-			'(%)'.format(
-				[
-					self.associations.collect { :each |
-						'%: %'.format(
-							[
-								each.key,
-								each.value.storeString
-							]
-						)
-					}.commaSeparated
-				]
-			)
-		}*/
 	}
 
 	uncheckedAt { :self :key |

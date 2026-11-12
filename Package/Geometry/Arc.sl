@@ -136,8 +136,8 @@ Arc : [Object, Store, Equal, Geometry] {
 		let [c, p, q] = self.vertexCoordinates;
 		'<path d="M %,% %" />'.format(
 			[
-				p[1].printStringToFixed(precision),
-				p[2].printStringToFixed(precision),
+				p[1].decimalStringToScale(precision),
+				p[2].decimalStringToScale(precision),
 				svgArcTo(r[1], r[2], 0, self.isMajorArc, true, q[1], q[2], precision)
 			]
 		)

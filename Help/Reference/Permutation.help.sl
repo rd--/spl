@@ -275,11 +275,13 @@ The runs of two random permutations:
 ```
 >>> Permutation[2 1 3]
 >>> .dictionary
-Map[1 -> 2, 2 -> 1, 3 -> 3]
+>>> .associations
+[1 -> 2, 2 -> 1, 3 -> 3]
 
 >>> Permutation[1 2 5 3 7; 4; 6]
 >>> .dictionary
-Map[
+>>> .associations
+[
 	1 -> 2,
 	2 -> 5,
 	3 -> 7,

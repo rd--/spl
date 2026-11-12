@@ -26,7 +26,7 @@ false
 33
 
 >>> {
->>> 	13.factorial.bitAnd(127)
+>>> 	Float(13.factorial).bitAnd(127)
 >>> }.hasError
 true
 

@@ -8,7 +8,7 @@ The indices are counted such that the rightmost index increments first.
 At vector:
 
 ```
->>> let shape = [2];
+>>> let shape = [3];
 >>> [1; 2; 3].collect { :each |
 >>> 	shape.linearIndex(each)
 >>> }

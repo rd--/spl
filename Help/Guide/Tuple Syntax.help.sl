@@ -33,7 +33,7 @@ _(:)_ answers the empty `Record` and _(x)_ answers the parenthesised value _x_:
 >>> (:).isRecord
 true
 
->>> (1).isInteger
+>>> (3.141).isFloat
 true
 ```
 

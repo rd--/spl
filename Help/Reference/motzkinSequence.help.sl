@@ -8,7 +8,7 @@ First few Motzkin numbers,
 OEIS [A001006](https://oeis.org/A001006):
 
 ```
->>> 31.motzkinSequence
+>>> 31L.motzkinSequence
 [
 	1
 	1

@@ -2,7 +2,7 @@
 
 Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 
-	Float { :self |
+	[Float, F] { :self |
 		self
 	}
 
@@ -132,7 +132,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 	byteHexString { :self |
 		self.isByte.if {
 			self
-			.uncheckedPrintStringWithRadix(16)
+			.integerString(16L)
 			.padLeft([2], '0')
 		} {
 			self.error(
@@ -246,22 +246,26 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 	}
 
 	floatString { :self :radix |
-		let answer = self.uncheckedPrintStringWithRadix(radix);
-		self.isSmallInteger.ifTrue {
-			answer := answer ++ '.0'
-		};
-		answer
+		radix.isIntegerValuedNumber.if {
+			let answer = self.uncheckedFloatString(radix);
+			self.isSmallInteger.ifTrue {
+				answer := answer ++ '.0'
+			};
+			answer
+		} {
+			radix.adaptToNumberAndApply(self, floatString/2)
+		}
 	}
 
 	floatString { :self :radix :k |
 		let i = self.integerPart;
 		(k <= 0).if {
-			i.uncheckedPrintStringWithRadix(radix)
+			i.integerString(radix)
 		} {
 			let f = self - i;
 			'%.%'.format(
 				[
-					i.uncheckedPrintStringWithRadix(radix),
+					i.integerString(radix),
 					f.floatString(radix).drop(2).take(k)
 				]
 			)
@@ -733,7 +737,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 	}
 
 	concisePrintString { :self |
-		self.uncheckedPrintStringWithRadix(10)
+		self.uncheckedFloatString(10)
 	}
 
 	printString { :self |
@@ -744,21 +748,21 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		self.isIntegerValuedNumber.if {
 			self.printString
 		} {
-			self.printStringToFixed(anInteger)
+			self.decimalStringToScale(anInteger)
 		}
 	}
 
-	printStringToFixed { :self :anInteger |
+	decimalStringToScale { :self :anInteger |
 		<primitive:
 		const aFloat = sl.toFloat(_anInteger);
 		if(sl.isSmallInteger(aFloat)) {
 			return _self.toFixed(aFloat);
 		}
 		>
-		self.error('printStringToFixed: not integer precision', [anInteger])
+		self.error('decimalStringToScale: not integer precision', [anInteger])
 	}
 
-	printStringToFixedWithoutPrimitive { :self :places |
+	decimalStringToScaleWithoutPrimitive { :self :places |
 		(places <= 0).if {
 			self.round.printString
 		} {
@@ -775,14 +779,14 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 	}
 
-	printStringToPrecision { :self :anInteger |
+	decimalStringToPrecision { :self :anInteger |
 		<primitive:
 		const aFloat = sl.toFloat(_anInteger);
 		if(sl.isSmallInteger(aFloat)) {
 			return _self.toPrecision(aFloat);
 		}
 		>
-		self.error('printStringToPrecision: not integer precision', [anInteger])
+		self.error('decimalStringToPrecision: not integer precision', [anInteger])
 	}
 
 	printStringWithCommas { :self |
@@ -805,8 +809,8 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		} {
 			let unsignedAnswer = '%b%'.format(
 				[
-					radix.uncheckedPrintStringWithRadix(10),
-					SmallInteger(self).abs.uncheckedPrintStringWithRadix(radix)
+					radix.integerString(10),
+					SmallInteger(self).abs.integerString(radix)
 				]
 			);
 			self.isNegative.if {
@@ -1056,7 +1060,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		>
 	}
 
-	uncheckedPrintStringWithRadix { :self :radix |
+	uncheckedFloatString { :self :radix |
 		<primitive:
 		if(Object.is(_self, -0)) {
 			return "-0"

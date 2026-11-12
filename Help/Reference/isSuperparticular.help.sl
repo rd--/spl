@@ -62,7 +62,8 @@ The ratio between two successive members of the Farey sequence is superparticula
 The superparticular numbers are exactly the rational numbers whose simple continued fraction terminates after two terms:
 
 ```
->>> (3L:9 / 2:8).continuedFraction
+>>> (3L:9L / 2L:8L)
+>>> .continuedFraction
 [1 2; 1 3; 1 4; 1 5; 1 6; 1 7; 1 8]
 ```
 

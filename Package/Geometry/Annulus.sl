@@ -113,11 +113,11 @@ AnnulusSector : [Object, Store, Equal, Geometry] {
 		let [_, p2, q2] = a2.vertexCoordinates;
 		'<path d="M %,% % L %,% % Z" />'.format(
 			[
-				p1[1].printStringToFixed(precision),
-				p1[2].printStringToFixed(precision),
+				p1[1].decimalStringToScale(precision),
+				p1[2].decimalStringToScale(precision),
 				svgArcTo(r1, r1, 0, a1.isMajorArc, true, q1[1], q1[2], precision),
-				q2[1].printStringToFixed(precision),
-				q2[2].printStringToFixed(precision),
+				q2[1].decimalStringToScale(precision),
+				q2[2].decimalStringToScale(precision),
 				svgArcTo(r2, r2, 0, a2.isMajorArc, false, p2[1], p2[2], precision)
 			]
 		)

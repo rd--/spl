@@ -105,7 +105,7 @@ Table : [Object, Store, Equal] {
 	Table { :self |
 		self.isMatrix.if {
 			let n = self.anyOne.size;
-			Table(self, [1 .. n].collect(printString/1))
+			Table(self, [1 .. n].collect(integerString/1))
 		} {
 			self.allSatisfy(isDictionary/1).if {
 				let c = self.anyOne.keys;
@@ -120,4 +120,3 @@ Table : [Object, Store, Equal] {
 	}
 
 }
-

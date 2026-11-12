@@ -7,7 +7,7 @@ Answer the roots of the quadratic equation _ax²+bx+c=0_.
 One real root:
 
 ```
->>> quadraticEquationRoots(3, 4, 4 / 3)
+>>> quadraticEquationRoots(3, 4, 4/3)
 [-2/3 -2/3]
 
 >>> quadraticEquationRoots(1, -2, 1)

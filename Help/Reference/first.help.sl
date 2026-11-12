@@ -12,6 +12,9 @@ The unary form answers _x₁_.
 
 >>> (6, 5 .. 1).first
 6
+
+>>> 3L:9L.first
+3L
 ```
 
 The binary form answers the first _n_ elements of _x_:

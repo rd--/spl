@@ -9,12 +9,13 @@ Construct a sparse matrix with values at only a few specified positions:
 
 ```
 >>> let s = SparseArray[
->>> 	[1 1] -> 1,
->>> 	[2 2] -> 2,
->>> 	[3 3] -> 3,
->>> 	[1 3] -> 4
+>>> 	[1 1] -> 1L,
+>>> 	[2 2] -> 2L,
+>>> 	[3 3] -> 3L,
+>>> 	[1 3] -> 4L
 >>> ];
 >>> (
+>>> 	s.linearIndexMap,
 >>> 	s.normalArray,
 >>> 	s.shape,
 >>> 	s.rank,
@@ -24,6 +25,7 @@ Construct a sparse matrix with values at only a few specified positions:
 >>> 	s.sum
 >>> )
 (
+	Map[1 1; 5 2; 9 3; 3 4],
 	[1 0 4; 0 2 0; 0 0 3],
 	[3 3],
 	2,
@@ -110,7 +112,7 @@ Convert an ordinary matrix into a sparse matrix:
 
 ```
 >>> let l = [1 0 0; 1 2 0; 1 2 3];
->>> let s = l.asSparseArray(0);
+>>> let s = l.arrayToSparseArray(0);
 >>> (
 >>> 	s.shape,
 >>> 	s.specifiedElementCount,
@@ -204,7 +206,7 @@ Create a matrix with a single nonzero element:
 
 ```
 >>> let l = [3 3].iota;
->>> let s = l.asSparseArray(0);
+>>> let s = l.arrayToSparseArray(0);
 >>> (
 >>> 	l.at(2), s.at(2).normalArray,
 >>> 	l.atPath([2 2]), s.atPath([2 2])
@@ -237,7 +239,7 @@ and `nonZeroPositions` answers the indices of the specified values:
 
 ```
 >>> let m = [0 0 0 4; 1 0 0 0; 3 0 2 2];
->>> let a = m.asSparseArray(0);
+>>> let a = m.arrayToSparseArray(0);
 >>> (a.nonZeroValues, a.nonZeroPositions)
 (
 	[4 1 3 2 2],

@@ -115,6 +115,13 @@ Range(1, 1)
 1
 ```
 
+Fractional arthmetic over integer ranges:
+
+```
+>>> 3L:9L / 2L:8L
+[3/2 4/3 5/4 6/5 7/6 8/7 9/8]
+```
+
 Rationale:
 Identifiers are not allowed as initial values,
 because it can too easily be confused with `Record Syntax`.

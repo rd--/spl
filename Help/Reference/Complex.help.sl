@@ -277,14 +277,14 @@ The `printString` of a `Complex` number is the literal notation:
 
 ```
 >>> 1J2.printString
-'1J2'
+'1.0J2.0'
 ```
 
 The `storeString` of a `Complex` number is the constructor notation:
 
 ```
 >>> 1J2.storeString
-'Complex(1, 2)'
+'Complex(1.0, 2.0)'
 ```
 
 Use `real` and `imaginary` to extract parts of `Complex` numbers:

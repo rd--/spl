@@ -197,9 +197,9 @@ The reciprocals of factorials produce a convergent series for `e`:
 Relation to `gamma`:
 
 ```
->>> let n = 23L;
->>> n.factorial = (n + 1).gamma
-true
+>>> let x = 23L;
+>>> x.factorial
+(x + 1L).gamma
 ```
 
 Robbins numbers,
@@ -276,8 +276,8 @@ Least factorial multiple of _n_,
 OEIS [A092495](https://oeis.org/A092495):
 
 ```
->>> let f = 1L:30.!;
->>> 1:28.collect { :n |
+>>> let f = 1L:30L.!;
+>>> 1L:28L.collect { :n |
 >>> 	f.detect { :x |
 >>> 		x.divisible(n)
 >>> 	}

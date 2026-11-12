@@ -69,7 +69,9 @@ in which case it is not a proper range:
 ([0 3 6 9], false)
 ```
 
-Note in particular that with non-integer values _stop_ may not be in the list of values specified by the `Range`:
+Note in particular that,
+with non-integer values,
+_stop_ may not be in the list of values specified by the `Range`:
 
 ```
 >>> let x = Range(1.2, 2.2, 0.15);

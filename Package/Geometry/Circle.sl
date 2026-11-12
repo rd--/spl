@@ -107,9 +107,9 @@ Circle : [Object, Store, Equal, Geometry] {
 		let precision = options['precision'];
 		'<circle cx="%" cy="%" r="%" />'.format(
 			[
-				self.center[1].printStringToFixed(precision),
-				self.center[2].printStringToFixed(precision),
-				self.radius.printStringToFixed(precision)
+				self.center[1].decimalStringToScale(precision),
+				self.center[2].decimalStringToScale(precision),
+				self.radius.decimalStringToScale(precision)
 			]
 		)
 	}

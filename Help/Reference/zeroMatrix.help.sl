@@ -3,6 +3,7 @@
 - _zeroMatrix([m n])_
 
 Answers the `zero` matrix of the specified shape (_m×n_).
+The matrix has element type `Integer`.
 
 A square 2×2 matrix:
 
@@ -35,13 +36,16 @@ A rectangular 3×2 matrix:
 ]
 ```
 
-This can also be written using either `!` or `reshape`:
+This can also be written using either `!` or `reshape` or `contantArray`:
 
 ```
 >>> { 0 } ! [2 3]
 [0 0 0; 0 0 0]
 
 >>> [0].reshape([2 3])
+[0 0 0; 0 0 0]
+
+>>> [2 3].constantArray(0L)
 [0 0 0; 0 0 0]
 ```
 

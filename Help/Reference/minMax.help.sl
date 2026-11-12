@@ -10,7 +10,7 @@ Also called bounds.
 Find the minimum and maximum of a `Range`:
 
 ```
->>> 1:4.minMax
+>>> 1L:4L.minMax
 [1 4]
 ```
 
@@ -57,8 +57,8 @@ At `NaN`:
 At `Interval`:
 
 ```
->>> (1 -- 9).minMax
-[1 9]
+>>> (1.0 -- 9.0).minMax
+[1.0 9.0]
 ```
 
 Relation to `quantile`:

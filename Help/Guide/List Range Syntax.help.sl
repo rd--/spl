@@ -87,6 +87,13 @@ Nested ranges:
 [1:; 1; 1 2:; 1; 1 2; 1 2 3]
 ```
 
+Fractional arthmetic over integer ranges:
+
+```
+>>> [3L .. 9L] / [2L .. 8L]
+[3/2 4/3 5/4 6/5 7/6 8/7 9/8]
+```
+
 It is not allowed to write an empty range:
 
 ```

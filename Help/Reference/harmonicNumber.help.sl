@@ -15,7 +15,7 @@ Exact calculation at _n=11_:
 >>> 11L.harmonicNumber
 83711/27720
 
->>> 1L:11.reciprocal.sum
+>>> 1L:11L.reciprocal.sum
 83711/27720
 ```
 
@@ -70,7 +70,7 @@ First ten harmonic numbers,
 threads over lists:
 
 ```
->>> 1L:10.harmonicNumber
+>>> 1L:10L.harmonicNumber
 [
 	1/1 3/2 11/6 25/12 137/60 49/20
 	363/140 761/280 7129/2520 7381/2520
@@ -81,7 +81,7 @@ Numerator of harmonic number,
 OEIS [A001008](https://oeis.org/A001008):
 
 ```
->>> 1L:11.harmonicNumber.numerator
+>>> 1L:11L.harmonicNumber.numerator
 [1 3 11 25 137 49 363 761 7129 7381 83711]
 ```
 
@@ -89,7 +89,7 @@ Denominator of harmonic number,
 OEIS [A002805](https://oeis.org/A002805):
 
 ```
->>> 1L:11.harmonicNumber.denominator
+>>> 1L:11L.harmonicNumber.denominator
 [1 2 6 12 60 20 140 280 2520 2520 27720]
 ```
 
@@ -97,7 +97,7 @@ Wolstenholme numbers,
 OEIS [A007406](https://oeis.org/A007406):
 
 ```
->>> 1L:8.harmonicNumber(2)
+>>> 1L:8L.harmonicNumber(2L)
 >>> .numerator
 [1 5 49 205 5269 5369 266681 1077749]
 ```
@@ -106,7 +106,7 @@ Wolstenholme numbers,
 OEIS [A007408](https://oeis.org/A007408):
 
 ```
->>> 1L:7.harmonicNumber(3)
+>>> 1L:7L.harmonicNumber(3L)
 >>> .numerator
 [1 9 251 2035 256103 28567 9822481]
 ```
@@ -115,7 +115,7 @@ Denominators of _r=2_ harmonic numbers,
 OEIS [A007407](https://oeis.org/A007407):
 
 ```
->>> 1L:8.harmonicNumber(2)
+>>> 1L:8L.harmonicNumber(2L)
 >>> .denominator
 [1 4 36 144 3600 3600 176400 705600]
 ```
@@ -136,7 +136,7 @@ _n_ where the numerator of the _n_-th harmonic number is prime,
 OEIS [A056903](https://oeis.org/A056903):
 
 ```
->>> 1L:27.select { :n |
+>>> 1L:27L.select { :n |
 >>> 	n.harmonicNumber
 >>> 	.numerator
 >>> 	.isPrime
@@ -148,7 +148,7 @@ OEIS [A056903](https://oeis.org/A056903):
 OEIS [A055980](https://oeis.org/A055980):
 
 ```
->>> 1L:21.harmonicNumber.floor
+>>> 1L:21L.harmonicNumber.floor
 [1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3]
 ```
 

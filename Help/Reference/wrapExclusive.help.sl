@@ -25,7 +25,7 @@ note that the wrap occurs _before_ the upper boundary is reached:
 >>> 1:9.wrapExclusive(3, 7 + 1)
 [6 7 3 4 5 6 7 3 4]
 
->>> 0:12.wrapExclusive(0, 3)
+>>> 0L:12L.wrapExclusive(0L, 3L)
 [0 1 2 0 1 2 0 1 2 0 1 2 0]
 ```
 

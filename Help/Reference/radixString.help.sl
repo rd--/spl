@@ -27,6 +27,15 @@ At `Float`:
 true
 ```
 
+At `Integer`:
+
+```
+>>> 33L.radixString(2L)
+'2b100001'
+```
+
 * * *
 
 See also: floatString, integerString, printString
+
+Guides: Printing Functions

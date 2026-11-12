@@ -2,7 +2,7 @@
 
 Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, ImplicitFloat] {
 
-	[Float, largeIntegerToFloat] { :self |
+	[Float, F, integerToFloat] { :self |
 		<primitive:
 		return Number(_self);
 		>
@@ -12,7 +12,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		self
 	}
 
-	[SmallInteger, largeIntegerToSmallInteger]  { :self |
+	[SmallInteger, integerToSmallInteger]  { :self |
 		self.isSmallInteger.if {
 			Float(self)
 		} {
@@ -101,7 +101,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	decimalPeriod { :unused |
-		0
+		0L
 	}
 
 	denominator { :self |
@@ -110,7 +110,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	[divide, /] { :self :anObject |
 		/* Model: SmallInteger | Integer */
-		anObject.isIntegerValuedNumber.if {
+		anObject.isInteger.if {
 			Fraction(
 				self,
 				anObject
@@ -150,16 +150,20 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	integerDigits { :self :radix |
 		radix.isBetween(2, 36).if {
-			self.abs.uncheckedPrintStringWithRadix(radix).characters.digitValue
+			self.abs.integerString(radix).characters.digitValue
 		} {
 			SmallInteger(self).integerDigits(radix)
 		}.collect(Integer/1)
 	}
 
 	integerLength { :self :radix |
-		Integer(
-			self.uncheckedPrintStringWithRadix(radix).size
-		)
+		self.isZero.if {
+			0L
+		} {
+			Integer(
+				self.integerString(radix).size
+			)
+		}
 	}
 
 	[integerSquareRoot, isqrt] { :self |
@@ -196,7 +200,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 			return _self === BigInt(_anObject);
 		};
 		>
-		false
+		anObject.adaptToIntegerAndApply(self, isEqual/2)
 	}
 
 	isEven { :self |
@@ -422,7 +426,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	storeStringLiteral { :self |
-		self.uncheckedPrintStringWithRadix(10) ++ 'L'
+		self.integerString(10) ++ 'L'
 	}
 
 	[subtract, -] { :self :anObject |
@@ -462,10 +466,18 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		self
 	}
 
-	uncheckedPrintStringWithRadix { :self :radix |
+	integerString { :self :radix |
+		radix.isIntegerValuedNumber.if {
+			self.uncheckedIntegerString(radix)
+		} {
+			radix.adaptToIntegerAndApply(self, integerString/2)
+		}
+	}
+
+	uncheckedIntegerString { :self :radix |
 		<primitive:
 		return _self.toString(
-			Number(_radix)
+			sl.toFloat(_radix)
 		).toUpperCase();
 		>
 	}

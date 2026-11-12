@@ -77,10 +77,14 @@ Zero modulo any number is `zero`:
 With _n_ of `zero`:
 
 ```
->>> (5 % 0).isNaN
+>>> (
+>>> 	5.0 % 0.0
+>>> ).isNaN
 true
 
->>> { 5L % 0 }.hasError
+>>> {
+>>> 	5L % 0L
+>>> }.hasError
 true
 ```
 
@@ -121,11 +125,11 @@ At `Integer`:
 Note errors in floating point math:
 
 ```
->>> 3L ^ 41 % 13
-9
+>>> 3L ^ 41L % 13L
+9L
 
->>> Float(3L ^ 41) % 13
-8
+>>> Float(3L ^ 41L) % 13.0
+8.0
 ```
 
 Find last two digits or a large integer:
@@ -868,10 +872,10 @@ integer harmonics that offer monotonically closer approximations to the stacks o
 OEIS [A081464](https://oeis.org/A081464):
 
 ```
->>> let i = 1;
+>>> let i = 1L;
 >>> let a = [];
->>> 1.toDo(10 ^ 3) { :n |
->>> 	let j = (3/2 ^ n) % 1;
+>>> 1L.toDo(10L ^ 3L) { :n |
+>>> 	let j = (3/2 ^ n) % 1L;
 >>> 	(j < i).ifTrue {
 >>> 		a.add!(n);
 >>> 		i := j

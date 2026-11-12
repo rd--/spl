@@ -3,12 +3,12 @@
 	decimalSelvageNumber { :k :d |
 		k.caseOf(
 			[
-				1 -> { [1 2 3] },
-				2 -> { [2 4 7] },
-				3 -> { [2 5 7] },
-				4 -> { [3 7 1] },
-				5 -> { [4 9 4] },
-				6 -> { [5 0 5] }
+				1L -> { [1L 2L 3L] },
+				2L -> { [2L 4L 7L] },
+				3L -> { [2L 5L 7L] },
+				4L -> { [3L 7L 1L] },
+				5L -> { [4L 9L 4L] },
+				6L -> { [5L 0L 5L] }
 			]
 		).decimalSelvageNumber(d)
 	}
@@ -48,7 +48,8 @@
 			x.toDo(n) { :p |
 				let a = n + 2L - p;
 				let b = n + 1L - p;
-				x := (a * x / b).ceiling
+				let c = (a * x / b).ceiling;
+				x := c
 			};
 			x - 1L
 		}
@@ -213,22 +214,24 @@
 	calkinWilfSequence { :self |
 		let answer = List(self, nil);
 		answer[1] := 1/1;
-		2.toDo(self) { :i |
-			let p = answer[i - 1];
+		2L.toDo(self) { :i |
+			let p = answer[i - 1L];
 			let t = p.floor * 2L - p + 1L;
-			answer[i] := 1 / t
+			answer[i] := 1L / t
 		};
 		answer
 	}
 
 	cantorNumbers { :self |
 		let answer = [];
-		let n = 0;
-		{ answer.size < self }.whileTrue {
-			(n.digitCount(3, 1) = 0).ifTrue {
+		let n = 0L;
+		{
+			answer.size < self
+		}.whileTrue {
+			(n.digitCount(3L, 1L) = 0L).ifTrue {
 				answer.add!(n)
 			};
-			n := n + 1
+			n := n + 1L
 		};
 		answer
 	}
@@ -238,33 +241,33 @@
 		let i = 0;
 		{ answer.size < n }.whileTrue {
 			answer.addAll!(i.integerDigits(b));
-			i := i + 1
+			i := i + 1L
 		};
 		answer.take(n)
 	}
 
 	collatzFunction { :n |
 		n.isEven.if {
-			n // 2
+			n // 2L
 		} {
-			(n * 3 + 1) // 2
+			(n * 3L + 1L) // 2L
 		}
 	}
 
 	collatzMap { :n |
 		n.isEven.if {
-			n // 2
+			n // 2L
 		} {
-			n * 3 + 1
+			n * 3L + 1L
 		}
 	}
 
 	collatzSequence { :z :p |
-		let q = (p - 1).primesUpTo;
+		let q = (p - 1L).primesUpTo;
 		let a = [z];
 		let e = nil;
 		{ :break/0 |
-			let x = z * p + 1;
+			let x = z * p + 1L;
 			let y = x.divideOutAll(q);
 			y.do { :i |
 				a.includes(i).if {
@@ -285,7 +288,7 @@
 				'Direct' -> {
 					let q = p.previousPrime;
 					{ :n |
-						(p * n + 1)
+						(p * n + 1L)
 						.primeFactors
 						.select { :x |
 							x > q
@@ -302,35 +305,35 @@
 	collatzSequence { :self |
 		{ :n |
 			n.isOdd.if {
-				3 * n + 1
+				3L * n + 1L
 			} {
-				n / 2
+				n // 2L
 			}
 		}.nestWhileList(self) { :n |
-			n > 1
+			n > 1L
 		}
 	}
 
 	collatzTerrasSequence { :self |
 		collatzFunction/1
 		.nestWhileList(self) { :x |
-			x > 1
+			x > 1L
 		}
 	}
 
 	collatzTerrasTree { :depth :x |
 		depth.unfoldTree(x) { :y |
-			(y % 3 = 2).if {
-				[(2 * y - 1) / 3, 2 * y]
+			(y % 3L = 2L).if {
+				[(2L * y - 1L) // 3L, 2L * y]
 			} {
-				[2 * y]
+				[2L * y]
 			}
 		}
 	}
 
 	connellSequence { :self |
-		0.toCollect(self - 1) { :n |
-			2 * 1.to(n + 1) + (n ^ 2) - 1
+		0L.toCollect(self - 1L) { :n |
+			2L * 1L.to(n + 1L) + (n ^ 2L) - 1L
 		}
 	}
 
@@ -408,12 +411,12 @@
 	}
 
 	erdosSelfridgeFunction { :n |
-		let m = n + 2;
+		let m = n + 2L;
 		{
 			let z = factorInteger(binomial(m, n));
 			z[1][1] <= n
 		}.whileTrue {
-			m := m + 1
+			m := m + 1L
 		};
 		m
 	}
@@ -597,35 +600,36 @@
 	}
 
 	harmonicNumber { :n :r |
-		1.to(n).sum { :i |
-			n.one / (i ^ r)
+		let one = n.one;
+		one.to(n).sum { :i |
+			one / (i ^ r)
 		}
 	}
 
 	harmonicNumber { :n |
-		n.harmonicNumber(1)
+		n.harmonicNumber(1L)
 	}
 
 	harmoniousNumber { :d :n |
-		let x = 2;
+		let x = 2L;
 		n.timesRepeat {
-			x := (1 + x) ^ (1 / (d + 1))
+			x := (1L + x) ^ (1L / (d + 1L))
 		};
 		x
 	}
 
 	harmoniousNumber { :d |
-		d.harmoniousNumber(25)
+		d.harmoniousNumber(25L)
 	}
 
 	hofstadterQSequence { :self |
 		let f/1 = { :n |
-			(n <= 2).if {
-				1
+			(n <= 2L).if {
+				1L
 			} {
-				f(n - f(n - 1)) + f(n - f(n - 2))
+				f(n - f(n - 1L)) + f(n - f(n - 2L))
 			}
-		}.memoize(true);
+		}.memoize(false);
 		1.to(self).collect(f/1)
 	}
 
@@ -890,10 +894,12 @@
 	motzkinSequence { :k |
 		let s = [1L, 1L];
 		2L.toDo(k - 1L) { :n |
-			let a = ((2L * n) + 1L) // (n + 2L);
-			let b = ((3L * n) - 3L) // (n + 2L);
+			let a = ((2L * n) + 1L) / (n + 2L);
+			let b = ((3L * n) - 3L) / (n + 2L);
 			let c = (a * s[n]) + (b * s[n - 1L]);
-			s.add!(c)
+			s.add!(
+				Integer(c)
+			)
 		};
 		s
 	}
@@ -1103,13 +1109,14 @@
 		let t/2 = { :n :k |
 			(
 				n = 1L & {
-					k = 1L }
+					k = 1L
+				}
 			).if {
 				1L
 			} {
 				(
 					1L <= k & {
-						k <= ((n + 1L) / 2L)
+						k <= ((n + 1L) // 2L)
 					}
 				).if {
 					n.isEven.if {
@@ -1419,24 +1426,24 @@
 +List {
 
 	decimalSelvageNumber { :z :d |
-		let n0 = 3;
+		let n0 = 3L;
 		let a = List(d, 0);
 		a[1] := z[1];
 		a[2] := z[2];
 		a[3] := z[3];
-		(n0 + 1).toDo(d) { :n |
+		(n0 + 1L).toDo(d) { :n |
 			a[n] := (
-				10L * n * 1.to(n).sum { :k |
+				10L * n * 1L.to(n).sum { :k |
 					a[k] / (10L ^ k)
 				}
-			).floor % 10
+			).floor % 10L
 		};
 		a
 	}
 
 	haltonSequence { :self :k |
 		self.collect { :b |
-			1.to(k).vanDerCorputNumber(b)
+			1L.to(k).vanDerCorputNumber(b)
 		}.transpose
 	}
 
@@ -1863,9 +1870,9 @@
 	}
 
 	shadowTransform { :x |
-		1.toCollect(x.size - 1) { :n |
-			1.to(n).sum { :j |
-				(x[j] % n = 0).boole
+		1L.toCollect(x.size - 1L) { :n |
+			1L.to(n).sum { :j |
+				(x[j] % n = 0L).boole
 			}
 		}
 	}
@@ -1886,16 +1893,16 @@
 
 	integerSequenceColumnSparseArray { :x :reverse |
 		let r = x.size;
-		let [m, n] = x.minMax;
-		let c = n - m + 1;
-		1.toCollect(r) { :i |
+		let [m, n] = x.minMax.L;
+		let c = n - m + 1L;
+		1L.toCollect(r) { :i |
 			let j = reverse.if {
-				c - x[i] + 1
+				c - x[i] + 1L
 			} {
 				x[i]
 			};
-			[i, j] -> 1
-		}.SparseArray([r, c], 0)
+			[i, j] -> 1L
+		}.SparseArray([r, c], 0L)
 	}
 
 	integerSequenceMatrix { :v :kind |
@@ -1904,16 +1911,16 @@
 
 	integerSequenceRowSparseArray { :y :reverse |
 		let c = y.size;
-		let [m, n] = y.minMax;
-		let r = n - m + 1;
-		1.toCollect(c) { :i |
+		let [m, n] = y.minMax.L;
+		let r = n - m + 1L;
+		1L.toCollect(c) { :i |
 			let j = reverse.if {
-				r - y[i] + 1
+				r - y[i] + 1L
 			} {
 				y[i]
 			};
-			[j, i] -> 1
-		}.SparseArray([r, c], 0)
+			[j, i] -> 1L
+		}.SparseArray([r, c], 0L)
 	}
 
 	integerSequenceSparseArray { :v :kind |
@@ -1946,9 +1953,9 @@
 		}.whileFalse {
 			r.add!(x);
 			x.numerator.isEven.if {
-				x := x / 2
+				x := x / 2L
 			} {
-				x := 3 * x + 1
+				x := 3L * x + 1L
 			}
 		};
 		r.add!(x);

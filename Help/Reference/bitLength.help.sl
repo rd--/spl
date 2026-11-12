@@ -5,44 +5,74 @@
 Answer the number of binary bits necessary to represent the integer _n_.
 Sometimes called the bit width.
 
+The number of bits necessary to represent thirty-two,
+compare with the length of the binary representation:
+
 ```
 >>> 32.bitLength
 6
 
->>> 13.factorial.bitLength
-33
+>>> 32.integerDigits(2).size
+6
 ```
 
-For negative _n_,
-`Float` and `Integer` answer differently.
-Equivalent to _n.bitNot.bitLength_.
-Threads over lists:
-
-```
->>> [1 -1.0 -1L 64 -64].bitLength
-[1 0 1 7 6]
-
->>> [1 -1.0 -1L 64 -64].bitNot.bitLength
-[1 0 1 7 6]
-```
-
-Equivalent to `floor` of `log` base two plus `one`:
+Relation to `log` for positive _n_,
+equivalent to `floor` of `log` base two plus `one`:
 
 ```
 >>> 32.log(2).floor + 1
 6
 ```
 
-First few terms,
-OEIS [A070939](https://oeis.org/A070939)
-also
-OEIS [A029837](https://oeis.org/A029837),
-if the first term is instead `zero`:
+Relation to `bitNot` for negative _n_:
 
 ```
->>> 0L:23.bitLength
+>>> -32.bitLength
+5
+
+>>> -32.bitNot.bitLength
+5
+```
+
+The length of a negative integer:
+
+```
+>>> -32.bitLength
+5
+```
+
+The length of large integers:
+
+```
+>>> 13L.factorial.bitLength
+33
+
+>>> 1000.!.bitLength
+8530L
+```
+
+For zero and negative one,
+the answer is `zero`.
+Threads over lists:
+
+```
+>>> [-4 .. 3].bitLength
+[2 2 1 0 0 1 2 2]
+
+>>> [-4L .. 3L].bitLength
+[2 2 1 0 0 1 2 2]
+```
+
+First few terms,
+OEIS [A029837](https://oeis.org/A029837),
+also
+OEIS [A070939](https://oeis.org/A070939)
+if the first term is instead `one`:
+
+```
+>>> 0L:23L.bitLength
 [
-	1 1 2 2 3 3 3 3 4 4
+	0 1 2 2 3 3 3 3 4 4
 	4 4 4 4 4 4 5 5 5 5
 	5 5 5 5
 ]

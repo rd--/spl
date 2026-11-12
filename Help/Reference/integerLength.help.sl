@@ -66,8 +66,11 @@ At negative integers:
 At `zero`:
 
 ```
->>> 0.integerLength(10)
-0
+>>> 0L.integerLength(10L)
+0L
+
+>>> 0.0.integerLength(10.0)
+0L
 ```
 
 Length of binary representation of first few integers,

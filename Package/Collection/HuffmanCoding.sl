@@ -26,7 +26,7 @@ HuffmanCoding : [Object, Store, Equal] {
 
 }
 
-+[Record, Map] {
++[Record, Map, Dictionary] {
 
 	HuffmanCoding { :symbolTable :encoding |
 		newHuffmanCoding().initializeSlots(symbolTable, encoding)
@@ -48,7 +48,11 @@ HuffmanCoding : [Object, Store, Equal] {
 		let huffmanSymbolTable = { :weights |
 			let heap = Heap();
 			weights.sortedCounts(comparator/2).do { :each |
-				heap.add!(each.key -> [each.value -> []])
+				heap.add!(
+					each.key
+					->
+					[each.value -> []]
+				)
 			};
 			{
 				heap.size > 1L
@@ -61,7 +65,11 @@ HuffmanCoding : [Object, Store, Equal] {
 				high.value.do { :each |
 					each.value.addFirst!(1L)
 				};
-				heap.add!((low.key + high.key) -> (low.value ++ high.value))
+				heap.add!(
+					(low.key + high.key)
+					->
+					(low.value ++ high.value)
+				)
 			};
 			Map(heap.array.first.value)
 		};

@@ -62,7 +62,8 @@ A 3×2 identity matrix:
 Draw `identityMatrix`:
 
 ~~~spl png=A
-33.identityMatrix.Bitmap
+33.identityMatrix
+.Bitmap
 ~~~
 
 ![](Help/Image/identityMatrix-A.png)

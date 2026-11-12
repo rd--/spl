@@ -15,7 +15,7 @@ The operator form is `!!`.
 >>> 23.doubleFactorial
 316234143225
 
->>> [1, 3 .. 23].product
+>>> [1L, 3L .. 23L].product
 316234143225
 ```
 

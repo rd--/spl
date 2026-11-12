@@ -71,8 +71,9 @@ The inverse of `ByteArray` at `List` is `List`:
 Get the length of a `ByteArray`:
 
 ```
->>> ByteArray(1:32).size
-32
+>>> ByteArray(1:32)
+>>> .size
+32L
 ```
 
 Reverse a `ByteArray`, in-place or copying:

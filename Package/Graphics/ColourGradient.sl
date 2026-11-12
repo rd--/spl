@@ -18,7 +18,7 @@ ColourGradient : [Object, Store] {
 		let stops = { :c :p |
 			'		<stop offset="%" stop-color="%" />'.format(
 				[
-					p.printStringToFixed(3),
+					p.decimalStringToScale(3),
 					c.Colour.rgbString
 				]
 			)

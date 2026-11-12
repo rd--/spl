@@ -9,7 +9,9 @@ Involution numbers,
 OEIS [A000085](https://oeis.org/A000085):
 
 ```
->>> 0:23.collect(involutionNumber/1)
+>>> 0:23.collect(
+>>> 	involutionNumber/1
+>>> )
 [
 	1
 	1
@@ -42,8 +44,8 @@ There is a recurrence relation:
 
 ```
 >>> { :a :n |
->>> 	a[n - 1] + ((n - 2) * a[n - 2])
->>> }.recurrenceTable([1 1], 12)
+>>> 	a[n - 1] + ((n - 2L) * a[n - 2])
+>>> }.recurrenceTable([1L 1L], 12)
 [1 1 2 4 10 26 76 232 764 2620 9496 35696]
 ```
 

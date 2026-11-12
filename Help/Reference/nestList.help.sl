@@ -265,12 +265,12 @@ the next entry has 19,729 digits,
 OEIS [A014221](https://oeis.org/A014221):
 
 ```
->>> { :n | 2 ^ n }.nestList(0L, 5)
+>>> { :n | 2L ^ n }.nestList(0L, 5)
 [0 1 2 4 16 65536]
 
->>> { :n | 2 ^ n }.nestList(0L, 6)
->>> .integerLength(10)
-[1 1 1 1 2 5 19729]
+>>> { :n | 2L ^ n }.nestList(0L, 6)
+>>> .integerLength(10L)
+[0 1 1 1 2 5 19_729]
 ```
 
 _3^a(n)_,

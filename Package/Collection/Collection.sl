@@ -602,7 +602,7 @@
 
 	sum { :self |
 		self.isEmpty.if {
-			0
+			0L
 		} {
 			self.reduce(plus/2)
 		}

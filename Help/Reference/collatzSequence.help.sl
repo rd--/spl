@@ -18,7 +18,7 @@ usually denoted _C(n)_,
 OEIS [A006370](https://oeis.org/A006370):
 
 ```
->>> 0:23.collect(collatzMap/1)
+>>> 0L:23L.collect(collatzMap/1)
 [
 	 0  4  1 10  2 16  3 22  4 28
 	 5 34  6 40  7 46  8 52  9 58
@@ -40,7 +40,7 @@ usually denoted _T(n)_,
 OEIS [A014682](https://oeis.org/A014682):
 
 ```
->>> 0:23.collect(collatzFunction/1)
+>>> 0L:23L.collect(collatzFunction/1)
 [
 	 0  2  1  5  2  8  3 11  4 14
 	 5 17  6 20  7 23  8 26  9 29
@@ -53,19 +53,19 @@ which arrives at `one` after seven steps,
 OEIS [A033478](https://oeis.org/A033478):
 
 ```
->>> 3.collatzSequence
+>>> 3L.collatzSequence
 [3 10 5 16 8 4 2 1]
 
->>> 3.collatzSequence(3, 'Indirect')
+>>> 3L.collatzSequence(3L, 'Indirect')
 [[3 10 5 16 8 4 2 1], 4]
 
->>> collatzMap/1.nestList(3, 7)
+>>> collatzMap/1.nestList(3L, 7L)
 [3 10 5 16 8 4 2 1]
 
->>> collatzFunction/1.nestList(3, 5)
+>>> collatzFunction/1.nestList(3L, 5L)
 [3 5 8 4 2 1]
 
->>> 3.collatzSequence(3, 'Direct')
+>>> 3L.collatzSequence(3L, 'Direct')
 [[3 5 1], 1]
 ```
 
@@ -73,13 +73,13 @@ The Collatz sequence starting at seven,
 which arrives at `one` after sixteen steps:
 
 ```
->>> 7.collatzSequence
+>>> 7L.collatzSequence
 [
 	 7 22 11 34 17 52 26 13 40 20
 	10  5 16  8  4  2  1
 ]
 
->>> 7.collatzSequence(3, 'Indirect')
+>>> 7L.collatzSequence(3L, 'Indirect')
 [
 	[
 		7 22 11 34 17 52 26 13 40 20
@@ -88,16 +88,16 @@ which arrives at `one` after sixteen steps:
 	4
 ]
 
->>> collatzMap/1.nestList(7, 16)
+>>> collatzMap/1.nestList(7L, 16L)
 [
 	 7 22 11 34 17 52 26 13 40 20
 	10  5 16  8  4  2  1
 ]
 
->>> collatzFunction/1.nestList(7, 11)
+>>> collatzFunction/1.nestList(7L, 11L)
 [7 11 17 26 13 20 10 5 8 4 2 1]
 
->>> 7.collatzSequence(3, 'Direct')
+>>> 7L.collatzSequence(3L, 'Direct')
 [[7 11 17 13 5 1], 1]
 ```
 
@@ -106,13 +106,13 @@ which arrives at `one` after nineteen steps,
 OEIS [A033479](https://oeis.org/A033479):
 
 ```
->>> 9.collatzSequence
+>>> 9L.collatzSequence
 [
 	 9 28 14 7 22 11 34 17 52 26
 	13 40 20 10 5 16  8  4  2  1
 ]
 
->>> 9.collatzSequence(3, 'Indirect')
+>>> 9L.collatzSequence(3L, 'Indirect')
 [
 	[
 		 9 28 14 7 22 11 34 17 52 26
@@ -121,16 +121,16 @@ OEIS [A033479](https://oeis.org/A033479):
 	4
 ]
 
->>> collatzMap/1.nestList(9, 19)
+>>> collatzMap/1.nestList(9L, 19L)
 [
 	 9 28 14 7 22 11 34 17 52 26
 	13 40 20 10 5 16  8  4  2  1
 ]
 
->>> collatzFunction/1.nestList(9, 13)
+>>> collatzFunction/1.nestList(9L, 13L)
 [9 14 7 11 17 26 13 20 10 5 8 4 2 1]
 
->>> 9.collatzSequence(3, 'Direct')
+>>> 9L.collatzSequence(3L, 'Direct')
 [[9 7 11 17 13 5 1], 1]
 ```
 
@@ -362,8 +362,8 @@ The sequence starting at _1/3_:
 The first few sequences:
 
 ```
->>> let n = 3L:13:2;
->>> (1 / n)
+>>> let n = 3L:13L:2L;
+>>> (1L / n)
 >>> .collect(collatzSequence/1) * n
 [
 	1 6 3 12 6;

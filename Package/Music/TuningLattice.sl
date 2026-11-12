@@ -32,7 +32,7 @@
 			self.tuningLatticePrimes(primes.includes(2))
 		).if {
 			self.tuningLatticeVector(primes).collect { :each |
-				each.printString.padLeft([2], ' ')
+				each.integerString.padLeft([2], ' ')
 			}.unwords
 		} {
 			'*'

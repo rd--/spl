@@ -49,6 +49,13 @@ true
 []
 ```
 
+At `Range`:
+
+```
+>>> 1L:9L.allButFirst
+2L:9L
+```
+
 * * *
 
 See also: allButLast, drop

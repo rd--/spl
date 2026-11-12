@@ -11,15 +11,16 @@ Image : [Object] {
 		let header = [
 			'P3',
 			'% %'.format([columnCount, rowCount]),
-			maxDepth.printString
+			maxDepth.integerString
 		];
 		let rows = self.imageArray.collect { :each |
 			each.collect { :pixel |
-				pixel.isValidRgb.if {
-					(pixel.first(3) * maxDepth).round.collect(printString/1).unwords
+				let pixelData = pixel.isValidRgb.if {
+					(pixel.first(3) * maxDepth).round
 				} {
-					'% % %'.format([maxDepth, maxDepth, maxDepth])
-				}
+					[maxDepth, maxDepth, maxDepth]
+				};
+				pixelData.collect(concisePrintString/1).unwords
 			}.unwords
 		};
 		(header ++ rows).unlines

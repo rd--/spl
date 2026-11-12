@@ -48,10 +48,10 @@
 				binomialGamma(n, m)
 			}
 		} {
-			k.isZero.if {
-				n.one
+			(k = 0.0).if {
+				1.0
 			} {
-				n.isZero.if {
+				(n = 0.0).if {
 					k.pi.sin / k.pi
 				} {
 					uncheckedBinomialGamma(n, k)
@@ -78,9 +78,9 @@
 	}
 
 	uncheckedBinomialGamma { :n :k |
-		let a = (n + 1).gamma;
-		let b = (k + 1).gamma;
-		let c = (n - k + 1).gamma;
+		let a = (n + 1.0).gamma;
+		let b = (k + 1.0).gamma;
+		let c = (n - k + 1.0).gamma;
 		a / (b * c)
 	}
 

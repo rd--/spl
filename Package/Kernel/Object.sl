@@ -69,7 +69,7 @@
 	}
 
 	displayString { :self |
-		self.printString
+		self.concisePrintString
 	}
 
 	error { :self :message :parameters |
@@ -111,7 +111,7 @@
 			self.pseudoSlotList,
 			self.isIndexable.if {
 				self.indices.take(maxIndices).collect { :each |
-					each.concisePrintString -> self[each]
+					each.displayString -> self[each]
 				}
 			} {
 				[]

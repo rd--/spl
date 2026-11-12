@@ -268,8 +268,8 @@
 	}
 
 	atWrap { :self :index |
-		let k = index.wrapExclusive(1, self.size + 1);
-		self[k]
+		let k = index.wrapExclusive(1L, self.size + 1L);
+		self.at(k)
 	}
 
 	before { :self :target |
@@ -384,7 +384,7 @@
 	}
 
 	cartesianIndex { :shape :anInteger |
-		(anInteger - 1).mixedRadixEncode(shape) + 1
+		(anInteger - 1L).mixedRadixEncode(shape) + 1L
 	}
 
 	[catenate, ++] { :self |
@@ -591,7 +591,7 @@
 	}
 
 	decimalContraction { :n |
-		n.fromDigits(10)
+		n.fromDigits(10L)
 	}
 
 	deepReplace! { :self :aBlock/1 |
@@ -830,23 +830,29 @@
 	}
 
 	drop { :self |
-		self.drop(1)
+		self.drop(1L)
 	}
 
 	[dropFirst, allButFirst] { :self :count |
-		self.copyFromTo(count + 1, self.size)
+		self.copyFromTo(
+			count + 1L,
+			self.size
+		)
 	}
 
 	[dropFirst, allButFirst] { :self |
-		self.dropFirst(1)
+		self.dropFirst(1L)
 	}
 
 	dropLast { :self :count |
-		self.copyFromTo(1, self.size - count)
+		self.copyFromTo(
+			1L,
+			self.size - count
+		)
 	}
 
 	dropLast { :self |
-		self.dropLast(1)
+		self.dropLast(1L)
 	}
 
 	dropWhile { :self :aBlock/1 |
@@ -1081,17 +1087,17 @@
 	}
 
 	first { :self |
-		self[1]
+		self.at(1L)
 	}
 
 	first { :self :n |
-		self.copyFromTo(1, n)
+		self.copyFromTo(1L, n)
 	}
 
 	first { :self :n :zero |
 		let k = self.size;
 		(k >= n).if {
-			self.copyFromTo(1, n)
+			self.copyFromTo(1L, n)
 		} {
 			self ++ List(n - k, zero)
 		}
@@ -1800,18 +1806,22 @@
 	}
 
 	linearIndex { :shape :aList |
-		(aList - 1).mixedRadixDecode(shape) + 1
+		(aList - 1L).mixedRadixDecode(shape) + 1L
 	}
 
 	linearRecurrence { :kernel :init :n |
 		let answer = init.copy;
 		let m = kernel.size;
 		let d = init.size;
-		let j/2 = (kernel.isVector || init.isVector).if { * } { dot/2 };
-		d.toDo(n - 1) { :k |
-			let z = 0;
-			1.toDo(m) { :i |
-				z := z + j(kernel[i], answer[k + 1 - i])
+		let j/2 = (
+			kernel.isVector | {
+				init.isVector
+			}
+		).if { * } { dot/2 };
+		d.toDo(n - 1L) { :k |
+			let z = 0L;
+			1L.toDo(m) { :i |
+				z := z + j(kernel[i], answer[k + 1L - i])
 			};
 			answer.add!(z)
 		};
@@ -1977,10 +1987,10 @@
 	}
 
 	occurrencesOf { :self :anObject |
-		let tally = 0;
+		let tally = 0L;
 		self.indicesDo { :index |
 			(self[index] = anObject).ifTrue {
-				tally := tally + 1
+				tally := tally + 1L
 			}
 		};
 		tally
@@ -2974,8 +2984,11 @@
 
 	withCollectWrapping { :self :aList :aBlock/2 |
 		let maximumSize = self.size.max(aList.size);
-		1.toAsCollect(maximumSize, self) { :index |
-			aBlock(self.atWrap(index), aList.atWrap(index))
+		1L.toAsCollect(maximumSize, self) { :index |
+			aBlock(
+				self.atWrap(index),
+				aList.atWrap(index)
+			)
 		}
 	}
 
@@ -3144,16 +3157,18 @@
 	}
 
 	toAsCollect { :self :stop :model :aBlock/1 |
-		let answerSize = stop - self + 1;
+		let answerSize = stop - self + 1L;
 		let answer = model.newOfSize(answerSize);
-		1.toDo(answerSize) { :index |
-			answer[index] := aBlock(index + self - 1)
+		1L.toDo(answerSize) { :index |
+			answer[index] := aBlock(index + self - 1L)
 		};
 		answer
 	}
 
 	tuplesIndicesDo { :k :n :f/1 |
-		({ [1 .. k] } ! n).tuplesDo(f/1)
+		(
+			{ [1L .. k] } ! n
+		).tuplesDo(f/1)
 	}
 
 }

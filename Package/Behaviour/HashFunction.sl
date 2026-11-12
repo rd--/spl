@@ -14,7 +14,7 @@
 	}
 
 	hash { :self |
-		self.hash(2166136261)
+		self.hash(2166136261L)
 	}
 
 	murmurHashGenerator { :self :seed |
@@ -73,7 +73,7 @@
 	}
 
 	hash { :self |
-		self.hash(2166136261)
+		self.hash(2166136261L)
 	}
 
 	murmurHashGenerator { :self :seed |

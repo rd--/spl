@@ -242,10 +242,10 @@ numer=`numerator`, denom=`denominator`
 >>> denominator(4/6)
 3
 
->>> numerator(6 / -8L)
+>>> numerator(6L / -8L)
 -3
 
->>> denominator(6 / -8L)
+>>> denominator(6L / -8L)
 4
 
 >>> denominator(10/5)

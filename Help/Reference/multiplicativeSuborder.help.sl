@@ -8,8 +8,8 @@ Multiplicative suborder of three,
 OEIS [A103489](https://oeis.org/A103489):
 
 ```
->>> 0:89.collect { :n |
->>> 	3.multiplicativeSuborder(n)
+>>> 0L:89L.collect { :n |
+>>> 	3L.multiplicativeSuborder(n)
 >>> }
 [
 	0 0 1 0 1 2 0 3 2 0 2 5 0 3 3 0 4 8 0 9
@@ -25,8 +25,8 @@ Multiplicative suborder of five,
 OEIS [A103491](https://oeis.org/A103491):
 
 ```
->>> 0:90.collect { :n |
->>> 	5.multiplicativeSuborder(n)
+>>> 0L:90L.collect { :n |
+>>> 	5L.multiplicativeSuborder(n)
 >>> }
 [
 	0 0 1 1 1 0 1 3 2 3 0 5 2 2 3 0 4 8 3 9
@@ -42,9 +42,9 @@ Multiplicative suborder of two modulo _2n+1_,
 OEIS [A003558](https://oeis.org/A003558):
 
 ```
->>> 1:70.collect { :n |
->>> 	let m = 2 * n + 1;
->>> 	2.multiplicativeSuborder(m)
+>>> 1L:70L.collect { :n |
+>>> 	let m = 2L * n + 1L;
+>>> 	2L.multiplicativeSuborder(m)
 >>> }
 [
 	1 2 3 3 5 6 4 4 9 6 11 10 9 14 5 5 12
@@ -60,8 +60,8 @@ Multiplicative suborder of three,
 OEIS [A103489](https://oeis.org/A103489):
 
 ~~~spl svg=A oeis=A103489
-0:200.collect { :n |
-	3.multiplicativeSuborder(n)
+0L:200L.collect { :n |
+	3L.multiplicativeSuborder(n)
 }.scatterPlot
 ~~~
 
@@ -71,8 +71,8 @@ Multiplicative suborder of five,
 OEIS [A103491](https://oeis.org/A103491):
 
 ~~~spl svg=B oeis=A103491
-0:200.collect { :n |
-	5.multiplicativeSuborder(n)
+0L:200L.collect { :n |
+	5L.multiplicativeSuborder(n)
 }.scatterPlot
 ~~~
 
@@ -82,8 +82,8 @@ Multiplicative suborder of two modulo _2n+1_,
 OEIS [A003558](https://oeis.org/A003558):
 
 ~~~spl svg=C oeis=A003558
-1:200.collect { :n |
-	2.multiplicativeSuborder(2 * n + 1)
+1L:200L.collect { :n |
+	2L.multiplicativeSuborder(2L * n + 1L)
 }.scatterPlot
 ~~~
 
@@ -93,11 +93,11 @@ Coach numbers,
 OEIS [A135303](https://oeis.org/A135303):
 
 ~~~spl svg=D oeis=A135303
-1:85.collect { :n |
-	let m = 2 * n + 1;
+1L:85L.collect { :n |
+	let m = 2L * n + 1L;
 	m.eulerPhi
-	/
-	(2 * 2.multiplicativeSuborder(m))
+	//
+	(2L * 2L.multiplicativeSuborder(m))
 }.stepPlot
 ~~~
 

@@ -19,13 +19,13 @@ The `degree` of the polynomial is the largest exponent,
 >>> 	p.terms,
 >>> 	p.leadingCoefficient
 >>> )
-(3, [-2 0 1 5], Map[0 -> -2, 2 -> 1, 3 -> 5], 5)
+(3, [-2 0 1 5], Dictionary[0 -> -2, 2 -> 1, 3 -> 5], 5)
 ```
 
 Construct from a `Map`, entries are _(exponent, coefficient)_ terms:
 
 ```
->>> Polynomial(Map[1 -> -3, 3 -> 1])
+>>> Polynomial(Dictionary[1 -> -3, 3 -> 1])
 UnivariatePolynomial[0 -3 0 1]
 ```
 
@@ -93,13 +93,13 @@ Polynomial[329 -225 736 -186 84]
 Exponentiation:
 
 ```
->>> 5.cyclotomic
+>>> 5L.cyclotomic
 Polynomial[1 1 1 1 1]
 
->>> 5.cyclotomic ^ 2
+>>> 5L.cyclotomic ^ 2L
 Polynomial[1 2 3 4 5 4 3 2 1]
 
->>> 5.cyclotomic ^ 3
+>>> 5L.cyclotomic ^ 3L
 Polynomial[
 	1 3 6 10 15 18
 	19

@@ -5,7 +5,7 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	concisePrintString { :self |
-		self.printStringUsing(concisePrintString/1)
+		self.storeStringUsing(concisePrintString/1)
 	}
 
 	addFirst { :self :anObject |
@@ -13,7 +13,9 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	addFirst! { :self :anObject |
-		<primitive: _self.unshift(_anObject);>
+		<primitive:
+		_self.unshift(_anObject);
+		>
 		anObject
 	}
 
@@ -22,18 +24,20 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	addLast! { :self :anObject |
-		<primitive: _self.push(_anObject);>
+		<primitive:
+		_self.push(_anObject);
+		>
 		anObject
 	}
 
-	addListFirst { :self :aList |
+	addListFirst! { :self :aList |
 		<primitive:
 		_self.unshift(..._aList);
 		return _aList;
 		>
 	}
 
-	addListLast { :self :aList |
+	addListLast! { :self :aList |
 		<primitive:
 		_self.push(..._aList);
 		return _aList;
@@ -179,10 +183,10 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	printString { :self |
-		self.printStringUsing(printString/1)
+		self.storeStringUsing(printString/1)
 	}
 
-	printStringUsing { :self :toString/1 |
+	storeStringUsing { :self :toString/1 |
 		'[%]'.format(
 			[
 				self.collect(toString/1).commaSeparated
@@ -269,7 +273,9 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	removeAll! { :self |
-		<primitive: _self.splice(0);>
+		<primitive:
+		_self.splice(0);
+		>
 		nil
 	}
 
@@ -286,7 +292,7 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	removeAtAll! { :self :indices |
-		let uniqueIndices = indices.unique(==);
+		let uniqueIndices = indices.unique(=);
 		let indexCount = uniqueIndices.size;
 		let removed = self.atAll(uniqueIndices);
 		1.toDo(indexCount) { :i |
@@ -297,11 +303,18 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	removeFirst! { :self |
-		<primitive: return _self.shift();>
+		<primitive:
+		return _self.shift();
+		>
 	}
 
 	removeFirst! { :self :count |
-		<primitive: return _self.splice(0, _count);>
+		<primitive:
+		return _self.splice(
+			0,
+			sl.toFloat(_count)
+		);
+		>
 	}
 
 	removeLast! { :self |
@@ -313,7 +326,10 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	removeLast! { :self :count |
 		<primitive:
 		const k = sl.toFloat(_count);
-		return _self.splice(_self.length - k, k);
+		return _self.splice(
+			_self.length - k,
+			k
+		);
 		>
 	}
 
@@ -322,7 +338,9 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	shallowCopy { :self |
-		<primitive: return Array.from(_self);>
+		<primitive:
+		return Array.from(_self);
+		>
 	}
 
 	species { :unused |
@@ -330,7 +348,7 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	storeString { :self |
-		self.printStringUsing(storeString/1)
+		self.storeStringUsing(storeString/1)
 	}
 
 	unenclose { :self |
@@ -359,7 +377,13 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 +@Integer {
 
 	[List, constantList] { :size :anObject |
-		<primitive: return Array(Number(_size)).fill(_anObject);>
+		<primitive:
+		return Array(
+			sl.toFloat(_size)
+		).fill(
+			_anObject
+		);
+		>
 	}
 
 	alternatingHarmonicSeries { :n |
@@ -420,7 +444,9 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 +Void {
 
 	[List, emptyList] {
-		<primitive: return [];>
+		<primitive:
+		return [];
+		>
 	}
 
 }

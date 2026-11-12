@@ -199,10 +199,14 @@
 	}
 
 	storeString { :self |
+		self.storeStringUsing(storeString/1)
+	}
+
+	storeStringUsing { :self :aBlock/1 |
 		'%(%)'.format(
 			[
 				self.typeName,
-				List(self).storeString
+				List(self).storeStringUsing(storeString/1)
 			]
 		)
 	}

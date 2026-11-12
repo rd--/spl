@@ -5,15 +5,21 @@ PriorityQueue! : [Object] {
 	}
 
 	peek { :self |
-		<primitive: return _self.peek() || null;>
+		<primitive:
+		return _self.peek() || null;
+		>
 	}
 
 	peekPriority { :self |
-		<primitive: return _self.peekValue() || null;>
+		<primitive:
+		return _self.peekValue() || null;
+		>
 	}
 
 	pop! { :self |
-		<primitive: return _self.pop();>
+		<primitive:
+		return _self.pop();
+		>
 	}
 
 	pseudoSlotNameList { :self |
@@ -27,11 +33,18 @@ PriorityQueue! : [Object] {
 	}
 
 	pushWithPriority! { :self :item :priority |
-		<primitive: return _self.push(_item, _priority);>
+		<primitive:
+		return _self.push(
+			_item,
+			sl.toFloat(_priority)
+		);
+		>
 	}
 
 	removeAll! { :self |
-		<primitive: _self.clear();>
+		<primitive:
+		_self.clear();
+		>
 		nil
 	}
 
@@ -41,11 +54,15 @@ PriorityQueue! : [Object] {
 	}
 
 	shrink! { :self |
-		<primitive: return _self.shrink();>
+		<primitive:
+		return _self.shrink();
+		>
 	}
 
 	size { :self |
-		<primitive: return _self.length;>
+		<primitive:
+		return sl.toInteger(_self.length);
+		>
 	}
 
 }

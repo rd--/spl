@@ -44,7 +44,7 @@ Type! : [Object, Equal] {
 	}
 
 	printString { :self |
-		self.name
+		'<%>'.format([self.name])
 	}
 
 	pseudoSlotNameList { :self |

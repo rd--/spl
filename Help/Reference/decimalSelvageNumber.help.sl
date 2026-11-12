@@ -8,7 +8,7 @@ The first decimal selvage number,
 OEIS [A071789](https://oeis.org/A071789):
 
 ```
->>> 1.decimalSelvageNumber(112)
+>>> 1L.decimalSelvageNumber(112L)
 [
 	1 2 3 4 6 7 8 9 1 2 3 4 6 7 8 9
 	0 2 3 4 5 7 8 9 0 2 3 4 5 7 8 9
@@ -24,7 +24,7 @@ The first decimal selvage number,
 OEIS [A071789](https://oeis.org/A071789):
 
 ~~~spl svg=A oeis=A071789
-1.decimalSelvageNumber(194)
+1L.decimalSelvageNumber(194L)
 .scatterPlot
 ~~~
 
@@ -34,7 +34,7 @@ The second decimal selvage number,
 OEIS [A071790](https://oeis.org/A071790):
 
 ```
->>> 2.decimalSelvageNumber(108)
+>>> 2L.decimalSelvageNumber(108L)
 [
 	2 4 7 9 2 4 7 9 2 4 7 9
 	2 4 7 9 2 4 7 9 2 4 7 9
@@ -52,7 +52,7 @@ The second decimal selvage number,
 OEIS [A071790](https://oeis.org/A071790):
 
 ~~~spl svg=B oeis=A071790
-2.decimalSelvageNumber(193)
+2L.decimalSelvageNumber(193L)
 .scatterPlot
 ~~~
 
@@ -62,7 +62,7 @@ The third decimal selvage number,
 OEIS [A071791](https://oeis.org/A071791):
 
 ```
->>> 3.decimalSelvageNumber(108)
+>>> 3L.decimalSelvageNumber(108L)
 [
 	2 5 7 0 2 5 7 0
 	3 5 8 0 3 5 8 1 3 6 8 1 3 6 9 1
@@ -79,7 +79,7 @@ The third decimal selvage number,
 OEIS [A071791](https://oeis.org/A071791):
 
 ~~~spl svg=C oeis=A071791
-3.decimalSelvageNumber(206)
+3L.decimalSelvageNumber(206L)
 .scatterPlot
 ~~~
 
@@ -89,7 +89,7 @@ The fourth decimal selvage number,
 OEIS [A071792](https://oeis.org/A071792):
 
 ```
->>> 4.decimalSelvageNumber(100)
+>>> 4L.decimalSelvageNumber(100L)
 [
 	3 7 1 4 8 2 6 9 3 7 0 4 8 2 5 9
 	3 6 0 4 8 1 5 9 2 6 0 4 7 1 5 8
@@ -105,7 +105,7 @@ The fourth decimal selvage number,
 OEIS [A071792](https://oeis.org/A071792):
 
 ~~~spl svg=D oeis=A071792
-4.decimalSelvageNumber(193)
+4L.decimalSelvageNumber(193L)
 .scatterPlot
 ~~~
 
@@ -115,7 +115,7 @@ The fifth decimal selvage number,
 OEIS [A071793](https://oeis.org/A071793):
 
 ```
->>> 5.decimalSelvageNumber(100)
+>>> 5L.decimalSelvageNumber(100L)
 [
 	  4 9 4 9 4 9 4 9 4 9 4 9 4 9 4 9 4 9 4
 	8 3 8 3 8 3 8 3 8 3 8 3 8 3 8 3 8 3 8 3
@@ -131,7 +131,7 @@ The fifth decimal selvage number,
 OEIS [A071793](https://oeis.org/A071793):
 
 ~~~spl svg=E oeis=A071793
-5.decimalSelvageNumber(198)
+5L.decimalSelvageNumber(198L)
 .scatterPlot
 ~~~
 
@@ -141,7 +141,7 @@ The sixth decimal selvage number,
 OEIS [A071873](https://oeis.org/A071873):
 
 ```
->>> 6.decimalSelvageNumber(100)
+>>> 6L.decimalSelvageNumber(100L)
 [
 	  5 0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5
 	1 6 1 6 1 6 1 6 1 6 1 6 1 6 1 6 1 6 1 6
@@ -156,7 +156,7 @@ The sixth decimal selvage number,
 OEIS [A071873](https://oeis.org/A071873):
 
 ~~~spl svg=F oeis=A071873
-6.decimalSelvageNumber(198)
+6L.decimalSelvageNumber(198L)
 .scatterPlot
 ~~~
 

@@ -7,10 +7,10 @@ Answer the Lagrange interpolating polynomial for the coordinates _c_.
 With `Float` _c_:
 
 ```
->>> [-1 4; 0 2; 1 6]
+>>> [-1.0 4.0; 0.0 2.0; 1.0 6.0]
 >>> .lagrangeInterpolatingPolynomial
 >>> .coefficientList
-[2 1 3]
+[2.0 1.0 3.0]
 ```
 
 With `Integer` _c_:
@@ -19,12 +19,12 @@ With `Integer` _c_:
 >>> Integer[1 1; 2 4; 3 1; 4 5]
 >>> .lagrangeInterpolatingPolynomial
 >>> .coefficientList
-[-21 215/6 -16 13/6]
+[-21/1 215/6 -16/1 13/6]
 
 >>> Integer[1 1; 2 4; 3 9; 4 16]
 >>> .lagrangeInterpolatingPolynomial
 >>> .coefficientList
-[0 0 1]
+[0/1 0/1 1/1]
 ```
 
 Plot interpolation over five points:

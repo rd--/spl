@@ -8,7 +8,7 @@ calculated using Bonnet’s recursion formula.
 Evaluate numerically:
 
 ```
->>> 2.legendreP.at(2)
+>>> 2L.legendreP.at(2L)
 11/2
 ```
 
@@ -16,7 +16,7 @@ At `zero`,
 the line _y=1_:
 
 ```
->>> 0.legendreP.coefficientList
+>>> 0L.legendreP.coefficientList
 [1]
 ```
 
@@ -24,19 +24,19 @@ At `one`,
 the line _y=x_:
 
 ```
->>> 1.legendreP.coefficientList
+>>> 1L.legendreP.coefficientList
 [0 1]
 ```
 
 Integer form of first few polynomials:
 
 ```
->>> (0L .. 10).collect { :n |
+>>> (0L .. 10L).collect { :n |
 >>> 	let a = n.legendreP;
 >>> 	let b = a.coefficientList;
 >>> 	let c = b.select(isNonZero/1);
 >>> 	let d = c.abs.gcd;
->>> 	(d, b / d)
+>>> 	(d, b // d)
 >>> }
 [
 	(1, [1]),
@@ -75,7 +75,7 @@ Plot Legendre polynomials two through five:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(
-	2:5.collect { :n |
+	2L:5L.collect { :n |
 		n.legendreP.unaryBlock
 	}
 )
@@ -88,8 +88,8 @@ Generalised Lissajous figures:
 ~~~spl svg=B
 (-1 -- 1).parametricPlot(
 	400,
-	7.legendreP.unaryBlock,
-	13.legendreP.unaryBlock
+	7L.legendreP.unaryBlock,
+	13L.legendreP.unaryBlock
 )
 ~~~
 

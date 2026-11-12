@@ -34,13 +34,17 @@
 
 	timeString { :self |
 		let seconds = self.inSeconds;
-		(seconds >= 0 & { seconds < (24 * 60 * 60) }).if {
+		(
+			seconds >= 0 & {
+				seconds < (24 * 60 * 60)
+			}
+		).if {
 			let [h, m, s] = seconds.mixedRadixEncode([60 60]);
 			'%:%:%.%'.format([
-				h.printString.padLeft([2], '0'),
-				m.printString.padLeft([2], '0'),
-				s.truncate.printString.padLeft([2], '0'),
-				(s.fractionalPart * 1000).round.printString.padLeft([3], '0')
+				h.integerString.padLeft([2], '0'),
+				m.integerString.padLeft([2], '0'),
+				s.truncate.integerString.padLeft([2], '0'),
+				(s.fractionalPart * 1000).round.integerString.padLeft([3], '0')
 			])
 		} {
 			self.error('timeString: invalid time')

@@ -3449,7 +3449,7 @@ Reference (a-z):
 - `printString`
 - `printStringHexadecimal`
 - `printStringLimitedTo`
-- `printStringToFixed`
+- `decimalStringToScale`
 - `printStringWithCommas`
 - `prismGraph`
 - `procacciaSchuster`

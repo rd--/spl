@@ -143,12 +143,12 @@ Recognize Wieferich primes, prime numbers _p_ such that _p^2_ divides _2^(p-1)-1
 ```
 >>> let f = { :n |
 >>> 	n.isPrime & {
->>> 		let a = 2 ^ (n - 1) - 1;
->>> 		let b = n ^ 2;
->>> 		a % b = 0
+>>> 		let a = 2L ^ (n - 1L) - 1L;
+>>> 		let b = n ^ 2L;
+>>> 		a % b = 0L
 >>> 	}
 >>> };
->>> (1L .. 9999).select(f/1)
+>>> (1L .. 9999L).select(f/1)
 [1093, 3511]
 ```
 

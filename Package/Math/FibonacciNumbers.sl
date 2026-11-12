@@ -1,23 +1,30 @@
 +@Integer {
 
 	dualZeckendorfRepresentation { :n |
-		(n = 0).if {
-			[0]
+		(n = 0L).if {
+			[0L]
 		} {
 			let z = zeckendorfRepresentation(n);
-			let i = 1;
-			{ i <= (z.size - 2) }.whileTrue {
-				(z[i] = 1 & { z[i + 1] = 0 & { z[i + 2] = 0 } }).ifTrue {
-					z[i] := 0;
-					z[i + 1] := 1;
-					z[i + 2] := 1;
-					(i > 2).ifTrue {
-						i := i - 3
+			let i = 1L;
+			{
+				i <= (z.size - 2L)
+			}.whileTrue {
+				(
+					z[i] = 1L & {
+						z[i + 1L] = 0L & {
+							z[i + 2L] = 0L }
+					}
+				).ifTrue {
+					z[i] := 0L;
+					z[i + 1L] := 1L;
+					z[i + 2L] := 1L;
+					(i > 2L).ifTrue {
+						i := i - 3L
 					}
 				};
-				i := i + 1
+				i := i + 1L
 			};
-			(z[1] = 0).ifTrue {
+			(z[1L] = 0L).ifTrue {
 				z.removeFirst!
 			};
 			z
@@ -39,16 +46,18 @@
 	}
 
 	zeckendorfRepresentation { :self |
-		(self <= 0).if {
-			[0]
+		(self <= 0L).if {
+			[0L]
 		} {
 			let f = self.fibonacciSequenceUpTo;
-			let k = f.size - 1;
+			let k = f.size - 1L;
 			let z = [];
 			f.removeFirst!;
-			k.toByDo(2, -1) { :i |
+			k.toByDo(2L, -1L) { :i |
 				let n = f[i];
-				z.add!((n <= self).if { 1 } { 0 });
+				z.add!(
+					(n <= self).boole
+				);
 				(n <= self).ifTrue {
 					self := self - n
 				}

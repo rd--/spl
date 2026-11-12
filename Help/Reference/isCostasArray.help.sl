@@ -88,13 +88,13 @@ true
 Logarithmically generated Costas arrays:
 
 ```
->>> 1L:12.select { :p |
->>> 	(p ^ 1:12 % 13).isCostasArray
+>>> 1L:12L.select { :p |
+>>> 	(p ^ 1L:12L % 13L).isCostasArray
 >>> }
 [2 6 7 11]
 
->>> 1L:22.select { :p |
->>> 	(p ^ 1:22 % 23).isCostasArray
+>>> 1L:22L.select { :p |
+>>> 	(p ^ 1L:22L % 23L).isCostasArray
 >>> }
 [5 7 10 11 14 15 17 19 20 21]
 ```

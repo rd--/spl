@@ -10,7 +10,7 @@
 		self * (10 ^ aNumber)
 	}
 
-	Float { :self |
+	[Float, F] { :self |
 		self.collect(Float/1)
 	}
 

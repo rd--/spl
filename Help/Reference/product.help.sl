@@ -16,11 +16,11 @@ Answer the product of all the elements in the collection _c_.
 518400
 ```
 
-The product of an empty collection is one:
+The product of an empty collection is the `Integer` `one`:
 
 ```
 >>> [].product
-1
+1L
 ```
 
 Factorial is product of a `Range` from `one` with step size `one`:

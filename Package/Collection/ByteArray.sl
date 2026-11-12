@@ -6,6 +6,10 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		>
 	}
 
+	concisePrintString { :self |
+		self.storeStringUsing(integerString/1)
+	}
+
 	asciiString { :self |
 		<primitive:
 		return new TextDecoder('ascii').decode(_self);

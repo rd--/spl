@@ -33,7 +33,7 @@ The `format` method prints the equivalence predicate:
 .nullaryApply
 .displayString
 .equalIgnoringExtraWhitespace(
-	ByteArray([55]).utf8String
+	ByteArray([55.0]).utf8String
 )
 
 >>> DocumentationTest(
@@ -58,7 +58,7 @@ The `format` method prints the equivalence predicate:
 .nullaryApply
 .displayString
 .equalIgnoringExtraWhitespace(
-	ByteArray([52, 57]).utf8String
+	ByteArray([52.0, 57.0]).utf8String
 )
 ```
 

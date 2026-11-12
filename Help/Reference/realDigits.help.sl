@@ -41,11 +41,24 @@ Digits of π in base ten:
 [[3 1 4 1 5 9 2 6 5 3 5 8 9 7 9], 1]
 ```
 
+At `Fraction`:
+
+```
+>>> 3/7.realDigits(10, 12)
+[[4 2 8 5 7 1 4 2 8 5 7 1], 0]
+
+>>> 3/7.decimalPeriod
+6
+```
+
 Digits of 19/7 in base ten:
 
 ```
 >>> 19/7.realDigits(10, 15)
 [[2 7 1 4 2 8 5 7 1 4 2 8 5 7 1], 1]
+
+>>> 19/7.decimalPeriod
+6
 ```
 
 At `Decimal`:
@@ -91,7 +104,8 @@ OEIS [A004602](https://oeis.org/A004602):
 
 ```
 >>> 1.pi(104)
->>> .realDigits(3, 99).first
+>>> .realDigits(3, 99)
+>>> .first
 [
 	1 0 0 1 0 2 1 1 0 1 2 2 2 2 0 1 0 2 1 1
 	0 0 2 1 1 1 1 1 0 2 2 1 2 2 2 2 2 0 1 1

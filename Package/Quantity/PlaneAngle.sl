@@ -99,11 +99,13 @@
 
 	dmsString { :self |
 		let [d, m, s] = self.dmsList;
-		'%°%′%″'.format([
-			d.printString,
-			m.printString,
-			s.printStringToFixed(3)
-		])
+		'%°%′%″'.format(
+			[
+				d.integerString,
+				m.integerString,
+				s.decimalStringToScale(3)
+			]
+		)
 	}
 
 	fromDms { :self |

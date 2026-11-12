@@ -2,13 +2,14 @@
 
 - _fromToIndicesAndValuesDo(c, i, j, f/2)_
 
-Evaluate the block _f_ for all elements of the sequence _c_ between start index _i_ and stop index _j_ (inclusive).
+Evaluate the block _f_ for all elements of the sequence _c_
+between start index _i_ and stop index _j_ (inclusive).
 Answers `nil`.
 
 At `List`:
 
 ```
->>> let a = 1:9.collect(printString/1);
+>>> let a = 1:9.collect(integerString/1);
 >>> let b = [];
 >>> a.fromToIndicesAndValuesDo(
 >>> 	3, 7

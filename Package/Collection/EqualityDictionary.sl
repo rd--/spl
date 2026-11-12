@@ -1,4 +1,4 @@
-Dictionary : [Object, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, Remove, Dictionary] {
+Dictionary : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, Remove, Dictionary] {
 
 	| keys values comparator |
 
@@ -38,6 +38,10 @@ Dictionary : [Object, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add,
 
 	size { :self |
 		self.keys.size
+	}
+
+	species { :unused |
+		Dictionary/0.emptySpecies
 	}
 
 	storeString { :self |

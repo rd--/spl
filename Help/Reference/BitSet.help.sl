@@ -33,7 +33,7 @@ The `size` of a `BitSet` is the number of non-zero bits,
 equivalently the `bitCount`:
 
 ```
->>> let b = BitSet([], 7);
+>>> let b = BitSet([], 7L);
 >>> (
 >>> 	b.capacity,
 >>> 	b.size,
@@ -60,7 +60,7 @@ Valid indices start from `zero` and run to one less than the capacity:
 
 ```
 >>> let l = [0 2 4 5 7 9 11];
->>> let b = BitSet(l, 12);
+>>> let b = BitSet(l, 12L);
 >>> (b.capacity, b.size, b.String)
 (12, 7, '101011010101')
 ```
@@ -68,7 +68,7 @@ Valid indices start from `zero` and run to one less than the capacity:
 `positionVector` answers a `List` of the indices which have bits set.
 
 ```
->>> let b = BitSet([1 3 9], 12);
+>>> let b = BitSet([1 3 9], 12L);
 >>> (b.capacity, b.positionVector)
 (12, [1 3 9])
 ```

@@ -19,11 +19,15 @@
 	}
 
 	addAllFirst! { :self :aCollection |
-		self.addListFirst(aCollection.List)
+		self.addListFirst!(
+			List(aCollection)
+		)
 	}
 
 	addAllLast! { :self :aCollection |
-		self.addListLast(aCollection.List)
+		self.addListLast!(
+			List(aCollection)
+		)
 	}
 
 	addBefore! { :self :newObject :oldObject |

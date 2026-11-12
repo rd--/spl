@@ -81,18 +81,18 @@
 	}
 
 	fermatQuotient { :a :p |
-		let n = a ^ (p - 1) - 1;
+		let n = a ^ (p - 1L) - 1L;
 		n // p
 	}
 
 	fortunateNumber { :n |
 		let p = primorial(n);
-		nextPrime(p + 1) - p
+		nextPrime(p + 1L) - p
 	}
 
 	greatestPrimeFactor { :n |
-		(n <= 1).if {
-			1
+		(n <= 1L).if {
+			1L
 		} {
 			n.primeFactors.last
 		}
@@ -103,9 +103,9 @@
 	}
 
 	interprime { :n |
-		let a = (n + 1).prime;
-		let b = (n + 2).prime;
-		(a + b) / 2
+		let a = (n + 1L).prime;
+		let b = (n + 2L).prime;
+		(a + b) / 2L
 	}
 
 	isAlmostPrime { :self :k |
@@ -226,77 +226,77 @@
 	}
 
 	isPrimeWilson { :self |
-		(self < 2).if {
+		(self < 2L).if {
 			false
 		} {
-			((self - 1).factorial + 1).divisible(self)
+			((self - 1L).factorial + 1L).divisible(self)
 		}
 	}
 
 	isProperPrime { :n |
-		(n % 10) = 1 & {
+		(n % 10L) = 1L & {
 			n.isFullReptendPrime
 		}
 	}
 
 	isPythagoreanPrime { :self |
 		self.isPrime & {
-			((self - 1) % 4) = 0
+			((self - 1L) % 4L) = 0L
 		}
 	}
 
 	isRegularPrime { :p |
-		p > 2 & {
+		p > 2L & {
 			p.isPrime & {
-				let k = 1;
+				let k = 1L;
 				{
-					(2 * k) <= (p - 3) & {
-						(2 * k)
+					(2L * k) <= (p - 3L) & {
+						(2L * k)
 						.bernoulliNumber
-						.numerator % p != 0
+						.numerator % p != 0L
 					}
 				}.whileTrue {
-					k := k + 1
+					k := k + 1L
 				};
-				(2 * k) > (p - 3)
+				(2L * k) > (p - 3L)
 			}
 		}
 	}
 
 	isSemiprime { :n |
-		n.factorInteger.column(2).sum = 2
+		n.factorInteger.column(2L).sum = 2L
 	}
 
 	isSmallPrime { :n |
-		n < 212 & {
+		n < 212L & {
 			system.smallPrimes.includes(n)
 		}
 	}
 
 	isSmallPrimeMultiple { :n |
 		system.smallPrimes.anySatisfy { :p |
-			n % p = 0
+			n % p = 0L
 		}
 	}
 
 	isSternPrime { :n |
 		n.isPrime & {
-			let k = (n / 2).isqrt;
+			let k = (n / 2L).isqrt;
 			{
-				k > 0 & {
-					(n - (2 * k.square)).isPrime.not
+				k > 0L & {
+					(n - (2L * k.square)).isPrime.not
 				}
 			}.whileTrue {
-				k := k - 1
+				k := k - 1L
 			};
 			k.isZero
 		}
 	}
 
 	isStrongPrime { :n |
-		(n >= 3) & {
+		(n >= 3L) & {
 			n.isPrime & {
-				n.primeBalance > 0
+				n.primeBalance > 0L
 			}
 		}
 	}
@@ -304,12 +304,12 @@
 	isStrongPseudoprime { :n :b |
 		n.isEven.not & {
 			n.isPrime.not & {
-				let s = integerExponent(n - 1, 2);
-				let d = (n - 1) / (2 ^ s);
-				powerMod(b, d, n) = 1 | {
-					1.to(s).anySatisfy { :i |
-						let z = d * (2 ^ (i - 1));
-						powerMod(b, z, n) = (n - 1)
+				let s = integerExponent(n - 1L, 2L);
+				let d = (n - 1L) / (2L ^ s);
+				powerMod(b, d, n) = 1L | {
+					1L.to(s).anySatisfy { :i |
+						let z = d * (2L ^ (i - 1L));
+						powerMod(b, z, n) = (n - 1L)
 					}
 				}
 			}
@@ -317,30 +317,32 @@
 	}
 
 	isWeakPrime { :n |
-		(n >= 3) & {
+		(n >= 3L) & {
 			n.isPrime & {
-				n.primeBalance < 0
+				n.primeBalance < 0L
 			}
 		}
 	}
 
 	leastPrimeFactor { :n |
 		[
-			{ n < 2 } -> { 1 },
-			{ divisible(n, 2) } -> { 2 },
-			{ divisible(n, 3) } -> { 3 },
-			{ divisible(n, 5) } -> { 5 },
+			{ n < 2L } -> { 1L },
+			{ divisible(n, 2L) } -> { 2L },
+			{ divisible(n, 3L) } -> { 3L },
+			{ divisible(n, 5L) } -> { 5L },
 			{ true } -> {
 				withReturn { :return/1 |
-					let inc = [4 2 4 2 4 6 2 6];
-					let k = 7;
-					let i = 1;
-					{ k * k <= n }.whileTrue {
+					let inc = [4L 2L 4L 2L 4L 6L 2L 6L];
+					let k = 7L;
+					let i = 1L;
+					{
+						k * k <= n
+					}.whileTrue {
 						divisible(n, k).ifTrue {
 							k.return
 						};
 						k := k + inc[i];
-						i := (i < 8).if { i + 1 } { 1 }
+						i := (i < 8L).if { i + 1L } { 1L }
 					};
 					n
 				}
@@ -349,13 +351,13 @@
 	}
 
 	leastPrimeFactorList { :n |
-		let lp = List(n, 0);
+		let lp = List(n, 0L);
 		let pr = [];
-		lp[1] := 1;
-		2.toDo(n) { :i |
-			let j = 1;
+		lp[1L] := 1L;
+		2L.toDo(n) { :i |
+			let j = 1L;
 			let break = false;
-			(lp[i] = 0).ifTrue {
+			(lp[i] = 0L).ifTrue {
 				lp[i] := i;
 				pr.add!(i)
 			};
@@ -368,70 +370,72 @@
 				(pr[j] = lp[i]).ifTrue {
 					break := true
 				};
-				j := j + 1
+				j := j + 1L
 			}
 		};
 		[lp, pr]
 	}
 
 	liouvilleFunction { :self |
-		1.to(self).sum { :i |
-			-1 ^ i.primeOmega
+		1L.to(self).sum { :i |
+			-1L ^ i.primeOmega
 		}
 	}
 
 	liouvilleLambda { :self |
 		self.primeFactors.size.isEven.if {
-			1
+			1L
 		} {
-			-1
+			-1L
 		}
 	}
 
 	luckyNumbers { :n |
-		let l = [1, 3 .. n];
-		let j = 2;
+		let l = [1L, 3L .. n];
+		let j = 2L;
 		{
 			j < l.size & {
 				l[j] <= l.size
 			}
 		}.whileTrue {
-			let i = Range(l[j], l.size, l[j] - 1);
+			let i = Range(l[j], l.size, l[j] - 1L);
 			i.collect { :k |
 				l.uncheckedRemoveAt(k)
 			};
-			j := j + 1
+			j := j + 1L
 		};
 		l
 	}
 
 	ludicNumbers { :n |
-		let t = [2 .. n];
-		let r = [1];
+		let t = [2L .. n];
+		let r = [1L];
 		{
-			t.size > 0
+			t.size > 0L
 		}.whileTrue {
-			let k = t[1];
+			let k = t[1L];
 			r.add!(k);
-			t.removeAtAll!(Range(1, t.size, k))
+			t.removeAtAll!(
+				Range(1L, t.size, k)
+			)
 		};
 		r
 	}
 
 	mangoldtLambda { :n |
 		let primeFactors = n.factorInteger;
-		let isPrimePower = primeFactors.size = 1 & {
+		let isPrimePower = primeFactors.size = 1L & {
 			primeFactors[1][1].isPrime
 		};
 		isPrimePower.if {
 			primeFactors[1][1].log
 		} {
-			0
+			0L
 		}
 	}
 
 	mertensFunction { :self |
-		1.to(self).sum { :k |
+		1L.to(self).sum { :k |
 			k.moebiusMu
 		}
 	}
@@ -1025,7 +1029,7 @@
 		let m = p.matrixToMap;
 		q.primesUpTo.collect { :each |
 			m.atIfAbsent(each) {
-				0
+				0L
 			}
 		}
 	}
@@ -1038,14 +1042,14 @@
 		let n = self.numerator;
 		let d = self.denominator;
 		let a = n.factorInteger;
-		(d = 1).if {
+		(d = 1L).if {
 			a
 		} {
 			let b = d.factorInteger;
 			b.do { :each |
 				each[2] := each[2].negate
 			};
-			(n = 1).if {
+			(n = 1L).if {
 				b
 			} {
 				(a ++ b).sortBy!(precedes/2)

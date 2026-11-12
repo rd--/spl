@@ -4,16 +4,16 @@
 
 Answer the _n_-th cyclotomic polynomial.
 
-The fifth, sixth,  and thirtieth cyclotomic polynomial:
+The fifth, sixth, and thirtieth cyclotomic polynomial:
 
 ```
->>> 5.cyclotomic.coefficientList
+>>> 5L.cyclotomic.coefficientList
 [1 1 1 1 1]
 
->>> 6.cyclotomic.coefficientList
+>>> 6L.cyclotomic.coefficientList
 [1 -1 1]
 
->>> 30.cyclotomic.coefficientList
+>>> 30L.cyclotomic.coefficientList
 [1 1 0 -1 -1 -1 0 1 1]
 ```
 
@@ -25,7 +25,7 @@ OEIS [A013596](https://oeis.org/A013596),
 though see not about symmetry below:
 
 ```
->>> 1:22.collect { :n |
+>>> 1L:22L.collect { :n |
 >>> 	n.cyclotomic.coefficientList
 >>> }
 [
@@ -57,7 +57,7 @@ though see not about symmetry below:
 From _n=2_ coefficient lists are generally symmetrical:
 
 ```
->>> 2:50.allSatisfy { :n |
+>>> 2L:50L.allSatisfy { :n |
 >>> 	n.cyclotomic.coefficientList
 >>> 	.isPalindrome
 >>> }
@@ -67,14 +67,14 @@ true
 The prime cyclotomic polynomial are uniformly `one` and have degree :
 
 ```
->>> 11.cyclotomic.coefficientList
+>>> 11L.cyclotomic.coefficientList
 [1 1 1 1 1 1 1 1 1 1 1]
 ```
 
 The first cyclotomic polynomial with a coefficient other than 1, 0, or −1:
 
 ```
->>> 105.cyclotomic.coefficientList
+>>> 105L.cyclotomic.coefficientList
 [
 	 1  1  1  0  0 -1 -1 -2 -1 -1
 	 0  0  1  1  1  1  1  1  0  0
@@ -83,7 +83,7 @@ The first cyclotomic polynomial with a coefficient other than 1, 0, or −1:
 	-1 -2 -1 -1  0  0  1  1  1
 ]
 
->>> 105.cyclotomic.degree
+>>> 105L.cyclotomic.degree
 48
 ```
 
@@ -91,8 +91,8 @@ Values of successive cyclotomic polynomials at _x=1_,
 OEIS [A020500](https://oeis.org/A020500):
 
 ```
->>> 0:20.collect { :n |
->>> 	n.cyclotomic.at(1)
+>>> 0L:20L.collect { :n |
+>>> 	n.cyclotomic.at(1L)
 >>> }
 [
 	1  0  2  3  2  5  1  7  2  3
@@ -105,7 +105,7 @@ Central polygonal numbers,
 OEIS [A002061](https://oeis.org/A002061):
 
 ```
->>> 0:13.collect(6.cyclotomic.unaryBlock)
+>>> 0:13.collect(6L.cyclotomic.unaryBlock)
 [1 1 3 7 13 21 31 43 57 73 91 111 133 157]
 ```
 
@@ -113,7 +113,7 @@ Table of resultants for cyclotomic polynomials,
 OEIS [A054372](https://oeis.org/A054372):
 
 ```
->>> 1:4.triangularArray { :n :k |
+>>> 1L:4L.triangularArray { :n :k |
 >>> 	k.cyclotomic.resultant(
 >>> 		n.cyclotomic
 >>> 	)
@@ -130,8 +130,8 @@ Cyclotomic polynomials evaluated at _x=-1_,
 OEIS [A020513](https://oeis.org/A020513):
 
 ```
->>> 1:20.collect { :n |
->>> 	cyclotomic(n).at(-1)
+>>> 1L:20L.collect { :n |
+>>> 	cyclotomic(n).at(-1L)
 >>> }
 [-2 0 1 2 1 3 1 2 1 5 1 1 1 7 1 2 1 3 1 1]
 ```
@@ -140,7 +140,7 @@ The answers are cached for efficiency:
 
 ```
 >>> system.cachedCyclotomic
->>> .isMap
+>>> .isDictionary
 true
 ```
 
@@ -148,7 +148,7 @@ Plot first few cyclotomic polynomials:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(
-	2:7.collect { :n |
+	2L:7L.collect { :n |
 		n.cyclotomic.unaryBlock
 	}
 )
@@ -159,7 +159,7 @@ Plot first few cyclotomic polynomials:
 Plot `degree`, or `exponent`, of first few cyclotomic polynomials:
 
 ~~~spl svg=B
-1:75.collect { :n |
+1L:75L.collect { :n |
 	n.cyclotomic.degree
 }.scatterPlot
 ~~~
@@ -169,7 +169,7 @@ Plot `degree`, or `exponent`, of first few cyclotomic polynomials:
 Plot number of non-zero coefficients of the first few cyclotomic polynomials:
 
 ~~~spl svg=C
-1:75.collect { :n |
+1L:75L.collect { :n |
 	n.cyclotomic
 	.coefficientList
 	.count(isNonZero/1)
@@ -181,7 +181,7 @@ Plot number of non-zero coefficients of the first few cyclotomic polynomials:
 Nonzero coefficients of successive cyclotomic polynomials:
 
 ~~~spl svg=D
-1:20.collect { :n |
+1L:20L.collect { :n |
 	n.cyclotomic
 	.coefficientList.abs
 }.padRight.matrixPlot
@@ -193,8 +193,8 @@ Quotients of consecutive values of `lcm`,
 OEIS [A051417](https://oeis.org/A051417):
 
 ~~~spl svg=E oeis=A051417
-1:60.collect { :n |
-	(2 * n + 1).cyclotomic.at(1)
+1L:60L.collect { :n |
+	(2L * n + 1L).cyclotomic.at(1L)
 }.discretePlot
 ~~~
 
@@ -204,8 +204,8 @@ Cyclotomic polynomials evaluated at _x=-1_,
 OEIS [A020513](https://oeis.org/A020513):
 
 ~~~spl svg=F oeis=A020513
-1:65.collect { :n |
-	cyclotomic(n).at(-1)
+1L:65L.collect { :n |
+	cyclotomic(n).at(-1L)
 }.discretePlot
 ~~~
 
@@ -215,8 +215,8 @@ Values of successive cyclotomic polynomials at _x=1_,
 OEIS [A020500](https://oeis.org/A020500):
 
 ~~~spl svg=G oeis=A020500
-1:65.collect { :n |
-	n.cyclotomic.at(1)
+1L:65L.collect { :n |
+	n.cyclotomic.at(1L)
 }.discretePlot
 ~~~
 
@@ -226,7 +226,7 @@ Table of the first few cyclotomic polynomials,
 OEIS [A013595](https://oeis.org/A013595):
 
 ~~~spl svg=H oeis=A013595
-1:17.collect { :n |
+1L:17L.collect { :n |
 	n.cyclotomic.coefficientList
 }.catenate.discretePlot
 ~~~

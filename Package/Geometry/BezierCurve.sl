@@ -119,8 +119,8 @@ BezierCurve : [Object, Equal, Cache, Geometry] {
 			let c = p.chunksOfFrom(n, 2);
 			let d = [
 				'M %,%'.format([
-					p[1][1].printStringToFixed(precision),
-					p[1][2].printStringToFixed(precision)
+					p[1][1].decimalStringToScale(precision),
+					p[1][2].decimalStringToScale(precision)
 				]),
 				c.collect { :each |
 					z ++ each.asSvgPointList(options)

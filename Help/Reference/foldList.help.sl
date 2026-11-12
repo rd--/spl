@@ -60,7 +60,7 @@ Successively append to a string:
 
 ```
 >>> 1:4.foldList('0') { :p :q |
->>> 	p ++ q.printString
+>>> 	p ++ q.integerString
 >>> }
 ['0' '01' '012' '0123' '01234']
 ```

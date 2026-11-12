@@ -81,8 +81,15 @@ At `Fraction`:
 ```
 >>> 6/4 = 3/2
 true
+```
 
->>> 3/2 = 1.5
+At `Fraction` and `Integer`:
+
+```
+>>> 3/1 = 3L
+true
+
+>>> 3L = 3/1
 true
 ```
 

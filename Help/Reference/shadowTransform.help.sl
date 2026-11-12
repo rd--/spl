@@ -29,7 +29,7 @@ OEIS [A072453](https://oeis.org/A072453):
 ```
 >>> let x = { :i :j |
 >>> 	i * j + j
->>> }.foldList(0, 1L:104) + 1;
+>>> }.foldList(0L, 1L:104L) + 1L;
 >>> x.shadowTransform
 [
 	1 1 0 1 2 0 0 1 0 2 0 0 3 0 0 1 0 0 2 2
@@ -48,7 +48,7 @@ OEIS [A072453](https://oeis.org/A072453):
 ~~~spl svg=A oeis=A072453
 let x = { :i :j |
 	i * j + j
-}.foldList(0, 1L:150) + 1;
+}.foldList(0L, 1L:150L) + 1L;
 x.shadowTransform
 .discretePlot
 ~~~

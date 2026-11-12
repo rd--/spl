@@ -34,11 +34,7 @@
 	}
 
 	occurrencesOf { :self :anObject |
-		self.includes(anObject).if {
-			1
-		} {
-			0
-		}
+		self.includes(anObject).boole
 	}
 
 	remove! { :self :anObject |

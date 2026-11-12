@@ -11,16 +11,16 @@ and often written _C(n,k)_.
 With positive integer _n_ and _k_:
 
 ```
->>> binomial(4, 2)
+>>> binomial(4L, 2L)
 6
 
->>> binomial(6, 3)
+>>> binomial(6L, 3L)
 20
 
->>> binomial(8, 4)
+>>> binomial(8L, 4L)
 70
 
->>> binomial(8, 5)
+>>> binomial(8L, 5L)
 56
 ```
 

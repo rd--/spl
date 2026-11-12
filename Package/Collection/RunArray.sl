@@ -179,25 +179,25 @@ RunArray : [Object, Equal, Store, At, Indices] {
 	}
 
 	withIndexDo { :self :aBlock/2 |
-		let index = 0;
-		1.toDo(self.runLengths.size) { :runIndex |
+		let index = 0L;
+		1L.toDo(self.runLengths.size) { :runIndex |
 			let run = self.runLengths[runIndex];
 			let value = self.values[runIndex];
 			{
-				(run := run - 1) >= 0
+				(run := run - 1L) >= 0L
 			}.whileTrue {
-				index := index + 1;
+				index := index + 1L;
 				aBlock(value, index)
 			}
 		}
 	}
 
 	withStartStopAndValueDo { :self :aBlock/3 |
-		let start = 1;
+		let start = 1L;
 		self.runLengths.withDo(self.values) { :length :value |
-			let stop = start + length - 1;
+			let stop = start + length - 1L;
 			aBlock(start, stop, value);
-			start := stop + 1
+			start := stop + 1L
 		}
 	}
 

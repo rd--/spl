@@ -26,6 +26,12 @@ or `zero` if the expansion terminates.
 
 >>> (1/73.decimalPeriod, 1 / 73)
 (8, 0.0136986301369863)
+
+>>> (1/17.decimalPeriod, 1 / 17)
+(16, 0.0588235294117647)
+
+>>> (1/19.decimalPeriod, 1 / 19)
+(18, 0.052631578947368421)
 ```
 
 Fractions with terminating decimal expansions:
@@ -38,21 +44,21 @@ Fractions with terminating decimal expansions:
 (0, 0.2)
 ```
 
-Defined at `Integer` since `divide` does not always answer a `Fraction`:
+At integer values equal to `zero`:
 
 ```
->>> (1/1, 1.decimalPeriod)
-(1, 0)
+>>> (1/1, 1/1.decimalPeriod)
+(1/1, 0)
 
 >>> (12/4, 12/4.decimalPeriod)
-(3, 0)
+(3/1, 0)
 ```
 
 First few terms,
 OEIS [A051626](https://oeis.org/A051626):
 
 ```
->>> (1L / 1:90)
+>>> (1L / 1L:90L)
 >>> .collect(decimalPeriod/1)
 [
 	 0  0  1  0  0  1  6  0  1 0
@@ -71,7 +77,7 @@ Cyclic numbers,
 OEIS [A001913](https://oeis.org/A001913):
 
 ```
->>> [7 17 19 23 29 47 51 59 61 97]
+>>> [7 17 19 23 29 47 51 59 61 97].L
 >>> .collect { :d |
 >>> 	(1L / d).decimalPeriod
 >>> }

@@ -76,6 +76,10 @@ with and without fractional part:
 >>> '20880467999847912034355032910567D'
 >>> .parseDecimal
 23L ^ 23
+
+>>> '0.693147180559945309417232D'
+>>> .parseDecimal
+0.693147180559945309417232D
 ```
 
 Literal syntax,
@@ -98,10 +102,10 @@ with and without fractional part and scale specifier:
 Multiplication with small integer:
 
 ```
->>> 3.1416D * 2L
+>>> 3.1416D * 2.0
 6.2832D
 
->>> 23 * 1.618D
+>>> 23.0 * 1.618D
 37.214D
 ```
 
@@ -115,17 +119,18 @@ Multiplication with `Integer`:
 37.214D
 ```
 
-Reciprocal retains scale, unless it is zero:
+Reciprocal expands scale as required,
+and retains excess scale:
 
 ```
->>> [2D 2.0D 2.00D].reciprocal
-[0.5D 0.5D 0.50D]
+>>> [1D 1.0D 1.00D].reciprocal
+[1D 1.0D 1.00D]
 
->>> [3D 3.0D 3.00D].reciprocal
-[0.3D 0.3D 0.33D]
+>>> [4D 4.0D 4.00D 4.000D].reciprocal
+[0.25D 0.25D 0.25D 0.250D]
 
->>> [0.3D 0.33D 0.333D].reciprocal
-[3.3D 3.03D 3.003D]
+>>> 3D.reciprocal.scale
+system.maximumDecimalScale
 ```
 
 Division by integer:
@@ -137,8 +142,8 @@ Division by integer:
 >>> 23L / 1.618D
 14.215D
 
->>> (2.01D / 2, 2.01D * 0.5D)
-(1.01D, 1.005D)
+>>> (2.01D / 2.00D, 2.01D * 0.50D)
+(1.005D, 1.005D)
 
 >>> 2.01D / 2.000D
 1.005D
@@ -253,29 +258,29 @@ Multiplication with `Decimal` follows the schoolbook approach and gives all of t
 Division:
 
 ```
->>> 1.00D / 7.00D
-0.14D
+>>> (1D / 7D).rescaleDecimal(18)
+0.142857142857142857D
 
->>> 1.000D / 7.000D
-0.143D
+>>> 1/7.decimalPeriod
+6
 
->>> 1 / 7.00D
-0.14D
+>>> 1D / 7L
+1L / 7D
 
->>> 1.00D / 7
-0.14D
+>>> 1.0 / 7D
+1D / 7.0
 ```
 
-Integer and fraction parts retain scale:
+Integer and fractional parts retain scale:
 
 ```
->>> (23D ^ 23).integerPart
+>>> (23D ^ 23L).integerPart
 20880467999847912034355032910567D
 
 >>> 3.141D.integerPart
 3.000D
 
->>> (3.141D ^ 7).fractionalPart
+>>> (3.141D ^ 7L).fractionalPart
 0.307088972273725113581D
 ```
 
@@ -339,10 +344,16 @@ sign is retained:
 
 ```
 >>> 3.141D.unscaledInteger
-3141
+3141L
+
+>>> 3141 * (10 ^ -3)
+3.141
 
 >>> -3.141D.unscaledInteger
--3141
+-3141L
+
+>>> 23D.unscaledInteger
+23L
 ```
 
 Retrieve digits of unscaled integer:
@@ -392,7 +403,7 @@ Store string:
 
 ```
 >>> 3.14D.storeString
-'Decimal(157/50, 2)'
+'Decimal(157/50, 2L)'
 ```
 
 Answer a `Decimal` value representing the number _n_ with decimal scale _k_.
@@ -442,8 +453,12 @@ At `Fraction`:
 At negative `Fraction`:
 
 ```
->>> -11.00D / 13.00D
--0.85D
+>>> (-11.00D / 13.00D)
+>>> .truncateScale(18)
+-0.846153846153846153D
+
+>>> -11/13.decimalPeriod
+6L
 
 >>> Decimal(-13/11, 6)
 -1.181818D

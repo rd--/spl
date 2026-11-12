@@ -15,7 +15,8 @@
 
 	isInvolutoryMatrix { :m |
 		m.isSquareMatrix & {
-			m = m.inverse
+			let i = m.inverse;
+			m.isVeryClose(i)
 		}
 	}
 
@@ -419,10 +420,10 @@
 	matrixPrintString { :self :decimalPlaces |
 		let [m, n] = self.shape;
 		let print/1 = self.isIntegerMatrix.if {
-			printString/1
+			integerString/1
 		} {
 			{ :n |
-				n.printStringToFixed(decimalPlaces)
+				n.decimalStringToScale(decimalPlaces)
 			}
 		};
 		let header = [m, '×', n].stringJoin;
@@ -649,7 +650,7 @@
 		let [m, n] = shape;
 		let answer = [m, n].zeroMatrix;
 		1.toDo(n.min(m)) { :each |
-			answer[each][each] := 1
+			answer[each][each] := 1L
 		};
 		answer
 	}
@@ -668,10 +669,7 @@
 	}
 
 	zeroMatrix { :shape |
-		let [m, n] = shape;
-		1.to(m).collect { :unused |
-			List(n, 0)
-		}
+		shape.constantArray(0L)
 	}
 
 	zigzagIndices { :shape |

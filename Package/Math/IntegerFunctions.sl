@@ -31,6 +31,10 @@
 		}
 	}
 
+	radixString { :self :radix |
+		SmallInteger(self).radixString(radix)
+	}
+
 	antiDivisorsClassSum { :n |
 		let m = n - 1;
 		2.to(m).sum { :d |
@@ -143,10 +147,14 @@
 	}
 
 	bitLength { :self |
-		(self >= 0L).if {
-			self.integerLength(2L)
+		self.isBetween(-1, 0).if {
+			0L
 		} {
-			self.bitNot.integerLength(2L)
+			self.isPositive.if {
+				self.integerLength(2L)
+			} {
+				self.bitNot.integerLength(2L)
+			}
 		}
 	}
 
@@ -265,23 +273,23 @@
 	}
 
 	decimalExpansion { :n |
-		n.integerDigits(10)
+		n.integerDigits(10L)
 	}
 
 	decimalPeriod { :self |
 		self.assertIsInteger('decimalPeriod');
-		0
+		0L
 	}
 
 	dedekindPsi { :n |
 		let m = n.divisorSum { :d |
-			d.moebiusMu ^ 2 / d
+			d.moebiusMu ^ 2L / d
 		};
 		(n * m).round
 	}
 
 	dedekindPsi { :n :k |
-		(k * 2).jordanTotient(n) / k.jordanTotient(n)
+		(k * 2L).jordanTotient(n) / k.jordanTotient(n)
 	}
 
 	digitCount { :n :b :d |
@@ -501,7 +509,7 @@
 	}
 
 	gcdSum { :n |
-		1.to(n).sum { :k |
+		1L.to(n).sum { :k |
 			gcd(n, k)
 		}
 	}
@@ -512,22 +520,22 @@
 			(n <= end).ifTrue {
 				answer.includes(n).ifFalse {
 					answer.uncheckedInclude!(n);
-					step(n * 2);
-					step(n * 3);
-					step(n * 5)
+					step(n * 2L);
+					step(n * 3L);
+					step(n * 5L)
 				}
 			}
 		};
 		step(start);
-		answer.SortedList.collection
+		SortedList(answer).collection
 	}
 
 	hammingNumbers { :end |
-		hammingNumbers(end, end.one)
+		hammingNumbers(end, 1L)
 	}
 
 	hammingWeight { :self |
-		self.digitCount(2, 1)
+		self.digitCount(2L, 1L)
 	}
 
 	hexDigitCharacter { :self |
@@ -769,11 +777,11 @@
 	}
 
 	integerString { :self :radix |
-		self.uncheckedPrintStringWithRadix(radix)
+		Integer(self).integerString(radix)
 	}
 
 	integerString { :self |
-		self.integerString(10)
+		self.integerString(10L)
 	}
 
 	isAbundantNumber { :n |
@@ -1266,7 +1274,7 @@
 				r = 1L | { r = m }
 			}
 		} {
-			0
+			0L
 		}
 	}
 
@@ -1660,19 +1668,19 @@
 	}
 
 	toCollect { :start :end :aBlock/1 |
-		let size = end - start + 1;
-		(size < 1).if {
+		let size = end - start + 1L;
+		(size < 1L).if {
 			[]
 		} {
 			let answer = List(size, nil);
-			let i = 1;
+			let i = 1L;
 			let j = start;
 			{
 				i <= size
 			}.whileTrue {
 				answer[i] := aBlock(j);
-				i := i + 1;
-				j := j + 1
+				i := i + 1L;
+				j := j + 1L
 			};
 			answer
 		}
@@ -1825,11 +1833,11 @@
 	}
 
 	withoutTrailingZeroes { :self |
-		self // (10 ^ self.integerExponent(10))
+		self // (10L ^ self.integerExponent(10L))
 	}
 
 	wrapIndex { :self :size |
-		self - 1 % size + 1
+		self - 1L % size + 1L
 	}
 
 }

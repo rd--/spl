@@ -62,7 +62,9 @@ level two:
 Works with special array types, including `SparseArray` objects:
 
 ```
->>> [[[1, 2]]].asSparseArray(0).dimensions
+>>> [[[1, 2]]]
+>>> .arrayToSparseArray(0)
+>>> .dimensions
 [1 1 2]
 ```
 

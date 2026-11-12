@@ -9,7 +9,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		)
 	}
 
-	[Float, Float, decimalToFloat] { :self |
+	[Float, F, decimalToFloat] { :self |
 		Float(self.decimalFraction)
 	}
 
@@ -71,10 +71,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 			self.error('Decimal>>divide: zero')
 		} {
 			operand.isDecimal.if {
-				Decimal(
-					self.decimalFraction / operand.decimalFraction,
-					self.scale.max(operand.scale)
-				)
+				self * operand.reciprocal
 			} {
 				operand.adaptToDecimalAndApply(self, divide/2)
 			}
@@ -215,7 +212,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		let scale = self.scale;
 		scale.isZero.if {
 			Integer(self.integerPart)
-			.uncheckedPrintStringWithRadix(10L) ++ 'D'
+			.integerString(10L) ++ 'D'
 		} {
 			let fraction = self.decimalFraction;
 			'%%.%D'.format(
@@ -228,10 +225,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 					fraction
 					.integerPart
 					.abs
-					.uncheckedPrintStringWithRadix(10L),
+					.integerString(10L),
 					(fraction.fractionalPart.abs * (10L ^ scale))
-					.round
-					.uncheckedPrintStringWithRadix(10L)
+					.L
+					.integerString(10L)
 					.padLeft([scale], '0')
 				]
 			)
@@ -251,32 +248,18 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	realDigits { :self :base :size |
-		self.isZero.if {
-			[List(size, 0L), 1]
-		} {
-			let x = self.abs;
-			let l = x.decimalFraction.log(base).floor;
-			let a = x.floor.truncate;
-			let b = a.integerDigits(base);
-			let c = (x - a) * base;
-			let d = { :x |
-				let d = x.floor;
-				(x - d) * base
-			}.nestList(
-				c,
-				size - b.size - 1
-			).floor.truncate;
-			[b ++ d, l + 1]
-		}
+		self.decimalFraction.realDigits(base, size)
 	}
 
 	realDigits { :self |
 		self.isZero.if {
-			[List(self.precision, 0L), 1]
+			[List(self.scale + 1, 0L), 1L]
 		} {
-			let l = self.decimalFraction.log(10L).floor;
-			let u = self.unscaledInteger.integerDigits;
-			[u, l + 1]
+			let u = self.unscaledInteger.abs;
+			[
+				u.integerDigits(10L),
+				u.integerLength(10L) - self.scale
+			]
 		}
 	}
 
@@ -284,9 +267,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		self.isZero.if {
 			self.error('Decimal>>reciprocal: zero divide')
 		} {
-			Decimal(
+			fractionToDecimal(
 				self.decimalFraction.reciprocal,
-				self.scale.max(1L)
+				self.scale,
+				system.maximumDecimalScale
 			)
 		}
 	}
@@ -315,9 +299,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	[times, *] { :self :operand |
 		operand.isDecimal.if {
-			uncheckedDecimal(
+			fractionToDecimal(
 				self.decimalFraction * operand.decimalFraction,
-				self.scale + operand.scale /* self.scale.max(operand.scale) */
+				min(self.scale, operand.scale),
+				system.maximumDecimalScale
 			)
 		} {
 			operand.adaptToDecimalAndApply(self, times/2)
@@ -361,7 +346,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	unscaledInteger { :self |
-		(self.decimalFraction * (10L ^ self.scale)).Integer
+		(self.decimalFraction * (10L ^ self.scale)).L
 	}
 
 	zero { :self |
@@ -371,6 +356,20 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 }
 
 +Fraction {
+
+	fractionToDecimal { :self :minScale :maxScale |
+		let d = self.denominator;
+		let k = (d = 1L).if {
+			minScale
+		} {
+			powerMod(10L, d, d).isZero.if {
+				d.primeSignature.first
+			} {
+				maxScale
+			}
+		};
+		Decimal(self, k.min(maxScale))
+	}
 
 	Decimal { :self :scale |
 		scale.isCollection.if {
@@ -445,7 +444,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 +Integer {
 
-	[Decimal, largeIntegerToDecimal] { :self :scale |
+	[Decimal, integerToDecimal] { :self :scale |
 		uncheckedDecimal(
 			Fraction(self, 1L),
 			scale
@@ -555,6 +554,14 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		) {
 			elseClause()
 		}
+	}
+
+}
+
++System {
+
+	maximumDecimalScale { :unused |
+		128
 	}
 
 }

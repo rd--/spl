@@ -15,8 +15,8 @@ Converting:
 - `printStringHexadecimal`
 - `printStringLimitedTo`
 - `printStringToAtMostPlaces`
-- `printStringToFixed`
-- `printStringToPrecision`
+- `decimalStringToScale`
+- `decimalStringToPrecision`
 - `printString`
 - `storeString`
 

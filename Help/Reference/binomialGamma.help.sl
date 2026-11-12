@@ -19,7 +19,7 @@ At _k=0_:
 >>> binomialGamma([-3 .. 3], 0)
 [1 1 1 1 1 1 1]
 
->>> integerBinomial([-3 .. 3], 0)
+>>> integerBinomial([-3L .. 3L], 0L)
 [0 0 0 1 1 1 1]
 ```
 
@@ -29,7 +29,7 @@ At _n=0_:
 >>> binomialGamma(0, [-3 .. 3])
 [0 0 0 1 0 0 0]
 
->>> integerBinomial(0, [-3 .. 3])
+>>> integerBinomial(0L, [-3L .. 3L])
 [0, 0, 0, 1, 0, 0, 0]
 ```
 
@@ -39,7 +39,7 @@ Negative _k_:
 >>> binomialGamma(1, -2)
 0
 
->>> integerBinomial(1, -2)
+>>> integerBinomial(1L, -2L)
 0
 
 >>> binomialGamma(8.5, -4.2)
@@ -76,7 +76,7 @@ At integer arguments:
 Plot the binomial as a function of its parameter _n_:
 
 ~~~spl svg=A
-(-1.75 -- 4).functionPlot(
+(-1.75 -- 4.0).functionPlot(
 	[1 2 3 4].collect { :k |
 		{ :n |
 			binomialGamma(n, k)

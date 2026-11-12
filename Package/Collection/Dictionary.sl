@@ -434,10 +434,10 @@
 	}
 
 	storeStringExpression { :self |
-		'%.as%'.format(
+		'%(%)'.format(
 			[
-				self.associations.storeString,
-				self.typeName
+				self.typeName,
+				self.associations.storeString
 			]
 		)
 	}

@@ -7,8 +7,9 @@ Answer a unit value of the same type as the object _x_.
 At `Complex`:
 
 ```
->>> (2 + 3I).one
-Complex(1, 0)
+>>> let x = (2 + 3I).one;
+>>> (x, x.isComplex)
+(1J0, true)
 ```
 
 At `Fraction`:

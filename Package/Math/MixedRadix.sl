@@ -22,11 +22,11 @@
 
 	mixedRadixEncode { :self :factors |
 		let answer = List(factors.size, nil);
-		factors.size.toByDo(1, -1) { :index |
+		factors.size.toByDo(1L, -1L) { :index |
 			answer[index] := self % factors[index];
 			self := self // factors[index]
 		};
-		(self > 0).ifTrue {
+		(self > 0L).ifTrue {
 			answer.addFirst!(self)
 		};
 		answer
@@ -62,19 +62,19 @@
 
 	mixedRadixDecode { :self :factors |
 		self.atVectorOrElementwise { :each |
-			let answer = 0;
-			let base = 1;
+			let answer = 0L;
+			let base = 1L;
 			let k = factors.size.min(each.size);
 			let prefix = each.size - factors.size;
-			(prefix > 1).ifTrue {
+			(prefix > 1L).ifTrue {
 				each.error('mixedRadixDecode: sequence too long')
 			};
-			k.toByDo(1, -1) { :index |
+			k.toByDo(1L, -1L) { :index |
 				answer := answer + (each[index + prefix] * base);
 				base := base * factors[index]
 			};
-			(prefix = 1).ifTrue {
-				answer := answer + (each[1] * base)
+			(prefix = 1L).ifTrue {
+				answer := answer + (each[1L] * base)
 			};
 			answer
 		}

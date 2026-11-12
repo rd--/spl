@@ -13,7 +13,7 @@ There is one Carmichael less than one thousand:
 [561]
 
 >>> 0:560.allSatisfy { :b |
->>> 	b ^ 561L % 561 = b
+>>> 	b ^ 561L % 561L = b
 >>> }
 true
 ```
@@ -47,11 +47,11 @@ For a Carmichael number _c_,
 the entire group of multiplicative units modulo _c_ are _false witnesses_:
 
 ```
->>> let c = 1105;
->>> 1:c.select { :n |
+>>> let c = 1105L;
+>>> 1L:c.select { :n |
 >>> 	n.isCoprime(c)
 >>> }.allSatisfy { :n |
->>> 	n ^ (c - 1L) % c = 1
+>>> 	n ^ (c - 1L) % c = 1L
 >>> }
 true
 ```

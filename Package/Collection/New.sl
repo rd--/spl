@@ -25,7 +25,7 @@
 	}
 
 	species { :self |
-		self.typeReponsibility('species')
+		self.typeResponsibility('species')
 	}
 
 }

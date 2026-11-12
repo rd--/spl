@@ -8,7 +8,7 @@ Triangle of coefficients of the Lucas polynomials,
 OEIS [A114525](https://oeis.org/A114525):
 
 ```
->>> 0:10.collect { :n |
+>>> 0L:10L.collect { :n |
 >>> 	n.lucasPolynomial
 >>> 	.coefficientList
 >>> }
@@ -31,7 +31,7 @@ Triangle of coefficients of the Lucas polynomials,
 OEIS [A114525](https://oeis.org/A114525):
 
 ~~~spl svg=A oeis=A114525
-0:17.collect { :n |
+0L:17L.collect { :n |
 	n.lucasPolynomial
 	.coefficientList
 }.catenate.scatterPlot.log

@@ -8,7 +8,13 @@ Answer `true` if the sequence _u_ starts with, or has an initial prefix, the seq
 >>> [1 3 5 7].beginsWith([1 3])
 true
 
+>>> [1L 3L 5L 7L].beginsWith([1L 3L])
+true
+
 >>> 1:5.beginsWith(1:3)
+true
+
+>>> 1L:5L.beginsWith(1L:3L)
 true
 
 >>> 3:9.beginsWith(1:5)

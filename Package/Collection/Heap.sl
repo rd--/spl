@@ -1,4 +1,4 @@
-Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
+Heap : [Object, Copy, Equal, Do, At, Add, Remove] {
 
 	| array sortBlock indexUpdateBlock |
 
@@ -46,10 +46,10 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 		let childIndex = nil;
 		let childValue = nil;
 		{
-			(childIndex := (2 * index)) >= size | {
+			(childIndex := (2L * index)) >= size | {
 				childValue := array[childIndex];
-				self.compareItems(array[childIndex + 1], childValue).ifTrue {
-					childIndex := childIndex + 1;
+				self.compareItems(array[childIndex + 1L], childValue).ifTrue {
+					childIndex := childIndex + 1L;
 					childValue := array[childIndex]
 				};
 				self.compareItems(value, childValue)
@@ -72,7 +72,7 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 	}
 
 	first { :self |
-		self.array[1]
+		self.array.at(1L)
 	}
 
 	indexUpdate { :self :anObject :anIndex |
@@ -83,7 +83,7 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 	}
 
 	isEmpty { :self |
-		self.size = 0
+		self.size = 0L
 	}
 
 	isEqualBy { :self :anObject :aBlock/2 |
@@ -105,13 +105,13 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 		let array = self.array;
 		let size = array.size;
 		withReturn { :return/1 |
-			1.toDo(size // 2) { :index |
-				let childIndex = 2 * index;
+			1L.toDo(size // 2L) { :index |
+				let childIndex = 2L * index;
 				self.compareItems(array[index], array[childIndex]).ifFalse {
 					false.return
 				};
 				(childIndex < size).ifTrue {
-					childIndex := childIndex + 1;
+					childIndex := childIndex + 1L;
 					self.compareItems(array[index], array[childIndex]).ifFalse {
 						false.return
 					}
@@ -138,13 +138,13 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 	}
 
 	removeFirst! { :self |
-		self.removeAt!(1)
+		self.removeAt!(1L)
 	}
 
 	removeIfAbsent! { :self :oldObject :aBlock/0 |
 		let array = self.array;
 		withReturn { :return/1 |
-			1.toDo(self.size) { :i |
+			1L.toDo(self.size) { :i |
 				(array[i] = oldObject).ifTrue {
 					self.uncheckedRemoveAt(i).return
 				}
@@ -164,7 +164,7 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 		} {
 			self.array[index] := self.array.last;
 			self.array.removeLast!;
-			(2 * index <= self.size).if {
+			(2L * index <= self.size).if {
 				self.downHeap(index)
 			} {
 				self.upHeap(index)
@@ -174,8 +174,8 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 	}
 
 	upHeap { :self :anIndex |
-		(anIndex = 1).if {
-			self.indexUpdate(self.array[1], 1);
+		(anIndex = 1L).if {
+			self.indexUpdate(self.array[1L], 1L);
 			self
 		} {
 			let index = nil;
@@ -184,8 +184,8 @@ Heap : [Object, Copy, Store, Equal, Do, At, Add, Remove] {
 			let value = nil;
 			value := self.array[index := anIndex];
 			{
-				index > 1 & {
-					parentIndex := index.bitShiftRight(1);
+				index > 1L & {
+					parentIndex := index.bitShiftRight(1L);
 					parentValue := self.array[parentIndex];
 					self.compareItems(value, parentValue)
 				}

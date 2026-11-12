@@ -191,7 +191,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 	codePoint { :self |
 		self.isCharacter.if {
-			self.codePointAt(1)
+			self.codePointAt(1L)
 		} {
 			self.error('String>>codePoint: not single character string')
 		}
@@ -200,7 +200,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	codePointAt { :self :index |
 		<primitive:
 		const zeroIndex = sl.toFloat(_index) - 1;
-		return _self.codePointAt(zeroIndex);
+		return sl.toInteger(_self.codePointAt(zeroIndex));
 		>
 	}
 
@@ -783,16 +783,16 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 	occurrencesOf { :self :aString |
 		aString.isString.if {
-			let index = 1;
+			let index = 1L;
 			let end = self.size;
-			let tally = 0;
+			let tally = 0L;
 			{
-				index.isBetween(1, end)
+				index.isBetween(1L, end)
 			}.whileTrue {
 				index := self.findStringStartingAt(aString, index);
-				(index != 0).ifTrue {
-					tally := tally + 1;
-					index := index + 1
+				(index != 0L).ifTrue {
+					tally := tally + 1L;
+					index := index + 1L
 				}
 			};
 			tally
@@ -1143,7 +1143,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	uniqueString { :self |
-		self ++ system.uniqueIdentifier.printString
+		self ++ system.uniqueIdentifier.integerString
 	}
 
 	utf16CodePointAt { :self :index |
@@ -1258,7 +1258,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 	fromCodePoint { :self |
 		<primitive:
-		return String.fromCodePoint(sl.toFloat(_self));
+		return String.fromCodePoint(
+			sl.toFloat(_self)
+		);
 		>
 	}
 

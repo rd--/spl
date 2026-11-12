@@ -41,7 +41,7 @@ Works with special array types,
 including `SparseArray` and `NumericArray`:
 
 ```
->>> [[[0 1]]].asSparseArray(0)
+>>> [[[0 1]]].arrayToSparseArray(0)
 >>> .arrayDepth
 3
 

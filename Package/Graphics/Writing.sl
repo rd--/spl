@@ -18,10 +18,10 @@ Writing : [Object, Geometry] {
 		let [x, y] = self.lowerLeft;
 		[
 			'<g x="%" y="%" transform="translate(%, %) scale(1, -1)">'.format([
-				x.printStringToFixed(precision),
-				y.printStringToFixed(precision),
-				x.printStringToFixed(precision),
-				y.printStringToFixed(precision)
+				x.decimalStringToScale(precision),
+				y.decimalStringToScale(precision),
+				x.decimalStringToScale(precision),
+				y.decimalStringToScale(precision)
 			]),
 			'<text fill="black" stroke="none">%</text>'.format([
 				self.string

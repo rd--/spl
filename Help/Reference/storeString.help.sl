@@ -7,10 +7,10 @@ Answer a `String` representation of the object _x_ from which it can be reconstr
 At `Association`:
 
 ```
->>> let x = (1 -> 2);
+>>> let x = (1L -> 2.0);
 >>> let s = x.storeString;
 >>> (s, system.evaluate(s))
-('Association(1, 2)', x)
+('Association(1L, 2.0)', x)
 
 >>> let x = (false -> true);
 >>> let s = x.storeString;

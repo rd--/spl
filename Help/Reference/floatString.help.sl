@@ -9,7 +9,7 @@ Base ten:
 
 ```
 >>> 23.0.floatString(10)
-23.0
+'23.0'
 
 >>> 1.pi.floatString(10)
 '3.141592653589793'

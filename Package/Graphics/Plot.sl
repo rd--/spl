@@ -1009,14 +1009,14 @@ Plot : [Object] {
 					'<circle r="%" fill="none" stroke="black">'.format(
 						[
 							(1 / options['scaleFactor'])
-							.printStringToFixed(options['precision'])
+							.decimalStringToScale(options['precision'])
 						]
 					),
 					'  <animateMotion dur="%s" repeatCount="indefinite" calcMode="linear" keyTimes="%" keyPoints="%">'.format(
 						[
-							duration.printStringToFixed(keyPrecision),
-							keyTimes.collect { :x | x.printStringToFixed(keyPrecision) }.stringJoin(';'),
-							keyPoints.collect { :x | x.printStringToFixed(keyPrecision) }.stringJoin(';')
+							duration.decimalStringToScale(keyPrecision),
+							keyTimes.collect { :x | x.decimalStringToScale(keyPrecision) }.stringJoin(';'),
+							keyPoints.collect { :x | x.decimalStringToScale(keyPrecision) }.stringJoin(';')
 						]
 					),
 					'    <mpath href="#P1" />',

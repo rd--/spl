@@ -1,8 +1,8 @@
 # dateString
 
-- _dateString(aDate)_
+- _dateString(d)_
 
-Answer the ISO-8601 date string.
+Answer the ISO-8601 date string of the `Date` _d_.
 
 ```
 >>> Date(2025, 04, 08)

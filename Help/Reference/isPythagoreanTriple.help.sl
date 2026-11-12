@@ -29,9 +29,9 @@ _n_ such that _n-1,n_ is a Pythagorean triple,
 OEIS [A046090](https://oeis.org/A046090):
 
 ```
->>> [7 -7 1].linearRecurrence([1L 4 21], 25)
+>>> [7L -7L 1L].linearRecurrence([1L 4L 21L], 25L)
 >>> .allSatisfy { :n |
->>> 	isPythagoreanTriple(n - 1, n)
+>>> 	isPythagoreanTriple(n - 1L, n)
 >>> }
 true
 ```

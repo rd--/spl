@@ -40,7 +40,6 @@ Traits implemented by `Heap`:
 	'@Equal'
 	'@Object'
 	'@Remove'
-	'@Store'
 ]
 
 * * *

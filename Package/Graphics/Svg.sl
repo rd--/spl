@@ -39,8 +39,8 @@ Svg : [Object] {
 			let [x, y] = each;
 			'%,%'.format(
 				[
-					x.printStringToFixed(precision),
-					y.printStringToFixed(precision)
+					x.decimalStringToScale(precision),
+					y.decimalStringToScale(precision)
 				]
 			)
 		}.unwords
@@ -71,7 +71,7 @@ Svg : [Object] {
 			self.width + (margin * 2),
 			self.height + (margin * 2)
 		].collect { :each |
-			each.printStringToFixed(precision)
+			each.decimalStringToScale(precision)
 		}.unwords
 	}
 
@@ -103,8 +103,8 @@ Svg : [Object] {
 			'<svg xmlns="%" width="%" height="%" viewBox="%">'.format(
 				[
 					'http://www.w3.org/2000/svg',
-					scaledBoundingBox.width.printStringToFixed(1),
-					scaledBoundingBox.height.printStringToFixed(1),
+					scaledBoundingBox.width.decimalStringToScale(1),
+					scaledBoundingBox.height.decimalStringToScale(1),
 					scaledBoundingBox.asSvgViewBox(
 						(
 							margin: 5,
@@ -115,10 +115,10 @@ Svg : [Object] {
 			),
 			'<g fill="none" stroke="black" stroke-width="%%" transform="translate(0, %) scale(%, %)">'.format(
 				[
-					strokeWith.printStringToFixed(4), '%',
-					yTranslation.printStringToFixed(4),
-					scaleFactor.printStringToFixed(4),
-					scaleFactor.negate.printStringToFixed(4)
+					strokeWith.decimalStringToScale(4), '%',
+					yTranslation.decimalStringToScale(4),
+					scaleFactor.decimalStringToScale(4),
+					scaleFactor.negate.decimalStringToScale(4)
 				]
 			),
 			self(options),
@@ -134,13 +134,13 @@ Svg : [Object] {
 	svgArcTo { :rx :ry :xAxisRotation :largeArcFlag :sweepFlag :x :y :precision |
 		'A % % % % % %,%'.format(
 			[
-				rx.printStringToFixed(precision),
-				ry.printStringToFixed(precision),
-				xAxisRotation.printStringToFixed(precision),
-				largeArcFlag.boole.printString,
-				sweepFlag.boole.printString,
-				x.printStringToFixed(precision),
-				y.printStringToFixed(precision)
+				rx.decimalStringToScale(precision),
+				ry.decimalStringToScale(precision),
+				xAxisRotation.decimalStringToScale(precision),
+				largeArcFlag.boole.integerString,
+				sweepFlag.boole.integerString,
+				x.decimalStringToScale(precision),
+				y.decimalStringToScale(precision)
 			]
 		)
 	}

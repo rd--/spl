@@ -98,6 +98,7 @@ Guide/Filters and Method Syntax.help.sl
 Guide/Floating Point Functions.help.sl
 Guide/Fourier Analysis Functions.help.sl
 Guide/Fraction Functions.help.sl
+Guide/Fractions and Decimals.help.sl
 Guide/Fraction Syntax.help.sl
 Guide/Function Guides.help.sl
 Guide/Further Reading.help.sl
@@ -1093,6 +1094,7 @@ Reference/decimalFraction.help.sl
 Reference/Decimal.help.sl
 Reference/decimalPeriod.help.sl
 Reference/decimalSelvageNumber.help.sl
+Reference/decimalStringToScale.help.sl
 Reference/declareFrom.help.sl
 Reference/decodeB2.help.sl
 Reference/decodeInteger.help.sl
@@ -3334,7 +3336,6 @@ Reference/printLine.help.sl
 Reference/printString.help.sl
 Reference/printStringHexadecimal.help.sl
 Reference/printStringLimitedTo.help.sl
-Reference/printStringToFixed.help.sl
 Reference/printStringWithCommas.help.sl
 Reference/PriorityQueue.help.sl
 Reference/prismGraph.help.sl

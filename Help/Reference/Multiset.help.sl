@@ -148,19 +148,19 @@ true
 Store string:
 
 ```
->> Multiset([1 1 1 2 3 3], ==)
+>> Multiset([1.0 1.0 1.0 2.0 3.0 3.0], ==)
 >> .storeString
 Multiset(
 	Map(
-		[[1.0, 3], [2.0, 1], [3.0, 2]]
+		[[1.0, 3L], [2.0, 1L], [3.0, 2L]]
 	)
 )
 
->> Multiset([1 1 1 2 3 3], =)
+>> Multiset([1.0 1.0 1.0 2.0 3.0 3.0], =)
 >> .storeString
 Multiset(
 	Dictionary(
-		[1.0 -> 3, 2.0 -> 1, 3.0 -> 2]
+		[1.0 -> 3L, 2.0 -> 1L, 3.0 -> 2L]
 	)
 )
 ```

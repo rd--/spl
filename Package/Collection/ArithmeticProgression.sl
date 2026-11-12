@@ -186,7 +186,8 @@
 	}
 
 	sum { :self |
-		self.size * ((self.size - 1L) * self.step + (self.start * 2L)) / 2L
+		let k = self.size;
+		k * ((k - 1L) * self.step + (self.start * 2L)) / 2L
 	}
 
 	uncheckedAt { :self :index |

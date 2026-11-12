@@ -77,9 +77,9 @@ OEIS [A008831](https://oeis.org/A008831):
 Find all primitive roots modulo 43:
 
 ```
->>> let m = 43;
+>>> let m = 43L;
 >>> let o = m.eulerPhi;
->>> 1:m.select { :n |
+>>> 1L:m.select { :n |
 >>> 	n.multiplicativeOrder(m) = o
 >>> }
 [3 5 12 18 19 20 26 28 29 30 33 34]
@@ -220,11 +220,11 @@ Period of decimal representation of _1/n_,
 OEIS [A007732](https://oeis.org/A007732):
 
 ```
->>> 1:90.collect { :n |
->>> 	let a = 2 ^ n.integerExponent(2);
->>> 	let b = 5 ^ n.integerExponent(5);
+>>> 1L:90L.collect { :n |
+>>> 	let a = 2L ^ n.integerExponent(2L);
+>>> 	let b = 5L ^ n.integerExponent(5L);
 >>> 	let c = n / a / b;
->>> 	10.multiplicativeOrder(c)
+>>> 	10L.multiplicativeOrder(c)
 >>> }
 [
 	1   1  1  1  1  1  6  1  1  1

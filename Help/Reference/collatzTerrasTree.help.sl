@@ -9,7 +9,7 @@ The Collatz-Terras tree,
 OEIS [A248573](https://oeis.org/A248573):
 
 ```
->>> 7.collatzTerrasTree(4)
+>>> 7L.collatzTerrasTree(4L)
 >>> .levelOrderValues
 [
 	4 8 5 16 3 10 32 6 20 21
@@ -70,7 +70,7 @@ OEIS [A248573](https://oeis.org/A248573):
 Plot the Collatz-Terras tree:
 
 ~~~spl svg=A
-5.collatzTerrasTree(4)
+5L.collatzTerrasTree(4L)
 .treePlot
 ~~~
 

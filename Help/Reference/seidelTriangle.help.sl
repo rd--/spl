@@ -8,7 +8,7 @@ First few rows of Seidel’s triangle,
 OEIS [A014781](https://oeis.org/A014781):
 
 ```
->>> 12.seidelTriangle
+>>> 12L.seidelTriangle
 [
 	1;
 	1;
@@ -30,7 +30,7 @@ log scale scatter plot,
 OEIS [A014781](https://oeis.org/A014781):
 
 ~~~spl svg=A oeis=A014781
-13.seidelTriangle
+13L.seidelTriangle
 .catenate
 .scatterPlot.logScale
 ~~~

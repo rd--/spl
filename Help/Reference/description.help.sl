@@ -42,8 +42,8 @@ If an explicit message text was provided by the signaler of the exception, that 
 >>> Error('Invalid key').description
 'Error: Invalid key'
 
->>> Error('Invalid key', -1).description
-'Error: Invalid key: -1'
+>>> Error('Invalid key', -1.0).description
+'Error: Invalid key: -1.0'
 ```
 
 * * *

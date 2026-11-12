@@ -10,7 +10,7 @@ A six-vector with three `zero` elements answers a list of three or four places:
 
 ```
 >>> [0 1 0 2 0 3].arrayRules(0)
-[[2] -> 1, [4] -> 2, [6] -> 3]
+[[2L] -> 1.0, [4L] -> 2.0, [6L] -> 3.0]
 
 >>> [1 0 2 0 3 0].arrayRules(0)
 [[1] -> 1, [3] -> 2, [5] -> 3, [6] -> 0]
@@ -19,7 +19,8 @@ A six-vector with three `zero` elements answers a list of three or four places:
 A 3×3 matrix with six `zero` elements answers a list of three places:
 
 ```
->>> 3.identityMatrix.arrayRules(0)
+>>> 3.identityMatrix
+>>> .arrayRules(0)
 [
 	[1 1] -> 1,
 	[2 2] -> 1,
@@ -30,7 +31,8 @@ A 3×3 matrix with six `zero` elements answers a list of three places:
 A 3×3 matrix with three `zero` elements answers a list of six places:
 
 ```
->>> [2 0 1; 2 2 0; 1 0 1].arrayRules(2)
+>>> [2 0 1; 2 2 0; 1 0 1]
+>>> .arrayRules(2)
 [
 	[1 2] -> 0,
 	[1 3] -> 1,

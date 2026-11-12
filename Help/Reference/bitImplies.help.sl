@@ -25,7 +25,7 @@ _k→n_,
 OEIS [A265705](https://oeis.org/A265705):
 
 ```
->>> 0L:8L.triangularArray(
+>>> 0:8.triangularArray(
 >>> 	bitImplies/2.swap
 >>> )
 [
@@ -76,8 +76,8 @@ Bitwise logical implication _n→2n_,
 OEIS [A265716](https://oeis.org/A265716):
 
 ~~~spl svg=B oeis=A265716
-0L:85L.collect { :n |
-	n.bitImplies(2L * n)
+0:85.collect { :n |
+	n.bitImplies(2 * n)
 }.discretePlot
 ~~~
 

@@ -21,8 +21,7 @@ At fractional `Float`:
 '3.141'
 ```
 
-At `Integer`,
-without radix argument:
+At `Integer`:
 
 ```
 >>> 254L.printString
@@ -107,15 +106,15 @@ to specify the radix _r_ see `radixString` and `floatString`:
 ```
 
 In the case that the object is a floating point number,
-to specify the precision or scale see `printStringToPrecision` and `printStringToFixed`:
+to specify the precision or scale see `decimalStringToPrecision` and `decimalStringToScale`:
 
 At `Float` with precision:
 
 ```
->>> 1.pi.printStringToPrecision(4)
+>>> 1.pi.decimalStringToPrecision(4)
 '3.142'
 
->>> 1.pi.printStringToFixed(3)
+>>> 1.pi.decimalStringToScale(3)
 '3.142'
 ```
 
@@ -159,21 +158,21 @@ At `Character`:
 
 ```
 >> Character('x').printString
-Character('x', 120)
+Character('x', 120L)
 ```
 
 At `List`:
 
 ```
->>> [1 .. 3].printString
-'[1, 2, 3]'
+>>> [1.0 .. 3.0].printString
+'[1.0, 2.0, 3.0]'
 ```
 
 At `Record`:
 
 ```
->>> (x: 23, y: 3.141).printString
-'(x: 23, y: 3.141)'
+>>> (x: 23.0, y: 3.141).printString
+'(x: 23.0, y: 3.141)'
 ```
 
 At `Association`:
@@ -187,7 +186,7 @@ At `Range`:
 
 ```
 >>> Range(1L, 99L, 1L).printString
-'Range(1L, 99L, 1, 99L)'
+'Range(1L, 99L, 1L, 99L)'
 ```
 
 * * *

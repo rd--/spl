@@ -76,10 +76,10 @@ Ellipse : [Object, Equal, Geometry] {
 		let [rx, ry] = self.radii;
 		'<ellipse cx="%" cy="%" rx="%" ry="%" />'.format(
 			[
-				cx.printStringToFixed(precision),
-				cy.printStringToFixed(precision),
-				rx.printStringToFixed(precision),
-				ry.printStringToFixed(precision)
+				cx.decimalStringToScale(precision),
+				cy.decimalStringToScale(precision),
+				rx.decimalStringToScale(precision),
+				ry.decimalStringToScale(precision)
 			]
 		)
 	}

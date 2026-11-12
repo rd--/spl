@@ -277,7 +277,7 @@
 	divisible { :self :aNumber |
 		aNumber.isNumber.if {
 			self.abs >= aNumber.abs & {
-				(self % aNumber).isVeryClose(0)
+				(self % aNumber).isVeryClose(0L)
 			}
 		} {
 			aNumber.adaptToNumberAndApply(self, divisible/2)
@@ -288,9 +288,9 @@
 		n.isNumber.if {
 			k.isZero.if {
 				n.isOne.if {
-					n.one
+					1L
 				} {
-					(n.factorInteger.column(2) + 1L).product
+					(n.factorInteger.column(2L) + 1L).product
 				}
 			} {
 				(n.divisors ^ k).sum
@@ -305,7 +305,7 @@
 	}
 
 	downToDo { :self :anInteger :aBlock/1 |
-		self.toByDo(anInteger, -1, aBlock/1)
+		self.toByDo(anInteger, -1L, aBlock/1)
 	}
 
 	egyptianFraction { :x :n |
@@ -321,14 +321,14 @@
 	}
 
 	epanechnikovKernel { :u |
-		0.75 * (1 - (u * u))
+		0.75 * (1.0 - (u * u))
 	}
 
 	[factorialOrGamma, !] { :self |
 		self.isNonNegativeInteger.if {
 			self.factorial
 		} {
-			(1L + self).gamma
+			(1.0 + self).gamma
 		}
 	}
 
@@ -899,16 +899,16 @@
 	}
 
 	raisedToPositiveSmallInteger { :self :operand |
-		let count = 1.bitShiftLeft((operand - 1).highBit);
+		let count = 1.0.bitShiftLeft((operand - 1.0).highBit);
 		let result = self.one;
 		{
-			count > 0
+			count > 0.0
 		}.whileTrue {
 			result := result.square;
 			operand.bitAnd(count).isZero.ifFalse {
 				result := result * self
 			};
-			count := count.bitShiftRight(1)
+			count := count.bitShiftRight(1.0)
 		};
 		result
 	}
@@ -1265,7 +1265,7 @@
 	}
 
 	wrap { :self |
-		self.wrap(-1, 1)
+		self.wrap(-1.0, 1.0)
 	}
 
 	wrapExclusive { :self :low :high |
@@ -1274,8 +1274,12 @@
 		low + z
 	}
 
+	one { :self |
+		1L
+	}
+
 	zero { :self |
-		0
+		0L
 	}
 
 }

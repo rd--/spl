@@ -39,7 +39,8 @@ true
 At `Decimal`:
 
 ```
->>> 3D./.isClose(0.3D)
+>>> 3D.reciprocal
+>>> .isClose(0.3333D)
 true
 ```
 

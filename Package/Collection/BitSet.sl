@@ -2,16 +2,16 @@
 
 BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 
-	| capacity bytes tally |
+	| bytes capacity tally |
 
 	[List, bitSetToList] { :self |
 		self.positionVector
 	}
 
 	String { :self |
-		let ascii = ByteArray(self.capacity, 0);
+		let ascii = ByteArray(self.capacity, 0L);
 		self.bitsWithIndexDo { :each :index |
-			ascii[index + 1] := 48 + each
+			ascii[index + 1L] := 48L + each
 		};
 		ascii.asciiString
 	}
@@ -27,13 +27,13 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 	}
 
 	[bitAt, at] { :self :anInteger |
-		let byteIndex = anInteger.bitShift(-3) + 1;
-		let bitIndex = 0 - anInteger.bitAnd(7);
-		self.bytes[byteIndex].bitShift(bitIndex).bitAnd(1)
+		let byteIndex = anInteger.bitShift(-3L) + 1L;
+		let bitIndex = 0L - anInteger.bitAnd(7L);
+		self.bytes[byteIndex].bitShift(bitIndex).bitAnd(1L)
 	}
 
 	bitCount { :self |
-		let answer = 0;
+		let answer = 0L;
 		self.bitsDo { :each |
 			answer := answer + each
 		};
@@ -42,15 +42,15 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 
 	bitNot { :self |
 		self.bitsWithIndexDo { :each :index |
-			self[index] := 1 - each
+			self[index] := 1L - each
 		}
 	}
 
 	[bitPut!, put!] { :self :anInteger :aBit |
 		aBit.caseOf(
 			[
-				0 -> { self.clearBitAt(anInteger) },
-				1 -> { self.setBitAt(anInteger) }
+				0L -> { self.clearBitAt(anInteger) },
+				1L -> { self.setBitAt(anInteger) }
 			]
 		);
 		aBit
@@ -76,8 +76,8 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 		let [zeroCode, oneCode] = zeroOne.collect(codePoint/1);
 		let unicode = List(self.capacity, zeroCode);
 		self.bitsWithIndexDo { :each :index |
-			(each = 1).ifTrue {
-				unicode[index + 1] := oneCode
+			(each = 1L).ifTrue {
+				unicode[index + 1L] := oneCode
 			}
 		};
 		unicode.utf16String
@@ -88,15 +88,15 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 	}
 
 	clearBitAt { :self :anInteger |
-		let byteIndex = anInteger.bitShift(-3) + 1;
+		let byteIndex = anInteger.bitShift(-3L) + 1L;
 		let value = self.bytes[byteIndex];
-		let mask = 1.bitShift(anInteger.bitAnd(7));
+		let mask = 1L.bitShift(anInteger.bitAnd(7L));
 		let newValue = value.bitOr(mask) - mask;
 		(newValue = value).if {
 			false
 		} {
 			self.bytes[byteIndex] := newValue;
-			self.tally := self.tally - 1;
+			self.tally := self.tally - 1L;
 			true
 		}
 	}
@@ -114,7 +114,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 
 	includes { :self :anInteger |
 		self.includesIndex(anInteger).if {
-			self.bitAt(anInteger) = 1
+			self.bitAt(anInteger) = 1L
 		} {
 			false
 		}
@@ -122,18 +122,18 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 
 	includesIndex { :self :anInteger |
 		anInteger.isIntegerValuedNumber & {
-			0 <= anInteger & {
+			0L <= anInteger & {
 				anInteger < self.capacity
 			}
 		}
 	}
 
 	indices { :self |
-		0.to(self.capacity - 1)
+		0L.to(self.capacity - 1L)
 	}
 
 	isEmpty { :self |
-		self.tally = 0
+		self.tally = 0L
 	}
 
 	[isEqual, =] { :self :anObject |
@@ -145,11 +145,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 	}
 
 	occurrencesOf { :self :anObject |
-		self.includes(anObject).if {
-			1
-		} {
-			0
-		}
+		self.includes(anObject).boole
 	}
 
 	positionVector { :self |
@@ -159,16 +155,16 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 	positionsDo { :self :aBlock/1 |
 		let remainingBits = self.tally;
 		let lowBits = system.lowBitPerByteTable;
-		1.toDo(self.bytes.size) { :index |
-			(1 <= remainingBits).if {
+		1L.toDo(self.bytes.size) { :index |
+			(1L <= remainingBits).if {
 				let byte = self.bytes[index];
-				(byte = 0).ifFalse {
-					let byteOffset = index.bitShift(3) - 9;
+				(byte = 0L).ifFalse {
+					let byteOffset = index.bitShift(3L) - 9L;
 					{
 						aBlock(lowBits[byte] + byteOffset);
-						remainingBits := remainingBits - 1;
-						byte := byte.bitAnd(byte - 1);
-						byte = 0
+						remainingBits := remainingBits - 1L;
+						byte := byte.bitAnd(byte - 1L);
+						byte = 0L
 					}.whileFalse
 				}
 			} {
@@ -182,9 +178,9 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 	}
 
 	removeAll! { :self |
-		(tally > 0).if {
-			self.bytes.atAllPut!(0);
-			self.tally := 0
+		(tally > 0L).if {
+			self.bytes.atAllPut!(0L);
+			self.tally := 0L
 		};
 		nil
 	}
@@ -198,14 +194,14 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 	}
 
 	setBitAt { :self :anInteger |
-		let index = anInteger.bitShift(-3) + 1;
+		let index = anInteger.bitShift(-3L) + 1L;
 		let value = self.bytes[index];
-		let newValue = 1.bitShift(anInteger.bitAnd(7)).bitOr(value);
+		let newValue = 1L.bitShift(anInteger.bitAnd(7L)).bitOr(value);
 		(newValue = value).if {
 			false
 		} {
 			self.bytes[index] := newValue;
-			self.tally := self.tally + 1;
+			self.tally := self.tally + 1L;
 			true
 		}
 	}
@@ -217,7 +213,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 	storeString { :self |
 		'BitSet(%, %)'.format(
 			[
-				self.positionVector.storeString,
+				self.positionVector.concisePrintString,
 				self.capacity
 			]
 		)
@@ -228,11 +224,11 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 +@Integer {
 
 	BitSet { :capacity |
-		let byteCount = capacity.min(capacity // 8 + 1);
+		let byteCount = capacity.min(capacity // 8L + 1L);
 		newBitSet().initializeSlots(
-			capacity,
-			ByteArray(byteCount, 0),
-			0
+			ByteArray(byteCount, 0L),
+                        capacity,
+			0L
 		)
 	}
 
@@ -245,7 +241,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 			let answer = BitSet(self.size);
 			self.withIndexDo { :each :index |
 				each.isOne.ifTrue {
-					answer.add!(index - 1)
+					answer.add!(index - 1L)
 				}
 			};
 			answer
@@ -270,7 +266,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 
 	parseBitSet { :self |
 		self.isBitVector.if {
-			BitSet(self.codePoints - 48)
+			BitSet(self.codePoints - 48L)
 		} {
 			self.error('String>>parseBitSet: not bit vector')
 		}
@@ -281,19 +277,19 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 +ByteArray {
 
 	BitSet { :self :capacity |
-		(self.size * 8 != capacity).if {
+		(self.size * 8L != capacity).if {
 			self.error('ByteArray>>BitSet: incorrect capacity')
 		} {
 			newBitSet().initializeSlots(
-				capacity,
 				self,
+				capacity,
 				self.bitCount
 			)
 		}
 	}
 
 	BitSet { :self |
-		BitSet(self, self.size * 8)
+		BitSet(self, self.size * 8L)
 	}
 
 }

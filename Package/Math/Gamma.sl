@@ -87,16 +87,16 @@
 	gamma { :self |
 		(
 			self.isIntegerValuedNumber & {
-				(self >= 1)
+				(self >= 1.0)
 			}
 		).if {
-			(self - 1).factorial
+			Float((self - 1.0).factorial)
 		} {
-			(self < 0).if {
-				1.pi / (self.pi.sin * (1 - self).gamma)
+			(self < 0.0).if {
+				1.pi / (self.pi.sin * (1.0 - self).gamma)
 			} {
 				/*self.gammaLanczosFormulaPrimitive*/
-				(self + 1).gammaLanczosFormula / self
+				(self + 1.0).gammaLanczosFormula / self
 			}
 		}
 	}

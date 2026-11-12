@@ -234,10 +234,10 @@ Rectangle : [Object, Store, Equal, Geometry] {
 	svgFragment { :self :options |
 		let precision = options['precision'];
 		'<rect x="%" y="%" width="%" height="%" />'.format([
-			self.left.printStringToFixed(precision),
-			self.lower.printStringToFixed(precision),
-			self.width.printStringToFixed(precision),
-			self.height.printStringToFixed(precision)
+			self.left.decimalStringToScale(precision),
+			self.lower.decimalStringToScale(precision),
+			self.width.decimalStringToScale(precision),
+			self.height.decimalStringToScale(precision)
 		])
 	}
 

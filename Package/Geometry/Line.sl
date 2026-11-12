@@ -87,10 +87,10 @@ Line : [Object, Store, Equal, Geometry] {
 				let [x2, y2] = p2;
 				'<line x1="%" y1="%" x2="%" y2="%" />'.format(
 					[
-						x1.printStringToFixed(precision),
-						y1.printStringToFixed(precision),
-						x2.printStringToFixed(precision),
-						y2.printStringToFixed(precision)
+						x1.decimalStringToScale(precision),
+						y1.decimalStringToScale(precision),
+						x2.decimalStringToScale(precision),
+						y2.decimalStringToScale(precision)
 					]
 				)
 			}

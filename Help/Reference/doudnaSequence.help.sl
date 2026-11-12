@@ -60,8 +60,9 @@ The least number with the same prime signature as the Doudna sequence entry,
 OEIS [A278222](https://oeis.org/A278222):
 
 ~~~spl svg=C oeis=A278222
-65.doudnaSequence.collect { :n |
-	1:Infinity.detect { :m |
+65.doudnaSequence
+.collect { :n |
+	1L:Infinity.detect { :m |
 		n.primeSignature
 		=
 		m.primeSignature
@@ -75,8 +76,9 @@ Restricted growth sequence of least number with the same prime signature as the 
 OEIS [A286622](https://oeis.org/A286622):
 
 ~~~spl svg=D oeis=A286622
-200.doudnaSequence.collect { :n |
-	1:Infinity.detect { :m |
+200.doudnaSequence
+.collect { :n |
+	1L:Infinity.detect { :m |
 		n.primeSignature
 		=
 		m.primeSignature
@@ -91,8 +93,9 @@ Ordinal transform of the restricted growth sequence of least number with the sam
 OEIS [A286552](https://oeis.org/A286552):
 
 ~~~spl svg=E oeis=A286552
-200.doudnaSequence.collect { :n |
-	1:Infinity.detect { :m |
+200.doudnaSequence
+.collect { :n |
+	1L:Infinity.detect { :m |
 		n.primeSignature
 		=
 		m.primeSignature

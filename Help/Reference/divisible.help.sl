@@ -67,11 +67,11 @@ false
 At `Integer`:
 
 ```
->>> (10L ^ 3000 + 1)
->>> .divisible(16001)
+>>> (10L ^ 3000L + 1L)
+>>> .divisible(16001L)
 true
 
->>> (10L ^ 3000 + 1) % 16001
+>>> (10L ^ 3000L + 1L) % 16001L
 0L
 ```
 
@@ -135,13 +135,13 @@ Smaller numbers are not divisible by large numbers,
 although floating point calculations with approximate large numbers may suggest they are:
 
 ```
->>> 233.divisible(133L ^ 133)
+>>> 233L.divisible(133L ^ 133L)
 false
 
->>> 233 % Float(133L ^ 133)
-0
+>>> 233.0 % (133.0 ** 133.0)
+0.0
 
->>> 233 % (133L ^ 133)
+>>> 233L % (133L ^ 133L)
 233L
 ```
 
@@ -160,8 +160,8 @@ Least _k>0_ such that _n_ divides _1^1+2^2+…+k^k_,
 OEIS [A387662](https://oeis.org/A387662):
 
 ```
->>> 1:35.collect { :n |
->>> 	1:Infinity.detect { :k |
+>>> 1L:35L.collect { :n |
+>>> 	1L:Infinity.detect { :k |
 >>> 		1L:k.sum { :i |
 >>> 			i ^ i
 >>> 		}.divisible(n)
@@ -340,9 +340,9 @@ Smallest number _m_ such that _m(m+1)/2_ is divisible by _n_,
 OEIS [A011772](https://oeis.org/A011772):
 
 ~~~spl svg=L oeis=A011772
-1:85.collect { :n |
-	1:Infinity.detect { :m |
-		(m * (m + 1) / 2).divisible(n)
+1L:85L.collect { :n |
+	1L:Infinity.detect { :m |
+		(m * (m + 1L) // 2L).divisible(n)
 	}
 }.discretePlot
 ~~~
@@ -353,9 +353,9 @@ Least _k>0_ such that _n_ divides _1^1+2^2+…+k^k_,
 OEIS [A387662](https://oeis.org/A387662):
 
 ~~~spl svg=M oeis=A387662
-1:35.collect { :n |
-	1:Infinity.detect { :k |
-		1:k.sum { :i |
+1L:35L.collect { :n |
+	1L:Infinity.detect { :k |
+		1L:k.sum { :i |
 			i ^ i
 		}.divisible(n)
 	}

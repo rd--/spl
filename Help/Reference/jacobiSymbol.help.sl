@@ -82,10 +82,10 @@ Find Euler–Jacobi pseudoprimes,
 OEIS [A047713](https://oeis.org/A047713):
 
 ```
->>> 3L:5000:2.select { :n |
->>> 	let a = 2 ^ ((n - 1) // 2);
->>> 	let b = 2.jacobiSymbol(n);
->>> 	(a - b % n) = 0 & {
+>>> 3L:5000L:2L.select { :n |
+>>> 	let a = 2L ^ ((n - 1L) // 2L);
+>>> 	let b = 2L.jacobiSymbol(n);
+>>> 	(a - b % n) = 0L & {
 >>> 		n.isPrime.not
 >>> 	}
 >>> }

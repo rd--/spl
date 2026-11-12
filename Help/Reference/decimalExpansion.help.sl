@@ -7,21 +7,30 @@ Answer the decimal expansion of the integer _n_,
 also called decimal words or decimal vectors,
 or the first _k_ places of the decimal expansion of the fraction _n/d_.
 
+At `Integer`:
+
 ```
->>> 353.decimalExpansion
-[3 5 3]
+>>> 353L.decimalExpansion
+[3L 5L 3L]
 
 >>> 353.integerDigits(10)
 [3 5 3]
 ```
 
+At `Fraction`:
+
+```
+>>> 1/11.decimalExpansion(6)
+[0L 9L 0L 9L 0L 9L]
+```
+
 The inverse is `decimalContraction`:
 
 ```
->>> [353].decimalContraction
-353
+>>> [3L 5L 3L].decimalContraction
+353L
 
->>> [353].fromDigits(10)
+>>> [3 5 3].fromDigits(10)
 353
 ```
 

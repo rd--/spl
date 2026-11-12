@@ -17,7 +17,7 @@ if the value would answer `true` for `isSmallInteger`:
 >>> (x, x.isFloat, x.isSmallInteger)
 (23, true, true)
 
->>> let x = normalInteger(2L ^ 54);
+>>> let x = normalInteger(2L ^ 54L);
 >>> (x, x.isInteger)
 (18014398509481984L, true)
 ```

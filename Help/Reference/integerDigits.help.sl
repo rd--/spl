@@ -75,8 +75,8 @@ At `Integer`:
 
 ```
 >>> let i = 5752090994058710841670361653731519L;
->>> let d = i.integerDigits(10);
->>> (d, i = d.fromDigits(10))
+>>> let d = i.integerDigits(10L);
+>>> (d, i = d.fromDigits(10L))
 (
 	[
 		5 7 5 2 0 9 0 9 9 4

@@ -17,7 +17,7 @@ The number of trailing zeroes:
 At `Integer`:
 
 ```
->>> (40L ^ 30).integerExponent(10)
+>>> (40L ^ 30L).integerExponent(10L)
 30L
 ```
 
@@ -34,7 +34,7 @@ threads over lists,
 OEIS [A027868](https://oeis.org/A027868):
 
 ```
->>> [1L .. 40L].!.integerExponent(10)
+>>> [1L .. 40L].!.integerExponent(10L)
 [
 	0 0 0 0 1 1 1 1 1 2
 	2 2 2 2 3 3 3 3 3 4
@@ -48,7 +48,7 @@ known as the ruler sequence or the binary carry sequence,
 OEIS [A007814](https://oeis.org/A007814):
 
 ```
->>> 1:40.integerExponent(2)
+>>> 1L:40L.integerExponent(2L)
 [
 	0 1 0 2 0 1 0 3 0 1
 	0 2 0 1 0 4 0 1 0 2
@@ -62,7 +62,7 @@ OEIS [A000120](https://oeis.org/A000120):
 
 ```
 >>> [1L .. 30L].collect { :n |
->>> 	n - n.factorial.integerExponent(2)
+>>> 	n - n.factorial.integerExponent(2L)
 >>> }
 [
 	1 1 2 1 2 2 3 1 2 2 3 2 3 3 4
@@ -151,8 +151,8 @@ with terms repeated,
 OEIS [A011371](https://oeis.org/A011371):
 
 ```
->>> 0:51.collect { :n |
->>> 	(2L * n).!.integerExponent(2)
+>>> 0L:51L.collect { :n |
+>>> 	(2L * n).!.integerExponent(2L)
 >>> }
 [
 	 0  1  3  4  7  8 10 11 15 16
@@ -168,9 +168,9 @@ Complement,
 OEIS [A055938](https://oeis.org/A055938):
 
 ```
->>> 0:99.complement(
->>> 	0:51.collect { :n |
->>> 		(2L * n).!.integerExponent(2)
+>>> 0L:99L.complement(
+>>> 	0L:51L.collect { :n |
+>>> 		(2L * n).!.integerExponent(2L)
 >>> 	}
 >>> )
 [

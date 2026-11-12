@@ -4,13 +4,13 @@
 
 Index generator.
 
-In the scalar case answer a `List` of indices:
+In the scalar case answer a `List` of `Integer` indices:
 
 ```
 >>> 5.iota
 [1 2 3 4 5]
 
->>> 2 ^ 6.iota
+>>> 2L ^ 6.iota
 [2 4 8 16 32 64]
 ```
 
@@ -44,23 +44,27 @@ In the vector case answer an array of indices with the indicated shape:
 ]
 ```
 
-The ternary case specifies the _start_ and _step_ values:
+The ternary case specifies the _start_ and _step_ values,
+which need not be integers:
 
 ```
->>> 5.iota(3, 4)
+>>> 5.iota(3.0, 4.0)
+[3.0 7.0 11.0 15.0 19.0]
+
+>>> [3.0, 7.0 .. 19.0]
 [3 7 11 15 19]
 
->>> [3, 7 .. 19]
-[3 7 11 15 19]
+>>> 5.iota(1/2, 7/2)
+[1/2 4/1 15/2 11/1 29/2]
 
->>> [3 3].iota(3, 4)
+>>> [3 3].iota(3L, 4L)
 [
 	 3  7 11;
 	15 19 23;
 	27 31 35
 ]
 
->>> [2 3 4].iota(0, 1)
+>>> [2 3 4].iota(0L, 1L)
 [
 	 0  1  2  3;
 	 4  5  6  7;

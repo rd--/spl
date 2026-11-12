@@ -41,8 +41,8 @@
 		)
 	}
 
-	printStringToFixed { :self :anInteger |
-		Float(self).printStringToFixed(anInteger)
+	decimalStringToScale { :self :anInteger |
+		Float(self).decimalStringToScale(anInteger)
 	}
 
 	realDigits { :self :base :size |

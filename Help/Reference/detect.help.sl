@@ -45,7 +45,7 @@ Detect the first prime number in a `Range`:
 The ternary form detects the first _n_ items:
 
 ```
->>> 99:Infinity.detect(7, isPrime/1)
+>>> 99L:Infinity.detect(7L, isPrime/1)
 [101 103 107 109 113 127 131]
 ```
 
@@ -60,10 +60,10 @@ Least positive _k_ such that _(2k+1)‼/(2k)‼≥n_,
 OEIS [A371701](https://oeis.org/A371701):
 
 ```
->>> 0:13.collect { :n |
->>> 	1:Infinity.detect { :k |
->>> 		let m = 2 * k;
->>> 		(m + 1).!! / m.!! >= n
+>>> 0L:13L.collect { :n |
+>>> 	1L:Infinity.detect { :k |
+>>> 		let m = 2L * k;
+>>> 		(m + 1L).!! / m.!! >= n
 >>> 	}
 >>> }
 [1 1 3 7 12 19 28 38 50 63 78 95 113 132]
@@ -73,10 +73,10 @@ Pit harvesting sequence for winning solitaire Tchoukaillon,
 OEIS [A028920](https://oeis.org/A028920):
 
 ~~~spl svg=A oeis=A028920
-0:150.collect { :n |
-	1:Infinity.detect { :m |
-		let p = (n % (m + 1)) = 0;
-		n := n * m // (m + 1);
+0L:150L.collect { :n |
+	1L:Infinity.detect { :m |
+		let p = (n % (m + 1L)) = 0L;
+		n := n * m // (m + 1L);
 		p
 	}
 }.scatterPlot
@@ -89,10 +89,10 @@ pit harvesting sequence for winning solitaire Tchoukaillon,
 OEIS [A028920](https://oeis.org/A028920):
 
 ~~~spl svg=B oeis=A028920
-0:150.collect { :n |
-	1:Infinity.detect { :m |
-		let p = (n % (m + 1)) = 0;
-		n := n * m // (m + 1);
+0L:150L.collect { :n |
+	1L:Infinity.detect { :m |
+		let p = (n % (m + 1L)) = 0L;
+		n := n * m // (m + 1L);
 		p
 	}
 }.ordinalTransform.scatterPlot

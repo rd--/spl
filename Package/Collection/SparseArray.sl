@@ -10,20 +10,24 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 		let shape = self.shape;
 		let answer = [];
 		self.linearIndexMap.withIndexDo { :each :i |
-			answer.add!(shape.cartesianIndex(i) -> each)
+			answer.add!(
+				shape.cartesianIndex(i) -> each
+			)
 		};
 		answer
 	}
 
 	at { :self :i |
 		let shape = self.shape;
-		(shape.size = 1).if {
-			self.atLinear(self.shape.linearIndex([i]))
+		(shape.size = 1L).if {
+			self.atLinear(
+				self.shape.linearIndex([i])
+			)
 		} {
 			let answer = [];
 			self.linearIndexMap.keysAndValuesDo { :key :value |
 				let c = shape.cartesianIndex(key);
-				(c[1] = i).ifTrue {
+				(c[1L] = i).ifTrue {
 					answer.add!(c.allButFirst -> value)
 				}
 			};
@@ -34,7 +38,9 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 	atLinear { :self :linearIndex |
 		let map = self.linearIndexMap;
 		map.includesKey(linearIndex).if {
-			map.at(linearIndex)
+			map.at(
+				SmallInteger(linearIndex)
+			)
 		} {
 			self.unspecifiedValue
 		}
@@ -59,7 +65,7 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 	}
 
 	depth { :self |
-		self.rank + 1
+		self.rank + 1L
 	}
 
 	dimensions { :self |
@@ -75,7 +81,7 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 	}
 
 	isMatrix { :self |
-		self.rank = 2
+		self.rank = 2L
 	}
 
 	linearIndices { :self |
@@ -101,8 +107,9 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 		let map = self.linearIndexMap;
 		let zero = self.unspecifiedValue;
 		self.shape.iota.deepCollect { :each |
-			map.includesKey(each).if {
-				map.at(each)
+			let index = SmallInteger(each);
+			map.includesKey(index).if {
+				map.at(index)
 			} {
 				zero
 			}
@@ -115,7 +122,7 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 
 	ravel { :self |
 		let n = self.shape.product;
-		1.to(n).collect { :i |
+		1L.to(n).collect { :i |
 			self.atLinear(i)
 		}
 	}
@@ -129,11 +136,13 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 	}
 
 	storeString { :self |
-		'SparseArray(%, %, %)'.format([
-			self.arrayRules,
-			self.shape,
-			self.unspecifiedValue
-		])
+		'SparseArray(%, %, %)'.format(
+			[
+				self.arrayRules,
+				self.shape,
+				self.unspecifiedValue
+			]
+		)
 	}
 
 	withCollect { :self :other :aBlock/2 |
@@ -170,7 +179,11 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 +Map {
 
 	SparseArray { :self :shape :unspecifiedValue |
-		newSparseArray().initializeSlots(self, shape, unspecifiedValue)
+		newSparseArray().initializeSlots(
+			self,
+			shape,
+			unspecifiedValue
+		)
 	}
 
 }
@@ -191,11 +204,11 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 	}
 
 	SparseArray { :self |
-		let shape = self.collect(key/1).max;
-		SparseArray(self, shape, 0)
+		let shape = self.collect(key/1).max.L;
+		SparseArray(self, shape, 0L)
 	}
 
-	asSparseArray { :self :unspecifiedValue |
+	arrayToSparseArray { :self :unspecifiedValue |
 		SparseArray(
 			self.arrayRules(unspecifiedValue),
 			self.shape,
@@ -215,18 +228,18 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 	}
 
 	booleanSparseArray { :indices :shape |
-		booleanSparseArray(indices, shape, [0 1])
+		booleanSparseArray(indices, shape, [0L 1L])
 	}
 
 	sparseIdentityMatrix { :self |
 		let [m, n] = self;
 		let k = m.min(n);
 		SparseArray(
-			1.to(k).collect { :i |
-				[i i] -> 1
+			1L.to(k).collect { :i |
+				[i i] -> 1L
 			},
 			[m n],
-			0
+			0L
 		)
 	}
 

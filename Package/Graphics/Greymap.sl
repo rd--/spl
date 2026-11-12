@@ -11,12 +11,12 @@ Greymap : [Object] {
 		let header = [
 			'P2',
 			'% %'.format([columnCount, rowCount]),
-			maxDepth.printString
+			maxDepth.integerString
 		];
 		let rows = self.greyMatrix.collect { :each |
 			each.collect { :level |
 				level.isBetween(0, 1).if {
-					(level * maxDepth).round.printString
+					(level * maxDepth).round.integerString
 				} {
 					self.error('encodePgm: not (0,1) matrix')
 				}

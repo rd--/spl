@@ -9,14 +9,14 @@ The inverse is `linearIndex`.
 At vector:
 
 ```
->>> let shape = [3];
->>> 1:3.collect { :l |
+>>> let shape = [3L];
+>>> 1L:3L.collect { :l |
 >>> 	shape.cartesianIndex(l)
 >>> }
 [1; 2; 3]
 
->>> let shape = [3];
->>> [1; 2; 3].collect { :c |
+>>> let shape = [3L];
+>>> [1L; 2L; 3L].collect { :c |
 >>> 	shape.linearIndex(c)
 >>> }
 [1 2 3]

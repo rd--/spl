@@ -85,7 +85,7 @@ The determinants of _4×4_ `Integer` matrices:
 The determinant of a _5×5_ `Integer` matrix:
 
 ```
->>> ([5 5].iota - 1)
+>>> ([5 5].iota - 1L)
 >>> .bareissAlgorithm
 0
 ```
@@ -95,7 +95,7 @@ The determinant of a _7×7_ `Integer` matrix:
 ```
 >>> { :i :j |
 >>> 	(i = j).if { -1024L } { 1024L }
->>> }.table(1:7, 1:7)
+>>> }.table(1L:7L, 1L:7L)
 >>> .bareissAlgorithm
 377789318629571617095680L
 ```
@@ -103,6 +103,8 @@ The determinant of a _7×7_ `Integer` matrix:
 * * *
 
 See also: determinant
+
+Guides: Matrix Functions
 
 References:
 _W_

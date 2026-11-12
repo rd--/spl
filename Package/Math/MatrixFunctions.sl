@@ -34,21 +34,21 @@
 	bareissAlgorithm { :m |
 		withReturn { :return/1 |
 			let n = m.size;
-			let sign = 1;
-			let prev = 1;
+			let sign = 1L;
+			let prev = 1L;
 			1.toDo(n) { :i |
-				(m[i][i] = 0).ifTrue {
+				(m[i][i] = 0L).ifTrue {
 					let swapTo = nil;
 					(i + 1).toDo(n) { :j |
-						(m[j][i] != 0).ifTrue {
+						(m[j][i] != 0L).ifTrue {
 							swapTo := j
 						}
 					};
 					swapTo.ifNil {
-						0.return
+						0L.return
 					} {
 						m.swapRows(i, swapTo);
-						sign := sign * -1
+						sign := sign * -1L
 					}
 				};
 				(i + 1).toDo(n) { :j |
@@ -429,9 +429,9 @@
 	[inverseMatrix, inverse] { :self |
 		self.isSquareMatrix.if {
 			let n = self.numberOfRows;
-			(n = 2).if {
+			(n = 2L).if {
 				let [a, b, c, d] = self.catenate;
-				let r = 1 / ((a * d) - (b * c));
+				let r = 1L / ((a * d) - (b * c));
 				let m = [[d, b.-], [c.-, a]];
 				r * m
 			} {
@@ -1260,16 +1260,16 @@
 	}
 
 	sylvesterMatrix { :p :q |
-		let m = p.size - 1;
-		let n = q.size - 1;
+		let m = p.size - 1L;
+		let n = q.size - 1L;
 		let d = m + n;
-		let x = d - m - 1;
-		let y = d - n - 1;
-		let a = p.reverse ++ List(x, 0);
-		let b = q.reverse ++ List(y, 0);
+		let x = d - m - 1L;
+		let y = d - n - 1L;
+		let a = p.reverse ++ List(x, 0L);
+		let b = q.reverse ++ List(y, 0L);
 		[
-			0.to(x).collect { :i | a.rotateRight(i) },
-			0.to(y).collect { :i | b.rotateRight(i) }
+			0L.to(x).collect { :i | a.rotateRight(i) },
+			0L.to(y).collect { :i | b.rotateRight(i) }
 		].catenate
 	}
 

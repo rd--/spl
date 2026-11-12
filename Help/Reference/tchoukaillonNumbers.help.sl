@@ -11,7 +11,7 @@ also
 OEIS [A002491](https://oeis.org/A002491) minus one:
 
 ```
->>> 58.tchoukaillonNumbers
+>>> 58L.tchoukaillonNumbers
 [
 	   0    1   3    5  9
 	  11   17   21  29 33
@@ -32,7 +32,7 @@ Tchoukaillon numbers,
 OEIS [A007952](https://oeis.org/A007952):
 
 ~~~spl svg=A oeis=A007952
-65.tchoukaillonNumbers
+65L.tchoukaillonNumbers
 .discretePlot
 ~~~
 
@@ -42,7 +42,7 @@ First differences of Tchoukaillon numbers,
 OEIS [A028913](https://oeis.org/A028913):
 
 ~~~spl svg=B oeis=A028913
-85.tchoukaillonNumbers
+85L.tchoukaillonNumbers
 .differences
 .discretePlot
 ~~~
@@ -53,7 +53,7 @@ The number of Mancala numbers _≤n-1_,
 OEIS [A082447](https://oeis.org/A082447):
 
 ~~~spl svg=C oeis=A082447
-(14.tchoukaillonNumbers + 1)
+(14L.tchoukaillonNumbers + 1L)
 .characteristicFunction
 .prefixSum
 .discretePlot
@@ -64,7 +64,7 @@ OEIS [A082447](https://oeis.org/A082447):
 Characteristic function of Tchoukaillon numbers:
 
 ~~~spl svg=D
-23.tchoukaillonNumbers
+23L.tchoukaillonNumbers
 .characteristicFunction
 .discretePlot
 ~~~
@@ -76,17 +76,17 @@ OEIS [A140060](https://oeis.org/A140060):
 
 ~~~spl svg=E oeis=A140060
 let q = { :n :k |
-	(k = 1).if {
+	(k = 1L).if {
 		n
 	} {
-		k * floor(q(n, k - 1) / k)
+		k * (q(n, k - 1L) / k).floor
 	}
 };
-(9.tchoukaillonNumbers + 1)
+(9L.tchoukaillonNumbers + 1L)
 .characteristicFunction
 .prefixSum
 .withIndexCollect { :m :n |
-	1:m.collect { :k |
+	1L:m.collect { :k |
 		q(n, k)
 	}
 }.catenate.scatterPlot

@@ -32,10 +32,10 @@ The `codePoint` method retrieves the unicode code point:
 
 ```
 >>> 'x'.codePoint
-120
+120L
 
 >>> Character'x'.codePoint
-120
+120L
 ```
 
 The `characterString` method retrieves the single element string:
@@ -61,11 +61,11 @@ There is no literal syntax for characters,
 and the `printString` for a `Character` is not equal to the `printString` for a one place `String`:
 
 ```
->> Character'x'.printString
-Character('x', 120)
+>>> Character'x'.printString
+Character'x'.storeString
 
->> Character'x'.storeString
-Character('x', 120)
+>> Character'x'.printString
+Character('x', 120L)
 ```
 
 A `Character` is not equal to an equivalent string of one place,
@@ -82,10 +82,10 @@ Printing:
 
 ```
 >> Character'c'.storeString
-Character('c', 99)
+Character('c', 99L)
 
 >> Character'c'.printString
-Character('c', 99)
+Character('c', 99L)
 ```
 
 _Note:_

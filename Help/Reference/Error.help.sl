@@ -28,14 +28,14 @@ With cause:
 >>> Error('Invalid key', -1).name
 'Error'
 
->>> Error('Invalid key', -1).messageText
+>>> Error('Invalid key', -1.0).messageText
 'Invalid key'
 
->>> Error('Invalid key', -1).description
-'Error: Invalid key: -1'
+>>> Error('Invalid key', -1.0).description
+'Error: Invalid key: -1.0'
 
 >>> Error('Invalid key', -1).printString
-'*Error* Error: Invalid key: -1'
+'*Error* Error: Invalid key: -1.0'
 ```
 
 Error values cannot be copied:

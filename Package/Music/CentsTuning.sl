@@ -31,7 +31,7 @@ CentsTuning : [Object, Store, Equal, Tuning] {
 	equalTemperamentTuning { :self |
 		let step = 1200.0 / self;
 		CentsTuning(
-			'ET-' ++ self.printString,
+			'ET-' ++ self.concisePrintString,
 			self.inEnglishWords.capitalize ++ ' tone equal-temperament',
 			[0.0, step .. 1200.0 - step],
 			2

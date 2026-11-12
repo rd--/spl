@@ -94,8 +94,8 @@ Numbers k that divide the numerator of _B(2k)_,
 OEIS [A069040](https://oeis.org/A069040):
 
 ```
->>> 1:23.select { :k |
->>> 	let b = (2 * k).bernoulliNumber;
+>>> 1L:23L.select { :k |
+>>> 	let b = (2L * k).bernoulliNumber;
 >>> 	let n = b.numerator;
 >>> 	n.divisible(k)
 >>> }

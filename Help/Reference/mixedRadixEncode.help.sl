@@ -6,11 +6,11 @@ Given a list of bases _b_ encode the integer _n_.
 Mixed radix counting systems are common in calendrical calculations.
 
 ```
->>> let b = [12 9 6];
->>> 571.mixedRadixEncode(b)
+>>> let b = [12L 9L 6L];
+>>> 571L.mixedRadixEncode(b)
 [10 5 1]
 
->>> (10 * 9 * 6) + (5 * 6) + 1
+>>> (10L * 9L * 6L) + (5L * 6L) + 1L
 571
 
 >>> let b = [15 10 5];

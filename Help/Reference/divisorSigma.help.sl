@@ -375,9 +375,9 @@ Smallest number with exactly _n_ divisors,
 OEIS [A005179](https://oeis.org/A005179):
 
 ```
->>> 1:12.collect { :n |
->>> 	1:Infinity.detect { :m |
->>> 		0.divisorSigma(m) = n
+>>> 1L:12L.collect { :n |
+>>> 	1L:Infinity.detect { :m |
+>>> 		0L.divisorSigma(m) = n
 >>> 	}
 >>> }
 [1 2 4 6 16 12 64 24 36 48 1024 60]
@@ -439,7 +439,7 @@ Denominator of sum of reciprocals of divisors of _n_,
 OEIS [A017666](https://oeis.org/A017666):
 
 ```
->>> 1:16.collect { :n |
+>>> 1L:16L.collect { :n |
 >>> 	1L.divisorSigma(n) / n
 >>> }.denominator
 [1 2 3 4 5 1 7 8 9 5 11 3 13 7 5 16]

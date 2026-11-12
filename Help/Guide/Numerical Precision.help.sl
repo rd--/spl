@@ -39,14 +39,14 @@ true
 Print a `Float` to a specified precision:
 
 ```
->>> 1.pi.printStringToPrecision(4)
+>>> 1.pi.decimalStringToPrecision(4)
 '3.142'
 ```
 
 Print a `Float` to a specified scale:
 
 ```
->>> 1.pi.printStringToFixed(3)
+>>> 1.pi.decimalStringToScale(3)
 '3.142'
 ```
 
@@ -59,6 +59,6 @@ Round a `Float` to a specified precision:
 
 * * *
 
-See also: Float, Integer, floatEpsilon, printStringToFixed, round
+See also: Float, Integer, floatEpsilon, decimalStringToScale, round
 
 Guides: Numeric Types

@@ -21,11 +21,14 @@ Leading zeroes are allowed:
 [1 1L 0 0L]
 ```
 
-There is an `Integer` trait:
+There is a two kinds of integer values:
 
 ```
->>> [23 23L].collect(isInteger/1)
-[true true]
+>>> 23.0.isSmallInteger
+true
+
+>>> 23L.isInteger
+true
 ```
 
 There is a `Radix Syntax` for specifying non-decimal integers:

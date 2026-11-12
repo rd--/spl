@@ -3,7 +3,8 @@
 - _atWrap(s, i)_
 
 Answer the element at the index _i_ in the sequence _s_.
-If the index is out of bounds, let it wrap around from the end to the beginning until it is in bounds.
+If the index is out of bounds,
+let it wrap around from the end to the beginning until it is in bounds.
 
 ```
 >>> 1:5.atWrap(-1)
@@ -12,8 +13,8 @@ If the index is out of bounds, let it wrap around from the end to the beginning 
 >>> 1:5.atWrap(9)
 4
 
->>> -1:9.collect { :i |
->>> 	1:5.atWrap(i)
+>>> -1L:9L.collect { :i |
+>>> 	1L:5L.atWrap(i)
 >>> }
 [4 5 1 2 3 4 5 1 2 3 4]
 ```
@@ -26,8 +27,8 @@ and the index _-1_ the second last:
 >>> 1:5.atWrap(0)
 5
 
->>> 1:5.atWrap(-1)
-4
+>>> 1L:5L.atWrap(-1L)
+4L
 ```
 
 * * *

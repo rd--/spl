@@ -123,7 +123,7 @@ At large integers:
 >>> ].fromDigits(10L);
 >>> let p = 10L ^ 50L + 577L;
 >>> let q = tonelliShanksAlgorithm(n, p);
->>> (q, (m ^ 2) % (10L ^ 50 + 577))
+>>> (q, (m ^ 2) % (10L ^ 50L + 577L))
 (m, n)
 ```
 

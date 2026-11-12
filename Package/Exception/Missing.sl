@@ -2,7 +2,7 @@ Missing : [Object, Store, Equal] {
 
 	| reasonMissing value |
 
-	Float { :unused |
+	[Float, F] { :unused |
 		NaN
 	}
 

@@ -282,18 +282,17 @@
 	}
 
 	integerDoubleFactorial { :self |
-		let one = self.one;
 		self.isNegative.if {
 			self.isOdd.if {
-				(self + 2).integerDoubleFactorial / (self + 2)
+				(self + 2L).integerDoubleFactorial / (self + 2L)
 			} {
 				self.error('@integerDoubleFactorial: negative even')
 			}
 		} {
-			(self <= 3).if {
-				self.max(one)
+			(self <= 3L).if {
+				self.max(1L)
 			} {
-				self * (self - 2).integerDoubleFactorial
+				self * (self - 2L).integerDoubleFactorial
 			}
 		}
 	}
@@ -314,9 +313,9 @@
 	}
 
 	involutionNumber { :n |
-		0.to(n // 2).sum { :k |
-			((2 * k) - 1).doubleFactorial * binomial(n, 2 * k)
-		}
+		0L.to(n // 2L).sum { :k |
+			((2L * k) - 1L).doubleFactorial * integerBinomial(n, 2L * k)
+		}.L
 	}
 
 	kempnerFunction { :n |

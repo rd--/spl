@@ -5,19 +5,19 @@
 Answer the inverse of the square matrix _m_.
 The dot product of _m_ and its inverse is the identity matrix.
 
-Inverse of a 2×2 integer valued matrix:
+Inverse of a 2×2 fractional valued matrix:
 
 ```
->>> let m = [-1 3/2; 1 -3];
+>>> let m = [-1/1 3/2; 1/1 -3/1];
 >>> let i = m.inverse;
 >>> (i, i.dot(m))
-([-2 -1; -2/3 -2/3], [1 0; 0 1])
+([-2/1 -1/1; -2/3 -2/3], [1 0; 0 1])
 ```
 
 Inverse of a 2×2 real valued matrix:
 
 ```
->>> let m = [1.4 2; 3 -6.7];
+>>> let m = [1.4 2.0; 3.0 -6.7];
 >>> let i = m.inverse;
 >>> (i, i.dot(m))
 (
@@ -35,35 +35,45 @@ Inverse of a 2×2 real valued matrix:
 Inverses of 3×3 integer matrices:
 
 ```
->>> [1 2 3; 4 2 2; 5 1 7].inverse
+>>> Integer[1 2 3; 4 2 2; 5 1 7]
+>>> .inverse
 [
 	-2/7 11/42 1/21;
 	3/7 4/21 -5/21;
 	1/7 -3/14 1/7
 ]
 
->>> [2 3 2; 4 9 2; 7 2 4].inverse
+>>> Integer[2 3 2; 4 9 2; 7 2 4]
+>>> .inverse
 [
 	-8/13 2/13 3/13;
 	1/26 3/26 -1/13;
 	55/52 -17/52 -3/26
 ]
 
->>> [0 -3 -2; 1 -4 -2; -3 4 1].inverse
+
+>>> Integer[2 -1 0; -1 2 -1; 0 -1 2]
+>>> .inverse
+[
+	3/4 1/2 1/4;
+	1/2 1 1/2;
+	1/4 1/2 3/4
+]
+```
+
+Integer matrix with integer matrix inverse:
+
+```
+>>> [0 -3 -2; 1 -4 -2; -3 4 1].L
+>>> .inverse.L
 [
 	4 -5 -2;
 	5 -6 -2;
 	-8 9 3
 ]
 
->>> [2 -1 0; -1 2 -1; 0 -1 2].inverse
-[
-	3/4 1/2 1/4;
-	1/2 1 1/2;
-	1/4 1/2 3/4
-]
-
->>> [1 1 1; 1 0 0; 0 1 0].inverse
+>>> [1 1 1; 1 0 0; 0 1 0].L
+>>> .inverse.L
 [
 	0 1 0;
 	0 0 1;
@@ -74,8 +84,8 @@ Inverses of 3×3 integer matrices:
 The inverse of a permutation matrix is also a permutation matrix:
 
 ```
->>> let a = [0 0 1; 1 0 0; 0 1 0];
->>> let b = a.inverse;
+>>> let a = [0 0 1; 1 0 0; 0 1 0].L;
+>>> let b = a.inverse.L;
 >>> (
 >>> 	a.isPermutationMatrix,
 >>> 	b.isPermutationMatrix,
@@ -103,8 +113,8 @@ Solve the system of equations of the form _ax + by + cz = d_.
 The solution is given by the dot product of the inverse of the coefficient matrix and the constant vector:
 
 ```
->>> let m = [6 9 0; -7 0 3; 0 5 9];
->>> let k = [11 -12 -9];
+>>> let m = [6 9 0; -7 0 3; 0 5 9].L;
+>>> let k = [11 -12 -9].L;
 >>> m.inverse.dot(k)
 [188/159 23/53 -592/477]
 ```
@@ -112,25 +122,25 @@ The solution is given by the dot product of the inverse of the coefficient matri
 Solve the matrix equation _m.x = k_, where _k_ is a vector:
 
 ```
->>> let m = [1 2; 3 4];
->>> let k = [5 6];
+>>> let m = [1 2; 3 4].L;
+>>> let k = [5 6].L;
 >>> let r = m.inverse.dot(k);
 >>> (r, m.dot(r) = k)
-([-4 9/2], true)
+([-4/1 9/2], true)
 ```
 
 Solve the matrix equation _m.x = y_, where _y_ is a matrix:
 
 ```
->>> let m = [-6 7 9; -2 1 3; 7 -10 4];
->>> let y = [-5 6 -4; -7 7 8; -2 1 12];
+>>> let m = [-6 7 9; -2 1 3; 7 -10 4].L;
+>>> let y = [-5 6 -4; -7 7 8; -2 1 12].L;
 >>> let r = m.inverse.dot(y);
->>> (r, m.dot(r) ~ y)
+>>> (r, m.dot(r) = y)
 (
 	[
 		158/29 -305/58 -234/29;
-		4 -15/4 -7;
-		-1/29 9/116 -11/29
+		  4/1   -15/4    -7/1;
+		-1/29     9/116 -11/29
 	],
 	true
 )
@@ -144,8 +154,11 @@ It is an error to invert a singular matrix:
 >>> (m.determinant, m.inverse)
 (0, [Infinity -Infinity; -Infinity Infinity])
 
->>> let m = [1 2 3; 4 5 6; 7 8 9];
->>> (m.determinant, m.inverse.dot(m))
+>>> let m = [1 2 3; 4 5 6; 7 8 9].L;
+>>> (
+>>> 	m.determinant,
+>>> 	m.inverse.dot(m).L
+>>> )
 (
 	0,
 	[
@@ -159,8 +172,8 @@ It is an error to invert a singular matrix:
 The classical adjoint (adjugate) of a square matrix is the `inverse` multiplied by the `determinant`:
 
 ```
->>> let m = [8 1 6; 3 5 7; 4 9 2];
->>> m.inverse * m.determinant
+>>> let m = [8 1 6; 3 5 7; 4 9 2].L;
+>>> (m.inverse * m.determinant).L
 [
 	-53  52 -23;
 	 22  -8 -38;
@@ -173,7 +186,8 @@ Inverse of a matrix of rational numbers:
 ```
 >>> { :i :j |
 >>> 	1L / (i + j)
->>> }.table(1:4, 1:4).inverse
+>>> }.table(1L:4L, 1L:4L)
+>>> .inverse.L
 [
 	  200  -1200   2100  -1120;
 	-1200   8100 -15120   8400;
@@ -186,7 +200,7 @@ The identity matrix is self inverse:
 
 ```
 >>> let m = 5.identityMatrix;
->>> m.inverse
+>>> m.inverse.L
 m
 ```
 
@@ -194,8 +208,10 @@ At `Permutation`,
 an alias for `inversePermutation`:
 
 ```
->>> [1 3 9; 2 6 5; 4 12 10; 7 8 11]
->>> .cycles.inverse.cycles
+>>> [1 3 9; 2 6 5; 4 12 10; 7 8 11].L
+>>> .cycles
+>>> .inverse
+>>> .cycles
 [1 9 3; 2 5 6; 4 10 12; 7 11 8]
 ```
 

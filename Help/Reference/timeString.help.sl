@@ -6,20 +6,24 @@ Format the `Time` value _t_ as a subset of the ISO-8601 specification,
 specifically _hh:mm:ss.sss_.
 
 ```
->>> Time(38460.001).timeString
+>>> Time(38460.001)
+>>> .timeString
 '10:41:00.001'
 
->>> Time(28253).timeString
+>>> Time(28253.0)
+>>> .timeString
 '07:50:53.000'
 ```
 
 It is an `error` if the time cannot be represented in the ISO-8601 format:
 
 ```
->>> '23:59:59.999'.parseTime
+>>> '23:59:59.999'
+>>> .parseTime
 Time(86399.999)
 
->>> Time(86399.999).timeString
+>>> Time(86399.999)
+>>> .timeString
 '23:59:59.999'
 
 >>> {

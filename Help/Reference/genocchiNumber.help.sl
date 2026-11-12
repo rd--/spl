@@ -60,7 +60,7 @@ The right diagonal of Seidel’s triangle,
 OEIS [A014781](https://oeis.org/A014781):
 
 ```
->>> 22.seidelTriangle
+>>> 22L.seidelTriangle
 >>> .collect(last/1)
 >>> .atAll(2:22:2)
 [

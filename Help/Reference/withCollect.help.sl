@@ -14,6 +14,9 @@ Copying form at `Range`:
 >>> 	p * 2 + q
 >>> }
 [19, 18 .. 11]
+
+>>> 3L:9L.withCollect(2L:8L, /)
+[3/2 4/3 5/4 6/5 7/6 8/7 9/8]
 ```
 
 In-place form at `List`:
