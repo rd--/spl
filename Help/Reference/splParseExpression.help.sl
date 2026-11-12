@@ -21,9 +21,9 @@ Reserved words and numeric literals are represented by their values:
 >> .splParseExpression
 (𝒫 (𝓛 false nil true (𝓛)))
 
->> '[3.141 23 23L]'
+>> '[3.141 23.0 23L]'
 >> .splParseExpression
-(𝒫 (𝓛 3.141 23 23L))
+(𝒫 (𝓛 3.141 23 23))
 ```
 
 Application is indicated ordinarily:
@@ -53,9 +53,9 @@ Infix application is written in prefix form:
 `Fraction`, `Complex` and `Residue` are written as applications:
 
 ```
->> '[2/3 2J3]'
+>> '[2/3 2.0J3.0]'
 >> .splParseExpression
-(𝒫 (𝓛 (Fraction 2L 3L) (Complex 2 3)))
+(𝒫 (𝓛 (Fraction 2 3) (Complex 2 3)))
 ```
 
 Let binding is indicated by ≔.

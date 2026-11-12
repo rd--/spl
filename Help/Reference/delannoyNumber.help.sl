@@ -10,7 +10,7 @@ OEIS [A008288](https://oeis.org/A008288):
 ```
 >>> { :m :n |
 >>> 	m.delannoyNumber(n)
->>> }.table(0:9, 0:6)
+>>> }.table(0L:9L, 0L:6L)
 [
 	1  1   1    1    1     1     1;
 	1  3   5    7    9    11    13;
@@ -56,8 +56,8 @@ Matrix plot of square array of Delannoy numbers modulo three:
 
 ~~~spl png=A
 { :m :n |
-	(m.delannoyNumber(n) % 3) / 2
-}.table(0:80, 0:80).Greymap
+	(m.delannoyNumber(n) % 3L) / 2L
+}.table(0L:80L, 0L:80L).Greymap
 ~~~
 
 ![](Help/Image/delannoyNumber-A.png)
@@ -66,7 +66,7 @@ Square array of Delannoy numbers read by antidiagonals,
 OEIS [A008288](https://oeis.org/A008288):
 
 ~~~spl svg=B oeis=A008288
-0:17.antidiagonalArray(
+0L:17L.antidiagonalArray(
 	delannoyNumber/2
 ).catenate.scatterPlot.log
 ~~~

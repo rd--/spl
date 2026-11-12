@@ -363,17 +363,17 @@ let d = { :n |
 	n.divisors.allButFirstAndLast
 };
 let f = { :n |
-	(n = 1).if {
-		1
+	(n = 1L).if {
+		1L
 	} {
 		1/2 * (
 			a(n) - d(n).collect { :d |
-				f(d) * f(n / d)
+				f(d) * f(n // d)
 			}.sum
 		)
 	}
 };
-1:99.collect { :n |
+1L:99L.collect { :n |
 	f(n).denominator
 }.scatterPlot.log
 ~~~

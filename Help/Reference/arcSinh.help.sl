@@ -113,7 +113,7 @@ Polar plot:
 
 * * *
 
-See also: arcSin, cos, sin, tan
+See also: arcCosh, arcSin, cos, sin, tan
 
 Guides: Hyperbolic Functions, Sigmoid Functions, Trigonometric Functions
 

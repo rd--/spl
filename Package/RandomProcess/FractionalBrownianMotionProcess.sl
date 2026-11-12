@@ -76,7 +76,12 @@ FractionalBrownianMotionProcess : [Object] {
 +@RandomNumberGenerator {
 
 	hoskingMethod { :self :t :m :h :k |
-		m.basicHoskingMethod(h, t, k.boole, { self.normalDistribution(0, 1) })
+		m.basicHoskingMethod(
+			h,
+			t,
+			Float(k.boole),
+			{ self.normalDistribution(0, 1) }
+		)
 	}
 
 	hoskingMethodRandomFunction { :self :h :k :t :n |

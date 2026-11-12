@@ -796,19 +796,19 @@
 	}
 
 	antidiagonalIndicesDo { :k :aBlock/2 |
-		let m = 1;
-		let n = 1;
+		let m = 1L;
+		let n = 1L;
 		{
-			k > 0
+			k > 0L
 		}.whileTrue {
 			aBlock(m, n);
-			k := k - 1;
+			k := k - 1L;
 			(n = 1).if {
-				n := m + 1;
-				m := 1
+				n := m + 1L;
+				m := 1L
 			} {
-				m := m + 1;
-				n := n - 1
+				m := m + 1L;
+				n := n - 1L
 			}
 		}
 	}

@@ -378,8 +378,8 @@ The first few sequences:
 Plot first few rational Collatz sequences:
 
 ~~~spl svg=E
-1:15.collect { :n |
-	let x = 1L / (2 * n + 1);
+1L:15L.collect { :n |
+	let x = 1L / (2L * n + 1L);
 	x.collatzSequence
 }.catenate.scatterPlot.log
 ~~~
@@ -390,12 +390,12 @@ Sequence lengths for Collatz problem with rational numbers,
 OEIS [A210468](https://oeis.org/A210468):
 
 ~~~spl svg=F oeis=A210468
-1L:66.collect { :n |
-	let x = 1 / (2 * n + 1);
+1L:66L.collect { :n |
+	let x = 1L / (2L * n + 1L);
 	let y = x.collatzSequence;
 	let k = y.size;
 	let e = y.last;
-	k - 2 - (e = 2).boole
+	k - 2L - (e = 2L).boole
 }.discretePlot
 ~~~
 
@@ -610,7 +610,7 @@ OEIS [A057684](https://oeis.org/A057684):
 Trajectory of 109 under the _109x+1_ map:
 
 ~~~spl svg=G
-109.collatzSequence(109, 'Indirect')
+109L.collatzSequence(109L, 'Indirect')
 .first
 .scatterPlot.log
 ~~~
@@ -674,10 +674,10 @@ starting at _n_,
 OEIS [A208981](https://oeis.org/A208981):
 
 ~~~spl svg=J oeis=A208981
-1:165.collect { :n |
+1L:165L.collect { :n |
 	n.collatzSequence.detectIndex { :x |
-		x.log2.isInteger
-	} - 1
+		x.log2.isSmallInteger
+	} - 1L
 }.scatterPlot
 ~~~
 

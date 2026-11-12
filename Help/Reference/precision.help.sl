@@ -17,7 +17,7 @@ At `Decimal`:
 4
 
 >>> 0.010D.precision
-4
+3
 
 >>> 23.00D.precision
 4

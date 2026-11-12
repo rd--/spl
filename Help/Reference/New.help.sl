@@ -31,6 +31,7 @@ Types implementing `New`:
 [
 	'AsciiString'
 	'ByteArray'
+	'Dictionary'
 	'Float32Array'
 	'Float64Array'
 	'IdentitySet'

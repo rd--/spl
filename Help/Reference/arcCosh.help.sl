@@ -87,11 +87,11 @@ Plot the real and imaginary parts:
 
 * * *
 
-See also: arcCos, cos
+See also: arcCos, arcSinh, cos
 
 Guides: Hyperbolic Functions, Trigonometric Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Tangent.html)
+[1](https://mathworld.wolfram.com/InverseHyperbolicCosine.html)
 [2](https://reference.wolfram.com/language/ref/ArcCosh.html)

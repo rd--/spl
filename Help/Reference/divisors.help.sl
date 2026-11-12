@@ -517,15 +517,15 @@ Number of perfect partitions of _n_,
 OEIS [A002033](https://oeis.org/A002033):
 
 ~~~spl svg=N oeis=A002033
-let a = Map { :n |
-	(n < 2).if {
+let a = Dictionary { :n |
+	(n < 2L).if {
 		n
 	} {
 		let d = n.divisors;
 		a.atAll(d.allButLast).sum
 	}
 };
-a[1 .. 200].scatterPlot.log
+a[1L .. 200L].scatterPlot.log
 ~~~
 
 ![](Help/Image/divisors-N.svg)

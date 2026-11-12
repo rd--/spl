@@ -203,8 +203,8 @@ Fibonacci modulo _n_,
 OEIS [A002708](https://oeis.org/A002708):
 
 ~~~spl svg=A oeis=A002708
-let n = 201;
-(n.fibonacciSequence % (1 .. 200))
+let n = 201L;
+(n.fibonacciSequence % (1L .. 200L))
 .scatterPlot
 ~~~
 
@@ -252,8 +252,8 @@ OEIS [A060865](https://oeis.org/A060865):
 
 ~~~spl svg=D oeis=A060865
 let n = 65.fibonacciSequence;
-let e = n.integerExponent(2);
-(2 ^ e).discretePlot
+let e = n.integerExponent(2L);
+(2L ^ e).discretePlot
 ~~~
 
 ![](Help/Image/fibonacciSequence-D.svg)

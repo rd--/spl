@@ -714,30 +714,30 @@ A sequence by David James Sycamore,
 OEIS [A360179](https://oeis.org/A360179):
 
 ~~~spl svg=S oeis=A360179
-let m = 250;
-let a = List(m, 1);
-let c = Map();
-let h = Map();
-let j = 1;
+let m = 250L;
+let a = List(m, 1L);
+let c = Dictionary();
+let h = Dictionary();
+let j = 1L;
 let k = nil;
-let u = 1;
-2.toDo(m) { :n |
+let u = 1L;
+2L.toDo(m) { :n |
 	c.lookup(j, false).if {
-		k := j + 0.divisorSigma(u);
-		h[j] := h.lookup(j, 0) + 1;
-		h[u] := h.lookup(u, 0) - 1
+		k := j + 0L.divisorSigma(u);
+		h[j] := h.lookup(j, 0L) + 1L;
+		h[u] := h.lookup(u, 0L) - 1L
 	} {
-		k := 0.divisorSigma(j);
+		k := 0L.divisorSigma(j);
 		c[j] := true;
-		h[j] := h.lookup(j, 0) + 1
+		h[j] := h.lookup(j, 0L) + 1L
 	};
 	u := u.min(j);
 	a[n] := k;
 	j := k;
 	{
-		h.lookup(u, 0) = 0
+		h.lookup(u, 0L) = 0L
 	}.whileTrue {
-		u := u + 1
+		u := u + 1L
 	}
 };
 a.scatterPlot
@@ -779,17 +779,17 @@ A variant of a sequence by David James Sycamore,
 OEIS [A361511](https://oeis.org/A361511):
 
 ~~~spl svg=U oeis=A361511
-let k = 250;
-let a = List(k, 1);
-let c = Map();
-let m = 1;
-2.toDo(k) { :n |
-	let b = a[n - 1];
+let k = 250L;
+let a = List(k, 1L);
+let c = Dictionary();
+let m = 1L;
+2L.toDo(k) { :n |
+	let b = a[n - 1L];
 	c.lookup(b, false).if {
-		a[n] := b + 0.divisorSigma(a[m]);
-		m := m + 1
+		a[n] := b + 0L.divisorSigma(a[m]);
+		m := m + 1L
 	} {
-		a[n] := 0.divisorSigma(b)
+		a[n] := 0L.divisorSigma(b)
 	};
 	c[b] := true
 };

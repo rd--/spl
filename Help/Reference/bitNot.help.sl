@@ -82,13 +82,13 @@ Make a shifted version of the _Rule 45_ cellular automaton:
 
 ~~~spl svg=A
 { :n |
-	(4 * n).bitXor(
-		(2 * n).bitOr(
+	(4L * n).bitXor(
+		(2L * n).bitOr(
 			n.bitNot
 		)
 	)
-}.nestList(1L, 17)
-.integerDigits(2)
+}.nestList(1L, 17L)
+.integerDigits(2L)
 .padRight
 .matrixPlot
 ~~~

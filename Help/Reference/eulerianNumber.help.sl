@@ -55,7 +55,8 @@ OEIS [A008292](https://oeis.org/A008292):
 
 ~~~spl svg=A oeis=A008292
 (0L .. 20L).triangularArray(
-	eulerianNumber/2, -1
+	eulerianNumber/2,
+	-1L
 ).catenate.scatterPlot.log
 ~~~
 

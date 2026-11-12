@@ -16,7 +16,7 @@ The Fibonacci entry points,
 OEIS [A001177](https://oeis.org/A001177):
 
 ~~~spl svg=A oeis=A001177
-1:100.collect(
+1L:100L.collect(
 	fibonacciEntryPoint/1
 ).discretePlot
 ~~~

@@ -195,8 +195,8 @@ Dot application is not recorded especially:
 [
 	'Apply',
 	['Identifier', 'Residue'],
-	['SmallInteger', '3'],
-	['SmallInteger', '4']
+	['Integer', '3L'],
+	['Integer', '4L']
 ]
 ```
 

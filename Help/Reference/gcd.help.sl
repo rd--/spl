@@ -334,8 +334,8 @@ OEIS [A014491](https://oeis.org/A014491):
 
 ~~~spl svg=K oeis=A014491
 (
-	1:100.collect { :n |
-		n.gcd(2 ^ n - 1)
+	1L:100L.collect { :n |
+		n.gcd(2L ^ n - 1L)
 	} - 1
 ).discretePlot
 ~~~

@@ -135,7 +135,7 @@ log scale plot
 OEIS [A051626](https://oeis.org/A051626):
 
 ~~~spl svg=A oeis=A051626
-(1L / 1:200)
+(1L / 1L:200L)
 .collect(decimalPeriod/1)
 .scatterPlot.logScale
 ~~~
@@ -182,8 +182,8 @@ Periods of reciprocals of integers coprime to ten,
 OEIS [A002329](https://oeis.org/A002329):
 
 ~~~spl svg=C oeis=A002329
-2:600.select { :n |
-	n.isCoprime(10)
+2L:600L.select { :n |
+	n.isCoprime(10L)
 }.collect { :n |
 	(1L / n).decimalPeriod
 }.scatterPlot

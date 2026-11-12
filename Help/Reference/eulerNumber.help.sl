@@ -66,8 +66,8 @@ OEIS [A000364](https://oeis.org/A000364):
 The sequence of Euler numbers modulo a fixed number is periodic:
 
 ~~~spl svg=A
-1:50.collect { :n |
-	(2L * n).eulerNumber % 17
+1L:50L.collect { :n |
+	(2L * n).eulerNumber % 17L
 }.discretePlot
 ~~~
 

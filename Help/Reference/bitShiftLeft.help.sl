@@ -130,17 +130,17 @@ Compute the first dimension of the Sobol sequence,
 c.f. `sobolSequence`:
 
 ~~~spl svg=A
-let n = 64;
+let n = 64L;
 let l = n.bitLength;
-let v = 1:l.collect { :i |
-	1L << (32 - i)
+let v = 1L:l.collect { :i |
+	1L << (32L - i)
 };
-let x = List(n, 0);
-2.toDo(n) { :i |
-	let j = (i - 1).rulerFunction;
+let x = List(n, 0L);
+2L.toDo(n) { :i |
+	let j = (i - 1L).rulerFunction;
 	x[i] := x[i - 1].bitXor(v[j])
 };
-(x / (2 ^ 32)).stepPlot
+(x / (2L ^ 32L)).stepPlot
 ~~~
 
 ![](Help/Image/bitShiftLeft-A.svg)

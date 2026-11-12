@@ -1112,9 +1112,9 @@ row _n_ read mod _n_,
 OEIS [A053202](https://oeis.org/A053202):
 
 ~~~spl svg=D oeis=A053202
-4:23.collect { :n |
-	let m = n - 2;
-	2:m.collect { :k |
+4L:23L.collect { :n |
+	let m = n - 2L;
+	2L:m.collect { :k |
 		binomial(n, k) % n
 	}
 }.catenate.discretePlot
@@ -1260,8 +1260,8 @@ Riordan array _(1,x(1-x))_,
 OEIS [A109466](https://oeis.org/A109466):
 
 ~~~spl svg=M oeis=A109466
-0:12.triangularArray { :n :k |
-	(-1 ^ (n - k)) * binomial(k, n - k)
+0L:12L.triangularArray { :n :k |
+	(-1L ^ (n - k)) * binomial(k, n - k)
 }.catenate.discretePlot.logScale
 ~~~
 
@@ -1335,9 +1335,9 @@ Denominators of Farey tree fractions,
 OEIS [A007306](https://oeis.org/A007306):
 
 ~~~spl svg=S oeis=A007306
-1:77.collect { :n |
-	0:n.sum { :k |
-		(n + k - 1).binomial(2 * k) % 2
+1L:77L.collect { :n |
+	0L:n.sum { :k |
+		(n + k - 1L).binomial(2L * k) % 2L
 	}
 }.discretePlot
 ~~~
@@ -1348,8 +1348,8 @@ _C(n+10,n)%10_,
 OEIS [A133890](https://oeis.org/A133890):
 
 ~~~spl svg=T oeis=A133890
-0:115.collect { :n |
-	(n + 10).binomial(n) % 10
+0L:115L.collect { :n |
+	(n + 10L).binomial(n) % 10L
 }.discretePlot
 ~~~
 

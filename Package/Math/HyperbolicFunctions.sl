@@ -56,7 +56,7 @@
 +Complex {
 
 	arcCosh { :z |
-		(z + (z.square - 1.0).sqrt).log /* (((z + 1).sqrt * (z - 1).sqrt) + z).log */
+		(z + ((z - 1J0).sqrt * (z + 1J0).sqrt)).log
 	}
 
 	arcCoth { :z |
@@ -79,7 +79,7 @@
 	}
 
 	arcSinh { :z |
-		(z + (z.square + 1.0).sqrt).log
+		(z + (z.square + 1J0).sqrt).log
 	}
 
 	arcTanh { :z |

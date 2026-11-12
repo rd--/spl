@@ -21,7 +21,7 @@ Fibonacci modulo _n_,
 OEIS [A002708](https://oeis.org/A002708):
 
 ~~~spl svg=A oeis=A002708
-1:250.collect { :n |
+1L:250L.collect { :n |
 	n.fibonacciNumber % n
 }.scatterPlot
 ~~~
@@ -32,7 +32,7 @@ Fibonacci numbers modulo twenty-five,
 period is one-hundred:
 
 ~~~spl svg=B
-(0:200.fibonacciNumber % 25)
+(0L:200L.fibonacciNumber % 25L)
 .scatterPlot
 ~~~
 

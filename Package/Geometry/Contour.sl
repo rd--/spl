@@ -9,11 +9,14 @@
 		{ drawContour/6.argumentCount = 6 }.assert;
 		uncheckedBourkeContourAlgorithm(
 			d,
-			0, m - 1,
-			0, n - 1,
-			x.List,
-			y.List,
-			z.size, z.List,
+			0,
+			m - 1.0,
+			0,
+			n - 1.0,
+			List(x),
+			List(y),
+			Float(z.size),
+			List(z),
 			drawContour/6
 		)
 	}

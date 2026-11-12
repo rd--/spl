@@ -570,13 +570,13 @@ Number of representations of _n_ as a sum of distinct Fibonacci numbers,
 OEIS [A000119](https://oeis.org/A000119):
 
 ~~~spl svg=I oeis=A000119
-1:150.collect { :n |
-	let a = Polynomial(Map[0 -> 1, n -> n]);
-	let m = 2;
+1L:150L.collect { :n |
+	let a = Polynomial(Dictionary[0L -> 1L, n -> n]);
+	let m = 2L;
 	let f = m.fibonacci;
 	{ f <= n }.whileTrue {
-		a := a * Polynomial(Map[0 -> 1, f -> 1]);
-		m := m + 1;
+		a := a * Polynomial(Dictionary[0L -> 1L, f -> 1L]);
+		m := m + 1L;
 		f := m.fibonacci
 	};
 	a.coefficientList.at(n)
@@ -611,7 +611,7 @@ OEIS [A047930](https://oeis.org/A047930):
 
 ~~~spl svg=K oeis=A047930
 let x = 1:250.fibonacci;
-1:100.collect { :n |
+1L:100L.collect { :n |
 	x.detect { :x |
 		x.divisible(n)
 	}

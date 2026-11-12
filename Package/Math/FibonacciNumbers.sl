@@ -142,9 +142,11 @@
 	}
 
 	fibonacciEntryPoint { :n |
-		let k = 1;
-		{ k.fibonacci % n != 0 }.whileTrue {
-			k := k + 1
+		let k = 1L;
+		{
+			k.fibonacci % n != 0L
+		}.whileTrue {
+			k := k + 1L
 		};
 		k
 	}

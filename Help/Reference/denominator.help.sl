@@ -71,10 +71,10 @@ Wavelengths in hydrogen spectrum are given by Rydberg’s formula,
 OEIS [A061036](https://oeis.org/A061036):
 
 ~~~spl svg=A oeis=A061036
-(1L .. 16).collect { :n |
-	let a = 1 / (n ^ 2);
-	(n .. 1; -1).collect { :m |
-		let b = 1 / (m ^ 2);
+(1L .. 16L).collect { :n |
+	let a = 1L / (n ^ 2L);
+	(n .. 1L; -1L).collect { :m |
+		let b = 1L / (m ^ 2L);
 		(b - a).denominator
 	}
 }.++.scatterPlot
@@ -86,8 +86,8 @@ Denominator of _1/4-1/n^2_,
 OEIS [A061038](https://oeis.org/A061038):
 
 ~~~spl svg=B oeis=A061038
-2L:85.collect { :n |
-	1/4 - (1 / (n ^ 2))
+2L:85L.collect { :n |
+	1/4 - (1L / (n ^ 2L))
 }.denominator.discretePlot
 ~~~
 

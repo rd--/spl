@@ -100,7 +100,7 @@ Fraction(-3L, 4L)
 Decimal(Fraction(3141L, 1000L), 3L)
 
 >> '5Z12'.splSimplify
-Residue(5, 12)
+Residue(5L, 12L)
 ```
 
 `Radix Syntax` integer literals are rewritten as `Float` literals:

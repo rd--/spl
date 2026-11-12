@@ -33,25 +33,25 @@ where _k(n)_ is the least positive integer not leading to a duplicate term in th
 OEIS [A304971](https://oeis.org/A304971):
 
 ~~~spl svg=A oeis=A304971
-let m = 300;
-let a = [1];
+let m = 300L;
+let a = [1L];
 let s = 2L ^ a[1];
-1.toDo((m / 2).ceiling) { :n |
-	let k = 1;
+1L.toDo((m / 2L).ceiling) { :n |
+	let k = 1L;
 	let p = a[n];
 	{ :break/0 |
 		let q = p + k;
-		let r = p + (3 * k);
+		let r = p + (3L * k);
 		(
-			(s.bitAt(q + 1) = 0) & {
-				s.bitAt(r + 1) = 0
+			(s.bitAt(q + 1L) = 0L) & {
+				s.bitAt(r + 1L) = 0L
 			}
 		).ifTrue {
 			a := a ++ [q, r];
-			s := s + (2 ^ q) + (2 ^ r);
+			s := s + (2L ^ q) + (2L ^ r);
 			break()
 		};
-		k := k + 1
+		k := k + 1L
 	}.repeatForeverWithBreak
 };
 a.scatterPlot

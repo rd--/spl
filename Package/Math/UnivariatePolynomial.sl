@@ -326,7 +326,8 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 					(j = 1L).if {
 						x
 					} {
-						x ^ (n - i) }
+						x ^ (n - i)
+					}
 				};
 				let f/2 = (m < 0L).if {
 					-

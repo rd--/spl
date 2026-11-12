@@ -439,12 +439,12 @@ the smallest positive integer _m_ such that _n_ divides _m!_,
 OEIS [A002034](https://oeis.org/A002034):
 
 ~~~spl svg=A oeis=A002034
-1:100.collect { :n |
-	let m = 1;
+1L:100L.collect { :n |
+	let m = 1L;
 	{
 		m.!.divisible(n)
 	}.whileFalse {
-		m := m + 1
+		m := m + 1L
 	};
 	m
 }.stepPlot
@@ -467,8 +467,8 @@ The factorial numbers with trailing zeroes omitted,
 OEIS [A004154](https://oeis.org/A004154):
 
 ~~~spl svg=C oeis=A004154
-let n = 0:65.!;
-let a = n / (10 ^ n.integerExponent(10));
+let n = 0L:65L.!;
+let a = n / (10L ^ n.integerExponent(10L));
 a.scatterPlot.log
 ~~~
 

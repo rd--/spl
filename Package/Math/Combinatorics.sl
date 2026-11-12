@@ -235,22 +235,22 @@
 	}
 
 	eulerianNumber { :n :m |
-		0.to(m).sum { :i |
-			(-1 ^ i)
+		0L.to(m).sum { :i |
+			(-1L ^ i)
 			*
-			binomial(n + 1, i)
+			binomial(n + 1L, i)
 			*
-			((m + 1 - i) ^ n)
+			((m + 1L - i) ^ n)
 		}
 	}
 
 	eulerianNumberSecondOrder { :n :m |
-		0.to(n - m).sum { :k |
-			(-1 ^ (n + k))
+		0L.to(n - m).sum { :k |
+			(-1L ^ (n + k))
 			*
-			binomial(2 * n + 1, k)
+			binomial(2L * n + 1L, k)
 			*
-			stirlingS1(2 * n - m - k + 1, n - m - k + 1)
+			stirlingS1(2L * n - m - k + 1L, n - m - k + 1L)
 		}
 	}
 

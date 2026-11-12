@@ -78,9 +78,11 @@ The inverse Moebius transform of the Fredholm-Rueppel sequence,
 OEIS [A154402](https://oeis.org/A154402):
 
 ~~~spl svg=E oeis=A154402
-1:65.collect { :n |
+1L:65L.collect { :n |
 	n.divisorSum { :d |
-		(d + 1).log2.isInteger.boole
+		(d + 1L).log2
+		.isSmallInteger
+		.boole
 	}
 }.discretePlot
 ~~~

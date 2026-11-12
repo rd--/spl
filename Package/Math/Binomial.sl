@@ -229,7 +229,7 @@
 	}
 
 	delannoyNumber { :m :n |
-		0.to(m.min(n)).collect { :k |
+		0L.to(m.min(n)).collect { :k |
 			(m + n - k).integerBinomial(m) * m.integerBinomial(k)
 		}.sum
 	}
@@ -237,22 +237,24 @@
 	delannoySequence { :k |
 		let answer = [];
 		k.antidiagonalIndicesDo { :m :n |
-			answer.add!(delannoyNumber(m - 1, n - 1))
+			answer.add!(
+				delannoyNumber(m - 1L, n - 1L)
+			)
 		};
 		answer
 	}
 
 	eulerNumber { :self |
 		self.isOdd.if {
-			0
+			0L
 		} {
 			let f/1 = { :m |
-				let n = m // 2;
+				let n = m // 2L;
 				n.isZero.if {
-					1
+					1L
 				} {
-					1.toCollect(n) { :k |
-						integerBinomial(2 * n, 2 * k) * f(2 * (n - k))
+					1L.toCollect(n) { :k |
+						integerBinomial(2L * n, 2L * k) * f(2L * (n - k))
 					}.sum.negate
 				}
 			}.memoize(false);
