@@ -44,6 +44,7 @@ Compute the first 10 complementary Bell numbers:
 
 Relation to `stirlingS2`:
 
+```
 >>> 1:10.collect { :n |
 >>> 	0:n.sum { :k |
 >>> 		(-1 ^ k) * stirlingS2(n, k)

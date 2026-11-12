@@ -4,18 +4,6 @@
 
 @Number {
 
-	clearZeroSignBit { :n |
-		n.isZero.if {
-			n.zero
-		} {
-			n
-		}
-	}
-
-	abbreviatedPrintString { :self |
-		self.concisePrintString
-	}
-
 	E { :self :aNumber |
 		self * (10 ^ aNumber)
 	}
@@ -26,6 +14,10 @@
 
 	Number { :self |
 		self
+	}
+
+	abbreviatedPrintString { :self |
+		self.concisePrintString
 	}
 
 	[absoluteDifference, absDif] { :self :operand |
@@ -175,6 +167,14 @@
 
 	clampLow { :self :low |
 		self.max(low)
+	}
+
+	clearZeroSignBit { :n |
+		n.isZero.if {
+			n.zero
+		} {
+			n
+		}
 	}
 
 	clip { :self :min :max :vMin :vMax |
@@ -725,6 +725,10 @@
 		}
 	}
 
+	one { :self |
+		1L
+	}
+
 	percent { :n |
 		n * 0.01
 	}
@@ -1272,10 +1276,6 @@
 		let range = high - low;
 		let z = (self - low) % range;
 		low + z
-	}
-
-	one { :self |
-		1L
 	}
 
 	zero { :self |

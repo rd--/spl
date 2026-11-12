@@ -1,5 +1,9 @@
 @Object {
 
+	abbreviatedPrintString { :self |
+		self.typeName.withIndefiniteArticle
+	}
+
 	assert { :self :aString :aBlock/0 |
 		aBlock().if {
 			self
@@ -32,10 +36,6 @@
 
 	caseOfError { :self |
 		self.error('@Object>>caseOfError: case not found and no otherwise clause')
-	}
-
-	abbreviatedPrintString { :self |
-		self.typeName.withIndefiniteArticle
 	}
 
 	concisePrintString { :self |

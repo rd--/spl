@@ -24,6 +24,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.truncateTo(anInteger - 8) ++ '... &etc'
 	}
 
+	abbreviatedPrintString { :self |
+		self.contractTo(32).printString
+	}
+
 	allButFirst { :self |
 		self.allButFirst(1)
 	}
@@ -239,10 +243,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		} {
 			self.error('concatenation: operand not string')
 		}
-	}
-
-	abbreviatedPrintString { :self |
-		self.contractTo(32).printString
 	}
 
 	contractTo { :self :smallSize |

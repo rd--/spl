@@ -29,6 +29,8 @@ Zero-crossing rate of `sin` signal:
 
 See also: zeroCrossingCount, zeroCrossingDetect
 
+Guides: Signal Processing Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/AudioMeasurements.html),

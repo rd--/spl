@@ -30,7 +30,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	atRandom { :self |
-		system.nextRandomSmallInteger(1, Float(self))
+		system.nextRandomSmallInteger(1.0, Float(self))
 	}
 
 	bitAnd { :self :operand |
@@ -92,6 +92,20 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		self.error('bitXor: operand not a Integer or Float', [operand])
 	}
 
+	ceilingDivide { :a :b |
+		(b < 0L).ifTrue {
+			a := -a;
+			b := -b
+		};
+		let q = a // b;
+		let r = a \\ b;
+		(r > 0L).if {
+			q + 1L
+		} {
+			q
+		}
+	}
+
 	concisePrintString { :self |
 		self.integerString(10)
 	}
@@ -122,6 +136,20 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	[encodeJson, floatToJson] { :self |
 		Float(self).uncheckedEncodeJson
+	}
+
+	floorDivide { :a :b |
+		let q = a // b;
+		let r = a \\ b;
+		(
+			r != 0L & {
+				((r < 0L) != (b < 0L))
+			}
+		).if  {
+			q - 1L
+		} {
+			q
+		}
 	}
 
 	floorLog { :self :radix |
@@ -192,6 +220,14 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		} while ((x0 !== x1 && x0 !== (x1 - 1n)));
 		return x0;
 		>
+	}
+
+	integerString { :self :radix |
+		radix.isIntegerValuedNumber.if {
+			self.uncheckedIntegerString(radix)
+		} {
+			radix.adaptToIntegerAndApply(self, integerString/2)
+		}
 	}
 
 	[isEqual, =] { :self :anObject |
@@ -346,34 +382,6 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		self
 	}
 
-	ceilingDivide { :a :b |
-		(b < 0L).ifTrue {
-			a := -a;
-			b := -b
-		};
-		let q = a // b;
-		let r = a \\ b;
-		(r > 0L).if {
-			q + 1L
-		} {
-			q
-		}
-	}
-
-	floorDivide { :a :b |
-		let q = a // b;
-		let r = a \\ b;
-		(
-			r != 0L & {
-				((r < 0L) != (b < 0L))
-			}
-		).if  {
-			q - 1L
-		} {
-			q
-		}
-	}
-
 	[quotient, //] { :self :operand |
 		<primitive:
 		/* Model: SmallInteger | Integer */
@@ -464,14 +472,6 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	uncheckedInteger { :self |
 		self
-	}
-
-	integerString { :self :radix |
-		radix.isIntegerValuedNumber.if {
-			self.uncheckedIntegerString(radix)
-		} {
-			radix.adaptToIntegerAndApply(self, integerString/2)
-		}
 	}
 
 	uncheckedIntegerString { :self :radix |

@@ -43,6 +43,10 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		self
 	}
 
+	concisePrintString { :self |
+		self.literalPrintStringUsing(concisePrintString/1)
+	}
+
 	discretize { :self :size :aBlock/1 |
 		self.discretize(size).collect(aBlock/1)
 	}
@@ -142,6 +146,15 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
+	literalPrintStringUsing { :self :aBlock/1 |
+		'(% -- %)'.format(
+			[
+				aBlock(self.min),
+				aBlock(self.max)
+			]
+		)
+	}
+
 	[lowerBound, infimum] { :self |
 		self.min
 	}
@@ -171,19 +184,6 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		} {
 			operand.adaptToIntervalAndApply(self, +)
 		}
-	}
-
-	literalPrintStringUsing { :self :aBlock/1 |
-		'(% -- %)'.format(
-			[
-				aBlock(self.min),
-				aBlock(self.max)
-			]
-		)
-	}
-
-	concisePrintString { :self |
-		self.literalPrintStringUsing(concisePrintString/1)
 	}
 
 	printString { :self |

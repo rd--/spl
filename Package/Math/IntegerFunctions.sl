@@ -2,16 +2,6 @@
 
 +@Integer {
 
-	ramanujansSum { :q :n |
-		1.to(q).sum { :a |
-			(a.gcd(q) = 1).if {
-				(2I.pi * (a / q) * n).exp
-			} {
-				0
-			}
-		}.real.round
-	}
-
 	additivePersistence { :x :b |
 		x.digitalRootSet(b, sum/1).second.size - 1
 	}
@@ -39,10 +29,6 @@
 		2.to(m).select { :x |
 			((n % x) - (x / 2)).abs < 1
 		}
-	}
-
-	radixString { :self :radix |
-		SmallInteger(self).radixString(radix)
 	}
 
 	antiDivisorsClassSum { :n |
@@ -1476,6 +1462,10 @@
 		}
 	}
 
+	radixString { :self :radix |
+		SmallInteger(self).radixString(radix)
+	}
+
 	ramanujanTau { :n |
 		let a = 65/756 * divisorSigma(11, n);
 		let b = 691/756 * divisorSigma(5, n);
@@ -1483,6 +1473,16 @@
 			divisorSigma(5L, k) * divisorSigma(5L, n - k)
 		};
 		a + b - c
+	}
+
+	ramanujansSum { :q :n |
+		1.to(q).sum { :a |
+			(a.gcd(q) = 1).if {
+				(2I.pi * (a / q) * n).exp
+			} {
+				0
+			}
+		}.real.round
 	}
 
 	reducedResidueSystem { :self |

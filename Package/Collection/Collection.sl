@@ -1,5 +1,14 @@
 @Collection {
 
+	abbreviatedPrintString { :self |
+		'% (size: %)'.format(
+			[
+				self.typeName.withIndefiniteArticle,
+				self.size.concisePrintString
+			]
+		)
+	}
+
 	[adaptToIntegerAndApply, adaptToNumberAndApply] { :self :operand :aBlock/2 |
 		self.collect { :each |
 			aBlock(operand, each)
@@ -122,15 +131,6 @@
 			}
 		};
 		answer
-	}
-
-	abbreviatedPrintString { :self |
-		'% (size: %)'.format(
-			[
-				self.typeName.withIndefiniteArticle,
-				self.size.concisePrintString
-			]
-		)
 	}
 
 	copyList { :self |

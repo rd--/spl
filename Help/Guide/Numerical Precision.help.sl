@@ -59,6 +59,6 @@ Round a `Float` to a specified precision:
 
 * * *
 
-See also: Float, Integer, floatEpsilon, decimalStringToScale, round
+See also: Float, Integer, decimalStringToScale, floatEpsilon, round
 
 Guides: Numeric Types

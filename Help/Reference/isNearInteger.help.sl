@@ -32,7 +32,7 @@ Float[1 .. 750].collect { :n |
 
 * * *
 
-See also: Integer, Float, Number, isEqual, isInteger, isIntegerValuedNumber, isSimilar
+See also: Float, Integer, Number, isEqual, isInteger, isIntegerValuedNumber, isSimilar
 
 Guides: Integer Functions, Predicate Functions
 

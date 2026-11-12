@@ -15,7 +15,6 @@ answer the intervals specified as integers.
 The answer is `ratios` divided by their greatest common divisor:
 
 ```
-
 >>> let r = [1 8/7 4/3 14/9 16/9];
 >>> (r.gcd, r / r.gcd)
 (1/63, [63 72 84 98 112])

@@ -30,7 +30,7 @@ system.helpFilesDo(
 )
 ~~~
 
-Print reference help files that have an invalid image sequence:
+Print the names of reference help files that have an invalid image sequence:
 
 ~~~spl console
 system.helpFilesDo(
@@ -42,7 +42,7 @@ system.helpFilesDo(
 }
 ~~~
 
-Print reference help files with an empty guides field:
+Print the names of reference help files with an empty guides field:
 
 ~~~spl console
 system.helpFilesDo(
@@ -54,7 +54,10 @@ system.helpFilesDo(
 }
 ~~~
 
-Print reference help files with code blocks that contain one or more blank lines:
+Print the names of reference help files with code blocks,
+with the an _spl_ attribute
+(the documentation test code blocks ordinarily contain blank lines),
+that contain one or more blank lines:
 
 ~~~spl console
 system.helpFilesDo(
@@ -68,6 +71,18 @@ system.helpFilesDo(
 				c['attributes']
 			].printLine
 		}
+	}
+}
+~~~
+
+Print the names of help files that have unspecified code blocks:
+
+~~~spl console
+system.helpFilesDo(
+	'Reference', '.*', 0
+) { :h |
+	h.unspecifiedCodeBlocks.isEmpty.ifFalse {
+		h.name.printLine
 	}
 }
 ~~~

@@ -4,6 +4,10 @@
 		Float(self).cubeRoot
 	}
 
+	decimalStringToScale { :self :anInteger |
+		Float(self).decimalStringToScale(anInteger)
+	}
+
 	exp { :self |
 		Float(self).exp
 	}
@@ -39,10 +43,6 @@
 		Float(self).nthRoot(
 			Float(aNumber)
 		)
-	}
-
-	decimalStringToScale { :self :anInteger |
-		Float(self).decimalStringToScale(anInteger)
 	}
 
 	realDigits { :self :base :size |

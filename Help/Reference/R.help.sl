@@ -30,7 +30,7 @@ Threads over lists:
 
 * * *
 
-See also: Integer, Float, Fraction, L, F, J, /, divide
+See also: F, Float, Fraction, Integer, J, L, /, divide
 
 Guides: Fraction Functions, Fraction Syntax
 

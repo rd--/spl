@@ -34,7 +34,6 @@ It is an error if an item requested to be removed is not present,
 see instead `removeAllFoundIn`:
 
 ```
-
 >>> {
 >>> 	[1 2 3].removeAll!([4])
 >>> }.hasError

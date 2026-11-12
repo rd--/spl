@@ -48,28 +48,6 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 		}
 	}
 
-	[negate, -] { :self |
-		Range(
-			self.start.negate,
-			self.stop.negate,
-			self.step.negate,
-			self.size
-		)
-	}
-
-	[plus, +] { :self :operand |
-		operand.isFloat.if {
-			Range(
-				self.start + operand,
-				self.stop + operand,
-				self.step,
-				self.size
-			)
-		} {
-			operand.adaptToCollectionAndApply(self, +)
-		}
-	}
-
 	literalPrintStringUsing { :self :aBlock/1 |
 		(
 			self.step.isOne & {
@@ -90,6 +68,28 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 					aBlock(self.stop)
 				]
 			)
+		}
+	}
+
+	[negate, -] { :self |
+		Range(
+			self.start.negate,
+			self.stop.negate,
+			self.step.negate,
+			self.size
+		)
+	}
+
+	[plus, +] { :self :operand |
+		operand.isFloat.if {
+			Range(
+				self.start + operand,
+				self.stop + operand,
+				self.step,
+				self.size
+			)
+		} {
+			operand.adaptToCollectionAndApply(self, +)
 		}
 	}
 

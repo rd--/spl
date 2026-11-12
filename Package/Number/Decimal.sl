@@ -357,20 +357,6 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 +Fraction {
 
-	fractionToDecimal { :self :minScale :maxScale |
-		let d = self.denominator;
-		let k = (d = 1L).if {
-			minScale
-		} {
-			powerMod(10L, d, d).isZero.if {
-				d.primeSignature.first
-			} {
-				maxScale
-			}
-		};
-		Decimal(self, k.min(maxScale))
-	}
-
 	Decimal { :self :scale |
 		scale.isCollection.if {
 			scale.collect { :each |
@@ -389,6 +375,20 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 			receiver,
 			Decimal(self, receiver.scale)
 		)
+	}
+
+	fractionToDecimal { :self :minScale :maxScale |
+		let d = self.denominator;
+		let k = (d = 1L).if {
+			minScale
+		} {
+			powerMod(10L, d, d).isZero.if {
+				d.primeSignature.first
+			} {
+				maxScale
+			}
+		};
+		Decimal(self, k.min(maxScale))
 	}
 
 	uncheckedDecimal { :fraction :scale |

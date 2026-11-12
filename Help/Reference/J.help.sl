@@ -45,7 +45,7 @@ OEIS [A046109](https://oeis.org/A046109):
 
 * * *
 
-See also: Complex, I, R, F, L, imaginary, real
+See also: Complex, F, I, L, R, imaginary, real
 
 Guides: Complex Number Functions
 

@@ -240,10 +240,6 @@
 		self[self.pinnedIndex(index)]
 	}
 
-	atRandom { :self |
-		self.randomChoice(system, [])
-	}
-
 	atSymmetrical { :self :index |
 		index.isIntegerValuedNumber.ifFalse {
 			self.error('atSymmetrical: invalid index')

@@ -2,26 +2,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	| numerator denominator |
 
-	realDigits { :self :base :size |
-		self.isZero.if {
-			[List(size, 0L), 1L]
-		} {
-			let x = self.abs;
-			let l = x.log(base).floor;
-			let a = x.floor.truncate;
-			let b = (a = 0L).if { [] } { a.integerDigits(base) };
-			let c = (x - a) * base;
-			let d = { :x |
-				let d = x.floor;
-				(x - d) * base
-			}.nestList(
-				c,
-				size - b.size - 1L
-			).floor.truncate;
-			[b ++ d, l + 1L]
-		}
-	}
-
 	[Complex, J] { :real :imaginary |
 		imaginary.isFraction.if {
 			uncheckedComplex(
@@ -552,6 +532,26 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	rationalize { :self |
 		self
+	}
+
+	realDigits { :self :base :size |
+		self.isZero.if {
+			[List(size, 0L), 1L]
+		} {
+			let x = self.abs;
+			let l = x.log(base).floor;
+			let a = x.floor.truncate;
+			let b = (a = 0L).if { [] } { a.integerDigits(base) };
+			let c = (x - a) * base;
+			let d = { :x |
+				let d = x.floor;
+				(x - d) * base
+			}.nestList(
+				c,
+				size - b.size - 1L
+			).floor.truncate;
+			[b ++ d, l + 1L]
+		}
 	}
 
 	[reciprocal, /] { :self |

@@ -192,7 +192,7 @@ OEIS [A389383](https://oeis.org/A389383):
 
 * * *
 
-See also: ^, isqrt, isEven
+See also: ^, isEven, isqrt
 
 Guides: Integer Sequence Functions
 

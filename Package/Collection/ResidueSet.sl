@@ -11,12 +11,12 @@ ResidueSet : [Object, New, Store, Equal, Do, Collection, Add, Remove] {
 		)
 	}
 
-	SortedSet { :self |
-		self.commonResidueSet.copy
-	}
-
 	[List, residueSetToList] { :self |
 		self.positionVector
+	}
+
+	SortedSet { :self |
+		self.commonResidueSet.copy
 	}
 
 	bitString { :self |

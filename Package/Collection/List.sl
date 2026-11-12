@@ -4,10 +4,6 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		self
 	}
 
-	concisePrintString { :self |
-		self.storeStringUsing(concisePrintString/1)
-	}
-
 	addFirst { :self :anObject |
 		[anObject] ++ self
 	}
@@ -62,6 +58,10 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 			let prefixSize = (m - n - suffixSize).max(0);
 			List(prefixSize, x) ++ self ++ List(suffixSize, x)
 		}
+	}
+
+	concisePrintString { :self |
+		self.storeStringUsing(concisePrintString/1)
 	}
 
 	copyList { :self |
@@ -184,14 +184,6 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 
 	printString { :self |
 		self.storeStringUsing(printString/1)
-	}
-
-	storeStringUsing { :self :toString/1 |
-		'[%]'.format(
-			[
-				self.collect(toString/1).commaSeparated
-			]
-		)
 	}
 
 	put! { :self :index :anObject |
@@ -349,6 +341,14 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 
 	storeString { :self |
 		self.storeStringUsing(storeString/1)
+	}
+
+	storeStringUsing { :self :toString/1 |
+		'[%]'.format(
+			[
+				self.collect(toString/1).commaSeparated
+			]
+		)
 	}
 
 	unenclose { :self |

@@ -116,7 +116,7 @@ No fractional part, rounding up:
 
 * * *
 
-See also: floatString, integerString, printString, decimalStringToPrecision, radixString, storeString
+See also: decimalStringToPrecision, floatString, integerString, printString, radixString, storeString
 
 Guides: Printing Functions
 

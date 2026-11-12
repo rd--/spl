@@ -205,7 +205,7 @@ OEIS [A328212](https://oeis.org/A328212):
 Discrete plot of a dual Zeckendorf representation with 114 places:
 
 ~~~spl svg=A
-(9 * (10L ^ 23)).dualZeckendorfRepresentation
+(9L * (10L ^ 23L)).dualZeckendorfRepresentation
 .discretePlot
 ~~~
 

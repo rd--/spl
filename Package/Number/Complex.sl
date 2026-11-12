@@ -125,6 +125,13 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		)
 	}
 
+	decimalStringToScale { :self :k |
+		[
+			self.real.decimalStringToScale(k),
+			self.imaginary.decimalStringToScale(k)
+		].stringIntercalate('J')
+	}
+
 	[divide, /] { :self :anObject |
 		anObject.isComplex.if {
 			let a = self.real;
@@ -365,13 +372,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		[
 			self.real.printString,
 			self.imaginary.printString
-		].stringIntercalate('J')
-	}
-
-	decimalStringToScale { :self :k |
-		[
-			self.real.decimalStringToScale(k),
-			self.imaginary.decimalStringToScale(k)
 		].stringIntercalate('J')
 	}
 

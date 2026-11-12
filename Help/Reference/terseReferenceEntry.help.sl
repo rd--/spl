@@ -1,10 +1,11 @@
 # terseReferenceEntry
 
-- _terseReferenceEntry(g, d)_
+- _terseReferenceEntry(h, d)_
 
-Evaluate document tests at the help file _h_, reading options from the dictionary _d_.
+Evaluate document tests at the help file _h_,
+reading options from the dictionary _d_.
 
-~~~
+```
 >>> let topic = 'Markdown';
 >>> let helpFile = topic.helpFileName;
 >>> let fileName = system.splFileName(helpFile);
@@ -16,7 +17,7 @@ Evaluate document tests at the help file _h_, reading options from the dictionar
 >>> 	(verboseLevel: 0)
 >>> )
 [4, 4, 0]
-~~~
+```
 
 * * *
 

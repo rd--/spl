@@ -173,6 +173,10 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		self.chop(1E-10)
 	}
 
+	concisePrintString { :self |
+		self.uncheckedFloatString(10)
+	}
+
 	countLeadingOnes { :self :base :wordSize |
 		self.bitNot.countLeadingZeroes(base, wordSize)
 	}
@@ -201,6 +205,43 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		<primitive:
 		return Math.cbrt(_self);
 		>
+	}
+
+	decimalStringToPrecision { :self :anInteger |
+		<primitive:
+		const aFloat = sl.toFloat(_anInteger);
+		if(sl.isSmallInteger(aFloat)) {
+			return _self.toPrecision(aFloat);
+		}
+		>
+		self.error('decimalStringToPrecision: not integer precision', [anInteger])
+	}
+
+	decimalStringToScale { :self :anInteger |
+		<primitive:
+		const aFloat = sl.toFloat(_anInteger);
+		if(sl.isSmallInteger(aFloat)) {
+			return _self.toFixed(aFloat);
+		}
+		>
+		self.error('decimalStringToScale: not integer precision', [anInteger])
+	}
+
+	decimalStringToScaleWithoutPrimitive { :self :places |
+		(places <= 0).if {
+			self.round.printString
+		} {
+			let rounder = 10 ^ places;
+			let round = self.round(rounder.reciprocal);
+			let prefix = round.isNegative.if { '-' } { '' };
+			let roundFractionPart = (round.abs.fractionalPart * rounder).round; /* truncate? */
+			[
+				prefix,
+				round.abs.integerPart.truncate.printString,
+				'.',
+				roundFractionPart.printString.padLeft([places], '0')
+			].stringCatenate
+		}
 	}
 
 	denominator { :self |
@@ -736,10 +777,6 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 	}
 
-	concisePrintString { :self |
-		self.uncheckedFloatString(10)
-	}
-
 	printString { :self |
 		self.floatString(10)
 	}
@@ -750,43 +787,6 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		} {
 			self.decimalStringToScale(anInteger)
 		}
-	}
-
-	decimalStringToScale { :self :anInteger |
-		<primitive:
-		const aFloat = sl.toFloat(_anInteger);
-		if(sl.isSmallInteger(aFloat)) {
-			return _self.toFixed(aFloat);
-		}
-		>
-		self.error('decimalStringToScale: not integer precision', [anInteger])
-	}
-
-	decimalStringToScaleWithoutPrimitive { :self :places |
-		(places <= 0).if {
-			self.round.printString
-		} {
-			let rounder = 10 ^ places;
-			let round = self.round(rounder.reciprocal);
-			let prefix = round.isNegative.if { '-' } { '' };
-			let roundFractionPart = (round.abs.fractionalPart * rounder).round; /* truncate? */
-			[
-				prefix,
-				round.abs.integerPart.truncate.printString,
-				'.',
-				roundFractionPart.printString.padLeft([places], '0')
-			].stringCatenate
-		}
-	}
-
-	decimalStringToPrecision { :self :anInteger |
-		<primitive:
-		const aFloat = sl.toFloat(_anInteger);
-		if(sl.isSmallInteger(aFloat)) {
-			return _self.toPrecision(aFloat);
-		}
-		>
-		self.error('decimalStringToPrecision: not integer precision', [anInteger])
 	}
 
 	printStringWithCommas { :self |
@@ -1043,13 +1043,6 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		>
 	}
 
-	uncheckedPower { :self :operand |
-		<primitive:
-		const answer = Math.pow(_self, _operand);
-		return sl.checkSmallIntegerOverflow(_self, _operand, answer, '^', _power_2);
-		>
-	}
-
 	uncheckedFloatString { :self :radix |
 		<primitive:
 		if(Object.is(_self, -0)) {
@@ -1061,6 +1054,13 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			).toUpperCase();
 		};
 		return _self.toString();
+		>
+	}
+
+	uncheckedPower { :self :operand |
+		<primitive:
+		const answer = Math.pow(_self, _operand);
+		return sl.checkSmallIntegerOverflow(_self, _operand, answer, '^', _power_2);
 		>
 	}
 

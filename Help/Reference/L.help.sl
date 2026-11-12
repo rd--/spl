@@ -32,6 +32,6 @@ Threads over lists:
 
 * * *
 
-See also: Complex, Float, Fraction, Integer, R, F, J
+See also: Complex, F, Float, Fraction, Integer, J, R
 
 Guides: Integer Functions

@@ -21,6 +21,10 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 		==
 	}
 
+	concisePrintString { :self |
+			self.storeStringUsing(concisePrintString/1)
+	}
+
 	encodeIni { :self |
 		<primitive:
 		return sl.encodeIni(_self);
@@ -68,6 +72,10 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 		nil
 	}
 
+	printString { :self |
+			self.storeStringUsing(printString/1)
+	}
+
 	propertyRead { :self :aString |
 		<primitive:
 		return _self[_aString];
@@ -112,14 +120,6 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 
 	species { :self |
 		Record/0.emptySpecies
-	}
-
-	concisePrintString { :self |
-			self.storeStringUsing(concisePrintString/1)
-	}
-
-	printString { :self |
-			self.storeStringUsing(printString/1)
 	}
 
 	storeString { :self |
