@@ -395,11 +395,11 @@ Multiplicative order of ten modulo _n_,
 OEIS [A084680](https://oeis.org/A084680):
 
 ~~~spl svg=C oeis=A084680
-1:96.collect { :n |
-	n.isCoprime(10).if {
-		10.multiplicativeOrder(n)
+1L:96L.collect { :n |
+	n.isCoprime(10L).if {
+		10L.multiplicativeOrder(n)
 	} {
-		0
+		0L
 	}
 }.discretePlot
 ~~~
@@ -565,11 +565,11 @@ Even Queneau numbers,
 OEIS [A163777](https://oeis.org/A163777):
 
 ~~~spl svg=M oeis=A163777
-1:870.select { :n |
+1L:870L.select { :n |
 	n.isEven & {
-		let m = 2 * n + 1;
+		let m = 2L * n + 1L;
 		m.isPrime & {
-			2.multiplicativeOrder(m) = (2 * n)
+			2L.multiplicativeOrder(m) = (2L * n)
 		}
 	}
 }.discretePlot
@@ -610,9 +610,9 @@ Number of residues modulo _n_ of the maximum order,
 OEIS [A111725](https://oeis.org/A111725):
 
 ~~~spl svg=P oeis=A111725
-1:86.collect { :n |
-	1:n.select { :k |
-		k.gcd(n) = 1
+1L:86L.collect { :n |
+	1L:n.select { :k |
+		k.gcd(n) = 1L
 	}.collect { :k |
 		k.multiplicativeOrder(n)
 	}

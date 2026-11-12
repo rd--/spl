@@ -7,11 +7,11 @@ Answer a `Complex` number with a real part of `zero` and an imaginary part of _x
 `I` mirrors the literal syntax.
 
 ```
->>> 1I
-0J1
-
 >>> 1.I
-0J1
+1I
+
+>>> 1.0.I
+1.0I
 
 >>> -1.sqrt
 1.I
@@ -20,17 +20,10 @@ Answer a `Complex` number with a real part of `zero` and an imaginary part of _x
 3J1
 ```
 
-At `Complex`:
-
-```
->>> 2J3.i
--3J2
-```
-
 Threads over lists:
 
 ```
->>> I[3 -4 6]
+>>> [3 -4 6].I
 [0J3 0J-4 0J6]
 ```
 

@@ -73,7 +73,7 @@ Colour plot of the 16×16 matrix in octave reduced form:
 
 ~~~spl svg=D
 let m = [16 16].lambdomaMatrix;
-(2 - m.octaveReduce)
+(2L - m.octaveReduce)
 .arrayPlot(
 	'Mathematica/Rainbow'
 	.namedColourFunction

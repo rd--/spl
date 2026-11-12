@@ -258,7 +258,7 @@ OEIS [A010815](https://oeis.org/A010815):
 ~~~spl svg=D oeis=A010815
 0:200.collect { :n |
 	let m = (24 * n + 1).sqrt;
-	m.isInteger.if {
+	m.isIntegerValuedNumber.if {
 		12.kroneckerSymbol(m)
 	} {
 		0

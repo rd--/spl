@@ -361,9 +361,9 @@ exponent of the largest power of two dividing _(2n)!_,
 OEIS [A279340](https://oeis.org/A279340):
 
 ~~~spl svg=F oeis=A279340
-0:99.complement(
-	0:51.collect { :n |
-		(2 * n).!.integerExponent(2)
+0L:99L.complement(
+	0L:51L.collect { :n |
+		(2L * n).!.integerExponent(2L)
 	}
 ).differences.stepPlot
 ~~~
@@ -501,10 +501,10 @@ Deficiency minus binary weight,
 OEIS [A294898](https://oeis.org/A294898):
 
 ~~~spl svg=O oeis=A294898
-1:115.collect { :n |
-	(2 * n).!.integerExponent(2)
+1L:115L.collect { :n |
+	(2L * n).!.integerExponent(2L)
 	-
-	1.divisorSigma(n)
+	1L.divisorSigma(n)
 }.discretePlot
 ~~~
 

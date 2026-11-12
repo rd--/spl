@@ -278,13 +278,13 @@ OEIS [A163782](https://oeis.org/A163782):
 
 ~~~spl svg=J oeis=A163782
 let a = [];
-2L.toDo(200) { :n |
-	let i = 2 ^ n + 1;
-	let j = 2 * n + 1;
+2L.toDo(200L) { :n |
+	let i = 2L ^ n + 1L;
+	let j = 2L * n + 1L;
 	(
-		(i / j).isInteger & {
+		(i / j).isIntegerValuedNumber & {
 			let k = j.primitiveRootList;
-			k.includes(2)
+			k.includes(2L)
 		}
 	).ifTrue {
 		a.add!(n)

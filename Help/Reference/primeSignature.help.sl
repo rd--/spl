@@ -392,14 +392,14 @@ Additive function defined by the recursion _a(p^k)=a(k)_ for any prime _p_,
 OEIS [A064372](https://oeis.org/A064372):
 
 ~~~spl svg=G oeis=A064372
-let a = Map { :n |
-	(n = 1).if {
-		1
+let a = Dictionary { :n |
+	(n = 1L).if {
+		1L
 	} {
 		a.atAll(n.primeSignature).sum
 	}
 };
-a[1 .. 105].stepPlot
+a[1L .. 105L].stepPlot
 ~~~
 
 ![](Help/Image/primeSignature-G.svg)
@@ -419,8 +419,8 @@ Highest exponent in the prime factorization of the _n_-th central binomial coeff
 OEIS [A263922](https://oeis.org/A263922):
 
 ~~~spl svg=I oeis=A263922
-1:65.collect { :n |
-	(2 * n).binomial(n)
+1L:65L.collect { :n |
+	(2L * n).binomial(n)
 	.primeSignature
 	.max
 }.discretePlot

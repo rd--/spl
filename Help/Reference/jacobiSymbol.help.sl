@@ -154,13 +154,13 @@ Plot the sequence varying _m_:
 Successive differences modulo two:
 
 ~~~spl png=B
-let k = 100;
+let k = 100L;
 let j = differences/1.nestList(
-	jacobiSymbol((1L .. k), 77),
+	jacobiSymbol((1L .. k), 77L),
 	k
 );
-(j  % 2)
-.padRight([k + 1, k + 1], 0)
+(j % 2L)
+.padRight([k + 1, k + 1], 0L)
 .Bitmap
 ~~~
 

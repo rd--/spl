@@ -1159,14 +1159,15 @@ OEIS [A090976](https://oeis.org/A090976):
 Binomial coefficients modulo two:
 
 ~~~spl png=C
-let k = [0 .. 64];
+let k = [0L .. 64L];
 { :i :j |
 	(i >= j).if {
-		i.binomial(j) % 2
+		i.binomial(j) % 2L
 	} {
-		0
+		0L
 	}
-}.table(k, k).Bitmap
+}.table(k, k)
+.Bitmap
 ~~~
 
 ![](Help/Image/mod-C.png)

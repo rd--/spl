@@ -203,17 +203,18 @@ OEIS [A318583](https://oeis.org/A318583):
 
 ~~~spl svg=D oeis=A318583
 let a/1 = { :n |
-	(n <= 2).if {
-		1
+	(n <= 2L).if {
+		1L
 	} {
-		(n - 2).divisors.sum { :d |
+		(n - 2L).divisors.sum { :d |
 			a(d)
 			*
-			((n - 2) // d).moebiusMu
+			((n - 2L) // d).moebiusMu
 		}
 	}
-}.memoize(true);
-1:175.collect(a/1).scatterPlot
+}.memoize(false);
+1L:175L.collect(a/1)
+.scatterPlot
 ~~~
 
 ![](Help/Image/moebiusMu-D.svg)

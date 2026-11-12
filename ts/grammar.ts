@@ -224,7 +224,7 @@ Sl {
 		| rangeFromToLiteral
 	rangeFromToByLiteral = integerLiteral ":" (integerLiteral | identifier) ":" integerLiteral
 	rangeFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
-	floatLiteral = plusOrMinus? decimalDigits "." digit+
+	floatLiteral = plusOrMinus? decimalDigits "." digit+ "F"?
 	decimalLiteral
 		= floatDecimalLiteral
 		| integerDecimalLiteral

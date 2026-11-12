@@ -223,7 +223,7 @@ OEIS [A050782](https://oeis.org/A050782):
 ~~~spl svg=D oeis=A050782
 1:80.collect { :n |
 	let i = 1;
-	(n / 10).isInteger.if {
+	(n / 10).isIntegerValuedNumber.if {
 		0
 	} {
 		{

@@ -31,8 +31,8 @@ Plot _2D(n)-n_:
 
 ~~~spl png=B
 let d = 2500.pinnDSequence;
-let n = 1:2500;
-(2 * d - n).denseScatterPlot
+let n = 1L:2500L;
+(2L * d - n).denseScatterPlot
 ~~~
 
 ![](Help/Image/pinnDSequence-B.png)

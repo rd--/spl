@@ -25,10 +25,13 @@ Threads over lists:
 ```
 >>> L[-2 9/1 5D]
 [-2L 9L 5L]
+
+>>> [1 2 3; 4 5 6].L
+[1L 2L 3L; 4L 5L 6L]
 ```
 
 * * *
 
-See also: Integer
+See also: Complex, Float, Fraction, Integer, R, F, J
 
 Guides: Integer Functions

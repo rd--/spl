@@ -166,10 +166,10 @@ OEIS [A046072](https://oeis.org/A046072):
 	n.primeNu + n.isOdd.if {
 		0
 	} {
-		(n / 4).isInteger.not.if {
+		n.divisible(4).not.if {
 			-1
 		} {
-			(n / 8).isInteger.not.if {
+			n.divisible(8).not.if {
 				0
 			} {
 				1

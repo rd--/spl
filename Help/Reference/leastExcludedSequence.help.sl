@@ -42,7 +42,8 @@ OEIS [A235598](https://oeis.org/A235598):
 .leastExcludedSequence(40) { :a :n :m |
 	let [p, q] = [a[n - 1], m].square;
 	(p + q).isPerfectSquare | {
-		(q - p).abs.sqrt.isInteger
+		(q - p).abs.sqrt
+		.isIntegerValuedNumber
 	}
 }.discretePlot.log
 ~~~

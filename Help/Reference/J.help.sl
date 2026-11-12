@@ -22,6 +22,9 @@ Threads over lists:
 ```
 >>> [-2 9 5].J([3 -4 6])
 [-2J3 9J-4 5J6]
+
+>>> [1 2 3; 4 5 6].J(1)
+[1J1 2J1 3J1; 4J1 5J1 6J1]
 ```
 
 Number of Gaussian integers _x+yi_ having absolute value _n_,
@@ -42,7 +45,7 @@ OEIS [A046109](https://oeis.org/A046109):
 
 * * *
 
-See also: Complex, I, imaginary, real
+See also: Complex, I, R, F, L, imaginary, real
 
 Guides: Complex Number Functions
 

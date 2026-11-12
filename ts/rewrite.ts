@@ -332,7 +332,7 @@ const asJs: ohm.ActionDict<string> = {
 	arityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
 		return `_${rewriteInPlaceName(c1, cN, ip)}_${a.sourceString}`;
 	},
-	floatLiteral(s, i, _, f) {
+	floatLiteral(s, i, _, f, _f) {
 		const sStr = s.sourceString;
 		const iStr = i.sourceString;
 		const fStr = f.sourceString;
@@ -760,7 +760,7 @@ const asSl: ohm.ActionDict<string> = {
 		return `Decimal(Fraction(${sStr}${iStr}${fStr}L, ${eStr}L), ${kStr}L)`;
 		/* return `parseDecimal('${sStr}${iStr}.${fStr}D${kStr}')`; */
 	},
-	floatLiteral(s, i, _dot, f) {
+	floatLiteral(s, i, _dot, f, _f) {
 		return s.sourceString +
 			deleteLeadingZeroes(deleteUnderscores(i.sourceString)) + '.' +
 			f.sourceString;
@@ -958,7 +958,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 			`${rewriteInPlaceName(c1, cN, ip)}/${a.sourceString}`,
 		];
 	},
-	floatLiteral(s, i, _, f) {
+	floatLiteral(s, i, _, f, _f) {
 		const x = s.sourceString + i.sourceString + '.' + f.sourceString;
 		return ['Float', x];
 	},

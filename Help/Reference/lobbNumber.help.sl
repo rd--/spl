@@ -28,7 +28,7 @@ The Lobb numbers,
 OEIS [A039599](https://oeis.org/A039599):
 
 ~~~spl svg=A oeis=A039599
-0:19.triangularArray(
+0L:19L.triangularArray(
 	lobbNumber/2.swap
 ).catenate.scatterPlot.log
 ~~~

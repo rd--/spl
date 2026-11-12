@@ -149,12 +149,12 @@ counted with multiplicity,
 OEIS [A058933](https://oeis.org/A058933):
 
 ~~~spl svg=B oeis=A058933
-let m = Map();
+let m = Dictionary();
 let f = { :x |
-	let y = m.atIfAbsent(x) { 0 };
-	m.put!(x, y + 1)
+	let y = m.atIfAbsent(x) { 0L };
+	m.put!(x, y + 1L)
 };
-1:200.collect { :n |
+1L:200L.collect { :n |
 	f(n.primeOmega)
 }.scatterPlot
 ~~~

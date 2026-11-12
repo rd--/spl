@@ -123,8 +123,8 @@ Numerator of _1/4-1/n^2_,
 OEIS [A061037](https://oeis.org/A061037):
 
 ~~~spl svg=D oeis=A061037
-2L:85.collect { :n |
-	1/4 - (1 / (n ^ 2))
+2L:85L.collect { :n |
+	1/4 - (1L / (n ^ 2L))
 }.numerator.discretePlot
 ~~~
 
@@ -134,7 +134,7 @@ Numerator of sum of reciprocals of divisors of _n_,
 OEIS [A017665](https://oeis.org/A017665):
 
 ~~~spl svg=E oeis=A017665
-1:65.collect { :n |
+1L:65L.collect { :n |
 	1L.divisorSigma(n) / n
 }.numerator.discretePlot
 ~~~

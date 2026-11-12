@@ -278,7 +278,7 @@ Row sums of Pascal’s triangle modulo three,
 OEIS [A051638](https://oeis.org/A051638):
 
 ~~~spl svg=H oeis=A051638
-(85.pascalTriangle % 3)
+(85.pascalTriangle % 3L)
 .collect(sum/1)
 .scatterPlot
 ~~~

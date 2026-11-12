@@ -312,7 +312,8 @@ lcm/2.table(1:20, 1:20).matrixPlot
 Plot the logarithm of the cumulative least common multiples:
 
 ~~~spl svg=F
-2L:100L.scan(lcm/2).log.scatterPlot
+2L:100L.scan(lcm/2)
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/lcm-F.svg)

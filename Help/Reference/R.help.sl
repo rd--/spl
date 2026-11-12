@@ -8,16 +8,29 @@ with the indicated numerator _n_ and denominator _d_.
 Alias for `Fraction`.
 This mirrors the literal syntax.
 
-At `Integer`:
+At `SmallInteger` and Integer`:
 
 ```
 >>> 3.R(4)
 3R4
+
+>>> 3L.R(4L)
+3R4
+```
+
+Threads over lists:
+
+```
+>>> [1 2 3].R(2)
+[1/2 1/1 3/2]
+
+>>> [1 2 3; 4 5 6].R(3)
+[1/2 2/3 1/1; 4/3 5/3 2/1]
 ```
 
 * * *
 
-See also: Fraction, divide
+See also: Integer, Float, Fraction, L, F, J, /, divide
 
 Guides: Fraction Functions, Fraction Syntax
 

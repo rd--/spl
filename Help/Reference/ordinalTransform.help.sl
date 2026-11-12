@@ -202,7 +202,7 @@ Ordinal transform of Kempner function,
 OEIS [A345934](https://oeis.org/A345934):
 
 ~~~spl svg=K oeis=A345934
-1:250.kempnerFunction
+1L:250L.kempnerFunction
 .ordinalTransform
 .scatterPlot
 ~~~
@@ -278,7 +278,7 @@ The ordinal transform of the final nonzero digits of _n!_,
 OEIS [A367799](https://oeis.org/A367799):
 
 ~~~spl svg=Q oeis=A367799
-let a = 0:85.!.withoutTrailingZeroes % 10;
+let a = 0L:85L.!.withoutTrailingZeroes % 10L;
 a.ordinalTransform.scatterPlot
 ~~~
 

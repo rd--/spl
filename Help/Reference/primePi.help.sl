@@ -399,9 +399,9 @@ Replace each prime number with its rank in the recursive prime factorization of 
 OEIS [A225395](https://oeis.org/A225395):
 
 ~~~spl svg=L oeis=A225395
-let a = Map { :n |
-	(n = 1).if {
-		1
+let a = Dictionary { :n |
+	(n = 1L).if {
+		1L
 	} {
 		n.isPrime.if {
 			n.primePi
@@ -412,7 +412,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[1 .. 175].scatterPlot
+a[1L .. 175L].scatterPlot
 ~~~
 
 ![](Help/Image/primePi-L.svg)

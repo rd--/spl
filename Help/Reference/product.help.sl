@@ -219,7 +219,7 @@ The number of recursive divisors of _n_,
 OEIS [A282446](https://oeis.org/A282446):
 
 ~~~spl svg=E oeis=A282446
-let a = Map { :n |
+let a = Dictionary { :n |
 	(n = 1).if {
 		1
 	} {

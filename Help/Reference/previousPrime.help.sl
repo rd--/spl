@@ -103,7 +103,7 @@ Numerators of rational valued sequence whose Dirichlet convolution with itself y
 OEIS [A317830](https://oeis.org/A317830):
 
 ~~~spl svg=C oeis=A317830
-let a = Map { :n |
+let a = Dictionary { :n |
 	n.isComposite.if {
 		n - n.previousPrime + 1L
 	} {
@@ -111,20 +111,22 @@ let a = Map { :n |
 	}
 };
 let f = Dictionary { :n |
-	(n = 1).if {
-		1
+	(n = 1L).if {
+		1L
 	} {
 		let p = n.divisors.sum { :d |
-			(1 < d & { d < n }).if {
+			(1L < d & { d < n }).if {
 				f[d] * f[n / d]
 			} {
-				0
+				0L
 			}
 		};
-		(a[n] - p) / 2
+		(a[n] - p) / 2L
 	}
 };
-f[1 .. 115].numerator.discretePlot.logScale
+f[1L .. 115L].numerator
+.discretePlot
+.logScale
 ~~~
 
 ![](Help/Image/previousPrime-C.svg)

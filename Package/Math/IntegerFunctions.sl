@@ -1772,15 +1772,15 @@
 
 	uncheckedLcm { :a :b |
 		(
-			a = 0 | {
-				b = 0
+			a = 0L | {
+				b = 0L
 			}
 		).if {
-			0
+			0L
 		} {
 			let ab = a * b;
 			{
-				b = 0
+				b = 0L
 			}.whileFalse {
 				let c = b;
 				b := a % c;

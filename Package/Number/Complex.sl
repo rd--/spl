@@ -4,6 +4,14 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	| real imaginary |
 
+	[Float, F, complexToFloat] { :self |
+		self.isReal.if {
+			Float(self.real)
+		} {
+			self.error('complexToFloat: not real value')
+		}
+	}
+
 	[Record, complexToRecord] { :self |
 		(real: self.real, imaginary: self.imaginary)
 	}

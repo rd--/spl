@@ -2393,23 +2393,23 @@
 			let answer = self.new(self.size);
 			let nextItem = x0;
 			answer[1] := nextItem;
-			1.toDo(self.size - 1) { :index |
+			1L.toDo(self.size - 1L) { :index |
 				nextItem := aBlock(nextItem, self[index + i0]);
-				answer[index + 1] := nextItem
+				answer[index + 1L] := nextItem
 			};
 			answer
 		}
 	}
 
 	[scanLeft, scan] { :self :aBlock/2 :x0 |
-		self.scanLeft(aBlock/2, x0, 0)
+		self.scanLeft(aBlock/2, x0, 0L)
 	}
 
 	[scanLeft, scan] { :self :aBlock/2 |
 		self.ifEmpty {
 			self.copy
 		} {
-			self.scanLeft(aBlock/2, self[1], 1)
+			self.scanLeft(aBlock/2, self[1L], 1L)
 		}
 	}
 
@@ -2417,7 +2417,7 @@
 		self.ifEmpty {
 			self.copy
 		} {
-			1.to(self.size).collect { :each |
+			1L.to(self.size).collect { :each |
 				self.foldRightPrefix(each, aBlock/2)
 			}
 		}

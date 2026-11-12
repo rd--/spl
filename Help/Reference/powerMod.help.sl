@@ -376,9 +376,9 @@ Number of distinct primes among the squares modulo _n_,
 OEIS [A132213](https://oeis.org/A132213):
 
 ~~~spl svg=I oeis=A132213
-1:200.collect { :n |
-	1:n.powerMod(2, n)
-	.unique(==)
+1L:200L.collect { :n |
+	1L:n.powerMod(2L, n)
+	.unique(=)
 	.count(isPrime/1)
 }.scatterPlot
 ~~~

@@ -1202,7 +1202,9 @@ OEIS [A000089](https://oeis.org/A000089):
 1:135.collect { :n |
 	1:n.collect { :m |
 		(m ^ 2 + 1) / n
-	}.select(isInteger/1).size
+	}.select(
+		isIntegerValuedNumber/1
+	).size
 }.discretePlot
 ~~~
 
@@ -1292,8 +1294,8 @@ let f = { :n :i |
 Matrix plot of the power table modulo seventeen:
 
 ~~~spl svg=L
-let m = 17;
-let n = [0 .. m - 1];
+let m = 17L;
+let n = [0L .. m - 1L];
 { :i :j |
 	i ^ j % m
 }.table(n, n)

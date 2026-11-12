@@ -755,19 +755,19 @@
 	primitiveRootList { :n |
 		let e = n.eulerPhi;
 		let p = e.primeFactors;
-		1.to(n - 1).select { :g |
+		1L.to(n - 1L).select { :g |
 			g.isCoprime(n)
 		}.select { :g |
 			p.collect { :i |
 				g.powerMod(e / i, n)
 			}.allSatisfy { :m |
-				m > 1
+				m > 1L
 			}
 		}
 	}
 
 	primorial { :n |
-		1.to(n).product(prime/1)
+		1L.to(n).product(prime/1)
 	}
 
 	radical { :self |
