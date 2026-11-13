@@ -110,7 +110,8 @@ Plot the butterfly curve:
 
 ![](Help/Image/polarPlot-I.svg)
 
-Plot using negative radius values, reflected through the origin:
+Plot using negative radius values,
+reflected through the origin:
 
 ~~~spl svg=J
 (0 -- 2.pi).discretize(100) { :theta |
@@ -156,6 +157,16 @@ Plot the lima bean curve:
 ~~~
 
 ![](Help/Image/polarPlot-M.svg)
+
+Plot `sin` plus `cos` of twice θ:
+
+~~~spl svg=N
+(0 -- 2.pi).polarPlot { :theta |
+	(2 * theta).sin + (2 * theta).cos
+}
+~~~
+
+![](Help/Image/polarPlot-N.svg)
 
 * * *
 

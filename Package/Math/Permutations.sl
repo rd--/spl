@@ -432,17 +432,17 @@ Permutation : [Object, Store, Equal] {
 		)
 	}
 
-	uncheckedCyclesToPermutation { :self :degree |
-		newPermutation().initializeSlots(
-			Integer(self),
-			Integer(degree)
-		)
-	}
-
 	permutationListToPermutation { :self |
 		uncheckedCyclesToPermutation(
 			self.permutationListToPermutationCycles(true),
 			self.max
+		)
+	}
+
+	uncheckedCyclesToPermutation { :self :degree |
+		newPermutation().initializeSlots(
+			Integer(self),
+			Integer(degree)
 		)
 	}
 
