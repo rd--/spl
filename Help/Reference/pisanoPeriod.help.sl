@@ -215,7 +215,7 @@ OEIS [A066853](https://oeis.org/A066853):
 >>> 1L:73L.collect { :n |
 >>> 	let k = n.pisanoPeriod;
 >>> 	let f = k.fibonacciSequence;
->>> 	(f % n).nub.size
+>>> 	(f % n).nub(==).size
 >>> }
 [
 	 1  2  3  4  5  6  7  6  9 10
@@ -236,7 +236,7 @@ OEIS [A079002](https://oeis.org/A079002):
 >>> 1L:73L.select { :n |
 >>> 	let k = n.pisanoPeriod;
 >>> 	let f = k.fibonacciSequence;
->>> 	(f % n).nub.size = n
+>>> 	(f % n).nub(==).size = n
 >>> }
 [
 	 1  2  3  4  5  6  7  9 10 14
@@ -609,7 +609,7 @@ OEIS [A066853](https://oeis.org/A066853):
 1L:125L.collect { :n |
 	let k = n.pisanoPeriod;
 	let f = k.fibonacciSequence;
-	(f % n).nub.size
+	(f % n).nub(==).size
 }.discretePlot
 ~~~
 

@@ -75,7 +75,7 @@ The 20th and 40th Genocchi numbers:
 >>> 20.genocchiNumber
 1109652905
 
->>> 40.genocchiNumber
+>>> 40L.genocchiNumber
 42433626725491925313195071185L
 ```
 

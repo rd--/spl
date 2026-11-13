@@ -117,17 +117,17 @@
 	}
 
 	betaExpansion { :x :beta :p |
-		let k = (x.log / beta.log).ceiling.max(0);
+		let k = (x.log / beta.log).ceiling.max(0L);
 		let r = [];
-		let i = k - 1;
+		let i = k - 1L;
 		{
-			i > (-p - 1)
+			i > (-p - 1L)
 		}.whileTrue {
 			let m = beta ^ i;
 			let d = ((x / m) % beta).floor;
 			x := x - (d * m);
 			r.add!(d);
-			i := i - 1
+			i := i - 1L
 		};
 		[r, k]
 	}
@@ -146,13 +146,13 @@
 
 	ceiling { :self |
 		let truncation = self.truncate;
-		(self <= 0.0).if {
+		(self <= 0L).if {
 			truncation
 		} {
 			(self = truncation).if {
 				truncation
 			} {
-				truncation + 1.0
+				truncation + 1L
 			}
 		}
 	}
@@ -201,29 +201,6 @@
 
 	clip { :self |
 		self.clip(-1, 1, -1, 1)
-	}
-
-	continuedFraction { :self :limit |
-		let answer = [];
-		let i = self.floor.normalInteger;
-		let f = self - i;
-		{
-			(limit > 1) & {
-				f.isVeryClose(0).not
-			}
-		}.whileTrue {
-			answer.add!(i);
-			f := 1 / f;
-			i := f.floor.normalInteger;
-			f := f - i;
-			limit := limit - 1
-		};
-		answer.add!(i);
-		answer
-	}
-
-	continuedFraction { :self |
-		self.continuedFraction(24)
 	}
 
 	copySign { :self :aNumber |
@@ -452,10 +429,6 @@
 
 	infinity { :self |
 		self * Infinity
-	}
-
-	integerPart { :self |
-		self.truncate
 	}
 
 	inverseErf { :x |
@@ -976,7 +949,7 @@
 	}
 
 	round { :self |
-		(self + (self.sign / 2)).truncate
+		(self + (self.sign / 2L)).truncate
 	}
 
 	roundDown { :self :aNumber |
@@ -1304,7 +1277,7 @@
 
 	betaContraction { :self :base |
 		let [d, p] = self;
-		let e = (p - d.indicesOf(1)).reverse;
+		let e = (p - d.indicesOf(1L)).reverse;
 		(base ^ e).sum
 	}
 

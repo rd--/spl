@@ -139,7 +139,7 @@ OEIS [A322967](https://oeis.org/A322967):
 >>> 			[1 .. m]
 >>> 		);
 >>> 		t.tensorProduct
->>> 		.flatten.nub.size
+>>> 		.flatten.nub(==).size
 >>> 	}
 >>> }
 [

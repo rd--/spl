@@ -218,6 +218,18 @@
 		}
 	}
 
+	byteHexString { :self |
+		self.isByte.if {
+			self
+			.integerString(16L)
+			.padLeft([2], '0')
+		} {
+			self.error(
+				'Float>>byteHexString: not a byte'
+			)
+		}
+	}
+
 	carryLessMultiplication { :m :n :b |
 		(b = 2).if {
 			let s = m.zero;
@@ -604,7 +616,7 @@
 	}
 
 	integerCompositionsDo { :n :aBlock/1 |
-		integerCompositionsDo(n, 1.to(n), aBlock/1)
+		integerCompositionsDo(n, 1L.to(n), aBlock/1)
 	}
 
 	integerCompositionsExactly { :n :k |
@@ -617,29 +629,29 @@
 
 	integerCompositionsExactlyDo { :n :k :aBlock/1 |
 		(n < k).ifFalse {
-			let a = List(k, 1);
-			a[k] := n - k + 1;
+			let a = List(k, 1L);
+			a[k] := n - k + 1L;
 			aBlock(a);
 			{
-				a[1] = (n - k + 1)
+				a[1] = (n - k + 1L)
 			}.whileFalse {
 				let last = k;
 				{
-					a[last] = 1
+					a[last] = 1L
 				}.whileTrue {
-					last := last - 1
+					last := last - 1L
 				};
 				let z = a[last];
-				a[last - 1] := a[last - 1] + 1;
-				a[last] := 1;
-				a[k] := z - 1;
+				a[last - 1] := a[last - 1] + 1L;
+				a[last] := 1L;
+				a[k] := z - 1L;
 				aBlock(a)
 			}
 		}
 	}
 
 	integerCompositionsWeak { :n |
-		integerCompositionsWeak(n, 1.to(n))
+		integerCompositionsWeak(n, 1L.to(n))
 	}
 
 	integerCompositionsWeak { :n :kList |
@@ -661,7 +673,7 @@
 	}
 
 	integerCompositionsWeakExactlyDo { :n :k :aBlock/1 |
-		let a = List(k, 0);
+		let a = List(k, 0L);
 		a[k] := n;
 		aBlock(a);
 		{
@@ -669,14 +681,14 @@
 		}.whileFalse {
 			let last = k;
 			{
-				a[last] = 0
+				a[last] = 0L
 			}.whileTrue {
-				last := last - 1
+				last := last - 1L
 			};
 			let z = a[last];
-			a[last - 1] := a[last - 1] + 1;
-			a[last] := 0;
-			a[k] := z - 1;
+			a[last - 1] := a[last - 1] + 1L;
+			a[last] := 0L;
+			a[k] := z - 1L;
 			aBlock(a)
 		}
 	}
@@ -707,7 +719,7 @@
 		) {
 			base.isIntegerValuedNumber.if {
 				let numDigits = self.isZero.if {
-					1
+					1L
 				} {
 					(self.abs.log / base.log + 0.0000000001).truncate + 1
 				};
@@ -722,7 +734,7 @@
 	}
 
 	integerDigits { :self |
-		self.integerDigits(10)
+		self.integerDigits(10L)
 	}
 
 	integerDigitsReverseDo { :self :base :numDigits :aBlock/1 |
@@ -1173,7 +1185,7 @@
 		anInteger.isIntegerValuedNumber.if {
 			self.uncheckedLcm(anInteger)
 		} {
-			anInteger.adaptToNumberAndApply(self, lcm/2)
+			anInteger.adaptToIntegerAndApply(self, lcm/2)
 		}
 	}
 
@@ -1302,12 +1314,12 @@
 
 	numberOfCompositions { :n :k |
 		/* (n - 1).factorial / ((k - 1).factorial * (n - k).factorial) */
-		(n - 1).binomial(k - 1)
+		binomial(n - 1L, k - 1L)
 	}
 
 	numberOfCompositionsWeak { :n :k |
 		/* (n + k - 1).factorial / (n.factorial * (k - 1).factorial) */
-		binomial(n + k - 1, n)
+		binomial(n + k - 1L, n)
 	}
 
 	numberOfDigitsInBase { :self :radix |
@@ -1745,10 +1757,6 @@
 
 	totientSummatoryFunction { :n |
 		1L.to(n).sum(eulerPhi/1)
-	}
-
-	truncate { :self |
-		self
 	}
 
 	twosComplement { :self :wordSize |

@@ -77,10 +77,11 @@ List of twin primes,
 OEIS [A001097](https://oeis.org/A001097):
 
 ```
->>> let a = 1:66.select(
+>>> let a = 1L:66L.select(
 >>> 	isLesserTwinPrime/1
 >>> );
->>> [a, a + 2].interleave.deleteDuplicates
+>>> [a, a + 2L].interleave
+>>> .deleteDuplicates(==)
 [3 5 7 11 13 17 19 29 31 41 43 59 61]
 ```
 
@@ -88,10 +89,10 @@ Sums of twin primes,
 OEIS [A054735](https://oeis.org/A054735):
 
 ```
->>> 1:123.select(
+>>> 1L:123L.select(
 >>> 	isLesserTwinPrime/1
 >>> ).collect { :n |
->>> 	n * 2 + 2
+>>> 	n * 2L + 2L
 >>> }
 [8 12 24 36 60 84 120 144 204 216]
 ```
@@ -100,10 +101,10 @@ Twin prime pairs concatenated in decimal representation,
 OEIS [A095958](https://oeis.org/A095958):
 
 ```
->>> 1:123.select(
+>>> 1L:123L.select(
 >>> 	isLesserTwinPrime/1
 >>> ).collect { :n |
->>> 	n.integerConcatenation(n + 2, 10)
+>>> 	n.integerConcatenation(n + 2L, 10L)
 >>> }
 [
 	35 57 1113 1719 2931
@@ -116,7 +117,7 @@ OEIS [A005597](https://oeis.org/A005597):
 
 ```
 >>> 'TwinPrimeConstant'
->>> .namedConstant(1, 32)
+>>> .namedConstant(1D, 32)
 0.66016181584686957392781211001455D
 ```
 
@@ -125,7 +126,7 @@ OEIS [A114907](https://oeis.org/A114907):
 
 ```
 >>> 'TwinPrimeConstant'
->>> .namedConstant(2, 32)
+>>> .namedConstant(2D, 32)
 1.32032363169373914785562422002911D
 ```
 
@@ -136,6 +137,7 @@ OEIS [A065645](https://oeis.org/A065645):
 >>> 'TwinPrimeConstant'
 >>> .namedConstant
 >>> .continuedFraction
+>>> .take(24)
 [
 	 0 1 1  1 16 2 2 2 2  1
 	18 2 2 11  1 1 2 4 1 16
@@ -201,12 +203,12 @@ List of twin primes,
 OEIS [A001097](https://oeis.org/A001097):
 
 ~~~spl svg=B oeis=A001097
-let a = 3:1607.select(
+let a = 3L:1607L.select(
 	isLesserTwinPrime/1
 );
-[a, a + 2]
+[a, a + 2L]
 .interleave
-.deleteDuplicates
+.deleteDuplicates(==)
 .discretePlot
 ~~~
 
@@ -216,12 +218,12 @@ List of twin primes modulo four,
 OEIS [A122567](https://oeis.org/A122567):
 
 ~~~spl svg=C oeis=A122567
-let a = 3:1019.select(
+let a = 3L:1019L.select(
 	isLesserTwinPrime/1
 );
-let b = [a, a + 2].interleave;
-let c = b.deleteDuplicates;
-(c % 4).stepPlot
+let b = [a, a + 2L].interleave;
+let c = b.deleteDuplicates(==);
+(c % 4L).stepPlot
 ~~~
 
 ![](Help/Image/isLesserTwinPrime-C.svg)

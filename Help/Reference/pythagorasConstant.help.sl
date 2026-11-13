@@ -38,7 +38,7 @@ which is the norm of _(1,1)-(0,0)_:
 The binary case answers a `Decimal` value with _m_ decimal places:
 
 ```
->>> 1.pythagorasConstant(34)
+>>> 1D.pythagorasConstant(34)
 1.4142135623730950488016887242096980D
 ```
 
@@ -56,7 +56,7 @@ OEIS [A002193](https://oeis.org/A002193):
 Scatter plot of the digits of Pythagoras’ constant:
 
 ~~~spl svg=A
-1.pythagorasConstant(98)
+1D.pythagorasConstant(98)
 .integerDigits
 .scatterPlot
 ~~~

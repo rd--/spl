@@ -273,14 +273,14 @@ Date! : [Object, Store, Equal, Compare] {
 		if (!((cent == 4) || (yindex == 4))) {
 			year++;
 		}
-		let yearday = wjd - _gregorianToJulianDay_3(year, 1, 1);
+		let yearday = wjd - sl.toFloat(_gregorianToJulianDay_3(year, 1, 1));
 		let leapadj = (
-			(wjd < _gregorianToJulianDay_3(year, 3, 1))
+			(wjd < sl.toFloat(_gregorianToJulianDay_3(year, 3, 1)))
 			? 0
 			: (_isGregorianLeapYear_1(year) ? 1 : 2)
 		);
 		let month = Math.floor((((yearday + leapadj) * 12) + 373) / 367);
-		let day = (wjd - _gregorianToJulianDay_3(year, month, 1)) + 1;
+		let day = (wjd - sl.toFloat(_gregorianToJulianDay_3(year, month, 1))) + 1;
 		return [year, month, day];
 		>
 	}

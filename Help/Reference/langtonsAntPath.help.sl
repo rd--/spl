@@ -36,7 +36,7 @@ starting at _0,0_ on an initially empty grid facing left:
 
 ~~~spl svg=C
 1000.langtonsAntPath
-.deleteDuplicates
+.deleteDuplicates(=)
 .scatterPlot
 ~~~
 
@@ -46,7 +46,8 @@ Path of Langton’s ant,
 starting at _0,0_ on an initially empty grid facing left:
 
 ~~~spl svg=D
-85.langtonsAntPath.pathPlot
+85.langtonsAntPath
+.pathPlot
 ~~~
 
 ![](Help/Image/langtonsAntPath-D.svg)

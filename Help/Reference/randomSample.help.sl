@@ -15,7 +15,7 @@ Find a sample in which no elements ever occur more than once:
 >>> (
 >>> 	l.mean,
 >>> 	l.standardDeviation,
->>> 	l.nub.size,
+>>> 	l.nub(==).size,
 >>> 	l
 >>> )
 (
@@ -37,7 +37,7 @@ Generate a random permutation:
 >>> (
 >>> 	l.mean,
 >>> 	l.standardDeviation,
->>> 	l.nub.size,
+>>> 	l.nub(==).size,
 >>> 	l
 >>> )
 (

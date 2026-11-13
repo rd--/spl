@@ -26,7 +26,7 @@ Continued fraction:
 The binary case answers a `Decimal` value with _m_ decimal places:
 
 ```
->>> 1.levysConstant(34)
+>>> 1D.levysConstant(34)
 3.2758229187218111597876818824538438D
 ```
 
@@ -44,7 +44,7 @@ OEIS [A002210](https://oeis.org/A002210):
 Scatter plot of the digits of Lévy’s constant:
 
 ~~~spl svg=A
-1.levysConstant(104)
+1D.levysConstant(104)
 .integerDigits
 .scatterPlot
 ~~~

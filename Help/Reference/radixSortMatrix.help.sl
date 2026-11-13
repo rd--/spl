@@ -10,7 +10,7 @@ Matrix holds each intermediate permutation of the initial sequence in turn:
 ```
 >>> [5 1 4 2 8]
 >>> .radixSortMatrix
->>> .deleteDuplicates
+>>> .deleteDuplicates(=)
 [
 	5 1 4 2 8;
 	1 4 2 8 5;
@@ -29,7 +29,7 @@ Sfc32(327481)
 .randomPermutation(9)
 .list
 .radixSortMatrix
-.deleteDuplicates
+.deleteDuplicates(=)
 .transpose
 .matrixPlot
 ~~~
@@ -43,7 +43,7 @@ Sfc32(327481)
 .randomPermutation(64)
 .list
 .radixSortMatrix
-.deleteDuplicates
+.deleteDuplicates(=)
 .transpose
 .rescale
 .Greymap

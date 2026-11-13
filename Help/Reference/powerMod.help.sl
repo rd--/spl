@@ -305,10 +305,10 @@ modulo _n_,
 OEIS [A096008](https://oeis.org/A096008):
 
 ~~~spl svg=D oeis=A096008
-1:30.collect { :n |
-	[0 .. n - 1].collect { :k |
-		powerMod(k, 2, n)
-	}.nub.sort!
+1L:30L.collect { :n |
+	[0L .. n - 1L].collect { :k |
+		powerMod(k, 2L, n)
+	}.nub(==).sort!
 }.catenate.scatterPlot
 ~~~
 
@@ -337,9 +337,9 @@ Number of distinct residues,
 OEIS [A195637](https://oeis.org/A195637):
 
 ~~~spl svg=F oeis=A195637
-1:150.collect { :n |
-	let m = n - 1;
-	0:m.powerMod(n, n).nub.size
+1L:150L.collect { :n |
+	let m = n - 1L;
+	0L:m.powerMod(n, n).nub(==).size
 }.scatterPlot
 ~~~
 

@@ -1199,17 +1199,17 @@
 	}
 
 	fromContinuedFraction { :self |
-		(self ~ [0]).if {
+		(self ~ [0L]).if {
 			0/1
 		} {
 			let answer = 0/1;
 			self.reverseDo { :each |
 				let nextDivisor = each + answer;
 				nextDivisor.isZero.ifFalse {
-					answer := 1 / nextDivisor
+					answer := 1L / nextDivisor
 				}
 			};
-			1 / answer
+			1L / answer
 		}
 	}
 
@@ -1371,16 +1371,16 @@
 	}
 
 	indexOf { :self :anElement |
-		self.indexOfStartingAtBy(anElement, 1, isEqual/2)
+		self.indexOfStartingAtBy(anElement, 1L, isEqual/2)
 	}
 
 	indexOfBy { :self :anElement :aBlock/2 |
-		self.indexOfStartingAtBy(anElement, 1, aBlock/2)
+		self.indexOfStartingAtBy(anElement, 1L, aBlock/2)
 	}
 
 	indexOfIfAbsent { :self :anElement :exceptionBlock/0 |
-		let index = self.indexOfStartingAtBy(anElement, 1, isEqual/2);
-		(index = 0).if {
+		let index = self.indexOfStartingAtBy(anElement, 1L, isEqual/2);
+		(index = 0L).if {
 			exceptionBlock()
 		} {
 			index
@@ -1394,7 +1394,7 @@
 					index.return
 				}
 			};
-			0
+			0L
 		}
 	}
 
@@ -1407,7 +1407,7 @@
 	}
 
 	indices { :self |
-		1.to(self.size)
+		1L.to(self.size)
 	}
 
 	indicesAndValuesDo { :self :aBlock/2 |

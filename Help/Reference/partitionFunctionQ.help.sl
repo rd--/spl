@@ -14,11 +14,13 @@ since there are four partitions of 10 into three distinct parts:
 >>> partitionFunctionQ(10, 3)
 4
 
->>> let n = 10;
->>> let k = 3;
+>>> let n = 10L;
+>>> let k = 3L;
 >>> let p = n.integerPartitions([k]);
->>> p.collect(nub/1).select { :each |
->>> 	each.size = k
+>>> p.collect { :x |
+>>> 	x.nub(==)
+>>> }.select { :x |
+>>> 	x.size = k
 >>> }
 [
 	7 2 1;
@@ -32,7 +34,9 @@ First few terms,
 OEIS [A000009](https://oeis.org/A000009):
 
 ```
->>> 0:39.collect(partitionFunctionQ/1)
+>>> 0:39.collect(
+>>> 	partitionFunctionQ/1
+>>> )
 [
 	  1   1   1   2   2
 	  3   4   5   6   8

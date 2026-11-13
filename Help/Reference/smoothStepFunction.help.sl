@@ -22,12 +22,12 @@ true
 Evaluate at `Fraction`:
 
 ```
->>> let f/1 = 3.smoothStepFunction;
+>>> let f/1 = 3L.smoothStepFunction;
 >>> f(1/3)
 379/2187
 
->>> let f/1 = 15.smoothStepFunction;
->>> f(73/80) > 1
+>>> let f/1 = 15L.smoothStepFunction;
+>>> f(73/80) > 1/1
 false
 ```
 

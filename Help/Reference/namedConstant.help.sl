@@ -10,7 +10,8 @@ OEIS [A016730](https://oeis.org/A016730):
 ```
 >>> 'Ln(2)'
 >>> .namedConstant
->>> .continuedFraction(78)
+>>> .continuedFraction
+>>> .take(78)
 [
 	 0  1  2  3  1  6  3  1  1  2
 	 1  1  1  1  3 10  1  1  1  2
@@ -28,7 +29,8 @@ OEIS [A028232](https://oeis.org/A028232):
 
 ```
 >>> 'Log10(2)'.namedConstant
->>> .continuedFraction(87)
+>>> .continuedFraction
+>>> .take(87)
 [
 	0 3  3  9  2 2  4 6 2 1
 	1 3  1 18  1 6  1 2 1 1
@@ -60,7 +62,8 @@ OEIS [A016730](https://oeis.org/A016730):
 ~~~spl svg=B oeis=A016730
 'Ln(2)'
 .namedConstant
-.continuedFraction(78)
+.continuedFraction
+.take(78)
 .scatterPlot
 ~~~
 

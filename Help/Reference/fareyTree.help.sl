@@ -83,7 +83,7 @@ OEIS [A348051](https://oeis.org/A348051):
 4.fareyTree
 .levelOrderValues
 .triangularArray { :u :v |
-	(u + v) / (u * v + 1)
+	(u + v) / (u * v + 1L)
 }.catenate.numerator.discretePlot
 ~~~
 
@@ -97,7 +97,7 @@ OEIS [A348052](https://oeis.org/A348052):
 4.fareyTree
 .levelOrderValues
 .triangularArray { :u :v |
-	(u + v) / (u * v + 1)
+	(u + v) / (u * v + 1L)
 }.catenate.denominator.discretePlot
 ~~~
 

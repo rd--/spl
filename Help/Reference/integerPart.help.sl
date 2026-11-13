@@ -9,13 +9,13 @@ Find the integer part of a real number:
 
 ```
 >>> 2.4.integerPart
-2
+2L
 
 >>> 456.457.integerPart
-456
+456L
 
 >>> (1.pi + 1.e).integerPart
-5
+5L
 ```
 
 Find the integer part of a negative real number:
@@ -86,22 +86,22 @@ Plot over a subset of the reals:
 
 ![](Help/Image/integerPart-A.svg)
 
-Implement the Frisch continuous-but-nowhere-differentiable function:
+Implement the Frisch continuous-but-nowhere-differentiable function using exact arithmetic:
 
 ~~~spl svg=B
 let f = { :x :n |
 	1L:n.sum { :k |
 		let a = (k * x).integerPart;
-		let b = ((k + 1) * x).integerPart;
-		(a = b).boole / (2 ^ k)
+		let b = ((k + 1L) * x).integerPart;
+		(a = b).boole / (2L ^ k)
 	}
 };
-1:50.collect { :j |
-	0:j.collect { :i |
+1L:50L.collect { :j |
+	0L:j.collect { :i |
 		i / j
 	}
-}.catenate.nub.sort!.collect { :x |
-	[x, f(x, 100)]
+}.catenate.nub(=).sort!.collect { :x |
+	[x, f(x, 100L)]
 }.linePlot
 ~~~
 

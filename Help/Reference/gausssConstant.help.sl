@@ -90,7 +90,8 @@ The continued fraction of Gausss’s constant at the higher precision decimal co
 ```
 >>> 'GausssConstant'
 >>> .namedConstant
->>> .continuedFraction(100)
+>>> .continuedFraction
+>>> .take(100)
 [
 	0 1  5 21  3 4 14 1  1  1
 	1 1  3  1 15 1  3 8 36  1
@@ -112,7 +113,8 @@ OEIS [A053002](https://oeis.org/A053002):
 ~~~spl svg=B oeis=A053002
 'GausssConstant'
 .namedConstant
-.continuedFraction(100)
+.continuedFraction
+.take(100)
 .scatterPlot.log
 ~~~
 

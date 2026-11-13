@@ -9,21 +9,21 @@ Answer a `String` naming the tuning specified by the list of ratios _r_ accordin
 >>> .tuningName
 'aeolic'
 
->>> 1:17.octaveReduce
->>> .nub.sort!
+>>> 1L:17L.octaveReduce
+>>> .nub(=).sort!
 >>> .tuningName
 'harm9'
 
->>> (1/1 / 1:15).octaveReduce
->>> .nub.sort!
+>>> (1/1 / 1L:15L).octaveReduce
+>>> .nub(=).sort!
 >>> .tuningName
 'sub8'
 
->>> ([30 32 36 40 45 48 54] / 30/1)
+>>> ([30 32 36 40 45 48 54].L / 30L)
 >>> .tuningName
 'ptolemy_idiat'
 
->>> [1 10/9 5/4 4/3 3/2 15/9 15/8]
+>>> [1/1 10/9 5/4 4/3 3/2 15/9 15/8]
 >>> .tuningName
 'redfield'
 
@@ -32,13 +32,13 @@ Answer a `String` naming the tuning specified by the list of ratios _r_ accordin
 >>> 	480 540 576 600 648
 >>> 	675
 >>> ];
->>> (n / 360L)
+>>> (n.L / 360L)
 >>> .tuningName
 'kornerup_11'
 
 >>> 1:26.fibonacci
 >>> .octaveReduce
->>> .nub.sort!.tuningName
+>>> .nub(=).sort!.tuningName
 'burt_fibo23'
 ```
 

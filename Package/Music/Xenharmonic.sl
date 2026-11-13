@@ -76,10 +76,7 @@
 	}
 
 	octaveReduce { :self :octaveRatio |
-		self.isRational.ifFalse {
-			self.error('octaveReduce: not rational')
-		};
-		{ self < 1 }.whileTrue {
+		{ self < 1L }.whileTrue {
 			self := self * octaveRatio
 		};
 		{ self >= octaveRatio }.whileTrue {
@@ -150,7 +147,7 @@
 		self.isIntegerValuedNumber.ifFalse {
 			self.error('octaveReduce: not integer')
 		};
-		Fraction(self, 1L).octaveReduce(2)
+		Fraction(self, 1L).octaveReduce(2L)
 	}
 
 }
@@ -256,11 +253,11 @@
 +@Integer {
 
 	tonalityDiamond { :self |
-		let n = [1, 3 .. self];
+		let n = [1L, 3L .. self];
 		let o = n.collect { :i |
 			i.octaveReduce
 		}.sort;
-		let u = 1 / o;
+		let u = 1L / o;
 		{ :i :j |
 			(i * j).octaveReduce
 		}.table(u, o)

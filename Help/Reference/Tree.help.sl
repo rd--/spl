@@ -435,7 +435,7 @@ Since `do` visits each subtree, `includes` looks for subtrees.
 To look for a value use `includesValue`:
 
 ```
->>> let t = 9.sternBrocotTree;
+>>> let t = 9L.sternBrocotTree;
 >>> let a = 23/37;
 >>> let b = Tree(a, []);
 >>> (t.includes(b), t.includesValue(a))

@@ -67,10 +67,10 @@ Generate spiral matrices of various kinds:
 The inverse is `squareSpiralUnrank`:
 
 ```
->>> [1 .. 10]
+>>> [1L .. 10L]
 >>> .squareSpiralUnrank
 >>> .squareSpiralRank
-[1 .. 10]
+[1L .. 10L]
 ```
 
 Matrix plot of the first few terms:

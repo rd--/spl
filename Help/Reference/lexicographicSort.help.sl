@@ -143,7 +143,7 @@ minus one:
 ~~~spl svg=B oeis=A057554
 2:11.collect { :n |
 	n.integerPartitions([2]).collect { :p |
-		p.permutations.nub
+		p.permutations.nub(=)
 	}.catenate.lexicographicSort! - 1
 }.catenate.catenate.discretePlot
 ~~~

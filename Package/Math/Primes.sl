@@ -172,7 +172,7 @@
 
 	isLesserTwinPrime { :self |
 		self.isPrime & {
-			self + 2 = self.nextPrime
+			self + 2L = self.nextPrime
 		}
 	}
 

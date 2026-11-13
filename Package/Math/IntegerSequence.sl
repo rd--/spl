@@ -179,21 +179,21 @@
 	}
 
 	bernoulliNumber { :k |
-		(k + 1).bernoulliSequence.last
+		(k + 1L).bernoulliSequence.last
 	}
 
 	bernoulliSequence { :k |
 		let a = List(k, nil);
 		let b = List(k, nil);
-		0.toDo(k - 1) { :n |
-			a[n + 1] := Fraction(1, n + 1);
-			n.toByDo(1, -1) { :j |
-				a[j] := j * (a[j] - a[j + 1])
+		0L.toDo(k - 1L) { :n |
+			a[n + 1L] := Fraction(1L, n + 1L);
+			n.toByDo(1L, -1L) { :j |
+				a[j] := j * (a[j] - a[j + 1L])
 			};
-			b[n + 1] := a[1]
+			b[n + 1L] := a[1L]
 		};
-		(k > 1).ifTrue {
-			b[2] := -1/2
+		(k > 1L).ifTrue {
+			b[2L] := -1/2
 		};
 		b
 	}
@@ -469,7 +469,7 @@
 
 	genocchiNumber { :n |
 		let b = n.bernoulliNumber;
-		(2 * (1 - (2 ^ n)) * b).Integer
+		2L * (1L - (2L ^ n)) * b
 	}
 
 	gijswijtsSequence { :n |
@@ -1458,13 +1458,13 @@
 	}
 
 	integerSequenceCompress { :a |
-		let b = a.deleteDuplicates.sort;
+		let b = a.deleteDuplicates(==).sort!;
 		let k = b.size;
 		let l = b.min;
 		let m = Map(
 			[
 				b,
-				[l .. l + k - 1]
+				[l .. l + k - 1L]
 			].transpose
 		);
 		a.collect { :i |
@@ -1473,7 +1473,7 @@
 	}
 
 	integerSequenceNormalize { :a |
-		let b = a.deleteDuplicates;
+		let b = a.deleteDuplicates(==);
 		a.collect { :i |
 			b.indexOf(i)
 		}
@@ -2056,30 +2056,30 @@
 
 }
 
-+Float {
++@Integer {
 
 	langtonsAntPath { :n :c :b :d |
-		let steps = [1 0; 0 1; -1 0; 0 -1];
+		let steps = [1L 0L; 0L 1L; -1L 0L; 0L -1L];
 		let cells = IdentitySet(b.squareSpiralRank);
 		let [x, y] = c;
 		let path = [c];
-		(n - 1).timesRepeat {
-			let r = squareSpiralRank(x, y, 1);
+		(n - 1L).timesRepeat {
+			let r = squareSpiralRank(x, y, 1L);
 			cells.includes(r).if {
 				cells.remove!(r);
-				d := d + 1
+				d := d + 1L
 			} {
 				cells.add!(r);
-				d := d - 1
+				d := d - 1L
 			};
-			[x, y] := [x, y] + steps[d.mod(4, 1)];
+			[x, y] := [x, y] + steps[d.mod(4L, 1L)];
 			path.add!([x, y])
 		};
 		path
 	}
 
 	langtonsAntPath { :n |
-		n.langtonsAntPath([0, 0], [], 3)
+		n.langtonsAntPath([0L, 0L], [], 3L)
 	}
 
 }
@@ -2087,12 +2087,12 @@
 +@Integer {
 
 	cantorPairingFunction { :x :y |
-		x.square + x + (2 * x * y) + (3 * y) + y.square / 2
+		x.square + x + (2L * x * y) + (3L * y) + y.square // 2L
 	}
 
 	inverseCantorPairingFunction { :z |
-		let w = ((((8 * z) + 1).sqrt - 1) / 2).floor;
-		let t = (w.square + w) / 2;
+		let w = ((((8 * z) + 1).sqrt - 1) / 2).floor.L;
+		let t = (w.square + w) // 2L;
 		let y = z - t;
 		let x = w - y;
 		[x, y]
@@ -2120,7 +2120,7 @@
 	cantorPairingFunction { :self |
 		self.atVectorOrElementwise { :v |
 			let [x, y] = v;
-			x.square + x + (2 * x * y) + (3 * y) + y.square / 2
+			cantorPairingFunction(x, y)
 		}
 	}
 
@@ -2172,20 +2172,20 @@
 
 }
 
-+Float {
++@Integer {
 
 	rationalOrderingFibonacci { :self |
 		{ :r |
 			(
 				r.collect { :x |
-					(x > 1).if {
-						[x, 1L / x - 1]
+					(x > 1L).if {
+						[x, 1L / x - 1L]
 					} {
 						[x / 1L]
 					}
 				}.catenate
-			) + 1
-		}.nestList([1/1], self - 1)
+			) + 1L
+		}.nestList([1/1], self - 1L)
 	}
 
 }
@@ -2197,7 +2197,7 @@
 			[
 				'Fibonacci' -> {
 					let a = anInteger.fibonacciSequenceUpTo;
-					let b = a.size - 2;
+					let b = a.size - 2L;
 					let c = b.rationalOrderingFibonacci;
 					c.catenate.first(anInteger)
 				}

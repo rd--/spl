@@ -33,11 +33,11 @@ Gather elements that have equal first parts:
 Gather elements that have equal integer parts:
 
 ```
->>> [0, 1/3 .. 3].gather { :i :j |
+>>> [0/1, 1/3 .. 3/1].gather { :i :j |
 >>> 	i.floor = j.floor
 >>> }
 [
-	0 1/3 2/3;
+	0/1 1/3 2/3;
 	1/1 4/3 5/3;
 	2/1 7/3 8/3;
 	3/1

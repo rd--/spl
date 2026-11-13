@@ -32,8 +32,9 @@ deleting duplicates:
 system.svgColourCatalogue
 .select(isGrey/1)
 .values
-.deleteDuplicates
-.enclose.arrayPlot
+.deleteDuplicates(=)
+.enclose
+.arrayPlot
 ~~~
 
 ![](Help/Image/isGrey-A.svg)

@@ -137,85 +137,6 @@
 		)
 	}
 
-	squareSpiral { :self |
-		let answer = [];
-		self.squareSpiralDo { :x :y |
-			answer.add!([x, y])
-		};
-		answer
-	}
-
-	squareSpiralDo { :self :f/2 |
-		let [x, y, i, j, m, n, c] = [0, 0, 0, 0, 0, 0, 0];
-		0.toDo(self - 1) { :k |
-			f(x, y);
-			(n = 0).ifTrue {
-				c := c + 1;
-				(c > 3).ifTrue { c := 0 };
-				(c = 0).ifTrue { i := 0; j := 1 };
-				(c = 1).ifTrue { i := 1; j := 0 };
-				(c = 2).ifTrue { i := 0; j := -1 };
-				(c = 3).ifTrue { i := -1; j := 0 };
-				[1 3].includes(c).ifTrue { m := m + 1 };
-				n := m
-			};
-			n := n - 1;
-			x := x + i;
-			y := y + j
-		}
-	}
-
-	squareSpiralRank { :x :y :o |
-		(y >= x.abs).if {
-			4 * y.square - y - x
-		} {
-			(-x >= y.abs).if {
-				4 * x.square - x - y
-			} {
-				(-y >= x.abs).if {
-					(4 * y - 3) * y + x
-				} {
-					(4 * x - 3) * x + y
-				}
-			}
-		} + o
-	}
-
-	squareSpiralRank { :x :y |
-		squareSpiralRank(x, y, 1)
-	}
-
-	squareSpiralUnrank { :n |
-		let m = (n - 1).integerSquareRoot;
-		let k = (m / 2).ceiling;
-		n := n - 1 - (4 * k.square);
-		(n < 0).if {
-			(n < -m).if {
-				[k, 3 * k + n]
-			} {
-				[-k - n, k]
-			}
-		} {
-			(n < m).if {
-				[-k, k - n]
-			} {
-				[n - (3 * k), -k]
-			}
-		}
-	}
-
-	squareSpiralWithFourArms { :self |
-		0.toCollect(self - 1) { :n |
-			let s = n.integerSquareRoot;
-			let r = n - s.square;
-			(r > s).ifTrue {
-				s := s + 1;
-				r := r - (2 * s - 1)
-			};
-			(r - s.I) * (1I ^ s)
-		}.realImaginary
-	}
-
 	tractrixSpiral { :a |
 		{ :t |
 			[
@@ -241,6 +162,89 @@
 
 }
 
++@Integer {
+
+	squareSpiral { :self |
+		let answer = [];
+		self.squareSpiralDo { :x :y |
+			answer.add!([x, y])
+		};
+		answer
+	}
+
+	squareSpiralDo { :self :f/2 |
+		let [x, y, i, j, m, n, c] = [0L, 0L, 0L, 0L, 0L, 0L, 0L];
+		0L.toDo(self - 1L) { :k |
+			f(x, y);
+			(n = 0L).ifTrue {
+				c := c + 1L;
+				(c > 3L).ifTrue { c := 0L };
+				(c = 0L).ifTrue { i := 0L; j := 1L };
+				(c = 1L).ifTrue { i := 1L; j := 0L };
+				(c = 2L).ifTrue { i := 0L; j := -1L };
+				(c = 3L).ifTrue { i := -1L; j := 0L };
+				[1L 3L].includes(c).ifTrue { m := m + 1L };
+				n := m
+			};
+			n := n - 1L;
+			x := x + i;
+			y := y + j
+		}
+	}
+
+	squareSpiralRank { :x :y :o |
+		(y >= x.abs).if {
+			4L * y.square - y - x
+		} {
+			(-x >= y.abs).if {
+				4L * x.square - x - y
+			} {
+				(-y >= x.abs).if {
+					(4L * y - 3L) * y + x
+				} {
+					(4L * x - 3L) * x + y
+				}
+			}
+		} + o
+	}
+
+	squareSpiralRank { :x :y |
+		squareSpiralRank(x, y, 1L)
+	}
+
+	squareSpiralUnrank { :n |
+		let m = (n - 1L).integerSquareRoot;
+		let k = m.ceilingDivide(2L);
+		n := n - 1L - (4L * k.square);
+		(n < 0L).if {
+			(n < -m).if {
+				[k, 3L * k + n]
+			} {
+				[-k - n, k]
+			}
+		} {
+			(n < m).if {
+				[-k, k - n]
+			} {
+				[n - (3L * k), -k]
+			}
+		}
+	}
+
+	squareSpiralWithFourArms { :self |
+		0L.toCollect(self - 1L) { :n |
+			let s = n.integerSquareRoot;
+			let r = n - s.square;
+			(r > s).ifTrue {
+				s := s + 1L;
+				r := r - (2 * s - 1L)
+			};
+			(r - s.I) * (1LI ^ s)
+		}.realImaginary
+	}
+
+}
+
 +@Collection {
 
 	squareSpiralUnrank { :self |
@@ -254,7 +258,7 @@
 	squareSpiralRank { :self |
 		self.atVectorOrElementwise { :v |
 			let [x, y] = v;
-			squareSpiralRank(x, y, 1)
+			squareSpiralRank(x, y, 1L)
 		}
 	}
 

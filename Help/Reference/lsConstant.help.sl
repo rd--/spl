@@ -1,9 +1,9 @@
 # lsConstant
 
-- _lsConstant(anObject)_
+- _lsConstant(x)_
 
-If _anObject_ is a stream, answer it,
-else answer a stream that will answer _anObject_ forever.
+If the object _x_ is a stream, answer it,
+else answer a stream that will answer _x_ forever.
 
 ```
 >>> lsConstant(1).next(3)

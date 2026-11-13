@@ -7,7 +7,7 @@ Answer the Farey convergence for _x_ stopping when the denominator would be grea
 The Farey convergence to π:
 
 ```
->>> 1.pi.fareyConvergence(115)
+>>> 1.pi.fareyConvergence(115L)
 [
 	3/1
 	13/4

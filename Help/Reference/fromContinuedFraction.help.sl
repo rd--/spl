@@ -5,24 +5,24 @@
 Reconstructs a number from the list of its continued fraction terms.
 
 ```
->>> 47/17.continuedFraction(4)
+>>> 47/17.continuedFraction
 [2 1 3 4]
 
->>> [2 1 3 4].fromContinuedFraction
+>>> [2L 1L 3L 4L].fromContinuedFraction
 47/17
 
->>> 2 + (1 / (1 + (1 / (3 + (1L / 4)))))
+>>> 2L + (1L / (1L + (1L / (3L + (1L / 4L)))))
 47/17
 
->>> [2 1 3 4]
+>>> [2L 1L 3L 4L]
 >>> .prefixes
 >>> .collect(fromContinuedFraction/1)
-[2 3 11/4 47/17]
+[2/1 3/1 11/4 47/17]
 
->>> [1].fromContinuedFraction
+>>> [1L].fromContinuedFraction
 1/1
 
->>> [0].fromContinuedFraction
+>>> [0L].fromContinuedFraction
 0/1
 ```
 
@@ -147,10 +147,10 @@ Rational approximations to golden ratio:
 A continued fraction may begin with a zero, where the answer is less than 1/2:
 
 ```
->>> 7/17.continuedFraction(4)
+>>> 7/17.continuedFraction
 [0 2 2 3]
 
->>> [0 2 2 3].fromContinuedFraction
+>>> [0L 2L 2L 3L].fromContinuedFraction
 7/17
 
 >>> 7 / 17

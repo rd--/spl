@@ -43,7 +43,7 @@ Unique digits used in _n_ in numerical order,
 OEIS [A180410](https://oeis.org/A180410):
 
 ~~~spl svg=A oeis=A180410
-1:150.collect { :n |
+1L:150L.collect { :n |
 	n.integerDigits
 	.unique(==)
 	.fromDigits

@@ -151,7 +151,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		self.real.exp * (self.imaginary.cos + self.imaginary.sin.I)
 	}
 
-	[floor, <] { :self |
+	floor { :self |
 		Complex(
 			self.real.floor,
 			self.imaginary.floor
@@ -186,7 +186,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		self.integerChop(1E-10)
 	}
 
-	integerPart { :self |
+	[integerPart, truncate] { :self |
 		Complex(
 			self.real.integerPart,
 			self.imaginary.integerPart
@@ -459,10 +459,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	[toComplex, complexToComplex] { :self |
 		self
-	}
-
-	truncate { :self |
-		self.integerPart
 	}
 
 	zero { :self |

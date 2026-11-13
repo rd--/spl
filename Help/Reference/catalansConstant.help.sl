@@ -25,7 +25,7 @@ OEIS [A014538](https://oeis.org/A014538):
 The binary case answers a `Decimal` value with _m_ decimal places:
 
 ```
->>> 1.catalansConstant(34)
+>>> 1D.catalansConstant(34)
 0.9159655941772190150546035149323841D
 ```
 
@@ -54,7 +54,7 @@ scatter plot,
 OEIS [A006752](https://oeis.org/A006752):
 
 ~~~spl svg=A oeis=A006752
-1.catalansConstant(105)
+1D.catalansConstant(105)
 .integerDigits
 .scatterPlot
 ~~~

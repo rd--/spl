@@ -22,7 +22,7 @@ Sign is ignored:
 >>> -3.141.realDigits(10, 4)
 [[3 1 4 1], 1]
 
->>> -3.141D.realDigits(10, 4)
+>>> -3.141D.realDigits(10L, 4)
 [[3 1 4 1], 1]
 ```
 
@@ -103,8 +103,8 @@ The base-three expansion of `pi`
 OEIS [A004602](https://oeis.org/A004602):
 
 ```
->>> 1.pi(104)
->>> .realDigits(3, 99)
+>>> 1D.pi(104)
+>>> .realDigits(3L, 99)
 >>> .first
 [
 	1 0 0 1 0 2 1 1 0 1 2 2 2 2 0 1 0 2 1 1

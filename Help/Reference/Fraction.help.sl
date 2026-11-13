@@ -40,7 +40,7 @@ Zero and one are integers:
 Arithmetic is exact:
 
 ```
->>> (31/10 - 1) / (11/10 - 1) = 21
+>>> (31/10 - 1L) / (11/10 - 1L) = 21L
 true
 
 >>> (31 / 10 - 1) / (11 / 10 - 1) = 21
@@ -287,8 +287,8 @@ a `Fraction` whose elements are of type `Integer` will behave ordinarily.
 The `Fraction` constructor constructs fractions with `Integer` components.
 
 ```
->>> let x = Fraction(2L ^ 55, 2L);
->>> (x, x - 1, x = (x - 1))
+>>> let x = Fraction(2L ^ 55L, 2L);
+>>> (x, x - 1L, x = (x - 1L))
 (
 	18014398509481984/1,
 	18014398509481983/1,

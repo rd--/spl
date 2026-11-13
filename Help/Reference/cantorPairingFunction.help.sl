@@ -7,11 +7,11 @@ Implement the Cantor pairing function.
 Pair and unpair non-negative integers:
 
 ```
->>> [47 32].cantorPairingFunction
-3192
+>>> [47L 32L].cantorPairingFunction
+3192L
 
->>> 3192.inverseCantorPairingFunction
-[47 32]
+>>> 3192L.inverseCantorPairingFunction
+[47L 32L]
 
 >>> [52 1].cantorPairingFunction
 1432
@@ -34,7 +34,8 @@ Threads over lists:
 Inverse Cantor pairing function:
 
 ~~~spl svg=A
-0:65.inverseCantorPairingFunction.Line
+0L:65L.inverseCantorPairingFunction
+.Line
 ~~~
 
 ![](Help/Image/cantorPairingFunction-A.svg)

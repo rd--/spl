@@ -30,7 +30,7 @@ Continued fraction:
 Scatter plot of the digits:
 
 ~~~spl svg=A
-1.glaisher(109)
+1D.glaisher(109)
 .integerDigits
 .scatterPlot
 ~~~

@@ -214,7 +214,7 @@ Number of trailing equal digits in binary representation of _n_,
 OEIS [A136480](https://oeis.org/A136480):
 
 ~~~spl svg=F oeis=A136480
-0:65.collect { :n |
+0L:65L.collect { :n |
 	n.binaryExpansion
 	.split(==)
 	.last

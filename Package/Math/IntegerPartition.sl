@@ -40,7 +40,7 @@
 	}
 
 	integerPartitions { :n |
-		(n = 0).if {
+		(n = 0L).if {
 			[[]]
 		} {
 			let answer = [];
@@ -67,41 +67,41 @@
 
 	integerPartitionsAscendingDo { :self :aBlock/1 |
 		let n = self;
-		let a = List(n, 0);
-		let k = 2;
-		let y = n - 1;
+		let a = List(n, 0L);
+		let k = 2L;
+		let y = n - 1L;
 		{
-			k != 1
+			k != 1L
 		}.whileTrue {
-			k := k - 1;
-			let x = a[k] + 1;
+			k := k - 1L;
+			let x = a[k] + 1L;
 			{
-				(2 * x) <= y
+				(2L * x) <= y
 			}.whileTrue {
 				a[k] := x;
 				y := y - x;
-				k := k + 1
+				k := k + 1L
 			};
-			let l = k + 1;
+			let l = k + 1L;
 			{
 				x <= y
 			}.whileTrue {
 				a[k] := x;
 				a[l] := y;
 				aBlock(a.copyFromTo(1, l));
-				x := x + 1;
-				y := y - 1
+				x := x + 1L;
+				y := y - 1L
 			};
-			y := y + x - 1;
-			a[k] := y + 1;
+			y := y + x - 1L;
+			a[k] := y + 1L;
 			aBlock(a.copyFromTo(1, k))
 		}
 	}
 
 	integerPartitionsDescendingDo { :self :aBlock/1 |
 		let n = self;
-		let d = List(n, 1);
-		let k = 1;
+		let d = List(n, 1L);
+		let k = 1L;
 		d[1] := n;
 		aBlock(d.copyFromTo(1, 1));
 		{
@@ -110,19 +110,19 @@
 			let l = k;
 			let m = d[k];
 			{
-				m = 1
+				m = 1L
 			}.whileTrue {
-				k := k - 1;
+				k := k - 1L;
 				m := d[k]
 			};
-			let nPrime = m + l - k;
-			m := m - 1;
+			let nPrime = m + l - k.L;
+			m := m - 1L;
 			{
 				m < nPrime
 			}.whileTrue {
 				d[k] := m;
 				nPrime := nPrime - m;
-				k := k + 1
+				k := k + 1L
 			};
 			d[k] := nPrime;
 			aBlock(d.copyFromTo(1, k))
@@ -159,19 +159,31 @@
 
 	integerPartitionsExactly { :j :i |
 		let f = { :t :m :n |
-			(m = 1 & { t = n }).if {
+			(
+				m = 1L & {
+					t = n
+				}
+			).if {
 				[[t]]
 			} {
-				(n < m | { n < 1 | { m < 1 | { t < 1 } } }).if {
+				(
+					n < m | {
+						n < 1L | {
+							m < 1L | {
+								t < 1L
+							}
+						}
+					}
+				).if {
 					[]
 				} {
-					f(t, m - 1, n - t).collect { :r |
+					f(t, m - 1L, n - t).collect { :r |
 						([t] ++ r)
-					} ++ f(t - 1, m, n)
+					} ++ f(t - 1L, m, n)
 				}
 			}
 		};
-		f(j - i + 1, i, j)
+		f(j - i + 1L, i, j)
 	}
 
 	integerPartitionsOdd { :self |
@@ -181,7 +193,7 @@
 	}
 
 	integerPartitionsRecursive { :n |
-		1.to(n).collectCatenate { :k |
+		1L.to(n).collectCatenate { :k |
 			n.integerPartitionsExactly(k)
 		}
 	}
@@ -193,15 +205,15 @@
 	partitionFunctionP { :self :anInteger |
 		let p = { :n :k |
 			(k > n).if {
-				0
+				0L
 			} {
 				(k = n).if {
-					1
+					1L
 				} {
-					(k = 0).if {
-						0
+					(k = 0L).if {
+						0L
 					} {
-						p(n - 1, k - 1) + p(n - k, k)
+						p(n - 1L, k - 1L) + p(n - k, k)
 					}
 				}
 			}

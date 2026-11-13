@@ -262,7 +262,7 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 	}
 
 	round { :self |
-		self.round(1)
+		self.round(1L)
 	}
 
 	scan { :input :aBlock/2 |

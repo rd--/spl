@@ -63,10 +63,10 @@ Number of distinct exponents when _n_ is factorized as a product of primes,
 OEIS [A071625](https://oeis.org/A071625):
 
 ~~~spl svg=B oeis=A071625
-1:85.collect { :n |
+1L:85L.collect { :n |
 	n.primeExponents
-	.without!(0)
-	.deleteDuplicates
+	.without!(0L)
+	.deleteDuplicates(==)
 	.size
 }.stepPlot
 ~~~
@@ -99,10 +99,11 @@ Numbers with different exponents in their prime factorizations,
 OEIS [A059404](https://oeis.org/A059404):
 
 ~~~spl svg=E oeis=A059404
-1:200.select { :n |
+1L:200L.select { :n |
 	let e = n.primeExponents;
-	let u = e.without!(0).deleteDuplicates;
-	u.size > 1
+	let u = e.without!(0L);
+	let v = u.deleteDuplicates(==);
+	v.size > 1L
 }.discretePlot
 ~~~
 
@@ -112,10 +113,11 @@ Perfect powers of squarefree kernels,
 OEIS [A062770](https://oeis.org/A062770):
 
 ~~~spl svg=F oeis=A062770
-1:85.select { :n |
+1L:85L.select { :n |
 	let e = n.primeExponents;
-	let u = e.without!(0).deleteDuplicates;
-	u.size = 1
+	let u = e.without!(0L);
+	let v = u.deleteDuplicates(==);
+	v.size = 1L
 }.discretePlot
 ~~~
 

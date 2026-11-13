@@ -405,8 +405,9 @@ At `Decimal`,
 OEIS [A003417](https://oeis.org/A003417):
 
 ```
->>> 1.e(104)
->>> .continuedFraction(72)
+>>> 1D.e(104)
+>>> .continuedFraction
+>>> .first(81)
 [
 	2 1  2 1 1  4 1 1  6
 	1 1  8 1 1 10 1 1 12
@@ -416,6 +417,7 @@ OEIS [A003417](https://oeis.org/A003417):
 	1 1 32 1 1 34 1 1 36
 	1 1 38 1 1 40 1 1 42
 	1 1 44 1 1 46 1 1 48
+	1 1 50 1 1 52 1 1 54
 ]
 ```
 

@@ -32,15 +32,15 @@
 	}
 
 	fibonacciSequenceUpTo { :self |
-		let answer = [self.zero];
-		let n = self.one;
-		let k = 1;
+		let answer = [0L];
+		let n = 1L;
+		let k = 1L;
 		{
 			n <= self
 		}.whileTrue {
 			answer.add!(n);
 			n := n + answer[k];
-			k := k + 1
+			k := k + 1L
 		};
 		answer
 	}

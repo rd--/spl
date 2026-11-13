@@ -1,4 +1,4 @@
-AliasMethod : [Object, Equal, Iterator] {
+AliasMethod : [Object, Store, Equal, Iterator] {
 
 	| alias probability |
 
@@ -25,10 +25,10 @@ AliasMethod : [Object, Equal, Iterator] {
 		let count = probabilities.size;
 		let probability = List(count, nil);
 		let alias = List(count, nil);
-		let average = Float(1 / count);
+		let average = 1.0 / count;
 		let small = [];
 		let large = [];
-		1.toDo(count) { :i |
+		1L.toDo(count) { :i |
 			(probabilities[i] >= average).if {
 				large.addLast!(i)
 			} {
@@ -36,7 +36,9 @@ AliasMethod : [Object, Equal, Iterator] {
 			}
 		};
 		{
-			small.isEmpty || large.isEmpty
+			small.isEmpty | {
+				large.isEmpty
+			}
 		}.whileFalse {
 			let less = small.removeLast!;
 			let more = large.removeLast!;
@@ -49,11 +51,15 @@ AliasMethod : [Object, Equal, Iterator] {
 				small.addLast!(more)
 			}
 		};
-		{ small.isEmpty }.whileFalse {
-			probability[small.removeLast!] := 1
+		{
+			small.isEmpty
+		}.whileFalse {
+			probability[small.removeLast!] := 1.0
 		};
-		{ large.isEmpty }.whileFalse {
-			probability[large.removeLast!] := 1
+		{
+			large.isEmpty
+		}.whileFalse {
+			probability[large.removeLast!] := 1.0
 		};
 		newAliasMethod().initializeSlots(alias, probability)
 	}

@@ -117,16 +117,16 @@ The halving Recaman walk,
 OEIS [A400939](https://oeis.org/A400939):
 
 ~~~spl svg=A oeis=A400939
-let s = Set([1], ==);
-let p = 1;
-let a = [1];
-2:135.do { :i |
+let s = Set([1L], ==);
+let p = 1L;
+let a = [1L];
+2L:135L.do { :i |
 	(
 		p.isEven & {
-			s.includes(p // 2).not
+			s.includes(p // 2L).not
 		}
 	).if {
-		p := p // 2
+		p := p // 2L
 	} {
 		p := p + i
 	};

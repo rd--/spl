@@ -48,7 +48,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		/* Model: SmallInteger | Integer */
-		aNumber.isIntegerValuedNumber.if {
+		aNumber.isInteger.if {
 			aBlock(
 				Decimal(aNumber, 0L),
 				self
@@ -60,6 +60,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	ceiling { :self |
 		Decimal(self.decimalFraction.ceiling, 0L)
+	}
+
+	continuedFraction { :self |
+		self.decimalFraction.continuedFraction
 	}
 
 	denominator { :self |
@@ -79,7 +83,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	floor { :self |
-		Decimal(self.decimalFraction.floor, 0L)
+		self.decimalFraction.floor
 	}
 
 	fractionalPart { :self |
@@ -98,14 +102,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	integerPart { :self |
-		uncheckedDecimal(
-			Fraction(
-				self.decimalFraction.integerPart,
-				1L
-			),
-			self.scale
-		)
+	[integerPart, truncate] { :self |
+		self.decimalFraction.integerPart
 	}
 
 	isCloseBy { :self :aNumber :epsilon |
@@ -197,7 +195,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	[power, ^] { :self :aNumber |
 		/* Model: SmallInteger | Integer */
-		aNumber.isIntegerValuedNumber.if {
+		aNumber.isInteger.if {
 			self.raisedToInteger(aNumber)
 		} {
 			self.unimplementedCase('power')
@@ -276,7 +274,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	round { :self |
-		Decimal(self.decimalFraction.round, 0L)
+		self.decimalFraction.round
 	}
 
 	square { :self |
@@ -311,10 +309,6 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	[toFraction, decimalToFraction] { :self |
 		self.decimalFraction
-	}
-
-	truncate { :self |
-		self.decimalFraction.truncate
 	}
 
 	truncateScale { :self :k :mode/1 |
@@ -409,7 +403,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 			}
 		} {
 			/* Model: SmallInteger | Integer */
-			self.isIntegerValuedNumber.if {
+			self.isInteger.if {
 				uncheckedDecimal(
 					Fraction(self, 1L),
 					scale
@@ -427,17 +421,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	adaptToDecimalAndApply { :self :receiver :aBlock/2 |
 		/* Model: SmallInteger | Integer */
-		self.isIntegerValuedNumber.if {
-			aBlock(
-				receiver,
-				Decimal(self, 0L)
-			)
-		} {
-			aBlock(
-				Float(receiver),
-				self
-			)
-		}
+		aBlock(
+			Float(receiver),
+			self
+		)
 	}
 
 }

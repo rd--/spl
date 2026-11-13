@@ -59,7 +59,7 @@ Plot approach to limit:
 The binary case answers a `Decimal` value with _m_ decimal places:
 
 ```
->>> 1.eulerGamma(34)
+>>> 1D.eulerGamma(34)
 0.5772156649015328606065120900824024D
 ```
 
@@ -77,7 +77,7 @@ OEIS [A001620](https://oeis.org/A001620):
 Scatter plot of the digits of γ:
 
 ~~~spl svg=B
-1.eulerGamma(99)
+1D.eulerGamma(99)
 .integerDigits
 .scatterPlot
 ~~~

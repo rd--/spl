@@ -271,7 +271,7 @@ OEIS [A005597](https://oeis.org/A005597):
 0.66016
 
 >>> 'TwinPrimeConstant'
->>> .namedConstant(1, 23)
+>>> .namedConstant(1D, 23)
 0.66016181584686957392781D
 ```
 
@@ -432,9 +432,9 @@ OEIS [A065306](https://oeis.org/A065306):
 
 ~~~spl svg=J oeis=A065306 permutation
 let a = 2:23.triangularArray { :n :k |
-	(n.prime + k.prime) / 2
+	(n.prime + k.prime) // 2L
 }.catenate;
-let b = a.deleteDuplicates - 2;
+let b = a.deleteDuplicates(==) - 2L;
 a.scatterPlot
 ~~~
 

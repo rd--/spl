@@ -106,7 +106,7 @@ equal but for the second places to
 OEIS [A058840](https://oeis.org/A058840):
 
 ```
->>> betaExpansion(2, 3/2, 103)
+>>> betaExpansion(2L, 3/2, 103L)
 [
 	[
 		1 0 0 1 0 0 0 0 0 1
@@ -124,9 +124,9 @@ OEIS [A058840](https://oeis.org/A058840):
 	2
 ]
 
->>> betaExpansion(2, 3/2, 89)
+>>> betaExpansion(2L, 3/2, 89L)
 >>> .betaContraction(1.5)
-2
+2.0
 ```
 
 Base φ:
@@ -153,9 +153,9 @@ equal but for the initial places to
 OEIS [A058841](https://oeis.org/A058841):
 
 ```
->>> betaExpansion(2, 3/2, 430)
+>>> betaExpansion(2L, 3/2, 430L)
 >>> .first
->>> .runLengthsOf(0)
+>>> .runLengthsOf(0L)
 >>> .allButLast
 [
 	2  5  2 2 1 9 6 4 6  2
@@ -175,9 +175,9 @@ equal but for the initial places to
 OEIS [A058841](https://oeis.org/A058841):
 
 ~~~spl svg=A oeis=A058841
-betaExpansion(2, 3/2, 430)
+betaExpansion(2L, 3/2, 430L)
 .first
-.runLengthsOf(0)
+.runLengthsOf(0L)
 .discretePlot
 ~~~
 

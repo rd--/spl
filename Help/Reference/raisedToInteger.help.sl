@@ -53,8 +53,8 @@ An exponent of `zero` answers `one` of the correct type:
 >>> 7J9 ^ 0
 1J0
 
->>> 3.141D ^ 0
-1.000D
+>>> 3.141D ^ 0L
+1D
 ```
 
 An exponent of `one` answers _n_:

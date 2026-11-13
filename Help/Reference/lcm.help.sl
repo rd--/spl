@@ -20,6 +20,9 @@ The least common multiple of two numbers is their `product` divided by the `gcd`
 
 >>> 1624.lcm(26)
 21112
+
+>>> lcm(5/4, 3/2)
+15/2
 ```
 
 At `Collection`:
@@ -39,6 +42,9 @@ At `Collection`:
 
 >>> [5].lcm
 5
+
+>>> [1/1 5/4 3/2 15/8].lcm
+15/1
 ```
 
 At increasing ranges:

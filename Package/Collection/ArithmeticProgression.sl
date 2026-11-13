@@ -14,9 +14,22 @@
 		}
 	}
 
+	approximateProduct { :self |
+		let a = self.start;
+		let d = self.step;
+		let n = self.size;
+		(d = 1L).if {
+			(a + n).gamma / a.gamma
+		} {
+			let m = a / d;
+			(d ^ n) * ((m + n).gamma / m.gamma)
+		}
+	}
+
 	atIfAbsent { :self :index :ifAbsent/0 |
+		let integerIndex = Integer(index);
 		self.includesIndex(index).if {
-			self.start + (self.step * (index - 1L))
+			self.start + (self.step * (integerIndex - 1L))
 		} {
 			ifAbsent()
 		}
@@ -142,18 +155,6 @@
 			self.emptyError('@ArithmeticProgression>>min')
 		};
 		min(self.start, self.end)
-	}
-
-	product { :self |
-		let a = self.start;
-		let d = self.step;
-		let n = self.size;
-		(d = 1L).if {
-			(a + n).gamma / a.gamma
-		} {
-			let m = a / d;
-			(d ^ n) * ((m + n).gamma / m.gamma)
-		}
 	}
 
 	reverseDo { :self :aBlock/1 |

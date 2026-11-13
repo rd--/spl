@@ -225,10 +225,10 @@ Numerators of a rational guess _r(n)_ for the input for Newton’s algorithm to 
 OEIS [A256097](https://oeis.org/A256097):
 
 ~~~spl svg=F oeis=A256097
-let n = 1L:70;
+let n = 1L:70L;
 let a = n.integerSquareRoot;
 let b = a + (n / a);
-(b / 2).numerator
+(b / 2L).numerator
 .discretePlot
 ~~~
 
@@ -238,10 +238,11 @@ Denominators of a rational guess _r(n)_ for the input for Newton’s algorithm t
 OEIS [A256098](https://oeis.org/A256098):
 
 ~~~spl svg=G oeis=A256098
-let n = 1:70;
+let n = 1L:70L;
 let a = n.integerSquareRoot;
-let b = a + Fraction(n, a);
-(b / 2).denominator.discretePlot
+let b = a + (n / a);
+(b / 2L).denominator
+.discretePlot
 ~~~
 
 ![](Help/Image/integerSquareRoot-G.svg)
@@ -251,7 +252,7 @@ a staircase function,
 OEIS [A000196](https://oeis.org/A000196):
 
 ~~~spl svg=H oeis=A000196
-0:65.integerSquareRoot
+0L:65L.integerSquareRoot
 .discretePlot
 ~~~
 

@@ -507,19 +507,19 @@
 
 }
 
-+[Float, Fraction] {
++[Float, Integer, Fraction] {
 
 	smoothStep { :x |
-		x * x * (3 - (2 * x))
+		x * x * (3L - (2L * x))
 	}
 
 	smoothStepFunction { :n |
 		{ :x |
-			let answer = 0;
-			0.toDo(n) { :i |
-				let p = binomialPascal(-n - 1, i);
-				let q = binomialPascal(2 * n + 1, n - i);
-				let r = x ^ (n + i + 1);
+			let answer = 0L;
+			0L.toDo(n) { :i |
+				let p = binomialPascal(-n - 1L, i);
+				let q = binomialPascal(2L * n + 1L, n - i);
+				let r = x ^ (n + i + 1L);
 				answer := answer + (p * q * r)
 			};
 			answer
@@ -527,7 +527,7 @@
 	}
 
 	smootherStep { :x |
-		x * x * x * (x * (6 * x - 15) + 10)
+		x * x * x * (x * (6L * x - 15L) + 10L)
 	}
 
 }

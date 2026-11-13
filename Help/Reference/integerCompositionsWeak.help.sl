@@ -8,49 +8,49 @@ A weak composition is an ordered arrangement of _k_ non-negative integers which 
 Compositions of three into two parts:
 
 ```
->>> 3.integerCompositionsWeak([2])
+>>> 3L.integerCompositionsWeak([2L])
 [0 3; 1 2; 2 1; 3 0]
 
->>> 3.integerCompositions([2])
+>>> 3L.integerCompositions([2L])
 [1 2; 2 1]
 ```
 
 The number of compositions of _n_ into _k_ parts:
 
 ```
->>> 3.numberOfCompositionsWeak(2)
+>>> 3L.numberOfCompositionsWeak(2L)
 4
 
->>> let n = 3;
->>> let k = 2;
->>> (n + k - 1).binomial(n)
+>>> let n = 3L;
+>>> let k = 2L;
+>>> (n + k - 1L).binomial(n)
 4
 ```
 
 In the weak form _k_ may be greater than _n_:
 
 ```
->>> 2.integerCompositionsWeak([3])
+>>> 2L.integerCompositionsWeak([3L])
 [0 0 2; 0 1 1; 0 2 0; 1 0 1; 1 1 0; 2 0 0]
 ```
 
 4-2 compositions:
 
 ```
->>> 4.integerCompositionsWeak([2])
+>>> 4L.integerCompositionsWeak([2L])
 [0 4; 1 3; 2 2; 3 1; 4 0]
 
->>> (4 + 2 - 1).binomial(4)
+>>> (4L + 2L - 1L).binomial(4L)
 5
 
->>> 4.integerCompositions([2])
+>>> 4L.integerCompositions([2L])
 [1 3; 2 2; 3 1]
 ```
 
 4-3 compositions:
 
 ```
->>> 4.integerCompositionsWeak([3])
+>>> 4L.integerCompositionsWeak([3L])
 [
 	0 0 4; 0 1 3; 0 2 2; 0 3 1; 0 4 0;
 	1 0 3; 1 1 2; 1 2 1; 1 3 0; 2 0 2;

@@ -65,7 +65,7 @@ Quadratic irrationals have periodic continued fractions:
 Give all convergents for a rational number:
 
 ```
->>> 7/17.continuedFraction(4)
+>>> 7/17.continuedFraction
 >>> .convergents
 [0 1/2 2/5 7/17]
 ```

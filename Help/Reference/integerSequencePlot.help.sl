@@ -19,8 +19,8 @@ Plot two cycles of the squares modulo thirty:
 This residue sequence has only twelve distinct values:
 
 ```
->>> 1:60.square.mod(30, 1)
->>> .deleteDuplicates
+>>> 1L:60L.square.mod(30L, 1L)
+>>> .deleteDuplicates(==)
 [1 4 9 16 25 6 19 21 10 24 15 30]
 ```
 

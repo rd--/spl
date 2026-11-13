@@ -46,7 +46,7 @@ ListView : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Coll
 
 	indexOf { :self :anObject |
 		self.indexOfIfAbsent(anObject) {
-			self.referenceIndex - 1
+			self.referenceIndex - 1L
 		}
 	}
 

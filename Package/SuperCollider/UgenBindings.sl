@@ -1522,7 +1522,7 @@
 		<primitive: return sc.Mul(_self, _anObject);>
 	}
 
-	[truncate, integerPart] { :self :anObject |
+	truncate { :self :anObject |
 		<primitive: return sc.Trunc(_self, _anObject);>
 	}
 

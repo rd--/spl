@@ -7,6 +7,12 @@ Answer a `Date` value representing the specified Julian date.
 ```
 >>> JulianDate(-4713, 11, 24)
 Date(-4713, 10, 17)
+
+>>> julianToJulianDay(-4713, 11, 24)
+-38L
+
+>>> julianDayToGregorian(-38L)
+[-4713 10 16.5]
 ```
 
 The inverse is `julianDate`:

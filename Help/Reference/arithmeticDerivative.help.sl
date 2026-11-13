@@ -8,8 +8,8 @@ also called the Lagarias arithmetic derivative or number derivative.
 Find the arithmetic derivative of one hundred:
 
 ```
->>> 100.arithmeticDerivative
-140
+>>> 100L.arithmeticDerivative
+140L
 ```
 
 Find the arithmetic derivative of the fraction _3/10_
@@ -22,47 +22,47 @@ Find the arithmetic derivative of the fraction _3/10_
 The arithmetic derivate for any prime is one:
 
 ```
->>> 23.arithmeticDerivative
-1
+>>> 23L.arithmeticDerivative
+1L
 ```
 
 At negative ten:
 
 ```
->>> -10.arithmeticDerivative
--7
+>>> -10L.arithmeticDerivative
+-7L
 
->>> 10.arithmeticDerivative
-7
+>>> 10L.arithmeticDerivative
+7L
 ```
 
 Find the arithmetic derivative of a prime tower:
 
 ```
->>> (3 ^ 11).arithmeticDerivative
-649539
+>>> (3L ^ 11L).arithmeticDerivative
+649539L
 
->>> 11 * (3 ^ 10)
-649539
+>>> 11L * (3L ^ 10L)
+649539L
 ```
 
 For all _i,j_ _D(ij)=iD(j)+jD(i)_:
 
 ```
->>> (15 * 60).arithmeticDerivative
-1860
+>>> (15L * 60L).arithmeticDerivative
+1860L
 
->>> (15 * 60.arithmeticDerivative)
+>>> (15L * 60L.arithmeticDerivative)
 >>> +
->>> (60 * 15.arithmeticDerivative)
-1860
+>>> (60L * 15L.arithmeticDerivative)
+1860L
 ```
 
 Higher order arithmetic derivatives are defined successively by iteration:
 
 ```
 >>> arithmeticDerivative/1
->>> .nestList(100, 5)
+>>> .nestList(100L, 5L)
 [100 140 188 192 640 2368]
 ```
 
@@ -70,7 +70,7 @@ First few terms of the arithmetic derivative of _n_,
 OEIS [A003415](https://oeis.org/A003415):
 
 ```
->>> 0:23.arithmeticDerivative
+>>> 0L:23L.arithmeticDerivative
 [
 	 0  0  1  1  4  1  5 1  12  6
 	 7  1 16  1  9  8 32 1  21  1
@@ -82,7 +82,7 @@ First few terms of the second arithmetic derivative of _n_,
 OEIS [A068346](https://oeis.org/A068346):
 
 ```
->>> 0:23.arithmeticDerivative
+>>> 0L:23L.arithmeticDerivative
 >>> .arithmeticDerivative
 [
 	 0 0  0 0 4  0  1 0 16 5
@@ -95,7 +95,7 @@ First few terms of the third arithmetic derivative of _n_,
 OEIS [A099306](https://oeis.org/A099306):
 
 ```
->>> 0:23.arithmeticDerivative
+>>> 0L:23L.arithmeticDerivative
 >>> .arithmeticDerivative
 >>> .arithmeticDerivative
 [
@@ -109,7 +109,7 @@ First few terms of the _n_-th arithmetic derivative of _n_,
 OEIS [A185232](https://oeis.org/A185232):
 
 ```
->>> 0:23.collect { :n |
+>>> 0L:23L.collect { :n |
 >>> 	arithmeticDerivative/1
 >>> 	.iterate(n, n)
 >>> }
@@ -205,10 +205,10 @@ where _x′_ is the arithmetic derivative of _x_,
 OEIS [A099302](https://oeis.org/A099302):
 
 ~~~spl svg=F oeis=A099302
-let m = 250;
-let k = m.square // 4;
-3:k.collect(arithmeticDerivative/1)
-.countIntegers([2 m])
+let m = 250L;
+let k = m.square // 4L;
+3L:k.collect(arithmeticDerivative/1)
+.countIntegers([2L m])
 .scatterPlot
 ~~~
 

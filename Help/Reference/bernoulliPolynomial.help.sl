@@ -5,7 +5,7 @@
 Answer the `UnivariatePolynomial` for the Bernoulli polynomial _B(n)_.
 
 ```
->>> 5.bernoulliPolynomial
+>>> 5L.bernoulliPolynomial
 UnivariatePolynomial(
 	[0 -1/6 0 5/3 -5/2 1]
 )
@@ -14,7 +14,7 @@ UnivariatePolynomial(
 Plot the polynomial _B(3)_:
 
 ~~~spl svg=A
-let p = 3.bernoulliPolynomial;
+let p = 3L.bernoulliPolynomial;
 (0 -- 1).functionPlot(p.unaryBlock)
 ~~~
 
@@ -24,7 +24,7 @@ Plot the polynomials _B(5)_ and _B(6)_:
 
 ~~~spl svg=B
 (-0.35 -- 1).functionPlot(
-	[5 6].collect { :n |
+	[5L 6L].collect { :n |
 		n.bernoulliPolynomial.unaryBlock
 	}
 )

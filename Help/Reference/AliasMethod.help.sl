@@ -12,7 +12,7 @@ The distribution is given as a sequence of probability values that `sum` to `one
 >>> let r = Sfc32(1372);
 >>> let d = { m.nextRandom(r) } ! 1000;
 >>> let a = d.sortedElements(==);
->>> (->.zipWith(1:5, w * 1000), a)
+>>> (->.zipWith(1L:5L, w * 1000), a)
 (
 	[
 		1 -> 250,

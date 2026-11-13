@@ -27,7 +27,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	[Integer, L, fractionToInteger] { :self |
-		self.isIntegerValuedNumber.if {
+		self.denominator.isOne.if {
 			self.numerator
 		} {
 			self.error('Fraction>>Integer: not integer')
@@ -57,21 +57,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	adaptToNumberAndApply { :self :operand :aBlock/2 |
 		/* Model: SmallInteger | Integer */
-		operand.isIntegerValuedNumber.if {
-			/* self.adaptToIntegerAndApply(operand, aBlock/2) */
-			aBlock(
-				Fraction(
-					Integer(operand),
-					1L
-				),
-				self
-			)
-		} {
-			aBlock(
-				operand,
-				Float(self)
-			)
-		}
+		aBlock(
+			operand,
+			Float(self)
+		)
 	}
 
 	arithmeticDerivative { :n |
@@ -100,8 +89,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		let i = self.integerPart;
 		let f = self - i;
 		self.isNegative.if {
-			let answer = (1 + f).continuedFraction;
-			answer[1] := answer[1] + i - 1;
+			let answer = (1L + f).continuedFraction;
+			answer[1] := answer[1] + i - 1L;
 			answer
 		} {
 			let answer = [];
@@ -109,7 +98,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 				f.isZero.not
 			}.whileTrue {
 				answer.add!(i);
-				f := 1 / f;
+				f := 1L / f;
 				i := f.integerPart;
 				f := f - i
 			};
@@ -160,9 +149,9 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		{
 			x.isZero.not
 		}.whileTrue {
-			let y = (1 / x).ceiling;
+			let y = (1L / x).ceiling;
 			a.add!(y);
-			x := x * y - 1
+			x := x * y - 1L
 		};
 		a
 	}
@@ -195,6 +184,12 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		} {
 			operand.adaptToFractionAndApply(self, gcd/2)
 		}
+	}
+
+	[integerPart, truncate] { :self |
+		self.numerator.quotient(
+			self.denominator
+		)
 	}
 
 	[integerSquareRoot, isqrt] { :self |
@@ -406,8 +401,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		let a0 = a.removeFirst!;
 		let m = a.size;
 		a0 + (
-			2 * [1L .. m].sum { :n |
-				(-1L ^ (n + 1)) / (2L ^ a.take(n).sum)
+			2L * [1L .. m].sum { :n |
+				(-1L ^ (n + 1L)) / (2L ^ a.take(n).sum)
 			}
 		)
 	}
@@ -608,9 +603,9 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	sternBrocotChildren { :self |
 		let a = self.continuedFraction;
 		let b = a.copy;
-		a[a.size] := a[a.size] + 1;
-		b[a.size] := b[a.size] - 1;
-		b.add!(2);
+		a[a.size] := a[a.size] + 1L;
+		b[a.size] := b[a.size] - 1L;
+		b.add!(2L);
 		[
 			a.fromContinuedFraction,
 			b.fromContinuedFraction
@@ -627,7 +622,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		} {
 			let c = self.continuedFraction;
 			let n = c.size;
-			c[n] := c[n] - 1;
+			c[n] := c[n] - 1L;
 			c.fromContinuedFraction
 		}
 	}
@@ -719,12 +714,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
-	truncate { :self |
-		self.numerator.quotient(
-			self.denominator
-		)
-	}
-
 	unicodeFraction { :self |
 		system.unicodeFractionsTable.indexOf(self)
 	}
@@ -782,23 +771,19 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 }
 
-+@Integer {
++Integer {
 
 	[Fraction, R] { :numerator :denominator |
-		numerator.isNaN.if {
-			NaN
+		denominator.isIntegerValuedNumber.if {
+			uncheckedFraction(
+				numerator,
+				Integer(denominator)
+			).simplify!
 		} {
-			denominator.isIntegerValuedNumber.if {
-				uncheckedFraction(
-					Integer(numerator),
-					Integer(denominator)
-				).simplify!
-			} {
-				denominator.adaptToIntegerAndApply(
-					numerator,
-					Fraction/2
-				)
-			}
+			denominator.adaptToIntegerAndApply(
+				numerator,
+				Fraction/2
+			)
 		}
 	}
 
@@ -808,6 +793,29 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 			uncheckedFraction(self, 1L)
 		)
 	}
+
+}
+
++Float {
+
+	[Fraction, R] { :numerator :denominator |
+		numerator.isNaN.if {
+			NaN
+		} {
+			Fraction(Integer(numerator), denominator)
+		}
+	}
+
+	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
+		aBlock(
+			Float(aFraction),
+			self
+		)
+	}
+
+}
+
++@Integer {
 
 	arithmeticDerivative { :self |
 		Fraction(self, 1L)
@@ -894,20 +902,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	adaptToFractionAndApply { :self :operand :aBlock/2 |
 		/* Model: SmallInteger | Integer */
-		self.isIntegerValuedNumber.if {
-			aBlock(
-				operand,
-				Fraction(
-					uncheckedInteger(self),
-					1L
-				)
-			)
-		} {
-			aBlock(
-				Float(operand),
-				self
-			)
-		}
+		aBlock(
+			Float(operand),
+			self
+		)
 	}
 
 }
@@ -1030,15 +1028,15 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	fareyConvergence { :x :n |
-		let n1 = 0;
-		let d1 = 1;
-		let n9 = 1;
-		let d9 = 1;
-		let f = 0;
+		let n1 = 0L;
+		let d1 = 1L;
+		let n9 = 1L;
+		let d9 = 1L;
+		let f = 0L;
 		let fp = x.fractionalPart;
 		let a = [
 			Fraction(
-				(2 * fp > 1).if { x.ceiling } { x.floor },
+				(2L * fp > 1L).if { x.ceiling } { x.floor },
 				1L
 			)
 		];

@@ -23,10 +23,10 @@ Unary trunate is equivalent to `integerPart`.
 ]
 
 >>> 1.pi.truncate
-3
+3L
 
 >>> -1.pi.truncate
--3
+-3L
 ```
 
 Compare to `ceiling` and `floor`:
@@ -75,7 +75,7 @@ compare to `truncateScale`:
 
 ```
 >>> 3.141D.truncate
-3.000D
+3L
 
 >>> 3.141D.truncateScale(0)
 3D
@@ -100,8 +100,8 @@ answer the next multiple of _α_ toward `zero` that is nearest _n_.
 >>> 3.1479.truncate(0.1)
 3.1
 
->>> 1923.truncate(10)
-1920
+>>> 1923L.truncate(10L)
+1920L
 
 >>> 3.1479.truncate(0.005)
 3.145
@@ -111,6 +111,9 @@ answer the next multiple of _α_ toward `zero` that is nearest _n_.
 
 >>> -2.22.truncate(0.1)
 -2.2
+
+>>> 22/7.truncate(1/100)
+157/50
 ```
 
 Truncate is a staircase function:

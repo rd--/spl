@@ -733,7 +733,7 @@
 		self.isSquareMatrix.if {
 			let size = self.numberOfRows;
 			let array = self;
-			let answer = 0;
+			let answer = 0L;
 			size.iota.plainChangesDo { :p |
 				let sign = p.permutationSymbol;
 				let entries = p.withIndexCollect { :i :j |
@@ -744,7 +744,7 @@
 			answer
 		} {
 			self.ifEmpty {
-				1
+				1L
 			} {
 				self.error('List>>permanent: not defined at non-square matrices')
 			}

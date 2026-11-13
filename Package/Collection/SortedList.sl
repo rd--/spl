@@ -75,13 +75,13 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 	indexOf { :self :anObject |
 		let i = self.indexForInserting(anObject);
 		(
-			i >= 2 & {
+			i >= 2L & {
 				self[i - 1] = anObject
 			}
 		).if {
-			i - 1
+			i - 1L
 		} {
-			0
+			0L
 		}
 	}
 

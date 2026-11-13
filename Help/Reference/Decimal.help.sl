@@ -99,13 +99,13 @@ with and without fractional part and scale specifier:
 3.000D
 ```
 
-Multiplication with small integer:
+Multiplication with `Integer`:
 
 ```
->>> 3.1416D * 2.0
+>>> 3.1416D * 2L
 6.2832D
 
->>> 23.0 * 1.618D
+>>> 23L * 1.618D
 37.214D
 ```
 
@@ -171,7 +171,7 @@ Addition with `Decimal` preserves greatest number of places:
 >>> 23.0D = 23.00D
 false
 
->>> 23.0D = 23
+>>> 23.0D = 23D
 false
 
 >>> 23.0D = 23.0D
@@ -267,8 +267,8 @@ Division:
 >>> 1D / 7L
 1L / 7D
 
->>> 1.0 / 7D
-1D / 7.0
+>>> 1L / 7D
+1D / 7L
 ```
 
 Integer and fractional parts retain scale:
@@ -287,10 +287,10 @@ Integer and fractional parts retain scale:
 Integer exponent:
 
 ```
->>> 23D ^ 23
+>>> 23D ^ 23L
 20880467999847912034355032910567D
 
->>> 2.5D ^ 3
+>>> 2.5D ^ 3L
 15.625D
 
 >>> 2.5D * 2.5D * 2.5D
@@ -335,7 +335,7 @@ Print `String`:
 >> -1.618D.printString
 -1.618D
 
->> (23D ^ 23).printString
+>> (23D ^ 23L).printString
 20880467999847912034355032910567D
 ```
 

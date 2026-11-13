@@ -79,18 +79,18 @@ Generate a banded matrix with two superdiagonals:
 Relation to convergents of continued fraction constant:
 
 ```
->>> 1:7.collect { :n |
+>>> 1L:7L.collect { :n |
 >>> 	{ :i :j |
 >>> 		(kroneckerDelta(i, j) * i)
 >>> 		+
->>> 		kroneckerDelta(i, j - 1)
+>>> 		kroneckerDelta(i, j - 1L)
 >>> 		+
->>> 		kroneckerDelta(i, j + 1)
->>> 	}.array([n - 1, n - 1]).permanent
+>>> 		kroneckerDelta(i, j + 1L)
+>>> 	}.array([n - 1L, n - 1L]).permanent
 >>> }
 [1 1 3 10 43 225 1393]
 
->>> [0 1 2 3 4 5 6].convergents
+>>> [0L 1L 2L 3L 4L 5L 6L].convergents
 >>> .denominator
 [1 1 3 10 43 225 1393]
 ```

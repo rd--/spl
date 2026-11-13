@@ -82,10 +82,10 @@ Restricted growth string for the decimal expansion of the number _n_,
 OEIS [A123895](https://oeis.org/A123895):
 
 ```
->>> 0:68.collect { :n |
->>> 	let d = [0] ++ n.integerDigits;
->>> 	let b = d.deleteDuplicates;
->>> 	let a = [0 .. b.size];
+>>> 0L:68L.collect { :n |
+>>> 	let d = [0L] ++ n.integerDigits;
+>>> 	let b = d.deleteDuplicates(==);
+>>> 	let a = [0L .. b.size];
 >>> 	d.collect { :i |
 >>> 		let j = b.indexOf(i);
 >>> 		a[j]

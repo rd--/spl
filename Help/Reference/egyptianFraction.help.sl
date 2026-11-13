@@ -26,7 +26,7 @@ Denominators of greedy Egyptian fraction for _e-2_,
 OEIS [A006525](https://oeis.org/A006525):
 
 ```
->>> ('E'.namedConstant - 2)
+>>> ('E'.namedConstant - 2D)
 >>> .egyptianFraction(7)
 [
 	2

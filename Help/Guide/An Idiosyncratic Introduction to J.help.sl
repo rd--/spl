@@ -381,7 +381,9 @@ has prime factors that are the primes less than _2n_:
 >>> let n = 5L;
 >>> let x = [1L .. n];
 >>> let h = 1.R(x +.outer (x - 1));
->>> (1 / h.determinant).primeFactors.nub
+>>> (1 / h.determinant)
+>>> .primeFactors
+>>> .nub(==)
 [2 3 5 7]
 ```
 

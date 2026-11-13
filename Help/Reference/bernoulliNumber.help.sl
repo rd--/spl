@@ -8,7 +8,7 @@ The first eleven Bernoulli numbers,
 threads over lists:
 
 ```
->>> 0:10.bernoulliNumber
+>>> 0L:10L.bernoulliNumber
 [
 	1/1 -1/2 1/6 0 -1/30
 	0 1/42 0 -1/30 0
@@ -23,7 +23,7 @@ apart from sign of second entry,
 OEIS [A164555](https://oeis.org/A164555):
 
 ```
->>> 0:16.bernoulliNumber.numerator
+>>> 0L:16L.bernoulliNumber.numerator
 [1 -1 1 0 -1 0 1 0 -1 0 5 0 -691 0 7 0 -3617]
 ```
 
@@ -31,18 +31,18 @@ Denominators of Bernoulli numbers,
 OEIS [A027642](https://oeis.org/A027642):
 
 ```
->>> 0:16.bernoulliNumber.denominator
+>>> 0L:16L.bernoulliNumber.denominator
 [1 2 6 1 30 1 42 1 30 1 66 1 2730 1 6 1 510]
 ```
 
 The 20th and 40th Bernoulli numbers:
 
 ```
->>> let n = 20.bernoulliNumber;
+>>> let n = 20L.bernoulliNumber;
 >>> (n, Float(n))
 (-174611/330, -529.12424)
 
->>> 40.bernoulliNumber
+>>> 40L.bernoulliNumber
 -261082718496449122051L
 /
 13530
@@ -64,8 +64,8 @@ OEIS [A001067](https://oeis.org/A001067) &
 OEIS [A006953](https://oeis.org/A006953):
 
 ```
->>> 1:8.collect { :n |
->>> 	let m = 2 * n;
+>>> 1L:8L.collect { :n |
+>>> 	let m = 2L * n;
 >>> 	m.bernoulliNumber / m
 >>> }
 [
@@ -78,7 +78,7 @@ Numerators of Bernoulli numbers _2n_,
 OEIS [A000367](https://oeis.org/A000367):
 
 ```
->>> 0:20:2.bernoulliNumber.numerator
+>>> 0L:20L:2L.bernoulliNumber.numerator
 [1 1 -1 1 -1 5 -691 7 -3617 43867 -174611]
 ```
 

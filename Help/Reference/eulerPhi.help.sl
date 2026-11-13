@@ -384,7 +384,7 @@ Denominator of _((n-φ)/φ)_,
 [A076512](https://oeis.org/A076512):
 
 ~~~spl svg=E oeis=A076512
-1:86.collect { :n |
+1L:86L.collect { :n |
 	let phi = n.eulerPhi.rationalize;
 	((n - phi) / phi).denominator
 }.scatterPlot

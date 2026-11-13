@@ -58,7 +58,7 @@ which can be confusing if one is not aware of the distinction between _x / y_ an
 Fractions approximating π:
 
 ```
->>> [3 7].fromContinuedFraction
+>>> [3L 7L].fromContinuedFraction
 22/7
 
 >>> let x = 22/7;
@@ -258,7 +258,7 @@ A number that is, to within the available precision, an integer:
 The binary case answers a `Decimal` value with _m_ decimal places:
 
 ```
->>> 1.pi(34)
+>>> 1D.pi(34)
 3.1415926535897932384626433832795028D
 ```
 
@@ -277,8 +277,9 @@ Simple continued fraction expansion of π,
 OEIS [A001203](https://oeis.org/A001203):
 
 ```
->>> 1.pi(104)
+>>> 1D.pi(104)
 >>> .continuedFraction
+>>> .take(24)
 [
 	3 7 15 1 292 1 1 1 2 1
 	3 1 14 2 1 1 2 2 2 2
@@ -299,6 +300,7 @@ OEIS [A070989](https://oeis.org/A070989):
 ```
 >>> 1/4.pi(104)
 >>> .continuedFraction
+>>> .take(24)
 [
 	0 1 3 1 1 1 15 2 72 1
 	9 1 17 1 2 1 5 1 1 10
@@ -317,7 +319,9 @@ The Base-13 expansion of `pi`,
 OEIS [A068438](https://oeis.org/A068438):
 
 ```
->>> 1.pi(98).realDigits(13, 88).first
+>>> 1D.pi(98)
+>>> .realDigits(13L, 88)
+>>> .first
 [
 	 3  1 10 12  1  0  4  9  0  5
 	 2 10  2 12  7  7  3  6  9 12
@@ -335,7 +339,8 @@ The Base-60 (Babylonian or sexagesimal) expansion of `pi`
 OEIS [A060707](https://oeis.org/A060707):
 
 ```
->>> 1.pi(104).realDigits(60, 58).first
+>>> 1D.pi(104)
+>>> .realDigits(60L, 58).first
 [
 	 3  8 29 44  0 47 25 53  7 24
 	57 36 17 43  4 29  7 10  3 41
@@ -350,7 +355,7 @@ Scatter plot of the digits of π,
 OEIS [A000796](https://oeis.org/A000796):
 
 ~~~spl svg=A oeis=A000796 constant
-1.pi(104)
+1D.pi(104)
 .integerDigits
 .scatterPlot
 ~~~
@@ -373,7 +378,8 @@ Scatter plot of the digits of _π/4_,
 OEIS [A003881](https://oeis.org/A003881):
 
 ~~~spl svg=C oeis=A003881 constant
-1/4.pi(104).integerDigits.scatterPlot
+0.25D.pi(104).integerDigits
+.scatterPlot
 ~~~
 
 ![](Help/Image/pi-C.svg)

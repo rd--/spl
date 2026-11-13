@@ -93,8 +93,8 @@ Matrix of one cycle of the squares modulo seventeen:
 This residue sequence has only nine distinct values:
 
 ```
->>> 1:17.square.mod(17, 1)
->>> .deleteDuplicates
+>>> 1L:17L.square.mod(17L, 1L)
+>>> .deleteDuplicates(==)
 [1 4 9 16 8 2 15 13 17]
 ```
 

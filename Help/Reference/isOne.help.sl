@@ -43,7 +43,7 @@ Note the rule if `scale` is not zero:
 
 ```
 >>> let x = 1.000D;
->>> (x.isOne, x = x.one, x = 1)
+>>> (x.isOne, x = x.one, x = 1L)
 (true, true, false)
 ```
 

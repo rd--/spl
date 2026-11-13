@@ -11,48 +11,48 @@ Round to integer, unary form or _α=1_:
 
 ```
 >>> 3.99.round
-4
+4L
 
->>> 4.round
-4
+>>> 4.0.round
+4L
 
 >>> 4.01.round
-4
+4L
 ```
 
 At half integers:
 
 ```
 >>> 1.5.round
-2
+2L
 
 >>> 2.5.round
-3
+3L
 
 >>> 3.5.round
-4
+4L
 
 >>> -1.5.round
--1
+-1L
 
 >>> -2.5.round
--2
+-2L
 
 >>> -3.5.round
--3
+-3L
 ```
 
 At negative _n_:
 
 ```
 >>> -1.9.round
--2
+-2L
 
 >>> -2.round
--2
+-2L
 
 >>> -2.1.round
--2
+-2L
 ```
 
 At `Integer`:

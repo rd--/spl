@@ -22,11 +22,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
 		/* Model: SmallInteger | Integer */
-		/*aNumber.isIntegerValuedNumber.if {
-			aBlock(Integer(aNumber), self)
-		} {*/
-			aBlock(aNumber, Float(self))
-		/*}*/
+		aBlock(aNumber, Float(self))
 	}
 
 	atRandom { :self |
@@ -62,8 +58,8 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	[bitShiftLeft, <<] { :self :operand |
-		<primitive:
 		/* Model: SmallInteger | Integer */
+		<primitive:
 		if(sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
 			return _self << BigInt(_operand);
 		}
@@ -72,8 +68,8 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	[bitShiftRight, >>] { :self :operand |
-		<primitive:
 		/* Model: SmallInteger | Integer */
+		<primitive:
 		if(sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
 			return _self >> BigInt(_operand);
 		}
@@ -90,6 +86,10 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		}
 		>
 		self.error('bitXor: operand not a Integer or Float', [operand])
+	}
+
+	ceiling { :self |
+		self
 	}
 
 	ceilingDivide { :a :b |
@@ -136,6 +136,10 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	[encodeJson, floatToJson] { :self |
 		Float(self).uncheckedEncodeJson
+	}
+
+	floor { :self |
+		self
 	}
 
 	floorDivide { :a :b |
@@ -253,7 +257,6 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 	isImmediate { :unused |
 		/* Model: SmallInteger | Integer */
-		/* 1L !== 1 */
 		true
 	}
 
@@ -322,7 +325,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	[mod, %] { :self :anObject |
 		<primitive:
 		/* Model: SmallInteger | Integer */
-		if (sl.isInteger(_anObject) /* || sl.isSmallInteger(_anObject) */) {
+		if (sl.isInteger(_anObject)) {
 			const i = BigInt(_anObject);
 			return ((_self % i) + i) % i;
 		}
@@ -357,7 +360,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	[plus, +] { :self :anObject |
 		<primitive:
 		/* Model: SmallInteger | Integer */
-		if (sl.isInteger(_anObject) /*|| sl.isSmallInteger(_anObject) */) {
+		if (sl.isInteger(_anObject)) {
 			return _self + BigInt(_anObject);
 		}
 		>
@@ -385,7 +388,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	[quotient, //] { :self :operand |
 		<primitive:
 		/* Model: SmallInteger | Integer */
-		if (sl.isInteger(_operand) /*|| sl.isSmallInteger(_operand) */) {
+		if (sl.isInteger(_operand)) {
 			return _self / BigInt(_operand);
 		};
 		>
@@ -409,7 +412,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	[remainder, \\] { :self :operand |
 		<primitive:
 		/* Model: SmallInteger | Integer */
-		if (sl.isInteger(_operand) /*|| sl.isSmallInteger(_operand) */) {
+		if (sl.isInteger(_operand)) {
 			return _self % BigInt(_operand);
 		}
 		>
@@ -440,7 +443,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	[subtract, -] { :self :anObject |
 		<primitive:
 		/* Model: SmallInteger | Integer */
-		if (sl.isInteger(_anObject) /* || sl.isSmallInteger(_anObject) */) {
+		if (sl.isInteger(_anObject)) {
 			return _self - BigInt(_anObject);
 		}
 		>
@@ -450,11 +453,15 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	[times, *] { :self :anObject |
 		<primitive:
 		/* Model: SmallInteger | Integer */
-		if (sl.isInteger(_anObject) /*|| sl.isSmallInteger(_anObject)*/) {
+		if (sl.isInteger(_anObject)) {
 			return _self * BigInt(_anObject);
 		}
 		>
 		anObject.adaptToIntegerAndApply(self, times/2)
+	}
+
+	[truncate, integerPart] { :self |
+		self
 	}
 
 	uncheckedGcd { :self :anInteger |
@@ -518,14 +525,14 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 +Float {
 
 	[Integer, L, floatToInteger] { :self |
-		self.isNaN.if {
-			NaN
-		} {
+		self.isFinite.if {
 			self.isSmallInteger.if {
 				self.uncheckedInteger
 			} {
 				self.error('Integer: not SmallInteger')
 			}
+		} {
+			self
 		}
 	}
 

@@ -10,6 +10,7 @@ The first row contain the harmonics (Otonality) and the first column the subharm
 Five limit:
 
 ```
+
 >>> 5.tonalityDiamond
 [
 	1/1 5/4 3/2;

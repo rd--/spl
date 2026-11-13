@@ -129,16 +129,20 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 	}
 
-	byteHexString { :self |
-		self.isByte.if {
-			self
-			.integerString(16L)
-			.padLeft([2], '0')
-		} {
-			self.error(
-				'Float>>byteHexString: not a byte'
-			)
-		}
+	ceiling { :self |
+		<primitive:
+		return Number.isFinite(_self) ? BigInt(Math.ceil(_self)) : _self;
+		>
+	}
+
+	ceilingDivide { :a :b |
+		(a / b).ceiling
+	}
+
+	ceilingToFloat { :self |
+		<primitive:
+		return Math.ceil(_self);
+		>
 	}
 
 	checkedBitShiftLeft { :self :operand |
@@ -175,6 +179,29 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 
 	concisePrintString { :self |
 		self.uncheckedFloatString(10)
+	}
+
+	continuedFraction { :self :limit |
+		let answer = [];
+		let i = self.floor;
+		let f = self - i;
+		{
+			(limit > 1) & {
+				f.isVeryClose(0).not
+			}
+		}.whileTrue {
+			answer.add!(i.L);
+			f := 1 / f;
+			i := f.floor;
+			f := f - i;
+			limit := limit - 1
+		};
+		answer.add!(i.L);
+		answer
+	}
+
+	continuedFraction { :self |
+		self.continuedFraction(24)
 	}
 
 	countLeadingOnes { :self :base :wordSize |
@@ -237,7 +264,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			let roundFractionPart = (round.abs.fractionalPart * rounder).round; /* truncate? */
 			[
 				prefix,
-				round.abs.integerPart.truncate.printString,
+				round.abs.integerPart.printString,
 				'.',
 				roundFractionPart.printString.padLeft([places], '0')
 			].stringCatenate
@@ -315,7 +342,17 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 
 	floor { :self |
 		<primitive:
-		return Math.floor(_self)
+		return Number.isFinite(_self) ? BigInt(Math.floor(_self)) : _self;
+		>
+	}
+
+	floorDivide { :a :b |
+		(a / b).floor
+	}
+
+	floorToFloat { :self |
+		<primitive:
+		return Math.floor(_self);
 		>
 	}
 
@@ -436,6 +473,12 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 
 	integerChop { :self |
 		self.integerChop(1E-10)
+	}
+
+	[integerPart, truncate] { :self |
+		<primitive:
+		return Number.isFinite(_self) ? BigInt(Math.trunc(_self)) : _self;
+		>
 	}
 
 	[integerSquareRoot, isqrt] { :self |
@@ -845,7 +888,11 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			} {
 				let exponent = (x.log10 + 1.0).round;
 				[
-					(x * (10.0 ^ (size - exponent))).round.integerDigits(10, size),
+					(
+						(x * (10.0 ^ (size - exponent)))
+						.round
+						.integerDigits(10L, size)
+					),
 					exponent
 				]
 			}
@@ -875,7 +922,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 
 	round { :self |
 		<primitive:
-		return Math.round(_self)
+		return Number.isFinite(_self) ? BigInt(Math.round(_self)) : _self;
 		>
 	}
 
@@ -885,6 +932,12 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		} {
 			n.round
 		}
+	}
+
+	roundToFloat { :self |
+		<primitive:
+		return Math.round(_self);
+		>
 	}
 
 	shallowCopy { :self |
@@ -974,9 +1027,9 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		operand.adaptToNumberAndApply(self, times/2)
 	}
 
-	truncate { :self |
+	truncateToFloat { :self |
 		<primitive:
-		return Math.trunc(_self)
+		return Math.trunc(_self);
 		>
 	}
 

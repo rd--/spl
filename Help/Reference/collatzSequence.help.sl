@@ -330,20 +330,21 @@ Numbers sorted by their Collatz stopping time,
 OEIS [A127824](https://oeis.org/A127824):
 
 ~~~spl svg=D oeis=A127824
-let s = [1];
-let t = 1:15.collect { :unused |
+let s = [1L];
+let t = 1L:15L.collect { :unused |
 	let u = s.select { :x |
-		x % 3 = 1 & {
-			let y = (x - 1) // 3;
+		x % 3L = 1L & {
+			let y = (x - 1L) // 3L;
 			y.isOdd & {
-				y > 1
+				y > 1L
 			}
 		}
-	} - 1 // 3;
-	s := ((2 * s) ++ u).nub.sort!;
+	} - 1L // 3L;
+	s := ((2L * s) ++ u).nub(==).sort!;
 	s
 };
-([1] ++ t.catenate).scatterPlot.log
+([1L] ++ t.catenate)
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/collatzSequence-D.svg)
@@ -355,8 +356,8 @@ and the sequence ends by visiting an already visited term.
 The sequence starting at _1/3_:
 
 ```
->>> 1/3.collatzSequence
-[1/3 2 1 4 2]
+>>> 1/3.collatzSequence * 3L
+[1 6 3 12 6]
 ```
 
 The first few sequences:
