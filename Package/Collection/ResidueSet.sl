@@ -15,7 +15,7 @@ ResidueSet : [Object, New, Store, Equal, Do, Collection, Add, Remove] {
 		self.positionVector
 	}
 
-	SortedSet { :self |
+	Set { :self |
 		self.commonResidueSet.copy
 	}
 
@@ -106,7 +106,10 @@ ResidueSet : [Object, New, Store, Equal, Do, Collection, Add, Remove] {
 +@Collection {
 
 	ResidueSet { :self :modulus |
-		let r = newResidueSet().initializeSlots(SortedSet(), modulus);
+		let r = newResidueSet().initializeSlots(
+			IdentitySet(),
+			modulus
+		);
 		r.includeAll!(self % modulus);
 		r
 	}

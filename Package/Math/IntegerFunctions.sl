@@ -18,29 +18,29 @@
 
 	amusicalPermutation { :n |
 		n.isEven.if {
-			3 * n // 2
+			3L * n // 2L
 		} {
-			((3 * n + 2) / 4).floor
+			(3L * n + 2L) // 4L
 		}
 	}
 
 	antiDivisors { :n |
-		let m = n - 1;
-		2.to(m).select { :x |
-			((n % x) - (x / 2)).abs < 1
+		let m = n - 1L;
+		2L.to(m).select { :x |
+			((n % x) - (x / 2L)).abs < 1L
 		}
 	}
 
 	antiDivisorsClassSum { :n |
-		let m = n - 1;
-		2.to(m).sum { :d |
+		let m = n - 1L;
+		2L.to(m).sum { :d |
 			let a = n % d;
-			let b = (d - 1) / 2;
-			let c = (d + 1) / 2;
+			let b = (d - 1L) / 2L;
+			let c = (d + 1L) / 2L;
 			[
-				{ a = b } -> { -1 },
-				{ a = c } -> { 1 },
-				{ true } -> { 0 }
+				{ a = b } -> { -1L },
+				{ a = c } -> { 1L },
+				{ true } -> { 0L }
 			].which
 		}
 	}
@@ -2005,7 +2005,7 @@
 				} {
 					(m + 1L) * (a(n - 1L, m) - a(n - 1L, m + 1L))
 				}
-			}.memoize(false);
+			}.memoize(true);
 			a/2
 		}
 	}

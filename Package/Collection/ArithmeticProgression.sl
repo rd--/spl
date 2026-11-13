@@ -187,7 +187,12 @@
 
 	sum { :self |
 		let k = self.size;
-		k * ((k - 1L) * self.step + (self.start * 2L)) / 2L
+		let z = k * ((k - 1L) * self.step + (self.start * 2L)) / 2L;
+		self.isIntegerArithmeticSeries.if {
+			Integer(z)
+		} {
+			z
+		}
 	}
 
 	uncheckedAt { :self :index |

@@ -7,20 +7,20 @@ Answer the _n_-th Euler number.
 Calculate Euler numbers:
 
 ```
->>> 14.eulerNumber
+>>> 14L.eulerNumber
 -199360981
 
->>> 16.eulerNumber
+>>> 16L.eulerNumber
 19391512145
 
->>> 18.eulerNumber
+>>> 18L.eulerNumber
 -2404879675441
 
->>> 20.eulerNumber
+>>> 20L.eulerNumber
 370371188237525
 ```
 
-At `Integer`:
+Answers large integers for small _n_:
 
 ```
 >>> 22L.eulerNumber
@@ -32,7 +32,7 @@ threads over lists,
 OEIS [A122045](https://oeis.org/A122045):
 
 ```
->>> [0 .. 10].eulerNumber
+>>> [0L .. 10L].eulerNumber
 [1 0 -1 0 5 0 -61 0 1385 0 -50521]
 ```
 
@@ -40,7 +40,7 @@ The first ten non-zero Euler numbers,
 OEIS [A028296](https://oeis.org/A028296):
 
 ```
->>> [0, 2 .. 18].eulerNumber
+>>> [0L, 2L .. 18L].eulerNumber
 [
 	1
 	-1

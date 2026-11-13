@@ -392,14 +392,15 @@ Additive function defined by the recursion _a(p^k)=a(k)_ for any prime _p_,
 OEIS [A064372](https://oeis.org/A064372):
 
 ~~~spl svg=G oeis=A064372
-let a = Dictionary { :n |
+let a = Map { :n |
 	(n = 1L).if {
 		1L
 	} {
 		a.atAll(n.primeSignature).sum
 	}
 };
-a[1L .. 105L].stepPlot
+a[1L .. 105L]
+.stepPlot
 ~~~
 
 ![](Help/Image/primeSignature-G.svg)

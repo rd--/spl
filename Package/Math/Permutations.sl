@@ -99,7 +99,7 @@ Permutation : [Object, Store, Equal] {
 					each.atWrap(i + 1L).return
 				}
 			};
-			anInteger
+			Integer(anInteger)
 		}
 	}
 
@@ -410,29 +410,37 @@ Permutation : [Object, Store, Equal] {
 
 	[Permutation, listToPermutation] { :self |
 		self.isPermutationCycles.if {
-			self.uncheckedCyclesToPermutation
+			self.cyclesToPermutation
 		} {
 			self.isPermutationList.if {
-				self.uncheckedPermutationListToPermutation
+				self.permutationListToPermutation
 			} {
 				self.error('List>>Permutation: not permutation')
 			}
 		}
 	}
 
-	uncheckedCyclesToPermutation { :self |
-		newPermutation().initializeSlots(
-			self.isEmpty.if {
-				[]
-			} {
-				self.permutationCyclesToCanonicalForm(true)
-			},
+	cyclesToPermutation { :self |
+		let canonicalCycles = self.isEmpty.if {
+			[]
+		} {
+			self.permutationCyclesToCanonicalForm(true)
+		};
+		uncheckedCyclesToPermutation(
+			canonicalCycles,
 			self.permutationDegree
 		)
 	}
 
-	uncheckedPermutationListToPermutation { :self |
+	uncheckedCyclesToPermutation { :self :degree |
 		newPermutation().initializeSlots(
+			Integer(self),
+			Integer(degree)
+		)
+	}
+
+	permutationListToPermutation { :self |
+		uncheckedCyclesToPermutation(
 			self.permutationListToPermutationCycles(true),
 			self.max
 		)
@@ -444,7 +452,7 @@ Permutation : [Object, Store, Equal] {
 
 	cycles { :self |
 		self.isPermutationCycles.if {
-			self.uncheckedCyclesToPermutation
+			self.cyclesToPermutation
 		} {
 			self.error('List>>cycles: not permutation cycles')
 		}
@@ -700,13 +708,13 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	permutationCyclesToPermutationList { :self :anInteger |
-		(anInteger = 0L).if {
+		(anInteger = 0).if {
 			[]
 		} {
 			let answer = anInteger.iota;
 			self.do { :each |
-				1L.toDo(each.size) { :index |
-					answer[each[index]] := each.atWrap(index + 1L)
+				1.toDo(each.size) { :index |
+					answer[each[index]] := each.atWrap(index + 1)
 				}
 			};
 			answer
@@ -774,7 +782,7 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	permutationListToPermutationCycles { :self :deleteUnaryCycles |
-		let visited = SortedSet();
+		let visited = Set([], =);
 		let answer = [];
 		1L.toDo(self.size) { :each |
 			visited.includes(each).ifFalse {
@@ -793,7 +801,9 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	permutationMatrix { :self |
-		Permutation(self).matrix(self.permutationDegree)
+		Permutation(self).matrix(
+			self.permutationDegree
+		)
 	}
 
 	permutationMax { :self |
@@ -1034,8 +1044,8 @@ Permutation : [Object, Store, Equal] {
 					}
 				}.catenate
 			}
-		}.memoize;
-		1.toCollect(self, f/1)
+		}.memoize(true);
+		1L.toCollect(self, f/1)
 	}
 
 	[minimumChangePermutations, heapsAlgorithm] { :self |
@@ -1150,4 +1160,3 @@ Permutation : [Object, Store, Equal] {
 	}
 
 }
-

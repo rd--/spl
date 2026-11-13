@@ -856,7 +856,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		x.abs.log(b)
 	}
 
-	remainder { :self :operand |
+	[remainder, \\] { :self :operand |
 		<primitive:
 		if(sl.isFloat(_operand)) {
 			return _self % _operand;

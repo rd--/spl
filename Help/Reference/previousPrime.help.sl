@@ -103,20 +103,20 @@ Numerators of rational valued sequence whose Dirichlet convolution with itself y
 OEIS [A317830](https://oeis.org/A317830):
 
 ~~~spl svg=C oeis=A317830
-let a = Dictionary { :n |
+let a = Map { :n |
 	n.isComposite.if {
 		n - n.previousPrime + 1L
 	} {
 		1L
 	}
 };
-let f = Dictionary { :n |
+let f = Map { :n |
 	(n = 1L).if {
 		1L
 	} {
 		let p = n.divisors.sum { :d |
 			(1L < d & { d < n }).if {
-				f[d] * f[n / d]
+				f[d] * f[n // d]
 			} {
 				0L
 			}

@@ -200,14 +200,14 @@ Block! : [Object, Equal] {
 
 	dirichletInverse { :f/1 |
 		let i/1 = { :n |
-			(n = 1).if {
-				1 / f(1)
+			(n = 1L).if {
+				1L / f(1)
 			} {
-				-1 / f(1) * n.divisors.allButLast.sum { :d |
+				-1L / f(1) * n.divisors.allButLast.sum { :d |
 					f(n // d) * i(d)
 				}
 			}
-		}.memoize;
+		}.memoize(true);
 		i/1
 	}
 
@@ -468,10 +468,6 @@ Block! : [Object, Equal] {
 				}
 			]
 		)
-	}
-
-	memoize { :self |
-		self.memoize(false)
 	}
 
 	memoizeBinary { :self/2 :requireImmediate |

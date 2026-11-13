@@ -12,7 +12,7 @@ considering zero to have on zero bit,
 OEIS [A086747](https://oeis.org/A086747):
 
 ```
->>> 105.baumSweetSequence
+>>> 105L.baumSweetSequence
 [
 	1 1 0 1 1 0 0 1 0 1
 	0 0 1 0 0 1 1 0 0 1
@@ -70,7 +70,8 @@ The Baum–Sweet sequence,
 OEIS [A086747](https://oeis.org/A086747):
 
 ~~~spl svg=B oeis=A086747
-115.baumSweetSequence.discretePlot
+115.baumSweetSequence
+.discretePlot
 ~~~
 
 ![](Help/Image/baumSweetSequence-B.svg)

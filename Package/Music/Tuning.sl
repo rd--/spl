@@ -107,11 +107,13 @@
 	oddLimit { :self |
 		let n = self.numerator;
 		let d = self.denominator;
-		{ n.isEven }.whileTrue {
-			n := n / 2
+		{
+			n.isEven
+		}.whileTrue {
+			n := n // 2
 		};
 		{ d.isEven }.whileTrue {
-			d := d / 2
+			d := d // 2
 		};
 		n.max(d)
 	}
@@ -121,12 +123,12 @@
 +[Float, Integer] {
 
 	oddLimitSet { :self |
-		let n = 1.toBy(self, 2);
+		let n = 1L.toBy(self, 2L);
 		let l = [];
 		let r = [n, n].tuplesDo { :each |
 			l.add!(Fraction(each[1], each[2]))
 		};
-		l.nub.octaveReduce.sort
+		l.nub(=).octaveReduce.sort!
 	}
 
 }

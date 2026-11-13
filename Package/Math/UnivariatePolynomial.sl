@@ -166,17 +166,25 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		let remainder = numerator.copy;
 		let denominatorDegree = denominator.degree;
 		let denominatorLeadingCoefficient = denominator.leadingCoefficient;
-		{ remainder.degree >= denominatorDegree }.whileTrue {
+		{
+			remainder.degree >= denominatorDegree
+		}.whileTrue {
 			let exponent = remainder.degree - denominatorDegree;
-			let coefficient = remainder.leadingCoefficient / denominatorLeadingCoefficient;
-			let temporary = UnivariatePolynomial(Dictionary([[exponent, coefficient]]));
+			let coefficient = (
+				remainder.leadingCoefficient
+				/
+				denominatorLeadingCoefficient
+			);
+			let temporary = UnivariatePolynomial(
+				Map([[exponent, coefficient]])
+			);
 			quotient := quotient + temporary;
 			remainder := remainder - (temporary * denominator)
 		};
 		[quotient, remainder]
 	}
 
-	remainder { :numerator :denominator |
+	[remainder, \\] { :numerator :denominator |
 		let [_, r] = numerator.quotientRemainder(denominator);
 		r
 	}
@@ -192,7 +200,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 	}
 
 	terms { :self |
-		let answer = Dictionary();
+		let answer = Map();
 		self.coefficientList.withIndexDo { :c :i |
 			(c != 0L).ifTrue {
 				answer.add!(
@@ -375,13 +383,13 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 }
 
-+Dictionary {
++[Map, Dictionary] {
 
 	Polynomial { :self |
-		let p = normalInteger/1.keyMap(self);
+		let p = Integer/1.keyMap(self);
 		p.keyType.caseOf(
 			[
-				'Float' -> { UnivariatePolynomial(p) },
+				'Integer' -> { UnivariatePolynomial(p) },
 				'List' -> { BivariatePolynomial(p) }
 			]
 		) {
@@ -569,7 +577,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 	cachedCyclotomic { :self |
 		self.cached('cyclotomic') {
-			Dictionary(
+			Map(
 				[1L -> UnivariatePolynomial([-1L 1L])]
 			)
 		}

@@ -179,9 +179,9 @@
 	isLucasCarmichaelNumber { :n |
 		n.isPrime.not & {
 			let f = n.factorInteger.transpose;
-			let a = f[2].unique(=);
+			let a = f[2].unique(==);
 			a = [1L] & {
-				let b = ((n + 1L) % (f[1] + 1L)).unique(=);
+				let b = ((n + 1L) % (f[1] + 1L)).unique(==);
 				b = [0L]
 			}
 		}
@@ -488,17 +488,17 @@
 		self.isSquareFree.if {
 			self.liouvilleLambda
 		} {
-			0
+			0L
 		}
 	}
 
 	nearestPrime { :n |
-		(n <= 2).if {
-			2
+		(n <= 2L).if {
+			2L
 		} {
 			let a = n.nextPrime;
-			let b = (a.primePi - 1).prime;
-			(a < (2 * n - b)).if {
+			let b = (a.primePi - 1L).prime;
+			(a < (2L * n - b)).if {
 				a
 			} {
 				b
@@ -510,11 +510,11 @@
 		let s = k.sign;
 		let m = s.caseOf(
 			[
-				1 -> { n.nextPrime },
-				-1 -> { n.previousPrime }
+				1L -> { n.nextPrime },
+				-1L -> { n.previousPrime }
 			]
 		);
-		(k.abs = 1).if {
+		(k.abs = 1L).if {
 			m
 		} {
 			m.nextPrime(k - s)
@@ -522,17 +522,17 @@
 	}
 
 	nextPrime { :n |
-		(n < 2).if {
-			2
+		(n < 2L).if {
+			2L
 		} {
-			n := n.floor + 1;
+			n := n.floor + 1L;
 			n.isEven.ifTrue {
-				n := n + 1
+				n := n + 1L
 			};
 			{
 				n.isPrime
 			}.whileFalse {
-				n := n + 2
+				n := n + 2L
 			};
 			n
 		}
@@ -540,26 +540,26 @@
 
 	nonPrime { :n |
 		{ :x |
-			n + x.primePi + 1
+			n + x.primePi + 1L
 		}.fixedPoint(n)
 	}
 
 	previousPrime { :n |
-		(n <= 3).if {
-			(n = 3).if {
-				2
+		(n <= 3L).if {
+			(n = 3L).if {
+				2L
 			} {
 				n.error('previousPrime')
 			}
 		} {
-			n := n.ceiling - 1;
+			n := n.ceiling - 1L;
 			n.isEven.ifTrue {
-				n := n - 1
+				n := n - 1L
 			};
 			{
 				n.isPrime
 			}.whileFalse {
-				n := n - 2
+				n := n - 2L
 			};
 			n
 		}
@@ -576,8 +576,8 @@
 
 	primeBalance { :n |
 		let k = n.primePi;
-		let a = (k - 1).prime;
-		let b = (k + 1).prime;
+		let a = (k - 1L).prime;
+		let b = (k + 1L).prime;
 		(n - a) <=> (b - n)
 	}
 
@@ -590,7 +590,7 @@
 	}
 
 	primeFactorization { :self |
-		Multiset(self.primeFactors, =)
+		Multiset(self.primeFactors, ==)
 	}
 
 	primeFactors { :self :rule |
@@ -706,9 +706,9 @@
 	}
 
 	primePi { :self |
-		let answer = 0;
+		let answer = 0L;
 		self.floor.wheelSieveDo { :unusedItem |
-			answer := answer + 1
+			answer := answer + 1L
 		};
 		answer
 	}

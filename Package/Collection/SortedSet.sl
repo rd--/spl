@@ -11,7 +11,7 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Set] 
 	add! { :self :anObject |
 		let sortedList = self.sortedList;
 		sortedList.includes(anObject).if {
-			self.error('add: item already present')
+			self.error('add: item already present', [anObject])
 		} {
 			sortedList.add!(anObject)
 		}

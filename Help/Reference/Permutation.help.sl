@@ -32,7 +32,8 @@ A permutation in one-line (permutation list) notation:
 Identity permutation predicate:
 
 ```
->>> Permutation[].isIdentity
+>>> Permutation[]
+>>> .isIdentity
 true
 ```
 
@@ -83,7 +84,7 @@ i.e. the maximum entry in any cycle:
 ```
 >>> Permutation[1 4 3; 2 5]
 >>> .max
-5
+5L
 ```
 
 The `max` of a `Permutation` is the `max` of the `support`:
@@ -91,14 +92,14 @@ The `max` of a `Permutation` is the `max` of the `support`:
 ```
 >>> let p = Permutation[1 4 3; 2 5];
 >>> (p.max, p.support.max)
-(5, 5)
+(5L, 5L)
 ```
 
 The identity permutation has `max` zero:
 
 ```
 >>> Permutation[].max
-0
+0L
 ```
 
 `inverse` answers the inverse permutation:

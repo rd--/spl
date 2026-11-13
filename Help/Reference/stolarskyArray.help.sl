@@ -6,7 +6,7 @@ Answer the `Integer` at row _m_ and column _n_ of the infinite Stolarsky array.
 
 ```
 >>> stolarskyArray(53, 53)
-10105190699116
+10105190699116L
 ```
 
 The first seven rows and columns of the Stolarsky array:
@@ -51,11 +51,11 @@ OEIS [A035506](https://oeis.org/A035506):
 
 _Note_:
 The definition is recursive and the system caches the array on construction.
-The array is stored as a `Dictionary` indexed by `cartesianIndexToDiagonalIndex`.
+The array is stored as a `Map` indexed by `cartesianIndexToDiagonalIndex`.
 
 ```
 >>> system.cachedStolarskyArray
->>> .isDictionary
+>>> .isMap
 true
 ```
 

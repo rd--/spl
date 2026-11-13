@@ -192,8 +192,8 @@ Euler transform of _-1,-1,-2_,
 OEIS [A030203](https://oeis.org/A030203):
 
 ~~~spl svg=B oeis=A030203
-0:115.collect(
-	[-1 -1 -2].periodicFunction
+0L:115L.collect(
+	[-1L -1L -2L].periodicFunction
 	.eulerTransform
 ).discretePlot
 ~~~

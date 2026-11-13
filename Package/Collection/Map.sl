@@ -164,7 +164,9 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, 
 
 	associationListToMap { :self |
 		self.isAssociationList.if {
-			self.collect(keyAndValue/1).uncheckedMatrixToMap
+			self.collect(
+				keyAndValue/1
+			).matrixToMap
 		} {
 			self.error('List>>associationListToMap')
 		}
@@ -173,6 +175,9 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, 
 	matrixToMap { :self |
 		let [_, m] = self.dimensions;
 		(m = 2).if {
+			self.allTrue { :each |
+				each[1].isImmediate
+			};
 			self.uncheckedMatrixToMap
 		} {
 			self.error('List>>matrixToMap')

@@ -284,7 +284,7 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 	}
 
 	removeAtAll! { :self :indices |
-		let uniqueIndices = indices.unique(=);
+		let uniqueIndices = indices.unique(==);
 		let indexCount = uniqueIndices.size;
 		let removed = self.atAll(uniqueIndices);
 		1.toDo(indexCount) { :i |

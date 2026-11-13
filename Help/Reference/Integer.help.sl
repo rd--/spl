@@ -185,14 +185,18 @@ true
 ```
 
 Equal values are also identical,
-however `Integer` values are not considered immediate because the do not compare identically with `Float` values:
+and while `Integer` values are considered immediate,
+they do not compare identically with `Float` values:
 
 ```
 >>> 23L == 23L
 true
 
->>> 23L.isImmediate
+>>> 23L == 23.0
 false
+
+>>> 23L.isImmediate
+true
 ```
 
 Adapts left and right operands to `Integers`:

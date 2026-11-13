@@ -155,21 +155,23 @@
 
 	baumSweetSequence { :n |
 		let a/1 = { :i |
-			(i < 2).if {
-				1
+			(i < 2L).if {
+				1L
 			} {
 				let k = i;
-				{ (k % 4) = 0 }.whileTrue {
-					k := k // 4
+				{
+					(k % 4L) = 0L
+				}.whileTrue {
+					k := k // 4L
 				};
 				k.isOdd.if {
-					a((k - 1) // 2)
+					a((k - 1L) // 2L)
 				} {
-					0
+					0L
 				}
 			}
 		}.memoize(true);
-		0.toCollect(n - 1, a/1)
+		0L.toCollect(n - 1L, a/1)
 	}
 
 	beattySequence { :n :theta |
@@ -197,7 +199,7 @@
 	}
 
 	butcherTreeCount { :self |
-		let a = Dictionary { :n |
+		let a = Map { :n |
 			(n < 2L).if {
 				n
 			} {
@@ -365,7 +367,7 @@
 		let a = system.oeisBFileData.at('A038219');
 		let k = a.size;
 		(n < k).if {
-			a.first(n)
+			a.first(n).L
 		} {
 			n.error('ehrenfeuchtMycielskiSequence')
 		}
@@ -404,10 +406,10 @@
 			k.isZero.if {
 				n.isZero.boole
 			} {
-				f(n, k - 1) + f(n - 1, n - k)
+				f(n, k - 1L) + f(n - 1L, n - k)
 			}
 		}.memoize(true);
-		0.to(self - 1).triangularArray(f/2)
+		0L.to(self - 1L).triangularArray(f/2)
 	}
 
 	erdosSelfridgeFunction { :n |
@@ -503,49 +505,55 @@
 
 	goebelsSequence { :m |
 		let a = List(m, nil);
-		0.toDo(m - 1) { :n |
-			a[n + 1] := (n < 2).if {
+		0L.toDo(m - 1L) { :n |
+			a[n + 1L] := (n < 2L).if {
 				1L
 			} {
-				0.to(n - 1).sum { :k |
-					a[k + 1] ^ 2
-				} / (n - 1)
+				0L.to(n - 1L).sum { :k |
+					a[k + 1L] ^ 2L
+				} // (n - 1L)
 			}
 		};
 		a
 	}
 
 	golombsSequence { :n |
-		let a = List(n, 1);
-		2.toDo(n) { :i |
-			a[i] := 1 + a[i - a[a[i - 1]]]
+		let a = List(n, 1L);
+		2L.toDo(n) { :i |
+			a[i] := 1L + a[i - a[a[i - 1L]]]
 		};
 		a
 	}
 
 	gouldsNumber { :self |
-		2 ^ self.hammingWeight
+		2L ^ self.hammingWeight
 	}
 
 	gouldsSequence { :k |
-		0.to(k - 1).collect(gouldsNumber/1)
+		0L.to(k - 1L).collect(
+			gouldsNumber/1
+		)
 	}
 
 	grahlSequence { :self |
 		let answer = [];
-		0.toDo(self - 1) { :n |
-			let i = 1;
-			let j = 1;
+		0.toDo(self - 1L) { :n |
+			let i = 1L;
+			let j = 1L;
 			let b = IdentitySet();
-			{ n - (2 * i) >= 0 }.whileTrue {
-				let x = answer[n - (2 * i) + 1];
-				let y = answer[n - i + 1];
-				let z = (y * 2) - x;
+			{
+				n - (2L * i) >= 0L
+			}.whileTrue {
+				let x = answer[n - (2L * i) + 1L];
+				let y = answer[n - i + 1L];
+				let z = (y * 2L) - x;
 				b.include!(z);
-				i := i + 1;
-				{ b.includes(j) }.whileTrue {
+				i := i + 1L;
+				{
+					b.includes(j)
+				}.whileTrue {
 					b.remove!(j);
-					j := j + 1
+					j := j + 1L
 				}
 			};
 			answer.add!(j)
@@ -564,15 +572,17 @@
 
 	grahlSequenceStanely { :self |
 		let answer = [];
-		0.toDo(self - 1) { :n |
-			let i = 1;
-			let j = 1;
+		0L.toDo(self - 1L) { :n |
+			let i = 1L;
+			let j = 1L;
 			let b = IdentitySet();
-			{ n - (2 * i) >= 0 }.whileTrue {
-				let x = answer[n - (2 * i) + 1];
-				let y = answer[n - i + 1];
-				let z = (y * 2) - x;
-				i := i + 1;
+			{
+				n - (2L * i) >= 0L
+			}.whileTrue {
+				let x = answer[n - (2L * i) + 1L];
+				let y = answer[n - i + 1L];
+				let z = (y * 2L) - x;
+				i := i + 1L;
 				(
 					x <= y & {
 						y <= z
@@ -580,7 +590,7 @@
 				).ifTrue {
 					b.include!(z);
 					{ b.includes(j) }.whileTrue {
-						j := j + 1
+						j := j + 1L
 					}
 				}
 			};
@@ -629,18 +639,18 @@
 			} {
 				f(n - f(n - 1L)) + f(n - f(n - 2L))
 			}
-		}.memoize(false);
+		}.memoize(true);
 		1.to(self).collect(f/1)
 	}
 
 	inventorySequence { :terms |
 		let number = 0L;
 		let answer = [0L];
-		let inventory = Multiset([0L], =);
+		let inventory = Multiset([0L], ==);
 		2L.toDo(terms) { :n |
 			let count = inventory.occurrencesOf(number);
 			number := (count = 0L).if {
-				0
+				0L
 			} {
 				number + 1L
 			};
@@ -922,7 +932,7 @@
 							{ n % 2L = 0L } -> { 0L - f(n // 2L) },
 							{ n % 2L = 1L } -> { f((n - 1L) // 2L) + 1L }
 						].which
-					}.memoize(false);
+					}.memoize(true);
 					0L.toCollect(self - 1L, f/1)
 				},
 				'B' -> {
@@ -933,7 +943,7 @@
 							{ n % 3L = 1L } -> { f(n // 3L) - 2L },
 							{ n % 3L = 2L } -> { f(n // 3L) - 1L }
 						].which
-					}.memoize(false);
+					}.memoize(true);
 					0L.toCollect(self - 1L, f/1)
 				},
 				'C' -> {
@@ -944,7 +954,7 @@
 							{ n % 3 = 1L } -> { f(n // 3L) - 3L },
 							{ n % 3 = 2L } -> { -2L - f(n // 3L) }
 						].which
-					}.memoize(false);
+					}.memoize(true);
 					0L.toCollect(self - 1L, f/1)
 				},
 				'Z' -> {
@@ -956,7 +966,7 @@
 							{ n % 4 = 2L } -> { -1L - f(n // 4L) },
 							{ n % 4 = 3L } -> { 2L + f(n // 4L) }
 						].which
-					}.memoize(false);
+					}.memoize(true);
 					0L.toCollect(self - 1L, f/1)
 				}
 			]
@@ -1008,7 +1018,7 @@
 	}
 
 	pinnDSequence { :self |
-		let a = Dictionary { :n |
+		let a = Map { :n |
 			(n < 3L).if {
 				1L
 			} {
@@ -1043,7 +1053,7 @@
 
 	recamanSequence { :self |
 		let answer = List(self, 0L);
-		let seen = Set([0L], =);
+		let seen = Set([0L], ==);
 		1L.toDo(self - 1L) { :n |
 			let nextItem = answer[n] - n;
 			(
@@ -1132,7 +1142,7 @@
 					0L
 				}
 			}
-		}.memoize(false);
+		}.memoize(true);
 		1L.toCollect(m) { :n |
 			1L.toCollect((n + 1L) // 2L) { :k |
 				t(n, k)
@@ -1191,7 +1201,7 @@
 					f(m) + f(m + 1L)
 				}
 			}
-		}.memoize(false);
+		}.memoize(true);
 		f(self)
 	}
 
@@ -1222,9 +1232,9 @@
 		} {
 			let i = k.caseOf(
 				[
-					'A' -> { [1 1] },
-					'B' -> { [1 0] },
-					'D' -> { [0 1] }
+					'A' -> { [1L 1L] },
+					'B' -> { [1L 0L] },
+					'D' -> { [0L 1L] }
 				]
 			);
 			{ :x |
@@ -1242,40 +1252,40 @@
 
 	sylvestersSequence { :n |
 		{ :x |
-			(x ^ 2) - x + 1
-		}.nestList(2L, n - 1)
+			(x ^ 2L) - x + 1L
+		}.nestList(2L, n - 1L)
 	}
 
 	szekeresSequence { :self |
-		0.toCollect(self - 1) { :n |
-			fromDigits(integerDigits(n, 2), 3) + 1
+		0L.toCollect(self - 1L) { :n |
+			fromDigits(integerDigits(n, 2L), 3L) + 1L
 		}
 	}
 
 	thueMorse { :index |
-		index.digitCount(2, 1) % 2
+		index.digitCount(2L, 1L) % 2L
 	}
 
 	thueMorseSequence { :k |
-		(k <= 0).if {
+		(k <= 0L).if {
 			[]
 		} {
 			let answer = List(k, nil);
-			let i =2;
-			let iMax = 1;
-			answer[1] := 0;
+			let i = 2L;
+			let iMax = 1L;
+			answer[1L] := 0L;
 			{
 				i <= k
 			}.whileTrue {
 				{
 					i <= k & {
-						i <= (2 * iMax)
+						i <= (2L * iMax)
 					}
 				}.whileTrue {
-					answer[i] := 1 - answer[i - iMax];
-					i := i + 1
+					answer[i] := 1L - answer[i - iMax];
+					i := i + 1L
 				};
-				iMax := iMax * 2
+				iMax := iMax * 2L
 			};
 			answer
 		}
@@ -1283,19 +1293,19 @@
 
 	toothpickSequence { :self |
 		let a/1 = { :n |
-			(n = 0).if {
-				0
+			(n = 0L).if {
+				0L
 			} {
-				let m = 2 ^ (n.integerDigits(2).size - 1);
-				let k = (2 * (m ^ 2) + 1) / 3;
+				let m = 2L ^ (n.integerDigits(2L).size - 1L);
+				let k = (2L * (m ^ 2L) + 1L) // 3L;
 				(n = m).if {
 					k
 				} {
-					k + (2 * a(n - m)) + a(n - m + 1) - 1
+					k + (2L * a(n - m)) + a(n - m + 1L) - 1L
 				}
 			}
-		}.memoize;
-		0.toCollect(self - 1, a/1)
+		}.memoize(true);
+		0L.toCollect(self - 1L, a/1)
 	}
 
 	ulamSequence { :self :initialTerms |
@@ -1753,7 +1763,7 @@
 				};
 				s // n
 			}
-		}.memoize(false);
+		}.memoize(true);
 		b/1
 	}
 
@@ -1821,7 +1831,7 @@
 	lodumoTransform { :a :m |
 		let z = IdentitySet();
 		a.collect { :i |
-			let e = 0.to(Infinity).detect { :j |
+			let e = 0L.to(Infinity).detect { :j |
 				z.includes(j).not & {
 					(i % m) = (j % m)
 				}

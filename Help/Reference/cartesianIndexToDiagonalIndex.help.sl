@@ -11,7 +11,7 @@ Calculate the first _n_ rows and _m_ columns of the infinite matrix counted by a
 
 ```
 >>> cartesianIndexToDiagonalIndex/2
->>> .table(1:7, 1:8)
+>>> .table(1L:7L, 1L:8L)
 [
 	 1  2  4  7 11 16 22 29;
 	 3  5  8 12 17 23 30 38;
@@ -27,8 +27,8 @@ The first row gives the central polygonal numbers,
 OEIS [A000124](https://oeis.org/A000124):
 
 ```
->>> 0:13.collect { :n |
->>> 	3.polygonalNumber(n) + 1
+>>> 0L:13L.collect { :n |
+>>> 	3L.polygonalNumber(n) + 1L
 >>> }
 [1 2 4 7 11 16 22 29 37 46 56 67 79 92]
 ```
@@ -37,7 +37,7 @@ The first column gives the triangular numbers,
 OEIS [A000217](https://oeis.org/A000217):
 
 ```
->>> 1:13.triangularNumber
+>>> 1L:13L.triangularNumber
 [1 3 6 10 15 21 28 36 45 55 66 78 91]
 ```
 

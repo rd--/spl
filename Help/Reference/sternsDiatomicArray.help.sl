@@ -26,7 +26,7 @@ OEIS [A000051](http://oeis.org/A000051):
 >>> .collect(size/1)
 [2 3 5 9 17 33 65 129 257]
 
->>> 2 ^ 0:8 + 1
+>>> 2L ^ 0L:8L + 1L
 [2 3 5 9 17 33 65 129 257]
 ```
 
@@ -38,7 +38,7 @@ OEIS [A034472](http://oeis.org/A034472):
 >>> .collect(sum/1)
 [2 4 10 28 82 244 730 2188 6562]
 
->>> 3 ^ 0:8 + 1
+>>> 3L ^ 0L:8L + 1L
 [2 4 10 28 82 244 730 2188 6562]
 ```
 
@@ -46,7 +46,7 @@ Least positive number missing from row _n_ of Stern’s diatomic array,
 OEIS [A135510](http://oeis.org/A135510):
 
 ```
->>> let u = 1:Infinity;
+>>> let u = 1L:Infinity;
 >>> 9.sternsDiatomicArray.collect { :r |
 >>> 	r.minimumExcludedValue(u)
 >>> }
@@ -57,8 +57,9 @@ Count distinct terms of rows,
 OEIS [A293160](http://oeis.org/A293160):
 
 ```
->>> 9.sternsDiatomicArray.collect { :r |
->>> 	r.countDistinct(=)
+>>> 9.sternsDiatomicArray
+>>> .collect { :r |
+>>> 	r.countDistinct(==)
 >>> }
 [1 2 3 5 7 13 20 31 48]
 ```

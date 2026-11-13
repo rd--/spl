@@ -263,7 +263,7 @@ Integers whose dual Zeckendorf representation is palindromic,
 OEIS [A331191](https://oeis.org/A331191):
 
 ~~~spl svg=E oeis=A331191
-0:500.select { :n |
+0L:500L.select { :n |
 	n.dualZeckendorfRepresentation
 	.isPalindrome
 }.scatterPlot
@@ -277,7 +277,7 @@ OEIS [A104325](https://oeis.org/A104325):
 ~~~spl svg=F oeis=A104325
 1:200.collect { :n |
 	n.dualZeckendorfRepresentation
-	.split(=)
+	.split(==)
 	.size
 }.scatterPlot
 ~~~

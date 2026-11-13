@@ -12,7 +12,7 @@ threads over lists,
 OEIS [A006368](https://oeis.org/A006368):
 
 ```
->>> 0:15.amusicalPermutation
+>>> 0L:15L.amusicalPermutation
 [0 1 3 2 6 4 9 5 12 7 15 8 18 10 21 11]
 ```
 
@@ -22,7 +22,7 @@ OEIS [A217218](https://oeis.org/A217218) _n=44_:
 
 ```
 >>> amusicalPermutation/1
->>> .nestList(4, 5)
+>>> .nestList(4L, 5L)
 [4 6 9 7 5 4]
 
 >>> amusicalPermutation/1
@@ -34,9 +34,9 @@ Initial segment of table of iterations,
 OEIS [A368179](https://oeis.org/A368179):
 
 ```
->>> 0:9.collect { :n |
+>>> 0L:9L.collect { :n |
 >>> 	amusicalPermutation/1
->>> 	.nestList(n, 9)
+>>> 	.nestList(n, 9L)
 >>> }
 [
 	0  0  0  0  0  0  0  0  0  0;
@@ -56,7 +56,8 @@ The amusical permutation,
 OEIS [A006368](https://oeis.org/A006368):
 
 ~~~spl svg=A oeis=A006368
-0:65.amusicalPermutation.discretePlot
+0L:65L.amusicalPermutation
+.discretePlot
 ~~~
 
 ![](Help/Image/amusicalPermutation-A.svg)

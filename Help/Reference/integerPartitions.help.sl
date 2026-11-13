@@ -665,7 +665,7 @@ OEIS [A248120](https://oeis.org/A248120):
 	let p = (k - 1).integerPartitions;
 	p.reverse.collect { :v |
 		let n = v.sum;
-		let s = v.deleteDuplicates(=);
+		let s = v.deleteDuplicates(==);
 		(n + 1)
 		* (n.! ^ 2)
 		// (

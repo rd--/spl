@@ -215,7 +215,10 @@ OEIS [A136480](https://oeis.org/A136480):
 
 ~~~spl svg=F oeis=A136480
 0:65.collect { :n |
-	n.binaryExpansion.split(=).last.size
+	n.binaryExpansion
+	.split(==)
+	.last
+	.size
 }.discretePlot
 ~~~
 

@@ -386,21 +386,21 @@ OEIS [A037027](https://oeis.org/A037027):
 
 ```
 >>> let f/2 = { :n :k |
->>> 	(k < 0 | { k > n }).if {
->>> 		0
+>>> 	(k < 0L | { k > n }).if {
+>>> 		0L
 >>> 	} {
->>> 		(n = 0 & { k = 0 }).if {
->>> 			1
+>>> 		(n = 0L & { k = 0L }).if {
+>>> 			1L
 >>> 		} {
->>> 			f(n - 1, k)
+>>> 			f(n - 1L, k)
 >>> 			+
->>> 			f(n - 1, k - 1)
+>>> 			f(n - 1L, k - 1L)
 >>> 			+
->>> 			f(n - 2, k)
+>>> 			f(n - 2L, k)
 >>> 		}
 >>> 	}
 >>> }.memoize(true);
->>> 0:7.triangularArray(f/2)
+>>> 0L:7L.triangularArray(f/2)
 [
 	1;
 	1 1;

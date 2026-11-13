@@ -15,7 +15,8 @@ The answer is given octave reduced and sorted.
 	5/3 12/7 7/4
 ]
 
->>> 7.oddLimitSet.ratioToCents.round
+>>> 7.oddLimitSet
+>>> .ratioToCents.round
 [
 	0 231 267 316 386
 	498 583 617 702 814

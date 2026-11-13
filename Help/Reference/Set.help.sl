@@ -86,17 +86,16 @@ however `==` has some subtle behaviours:
 >>> 1/2 == 1/2
 false
 
->>> 1 == 1L
+>>> 1.0 == 1L
 false
 
->>> Set([1 1L], =)
+>>> Set([1.0 1L], =)
 >>> .List
-[1]
+[1.0]
 
->>> {
->>> 	IdentitySet[1 1L]
->>> }.hasError
-true
+>>> IdentitySet[1 1L]
+>>> .List
+[1.0 1L]
 
 >>> 1J1 == 1J1
 false

@@ -872,7 +872,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		let p = [];
 		let i = 1;
 		let j = n;
-		{ j <= k }.whileTrue {
+		{
+			j <= k
+		}.whileTrue {
 			p.add!(self.copyFromTo(i, j));
 			i := i + d;
 			j := j + d

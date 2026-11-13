@@ -192,7 +192,8 @@ let a/1 = { :n |
 		}
 	}
 }.memoize(true);
-0:300.select(a/1).scatterPlot
+0:300.select(a/1)
+.scatterPlot
 ~~~
 
 ![](Help/Image/isOdd-C.svg)

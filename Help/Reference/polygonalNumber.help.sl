@@ -8,8 +8,8 @@ Return the first 18 triangular numbers,
 OEIS [A000217](https://oeis.org/A000217):
 
 ```
->>> 0:17.collect { :n |
->>> 	3.polygonalNumber(n)
+>>> 0L:17L.collect { :n |
+>>> 	3L.polygonalNumber(n)
 >>> }
 [
 	  0   1   3   6  10
@@ -23,8 +23,8 @@ Return the tenth r-gonal number of several regular polygons,
 OEIS [A139610](https://oeis.org/A139610):
 
 ```
->>> 2:15.collect { :r |
->>> 	r.polygonalNumber(10)
+>>> 2L:15L.collect { :r |
+>>> 	r.polygonalNumber(10L)
 >>> }
 [
 	 10  55 100 145 190
@@ -32,7 +32,7 @@ OEIS [A139610](https://oeis.org/A139610):
 	460 505 550 595
 ]
 
->>> 0:13 * 45 + 10
+>>> 0L:13L * 45L + 10L
 [
 	 10  55 100 145 190
 	235 280 325 370 415
@@ -43,10 +43,10 @@ OEIS [A139610](https://oeis.org/A139610):
 `polygonalNumber` with integer arguments:
 
 ```
->>> 5.polygonalNumber(3)
+>>> 5L.polygonalNumber(3L)
 12
 
->>> 3.polygonalNumber(5)
+>>> 3L.polygonalNumber(5L)
 15
 ```
 

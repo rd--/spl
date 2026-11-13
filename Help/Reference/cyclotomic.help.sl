@@ -7,13 +7,16 @@ Answer the _n_-th cyclotomic polynomial.
 The fifth, sixth, and thirtieth cyclotomic polynomial:
 
 ```
->>> 5L.cyclotomic.coefficientList
+>>> 5L.cyclotomic
+>>> .coefficientList
 [1 1 1 1 1]
 
->>> 6L.cyclotomic.coefficientList
+>>> 6L.cyclotomic
+>>> .coefficientList
 [1 -1 1]
 
->>> 30L.cyclotomic.coefficientList
+>>> 30L.cyclotomic
+>>> .coefficientList
 [1 1 0 -1 -1 -1 0 1 1]
 ```
 
@@ -140,7 +143,7 @@ The answers are cached for efficiency:
 
 ```
 >>> system.cachedCyclotomic
->>> .isDictionary
+>>> .isMap
 true
 ```
 

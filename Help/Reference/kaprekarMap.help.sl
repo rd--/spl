@@ -167,10 +167,10 @@ one less than
 OEIS [A164886](https://oeis.org/A164886):
 
 ~~~spl svg=K oeis=A164885
-0:85.collect { :n |
+0L:85L.collect { :n |
 	{ :x |
-		x.kaprekarMap(2)
-	}.fixedPointList(n, =).size - 2
+		x.kaprekarMap(2L)
+	}.fixedPointList(n, ==).size - 2L
 }.discretePlot
 ~~~
 

@@ -257,7 +257,7 @@
 						integerBinomial(2L * n, 2L * k) * f(2L * (n - k))
 					}.sum.negate
 				}
-			}.memoize(false);
+			}.memoize(true);
 			f(self)
 		}
 	}
@@ -267,8 +267,8 @@
 			(n = 0L).if {
 				1L
 			} {
-				a(n - 1) + Range(2, n - 2, 1).sum { :k |
-					a(k) * a(n - 2 - k)
+				a(n - 1L) + Range(2L, n - 2, 1L).sum { :k |
+					a(k) * a(n - 2L - k)
 				}
 			}
 		}.memoize(true);
@@ -487,9 +487,9 @@
 			(n <= 2L).if {
 				1L
 			} {
-				((3L * (2L * n - 3L) * f(n - 1L)) - ((n - 3L) * f(n - 2L))) / n
+				((3L * (2L * n - 3L) * f(n - 1L)) - ((n - 3L) * f(n - 2L))) // n
 			}
-		}.memoize(false);
+		}.memoize(true);
 		f(self)
 	}
 
@@ -544,7 +544,7 @@
 
 	gouldsNumber { :n |
 		0L.to(n).collect { :k |
-			binomial(n, k) % 2
+			binomial(n, k) % 2L
 		}.sum
 	}
 

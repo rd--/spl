@@ -10,21 +10,21 @@ Counts positive integers up to _n_ that are relatively prime to _n_.
 Compute the Euler totient function:
 
 ```
->>> 10.eulerPhi
-4
+>>> 10L.eulerPhi
+4L
 
->>> 540.eulerPhi
-144
+>>> 540L.eulerPhi
+144L
 
->>> 17400.eulerPhi
-4480
+>>> 17400L.eulerPhi
+4480L
 ```
 
 Negative numbers:
 
 ```
->>> -10.eulerPhi
-4
+>>> -10L.eulerPhi
+4L
 ```
 
 Threads over lists:

@@ -2,7 +2,7 @@
 
 	add! { :self :anObject |
 		self.includes(anObject).ifTrue {
-			self.error('@Set>>add!: includes item')
+			self.error('@Set>>add!: includes item', [anObject])
 		};
 		self.include!(anObject)
 	}

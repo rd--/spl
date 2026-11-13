@@ -73,13 +73,13 @@ Write _n_ in binary and count zeroes between ones and also the edge,
 OEIS [A163510](https://oeis.org/A163510):
 
 ~~~spl svg=B oeis=A163510
-1:37.collect { :n |
-	let d = n.integerDigits(2);
-	let p = d.riffle(0) ++ [0];
-	p.split(=).reject { :x |
-		x[1] = 1
+1L:37L.collect { :n |
+	let d = n.integerDigits(2L);
+	let p = d.riffle(0L) ++ [0L];
+	p.split(==).reject { :x |
+		x[1L] = 1L
 	}.collect { :x |
-		((x.size - 1) / 2).ceiling
+		((x.size - 1L) / 2L).ceiling
 	}.reverse
 }.catenate.discretePlot
 ~~~

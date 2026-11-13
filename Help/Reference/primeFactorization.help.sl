@@ -6,22 +6,22 @@ Answer a `Multiset` giving the prime factors of the integer _n_ and their multip
 
 ```
 >>> 21.primeFactorization
-Multiset([3 7], =)
+Multiset([3L 7L], ==)
 
 >>> 36.primeFactorization
-Multiset([2 2 3 3], =)
+Multiset([2L 2L 3L 3L], ==)
 
 >>> 60.primeFactorization
-Multiset([2 2 3 5], =)
+Multiset([2L 2L 3L 5L], ==)
 
 >>> 120.primeFactorization
-Multiset([2 2 2 3 5], =)
+Multiset([2L 2L 2L 3L 5L], ==)
 
 >>> 6.factorial.primeFactorization
-Multiset([2 2 2 2 3 3 5], =)
+Multiset([2L 2L 2L 2L 3L 3L 5L], ==)
 
 >>> 2401.primeFactorization
-Multiset([7 7 7 7], =)
+Multiset([7L 7L 7L 7L], ==)
 
 >>> 20L.factorial
 >>> .primeFactorization
@@ -42,7 +42,7 @@ At `one`:
 
 ```
 >>> 1.primeFactorization
-Multiset([], =)
+Multiset([], ==)
 ```
 
 The keys are the prime divisors:
@@ -62,7 +62,8 @@ Powerful numbers are numbers whose prime factors are all repeated:
 
 ```
 >>> 324.primeFactorization
-Multiset([2 2 3 3 3 3], =)
+>>> .sortedElements
+[2 -> 2, 3 -> 4]
 
 >>> 324.isPowerfulNumber
 true

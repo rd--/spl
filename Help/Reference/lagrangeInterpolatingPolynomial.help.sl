@@ -11,6 +11,11 @@ With `Float` _c_:
 >>> .lagrangeInterpolatingPolynomial
 >>> .coefficientList
 [2.0 1.0 3.0]
+
+>>> [1 1; 2 4; 3 1; 4 5]
+>>> .lagrangeInterpolatingPolynomial
+>>> .coefficientList
+[-21.0 35.83333 -16.0 2.16666]
 ```
 
 With `Integer` _c_:

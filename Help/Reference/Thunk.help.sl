@@ -20,7 +20,7 @@ The `memoize` method has the same function but answers a `Block` value:
 
 ```
 >>> let x = 1;
->>> let f/0 = { x := x + 1; x }.memoize;
+>>> let f/0 = { x := x + 1; x }.memoize(true);
 >>> (f(), f(), f())
 (2, 2, 2)
 ```

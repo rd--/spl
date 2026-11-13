@@ -201,16 +201,16 @@ OEIS [A066201](https://oeis.org/A066201):
 
 ~~~spl svg=E oeis=A066201
 let t/2 = { :n :k |
-	(k = 0).if {
-		1
+	(k = 0L).if {
+		1L
 	} {
-		let a = t(n, k - 1);
-		let b = n + k - 1;
+		let a = t(n, k - 1L);
+		let b = n + k - 1L;
 		let c = a - b;
 		(
-			c > 0 & {
-				let l = k - 1;
-				0:l.noneSatisfy { :j |
+			c > 0L & {
+				let l = k - 1L;
+				0L:l.noneSatisfy { :j |
 					t(n, j) = c
 				}
 			}
@@ -221,7 +221,7 @@ let t/2 = { :n :k |
 		}
 	}
 }.memoize(true);
-0:13.antidiagonalArray(t/2)
+0L:13L.antidiagonalArray(t/2)
 .collect(reverse/1)
 .catenate
 .scatterPlot

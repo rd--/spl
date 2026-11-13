@@ -17,7 +17,7 @@ BivariatePolynomial[1 2; 3 4]
 At `Map`:
 
 ```
->>> Polynomial(Dictionary[0 -> 1, 5 -> 5])
+>>> Polynomial(Map[0 -> 1L, 5 -> 5L])
 UnivariatePolynomial[1 0 0 0 0 5]
 ```
 
@@ -27,9 +27,9 @@ OEIS [A003263](https://oeis.org/A003263):
 ~~~spl svg=A oeis=A003263
 1:10.product { :n |
 	Polynomial(
-		Dictionary[
-			0 -> 1,
-			n.lucasInteger -> 1
+		Map[
+			0 -> 1L,
+			n.lucasInteger -> 1L
 		]
 	)
 }.coefficientList

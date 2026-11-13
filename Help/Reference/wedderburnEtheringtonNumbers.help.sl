@@ -8,7 +8,7 @@ First few Wedderburn-Etherington numbers,
 OEIS [A001190](https://oeis.org/A001190):
 
 ```
->>> 24.wedderburnEtheringtonNumbers
+>>> 24L.wedderburnEtheringtonNumbers
 [
 	0 1 1 1 2 3 6 11 23 46 98 207
 	451 983 2179 4850 10905 24631
@@ -16,6 +16,15 @@ OEIS [A001190](https://oeis.org/A001190):
 	1563372 3626149
 ]
 ```
+
+Log scale scatter plot of first few terms:
+
+~~~spl svg=A oeis=A001190
+85L.wedderburnEtheringtonNumbers
+.scatterPlot.log
+~~~
+
+![](Help/Image/wedderburnEtheringtonNumbers-A.svg)
 
 * * *
 

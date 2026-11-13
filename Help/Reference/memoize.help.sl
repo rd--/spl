@@ -28,9 +28,9 @@ Memoized Fibonacci will answer immediately for large _k_:
 >>> 	(n < 2).if {
 >>> 		n
 >>> 	} {
->>> 		f(n - 1) + f(n - 2)
+>>> 		f(n - 1L) + f(n - 2L)
 >>> 	}
->>> }.memoize(false);
+>>> }.memoize(true);
 >>> f(170L)
 150804340016807970735635273952047185L
 ```
@@ -47,7 +47,7 @@ OEIS [A002083](https://oeis.org/A002083):
 >>> 		-
 >>> 		((n % 2) * a(n // 2))
 >>> 	}
->>> }.memoize;
+>>> }.memoize(true);
 >>> 1:14.collect(a/1)
 [1 1 1 2 3 6 11 22 42 84 165 330 654 1308]
 ```
@@ -81,7 +81,7 @@ let r = Sfc32(673821);
 	{
 		{
 			r.nextRandomFloat
-		}.memoize ! 8
+		}.memoize(true) ! 8
 	} ! 16
 ).catenate.stepPlot
 ~~~

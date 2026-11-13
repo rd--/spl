@@ -173,7 +173,8 @@ OEIS [A079344](https://oeis.org/A079344):
 >>> 12.moduloFibonacciSequence(8)
 [0 1 1 2 3 5 0 5 5 2 7 1]
 
->>> (12.fibonacciSequence % 8).unique(=)
+>>> (12.fibonacciSequence % 8L)
+>>> .unique(==)
 [0 1 2 3 5 7]
 ```
 
@@ -386,7 +387,7 @@ OEIS [A189768](https://oeis.org/A189768):
 >>> 1L:17L.collect { :m |
 >>> 	let k = m.pisanoPeriod;
 >>> 	(k.fibonacciSequence % m)
->>> 	.unique(=)
+>>> 	.unique(==)
 >>> }
 [
 	0;
@@ -417,7 +418,7 @@ OEIS [A118965](https://oeis.org/A118965):
 >>> 	let k = m.pisanoPeriod;
 >>> 	[0L .. m - 1L].complement(
 >>> 		(k.fibonacciSequence % m)
->>> 		.unique(=)
+>>> 		.unique(==)
 >>> 	).size
 >>> }
 [
@@ -440,7 +441,7 @@ OEIS [A137750](https://oeis.org/A137750):
 >>> .collect { :m |
 >>> 	let k = m.pisanoPeriod;
 >>> 	(k.fibonacciSequence % m)
->>> 	.unique(=).size
+>>> 	.unique(==).size
 >>> }
 [
 	  2   3   5   7   7
@@ -466,7 +467,7 @@ the sequence visits 24 of the 110 residues:
 60
 
 >>> (60.fibonacciSequence % 110L)
->>> .unique(=)
+>>> .unique(==)
 [
 	0 1 2 3 5
 	8 13 21 34 47
@@ -517,7 +518,7 @@ OEIS [A001179](https://oeis.org/A001179):
 >>> 		ll(x // 5, k + 1L)
 >>> 	}
 >>> };
->>> let a = Dictionary { :n |
+>>> let a = Map { :n |
 >>> 	(n = 1L).if {
 >>> 		0L
 >>> 	} {
@@ -629,7 +630,7 @@ OEIS [A235249](https://oeis.org/A235249):
 ~~~spl svg=D oeis=A235249
 1L:65L.collect { :n |
 	pisanoPeriod/1
-	.fixedPoint(n, =)
+	.fixedPoint(n, ==)
 }.stepPlot.log
 ~~~
 
@@ -655,7 +656,7 @@ OEIS [A118965](https://oeis.org/A118965):
 	let k = m.pisanoPeriod;
 	[0 .. m - 1L].complement(
 		(k.fibonacciSequence % m)
-		.unique(=)
+		.unique(==)
 	).size
 }.discretePlot
 ~~~
@@ -669,7 +670,7 @@ OEIS [A137750](https://oeis.org/A137750):
 1:85.prime.collect { :m |
 	let k = m.pisanoPeriod;
 	(k.fibonacciSequence % m)
-	.unique(=).size
+	.unique(==).size
 }.discretePlot
 ~~~
 

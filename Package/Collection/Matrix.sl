@@ -830,7 +830,7 @@
 
 	cartesianIndexToDiagonalIndex { :i :j |
 		let a = i.triangularNumber;
-		let b = Range(i, i + j - 2, 1);
+		let b = Range(i, i + j - 2L, 1L);
 		a + b.sum
 	}
 
@@ -844,10 +844,10 @@
 	}
 
 	diagonalIndexToCartesianIndex { :n |
-		let a = 0.5 + (2 * n).sqrt;
-		let b = 1.5 + (2 * n).sqrt;
-		let i = n - binomial(a.floor, 2);
-		let j = binomial(b.floor, 2) - n + 1;
+		let a = 0.5 + (2.0 * n).sqrt;
+		let b = 1.5 + (2.0 * n).sqrt;
+		let i = n - binomial(a.floor.L, 2L);
+		let j = binomial(b.floor.L, 2L) - n + 1L;
 		[i, j]
 	}
 

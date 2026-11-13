@@ -517,7 +517,7 @@ Number of perfect partitions of _n_,
 OEIS [A002033](https://oeis.org/A002033):
 
 ~~~spl svg=N oeis=A002033
-let a = Dictionary { :n |
+let a = Map { :n |
 	(n < 2L).if {
 		n
 	} {
@@ -525,7 +525,8 @@ let a = Dictionary { :n |
 		a.atAll(d.allButLast).sum
 	}
 };
-a[1L .. 200L].scatterPlot.log
+a[1L .. 200L]
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/divisors-N.svg)

@@ -2,19 +2,22 @@
 
 - _isPermutationCycles([c₁ c₂ …])_
 
-Answer `true` if the sequence _c_ contains a valid permutation in cyclic form, and `false` otherwise.
+Answer `true` if the sequence _c_ contains a valid permutation in cyclic form,
+and `false` otherwise.
 
 A valid permutation in cyclic form:
 
 ```
->>> [1 5 2; 4 10 20 3].isPermutationCycles
+>>> [1 5 2; 4 10 20 3]
+>>> .isPermutationCycles
 true
 ```
 
 An invalid permutation in cyclic form:
 
 ```
->>> [1 1 2; 3 4].isPermutationCycles
+>>> [1 1 2; 3 4]
+>>> .isPermutationCycles
 false
 ```
 
@@ -28,28 +31,32 @@ true
 Cycles must be disjoint:
 
 ```
->>> [1 2; 1 3].isPermutationCycles
+>>> [1 2; 1 3]
+>>> .isPermutationCycles
 false
 ```
 
 Integers must be positive:
 
 ```
->>> [1 0; -2 3].isPermutationCycles
+>>> [1 0; -2 3]
+>>> .isPermutationCycles
 false
 ```
 
 Numbers other than integers are not accepted:
 
 ```
->>> [1 2; 3 1/2].isPermutationCycles
+>>> [1 2; 3 1/2]
+>>> .isPermutationCycles
 false
 ```
 
-The depth of the tree structure must be 3:
+The depth of the tree structure must be three:
 
 ```
->>> [1 2:; 3 4].isPermutationCycles
+>>> [1 2:; 3 4]
+>>> .isPermutationCycles
 false
 ```
 

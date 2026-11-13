@@ -627,9 +627,9 @@
 				aBlock(entry[1], each)
 			} { :index |
 				let entry = answer[index];
-				entry[2] := entry[2] + 1
+				entry[2] := entry[2] + 1L
 			} {
-				answer.add!([each, 1])
+				answer.add!([each, 1L])
 			}
 		};
 		answer

@@ -416,22 +416,25 @@ OEIS [A114897](https://oeis.org/A114897):
 
 ~~~spl svg=B oeis=A114897
 let a/1 = { :n |
-	(n = 1).if {
-		1
+	(n = 1L).if {
+		1L
 	} {
-		let k = 1;
-		let c = 0;
-		{ k < n }.whileTrue {
-			let m = a(k) + n - 1;
+		let k = 1L;
+		let c = 0L;
+		{
+			k < n
+		}.whileTrue {
+			let m = a(k) + n - 1L;
 			m.isPrime.ifTrue {
-				c := c + 1
+				c := c + 1L
 			};
-			k := k + 1
+			k := k + 1L
 		};
 		c
 	}
 }.memoize(true);
-1:150.collect(a/1).scatterPlot
+1L:150L.collect(a/1)
+.scatterPlot
 ~~~
 
 ![](Help/Image/isPrime-B.svg)

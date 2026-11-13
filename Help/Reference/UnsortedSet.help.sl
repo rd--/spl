@@ -50,14 +50,13 @@ false
 >>> 1 == 1L
 false
 
->>> UnsortedSet[1 1L]
+>>> UnsortedSet[1.0 1L]
 >>> .collection
-[1]
+[1.0]
 
->>> {
->>> 	IdentitySet[1 1L]
->>> }.hasError
-true
+>>> IdentitySet[1.0 1L]
+>>> .items
+[1.0 1L]
 
 >>> 1J1 == 1J1
 false

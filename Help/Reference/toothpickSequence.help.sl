@@ -8,7 +8,7 @@ First few terms of the toothpick sequence,
 OEIS [A139250](https://oeis.org/A139250):
 
 ```
->>> 35.toothpickSequence
+>>> 35L.toothpickSequence
 [
 	  0   1   3   7  11
 	 15  23  35  43  47
@@ -24,7 +24,8 @@ The toothpick sequence,
 OEIS [A139250](https://oeis.org/A139250):
 
 ~~~spl svg=A oeis=A139250
-200.toothpickSequence.scatterPlot
+200.toothpickSequence
+.scatterPlot
 ~~~
 
 ![](Help/Image/toothpickSequence-A.svg)

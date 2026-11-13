@@ -37,7 +37,8 @@ The Grahl, or "forest fire", sequence,
 OEIS [A229037](https://oeis.org/A229037):
 
 ~~~spl svg=A oeis=A229037
-250.grahlSequence.scatterPlot
+250.grahlSequence
+.scatterPlot
 ~~~
 
 ![](Help/Image/grahlSequence-A.svg)
@@ -66,7 +67,8 @@ Variant of the Grahl sequence by R. Stanley,
 OEIS [A309890](https://oeis.org/A309890):
 
 ~~~spl svg=B oeis=A309890
-250.grahlSequence('Stanley').scatterPlot
+250.grahlSequence('Stanley')
+.scatterPlot
 ~~~
 
 ![](Help/Image/grahlSequence-B.svg)

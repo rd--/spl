@@ -57,6 +57,8 @@ OEIS [A004149](https://oeis.org/A004149):
 
 See also: catalanNumber
 
+Guides: Integer Functions
+
 References:
 _OEIS_
 [1](https://oeis.org/A004149)

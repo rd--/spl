@@ -9,7 +9,7 @@ At `List`:
 ```
 >>> [1 2 3 4 3 2 1]
 >>> .occurrencesOf(3)
-2
+2L
 ```
 
 At `Record`:
@@ -17,7 +17,7 @@ At `Record`:
 ```
 >>> (a: 1, b: 2, c: 1)
 >>> .occurrencesOf(1)
-2
+2L
 ```
 
 At `Multiset`:
@@ -25,7 +25,7 @@ At `Multiset`:
 ```
 >>> Multiset([2 3 3 4 4 4], ==)
 >>> .occurrencesOf(4)
-3
+3L
 ```
 
 The number of occurrences of an element in a set will be zero or one.
@@ -34,7 +34,7 @@ At `Set`:
 ```
 >>> Set([1 2 2 3 3 3], ==)
 >>> .occurrencesOf(3)
-1
+1L
 ```
 
 At `String`:
@@ -42,37 +42,35 @@ At `String`:
 ```
 >>> 'abracadabra'
 >>> .occurrencesOf('a')
-5
+5L
 
 >>> 'a cat a mat'
 >>> .occurrencesOf('a')
-4
+4L
 
 >>> 'a cat a mat'
 >>> .occurrencesOf('cat')
-1
+1L
 ```
 
 The first _k_ terms of the inventory sequence,
 OEIS [A342585](https://oeis.org/A342585):
 
 ~~~spl svg=A oeis=A342585
-let k = 200;
+let k = 200L;
 let a = [];
-let c = 0;
-let n = 0;
-let f = 1.toDo(k) { :i |
+let c = 0L;
+let n = 0L;
+let f = 1L.toDo(k) { :i |
 	let n = a.occurrencesOf(c);
 	a.add!(n);
-	(n = 0).if {
-		c := 0
+	(n = 0L).if {
+		c := 0L
 	} {
-		c := c + 1
+		c := c + 1L
 	}
 };
-a.collect { :n |
-	n.isZero.if { 0 } { n.log }
-}.scatterPlot
+a.scatterPlot
 ~~~
 
 ![](Help/Image/occurrencesOf-A.svg)
@@ -100,11 +98,11 @@ Numbers that have only one largest digit _m_ and where the sum of the digits is 
 OEIS [A393832](https://oeis.org/A393832):
 
 ~~~spl svg=C oeis=A393832
-0:1200.select { :n |
+0L:1200L.select { :n |
 	let d = n.integerDigits;
 	let m = d.max;
-	d.occurrencesOf(m) = 1 & {
-		d.sum = (2 * m)
+	d.occurrencesOf(m) = 1L & {
+		d.sum = (2L * m)
 	}
 }.discretePlot
 ~~~

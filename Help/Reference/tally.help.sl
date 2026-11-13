@@ -6,11 +6,11 @@ Answer all distinct elements of the collection _x_ together with their multiplic
 according to the equality predicate _f_.
 
 ```
->>> List'aabacba'.tally(=)
+>>> List'aabacba'.tally(==)
 [
-	'a' 4;
-	'b' 2;
-	'c' 1
+	'a' 4L;
+	'b' 2L;
+	'c' 1L
 ]
 ```
 

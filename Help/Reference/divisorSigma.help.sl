@@ -12,15 +12,15 @@ _divisorSigma(k, n)_ is the sum of the _k_-th powers of the divisors of _n_.
 Find the divisors of twenty:
 
 ```
->>> 20.divisors
+>>> 20L.divisors
 [1 2 4 5 10 20]
 ```
 
 The number of divisors:
 
 ```
->>> 0.divisorSigma(20)
-6
+>>> 0L.divisorSigma(20L)
+6L
 ```
 
 The size of the `divisors` is equal to `divisorSigma` of `zero`:
@@ -52,24 +52,24 @@ The sum of squares of divisors:
 At `Integer`:
 
 ```
->>> 2.divisorSigma(6)
-50
+>>> 2L.divisorSigma(6L)
+50L
 ```
 
 Negative powers:
 
 ```
->>> -1.divisorSigma(12)
+>>> -1L.divisorSigma(12L)
 7/3
 
->>> -2.divisorSigma(10)
-(13 / 10)
+>>> -2L.divisorSigma(10L)
+13/10
 ```
 
 Rational powers:
 
 ```
->>> (1 / 2).divisorSigma(12)
+>>> 1/2.divisorSigma(12L)
 (
 	(2 * (-1 + (2 * 2.sqrt)))
 	/
@@ -80,7 +80,7 @@ Rational powers:
 Threads elementwise over lists:
 
 ```
->>> 0.divisorSigma(1:5)
+>>> 0L.divisorSigma(1L:5L)
 [1 2 2 3 2]
 
 >>> 1.divisorSigma(1:5)

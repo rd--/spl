@@ -9,11 +9,11 @@ At `List`:
 
 ```
 >>> [1 3 5 7 9]
->>> .isArithmeticProgression(2, =)
+>>> .isArithmeticProgression(2, ==)
 true
 
 >>> [1 3 5 7 9]
->>> .isArithmeticProgression(3, =)
+>>> .isArithmeticProgression(3, ==)
 false
 ```
 
@@ -21,11 +21,11 @@ At `Range`:
 
 ```
 >>> (1, 3 .. 9)
->>> .isArithmeticProgression(2, =)
+>>> .isArithmeticProgression(2, ==)
 true
 
 >>> (1, 3 .. 9)
->>> .isArithmeticProgression(3, =)
+>>> .isArithmeticProgression(3, ==)
 false
 ```
 
@@ -44,14 +44,16 @@ true
 Ascending arithmetic sequence with step size of one:
 
 ```
->>> [1 2 3 4 5].isArithmeticProgression
+>>> [1 2 3 4 5]
+>>> .isArithmeticProgression
 true
 ```
 
 Descending arithmetic sequence with step size of one:
 
 ```
->>> [7 6 5 4 3].isArithmeticProgression
+>>> [7 6 5 4 3]
+>>> .isArithmeticProgression
 true
 ```
 

@@ -399,7 +399,7 @@ Replace each prime number with its rank in the recursive prime factorization of 
 OEIS [A225395](https://oeis.org/A225395):
 
 ~~~spl svg=L oeis=A225395
-let a = Dictionary { :n |
+let a = Map { :n |
 	(n = 1L).if {
 		1L
 	} {
@@ -407,12 +407,14 @@ let a = Dictionary { :n |
 			n.primePi
 		} {
 			n.factorInteger.product { :f |
-				f[1].primePi ^ a[f[2]]
+				let [i, j] = f;
+				i.primePi ^ a[j]
 			}
 		}
 	}
 };
-a[1L .. 175L].scatterPlot
+a[1L .. 175L]
+.scatterPlot
 ~~~
 
 ![](Help/Image/primePi-L.svg)

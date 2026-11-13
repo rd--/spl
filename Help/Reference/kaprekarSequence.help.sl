@@ -76,7 +76,7 @@ OEIS [A164887](https://oeis.org/A164887):
 
 ```
 >>> let a = [];
->>> let b = SortedSet();
+>>> let b = IdentitySet();
 >>> 0L:1000L.collect { :n |
 >>> 	let p = n.kaprekarSequence(2L);
 >>> 	let q = p.last;
@@ -101,7 +101,8 @@ partitioned into a 100×100 matrix:
 ~~~spl png=A
 0L:9999L.collect { :x |
 	x.kaprekarSequence(10L, 4L).size
-}.reshape([100 100]).rescale.Greymap
+}.reshape([100 100])
+.rescale.Greymap
 ~~~
 
 ![](Help/Image/kaprekarSequence-A.png)

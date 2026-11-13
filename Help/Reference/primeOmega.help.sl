@@ -149,7 +149,7 @@ counted with multiplicity,
 OEIS [A058933](https://oeis.org/A058933):
 
 ~~~spl svg=B oeis=A058933
-let m = Dictionary();
+let m = Map();
 let f = { :x |
 	let y = m.atIfAbsent(x) { 0L };
 	m.put!(x, y + 1L)

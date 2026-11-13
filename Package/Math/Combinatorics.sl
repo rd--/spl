@@ -442,12 +442,12 @@
 
 	polygonalNumber { :r |
 		{ :n |
-			(1 / 2) * n * (n * (r - 2) - r + 4)
+			n * (n * (r - 2L) - r + 4L) // 2L
 		}
 	}
 
 	polygonalNumber { :r :n |
-		(1 / 2) * n * (n * (r - 2) - r + 4)
+		n * (n * (r - 2L) - r + 4L) // 2L
 	}
 
 	restrictedGrowthStrings { :n |
@@ -576,22 +576,24 @@
 
 	wedderburnEtheringtonNumbers { :self |
 		let a/1 = { :n |
-			let f = { :k | a(k) * a(n - k) };
+			let f = { :k |
+				a(k) * a(n - k)
+			};
 			[
-				{ n < 2 } -> {
+				{ n < 2L } -> {
 					n
 				},
 				{ n.isOdd } -> {
-					1.to((n - 1) / 2).sum(f/1)
+					1L.to((n - 1L) // 2).sum(f/1)
 				},
 				{ n.isEven } -> {
-					1.to((n / 2) - 1).sum(f/1)
+					1L.to((n // 2L) - 1L).sum(f/1)
 					+
-					((1 / 2) * a(n / 2) * (1 + a(n / 2)))
+					(a(n // 2L) * (1L + a(n // 2L)) // 2L)
 				}
 			].which
 		}.memoize(true);
-		0.to(self - 1).collect(a/1)
+		0L.to(self - 1L).collect(a/1)
 	}
 
 }

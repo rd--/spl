@@ -68,7 +68,8 @@ let n = nil;
 	t.addAll!(2:n.primePi.prime ^ k);
 	k := 2 * k
 };
-t.unique(=).scatterPlot
+t.unique(==)
+.scatterPlot
 ~~~
 
 ![](Help/Image/unique-B.svg)
@@ -79,12 +80,12 @@ and
 OEIS [A030748](https://oeis.org/A030748):
 
 ~~~spl svg=C oeis=A030747
-let a = [4];
+let a = [4L];
 let b = [];
 16.timesRepeat {
 	let c = (a ++ b);
-	let d = c.unique(=);
-	let e = Multiset(c, =).sortedElements;
+	let d = c.unique(==);
+	let e = Multiset(c, ==).sortedElements;
 	let f = e.collect(value/1);
 	b.addAll!(d);
 	a.addAll!(f)

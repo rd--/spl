@@ -63,19 +63,20 @@ OEIS [A098280](https://oeis.org/A098280):
 
 ~~~spl svg=A
 let f/1 = { :n |
-	(n = 1).if {
-		[[1]]
+	(n = 1L).if {
+		[[1L]]
 	} {
-		f(n - 1).collect { :x |
-			1:n.collect { :i |
+		f(n - 1L).collect { :x |
+			1L:n.collect { :i |
 				let y = x.copy;
 				y.insertAt!(n, i);
 				y
 			}
 		}.catenate
 	}
-}.memoize;
-1:4.collect(f/1).catenate.catenate.scatterPlot
+}.memoize(true);
+1L:4L.collect(f/1).catenate.catenate
+.scatterPlot
 ~~~
 
 ![](Help/Image/insertAt-A.svg)

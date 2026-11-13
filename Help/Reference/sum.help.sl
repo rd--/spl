@@ -142,9 +142,9 @@ OEIS [A000055](https://oeis.org/A000055)
 >>> 			j.divisors.sum { :d |
 >>> 				d * b(d) * b(n - j)
 >>> 			}
->>> 		} / m
+>>> 		} // m
 >>> 	}
->>> }.memoize(false);
+>>> }.memoize(true);
 >>> let a/1 = { :n |
 >>> 	(n = 1L).if {
 >>> 		1L
@@ -152,13 +152,13 @@ OEIS [A000055](https://oeis.org/A000055)
 >>> 		let c = 0L:n.sum { :k |
 >>> 			b(k) * b(n - k)
 >>> 		} - (n % 2L = 0L).if {
->>> 			b(n / 2L)
+>>> 			b(n // 2L)
 >>> 		} {
 >>> 			0L
 >>> 		};
->>> 		b(n) - (c / 2L)
+>>> 		b(n) - (c // 2L)
 >>> 	}
->>> }.memoize(false);
+>>> }.memoize(true);
 >>> 1L:20L.collect(a/1)
 [
 	1 1 1 2 3
@@ -194,10 +194,10 @@ Molien series for three-dimensional group _[2,n]=*22n_,
 OEIS [A008728](https://oeis.org/A008728):
 
 ```
->>> 0:39.collect { :n |
->>> 	let m = n + 10;
->>> 	0:m.sum { :j |
->>> 		(j / 10).floor
+>>> 0L:39L.collect { :n |
+>>> 	let m = n + 10L;
+>>> 	0L:m.sum { :j |
+>>> 		(j / 10L).floor
 >>> 	}
 >>> }
 [
@@ -328,7 +328,7 @@ let b/2 = { :n :m |
 			0L
 		}
 	}
-}.memoize(false);
+}.memoize(true);
 (1L .. 17L).collect { :n |
 	(0L .. n - 1L).collect { :m |
 		let o = (n - 1L) / 2L - (m / n);

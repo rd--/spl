@@ -212,7 +212,7 @@ let a/1 = { :n |
 			((n - 2L) // d).moebiusMu
 		}
 	}
-}.memoize(false);
+}.memoize(true);
 1L:175L.collect(a/1)
 .scatterPlot
 ~~~

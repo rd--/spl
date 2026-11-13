@@ -130,7 +130,7 @@ OEIS [A026465](https://oeis.org/A026465):
 
 ~~~spl svg=F oeis=A026465
 99.thueMorseSequence
-.split(=)
+.split(==)
 .collect(size/1)
 .allButFirst
 .stepPlot

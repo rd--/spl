@@ -11,7 +11,7 @@ Find the sequence of values leading to a fixed point:
 ```
 >>> { :x |
 >>> 	1 + (x / 2).floor
->>> }.fixedPointList(1000, =)
+>>> }.fixedPointList(1000, ==)
 [1000 501 251 126 64 33 17 9 5 3 2 2]
 ```
 
@@ -25,7 +25,7 @@ Repeated application of a rule until the result no longer changes:
 >>> 	} {
 >>> 		[a, b]
 >>> 	}
->>> }.fixedPointList([28 21])
+>>> }.fixedPointList([28 21], =)
 [28 21; 21 7; 7 0; 7 0]
 
 >>> 28.gcd(21)

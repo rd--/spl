@@ -1,8 +1,9 @@
 # nub
 
-- _nub([x₁ x₂ …], ==)_
+- _nub([x₁ x₂ …], =)_
 
-Answer a copy of the collection _x_ that removes any duplicates, according `=`.
+Answer a copy of the collection _x_ that removes any duplicates,
+according `=`.
 If _x_ is a `Sequence` the copy will preserve the order of elements.
 
 ```

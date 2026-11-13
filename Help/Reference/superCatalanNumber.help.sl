@@ -11,7 +11,7 @@ threads over lists,
 OEIS [A001003](https://oeis.org/A001003):
 
 ```
->>> 1:10.superCatalanNumber
+>>> 1L:10L.superCatalanNumber
 [1 1 3 11 45 197 903 4279 20793 103049]
 ```
 
@@ -73,7 +73,8 @@ The super Catalan numbers,
 OEIS [A001003](https://oeis.org/A001003):
 
 ~~~spl svg=A oeis=A001003
-1L:25.superCatalanNumber.discretePlot.log
+1L:25L.superCatalanNumber
+.discretePlot.log
 ~~~
 
 ![](Help/Image/superCatalanNumber-A.svg)

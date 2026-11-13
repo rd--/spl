@@ -131,9 +131,9 @@ let m = [4.35 4.25 3.5 3.35 3.75];
 let v = 5.circlePoints([0 0], 1, 1/4.pi) * m;
 let n = [1 3 5 7 11 13];
 RatioTuning(
-	[n, n].tuples
-	.Fraction
-	.unique(=)
+	Fraction(
+		[n, n].tuples
+	).unique(=)
 ).tuningLatticeGraph(
 	[3 5 7 11 13],
 	v

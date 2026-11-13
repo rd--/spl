@@ -23,7 +23,8 @@ scatter plot of first few terms,
 OEIS [A005185](https://oeis.org/A005185):
 
 ~~~spl svg=A oeis=A005185
-200.hofstadterQSequence.scatterPlot
+200.hofstadterQSequence
+.scatterPlot
 ~~~
 
 ![](Help/Image/hofstadterQSequence-A.svg)
@@ -58,7 +59,8 @@ h.partition(3, 1).collect { :i |
 A longer segment of the Hofstadter Q-sequence:
 
 ~~~spl png=D oeis=A005185
-2500.hofstadterQSequence.denseScatterPlot
+2500.hofstadterQSequence
+.denseScatterPlot
 ~~~
 
 ![](Help/Image/hofstadterQSequence-D.png)
@@ -67,8 +69,9 @@ Plot _2Q(n)-n_:
 
 ~~~spl png=E
 let q = 2500.hofstadterQSequence;
-let n = 1:2500;
-(2 * q - n).denseScatterPlot
+let n = 1L:2500L;
+(2L * q - n)
+.denseScatterPlot
 ~~~
 
 ![](Help/Image/hofstadterQSequence-E.png)

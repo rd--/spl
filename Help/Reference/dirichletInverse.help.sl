@@ -8,7 +8,7 @@ Dirichlet inverse of the gcd-sum function,
 OEIS [A101035](https://oeis.org/A101035):
 
 ~~~spl svg=A oeis=A101035
-1:115.collect(
+1L:115L.collect(
 	gcdSum/1.dirichletInverse
 ).discretePlot
 ~~~
@@ -33,7 +33,7 @@ OEIS [A046692](https://oeis.org/A046692):
 ~~~spl svg=C oeis=A046692
 1:115.collect(
 	{ :n |
-		1.divisorSigma(n)
+		1L.divisorSigma(n)
 	}.dirichletInverse
 ).discretePlot
 ~~~

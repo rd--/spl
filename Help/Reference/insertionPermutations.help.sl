@@ -100,7 +100,8 @@ OEIS [A098280](https://oeis.org/A098280):
 
 ~~~spl svg=A oeis=A098280
 4.insertionPermutations('FrontToBack')
-.catenate.catenate.scatterPlot
+.catenate.catenate
+.scatterPlot
 ~~~
 
 ![](Help/Image/insertionPermutations-A.svg)
@@ -110,7 +111,8 @@ OEIS [A098281](https://oeis.org/A098281):
 
 ~~~spl svg=B oeis=A098281
 4.insertionPermutations('BackToFront')
-.catenate.catenate.scatterPlot
+.catenate.catenate
+.scatterPlot
 ~~~
 
 ![](Help/Image/insertionPermutations-B.svg)

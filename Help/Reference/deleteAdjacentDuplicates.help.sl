@@ -17,13 +17,18 @@ At sequence with integers, reals and fractions,
 note how `=` and `==` compare equivalent `Fraction` and `Float` values:
 
 ```
->>> [
->>> 	3,
->>> 	2, 4.sqrt,
->>> 	3/2, 1.5,
->>> 	1
->>> ].deleteAdjacentDuplicates(=)
-[3 2 3/2 1]
+>>> [=, ==].collect { :f/2 |
+>>> 	[
+>>> 		3.0, 3L,
+>>> 		2L, 4.sqrt,
+>>> 		3/2, 1.5,
+>>> 		1.0, 1/1
+>>> 	].deleteAdjacentDuplicates(f/2)
+>>> }
+[
+	3.0 2L 3/2 1.0;
+	3.0 3L 2L 2.0 3/2 1.5 1.0 1/1
+]
 ```
 
 Delete elements unless they are larger than the preceding ones:

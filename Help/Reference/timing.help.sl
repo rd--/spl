@@ -8,20 +8,20 @@ Time summing a `Range`:
 
 ```
 >>> let [t, r] = {
->>> 	1:123456.sum
+>>> 	1L:123456L.sum
 >>> }.timing;
 >>> (t < 0.001, r)
-(true, 7620753696)
+(true, 7620753696/1)
 ```
 
 Time summing a `List`:
 
 ```
 >>> let [t, r] = {
->>> 	[1 .. 123456].sum
+>>> 	[1L .. 123456L].sum
 >>> }.timing;
 >>> (t < 0.1, r)
-(true, 7620753696)
+(true, 7620753696L)
 ```
 
 Timing computing a prime number:
@@ -31,7 +31,7 @@ Timing computing a prime number:
 >>> 	3579.prime
 >>> }.timing;
 >>> (t >= 0, t < 1.25, r)
-(true, true, 33413)
+(true, true, 33413L)
 ```
 
 * * *

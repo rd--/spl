@@ -271,7 +271,7 @@
 	}
 
 	semiFibonacciSequence { :m |
-		let a = Dictionary { :n |
+		let a = Map { :n |
 			(n = 1L).if {
 				1L
 			} {
@@ -291,15 +291,15 @@
 		c.atIfAbsentPut!(d) {
 			let phi = 1.goldenRatio;
 			let g = { :x |
-				(x * phi + 0.5).floor
+				(x * phi + 0.5).floor.L
 			};
-			(n = 1).if {
-				(m = 1).if {
-					1
+			(n = 1L).if {
+				(m = 1L).if {
+					1L
 				} {
-					let z = stolarskyArray(m - 1, 1) + 1;
+					let z = stolarskyArray(m - 1L, 1L) + 1L;
 					let rowContains = { :r :x |
-						let k = stolarskyArray(r, 1);
+						let k = stolarskyArray(r, 1L);
 						{
 							k < x
 						}.whileTrue {
@@ -308,16 +308,16 @@
 						k = x
 					};
 					{
-						1.to(m - 1).anySatisfy { :r |
+						1L.to(m - 1L).anySatisfy { :r |
 							r.rowContains(z)
 						}
 					}.whileTrue {
-						z := z + 1
+						z := z + 1L
 					};
 					z
 				}
 			} {
-				g(stolarskyArray(m, n - 1))
+				g(stolarskyArray(m, n - 1L))
 			}
 		}
 	}
@@ -479,7 +479,7 @@
 
 	cachedStolarskyArray { :self |
 		self.cached('stolarskyArray') {
-			Dictionary()
+			Map()
 		}
 	}
 

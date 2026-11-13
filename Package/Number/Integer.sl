@@ -254,7 +254,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	isImmediate { :unused |
 		/* Model: SmallInteger | Integer */
 		/* 1L !== 1 */
-		false
+		true
 	}
 
 	[isInteger, isIntegerValuedNumber] { :unused |

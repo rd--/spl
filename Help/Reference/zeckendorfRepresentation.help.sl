@@ -344,7 +344,7 @@ OEIS [A104324](https://oeis.org/A104324):
 ~~~spl svg=F oeis=A104324
 1:200.collect { :n |
 	n.zeckendorfRepresentation
-	.split(=)
+	.split(==)
 	.size
 }.scatterPlot
 ~~~

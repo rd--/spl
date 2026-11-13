@@ -8,11 +8,11 @@ Anti-divisors are the numbers that do not divide a number by the largest possibl
 Anti-divisors of 24 and 30:
 
 ```
->>> 24.antiDivisors
-[7 16]
+>>> 24L.antiDivisors
+[7L 16L]
 
->>> 30.antiDivisors
-[4 12 20]
+>>> 30L.antiDivisors
+[4L 12L 20L]
 ```
 
 Threads element-wise over list arguments:
@@ -57,7 +57,8 @@ Anti-divisors of _n_,
 OEIS [A130799](https://oeis.org/A130799):
 
 ~~~spl svg=A oeis=A130799
-3:50.antiDivisors.catenate.scatterPlot
+3:50.antiDivisors
+.catenate.scatterPlot
 ~~~
 
 ![](Help/Image/antiDivisors-A.svg)
@@ -87,9 +88,9 @@ Anti-divisor class sums of _n_,
 OEIS [A066518](https://oeis.org/A066518):
 
 ~~~spl svg=D oeis=A066518
-1:100
-.collect(antiDivisorsClassSum/1)
-.discretePlot
+1:100.collect(
+	antiDivisorsClassSum/1
+).discretePlot
 ~~~
 
 ![](Help/Image/antiDivisors-D.svg)
