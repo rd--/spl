@@ -22,7 +22,7 @@ false
 Test for large integers:
 
 ```
->>> (10L ^ 3000 + 1)
+>>> (10L ^ 3000L + 1L)
 >>> .isComposite
 true
 ```

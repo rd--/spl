@@ -614,9 +614,12 @@ OEIS [A056534](https://oeis.org/A056534):
 
 ~~~spl svg=U oeis=A056534
 let a = [];
-1:21.do { :i |
+1L:21L.do { :i |
 	i.divisors.do { :j |
-		a.add!(binomial(i / j + j - 1, 2) + j)
+		let k = i // j + j - 1L;
+		a.add!(
+			binomial(k, 2L) + j
+		)
 	}
 };
 a.discretePlot

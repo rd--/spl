@@ -28,10 +28,10 @@ Require that the matrix be of integers:
 
 ```
 >>> [3 3].iota
->>> .isMatrix(isSmallInteger/1)
+>>> .isMatrix(isInteger/1)
 true
 
->>> [1 2; 3 4.5]
+>>> [1.5 2; 3 4.5]
 >>> .isMatrix(isIntegerValuedNumber/1)
 false
 ```

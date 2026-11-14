@@ -122,11 +122,11 @@
 	}
 
 	highBitOfByte { :self |
-		system.highBitPerByteTable[SmallInteger(self) + 1]
+		system.highBitPerByteTable[self + 1L]
 	}
 
 	highBitOfInteger { :self |
-		(self < 0).if {
+		(self < 0L).if {
 			self.negate.highBit
 		} {
 			self.highBitOfPositiveInteger
@@ -135,16 +135,16 @@
 
 	highBitOfPositiveInteger { :self |
 		let shifted = self;
-		let bitNo = 0;
+		let bitNo = 0L;
 		{
-			shifted < 65536 /* 2 ^ 16 */
+			shifted < 65536L /* 2 ^ 16 */
 		}.whileFalse {
-			shifted := shifted.bitShiftRight(16);
-			bitNo := bitNo + 16
+			shifted := shifted.bitShiftRight(16L);
+			bitNo := bitNo + 16L
 		};
-		(shifted < 256).ifFalse {
-			shifted := shifted.bitShiftRight(8);
-			bitNo := bitNo + 8
+		(shifted < 256L).ifFalse {
+			shifted := shifted.bitShiftRight(8L);
+			bitNo := bitNo + 8L
 		};
 		bitNo + shifted.highBitOfByte
 	}
@@ -177,37 +177,37 @@
 
 	bitCountPerByteTable { :self |
 		self.cached('bitCountPerByteTable') {
-			0.toCollect(255) { :i |
-				let bitCount = 0;
+			0L.toCollect(255L) { :i |
+				let bitCount = 0L;
 				let n = i;
 				{
-					n = 0
+					n = 0L
 				}.whileFalse {
-					bitCount := bitCount + 1;
-					n := n.bitAnd(n - 1)
+					bitCount := bitCount + 1L;
+					n := n.bitAnd(n - 1L)
 				};
 				bitCount
-			}.ByteArray
+			}
 		}
 	}
 
 	highBitPerByteTable { :self |
 		self.cached('highBitPerByteTable') {
-			1.to(8).injectInto([0]) { :highBits :rank |
+			1L.to(8L).injectInto([0L]) { :highBits :rank |
 				highBits ++ highBits.collect { :each |
 					rank
 				}
-			}.ByteArray
+			}
 		}
 	}
 
 	lowBitPerByteTable { :self |
 		self.cached('lowBitPerByteTable') {
-			1.to(8).injectInto([1]) { :lowBits :unusedRank |
+			1L.to(8L).injectInto([1L]) { :lowBits :unusedRank |
 				let prefix = lowBits.copy;
-				prefix[1] := lowBits[1] + 1;
+				prefix[1L] := lowBits[1L] + 1L;
 				prefix ++ lowBits
-			}.allButFirst.ByteArray
+			}.allButFirst
 		}
 	}
 

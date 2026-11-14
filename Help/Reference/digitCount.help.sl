@@ -270,7 +270,7 @@ scatter plot,
 OEIS [A011754](https://oeis.org/A011754):
 
 ~~~spl svg=G oeis=A011754
-(3 ^ 0:99).digitCount(2, 1)
+(3L ^ 0L:99L).digitCount(2L, 1L)
 .scatterPlot
 ~~~
 

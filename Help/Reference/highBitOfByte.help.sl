@@ -8,14 +8,14 @@ At `Float`:
 
 ```
 >>> 32.highBitOfByte
-6
+6L
 ```
 
 At `Integer`:
 
 ```
 >>> 128L.highBitOfByte
-8
+8L
 ```
 
 Consults a lookup table:
@@ -23,7 +23,7 @@ Consults a lookup table:
 ```
 >>> system.highBitPerByteTable
 >>> .first(16)
-ByteArray[
+[
 	0 1 2 2 3 3 3 3
 	4 4 4 4 4 4 4 4
 ]
@@ -33,4 +33,4 @@ ByteArray[
 
 See also: highBit, highBitOfInteger
 
-Categories: Bitwise
+Guides: Bitwise Functions

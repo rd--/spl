@@ -27,7 +27,7 @@ export function isString(anObject: unknown): anObject is string {
 }
 
 export function isSmallInteger(anObject: unknown): anObject is number {
-	return isFloat(anObject) && Number.isInteger(anObject);
+	return isFloat(anObject) && Number.isSafeInteger(anObject);
 }
 
 export function isByte(anObject: unknown): boolean {

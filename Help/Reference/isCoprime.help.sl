@@ -187,8 +187,8 @@ Lexicographically earliest sequence of distinct terms such that every pair of co
 OEIS [A282291](https://oeis.org/A282291):
 
 ~~~spl svg=D oeis=A282291
-[1].leastExcludedSequence(59) { :a :n :m |
-	let [p, q] = [a[n - 1], m].sort!;
+[1L].leastExcludedSequence(59L) { :a :n :m |
+	let [p, q] = [a[n - 1L], m].sort!;
 	q.divisible(p) & {
 		p.isCoprime(q / p)
 	}

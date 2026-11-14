@@ -32,7 +32,7 @@ OEIS [A058291](https://oeis.org/A058291):
 The binary case answers a `Decimal` value with _m_ decimal places:
 
 ```
->>> 1D.tau(34)
+>>> 1D.tau(34L)
 6.2831853071795864769252867665590057D
 ```
 
@@ -50,7 +50,9 @@ The Base-60 (Babylonian or sexagesimal) expansion of τ,
 OEIS [A091649](https://oeis.org/A091649):
 
 ```
->>> 1D.tau(98).realDigits(60L, 56).first
+>>> 1D.tau(98L)
+>>> .realDigits(60L, 56)
+>>> .first
 [
 	 6 16 59 28  1 34 51 46 14 49
 	55 12 35 26  8 58 14 20  7 22

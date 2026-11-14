@@ -12,7 +12,7 @@ calculate exactly:
 
 ```
 >>> { :i |
->>> 	-5 ^ i / i.factorial
+>>> 	-5L ^ i / i.factorial
 >>> }.convergentSeries(0L)
 0.00673795
 
@@ -25,14 +25,14 @@ calculate exactly:
 
 ```
 >>> { :i |
->>> 	1 / (2 ^ i)
+>>> 	1L / (2L ^ i)
 >>> }.convergentSeries(
->>> 	0L, Infinity, 2, 10L ^ -16, +
+>>> 	0L, Infinity, 2L, 10L ^ -16L, +
 >>> )
 4/3
 
 >>> { :i |
->>> 	1 / (2 ^ (2 * i))
+>>> 	1L / (2L ^ (2L * i))
 >>> }.convergentSeries(0L)
 4/3
 ```
@@ -43,27 +43,9 @@ calculate approximately:
 ```
 >>> { :i |
 >>> 	let f = i.fibonacci;
->>> 	1 / Float(f)
+>>> 	1.0 / Float(f)
 >>> }.convergentSeries(1)
 3.35989
-```
-
-Maclaurin series for calculating the error function,
-this requires working with very large fractional numbers:
-
-```
->>> let z = Complex(7/2, -5/2);
->>> let c = 2 / 1.pi.sqrt;
->>> c * { :n |
->>> 	let m = 2 * n + 1;
->>> 	let a = ((-1 ^ n) * (z ^ m));
->>> 	let b = (n.factorial * m);
->>> 	a / b
->>> }.convergentSeries(0L)
-0.9997653J0.0002203
-
->>> 3.5J-2.5.erf
-0.9997653J0.0002203
 ```
 
 Approximate an infinite product numerically:

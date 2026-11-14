@@ -9,7 +9,7 @@ evaluate the else clause _f_ or signal an `error`.
 
 ```
 >>> '23'.parseDecimalInteger
-23
+23L
 ```
 
 Does not allow a zero fractional part:
@@ -24,10 +24,10 @@ a positive sign is also allowed:
 
 ```
 >>> '-23'.parseDecimalInteger
--23
+-23L
 
 >>> '+23'.parseDecimalInteger
-23
+23L
 ```
 
 Cannot parse the empty string:
@@ -38,6 +38,7 @@ nil
 ```
 
 Does not parse radix notation,
+see `parseSmallInteger`,
 with no else clause signals `error` on failure:
 
 ```

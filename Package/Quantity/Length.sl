@@ -85,7 +85,7 @@
 	}
 
 	astronomicalUnits { :self |
-		(self * 1.495978707E11).metres
+		(self * 149597870700L).metres
 	}
 
 	centimetres { :self |
@@ -101,7 +101,7 @@
 	}
 
 	kilometres { :self |
-		(self * 1E3).metres
+		(self * 1000L).metres
 	}
 
 	lightYears { :self |

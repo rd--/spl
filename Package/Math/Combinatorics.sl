@@ -801,7 +801,7 @@
 +@Integer {
 
 	deBruijnSequenceCount { :k :n |
-		(k.factorial ^ (k ^ (n - 1))) / (k ^ n)
+		(k.factorial ^ (k ^ (n - 1L))) // (k ^ n)
 	}
 
 }

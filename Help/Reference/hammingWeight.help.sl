@@ -156,8 +156,8 @@ such that for consecutive terms _w(i+j)≥10_,
 OEIS [A287639](https://oeis.org/A287639):
 
 ~~~spl svg=K oeis=A287639
-[1].leastExcludedSequence(100) { :a :n :m |
-	(a[n - 1] + m).hammingWeight >= 10
+[1L].leastExcludedSequence(100L) { :a :n :m |
+	(a[n - 1L] + m).hammingWeight >= 10L
 }.scatterPlot
 ~~~
 

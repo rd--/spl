@@ -28,15 +28,15 @@ C.f. `fibonacci`:
 ]
 ```
 
-Note loss of precision for large values:
+Note loss of precision for larger values:
 
-```
->>> 100.binetsFormula
-354224848179263100000.0
+~~~spl svg=A
+1:52.collect { :n |
+	n.binetsFormula - n.fibonacci
+}.scatterPlot.log
+~~~
 
->>> 100.fibonacci
-354224848179261915075L
-```
+![](Help/Image/binetsFormula-A.svg)
 
 * * *
 

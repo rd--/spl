@@ -27,8 +27,8 @@ true
 Quantities can be tested for approximate equality:
 
 ```
->>> 3.1416.miles ~ 5055.9.metres
-true
+>>> 3.1416.miles
+5055.9.metres
 ```
 
 Make a _temporal_ quantity using `milliseconds`,
@@ -211,10 +211,10 @@ Twelve point is approximately a pica:
 Length equivalences:
 
 ```
->>> 1.astronomicalUnits
+>>> 1L.astronomicalUnits
 149597871.kilometres
 
->>> 1.astronomicalUnits
+>>> 1L.astronomicalUnits
 92955807.miles
 
 >>> 1.lightYears

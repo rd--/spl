@@ -1,5 +1,204 @@
 # Tzpl Perspective
 
+## Basic Syntax
+
+### Comments
+
+Block comments:
+
+```
+>>> /* Block comment */ nil
+nil
+```
+
+### Literals
+
+Integer literals:
+
+```
+>>> 42
+42.0
+
+>>> 42L
+42L
+
+>>> 123_456_789L
+123456789L
+```
+
+Hexadecimal integer literals:
+
+```
+>>> 16bFF
+255.0
+
+>>> 16b100
+256.0
+```
+
+Float literals require a digit on both sides of the decimal point:
+
+```
+>>> 3.14
+
+>>> 0.5
+0.5
+
+>>> 2.0
+2.0
+```
+
+Fraction literals, _n/d_ with no spaces around the solidus:
+
+```
+>>> 1/2
+1/2
+
+>>> 3/4
+3/4
+
+>>> -7/8
+-7/8
+```
+
+Fractions are automatically reduced:
+
+```
+>>> 6/4
+3/2
+```
+
+A fraction literal can be immediately followed by a solidus,
+however this is somewhat ambiguous.
+Use spaces for division:
+
+```
+>>> 1/2 / 3L
+1/6
+```
+
+Imaginary literals:
+
+```
+>>> 4I
+Complex(0, 4)
+
+>>> 1.5I
+Complex(0, 1.5)
+```
+
+String literals:
+
+```
+>>> 'Mikhail Lermontov'
+'Mikhail Lermontov'
+```
+
+Symbol literals:
+
+```
+>>> `Mikhail Lermontov`
+`Mikhail Lermontov`
+```
+
+Boolean literals:
+
+```
+>>> true
+true
+
+>>> false
+false
+```
+
+### Semicolons
+
+Semicolons are required statement separators,
+the last statement in a sequence of statements does not have a trailing semicolon:
+
+```
+>>> let x = 42;
+>>> let y = 10;
+>>> x + y
+52
+```
+
+### Printing Output
+
+`printLine` prints its the `printString` of its argument,
+followed by a newline,
+and answers nil:
+
+```
+>> printString(42)
+42.0
+
+>> printString('Mikhail Lermontov')
+'Mikhail Lermontov'
+
+>> printString(2.5)
+2.5
+```
+
+## Variables and Constants
+
+### Mutable Bindings
+
+Let declares a mutable variable and initializes it:
+
+```
+>>> let x = 42;
+>>> let pi = 3.14159;
+>>> x * pi
+131.94678
+```
+
+## Types and the Numeric Tower
+
+### Built-in Types
+
+- `Integer`: large arbitrary precision signed integer
+- `Float`: double precision floating point number
+- `Boolean`: true or false
+- `String`: immutable unicode string
+- `Fraction`: rational number
+- `Complex`: complex number
+- `Nil`: no value
+
+### Numeric Tower
+
+Types promote automatically: Integer → Fraction → Float → Complex
+
+`Fraction` literals:
+
+```
+>>> let a = 1/2;
+>>> let b = 1/3;
+>>> a + b
+5/6
+```
+
+`Integer` division answers a fraction:
+
+```
+>>> 7L / 4L
+7/4
+```
+
+`Integer` and `Float` operations answer `Float` values:
+
+```
+>>> 2L + 3.5
+5.5
+```
+
+Imaginary literals create complex numbers:
+
+```
+>>> 3 + 4I
+Complex(3.0, 4.0)
+```
+
 ## General Numeric Functions
 
 `abs`, `sign`, `min`, `max`, `clamp`, cmp=`compare`, `gcd`, `lcm`
@@ -1044,4 +1243,5 @@ toFloat=`Float`, `real`:
 
 References:
 _Tzpl_
-[1](https://lfnoise.github.io/tzpl/Builtin_Functions.html)
+[1](https://lfnoise.github.io/tzpl/Tzopilotl_by_Example.html)
+[2](https://lfnoise.github.io/tzpl/Builtin_Functions.html)

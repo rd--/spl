@@ -4,11 +4,17 @@
 
 Answer the Ramanujan τ function _τ(n)_.
 
+```
+>>> 235.ramanujanTau
+12979893235680
+```
+
 First few terms
 OEIS [A000594](https://oeis.org/A000594):
 
 ```
->>> 1L:33.collect(ramanujanTau/1)
+>>> 1L:33L
+>>> .collect(ramanujanTau/1)
 [
 	1
 	-24
@@ -56,7 +62,7 @@ At zero:
 Multiplicative for coprime integers:
 
 ```
->>> (7L * 5).ramanujanTau
+>>> (7L * 5L).ramanujanTau
 7.ramanujanTau * 5.ramanujanTau
 ```
 
@@ -73,11 +79,10 @@ OEIS [A000594](https://oeis.org/A000594):
 ![](Help/Image/ramanujanTau-A.svg)
 
 The Ramanujan τ function,
-further terms are innacurate,
 OEIS [A000594](https://oeis.org/A000594):
 
 ~~~spl svg=B oeis=A000594
-1L:85
+1L:105L
 .collect(ramanujanTau/1)
 .discretePlot.logScale
 ~~~

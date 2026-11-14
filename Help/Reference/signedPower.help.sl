@@ -58,13 +58,13 @@ this method at `Float` does not consider integer values specially,
 and will not report integer overflow:
 
 ```
->>> 2L ^ 59
+>>> 2L ^ 59L
 576460752303423488L
 
 >>> 2 ** 59
 576460752303423500.0
 
->>> Float(2L ^ 59)
+>>> Float(2L ^ 59L)
 576460752303423500.0
 ```
 

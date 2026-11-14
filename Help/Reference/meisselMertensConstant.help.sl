@@ -13,7 +13,7 @@ The binary form answers a `Decimal` value to the indicated precision,
 OEIS [A077761](https://oeis.org/A077761):
 
 ```
->>> 1D.meisselMertensConstant(32)
+>>> 1D.meisselMertensConstant(32L)
 0.26149721284764278375542683860869D
 ```
 

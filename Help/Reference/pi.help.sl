@@ -182,12 +182,12 @@ An infinite series by Nilakantha, 15th century:
 An infinite series by Ramanujan, 1910:
 
 ```
->>> let k = 2;
+>>> let k = 2L;
 >>> let a = (2 * 2.sqrt) / 9801;
 >>> let b = 0L:k.sum { :n |
->>> 	((4 * n).! * (1103 + (26390 * n)))
+>>> 	((4L * n).! * (1103L + (26390L * n)))
 >>> 	/
->>> 	((n.! ^ 4) * (396L ^ (4 * n)))
+>>> 	((n.! ^ 4L) * (396L ^ (4L * n)))
 >>> };
 >>> 1 / (a * b)
 1.pi
@@ -258,7 +258,7 @@ A number that is, to within the available precision, an integer:
 The binary case answers a `Decimal` value with _m_ decimal places:
 
 ```
->>> 1D.pi(34)
+>>> 1D.pi(34L)
 3.1415926535897932384626433832795028D
 ```
 
@@ -277,7 +277,7 @@ Simple continued fraction expansion of π,
 OEIS [A001203](https://oeis.org/A001203):
 
 ```
->>> 1D.pi(104)
+>>> 1D.pi(104L)
 >>> .continuedFraction
 >>> .take(24)
 [
@@ -298,7 +298,7 @@ Continued fraction for π/4,
 OEIS [A070989](https://oeis.org/A070989):
 
 ```
->>> 1/4.pi(104)
+>>> 1/4.pi(104L)
 >>> .continuedFraction
 >>> .take(24)
 [
@@ -319,7 +319,7 @@ The Base-13 expansion of `pi`,
 OEIS [A068438](https://oeis.org/A068438):
 
 ```
->>> 1D.pi(98)
+>>> 1D.pi(98L)
 >>> .realDigits(13L, 88)
 >>> .first
 [
@@ -339,7 +339,7 @@ The Base-60 (Babylonian or sexagesimal) expansion of `pi`
 OEIS [A060707](https://oeis.org/A060707):
 
 ```
->>> 1D.pi(104)
+>>> 1D.pi(104L)
 >>> .realDigits(60L, 58).first
 [
 	 3  8 29 44  0 47 25 53  7 24
@@ -355,7 +355,7 @@ Scatter plot of the digits of π,
 OEIS [A000796](https://oeis.org/A000796):
 
 ~~~spl svg=A oeis=A000796 constant
-1D.pi(104)
+1D.pi(104L)
 .integerDigits
 .scatterPlot
 ~~~
@@ -378,7 +378,7 @@ Scatter plot of the digits of _π/4_,
 OEIS [A003881](https://oeis.org/A003881):
 
 ~~~spl svg=C oeis=A003881 constant
-0.25D.pi(104).integerDigits
+0.25D.pi(104L).integerDigits
 .scatterPlot
 ~~~
 

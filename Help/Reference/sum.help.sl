@@ -277,13 +277,13 @@ OEIS [A119812](https://oeis.org/A119812):
 
 ```
 >>> let c = 'Sqrt(2)'.namedConstant;
->>> [c, c / 2].collect { :t |
->>> 	1:10.collect { :n |
->>> 		let k = 10 * n;
->>> 		let x = 1:k.sum { :m |
->>> 			(t * m).floor / (2 ^ m)
+>>> [c, c / 2L].collect { :t |
+>>> 	1L:10L.collect { :n |
+>>> 		let k = 10L * n;
+>>> 		let x = 1L:k.sum { :m |
+>>> 			(t * m).floor / (2L ^ m)
 >>> 		};
->>> 		(x * (10 ^ n)).floor % 10
+>>> 		(x * (10L ^ n)).floor % 10L
 >>> 	}
 >>> }
 [
@@ -346,14 +346,14 @@ OEIS [A054244](https://oeis.org/A054244):
 
 ~~~spl svg=C oeis=A054244
 let f = { :n |
-	0:n.sum { :k |
+	0L:n.sum { :k |
 		let a = binomial(n, k);
-		let b = 2 ^ (2 ^ (n - k));
-		(-1 ^ k) * a * b
-	} / 2
+		let b = 2L ^ (2L ^ (n - k));
+		(-1L ^ k) * a * b
+	} / 2L
 };
-1:200.collect { :n |
-	f(n.digitCount(2, 1))
+1L:200L.collect { :n |
+	f(n.digitCount(2L, 1L))
 }.scatterPlot.log
 ~~~
 

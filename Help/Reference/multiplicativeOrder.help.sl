@@ -308,12 +308,12 @@ Cyclic numbers,
 OEIS [A180340](https://oeis.org/A180340):
 
 ```
->>> 1:13.prime.select { :p |
->>> 	10.multiplicativeOrder(p)
+>>> 1L:13L.prime.select { :p |
+>>> 	10L.multiplicativeOrder(p)
 >>> 	=
->>> 	(p - 1)
+>>> 	(p - 1L)
 >>> }.collect { :p |
->>> 	(10 ^ (p - 1) - 1) / p
+>>> 	(10L ^ (p - 1L) - 1L) // p
 >>> }
 [
 	142857

@@ -5,11 +5,11 @@
 Answer an `Interval` giving an upper and lower bound for the value of `prime` of _n_.
 
 ```
->>> 148933.primeBounds
-(1919558 -- 2068491)
+>>> 148933.0.primeBounds
+(1919558.015 -- 2068491.015)
 
->>> 148933.prime
-1999993
+>>> 148933L.prime
+1999993L
 
 >>> let n = 148933;
 >>> n.primeBounds
@@ -20,6 +20,8 @@ true
 * * *
 
 See also: prime, primePiBounds
+
+Guides: Prime Number Functions
 
 References:
 _Mathematica_

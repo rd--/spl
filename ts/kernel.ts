@@ -799,8 +799,9 @@ export function checkSmallIntegerOverflow(
 	f: Function,
 ): number | bigint {
 	if (
-		Number.isSafeInteger(a) && Number.isSafeInteger(b) &&
-		!Number.isSafeInteger(x)
+		Number.isSafeInteger(a)
+			&& Number.isSafeInteger(b)
+			&& !Number.isSafeInteger(x)
 	) {
 		const y = f(BigInt(a), BigInt(b));
 		// console.debug(`**** Check Small Integer Overflow: ${a} ${o} ${b} = ${x}: True answer ${y}L`);

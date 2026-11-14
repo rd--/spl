@@ -58,7 +58,8 @@ At negative _n_:
 At `Integer`:
 
 ```
->>> (13L ^ 17).round
+>>> (13L ^ 17L)
+>>> .round
 8650415919381337933L
 ```
 

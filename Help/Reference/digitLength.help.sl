@@ -5,7 +5,7 @@
 Answer the number of bytes required to represent _n_.
 
 ```
->>> [1 8 16 24 32 40 48 56 64].collect { :each |
+>>> [1L 8L 16L 24L 32L 40L 48L 56L 64L].collect { :each |
 >>> 	(2L ^ each).digitLength
 >>> }
 [1 .. 9]
@@ -14,7 +14,7 @@ Answer the number of bytes required to represent _n_.
 A thirteen byte integer:
 
 ```
->>> (2L ^ 99).digitLength
+>>> (2L ^ 99L).digitLength
 13
 ```
 

@@ -411,10 +411,6 @@
 		(self.square + operand.square).sqrt
 	}
 
-	imaginary { :self |
-		self.zero
-	}
-
 	inRangeOfAnd { :self :first :second |
 		(first < second).if {
 			self.isBetween(first, second)
@@ -750,14 +746,14 @@
 	}
 
 	planckRadiationLawFrequency { :nu :t |
-		let c = 1.0.speedOfLight;
-		let h = 1.planckConstant;
-		let k = 1.boltzmannConstant;
+		let c = 1L.speedOfLight;
+		let h = 1.0.planckConstant;
+		let k = 1.0.boltzmannConstant;
 		((2.0 * h * nu.cube) / (c.square)) * (1.0 / (((h * nu) / (k * t)).exp - 1.0))
 	}
 
 	planckRadiationLawWavelength { :lambda :t |
-		let c = 1.0.speedOfLight;
+		let c = 1L.speedOfLight;
 		let h = 1.0.planckConstant;
 		let k = 1.0.boltzmannConstant;
 		((2.0 * h * c.square) / (lambda ^ 5.0)) * (1.0 / (((h * c) / (lambda * k * t)).exp - 1.0))
@@ -897,10 +893,6 @@
 		} {
 			zero
 		}
-	}
-
-	real { :self |
-		self
 	}
 
 	realImaginary { :self |

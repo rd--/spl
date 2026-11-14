@@ -222,7 +222,9 @@ DateAndTime : [Object, Store, Equal, Compare] {
 	}
 
 	uncheckedParsePrimitiveDateAndTime { :self |
-		<primitive: return new Date(_self);>
+		<primitive:
+		return new Date(_self);
+		>
 	}
 
 }
@@ -236,7 +238,9 @@ DateAndTime : [Object, Store, Equal, Compare] {
 	}
 
 	uncheckedCurrentDateAndTime { :unused |
-		<primitive: return new Date();>
+		<primitive:
+		return new Date();
+		>
 	}
 
 }

@@ -43,10 +43,10 @@ In the `Integer` case:
 >>> Float(23L)
 23.0
 
->>> Float(2L ^ 54)
+>>> Float(2L ^ 54L)
 18014398509481984.0
 
->>> Float(2L ^ 99)
+>>> Float(2L ^ 99L)
 6.33825E29
 ```
 

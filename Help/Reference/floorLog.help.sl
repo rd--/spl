@@ -7,32 +7,32 @@ Answer the `floor` of the `log` base _b_ of the number _n_.
 At `Float`:
 
 ```
->>> 100.floorLog(10)
-2
+>>> 100.0.floorLog(10.0)
+2L
 
->>> 100.log(10).floor
-2
+>>> 100.0.log(10.0).floor
+2L
 
->>> (1 / 100).floorLog(10)
--2
+>>> (1.0 / 100.0).floorLog(10.0)
+-2L
 
->>> (1 / 100).log(10).floor
--2
+>>> (1.0 / 100.0).log(10.0).floor
+-2L
 ```
 
 At `Integer`:
 
 ```
->>> (10L ^ 17)
->>> .floorLog(10)
-17
+>>> (10L ^ 17L)
+>>> .floorLog(10L)
+17L
 ```
 
 * * *
 
-See also: floor, log
+See also: floor, log, numberOfDigitsInBase
 
-Guides: Mathematical Functions
+Guides: Integer Functions, Mathematical Functions
 
 References:
 _Smalltalk_

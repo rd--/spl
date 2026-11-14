@@ -177,15 +177,24 @@
 	}
 
 	lambertW { :x |
-		let z = -1.exp.-;
+		let z = -1.0.exp.-;
 		(x < z).if {
 			x.error('lambertW: undefined')
 		} {
-			let k = max(4, ceiling(log10(x) / 3));
-			let w = 3 * log(x + 1) / 4;
+			let k = max(4.0, ceilingToFloat(log10(x) / 3.0));
+			let w = 3.0 * log(x + 1.0) / 4.0;
 			k.timesRepeat {
 				let e = exp(w);
-				w := w - (((w * e) - x) / ((e * (w + 1)) - (((w + 2) * ((w * e) - x)) / ((2 * w) + 2))))
+				w := w - (
+					((w * e) - x)
+					/ (
+						(e * (w + 1.0))
+						- (
+							((w + 2.0) * ((w * e) - x))
+							/ ((2.0 * w) + 2.0)
+						)
+					)
+				)
 			};
 			w
 		}
@@ -262,11 +271,15 @@
 		z.isZero.if {
 			0.5
 		} {
-			(z.isFloat & { z < 0 }).if {
-				riemannXi(1 - z)
+			(
+				z.isReal & {
+					z < 0.0
+				}
+			).if {
+				riemannXi(1.0 - z)
 			} {
-				/* ((z - 1) * gamma((0.5 * z) + 1) * zeta(z)) / sqrt(1.pi ^ z) */
-				0.5 * z * (z - 1) * (1.pi ^ ((0 - z) * 0.5)) * zeta(z) * gamma(0.5 * z)
+				/* ((z - 1.0) * gamma((0.5 * z) + 1.0) * zeta(z)) / sqrt(1.pi ^ z) */
+				0.5 * z * (z - 1.0) * (1.pi ^ (-z * 0.5)) * zeta(z) * gamma(0.5 * z)
 			}
 		}
 	}
@@ -274,7 +287,7 @@
 	zeta { :s |
 		/* http://numbers.computation.free.fr/Constants/Miscellaneous/zetaevaluations.pdf */
 		let p = 8.0;
-		let n = ((1.3 * p) + (0.9 * s.imaginary.abs)).round;
+		let n = ((1.3 * p) + (0.9 * s.imaginary.abs)).roundToFloat;
 		let e = { :k |
 			k.to(n).sum { :j |
 				binomial(n, j)

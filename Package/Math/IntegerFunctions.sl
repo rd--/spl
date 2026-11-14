@@ -429,35 +429,35 @@
 
 	eulerPhi { :self |
 		self.isZero.if {
-			0
+			0L
 		} {
 			let l = self.isNegative.if {
-				-1.toBy(self, -1)
+				-1L.toBy(self, -1L)
 			} {
-				1.to(self)
+				1L.to(self)
 			};
 			l.select { :each |
-				self.gcd(each) = 1
+				self.gcd(each) = 1L
 			}.size
 		}
 	}
 
 	eulerPhiInverse { :m |
-		(m = 1).if {
-			[1, 2]
+		(m = 1L).if {
+			[1L, 2L]
 		} {
 			m.isOdd.if {
 				[]
 			} {
-				let p = select(divisors(m) + 1, isPrime/1);
-				let nmax = m * (p / (p - 1)).product;
+				let p = select(divisors(m) + 1L, isPrime/1);
+				let nmax = m * (p / (p - 1L)).product;
 				let n = m;
 				let nn = [];
 				{ n <= nmax }.whileTrue {
 					(n.eulerPhi = m).ifTrue {
 						nn.add!(n)
 					};
-					n := n + 1
+					n := n + 1L
 				};
 				nn
 			}
@@ -709,39 +709,15 @@
 		answer
 	}
 
-	integerDigits { :self :base |
-		self.assertIsInteger('@Integer>>integerDigits');
-		base.caseOf(
-			[
-				-2 -> { self.negabinaryExpansion },
-				1 -> { self.unaryExpansion }
-			]
-		) {
-			base.isIntegerValuedNumber.if {
-				let numDigits = self.isZero.if {
-					1L
-				} {
-					(self.abs.log / base.log + 0.0000000001).truncate + 1
-				};
-				self.integerDigits(
-					base,
-					numDigits
-				)
-			} {
-				base.adaptToNumberAndApply(self, integerDigits/2)
-			}
-		}
-	}
-
 	integerDigits { :self |
 		self.integerDigits(10L)
 	}
 
-	integerDigitsReverseDo { :self :base :numDigits :aBlock/1 |
-		let num = self.abs;
-		numDigits.timesRepeat {
-			aBlock(num % base);
-			num := num // base
+	integerDigitsReverseDo { :self :base :numberOfDigits :aBlock/1 |
+		let x = self.abs;
+		numberOfDigits.timesRepeat {
+			aBlock(x % base);
+			x := x // base
 		}
 	}
 
@@ -834,7 +810,7 @@
 
 	isCubicResidue { :q :p |
 		let r = q.mod(p);
-		0.to(p - 1).anySatisfy { :x |
+		0L.to(p - 1L).anySatisfy { :x |
 			x.cube.mod(p) = r
 		}
 	}
@@ -1016,7 +992,7 @@
 
 	isQuadraticResidue { :q :p |
 		let r = q.mod(p);
-		1.to((p / 2).floor).anySatisfy { :x |
+		1L.to((p / 2L).floor).anySatisfy { :x |
 			x.square.mod(p) = r
 		}
 	}
@@ -1327,18 +1303,18 @@
 			self.negate.numberOfDigitsInBase(radix)
 		} {
 			(self < radix).if {
-				1
+				1L
 			} {
 				radix.isPowerOfTwo.if {
-					(self.highBit + radix.highBit - 2).quotient(
-						radix.highBit - 1
+					(self.highBit + radix.highBit - 2L).quotient(
+						radix.highBit - 1L
 					)
 				} {
 					let q = self;
-					let total = 0;
+					let total = 0L;
 					{
-						let nDigits = (radix = 10).if {
-							((q.highBit - 1) * 1233 >> 12) + 1
+						let nDigits = (radix = 10L).if {
+							((q.highBit - 1L) * 1233L >> 12L) + 1L
 						} {
 							q.highBit.quotient(radix.highBit)
 						};
@@ -1346,10 +1322,10 @@
 						q := q.quotient(radix.raisedToInteger(nDigits));
 						(q < radix)
 					}.whileFalse;
-					(q = 0).if {
+					(q = 0L).if {
 						total
 					} {
-						total + 1
+						total + 1L
 					}
 				}
 			}
@@ -1479,9 +1455,9 @@
 	}
 
 	ramanujanTau { :n |
-		let a = 65/756 * divisorSigma(11, n);
-		let b = 691/756 * divisorSigma(5, n);
-		let c = 691/3 * 1L.to(n - 1).sum { :k |
+		let a = 65/756 * divisorSigma(11L, n);
+		let b = 691/756 * divisorSigma(5L, n);
+		let c = 691/3 * 1L.to(n - 1L).sum { :k |
 			divisorSigma(5L, k) * divisorSigma(5L, n - k)
 		};
 		a + b - c

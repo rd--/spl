@@ -22,12 +22,12 @@ LaggedFibonacci : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 		let [s, r, m] = self.parameters;
 		let z = x[k] + x[j] % m;
 		x[k] := z;
-		j := j - 1;
-		k := k - 1;
-		(j < 1).if {
+		j := j - 1L;
+		k := k - 1L;
+		(j < 1L).if {
 			j := r
 		} {
-			(k < 1).ifTrue {
+			(k < 1L).ifTrue {
 				k := r
 			}
 		};
@@ -56,7 +56,7 @@ LaggedFibonacci : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 	}
 
 	LaggedFibonacci { :s :r :k |
-		LaggedFibonacci(s, r, k, 2L ^ 64)
+		LaggedFibonacci(s, r, k, 2L ^ 64L)
 	}
 
 }

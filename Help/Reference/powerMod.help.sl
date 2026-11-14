@@ -113,7 +113,7 @@ At large integers:
 >>> 	4 4 0 7 2 9 9 2 6 5
 >>> 	6 8 8 1 2 4 0 3 1 9
 >>> ].fromDigits(10L);
->>> let m = 10L ^ 40;
+>>> let m = 10L ^ 40L;
 >>> powerMod(a, b, m)
 [
 	1 5 2 7 2 2 9 9 9 8

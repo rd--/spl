@@ -135,10 +135,10 @@ Note errors in floating point math:
 Find last two digits or a large integer:
 
 ```
->>> 2L ^ 100 % 100
-76
+>>> 2L ^ 100L % 100L
+76L
 
->>> 2L ^ 100
+>>> 2L ^ 100L
 1267650600228229401496703205376L
 ```
 
@@ -1403,14 +1403,14 @@ Multiplicative suborder of _2_ and _2n+1_,
 OEIS [A003558](https://oeis.org/A003558):
 
 ~~~spl svg=T oeis=A003558
-0:200.collect { :n |
-	let m = 1;
+0L:200L.collect { :n |
+	let m = 1L;
 	{
-		let a = 2 * n;
-		let b = (2 ^ m) % (a + 1);
-		b = 1 | { b = a }
+		let a = 2L * n;
+		let b = (2L ^ m) % (a + 1L);
+		b = 1L | { b = a }
 	}.whileFalse {
-		m := m + 1
+		m := m + 1L
 	};
 	m
 }.scatterPlot

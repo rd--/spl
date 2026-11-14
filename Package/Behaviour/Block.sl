@@ -118,26 +118,26 @@ Block! : [Object, Equal] {
 	convergentSeries { :f/1 :i :j :k :epsilon :g/2 |
 		let r = f(i);
 		let u = Infinity;
-		let c = j.min(100_000);
+		let c = j.min(100_000L);
 		{
-			c > 0 & {
+			c > 0L & {
 				u >= epsilon
 			}
 		}.whileTrue {
 			let t = r;
 			i := i + k;
-			c := c - 1;
+			c := c - 1L;
 			r := g(r, f(i));
 			u := (r - t).abs
 		};
-		(c = 0).ifTrue {
+		(c = 0L).ifTrue {
 			u.warning('convergentSeries: did not converge', [i, j, k, r, u])
 		};
 		r
 	}
 
 	convergentSeries { :f/1 :i |
-		convergentSeries(f/1, i, 1000, 1, 1E-16, +)
+		convergentSeries(f/1, i, 1000L, 1L, 1E-16, +)
 	}
 
 	cull { :self :firstArg |

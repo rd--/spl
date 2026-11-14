@@ -661,15 +661,15 @@ in terms of the coefficients of the Taylor series expansion of its reciprocal,
 OEIS [A248120](https://oeis.org/A248120):
 
 ~~~spl svg=J oeis=A248120
-1:12.collect { :k |
-	let p = (k - 1).integerPartitions;
+1L:12L.collect { :k |
+	let p = (k - 1L).integerPartitions;
 	p.reverse.collect { :v |
 		let n = v.sum;
 		let s = v.deleteDuplicates(==);
-		(n + 1)
-		* (n.! ^ 2)
+		(n + 1L)
+		* (n.! ^ 2L)
 		// (
-			(n - v.size + 1 ).!
+			(n - v.size + 1L).!
 			* s.product { :x |
 				let c = v.select { :y |
 					y = x

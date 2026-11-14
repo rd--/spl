@@ -459,7 +459,7 @@ The tips of a pentagram are golden triangles:
 The binary case answers a `Decimal` value with _m_ decimal places:
 
 ```
->>> 1D.goldenRatio(34)
+>>> 1D.goldenRatio(34L)
 1.6180339887498948482045868343656381D
 ```
 
@@ -477,7 +477,7 @@ OEIS [A001622](https://oeis.org/A001622):
 Scatter plot of the digits of φ:
 
 ~~~spl svg=H
-1D.goldenRatio(104)
+1D.goldenRatio(104L)
 .integerDigits
 .scatterPlot
 ~~~

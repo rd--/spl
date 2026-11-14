@@ -3,16 +3,22 @@
 ScSynth! : [Object] {
 
 	addOscListener { :self :address :onMessage |
-		<primitive: _self.addOscListener(_address, _onMessage);>
+		<primitive:
+		_self.addOscListener(_address, _onMessage);
+		>
 		onMessage
 	}
 
 	connect { :self |
-		<primitive: return _self.connect();>
+		<primitive:
+		return _self.connect();
+		>
 	}
 
 	isConnected { :self |
-		<primitive: return _self.isConnected();>
+		<primitive:
+		return _self.isConnected();
+		>
 	}
 
 	mainOrientation { :self |
@@ -28,11 +34,15 @@ ScSynth! : [Object] {
 	}
 
 	options { :self |
-		<primitive: return _self.options;>
+		<primitive:
+		return _self.options;
+		>
 	}
 
 	oscListeners { :self |
-		<primitive: return _self.oscListeners;>
+		<primitive:
+		return _self.oscListeners;
+		>
 	}
 
 	pseudoSlotNameList { :self |
@@ -40,20 +50,28 @@ ScSynth! : [Object] {
 	}
 
 	readyState { :self |
-		<primitive: return _self.readyState;>
+		<primitive:
+		return _self.readyState;
+		>
 	}
 
 	removeOscListener { :self :address :onMessage/1 |
-		<primitive: _self.removeOscListener(_address, _onMessage_1);>
+		<primitive:
+		_self.removeOscListener(_address, _onMessage_1);
+		>
 		onMessage/1
 	}
 
 	reset { :self |
-		<primitive: return _self.reset();>
+		<primitive:
+		return _self.reset();
+		>
 	}
 
 	sendOsc { :self :oscPacket |
-		<primitive: return _self.sendOsc(_encodeRecord_1(_oscPacket));>
+		<primitive:
+		return _self.sendOsc(_encodeRecord_1(_oscPacket));
+		>
 	}
 
 	setControl { :self :index :value |
@@ -61,15 +79,21 @@ ScSynth! : [Object] {
 	}
 
 	status { :self |
-		<primitive: return _self.status;>
+		<primitive:
+		return _self.status;
+		>
 	}
 
 	useIoUgens { :self |
-		<primitive: return _self.useIoUgens;>
+		<primitive:
+		return _self.useIoUgens;
+		>
 	}
 
 	useWebSocket { :self :address |
-		<primitive: return sc.scSynthUseWebSocket(_self, _address);>
+		<primitive:
+		return sc.scSynthUseWebSocket(_self, _address);
+		>
 	}
 
 }
@@ -77,7 +101,9 @@ ScSynth! : [Object] {
 +System {
 
 	scSynth { :self |
-		<primitive: return globalScSynth;>
+		<primitive:
+		return globalScSynth;
+		>
 	}
 
 }
@@ -112,15 +138,21 @@ ScSynth! : [Object] {
 	}
 
 	isOutputSignal { :self |
-		<primitive: return sc.isOutputSignal(_self);>
+		<primitive:
+		return sc.isOutputSignal(_self);
+		>
 	}
 
 	kr { :aUgen |
-		<primitive: return sc.kr(_aUgen);>
+		<primitive:
+		return sc.kr(_aUgen);
+		>
 	}
 
 	multipleRootGraph { :self :aUgen |
-		<primitive: return sc.multipleRootGraph(_self, _aUgen);>
+		<primitive:
+		return sc.multipleRootGraph(_self, _aUgen);
+		>
 	}
 
 	play { :self |
@@ -137,7 +169,9 @@ ScSynth! : [Object] {
 	}
 
 	print { :self |
-		<primitive: return sc.prettyPrintSyndefOf(_self);>
+		<primitive:
+		return sc.prettyPrintSyndefOf(_self);
+		>
 	}
 
 	renderSoundFile { :self :fileName :duration |
@@ -199,7 +233,9 @@ ScSynth! : [Object] {
 +Record {
 
 	localControls { :self |
-		<primitive: return _Record_1(sc.localControls(_self));>
+		<primitive:
+		return _Record_1(sc.localControls(_self));
+		>
 	}
 
 }
@@ -211,11 +247,15 @@ ScSynth! : [Object] {
 	}
 
 	overlapTextureList { :self :sustainTime :transitionTime :overlap |
-		<primitive: return sc.OverlapTextureArray(_self, _sustainTime, _transitionTime, _overlap);>
+		<primitive:
+		return sc.OverlapTextureArray(_self, _sustainTime, _transitionTime, _overlap);
+		>
 	}
 
 	xFadeTexture { :self :sustainTime :transitionTime |
-		<primitive: return sc.XFadeTexture(_self, _sustainTime, _transitionTime);>
+		<primitive:
+		return sc.XFadeTexture(_self, _sustainTime, _transitionTime);
+		>
 	}
 
 }
@@ -223,7 +263,9 @@ ScSynth! : [Object] {
 +String {
 
 	sfAcquire { :self :numberOfChannels :channelIndices |
-		<primitive: return sc.SfAcquire(_self, _numberOfChannels, _channelIndices);>
+		<primitive:
+		return sc.SfAcquire(_self, _numberOfChannels, _channelIndices);
+		>
 	}
 
 	sfAcquire1 { :self :numberOfChannels :channelIndex |
@@ -247,7 +289,9 @@ ScSynth! : [Object] {
 	}
 
 	uncheckedLocalBuf { :self |
-		<primitive: return sc.asLocalBuf(_self);>
+		<primitive:
+		return sc.asLocalBuf(_self);
+		>
 	}
 
 }

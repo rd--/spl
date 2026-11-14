@@ -7,24 +7,24 @@ Answer the diesis raised to _n_.
 The diesis is a small interval with the ratio 128/125.
 
 ```
->>> 1.diesis
+>>> 1L.diesis
 128/125
 
->>> 1.diesis.ratioToCents
+>>> 1L.diesis.ratioToCents
 41.059
 ```
 
 Relations to simple intervals:
 
 ```
->>> 2 / (5/4 ^ 3)
-1.diesis
+>>> 2L / (5/4 ^ 3L)
+1L.diesis
 ```
 
 It has tuning lattice coordinates _7 0 -3_:
 
 ```
->>> 1.diesis.factorInteger
+>>> 1L.diesis.factorInteger
 [2 7; 5 -3]
 ```
 

@@ -12,33 +12,33 @@ Parse positive decimal integer:
 
 ```
 >>> '23'.parseSmallInteger(10)
-23
+23.0
 
 >>> '+23'.parseSmallInteger(10)
-23
+23.0
 ```
 
 Parse negative decimal integer:
 
 ```
 >>> '-23'.parseSmallInteger(10)
--23
+-23.0
 ```
 
 Parse binary integers:
 
 ```
 >>> '1001'.parseSmallInteger(2)
-9
+9.0
 
 >>> 2b1001
-9
+9.0
 
 >>> '+10101'.parseSmallInteger(2)
-21
+21.0
 
 >>> 2b10101
-21
+21.0
 
 >>> '-1010'.parseSmallInteger(2)
 -10

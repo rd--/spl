@@ -56,10 +56,10 @@ _n_ for which the unitary harmonic mean is an integer,
 OEIS [A006086](https://oeis.org/A006086):
 
 ```
->>> 1L:650.select { :n |
+>>> 1L:650L.select { :n |
 >>> 	n.unitaryDivisors
 >>> 	.harmonicMean
->>> 	.isSmallInteger
+>>> 	.isSmallIntegerValuedNumber
 >>> }
 [1 6 45 60 90 420 630]
 ```

@@ -187,15 +187,15 @@ Tangent numbers,
 OEIS [A000182](https://oeis.org/A000182):
 
 ```
->>> 0L:9.collect { :n |
->>> 	(1L .. 2 * n + 1).sum { :k |
->>> 		(2 ^ (2 * n + 1 - k))
+>>> 0L:9L.collect { :n |
+>>> 	(1L .. 2L * n + 1L).sum { :k |
+>>> 		(2L ^ (2L * n + 1L - k))
 >>> 		*
->>> 		(-1 ^ (n + k + 1))
+>>> 		(-1L ^ (n + k + 1L))
 >>> 		*
 >>> 		k.!
 >>> 		*
->>> 		(2 * n + 1).stirlingS2(k)
+>>> 		(2L * n + 1L).stirlingS2(k)
 >>> 	}
 >>> }
 [
@@ -245,7 +245,7 @@ Plot sums of digits:
 	stirlingS2(n, m)
 	.integerDigits
 	.sum
-}.table(2L:17, 2:17).matrixPlot
+}.table(2L:17L, 2L:17L).matrixPlot
 ~~~
 
 ![](Help/Image/stirlingS2-A.svg)
@@ -274,12 +274,12 @@ The _n_-th derivative of the logistic function,
 OEIS [A163626](https://oeis.org/A163626):
 
 ~~~spl svg=D oeis=A163626
-0L:17.triangularArray { :n :k |
-	(-1 ^ k)
+0L:17L.triangularArray { :n :k |
+	(-1L ^ k)
 	*
 	k.!
 	*
-	(n + 1).stirlingS2(k + 1)
+	(n + 1L).stirlingS2(k + 1L)
 }.catenate.scatterPlot.logScale
 ~~~
 
@@ -289,8 +289,8 @@ Reflected triangle of Stirling numbers of the second kind,
 OEIS [A008278](https://oeis.org/A008278):
 
 ~~~spl svg=E oeis=A008278
-(1L .. 23).collect { :n |
-	(n .. 1; -1).collect { :k |
+(1L .. 23L).collect { :n |
+	(n .. 1L; -1L).collect { :k |
 		n.stirlingS2(k)
 	}
 }.catenate.scatterPlot.log

@@ -108,11 +108,11 @@ Product of alternating harmonic sum and least common multiple,
 OEIS [A025530](https://oeis.org/A025530):
 
 ~~~spl svg=D oeis=A025530
-let k = 65;
-let f = 1:k.collect { :n |
-	1 / (n * (-1L ^ (n - 1)))
+let k = 65L;
+let f = 1L:k.collect { :n |
+	1L / (n * (-1L ^ (n - 1L)))
 }.accumulate;
-1:k.collect { :n |
+1L:k.collect { :n |
 	f[n] * 1L:n.lcm
 }.scatterPlot.log
 ~~~

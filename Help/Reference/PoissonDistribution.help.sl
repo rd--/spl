@@ -7,8 +7,8 @@ A `Type` representing a Poisson distribution with mean μ.
 Probability mass function:
 
 ~~~spl svg=A
-0:30.collect(
-	PoissonDistribution(10).pdf
+0L:30L.collect(
+	PoissonDistribution(10L).pdf
 ).discretePlot
 ~~~
 
@@ -17,8 +17,8 @@ Probability mass function:
 Cumulative distribution function:
 
 ~~~spl svg=B
-0:30.collect(
-	PoissonDistribution(10).cdf
+0L:30L.collect(
+	PoissonDistribution(10L).cdf
 ).discretePlot
 ~~~
 
@@ -28,7 +28,7 @@ Generate a sample of pseudorandom numbers from a Poisson distribution:
 
 ~~~spl svg=C
 let r = Sfc32(891314);
-PoissonDistribution(3)
+PoissonDistribution(3L)
 .randomVariate(r, [10 ^ 4])
 .histogramPlot
 ~~~
@@ -50,7 +50,7 @@ Step plot with less small mean and variance:
 
 ~~~spl svg=E
 let r = Sfc32(980141);
-PoissonDistribution(9)
+PoissonDistribution(9L)
 .randomVariate(r, [99])
 .stepPlot
 ~~~

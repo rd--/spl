@@ -15,14 +15,14 @@ At `Integer`:
 
 ```
 >>> 1L.realToComplex
-Complex(1L, 0L)
+1J0
 ```
 
 At `Fraction`:
 
 ```
 >>> 23/7.realToComplex
-Complex(23/7, 0/1)
+3.28571J0.0
 ```
 
 Threads over lists:

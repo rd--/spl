@@ -7,16 +7,16 @@ Answer the trinomial coefficient _n,k_.
 With positive integer _n_ and _k_:
 
 ```
->>> 4.trinomial(2)
-10
+>>> 4L.trinomial(2L)
+10L
 
->>> 6.trinomial(3)
-50
+>>> 6L.trinomial(3L)
+50L
 
 >>> 8.trinomial(4)
 266
 
->>> 8.trinomial(5)
+>>> 8L.trinomial(5L)
 504
 ```
 
@@ -43,12 +43,12 @@ Real valued arguments:
 _k_ may be a collection:
 
 ```
->>> [10 1 2 5].collect { :each |
->>> 	10.trinomial(each)
+>>> [10L 1L 2L 5L].collect { :each |
+>>> 	10L.trinomial(each)
 >>> }
 [8953 10 55 1452]
 
->>> 10.trinomial([10 1 2 5])
+>>> 10L.trinomial([10L 1L 2L 5L])
 [8953 10 55 1452]
 ```
 
@@ -63,8 +63,8 @@ Make the trinomial triangle,
 OEIS [A027907](https://oeis.org/A027907):
 
 ```
->>> 0:6.collect { :n |
->>> 	let k = [0 .. n * 2];
+>>> 0L:6L.collect { :n |
+>>> 	let k = [0L .. n * 2L];
 >>> 	n.trinomial(k)
 >>> }
 [
@@ -82,7 +82,7 @@ Central trinomial coefficients,
 OEIS [A002426](https://oeis.org/A002426):
 
 ```
->>> 0:11.collect { :n |
+>>> 0L:11L.collect { :n |
 >>> 	n.trinomial(n)
 >>> }
 [1 1 3 7 19 51 141 393 1107 3139 8953 25653]
@@ -92,7 +92,7 @@ Partial sums of the central trinomial coefficients,
 OEIS [A097893](https://oeis.org/A097893):
 
 ```
->>> 0:11.collect { :n |
+>>> 0L:11L.collect { :n |
 >>> 	n.trinomial(n)
 >>> }.prefixSum
 [1 2 5 12 31 82 223 616 1723 4862 13815 39468]
@@ -102,8 +102,8 @@ Next to central trinomial coefficients,
 OEIS [A005717](https://oeis.org/A005717):
 
 ```
->>> 0:11.collect { :n |
->>> 	(n + 1).trinomial(n)
+>>> 0L:11L.collect { :n |
+>>> 	(n + 1L).trinomial(n)
 >>> }
 [1 2 6 16 45 126 357 1016 2907 8350 24068 69576]
 ```
@@ -112,8 +112,8 @@ Third next to central trinomial coefficients,
 OEIS [A014531](https://oeis.org/A014531):
 
 ```
->>> 0:11.collect { :n |
->>> 	(n + 2).trinomial(n)
+>>> 0L:11L.collect { :n |
+>>> 	(n + 2L).trinomial(n)
 >>> }
 [1 3 10 30 90 266 784 2304 6765 19855 58278 171106]
 ```
@@ -134,16 +134,16 @@ At `zero`:
 Threads over lists:
 
 ```
->>> 5.trinomial([3 4 5])
+>>> 5L.trinomial([3L 4L 5L])
 [30 45 51]
 
->>> 11:13.trinomial(1:3)
+>>> 11L:13L.trinomial(1L:3L)
 [11 78 442]
 
 >>> [
->>> 	11.trinomial(1),
->>> 	12.trinomial(2),
->>> 	13.trinomial(3)
+>>> 	11L.trinomial(1L),
+>>> 	12L.trinomial(2L),
+>>> 	13L.trinomial(3L)
 >>> ]
 [11 78 442]
 ```
@@ -151,8 +151,8 @@ Threads over lists:
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
-(-1.975 -- 4).functionPlot { :x |
-	x.trinomial(3)
+(-1.975 -- 3.975).functionPlot { :x |
+	x.trinomial(3L)
 }
 ~~~
 
@@ -172,9 +172,9 @@ The binary representations for first few terms of a flattened trinomial triangle
 OEIS [A027907](https://oeis.org/A027907):
 
 ~~~spl svg=C oeis=A027907
-0:7.collect { :n |
-	let k = [0 .. n * 2];
-	n.trinomial(k).round
+0L:7L.collect { :n |
+	let k = [0L .. n * 2L];
+	n.trinomial(k)
 }.catenate
 .binaryExpansion
 .padLeft

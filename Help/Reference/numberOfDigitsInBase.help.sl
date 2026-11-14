@@ -8,8 +8,8 @@ This does not count any place for minus sign or radix prefix.
 Base ten:
 
 ```
->>> [1 10 100 1000 10000].collect { :each |
->>> 	each.numberOfDigitsInBase(10)
+>>> [1L 10L 100L 1000L 10000L].collect { :each |
+>>> 	each.numberOfDigitsInBase(10L)
 >>> }
 [1 2 3 4 5]
 ```
@@ -17,8 +17,8 @@ Base ten:
 Negative numbers, E-notation:
 
 ```
->>> [-1 -1E1 -1E2 -1E3 -1E4].collect { :each |
->>> 	each.numberOfDigitsInBase(10)
+>>> [-1 -1E1 -1E2 -1E3 -1E4].L.collect { :each |
+>>> 	each.numberOfDigitsInBase(10L)
 >>> }
 [1 2 3 4 5]
 ```
@@ -27,10 +27,10 @@ Base two:
 
 ```
 >>> [
->>> 	1 2 4 8 16
->>> 	32 64 128 256
+>>> 	1L 2L 4L 8L 16L
+>>> 	32L 64L 128L 256L
 >>> ].collect { :each |
->>> 	each.numberOfDigitsInBase(2)
+>>> 	each.numberOfDigitsInBase(2L)
 >>> }
 [1 2 3 4 5 6 7 8 9]
 ```
@@ -39,10 +39,10 @@ Negative numbers:
 
 ```
 >>> [
->>> 	-1 -2 -4 -8 -16
->>> 	-32 -64 -128 -256
+>>> 	-1L -2L -4L -8L -16L
+>>> 	-32L -64L -128L -256L
 >>> ].collect { :each |
->>> 	each.numberOfDigitsInBase(2)
+>>> 	each.numberOfDigitsInBase(2L)
 >>> }
 [1 2 3 4 5 6 7 8 9]
 ```
@@ -51,7 +51,7 @@ At `Integer`:
 
 ```
 >>> 52L.factorial
->>> .numberOfDigitsInBase(10)
+>>> .numberOfDigitsInBase(10L)
 68
 
 >> 52L.factorial
@@ -63,3 +63,5 @@ At `Integer`:
 * * *
 
 See also: integerLength, printString
+
+Guides: Integer Functions

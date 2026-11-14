@@ -99,7 +99,7 @@ Negative exponents:
 At, and or answering, `Integer`:
 
 ```
->>> (2L ^ 54) ^ 2
+>>> (2L ^ 54L) ^ 2L
 324518553658426726783156020576256L
 
 >>> 23L.raisedToInteger(23)

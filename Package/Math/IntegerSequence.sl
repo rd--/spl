@@ -375,24 +375,26 @@
 
 	ekgSequence { :n :i |
 		i.leastExcludedSequence(n) { :a :n :m |
-			m.gcd(a[n - 1]) != 1
+			m.gcd(a[n - 1L]) != 1L
 		}
 	}
 
 	ekgSequence { :n |
-		let l = [1 2];
-		let i = 2;
-		{ i < n }.whileTrue {
-			let k = 3;
+		let l = [1L 2L];
+		let i = 2L;
+		{
+			i < n
+		}.whileTrue {
+			let k = 3L;
 			{
-				gcd(l[i], k) = 1 | {
+				gcd(l[i], k) = 1L | {
 					l.includes(k)
 				}
 			}.whileTrue {
-				k := k + 1
+				k := k + 1L
 			};
 			l.add!(k);
-			i := i + 1
+			i := i + 1L
 		};
 		l
 	}
@@ -1377,11 +1379,11 @@
 	}
 
 	vanDerCorputNumber { :n :base |
-		let p = 0;
-		let q = 1;
+		let p = 0L;
+		let q = 1L;
 		let nn = n;
 		{
-			nn = 0
+			nn = 0L
 		}.whileFalse {
 			p := (p * base) + (nn % base);
 			q := q * base;
@@ -1391,42 +1393,44 @@
 	}
 
 	vanDerLaanSequence { :self |
-		self.padovanSequence([1 0 1])
+		self.padovanSequence([1L 0L 1L])
 	}
 
 	vanEckSequence { :n :l |
 		let a = l.copy;
-		2.toDo(n - 1) { :i |
-			let k = Range(1, i - 1).findLast { :m |
+		2L.toDo(n - 1L) { :i |
+			let k = Range(1L, i - 1L).findLast { :m |
 				a[i] = a[m]
 			};
 			a.add!(
-				(k = 0).if { 0 } { i - k }
+				(k = 0L).if { 0L } { i - k }
 			)
 		};
 		a
 	}
 
 	vanEckSequence { :n |
-		n.vanEckSequence([0 0])
+		n.vanEckSequence([0L 0L])
 	}
 
 	yellowstonePermutation { :n |
-		let l = [1 2 3];
-		let i = 3;
-		{ i < n }.whileTrue {
-			let k = 4;
+		let l = [1L 2L 3L];
+		let i = 3L;
+		{
+			i < n
+		}.whileTrue {
+			let k = 4L;
 			{
-				gcd(l[i - 1], k) = 1 | {
-					gcd(l[i], k) > 1 | {
+				gcd(l[i - 1L], k) = 1L | {
+					gcd(l[i], k) > 1L | {
 						l.includes(k)
 					}
 				}
 			}.whileTrue {
-				k := k + 1
+				k := k + 1L
 			};
 			l.add!(k);
-			i := i + 1
+			i := i + 1L
 		};
 		l
 	}
@@ -1978,7 +1982,7 @@
 
 	leastExcludedSequence { :i :k :f/3 |
 		let j = i.size;
-		let u = 1.to(Infinity);
+		let u = 1L.to(Infinity);
 		let a = Map { :n |
 			(n <= j).if {
 				i[n]
@@ -1990,7 +1994,7 @@
 				}
 			}
 		};
-		a[1 .. k]
+		a[1L .. k]
 	}
 
 }
@@ -2027,27 +2031,27 @@
 			[
 				'E' -> {
 					{ :a :n |
-						(a[n - 1] ^ 2 / a[n - 2] + (x.one / 2)).floor
+						(a[n - 1] ^ 2L / a[n - 2] + (1L / 2)).floor
 					}.recurrenceTable([x, y], m)
 				},
 				'L' -> {
 					{ :a :n |
-						(a[n - 1] ^ 2 / a[n - 2]).ceiling
+						(a[n - 1] ^ 2L / a[n - 2]).ceiling
 					}.recurrenceTable([x, y], m)
 				},
 				'P' -> {
 					{ :a :n |
-						(a[n - 1] ^ 2 / a[n - 2] - (x.one / 2)).ceiling
+						(a[n - 1] ^ 2L / a[n - 2] - 1/2).ceiling
 					}.recurrenceTable([x, y], m)
 				},
 				'T' -> {
 					{ :a :n |
-						(a[n - 1] ^ 2 / a[n - 2]).floor
+						(a[n - 1] ^ 2L / a[n - 2]).floor
 					}.recurrenceTable([x, y], m)
 				},
 				'S' -> {
 					{ :a :n |
-						(a[n - 1] ^ 2 / a[n - 2] + 1).floor
+						(a[n - 1] ^ 2L / a[n - 2] + 1L).floor
 					}.recurrenceTable([x, y], m)
 				}
 			]

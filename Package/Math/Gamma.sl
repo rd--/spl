@@ -463,8 +463,8 @@
 +@Number {
 
 	qPochhammer { :a :q :n |
-		0.to(n - 1).product { :k |
-			(1 - (a * (q ^ k)))
+		0L.to(n - 1L).product { :k |
+			(1L - (a * (q ^ k)))
 		}
 	}
 

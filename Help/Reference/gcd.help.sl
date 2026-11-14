@@ -309,7 +309,7 @@ Greatest common divisor of _n!_ and _n^n_,
 OEIS [A051696](http://oeis.org/A051696):
 
 ~~~spl svg=I oeis=A051696
-(1 .. 200).collect { :n |
+(1L .. 200L).collect { :n |
 	gcd(n.!, n ^ n)
 }.scatterPlot.log
 ~~~
@@ -377,16 +377,16 @@ OEIS [A255483](https://oeis.org/A255483):
 
 ~~~spl svg=N oeis=A255483
 let t = { :n :m |
-	(n = 0).if {
+	(n = 0L).if {
 		m.prime
 	} {
-		let a = t(n - 1, m);
-		let b = t(n - 1, m + 1);
-		a * b / (gcd(a, b) ^ 2)
+		let a = t(n - 1L, m);
+		let b = t(n - 1L, m + 1L);
+		a * b / (gcd(a, b) ^ 2L)
 	}
 };
-0:12.triangularArray { :d :n |
-	t(n, 1 + d - n)
+0L:12L.triangularArray { :d :n |
+	t(n, 1L + d - n)
 }.catenate.scatterPlot.log
 ~~~
 

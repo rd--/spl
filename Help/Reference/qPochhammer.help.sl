@@ -10,7 +10,7 @@ Evaluate numerically:
 >>> -1.2.qPochhammer(0.2, 5)
 2.89193
 
->>> 3L.qPochhammer(5, 9)
+>>> 3L.qPochhammer(5L, 9L)
 -175258163137268414822846915072L
 
 >>> 0.3J1.qPochhammer(0.5J-1, 9)

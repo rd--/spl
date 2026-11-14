@@ -30,7 +30,7 @@
 	}
 
 	geometricMean { :self |
-		self.product ^ (1 / self.size)
+		self.product ^ (1L / self.size)
 	}
 
 	harmonicMean { :self |

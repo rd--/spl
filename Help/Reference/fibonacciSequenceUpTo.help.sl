@@ -36,7 +36,7 @@ The first eighty Fibonacci numbers:
 Count Fibonacci numbers less than _9×10^23_:
 
 ```
->>> (9 * (10L ^ 23))
+>>> (9L * (10L ^ 23L))
 >>> .fibonacciSequenceUpTo
 >>> .size
 117
@@ -45,9 +45,9 @@ Count Fibonacci numbers less than _9×10^23_:
 The first Fibonacci number that is not a small integer:
 
 ```
->>> (10L ^ 23).fibonacciSequenceUpTo
+>>> (10L ^ 23L).fibonacciSequenceUpTo
 >>> .detect { :n |
->>> 	n.isSmallInteger.not
+>>> 	n.isSmallIntegerValuedNumber.not
 >>> }
 14472334024676221L
 ```

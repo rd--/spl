@@ -160,35 +160,41 @@
 	}
 
 	catalanRestrictedGrowthString { :z |
-		(z = 0).if {
-			[0]
+		(z = 0L).if {
+			[0L]
 		} {
 			let t = { :j :k |
-				let a = (k + j).! * (k - j + 1);
-				let b = j.! * (k + 1).!;
+				let a = (k + j).! * (k - j + 1L);
+				let b = j.! * (k + 1L).!;
 				a / b
 			};
-			let k = 2;
+			let k = 2L;
 			let i = 0L;
-			{ z >= t(i, i + 1) }.whileTrue {
-				i := i + 1
+			{
+				z >= t(i, i + 1L)
+			}.whileTrue {
+				i := i + 1L
 			};
-			let d = List(i, 0);
-			d[1] := 1;
-			let x = z - t(i - 1, i);
-			let m = i - 1;
-			{ x > 0 }.whileTrue {
-				let w = 0;
-				let s = 0;
-				let p = 0;
-				{ w <= x }.whileTrue {
+			let d = List(i, 0L);
+			d[1] := 1L;
+			let x = z - t(i - 1L, i);
+			let m = i - 1L;
+			{
+				x > 0L
+			}.whileTrue {
+				let w = 0L;
+				let s = 0L;
+				let p = 0L;
+				{
+					w <= x
+				}.whileTrue {
 					p := w;
-					w := w + t(m - 1, m + s);
-					s := s + 1
+					w := w + t(m - 1L, m + s);
+					s := s + 1L
 				};
-				d[k] := s - 1;
-				m := m - 1;
-				k := k + 1;
+				d[k] := s - 1L;
+				m := m - 1L;
+				k := k + 1L;
 				x := x - p
 			};
 			d
@@ -199,30 +205,30 @@
 		{ :x |
 			let y = x.accumulate;
 			y ++ [y.last]
-		}.nestList([1], r)
+		}.nestList([1L], r)
 	}
 
 	catalanTriangle { :n :k |
-		((n - k + 1) / (n + 1)) * (n + k).binomial(k)
+		((n - k + 1L) / (n + 1L)) * (n + k).binomial(k)
 	}
 
 	catalanUnrank { :n |
-		let m = n + 1;
+		let m = n + 1L;
 		let u = system.catalanUnrankTableExtendTo(m);
 		u['table'].at(m)
 	}
 
 	centeredHexagonalNumber { :n |
-		(3 * n.square) - (3 * n) + 1
+		(3L * n.square) - (3L * n) + 1L
 	}
 
 	centeredPolygonalNumber { :k :n |
-		((k * n) / 2) * (n - 1) + 1
+		(((k * n) / 2L) * (n - 1L) + 1L).floor
 	}
 
 	choose { :n :k |
 		(k > n).if {
-			0
+			0L
 		} {
 			n.integerBinomial(k)
 		}
@@ -325,13 +331,13 @@
 	lassalleNumber { :m |
 		let a = List(m, m.one);
 		2L.toDo(m) { :n |
-			let z = 1.to(n - 1).collect { :j |
+			let z = 1L.to(n - 1L).collect { :j |
 				(-1L ^ j)
-				* (2 * n - 1).binomial(2 * j - 1)
+				* (2L * n - 1L).binomial(2L * j - 1L)
 				* a[j]
 				* (n - j).catalanNumber
 			}.sum;
-			a[n] := -1 ^ (n - 1) * (n.catalanNumber + z)
+			a[n] := -1L ^ (n - 1L) * (n.catalanNumber + z)
 		};
 		a[m]
 	}

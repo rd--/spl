@@ -217,7 +217,7 @@
 	}
 
 	mercatorsComma { :self |
-		Fraction(3L ^ 53, 2L ^ 84) ^ self
+		Fraction(3L ^ 53L, 2L ^ 84L) ^ self
 	}
 
 	pythagoreanChroma { :self |

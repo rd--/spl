@@ -99,7 +99,9 @@
 	}
 
 	indexOfPrime { :self |
-		system.cachedPrimesListExtendedToPrime(self).binarySearch(self)
+		system
+		.cachedPrimesListExtendedToPrime(self)
+		.binarySearch(self)
 	}
 
 	interprime { :n |
@@ -210,15 +212,15 @@
 
 	isPrimeTrialDivision { :self |
 		self.isIntegerValuedNumber & {
-			(self <= 1).if {
+			(self <= 1L).if {
 				false
 			} {
-				(self % 2 = 0).if {
-					self = 2
+				(self % 2L = 0L).if {
+					self = 2L
 				} {
 					let limit = self.isqrt;
-					3.toBy(limit, 2).noneSatisfy { :each |
-						self % each = 0
+					3L.toBy(limit, 2L).noneSatisfy { :each |
+						self % each = 0L
 					}
 				}
 			}
@@ -654,23 +656,31 @@
 
 	primeFactorsWheel { :self |
 		let n = Integer(self);
-		let inc = [4 2 4 2 4 6 2 6];
+		let inc = [4L 2L 4L 2L 4L 6L 2L 6L];
 		let factors = [];
 		let k = 7L;
 		let i = 1;
-		{ divisible(n, 2) }.whileTrue {
+		{
+			divisible(n, 2L)
+		}.whileTrue {
 			factors.add!(2L);
-			n := n // 2
+			n := n // 2L
 		};
-		{ divisible(n, 3) }.whileTrue {
+		{
+			divisible(n, 3L)
+		}.whileTrue {
 			factors.add!(3L);
-			n := n // 3
+			n := n // 3L
 		};
-		{ divisible(n, 5) }.whileTrue {
+		{
+			divisible(n, 5L)
+		}.whileTrue {
 			factors.add!(5L);
-			n := n // 5
+			n := n // 5L
 		};
-		{ k * k <= n }.whileTrue {
+		{
+			k * k <= n
+		}.whileTrue {
 			divisible(n, k).if {
 				factors.add!(k);
 				n := n // k
@@ -679,7 +689,7 @@
 				i := (i < 8).if { i + 1 } { 1 }
 			}
 		};
-		(n > 1).ifTrue {
+		(n > 1L).ifTrue {
 			factors.add!(n)
 		};
 		factors
@@ -729,25 +739,27 @@
 		};
 		system.cachedPrimesList.copyFromTo(
 			startIndex,
-			iMax.nextPrime.indexOfPrime - 1
+			iMax.nextPrime.indexOfPrime - 1L
 		)
 	}
 
 	primesList { :self |
-		system.cachedPrimesListExtendedToIndex(self).take(self)
+		system
+		.cachedPrimesListExtendedToIndex(self)
+		.take(self)
 	}
 
 	primesUpTo { :self |
 		let a = self.nextPrime;
-		let b = a.indexOfPrime - 1;
+		let b = a.indexOfPrime - 1L;
 		let c = system.cachedPrimesList;
 		c.copyFromTo(1,	b)
 	}
 
 	primesUpToDo { :self :aBlock/1 |
-		let k = self.nextPrime.indexOfPrime - 1;
+		let k = self.nextPrime.indexOfPrime - 1L;
 		let primesList = system.cachedPrimesListExtendedToIndex(k);
-		1.toDo(k) { :index |
+		1L.toDo(k) { :index |
 			aBlock(primesList[index])
 		}
 	}
@@ -958,51 +970,65 @@
 	}
 
 	wheelSieveDo { :limit :aBlock/1 |
-		(limit >= 2).ifTrue {
-			let c = List(limit + 1, false);
-			let k = 9;
-			let p1 = 11;
-			let p2 = 121;
+		(limit >= 2L).ifTrue {
+			let c = List(limit + 1L, false);
+			let k = 9L;
+			let p1 = 11L;
+			let p2 = 121L;
 			/* First differences of 11-rough numbers: not divisible by 2, 3, 5 or 7. https://oeis.org/A049296 */
-			let z = [2 4 2 4 6 2 6 4 2 4 6 6 2 6 4 2 6 4 6 8 4 2 4 2 4 8 6 4 6 2 4 6 2 6 6 4 2 4 6 2 6 4 2 4 2 10 2 10];
-			let w = 0;
-			let j = 3;
+			let z = [2L 4L 2L 4L 6L 2L 6L 4L 2L 4L 6L 6L 2L 6L 4L 2L 6L 4L 6L 8L 4L 2L 4L 2L 4L 8L 6L 4L 6L 2L 4L 6L 2L 6L 6L 4L 2L 4L 6L 2L 6L 4L 2L 4L 2L 10L 2L 10L];
+			let w = 0L;
+			let j = 3L;
 			c[1] := true;
 			c[2] := true;
-			{ k <= limit }.whileTrue {
-				c[k + 1] := true;
-				k := k + 6
+			{
+				k <= limit
+			}.whileTrue {
+				c[k + 1L] := true;
+				k := k + 6L
 			};
-			k := 25;
-			{ k <= limit }.whileTrue {
-				c[k + 1] := true;
-				k := k + 10
+			k := 25L;
+			{
+				k <= limit
+			}.whileTrue {
+				c[k + 1L] := true;
+				k := k + 10L
 			};
-			k := 49;
-			{ k <= limit }.whileTrue {
-				c[k + 1] := true;
-				k := k + 14
+			k := 49L;
+			{
+				k <= limit
+			}.whileTrue {
+				c[k + 1L] := true;
+				k := k + 14L
 			};
-			{ p2 <= limit }.whileTrue {
+			{
+				p2 <= limit
+			}.whileTrue {
 				let i = p2;
 				let ok = true;
-				{ i <= limit }.whileTrue {
-					c[i + 1] := true;
-					i := i + (2 * p1)
+				{
+					i <= limit
+				}.whileTrue {
+					c[i + 1L] := true;
+					i := i + (2L * p1)
 				};
-				{ ok }.whileTrue {
-					p1 := p1 + z[w + 1];
-					w := (w + 1) % 48;
-					ok := c[p1 + 1]
+				{
+					ok
+				}.whileTrue {
+					p1 := p1 + z[w + 1L];
+					w := (w + 1L) % 48L;
+					ok := c[p1 + 1L]
 				};
 				p2 := p1 * p1
 			};
-			aBlock(2);
-			{ j <= limit }.whileTrue {
-				c[j + 1].ifFalse {
+			aBlock(2L);
+			{
+				j <= limit
+			}.whileTrue {
+				c[j + 1L].ifFalse {
 					aBlock(j)
 				};
-				j := j + 2
+				j := j + 2L
 			};
 			nil
 		}
@@ -1211,7 +1237,7 @@
 
 	cachedPrimesList { :self |
 		self.cached('primesList') {
-			Integer(200.wheelSieve)
+			200L.wheelSieve
 		}
 	}
 
@@ -1219,7 +1245,7 @@
 		let primesList = self.cachedPrimesList;
 		(anInteger > primesList.size).ifTrue {
 			let limit = anInteger.primeBounds.max.ceiling;
-			primesList := Integer(limit.wheelSieve);
+			primesList := limit.wheelSieve;
 			self.cache.put!('primesList', primesList)
 		};
 		primesList
@@ -1237,7 +1263,7 @@
 	isCachedPrime { :self :anInteger |
 		let p = self.cachedPrimesList;
 		(p.last >= anInteger) & {
-			p.binarySearch(anInteger) != 0
+			p.binarySearch(anInteger) != 0L
 		}
 	}
 
@@ -1250,16 +1276,16 @@
 	smallPrimes { :self |
 		self.cached('smallPrimes') {
 			[
-				2,  3,  5,  7, 11,
-				13, 17, 19, 23, 29,
-				31, 37, 41, 43, 47,
-				53, 59, 61, 67, 71,
-				73, 79, 83, 89, 97,
-				101, 103, 107, 109, 113,
-				127, 131, 137, 139, 149,
-				151, 157, 163, 167, 173,
-				179, 181, 191, 193, 197,
-				199, 211
+				2L  3L  5L  7L 11L
+				13L 17L 19L 23L 29L
+				31L 37L 41L 43L 47L
+				53L 59L 61L 67L 71L
+				73L 79L 83L 89L 97L
+				101L 103L 107L 109L 113L
+				127L 131L 137L 139L 149L
+				151L 157L 163L 167L 173L
+				179L 181L 191L 193L 197L
+				199L 211L
 			]
 		}
 	}
@@ -1443,15 +1469,15 @@
 
 	primeLowerBound { :n |
 		[
-			{ n > 2 } -> { n * (n.log + n.log.log - 1.5) }
+			{ n > 2.0 } -> { n * (n.log + n.log.log - 1.5) }
 		].which
 	}
 
 	primeUpperBound { :n |
 		[
-			{ n > 20 } -> { n * (n.log + n.log.log - 0.5) },
-			{ n > 6 } -> { n * (n.log + n.log.log) },
-			{ n > 4 } -> { n * (n.log + (2 * n.log.log)) }
+			{ n > 20.0 } -> { n * (n.log + n.log.log - 0.5) },
+			{ n > 6.0 } -> { n * (n.log + n.log.log) },
+			{ n > 4.0 } -> { n * (n.log + (2.0 * n.log.log)) }
 		].which
 	}
 

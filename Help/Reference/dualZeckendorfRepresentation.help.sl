@@ -128,11 +128,11 @@ Of a not very small integer:
 Of a large integer:
 
 ```
->>> let n = (9 * (10L ^ 23));
+>>> let n = 9L * (10L ^ 23L);
 >>> let z = n.dualZeckendorfRepresentation;
 >>> let m = z.fromZeckendorfRepresentation;
 >>> (z.size, m)
-(114, n)
+(114L, n)
 ```
 
 Number of digits in the dual Zeckendorf representation of _n_,

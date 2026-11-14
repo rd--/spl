@@ -117,7 +117,7 @@ OEIS [A005597](https://oeis.org/A005597):
 
 ```
 >>> 'TwinPrimeConstant'
->>> .namedConstant(1D, 32)
+>>> .namedConstant(1D, 32L)
 0.66016181584686957392781211001455D
 ```
 
@@ -126,7 +126,7 @@ OEIS [A114907](https://oeis.org/A114907):
 
 ```
 >>> 'TwinPrimeConstant'
->>> .namedConstant(2D, 32)
+>>> .namedConstant(2D, 32L)
 1.32032363169373914785562422002911D
 ```
 

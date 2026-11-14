@@ -197,19 +197,19 @@ Adapts elementwise:
 ([0.5J1 0.5J1.5 0.5J2 0.5J2.5 0.5J3], true)
 ```
 
-`Complex` with `Integer` components:
+`Complex` with integer components:
 
 ```
->>> Complex(1L, 2.5)
-1J2.5
+>>> Complex(1.0, 2.5)
+1.0J2.5
 
->>> Complex(-1L, 2L) ^ 2
-Complex(-3L, -4L)
+>>> -1J2 ^ 2
+-3J-4
 
->>> Complex(0L, 1L) * 0.5J0
+>>> 0J1 * 0.5J0
 0J0.5
 
->>> Complex[-1L 2L; 3L -4L; 0L 1L] * 0.5
+>>> Complex[-1 2; 3 -4; 0 1] * 0.5
 [-0.5J1 1.5J-2 0J0.5]
 ```
 

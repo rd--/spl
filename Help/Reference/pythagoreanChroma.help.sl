@@ -8,17 +8,17 @@ or Pythagorean chromatic semitone,
 is the chromatic semitone in the Pythagorean tuning.
 
 ```
->>> 1.pythagoreanChroma
+>>> 1L.pythagoreanChroma
 2187/2048
 
->>> (3 ^ 7) / (2 ^ 11)
+>>> (3L ^ 7L) / (2L ^ 11L)
 2187/2048
 ```
 
 It measures about 113.7¢:
 
 ```
->>> 1.pythagoreanChroma
+>>> 1L.pythagoreanChroma
 >>> .ratioToCents
 113.685
 ```
@@ -26,17 +26,17 @@ It measures about 113.7¢:
 It is the 3-limit interval between seven perfect just fifths (3/2) and four octaves (2/1):
 
 ```
->>> (3/2 ^ 7) / (2 ^ 4)
+>>> (3/2 ^ 7L) / (2L ^ 4L)
 2187/2048
 
->>> (3/2 ^ 7).octaveReduce
+>>> (3/2 ^ 7L).octaveReduce
 2187/2048
 ```
 
 It measures about 113.7¢:
 
 ```
->>> 1.pythagoreanChroma
+>>> 1L.pythagoreanChroma
 >>> .ratioToCents
 113.685
 ```
@@ -44,7 +44,7 @@ It measures about 113.7¢:
 The Pythagorean minor second is narrower:
 
 ```
->>> 1.pythagoreanLimma
+>>> 1L.pythagoreanLimma
 >>> .ratioToCents
 90.225
 ```
@@ -52,14 +52,17 @@ The Pythagorean minor second is narrower:
 Tenney, Weil and Wilson norms:
 
 ```
->>> 1.pythagoreanChroma.tenneyHeight
+>>> 1L.pythagoreanChroma
+>>> .tenneyHeight
 22.0947
 
->>> 1.pythagoreanChroma.weilHeight
+>>> 1L.pythagoreanChroma
+>>> .weilHeight
 22.1894
 
->>> 1.pythagoreanChroma.wilsonHeight
-43
+>>> 1L.pythagoreanChroma
+>>> .wilsonHeight
+43L
 ```
 
 * * *

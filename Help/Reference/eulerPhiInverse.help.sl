@@ -8,7 +8,7 @@ Answers an empty list for all odd number except one.
 At specific values:
 
 ```
->>> 48.eulerPhiInverse
+>>> 48L.eulerPhiInverse
 [
 	 65 104 105 112 130
 	140 144 156 168 180
@@ -22,7 +22,7 @@ At specific values:
 >>> ].collect(eulerPhi/1)
 [48 48 48 48 48 48 48 48 48 48 48]
 
->>> 100.eulerPhiInverse
+>>> 100L.eulerPhiInverse
 [101 125 202 250]
 
 >>> [101 125 202 250]
@@ -35,7 +35,7 @@ OEIS [A058812](https://oeis.org/A058812),
 threads over lists:
 
 ```
->>> 1:10.eulerPhiInverse
+>>> 1L:10L.eulerPhiInverse
 [
 	1 2;
 	3 4 6;
@@ -54,7 +54,8 @@ Count items per term,
 OEIS [A014197](https://oeis.org/A014197):
 
 ```
->>> 1:25.eulerPhiInverse.collect(size/1)
+>>> 1L:25L.eulerPhiInverse
+>>> .collect(size/1)
 [
 	2 3 0  4 0 4 0 5 0 2
 	0 6 0  0 0 6 0 4 0 5
@@ -66,8 +67,8 @@ Numbers _k_ such that _φ(x)=k_ has exactly two solutions,
 OEIS [A007366](https://oeis.org/A007366):
 
 ```
->>> 1:50.select { :x |
->>> 	x.eulerPhiInverse.size = 2
+>>> 1L:50L.select { :x |
+>>> 	x.eulerPhiInverse.size = 2L
 >>> }
 [1 10 22 28 30 46]
 ```
@@ -76,8 +77,8 @@ Values not in range of Euler phi function,
 OEIS [A007617](https://oeis.org/A007617):
 
 ```
->>> 1:50.select { :x |
->>> 	x.eulerPhiInverse.size = 0
+>>> 1L:50L.select { :x |
+>>> 	x.eulerPhiInverse.size = 0L
 >>> }
 [
 	 3  5  7  9 11 13 14 15 17 19
@@ -90,7 +91,7 @@ The inverse of the Euler totient function,
 OEIS [A032447](https://oeis.org/A032447):
 
 ~~~spl svg=A oeis=A032447
-1:50.eulerPhiInverse
+1L:50L.eulerPhiInverse
 .++
 .scatterPlot
 ~~~

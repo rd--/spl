@@ -37,7 +37,7 @@ With large integer:
 ```
 >>> '20880467999847912034355032910567D'
 >>> .parseDecimal
-23L ^ 23
+23L ^ 23L
 ```
 
 With scale specifier:

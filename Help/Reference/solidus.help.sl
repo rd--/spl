@@ -50,7 +50,7 @@ from Balmer spectrum of hydrogen,
 OEIS [A061037](https://oeis.org/A061037):
 
 ~~~spl svg=A oeis=A061037
-(1/4 - (2L:125 ^ 2)./)
+(1/4 - (2L:125L ^ 2L)./)
 .numerator
 .scatterPlot
 ~~~

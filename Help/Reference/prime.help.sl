@@ -271,7 +271,7 @@ OEIS [A005597](https://oeis.org/A005597):
 0.66016
 
 >>> 'TwinPrimeConstant'
->>> .namedConstant(1D, 23)
+>>> .namedConstant(1D, 23L)
 0.66016181584686957392781D
 ```
 

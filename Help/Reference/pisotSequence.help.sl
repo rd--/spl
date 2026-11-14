@@ -44,7 +44,7 @@ OEIS [A010925](https://oeis.org/A010925):
 >>> pisotSequence('T', 5, 21, 8)
 [5 21 88 368 1538 6427 26857 112229]
 
->>> pisotSequence('T', 5L, 21, 27).last
+>>> pisotSequence('T', 5L, 21L, 27L).last
 70795240417122019L
 ```
 

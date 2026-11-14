@@ -1,4 +1,4 @@
-/* Requires: Compare Fraction List Number Object */
+/* Requires: Compare List Number Object */
 
 Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
@@ -63,8 +63,8 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	ceiling { :self |
 		Complex(
-			self.real.ceiling,
-			self.imaginary.ceiling
+			self.real.ceilingToFloat,
+			self.imaginary.ceilingToFloat
 		)
 	}
 
@@ -153,8 +153,8 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	floor { :self |
 		Complex(
-			self.real.floor,
-			self.imaginary.floor
+			self.real.floorToFloat,
+			self.imaginary.floorToFloat
 		)
 	}
 
@@ -188,8 +188,8 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	[integerPart, truncate] { :self |
 		Complex(
-			self.real.integerPart,
-			self.imaginary.integerPart
+			self.real.truncateToFloat,
+			self.imaginary.truncateToFloat
 		)
 	}
 
@@ -347,7 +347,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 				self.raisedToInteger(aNumber)
 			} {
 				aNumber.isZero.if {
-					self.one
+					1J0
 				} {
 					aNumber.isOne.if {
 						self
@@ -398,8 +398,8 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	[round, gaussianInteger] { :self |
 		Complex(
-			self.real.round,
-			self.imaginary.round
+			self.real.roundToFloat,
+			self.imaginary.roundToFloat
 		)
 	}
 
@@ -457,10 +457,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
-	[toComplex, complexToComplex] { :self |
-		self
-	}
-
 	zero { :self |
 		Complex(0.0, 0.0)
 	}
@@ -471,13 +467,23 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	[Complex, J] { :real :imaginary |
 		imaginary.isFloat.if {
-			[real, imaginary].anyTrue(isNaN/1).if {
-				NaN
-			} {
-				uncheckedComplex(real, imaginary)
-			}
+			checkedComplex(real, imaginary)
 		} {
 			imaginary.adaptToNumberAndApply(real, Complex/2)
+		}
+	}
+
+	GaussianInteger { :real :imaginary |
+		real.isSmallInteger.ifFalse {
+			real.error('GaussianInteger: not small integer', [imaginary])
+		};
+		imaginary.isCollection.if {
+			imaginary.adaptToIntegerAndApply(real, Complex/2)
+		} {
+			uncheckedComplex(
+				real,
+				SmallInteger(imaginary)
+			)
 		}
 	}
 
@@ -493,9 +499,35 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
-}
+	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
+		self.isNaN.if {
+			NaN
+		} {
+			aBlock(
+				aComplexNumber,
+				uncheckedComplex(self, 0.0)
+			)
+		}
+	}
 
-+@Number {
+	checkedComplex { :real :imaginary |
+		(
+			real.isNaN | {
+				imaginary.isNaN
+			}
+		).if {
+			NaN
+		} {
+			uncheckedComplex(
+				real,
+				imaginary
+			)
+		}
+	}
+
+	realToComplex { :self |
+		Complex(self, 0.0)
+	}
 
 	uncheckedComplex { :real :imaginary |
 		newComplex().initializeSlots(
@@ -506,40 +538,31 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 }
 
-+@Integer {
++Integer {
 
-	[Complex, J, GaussianInteger] { :real :imaginary |
-		imaginary.isInteger.if {
-			uncheckedComplex(
-				Integer(real),
-				Integer(imaginary)
-			)
+	[Complex, J] { :real :imaginary |
+		imaginary.isCollection.if {
+			imaginary.adaptToFractionAndApply(real, Complex/2)
 		} {
-			imaginary.adaptToIntegerAndApply(real, Complex/2)
+			uncheckedComplex(
+				SmallInteger(real),
+				SmallInteger(imaginary)
+			)
 		}
 	}
 
-	I { :imaginary |
-		Complex(0L, Integer(imaginary))
+	I { :self |
+		uncheckedComplex(
+			0.0,
+			SmallInteger(self)
+		)
 	}
-
-}
-
-+[Float, Fraction, Integer] {
 
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
-		self.isNaN.if {
-			NaN
-		} {
-			aBlock(
-				aComplexNumber,
-				self.realToComplex
-			)
-		}
-	}
-
-	[toComplex, realToComplex] { :self |
-		Complex(self, self.zero)
+		aBlock(
+			aComplexNumber,
+			uncheckedComplex(Float(self), 0.0)
+		)
 	}
 
 }
@@ -554,12 +577,28 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		self
 	}
 
+	imaginary { :self |
+		self.zero
+	}
+
 	isGaussianInteger { :self |
 		self.isIntegerValuedNumber
 	}
 
-	isReal { :self |
+	isPurelyImaginary { :unused |
+		false
+	}
+
+	isReal { :unused |
 		true
+	}
+
+	real { :self |
+		self
+	}
+
+	realToComplex { :self |
+		Complex(Float(self), 0.0)
 	}
 
 }
@@ -655,9 +694,9 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 }
 
-+@Integer {
++Float {
 
-	polyominoes { :n |
+	polyominoes { :n /*SmallInteger*/ |
 		let rot = { :p |
 			1I * p
 		};
@@ -716,4 +755,3 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 }
-

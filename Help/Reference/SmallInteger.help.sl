@@ -34,7 +34,7 @@ It is an error if the value is cannot be represented as a small integer:
 
 ```
 >>> {
->>> 	SmallInteger(2L ^ 53)
+>>> 	SmallInteger(2L ^ 53L)
 >>> }.hasError
 true
 ```
@@ -71,21 +71,29 @@ true
 Arithmetic at small integers overflows to `Integer` as required:
 
 ```
->>> 17L ^ 17
-827240261886336764177L
+>>> Float(17L ^ 17L)
+827240261886336800000.0
 
->>> let a = 2L ^ 49;
->>> (a, a.square)
+>>> let a = 2L ^ 49L;
+>>> let b = a.square;
+>>> (a, b, Float(b))
 (
-	562949953421312,
-	316912650057057350374175801344L
+	562949953421312.0,
+	316912650057057350374175801344L,
+	316912650057057350000000000000.0
 )
+```
 
->>> let a = 2L ^ 49;
->>> (-a, -a - (a * 17))
+However, intermediate integers are erased:
+
+```
+>>> let a = 2L ^ 49L;
+>>> let b = a * 17L;
+>>> (-a, b, Float(-a - b))
 (
-	-562949953421312,
-	-10133099161583616L
+	-562949953421312L,
+	9570149208162304L,
+	-10133099161583616.0
 )
 ```
 
@@ -96,13 +104,13 @@ whereas `Integer` answers a `Fraction`,
 which is not an `Integer`:
 
 ```
->>> 12 / 4
-3
+>>> 12.0 / 4.0
+3.0
 
 >>> 12L / 4L
 3/1
 
->>> 11 / 4
+>>> 11.0 / 4.0
 2.75
 
 >>> 11L / 4L

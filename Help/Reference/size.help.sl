@@ -55,10 +55,10 @@ Size of a `String`:
 
 ```
 >>> 'text'.size
-4
+4L
 
 >>> ''.size
-0
+0L
 ```
 
 Size of a `Multiset` is the total number of items:

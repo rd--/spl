@@ -57,7 +57,7 @@ Largest odd divisor of _n!_,
 OEIS [A049606](https://oeis.org/A049606):
 
 ```
->>> let n = 0:16;
+>>> let n = 0L:16L;
 >>> ((2L ^ n) / n.!)
 >>> .denominator
 [

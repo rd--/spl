@@ -59,16 +59,16 @@ With negative exponent:
 At `Integer`:
 
 ```
->>> 2L ^ 2
+>>> 2L ^ 2L
 4L
 
->>> 2L ^ 100
+>>> 2L ^ 100L
 1267650600228229401496703205376L
 
->>> -2 ^ 111L
+>>> -2L ^ 111L
 -2596148429267413814265248164610048L
 
->>> 23L ^ 23
+>>> 23L ^ 23L
 20880467999847912034355032910567L
 ```
 
@@ -82,16 +82,16 @@ At `Integer`:
 At `Fraction`:
 
 ```
->>> [5/1 10/1 2/1] ^ [-2 -3 -4]
+>>> [5/1 10/1 2/1] ^ [-2L -3L -4L]
 [1/25 1/1000 1/16]
 
->>> [5 10 2] ^ [-2/1 -3/1 -4/1]
+>>> [5L 10L 2L] ^ [-2/1 -3/1 -4/1]
 [1/25 1/1000 1/16]
 
->>> 9/1 ^ [-3 -2 -1]
+>>> 9/1 ^ [-3L -2L -1L]
 [1/729 1/81 1/9]
 
->>> 9 ^ [-3/1 -2/1 -1/1]
+>>> 9L ^ [-3/1 -2/1 -1/1]
 [1/729 1/81 1/9]
 ```
 
@@ -101,91 +101,91 @@ At `Fraction`:
 >>> 2.5 ^ 3/4
 1.988
 
->>> 2 ^ 3/4
+>>> 2.0 ^ 3/4
 1.6818
 ```
 
 Note that floating point errors are introduced for small _m_ and _n_:
 
 ```
->>> 13L ^ 16
+>>> 13L ^ 16L
 665416609183179841L
 
->>> Float(13L ^ 16)
+>>> Float(13L ^ 16L)
 665416609183179900.0
 ```
 
 Zero to the power of zero is one:
 
 ```
->>> 0 ^ 0
+>>> 0L ^ 0L
 1
 
->>> -9:9 ^ 0
+>>> -9L:9L ^ 0L
 [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
 ```
 
 Fractional exponents:
 
 ```
->>> 4 ^ 1/2
-2
+>>> 4L ^ 1/2
+2/1
 
->>> 8 ^ 1/3
-2
+>>> 8L ^ 1/3
+2/1
 
->>> 2 ^ 1/2
+>>> 2.0 ^ 1/2
 1.4142
 
->>> 2 ^ 1/12
+>>> 2.0 ^ 1/12
 1.05946
 
->>> -3 ^ 5/7
+>>> -3L ^ 5/7
 -1.36656J1.71362
 ```
 
 Signed exponents:
 
 ```
->>> 3 ^ -2
+>>> 3L ^ -2L
 1/9
 
->>> 2 ^ -1/2
+>>> 2.0 ^ -1/2
 0.707107
 ```
 
 Signed bases:
 
 ```
->>> -7 ^ 2
+>>> -7L ^ 2L
 49
 
->>> -7 ^ 3
+>>> -7L ^ 3L
 -343
 ```
 
 Negative base, non-integer exponent:
 
 ```
->>> (-7 ^ 0.5).isComplex
+>>> (-7.0 ^ 0.5).isComplex
 true
 
->>> (-7 ^ 1/2, 7.sqrt)
+>>> (-7L ^ 1/2, 7.sqrt)
 (0J2.6457, 2.6457)
 
->>> -9 ^ 1/2
+>>> -9L ^ 1/2
 0J3
 
->>> -5 ^ 0.5
+>>> -5.0 ^ 0.5
 0.J(5.sqrt)
 
->>> -1 ^ 1/2
+>>> -1.0 ^ 1/2
 0J1
 
->>> -1 ^ 1/3
+>>> -1L ^ 1/3
 0.5J0.866
 
->>> -1 ^ 4/7
+>>> -1L ^ 4/7
 -0.222521J0.974928
 ```
 
@@ -324,22 +324,22 @@ Five-percent compound interest:
 At `Fraction` answers a fraction if the exponent is an integer:
 
 ```
->>> 23/17 ^ 2
+>>> 23/17 ^ 2L
 529/289
 
->>> (23L ^ 2) / (17 ^ 2)
+>>> (23L ^ 2L) / (17L ^ 2L)
 529/289
 
->>> -5/2 ^ 15
+>>> -5/2 ^ 15L
 -30517578125/32768
 
->>> 23/1 ^ 23
+>>> 23/1 ^ 23L
 20880467999847912034355032910567/1
 
->>> 2/1 ^ -3
+>>> 2/1 ^ -3L
 1/8
 
->>> 1/3 ^ -2
+>>> 1/3 ^ -2L
 9
 ```
 
@@ -396,7 +396,7 @@ Negating the exponent gives the `reciprocal` of the answer:
 >>> 10 ^ -2
 0.01
 
->>> 3/4 ^ [2 -2]
+>>> 3/4 ^ [2L -2L]
 [9/16 16/9]
 ```
 
@@ -404,11 +404,11 @@ If the exponent is the `reciprocal` of some number _n_, the result is the _n_-th
 for example a right argument of _1/2_ gives the square root:
 
 ```
->>> 3 ^ 2
-9
+>>> 3L ^ 2L
+9L
 
->>> 9 ^ 1/2
-3
+>>> 9L ^ 1/2
+3/1
 ```
 
 `^` has two inverses, `nthRoot` and `log`:
@@ -427,8 +427,8 @@ for example a right argument of _1/2_ gives the square root:
 Disprove Euler’s conjecture (Lander & Parkin 1966):
 
 ```
->>> ([27 84 110 133] ^ 5L).sum
-144L ^ 5
+>>> ([27L 84L 110L 133L] ^ 5L).sum
+144L ^ 5L
 ```
 
 At `Symbol`:
@@ -453,8 +453,8 @@ Number of trees on _n_ labeled nodes,
 OEIS [A000272](https://oeis.org/A000272):
 
 ```
->>> 1:9.collect { :n |
->>> 	n ^ (n - 2)
+>>> 1L:9L.collect { :n |
+>>> 	n ^ (n - 2L)
 >>> }
 [1 1 3 16 125 1296 16807 262144 4782969]
 ```
@@ -503,8 +503,8 @@ Fermat numbers,
 OEIS [A000215](https://oeis.org/A000215):
 
 ```
->>> 0L:6.collect { :n |
->>> 	2 ^ (2 ^ n) + 1
+>>> 0L:6L.collect { :n |
+>>> 	2L ^ (2L ^ n) + 1L
 >>> }
 [
 	3 5 17 257 65537 4294967297
@@ -516,8 +516,8 @@ Two to the power of _n_ to the power of two,
 OEIS [A002416](https://oeis.org/A002416):
 
 ```
->>> 1L:9.collect { :n |
->>> 	2 ^ (n ^ 2)
+>>> 1L:9L.collect { :n |
+>>> 	2L ^ (n ^ 2L)
 >>> }
 [
 	2
@@ -573,7 +573,7 @@ _(n^n)^n_ or _n^(n^2)_,
 OEIS [A002489](https://oeis.org/A002489):
 
 ```
->>> 0L:6.collect { :n |
+>>> 0L:6L.collect { :n |
 >>> 	(n ^ n) ^ n
 >>> }
 [
@@ -734,7 +734,7 @@ _2^(2^n)_,
 OEIS [A001146](https://oeis.org/A001146):
 
 ```
->>> 2L ^ (2 ^ 0:6)
+>>> 2L ^ (2L ^ 0L:6L)
 [
 	2 4 16 256 65536 4294967296
 	18446744073709551616L
@@ -745,7 +745,7 @@ _(10^n-1)^2/81_,
 OEIS [A002477](https://oeis.org/A002477):
 
 ```
->>> (10L ^ 1:9 - 1) ^ 2 // 81
+>>> (10L ^ 1L:9L - 1L) ^ 2L // 81L
 [
 	1
 	121
@@ -1020,12 +1020,12 @@ OEIS [A103889](https://oeis.org/A103889):
 Almost integers:
 
 ```
->>> let a = [1782 1841] ^ 12L;
->>> let b = 1922L ^ 12;
+>>> let a = [1782L 1841L] ^ 12L;
+>>> let b = 1922L ^ 12L;
 >>> a.sum / b
 0.999999999
 
->>> let a = [3987 4365] ^ 12L;
+>>> let a = [3987L 4365L] ^ 12L;
 >>> let b = 4472L ^ 12L;
 >>> a.sum / b
 1.00000000001
@@ -1035,8 +1035,8 @@ _2^n-n_,
 OEIS [A000325](https://oeis.org/A000325):
 
 ```
->>> let n = 1:13;
->>> (2 ^ n) - n
+>>> let n = 1L:13L;
+>>> (2L ^ n) - n
 [1 2 5 12 27 58 121 248 503 1014 2037 4084 8179]
 ```
 
@@ -1332,8 +1332,8 @@ obeys Benford’s law,
 OEIS [A008952](https://oeis.org/A008952):
 
 ~~~spl svg=O oeis=A008952
-0:85.collect { :n |
-	(2 ^ n).integerDigits.first
+0L:85L.collect { :n |
+	(2L ^ n).integerDigits.first
 }.discretePlot
 ~~~
 

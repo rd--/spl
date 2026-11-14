@@ -620,8 +620,8 @@ Riordan array _(1/(1-x-x^2),x/(1-x))_,
 OEIS [A105809](https://oeis.org/A105809):
 
 ~~~spl svg=M oeis=A105809
-0:9.triangularArray { :n :k |
-	0:n.sum { :j |
+0L:9L.triangularArray { :n :k |
+	0L:n.sum { :j |
 		(n - j).binomial(k + j)
 	}
 }.catenate.discretePlot

@@ -255,9 +255,29 @@ Date! : [Object, Store, Equal, Compare] {
 	}
 
 	julianDayToGregorian { :self |
+		uncheckedJulianDayToGregorian(
+			SmallInteger(self)
+		)
+	}
+
+	julianDayToJulian { :self |
+		uncheckedJulianDayToJulian(
+			SmallInteger(self)
+		)
+	}
+
+	julianToJulianDay { :year :month :day |
+		uncheckedJulianToJulianDay(
+			SmallInteger(year),
+			SmallInteger(month),
+			SmallInteger(day)
+		)
+	}
+
+	uncheckedJulianDayToGregorian { :self |
 		/* https://www.fourmilab.ch/documents/calendar/calendar.js */
 		<primitive:
-		let jd = sl.toFloat(_self);
+		let jd = _self;
 		function mod(a, b) { return a - (b * Math.floor(a / b)); }
 		let wjd = Math.floor(jd - 0.5) + 0.5;
 		let gregorianEpoch = 1721425.5;
@@ -285,10 +305,10 @@ Date! : [Object, Store, Equal, Compare] {
 		>
 	}
 
-	julianDayToJulian { :self |
+	uncheckedJulianDayToJulian { :self |
 		/* https://www.fourmilab.ch/documents/calendar/calendar.js */
 		<primitive:
-		let td = sl.toFloat(_self) + 0.5;
+		let td = _self + 0.5;
 		let z = Math.floor(td);
 		let a = z;
 		let b = a + 1524;
@@ -302,7 +322,7 @@ Date! : [Object, Store, Equal, Compare] {
 		>
 	}
 
-	julianToJulianDay { :year :month :day |
+	uncheckedJulianToJulianDay { :year :month :day |
 		/* https://www.fourmilab.ch/documents/calendar/calendar.js */
 		(month <= 2).ifTrue {
 			year := year - 1;

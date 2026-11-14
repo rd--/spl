@@ -17,7 +17,7 @@ The subfactorial counts the number of derangements.
 >>> 1:9.collect(subfactorial/1)
 [0 1 2 9 44 265 1854 14833 133496]
 
->>> 20.subfactorial
+>>> 20L.subfactorial
 895014631192902121L
 ```
 
@@ -58,9 +58,9 @@ OEIS [A008290](https://oeis.org/A008290):
 Plot the values on a `log` scale over a subset of the reals:
 
 ~~~spl svg=A
-2:19.functionPlot { :x |
-	x.subfactorial.log
-}
+2L:19L.functionPlot { :x |
+	x.subfactorial
+}.log
 ~~~
 
 ![](Help/Image/subfactorial-A.svg)

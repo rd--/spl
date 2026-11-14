@@ -23,10 +23,10 @@ Map[
 >>> 	'it' 'was' 'the' 'worst' 'of' 'times'
 >>> ].groupBy(size/1)
 Map[
-	2 -> ['it' 'of' 'it' 'of'],
-	3 -> ['was' 'the' 'was' 'the'],
-	4 -> ['best'],
-	5 -> ['times' 'worst' 'times']
+	2L -> ['it' 'of' 'it' 'of'],
+	3L -> ['was' 'the' 'was' 'the'],
+	4L -> ['best'],
+	5L -> ['times' 'worst' 'times']
 ]
 ```
 

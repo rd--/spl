@@ -47,19 +47,19 @@ Compare to `mantissaExponent`:
 Large exponent:
 
 ```
->>> let n = 1023;
+>>> let n = 1023L;
 >>> let m = Float(2L ^ n);
 >>> let x = m.fractionExponent;
 >>> let y = 0.5 * (2 ^ 1) * m;
 >>> (x, y)
 ([0.5 1024], 8.988E+307)
 
->>> let x = 2L ^ 1023;
+>>> let x = 2L ^ 1023L;
 >>> let y = 0.5 * (2 ^ 1) * x;
 >>> (x.integerLength(10), x = y)
 (308, true)
 
->>> let x = Float(2L ^ 1023);
+>>> let x = Float(2L ^ 1023L);
 >>> let y = ldexp(0.5, 1024);
 >>> (x, x = y)
 (8.988E+307, true)

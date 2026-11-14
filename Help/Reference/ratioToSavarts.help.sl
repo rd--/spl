@@ -78,7 +78,7 @@ The unison, perfect fifth and octave:
 The Pythagorean comma:
 
 ```
->>> (3/2 ^ 12).octaveReduce
+>>> (3/2 ^ 12L).octaveReduce
 >>> .ratioToSavarts
 5.885
 ```
@@ -86,7 +86,7 @@ The Pythagorean comma:
 Threads over lists:
 
 ```
->>> [53 359].collect { :n |
+>>> [53L 359L].collect { :n |
 >>> 	(3/2 ^ n).octaveReduce
 >>> }.ratioToSavarts
 [0.9069 0.4629]
@@ -96,19 +96,19 @@ At fractions with large components,
 from a table of lyŭ according to the system of Jing Fang (Daniélou 1943):
 
 ```
->>> ((3L ^ 36) / (2L ^ 57))
+>>> ((3L ^ 36L) / (2L ^ 57L))
 >>> .ratioToSavarts
 17.655
 
->>> ((3L ^ 48) / (2L ^ 76))
+>>> ((3L ^ 48L) / (2L ^ 76L))
 >>> .ratioToSavarts
 23.541
 
->>> ((3L ^ 31) / (2L ^ 49))
+>>> ((3L ^ 31L) / (2L ^ 49L))
 >>> .ratioToSavarts
 40.289
 
->>> ((3L ^ 14) / (2L ^ 22))
+>>> ((3L ^ 14L) / (2L ^ 22L))
 >>> .ratioToSavarts
 57.038
 ```

@@ -8,53 +8,53 @@ At `Fraction`,
 two just fifths reduces to a whole tone:
 
 ```
->>> (3/2 ^ 2).octaveReduce
+>>> (3/2 ^ 2L).octaveReduce
 9/8
 
->>> 3/2 ^ 2
+>>> 3/2 ^ 2L
 9/4
 
->>> (3/2 ^ 2) / (2/1 ^ 1)
+>>> (3/2 ^ 2L) / (2/1 ^ 1L)
 9/8
 ```
 
 Three just fifths reduces to a major sixth:
 
 ```
->>> (3/2 ^ 3).octaveReduce
+>>> (3/2 ^ 3L).octaveReduce
 27/16
 
->>> 3/2 ^ 3
+>>> 3/2 ^ 3L
 27/8
 
->>> (3/2 ^ 3) / (2/1 ^ 1)
+>>> (3/2 ^ 3L) / (2/1 ^ 1L)
 27/16
 ```
 
 Four just fifths reduces to a major third:
 
 ```
->>> (3/2 ^ 4).octaveReduce
+>>> (3/2 ^ 4L).octaveReduce
 81/64
 
->>> 3/2 ^ 4
+>>> 3/2 ^ 4L
 81/16
 
->>> (3/2 ^ 4) / (2/1 ^ 2)
+>>> (3/2 ^ 4L) / (2/1 ^ 2L)
 81/64
 ```
 
 Twelve just fifths reduces to a Pythagorean comma:
 
 ```
->>> (3/2 ^ 12).octaveReduce
-1.pythagoreanComma
+>>> (3/2 ^ 12L).octaveReduce
+1L.pythagoreanComma
 
->>> 3/2 ^ 12
+>>> 3/2 ^ 12L
 531441/4096
 
->>> (3/2 ^ 12) / (2/1 ^ 7)
-1.pythagoreanComma
+>>> (3/2 ^ 12L) / (2/1 ^ 7L)
+1L.pythagoreanComma
 ```
 
 The first entries of the circle of just fifths:
@@ -70,14 +70,14 @@ A succession of fifty-three just fifths approximates thirty-one octaves,
 for comparison the Pythagorean comma is 23.5¢:
 
 ```
->>> (3/2 ^ 53).octaveReduce
-1.mercatorsComma
+>>> (3/2 ^ 53L).octaveReduce
+1L.mercatorsComma
 
->>> ((3/2 ^ 53) / (2 ^ 31))
+>>> ((3/2 ^ 53L) / (2L ^ 31L))
 >>> .ratioToCents
 3.615
 
->>> (3/2 ^ 12).octaveReduce
+>>> (3/2 ^ 12L).octaveReduce
 >>> .ratioToCents
 23.460
 ```
@@ -86,8 +86,8 @@ The octave is not included,
 that is it is reduced to a unison:
 
 ```
->>> 2.octaveReduce
-1
+>>> 2L.octaveReduce
+1/1
 ```
 
 Threads over lists:
@@ -101,7 +101,7 @@ Threads over lists:
 >>> .octaveReduce
 [1/1 3/2 9/8 27/16 81/64 243/128]
 
->>> (3/2 ^ -4:7).octaveReduce
+>>> (3/2 ^ -4L:7L).octaveReduce
 [
 	128/81 32/27 16/9 4/3
 	1/1
@@ -112,10 +112,10 @@ Threads over lists:
 At `Integer`:
 
 ```
->>> 3.octaveReduce
+>>> 3L.octaveReduce
 3/2
 
->>> 33.octaveReduce.intervalName
+>>> 33L.octaveReduce.intervalName
 'undecimal comma, al-Farabi’s 1/4-tone'
 ```
 
@@ -133,7 +133,7 @@ note that _3/2^53_ is very close to `zero`,
 3.6¢:
 
 ~~~spl svg=A
-(3/2 ^ 1:99)
+(3/2 ^ 1L:99L)
 .octaveReduce
 .ratioToCents
 .scatterPlot
@@ -145,7 +145,7 @@ note that _3/2^53_ is very close to `zero`,
 Linear scale plot of octave reduced powers of _3/2_ in cents:
 
 ~~~spl svg=B
-(3/2 ^ 1:99)
+(3/2 ^ 1L:99L)
 .octaveReduce
 .ratioToCents
 .scatterPlot
@@ -156,7 +156,7 @@ Linear scale plot of octave reduced powers of _3/2_ in cents:
 Linear scale plot of octave reduced powers of _3/2_:
 
 ~~~spl svg=C
-(3/2 ^ 1:99)
+(3/2 ^ 1L:99L)
 .octaveReduce
 .scatterPlot
 ~~~

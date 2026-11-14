@@ -9,7 +9,7 @@
 	}
 
 	avogadroConstant { :self |
-		self * 602214076L * (10 ^ 15)
+		self * 602214076L * (10L ^ 15L)
 	}
 
 	berahaConstant { :n |

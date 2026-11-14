@@ -23,13 +23,13 @@ OEIS [A064413](https://oeis.org/A064413):
 ```
 
 The Ekg sequence initially _1,2,3_,
-OEIS [A169837](https://oeis.org/A064413),
+OEIS [A169837](https://oeis.org/A169837),
 the sequence merges with the _1,2_ sequence at _n=45_,
 as told by
 OEIS [A119415](https://oeis.org/A119415):
 
 ```
->>> 73.ekgSequence([1 2 3])
+>>> 73L.ekgSequence([1L 2L 3L])
 [
 	 1  2  3  6  4  8 10   5 15  9
 	12 14  7 21 18 16 20  22 11 33
@@ -46,7 +46,8 @@ Record values of Ekg sequence,
 OEIS [A064424](https://oeis.org/A064424):
 
 ```
->>> 85.ekgSequence.recordValues
+>>> 85L.ekgSequence
+>>> .recordValues
 [
 	  1   2  4    6   9
 	 12  15  18  21  24
@@ -61,7 +62,7 @@ step plot,
 OEIS [A064413](https://oeis.org/A064413):
 
 ~~~spl svg=A oeis=A064413
-37.ekgSequence.stepPlot
+37L.ekgSequence.stepPlot
 ~~~
 
 ![](Help/Image/ekgSequence-A.svg)

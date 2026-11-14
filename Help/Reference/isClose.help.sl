@@ -40,7 +40,7 @@ At `Decimal`:
 
 ```
 >>> 3D.reciprocal
->>> .isClose(0.3333D)
+>>> .isClose(0.33333D)
 true
 ```
 

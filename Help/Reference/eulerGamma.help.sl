@@ -32,7 +32,8 @@ The first few terms of the continued fraction,
 OEIS [A002852](https://oeis.org/A002852):
 
 ```
->>> 1.eulerGamma.continuedFraction(19)
+>>> 1.eulerGamma
+>>> .continuedFraction(19)
 [0 1 1 2 1 2 1 4 3 13 5 1 1 8 1 2 4 1 1]
 ```
 
@@ -59,7 +60,7 @@ Plot approach to limit:
 The binary case answers a `Decimal` value with _m_ decimal places:
 
 ```
->>> 1D.eulerGamma(34)
+>>> 1D.eulerGamma(34L)
 0.5772156649015328606065120900824024D
 ```
 
@@ -77,7 +78,7 @@ OEIS [A001620](https://oeis.org/A001620):
 Scatter plot of the digits of γ:
 
 ~~~spl svg=B
-1D.eulerGamma(99)
+1D.eulerGamma(99L)
 .integerDigits
 .scatterPlot
 ~~~

@@ -54,7 +54,7 @@ It is an error if the `Float` is not a `SmallInteger`:
 
 ```
 >>> {
->>> 	Float(2L ^ 672).isPowerOfTwo
+>>> 	Float(2L ^ 672L).isPowerOfTwo
 >>> }.hasError
 true
 ```

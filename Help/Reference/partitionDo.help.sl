@@ -10,8 +10,8 @@ Answer `nil`.
 Only one `List`, of _w_ places, is allocated.
 
 ```
->>> let sum = 0;
->>> (1L .. 99999L).partitionDo(3, 5) { :each |
+>>> let sum = 0L;
+>>> (1L .. 99999L).partitionDo(3L, 5L) { :each |
 >>> 	sum := sum + each.product
 >>> };
 >>> sum

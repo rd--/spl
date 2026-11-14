@@ -21,7 +21,7 @@ OEIS [A046096](https://oeis.org/A046096):
 The binary case answers a `Decimal` value with _m_ decimal places:
 
 ```
->>> 1D.calabisConstant(34)
+>>> 1D.calabisConstant(34L)
 1.5513875245483203922619525102646238D
 ```
 

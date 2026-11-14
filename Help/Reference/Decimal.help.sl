@@ -17,7 +17,8 @@ It is able to accurately represent arbitrary precision decimal fractions.
 >>> Decimal(7/13, 5)
 0.53846D
 
->>> Decimal(7/13, 5).decimalFraction
+>>> Decimal(7/13, 5)
+>>> .decimalFraction
 53_846/100_000
 ```
 
@@ -58,24 +59,30 @@ The `scale` of a decimal is the number of places after the decimal point,
 the `precision` is the total number of significant digits:
 
 ```
->>> let n = 1.2000000000000000000D;
+>>> let n = 3.141592653589793D;
 >>> (n.scale, n.precision)
-(19, 20)
+(15, 16)
+
+>>> let n = 0.7071067811865476D;
+>>> (n.scale, n.precision)
+(16, 16)
 ```
 
 Parse `String` as `Decimal`,
 with and without fractional part:
 
 ```
->>> '3.1416D'.parseDecimal
+>>> '3.1416D'
+>>> .parseDecimal
 3.1416D
 
->>> '23D'.parseDecimal
+>>> '23D'
+>>> .parseDecimal
 23D
 
 >>> '20880467999847912034355032910567D'
 >>> .parseDecimal
-23L ^ 23
+23L ^ 23L
 
 >>> '0.693147180559945309417232D'
 >>> .parseDecimal
@@ -124,13 +131,13 @@ and retains excess scale:
 
 ```
 >>> [1D 1.0D 1.00D].reciprocal
-[1D 1.0D 1.00D]
+[1D28 1.0D 1.00D]
 
 >>> [4D 4.0D 4.00D 4.000D].reciprocal
-[0.25D 0.25D 0.25D 0.250D]
+[0.25D28 0.3D 0.25D 0.250D]
 
 >>> 3D.reciprocal.scale
-system.maximumDecimalScale
+system.defaultDecimalScale
 ```
 
 Division by integer:
@@ -142,21 +149,21 @@ Division by integer:
 >>> 23L / 1.618D
 14.215D
 
->>> (2.01D / 2.00D, 2.01D * 0.50D)
+>>> (2.010D / 2.000D, 2.010D * 0.500D)
 (1.005D, 1.005D)
 
->>> 2.01D / 2.000D
+>>> 2.010D / 2D
 1.005D
 ```
 
 Addition with `Decimal` preserves greatest number of places:
 
 ```
->>> 1.30D + 1.20D
+>>> 1.30D + 1.2D
 2.50D
 
->>> 1.15D + 1.35D
-2.50D
+>>> 1.15D + 1.350D
+2.500D
 
 >>> 3.14159D + 1.618D
 4.75959D
@@ -165,20 +172,20 @@ Addition with `Decimal` preserves greatest number of places:
 4.75903D
 ```
 
-`Decimal` values are equal only to other `Decimal` values with the same precision:
+`Decimal` values are equal to other `Decimal` values if they have equal decimal fractions:
 
 ```
 >>> 23.0D = 23.00D
-false
+true
 
 >>> 23.0D = 23D
-false
+true
 
 >>> 23.0D = 23.0D
 true
 ```
 
-Decimal values may be unequal even if their fraction and floating point values are equal:
+Decimal values will be equal if their fraction and floating point values are equal:
 
 ```
 >>> let x = Decimal(3/7, 3);
@@ -189,7 +196,7 @@ Decimal values may be unequal even if their fraction and floating point values a
 >>> 	x.decimalFraction = y.decimalFraction,
 >>> 	Float(x) = Float(y)
 >>> )
-((0.429D, 0.4290D), false, true, true)
+((0.429D, 0.4290D), true, true, true)
 ```
 
 Exact addition, c.f. `Float`:
@@ -239,46 +246,44 @@ Exact fraction:
 -314/100
 ```
 
-Multiplication with `Decimal` follows the schoolbook approach and gives all of the figures in the multiplicands:
+Multiplication with `Decimal` does not generally follow the schoolbook approach,
+giving all of the figures in the multiplicands:
 
 ```
->>> 1.3D * 1.2D
+>>> 1.3D.timesDecimal(1.2D, +)
 1.56D
 
->>> 2.01D * 0.5D
+>>> 2.01D.timesDecimal(0.5D, +)
 1.005D
 
->>> 0.123D * 2.5D
+>>> 0.123D.timesDecimal(2.5D, +)
 0.3075D
 
->>> 0.123D * 4.84375D
+>>> 0.123D.timesDecimal(4.84375D, +)
 0.59578125D
 ```
 
 Division:
 
 ```
->>> (1D / 7D).rescaleDecimal(18)
+>>> 1D18 / 7D18
 0.142857142857142857D
 
 >>> 1/7.decimalPeriod
 6
 
->>> 1D / 7L
-1L / 7D
-
->>> 1L / 7D
-1D / 7L
+>>> 1D18 / 7L
+1L / 7D18
 ```
 
-Integer and fractional parts retain scale:
+Fractional part retains scale:
 
 ```
 >>> (23D ^ 23L).integerPart
-20880467999847912034355032910567D
+20880467999847912034355032910567L
 
 >>> 3.141D.integerPart
-3.000D
+3L
 
 >>> (3.141D ^ 7L).fractionalPart
 0.307088972273725113581D
@@ -293,11 +298,11 @@ Integer exponent:
 >>> 2.5D ^ 3L
 15.625D
 
->>> 2.5D * 2.5D * 2.5D
+>>> 2.500D * 2.5D * 2.5D
 15.625D
 ```
 
-A `Decimal` may be an integer even the `scale` is not `zero`:
+A `Decimal` may be an integer valued number even if the `scale` is not `zero`:
 
 ```
 >>> (3D.isIntegerValuedNumber, 3D.scale)
@@ -453,8 +458,7 @@ At `Fraction`:
 At negative `Fraction`:
 
 ```
->>> (-11.00D / 13.00D)
->>> .truncateScale(18)
+>>> -11D19 / 13D19
 -0.846153846153846153D
 
 >>> -11/13.decimalPeriod

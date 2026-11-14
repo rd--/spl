@@ -91,7 +91,7 @@ Plot the binomial as a function of its parameter _k_:
 
 ~~~spl svg=B
 (-1 -- 5).functionPlot(
-	[1 2 3 4].collect { :n |
+	[1L 2L 3L 4L].collect { :n |
 		{ :k |
 			binomialGamma(n, k)
 		}
@@ -114,7 +114,7 @@ Binomial coefficients modulo two:
 Binomial coefficients modulo π:
 
 ~~~spl svg=D
-1:21.triangularArray { :n :k |
+1L:21L.triangularArray { :n :k |
 	binomialGamma(n, k) % 1.pi
 }.padRight.matrixPlot
 ~~~

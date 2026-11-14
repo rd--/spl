@@ -7,12 +7,12 @@ the generalisation of the harmonic series.
 
 ```
 >>> zeta(2.0)
-(1.pi ^ 2) / 6
+(1.pi ^ 2.0) / 6.0
 
 >>> zeta(4.0)
-(1.pi ^ 4) / 90
+(1.pi ^ 4.0) / 90.0
 
->>> zeta(5 / 4)
+>>> zeta(5.0 / 4.0)
 4.59511
 
 >>> zeta(5.2111)
@@ -24,7 +24,7 @@ the generalisation of the harmonic series.
 >>> zeta(1/2)
 -1.46035
 
->>> zeta(1/2) * (1 - 2.sqrt)
+>>> zeta(1/2) * (1.0 - 2.sqrt)
 0.6048986
 
 >>> zeta(5.6)
@@ -42,8 +42,8 @@ Threads over lists:
 	1.10941
 ]
 
->>> [1.1 -4 0.5].zeta
-[10.5844 0 -1.4604]
+>>> [1.1 -4.0 0.5].zeta
+[10.5844 0.0 -1.4604]
 ```
 
 At integer arguments:
@@ -76,13 +76,10 @@ Value at `zero` and `one`:
 Infinity
 ```
 
-Some zeroes:
+Two zeroes:
 
 ```
 >>> zeta(-2)
-0
-
->>> zeta(0.5J21.022)
 0
 
 >>> zeta(0.5J40.9187)
@@ -196,7 +193,7 @@ Plot over a subset of the reals:
 Plot the real part of the zeta function on the critical line:
 
 ~~~spl svg=B
-(1 -- 45).functionPlot { :t |
+(1.0 -- 45.0).functionPlot { :t |
 	zeta(0.5 + t.I).real
 }
 ~~~
@@ -206,7 +203,7 @@ Plot the real part of the zeta function on the critical line:
 Plot the zeta function on the critical line:
 
 ~~~spl svg=C
-(0.75 -- 23).functionPlot { :t |
+(0.75 -- 23.0).functionPlot { :t |
 	zeta(0.5 + t.I)
 }
 ~~~

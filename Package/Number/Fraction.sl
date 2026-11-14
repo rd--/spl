@@ -3,13 +3,13 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	| numerator denominator |
 
 	[Complex, J] { :real :imaginary |
-		imaginary.isFraction.if {
-			uncheckedComplex(
-				real,
-				imaginary
-			)
-		} {
+		imaginary.isCollection.if {
 			imaginary.adaptToFractionAndApply(real, Complex/2)
+		} {
+			uncheckedComplex(
+				Float(real),
+				Float(imaginary)
+			)
 		}
 	}
 
@@ -21,8 +21,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	I { :self |
 		uncheckedComplex(
-			0/1,
-			self
+			0.0,
+			Float(self)
 		)
 	}
 
@@ -43,6 +43,13 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	[SmallInteger, fractionToSmallInteger] { :self |
 		SmallInteger(Integer(self))
+	}
+
+	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
+		aBlock(
+			aComplexNumber,
+			uncheckedComplex(Float(self), 0.0)
+		)
 	}
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
@@ -302,8 +309,10 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		self.decimalPeriod > 0L
 	}
 
-	isSmallInteger { :self |
-		self.isIntegerValuedNumberAnd(isSmallInteger/1)
+	isSmallIntegerValuedNumber { :self |
+		self.isIntegerValuedNumber & {
+			self.numerator.isSmallIntegerValuedNumber
+		}
 	}
 
 	isSquareSuperparticular { :self |
@@ -476,14 +485,14 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 	}
 
 	[power, ^] { :self :operand |
-		operand.isIntegerValuedNumber.if {
+		operand.isInteger.if {
 			self.raisedToInteger(
-				Integer(operand)
+				operand
 			)
 		} {
 			operand.isFraction.if {
 				self.isNegative.if {
-					Complex(Float(self), 0.0) ^ operand
+					uncheckedComplex(Float(self), 0.0) ^ operand
 				} {
 					self.raisedToFraction(operand)
 				}
@@ -506,7 +515,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 	raisedToInteger { :self :operand |
 		operand.isZero.if {
-			self.one
+			1/1
 		} {
 			(operand < 0).if {
 				self.reciprocal.raisedToInteger(operand.negate)

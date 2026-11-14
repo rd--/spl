@@ -15,7 +15,7 @@ Answer the A-weighting curve used for measuring perceived loudness of sound.
 Linear plot:
 
 ~~~spl svg=A
-(1.0 -- 1E5).functionPlot(
+(1.0 -- 0.25E3).functionPlot(
 	aWeightingCurve/1
 )
 ~~~
@@ -25,7 +25,7 @@ Linear plot:
 Semi-logarithmic plot:
 
 ~~~spl svg=B
-(1.0 -- 1E5).logLinearPlot(
+(1.0 -- 0.5E4).logLinearPlot(
 	aWeightingCurve/1
 )
 ~~~
@@ -35,7 +35,7 @@ Semi-logarithmic plot:
 Logarithmic plot:
 
 ~~~spl svg=C
-(1 -- 1E5).logLinearPlot { :x |
+(1 -- 0.5E4).logLinearPlot { :x |
 	x.aWeightingCurve.log(10) * 20 + 2
 }
 ~~~

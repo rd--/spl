@@ -99,7 +99,7 @@ With _p=3_ and _r=1_,
 OEIS [A001764](https://oeis.org/A001764)
 
 ```
->>> fussCatalanNumber(3, 1, 0:8)
+>>> fussCatalanNumber(3L, 1L, 0L:8L)
 [1 1 3 12 55 273 1428 7752 43263]
 ```
 

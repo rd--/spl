@@ -7,7 +7,7 @@ calculated using a _wheel sieve_ algorithm,
 OEIS [A000040](https://oeis.org/A000040):
 
 ```
->>> 999.wheelSieve
+>>> 999L.wheelSieve
 [
 	  2   3   5   7  11
 	 13  17  19  23  29

@@ -55,11 +55,11 @@ No such index:
 Detect index of first value that is not a small integer at `Range`:
 
 ```
->>> let r = (0L, 500L .. 10L ^ 16);
+>>> let r = (0L, 500L .. 10L ^ 16L);
 >>> let i = r.binaryDetectIndex { :n |
->>> 	n.isSmallInteger.not
+>>> 	n.isSmallIntegerValuedNumber.not
 >>> };
->>> (i, r[i], (2L ^ 53) - 1)
+>>> (i, r[i], (2L ^ 53L) - 1L)
 (
 	  18014398509483,
 	9007199254741000L,

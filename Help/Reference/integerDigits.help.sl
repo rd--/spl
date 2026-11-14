@@ -7,23 +7,23 @@ Answer a `List` of the decimal digits in the integer _n_ in base _b_ to _k_ plac
 Find digits in base 10:
 
 ```
->>> 58127.integerDigits
+>>> 58127L.integerDigits
 [5 8 1 2 7]
 
 >>> [5 8 1 2 7].fromDigits
-58127
+58127L
 
->>> 58127.integerLength
+>>> 58127L.integerLength
 5
 ```
 
 The sign is ignored:
 
 ```
->>> -3141.integerDigits
+>>> -3141L.integerDigits
 [3 1 4 1]
 
->>> -3141L.integerDigits
+>>> -3141L.integerDigits(10L, 4L)
 [3 1 4 1]
 
 >>> -3.141D.integerDigits
@@ -196,14 +196,14 @@ c.f. OEIS [A364024](https://oeis.org/A364024):
 >>> (n, n.integerDigits.++.sort!)
 ([4761 328509], [0 1 2 3 4 5 6 7 8 9])
 
->>> let n = 6534L ^ [2 3];
+>>> let n = 6534L ^ [2L 3L];
 >>> (n, n.integerDigits.++.sort!)
 (
 	[42693156 278957081304],
 	[0 0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9]
 )
 
->>> let n = 497375L ^ [2 3];
+>>> let n = 497375L ^ [2L 3L];
 >>> (n, n.integerDigits.++.sort!)
 (
 	[
@@ -217,13 +217,13 @@ c.f. OEIS [A364024](https://oeis.org/A364024):
 	]
 )
 
->>> 46839081L ^ [2 3]
+>>> 46839081L ^ [2L 3L]
 [
 	2193899508924561L,
 	102760236804377735568441L
 ]
 
->>> 4641856941L ^ [2 3]
+>>> 4641856941L ^ [2L 3L]
 [
 	21546835860709877481L,
 	100017329596623853972439445621L
@@ -846,12 +846,12 @@ Least _k>1_ with _k=Σ(d(k^n))_,
 OEIS [A046017](https://oeis.org/A046017):
 
 ~~~spl svg=Q oeis=A046017
-1:47.collect { :n |
-	let k = 2;
+1L:47L.collect { :n |
+	let k = 2L;
 	{
 		k = (k ^ n).integerDigits.sum
 	}.whileFalse {
-		k := k + 1
+		k := k + 1L
 	};
 	k
 }.stepPlot

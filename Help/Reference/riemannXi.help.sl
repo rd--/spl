@@ -5,25 +5,25 @@
 Specific values:
 
 ```
->>> riemannXi(2)
+>>> riemannXi(2.0)
 0.52359
 
->>> riemannXi(1/2)
+>>> riemannXi(1 / 2)
 0.49712
 
->>> riemannXi(5/4)
+>>> riemannXi(5 / 4)
 0.50362
 
->>> riemannXi(2/3)
+>>> riemannXi(2 / 3)
 0.49744
 
->>> riemannXi(-1)
+>>> riemannXi(-1.0)
 1/6.pi
 
->>> riemannXi(-11)
+>>> riemannXi(-11.0)
 8.24011
 
->>> riemannXi(0)
+>>> riemannXi(0.0)
 1/2
 ```
 
@@ -44,29 +44,20 @@ Threads element‐wise over lists:
 [0.49712 0.50873 0.54509 0.61113]
 ```
 
-Zeroes:
-
-```
->>> let t = [
->>> 	14.135 21.022 25.011
->>> 	30.425 32.935 37.586
->>> ];
->>> (0.5 + t.I).riemannXi
-[0 0 0 0 0 0]
-```
-
 Reflection formula:
 
 ```
->>> let z = -3;
+>>> let z = -3.0;
 >>> riemannXi(z)
-riemannXi(1 - z)
+riemannXi(1.0 - z)
 ```
 
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-2 -- 5).functionPlot(riemannXi/1)
+(-2.0 -- 5.0).functionPlot(
+	riemannXi/1
+)
 ~~~
 
 ![](Help/Image/riemannXi-A.svg)

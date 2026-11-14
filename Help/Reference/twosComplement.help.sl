@@ -73,8 +73,8 @@ The Fibonacci sequence in four-bit signed twos-complement,
 the period is twenty-four:
 
 ```
->>> 0:40.fibonacci
->>> .twosComplement(4)
+>>> 0L:40L.fibonacci
+>>> .twosComplement(4L)
 >>> .findRepeat
 [
 	 0  1  1  2  3  5 -8 -3  5  2
@@ -87,15 +87,15 @@ Find the period of the the first few word sizes,
 OEIS [A007283](https://oeis.org/A007283):
 
 ```
->>> let f = 0:1000.fibonacci;
->>> 1:9.collect { :n |
+>>> let f = 0L:1000L.fibonacci;
+>>> 1L:9L.collect { :n |
 >>> 	f.twosComplement(n)
 >>> 	.findRepeat
 >>> 	.size
 >>> }
 [3 6 12 24 48 96 192 384 768]
 
->>> 3 * (2 ^ (1:9 - 1))
+>>> 3L * (2L ^ (1L:9L - 1L))
 [3 6 12 24 48 96 192 384 768]
 
 >>> (2 ^ 1:9).pisanoPeriod
@@ -136,7 +136,7 @@ Initial terms of the Fibonacci sequence in eight-bit signed twos-complement:
 
 ~~~spl svg=A
 115.fibonacciSequence
-.twosComplement(8)
+.twosComplement(8L)
 .discretePlot
 ~~~
 
@@ -146,7 +146,7 @@ Initial terms of the Fibonacci sequence in sixteen-bit signed twos-complement:
 
 ~~~spl svg=B
 115.fibonacciSequence
-.twosComplement(16)
+.twosComplement(16L)
 .discretePlot
 ~~~
 
@@ -157,7 +157,7 @@ the period is twenty-four:
 
 ~~~spl svg=C
 115.fibonacciSequence
-.twosComplement(4)
+.twosComplement(4L)
 .discretePlot
 ~~~
 
@@ -168,7 +168,7 @@ the period is three-hundred and eighty-four:
 
 ~~~spl svg=D
 0:383.fibonacci
-.twosComplement(8)
+.twosComplement(8L)
 .scatterPlot
 ~~~
 

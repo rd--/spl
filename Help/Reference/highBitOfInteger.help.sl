@@ -9,7 +9,7 @@ At `Float`:
 
 ```
 >>> (127 << 8).highBitOfInteger
-15
+15L
 ```
 
 At `Integer`:
@@ -17,11 +17,11 @@ At `Integer`:
 ```
 >>> 479363082683256994034920463268L
 >>> .highBitOfInteger
-99
+99L
 ```
 
 * * *
 
 See also: Binary, highBit
 
-Categories: Bitwise
+Guides: Bitwise Functions

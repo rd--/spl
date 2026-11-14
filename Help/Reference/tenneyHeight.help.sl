@@ -24,7 +24,8 @@ The heights of three increasingly _dissonant_ intervals:
 >>> 16/15.tenneyHeight
 7.907
 
->>> 1.pythagoreanComma.tenneyHeight
+>>> 1L.pythagoreanComma
+>>> .tenneyHeight
 38.020
 ```
 

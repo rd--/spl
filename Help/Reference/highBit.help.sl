@@ -6,10 +6,10 @@ Answer the number of bits required to represent the integer _n_ in base two.
 
 ```
 >>> 32.highBit
-6
+6L
 
 >>> 32.integerLength(2)
-6
+6L
 ```
 
 Radix two notation indicates this directly:
@@ -19,7 +19,7 @@ Radix two notation indicates this directly:
 32
 
 >>> 2b00100000.highBit
-6
+6L
 ```
 
 The state of lower bits does not affect the answer:
@@ -29,7 +29,7 @@ The state of lower bits does not affect the answer:
 32 + 8
 
 >>> 2b00101000.highBit
-6
+6L
 ```
 
 High bit is not defined for negative integers:
@@ -45,7 +45,7 @@ At `Integer`:
 
 ```
 >>> 52L.factorial.highBit
-226
+226L
 ```
 
 Threads over lists,

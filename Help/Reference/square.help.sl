@@ -197,8 +197,8 @@ and compare to correct value obtained by the alternative factoring:
 	false
 )
 
->>> let x = 1 + (2L ^ -29);
->>> let y = 1 + (2L ^ -30);
+>>> let x = 1L + (2L ^ -29L);
+>>> let y = 1L + (2L ^ -30L);
 >>> x.square - y.square
 2147483651/1152921504606846976
 ```

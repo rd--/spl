@@ -7,7 +7,7 @@ Answer the _n_-th zero-indexed restricted-growth string in the list given in len
 The first few terms:
 
 ```
->>> 0:45.collect(
+>>> 0L:45L.collect(
 >>> 	catalanRestrictedGrowthString/1
 >>> )
 [
@@ -64,7 +64,7 @@ Join sequuences together as an integer,
 OEIS [A239903](https://oeis.org/A239903):
 
 ```
->>> 0:45.collect { :n |
+>>> 0L:45L.collect { :n |
 >>> 	n.catalanRestrictedGrowthString
 >>> 	.fromDigits
 >>> }
@@ -85,13 +85,13 @@ OEIS [A239903](https://oeis.org/A239903):
 The limit at which the `fromDigits` form becomes ambiguous:
 
 ```
->>> 58784.catalanRestrictedGrowthString
+>>> 58784L.catalanRestrictedGrowthString
 [1 2 3 4 5 6 7 8 9 9]
 
->>> 58785.catalanRestrictedGrowthString
+>>> 58785L.catalanRestrictedGrowthString
 [1 2 3 4 5 6 7 8 9 10]
 
->>> 11.catalanNumber - 1
+>>> 11L.catalanNumber - 1L
 58785
 ```
 

@@ -39,14 +39,6 @@ At `Decimal`:
 (true, true, true)
 ```
 
-Note the rule if `scale` is not zero:
-
-```
->>> let x = 1.000D;
->>> (x.isOne, x = x.one, x = 1L)
-(true, true, false)
-```
-
 * * *
 
 See also: isEven, isNegative, isOdd, isPositive, isZero, one

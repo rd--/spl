@@ -10,10 +10,10 @@ The unary case is the operator form of `factorialOrGamma`:
 factorialOrGamma(9)
 ```
 
-Note that the answer is given in `normal` form:
+Note that the answer is an `Integer`:
 
 ```
->>> 9L.!.isSmallInteger
+>>> 9.0.!.isInteger
 true
 ```
 

@@ -33,7 +33,7 @@ Prime factors of the integers to seventeen:
 Prime factors of specific values:
 
 ```
->>> (2L ^ [43 47 53] - 1).collect(
+>>> (2L ^ [43L 47L 53L] - 1L).collect(
 >>> 	primeFactorsTrialDivision/1
 >>> )
 [

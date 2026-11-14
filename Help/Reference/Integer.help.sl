@@ -44,7 +44,7 @@ At a small `Integer` value:
 At a large `Integer` value:
 
 ```
->>> let x = 23L ^ 13;
+>>> let x = 23L ^ 13L;
 >>> let y = Integer(x);
 >>> (y, x = y, x == y)
 (504036361936467383L, true, true)
@@ -86,7 +86,7 @@ it is an error if the value is not an integer:
 >>> }.hasError
 true
 
->>> let a = 2L ^ 56;
+>>> let a = 2L ^ 56L;
 >>> let b = Float(a);
 >>> {
 >>> 	Integer(b)
@@ -199,19 +199,19 @@ false
 true
 ```
 
-Adapts left and right operands to `Integers`:
+Adapts to left and right operands:
 
 ```
->>> 23L ^ 23
-20880467999847912034355032910567L
+>>> 23L ^ 23/1
+20880467999847912034355032910567/1
 
->>> 23 ^ 23L
-20880467999847912034355032910567L
+>>> 23/1 ^ 23L
+20880467999847912034355032910567/1
 
 >>> 23L ^ 0.5
 23.sqrt
 
->>> 10L ^ [16 8 0]
+>>> 10L ^ [16L 8L 0L]
 [10000000000000000L 100000000L 1L]
 ```
 
@@ -319,10 +319,10 @@ Multiplication of integers:
 Print & store `String`:
 
 ```
->>> (23L ^ 23).printString
+>>> (23L ^ 23L).printString
 '20880467999847912034355032910567L'
 
->>> (23L ^ 23).storeString
+>>> (23L ^ 23L).storeString
 '20880467999847912034355032910567L'
 ```
 

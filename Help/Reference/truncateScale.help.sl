@@ -9,7 +9,7 @@ which must be less than or equal to the scale of _d_.
 Truncate from one-hundred decimal places to three:
 
 ```
->>> 1D100.truncateScale(3)
+>>> 1D100.truncateScale(3L)
 1.000D
 ```
 

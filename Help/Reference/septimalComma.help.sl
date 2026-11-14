@@ -7,18 +7,18 @@ Answer the septimal comma raised to the number _n_.
 The septimal comma is the interval with the square superparticular ratio 64/63.
 
 ```
->>> 1.septimalComma
+>>> 1L.septimalComma
 64/63
 ```
 
 It has the size of approximately 27.3¢:
 
 ```
->>> 1.septimalComma
+>>> 1L.septimalComma
 >>> .ratioToCents
 27.264
 
->>> 1.septimalComma
+>>> 1L.septimalComma
 >>> .ratioToSavarts
 6.839
 ```
@@ -40,11 +40,11 @@ and between 81/16 and 5/1:
 It has tuning lattice coordinates _6 -2 0 -1_:
 
 ```
->>> 1.septimalComma
+>>> 1L.septimalComma
 >>> .factorInteger
 [2 6; 3 -2; 7 -1]
 
->>> 1.septimalComma
+>>> 1L.septimalComma
 >>> .primeExponents
 [6 -2 0 -1]
 ```

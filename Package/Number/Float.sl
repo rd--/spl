@@ -475,6 +475,30 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		self.integerChop(1E-10)
 	}
 
+	integerDigits { :self :base |
+		self.assertIsSmallInteger('Float>>integerDigits');
+		base.caseOf(
+			[
+				-2 -> { self.negabinaryExpansion },
+				1 -> { self.unaryExpansion }
+			]
+		) {
+			base.isIntegerValuedNumber.if {
+				let numberOfDigits = self.isZero.if {
+					1L
+				} {
+					(self.abs.log / base.log + 0.0000000001).truncate + 1L
+				};
+				self.integerDigits(
+					base,
+					numberOfDigits
+				)
+			} {
+				base.adaptToNumberAndApply(self, integerDigits/2)
+			}
+		}
+	}
+
 	[integerPart, truncate] { :self |
 		<primitive:
 		return Number.isFinite(_self) ? BigInt(Math.trunc(_self)) : _self;
@@ -619,7 +643,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		self.isIntegerValuedNumber
 	}
 
-	isSmallInteger { :self |
+	[isSmallInteger, isSmallIntegerValuedNumber] { :self |
 		/* self.abs <= 9_007_199_254_740_991 */
 		<primitive:
 		return Number.isSafeInteger(_self);
@@ -1180,29 +1204,6 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 	}
 
-	parseDecimalInteger { :self :elseClause/0 |
-		self.isDecimalIntegerString.if {
-			let answer = self.uncheckedParseDecimalInteger;
-			answer.isNaN.if {
-				elseClause()
-			} {
-				answer.isSmallInteger.if {
-					answer
-				} {
-					elseClause()
-				}
-			}
-		} {
-			elseClause()
-		}
-	}
-
-	parseDecimalInteger { :self |
-		self.parseDecimalInteger {
-			self.error('parseDecimalInteger: invalid input')
-		}
-	}
-
 	parseDecimalNumeral { :self :elseClause/0 |
 		self.isDecimalNumeralString.if {
 			self.uncheckedParseNumber
@@ -1251,19 +1252,17 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 			each.splitOn(',').collect(parseDecimalInteger/1)
 		};
 		let [m, n] = [p, q].collect(size/1);
-		(p * (60L ^ (m - 1).toBy(0, -1))).sum + (q / (60L ^ 1.to(n))).sum
+		(p * (60L ^ (m - 1L).toBy(0L, -1L))).sum + (q / (60L ^ 1L.to(n))).sum
 	}
 
 	parseSmallInteger { :self :radix :elseClause/0 |
 		radix.isSmallInteger.if {
 			(
-				radix > 1 & {
-					radix < 36 & {
-						self.isRadixIntegerString(radix)
-					}
+				radix.isBetween(1, 36) & {
+					self.isRadixIntegerString(radix)
 				}
 			).if {
-				let answer = self.uncheckedParseInteger(radix);
+				let answer = self.uncheckedParseSmallInteger(radix);
 				answer.isSmallInteger.if {
 					answer
 				} {
@@ -1283,21 +1282,15 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 	}
 
-	uncheckedParseDecimalInteger { :self |
-		<primitive:
-		return Number(_self);
-		>
-	}
-
-	uncheckedParseInteger { :self :radix |
-		<primitive:
-		return Number.parseInt(_self, sl.toFloat(_radix));
-		>
-	}
-
 	uncheckedParseNumber { :self |
 		<primitive:
 		return Number.parseFloat(_self);
+		>
+	}
+
+	uncheckedParseSmallInteger { :self :radix |
+		<primitive:
+		return Number.parseInt(_self, sl.toFloat(_radix));
 		>
 	}
 
@@ -1307,7 +1300,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 
 	fromSignExponentMantissa { :self |
 		let [s, e, m] = self;
-		(-1 ^ s) * Float(2L ^ e) * m
+		(-1L ^ s) * Float(2L ^ e) * m
 	}
 
 }

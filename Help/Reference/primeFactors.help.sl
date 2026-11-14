@@ -91,7 +91,7 @@ At `Integer`:
 >>> (2L ^ 63L - 1L).primeFactors
 [7 7 73 127 337 92737 649657]
 
->>> [7 7 73 127 337 92737 649657L]
+>>> [7L 7L 73L 127L 337L 92737L 649657L]
 >>> .product
 9_223_372_036_854_775_807L
 
@@ -160,7 +160,7 @@ The largest prime factor of an integer:
 At a power of two:
 
 ```
->>> (2 ^ 52).primeFactors
+>>> (2L ^ 52L).primeFactors
 [2] # 52
 ```
 

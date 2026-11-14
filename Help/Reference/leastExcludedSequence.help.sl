@@ -12,10 +12,25 @@ and _m_ is the candidate least excluded value.
 Least excluded sequence such that the `gcd` of adjacent terms is _≥3_,
 OEIS [A064417](https://oeis.org/A064417):
 
+```
+>>> [1L 2L 3L]
+>>> .leastExcludedSequence(23L) { :a :n :m |
+>>> 	m.gcd(a[n - 1L]) >= 3L
+>>> }
+[
+	 1  2  3  6  9 12  4  8 16 20
+	 5 10 15 18 21  7 14 28 24 27
+	30 25 35
+]
+```
+
+Least excluded sequence such that the `gcd` of adjacent terms is _≥3_,
+OEIS [A064417](https://oeis.org/A064417):
+
 ~~~spl svg=A oeis=A064417
-[1 2 3]
-.leastExcludedSequence(185) { :a :n :m |
-	m.gcd(a[n - 1]) >= 3
+[1L 2L 3L]
+.leastExcludedSequence(185L) { :a :n :m |
+	m.gcd(a[n - 1L]) >= 3L
 }.scatterPlot
 ~~~
 
@@ -26,9 +41,9 @@ called the Ekg sequence,
 OEIS [A064413](https://oeis.org/A064413):
 
 ~~~spl svg=B oeis=A064413
-[1 2]
-.leastExcludedSequence(185) { :a :n :m |
-	m.gcd(a[n - 1]) != 1
+[1L 2L]
+.leastExcludedSequence(185L) { :a :n :m |
+	m.gcd(a[n - 1L]) != 1L
 }.scatterPlot
 ~~~
 
@@ -38,9 +53,9 @@ Least excluded sequence such that adjacent terms are part of a Pythagorean tripl
 OEIS [A235598](https://oeis.org/A235598):
 
 ~~~spl svg=C oeis=A235598
-[3]
-.leastExcludedSequence(40) { :a :n :m |
-	let [p, q] = [a[n - 1], m].square;
+[3L]
+.leastExcludedSequence(40L) { :a :n :m |
+	let [p, q] = [a[n - 1L], m].square;
 	(p + q).isPerfectSquare | {
 		(q - p).abs.sqrt
 		.isIntegerValuedNumber
@@ -55,9 +70,9 @@ adjacent terms have no adjacent ones in the binary expansion of their product,
 OEIS [A269361](https://oeis.org/A269361):
 
 ~~~spl svg=D oeis=A269361
-[1].leastExcludedSequence(115) { :a :n :m |
-	(a[n - 1] * m).integerDigits(2)
-	.sequenceCount([1 1]) = 0
+[1L].leastExcludedSequence(115L) { :a :n :m |
+	(a[n - 1L] * m).integerDigits(2L)
+	.sequenceCount([1L 1L]) = 0L
 }.discretePlot
 ~~~
 
@@ -68,10 +83,10 @@ adjacent terms have no isolated ones in the binary expansion of their product,
 OEIS [A289194](https://oeis.org/A289194):
 
 ~~~spl svg=E oeis=A289194
-[1].leastExcludedSequence(150) { :a :n :m |
-	(a[n - 1] * m).binaryExpansion
-	.runLengthsOf(1)
-	.min >= 2
+[1L].leastExcludedSequence(150L) { :a :n :m |
+	(a[n - 1L] * m).binaryExpansion
+	.runLengthsOf(1L)
+	.min >= 2L
 }.scatterPlot
 ~~~
 

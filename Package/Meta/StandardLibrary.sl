@@ -64,11 +64,11 @@
 	'Missing'
 
 	/* Number */
+	'Complex'
 	'EisensteinInteger'
 	'Interval'
 	'Residue'
 	'Fraction' /* Integer */
-	'Complex' /* Fraction */
 	'Decimal' /* Fraction */
 	'Quaternion' /* Complex */
 	'Real' /* Fraction */

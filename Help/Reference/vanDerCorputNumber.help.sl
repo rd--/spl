@@ -9,14 +9,14 @@ This function is also called the radical inverse.
 The base-10 radical inverse of 42:
 
 ```
->>> 42.vanDerCorputNumber(10)
+>>> 42L.vanDerCorputNumber(10L)
 6/25
 ```
 
 The base-2 radical inverse of 42:
 
 ```
->>> 42.vanDerCorputNumber(2)
+>>> 42L.vanDerCorputNumber(2L)
 21/64
 ```
 

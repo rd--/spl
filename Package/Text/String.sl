@@ -294,7 +294,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 	countUtf16CodeUnits { :self |
 		<primitive:
-		return _self.length;
+		return sl.toInteger(_self.length);
 		>
 	}
 

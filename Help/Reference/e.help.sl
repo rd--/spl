@@ -98,7 +98,7 @@ The graph of _eˣ_ has gradient `one` at `zero`:
 The binary case answers a `Decimal` value with _m_ decimal places:
 
 ```
->>> 1D.e(34)
+>>> 1D.e(34L)
 2.7182818284590452353602874713526624D
 ```
 
@@ -116,7 +116,7 @@ OEIS [A001113](https://oeis.org/A001113):
 Scatter plot of the digits of `e`:
 
 ~~~spl svg=B
-1D.e(104)
+1D.e(104L)
 .integerDigits
 .scatterPlot
 ~~~
@@ -126,7 +126,7 @@ Scatter plot of the digits of `e`:
 The continued fraction at the higher precision decimal constant is accurate to many more places:
 
 ```
->>> 1D.e(104)
+>>> 1D.e(104L)
 >>> .continuedFraction
 >>> .take(90)
 [

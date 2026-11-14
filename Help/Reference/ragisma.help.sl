@@ -7,38 +7,40 @@ an unnoticeable 7-limit comma,
 raised to the power of _n_.
 
 ```
->>> 1.ragisma
+>>> 1L.ragisma
 4375/4374
 
->>> 1.ragisma.isSuperparticular
+>>> 1L.ragisma
+>>> .isSuperparticular
 true
 ```
 
 It has a size of about 0.396¢:
 
 ```
->>> 1.ragisma.ratioToCents
+>>> 1L.ragisma
+>>> .ratioToCents
 0.39576
 ```
 
 It is the difference between the septimal minor third (7:6) and two Bohlen–Pierce small semitones (27:25):
 
 ```
->>> 7/6 / (27/25 ^ 2)
+>>> 7/6 / (27/25 ^ 2L)
 4375/4374
 ```
 
 It is also the difference between a stack of four classical whole tones (10/9) and 32/21:
 
 ```
->>> (10/9 ^ 4) / 32/21
+>>> (10/9 ^ 4L) / 32/21
 4375/4374
 ```
 
 It is also the difference between a stack of four classical minor thirds (6/5) octave-reduced and 28/27:
 
 ```
->>> 28/27 / (6/5 ^ 4).octaveReduce
+>>> 28/27 / (6/5 ^ 4L).octaveReduce
 4375/4374
 ```
 

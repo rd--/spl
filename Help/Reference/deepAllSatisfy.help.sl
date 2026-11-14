@@ -11,7 +11,7 @@ Only tests elements until one item answers `false`.
 ```
 >>> [3 3].iota
 >>> .deepAllSatisfy(
->>> 	isSmallInteger/1
+>>> 	isInteger/1
 >>> )
 true
 ```

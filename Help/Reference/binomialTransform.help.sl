@@ -150,7 +150,7 @@ Binomial transform of Catalan numbers,
 OEIS [A007317](https://oeis.org/A007317):
 
 ```
->>> 0:12.collect(catalanNumber/1)
+>>> 0L:12L.collect(catalanNumber/1)
 >>> .binomialTransform
 [
 	1 2 5 15 51 188 731 2950 12235 51822

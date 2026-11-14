@@ -7,17 +7,17 @@ This is used to parse literal numbers of radix 2 - 36.
 
 ```
 >>> '0'.digitValue
-0
+0L
 
 >>> '1'.digitValue
-1
+1L
 ```
 
 Threads over lists:
 
 ```
 >>> ['9' '0' 'A' 'Z'].digitValue
-[9 0 10 35]
+[9L 0L 10L 35L]
 ```
 
 The inverse is `digitCharacter`:

@@ -29,7 +29,7 @@ At `Float` and `Integer` and `Fraction`:
 
 ```
 >>> [3.141 23L 5/7].imaginary
-[0 0 0]
+[0.0 0L 0/1]
 ```
 
 C.f. `I`:

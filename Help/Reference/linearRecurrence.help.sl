@@ -1117,7 +1117,7 @@ also Lucas _U(2,2)_ sequence,
 OEIS [A009545](https://oeis.org/A009545):
 
 ~~~spl svg=E oeis=A009545
-linearRecurrence([2 -2], [0 1], 110)
+linearRecurrence([2L -2L], [0L 1L], 110L)
 .discretePlot.logScale
 ~~~
 
@@ -1127,7 +1127,7 @@ Expansion of exponential generating function _cos(x)/exp(x)_,
 OEIS [A009116](https://oeis.org/A009116):
 
 ~~~spl svg=F oeis=A009116
-linearRecurrence([-2 -2], [1 -1], 110)
+linearRecurrence([-2L -2L], [1L -1L], 110L)
 .discretePlot.logScale
 ~~~
 

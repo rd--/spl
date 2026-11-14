@@ -7,7 +7,7 @@ the number of constituent particles in one mole,
 approximately equal to _6.02E23_.
 
 ```
->>> 1.avogadroConstant
+>>> 1L.avogadroConstant
 602214076000000000000000L
 ```
 

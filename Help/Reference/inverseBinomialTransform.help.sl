@@ -133,7 +133,7 @@ The inverse binomial transform of the rabbit sequence,
 OEIS [A124841](https://oeis.org/A124841):
 
 ~~~spl svg=C oeis=A124841
-(1 - 1:65.fibonacciWord)
+(1L - 1L:65L.fibonacciWord)
 .inverseBinomialTransform
 .discretePlot.logScale
 ~~~

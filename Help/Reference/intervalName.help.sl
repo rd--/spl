@@ -27,7 +27,7 @@ The ragisma:
 >>> 4375/4374.intervalName
 'ragisma'
 
->>> 1.ragisma
+>>> 1L.ragisma
 4375/4374
 ```
 
@@ -42,13 +42,13 @@ Schisma and diaschisma:
 >>> .intervalName
 'schisma'
 
->>> 1.schisma
+>>> 1L.schisma
 32805/32768
 
 >>> 2048/2025.intervalName
 'diaschisma'
 
->>> 1.diaschisma
+>>> 1L.diaschisma
 2048/2025
 ```
 
@@ -101,16 +101,16 @@ Commas:
 >>> 81/80.intervalName
 'syntonic comma, Didymus comma'
 
->>> 1.syntonicComma
+>>> 1L.syntonicComma
 81/80
 
 >>> 531_441/524_288.intervalName
 'Pythagorean comma, ditonic comma'
 
->>> 1.pythagoreanComma
+>>> 1L.pythagoreanComma
 531441/524288
 
->>> (3L ^ 12) / (2 ^ 19)
+>>> (3L ^ 12L) / (2L ^ 19L)
 531441/524288
 
 >>> 64/63.intervalName
@@ -226,7 +226,7 @@ Semitones, also called half-tones or minor seconds or limmas or chromas:
 >>> 256/243.intervalName
 'limma, Pythagorean minor second'
 
->>> 1.pythagoreanLimma
+>>> 1L.pythagoreanLimma
 256/243
 
 >>> 135/128.intervalName
@@ -256,7 +256,7 @@ Semitones, also called half-tones or minor seconds or limmas or chromas:
 >>> 2187/2048.intervalName
 'apotome'
 
->>> 1.pythagoreanChroma
+>>> 1L.pythagoreanChroma
 2187/2048
 
 >>> 15/14.intervalName
@@ -495,7 +495,7 @@ Augmented fourths and diminished fifths:
 >>> 9/8 ^ 3
 729/512
 
->>> (3/2 ^ 6).octaveReduce
+>>> (3/2 ^ 6L).octaveReduce
 729/512
 
 >>> 36/25.intervalName
@@ -652,7 +652,7 @@ Major sevenths:
 >>> 243/128.intervalName
 'Pythagorean major seventh'
 
->>> (3/2 ^ 5).octaveReduce
+>>> (3/2 ^ 5L).octaveReduce
 243/128
 
 >>> 19/10.intervalName

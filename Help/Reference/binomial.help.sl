@@ -53,7 +53,7 @@ With _k=0_:
 With _k=1_:
 
 ```
->>> binomial([-5 .. 5], 1)
+>>> binomial([-5L .. 5L], 1L)
 [-5 -4 -3 -2 -1 0 1 2 3 4 5]
 ```
 
@@ -74,14 +74,14 @@ With _k=-1_:
 With _k=-2_:
 
 ```
->>> binomial([-5 .. 5], -2)
+>>> binomial([-5L .. 5L], -2L)
 [0 0 0 1 -1 0 0 0 0 0 0]
 ```
 
 With _k=-3_:
 
 ```
->>> binomial([-5 .. 5], -3)
+>>> binomial([-5L .. 5L], -3L)
 [0 0 1 -2 1 0 0 0 0 0 0]
 ```
 
@@ -172,7 +172,7 @@ Square array of binomial coefficients,
 OEIS [A052553](https://oeis.org/A052553):
 
 ```
->>> 0:7.triangularArray { :n :k |
+>>> 0L:7L.triangularArray { :n :k |
 >>> 	(n - k).binomial(k)
 >>> }
 [
@@ -218,7 +218,7 @@ true
 If _k_ is greater than _n_ the answer is zero:
 
 ```
->>> binomial(3, 6)
+>>> binomial(3L, 6L)
 0
 ```
 
@@ -239,10 +239,10 @@ Threads over lists:
 One of a family of integer sequences (OEIS A006542):
 
 ```
->>> 4:37.collect { :n |
->>> 	let a = binomial(n, 3);
->>> 	let b = binomial(n - 1, 3);
->>> 	a * (b / 4)
+>>> 4L:37L.collect { :n |
+>>> 	let a = binomial(n, 3L);
+>>> 	let b = binomial(n - 1L, 3L);
+>>> 	a * (b / 4L)
 >>> }
 [
 	1 10 50 175
@@ -293,13 +293,13 @@ Calculate the triangle of trinomial coefficients,
 OEIS [A027907](https://oeis.org/A027907):
 
 ```
->>> [0 .. 6].collect { :n |
->>> 	[0 .. 2 * n].collect { :k |
->>> 		[0 .. n].sum { :i |
+>>> [0L .. 6L].collect { :n |
+>>> 	[0L .. 2L * n].collect { :k |
+>>> 		[0L .. n].sum { :i |
 >>> 			let a = binomial(n, i);
 >>> 			let b = binomial(
 >>> 				n - i,
->>> 				k - (2 * i)
+>>> 				k - (2L * i)
 >>> 			).round;
 >>> 			a * b
 >>> 		}
@@ -330,8 +330,8 @@ Regions obtained by joining _n_ points around a circle by straight lines,
 OEIS [A000127](https://oeis.org/A000127):
 
 ```
->>> 1:25.collect { :n |
->>> 	[0 2 4].sum { :i |
+>>> 1L:25L.collect { :n |
+>>> 	[0L 2L 4L].sum { :i |
 >>> 		binomial(n, i)
 >>> 	}
 >>> }
@@ -348,8 +348,8 @@ The first few central binomial coefficients,
 OEIS [A000984](https://oeis.org/A000984):
 
 ```
->>> 0L:27.collect { :n |
->>> 	binomial(2 * n, n)
+>>> 0L:27L.collect { :n |
+>>> 	binomial(2L * n, n)
 >>> }
 [
 	1
@@ -387,8 +387,8 @@ The cake numbers,
 OEIS [A000125](https://oeis.org/A000125):
 
 ```
->>> 1:46.collect { :n |
->>> 	binomial(n, 3) + n
+>>> 1L:46L.collect { :n |
+>>> 	binomial(n, 3L) + n
 >>> }
 [
 	    1     2     4     8    15
@@ -408,8 +408,8 @@ The pentatope numbers,
 OEIS [A000332](https://oeis.org/A000332):
 
 ```
->>> 0:43.collect { :n |
->>> 	binomial(n, 4)
+>>> 0L:43L.collect { :n |
+>>> 	binomial(n, 4L)
 >>> }
 [
 	0 0 0 0 1
@@ -579,13 +579,13 @@ Number of fixed _2k_ polyominoes with _n_ cells,
 OEIS [A059678](https://oeis.org/A059678):
 
 ```
->>> 2:11.collect { :n |
->>> 	let m = n - 1;
->>> 	1:m.collect { :k |
->>> 		0:k.sum { :v |
+>>> 2L:11L.collect { :n |
+>>> 	let m = n - 1L;
+>>> 	1L:m.collect { :k |
+>>> 		0L:k.sum { :v |
 >>> 			binomial(
->>> 				n - k + 1,
->>> 				2 * k - n - v
+>>> 				n - k + 1L,
+>>> 				2L * k - n - v
 >>> 			) * binomial(
 >>> 				n - k + v,
 >>> 				n - k
@@ -611,9 +611,9 @@ Knights-move Pascal triangle,
 OEIS [A052509](https://oeis.org/A052509):
 
 ```
->>> 0:9.collect { :n |
->>> 	0:n.collect { :k |
->>> 		0:n.sum { :m |
+>>> 0L:9L.collect { :n |
+>>> 	0L:n.collect { :k |
+>>> 		0L:n.sum { :m |
 >>> 			binomial(n - k, k - m)
 >>> 		}
 >>> 	}
@@ -648,7 +648,7 @@ Where _k=4_,
 OEIS [A000332](https://oeis.org/A000332):
 
 ```
->>> binomial(0:13, 4)
+>>> binomial(0L:13L, 4L)
 [0 0 0 0 1 5 15 35 70 126 210 330 495 715]
 ```
 
@@ -656,7 +656,7 @@ Where _k=5_,
 OEIS [A000389](https://oeis.org/A000389):
 
 ```
->>> binomial(0:13, 5)
+>>> binomial(0L:13L, 5L)
 [0 0 0 0 0 1 6 21 56 126 252 462 792 1287]
 ```
 
@@ -664,7 +664,7 @@ Where _k=6_,
 OEIS [A000579](https://oeis.org/A000579):
 
 ```
->>> binomial(0:13, 6)
+>>> binomial(0L:13L, 6L)
 [0 0 0 0 0 0 1 7 28 84 210 462 924 1716]
 ```
 
@@ -714,15 +714,15 @@ eliding initial term,
 OEIS [A000179](https://oeis.org/A000179):
 
 ```
->>> 1:16.collect { :n |
->>> 	2 * n * 0:n.sum { :k |
->>> 		(-1 ^ k)
+>>> 1L:16L.collect { :n |
+>>> 	2L * n * 0L:n.sum { :k |
+>>> 		(-1L ^ k)
 >>> 		*
->>> 		binomial(2 * n - k, k)
+>>> 		binomial(2L * n - k, k)
 >>> 		*
 >>> 		(n - k).!
 >>> 		/
->>> 		(2 * n - k)
+>>> 		(2L * n - k)
 >>> 	}
 >>> }
 [
@@ -764,8 +764,8 @@ Four-dimensional pyramidal numbers,
 OEIS [A002415](https://oeis.org/A002415):
 
 ```
->>> 0:9.collect { :n |
->>> 	binomial(n ^ 2, 2) / 6
+>>> 0L:9L.collect { :n |
+>>> 	binomial(n ^ 2L, 2L) / 6L
 >>> }
 [0 0 1 6 20 50 105 196 336 540]
 ```
@@ -774,10 +774,10 @@ _C(n,2k)*C(2k,k)_,
 OEIS [A089627](https://oeis.org/A089627):
 
 ```
->>> 0:9.triangularArray { :n :k |
->>> 	binomial(n, 2 * k)
+>>> 0L:9L.triangularArray { :n :k |
+>>> 	binomial(n, 2L * k)
 >>> 	*
->>> 	binomial(2 * k, k)
+>>> 	binomial(2L * k, k)
 >>> }
 [
 	1;
@@ -908,7 +908,7 @@ _C(k,n-k)_,
 OEIS [A030528](https://oeis.org/A030528):
 
 ```
->>> 1:7.triangularArray { :n :k |
+>>> 1L:7L.triangularArray { :n :k |
 >>> 	binomial(k, n - k)
 >>> }
 [
@@ -926,9 +926,9 @@ Coefficients of the shifted cyclotomic polynomial,
 OEIS [A059260](https://oeis.org/A059260):
 
 ```
->>> 0:9.triangularArray { :n :k |
->>> 	0:n.sum { :j |
->>> 		(-1 ^ (n - j)) * binomial(j, k)
+>>> 0L:9L.triangularArray { :n :k |
+>>> 	0L:n.sum { :j |
+>>> 		(-1L ^ (n - j)) * binomial(j, k)
 >>> 	}
 >>> }
 [
@@ -988,8 +988,10 @@ Four-dimensional analog of centered polygonal numbers,
 OEIS [A006522](https://oeis.org/A006522):
 
 ```
->>> 1:11.collect { :n |
->>> 	binomial(n, 4) + binomial(n - 1, 2)
+>>> 1L:11L.collect { :n |
+>>> 	binomial(n, 4L)
+>>> 	+
+>>> 	binomial(n - 1L, 2L)
 >>> }
 [0 0 1 4 11 25 50 91 154 246 375]
 ```
@@ -1000,11 +1002,11 @@ and first differences,
 OEIS [A055243](https://oeis.org/A055243):
 
 ```
->>> let a = 0:15.collect { :n |
->>> 	0:n.sum { :k |
+>>> let a = 0L:15L.collect { :n |
+>>> 	0L:n.sum { :k |
 >>> 		binomial(k, n - k)
 >>> 		*
->>> 		binomial(k + 2, 2)
+>>> 		binomial(k + 2L, 2L)
 >>> 	}
 >>> };
 >>> (a, a.differences)
@@ -1027,8 +1029,8 @@ Riordan array _(1,x(1-x))_,
 OEIS [A109466](https://oeis.org/A109466):
 
 ```
->>> 0:12.triangularArray { :n :k |
->>> 	(-1 ^ (n - k))
+>>> 0L:12L.triangularArray { :n :k |
+>>> 	(-1L ^ (n - k))
 >>> 	* binomial(k, n - k)
 >>> }
 [
@@ -1096,9 +1098,9 @@ scatter plot,
 OEIS [A166556](https://oeis.org/A166556):
 
 ~~~spl svg=C oeis=A166556
-(0 .. 21).triangularArray { :n :k |
+(0L .. 21L).triangularArray { :n :k |
 	(k .. n).sum { :j |
-		binomial(j, k) % 2
+		binomial(j, k) % 2L
 	}
 }.++.scatterPlot
 ~~~
@@ -1149,16 +1151,16 @@ and without three consecutive zeroes,
 OEIS [A182309](https://oeis.org/A182309):
 
 ~~~spl svg=F oeis=A182309
-2:27.collect { :n |
-	let m = 2 * (n + 1) / 3;
-	2:m.collect { :k |
-		let i = k / 2;
-		1:i.sum { :j |
-			binomial(n - k + 1, j)
+2L:27L.collect { :n |
+	let m = 2L * (n + 1L) / 3L;
+	2L:m.collect { :k |
+		let i = k / 2L;
+		1L:i.sum { :j |
+			binomial(n - k + 1L, j)
 			*
 			binomial(
-				n - k - j + 1,
-				k - (2 *j)
+				n - k - j + 1L,
+				k - (2L * j)
 			)
 		}
 	}
@@ -1241,15 +1243,15 @@ Riordan array _((1-x)/(1+x),x/(1+x)^2)_,
 OEIS [A110162](https://oeis.org/A110162):
 
 ~~~spl svg=L oeis=A110162
-0:11.triangularArray { :n :k |
-	(n + k = 0).if {
-		1
+0L:11L.triangularArray { :n :k |
+	(n + k = 0L).if {
+		1L
 	} {
 		let p = n + k;
 		let q = n - k;
 		let a = binomial(p, q);
-		let b = binomial(p - 1, q - 1);
-		(-1 ^ q) * (a + b)
+		let b = binomial(p - 1L, q - 1L);
+		(-1L ^ q) * (a + b)
 	}
 }.catenate.discretePlot.logScale
 ~~~
@@ -1293,10 +1295,10 @@ Odd-numbered columns of triangle of expansions of powers of _x_ in terms of Cheb
 OEIS [A039598](https://oeis.org/A039598):
 
 ~~~spl svg=P oeis=A039598
-0:15.triangularArray { :n :k |
-	binomial(2 * n, n - k)
+0L:15L.triangularArray { :n :k |
+	binomial(2L * n, n - k)
 	-
-	binomial(2 * n, n - k - 2)
+	binomial(2L * n, n - k - 2L)
 }.catenate.scatterPlot.log
 ~~~
 

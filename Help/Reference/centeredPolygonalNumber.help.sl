@@ -8,8 +8,8 @@ Centered triangular numbers,
 OEIS [A005448](https://oeis.org/A005448):
 
 ```
->>> 1:17.collect { :n |
->>> 	3.centeredPolygonalNumber(n)
+>>> 1L:17L.collect { :n |
+>>> 	3L.centeredPolygonalNumber(n)
 >>> }
 [
 	  1   4  10  19  31
@@ -23,8 +23,8 @@ Centered square numbers,
 OEIS [A001844](https://oeis.org/A001844):
 
 ```
->>> 1:17.collect { :n |
->>> 	4.centeredPolygonalNumber(n)
+>>> 1L:17L.collect { :n |
+>>> 	4L.centeredPolygonalNumber(n)
 >>> }
 [
 	  1   5  13  25  41
@@ -38,8 +38,8 @@ Centered pentagonal numbers,
 OEIS [A005891](https://oeis.org/A005891):
 
 ```
->>> 1:17.collect { :n |
->>> 	5.centeredPolygonalNumber(n)
+>>> 1L:17L.collect { :n |
+>>> 	5L.centeredPolygonalNumber(n)
 >>> }
 [
 	  1   6  16  31  51

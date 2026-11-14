@@ -13,7 +13,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	[SmallInteger, integerToSmallInteger]  { :self |
-		self.isSmallInteger.if {
+		self.isSmallIntegerValuedNumber.if {
 			Float(self)
 		} {
 			self.error('Integer>>SmallInteger: not small integer')
@@ -157,10 +157,10 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	floorLog { :self :radix |
-		(self <= 0).if {
+		(self <= 0L).if {
 			self.error('Integer>>floorLog: is only defined for x > 0', [radix])
 		} {
-			self.numberOfDigitsInBase(radix) - 1
+			self.numberOfDigitsInBase(radix) - 1L
 		}
 	}
 
@@ -169,23 +169,31 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 			let realLength = self.digitLength;
 			let lastDigit = self.digitAt(realLength);
 			{
-				lastDigit = 0
+				lastDigit = 0L
 			}.whileTrue {
-				realLength := realLength - 1;
-				(realLength = 0).ifTrue {
-					0.return
+				realLength := realLength - 1L;
+				(realLength = 0L).ifTrue {
+					0L.return
 				}
 			};
-			Float(lastDigit).highBitOfByte + (8 * (realLength - 1))
+			Float(lastDigit).highBitOfByte + (8L * (realLength - 1L))
 		}
 	}
 
+	integerChop { :self :unused |
+		self
+	}
+
+	integerChop { :self |
+		self
+	}
+
 	integerDigits { :self :radix |
-		radix.isBetween(2, 36).if {
+		radix.isBetween(2L, 36L).if {
 			self.abs.integerString(radix).characters.digitValue
 		} {
 			SmallInteger(self).integerDigits(radix)
-		}.collect(Integer/1)
+		}
 	}
 
 	integerLength { :self :radix |
@@ -305,8 +313,8 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		Float(self) ~ anObject
 	}
 
-	isSmallInteger { :self |
-		self.abs <= (2L ^ 53 - 1)
+	isSmallIntegerValuedNumber { :self |
+		self.abs <= (2L ^ 53L - 1L)
 	}
 
 	isSquare { :n |
@@ -338,7 +346,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	normalInteger { :self |
-		self.isSmallInteger.if {
+		self.isSmallIntegerValuedNumber.if {
 			Float(self)
 		} {
 			self
@@ -368,10 +376,8 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 	}
 
 	[power, ^] { :self :anObject |
-		anObject.isIntegerValuedNumber.if {
-			self.raisedToInteger(
-				Integer(anObject)
-			)
+		anObject.isInteger.if {
+			self.raisedToInteger(anObject)
 		} {
 			anObject.adaptToIntegerAndApply(self, power/2)
 		}
@@ -546,12 +552,26 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 
 +String {
 
+	parseDecimalInteger { :self :elseClause/0 |
+		self.isDecimalIntegerString.if {
+			self.uncheckedParseDecimalInteger
+		} {
+			elseClause()
+		}
+	}
+
+	parseDecimalInteger { :self |
+		self.parseDecimalInteger {
+			self.error('parseDecimalInteger: invalid input')
+		}
+	}
+
 	parseInteger { :self :elseClause/0 |
 		self.endsWith('L').ifTrue {
 			self := self.allButLast
 		};
 		self.isDecimalIntegerString.if {
-			self.uncheckedParseInteger
+			self.uncheckedParseDecimalInteger
 		} {
 			elseClause()
 		}
@@ -563,7 +583,7 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		}
 	}
 
-	uncheckedParseInteger { :self |
+	uncheckedParseDecimalInteger { :self |
 		<primitive:
 		return BigInt(_self);
 		>

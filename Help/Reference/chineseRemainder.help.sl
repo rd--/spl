@@ -7,7 +7,7 @@ Answer the smallest _x_ with _x>=0_ that satisfies all the integer congruences _
 The smallest positive integer _x_ that satisfies _x%4=3_ and _x%5=4_:
 
 ```
->>> [3 4].chineseRemainder([4 5])
+>>> [3L 4L].chineseRemainder([4L 5L])
 19
 ```
 
@@ -35,7 +35,7 @@ and demonstrate both multiplying & recovering and adding & recovering:
 ```
 >>> let m = 100:103.prime;
 >>> let n1 = 123456787L;
->>> let n2 = 123;
+>>> let n2 = 123L;
 >>> let n1r = n1 % m;
 >>> let n2r = n2 % m;
 >>> let cr1 = (n1r * n2r).chineseRemainder(m);

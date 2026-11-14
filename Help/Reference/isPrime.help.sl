@@ -90,7 +90,7 @@ Test for large integers:
 >>> 3L.isPrime
 true
 
->>> (10L ^ 3000 + 1).isPrime
+>>> (10L ^ 3000L + 1L).isPrime
 false
 ```
 
@@ -126,7 +126,7 @@ OEIS [A010051](https://oeis.org/A010051):
 Recognize Fermat primes, prime numbers of the form _2 ^ 2 ^ n + 1_:
 
 ```
->>> (2L ^ (2 ^ 3) + 1).isPrime
+>>> (2L ^ (2L ^ 3L) + 1L).isPrime
 true
 ```
 
@@ -602,17 +602,17 @@ with _p_ a prime congruent to five modulo six,
 OEIS [A157242](https://oeis.org/A157242):
 
 ~~~spl svg=M oeis=A157242
-1:150.collect { :n |
-	let a = (2 * n) - 1;
-	let b = (a / 11).log2;
-	Range(1, b, 1).sum { :x |
-		let c = a - (11 * (2 ^ x));
-		let d = 2.max(c).log2;
-		Range(1, c, 1).sum { :y |
-			let e = c - (2 ^ y);
+1L:150L.collect { :n |
+	let a = (2L * n) - 1L;
+	let b = (a / 11L).log2;
+	Range(1L, b, 1L).sum { :x |
+		let c = a - (11L * (2L ^ x));
+		let d = 2L.max(c).log2;
+		Range(1L, c, 1L).sum { :y |
+			let e = c - (2L ^ y);
 			(
-				e > 1 & {
-					e % 6 = 5 & {
+				e > 1L & {
+					e % 6L = 5L & {
 						e.isPrime
 					}
 				}

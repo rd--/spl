@@ -17,8 +17,11 @@ Residue : [Object, Store, Equal, Compare, Number] {
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		aNumber.isSmallInteger.if {
-			self.adaptToIntegerAndApply(aNumber, aBlock/2)
+		aNumber.isIntegerValuedNumber.if {
+			self.adaptToIntegerAndApply(
+				Integer(aNumber),
+				aBlock/2
+			)
 		} {
 			self.error('Residue>>adaptToNumberAndApply: not an integer')
 		}

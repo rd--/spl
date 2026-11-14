@@ -67,7 +67,7 @@ OEIS [A005408](https://oeis.org/A005408):
 The integer square root of odd powers of seven:
 
 ```
->>> (7L ^ 1:21:2)
+>>> (7L ^ 1L:21L:2L)
 >>> .integerSquareRoot
 [
 	2
@@ -87,13 +87,13 @@ The integer square root of odd powers of seven:
 Integer square root of large integers:
 
 ```
->>> (7L ^ 14).integerSquareRoot
+>>> (7L ^ 14L).integerSquareRoot
 823543L
 
 >>> (7 ^ 14).sqrt
 823543
 
->>> (7L ^ 73).integerSquareRoot
+>>> (7L ^ 73L).integerSquareRoot
 7015820362023593956150476655802L
 ```
 
@@ -107,11 +107,11 @@ At `zero`:
 Negative _n_:
 
 ```
->>> -4.integerSquareRoot
-0J2
+>>> (-4.sqrt, -4.integerSquareRoot)
+(0J2, 0J2)
 
 >>> 0J2 ^ 2
--4
+-4J0
 ```
 
 Show that the expression _f_ below answers non-square numbers:

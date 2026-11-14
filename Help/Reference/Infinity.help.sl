@@ -88,7 +88,7 @@ NaN
 Predicates:
 
 ```
->>> (10L ^ 100) < Infinity
+>>> (10L ^ 100L) < Infinity
 true
 
 >>> 0 > -Infinity

@@ -179,7 +179,7 @@ not periodic,
 OEIS [A125144](https://oeis.org/A125144):
 
 ~~~spl svg=G oeis=A125144
-(4 ^ 1:85).integerLength(10)
+(4L ^ 1L:85L).integerLength(10L)
 .differences
 .discretePlot
 ~~~
@@ -190,7 +190,7 @@ The number of decimal digits of _4^n_,
 OEIS [A210434](https://oeis.org/A210434):
 
 ~~~spl svg=H oeis=A210434
-(4 ^ 1:85).integerLength(10)
+(4L ^ 1L:85L).integerLength(10L)
 .discretePlot
 ~~~
 

@@ -58,7 +58,7 @@ If _k > n_ answers zero:
 >>> 3.choose(6)
 0
 
->>> binomial(3, 6)
+>>> binomial(3L, 6L)
 0
 ```
 

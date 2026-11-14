@@ -8,18 +8,19 @@ Mercators comma, or the 53-comma, is a small comma of 3.615 cents.
 It is the amount by which 53 perfect fifths exceed 31 octaves.
 
 ```
->>> 1.mercatorsComma
+>>> 1L.mercatorsComma
 19383245667680019896796723L
 /
 19342813113834066795298816L
 
->>> 1.mercatorsComma
-(3L ^ 53) / (2L ^ 84)
+>>> 1L.mercatorsComma
+(3L ^ 53L) / (2L ^ 84L)
 
->>> 1.mercatorsComma
+>>> 1L.mercatorsComma
 1.0021
 
->>> 1.mercatorsComma.ratioToCents
+>>> 1L.mercatorsComma
+>>> .ratioToCents
 3.615
 ```
 
@@ -27,18 +28,18 @@ It is also the amount by which a stack of four Pythagorean commas exceeds a Pyth
 
 ```
 >>> (
->>> 	4.pythagoreanComma
+>>> 	4L.pythagoreanComma
 >>> 	/
->>> 	1.pythagoreanLimma
+>>> 	1L.pythagoreanLimma
 >>> )
-1.mercatorsComma
+1L.mercatorsComma
 ```
 
 It is also the amount by which a stack of eight apotomes exceeds a 27/16 major sixth:
 
 ```
->>> 8.pythagoreanChroma / 27/16
-1.mercatorsComma
+>>> 8L.pythagoreanChroma / 27/16
+1L.mercatorsComma
 ```
 
 * * *

@@ -72,14 +72,21 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	[divide, /] { :self :operand |
 		operand.isZero.if {
-			self.error('Decimal>>divide: zero')
+			Infinity
 		} {
 			operand.isDecimal.if {
-				self * operand.reciprocal
+				divideDecimal(self, operand, max/2)
 			} {
 				operand.adaptToDecimalAndApply(self, divide/2)
 			}
 		}
+	}
+
+	divideDecimal { :self :operand :aBlock/2 |
+		Decimal(
+			self.decimalFraction / operand.decimalFraction,
+			aBlock(self.scale, operand.scale)
+		)
 	}
 
 	floor { :self |
@@ -114,16 +121,14 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	isEqualBy { :self :anObject :aBlock/2 |
-		anObject.isNumber.if {
-			anObject.isDecimal.if {
-				self.scale = anObject.scale & {
-					self.decimalFraction = anObject.decimalFraction
-				}
-			} {
-				anObject.adaptToDecimalAndApply(self, aBlock/2)
-			}
+		anObject.isDecimal.if {
+			self.decimalFraction = anObject.decimalFraction
 		} {
-			false
+			anObject.isNumber.if {
+				anObject.adaptToDecimalAndApply(self, aBlock/2)
+			} {
+				false
+			}
 		}
 	}
 
@@ -159,8 +164,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		true
 	}
 
-	isSmallInteger { :self |
-		self.decimalFraction.isSmallInteger
+	isSmallIntegerValuedNumber { :self |
+		self.decimalFraction.isSmallIntegerValuedNumber
 	}
 
 	[negate, -] { :self |
@@ -265,10 +270,13 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		self.isZero.if {
 			self.error('Decimal>>reciprocal: zero divide')
 		} {
-			fractionToDecimal(
+			Decimal(
 				self.decimalFraction.reciprocal,
-				self.scale,
-				system.maximumDecimalScale
+				self.scale.isZero.if {
+					system.defaultDecimalScale
+				} {
+					self.scale
+				}
 			)
 		}
 	}
@@ -297,14 +305,17 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	[times, *] { :self :operand |
 		operand.isDecimal.if {
-			fractionToDecimal(
-				self.decimalFraction * operand.decimalFraction,
-				min(self.scale, operand.scale),
-				system.maximumDecimalScale
-			)
+			timesDecimal(self, operand, max/2) /* plus/2 */
 		} {
 			operand.adaptToDecimalAndApply(self, times/2)
 		}
+	}
+
+	timesDecimal { :self :operand :aBlock/2 |
+		Decimal(
+			self.decimalFraction * operand.decimalFraction,
+			aBlock(self.scale, operand.scale)
+		)
 	}
 
 	[toFraction, decimalToFraction] { :self |
@@ -330,7 +341,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 			(k = s).if {
 				self
 			} {
-				self.error('truncateScale')
+				self.error('truncateScale: k > s')
 			}
 		}
 	}
@@ -371,18 +382,18 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		)
 	}
 
-	fractionToDecimal { :self :minScale :maxScale |
+	fractionToDecimal { :self :defaultScale |
 		let d = self.denominator;
-		let k = (d = 1L).if {
-			minScale
-		} {
-			powerMod(10L, d, d).isZero.if {
-				d.primeSignature.first
-			} {
-				maxScale
+		let k = (
+			d != 1L& {
+				powerMod(10L, d, d).isZero
 			}
+		).if {
+			d.primeSignature.first
+		} {
+			Integer(defaultScale)
 		};
-		Decimal(self, k.min(maxScale))
+		uncheckedDecimal(self, k)
 	}
 
 	uncheckedDecimal { :fraction :scale |
@@ -483,7 +494,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	parseDecimal { :self :elseClause/0 |
 		let parts = self.splitOn('D');
-		(parts.size = 2).if {
+		(parts.size = 2L).if {
 			parseDecimalWithScale(
 				parts[1],
 				parts[2].isEmpty.if {
@@ -510,17 +521,17 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		let parts = self.splitOn('.');
 		parts.size.caseOf(
 			[
-				1 -> {
+				1L -> {
 					uncheckedDecimal(
 						uncheckedFraction(
 							parts[1].parseInteger(elseClause/0),
 							1L
 						),
-						scaleOrNil.ifNil { 0 }
+						scaleOrNil.ifNil { 0L }
 					)
 				},
-				2 -> {
-					let sign = self.beginsWith('-').if { -1 } { 1 };
+				2L -> {
+					let sign = self.beginsWith('-').if { -1L } { 1L };
 					let i = parts[1].parseInteger(elseClause/0);
 					let f = sign.copySign(parts[2].parseInteger(elseClause/0));
 					let k = parts[2].size;
@@ -547,8 +558,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 +System {
 
-	maximumDecimalScale { :unused |
-		128
+	defaultDecimalScale { :unused |
+		28L
 	}
 
 }

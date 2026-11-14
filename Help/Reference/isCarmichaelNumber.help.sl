@@ -7,12 +7,12 @@ Predicate to decide if _n_ is a Carmichael number.
 There is one Carmichael less than one thousand:
 
 ```
->>> (501, 503 .. 599).select(
+>>> (501L, 503L .. 599L).select(
 >>> 	isCarmichaelNumber/1
 >>> )
 [561]
 
->>> 0:560.allSatisfy { :b |
+>>> 0L:560L.allSatisfy { :b |
 >>> 	b ^ 561L % 561L = b
 >>> }
 true
@@ -21,16 +21,16 @@ true
 The first Carmichael numbers with four prime factors:
 
 ```
->>> 41041.isCarmichaelNumber
+>>> 41041L.isCarmichaelNumber
 true
 
->>> 41041.primeFactors
+>>> 41041L.primeFactors
 [7 11 13 41]
 
->>> 62745.isCarmichaelNumber
+>>> 62745L.isCarmichaelNumber
 true
 
->>> 62745.primeFactors
+>>> 62745L.primeFactors
 [3 5 47 89]
 ```
 
@@ -38,7 +38,7 @@ Carmichael numbers,
 OEIS [A002997](https://oeis.org/A002997):
 
 ```
->>> [561 1105 1729 2465 2821 6601 8911]
+>>> [561L 1105L 1729L 2465L 2821L 6601L 8911L]
 >>> .allTrue(isCarmichaelNumber/1)
 true
 ```
