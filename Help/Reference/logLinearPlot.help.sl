@@ -56,7 +56,8 @@ Apply `log` to the _y_ value to draw a log-log plot:
 Plot the A-weighting curve:
 
 ~~~spl svg=F
-(10.0 -- 0.5E4).logLinearPlot(
+(16.midiCps -- 108.midiCps)
+.logLinearPlot(
 	aWeightingCurve/1
 )
 ~~~

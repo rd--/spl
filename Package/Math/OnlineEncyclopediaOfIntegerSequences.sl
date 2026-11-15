@@ -1,4 +1,4 @@
-+@Integer {
++[Float, Integer] {
 
 	oeisA001317 { :n |
 		{ :x |
@@ -695,7 +695,7 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	OeisEntry { :self |
 		OeisEntry(self.oeisIdentifier)

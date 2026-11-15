@@ -27,7 +27,8 @@ Predicates:
 
 - `isComplex`
 - `isGaussianInteger`
-- `isReal`
+- `isRealValuedNumber`
+- `isPurelyImaginary`
 
 Querying:
 

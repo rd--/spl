@@ -152,10 +152,10 @@
 		self.isSquareMatrix.if {
 			let size = self.size;
 			let a = self;
-			(size = 2).if {
+			(size = 2L).if {
 				(a[1][1] * a[2][2]) - (a[1][2] * a[2][1])
 			} {
-				(size = 3).if {
+				(size = 3L).if {
 					(a[1][1] * a[2][2] * a[3][3]) +
 					(a[1][2] * a[2][3] * a[3][1]) +
 					(a[1][3] * a[2][1] * a[3][2]) -
@@ -163,7 +163,7 @@
 					(a[1][2] * a[2][1] * a[3][3]) -
 					(a[1][1] * a[2][3] * a[3][2])
 				} {
-					let answer = 0;
+					let answer = 0L;
 					size.iota.plainChangesDo { :p |
 						let sign = p.permutationSymbol;
 						let entries = p.withIndexCollect { :i :j |
@@ -1427,7 +1427,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	exchangeMatrix { :self |
 		let answer = [self, self].zeroMatrix;
@@ -1449,7 +1449,7 @@
 						(n // 2).hadamardMatrix
 					)
 				} {
-					n.error('@Integer>>hadamardMatrix: not power of two')
+					n.error('hadamardMatrix: not power of two')
 				}
 			}
 		}

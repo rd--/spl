@@ -38,7 +38,7 @@ LinearCongruential : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	numericalRecipesLinearCongruential { :self |
 		LinearCongruential(

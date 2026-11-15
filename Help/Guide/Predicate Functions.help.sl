@@ -6,10 +6,10 @@ Numeric Trait & Type Predicates:
 - `isDecimal`
 - `isFraction`
 - `isInteger`
-- `isInteger
+- `isIntegerValuedNumber`
 - `isNumber`
 - `isRational`
-- `isReal`
+- `isRealValuedNumber`
 - `isScalar`
 - `isFloat`
 - `isSmallInteger`

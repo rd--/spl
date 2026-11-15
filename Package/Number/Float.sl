@@ -1,6 +1,6 @@
 /* Requires: RegularExpression String */
 
-Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
+Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInteger] {
 
 	[Float, F] { :self |
 		self
@@ -139,7 +139,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		(a / b).ceiling
 	}
 
-	ceilingToFloat { :self |
+	ceilingFloat { :self |
 		<primitive:
 		return Math.ceil(_self);
 		>
@@ -279,7 +279,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 	}
 
-	[divide, divideToFloat, /] { :self :operand |
+	[divide, divideFloat, /] { :self :operand |
 		<primitive:
 		if(sl.isFloat(_operand)) {
 			return _self / _operand;
@@ -350,7 +350,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		(a / b).floor
 	}
 
-	floorToFloat { :self |
+	floorFloat { :self |
 		<primitive:
 		return Math.floor(_self);
 		>
@@ -871,13 +871,15 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 	}
 
 	radixString { :self :radix |
+		self := SmallInteger(self);
+		radix := SmallInteger(radix);
 		(radix = 10).if {
 			self.printString
 		} {
 			let unsignedAnswer = '%b%'.format(
 				[
 					radix.integerString(10),
-					SmallInteger(self).abs.integerString(radix)
+					self.abs.integerString(radix)
 				]
 			);
 			self.isNegative.if {
@@ -958,7 +960,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		}
 	}
 
-	roundToFloat { :self |
+	roundFloat { :self |
 		<primitive:
 		return Math.round(_self);
 		>
@@ -998,7 +1000,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		>
 	}
 
-	[signedPower, **] { :self :operand |
+	[signedPower, ^*] { :self :operand |
 		<primitive:
 		if (sl.isFloat(_operand)) {
 			if(_self < 0) {
@@ -1051,7 +1053,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Integer, Binary] {
 		operand.adaptToNumberAndApply(self, times/2)
 	}
 
-	truncateToFloat { :self |
+	truncateFloat { :self |
 		<primitive:
 		return Math.trunc(_self);
 		>

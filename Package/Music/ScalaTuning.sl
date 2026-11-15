@@ -120,7 +120,7 @@ ScalaTuning : [Object, Tuning] {
 
 }
 
-+[@Integer, Fraction] {
++[Float, Fraction, Integer] {
 
 	intervalName { :self |
 		system.scalaIntervalArchive.keyAtValueIfAbsent(

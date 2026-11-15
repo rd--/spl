@@ -1243,7 +1243,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	String { :self :letter |
 		letter.assertIsCharacter;

@@ -1,4 +1,4 @@
-+@Integer {
++[Float, Integer] {
 
 	sobolSequence { :n :d |
 		let l = n.bitLength;

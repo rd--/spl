@@ -324,7 +324,7 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	calkinWilfTree { :n :r |
 		n.unfoldTree(r) { :each |

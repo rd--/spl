@@ -38,7 +38,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	gen03 { :self :xMin :xMax :coefficients |
 		let k = coefficients.size;

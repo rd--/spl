@@ -28,7 +28,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	blancmangeCurve { :d |
 		let k = 2 ^ d;
@@ -420,7 +420,7 @@
 
 	weierstrassFunction { :x :a :b :n |
 		0.toCollect(n) { :i |
-			(a ** i) * ((b ** i) * x.pi).cos
+			(a ^ i) * ((b ^ i) * x.pi).cos
 		}.sum
 	}
 

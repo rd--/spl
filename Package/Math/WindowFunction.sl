@@ -381,7 +381,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	hammingWindowTable { :n |
 		n.windowTable(hammingWindow/1)

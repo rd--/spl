@@ -162,7 +162,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	squareSpiral { :self |
 		let answer = [];

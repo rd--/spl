@@ -8,13 +8,13 @@ At `Float`,
 answers `true` if `isSmallInteger` would answer `true`:
 
 ```
->>> 23.isExact
+>>> 23.0.isExact
 true
 
 >>> 3.141.isExact
 false
 
->>> (2 ** 54).isExact
+>>> (2.0 ^ 54.0).isExact
 false
 ```
 

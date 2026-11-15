@@ -256,7 +256,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	binaryDigits { :self :numDigits |
 		let answer = [];

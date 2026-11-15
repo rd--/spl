@@ -80,7 +80,7 @@ ContinuousEvent : [Object] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	voicer { :part :voice :voiceBlock/1 |
 		1.toCollect(voice) { :each |
@@ -100,7 +100,7 @@ ContinuousEvent : [Object] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	voiceWriter { :part :numVoices :voiceBlock/0 |
 		1.toCollect(numVoices) { :voice |

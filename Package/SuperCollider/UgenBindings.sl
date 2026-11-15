@@ -1502,7 +1502,7 @@
 		<primitive: return sc.Lcm(_self, _anObject);>
 	}
 
-	[signedPower, **] { :self :anObject |
+	[signedPower, ^*] { :self :anObject |
 		<primitive: return sc.Pow(_self, _anObject);>
 	}
 

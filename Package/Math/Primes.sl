@@ -1,6 +1,6 @@
 /* Requires: Cache Collection Fraction Integer */
 
-+@Integer {
++[Float, Integer] {
 
 	assertIsPrime { :self |
 		self.assert {
@@ -1047,7 +1047,7 @@
 
 }
 
-+[@Integer, Fraction] {
++[Float, Fraction, Integer] {
 
 	primeExponents { :self |
 		let p = self.factorInteger;
@@ -1304,7 +1304,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	erdosTuranConstruction { :n |
 		(
@@ -1424,7 +1424,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	ellipticCurveOverFiniteField { :a :b :q |
 		let p = UnivariatePolynomial([b, a, 0, 1]);
@@ -1461,7 +1461,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	primeBounds { :n |
 		(n.primeLowerBound -- n.primeUpperBound)
@@ -1483,7 +1483,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	primePiBounds { :x |
 		(x.primePiLowerBound -- x.primePiUpperBound)
@@ -1593,7 +1593,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	isLucasProbablePrime { :n :d |
 		let p = 1;

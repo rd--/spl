@@ -1,7 +1,3 @@
-@Integer {
-
-}
-
 @Number {
 
 	E { :self :aNumber |
@@ -1056,7 +1052,7 @@
 		}
 	}
 
-	[signedPower, **] { :self :aNumber |
+	[signedPower, ^*] { :self :aNumber |
 		self.isNegative.if {
 			(self.negate ^ aNumber).negate
 		} {

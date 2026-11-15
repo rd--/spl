@@ -341,7 +341,7 @@ Polygon : [Object, Store, Equal, Geometry] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	regularPolygon { :self :center :radius :theta |
 		Polygon(

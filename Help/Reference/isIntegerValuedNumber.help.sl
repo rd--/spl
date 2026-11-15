@@ -22,6 +22,26 @@ true
 false
 ```
 
+At `Fraction`:
+
+```
+>>> 3/1.isIntegerValuedNumber
+true
+
+>>> 1/3.isIntegerValuedNumber
+false
+```
+
+At `Complex`:
+
+```
+>>> 3J0.isIntegerValuedNumber
+true
+
+>>> 0J3.isIntegerValuedNumber
+false
+```
+
 Infinity is not an integer:
 
 ```
@@ -67,10 +87,10 @@ true
 At `Complex`:
 
 ```
->>> 1J2.isIntegerValuedNumber
-false
-
 >>> 1J0.isIntegerValuedNumber
+true
+
+>>> 1J2.isIntegerValuedNumber
 false
 ```
 

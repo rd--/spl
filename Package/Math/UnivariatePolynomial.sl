@@ -407,7 +407,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	bellB { :n |
 		(n = 0L).if {

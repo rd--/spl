@@ -1,4 +1,4 @@
-+@Integer {
++[Float, Integer] {
 
 	dualZeckendorfRepresentation { :n |
 		(n = 0L).if {
@@ -68,7 +68,7 @@
 
 }
 
-+[@Integer, Fraction] {
++[Float, Fraction, Integer, Symbol] {
 
 	fibonacci { :n :x |
 		(x = 1L).if {
@@ -134,7 +134,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	binetsFormula { :n |
 		let z = 5.sqrt;
@@ -414,7 +414,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	pisanoPeriod { :n |
 		n.isPrime.if {

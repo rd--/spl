@@ -252,6 +252,7 @@
 	'Number-Float'
 	'Number-Fraction'
 	'Number-ImplicitFloat'
+	'Number-ImplicitInteger'
 	'Number-Integer'
 	'Number-Interval'
 	'Number-Number'

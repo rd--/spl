@@ -586,7 +586,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	torusKnotCurve { :p :q |
 		{ :t |

@@ -1,4 +1,4 @@
-+@Integer {
++[Float, Integer] {
 
 	sparseMatrixMixer { :numOutputs :inputList :sparseMatrix |
 		let answer = List(numOutputs, dc(0));

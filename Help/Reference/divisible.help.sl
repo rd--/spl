@@ -138,7 +138,7 @@ although floating point calculations with approximate large numbers may suggest 
 >>> 233L.divisible(133L ^ 133L)
 false
 
->>> 233.0 % (133.0 ** 133.0)
+>>> 233.0 % (133.0 ^ 133.0)
 0.0
 
 >>> 233L % (133L ^ 133L)
@@ -216,9 +216,9 @@ Least sequence where every term divides the product of its neighbors,
 OEIS [A075075](https://oeis.org/A075075):
 
 ~~~spl svg=D oeis=A075075
-[1 2]
-.leastExcludedSequence(201) { :a :n :m |
-	(m * a[n - 2]).divisible(a[n - 1])
+[1L 2L]
+.leastExcludedSequence(201L) { :a :n :m |
+	(m * a[n - 2L]).divisible(a[n - 1L])
 }.scatterPlot
 ~~~
 
@@ -228,8 +228,8 @@ _a(n)_ is the smallest integer not yet in _a_ that is divisible by all non-zero 
 OEIS [A237851](https://oeis.org/A237851):
 
 ~~~spl svg=E oeis=A237851
-[1].leastExcludedSequence(200) { :a :n :m |
-	a[n - 1].integerDigits
+[1L].leastExcludedSequence(200L) { :a :n :m |
+	a[n - 1L].integerDigits
 	.select(isPositive/1)
 	.unique(==)
 	.allSatisfy { :x |
@@ -278,8 +278,8 @@ Least excluded _m_ such that _m+a(n-1)_ is a multiple of _n_,
 OEIS [A099506](https://oeis.org/A099506):
 
 ~~~spl svg=H oeis=A099506
-[1].leastExcludedSequence(185) { :a :n :m |
-	let x = m + a[n - 1];
+[1L].leastExcludedSequence(185L) { :a :n :m |
+	let x = m + a[n - 1L];
 	x.divisible(n)
 }.scatterPlot
 ~~~
@@ -291,8 +291,8 @@ or a multiple of the previous term having at least one prime divisor coprime to 
 OEIS [A113552](https://oeis.org/A113552):
 
 ~~~spl svg=I oeis=A113552
-[1].leastExcludedSequence(59) { :a :n :m |
-	let p = a[n - 1];
+[1L].leastExcludedSequence(59L) { :a :n :m |
+	let p = a[n - 1L];
 	p.divisible(m) | {
 		m.divisible(p) & {
 			m.distinctPrimeFactors

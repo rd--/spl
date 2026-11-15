@@ -374,7 +374,7 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	[List, constantList] { :size :anObject |
 		<primitive:

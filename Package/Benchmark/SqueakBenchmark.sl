@@ -1,4 +1,4 @@
-+@Integer {
++[Float, Integer] {
 
 	squeakBenchFib { :self |
 		(self < 2).if {

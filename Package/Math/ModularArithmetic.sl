@@ -1,4 +1,4 @@
-+@Integer {
++[Float, Integer] {
 
 	[modularDistance, modDif] { :i :j :m |
 		let p = i % m;

@@ -181,7 +181,7 @@
 		(x < z).if {
 			x.error('lambertW: undefined')
 		} {
-			let k = max(4.0, ceilingToFloat(log10(x) / 3.0));
+			let k = max(4.0, ceilingFloat(log10(x) / 3.0));
 			let w = 3.0 * log(x + 1.0) / 4.0;
 			k.timesRepeat {
 				let e = exp(w);
@@ -272,7 +272,7 @@
 			0.5
 		} {
 			(
-				z.isReal & {
+				z.isRealValuedNumber & {
 					z < 0.0
 				}
 			).if {
@@ -287,7 +287,7 @@
 	zeta { :s |
 		/* http://numbers.computation.free.fr/Constants/Miscellaneous/zetaevaluations.pdf */
 		let p = 8.0;
-		let n = ((1.3 * p) + (0.9 * s.imaginary.abs)).roundToFloat;
+		let n = ((1.3 * p) + (0.9 * s.imaginary.abs)).roundFloat;
 		let e = { :k |
 			k.to(n).sum { :j |
 				binomial(n, j)
@@ -485,7 +485,7 @@
 
 }
 
-+[@Integer, Fraction] {
++[Float, Fraction, Integer] {
 
 	fabiusFunction { :x :n |
 		let dyadicRationals = { :x :n |

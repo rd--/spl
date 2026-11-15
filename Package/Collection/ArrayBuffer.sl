@@ -50,7 +50,7 @@ ArrayBuffer! : [Object] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	ArrayBuffer { :self |
 		<primitive:

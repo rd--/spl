@@ -71,7 +71,7 @@ Quaternion : [Object, Store, Equal, Number] {
 		)
 	}
 
-	isReal { :self |
+	isRealValuedNumber { :self |
 		self.imaginary.isOrigin
 	}
 

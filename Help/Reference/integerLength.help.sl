@@ -55,7 +55,7 @@ Threads over lists:
 At negative integers:
 
 ```
->>> [-100 -10 -1].integerLength(10)
+>>> [-100L -10L -1L].integerLength(10L)
 [3 2 1]
 
 >>> [-128 -64 -32 -16 -8 -4 -2 -1]

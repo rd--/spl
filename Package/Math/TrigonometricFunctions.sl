@@ -396,7 +396,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	cosDerivative { :self |
 		(self % 4).caseOf(

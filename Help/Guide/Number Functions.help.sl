@@ -29,7 +29,7 @@ Predicates:
 - `isNonNegative`
 - `isNumber`
 - `isPositive`
-- `isReal`
+- `isRealValuedNumber`
 
 Integer Predicates:
 

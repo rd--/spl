@@ -58,7 +58,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	nimPower { :n :k |
 		let v = 1;

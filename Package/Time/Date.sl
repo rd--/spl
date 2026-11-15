@@ -112,7 +112,7 @@ Date! : [Object, Store, Equal, Compare] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	[Date, absoluteTimeToDate] { :self |
 		<primitive:

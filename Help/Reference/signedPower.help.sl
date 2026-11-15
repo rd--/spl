@@ -23,45 +23,50 @@ This behavior allows exponentiation of negative signal values by non-integer exp
 >>> 0.25.signedPower(0.75)
 0.353553
 
->>> -0.25.signedPower(0)
--1
+>>> -0.25.signedPower(0.0)
+-1.0
 
->>> 0.25.signedPower(0)
+>>> 0.25.signedPower(0.0)
 1
 ```
 
 Compare with `^`:
 
 ```
->>> -0.25J0 ^ 0.75
+>>> -0.25 ^ 0.75
 -0.25J0.25
 
 >>> 0.25 ^ 0.75
 0.353553
+
+>>> -0.25 ^ 0.0
+1.0
+
+>>> 0.25 ^ 0.0
+1.0
 ```
 
-The operator form is `**`:
+The operator form is `^*`:
 
 ```
->>> (2 ** 3, 2 ^ 3)
+>>> (2 ^* 3, 2 ^ 3)
 (8, 8)
 
->>> (-0.25 ** 0.75, -0.25 ^ 0.75)
+>>> (-0.25 ^* 0.75, -0.25 ^ 0.75)
 (-0.353553, -0.25J0.25)
 
 >>> 0 - (0.25 ^ 0.75)
 -0.353553
 ```
 
-In addition,
-this method at `Float` does not consider integer values specially,
+At `Float` does not consider integer values specially,
 and will not report integer overflow:
 
 ```
 >>> 2L ^ 59L
 576460752303423488L
 
->>> 2 ** 59
+>>> 2 ^* 59
 576460752303423500.0
 
 >>> Float(2L ^ 59L)
@@ -83,8 +88,10 @@ The SuperCollider bindings implements both `power` and `signedPower` as the same
 
 * * *
 
-See also: **, ^, exp, log, power, powerMod, powerRange, sqrt
+See also: ^, ^*, exp, log, power, powerMod, powerRange, sqrt
 
 Guides: Mathematical Functions
 
-Categories: Math
+References:
+_Mathworks_
+[1](https://mathworks.com/help/simulink/slref/mathfunction.html)

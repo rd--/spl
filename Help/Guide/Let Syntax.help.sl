@@ -56,17 +56,21 @@ or an _n_-ary operator,
 if the binding is to a block literal:
 
 ```
->>> let ** = power/2;
->>> 3 ** 7
-2187
+>>> let ^ = power/2;
+>>> 3.0 ^ 7.0
+2187.0
 
->>> let ** = { :x :y | x ^ y };
->>> 3 ** 7
-2187
+>>> let ^ = { :x :y |
+>>> 	power(x, y)
+>>> };
+>>> 3.0 ^ 7.0
+2187.0
 
->>> let ** = { :x | x ^ x };
->>> 7.**
-823543
+>>> let ^ = { :x |
+>>> 	power(x, x)
+>>> };
+>>> 7.0.^
+823543.0
 ```
 
 The syntax token `_` may be used to indicate a binding to an unused name.

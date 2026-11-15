@@ -1,3 +1,5 @@
+/* Requires: Float Integer */
+
 @Sequence {
 
 	+++ { :self :aList |
@@ -3105,7 +3107,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	binaryDetectIndex { :self :aBlock/1 |
 		withReturn { :return/1 |

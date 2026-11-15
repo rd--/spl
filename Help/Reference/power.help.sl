@@ -115,14 +115,31 @@ Note that floating point errors are introduced for small _m_ and _n_:
 665416609183179900.0
 ```
 
-Zero to the power of zero is one:
+Zero to the power of a real zero is defined to be one,
+at both `Integer` and `Float`:
 
 ```
 >>> 0L ^ 0L
 1
 
+>>> 0.0 ^ 0.0
+1.0
+
 >>> -9L:9L ^ 0L
 [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+```
+
+Zero to the power of a complex zero is defined to be `NaN`:
+
+```
+>> 0.0 ^ 0J0
+NaN
+
+>> 0L ^ 0J0
+NaN
+
+>> 0J0 ^ 0J0
+NaN
 ```
 
 Fractional exponents:
@@ -1364,5 +1381,6 @@ _Smalltalk_
 5.6.2.27,
 _W_
 [1](https://en.wikipedia.org/wiki/Exponentiation)
+[2](https://en.wikipedia.org/wiki/Zero_to_the_power_of_zero)
 
 Categories: Math, Operator

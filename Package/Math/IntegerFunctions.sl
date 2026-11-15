@@ -1,6 +1,6 @@
 /* Requires: List String */
 
-+@Integer {
++[Float, Integer] {
 
 	additivePersistence { :x :b |
 		x.digitalRootSet(b, sum/1).second.size - 1
@@ -731,19 +731,6 @@
 		answer
 	}
 
-	integerLength { :self :radix |
-		self.isZero.if {
-			0L
-		} {
-			let n = 1L;
-			let m = Integer(self).abs;
-			{ m >= (radix ^ n) }.whileTrue {
-				n := n + 1L
-			};
-			n
-		}
-	}
-
 	integerLength { :self |
 		self.integerLength(10L)
 	}
@@ -758,10 +745,6 @@
 
 	integerReverse { :self |
 		self.integerReverse(10)
-	}
-
-	integerString { :self :radix |
-		Integer(self).integerString(radix)
 	}
 
 	integerString { :self |
@@ -864,10 +847,6 @@
 		self.isIntegerValuedNumber & {
 			self.sqrt.isIntegerValuedNumber
 		}
-	}
-
-	isIntegerValuedNumber { :self |
-		self.typeResponsibility('@Integer>>isIntegerValuedNumber')
 	}
 
 	isKaprekarNumber { :self :base :power |
@@ -1198,7 +1177,7 @@
 			[r, r1] := [r1, r - (quotient * r1)]
 		};
 		(r > 1L).if {
-			'@Integer>>modularInverse: not invertible'.error
+			'modularInverse: not invertible'.error
 		} {
 			(t < 0L).ifTrue {
 				t := t + n
@@ -1448,10 +1427,6 @@
 		1.to(p - 1).select { :q |
 			isQuadraticResidue(q, p)
 		}
-	}
-
-	radixString { :self :radix |
-		SmallInteger(self).radixString(radix)
 	}
 
 	ramanujanTau { :n |
@@ -1836,7 +1811,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	digitAt { :self :n |
 		let value = Integer(self);
@@ -1970,7 +1945,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	figurateNumber { :self :k |
 		let f/1 = k.figurateNumber;
@@ -1996,7 +1971,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	akiyamaTanigawaNumber { :n :m |
 		let f/2 = system.akiyamaTanigawaFunction;

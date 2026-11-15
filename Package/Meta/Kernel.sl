@@ -8,8 +8,9 @@
 	'Copy'
 	'Equal'
 	'Json'
-	'Number' /* & Integer */
+	'Number'
 	'ImplicitFloat'
+	'ImplicitInteger'
 	'RandomNumberGenerator'
 	'Store'
 	'Binary' /* > Cache */
@@ -26,7 +27,7 @@
 	'Ordered'
 	'Put'
 	'Remove'
-	'Sequence'
+	'Sequence' /* Float Integer */
 	'Set'
 	'Unordered'
 

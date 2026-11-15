@@ -1,4 +1,4 @@
-Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
+Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, ImplicitInteger] {
 
 	| numerator denominator |
 
@@ -824,7 +824,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	arithmeticDerivative { :self |
 		Fraction(self, 1L)
@@ -844,7 +844,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 		}
 	}
 
-	[integerToFraction, toFraction] { :self |
+	integerToFraction { :self |
 		uncheckedFraction(
 			Integer(self),
 			1L
@@ -919,7 +919,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	[rationalize, approximateFraction] { :self :epsilon |
 		self.isInteger.if {

@@ -118,7 +118,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	barlowIndigestibility { :p |
 		p.isOne.if {
@@ -250,7 +250,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	tonalityDiamond { :self |
 		let n = [1L, 3L .. self];

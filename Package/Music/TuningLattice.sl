@@ -1,6 +1,6 @@
 /* Requires: Fraction RatioTuning */
 
-+[Fraction, @Integer] {
++[Float, Fraction, Integer] {
 
 	tuningLatticePrimes { :self :includeOctave |
 		let answer = Set([], =);

@@ -739,7 +739,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	antidiagonalRank { :y :x |
 		(x + y - 2) * (x + y - 1) / 2 + y
@@ -785,7 +785,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	antidiagonalIndices { :k |
 		let answer = [];

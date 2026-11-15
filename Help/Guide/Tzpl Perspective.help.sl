@@ -39,7 +39,8 @@ Hexadecimal integer literals:
 Float literals require a digit on both sides of the decimal point:
 
 ```
->>> 3.14
+>>> 3.141
+3.141
 
 >>> 0.5
 0.5
@@ -97,8 +98,8 @@ String literals:
 Symbol literals:
 
 ```
->>> `Mikhail Lermontov`
-`Mikhail Lermontov`
+>> `Mikhail Lermontov`
+Mikhail Lermontov
 ```
 
 Boolean literals:
@@ -1212,31 +1213,34 @@ toFloat=`Float`, `real`:
 >>> Float(7/2)
 3.5
 
->>> Float(3.5D)
-3.5
-
 >>> real(3 + 4I)
 3
 ```
 
-`toFraction`:
+toFraction=`integerToFraction`, or `R`:
 
 ```
->>> toFraction(5)
+>>> integerToFraction(5)
+5/1
+
+>>> 5.R(1)
 5/1
 ```
 
-`toComplex`:
+toComplex=`realToComplex`, or `J`:
 
 ```
->>> toComplex(5)
+>>> realToComplex(5)
 5J0
 
->>> toComplex(3.14)
+>>> realToComplex(3.14)
 3.14J0
 
->>> toComplex(7/2)
+>>> realToComplex(7/2)
 3.5J0
+
+>>> 5.J(0)
+5J0
 ```
 
 * * *

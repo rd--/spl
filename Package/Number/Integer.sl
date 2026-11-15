@@ -1,6 +1,6 @@
 /* Requires: List Float String */
 
-Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, ImplicitFloat] {
+Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, ImplicitFloat] {
 
 	[Float, F, integerToFloat] { :self |
 		<primitive:
@@ -196,13 +196,33 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, Integer, 
 		}
 	}
 
+	integerLengthDirectForm { :self :radix |
+		self.isZero.if {
+			0L
+		} {
+			let n = 1L;
+			let m = self.abs;
+			{
+				m >= (radix ^ n)
+			}.whileTrue {
+				n := n + 1L
+			};
+			n
+		}
+	}
+
+	radixString { :self :radix |
+		radixString(
+			SmallInteger(self),
+			SmallInteger(radix)
+		)
+	}
+
 	integerLength { :self :radix |
 		self.isZero.if {
 			0L
 		} {
-			Integer(
-				self.integerString(radix).size
-			)
+			self.abs.integerString(radix).size
 		}
 	}
 

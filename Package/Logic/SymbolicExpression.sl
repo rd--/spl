@@ -213,7 +213,7 @@
 
 }
 
-Symbol : [Object, Store, Number, Integer, SymbolicObject, SymbolicBoolean, SymbolicCompare, SymbolicNumber] {
+Symbol : [Object, Store, Number, SymbolicObject, SymbolicBoolean, SymbolicCompare, SymbolicNumber] {
 
 	| name |
 

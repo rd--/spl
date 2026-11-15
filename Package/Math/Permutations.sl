@@ -1012,7 +1012,7 @@ Permutation : [Object, Store, Equal] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	bitReversalPermutation { :k |
 		let n = 2L ^ k - 1L;
@@ -1060,7 +1060,7 @@ Permutation : [Object, Store, Equal] {
 
 	[plainChanges, steinhausJohnsonTrotter] { :self |
 		(self < 1L).if {
-			self.error('@Integer>>plainChanges: n < 1')
+			self.error('plainChanges: n < 1')
 		} {
 			self.iota.plainChanges
 		}

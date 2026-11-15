@@ -1,4 +1,4 @@
-+@Integer {
++[Float, Integer] {
 
 	factorialExpansion { :self |
 		let k = 1;

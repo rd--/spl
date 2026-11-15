@@ -72,7 +72,7 @@ AsciiString : [Object, New, Store, Copy, Equal, Do, At, Indices, Put, Collection
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	zeroAsciiString { :self |
 		ByteArray(self, 0).uncheckedAsciiString

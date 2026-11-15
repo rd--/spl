@@ -1,4 +1,4 @@
-+@Integer {
++[Float, Integer] {
 
 	barlowBasicIndispensability { :p :n |
 		p.isPrime.if {
@@ -15,7 +15,7 @@
 				}
 			}
 		} {
-			p.error('@Integer>>barlowBasicIndispensability')
+			p.error('barlowBasicIndispensability')
 		}
 	}
 

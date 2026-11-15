@@ -315,26 +315,26 @@ Convert a list of two places to a complex number:
 1J2
 ```
 
-The `isReal` predicate answers `false` if the imaginary part is not `zero`,
+The `isRealValuedNumber` predicate answers `true` if the imaginary part is `zero`,
 or if the number is not a `Complex` number:
 
 ```
->>> 0J1.isReal
+>>> 1J0.isRealValuedNumber
+true
+
+>>> 0J1.isRealValuedNumber
 false
 
->>> 1J0.isReal
+>>> 23.isRealValuedNumber
 true
 
->>> 1.isReal
+>>> 1/3.isRealValuedNumber
 true
 
->>> 1/3.isReal
+>>> 3.141.isRealValuedNumber
 true
 
->>> 1.pi.isReal
-true
-
->>> 23L.isReal
+>>> 23L.isRealValuedNumber
 true
 ```
 

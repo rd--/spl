@@ -893,7 +893,7 @@ Triangle : [Object, Store, Equal, Geometry] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	kimberlingCenter { :n |
 		{ :t |

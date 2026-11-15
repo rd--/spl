@@ -4,6 +4,31 @@ The interpreter can warn or error on small integer overflow.
 
 The programs here perform calculations involving small integer operations that overflow.
 
+Show _catastrophic cancellation_ in calculating floating point sum of squares,
+and compare to correct value obtained by the alternative factoring:
+
+```
+>>> let x = 1 + (2 ^ -29);
+>>> let y = 1 + (2 ^ -30);
+>>> let a = x.square - y.square;
+>>> let b = (x + y) * (x - y);
+>>> let c = (2 ^ -59) + (2 ^ -60);
+>>> let d = a + c;
+>>> (a, b, c, d, a.isVeryClose(b))
+(
+	1.862645149230957E-9,
+	1.862645151833042E-9,
+	2.602085213965211E-18,
+	1.862645151833042E-9,
+	false
+)
+
+>>> let x = 1L + (2L ^ -29L);
+>>> let y = 1L + (2L ^ -30L);
+>>> x.square - y.square
+2147483651/1152921504606846976
+```
+
 Maclaurin series for calculating the error function,
 this requires working with very large fractional numbers:
 

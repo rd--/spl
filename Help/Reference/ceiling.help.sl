@@ -51,6 +51,18 @@ Threads over lists:
 [-2 -1 -1 0 0 1 1 2 2]
 ```
 
+There is a variant form at `Float`,
+`ceilingFloat`,
+that answers a `Float` value:
+
+```
+>>> 3.141.ceilingFloat
+4.0
+
+>>> 3.141.ceiling.Float
+4.0
+```
+
 A self-generating sequence,
 OEIS [A005041](https://oeis.org/A005041):
 

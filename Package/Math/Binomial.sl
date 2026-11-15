@@ -94,7 +94,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	bernoulliTriangle { :self |
 		let m = self - 1L;
@@ -352,7 +352,7 @@
 		m.isBetween(0L, n).if {
 			((2L * n).binomial(m + n) * (2L * m + 1L)) // (m + n + 1L)
 		} {
-			'@Integer>>lobbNumber: domain error'.error
+			'lobbNumber: domain error'.error
 		}
 	}
 
@@ -523,7 +523,7 @@
 
 }
 
-+[@Integer, Fraction] {
++[Float, Fraction, Integer] {
 
 	fussCatalanNumber { :p :r :m |
 		let a = (m * p) + r;

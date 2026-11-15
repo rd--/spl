@@ -135,7 +135,7 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	Boolean { :self |
 		(self = 0).if {

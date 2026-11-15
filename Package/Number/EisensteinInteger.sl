@@ -65,7 +65,7 @@ EisensteinInteger : [Object, Store, Equal] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	EisensteinInteger { :a :b |
 		b.isIntegerValuedNumber.if {

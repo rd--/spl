@@ -256,7 +256,7 @@ export async function evaluatePackageArrayInSequence(pkgArray: Package[]) {
 
 // Required if methods are added before type definition. This should all be cleared up.
 // Void is not an ordinary type, it names the place in the method table for no-argument blocks.
-const preinstalledTypes = ['List', 'Float', 'String', 'Void'];
+const preinstalledTypes = ['List', 'Float', 'Integer', 'String', 'Void'];
 
 export class System {
 	methodDictionary: MethodDictionary;
@@ -466,7 +466,7 @@ export function applyGenericAt(
 	parameterArray: unknown[],
 	receiverType: TypeName,
 ) {
-	// console.log(`applyGenericAt: ${methodName}, ${parameterArray.length}, ${receiverType}`);
+	// console.debug(`applyGenericAt: ${methodName}, ${parameterArray.length}, ${receiverType}`);
 	const genericMethod = lookupGeneric(
 		methodName,
 		parameterArray.length,
@@ -498,6 +498,7 @@ export function dispatchByType(
 	typeTable: ByTypeMethodDictionary,
 	parameterArray: unknown[],
 ) {
+	// console.debug(`dispatchByType: ${methodName}, ${typeTable.size}, ${parameterArray.length}`);
 	const receiver = parameterArray[0];
 	const receiverType = splTypeName(receiver);
 	const typeMethod = typeTable.get(receiverType);
@@ -798,16 +799,16 @@ export function checkSmallIntegerOverflow(
 	o: string,
 	f: Function,
 ): number | bigint {
-	if (
+	/*if (
 		Number.isSafeInteger(a)
 			&& Number.isSafeInteger(b)
 			&& !Number.isSafeInteger(x)
 	) {
 		const y = f(BigInt(a), BigInt(b));
-		// console.debug(`**** Check Small Integer Overflow: ${a} ${o} ${b} = ${x}: True answer ${y}L`);
+		//console.debug(`**** Check Small Integer Overflow: ${a} ${o} ${b} = ${x}: True answer ${y}L`);
 		// throw new Error('checkSmallIntegerOverflow: overflow');
 		return y;
-	}
+	}*/
 	return x;
 }
 

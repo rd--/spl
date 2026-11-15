@@ -57,6 +57,18 @@ Threads over lists:
 [-2 -2 -1 -1 0 0 1 1 2]
 ```
 
+There is a variant form at `Float`,
+`floorFloat`,
+that answers a `Float` value:
+
+```
+>>> 1.618.floorFloat
+1.0
+
+>>> 1.618.floor.Float
+1.0
+```
+
 In the binary case, take the `ceiling` instead if _x_ is within ε:
 
 ```

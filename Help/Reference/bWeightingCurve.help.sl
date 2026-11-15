@@ -7,7 +7,8 @@ Answer the B-weighting curve used for measuring perceived loudness of sound.
 Linear plot:
 
 ~~~spl svg=A
-(1.0 -- 0.35E3).functionPlot(
+(16.midiCps -- 108.midiCps)
+.functionPlot(
 	bWeightingCurve/1
 )
 ~~~
@@ -17,7 +18,8 @@ Linear plot:
 Logarithmic plot:
 
 ~~~spl svg=B
-(1.0 -- 0.75E5).logLinearPlot(
+(16.midiCps -- 108.midiCps)
+.logLinearPlot(
 	bWeightingCurve/1
 )
 ~~~
@@ -27,7 +29,8 @@ Logarithmic plot:
 Logarithmic plot:
 
 ~~~spl svg=C
-(1.0 -- 0.75E5).logLinearPlot { :x |
+(16.midiCps -- 108.midiCps)
+.logLinearPlot { :x |
 	x.bWeightingCurve.log(10) * 20 + 0.17
 }
 ~~~

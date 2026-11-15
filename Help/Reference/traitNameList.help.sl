@@ -16,7 +16,7 @@ Answer a `List` of the `Trait` names implemented by the `Type` _t_.
 	'@Compare'
 	'@Copy'
 	'@Equal'
-	'@Integer'
+	'@ImplicitInteger'
 	'@Json'
 	'@Number'
 	'@Object'

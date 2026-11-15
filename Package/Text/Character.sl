@@ -174,7 +174,7 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	Character { :self |
 		Character(

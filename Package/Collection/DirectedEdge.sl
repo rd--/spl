@@ -96,7 +96,7 @@ DirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	[DirectedEdge, -->] { :self :anInteger |
 		newDirectedEdge().initializeSlots([self, anInteger])

@@ -1118,7 +1118,7 @@ Plot : [Object] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	residueDesignPlot { :m :n |
 		let p = m.circlePoints([0 0], 1, 0.5.pi);

@@ -90,6 +90,18 @@ round matrix elements toward zero:
 [-1 -3; 1 2; -4 4]
 ```
 
+There is a variant form at `Float`,
+`truncateFloat`,
+that answers a `Float` value:
+
+```
+>>> 1.618.truncateFloat
+1.0
+
+>>> 1.618.truncate.Float
+1.0
+```
+
 In the binary case,
 answer the next multiple of _α_ toward `zero` that is nearest _n_.
 

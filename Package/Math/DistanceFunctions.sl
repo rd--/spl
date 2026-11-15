@@ -195,7 +195,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	hammingDistance { :p :q |
 		p.bitXor(q).hammingWeight

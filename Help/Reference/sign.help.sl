@@ -92,6 +92,9 @@ At `Complex` numbers,
 defined as division by absolute value:
 
 ```
+>>> (3J4.sign, 3J4.sign.abs)
+(0.6J0.8, 1.0)
+
 >>> 1.4J2.3.sign
 0.5199J0.8542
 
@@ -238,5 +241,3 @@ _Smalltalk_
 5.6.2.33,
 _W_
 [1](https://en.wikipedia.org/wiki/Sign_function)
-
-Categories: Math, Operator

@@ -21,7 +21,7 @@ MersenneTwister : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	MersenneTwister { :self |
 		newMersenneTwister().initialize!(self)

@@ -43,10 +43,10 @@ true
 At `Complex`:
 
 ```
->>> 1J2.isRealValuedNumber
-false
-
 >>> 1J0.isRealValuedNumber
+true
+
+>>> 1J2.isRealValuedNumber
 false
 ```
 

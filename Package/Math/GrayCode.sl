@@ -166,7 +166,7 @@ GrayCode : [Object, Equal] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	savageWinklerAlgorithm { :n |
 		(n < 0).ifTrue {
@@ -233,7 +233,7 @@ GrayCode : [Object, Equal] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	binaryReflectedGrayCode { :n |
 		0.to((2 ^ n) - 1).collect { :i |

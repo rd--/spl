@@ -185,7 +185,7 @@ List traits implemented by `Float`:
 	'@Compare'
 	'@Copy'
 	'@Equal'
-	'@Integer'
+	'@ImplicitInteger'
 	'@Json'
 	'@Number'
 	'@Object'

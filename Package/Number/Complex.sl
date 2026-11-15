@@ -5,10 +5,18 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	| real imaginary |
 
 	[Float, F, complexToFloat] { :self |
-		self.isReal.if {
+		self.isRealValuedNumber.if {
 			Float(self.real)
 		} {
 			self.error('complexToFloat: not real value')
+		}
+	}
+
+	[Integer, L, complexToInteger] { :self |
+		self.isIntegerValuedNumber.if {
+			Integer(self.real)
+		} {
+			self.error('complexToInteger: not real integer value')
 		}
 	}
 
@@ -63,8 +71,8 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	ceiling { :self |
 		Complex(
-			self.real.ceilingToFloat,
-			self.imaginary.ceilingToFloat
+			self.real.ceilingFloat,
+			self.imaginary.ceilingFloat
 		)
 	}
 
@@ -107,7 +115,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	concisePrintString { :self |
 		[
-			{ self.isReal } -> { self.real.concisePrintString },
+			{ self.isRealValuedNumber } -> { self.real.concisePrintString },
 			{ self.isPurelyImaginary } -> { self.imaginary.concisePrintString ++ 'I' },
 			{ true } -> {
 				[
@@ -153,8 +161,8 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	floor { :self |
 		Complex(
-			self.real.floorToFloat,
-			self.imaginary.floorToFloat
+			self.real.floorFloat,
+			self.imaginary.floorFloat
 		)
 	}
 
@@ -188,8 +196,8 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	[integerPart, truncate] { :self |
 		Complex(
-			self.real.truncateToFloat,
-			self.imaginary.truncateToFloat
+			self.real.truncateFloat,
+			self.imaginary.truncateFloat
 		)
 	}
 
@@ -243,8 +251,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		[1J0 -1J0 0J1 0J-1].includes(self)
 	}
 
-	isIntegerValuedNumber { :unused |
-		false
+	isIntegerValuedNumber { :self |
+		self.isRealValuedNumber & {
+			self.real.isSmallInteger
+		}
 	}
 
 	isLiteral { :unused |
@@ -271,7 +281,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		false
 	}
 
-	isReal { :self |
+	isRealValuedNumber { :self |
 		self.imaginary.isZero
 	}
 
@@ -338,34 +348,26 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 	}
 
 	[power, ^] { :self :aNumber |
-		aNumber.isCollection.if {
-			aNumber.collect { :each |
-				self ^ each
-			}
-		} {
-			aNumber.isIntegerValuedNumber.if {
-				self.raisedToInteger(aNumber)
-			} {
-				aNumber.isZero.if {
-					1J0
-				} {
-					aNumber.isOne.if {
-						self
-					} {
-						self.isZero.if {
-							(aNumber < 0.0).if {
-								/* self.error('^: zero divide') */
-								NaN
-							} {
-								self
-							}
-						} {
-							(aNumber * self.log).exp
-						}
-					}
+		[
+			{ aNumber.isCollection } -> {
+				aNumber.collect { :each |
+					self ^ each
 				}
+			},
+			{ aNumber.isComplex } -> {
+				self.isZero.if {
+					NaN
+				} {
+					(aNumber * self.log).exp
+				}
+			},
+			{ aNumber.isIntegerValuedNumber } -> {
+				self.raisedToInteger(Integer(aNumber))
+			},
+			{ true } -> {
+				(aNumber * self.log).exp
 			}
-		}
+		].which
 	}
 
 	printString { :self |
@@ -398,8 +400,8 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	[round, gaussianInteger] { :self |
 		Complex(
-			self.real.roundToFloat,
-			self.imaginary.roundToFloat
+			self.real.roundFloat,
+			self.imaginary.roundFloat
 		)
 	}
 
@@ -587,10 +589,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	isPurelyImaginary { :unused |
 		false
-	}
-
-	isReal { :unused |
-		true
 	}
 
 	real { :self |

@@ -242,7 +242,7 @@ Exact fraction:
 >>> -3.14D.decimalFraction
 -314/100
 
->>> -3.14D.toFraction
+>>> -3.14D.decimalToFraction
 -314/100
 ```
 

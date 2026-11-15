@@ -195,7 +195,7 @@ DyckWord : [Object, Store] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	dyckWords { :t :letters |
 		let r = [];

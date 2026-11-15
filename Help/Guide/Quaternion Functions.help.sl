@@ -19,7 +19,7 @@ Predicates:
 
 - `isQuaternion`
 - `isHamiltonianInteger`
-- `isReal`
+- `isRealValuedNumber`
 
 Querying:
 

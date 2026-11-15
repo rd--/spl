@@ -137,7 +137,7 @@ DateAndTime : [Object, Store, Equal, Compare] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	DateAndTime { :self |
 		newDateAndTime().initializeSlots(

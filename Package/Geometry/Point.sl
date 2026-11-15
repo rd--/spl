@@ -335,7 +335,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	circlePoints { :n :o :r :theta |
 		let m = 2.pi / n;

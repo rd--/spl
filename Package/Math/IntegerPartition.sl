@@ -1,4 +1,4 @@
-+@Integer {
++[Float, Integer] {
 
 	integerPartitionUnrank { :n :method |
 		method.caseOf(

@@ -1091,7 +1091,7 @@
 		anObject.adaptToCollectionAndApply(self, remainder/2)
 	}
 
-	[signedPower, **] { :self :anObject |
+	[signedPower, ^*] { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, signedPower/2)
 	}
 
@@ -1316,7 +1316,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	atIntegerOrElementwise { :self :aBlock/1 |
 		aBlock(self)

@@ -1,4 +1,4 @@
-+@Integer {
++[Float, Integer] {
 
 	besselJ { :n :x |
 		x.isCollection.if {
@@ -21,7 +21,7 @@
 							2 * besselJ1(x) / x - besselJ0(x)
 						}
 					} {
-						n.error('@Integer>>besselJ: only defined for n=0, n=1 and n=2')
+						n.error('besselJ: only defined for n=0, n=1 and n=2')
 					}
 				}
 			}

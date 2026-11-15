@@ -131,6 +131,18 @@ the implementation follows Smalltalk and truncates:
 [-1 -2 -3 -4]
 ```
 
+There is a variant form at `Float`,
+`roundFloat`,
+that answers a `Float` value:
+
+```
+>>> 3.141.roundFloat
+3.0
+
+>>> 3.141.round.Float
+3.0
+```
+
 Compute Fibonacci numbers:
 
 ```

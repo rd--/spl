@@ -776,7 +776,7 @@ Graph : [Object, Graph] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	balancedCayleyTree { :n :k |
 		let gapList = [1] ++ 0.toCollect(k - 1) { :i |

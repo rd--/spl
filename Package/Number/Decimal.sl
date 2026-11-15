@@ -318,7 +318,7 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		)
 	}
 
-	[toFraction, decimalToFraction] { :self |
+	decimalToFraction { :self |
 		self.decimalFraction
 	}
 

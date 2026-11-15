@@ -346,36 +346,6 @@ true
 1L
 ```
 
-`Integer` is a `Trait`:
-
-```
->>> system
->>> .traitDictionary['@Integer']
->>> .isTrait
-true
-```
-
-Types implementing `Integer`:
-
-```
->>> system
->>> .traitTypes('@Integer')
->>> .sort!
-[
-	'Float'
-	'Integer'
-	'Symbol'
-]
-```
-
-Methods for arithmetic:
-
-- `isPowerOfTwo`
-- `factorial`
-- `gcd`
-- `lcm`
-- `take`
-
 * * *
 
 See also: Binary, ByteArray, Float, Float, Fraction, Integer, Number, SmallInteger, parseInteger

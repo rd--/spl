@@ -1,4 +1,4 @@
-+@Integer {
++[Float, Integer] {
 
 	decimalSelvageNumber { :k :d |
 		k.caseOf(
@@ -99,7 +99,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	aliquotSequence { :n :k |
 		let a = n;
@@ -1560,7 +1560,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	faurePermutation { :n |
 		(n = 1).if {
@@ -1667,7 +1667,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	isMarkovNumber { :self |
 		let u = 100.markovNumberSequence;
@@ -2060,7 +2060,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	langtonsAntPath { :n :c :b :d |
 		let steps = [1L 0L; 0L 1L; -1L 0L; 0L -1L];
@@ -2088,7 +2088,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	cantorPairingFunction { :x :y |
 		x.square + x + (2L * x * y) + (3L * y) + y.square // 2L
@@ -2176,7 +2176,7 @@
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	rationalOrderingFibonacci { :self |
 		{ :r |

@@ -89,7 +89,7 @@ UndirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 
 }
 
-+@Integer {
++[Float, Integer] {
 
 	[UndirectedEdge, ---] { :self :anInteger |
 		newUndirectedEdge().initializeSlots(
