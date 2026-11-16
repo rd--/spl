@@ -1,12 +1,16 @@
 # -- (hyphenMinusHyphenMinus)
 
-- _min -- max_
+- _a -- b_
 
-Operator form of `Interval`, a type representing a closed interval.
+Operator form of both `Interval` and `ComplexInterval`,
+types representing closed intervals over real and complex numbers.
 
 ```
->>> 1 -- 9
-Interval(1, 9)
+>>> 1.0 -- 9.0
+Interval(1.0, 9.0)
+
+>>> 1J1 -- 9J9
+ComplexInterval(1J1, 9J9)
 ```
 
 Threads over lists:
@@ -14,6 +18,9 @@ Threads over lists:
 ```
 >>> [1 3 5] -- [4 5 6]
 [1 -- 4, 3 -- 5, 5 -- 6]
+
+>>> [1J1 3J3 5J5] -- [4J4 5J5 6J6]
+[1J1 -- 4J4, 3J3 -- 5J5, 5J5 -- 6J6]
 ```
 
 The name of this operator is `hyphenMinusHyphenMinus`.
@@ -22,7 +29,7 @@ Where supported `--` is displayed as —.
 
 * * *
 
-See also: Interval, Range, ->
+See also: ComplexInterval, Interval, Range, ->
 
 Guides: Interval Functions
 

@@ -1,5 +1,5 @@
 /* http://twitter.com/thormagnusson/status/463992770596577280 (tm) */
-let k = 9 + 19.atRandom;
+let k = 9 + [1 .. 9].atRandom;
 {
 	[1 .. k].collect { :x |
 		let e = lfNoise2(0.5) * line(0, 0.1, rand(0, 99)) / (x * 0.2);

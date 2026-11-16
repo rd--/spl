@@ -1,4 +1,4 @@
-import { stringCapitalizeFirstLetter } from '../lib/jssc3/ts/kernel/string.ts';
+import { stringCapitalizeFirstLetter } from './libraries/jssc3/ts/kernel/string.ts';
 
 export const splOperatorCharacters = '!#$%&*+-/<=>?@\\^|~';
 

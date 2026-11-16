@@ -14,7 +14,9 @@ let z = pinkNoise() * decay(
 );
 let decayTime = mouseY(0.5, 1.5, 0, 0.2);
 8.timesRepeat {
-	let delayTime = { 0.1.atRandom } ! 2;
+	let delayTime = {
+		(0.0 -- 0.1).atRandom
+	} ! 2;
 	z := allpassL(
 		z,
 		delayTime,
@@ -37,7 +39,9 @@ let feedbackCoefficient = mouseY(
 	0.35, 0.65, 0, 0.2
 );
 8.timesRepeat {
-	let delayTime = { 0.1.atRandom } ! 2;
+	let delayTime = {
+		(0.0 -- 0.1).atRandom
+	} ! 2;
 	let decayTime = delayTime / (
 		feedbackCoefficient.log
 		/

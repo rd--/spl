@@ -29,7 +29,7 @@ Threads over lists:
 Select entries from the Svg colour catalogue that are within 15° of yellow (60°):
 
 ```
->>> let i = (45 -- 75).unitDegree;
+>>> let i = (45.0 -- 75.0).unitDegree;
 >>> system.svgColourDictionary
 >>> .select { :c |
 >>> 	c.hue.isBetween(i)

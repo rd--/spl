@@ -1,8 +1,6 @@
 .cache/*.js
 deno.lock
 dist/sl.js
-lib/flatqueue
-lib/jssc3
-lib/osc.js
-lib/scsynth-wasm-builds
-lib/stsc3
+interpreter/libraries/jssc3
+interpreter/libraries/scsynth-wasm-builds
+interpreter/libraries/stsc3

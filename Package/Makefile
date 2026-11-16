@@ -2,7 +2,7 @@ all:
 	make update-cache tidy-cache
 
 update-cache:
-	../cmd/spl cacheRewriteFile */*.sl
+	sh ../interpreter/spl.sh cacheRewriteFile */*.sl
 
 tidy-cache:
 	(cd ../.cache ; make format ; make lint)

@@ -23,6 +23,6 @@ _Rationale_:
 
 * * *
 
-See also: circumflexAccent, asterisk, signedPower
+See also: asterisk, circumflexAccent, signedPower
 
 Guides: Arithmetic Functions, Binary Operators

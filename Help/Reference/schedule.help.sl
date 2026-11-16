@@ -18,14 +18,14 @@ The expression below schedules random sine tones of random durations at random i
 				iRand(48, 72).midiCps,
 				0
 			),
-			rand(-1, 1),
-			rand(0, 0.1)
+			rand(-1.0, 1.0),
+			rand(0.0, 0.1)
 		),
-		rand(0, 1),
-		rand(1, 2),
-		rand(2, 3)
+		rand(0.0, 1.0),
+		rand(1.0, 2.0),
+		rand(2.0, 3.0)
 	).playAt(currentTime);
-	(1 -- 1.5).atRandom
+	(1.0 -- 1.5).atRandom
 }.schedule
 ~~~
 

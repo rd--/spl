@@ -375,7 +375,7 @@ let c = midiRatio(12 * [0 .. 2] +.x (5 * [0 .. 3] ++ [19]));
 let m = { lfdNoise3([0.1] # 5) + 1 / 2 };
 let k = 6;
 splay(
-	0:k.collect { :n |
+	[0 .. k].collect { :n |
 		let q = lfPulse(
 			[4 .. 8].prime * m(),
 			0,
@@ -432,7 +432,7 @@ let r = midiRatio(12 * [0 .. 3] +.x (5 * [0 .. 4] ++ [19]));
 let l = nil;
 let a = nil;
 let o = splay(
-	0:12.collect { :n |
+	[0 .. 12].collect { :n |
 		l := lfSaw(1 / (2 ^ n % f), 0).abs;
 		a := 4 + l;
 		let p = (n + 1).prime;

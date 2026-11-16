@@ -6,7 +6,7 @@ Run documentation tests:
 { 'Help/Reference'.splFilePath.terseReferenceSummary(['verboseLevel': 0, 'pattern': '.*']) }.timing
 ~~~
 
-Total => 19,990 (200 seconds)
+Total => 19,993 (200 seconds)
 
 Note: Requires LibraryItems be at the interpreter cache, i.e.
 
@@ -58,4 +58,4 @@ Lint reference files:
 $ (cd ~/sw/spl/Help/Reference; make lint)
 ~~~
 
-Linting: 4,175 file(s)
+Linting: 4,185 file(s)

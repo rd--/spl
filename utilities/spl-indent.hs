@@ -34,9 +34,9 @@ removeQuotedByText k s =
 
 >>> removeQuotedText "without 'q' and `r` and \"s\""
 "without '' and `` and \"\""
+-}
 removeQuotedText :: String -> String
 removeQuotedText = removeQuotedByText '\'' . removeQuotedByText '`' . removeQuotedByText '"'
--}
 
 -- | Is opening token.
 isOpening :: Char -> Bool
@@ -170,12 +170,13 @@ True
 
 >>> hasLeadingDot "\tf.x(y)"
 False
+-}
 hasLeadingDot :: String -> Bool
 hasLeadingDot s =
   case firstNonWhiteSpaceChar s of
     Just '.' -> True
     _ -> False
--}
+
 indentNext :: String -> Bool
 indentNext s = inOrOutDent s > 0 || hasTrailingOpening s
 

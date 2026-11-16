@@ -9,7 +9,7 @@ sinOscBank([800, 1000, 1200], 1, 0) * 0.3 * 0.4
 
 /* sinOscBank */
 sinOscBank(
-	{ (600 -- 1000).atRandom } ! [8, 2],
+	{ (600.0 -- 1000.0).atRandom } ! [8, 2],
 	0.1,
 	0
 ) * 0.1

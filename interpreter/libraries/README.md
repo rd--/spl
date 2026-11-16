@@ -1,4 +1,4 @@
-# spl/lib
+# spl/interpreter/libraries
 
 External libraries:
 

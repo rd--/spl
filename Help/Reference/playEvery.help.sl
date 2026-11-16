@@ -13,8 +13,8 @@ so that is does not overlap by very much with the next sound:
 
 ~~~spl scheduler
 { :nextDelay |
-	let attack = (0 -- 1).atRandom;
-	let decay = (2 -- 3).atRandom;
+	let attack = (0.0 -- 1.0).atRandom;
+	let decay = (2.0 -- 3.0).atRandom;
 	let transition = attack + decay;
 	let sustain = nextDelay - transition + 0.5;
 	release(
@@ -23,15 +23,15 @@ so that is does not overlap by very much with the next sound:
 				iRand(48, 72).midiCps,
 				0
 			),
-			rand(-1, 1),
-			rand(0, 0.1)
+			rand(-1.0, 1.0),
+			rand(0.0, 0.1)
 		),
 		attack,
-		sustain.max(0),
+		sustain.max(0.0),
 		decay
 	)
 }.playEvery {
-	(1 -- 3.5).atRandom
+	(1.0 -- 3.5).atRandom
 }
 ~~~
 

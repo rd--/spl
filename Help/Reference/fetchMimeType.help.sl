@@ -25,7 +25,7 @@ Fetch and decode `Json`:
 ~~~spl async
 let mimeType = 'application/json';
 system
-.splUrl('config/preferences.json')
+.splUrl('data/config/preferences.json')
 .fetchMimeType(
 	mimeType
 )

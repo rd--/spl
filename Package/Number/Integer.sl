@@ -25,10 +25,6 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, ImplicitF
 		aBlock(aNumber, Float(self))
 	}
 
-	atRandom { :self |
-		system.nextRandomSmallInteger(1.0, Float(self))
-	}
-
 	bitAnd { :self :operand |
 		<primitive:
 		if(sl.isInteger(_operand)) {
@@ -196,6 +192,14 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, ImplicitF
 		}
 	}
 
+	integerLength { :self :radix |
+		self.isZero.if {
+			0L
+		} {
+			self.abs.integerString(radix).size
+		}
+	}
+
 	integerLengthDirectForm { :self :radix |
 		self.isZero.if {
 			0L
@@ -208,21 +212,6 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, ImplicitF
 				n := n + 1L
 			};
 			n
-		}
-	}
-
-	radixString { :self :radix |
-		radixString(
-			SmallInteger(self),
-			SmallInteger(radix)
-		)
-	}
-
-	integerLength { :self :radix |
-		self.isZero.if {
-			0L
-		} {
-			self.abs.integerString(radix).size
 		}
 	}
 
@@ -419,6 +408,13 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, ImplicitF
 		};
 		>
 		operand.adaptToIntegerAndApply(self, quotient/2)
+	}
+
+	radixString { :self :radix |
+		radixString(
+			SmallInteger(self),
+			SmallInteger(radix)
+		)
 	}
 
 	raisedToInteger { :self :operand |

@@ -191,6 +191,8 @@ _Mathematica_
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/size.html)
 
-Unicode: U+2374 ⍴ Apl Functional Symbol Rho
+Unicode:
+U+03C1 ρ Greek Small Letter Rho,
+U+2374 ⍴ Apl Functional Symbol Rho
 
 Categories: Math, Array

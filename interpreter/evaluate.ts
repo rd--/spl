@@ -1,4 +1,4 @@
-import { errorMessage } from '../lib/jssc3/ts/kernel/error.ts';
+import { errorMessage } from './libraries/jssc3/ts/kernel/error.ts';
 
 import * as rewrite from './rewrite.ts';
 

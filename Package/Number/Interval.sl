@@ -1,3 +1,5 @@
+/* Requires: Float Fraction Integer List */
+
 Interval : [Object, Store, Equal, Compare, Number] {
 
 	| min max |
@@ -14,8 +16,8 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		aBlock(aNumber.numberToInterval, self)
+	adaptToNumberAndApply { :self :operand :aBlock/2 |
+		aBlock(Interval(operand, operand), self)
 	}
 
 	atRandom { :self |
@@ -26,9 +28,7 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		let min = self.min;
 		let max = self.max;
 		{ :x |
-			min <= x & {
-				x <= max
-			}
+			x.isBetween(min, max)
 		}
 	}
 
@@ -172,7 +172,8 @@ Interval : [Object, Store, Equal, Compare, Number] {
 	}
 
 	one { :self |
-		self.min.one.numberToInterval
+		let one = self.min.one;
+		Interval(one, one)
 	}
 
 	[plus, +] { :self :operand |
@@ -250,42 +251,54 @@ Interval : [Object, Store, Equal, Compare, Number] {
 	}
 
 	zero { :self |
-		0.numberToInterval
+		let zero = self.zero;
+		Interval(zero, zero)
 	}
 
 }
 
-+@Number {
++[Float, Fraction, Integer] {
 
-	[Interval, --] { :min :max |
-		max.isNumber.if {
-			uncheckedInterval(min, max).checkInterval
+	[Interval, --] { :self :operand |
+		operand.isComplex.ifTrue {
+			self.error('Interval: complex operand')
+		};
+		operand.isRealValuedNumber.if {
+			uncheckedInterval(self, operand).checkInterval
 		} {
-			max.adaptToNumberAndApply(min, Interval/2)
+			operand.adaptToNumberAndApply(self, Interval/2)
 		}
 	}
 
-	adaptToIntervalAndApply { :self :anInterval :aBlock/2 |
-		aBlock(anInterval, self.numberToInterval)
+	adaptToIntervalAndApply { :self :operand :aBlock/2 |
+		aBlock(operand, Interval(self, self))
 	}
 
 	centeredInterval { :center :range |
 		Interval(center - range, center + range)
 	}
 
-	[toInterval, numberToInterval] { :self |
+	numberToInterval { :self |
 		Interval(self, self)
 	}
 
-	uncheckedInterval { :min :max |
-		newInterval().initializeSlots(min, max)
+	uncheckedInterval { :self :operand |
+		(self.typeName = operand.typeName).if {
+			newInterval().initializeSlots(self, operand)
+		} {
+			self.error('Interval: unequal types')
+		}
 	}
 
 }
 
 +List {
 
-	[Interval, --] { :self :operand |
+	[intervalOrComplexInterval, --] { :self :operand |
+		operand.adaptToCollectionAndApply(self, --)
+	}
+
+	Interval { :self :operand |
 		operand.adaptToCollectionAndApply(self, Interval/2)
 	}
 

@@ -65,11 +65,12 @@
 
 	/* Number */
 	'Complex'
+	'ComplexInterval' /* Complex List */
 	'EisensteinInteger'
-	'Interval'
 	'Residue'
 	'Fraction' /* Integer */
 	'Decimal' /* Fraction */
+	'Interval' /* Fraction Float Integer List */
 	'Quaternion' /* Complex */
 	'Real' /* Fraction */
 
@@ -348,7 +349,7 @@
 	'Apl'
 
 ].primitiveLoadPackageSequence.thenElse { :unused |
-	'config/preferences.json'.primitiveReadLocalBinaryFile
+	'data/config/preferences.json'.primitiveReadLocalBinaryFile
 } { :reason |
 	system.error('Failed to load package sequence?: ', [reason])
 }.thenElse { :byteArray |

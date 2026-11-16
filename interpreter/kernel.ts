@@ -1,16 +1,16 @@
 // Never use direct eval!
 // <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval>
 
-export { MersenneTwister } from '../lib/scsynth-wasm-builds/lib/ext/mersenne-twister.ts';
-export { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
-export { default as Delaunator } from '../lib/scsynth-wasm-builds/lib/ext/delaunator.js';
-export { default as earcut } from '../lib/scsynth-wasm-builds/lib/ext/earcut.js';
+export { MersenneTwister } from './libraries/scsynth-wasm-builds/lib/ext/mersenne-twister.ts';
+export { PriorityQueue } from './libraries/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
+export { default as Delaunator } from './libraries/scsynth-wasm-builds/lib/ext/delaunator.js';
+export { default as earcut } from './libraries/scsynth-wasm-builds/lib/ext/earcut.js';
 export {
 	parse as parseIni,
 	stringify as encodeIni,
-} from '../lib/scsynth-wasm-builds/lib/ext/ini.js';
+} from './libraries/scsynth-wasm-builds/lib/ext/ini.js';
 
-import { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
+import { PriorityQueue } from './libraries/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
 
 import * as evaluate from './evaluate.ts';
 import { slOptions } from './options.ts';

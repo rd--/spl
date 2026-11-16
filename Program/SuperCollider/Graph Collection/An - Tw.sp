@@ -21,8 +21,15 @@ let k = 23;
 [0 .. k].collect { :k |
 	[0 .. 7].collect { :i |
 		let ph = [
-			sinOsc({ i * k ^ i / (2 ^ [-2 .. 4].atRandom) } ! 2, 0),
-			decay(dust(1 / 4 ^ i), sinOsc(0.1, 0) + k + i),
+			sinOsc(
+				{ i * k ^ i / (2 ^ [-2 .. 4].atRandom) }
+				! 2,
+				0
+			),
+			decay(
+				dust(1 / 4 ^ i),
+				sinOsc(0.1, 0) + k + i
+			),
 			k * 999
 		].product;
 		sinOsc(i * k * k, ph)

@@ -607,14 +607,6 @@ If the string begins with a doctest, also delete all non doctest lines."
   (interactive)
   (shell-command-on-region (region-beginning) (region-end) "spl-indent" nil t))
 
-(defun spl-fix-category ()
-  (interactive)
-  (shell-command-on-region (point-min) (point-max) "/home/rohan/sw/spl/hs/fixCategory" t t))
-
-(defun spl-to-doctest ()
-  (interactive)
-  (shell-command-on-region (point-min) (point-max) "/home/rohan/sw/spl/hs/toDoctest" t t))
-
 (define-skeleton spl-mathematica-reference-skeleton
   "Insert a Mathematica reference."
   "Ref: "

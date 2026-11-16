@@ -77,7 +77,7 @@ let env = envLinen(2, 5, 2, 0.02, -4);
 		rand(-1, 1) /* place each bouncer at a random position in the stereo field */
 	) * /* multiply by an envelope is necessary to make the sound end */
 	cutoff(3, 0.001, -4) /* 3 second cut off envelope to end sound */
-}.spawnTextureProgram { 0.6 + 0.6.atRandom }
+}.spawnTextureProgram { 0.6 + (0.0 -- 0.6).atRandom }
 
 /********** Bank of resonators excited by impulses ; Jmcc **********/
 let n = 5; /* number of simultaneous instruments */
@@ -163,10 +163,10 @@ let p = 12; /* number of overtones */
 let n = 6;
 let t = 4;
 let t3 = t / 3;
-let note = 80 + 40.atRandom;
+let note = 80 + [1 .. 40].atRandom;
 {
 	let delay = 1 / note.midiCps;
-	note := (note + 15.atRandom - 7).fold(80, 120);
+	note := (note + [0 .. 15].atRandom - 7).fold(80, 120);
 	eqPan2(combL(lpz2(whiteNoise() * 0.01), 0.01, delay, -0.4), rand(-1, 1))
 }.overlapTextureProgram(t3, t3, n)
 

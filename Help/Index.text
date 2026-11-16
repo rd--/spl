@@ -843,6 +843,7 @@ Reference/CircularSegment.help.sl
 Reference/circumcenter.help.sl
 Reference/circumcircle.help.sl
 Reference/circumference.help.sl
+Reference/circumflexAccentAsterisk.help.sl
 Reference/circumflexAccent.help.sl
 Reference/circumradius.help.sl
 Reference/circumsphere.help.sl
@@ -926,6 +927,7 @@ Reference/completeGraphDrawing.help.sl
 Reference/completeGraph.help.sl
 Reference/completeKaryTree.help.sl
 Reference/Complex.help.sl
+Reference/ComplexInterval.help.sl
 Reference/complexListPlot.help.sl
 Reference/complexPlot.help.sl
 Reference/components.help.sl

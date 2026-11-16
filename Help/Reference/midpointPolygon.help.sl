@@ -9,7 +9,9 @@ Also called the Kasner polygon or inscribed polygon.
 The midpoint polygon of a square is a diamond;
 
 ```
->>> let a = 4.regularPolygon([0 0], 2.sqrt, 1.pi / 4);
+>>> let a = 4.regularPolygon(
+>>> 	[0 0], 2.sqrt, 1.pi / 4
+>>> );
 >>> let b = a.midpointPolygon;
 >>> [a b].collect(vertexCoordinates/1)
 [

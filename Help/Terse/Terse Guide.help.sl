@@ -112,7 +112,7 @@ NaN.isNaN /* literal for NaN */
 5.factorial = 120 /* factorial of Float */
 18.factorial = 6402373705728000 /* large small integer factorial */
 20.factorial = 2432902008176640000L /* large small float factorial */
-20.factorial.isSmallInteger = false /* 20! is not a small integer */
+20.0.factorial.isInteger /* 20! is an integer */
 0:9.collect(factorial/1) = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
 { -1L.factorial }.hasError /* factorial is not defined for negative integers */
 -1.factorialOrGamma = Infinity
@@ -249,8 +249,8 @@ Association('x', 1) = ('x' -> 1)
 let a = 'x' -> 1; [a.key, a.value] = ['x', 1] /* key and value accessors */
 ('x' -> 1).keyAndValue = ['x', 1] /* two element [key, value] array */
 ['x' -> 1, 'y' -> 2].collect(keyAndValue/1) = ['x' 1; 'y' 2]
-(23 -> 3.141).printString = '23 -> 3.141'
-(23 -> 3.141).storeString = 'Association(23, 3.141)'
+(23.0 -> 3.141).printString = '23.0 -> 3.141'
+(23.0 -> 3.141).storeString = 'Association(23.0, 3.141)'
 (1 -> '1').key = (1 -> 'one').key
 (1 -> '1').value != (1 -> 'one').value
 (1 -> '1') != (1 -> 'one')
@@ -404,7 +404,7 @@ withReturn { :return/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } }
 { 1.pi.assert { false } }.hasError /* raise an error if block does not evaluate to true */
 { true }.assert = nil /* assert that block evaluates to true, answers nil */
 { { false }.assert }.hasError /* raise an error if block does not evaluate to true */
-withReturn { :return/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeatForever } /* repeat a block until it returns */
+withReturn { :return/1 | { (9.0.atRandom > 7.0).ifTrue { true.return } }.repeatForever } /* repeat a block until it returns */
 { 1.anUnknownMessage }.ifError { :err | err }.isError /* evaluate error block on error */
 let f = { let x = 0; { x := x + 1; x } }; let g = f/0.apply; [g.apply, g.apply] = [1, 2] /* closure */
 let f = { let x = 0; { x := x + 1; x } }; [f/0.apply.apply, f/0.apply.apply] = [1, 1] /* closures */
@@ -469,10 +469,10 @@ true.if { 'T' } { 'F' } = 'T' /* if then else (value) */
 true.not = false /* not true is false, unicode = ¬ */
 false.not = true /* not false is true */
 true.not.not = true /* not of not is the identity */
-1.isNumber = true /* test if object is a number */
-1.isInteger = true /* test if object is an integer */
-1.respondsTo(sqrt/1) = true /* test if object responds to message */
-23.respondsTo(+) /* test if object responds to message */
+1.0.isNumber = true /* test if object is a number */
+1L.isInteger = true /* test if object is an integer */
+1.0.respondsTo(sqrt/1) = true /* test if object responds to message */
+23.0.respondsTo(+) /* test if object responds to message */
 nil.isNil = true /* test if object is nil */
 0.isNonNegative = (0 >= 0) /* test if number is non-negative */
 0.isPositive = (0 > 0) /* test if number is greater than zero */
@@ -3231,11 +3231,11 @@ Infinity.printString = 'Infinity' /* Infinity prints as Infinity */
 1.pi.printString = '3.141592653589793'
 1.pi.storeString = '3.141592653589793'
 23.isInteger /* is a small float an integer */
-23.isSmallInteger /* is a small float a small integer */
+23.0.isSmallInteger /* is a small float a small integer */
 (2.0 ^ 53.0) = 9007199254740992.0 /* a small float that is an integer that is beyond the range of small integers */
 (2.0 ^ 53.0).isIeeeInteger /* is a small float an Ieee integer */
 (2.0 ^ 53.0).isSmallInteger = false /* is a small float a small integer */
-23.assertIsSmallInteger('') = 23 /* require that a number be a small integer */
+23.0.assertIsSmallInteger('') = 23.0 /* require that a number be a small integer */
 { 3.141.assertIsSmallInteger('') }.hasError /* raise an error if value is not a small integer */
 { (2.0 ^ 53.0).assertIsSmallInteger('') }.hasError
 100.factorial / 99.factorial ~ 100 /* small float factorial */

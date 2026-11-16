@@ -12,5 +12,5 @@
 		0.02, nextDelay, 39
 	)
 }.playEvery {
-	(1 -- 9).atRandom
+	(1.0 -- 9.0).atRandom
 }

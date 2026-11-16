@@ -1,3 +1,5 @@
+/* Requires: Float Fraction Integer List String System */
+
 Decimal : [Object, Store, Equal, Compare, Number] {
 
 	| decimalFraction scale |
@@ -64,6 +66,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 
 	continuedFraction { :self |
 		self.decimalFraction.continuedFraction
+	}
+
+	decimalToFraction { :self |
+		self.decimalFraction
 	}
 
 	denominator { :self |
@@ -316,10 +322,6 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 			self.decimalFraction * operand.decimalFraction,
 			aBlock(self.scale, operand.scale)
 		)
-	}
-
-	decimalToFraction { :self |
-		self.decimalFraction
 	}
 
 	truncateScale { :self :k :mode/1 |

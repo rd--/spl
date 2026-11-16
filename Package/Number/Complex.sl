@@ -65,10 +65,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
-	atRandom { :self |
-		system.randomComplex([0J0, self], [])
-	}
-
 	ceiling { :self |
 		Complex(
 			self.real.ceilingFloat,

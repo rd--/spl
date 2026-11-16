@@ -247,6 +247,7 @@
 	'Navigator-NavigatorSvg'
 	'Number-Binary'
 	'Number-Complex'
+	'Number-ComplexInterval'
 	'Number-Decimal'
 	'Number-EisensteinInteger'
 	'Number-Float'

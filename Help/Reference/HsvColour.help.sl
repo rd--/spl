@@ -10,9 +10,9 @@ Value of `zero` is black:
 
 ```
 >>> HsvColour[
->>> 	(0 -- 1).atRandom,
->>> 	(0 -- 1).atRandom,
->>> 	0
+>>> 	(0.0 -- 1.0).atRandom,
+>>> 	(0.0 -- 1.0).atRandom,
+>>> 	0.0
 >>> ].isBlack
 true
 ```
@@ -21,9 +21,9 @@ Saturation of `zero` is grey:
 
 ```
 >>> HsvColour[
->>> 	(0 -- 1).atRandom,
->>> 	0,
->>> 	(0 -- 1).atRandom
+>>> 	(0.0 -- 1.0).atRandom,
+>>> 	0.0,
+>>> 	(0.0 -- 1.0).atRandom
 >>> ].isGrey
 true
 ```
@@ -32,9 +32,9 @@ Saturation of `zero` and value of `one` is white:
 
 ```
 >>> HsvColour[
->>> 	(0 -- 1).atRandom,
->>> 	0,
->>> 	1
+>>> 	(0.0 -- 1.0).atRandom,
+>>> 	0.0,
+>>> 	1.0
 >>> ].isWhite
 true
 ```
@@ -42,27 +42,27 @@ true
 Colour predicates (_s=1_ & _v=1_):
 
 ```
->>> HsvColour[0/360 1 1]
+>>> HsvColour[0/360 1/1 1/1]
 >>> .isRed
 true
 
->>> HsvColour[120/360 1 1]
+>>> HsvColour[120/360 1/1 1/1]
 >>> .isGreen
 true
 
->>> HsvColour[240/360 1 1]
+>>> HsvColour[240/360 1/1 1/1]
 >>> .isBlue
 true
 
->>> HsvColour[60/360 1 1]
+>>> HsvColour[60/360 1/1 1/1]
 >>> .isYellow
 true
 
->>> HsvColour[180/360 1 1]
+>>> HsvColour[180/360 1/1 1/1]
 >>> .isCyan
 true
 
->>> HsvColour[300/360 1 1]
+>>> HsvColour[300/360 1/1 1/1]
 >>> .isMagenta
 true
 ```
@@ -77,7 +77,7 @@ RgbColour[0.25980, 0.10374, 0.918]
 A pale green colour swatch:
 
 ~~~spl svg=A
-HsvColour[1/3 1/4 1]
+HsvColour[1/3 1/4 1/1]
 ~~~
 
 ![](Help/Image/HsvColour-A.svg)
@@ -86,8 +86,8 @@ The hue value is cyclic with period `one`:
 
 ~~~spl svg=B
 ColourGrid(
-	Range(0, 2, 1/8).collect { :h |
-		HsvColour[h 1 1]
+	Range(0/1, 2/1, 1/8).collect { :h |
+		HsvColour[h 1/1 1/1]
 	}.enclose
 )
 ~~~
@@ -98,8 +98,8 @@ Saturation determines how vivid the color is:
 
 ~~~spl svg=C
 ColourGrid(
-	Range(0, 1, 1/7).collect { :s |
-		HsvColour[1/4 s 1]
+	Range(0/1, 1/1, 1/7).collect { :s |
+		HsvColour[1/4 s 1/1]
 	}.enclose
 )
 ~~~
@@ -110,8 +110,8 @@ Brightness determines the brightness of the color:
 
 ~~~spl svg=D
 ColourGrid(
-	Range(0, 1, 1/7).collect { :v |
-		HsvColour[1/4 1 v]
+	Range(0/1, 1/1, 1/7).collect { :v |
+		HsvColour[1/4 1/1 v]
 	}.enclose
 )
 ~~~
@@ -125,10 +125,11 @@ let n = 13;
 { :y :x |
 	HsvColour[
 		((x + y) % n) / n,
-		0.6,
+		0.60,
 		0.92
 	]
-}.table(1:n, 1:n).ColourGrid
+}.table(1:n, 1:n)
+.ColourGrid
 ~~~
 
 ![](Help/Image/HsvColour-E.svg)

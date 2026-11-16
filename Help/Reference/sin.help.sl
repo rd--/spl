@@ -70,7 +70,7 @@ Values of `sin` at fixed points:
 `sin` is an odd function:
 
 ```
->>> let n = (0 -- 2.pi).atRandom;
+>>> let n = (0.0 -- 2.pi).atRandom;
 >>> -n.sin
 n.sin.negate
 ```
@@ -78,7 +78,7 @@ n.sin.negate
 `sin` has the mirror property:
 
 ```
->>> let n = (0 -- 2.pi).atRandom.J(1);
+>>> let n = (0.0 -- 2.pi).atRandom.J(1);
 >>> n.conjugate.sin
 n.sin.conjugate
 ```

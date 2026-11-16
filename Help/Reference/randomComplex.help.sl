@@ -1,9 +1,9 @@
 # randomComplex
 
-- _randomComplex(r, [min max], shape)_
+- _randomComplex(r, [a b], ⍴)_
 
-Answer an array of the indicated _shape_ containing pseudo-random `Complex` numbers
-that lie inside the rectangle with corners given by _min_ and _max_.
+Answer an array of the indicated shape _⍴_ containing pseudo-random `Complex` numbers
+that lie inside the rectangle with corners given by lower-left value _a_ and upper-right value _b_.
 
 A 3×2 matrix of random complex numbers in the rectangle with corners at _0J0_ and _10J10_:
 
@@ -37,7 +37,8 @@ A 3×4 matrix of random complex numbers in the rectangle with corners at _10J10_
 ]
 ```
 
-`randomComplex` generates a uniform distribution, here with mean _0.5J0.5_:
+`randomComplex` generates a uniform distribution,
+here with mean _0.5J0.5_:
 
 ```
 >>> Sfc32(2166136261)

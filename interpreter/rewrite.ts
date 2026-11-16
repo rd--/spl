@@ -1,6 +1,6 @@
 import ohm from 'https://unpkg.com/ohm-js@17.1.0/dist/ohm.esm.js';
 
-import { arraySum } from '../lib/jssc3/ts/kernel/array.ts';
+import { arraySum } from './libraries/jssc3/ts/kernel/array.ts';
 
 import { slParse, slSemantics } from './grammar.ts';
 import { resolveMethodName } from './operator.ts';

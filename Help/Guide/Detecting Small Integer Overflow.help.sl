@@ -1,6 +1,6 @@
 # Detecting Small Integer Overflow
 
-The interpreter can warn or error on small integer overflow.
+The interpreter can check for small integer overflow and either print a warning or signal an error.
 
 The programs here perform calculations involving small integer operations that overflow.
 
@@ -68,7 +68,8 @@ Zeroes of the `riemannXi` function:
 Large _n_ for `fromSignExponentMantissa`:
 
 ```
->>> [1E100 -1E100 1E-100 -1E-100 Infinity].collect { :n |
+>>> [1E100 -1E100 1E-100 -1E-100 Infinity]
+>>> .collect { :n |
 >>> 	n.signExponentMantissa
 >>> 	.fromSignExponentMantissa
 >>> }

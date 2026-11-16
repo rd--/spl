@@ -5,7 +5,10 @@
 Answer the number of bytes required to represent _n_.
 
 ```
->>> [1L 8L 16L 24L 32L 40L 48L 56L 64L].collect { :each |
+>>> [
+>>> 	1L   8L 16L 24L 32L
+>>> 	40L 48L 56L 64L
+>>> ].collect { :each |
 >>> 	(2L ^ each).digitLength
 >>> }
 [1 .. 9]

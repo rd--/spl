@@ -1,16 +1,18 @@
+// Cli = Command Line Interface
+
 import { type Args, parseArgs } from 'jsr:@std/cli/parse-args';
 
 import * as commonmark from 'npm:commonmark@0.31.0';
 
-import { osc } from '../lib/scsynth-wasm-builds/lib/ext/osc.js';
-import FFT from '../lib/scsynth-wasm-builds/lib/ext/fft.js';
-// import * as commonmark from '../lib/scsynth-wasm-builds/lib/ext/commonmark.js';
+import { osc } from './libraries/scsynth-wasm-builds/lib/ext/osc.js';
+import FFT from './libraries/scsynth-wasm-builds/lib/ext/fft.js';
+// import * as commonmark from './libraries/scsynth-wasm-builds/lib/ext/commonmark.js';
 
-import * as tcp from '../lib/jssc3/ts/kernel/tcp.ts';
-import * as scTcp from '../lib/jssc3/ts/sc3/scSynthTcp.ts';
-import * as scUdp from '../lib/jssc3/ts/sc3/scSynthUdp.ts';
+import * as tcp from './libraries/jssc3/ts/kernel/tcp.ts';
+import * as scTcp from './libraries/jssc3/ts/sc3/scSynthTcp.ts';
+import * as scUdp from './libraries/jssc3/ts/sc3/scSynthUdp.ts';
 
-import * as sc from '../lib/jssc3/ts/jssc3.ts'; // not sc3.ts
+import * as sc from './libraries/jssc3/ts/jssc3.ts'; // not sc3.ts
 
 import * as evaluate from './evaluate.ts';
 import * as host from './host.ts';
@@ -34,7 +36,7 @@ function getHomeDirectory(): string {
 */
 
 function getSplConfigurationDirectory(): string {
-	return [getSplDirectory(), 'config'].join('/');
+	return [getSplDirectory(), 'data', 'config'].join('/');
 }
 
 /*

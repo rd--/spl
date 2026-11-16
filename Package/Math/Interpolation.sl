@@ -437,8 +437,8 @@
 	matrixResample { :self :shape |
 		let [m, n] = [self.numberOfRows, self.numberOfColumns];
 		let [p, q] = shape;
-		let i = (1 -- m).discretize(p);
-		let j = (1 -- n).discretize(q);
+		let i = (1.0 -- Float(m)).discretize(p);
+		let j = (1.0 -- Float(n)).discretize(q);
 		self.matrixInterpolation(
 			bilinearInterpolation/6
 		).table(i, j)
@@ -468,9 +468,9 @@
 	volumeResample { :self :shape |
 		let [m, n, o] = self.shape;
 		let [p, q, r] = shape;
-		let i = (1 -- m).discretize(p);
-		let j = (1 -- n).discretize(q);
-		let k = (1 -- o).discretize(r);
+		let i = (1.0 -- Float(m)).discretize(p);
+		let j = (1.0 -- Float(n)).discretize(q);
+		let k = (1.0 -- Float(o)).discretize(r);
 		self.volumeInterpolation(
 			trilinearInterpolation/11
 		).table(i, j, k)

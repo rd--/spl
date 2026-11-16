@@ -6,7 +6,7 @@ Answer a `Promise` that will resolve to a value having the decoded `Json` conten
 
 ~~~spl async
 system
-.splUrl('config/preferences.json')
+.splUrl('data/config/preferences.json')
 .fetchJson
 ~~~
 

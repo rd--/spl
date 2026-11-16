@@ -147,7 +147,11 @@ let speeds = [1 .. 11] / 20;
 let f0 = (mouseX(0, 36, 0, 0.2).round(7) + 24).midiCps;
 let harmonics = 16;
 [1 .. harmonics].collect { :partial |
-	pan2(sinOsc(f0 * partial, 0), rand(-1, 1), sinOsc(speeds.atRandom, 0).max(0))
+	pan2(
+		sinOsc(f0 * partial, 0),
+		rand(-1, 1),
+		sinOsc(speeds.atRandom, 0).max(0)
+	)
 }.mix / harmonics * 0.5
 
 /* More bells */

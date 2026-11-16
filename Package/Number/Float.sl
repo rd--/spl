@@ -40,10 +40,6 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 		}
 	}
 
-	atRandom { :self |
-		system.nextRandomFloat(0, self)
-	}
-
 	bitAnd { :self :operand |
 		<primitive:
 		const aFloat = sl.toFloat(_operand);
@@ -952,18 +948,18 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 		>
 	}
 
+	roundFloat { :self |
+		<primitive:
+		return Math.round(_self);
+		>
+	}
+
 	roundTiesEven { :n |
 		(n.fractionalPart = 0.5).if {
 			2 * (n / 2).round
 		} {
 			n.round
 		}
-	}
-
-	roundFloat { :self |
-		<primitive:
-		return Math.round(_self);
-		>
 	}
 
 	shallowCopy { :self |

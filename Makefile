@@ -31,7 +31,7 @@ remote-dist:
 	sftp rd@rohandrape.net:rohandrape.net/pub/spl/dist/ <<< $'put dist/sl.js'
 
 tags:
-	etags --regex=@config/spl.tag Package/*/*.sl
+	etags --regex=@data/config/spl.tag Package/*/*.sl
 
 indent-spl:
 	spl-indent Package/*/*.sl
@@ -46,7 +46,7 @@ indent-ts:
 	(cd ts ; make format-ts)
 
 doctest:
-	doctest -Wno-x-partial -Wno-incomplete-uni-patterns hs
+	doctest -Wno-x-partial -Wno-incomplete-uni-patterns utilities/*.hs
 
 help-index:
 	(cd Help; ls Guide/*.help.sl Reference/*.help.sl Index/*.help.sl Definitions/*.help.sl Terse/*.help.sl > Index.text)
@@ -58,28 +58,28 @@ clear-cache:
 	rm -f .cache/*.js
 
 check-method-spacing:
-	python3 py/check-method-spacing.py Package/*/*.sl
+	python3 utilities/check-method-spacing.py Package/*/*.sl
 
 check-doctest-prefixes:
-	python3 py/check-doctest-prefixes.py Package/*/*.sl
+	python3 utilities/check-doctest-prefixes.py Package/*/*.sl
 
 check-consecutive-newlines:
-	python3 py/check-consecutive-newlines.py Package/*/*.sl
+	python3 utilities/check-consecutive-newlines.py Package/*/*.sl
 
 check-commented-methods:
-	python3 py/check-commented-methods.py Package/*/*.sl
+	python3 utilities/check-commented-methods.py Package/*/*.sl
 
 check-reference-names:
-	python3 py/check-reference-names.py Help/Reference/*.sl
+	python3 utilities/check-reference-names.py Help/Reference/*.sl
 
 check-case-sensitive-file-names:
-	python3 py/check-case-sensitive-file-names.py Help
+	python3 utilities/check-case-sensitive-file-names.py Help
 
 check-non-doctest-code-blocks:
-	python3 py/check-non-doctest-code-blocks.py Help/Reference/*.sl
+	python3 utilities/check-non-doctest-code-blocks.py Help/Reference/*.sl
 
 check-text-encoding:
-	python3 py/check-text-encoding.py Package/*/*.sl Help/*/*.sl Program/SuperCollider/*/*.sp Help/Image/*.svg
+	python3 utilities/check-text-encoding.py Package/*/*.sl Help/*/*.sl Program/SuperCollider/*/*.sp Help/Image/*.svg
 
 check-all: \
 	check-commented-methods \
@@ -91,10 +91,10 @@ check-all: \
 	check-text-encoding
 
 sort-method-definitions:
-	python3 py/sort-method-definitions.py Package/*/*.sl
+	python3 utilities/sort-method-definitions.py Package/*/*.sl
 
 sort-guides:
-	python3 py/sort-guides.py Help/*/*.sl
+	python3 utilities/sort-guides.py Help/*/*.sl
 
 sort-see-also:
-	python3 py/sort-see-also.py Help/*/*.sl
+	python3 utilities/sort-see-also.py Help/*/*.sl

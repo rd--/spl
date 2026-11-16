@@ -9,9 +9,9 @@ The general form is:
 
 > _{ arguments? temporaries? statements? }_
 
-A no argument block that returns a random number between -1 and 1 can be written:
+A no argument block that returns a random real number between -1.0 and 1.0 can be written:
 
-> _{ (-1 -- 1).atRandom }_
+> _{ (-1.0 -- 1.0).atRandom }_
 
 Arguments are written with a colon (`:`) prefix directly following the open brace and are terminated by a vertical bar (`|`).
 

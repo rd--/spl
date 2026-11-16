@@ -2,7 +2,7 @@
 
 - _Interval(min, max)_
 
-An interval represents the range of values between `min` and `max`,
+`Interval` is a type representing the range of values between `min` and `max`,
 the lower and upper bounds respectively.
 Intervals are closed, they includes both end points.
 
@@ -67,14 +67,14 @@ An interval _i_ is less than an interval _j_ if _⌈i_ is less than _⌊j_:
 Numbers automatically turn into intervals:
 
 ```
->>> 1.toInterval
-1 -- 1
+>>> 1.0.numberToInterval
+1.0 -- 1.0
 
->>> (-1 -- 1) + 1 * 0.5
-0 -- 1
+>>> (-1.0 -- 1.0) + 1.0 * 0.5
+0.0 -- 1.0
 
->>> (-1 -- 1) + 1 / 2
-0 -- 1
+>>> (-1.0 -- 1.0) + 1.0 / 2.0
+0.0 -- 1.0
 ```
 
 Use `min` and `max` to find end points of intervals:

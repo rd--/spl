@@ -12,7 +12,6 @@ At `Integer`:
 true
 ```
 
-
 At `Float`:
 
 ```

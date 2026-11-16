@@ -23,7 +23,7 @@ Fetch a Json file:
 
 ~~~spl async
 system
-.splUrl('config/preferences.json')
+.splUrl('data/config/preferences.json')
 .fetch
 .thenElse { :response |
 	response.json

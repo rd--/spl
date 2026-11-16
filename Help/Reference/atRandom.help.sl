@@ -2,14 +2,14 @@
 
 - _atRandom(x)_
 
-Select elements at random from the object _x_.
+Select elements at random from the collection or collection-like object _x_.
 
-At `Integer`,
-select between `one` and _n_ at random:
+At a `Range` of `Integer` values,
+select one at random:
 
 ```
 >>> system.seedRandom(52137);
->>> { 5L.atRandom } ! [3 3]
+>>> { 1L:5L.atRandom } ! [3 3]
 [
 	4 1 1;
 	2 4 5;
@@ -17,24 +17,19 @@ select between `one` and _n_ at random:
 ]
 ```
 
-At `Float`,
-select between `zero` and _n_ at random:
+At an `Interval` with `Float` boundaries,
+select between the left and right boundaries at random:
 
 ```
 >>> system.seedRandom(83014);
->>> { 1.pi.atRandom } ! [3 3]
+>>> { (0.0 -- 1.pi).atRandom } ! [3 3]
 [
 	1.79715 1.06430 0.23637;
 	1.53715 1.10037 2.02229;
 	2.80041 1.06986 0.46743
 ]
-```
 
-At `Interval`,
-select between `min` and `max` at random:
-
-```
->>> let i = 1 -- 5;
+>>> let i = 1.0 -- 5.0;
 >>> system.seedRandom(69197);
 >>> { i.atRandom } ! [3 3]
 [
@@ -47,7 +42,7 @@ select between `min` and `max` at random:
 Plot at `Interval`:
 
 ~~~spl svg=A
-let i = 1 -- 5;
+let i = 1.0 -- 5.0;
 system.seedRandom(297142);
 (
 	{ i.atRandom } ! [43]

@@ -465,7 +465,7 @@ let signal = sum( /* mix a list of 4 instruments */
 		let excitation = pinkNoise() * max(lfNoise1(8).*+(dmul, dadd), 0);
 		let freq = lag( /* lag the pitch so it glissandos between pitches */
 			lfNoise0( /* use low freq step noise as a pitch control */
-				[1, 0.5, 0.25].atRandom /* choose a frequency of pitch change */
+				[1.0 0.5 0.25].atRandom /* choose a frequency of pitch change */
 			).*+(7, /* +/- 7 semitones */
 				66 + rand(-30, 30) /* random center note */
 			).round(1), /* round to nearest semitone */
