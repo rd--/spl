@@ -866,10 +866,8 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 		}
 	}
 
-	radixString { :self :radix |
-		self := SmallInteger(self);
-		radix := SmallInteger(radix);
-		(radix = 10).if {
+	radixString { :self SmallInteger :radix SmallInteger |
+		(radix = 10L).if {
 			self.printString
 		} {
 			let unsignedAnswer = '%b%'.format(

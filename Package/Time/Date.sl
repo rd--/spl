@@ -166,9 +166,8 @@ Date! : [Object, Store, Equal, Compare] {
 +List {
 
 	[Date, listToDate] { :self |
-		self.atVectorOrElementwise { :aList |
-			let floatList = Float(aList);
-			let [year, month, dayOfMonth] = floatList;
+		self.atVectorOrElementwise { :each FloatList |
+			let [year, month, dayOfMonth] = each;
 			primitiveDate(year, month, dayOfMonth)
 		}
 	}
@@ -243,7 +242,7 @@ Date! : [Object, Store, Equal, Compare] {
 		).ceiling
 	}
 
-	isGregorianLeapYear { :year |
+	isGregorianLeapYear { :year SmallInteger |
 		/* https://www.fourmilab.ch/documents/calendar/calendar.js */
 		(year % 4 = 0) & {
 			(
@@ -254,24 +253,31 @@ Date! : [Object, Store, Equal, Compare] {
 		}
 	}
 
-	julianDayToGregorian { :self |
-		uncheckedJulianDayToGregorian(
-			SmallInteger(self)
-		)
+	julianDayToGregorian { :self SmallInteger |
+		uncheckedJulianDayToGregorian(self)
 	}
 
-	julianDayToJulian { :self |
-		uncheckedJulianDayToJulian(
-			SmallInteger(self)
-		)
+	julianDayToJulian { :self SmallInteger |
+		uncheckedJulianDayToJulian(self)
 	}
 
-	julianToJulianDay { :year :month :day |
-		uncheckedJulianToJulianDay(
-			SmallInteger(year),
-			SmallInteger(month),
-			SmallInteger(day)
-		)
+	julianToJulianDay { :year SmallInteger :month SmallInteger :day SmallInteger |
+		/* https://www.fourmilab.ch/documents/calendar/calendar.js */
+		(month <= 2).ifTrue {
+			year := year - 1;
+			month := month + 12
+		};
+		(
+			(
+				floor((365.25 * (year + 4716)))
+				+
+				floor((30.6001 * (month + 1)))
+				+
+				day
+			)
+			-
+			1524.5
+		).ceiling
 	}
 
 	uncheckedJulianDayToGregorian { :self |
@@ -320,25 +326,6 @@ Date! : [Object, Store, Equal, Compare] {
 		let day = b - d - Math.floor(30.6001 * e);
 		return [year, month, day];
 		>
-	}
-
-	uncheckedJulianToJulianDay { :year :month :day |
-		/* https://www.fourmilab.ch/documents/calendar/calendar.js */
-		(month <= 2).ifTrue {
-			year := year - 1;
-			month := month + 12
-		};
-		(
-			(
-				floor((365.25 * (year + 4716)))
-				+
-				floor((30.6001 * (month + 1)))
-				+
-				day
-			)
-			-
-			1524.5
-		).ceiling
 	}
 
 }

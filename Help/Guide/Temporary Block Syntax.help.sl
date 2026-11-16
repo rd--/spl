@@ -31,4 +31,4 @@ Sᴘʟ initially included a compiler switch to allow binding both the qualified 
 
 * * *
 
-Categories: Syntax
+Guides: Syntax Guides

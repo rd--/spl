@@ -9,7 +9,7 @@ The four primitive immediate types are `Nil`, `Boolean`, `Float` and `String`.
 - _3.141_ ⇒ `Float`
 - _'xyz'_ ⇒ `String`
 
-The _Block_ syntax is similar to Smalltalk,
+The `Block Syntax` is similar to Smalltalk,
 with braces replacing brackets,
 semicolons replacing full stops,
 and _var_ replacing _|_.
@@ -28,6 +28,4 @@ There is also a `Dictionary` expression syntax.
 
 * * *
 
-See also: Integer Syntax, List Syntax, Number Syntax, Range Literal Syntax, Range Syntax, Record Syntax, String Syntax
-
-Categories: Syntax
+Gudies: Integer Syntax, List Syntax, Number Syntax, Range Literal Syntax, Range Syntax, Record Syntax, String Syntax

@@ -1,6 +1,6 @@
 # Block Syntax
 
-The _Block_ syntax follows Smalltalk’s.
+The `Block` syntax follows Smalltalk’s.
 
 Curly brackets (`{` and `}`) replace square brackets (`[` and `]`),
 and semicolons (`;`) replace periods (`.`).
@@ -39,8 +39,6 @@ _p.q(r)_ is _q(p, r)_, not _(q(p))(r)_.
 
 * * *
 
-See also: :, ;, {, |, }, var
+See also: :, ;, {, |, }, let, var
 
-Guides: Block Semantics, Temporary Block Syntax, Value Apply Syntax, Var Syntax
-
-Categories: Syntax
+Guides: Block Semantics, Temporary Block Syntax, Apply Syntax, Let Syntax

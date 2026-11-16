@@ -208,10 +208,10 @@ const asJs: ohm.ActionDict<string> = {
 	ApplySyntax(rcv, arg) {
 		return `${genName(rcv.asJs, arg.arityOf)}(${arg.asJs})`;
 	},
-	Arguments(arg, _vb) {
+	ArgumentsWithoutTypeAnnotations(arg, _vb) {
 		return commaListJs(arg.children);
 	},
-	Block(_l, arg, prm, stm, _r) {
+	BlockWithoutTypeAnnotations(_l, arg, prm, stm, _r) {
 		const argJs = arg.asJs;
 		const prmJs = prm.asJs;
 		const stmJs = stm.asJs;
@@ -428,7 +428,11 @@ const asSl: ohm.ActionDict<string> = {
 			commaListSl(args.children.concat(trailing.children))
 		})`;
 	},
-	Arguments(a, _p) {
+	ArgumentsWithTypeAnnotations(a, _t, _verticalLine) {
+		const aList = a.children.map((x) => x.asSl);
+		return aList.join(' ');
+	},
+	ArgumentsWithoutTypeAnnotations(a, _verticalLine) {
 		return a.children.map((x) => x.asSl).join(' ');
 	},
 	AtAllSyntax(c, i) {
@@ -459,7 +463,14 @@ const asSl: ohm.ActionDict<string> = {
 		}
 		return left;
 	},
-	Block(_l, arg, prm, stm, _r) {
+	BlockWithTypeAnnotations(_l, arg, prm, stm, _r) {
+		const argSl = arg.asSl;
+		const vBar = (argSl === '') ? '' : ' | ';
+		const argRw = arg.argumentsWithTypeAnnotation;
+		// console.debug('BlockWithTypeAnnotations', argRw);
+		return `{ ${argSl}${vBar}${prm.asSl}${argRw}${stm.asSl} }`;
+	},
+	BlockWithoutTypeAnnotations(_l, arg, prm, stm, _r) {
 		const argSl = arg.asSl;
 		const vBar = (argSl === '') ? '' : ' | ';
 		return `{ ${argSl}${vBar}${prm.asSl}${stm.asSl} }`;
@@ -895,7 +906,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 	ApplySyntax(rcv, arg) {
 		return ['Apply', rcv.asAst].concat(arg.asAst.flat(1));
 	},
-	Arguments(a, _p) {
+	ArgumentsWithoutTypeAnnotations(a, _p) {
 		return ['Arguments'].concat(
 			a.children.map((x) => x.asAst),
 		);
@@ -903,7 +914,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 	Primitive(_l, s, _r) {
 		return ['Primitive', s.sourceString];
 	},
-	Block(_l, arg, prm, stm, _r) {
+	BlockWithoutTypeAnnotations(_l, arg, prm, stm, _r) {
 		return ['Block'].concat(
 			[
 				arg.asAst,
@@ -1016,7 +1027,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 slSemantics.addAttribute('asAst', asAst);
 
 const arityOf: ohm.ActionDict<number> = {
-	Arguments(names, _) {
+	ArgumentsWithoutTypeAnnotations(names, _) {
 		return names.children.length;
 	},
 	NonEmptyParameterList(_l, sq, _r) {
@@ -1033,6 +1044,29 @@ const arityOf: ohm.ActionDict<number> = {
 
 slSemantics.addAttribute('arityOf', arityOf);
 
+const argumentsWithTypeAnnotation: ohm.ActionDict<string> = {
+	ArgumentsWithTypeAnnotations(a, t, _verticalLine) {
+		const aList = a.children.map((x) => x.asSl);
+		const tList = t.children.map((x) => x.asSl);
+		const vList = aList.map((x) => x.substring(1, x.size));
+		const qList = [];
+		const k = aList.length;
+		for (let i = 0; i < k; i++) {
+			if(tList[i] !== '') {
+				qList.push(`${vList[i]} := ${tList[i]}(${vList[i]}); `);
+			}
+		}
+		// console.debug('ArgumentsWithTypeAnnotations', tList, qList);
+		return qList.join('');
+	},
+
+	_iter(...children) {
+		return children.map((c) => c.argumentsWithTypeAnnotation);
+	},
+};
+
+slSemantics.addAttribute('argumentsWithTypeAnnotation', argumentsWithTypeAnnotation);
+
 function dropFirstLetter(x: string): string {
 	return x.substring(1);
 }
@@ -1042,12 +1076,20 @@ function dropLastLetter(x: string): string {
 }
 
 const parametersOf: ohm.ActionDict<string[]> = {
-	Arguments(names, _) {
+	ArgumentsWithTypeAnnotations(names, _types, _verticalLine) {
 		return names.children.map(
 			(each) => dropFirstLetter(each.sourceString),
 		);
 	},
-	Block(_l, arg, _prm, _stm, _r) {
+	ArgumentsWithoutTypeAnnotations(names, _verticalLine) {
+		return names.children.map(
+			(each) => dropFirstLetter(each.sourceString),
+		);
+	},
+	BlockWithTypeAnnotations(_l, arg, _prm, _stm, _r) {
+		return arg.parametersOf;
+	},
+	BlockWithoutTypeAnnotations(_l, arg, _prm, _stm, _r) {
 		return arg.parametersOf;
 	},
 	RecordInitializerItem(lhs, rhs) {
@@ -1096,6 +1138,7 @@ function makeMethod(
 	methodName: ohm.Node,
 	methodBlock: ohm.Node,
 ): string {
+	// console.debug('makeMethod', slProc, typeOrTraitNameArray, context.packageName);
 	const blkCoreSource = methodBlock.sourceString;
 	const blkInitialSource = context.methodBodyInitialSourceTable.get(
 		blkCoreSource,
@@ -1103,7 +1146,7 @@ function makeMethod(
 	const blkParameters = methodBlock.parametersOf;
 	const blkJs = methodBlock.asJs;
 	const blkSrc = JSON.stringify(blkInitialSource);
-	// console.debug('makeMethod', slProc, methodName, blkParameters, context.packageName);
+	// console.debug('makeMethod', methodName, blkParameters);
 	return typeOrTraitNameArray.map(function (typeOrTraitName) {
 		// console.debug('makeMethod', typeOrTraitName);
 		return `sl.${slProc}(\n\t'${typeOrTraitName}',\n\t'${context.packageName}',\n\t'${methodName}',\n\t${

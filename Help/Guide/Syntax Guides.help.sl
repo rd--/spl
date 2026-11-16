@@ -18,6 +18,7 @@
 - `Apply Syntax`
 - `Arity Syntax`
 - `Binary Operator Syntax`
+- `Block Type Annotation Syntax`
 - `Comment Syntax`
 - `Dot Assignment Syntax`
 - `Let Syntax`

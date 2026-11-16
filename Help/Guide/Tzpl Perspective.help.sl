@@ -200,6 +200,85 @@ Imaginary literals create complex numbers:
 Complex(3.0, 4.0)
 ```
 
+## Collection Types
+
+List literals:
+
+```
+>>> [1, 2, 3, 4, 5]
+[1, 2, 3, 4, 5]
+
+>>> [1.0, 2.0, 3.0]
+[1.0, 2.0, 3.0]
+```
+
+Nested arrays without inner brackets:
+
+```
+>>> [1 2 3; 4; 5 6]
+[[1, 2, 3], [4], [5, 6]]
+
+>>> [1 2; 3 4:; 5 6; 7 8]
+[[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
+```
+
+Tuple literals, heterogeneous, fixed-length:
+
+```
+>>> (3, 4)
+(3, 4)
+
+>>> (1L, 2.5, 'Lermontov')
+>>> .
+(1L, 2.5, 'Lermontov')
+```
+
+Map literals:
+
+```
+>>> ['Lermontov': 1814, 'Akhmatova': 1889]
+['Lermontov': 1814, 'Akhmatova': 1889]
+```
+
+Set construction:
+
+```
+>>> IdentitySet([1, 2, 3])
+IdentitySet([1, 2, 3])
+```
+
+Access by index:
+
+```
+>>> let x = [1, 2, 3, 4];
+>>> x[3]
+3
+```
+
+Indexed assignment:
+
+```
+>>> let x = [1, 2, 3, 4];
+>>> x[3] := -3;
+>>> x
+[1, 2, -3, 4]
+```
+
+Mutating builtins,
+names ending in _!_ mutate their first argument in place,
+otherwise equal names without the _!_ answer new values.
+The character _!_ is part of the identifier,
+_add_ and _add!_ are different functions.
+The naming convention is idiomatic but not enforced.
+
+```
+>>> let x = [1, 2, 3];
+>>> x.add!(4);
+>>> x.removeFirst!;
+>>> x
+[2, 3, 4]
+```
+
 ## General Numeric Functions
 
 `abs`, `sign`, `min`, `max`, `clamp`, cmp=`compare`, `gcd`, `lcm`

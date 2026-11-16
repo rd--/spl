@@ -14,6 +14,14 @@
 		self.collect(Float/1)
 	}
 
+	FloatList { :self |
+		self.isList.if {
+			Float(self)
+		} {
+			self.error('FloatList')
+		}
+	}
+
 	I { :self |
 		self.collect(I/1)
 	}
