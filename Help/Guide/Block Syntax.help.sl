@@ -41,4 +41,4 @@ _p.q(r)_ is _q(p, r)_, not _(q(p))(r)_.
 
 See also: :, ;, {, |, }, let, var
 
-Guides: Block Semantics, Temporary Block Syntax, Apply Syntax, Let Syntax
+Guides: Apply Syntax, Block Semantics, Let Syntax, Temporary Block Syntax

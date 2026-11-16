@@ -1,8 +1,7 @@
-# \( (leftParenthesis)
+# leftParenthesis
 
-`(` is a balanced syntax token,
-closed by `)`,
-it is not an operator.
+`(` is a balanced syntax token, closed by `)`.
+It is not an operator.
 Parentheses are a part of many syntactic forms.
 
 `Record Syntax`:

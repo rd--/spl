@@ -43,7 +43,7 @@ indent-programs:
 	spl-indent Program/SuperCollider/Graph/*.sp Program/SuperCollider/Unit*/*.sp
 
 indent-ts:
-	(cd ts ; make format-ts)
+	(cd interpreter ; make format-ts)
 
 doctest:
 	doctest -Wno-x-partial -Wno-incomplete-uni-patterns utilities/*.hs

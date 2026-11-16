@@ -1,6 +1,7 @@
-# \{ (leftCurlyBracket)
+# leftCurlyBracket
 
-`{` is a balanced syntax token, closed by `}`, it is not an operator.
+`{` is a balanced syntax token, closed by `}`.
+It is not an operator.
 `{` begins a block that is subsequently ended by `}`.
 
 `Block Syntax`:

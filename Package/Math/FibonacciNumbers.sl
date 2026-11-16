@@ -12,7 +12,8 @@
 				(
 					z[i] = 1L & {
 						z[i + 1L] = 0L & {
-							z[i + 2L] = 0L }
+							z[i + 2L] = 0L
+						}
 					}
 				).ifTrue {
 					z[i] := 0L;
@@ -165,7 +166,8 @@
 	fibonacciPolynomial { :n |
 		(
 			n = 0L | {
-				n = 1L }
+				n = 1L
+			}
 		).if {
 			UnivariatePolynomial([n])
 		} {

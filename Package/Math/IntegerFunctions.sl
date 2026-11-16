@@ -1676,7 +1676,8 @@
 				let m = s;
 				{
 					z < p & {
-						legendreSymbol(z, p) != -1L }
+						legendreSymbol(z, p) != -1L
+					}
 				}.whileTrue {
 					z := z + 1L
 				};
@@ -1690,7 +1691,8 @@
 					let i = 1L;
 					{
 						i < m & {
-							(t2 - 1L) % p != 0L }
+							(t2 - 1L) % p != 0L
+						}
 					}.whileTrue {
 						t2 := (t2 ^ 2L) % p;
 						i := i + 1L

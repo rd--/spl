@@ -448,7 +448,8 @@
 	pochhammer { :a :n |
 		(
 			a.isIntegerValuedNumber & {
-				n.isIntegerValuedNumber }
+				n.isIntegerValuedNumber
+			}
 		).if {
 			(a + 0.to(n - 1)).product
 		} {

@@ -22,7 +22,7 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 	}
 
 	concisePrintString { :self |
-			self.storeStringUsing(concisePrintString/1)
+		self.storeStringUsing(concisePrintString/1)
 	}
 
 	encodeIni { :self |
@@ -73,7 +73,7 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 	}
 
 	printString { :self |
-			self.storeStringUsing(printString/1)
+		self.storeStringUsing(printString/1)
 	}
 
 	propertyRead { :self :aString |
@@ -123,7 +123,7 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 	}
 
 	storeString { :self |
-			self.storeStringUsing(storeString/1)
+		self.storeStringUsing(storeString/1)
 	}
 
 	storeStringUsing { :self :aBlock/1 |

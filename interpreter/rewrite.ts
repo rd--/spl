@@ -1052,7 +1052,7 @@ const argumentsWithTypeAnnotation: ohm.ActionDict<string> = {
 		const qList = [];
 		const k = aList.length;
 		for (let i = 0; i < k; i++) {
-			if(tList[i] !== '') {
+			if (tList[i] !== '') {
 				qList.push(`${vList[i]} := ${tList[i]}(${vList[i]}); `);
 			}
 		}
@@ -1065,7 +1065,10 @@ const argumentsWithTypeAnnotation: ohm.ActionDict<string> = {
 	},
 };
 
-slSemantics.addAttribute('argumentsWithTypeAnnotation', argumentsWithTypeAnnotation);
+slSemantics.addAttribute(
+	'argumentsWithTypeAnnotation',
+	argumentsWithTypeAnnotation,
+);
 
 function dropFirstLetter(x: string): string {
 	return x.substring(1);

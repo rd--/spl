@@ -227,7 +227,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 		let byteCount = capacity.min(capacity // 8L + 1L);
 		newBitSet().initializeSlots(
 			ByteArray(byteCount, 0L),
-                        capacity,
+			capacity,
 			0L
 		)
 	}
