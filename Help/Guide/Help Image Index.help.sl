@@ -204,6 +204,7 @@
   1. ![](Help/Image/arcSinh-A.svg)
   2. ![](Help/Image/arcSinh-B.png)
   3. ![](Help/Image/arcSinh-C.svg)
+  4. ![](Help/Image/arcSinh-D.svg)
 - `arcTan`
   1. ![](Help/Image/arcTan-A.svg)
   2. ![](Help/Image/arcTan-B.png)
@@ -481,6 +482,8 @@
   1. ![](Help/Image/binCounts-A.svg)
   2. ![](Help/Image/binCounts-B.svg)
   3. ![](Help/Image/binCounts-C.svg)
+- `binetsFormula`
+  1. ![](Help/Image/binetsFormula-A.svg)
 - `binomial`
   1. ![](Help/Image/binomial-A.svg)
   2. ![](Help/Image/binomial-B.svg)
@@ -1051,6 +1054,8 @@
 - `completeKaryTree`
   1. ![](Help/Image/completeKaryTree-A.svg)
   2. ![](Help/Image/completeKaryTree-B.svg)
+- `ComplexInterval`
+  1. ![](Help/Image/ComplexInterval-A.svg)
 - `complexListPlot`
   1. ![](Help/Image/complexListPlot-A.svg)
   2. ![](Help/Image/complexListPlot-B.svg)
@@ -1628,6 +1633,8 @@
   3. ![](Help/Image/doudnaSequence-C.svg)
   4. ![](Help/Image/doudnaSequence-D.svg)
   5. ![](Help/Image/doudnaSequence-E.svg)
+- `doWithBreak`
+  1. ![](Help/Image/doWithBreak-A.svg)
 - `downsample`
   1. ![](Help/Image/downsample-A.svg)
   2. ![](Help/Image/downsample-B.svg)
@@ -3058,13 +3065,12 @@
   2. ![](Help/Image/isGreen-B.svg)
 - `isGrey`
   1. ![](Help/Image/isGrey-A.svg)
-- `isInteger`
-  1. ![](Help/Image/isInteger-A.svg)
-  2. ![](Help/Image/isInteger-B.svg)
-  3. ![](Help/Image/isInteger-C.svg)
-  4. ![](Help/Image/isInteger-D.svg)
-  5. ![](Help/Image/isInteger-E.svg)
-  6. ![](Help/Image/isInteger-F.svg)
+- `isIntegerValuedNumber`
+  1. ![](Help/Image/isIntegerValuedNumber-A.svg)
+  2. ![](Help/Image/isIntegerValuedNumber-B.svg)
+  3. ![](Help/Image/isIntegerValuedNumber-C.svg)
+  4. ![](Help/Image/isIntegerValuedNumber-D.svg)
+  5. ![](Help/Image/isIntegerValuedNumber-E.svg)
 - `isInvolutoryMatrix`
   1. ![](Help/Image/isInvolutoryMatrix-A.svg)
 - `isLesserTwinPrime`
@@ -3075,6 +3081,8 @@
   1. ![](Help/Image/isMagenta-A.svg)
 - `isMixed`
   1. ![](Help/Image/isMixed-A.svg)
+- `isNearInteger`
+  1. ![](Help/Image/isNearInteger-A.svg)
 - `isOdd`
   1. ![](Help/Image/isOdd-A.svg)
   2. ![](Help/Image/isOdd-B.svg)
@@ -3753,6 +3761,7 @@
   5. ![](Help/Image/Map-E.svg)
   6. ![](Help/Image/Map-F.svg)
   7. ![](Help/Image/Map-G.png)
+  8. ![](Help/Image/Map-H.svg)
 - `markovNumberTree`
   1. ![](Help/Image/markovNumberTree-A.svg)
 - `martinMap`
@@ -4623,6 +4632,7 @@
   11. ![](Help/Image/polarPlot-K.svg)
   12. ![](Help/Image/polarPlot-L.svg)
   13. ![](Help/Image/polarPlot-M.svg)
+  14. ![](Help/Image/polarPlot-N.svg)
 - `politeness`
   1. ![](Help/Image/politeness-A.svg)
 - `Polygon`
@@ -5488,6 +5498,8 @@
 - `serpentineCurve`
   1. ![](Help/Image/serpentineCurve-A.svg)
   2. ![](Help/Image/serpentineCurve-B.svg)
+- `Set`
+  1. ![](Help/Image/Set-A.svg)
 - `setharesDissonance`
   1. ![](Help/Image/setharesDissonance-A.svg)
 - `setPartition`
@@ -5774,6 +5786,7 @@
   8. ![](Help/Image/sqrt-H.svg)
   9. ![](Help/Image/sqrt-I.svg)
   10. ![](Help/Image/sqrt-J.svg)
+  11. ![](Help/Image/sqrt-K.svg)
 - `square`
   1. ![](Help/Image/square-A.svg)
   2. ![](Help/Image/square-B.svg)
@@ -6533,6 +6546,8 @@
   8. ![](Help/Image/WeavingInformationFile-H.png)
   9. ![](Help/Image/WeavingInformationFile-I.png)
   10. ![](Help/Image/WeavingInformationFile-J.svg)
+- `wedderburnEtheringtonNumbers`
+  1. ![](Help/Image/wedderburnEtheringtonNumbers-A.svg)
 - `WeibullDistribution`
   1. ![](Help/Image/WeibullDistribution-A.svg)
   2. ![](Help/Image/WeibullDistribution-B.svg)

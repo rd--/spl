@@ -55,6 +55,7 @@ Guides (A-Z):
 - `Decimal Number Syntax`
 - `Defining Methods`
 - `Defining Types`
+- `Detecting Small Integer Overflow`
 - `Dictionary Functions`
 - `Distance Functions`
 - `Divisions of the Tetrachord`
@@ -102,6 +103,7 @@ Guides (A-Z):
 - `Fourier Analysis Functions`
 - `Fraction Functions`
 - `Fraction Syntax`
+- `Fractions and Decimals`
 - `Function Guides`
 - `Further Reading`
 - `Generic Functions`
@@ -368,6 +370,7 @@ Reference (A-Z):
 - `ColumnBrowser`
 - `Compare`
 - `Complex`
+- `ComplexInterval`
 - `Cone`
 - `ContinuousMarkovProcess`
 - `Copy`
@@ -406,6 +409,7 @@ Reference (A-Z):
 - `Exception`
 - `ExponentialDistribution`
 - `ExtremeValueDistribution`
+- `F`
 - `File`
 - `FilePath`
 - `FiniteRange`
@@ -452,6 +456,8 @@ Reference (A-Z):
 - `IdentitySet`
 - `Image`
 - `ImageViewer`
+- `ImplicitFloat`
+- `ImplicitInteger`
 - `Indices`
 - `InfiniteLine`
 - `InfinitePlane`
@@ -661,6 +667,7 @@ Reference (A-Z):
 Reference (a-z):
 
 - `aasTriangle`
+- `abbreviatedPrintString`
 - `abs`
 - `absArg`
 - `absDif`
@@ -1148,6 +1155,7 @@ Reference (a-z):
 - `circumcircle`
 - `circumference`
 - `circumflexAccent`
+- `circumflexAccentAsterisk`
 - `circumradius`
 - `circumsphere`
 - `circumtangentialTriangle`
@@ -1376,6 +1384,7 @@ Reference (a-z):
 - `decimalFraction`
 - `decimalPeriod`
 - `decimalSelvageNumber`
+- `decimalStringToScale`
 - `declareFrom`
 - `decodeB2`
 - `decodeInteger`
@@ -1531,6 +1540,7 @@ Reference (a-z):
 - `doudnaSequence`
 - `doWhileFalse`
 - `doWhileTrue`
+- `doWithBreak`
 - `downsample`
 - `downsampleSteinarsson`
 - `downToDo`
@@ -1784,6 +1794,7 @@ Reference (a-z):
 - `flipLeftRight`
 - `floatEpsilon`
 - `floatMax`
+- `floatString`
 - `floor`
 - `floorLog`
 - `fnv1aHash`
@@ -2352,6 +2363,7 @@ Reference (a-z):
 - `isIntegerPartition`
 - `isIntegerRange`
 - `isIntegerSquare`
+- `isIntegerValuedNumber`
 - `isIntersecting`
 - `isInvolution`
 - `isInvolutoryMatrix`
@@ -2393,6 +2405,7 @@ Reference (a-z):
 - `isMutuallyOrthogonalLatinSquareSet`
 - `isNaN`
 - `isNarcissisticNumber`
+- `isNearInteger`
 - `isNecklace`
 - `isNegative`
 - `isNegativeZero`
@@ -2455,6 +2468,7 @@ Reference (a-z):
 - `isQuotationMark`
 - `isRadixIntegerString`
 - `isRational`
+- `isRealValuedNumber`
 - `isRed`
 - `isRefactorableNumber`
 - `isRegular`
@@ -3449,7 +3463,6 @@ Reference (a-z):
 - `printString`
 - `printStringHexadecimal`
 - `printStringLimitedTo`
-- `decimalStringToScale`
 - `printStringWithCommas`
 - `prismGraph`
 - `procacciaSchuster`
@@ -3511,6 +3524,7 @@ Reference (a-z):
 - `radius`
 - `radixSort`
 - `radixSortMatrix`
+- `radixString`
 - `ragisma`
 - `rahnNormalForm`
 - `rahnPrimeForm`
@@ -3579,6 +3593,7 @@ Reference (a-z):
 - `realDigits`
 - `realExponent`
 - `realImaginary`
+- `realToComplex`
 - `recamanSequence`
 - `reciprocal`
 - `reciprocalFibonacciConstant`

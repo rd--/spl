@@ -461,20 +461,20 @@
 		(self / 2).standardNormalDistributionInverseCdf.- / 2.sqrt
 	}
 
-	isBetweenUsing { :self :interval :aBlock/2 |
-		self.isBetweenUsing(
-			interval.min,
-			interval.max,
-			aBlock/2
-		)
-	}
-
 	isBetween { :self :interval |
 		self.isBetweenUsing(interval, <=)
 	}
 
 	isBetween { :self :min :max |
 		self.isBetweenUsing(min, max, <=)
+	}
+
+	isBetweenUsing { :self :interval :aBlock/2 |
+		self.isBetweenUsing(
+			interval.min,
+			interval.max,
+			aBlock/2
+		)
 	}
 
 	isBetweenUsing { :self :min :max :aBlock/2 |

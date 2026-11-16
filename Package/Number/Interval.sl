@@ -294,16 +294,16 @@ Interval : [Object, Store, Equal, Compare, Number] {
 
 +List {
 
-	[intervalOrComplexInterval, --] { :self :operand |
-		operand.adaptToCollectionAndApply(self, --)
-	}
-
 	Interval { :self :operand |
 		operand.adaptToCollectionAndApply(self, Interval/2)
 	}
 
 	centeredInterval { :center :range |
 		range.adaptToCollectionAndApply(center, centeredInterval/2)
+	}
+
+	[intervalOrComplexInterval, --] { :self :operand |
+		operand.adaptToCollectionAndApply(self, --)
 	}
 
 }

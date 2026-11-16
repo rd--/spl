@@ -57,6 +57,10 @@ ComplexInterval : [Object, Store, Equal] {
 		}
 	}
 
+	endPoints { :self |
+		[self.lowerLeft, self.upperRight]
+	}
+
 	includes { :self :operand |
 		operand.isBetweenUsing(self.lowerLeft, self.upperRight, precedesOrEqual/2)
 	}
@@ -86,10 +90,6 @@ ComplexInterval : [Object, Store, Equal] {
 
 	[lowerBound, infimum] { :self |
 		self.lowerLeft
-	}
-
-	endPoints { :self |
-		[self.lowerLeft, self.upperRight]
 	}
 
 	printString { :self |
