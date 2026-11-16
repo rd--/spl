@@ -53,6 +53,23 @@ Read the _OEIS_ references at the `binomial` help file:
 ['A054532' 'A054533' 'A054534' 'A054535']
 ```
 
+Run the documentation tests at the `bitXor` help file:
+
+```
+>>> system.readHelpFile('bitXor')
+>>> .terseReferenceEntry(
+>>> 	['verboseLevel': 0]
+>>> )
+[15 15 0]
+```
+
+Write the image files at the `kroneckerSymbol` help file:
+
+~~~spl console
+system.readHelpFile('kroneckerSymbol')
+.writeImageFiles
+~~~
+
 * * *
 
 See also: HelpFile

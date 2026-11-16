@@ -14,7 +14,7 @@ reading options from the dictionary _d_.
 >>> 	fileName.fileUrl,
 >>> 	text
 >>> ).terseReferenceEntry(
->>> 	(verboseLevel: 0)
+>>> 	['verboseLevel': 0]
 >>> )
 [4, 4, 0]
 ```

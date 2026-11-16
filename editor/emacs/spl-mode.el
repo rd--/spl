@@ -66,6 +66,20 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
   (let ((rgx (concat "^" (region-or-thing-at-point 'symbol) "\\.help\\.sl$")))
     (spl-find-files (concat spl-directory "Help/") rgx)))
 
+(defun spl-run-tests-and-write-images-for-topic (topic)
+  (spl-eval-string
+   (concat
+    (format "let h = system.readHelpFile('%s');" topic)
+    "let r = h.terseReferenceEntry(['verboseLevel': 0]);"
+    "h.writeImageFiles;"
+    "r.printLine")))
+
+(defun spl-help-run ()
+  "Run the documentation tests and rebuild the images for the topic at point."
+  (interactive)
+  (spl-run-tests-and-write-images-for-topic
+   (region-or-thing-at-point 'symbol)))
+
 (defvar spl-help-local-url-prefix "http://localhost/rd/index.cgi"
   "The Spl local help browser Url prefix.")
 
