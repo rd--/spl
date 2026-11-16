@@ -98,3 +98,6 @@ sort-guides:
 
 sort-see-also:
 	python3 utilities/sort-see-also.py Help/*/*.sl
+
+renumber-image-identifiers:
+	python3 utilities/renumber-image-identifiers.py Help/*/*.help.sl

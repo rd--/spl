@@ -146,7 +146,7 @@ however points exchange places:
 
 The circle inversions of an annular Steiner chain is another Steiner chain:
 
-~~~spl svg=E
+~~~spl svg=D
 let a = Circle([-2 0], 1);
 let b = 9.annularSteinerChain(
 	[0 0],
@@ -156,7 +156,7 @@ let c = b.circleInversion(a);
 [a b c]
 ~~~
 
-![](Help/Image/circleInversion-E.svg)
+![](Help/Image/circleInversion-D.svg)
 
 * * *
 

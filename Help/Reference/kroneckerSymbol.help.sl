@@ -479,13 +479,13 @@ OEIS [A175629](https://oeis.org/A175629):
 Kronecker symbol _7/n_,
 OEIS [A089509](https://oeis.org/A089509):
 
-~~~spl svg=Q oeis=A089509
+~~~spl svg=R oeis=A089509
 1:65.collect { :n |
 	n.kroneckerSymbol(7)
 }.discretePlot
 ~~~
 
-![](Help/Image/kroneckerSymbol-Q.svg)
+![](Help/Image/kroneckerSymbol-R.svg)
 
 * * *
 

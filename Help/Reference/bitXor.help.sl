@@ -360,7 +360,7 @@ A variant of the Van Eck sequence,
 c.f. `vanEckSequence`,
 OEIS [A340488](http://oeis.org/A340488):
 
-~~~spl svg=O oeis=A340488
+~~~spl svg=N oeis=A340488
 let a = [0];
 let r = [0];
 0.toDo(250) { :n |
@@ -376,24 +376,24 @@ let r = [0];
 a.scatterPlot
 ~~~
 
-![](Help/Image/bitXor-O.svg)
+![](Help/Image/bitXor-N.svg)
 
 Nim-sum table,
 lower left triangle,
 read by rows,
 OEIS [A051933](https://oeis.org/A051933):
 
-~~~spl svg=P oeis=A051933
+~~~spl svg=O oeis=A051933
 0:19.triangularArray(bitXor/2)
 .catenate.scatterPlot
 ~~~
 
-![](Help/Image/bitXor-P.svg)
+![](Help/Image/bitXor-O.svg)
 
 Sprague-Grundy value for Grundy’s game when starting with _n_ tokens,
 OEIS [A002188](https://oeis.org/A002188):
 
-~~~spl svg=Q oeis=A002188
+~~~spl svg=P oeis=A002188
 let k = 200;
 let a = List(k + 2, 0);
 0.toDo(k) { :i |
@@ -408,12 +408,12 @@ let a = List(k + 2, 0);
 a.allButLast.scatterPlot
 ~~~
 
-![](Help/Image/bitXor-Q.svg)
+![](Help/Image/bitXor-P.svg)
 
 Logical convolution,
 OEIS [A142149](https://oeis.org/A142149):
 
-~~~spl svg=R oeis=A142149
+~~~spl svg=Q oeis=A142149
 0:200.collect { :n |
 	n.isOdd.if {
 		n
@@ -423,7 +423,7 @@ OEIS [A142149](https://oeis.org/A142149):
 }.discretePlot
 ~~~
 
-![](Help/Image/bitXor-R.svg)
+![](Help/Image/bitXor-Q.svg)
 
 Exclusive or of _n_ and _2n_,
 reversing binary representation of _-n_,
@@ -431,57 +431,57 @@ OEIS [A048724](https://oeis.org/A048724),
 also
 OESI [A048726](https://oeis.org/A048726) when multiplied by two:
 
-~~~spl svg=S oeis=A048724
+~~~spl svg=R oeis=A048724
 0:127.collect { :n |
 	n.bitXor(2 * n)
 }.scatterPlot
 ~~~
 
-![](Help/Image/bitXor-S.svg)
+![](Help/Image/bitXor-R.svg)
 
 Exclusive or of _n_ and _4n_,
 OEIS [A048725](https://oeis.org/A048725):
 
-~~~spl svg=T oeis=A048725
+~~~spl svg=S oeis=A048725
 0:127.collect { :n |
 	n.bitXor(4 * n)
 }.scatterPlot
 ~~~
 
-![](Help/Image/bitXor-T.svg)
+![](Help/Image/bitXor-S.svg)
 
 Reversing binary representation of _n_,
 OEIS [A065621](https://oeis.org/A065621):
 
-~~~spl svg=U oeis=A065621
+~~~spl svg=T oeis=A065621
 0:127.collect { :n |
 	n.bitXor(2 * n + 1)
 }.scatterPlot
 ~~~
 
-![](Help/Image/bitXor-U.svg)
+![](Help/Image/bitXor-T.svg)
 
 Difference betwen _3n_ and exclusive or of _n_ and _2n_,
 OEIS [A048728](https://oeis.org/A048728):
 
-~~~spl svg=V oeis=A048728
+~~~spl svg=U oeis=A048728
 0:127.collect { :n |
 	(3 * n) - n.bitXor(2 * n)
 }.scatterPlot
 ~~~
 
-![](Help/Image/bitXor-V.svg)
+![](Help/Image/bitXor-U.svg)
 
 _n⊻P(n)_,
 OEIS [A070883](https://oeis.org/A070883):
 
-~~~spl svg=W oeis=A070883
+~~~spl svg=V oeis=A070883
 1:85.collect { :n |
 	n.bitXor(n.prime)
 }.scatterPlot
 ~~~
 
-![](Help/Image/bitXor-W.svg)
+![](Help/Image/bitXor-V.svg)
 
 * * *
 
