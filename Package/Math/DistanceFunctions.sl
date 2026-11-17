@@ -21,7 +21,7 @@
 	}
 
 	cosineDistance { :u :v |
-		1 - (u.dot(v) / (u.norm * v.norm))
+		1.0 - (u.dot(v) / (u.norm * v.norm))
 	}
 
 	cosineSimilarity { :u :v |
@@ -84,9 +84,9 @@
 	hammingDistance { :self :other |
 		let size = self.size.min(other.size);
 		let count = (self.size - other.size).abs;
-		1.toDo(size) { :index |
+		1L.toDo(size) { :index |
 			(self[index] != other[index]).ifTrue {
-				count := count + 1
+				count := count + 1L
 			}
 		};
 		count
@@ -95,14 +95,14 @@
 	jaccardDissimilarity { :u :v |
 		let k = u.size;
 		(v.size = k).if {
-			let a = 0;
-			let b = 0;
+			let a = 0L;
+			let b = 0L;
 			u.withDo(v) { :i :j |
 				(i != j).ifTrue {
-					a := a + 1
+					a := a + 1L
 				};
 				(i.Boolean.not & { j.Boolean.not }).ifTrue {
-					b := b + 1
+					b := b + 1L
 				}
 			};
 			a / (k - b)
@@ -113,7 +113,7 @@
 
 	leeDistance { :x :y :q |
 		let n = x.size;
-		1.to(n).sum { :i |
+		1L.to(n).sum { :i |
 			let z = (x[i] - y[i]).abs;
 			min(z, q - z)
 		}
@@ -131,21 +131,21 @@
 		).if {
 			self.size
 		} {
-			let matrix = (other.size + 1).iota(0, 1);
-			1.toDo(self.size) { :xIndex |
-				let corner = xIndex - 1;
-				matrix[1] := xIndex - 1;
-				1.toDo(other.size) { :yIndex |
-					let upper = matrix[yIndex + 1];
-					matrix[yIndex + 1] := equalityBlock(self[xIndex], other[yIndex]).if {
+			let matrix = (other.size + 1L).iota(0L, 1L);
+			1L.toDo(self.size) { :xIndex |
+				let corner = xIndex - 1L;
+				matrix[1L] := xIndex - 1L;
+				1L.toDo(other.size) { :yIndex |
+					let upper = matrix[yIndex + 1L];
+					matrix[yIndex + 1L] := equalityBlock(self[xIndex], other[yIndex]).if {
 						corner
 					} {
-						[upper, corner, matrix[yIndex]].min + 1
+						[upper, corner, matrix[yIndex]].min + 1L
 					};
 					corner := upper
 				}
 			};
-			matrix[other.size + 1]
+			matrix[other.size + 1L]
 		}
 	}
 

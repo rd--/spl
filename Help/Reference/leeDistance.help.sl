@@ -5,18 +5,18 @@
 Answer the Lee distance between the sequences _x_ and _y_.
 
 ```
->>> let x = [3 1 4 0];
->>> let y = [2 5 4 3];
->>> let q = 6;
+>>> let x = [3L 1L 4L 0L];
+>>> let y = [2L 5L 4L 3L];
+>>> let q = 6L;
 >>> let z = (x - y).abs;
 >>> (
 >>> 	x.leeDistance(y, q),
 >>> 	z.min(q - z).sum
 >>> )
-(6, 6)
+(6L, 6L)
 
->>> [1 2 3].leeDistance([3 2 1], 3)
-2
+>>> [1L 2L 3L].leeDistance([3L 2L 1L], 3L)
+2L
 ```
 
 * * *

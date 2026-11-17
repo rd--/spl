@@ -9,42 +9,42 @@ Identity:
 
 ```
 >>> [1 2 3].levenshteinDistance([1 2 3])
-0
+0L
 ```
 
 Substitution at end:
 
 ```
 >>> [1 2 3].levenshteinDistance([1 2 -3])
-1
+1L
 ```
 
 Deletion from end:
 
 ```
 >>> [1 2 3].levenshteinDistance([1 2])
-1
+1L
 ```
 
 Addition at end:
 
 ```
 >>> [1 2].levenshteinDistance([1 2 3])
-1
+1L
 ```
 
 Addition in interior:
 
 ```
 >>> [1 3].levenshteinDistance([1 2 3])
-1
+1L
 ```
 
 Deletion from interior:
 
 ```
 >>> [1 2 3].levenshteinDistance([1 3])
-1
+1L
 ```
 
 At `String`:
@@ -53,33 +53,33 @@ At `String`:
 >>> 'uninformed'.levenshteinDistance(
 >>> 	'uniformed'
 >>> )
-1
+1L
 
 >>> 'boats'.levenshteinDistance(
 >>> 	'float'
 >>> )
-3
+3L
 ```
 
 Substitutions:
 
 ```
 >>> [1 2 3].levenshteinDistance([1 3 2])
-2
+2L
 ```
 
 Compute distance between strings of unequal length:
 
 ```
 >>> 'abcdef'.levenshteinDistance('cba')
-5
+5L
 ```
 
 Levenshtein distance treats transposition as separate deletion and insertion operations:
 
 ```
 >>> 'ac'.levenshteinDistance('ca')
-2
+2L
 ```
 
 * * *

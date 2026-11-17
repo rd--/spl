@@ -7,7 +7,7 @@
 	}
 
 	E { :self :aNumber |
-		self * (10 ^ aNumber)
+		self * (10L ^ aNumber)
 	}
 
 	[Float, F] { :self |

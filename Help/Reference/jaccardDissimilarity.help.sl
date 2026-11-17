@@ -29,17 +29,17 @@ Compute dissimilarity between any 0, 1 vectors of equal length:
 >>> let u = r.randomSmallInteger([0 1], 1000);
 >>> let v = r.randomSmallInteger([0 1], 1000);
 >>> u.jaccardDissimilarity(v)
-281/418
+521/775
 ```
 
 Jaccard dissimilarity is bounded by 0 and 1:
 
 ```
 >>> [1 1 1 1].jaccardDissimilarity([1 1 1 1])
-0
+0/1
 
 >>> [0 0 0 0].jaccardDissimilarity([1 1 1 1])
-1
+1/1
 ```
 
 * * *

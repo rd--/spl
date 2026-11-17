@@ -6,7 +6,7 @@
 			[
 				((z - b) * x) - (d * y),
 				(d * x) + ((z - b) * y),
-				c + (a * z) - (z.cube / 3) - ((x.square + y.square) * (1 + (e * z))) + (f * z * x.cube)
+				c + (a * z) - (z.cube / 3.0) - ((x.square + y.square) * (1.0 + (e * z))) + (f * z * x.cube)
 			]
 		}
 	}
@@ -17,7 +17,7 @@
 			[
 				y,
 				z,
-				0 - (a * x) - (b * y) - z + (c * x.cube)
+				0.0 - (a * x) - (b * y) - z + (c * x.cube)
 			]
 		}
 	}
@@ -50,18 +50,18 @@
 		let [m1, m2] = m;
 		{ :t :v |
 			let [theta1, omega1, theta2, omega2] = v;
-			let a = g * ((2 * m1) + m2) * sin(theta1);
-			let b = g * m2 * sin(theta1 - (2 * theta2));
-			let c = 2 * m2 * (omega2 ^ 2) * l2 * sin(theta1 - theta2);
-			let d = m2 * (omega1 ^ 2) * l1 * sin(2 * (theta1 - theta2));
-			let e = (2 * m1) + m2 - (m2 * cos(2 * (theta1 - theta2)));
-			let f = (m1 + m2) * (omega1 ^ 2) * l1;
+			let a = g * ((2.0 * m1) + m2) * sin(theta1);
+			let b = g * m2 * sin(theta1 - (2.0 * theta2));
+			let c = 2.0 * m2 * (omega2 ^ 2.0) * l2 * sin(theta1 - theta2);
+			let d = m2 * (omega1 ^ 2) * l1 * sin(2.0 * (theta1 - theta2));
+			let e = (2.0 * m1) + m2 - (m2 * cos(2.0 * (theta1 - theta2)));
+			let f = (m1 + m2) * (omega1 ^ 2.0) * l1;
 			let h = g * (m1 + m2) * cos(theta1);
-			let i = m2 * (omega2 ^ 2) * l2 * cos(theta1 - theta2);
-			let j = 2 * sin(theta1 - theta2);
+			let i = m2 * (omega2 ^ 2.0) * l2 * cos(theta1 - theta2);
+			let j = 2.0 * sin(theta1 - theta2);
 			[
 				omega1,
-				(0 - a - b - c - d) / (l1 * e),
+				(0.0 - a - b - c - d) / (l1 * e),
 				omega2,
 				((f + h + i) * j) / (l2 * e)
 			]
@@ -73,7 +73,7 @@
 			let [x, y] = v;
 			[
 				y,
-				x - (x ^ 3) - (delta * y) + (gamma * (omega * t).cos)
+				x - (x ^ 3.0) - (delta * y) + (gamma * (omega * t).cos)
 			]
 		}
 	}
@@ -84,8 +84,8 @@
 			[
 				px,
 				py,
-				0 - x - (lambda * 2 * x * y),
-				0 - y - (lambda * ((x * x) - (y * y)))
+				0.0 - x - (lambda * 2.0 * x * y),
+				0.0 - y - (lambda * ((x * x) - (y * y)))
 			]
 		}
 	}
@@ -106,7 +106,7 @@
 			let [x, y] = v;
 			[
 				(alpha * x) - (beta * x * y),
-				0 - (gamma * y) + (delta * x * y)
+				0.0 - (gamma * y) + (delta * x * y)
 			]
 		}
 	}
@@ -115,9 +115,9 @@
 		{ :t :v |
 			let [x, y, z] = v;
 			[
-				0 - y + (x * z),
+				0.0 - y + (x * z),
 				x,
-				alpha * ((x * x) - 1)
+				alpha * ((x * x) - 1.0)
 			]
 		}
 	}
@@ -141,7 +141,7 @@
 		{ :t :v |
 			let [x, y, z] = v;
 			[
-				0 - y - z,
+				0.0 - y - z,
 				x + (a * y),
 				b + (z * (x - c))
 			]
@@ -152,9 +152,9 @@
 		{ :t :v |
 			let [x, y, z] = v;
 			[
-				0 - (k * x) + (a * y) - (y * z),
+				0.0 - (k * x) + (a * y) - (y * z),
 				x,
-				0 - z + (y * y)
+				0.0 - z + (y * y)
 			]
 		}
 	}
@@ -164,7 +164,7 @@
 			let [x, y] = v;
 			[
 				y,
-				(mu * (1 - (x ^ 2)) * y) - x
+				(mu * (1.0 - (x ^ 2.0)) * y) - x
 			]
 		}
 	}

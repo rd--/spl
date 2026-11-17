@@ -11,7 +11,7 @@ Cosine distance between numeric vectors:
 
 ```
 >>> [1 2 3].cosineDistance([3 5 7])
-(1 - (17 * (2 / 581).sqrt))
+(1.0 - (17.0 * (2.0 / 581.0).sqrt))
 
 >>> [1 5 2 3 10].cosineDistance([4 15 20 5 5])
 0.40629
