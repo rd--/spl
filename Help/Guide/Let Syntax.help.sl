@@ -125,38 +125,38 @@ A gensym-ed private name is used to store the initial value, and that name is us
 This syntax can make programs that declare many variables, or that comment on variables between each declaration, clearer to read.
 The program below is by James McCartney and is taken from the SuperCollider2 documentation.
 
-```
-/* ten voices of a random sine percussion sound */
+~~~spl syn=A
+/* Ten voices of a random sine percussion sound */
 let s = {
 	resonz(
-		dust(0.2) * 50,
-		rand(200, 3200),
+		dust(0.2) * 50.0,
+		rand(200.0, 3200.0),
 		0.003
 	)
 } !+ 10;
-/* reverb predelay time */
+/* Reverb predelay time */
 let z = delayC(s, 0.048, 0.048);
-/* seven parallel length modulated comb delays */
+/* Seven parallel length modulated comb delays */
 let y = {
 	combL(
 		z,
 		0.1,
-		lfNoise1(Rand(0, 0.1)) * 0.04 + 0.05,
-		15
+		lfNoise1(rand(0.0, 0.1)) * 0.04 + 0.05,
+		15.0
 	)
 } !+ 7;
-/* two parallel chains of four allpass delays */
+/* Two parallel chains of four allpass delays */
 4.timesRepeat {
 	y := allpassC(
 		y,
 		0.050,
-		[Rand(0, 0.050), rand(0, 0.050)],
+		[rand(0.0, 0.050), rand(0.0, 0.050)],
 		1
 	)
 };
-/* add original sound to reverb */
+/* Add original sound to reverb */
 s + (0.2 * y)
-```
+~~~
 
 Let syntax is not rewritten by the simplifier:
 
@@ -169,6 +169,4 @@ let x = 1; x
 
 See also: =, _, let
 
-Guides: List Assignment Syntax, Temporary Block Syntax, Var Syntax
-
-Categories: Syntax
+Guides: List Assignment Syntax, Temporary Block Syntax, Syntax Guides

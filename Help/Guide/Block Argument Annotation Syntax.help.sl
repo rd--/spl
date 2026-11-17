@@ -1,4 +1,8 @@
-# Block Type Annotation Syntax
+# Block Argument Annotation Syntax
+
+This syntax allows arguments to blocks _x,y…_ to be annotated with an upper-case identifier _T,U…_.
+The annotation is applied to the argument before the block body proper.
+Not all arguments need have annotations.
 
 Rewrite rules:
 

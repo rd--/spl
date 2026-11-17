@@ -43,6 +43,23 @@ Collects over lists:
 [1 0; -2 0; 0 1]
 ```
 
+The square is the only regular polygon that can have integer coordinates:
+
+```
+>>> [1 0; 1 1/2.pi; 1 1.pi; 1 3/2.pi]
+>>> .fromPolarCoordinates
+[1 0; 0 1; -1 0; 0 -1]
+
+>>> let theta = [0 1 2 3].pi / 2;
+>>> [theta.cos, theta.sin]
+[1 0 -1 0; 0 1 0 -1]
+
+>>> let r = 2.sqrt;
+>>> [r 1/4.pi; r 3/4.pi; r 5/4.pi; r 7/4.pi]
+>>> .fromPolarCoordinates
+[1 1; -1 1; -1 -1; 1 -1]
+```
+
 Evaluate symbolically:
 
 ```

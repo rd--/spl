@@ -1,4 +1,4 @@
-# Var Syntax
+# Experimental Var Syntax
 
 - _var t₁, t₂…;_
 
@@ -10,7 +10,7 @@ each initialized to `nil`.
 let x = nil; let y = nil;
 ```
 
-It is a part of `Block Syntax` and `Program Syntax`.
+It is a part of `Program Syntax`.
 
 ```
 >>> var x, y;

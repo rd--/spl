@@ -10,7 +10,6 @@
 - `Program Syntax`
 - `String Syntax`
 - `Value Apply Syntax`
-- `Var Syntax`
 - `Type Definition Syntax`
 
 ## Standard Syntax
@@ -18,7 +17,7 @@
 - `Apply Syntax`
 - `Arity Syntax`
 - `Binary Operator Syntax`
-- `Block Type Annotation Syntax`
+- `Block Argument Annotation Syntax`
 - `Comment Syntax`
 - `Dot Assignment Syntax`
 - `Let Syntax`
@@ -79,6 +78,7 @@
 - `Experimental Slot Access Syntax`
 - `Experimental Symbol Literals`
 - `Experimental Trailing Record Syntax`
+- `Experimental Var Syntax`
 
 * * *
 

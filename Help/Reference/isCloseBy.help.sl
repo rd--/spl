@@ -9,10 +9,10 @@ else `false`.
 At `Float`:
 
 ```
->>> 1.isCloseBy(1.001, 1E-3)
+>>> 1.0.isCloseBy(1.001, 1.0E-3)
 true
 
->>> 1.isCloseBy(1.01, 1E-3)
+>>> 1.0.isCloseBy(1.01, 1.0E-3)
 false
 ```
 
@@ -21,31 +21,34 @@ so that a million is close to a million and one,
 but one is not close to two:
 
 ```
->>> 1E6.isCloseBy(1E6 + 1, 1E-3)
+>>> 1E6.isCloseBy(1.0E6 + 1.0, 1.0E-3)
 true
 
->>> 1.isCloseBy(2, 1E-3)
+>>> 1.0.isCloseBy(2.0, 1.0E-3)
 false
 ```
 
 A `Float` can be close to a `Integer`:
 
 ```
->>> 1.001.isCloseBy(1L, 1E-3)
+>>> 1.001.isCloseBy(1L, 1.0E-3)
 true
 ```
 
 A `Number` is not close to a `String`:
 
 ```
->>> 1.isCloseBy('1', 1E-3)
+>>> 1.0.isCloseBy('1', 1.0E-3)
 false
 ```
 
 Threads over lists:
 
 ```
->>> [1 2 3].isCloseBy([1.001 2 3.01], 1E-3)
+>>> [1.0 2.0 3.0].isCloseBy(
+>>> 	[1.001 2.0 3.01],
+>>> 	1.0E-3
+>>> )
 [true true false]
 ```
 

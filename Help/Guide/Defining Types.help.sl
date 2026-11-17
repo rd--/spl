@@ -17,32 +17,39 @@ _Reader_ and _writer_ methods are defined for the fields associated with the typ
 These methods have the same names as the fields.
 Reader methods have one argument, writer methods have two arguments.
 
-The expression below adds a type for representing pitch as an _(octave, pitchClass)_ tuple, with a single method _midi_.
+The expression below adds a type for representing pitch as an _(octave, pitchClass)_ tuple,
+with a methods _midi_ and _cps_.
 Note that methods are ordinary blocks and must declare their arguments.
 In some contexts the convention of naming the receiver _self_ is followed.
 Note also that slot access is mediated by the reader blocks, even for methods associated with the type.
 
-```
+~~~spl definition
 OctPc : [Object] { | octave pitchClass |
+	cps { :self |
+		self.midi.midiCps
+	}
 	midi { :self |
-		self.octave + 1 * 12 + self.pitchClass
+		(self.octave + 1)
+		* 12
+		+ self.pitchClass
 	}
 }
 
 +@Number {
 	OctPc { :oct :pc |
-		newOctPc().initializeSlots(oct, pc)
+		newOctPc()
+		.initializeSlots(oct, pc)
 	}
 }
-```
+~~~
 
 When this expression is evaluated the type and associated methods are added to the system.
 
 The expression below constructs an _OctPc_ value and calls the _midi_ method.
 
-```
-sinOsc(OctPc(4, 9).midi.midiCps, 0) * 0.1
-```
+~~~spl syn=A
+sinOsc(OctPc(4, 9).cps, 0) * 0.1
+~~~
 
 _Rationale:_
 The _constructor_ and _initializer_ are distinct because there is no rule for deciding what type or trait a combined block should be instantiated at.

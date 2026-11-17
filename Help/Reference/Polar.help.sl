@@ -30,6 +30,16 @@ Threads over lists:
 ]
 ```
 
+The square is the only regular polygon that can have integer coordinates:
+
+```
+>>> Polar(1, [0 1/2 1 3/2].pi)
+[1J0 0J1 -1J0 0J-1]
+
+>>> Polar(2.sqrt, [1 3 5 7].pi / 4)
+[1J1 -1J1 -1J-1 1J-1]
+```
+
 * * *
 
 See also: Complex, fromPolarCoordinates, toPolarCoordinates

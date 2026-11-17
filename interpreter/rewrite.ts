@@ -208,10 +208,10 @@ const asJs: ohm.ActionDict<string> = {
 	ApplySyntax(rcv, arg) {
 		return `${genName(rcv.asJs, arg.arityOf)}(${arg.asJs})`;
 	},
-	ArgumentsWithoutTypeAnnotations(arg, _vb) {
+	ArgumentsWithoutAnnotations(arg, _vb) {
 		return commaListJs(arg.children);
 	},
-	BlockWithoutTypeAnnotations(_l, arg, prm, stm, _r) {
+	BlockWithoutAnnotations(_l, arg, prm, stm, _r) {
 		const argJs = arg.asJs;
 		const prmJs = prm.asJs;
 		const stmJs = stm.asJs;
@@ -428,11 +428,11 @@ const asSl: ohm.ActionDict<string> = {
 			commaListSl(args.children.concat(trailing.children))
 		})`;
 	},
-	ArgumentsWithTypeAnnotations(a, _t, _verticalLine) {
+	ArgumentsWithAnnotations(a, _t, _verticalLine) {
 		const aList = a.children.map((x) => x.asSl);
 		return aList.join(' ');
 	},
-	ArgumentsWithoutTypeAnnotations(a, _verticalLine) {
+	ArgumentsWithoutAnnotations(a, _verticalLine) {
 		return a.children.map((x) => x.asSl).join(' ');
 	},
 	AtAllSyntax(c, i) {
@@ -463,14 +463,14 @@ const asSl: ohm.ActionDict<string> = {
 		}
 		return left;
 	},
-	BlockWithTypeAnnotations(_l, arg, prm, stm, _r) {
+	BlockWithAnnotations(_l, arg, prm, stm, _r) {
 		const argSl = arg.asSl;
 		const vBar = (argSl === '') ? '' : ' | ';
 		const argRw = arg.argumentsWithTypeAnnotation;
-		// console.debug('BlockWithTypeAnnotations', argRw);
+		// console.debug('BlockWithAnnotations', argRw);
 		return `{ ${argSl}${vBar}${prm.asSl}${argRw}${stm.asSl} }`;
 	},
-	BlockWithoutTypeAnnotations(_l, arg, prm, stm, _r) {
+	BlockWithoutAnnotations(_l, arg, prm, stm, _r) {
 		const argSl = arg.asSl;
 		const vBar = (argSl === '') ? '' : ' | ';
 		return `{ ${argSl}${vBar}${prm.asSl}${stm.asSl} }`;
@@ -906,7 +906,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 	ApplySyntax(rcv, arg) {
 		return ['Apply', rcv.asAst].concat(arg.asAst.flat(1));
 	},
-	ArgumentsWithoutTypeAnnotations(a, _p) {
+	ArgumentsWithoutAnnotations(a, _p) {
 		return ['Arguments'].concat(
 			a.children.map((x) => x.asAst),
 		);
@@ -914,7 +914,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 	Primitive(_l, s, _r) {
 		return ['Primitive', s.sourceString];
 	},
-	BlockWithoutTypeAnnotations(_l, arg, prm, stm, _r) {
+	BlockWithoutAnnotations(_l, arg, prm, stm, _r) {
 		return ['Block'].concat(
 			[
 				arg.asAst,
@@ -1027,7 +1027,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 slSemantics.addAttribute('asAst', asAst);
 
 const arityOf: ohm.ActionDict<number> = {
-	ArgumentsWithoutTypeAnnotations(names, _) {
+	ArgumentsWithoutAnnotations(names, _) {
 		return names.children.length;
 	},
 	NonEmptyParameterList(_l, sq, _r) {
@@ -1045,7 +1045,7 @@ const arityOf: ohm.ActionDict<number> = {
 slSemantics.addAttribute('arityOf', arityOf);
 
 const argumentsWithTypeAnnotation: ohm.ActionDict<string> = {
-	ArgumentsWithTypeAnnotations(a, t, _verticalLine) {
+	ArgumentsWithAnnotations(a, t, _verticalLine) {
 		const aList = a.children.map((x) => x.asSl);
 		const tList = t.children.map((x) => x.asSl);
 		const vList = aList.map((x) => x.substring(1, x.size));
@@ -1056,7 +1056,7 @@ const argumentsWithTypeAnnotation: ohm.ActionDict<string> = {
 				qList.push(`${vList[i]} := ${tList[i]}(${vList[i]}); `);
 			}
 		}
-		// console.debug('ArgumentsWithTypeAnnotations', tList, qList);
+		// console.debug('ArgumentsWithAnnotations', tList, qList);
 		return qList.join('');
 	},
 
@@ -1079,20 +1079,20 @@ function dropLastLetter(x: string): string {
 }
 
 const parametersOf: ohm.ActionDict<string[]> = {
-	ArgumentsWithTypeAnnotations(names, _types, _verticalLine) {
+	ArgumentsWithAnnotations(names, _types, _verticalLine) {
 		return names.children.map(
 			(each) => dropFirstLetter(each.sourceString),
 		);
 	},
-	ArgumentsWithoutTypeAnnotations(names, _verticalLine) {
+	ArgumentsWithoutAnnotations(names, _verticalLine) {
 		return names.children.map(
 			(each) => dropFirstLetter(each.sourceString),
 		);
 	},
-	BlockWithTypeAnnotations(_l, arg, _prm, _stm, _r) {
+	BlockWithAnnotations(_l, arg, _prm, _stm, _r) {
 		return arg.parametersOf;
 	},
-	BlockWithoutTypeAnnotations(_l, arg, _prm, _stm, _r) {
+	BlockWithoutAnnotations(_l, arg, _prm, _stm, _r) {
 		return arg.parametersOf;
 	},
 	RecordInitializerItem(lhs, rhs) {

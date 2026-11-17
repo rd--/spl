@@ -3,16 +3,7 @@
 - _v := e_
 
 Assign the value of an expression _e_ to a variable name _v_.
-Variables must be declared.
-
-```
->>> var x;
->>> x := 3;
->>> x * x
-9
-```
-
-Variables defined using `let` may be mutated:
+Variables must be declared using `let`.
 
 ```
 >>> let x = 1;
@@ -23,8 +14,6 @@ Variables defined using `let` may be mutated:
 
 * * *
 
-See also: :=, let, var
+See also: :=, let
 
-Guides: Let Syntax, Var Syntax
-
-Categories: Syntax
+Guides: Let Syntax, Syntax Guides

@@ -16,8 +16,8 @@ Fraction(3L, 4L)
 Fraction(3L, 4L)
 ```
 
-Fractions may be written using the syntax _numerator/denominator_,
-i.e. `3/4` or `2/3`.
+Fractions may be written using the syntax _n/d_,
+i.e. `3/4` or `2/3`:
 
 ```
 >>> 3/4

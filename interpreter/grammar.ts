@@ -110,11 +110,11 @@ Sl {
 	DotExpressionWithAssignmentSyntax = Primary "." selectorName ":=" Expression
 	DotExpression = Primary ("." (selectorName | operatorBound) ~("{" | ":=") NonEmptyParameterList? ~("{" | "("))+
 
-    Block = BlockWithoutTypeAnnotations | BlockWithTypeAnnotations
-	BlockWithoutTypeAnnotations = "{" ArgumentsWithoutTypeAnnotations? Primitive? Statements? "}"
-	ArgumentsWithoutTypeAnnotations = argumentName+ "|"
-	BlockWithTypeAnnotations = "{" ArgumentsWithTypeAnnotations? Primitive? Statements? "}"
-    ArgumentsWithTypeAnnotations = (argumentName uppercaseIdentifier?)+ "|"
+    Block = BlockWithoutAnnotations | BlockWithAnnotations
+	BlockWithoutAnnotations = "{" ArgumentsWithoutAnnotations? Primitive? Statements? "}"
+	ArgumentsWithoutAnnotations = argumentName+ "|"
+	BlockWithAnnotations = "{" ArgumentsWithAnnotations? Primitive? Statements? "}"
+    ArgumentsWithAnnotations = (argumentName uppercaseIdentifier?)+ "|"
 	Primitive = "<primitive:" primitiveCharacter* ">"
 	Statements = NonFinalStatement* FinalStatement
 	NonFinalStatement = (LetBinding | Expression) ";"

@@ -28,4 +28,4 @@ There is also a `Dictionary` expression syntax.
 
 * * *
 
-Gudies: Integer Syntax, List Syntax, Number Syntax, Range Literal Syntax, Range Syntax, Record Syntax, String Syntax
+Guides: Integer Syntax, List Syntax, Number Syntax, Range Literal Syntax, Range Syntax, Record Syntax, String Syntax
