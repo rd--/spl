@@ -54,12 +54,9 @@ Association : [Object, Store, Copy, Equal, Compare] {
 +List {
 
 	[Association, ->] { :self |
-		self.atVectorOrElementwise { :x |
-			(x.size = 2).if {
-				Association(x.first, x.second)
-			} {
-				x.error('List>>Association: not two-element sequence')
-			}
+		self.atVectorOrElementwise { :each |
+			let [key, value] = each;
+			Association(key, value)
 		}
 	}
 

@@ -2,7 +2,7 @@
 
 Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, Remove, Dictionary] {
 
-	Map { :self |
+	[Map, identity] { :self |
 		self
 	}
 

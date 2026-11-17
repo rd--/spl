@@ -2,7 +2,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 
 	| start stop step size |
 
-	Range { :self |
+	[Range, identity] { :self |
 		self
 	}
 

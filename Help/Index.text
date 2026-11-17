@@ -22,6 +22,7 @@ Guide/Benchmarking Functions.help.sl
 Guide/Binary Operators.help.sl
 Guide/Binary Operator Syntax.help.sl
 Guide/Bitwise Functions.help.sl
+Guide/Block Argument Annotation Syntax.help.sl
 Guide/Block Arity.help.sl
 Guide/Block Functions.help.sl
 Guide/Block Implementation.help.sl
@@ -90,6 +91,7 @@ Guide/Experimental Symbol Literals.help.sl
 Guide/Experimental Trailing Record Syntax.help.sl
 Guide/Experimental Tree Syntax.help.sl
 Guide/Experimental Value Apply Syntax.help.sl
+Guide/Experimental Var Syntax.help.sl
 Guide/Feature Detection Functions.help.sl
 Guide/Fenced Code Blocks.help.sl
 Guide/File Extensions.help.sl
@@ -289,7 +291,6 @@ Guide/Unit Generators.help.sl
 Guide/Unit Prefixes.help.sl
 Guide/Upper Case Methods.help.sl
 Guide/Value Protocol.help.sl
-Guide/Var Syntax.help.sl
 Guide/Vector Functions.help.sl
 Guide/Vector Syntax.help.sl
 Guide/Volume Syntax.help.sl

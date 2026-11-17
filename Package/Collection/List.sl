@@ -1,6 +1,6 @@
 List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, Collection, Add, Remove, Sequence, Ordered] {
 
-	[List, listToList] { :self |
+	[List, identity] { :self |
 		self
 	}
 

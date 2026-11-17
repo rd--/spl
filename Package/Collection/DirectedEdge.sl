@@ -2,16 +2,16 @@ DirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 
 	| vertexList |
 
-	Association { :self |
+	[Association, directedEdgeToAssociation] { :self |
 		let [from, to] = self.vertexList;
 		from -> to
 	}
 
-	[DirectedEdge, Edge] { :self |
+	[DirectedEdge, Edge, identity] { :self |
 		self
 	}
 
-	UndirectedEdge { :self |
+	[UndirectedEdge, directedEdgeToUndirectedEdge] { :self |
 		let [i, j] = self.vertexList;
 		UndirectedEdge(i, j)
 	}

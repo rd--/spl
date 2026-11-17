@@ -1,10 +1,10 @@
 Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collection, Add, Remove, Dictionary] {
 
-	Dictionary { :self |
+	[Dictionary, recordToDictionary] { :self |
 		Dictionary(self.associations)
 	}
 
-	Record { :self |
+	[Record, identity] { :self |
 		self
 	}
 
