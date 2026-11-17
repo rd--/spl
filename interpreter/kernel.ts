@@ -791,6 +791,10 @@ export function stringToSentences(str: string): Array<string> {
 	) || [];
 }
 
+// Spl does not promote small integers on overflow.
+// The mechanism exists to report unintended overflow.
+// It is not always on because some floating point calculations do in fact overflow.
+// The Help/Reference documentation tests do, however, run without overflow.
 export function checkSmallIntegerOverflow(
 	a: number,
 	b: number,
@@ -804,9 +808,9 @@ export function checkSmallIntegerOverflow(
 			&& !Number.isSafeInteger(x)
 	) {
 		const y = f(BigInt(a), BigInt(b));
-		//console.debug(`**** Check Small Integer Overflow: ${a} ${o} ${b} = ${x}: True answer ${y}L`);
+		console.debug(`**** Check Small Integer Overflow: ${a} ${o} ${b} = ${x}: True answer ${y}L`);
 		// throw new Error('checkSmallIntegerOverflow: overflow');
-		return y;
+		return x;
 	}*/
 	return x;
 }
@@ -838,10 +842,10 @@ export function toFloat(x: number | bigint): number {
 export function toInteger(x: number | bigint): bigint {
 	const xType = typeof x;
 	if (xType === 'number') {
-		return BigInt(x); /* x */
+		return BigInt(x);
 	}
 	if (xType === 'bigint') {
-		return x; /* Number(x) */
+		return x;
 	}
 	throw new Error(`toInteger: not Float or Integer: ${x}`);
 }

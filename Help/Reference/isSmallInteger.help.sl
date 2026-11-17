@@ -44,7 +44,7 @@ must also be a small integer:
 _2^54_ and _20!_ are integers:
 
 ```
->>> (2.0 ^ 54.0).isIeeeInteger
+>>> Float(2L ^ 54L).isIeeeInteger
 true
 
 >>> 20L.!.isInteger
@@ -54,7 +54,7 @@ true
 _2^54_ and _20!_ are not small integers:
 
 ```
->>> (2.0 ^ 54.0).isSmallInteger
+>>> Float(2L ^ 54L).isSmallInteger
 false
 
 >>> 20L.!.isSmallIntegerValuedNumber
@@ -65,7 +65,7 @@ _2^54_ is accurately represented:
 
 ```
 >>> let a = 2L ^ 54L;
->>> let b = 2.0 ^ 54.0;
+>>> let b = Float(a);
 >>> (a = b, a == b)
 (true, false)
 

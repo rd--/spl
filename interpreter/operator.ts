@@ -96,24 +96,20 @@ export const splPunctuationCharacterNameTable: Record<string, string> = {
 
 export function splPunctuationTokenName(token: string): string {
 	const words = [...token].map(
-		(letter) =>	splPunctuationCharacterNameTable[letter]
+		(letter) => splPunctuationCharacterNameTable[letter],
 	);
 	function capitalize(s: string): string {
 		return s.charAt(0).toUpperCase() + s.slice(1);
 	}
 	return words.slice(0, 1).concat(
-		words.slice(1).map(capitalize)
+		words.slice(1).map(capitalize),
 	).join('');
 }
 
 export function resolveMethodName(name: string): string {
-	return isSplOperatorToken(name)
-		? splPunctuationTokenName(name)
-		: name;
+	return isSplOperatorToken(name) ? splPunctuationTokenName(name) : name;
 }
 
 export function resolveTokenName(name: string): string {
-	return isSplPunctuationToken(name)
-		? splPunctuationTokenName(name)
-		: name;
+	return isSplPunctuationToken(name) ? splPunctuationTokenName(name) : name;
 }

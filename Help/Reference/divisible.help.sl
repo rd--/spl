@@ -135,10 +135,10 @@ Smaller numbers are not divisible by large numbers,
 although floating point calculations with approximate large numbers may suggest they are:
 
 ```
->>> 233L.divisible(133L ^ 133L)
+>>> 233L.divisible(133L ^ 133L);
 false
 
->>> 233.0 % (133.0 ^ 133.0)
+>>> 233.0 % Float(133L ^ 133L)
 0.0
 
 >>> 233L % (133L ^ 133L)

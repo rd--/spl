@@ -14,7 +14,7 @@ true
 >>> 3.141.isExact
 false
 
->>> (2.0 ^ 54.0).isExact
+>>> Float(2L ^ 54L).isExact
 false
 ```
 

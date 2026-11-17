@@ -16,7 +16,7 @@ export function evaluateForSignalling(
 	} else {
 		const jsText = rewrite.rewriteSlToJsFor(packageName, slText);
 		if (onlyBlanks(jsText)) {
-			throw new Error('Empty string after rewrite');
+			throw new Error(`Empty string after rewrite: ${slText}`);
 		} else {
 			try {
 				// console.debug(`eval: ${jsText}`);
@@ -36,7 +36,9 @@ export function evaluateFor(packageName: string, slText: string): unknown {
 		return evaluateForSignalling(packageName, slText);
 	} catch (err) {
 		const errStr = err.toString();
-		const errMsg = (err instanceof Error) ? `${errStr} -> ${err.cause}` : errStr;
+		const errMsg = (err instanceof Error)
+			? `${errStr} -> ${err.cause}`
+			: errStr;
 		console.error(
 			`evaluateFor: ${packageName}: "${slText}": ${errMsg}`,
 		);

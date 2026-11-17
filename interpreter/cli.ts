@@ -76,8 +76,6 @@ function help(): void {
 	console.log('  runFile fileName --dir=splPath [--lib=library ...]');
 	console.log('  sc playFile --dir=splPath');
 	console.log('  sc tcpServer --port=portNumber --dir=splPath');
-	console.log('    --strict');
-	console.log('    --unsafe');
 	console.log('    --verbose');
 	console.log(`    SplDirectory=${getSplDirectory()}`);
 	console.log(`    ScProtocol=Tcp`);
