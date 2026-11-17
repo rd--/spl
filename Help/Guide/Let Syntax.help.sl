@@ -169,4 +169,4 @@ let x = 1; x
 
 See also: =, _, let
 
-Guides: List Assignment Syntax, Temporary Block Syntax, Syntax Guides
+Guides: List Assignment Syntax, Syntax Guides, Temporary Block Syntax

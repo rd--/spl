@@ -23,6 +23,15 @@ It is an error if the value is not an integer:
 true
 ```
 
+It is an error if the value is not a small integer:
+
+```
+>>> {
+>>> 	SmallInteger(9007199254740992.0)
+>>> }.hasError
+true
+```
+
 At `Integer`:
 
 ```
@@ -68,7 +77,7 @@ the value must be an integer:
 true
 ```
 
-Arithmetic at small integers overflows to `Integer` as required:
+Arithmetic at small integers does not overflow to `Integer`:
 
 ```
 >>> Float(17L ^ 17L)
@@ -84,9 +93,13 @@ Arithmetic at small integers overflows to `Integer` as required:
 )
 ```
 
-However, intermediate integers are erased:
+One reason small integer overflow is not implemented is because integers are erased when adapted to floating point values,
+including small integers:
 
 ```
+>>> 23L ^ 11
+952809757913927
+
 >>> let a = 2L ^ 49L;
 >>> let b = a * 17L;
 >>> (-a, b, Float(-a - b))
@@ -121,7 +134,7 @@ _Rationale_:
 Arithmetic overflow of `SmallInteger` values is particularly confusing.
 The answers remain approximately accurate,
 and it is very easy to miss that overflow has occurred.
-The interpreter promotes answers that would overflow to the type `Integer`.
+The interpreter does not promotes answers that would overflow to the type `Integer`.
 It is possible to have the interpreter print a message when overflow occurs,
 and also to treat overflow as an error.
 The help files generally run without requiring type promotion,

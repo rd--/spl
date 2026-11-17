@@ -133,11 +133,11 @@ other radices may raise errors.
 23
 ```
 
-A large binary integer:
+A large binary small integer:
 
 ```
 >>> 2b10110111011110111110111111011111110111111110111111111
-6_455_773_865_180_671L
+6_455_773_865_180_671
 ```
 
 _Rational_:

@@ -8,11 +8,11 @@ Number Syntax Guides:
 
 - `Complex Number Syntax`
 - `Decimal Number Syntax`
+- `Float Syntax`
 - `Fraction Syntax`
 - `Integer Syntax`
 - `Number Syntax`
 - `Radix Syntax`
-- `Real Number Syntax`
 
 Type Guides:
 

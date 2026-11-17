@@ -1,15 +1,32 @@
 # Integer Syntax
 
-Integer literals evaluate to the type `Float`.
+There are a two kinds of integer values:
 
 ```
->>> 3.typeName
+>>> 23.isSmallInteger
+true
+
+>>> 23L.isInteger
+true
+```
+
+Small integer literals evaluate to the type `Float`,
+the predicate `isSmallInteger` is a refinement predicate over `isFloat`:
+
+```
+>>> 23.isFloat
+true
+
+>>> 23.typeName
 'Float'
 ```
 
-There is a `Integer` type, written with an _L_ suffix:
+The `Integer` type is written with an _L_ suffix:
 
 ```
+>>> 23L.isInteger
+true
+
 >>> 23L.typeName
 'Integer'
 ```
@@ -17,18 +34,8 @@ There is a `Integer` type, written with an _L_ suffix:
 Leading zeroes are allowed:
 
 ```
->>> [01 01L 00 00L]
-[1 1L 0 0L]
-```
-
-There is a two kinds of integer values:
-
-```
->>> 23.0.isSmallInteger
-true
-
->>> 23L.isInteger
-true
+>>> [01 01L; 00 00L]
+[1 1L; 0 0L]
 ```
 
 There is a `Radix Syntax` for specifying non-decimal integers:
@@ -64,6 +71,32 @@ including when a radix is indicated:
 
 >>> 16b12_34_56
 1193046
+```
+
+For small integer values `SmallInteger` and `Integer` give equal answers,
+except for the case of division:
+
+```
+>>> (23 + 17, 23L + 17L)
+(40, 40L)
+
+>>> (23 - 17, 23L - 17L)
+(6, 6L)
+
+>>> (23 * 17, 23L * 17L)
+(391, 391L)
+
+>>> (23 / 17, 23L / 17L)
+(1.35294, 23/17)
+
+>>> (23 % 17, 23L % 17L)
+(6, 6L)
+
+>>> (23 // 17, 23L // 17L)
+(1L, 1L)
+
+>>> (23 \\ 17, 23L \\ 17L)
+(6, 6L)
 ```
 
 * * *

@@ -14,8 +14,8 @@ Guides (A-Z):
 - `Array Functions`
 - `Array Syntax`
 - `Assertion Functions`
-- `Assignment and Equality`
 - `Assignment Syntax`
+- `Assignment and Equality`
 - `Asynchronous Functions`
 - `At Syntax`
 - `AtAll Syntax`
@@ -99,6 +99,7 @@ Guides (A-Z):
 - `File Functions`
 - `Filter Functions`
 - `Filters and Method Syntax`
+- `Float Syntax`
 - `Floating Point Functions`
 - `Fourier Analysis Functions`
 - `Fraction Functions`
@@ -221,7 +222,6 @@ Guides (A-Z):
 - `Range Functions`
 - `Range Literal Syntax`
 - `Range Syntax`
-- `Real Number Syntax`
 - `Record Assignment Syntax`
 - `Record Constructor Syntax`
 - `Record Syntax`
@@ -229,6 +229,7 @@ Guides (A-Z):
 - `Reflection Functions`
 - `Regular Expression Functions`
 - `Rounding Functions`
+- `SI Units`
 - `Scalars and Lists`
 - `Scale Functions`
 - `Scheduling Functions`
@@ -238,7 +239,6 @@ Guides (A-Z):
 - `Sequence Alignment Functions`
 - `Sequence Functions`
 - `Set Functions`
-- `SI Units`
 - `Sigmoid Functions`
 - `Signal Processing Functions`
 - `Similarity Functions`
@@ -296,11 +296,11 @@ Guides (A-Z):
 - `Vector Functions`
 - `Vector Syntax`
 - `Volume Syntax`
+- `What is Spl`
 - `What is a Protocol`
 - `What is a Trait`
 - `What is a Trigger`
 - `What is a Type`
-- `What is Spl`
 - `Why Spl`
 - `Window Functions`
 - `Workspace Variable Syntax`

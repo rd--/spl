@@ -43,6 +43,25 @@ Compare with `remainder`:
 ]
 ```
 
+Written out IEEE remainder:
+
+```
+>>> let [a, b] = [3, 2];
+>>> a - (b * round(a / b))
+-1
+```
+
+Written out remainder:
+
+```
+>>> let [a, b] = [3, 2];
+>>> (
+>>> 	abs(a)
+>>> 	 - (abs(b) * floor(abs(a) / abs(b)))
+>>> ) * sign(a)
+1
+```
+
 * * *
 
 See also: *, -, remainder, round

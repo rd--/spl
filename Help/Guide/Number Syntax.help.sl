@@ -7,7 +7,7 @@ Guides:
 - `Fraction Syntax`
 - `Integer Syntax`
 - `Radix Syntax`
-- `Real Number Syntax`
+- `Float Syntax`
 - `Scientific Notation`
 
 Numbers may be written with a sign, which is part of the literal syntax.
@@ -112,8 +112,8 @@ Underscores are allowed as separators:
 
 * * *
 
-See also: Float
+See also: Complex, Float, Fraction, Integer
 
-Guides: Complex Number Syntax, Decimal Number Syntax, Fraction Syntax, Integer Syntax, Radix Syntax, Real Number Syntax, Scientific Notation
+Guides: Complex Number Syntax, Decimal Number Syntax, Float Syntax, Fraction Syntax, Integer Syntax, Radix Syntax, Scientific Notation
 
 Categories: Syntax

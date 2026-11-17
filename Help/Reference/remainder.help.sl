@@ -3,16 +3,20 @@
 - _remainder(m, n)_
 
 Remainder defined in terms of `quotient`.
-Answers a `Number` with the same sign as _m_.
+Answers a number with the same sign as _m_.
 The operator form is `\\`.
 
 ```
 >>> 9.remainder(4)
-1
+1L
 
 >>> -9.remainder(4)
--1
+-1L
+```
 
+Non-integer operands:
+
+```
 >>> 0.9.remainder(0.5)
 0.4
 
@@ -53,13 +57,22 @@ At `Integer`:
 
 >>> 23L \\ 3.141
 1.013
+
+>>> 23L \\ 3/7
+2/7
 ```
 
 Quotient & remainder:
 
 ```
 >>> (7 // 2, 7 \\ 2)
-(3, 1)
+(3L, 1.0)
+
+>>> 7.quotientRemainder(2)
+[3L, 1.0]
+
+>>> 7L.quotientRemainder(2L)
+[3L. 1L]
 ```
 
 For two finite values _x_ and _y_,

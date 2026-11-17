@@ -59,4 +59,4 @@ false
 
 See also: Float, parseScientificNotation
 
-Guides: Parsing Functions, Predicate Functions, String Functions
+Guides: Parsing Functions, Predicate Functions, Scientific Notation, String Functions

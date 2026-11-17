@@ -15,30 +15,30 @@ and one thousandth _1E-3_.
 While in many implementations the _E_ may be written in either upper or lower case,
 Sᴘʟ requires the E be in upper case.
 
-Both integer and floating point numbers may be written in E notation,
+Both small integer and floating point numbers may be written in E notation,
 the answer is in both cases a `Float` value:
 
 ```
->>> 1E0
+>>> 1.0E0
 1
 
->>> 1E1
+>>> 1.0E1
 10
 
->>> 1E2
+>>> 1.0E2
 100
 
->>> 1E3
+>>> 1.0E3
 1000
 
->>> 1 * (10 ^ 3)
-1000
+>>> 1L * (10L ^ 3L)
+1000L
 
->>> 1E-3
+>>> 1.0E-3
 0.001
 
->>> 1 * (10 ^ -3)
-0.001
+>>> 1L * (10L ^ -3L)
+1/1000
 ```
 
 The Planck length in metres:
@@ -58,20 +58,20 @@ The Avogadro number:
 The parser does not require that _1 <= a < 10_:
 
 ```
->>> 10E2
-1E3
+>>> 10.0E2
+1.0E3
 ```
 
-Equivalent `Integer`:
+Equivalent `Integer` value:
 
 ```
->>> 1E20
+>>> 10L ^ 20L
 100000000000000000000L
 ```
 
 * * *
 
-See also: e
+See also: E, isScientificNotationString, parseScientificNotation
 
 Guides: Number Syntax, Syntax Guides
 

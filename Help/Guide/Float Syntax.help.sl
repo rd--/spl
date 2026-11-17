@@ -1,18 +1,25 @@
-# Real Number Syntax
+# Float Syntax
 
-Real numbers are ordinarily written in decimal notation and evaluate to floating point numbers.
-If a decimal point is given digits are required on both sides,
+Floating point numbers are written in decimal notation.
+Digits are required on both sides of the decimal point,
 implicit zeroes are not allowed.
 
 ```
->>> 3.141.typeName
-'Float'
+>>> 3.141.isFloat
+true
 
->>> 3.0.typeName
-'Float'
+>>> 23.0.isFloat
+true
+```
 
->>> 3.typeName
-'Float'
+There is a rarely used _F_ suffix for floating point numbers:
+
+```
+>>> 3.141F.isFloat
+true
+
+>>> 23.0F.isFloat
+true
 ```
 
 Both positive and negative signs are allowed:
@@ -24,21 +31,24 @@ true
 >>> +2.3.isPositive
 true
 
->>> +2 - -2
-4
+>>> +2.0 - -2.0
+4.0
 
->>> -2 - +2
--4
+>>> -2.0 - +2.0
+-4.0
 ```
 
 Real numbers may also be written in `Scientific Notation`:
 
 ```
->>> 1E-2
+>>> 1.0E-2
 0.01
 
 >>> 2.3E3
-2300
+2300.0
+
+>>> 3.141E0
+3.141
 ```
 
 Leading zeroes are allowed:

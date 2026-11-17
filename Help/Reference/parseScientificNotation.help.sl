@@ -61,4 +61,4 @@ true
 
 See also: Float, parseScientificNotation
 
-Guides: Parsing Functions
+Guides: Parsing Functions, Scientific Notation
