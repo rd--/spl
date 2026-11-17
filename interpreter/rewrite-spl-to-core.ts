@@ -24,6 +24,10 @@ function validateSign(x: string): string {
 	throw new Error(`validateSign: invalid sign: ${x}`);
 }
 
+function ensureFloatLiteral(x: string): string {
+	return x.includes('.') ? x : (x + '.0');
+}
+
 function genRecordAssignmentSlots(
 	withLet: boolean,
 	rhsDictionaryName: string,
@@ -407,10 +411,13 @@ const asSl: ohm.ActionDict<string> = {
 		return `Symbol('${s.sourceString}')`;
 	},
 	complexLiteral(r, _j, i) {
-		return `Complex(${r.sourceString}, ${i.sourceString})`;
+		const rStr = ensureFloatLiteral(r.sourceString);
+		const iStr = ensureFloatLiteral(i.sourceString);
+		return `Complex(${rStr}, ${iStr})`;
 	},
 	doubleQuotedStringLiteral(_l, s, _r) {
-		return `DoubleQuotedString('${s.sourceString}')`;
+		const sStr = s.sourceString;
+		return `DoubleQuotedString('${sStr}')`;
 	},
 	floatDecimalLiteral(s, i, _, f, _d, k) {
 		const sStr = s.sourceString;
@@ -436,7 +443,8 @@ const asSl: ohm.ActionDict<string> = {
 		}${n.sourceString}L, ${d.sourceString}L)`;
 	},
 	imaginaryLiteral(i, _i) {
-		return `Complex(0, ${i.sourceString})`;
+		const iStr = ensureFloatLiteral(i.sourceString);
+		return `Complex(0.0, ${iStr})`;
 	},
 	infinityLiteral(s, i) {
 		return validateSign(s.sourceString) + i.sourceString;
@@ -513,8 +521,15 @@ const asSl: ohm.ActionDict<string> = {
 	residueLiteral(i, _z, m) {
 		return `Residue(${i.sourceString}L, ${m.sourceString}L)`;
 	},
-	scientificLiteral(b, _letterE, e) {
-		return b.sourceString + 'E' + e.sourceString;
+	floatScientificLiteral(b, _letterE, e) {
+		const bStr = b.sourceString;
+		const eStr = e.sourceString;
+		return `times(${bStr}, power (10.0, ${eStr}.0))`;
+	},
+	integerScientificLiteral(b, _letterE, e) {
+		const bStr = b.sourceString;
+		const eStr = e.sourceString;
+		return `times(${bStr}L, power(10L, ${eStr}L))`;
 	},
 	singleQuotedStringLiteral(_l, s, _r) {
 		return "'" + s.sourceString + "'";
@@ -612,5 +627,6 @@ slSemantics.addAttribute('parametersOf', parametersOf);
 
 export function rewriteSlToCore(slText: string): string {
 	const slCoreText = slParse(slText).asSl;
+	// console.debug('rewriteSlToCore', slText, slCoreText);
 	return slCoreText;
 }

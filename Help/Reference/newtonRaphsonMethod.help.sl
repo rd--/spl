@@ -14,7 +14,7 @@ Implementation of `sqrt` using `newtonRaphsonMethod`:
 ```
 >>> let squareRoot = { :n |
 >>> 	newtonRaphsonMethod(
->>> 		1E-9, 1E-9, 1E4, 1.0
+>>> 		1.0E-9, 1.0E-9, 1.0E4, 1.0
 >>> 	) { :x |
 >>> 		(x ^ 2) - n
 >>> 	} { :x |
@@ -29,7 +29,7 @@ Find a non-zero solution of _x = 2 × sin(x)_:
 
 ```
 >>> newtonRaphsonMethod(
->>> 	1E-9, 1E-9, 1E4, 1.5
+>>> 	1.0E-9, 1.0E-9, 1.0E4, 1.5
 >>> ) { :x |
 >>> 	x - (2 * x.sin)
 >>> } { :x |

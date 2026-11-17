@@ -1,12 +1,25 @@
 # Radix Syntax
 
+- _mBn_
+
 By default integers are written in decimal.
 Other radices are allowed using an infix _b_ syntax.
-The _b_ must be written in lower case.
+The _B_ may be written in either upper or lower case.
 The form is _radix_,
 also called _base_,
-followed by _b_,
+followed by _B_,
 followed by the literal in the indicated radix.
+
+Rewrite rules:
+
+```
+>> '2B101010'.splSimplify
+42
+
+>> '16bF0F0F0'.splSimplify
+15790320
+```
+
 Below are equivalent ways of writing the integer twenty three
 (in binary, octal, decimal and hexadecimal):
 

@@ -323,7 +323,6 @@ Reference (A-Z):
 - `Association`
 - `At`
 - `AxonometricProjection`
-- `BacktickQuotedString`
 - `Ball`
 - `BarycentricCoordinates`
 - `BernoulliDistribution`

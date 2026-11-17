@@ -95,9 +95,6 @@ const asAst: ohm.ActionDict<SlAst> = {
 	reservedIdentifier(x) {
 		return ['ReservedIdentifier', x.sourceString];
 	},
-	scientificLiteral(b, _letterE, e) {
-		return ['Float', b.sourceString + 'E' + e.sourceString];
-	},
 	singleQuotedStringLiteral(_l, s, _r) {
 		return ['String', s.sourceString];
 	},

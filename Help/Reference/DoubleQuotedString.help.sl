@@ -3,6 +3,14 @@
 - _DoubleQuotedString(s)_
 
 The `Type` of literal strings written using double quotes.
+
+Rewrite rule:
+
+```
+>> '"x"'.splSimplify
+DoubleQuotedString('x')
+```
+
 The `unquotedString` method answers the unquoted string.
 
 ```
@@ -35,7 +43,7 @@ DoubleQuotedString('`x`')
 
 * * *
 
-See also: BacktickQuotedString, String, quotationMark
+See also: String, Symbol, quotationMark
 
 Guides: String Syntax
 

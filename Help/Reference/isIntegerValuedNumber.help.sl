@@ -61,10 +61,12 @@ values that are integers but not small integers answer `false`,
 see also `isIeeeInteger`:
 
 ```
->>> 1E50.isIntegerValuedNumber
+>>> 1.0E50
+>>> .isIntegerValuedNumber
 false
 
->>> 1E50.isIeeeInteger
+>>> 1.0E50
+>>> .isIeeeInteger
 true
 ```
 

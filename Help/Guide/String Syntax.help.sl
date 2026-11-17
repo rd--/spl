@@ -10,10 +10,12 @@ Strings are written between single quote marks, i.e. _'Single Quoted String'_.
 Strings may include double quotes and backtick quotes:
 
 ```
->>> 'Quoted "double quoted" string'.size
+>>> 'Quoted "double quoted" string'
+>>> .size
 29
 
->>> 'Quoted `backtick quoted` string'.size
+>>> 'Quoted `backtick quoted` string'
+>>> .size
 31
 ```
 
@@ -49,10 +51,12 @@ DoubleQuotedString(
 A backtick quoted string is a `Symbol`:
 
 ```
->>> `x`.isSymbol
+>>> `x`
+>>> .isSymbol
 true
 
->>> Symbol('x').isSymbol
+>>> Symbol('x')
+>>> .isSymbol
 true
 ```
 
@@ -74,20 +78,20 @@ method answers single character strings that make up the quoted string:
 At `DoubleQuotedString` the `unquotedString` method answers the unquoted string:
 
 ```
->>> "Double Quoted String".unquotedString
-'Double Quoted String'
+>>> "x".unquotedString
+'x'
 ```
 
 At `Symbol` the `name` method answers the quoted string:
 
 ```
->>> `Backtick Quoted String`.name
-'Backtick Quoted String'
+>>> `x`.name
+'x'
 ```
 
 * * *
 
-See also: BacktickQuotedString, DoubleQuotedString, String, Symbol, apostrophe, graveAccent, quotationMark
+See also: DoubleQuotedString, String, Symbol, apostrophe, graveAccent, quotationMark
 
 Guides: Literals Syntax
 

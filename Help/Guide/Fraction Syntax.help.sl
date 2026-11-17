@@ -6,7 +6,7 @@
 A `Fraction` is a number consisting of two integers,
 a numerator and a denominator.
 
-Rewrite rule:
+Rewrite rules:
 
 ```
 >> '3/4'.splSimplify

@@ -4,10 +4,11 @@ Guides:
 
 - `Complex Number Syntax`
 - `Decimal Number Syntax`
+- `Float Syntax`
 - `Fraction Syntax`
 - `Integer Syntax`
 - `Radix Syntax`
-- `Float Syntax`
+- `Residue Syntax`
 - `Scientific Notation`
 
 Numbers may be written with a sign, which is part of the literal syntax.

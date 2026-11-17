@@ -325,6 +325,16 @@ let r = [24 27 30 32 36 40 45];
 
 ![](Help/Image/quotient-G.svg)
 
+At `Float` there is a variant form to answer a `Float` value:
+
+```
+>>> 23.0.quotientFloat(7.0)
+3.0
+
+>>> 23.0.quotient(7.0)
+3L
+```
+
 At `Symbol`:
 
 ```

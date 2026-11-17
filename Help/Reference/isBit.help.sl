@@ -23,8 +23,8 @@ false
 Very close to zero but not zero or one:
 
 ```
->>> let n = 1E-53;
->>> (n.isBit, n.isVeryClose(0))
+>>> let n = 1.0E-53;
+>>> (n.isBit, n.isVeryClose(0.0))
 (false, true)
 ```
 
@@ -35,10 +35,10 @@ Threads over lists:
 [false true true false]
 ```
 
-To decide if a list has only zeroes use `allSatisfy` or `deepAllSatisfy`:
+To decide if a list has only zeroes use `allTrue` or `deepAllTrue`:
 
 ```
->>> [0 1 0].allSatisfy(isBit/1)
+>>> [0 1 0].allTrue(isBit/1)
 true
 ```
 

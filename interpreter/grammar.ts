@@ -1,6 +1,7 @@
 import ohm from 'https://unpkg.com/ohm-js@17.1.0/dist/ohm.esm.js';
 import { extras } from 'https://unpkg.com/ohm-js@17.1.0/dist/ohm.esm.js';
 
+// There is no separate "core" grammar.
 // Entries that are re-written (erased) by the simplifier are marked 'S'.
 export const slGrammarDefinition: string = String.raw`
 Sl {
@@ -58,7 +59,7 @@ Sl {
 	ScalarAssignment = varName ":=" Expression
 	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression
 	RecordAssignment = "(" NonemptyListOf<RecordInitializerItem, ","> ")" ":=" Expression
-    WorkspaceVariableAssignment = "workspace" "." varName ":=" Expression
+    WorkspaceVariableAssignment = "workspace" "." varName ":=" Expression // S
 	BinaryExpression
 		= BinaryOperatorExpression // S
 		| BinaryOperatorWithAdverbExpression // S
@@ -79,7 +80,7 @@ Sl {
 		| ApplyWithTrailingClosuresSyntax // S
 		| ApplySyntax
 		| EmptyListSyntax
-        | WorkspaceVariableReference
+        | WorkspaceVariableReference // S
 		| reservedIdentifier
 		| literal
         | arityQualifiedIdentifier
@@ -113,8 +114,8 @@ Sl {
     Block = BlockWithoutAnnotations | BlockWithAnnotations
 	BlockWithoutAnnotations = "{" ArgumentsWithoutAnnotations? Primitive? Statements? "}"
 	ArgumentsWithoutAnnotations = argumentName+ "|"
-	BlockWithAnnotations = "{" ArgumentsWithAnnotations? Primitive? Statements? "}"
-    ArgumentsWithAnnotations = (argumentName uppercaseIdentifier?)+ "|"
+	BlockWithAnnotations = "{" ArgumentsWithAnnotations? Primitive? Statements? "}" // S
+    ArgumentsWithAnnotations = (argumentName uppercaseIdentifier?)+ "|" // S
 	Primitive = "<primitive:" primitiveCharacter* ">"
 	Statements = NonFinalStatement* FinalStatement
 	NonFinalStatement = (LetBinding | Expression) ";"
@@ -185,7 +186,6 @@ Sl {
 		| systemVariableIdentifier
 	varNameOrUnused = (varName | unusedVariableIdentifier)
 	slotName = lowercaseIdentifier
-	constantName = lowercaseIdentifier
 	recordKey = lowercaseIdentifier | uppercaseIdentifier // S
 	recordKeyToken = recordKey ":" // S
 	letterOrDigit
@@ -198,51 +198,53 @@ Sl {
 	operatorWithAdverb
 		= operatorWithBinaryAdverb // S
 		| operatorWithUnaryAdverb // S
-	operatorWithUnaryAdverb = operator "." selectorName
-	operatorWithBinaryAdverb = operator "." selectorName "(" (operatorFree | arityQualifiedIdentifier | numberLiteral) ")"
-	operatorChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
+	operatorWithUnaryAdverb = operator "." selectorName // S
+	operatorWithBinaryAdverb = operator "." selectorName "(" (operatorFree | arityQualifiedIdentifier | numberLiteral) ")" // S
+	operatorChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\" // S
 	plusOrMinus = "+" | "-"
 
 	literal
-		= rangeLiteral
+		= rangeLiteral // S
 		| numberLiteral
 		| singleQuotedStringLiteral
-		| doubleQuotedStringLiteral
-		| backtickQuotedStringLiteral
+		| doubleQuotedStringLiteral // S
+		| backtickQuotedStringLiteral // S
 	numberLiteral
-		= decimalLiteral
-		| scientificLiteral
-		| complexLiteral
-		| imaginaryLiteral
-		| residueLiteral
+		= decimalLiteral // S
+		| floatScientificLiteral // S
+		| integerScientificLiteral // S
+		| complexLiteral // S
+		| imaginaryLiteral // S
+		| residueLiteral // S
 		| floatLiteral
-		| fractionLiteral
+		| fractionLiteral // S
 		| largeIntegerLiteral
-		| radixIntegerLiteral
+		| radixIntegerLiteral // S
 		| smallIntegerLiteral
 		| infinityLiteral
 		| nanLiteral
-	rangeLiteral
-		= rangeFromToByLiteral
-		| rangeFromToLiteral
-	rangeFromToByLiteral = integerLiteral ":" (integerLiteral | identifier) ":" integerLiteral
-	rangeFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
+	rangeLiteral // S
+		= rangeFromToByLiteral // S
+		| rangeFromToLiteral // S
+	rangeFromToByLiteral = integerLiteral ":" (integerLiteral | identifier) ":" integerLiteral // S
+	rangeFromToLiteral = integerLiteral ":" (integerLiteral | identifier) // S
 	floatLiteral = plusOrMinus? decimalDigits "." digit+ "F"?
 	decimalLiteral
 		= floatDecimalLiteral
 		| integerDecimalLiteral
-	floatDecimalLiteral = plusOrMinus? digit+ "." digit+ "D" (digit+)? // ("d" | "D")
-	integerDecimalLiteral = plusOrMinus? digit+ "D" (digit+)? // ("d" | "D")
-	scientificLiteral = integerOrFloatLiteral "E" integerLiteral // ("e" | "E")
-	complexLiteral = integerOrFloatLiteral "J" integerOrFloatLiteral // ("j" | "J")
-	imaginaryLiteral = integerOrFloatLiteral "I" // ("i" | "I")
-	residueLiteral = integerLiteral "Z" digit+ // ("z" | "Z")
-	fractionLiteral = plusOrMinus? digits ("/" | "R") digits
-	largeIntegerLiteral = plusOrMinus? decimalDigits "L"
-    radixDigit = digit | "A" | "B" | "C" | "D" | "E" | "F"
-	radixDigitOrUnderscore = radixDigit | "_"
-	radixDigits = radixDigit radixDigitOrUnderscore*
-	radixIntegerLiteral = plusOrMinus? digit+ "b" radixDigits
+	floatDecimalLiteral = plusOrMinus? digit+ "." digit+ ("d" | "D") (digit+)? // S
+	integerDecimalLiteral = plusOrMinus? digit+ ("d" | "D") (digit+)? // S
+	floatScientificLiteral = floatLiteral ("e" | "E") integerLiteral // S
+	integerScientificLiteral = integerLiteral ("e" | "E") integerLiteral // S
+	complexLiteral = integerOrFloatLiteral ("j" | "J") integerOrFloatLiteral // S
+	imaginaryLiteral = integerOrFloatLiteral ("i" | "I") // S
+	residueLiteral = integerLiteral ("z" | "Z") digit+ // S
+	fractionLiteral = plusOrMinus? digits ("/" | "R") digits // S
+	largeIntegerLiteral = plusOrMinus? decimalDigits "L" // S
+    radixDigit = digit | "A" | "B" | "C" | "D" | "E" | "F" // S
+	radixDigitOrUnderscore = radixDigit | "_" // S
+	radixDigits = radixDigit radixDigitOrUnderscore* // S
+	radixIntegerLiteral = plusOrMinus? digit+ ("b" | "B") radixDigits // S
     infinityLiteral = plusOrMinus? "Infinity"
 	nanLiteral = "NaN"
 	smallIntegerLiteral = plusOrMinus? decimalDigits
@@ -251,14 +253,14 @@ Sl {
 	digits = digit digitOrUnderscore*
     integerLiteral
 		= largeIntegerLiteral
-		| radixIntegerLiteral
+		| radixIntegerLiteral // S
 		| smallIntegerLiteral
     integerOrFloatLiteral
 		= floatLiteral
 		| integerLiteral
 	singleQuotedStringLiteral = "\'" (~"\'" ("\\\'" | "\\\\" | sourceCharacter))* "\'"
-	doubleQuotedStringLiteral = "\"" (~"\"" ("\\\"" | "\\\\" | sourceCharacter))* "\""
-	backtickQuotedStringLiteral = backtickCharacter (~backtickCharacter sourceCharacter)* backtickCharacter
+	doubleQuotedStringLiteral = "\"" (~"\"" ("\\\"" | "\\\\" | sourceCharacter))* "\"" // S
+	backtickQuotedStringLiteral = backtickCharacter (~backtickCharacter sourceCharacter)* backtickCharacter // S
 	backtickCharacter = "${String.fromCodePoint(96)}"
 	sourceCharacter = any
 

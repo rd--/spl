@@ -11,25 +11,25 @@ It is part of the International System of Units (SI).
 >>> 23.micro
 0.000023
 
->>> 23.micro * 1E6
-23
+>>> 23.micro * 1.0E6
+23.0
 ```
 
 Adjacent units are `nano` and `milli`:
 
 ```
->>> 23.micro * 1E-3
+>>> 23.micro * 1.0E-3
 23.nano
 
->>> 23.micro * 1E3
+>>> 23.micro * 1.0E3
 23.milli
 ```
 
 At `Quantity`:
 
 ```
->>> 23.metres.micro
-Quantity(2.3E-05, 'metre')
+>>> 23.0.metres.micro
+Quantity(2.3E-5, 'metre')
 ```
 
 Where supported `micro` is displayed as μ.

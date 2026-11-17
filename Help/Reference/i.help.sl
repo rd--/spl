@@ -4,7 +4,7 @@
 
 Answer _x_ multipled by _i_, the imaginary unit.
 
-Unlike `I` _i_ is implemented at `Complex`.
+Unlike `I` _i_ is also implemented at `Complex`.
 
 At `Float`:
 

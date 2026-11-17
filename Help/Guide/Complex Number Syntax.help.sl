@@ -4,15 +4,22 @@
 - _nI_
 
 Complex numbers are written with an infix _J_ or a postfix _I_.
+The _J_ and _I_ may be written in either upper or lower case.
 
 Rewrite rules:
 
 ```
 >> '3J4'.splSimplify
-Complex(3, 4)
+Complex(3.0, 4.0)
+
+>> '3.0j4.0'.splSimplify
+Complex(3.0, 4.0)
 
 >> '3I'.splSimplify
-Complex(0, 3)
+Complex(0.0, 3.0)
+
+>> '3.0i'.splSimplify
+Complex(0.0, 3.0)
 ```
 
 A complex number is a number consisting of a _real_ and an _imaginary_ component.

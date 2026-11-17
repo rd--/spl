@@ -3,7 +3,6 @@
 Traits and Types:
 
 - `AsciiString`
-- `BacktickQuotedString`
 - `ByteArray`
 - `DoubleQuotedString`
 - `Character`

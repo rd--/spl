@@ -2,7 +2,7 @@
 
 	archimedeanSpiral { :a :n |
 		{ :theta |
-			let r = a * (theta ^ (1 / n));
+			let r = a * (theta ^ (1.0 / n));
 			[r, theta].fromPolarCoordinates
 		}
 	}
@@ -239,7 +239,7 @@
 				s := s + 1L;
 				r := r - (2 * s - 1L)
 			};
-			(r - s.I) * (1LI ^ s)
+			(r - s.I) * (1.I ^ s)
 		}.realImaginary
 	}
 

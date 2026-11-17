@@ -1,5 +1,17 @@
 # Scientific Notation
 
+- _mEn_
+
+Rewrite rules:
+
+```
+>> '1.0E3'.splSimplify
+times(1.0, power(10.0, 3.0))
+
+>> '1e3'.splSimplify
+times(1L, power(10L, 3L))
+```
+
 The _scientific notation_ for a number is an expression of the form _m * (10 ^ n)_.
 _m_ is called the coefficient and _n_ is called the exponent.
 _m_ may be fractional, _n_ is required to be an integer.
@@ -20,7 +32,7 @@ the answer is in both cases a `Float` value:
 
 ```
 >>> 1.0E0
-1
+1.0
 
 >>> 1.0E1
 10

@@ -1,8 +1,16 @@
 # Symbol
 
-- _Symbol(s)_
+- _Symbol(x)_
+- _`x`_
 
-A `Type` representing a named symbol specified by the string _s_.
+A `Type` representing a named symbol specified by the string _x_.
+
+Rewrite rule:
+
+```
+>> '`x`'.splSimplify
+Symbol('x')
+```
 
 Symbols have a predicate and a name:
 
@@ -71,7 +79,7 @@ x
 
 * * *
 
-See also: String, SymbolicExpression, name
+See also: DoubleQuotedString, String, SymbolicExpression, name
 
 Guides: String Syntax
 

@@ -311,9 +311,6 @@ const asJs: ohm.ActionDict<string> = {
 				throw new Error('rewrite_core_js: reservedIdentifier?');
 		}
 	},
-	scientificLiteral(base, _letterE, exponent) {
-		return `${base.sourceString}E${exponent.sourceString}`;
-	},
 	singleQuotedStringLiteral(_l, s, _r) {
 		return `'${quoteNewLines(s.sourceString)}'`;
 	},
@@ -382,6 +379,7 @@ function slFirstLineComment(slText: string): string | null {
 // Preserve first line comment for Requires information in .cache
 export function rewriteSlToJs(slText: string): string {
 	const slCoreText = rewriteSlToCore(slText);
+	// console.debug('rewriteSlToJs', slText, slCoreText);
 	const jsText = slParse(slCoreText).asJs;
 	const slComment = slFirstLineComment(slText);
 	if (slComment) {

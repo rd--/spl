@@ -2,6 +2,10 @@
 
 Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInteger] {
 
+	quotientFloat { :self :operand |
+		self.quotientBy(operand, truncateFloat/1)
+	}
+
 	[Float, F] { :self |
 		self
 	}
@@ -163,14 +167,14 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 
 	chop { :self :epsilon |
 		(self.abs < epsilon).if {
-			0
+			0.0
 		} {
 			self
 		}
 	}
 
 	chop { :self |
-		self.chop(1E-10)
+		self.chop(1.0E-10)
 	}
 
 	concisePrintString { :self |
@@ -183,11 +187,11 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 		let f = self - i;
 		{
 			(limit > 1) & {
-				f.isVeryClose(0).not
+				f.isVeryClose(0.0).not
 			}
 		}.whileTrue {
 			answer.add!(i.L);
-			f := 1 / f;
+			f := 1.0 / f;
 			i := f.floor;
 			f := f - i;
 			limit := limit - 1
@@ -205,7 +209,11 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 	}
 
 	countLeadingZeroes { :self :base :wordSize |
-		(base = 2 & { wordSize = 32 }).if {
+		(
+			base = 2 & {
+				wordSize = 32
+			}
+		).if {
 			self.uncheckedCountLeadingZeroes
 		} {
 			Integer(self).countLeadingZeroes(base, wordSize)
@@ -217,7 +225,11 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 	}
 
 	countTrailingZeroes { :self :base :wordSize |
-		(base = 2 & { wordSize = 32 }).if {
+		(
+			base = 2 & {
+				wordSize = 32
+			}
+		).if {
 			self.uncheckedCountTrailingZeroes
 		} {
 			self.error('countTrailingZeroes')
@@ -252,17 +264,17 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 
 	decimalStringToScaleWithoutPrimitive { :self :places |
 		(places <= 0).if {
-			self.round.printString
+			self.round.integerString
 		} {
-			let rounder = 10 ^ places;
+			let rounder = 10.0 ^ places;
 			let round = self.round(rounder.reciprocal);
 			let prefix = round.isNegative.if { '-' } { '' };
 			let roundFractionPart = (round.abs.fractionalPart * rounder).round; /* truncate? */
 			[
 				prefix,
-				round.abs.integerPart.printString,
+				round.abs.integerPart.integerString,
 				'.',
-				roundFractionPart.printString.padLeft([places], '0')
+				roundFractionPart.integerString.padLeft([places], '0')
 			].stringCatenate
 		}
 	}
@@ -284,11 +296,11 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 		operand.adaptToNumberAndApply(self, divide/2)
 	}
 
-	divideToFraction { :self :operand |
+	divideFraction { :self :operand |
 		<primitive:
 		if(sl.isFloat(_operand)) {
-			if(_operand === 0 || _operand === 1) {
-				return _self / _operand;
+			if(_operand === 0.0) {
+				return Infinity;
 			}
 			if(Number.isSafeInteger(_self) && Number.isSafeInteger(_operand)) {
 				return _Fraction_2(BigInt(_self), BigInt(_operand));
@@ -296,7 +308,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 			return _self / _operand;
 		}
 		>
-		operand.adaptToNumberAndApply(self, divideToFraction/2)
+		operand.adaptToNumberAndApply(self, divideFraction/2)
 	}
 
 	[encodeJson, floatToJson] { :self |

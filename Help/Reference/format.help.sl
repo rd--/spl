@@ -19,7 +19,7 @@ instead we can adapt the items:
 
 ```
 >>> '`pi` = % and `e` = %.'
->>> .format([1.pi, 1.e].round(1E-4))
+>>> .format([1.pi, 1.e].round(1.0E-4))
 '`pi` = 3.1416 and `e` = 2.7183.'
 ```
 

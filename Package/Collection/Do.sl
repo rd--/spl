@@ -133,7 +133,7 @@
 		}
 	}
 
-	deepAllSatisfy { :self :aBlock/1 |
+	[deepAllTrue, deepAllSatisfy] { :self :aBlock/1 |
 		withReturn { :return/1 |
 			self.deepDo { :each |
 				each.aBlock.ifFalse {

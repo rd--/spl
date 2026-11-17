@@ -1,13 +1,20 @@
 # Residue
 
-- _Residue(n, m)_
-- _Residue([n, m])_
+- _Residue(m, n)_
+- _mZn_
 
 A `Residue` is a `Type` holding an `Integer` and a constant modulus.
 
 ```
 >>> Residue(5L, 12L)
 5Z12
+```
+
+Rewrite rule:
+
+```
+>> '7Z12'.splSimplify
+Residue(7L, 12L)
 ```
 
 Threads over lists:
@@ -23,7 +30,7 @@ Threads over lists:
 [3Z9 3Z12 3Z15]
 ```
 
-There is a literal syntax for residues, _nZm_:
+There is a literal syntax for residues, _mZn_:
 
 ```
 >>> 3Z5

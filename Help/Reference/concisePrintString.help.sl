@@ -23,7 +23,7 @@ At fractional `Float`:
 >>> 3.141.concisePrintString
 '3.141'
 
->>> 1E-19.concisePrintString
+>>> 1.0E-19.concisePrintString
 '1E-19'
 ```
 
