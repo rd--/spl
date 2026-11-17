@@ -72,7 +72,7 @@ Quotient & remainder:
 [3L, 1.0]
 
 >>> 7L.quotientRemainder(2L)
-[3L. 1L]
+[3L, 1L]
 ```
 
 For two finite values _x_ and _y_,
