@@ -84,9 +84,6 @@ At a `Number` constant:
 
 >>> '23L'.splParseTree[2]
 ['Integer', '23L']
-
->>> '2.3E1'.splParseTree[2]
-['Float', '2.3E1']
 ```
 
 At a `List` expression:
@@ -187,8 +184,8 @@ Dot application is not recorded especially:
 [
 	'Apply',
 	['Identifier', 'Complex'],
-	['SmallInteger', '3'],
-	['SmallInteger', '4']
+	['Float', '3.0'],
+	['Float', '4.0']
 ]
 
 >>> '3Z4'.splParseTree[2]

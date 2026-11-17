@@ -18,20 +18,20 @@ ChordDiagram : [Object, Store] {
 	}
 
 	edgeList { :self |
-		let m = self.size * 2;
+		let m = self.size * 2L;
 		let l = self.lengthVector;
-		0.to(m - 1).collect { :i |
-			let j = (i + l[i + 1]) % m;
-			[i, j].sort + 1
-		}.nub.sort
+		0L.to(m - 1L).collect { :i |
+			let j = (i + l[i + 1L]) % m;
+			[i, j].sort + 1L
+		}.nub(=).sort!
 	}
 
 	size { :self |
-		self.lengthVector.size / 2
+		self.lengthVector.size // 2L
 	}
 
 	vertexList { :self |
-		[1 .. self.size * 2]
+		[1L .. self.size * 2L]
 	}
 
 }
@@ -52,11 +52,11 @@ ChordDiagram : [Object, Store] {
 
 	edgeListToChordDiagram { :self |
 		let [m, _] = self.shape;
-		let v = List(m * 2, 0);
-		1.toDo(m) { :each |
+		let v = List(m * 2L, 0L);
+		1L.toDo(m) { :each |
 			let [i, j] = self[each];
 			v[i] := j - i;
-			v[j] := (m * 2) - (j - i)
+			v[j] := (m * 2L) - (j - i)
 		};
 		lengthVectorToChordDiagram(v)
 	}
@@ -70,28 +70,28 @@ ChordDiagram : [Object, Store] {
 +[Float, Integer] {
 
 	chordDiagramCount { :n |
-		(n = 0).if {
-			1
+		(n = 0L).if {
+			1L
 		} {
 			let alpha = { :p :q |
 				q.isEven.if {
-					0.to(p / 2).sum { :k |
-						binomial(p, 2 * k)
+					0L.to(p // 2).sum { :k |
+						binomial(p, 2L * k)
 						*
 						(q ^ k)
 						*
-						((2 * k) - 1).doubleFactorial
+						((2L * k) - 1L).doubleFactorial
 					}
 				} {
-					(q ^ (p / 2))
+					(q ^ (p // 2L))
 					*
-					(p - 1).doubleFactorial
+					(p - 1L).doubleFactorial
 				}
 			};
-			(2 * n).divisors.sum { :p |
-				let q = (2 * n) // p;
+			(2L * n).divisors.sum { :p |
+				let q = (2L * n) // p;
 				alpha(p, q) * eulerPhi(q)
-			} / (2 * n)
+			} // (2L * n)
 		}
 	}
 
@@ -104,42 +104,46 @@ ChordDiagram : [Object, Store] {
 	}
 
 	chordDiagramsDo { :n :f/1 |
-		let m = 2 * n;
-		let l = List(m + 1, 0);
-		let a = ListView(l, 1, m + 1, 0);
+		let m = 2L * n;
+		let l = List(m + 1L, 0L);
+		let a = ListView(l, 1L, m + 1L, 0L);
 		let simpleChords = { :t :p |
 			(t > m).if {
-				(m % p = 0).ifTrue {
+				(m % p = 0L).ifTrue {
 					f(ChordDiagram(l.allButFirst))
 				}
 			} {
-				(a[t] = 0 & { (t + a[t - p]) <= m }).if {
+				(
+					a[t] = 0L & {
+						(t + a[t - p]) <= m
+					}
+				).if {
 					a[t - p].toDo(m - t) { :j |
-						(a[t + j] = 0).ifTrue {
+						(a[t + j] = 0L).ifTrue {
 							a[t] := j;
 							a[t + j] := m - j;
 							(a[t] = a[t - p]).if {
-								simpleChords(t + 1, p)
+								simpleChords(t + 1L, p)
 							} {
-								simpleChords(t + 1, t)
+								simpleChords(t + 1L, t)
 							};
-							a[t + j] := 0
+							a[t + j] := 0L
 						}
 					};
-					a[t] := 0
+					a[t] := 0L
 				} {
 					(a[t] = a[t - p]).if {
-						simpleChords(t + 1, p)
+						simpleChords(t + 1L, p)
 					} {
 						(a[t] > a[t - p]).ifTrue {
-							simpleChords(t + 1, t)
+							simpleChords(t + 1L, t)
 						}
 					}
 				}
 			}
 		};
-		a[1] := 0;
-		simpleChords(1, 1)
+		a[1L] := 0L;
+		simpleChords(1L, 1L)
 	}
 
 }

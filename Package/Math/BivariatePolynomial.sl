@@ -10,7 +10,7 @@ BivariatePolynomial : [Object, Copy, Store, Equal] {
 	}
 
 	degree { :self |
-		self.coefficientMatrix.shape - 1
+		self.coefficientMatrix.shape - 1L
 	}
 
 	evaluate { :self :x :y |
@@ -41,21 +41,21 @@ BivariatePolynomial : [Object, Copy, Store, Equal] {
 
 	evaluateBivariatePolynomial { :coefficientMatrix :x :y |
 		coefficientMatrix.ifEmpty {
-			0
+			0L
 		} {
 			let [m, n] = coefficientMatrix.shape;
 			let answer = nil;
-			1.toDo(m) { :i |
+			1L.toDo(m) { :i |
 				let r = coefficientMatrix[i];
-				1.toDo(n) { :j |
+				1L.toDo(n) { :j |
 					let a = r[j];
 					a.isZero.ifFalse {
-						let p = i - 1;
-						let q = j - 1;
+						let p = i - 1L;
+						let q = j - 1L;
 						let r = [
-							{ p = 0 & { q = 0 } } -> { a },
-							{ p = 0 } -> { a * (y ^ q) },
-							{ q = 0 } -> { a * (x ^ p) },
+							{ p = 0L & { q = 0L } } -> { a },
+							{ p = 0L } -> { a * (y ^ q) },
+							{ q = 0L } -> { a * (x ^ p) },
 							{ true } -> { a * (x ^ p) * (y ^ q) }
 						].which;
 						answer := answer.ifNil { r } { answer + r }

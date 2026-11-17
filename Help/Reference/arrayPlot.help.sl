@@ -49,12 +49,12 @@ let c = [
 	0.25 0 1;
 	0.5 0 1
 ];
-let g = (1 -- c.size).discretize(36).collect(
+let g = (1.0 -- c.size).discretize(36).collect(
 	c.listInterpolation(
 		linearInterpolation/3
 	)
 );
-(0.4 -- 1).discretize(12).collect { :each |
+(0.4 -- 1.0).discretize(12L).collect { :each |
 	each * g
 }.arrayPlot
 ~~~

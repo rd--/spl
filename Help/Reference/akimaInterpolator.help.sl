@@ -53,8 +53,8 @@ Plot an interpolation of a data set consisting of flat areas (horizontal lines):
 ~~~spl svg=D
 let y = [1 1 1 0 0 1 1 2 2 2 2];
 let k = y.size;
-let x = [1 .. k];
-(1 -- k).functionPlot(
+let x = [1L .. k];
+(1.0 -- k).functionPlot(
 	x.akimaInterpolator(y)
 )
 ~~~
@@ -66,8 +66,8 @@ Plot an interpolation of a data set consisting of flat areas (horizontal lines):
 ~~~spl svg=E
 let y = [-1 -1 -1 0 1 1 1];
 let k = y.size;
-let x = [1 .. k];
-(1 -- k).functionPlot(
+let x = [1L .. k];
+(1.0 -- k).functionPlot(
 	x.akimaInterpolator(y)
 )
 ~~~
@@ -77,9 +77,9 @@ let x = [1 .. k];
 Interpolate a cosine curve over unevenly spaced sample points:
 
 ~~~spl svg=F
-let x = [0 1 2.5 3.6 5 7 8.1 10];
+let x = [0.0 1.0 2.5 3.6 5.0 7.0 8.1 10.0];
 let y = cos(x);
-(0 -- 10).functionPlot(
+(0.0 -- 10.0).functionPlot(
 	x.akimaInterpolator(y)
 )
 ~~~

@@ -524,7 +524,7 @@ const asSl: ohm.ActionDict<string> = {
 	floatScientificLiteral(b, _letterE, e) {
 		const bStr = b.sourceString;
 		const eStr = e.sourceString;
-		return `times(${bStr}, power (10.0, ${eStr}.0))`;
+		return `times(${bStr}, power(10.0, ${eStr}.0))`;
 	},
 	integerScientificLiteral(b, _letterE, e) {
 		const bStr = b.sourceString;

@@ -8,11 +8,11 @@ Create an empirical distribution of univariate data and plot the cummulative dis
 
 ~~~spl svg=A
 let r = Sfc32(678132);
-(-4 -- 4).functionPlot(
+(-4.0 -- 4.0).functionPlot(
 	EmpiricalDistribution(
-		NormalDistribution(0, 1)
-		.randomVariate(r, [50])
-		.round(1E-2)
+		NormalDistribution(0.0, 1.0)
+		.randomVariate(r, [50L])
+		.round(1.0E-2)
 	).cdf
 )
 ~~~
@@ -23,11 +23,11 @@ Larger datasets lead to better approximations of the underlying distribution:
 
 ~~~spl svg=B
 let r = Sfc32(678132);
-(-4 -- 4).functionPlot(
+(-4.0 -- 4.0).functionPlot(
 	EmpiricalDistribution(
-		NormalDistribution(0, 1)
+		NormalDistribution(0.0, 1.0)
 		.randomVariate(r, [10 ^ 3])
-		.round(1E-2)
+		.round(1.0E-2)
 	).cdf
 )
 ~~~
@@ -39,31 +39,33 @@ Generate psuedo-random numbers from an empirical distribution:
 ~~~spl svg=C
 let r = Sfc32(678132);
 EmpiricalDistribution(
-	NormalDistribution(0, 1)
-	.randomVariate(r, [10 ^ 3])
-	.round(1E-3)
+	NormalDistribution(0.0, 1.0)
+	.randomVariate(r, [10L ^ 3L])
+	.round(1.0E-3)
 )
-.randomVariate(r, [10 ^ 4])
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 
 ![](Help/Image/EmpiricalDistribution-C.svg)
 
-An empirical distribution from weighted input data:
+An empirical distribution from weighted input data,
+the map keys are the empirical values,
+the map values are the weights:
 
 ~~~spl svg=D
 let r = Sfc32(371249);
 EmpiricalDistribution(
 	Map[
-		1 -> 1,
-		2 -> 2,
-		3 -> 4,
-		4 -> 7,
-		5 -> 4,
-		6 -> 2,
-		7 -> 1
+		1L -> 1.0,
+		2L -> 2.0,
+		3L -> 4.0,
+		4L -> 7.0,
+		5L -> 4.0,
+		6L -> 2.0,
+		7L -> 1.0
 	]
-).randomVariate(r, [10 ^ 4])
+).randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 
@@ -73,16 +75,16 @@ Plot inverse cummulative distribution functions:
 
 ~~~spl svg=E
 let r = Sfc32(678132);
-let n = NormalDistribution(0, 1);
+let n = NormalDistribution(0.0, 1.0);
 let e = EmpiricalDistribution(
 	n
-	.randomVariate(r, [10 ^ 3])
-	.round(1E-2)
+	.randomVariate(r, [10L ^ 3L])
+	.round(1.0E-2)
 );
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	[
-		n.inverseCdf.clip(-3, 3),
-		e.inverseCdf.clip(-3, 3)
+		n.inverseCdf.clip(-3.0, 3.0),
+		e.inverseCdf.clip(-3.0, 3.0)
 	]
 )
 ~~~

@@ -682,11 +682,11 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 
 	log { :self |
 		<primitive:
-		if(_self >= 0) {
+		if(_self >= 0.0) {
 			return Math.log(_self)
 		}
 		>
-		Complex(self, 0).log
+		Complex(self, 0.0).log
 	}
 
 	log { :self :base |
@@ -842,7 +842,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 				)
 			} {
 				self.isNegative.if {
-					Complex(self, 0) ^ anObject
+					Complex(self, 0.0) ^ anObject
 				} {
 					self.raisedToFloat(anObject)
 				}
@@ -1021,7 +1021,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 
 	[squareRoot, sqrt] { :self |
 		self.isNegative.if {
-			Complex(self, 0).sqrt
+			Complex(self, 0.0).sqrt
 		} {
 			self.uncheckedSquareRoot
 		}
@@ -1316,7 +1316,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 +Void {
 
 	eulersNumber {
-		1.exp
+		1.0.exp
 	}
 
 }

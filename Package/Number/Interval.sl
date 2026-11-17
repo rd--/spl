@@ -257,18 +257,43 @@ Interval : [Object, Store, Equal, Compare, Number] {
 
 }
 
-+[Float, Fraction, Integer] {
++Float {
 
 	[Interval, --] { :self :operand |
-		operand.isComplex.ifTrue {
-			self.error('Interval: complex operand')
-		};
-		operand.isRealValuedNumber.if {
+		operand.isFloat.if {
 			uncheckedInterval(self, operand).checkInterval
 		} {
 			operand.adaptToNumberAndApply(self, Interval/2)
 		}
 	}
+
+}
+
++Fraction {
+
+	[Interval, --] { :self :operand |
+		operand.isFraction.if {
+			uncheckedInterval(self, operand).checkInterval
+		} {
+			operand.adaptToFractionAndApply(self, Interval/2)
+		}
+	}
+
+}
+
++Integer {
+
+	[Interval, --] { :self :operand |
+		operand.isInteger.if {
+			uncheckedInterval(self, operand).checkInterval
+		} {
+			operand.adaptToIntegerAndApply(self, Interval/2)
+		}
+	}
+
+}
+
++[Float, Fraction, Integer] {
 
 	adaptToIntervalAndApply { :self :operand :aBlock/2 |
 		aBlock(operand, Interval(self, self))
@@ -283,11 +308,7 @@ Interval : [Object, Store, Equal, Compare, Number] {
 	}
 
 	uncheckedInterval { :self :operand |
-		(self.typeName = operand.typeName).if {
-			newInterval().initializeSlots(self, operand)
-		} {
-			self.error('Interval: unequal types')
-		}
+		newInterval().initializeSlots(self, operand)
 	}
 
 }

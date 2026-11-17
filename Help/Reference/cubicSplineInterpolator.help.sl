@@ -58,7 +58,7 @@ along with the set of interpolated points:
 let p = [0 0; 1 2; -1 3; 0 1; 3 0];
 let k = p.size;
 let i = [1 .. k].cubicSplineInterpolator(p);
-let c = (1 -- k).subdivide(100).collect(i);
+let c = (1.0 -- k).subdivide(100).collect(i);
 [PointSet(p), Line(c)]
 ~~~
 

@@ -1,20 +1,20 @@
 +[Float, Integer] {
 
 	bellNumber { :self |
-		(self < 0).if {
+		(self < 0L).if {
 			self.error('bellNumber: n < 0')
 		} {
-			(self < 2).if {
-				1
+			(self < 2L).if {
+				1L
 			} {
 				let list = List(self, nil);
-				list[1] := 1L;
-				2.toDo(self) { :i |
-					1.toDo(i - 2) { :j |
-						let k = i - j - 1;
+				list[1L] := 1L;
+				2L.toDo(self) { :i |
+					1L.toDo(i - 2L) { :j |
+						let k = i - j - 1L;
 						list[k] := list[k] + list[i - j]
 					};
-					list[i] := list[1] + list[i - 1]
+					list[i] := list[1L] + list[i - 1L]
 				};
 				list[self]
 			}

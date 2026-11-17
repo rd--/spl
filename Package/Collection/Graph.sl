@@ -1294,7 +1294,7 @@ Graph : [Object, Graph] {
 	dotLayout { :dotSource :outputFormat :layoutEngine |
 		<primitive:
 		return import(
-			'../lib/scsynth-wasm-builds/lib/ext/graphviz.js'
+			'../interpreter/libraries/scsynth-wasm-builds/lib/ext/graphviz.js'
 		).then(
 			function ({ Graphviz }) {
 				return Graphviz.load().then(

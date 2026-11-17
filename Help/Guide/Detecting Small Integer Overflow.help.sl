@@ -68,10 +68,10 @@ Zeroes of the `riemannXi` function:
 Large _n_ for `fromSignExponentMantissa`:
 
 ```
->>> [1E100 -1E100 1E-100 -1E-100 Infinity]
+>>> [1.0E100 -1.0E100 1.0E-100 -1.0E-100 Infinity]
 >>> .collect { :n |
 >>> 	n.signExponentMantissa
 >>> 	.fromSignExponentMantissa
 >>> }
-[1E100 -1E100 1E-100 -1E-100 Infinity]
+[1.0E100 -1.0E100 1.0E-100 -1.0E-100 Infinity]
 ```

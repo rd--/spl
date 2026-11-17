@@ -34,7 +34,7 @@
 +[Float, Integer] {
 
 	besselAsympt0 { :x |
-		let xsq = 64 / (x * x);
+		let xsq = 64.0 / (x * x);
 		let p2 = 0.0;
 		let q2 = 1.0;
 		let p3 = -0.0;
@@ -144,7 +144,7 @@
 		(x > 8).if {
 			let [p0, q0] = besselAsympt0(x);
 			let nn = x - 0.25.pi;
-			(2 / 1.pi / x).sqrt * ((p0 * nn.cos) - (q0 * nn.sin))
+			(2.0 / 1.pi / x).sqrt * ((p0 * nn.cos) - (q0 * nn.sin))
 		} {
 			let xsq = x * x;
 			let p1 = 26857.86856980014981415848441;
@@ -176,7 +176,7 @@
 		(x > 8).if {
 			let [p0, q0] = besselAsympt1(x);
 			let nn = x - (3.pi / 4);
-			(2 / 1.pi / x).sqrt * ((p0 * nn.cos) - (q0 * nn.sin)) * sign
+			(2.0 / 1.pi / x).sqrt * ((p0 * nn.cos) - (q0 * nn.sin)) * sign
 		} {
 			let xsq = x * x;
 			let p1 = 2701.122710892323414856790990;

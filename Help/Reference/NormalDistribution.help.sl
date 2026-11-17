@@ -1,27 +1,27 @@
 # NormalDistribution
 
-- _NormalDistribution(μ=0, σ=1)_
+- _NormalDistribution(μ=0.0, σ=1.0)_
 
 A `Type` that represents a normal (Gaussian) distribution with mean _μ_ and standard deviation _σ_.
 
 Probability density function at specific values:
 
 ```
->>> [0 1 1].collect(
->>> 	NormalDistribution(0, 1).pdf
+>>> [0.0 1.0 1.0].collect(
+>>> 	NormalDistribution(0.0, 1.0).pdf
 >>> )
 [
-	1 / 2.pi.sqrt,
+	1.0 / 2.pi.sqrt,
 	-0.5.exp / 2.pi.sqrt,
-	1 / (2.pi * 1.exp).sqrt
+	1.0 / (2.pi * 1.exp).sqrt
 ]
 ```
 
 Cumulative distribution function:
 
 ```
->>> [0 1 2 1.96 2.58].collect(
->>> 	NormalDistribution(0, 1).cdf
+>>> [0.0 1.0 2.0 1.96 2.58].collect(
+>>> 	NormalDistribution(0.0, 1.0).cdf
 >>> )
 [0.5 0.8413 0.9772 0.9750 0.9951]
 ```
@@ -31,8 +31,8 @@ Plot the probability density function,
 over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(
-	NormalDistribution(0, 1).pdf
+(-3.0 -- 3.0).functionPlot(
+	NormalDistribution(0.0, 1.0).pdf
 )
 ~~~
 
@@ -43,8 +43,8 @@ Plot the cumulative distribution function,
 over a subset of the reals:
 
 ~~~spl svg=B
-(-3 -- 3).functionPlot(
-	NormalDistribution(0, 1).cdf
+(-3.0 -- 3.0).functionPlot(
+	NormalDistribution(0.0, 1.0).cdf
 )
 ~~~
 
@@ -54,8 +54,8 @@ Plot `randomVariate`:
 
 ~~~spl svg=C
 let r = Sfc32(789134);
-NormalDistribution(0, 1)
-.randomVariate(r, [99])
+NormalDistribution(0.0, 1.0)
+.randomVariate(r, [99L])
 .linePlot
 ~~~
 
@@ -65,8 +65,8 @@ Two dimensional Gaussian noise:
 
 ~~~spl png=D
 let r = Sfc32(180513);
-NormalDistribution(0, 1)
-.randomVariate(r, [100 100])
+NormalDistribution(0.0, 1.0)
+.randomVariate(r, [100L 100L])
 .rescale
 .Greymap
 ~~~
@@ -77,8 +77,8 @@ Generate a sample of pseudorandom numbers from a normal distribution:
 
 ~~~spl svg=E
 let r = Sfc32(370841);
-NormalDistribution(1, 3)
-.randomVariate(r, [10 ^ 4])
+NormalDistribution(1.0, 3.0)
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 
@@ -88,8 +88,8 @@ PLot with mean at zero and small deviation:
 
 ~~~spl svg=F
 let r = Sfc32(378914);
-NormalDistribution(0, 1 / 9)
-.randomVariate(r, [99])
+NormalDistribution(0.0, 1.0 / 9.0)
+.randomVariate(r, [99L])
 .linePlot
 ~~~
 
@@ -99,8 +99,8 @@ Plot sorted random list:
 
 ~~~spl svg=G
 let r = Sfc32(789146);
-NormalDistribution(0, 1)
-.randomVariate(r, [500])
+NormalDistribution(0.0, 1.0)
+.randomVariate(r, [500L])
 .sort!
 .linePlot
 ~~~
@@ -111,11 +111,11 @@ Quantile function,
 varying σ:
 
 ~~~spl svg=H
-(0 -- 1).functionPlot(
-	[0.5 1 2].collect { :sigma |
-		NormalDistribution(-2, sigma)
+(0.0 -- 1.0).functionPlot(
+	[0.5 1.0 2.0].collect { :sigma |
+		NormalDistribution(-2.0, sigma)
 		.quantileFunction
-		.clip(-6, 2)
+		.clip(-6.0, 2.0)
 	}
 )
 ~~~
@@ -126,11 +126,11 @@ Quantile function,
 varying μ:
 
 ~~~spl svg=I
-(0 -- 1).functionPlot(
-	[-1 1 4].collect { :mu |
-		NormalDistribution(mu, 2)
+(0.0 -- 1.0).functionPlot(
+	[-1.0 1.0 4.0].collect { :mu |
+		NormalDistribution(mu, 2.0)
 		.quantileFunction
-		.clip(-10, 15)
+		.clip(-10.0, 15.0)
 	}
 )
 ~~~

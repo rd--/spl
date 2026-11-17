@@ -101,11 +101,11 @@
 
 	akimaInterpolatorCoefficientList { :x :y |
 		/* https://github.com/chdh/commons-math-interpolation */
-		let n = x.size - 1;
+		let n = x.size - 1L;
 		let differences = List(n, nil);
 		let weights = List(n, nil);
-		let firstDerivative = List(n + 1, nil);
-		let epsilon = 1.floatEpsilon;
+		let firstDerivative = List(n + 1L, nil);
+		let epsilon = 1.0.floatEpsilon;
 		let differentiateThreePoint = { :i :j1 :j2 :j3 |
 			let x0 = y[j1];
 			let x1 = y[j2];
@@ -115,31 +115,38 @@
 			let t2 = x[j3] - x[j1];
 			let a = (x2 - x0 - (t2 / t1 * (x1 - x0))) / ((t2 * t2) - (t1 * t2));
 			let b = (x1 - x0 - (a * t1 * t1)) / t1;
-			(2 * a * t) + b
+			(2.0 * a * t) + b
 		};
-		assertIsValidInterpolatorData(x, y, 5);
-		1.toDo(n) { :i |
-			differences[i] := (y[i + 1] - y[i]) / (x[i + 1] - x[i])
+		assertIsValidInterpolatorData(x, y, 5L);
+		1L.toDo(n) { :i |
+			differences[i] := (y[i + 1L] - y[i]) / (x[i + 1L] - x[i])
 		};
-		2.toDo(n) { :i |
-			weights[i] := abs(differences[i] - differences[i - 1])
+		2L.toDo(n) { :i |
+			weights[i] := abs(differences[i] - differences[i - 1L])
 		};
-		3.toDo(n - 1) { :i |
-			let wP = weights[i + 1];
-			let wM = weights[i - 1];
+		3L.toDo(n - 1L) { :i |
+			let wP = weights[i + 1L];
+			let wM = weights[i - 1L];
 			(abs(wP) < epsilon & { abs(wM) < epsilon }).if {
 				let xv = x[i];
-				let xvP = x[i + 1];
-				let xvM = x[i - 1];
-				firstDerivative[i] := (((xvP - xv) * differences[i - 1]) + (((xv - xvM) * differences[i])) / (xvP - xvM))
+				let xvP = x[i + 1L];
+				let xvM = x[i - 1L];
+				firstDerivative[i] := (
+					((xvP - xv) * differences[i - 1L])
+					+ (((xv - xvM) * differences[i]))
+					/ (xvP - xvM)
+				)
 			} {
-				firstDerivative[i] := ((wP * differences[i - 1]) + (wM * differences[i])) / (wP + wM)
+				firstDerivative[i] := (
+					(wP * differences[i - 1L])
+					+ (wM * differences[i])
+				) / (wP + wM)
 			}
 		};
-		firstDerivative[1] := differentiateThreePoint(1, 1, 2, 3);
-		firstDerivative[2] := differentiateThreePoint(2, 1, 2, 3);
-		firstDerivative[n] := differentiateThreePoint(n, n - 1, n, n + 1);
-		firstDerivative[n + 1] := differentiateThreePoint(n + 1, n - 1, n, n + 1);
+		firstDerivative[1L] := differentiateThreePoint(1L, 1L, 2L, 3L);
+		firstDerivative[2L] := differentiateThreePoint(2L, 1L, 2L, 3L);
+		firstDerivative[n] := differentiateThreePoint(n, n - 1L, n, n + 1L);
+		firstDerivative[n + 1L] := differentiateThreePoint(n + 1L, n - 1L, n, n + 1L);
 		hermiteInterpolatorCoefficientList(x, y, firstDerivative)
 	}
 

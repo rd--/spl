@@ -8,7 +8,7 @@ There are five ways three numbers can be partitioned:
 
 ```
 >>> 3.bellNumber
-5
+5L
 ```
 
 Bell numbers,
@@ -29,8 +29,8 @@ also called the Bell triangle or the Peirce triangle,
 OEIS [A011971](https://oeis.org/A011971):
 
 ```
->>> 0:6.triangularArray { :n :k |
->>> 	0:k.sum { :i |
+>>> 0L:6L.triangularArray { :n :k |
+>>> 	0L:k.sum { :i |
 >>> 		binomial(k, i)
 >>> 		*
 >>> 		bellNumber(n - k + i)
@@ -52,7 +52,8 @@ discrete log plot,
 OEIS [A000110](https://oeis.org/A000110):
 
 ~~~spl svg=A oeis=A000110
-1:99.bellNumber.discretePlot.log
+1:99.bellNumber
+.discretePlot.log
 ~~~
 
 ![](Help/Image/bellNumber-A.svg)

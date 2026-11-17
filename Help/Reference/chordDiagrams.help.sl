@@ -18,7 +18,7 @@ Enumerate and count chord diagrams where _n=3_:
 ]
 
 >>> 3.chordDiagramCount
-5
+5L
 ```
 
 Enumerate and count chord diagrams where _n=4_:
@@ -48,17 +48,17 @@ Enumerate and count chord diagrams where _n=4_:
 ]
 
 >>> 4.chordDiagramCount
-18
+18L
 ```
 
 Enumerate and count chord diagrams where _n=5_:
 
 ```
 >>> 5.chordDiagrams.size
-105
+105L
 
 >>> 5.chordDiagramCount
-105
+105L
 ```
 
 Plot the five chord diagrams of length three:

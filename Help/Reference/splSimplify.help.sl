@@ -20,9 +20,9 @@ and `List Syntax` expressions are not rewritten:
 `String` literals are not rewritten:
 
 ```
->> '[23, 3.141, 23L, 2.3E1, \'23\']'.
+>> '[23, 3.141, 23L, \'23\']'.
 >> splSimplify
-[23, 3.141, 23L, 2.3E1, '23']
+[23, 3.141, 23L, '23']
 ```
 
 `Block` literals,
@@ -80,21 +80,28 @@ true
 
 `Complex`,
 `Fraction`,
+`Scientific Notation`,
 `Decimal` and
 `Residue` literals are rewritten as `Apply Syntax`:
 
 ```
 >> '3J4'.splSimplify
-Complex(3, 4)
+Complex(3.0, 4.0)
 
 >> '3I'.splSimplify
-Complex(0, 3)
+Complex(0.0, 3.0)
 
 >> '3/4'.splSimplify
 Fraction(3L, 4L)
 
 >> '-3/4'.splSimplify
 Fraction(-3L, 4L)
+
+>> '1.0E3'.splSimplify
+times(1.0, power(10.0, 3.0))
+
+>> '1e3'.splSimplify
+times(1L, power(10L, 3L))
 
 >> '3.141D'.splSimplify
 Decimal(Fraction(3141L, 1000L), 3L)
