@@ -142,11 +142,26 @@ let b = [0.15 0.25 0.35 0.45].collect { :r |
 Orthogonal circles are invariant under inversion with respect to each other,
 however points exchange places:
 
+~~~spl svg=D
+let a = Circle([5 0], 4);
+let b = Circle([0 0], 3);
+let c = a.circleInversion(b);
+let p = List(2, -3 / 2.sqrt);
+let q = p.circleInversion(a);
+let r = a.center;
+[
+	b,
+	c,
+	PointSet[p q],
+	Line[p q r]
+].LineDrawing
+~~~
+
 ![](Help/Image/circleInversion-D.svg)
 
 The circle inversions of an annular Steiner chain is another Steiner chain:
 
-~~~spl svg=D
+~~~spl svg=E
 let a = Circle([-2 0], 1);
 let b = 9.annularSteinerChain(
 	[0 0],
@@ -156,7 +171,7 @@ let c = b.circleInversion(a);
 [a b c]
 ~~~
 
-![](Help/Image/circleInversion-D.svg)
+![](Help/Image/circleInversion-E.svg)
 
 * * *
 
