@@ -8,13 +8,13 @@ A value is demanded of _level_ and output according to a stream of duration valu
 
 When there is a trigger at the reset input, _dur_ and _level_ are reset.
 
-The reset input may also be a demand Ugen, providing a stream of reset times.
+The reset input may also be a demand unit generator, providing a stream of reset times.
 
 - dur: time values, the next level is acquired after duration
 - reset: resets _level_ and _dur_ when triggered.
-- level: demand Ugen providing the output values
+- level: demand unit generator providing the output values
 
-demand Ugen as durations:
+Demand unit generator as durations:
 
 ~~~spl syn=A
 let freq = duty(
@@ -55,9 +55,9 @@ let freq = duty(
 sinOsc(freq * [1 1.01], 0) * 0.1
 ~~~
 
-demand rate reset:
+Demand rate reset:
 
-~~~spl syn=D
+~~~splc syn=D
 let freq = duty(
 	dseq(
 		Infinity,
@@ -74,7 +74,7 @@ let freq = duty(
 sinOsc(freq * [1 1.01], 0) * 0.1
 ~~~
 
-demand Ugen as audio oscillator:
+Demand unit generator as audio oscillator:
 
 ~~~spl syn=E
 let n = 5;
@@ -93,7 +93,7 @@ let a = {
 				1,
 				r
 			)
-		} ! m.atRandom.round
+		} ! [1 .. m].atRandom
 	].++;
 	dseq(Infinity, x.scramble)
 } ! n;
@@ -139,5 +139,3 @@ Guides: Unit Generators
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Duty.html)
-
-Categories: Ugen

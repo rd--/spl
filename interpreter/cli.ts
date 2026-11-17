@@ -22,7 +22,6 @@ import * as load from './load.ts';
 import * as preferences from './preferences.ts';
 import * as rewrite from './rewrite.ts';
 import * as sl from './sl.ts';
-import * as options from './options.ts';
 import * as repl from './repl.ts';
 
 function getSplDirectory(): string {
@@ -306,7 +305,7 @@ async function scCmd(cmd: string, opt: Args): Promise<void> {
 
 async function cli(): Promise<void> {
 	const args = parseArgs(Deno.args, {
-		boolean: ['exit', 'strict', 'unsafe', 'verbose'],
+		boolean: ['exit', 'verbose'],
 		collect: ['lib'],
 		string: ['dir', 'port'],
 	});
@@ -314,13 +313,6 @@ async function cli(): Promise<void> {
 		help();
 		host.exit(1);
 	} else {
-		if (args.strict) {
-			options.slOptions.insertArityCheck = true;
-		}
-		if (args.unsafe) {
-			options.slOptions.insertArityCheck = false;
-		}
-		// console.debug('slOptions: ', options.slOptions);
 		switch (args._[0]) {
 			case 'replPerLine':
 				replPerLine(args);

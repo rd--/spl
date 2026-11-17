@@ -1,10 +1,12 @@
-import { stringCapitalizeFirstLetter } from './libraries/jssc3/ts/kernel/string.ts';
-
+// Characters allowed in operator names.
 export const splOperatorCharacters = '!#$%&*+-/<=>?@\\^|~';
 
-/* These characters aren't allowed in operator names. They're here so help file lookup can find them. */
+// Syntax characters.
+// Syntax characters are not allowed in operator names.
+// They are listed here so that help file lookup can find them (they are documented).
 export const splSyntaxCharacters = '"\'(),:;.[]_`{}';
 
+// The union of the operator and syntax character lists.
 export const splPunctuationCharacters = '!#$%&*+-/<=>?@\\^|~"\'(),:;.[]_`{}';
 
 export function isSplOperatorCharacter(character: string): boolean {
@@ -92,19 +94,26 @@ export const splPunctuationCharacterNameTable: Record<string, string> = {
 	'}': 'rightCurlyBracket', // U+007D } Right Curly Bracket
 };
 
-export function splPunctuationTokenName(operator: string): string {
-	const words = [...operator].map((letter) =>
-		splPunctuationCharacterNameTable[letter]
+export function splPunctuationTokenName(token: string): string {
+	const words = [...token].map(
+		(letter) =>	splPunctuationCharacterNameTable[letter]
 	);
+	function capitalize(s: string): string {
+		return s.charAt(0).toUpperCase() + s.slice(1);
+	}
 	return words.slice(0, 1).concat(
-		words.slice(1).map(stringCapitalizeFirstLetter),
+		words.slice(1).map(capitalize)
 	).join('');
 }
 
 export function resolveMethodName(name: string): string {
-	return isSplOperatorToken(name) ? splPunctuationTokenName(name) : name;
+	return isSplOperatorToken(name)
+		? splPunctuationTokenName(name)
+		: name;
 }
 
 export function resolveTokenName(name: string): string {
-	return isSplPunctuationToken(name) ? splPunctuationTokenName(name) : name;
+	return isSplPunctuationToken(name)
+		? splPunctuationTokenName(name)
+		: name;
 }

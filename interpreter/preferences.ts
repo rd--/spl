@@ -3,7 +3,7 @@ export type Preferences = Record<string, any>;
 export function preferencesRead<T>(
 	preferences: Preferences,
 	preferenceKey: string,
-): Preferences {
+): T {
 	const configurationKey: string = preferences['Configuration'];
 	const configuration = preferences[configurationKey];
 	// console.debug('preferencesRead', preferences, configurationKey, configuration, preferenceKey);

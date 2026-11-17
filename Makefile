@@ -101,3 +101,6 @@ sort-see-also:
 
 renumber-image-identifiers:
 	python3 utilities/renumber-image-identifiers.py Help/*/*.help.sl
+
+zip-interpreter-files:
+	zip spl-interpreter.zip interpreter/*.ts

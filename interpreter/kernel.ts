@@ -13,7 +13,6 @@ export {
 import { PriorityQueue } from './libraries/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
 
 import * as evaluate from './evaluate.ts';
-import { slOptions } from './options.ts';
 import { isSmallInteger } from './predicates.ts';
 
 export { slGrammar, slParse, slSemantics } from './grammar.ts';
@@ -411,7 +410,7 @@ export function extendTraitWithMethod(
 }
 
 // Trait names being with an ampersand (@T)
-function isTraitName(x: string): bool {
+function isTraitName(x: string): boolean {
 	return x.startsWith('@');
 }
 
@@ -833,10 +832,10 @@ export function toFloat(x: number | bigint): number {
 	if (xType === 'bigint') {
 		return Number(x);
 	}
-	throw new Error('toFloat: not Float or Integer', x);
+	throw new Error(`toFloat: not Float or Integer: ${x}`);
 }
 
-export function toInteger(x: number | bigint): number {
+export function toInteger(x: number | bigint): bigint {
 	const xType = typeof x;
 	if (xType === 'number') {
 		return BigInt(x); /* x */
@@ -844,5 +843,5 @@ export function toInteger(x: number | bigint): number {
 	if (xType === 'bigint') {
 		return x; /* Number(x) */
 	}
-	throw new Error('toInteger: not Float or Integer', x);
+	throw new Error(`toInteger: not Float or Integer: ${x}`);
 }

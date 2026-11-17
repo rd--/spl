@@ -1,10 +1,7 @@
 import ohm from 'https://unpkg.com/ohm-js@17.1.0/dist/ohm.esm.js';
 
-import { arraySum } from './libraries/jssc3/ts/kernel/array.ts';
-
 import { slParse, slSemantics } from './grammar.ts';
 import { resolveMethodName } from './operator.ts';
-import { slOptions } from './options.ts';
 
 export const context = {
 	packageName: '*UnknownPackage*',
@@ -30,7 +27,7 @@ function isJsArityQualifiedName(s: string): boolean {
 	return !isSpecialVar && s.includes('_', 1);
 }
 
-function jsArityQualifiedNameParseArity(s: string): boolean {
+function jsArityQualifiedNameParseArity(s: string): number {
 	const r = /_([0-9]+)$/;
 	const m = s.match(r);
 	return Number(m[1]);
@@ -1038,7 +1035,11 @@ const arityOf: ohm.ActionDict<number> = {
 	},
 
 	_iter(...children) {
-		return arraySum(children.map((c) => c.arityOf));
+		return children.map(
+			(c) => c.arityOf
+		).reduce(
+			(a, b) => a + b, 0
+		);
 	},
 };
 
@@ -1048,7 +1049,7 @@ const argumentsWithTypeAnnotation: ohm.ActionDict<string> = {
 	ArgumentsWithAnnotations(a, t, _verticalLine) {
 		const aList = a.children.map((x) => x.asSl);
 		const tList = t.children.map((x) => x.asSl);
-		const vList = aList.map((x) => x.substring(1, x.size));
+		const vList = aList.map((x) => x.substring(1, x.length));
 		const qList = [];
 		const k = aList.length;
 		for (let i = 0; i < k; i++) {
