@@ -8,8 +8,8 @@ Run length transform of _S(n)=Fibonacci(n+1)_,
 OEIS [A246028](https://oeis.org/A246028):
 
 ```
->>> 63.runLengthTransform { :n |
->>> 	(n + 1).fibonacci
+>>> 63L.runLengthTransform { :n |
+>>> 	(n + 1L).fibonacci
 >>> }
 [
 	1 1 1 2 1 1 2 3 1 1 1 2 2 2 3 5 1 1 1 2
@@ -23,8 +23,8 @@ Run length transform of _S(n)=Fibonacci(n+1)_,
 OEIS [A246028](https://oeis.org/A246028):
 
 ~~~spl svg=A oeis=A246028
-200.runLengthTransform { :n |
-	(n + 1).fibonacci
+200L.runLengthTransform { :n |
+	(n + 1L).fibonacci
 }.scatterPlot
 ~~~
 
@@ -34,7 +34,7 @@ Run length transform of `primorial`,
 OEIS [A278159](https://oeis.org/A278159):
 
 ```
->>> 15.runLengthTransform(primorial/1)
+>>> 15L.runLengthTransform(primorial/1)
 [
 	1  2  2  6  2  4  6 30  2  4
 	4 12  6 12 30
@@ -46,7 +46,7 @@ log scale scatter plot,
 OEIS [A278159](https://oeis.org/A278159):
 
 ~~~spl svg=B oeis=A278159
-100.runLengthTransform(primorial/1)
+100L.runLengthTransform(primorial/1)
 .scatterPlot.log
 ~~~
 

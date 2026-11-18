@@ -249,8 +249,10 @@
 
 	divisible { :self :aNumber |
 		aNumber.isNumber.if {
-			self.abs >= aNumber.abs & {
-				(self % aNumber).isVeryClose(0L)
+			aNumber.isZero.not & {
+				self.abs >= aNumber.abs & {
+					(self % aNumber).isVeryClose(0L)
+				}
 			}
 		} {
 			aNumber.adaptToNumberAndApply(self, divisible/2)
@@ -1099,16 +1101,16 @@
 	}
 
 	stope { :x :p :y |
-		(x + (p * ([1 .. y] - 1))).reduce(times/2)
+		(x + (p * ([1L .. y] - 1L))).reduce(times/2)
 	}
 
 	strictlyPositive { :self |
-		self > 0
+		self > 0L
 	}
 
 	swishFunction { :beta |
 		{ :x |
-			x / (1 + (beta.negate * x).exp)
+			x / (1.0 + (beta.negate * x).exp)
 		}
 	}
 

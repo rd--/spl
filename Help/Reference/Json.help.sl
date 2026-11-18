@@ -18,7 +18,6 @@ Types implementing `Json`:
 [
 	'Boolean'
 	'Float'
-	'Integer'
 	'List'
 	'Nil'
 	'Record'

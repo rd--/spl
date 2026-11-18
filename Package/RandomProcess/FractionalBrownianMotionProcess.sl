@@ -18,7 +18,7 @@ FractionalBrownianMotionProcess : [Object] {
 
 +Float {
 
-	basicHoskingMethod { :n :h :l :cum :snorm |
+	uncheckedHoskingMethod { :n :h :l :cum :snorm |
 		<primitive:
 		/* https://www.columbia.edu/~ad3217/fbm.html */
 		function covariance(i, h) {
@@ -76,11 +76,14 @@ FractionalBrownianMotionProcess : [Object] {
 +@RandomNumberGenerator {
 
 	hoskingMethod { :self :t :m :h :k |
-		m.basicHoskingMethod(
-			h,
-			t,
+		uncheckedHoskingMethod(
+			Float(m),
+			Float(h),
+			Float(t),
 			Float(k.boole),
-			{ self.normalDistribution(0, 1) }
+			{
+				self.normalDistribution(0.0, 1.0)
+			}
 		)
 	}
 

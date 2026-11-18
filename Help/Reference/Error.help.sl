@@ -25,7 +25,7 @@ Without cause:
 With cause:
 
 ```
->>> Error('Invalid key', -1).name
+>>> Error('Invalid key', -1.0).name
 'Error'
 
 >>> Error('Invalid key', -1.0).messageText
@@ -34,7 +34,7 @@ With cause:
 >>> Error('Invalid key', -1.0).description
 'Error: Invalid key: -1.0'
 
->>> Error('Invalid key', -1).printString
+>>> Error('Invalid key', -1.0).printString
 '*Error* Error: Invalid key: -1.0'
 ```
 

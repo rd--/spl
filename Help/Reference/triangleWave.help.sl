@@ -14,7 +14,7 @@ Evaluate numerically:
 Threads over lists:
 
 ```
->>> [0 1/4 1/2 3/4 1].triangleWave
+>>> [0/1 1/4 1/2 3/4 1/1].triangleWave
 [0 1 0 -1 0]
 
 >>> [0.4 1.2 3.6].triangleWave
@@ -24,7 +24,7 @@ Threads over lists:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 3).functionPlot(triangleWave/1)
+(0.0 -- 3.0).functionPlot(triangleWave/1)
 ~~~
 
 ![](Help/Image/triangleWave-A.svg)

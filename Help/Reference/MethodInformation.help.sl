@@ -7,7 +7,7 @@ Lookup method in the `System` method dictionary and collate information:
 ```
 >>> let i = system
 >>> .methodDictionary
->>> .atPath(['collect' 2 'List'])
+>>> .atPath(['collect' 2.0 'List'])
 >>> .information;
 >>> (
 >>> 	i.arity,

@@ -1,31 +1,31 @@
 +[Float, Fraction] {
 
 	cosineWave { :x |
-		(x * 2.pi).cos
+		(x * 2.0.pi).cos
 	}
 
 	sawtoothWave { :x |
-		x % 1
+		x % 1.0
 	}
 
 	squareWave { :x |
-		let u = x % 1;
+		let u = x % 1.0;
 		(u >= 0.5).if {
-			-1
+			-1.0
 		} {
-			1
+			1.0
 		}
 	}
 
 	triangleWave { :x |
-		let u = x % 1;
+		let u = x % 1.0;
 		(u >= 0.75).if {
-			4 * (u - 1)
+			4.0 * (u - 1.0)
 		} {
 			(u >= 0.25).if {
-				-2 * ((2 * u) - 1)
+				-2.0 * ((2.0 * u) - 1.0)
 			} {
-				4 * u
+				4.0 * u
 			}
 		}
 	}

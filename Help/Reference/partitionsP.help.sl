@@ -6,11 +6,11 @@ Answer the number of partitions of _x_ into distinct parts.
 An alias for the unary form of `partitionFunctionP`.
 
 ```
->>> 50.partitionsP
-204226
+>>> 50L.partitionsP
+204226L
 
->>> [2 4 6].collect(partitionsP/1)
-[2 5 11]
+>>> [2L 4L 6L].collect(partitionsP/1)
+[2L 5L 11L]
 ```
 
 Partition numbers,
@@ -18,14 +18,14 @@ threads over lists,
 OEIS [A000041](https://oeis.org/A000041):
 
 ```
->>> 0:12.partitionsP
+>>> 0L:12L.partitionsP
 [1 1 2 3 5 7 11 15 22 30 42 56 77]
 ```
 
 `partitionsP` gives the length of `integerPartitions` with nonrepeating parts:
 
 ```
->>> 5.integerPartitions
+>>> 5L.integerPartitions
 [
 	5;
 	4 1;
@@ -34,20 +34,20 @@ OEIS [A000041](https://oeis.org/A000041):
 	1 1 1 1 1
 ]
 
->>> 5.partitionsP
-7
+>>> 5L.partitionsP
+7L
 ```
 
 Ramanujan discovered and proved analytically that the number of partitions of _11n+6_ is divisible by 11:
 
 ```
->>> 6:100:11.partitionsP
+>>> 6L:100L:11L.partitionsP
 [
 	11 297 3718 31185 204226
 	1121505 5392783 23338469 92669720
 ]
 
->>> 6:100:11.partitionsP / 11
+>>> 6L:100L:11L.partitionsP // 11L
 [
 	1 27 338 2835 18566
 	101955 490253 2121679 8424520
@@ -58,7 +58,7 @@ Numbers _k_ such that the _k_-th partition number is prime,
 OEIS [A046063](https://oeis.org/A046063):
 
 ```
->>> 1:150.select { :n |
+>>> 1L:150L.select { :n |
 >>> 	n.partitionsP.isPrime
 >>> }
 [2 3 4 5 6 13 36 77 132]
@@ -68,7 +68,7 @@ Prime partition numbers,
 OEIS [A049575](https://oeis.org/A049575):
 
 ```
->>> 1:150.partitionsP.select { :n |
+>>> 1L:150L.partitionsP.select { :n |
 >>> 	n.isPrime
 >>> }
 [2 3 5 7 11 101 17977 10619863 6620830889]
@@ -78,7 +78,8 @@ Plot the number of restricted partitions,
 `log` scaled:
 
 ~~~spl svg=A
-1:33.partitionsP.discretePlot.log
+1L:33L.partitionsP
+.discretePlot.log
 ~~~
 
 ![](Help/Image/partitionsP-A.svg)
@@ -86,16 +87,16 @@ Plot the number of restricted partitions,
 Successive differences of `partitionsP` modulo two:
 
 ~~~spl svg=B
-let n = 31;
+let n = 31L;
 (
 	{ :x |
 		x
 		.differences
-		.padRight([n], 0)
+		.padRight([n], 0L)
 	}.nestList(
-		1:n.partitionsP,
+		1L:n.partitionsP,
 		n
-	) % 2
+	) % 2L
 ).matrixPlot
 ~~~
 
@@ -105,7 +106,7 @@ A walk based on `partitionsP`:
 
 ~~~spl svg=C
 let n = 37;
-(1:n.partitionsP.I * 3.4.pi)
+(1L:n.partitionsP.I * 3.4.pi)
 .exp
 .accumulate
 .realImaginary

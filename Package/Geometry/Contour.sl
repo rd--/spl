@@ -4,12 +4,12 @@
 		let [m, n] = d.shape;
 		{ x.size = m }.assert;
 		{ y.size = n }.assert;
-		{ z.size > 0 }.assert;
+		{ z.size > 0L }.assert;
 		{ z.isMonotonicallyIncreasing }.assert;
-		{ drawContour/6.argumentCount = 6 }.assert;
+		{ drawContour/6.argumentCount = 6L }.assert;
 		uncheckedBourkeContourAlgorithm(
 			d,
-			0,
+			0.0,
 			m - 1.0,
 			0,
 			n - 1.0,

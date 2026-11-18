@@ -7,7 +7,8 @@ Plot complex numbers as points in the complex plane.
 Plot `sin`:
 
 ~~~spl svg=A
-(1:40 + 0J2).sin.complexListPlot
+([1.0 .. 40.0] + 0J2).sin
+.complexListPlot
 ~~~
 
 ![](Help/Image/complexListPlot-A.svg)
@@ -15,7 +16,7 @@ Plot `sin`:
 Plot the spectrum of a discrete time signal:
 
 ~~~spl svg=B
-(0 -- 13).subdivide(47)
+(0.0 -- 13.0).subdivide(47L)
 .sawtoothWave
 .fourier
 .complexListPlot

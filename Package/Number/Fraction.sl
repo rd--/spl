@@ -2,17 +2,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 
 	| numerator denominator |
 
-	[Complex, J] { :real :imaginary |
-		imaginary.isCollection.if {
-			imaginary.adaptToFractionAndApply(real, Complex/2)
-		} {
-			uncheckedComplex(
-				Float(real),
-				Float(imaginary)
-			)
-		}
-	}
-
 	[Float, F, fractionToFloat] { :self |
 		Float(self.numerator)
 		/
@@ -43,13 +32,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 
 	[SmallInteger, fractionToSmallInteger] { :self |
 		SmallInteger(Integer(self))
-	}
-
-	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
-		aBlock(
-			aComplexNumber,
-			uncheckedComplex(Float(self), 0.0)
-		)
 	}
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |

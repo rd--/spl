@@ -48,7 +48,7 @@ LaggedFibonacci : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 }
 
-+Float {
++[Float, Integer] {
 
 	LaggedFibonacci { :s :r :k :m |
 		let p = [s, r, Integer(m)];

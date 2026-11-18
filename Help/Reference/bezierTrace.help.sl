@@ -11,8 +11,8 @@ Draw a `bezierTrace` as a `PointSet`,
 indicating the uniform distances along the curve between equidistant sampling points:
 
 ~~~spl svg=A
-[0 0; 1 4; 2 -4; 3 0]
-.bezierTrace(64)
+[0.0 0.0; 1.0 4.0; 2.0 -4.0; 3.0 0.0]
+.bezierTrace(64L)
 .PointSet
 ~~~
 

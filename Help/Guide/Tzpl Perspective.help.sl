@@ -131,7 +131,7 @@ followed by a newline,
 and answers nil:
 
 ```
->> printString(42)
+>> printString(42.0)
 42.0
 
 >> printString('Mikhail Lermontov')
@@ -434,7 +434,7 @@ The naming convention is idiomatic but not enforced.
 copysign=`copySign`, nextafter, isNan=`isNaN`, isInf, `isFinite`, isNormal
 
 ```
->>> isNaN(0 / 0)
+>>> isNaN(0.0 / 0.0)
 true
 
 >>> isFinite(1 / 0)

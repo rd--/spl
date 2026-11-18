@@ -2,7 +2,7 @@
 
 - _MersenneTwister(n)_
 
-Answer a pseudo random number generator seeded with th integer _n_.
+Answer a pseudo random number generator seeded with the integer _n_.
 Implements the _Mt19937_ algorithm, part of the _PractRand_ test suite.
 
 `MersenneTwister` implements `RandomNumberGenerator` and `Stream`:

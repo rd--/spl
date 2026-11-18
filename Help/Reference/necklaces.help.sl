@@ -8,7 +8,7 @@ Algorithm due to Fredricksen, Kessler and Maiorana.
 List of _4,2_ necklaces:
 
 ```
->>> necklaces(4, 2)
+>>> necklaces(4L, 2L)
 [
 	0 0 0 0;
 	0 0 0 1;

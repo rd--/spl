@@ -40,7 +40,11 @@
 		x
 	}
 
-	nelderMeadMethod { :f/1 :x0 :parameters |
+	nelderMeadMethod { :f/1 :x0 FloatList :parameters |
+		uncheckedNelderMeadMethod(f/1, x0, parameters)
+	}
+
+	uncheckedNelderMeadMethod { :f/1 :x0 :parameters |
 		/* https://github.com/benfred/fmin */
 		<primitive:
 		const f = _f_1;
@@ -173,21 +177,21 @@
 	ackleyFunction { :a :b :c |
 		{ :x |
 			let d = x.size;
-			let p = -1 * a * exp(-1 * b * sqrt((1 / d) * sum(x * x)));
-			let q = -1 * exp((1 / d) * sum(cos(c * x)));
-			p + q + a + exp(1)
+			let p = -1.0 * a * exp(-1.0 * b * sqrt((1.0 / d) * sum(x * x)));
+			let q = -1.0 * exp((1.0 / d) * sum(cos(c * x)));
+			p + q + a + exp(1.0)
 		}
 	}
 
 	himmelblausFunction { :x :y |
-		(x.square + y - 11).square + (x + y.square - 7).square
+		(x.square + y - 11.0).square + (x + y.square - 7.0).square
 	}
 
 	rosenbrockFunction { :a :b |
 		{ :x |
 			let n = x.size;
-			1.to(n - 1).sum { :i |
-				100 * (x[i + 1] - x[i].square).square + (1 - x[i]).square
+			1L.to(n - 1L).sum { :i |
+				100.0 * (x[i + 1] - x[i].square).square + (1.0 - x[i]).square
 			}
 		}
 	}

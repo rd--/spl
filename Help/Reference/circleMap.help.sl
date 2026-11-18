@@ -8,9 +8,9 @@ Plot the first few terms with _k=1,Ω=0.15_ for four randomly selected initial v
 
 ~~~spl svg=A
 Sfc32(791742)
-.randomReal([-0.25 0.25], 4)
+.randomReal([-0.25 0.25], 4L)
 .collect { :theta |
-	circleMap(1, 0.15)
+	circleMap(1.0, 0.15)
 	.nestList(theta, 50)
 }.linePlot
 ~~~
@@ -21,9 +21,9 @@ Plot with _k=1,Ω=0.2_:
 
 ~~~spl svg=B
 Sfc32(348014)
-.randomReal([-0.25 0.25], 4)
+.randomReal([-0.25 0.25], 4L)
 .collect { :theta |
-	circleMap(1, 0.2)
+	circleMap(1.0, 0.2)
 	.nestList(theta, 50)
 }.linePlot
 ~~~
@@ -34,9 +34,9 @@ Plot with _k=1,Ω=0.7_:
 
 ~~~spl svg=C
 Sfc32(348014)
-.randomReal([-0.25 0.25], 4)
+.randomReal([-0.25 0.25], 4L)
 .collect { :theta |
-	circleMap(1, 0.7)
+	circleMap(1.0, 0.7)
 	.nestList(theta, 50)
 }.linePlot
 ~~~

@@ -3,7 +3,7 @@
 	isSiteswap { :t |
 		t.allSatisfy(isNonNegativeInteger/1) & {
 			let n = t.size;
-			1.to(n).collect { :i |
+			1L.to(n).collect { :i |
 				(i + t[i]) % n
 			}.isDuplicateFree
 		}
@@ -11,22 +11,24 @@
 
 	siteswapState { :t |
 		let n = t.size;
-		1.to(t.max).collect { :i |
-			1.to(n).anySatisfy { :j |
+		1L.to(t.max).collect { :i |
+			1L.to(n).anySatisfy { :j |
 				let k = (j + t[j] - i);
-				(k > 0) & { k.divisible(n) }
+				(k > 0L) & {
+					k.divisible(n)
+				}
 			}.boole
 		}.withoutTrailing(isZero/1)
 	}
 
 	siteswapStateAllowedTransitions { :sigma |
 		let n = sigma.size;
-		(sigma[1] = 0).if {
-			[0]
+		(sigma[1L] = 0L).if {
+			[0L]
 		} {
-			1.to(n).select { :j |
+			1L.to(n).select { :j |
 				(j = n) | {
-					sigma[j + 1] = 0
+					sigma[j + 1L] = 0L
 				}
 			}
 		}
@@ -35,16 +37,16 @@
 	siteswapStateTransition { :sigma :j |
 		let n = sigma.size;
 		let m = n.max(j);
-		let r = List(m, 0);
-		(j = 0).if {
-			1.to(n - 1).collect { :k |
-				r[k] := sigma[k + 1]
+		let r = List(m, 0L);
+		(j = 0L).if {
+			1L.to(n - 1L).collect { :k |
+				r[k] := sigma[k + 1L]
 			}
 		} {
-			r[j] := 1;
-			1.to(n - 1).collect { :k |
+			r[j] := 1L;
+			1L.to(n - 1L).collect { :k |
 				(k != j).ifTrue {
-					r[k] := sigma[k + 1]
+					r[k] := sigma[k + 1L]
 				}
 			}
 		};
@@ -53,17 +55,19 @@
 
 }
 
-+Float {
++[Float, Integer] {
 
 	siteswapStateAllowedTransitions { :sigma :h |
-		sigma.integerDigits(2, h).reverse.siteswapStateAllowedTransitions
+		sigma.integerDigits(2L, h)
+		.reverse
+		.siteswapStateAllowedTransitions
 	}
 
 	siteswapStateTransition { :sigma :j |
-		(j = 0).if {
-			sigma >> 1
+		(j = 0L).if {
+			sigma >> 1L
 		} {
-			sigma.bitXor(1 << j) - 1 / 2
+			sigma.bitXor(1L << j) - 1L / 2L
 		}
 	}
 

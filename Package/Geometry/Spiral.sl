@@ -49,7 +49,7 @@
 	inverseNorwichSpiral { :a |
 		{ :t |
 			let rho = a * t.cos.square;
-			let theta = (2 * t) - t.tan;
+			let theta = (2.0 * t) - t.tan;
 			[rho theta].fromPolarCoordinates
 		}
 	}
@@ -97,6 +97,33 @@
 		}
 	}
 
+	tractrixSpiral { :a |
+		{ :t |
+			[
+				a * cos(t) * cos(t - tan(t)),
+				a * cos(t) * sin(t - tan(t))
+			]
+		}
+	}
+
+}
+
++[Float, Integer] {
+
+	triangularSpiral { :self |
+		let x = 0L.to(self - 1L).collect { :n |
+			let m = n.sqrt.ceiling;
+			(-1L ^ (m + 1L)) * (0L - m.square + m + n)
+		};
+		let y = 0L.to(self - 1L).collect { :n |
+			let m = n.sqrt;
+			let a = m * 0.max(2L * (m % 2L) - 2L);
+			let b = -2L * m * (m % -1L);
+			(a.min(b) + (-m / 2).ceiling).floor
+		};
+		[x, y].transpose
+	}
+
 	squareSpiral { :n :k |
 		k.caseOf(
 			[
@@ -136,33 +163,6 @@
 			]
 		)
 	}
-
-	tractrixSpiral { :a |
-		{ :t |
-			[
-				a * cos(t) * cos(t - tan(t)),
-				a * cos(t) * sin(t - tan(t))
-			]
-		}
-	}
-
-	triangularSpiral { :self |
-		let x = 0.to(self - 1).collect { :n |
-			let m = n.sqrt.ceiling;
-			(-1 ^ (m + 1)) * (0 - m.square + m + n)
-		};
-		let y = 0.to(self - 1).collect { :n |
-			let m = n.sqrt;
-			let a = m * 0.max(2 * (m %  2) - 2);
-			let b = -2 * m * (m % -1);
-			(a.min(b) + (-m / 2).ceiling).floor
-		};
-		[x, y].transpose
-	}
-
-}
-
-+[Float, Integer] {
 
 	squareSpiral { :self |
 		let answer = [];

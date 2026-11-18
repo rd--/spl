@@ -222,34 +222,34 @@
 	}
 
 	[partitionFunctionP, partitionsP] { :n |
-		let a = List(n + 1, nil);
+		let a = List(n + 1L, nil);
 		a[1] := 1L;
-		1.toDo(n) { :i |
-			let k = 1;
-			let s = 1;
-			a[i + 1] := 0L;
+		1L.toDo(n) { :i |
+			let k = 1L;
+			let s = 1L;
+			a[i + 1L] := 0L;
 			{
 				s <= i
 			}.whileTrue {
 				k.isOdd.if {
-					a[i + 1] := a[i + 1] + a[i - s + 1]
+					a[i + 1L] := a[i + 1L] + a[i - s + 1L]
 				} {
-					a[i + 1] := a[i + 1] - a[i - s + 1]
+					a[i + 1L] := a[i + 1L] - a[i - s + 1L]
 				};
-				(k > 0).if {
+				(k > 0L).if {
 					s := s + k;
 					k := k.-
 				} {
-					k := 1 - k;
-					s := k * (3 * k - 1) / 2
+					k := 1L - k;
+					s := k * (3L * k - 1L) // 2L
 				}
 			}
 		};
-		a[n + 1]
+		a[n + 1L]
 	}
 
 	[partitionFunctionQ, partitionsQ] { :n |
-		(n < 1).if {
+		(n < 1L).if {
 			1L
 		} {
 			1L.to(n).sum { :k |

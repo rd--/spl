@@ -14,9 +14,9 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 	byteOrdering { :self |
 		self.isLittleEndian.if {
-			-1
+			-1L
 		} {
-			1
+			1L
 		}
 	}
 
@@ -184,14 +184,14 @@ System! : [Object, Cache, RandomNumberGenerator] {
 			self.error('System>>preferencesReadPath: empty path')
 		} {
 			let item = self.preferencesRead(path[1]);
-			let index = 2;
+			let index = 2L;
 			{
 				item.isNotNil & {
 					index <= path.size
 				}
 			}.whileTrue {
 				item := item.atIfAbsent(path[index]) { nil };
-				index := index + 1
+				index := index + 1L
 			};
 			item.ifNil {
 				defaultValue
@@ -230,8 +230,8 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		}
 	}
 
-	seedRandom { :self :anInteger |
-		self.randomNumberGenerator.initialize!(anInteger)
+	seedRandom { :self :seed |
+		self.randomNumberGenerator.initialize!(seed)
 	}
 
 	sessionStorage { :self |
@@ -358,9 +358,9 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 	uniqueIdentifier { :self |
 		let answer = self.cached('uniqueIdentifier') {
-			1
+			1L
 		};
-		self.cache['uniqueIdentifier'] := answer + 1;
+		self.cache['uniqueIdentifier'] := answer + 1L;
 		answer
 	}
 
@@ -435,7 +435,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 }
 
-+[Float, String] {
++[Float, Integer, String] {
 
 	seedRandom { :self |
 		system.seedRandom(self)

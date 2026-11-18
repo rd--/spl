@@ -14,7 +14,7 @@ true
 Integer literals define `Float` values:
 
 ```
->>> 23.isFloat
+>>> 23.0.isFloat
 true
 ```
 
@@ -42,10 +42,10 @@ Large integer literals:
 A `List` is not a number:
 
 ```
->>> [1 2 3].isFloat
+>>> [1.0 2.0 3.0].isFloat
 false
 
->>> [1 2 3].allTrue(isFloat/1)
+>>> [1.0 2.0 3.0].allTrue(isFloat/1)
 true
 ```
 

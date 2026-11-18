@@ -8,8 +8,8 @@ a self-affine function that is continuous and nowhere differentiable.
 Specific values:
 
 ```
->>> 2.takagiFunction(5)
-0
+>>> 2.0.takagiFunction(5)
+0.0
 
 >>> 12/19.takagiFunction(15)
 50465/77824
@@ -25,8 +25,11 @@ Specific values:
 Threads elementwise over lists:
 
 ```
->>> (1 / [9 7 5]).takagiFunction(15)
-[8/21 22/49 8/15]
+>>> (1L / [9L 7L 5L]).takagiFunction(15)
+[4681/12288 51491/114688 43689/81920]
+
+>>> (1.0 / [9.0 7.0 5.0]).takagiFunction(15)
+[0.38094 0.44897 0.53331]
 ```
 
 Plot the Takagi function:

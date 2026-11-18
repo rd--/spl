@@ -269,7 +269,7 @@ BezierCurve : [Object, Equal, Cache, Geometry] {
 	bezierTrace { :self :size |
 		let [muList, d] = self.bezierDistanceTable(size);
 		let arcLength = d.last;
-		(0 -- arcLength).discretize(size).collect(
+		(0.0 -- arcLength).discretize(size).collect(
 			self.bezierFunction.composeLeft(
 				d.linearInterpolator(muList)
 			)

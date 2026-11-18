@@ -57,10 +57,10 @@ Number of _2n_-bead balanced binary necklaces of fundamental period _2n_,
 OEIS [A000740](https://oeis.org/A000740):
 
 ```
->>> 1:12.collect { :n |
+>>> 1L:12L.collect { :n |
 >>> 	n.divisors.sum { :d |
->>> 		let a = (n / d).moebiusMu;
->>> 		let b = 2 ^ (d - 1);
+>>> 		let a = (n // d).moebiusMu;
+>>> 		let b = 2L ^ (d - 1L);
 >>> 		a * b
 >>> 	}
 >>> }
@@ -262,15 +262,15 @@ Number of transformation groups of order _n_,
 OEIS [A000113](https://oeis.org/A000113):
 
 ~~~spl svg=H oeis=A000113
-1:135.collect { :n |
-	let i = n.integerExponent(2);
-	let j = n.integerExponent(3);
+1L:135L.collect { :n |
+	let i = n.integerExponent(2L);
+	let j = n.integerExponent(3L);
 	let a = n.divisors.sum { :d |
-		d.moebiusMu ^ 2 / d
+		d.moebiusMu ^ 2L // d
 	};
-	let b = 2 ^ 3.min(i // 2);
-	let c = 3 ^ (1 < j).boole;
-	n * a / (b * c)
+	let b = 2L ^ 3L.min(i // 2L);
+	let c = 3L ^ (1L < j).boole;
+	n * a // (b * c)
 }.scatterPlot
 ~~~
 
@@ -280,9 +280,9 @@ Dedekind ψ function,
 OEIS [A001615](https://oeis.org/A001615):
 
 ~~~spl svg=I oeis=A001615
-1:69.collect { :n |
+1L:69L.collect { :n |
 	n * n.divisorSum { :d |
-		d.moebiusMu ^ 2 / d
+		d.moebiusMu ^ 2L / d
 	}
 }.discretePlot
 ~~~

@@ -2724,7 +2724,7 @@
 	}
 
 	take { :self :count :fill |
-		(count < 0).if {
+		(count < 0L).if {
 			self.takeLast(count.negate, fill)
 		} {
 			self.takeFirst(count, fill)

@@ -8,21 +8,21 @@ where _m_ is a positive odd integer.
 Follows the normal convention for the empty product:
 
 ```
->>> 3.jacobiSymbol(1)
-1
+>>> 3L.jacobiSymbol(1L)
+1L
 ```
 
 Compute Jacobi symbols:
 
 ```
->>> jacobiSymbol(10, 5)
-0
+>>> jacobiSymbol(10L, 5L)
+0L
 
->>> 45.jacobiSymbol(77)
--1
+>>> 45L.jacobiSymbol(77L)
+-1L
 
->>> (1 .. 10).collect { :n |
->>> 	(1, 3 .. n).collect { :m |
+>>> (1L .. 10L).collect { :n |
+>>> 	(1L, 3L .. n).collect { :m |
 >>> 		jacobiSymbol(n, m)
 >>> 	}
 >>> }

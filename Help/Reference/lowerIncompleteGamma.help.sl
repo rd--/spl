@@ -6,10 +6,10 @@ Answer the lower incomplete gamma function,
 regularized unless _r_ is set to `false`.
 
 ```
->>> 1.5.lowerIncompleteGamma(2)
+>>> 1.5.lowerIncompleteGamma(2.0)
 0.442175
 
->>> 2.gammaRegularized(0, 1.5)
+>>> 2.0.gammaRegularized(0.0, 1.5)
 0.442175
 ```
 
@@ -17,10 +17,10 @@ The regularized lower incomplete gamma function is the `cdf` of the gamma distri
 it starts at 0 and monotonically increases to 1:
 
 ```
->>> [0 0.5 1 10 100].collect { :x |
+>>> [0.0 0.5 1.0 10.0 100.0].collect { :x |
 >>> 	lowerIncompleteGamma(x, 0.5)
 >>> }
-[0 0.6827 0.8427 0.9999 1]
+[0.0 0.6827 0.8427 0.9999 1.0]
 
 >>> [0 0.5 1 10 100].collect { :x |
 >>> 	0.5.gammaRegularized(0, x)

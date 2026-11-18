@@ -30,7 +30,7 @@ At `Boolean`:
 At `Float`:
 
 ```
->>> [3.141 23].collect(encodeJson/1)
+>>> [3.141 23.0].collect(encodeJson/1)
 ['3.141' '23']
 ```
 
@@ -58,11 +58,11 @@ At `List`,
 all items must have Json encodings:
 
 ```
->>> [3.141 23].encodeJson
+>>> [3.141 23.0].encodeJson
 '[3.141,23]'
 
 >>> {
->>> 	[1/2, 3J4].encodeJson
+>>> 	[1/2 3J4].encodeJson
 >>> }.hasError
 true
 ```
@@ -71,7 +71,7 @@ At `Record`,
 all items must have Json encodings:
 
 ```
->>> (x: 3.141, y: 23).encodeJson
+>>> (x: 3.141, y: 23.0).encodeJson
 '{"x":3.141,"y":23}'
 
 >>> {
@@ -83,22 +83,29 @@ true
 Other dictionary types can be encoded by first translating them to records:
 
 ```
->>> let a = ['x' -> 3.141, 'y' -> 23];
+>>> let a = ['x' -> 3.141, 'y' -> 23.0];
 >>> let b = Record(a);
 >>> b.encodeJson
 '{"x":3.141,"y":23}'
 
->>> let a = Map['x' -> 3.141, 'y' -> 23];
+>>> let a = Map['x' -> 3.141, 'y' -> 23.0];
 >>> let b = Record(a);
 >>> b.encodeJson
 '{"x":3.141,"y":23}'
 ```
 
-Not implemented at `Fraction`,
+Not implemented at
+`Integer`,
+or `Fraction`,
 or `Complex`,
 or `Association`:
 
 ```
+>>> {
+>>> 	23L.encodeJson
+>>> }.hasError
+true
+
 >>> {
 >>> 	1/2.encodeJson
 >>> }.hasError

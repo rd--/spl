@@ -5,31 +5,31 @@
 If _x_ is a _not-a-number_ value answer _y_, else answer _x_.
 
 ```
->>> NaN.replaceNaN(0)
+>>> NaN.replaceNaN(0.0)
 0
 
->>> 1.pi.replaceNaN(0)
-1.pi
+>>> 1.0.pi.replaceNaN(0.0)
+1.0.pi
 ```
 
 Threads over lists:
 
 ```
->>> [1 NaN 3]
->>> .replaceNaN(0)
-[1 0 3]
+>>> [1.0 NaN 3.0]
+>>> .replaceNaN(0.0)
+[1.0 0.0 3.0]
 
->>> [1 2 3; 4 NaN 6]
->>> .replaceNaN(0)
-[1 2 3; 4 0 6]
+>>> [1.0 2.0 3.0; 4.0 NaN 6.0]
+>>> .replaceNaN(0.0)
+[1.0 2.0 3.0; 4.0 0.0 6.0]
 ```
 
 Sum a matrix after replacing NaN entries with zero:
 
 ```
->>> [NaN 1 NaN; 3 5 NaN; 4 NaN NaN]
->>> .replaceNaN(0).sum
-[7 6 0]
+>>> [NaN 1.0 NaN; 3.0 5.0 NaN; 4.0 NaN NaN]
+>>> .replaceNaN(0.0).sum
+[7.0 6.0 0.0]
 ```
 
 * * *

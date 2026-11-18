@@ -7,23 +7,23 @@ Answer the modified Bessel function of the first kind.
 Evaluate numerically:
 
 ```
->>> 0.besselI(2)
+>>> 0L.besselI(2.0)
 2.2795
 ```
 
 Continued fraction with arithmetic progression terms:
 
 ```
->>> let p = 1.besselI(2);
->>> let q = 2.besselI(2);
->>> (p / q).continuedFraction(6)
+>>> let p = 1.besselI(2.0);
+>>> let q = 2.besselI(2.0);
+>>> (p / q).continuedFraction(6L)
 [2 3 4 5 6 7]
 ```
 
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot { :x |
+(-3.0 -- 3.0).functionPlot { :x |
 	0.besselI(x)
 }
 ~~~

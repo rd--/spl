@@ -110,7 +110,10 @@
 			self.slotList,
 			self.pseudoSlotList,
 			self.isIndexable.if {
-				self.indices.take(maxIndices).collect { :each |
+				self
+				.indices
+				.take(maxIndices)
+				.collect { :each |
 					each.displayString -> self[each]
 				}
 			} {
@@ -222,7 +225,10 @@
 	}
 
 	slotList { :self |
-		self.typeDefinition.slotNameList.collect { :each |
+		self
+		.typeDefinition
+		.slotNameList
+		.collect { :each |
 			each -> self.perform(each)
 		}
 	}

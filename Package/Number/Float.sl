@@ -435,6 +435,10 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 	}
 
 	ieeeRemainder { :self :operand |
+		uncheckedIeeeRemainder(self, Float(operand))
+	}
+
+	uncheckedIeeeRemainder { :self :operand |
 		<primitive:
 		const dividend = _self;
 		const divisor = _operand;
@@ -548,14 +552,12 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 	}
 
 	[isEqual, =] { :self :operand |
-		operand.isNumber.if {
+		operand.isNumber & {
 			operand.isFloat.if {
 				isIdentical(self, operand)
 			} {
 				operand.adaptToNumberAndApply(self, isEqual/2)
 			}
-		} {
-			false
 		}
 	}
 
@@ -751,9 +753,9 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 	}
 
 	minkowskiQuestionMark { :x |
-		let y = (x / 1).floor;
-		let p = x % 1;
-		let q = 1 - p;
+		let y = (x / 1.0).floorFloat;
+		let p = x % 1.0;
+		let q = 1.0 - p;
 		let d = 0.5;
 		{
 			y + d > y
@@ -764,7 +766,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 				p := p - q;
 				y := y + d
 			};
-			d := d / 2
+			d := d / 2.0
 		};
 		y
 	}
@@ -1184,29 +1186,37 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 		self.isEmpty.if {
 			false
 		} {
-			radix.caseOf([
-				2 -> {
-					self.matchesRegularExpression('^[0-1+-]+$')
-				},
-				4 -> {
-					self.matchesRegularExpression('^[0-3+-]+$')
-				},
-				8 -> {
-					self.matchesRegularExpression('^[0-7+-]+$')
-				},
-				10 -> {
-					self.matchesRegularExpression('^[0-9+-]+$')
-				},
-				16 -> {
-					self.matchesRegularExpression('^[0-9A-Fa-f+-]+$')
-				}
-			]) {
+			radix.caseOf(
+				[
+					2L -> {
+						self.matchesRegularExpression('^[0-1+-]+$')
+					},
+					4L -> {
+						self.matchesRegularExpression('^[0-3+-]+$')
+					},
+					8L -> {
+						self.matchesRegularExpression('^[0-7+-]+$')
+					},
+					10L -> {
+						self.matchesRegularExpression('^[0-9+-]+$')
+					},
+					16L -> {
+						self.matchesRegularExpression('^[0-9A-Fa-f+-]+$')
+					}
+				]
+			) {
 				let c = self.characters;
-				(c[1] = '-' | { c[1] = '+' }).ifTrue {
+				(
+					c[1] = '-' | {
+						c[1] = '+'
+					}
+				).ifTrue {
 					c.removeAt!(1)
 				};
-				c.collect(digitValue/1).allSatisfy { :each |
-					each >= 0 & { each < radix }
+				c.collect(digitValue/1).allTrue { :each |
+					each >= 0L & {
+						each < radix
+					}
 				}
 			}
 		}
@@ -1264,9 +1274,9 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 	}
 
 	parseSmallInteger { :self :radix :elseClause/0 |
-		radix.isSmallInteger.if {
+		radix.isIntegerValuedNumber.if {
 			(
-				radix.isBetween(1, 36) & {
+				radix.isBetween(1L, 36L) & {
 					self.isRadixIntegerString(radix)
 				}
 			).if {

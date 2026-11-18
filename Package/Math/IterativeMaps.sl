@@ -2,13 +2,13 @@
 
 	bakersMap { :a :b |
 		let alpha = 0.5;
-		let beta = 1 - alpha;
+		let beta = 1.0 - alpha;
 		{ :v |
 			let [x, y] = v;
 			(y < alpha).if {
-				[a * x, y / alpha] % 1
+				[a * x, y / alpha] % 1.0
 			} {
-				[(1 - b) + (b * x), (y - alpha) / beta] % 1
+				[(1.0 - b) + (b * x), (y - alpha) / beta] % 1.0
 			}
 		}
 	}
@@ -18,14 +18,14 @@
 	}
 
 	circleMap { :k :omega |
-		let a = k / 2.pi;
+		let a = k / 2.0.pi;
 		{ :theta |
-			(theta + omega - (a * (2.pi * theta).sin)) % 1
+			(theta + omega - (a * (2.0.pi * theta).sin)) % 1.0
 		}
 	}
 
 	cuspMap { :x |
-		1 - (2 * x.abs.sqrt)
+		1.0 - (2.0 * x.abs.sqrt)
 	}
 
 	deJongMap { :a :b :c :d |
@@ -50,7 +50,7 @@
 
 	dyadicMap { :beta |
 		{ :x |
-			(beta * x) % 1
+			(beta * x) % 1.0
 		}
 	}
 
@@ -77,7 +77,7 @@
 		{ :v |
 			let [x, y] = v;
 			[
-				y + 1 - (a * x * x),
+				y + 1.0 - (a * x * x),
 				b * x
 			]
 		}
@@ -86,7 +86,7 @@
 	ikedaMap { :u |
 		{ :v |
 			let [x, y] = v;
-			let t = 0.4 - (6 / (1 + x.square + y.square));
+			let t = 0.4 - (6.0 / (1.0 + x.square + y.square));
 			[
 				1 + (u * ((x * t.cos) - (y * t.sin))),
 				u * ((x * t.sin) + (y * t.cos))
@@ -96,15 +96,15 @@
 
 	katsuraFukudaMap { :k |
 		{ :x |
-			let a = 4 * x * (1 - x) * (1 - (k.square * x));
-			let b = (1 - (k.square * x.square)).square;
+			let a = 4.0 * x * (1.0 - x) * (1.0 - (k.square * x));
+			let b = (1.0 - (k.square * x.square)).square;
 			a / b
 		}
 	}
 
 	logisticMap { :r |
 		{ :x |
-			r * x * (1 - x)
+			r * x * (1.0 - x)
 		}
 	}
 
@@ -112,7 +112,7 @@
 		{ :v |
 			let [x, y] = v;
 			[
-				1 - (a * x.abs) + y,
+				1.0 - (a * x.abs) + y,
 				b * x
 			]
 		}
@@ -130,7 +130,7 @@
 
 	procacciaSchuster { :u |
 		{ :x |
-			(x + (u * x.square)) % 1
+			(x + (u * x.square)) % 1.0
 		}
 	}
 
@@ -138,7 +138,7 @@
 		{ :v |
 			let [x, y] = v;
 			[
-				(alpha / (1 + x.square)) + y,
+				(alpha / (1.0 + x.square)) + y,
 				y - (mu * (x - sigma))
 			]
 		}
@@ -146,13 +146,13 @@
 
 	rulkovNonlinearFunction { :alpha |
 		{ :x :y |
-			(x <= 0).if {
-				alpha / (1 - x) + y
+			(x <= 0.0).if {
+				alpha / (1.0 - x) + y
 			} {
 				(x < (alpha + y)).if {
 					alpha + y
 				} {
-					-1
+					-1.0
 				}
 			}
 		}
@@ -161,8 +161,8 @@
 	standardMap { :k |
 		{ :v |
 			let [p, theta] = v;
-			let pPrime = (p + (k * theta.sin)) % 2.pi;
-			[pPrime, (theta + pPrime) % 2.pi]
+			let pPrime = (p + (k * theta.sin)) % 2.0.pi;
+			[pPrime, (theta + pPrime) % 2.0.pi]
 		}
 	}
 
@@ -171,7 +171,7 @@
 			(x < 0.5).if {
 				mu * x
 			} {
-				mu * (1 - x)
+				mu * (1.0 - x)
 			}
 		}
 	}
@@ -183,7 +183,7 @@
 	gingerbreadmanMap { :v |
 		let [x, y] = v;
 		[
-			1 - y + x.abs,
+			1.0 - y + x.abs,
 			x
 		]
 	}

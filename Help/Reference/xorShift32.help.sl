@@ -8,7 +8,7 @@ Answers an array of shape _⍴_ with initial value _n_.
 First few terms:
 
 ```
->>> xorShift32(123456789, [11])
+>>> xorShift32(123456789.0, [11])
 [
 	  123456789
 	-1579999415
@@ -27,7 +27,7 @@ First few terms:
 Step plot of first few terms:
 
 ~~~spl svg=A
-123456789.xorShift32([99])
+123456789.0.xorShift32([99L])
 .rescale
 .stepPlot
 ~~~
@@ -37,7 +37,7 @@ Step plot of first few terms:
 Plot histogram:
 
 ~~~spl svg=B
-123456789.xorShift32([1E4])
+123456789.0.xorShift32([1E4])
 .histogramPlot
 ~~~
 
@@ -46,8 +46,8 @@ Plot histogram:
 Matrix plot:
 
 ~~~spl png=C
-let n = 100;
-123456789.xorShift32([n n])
+let n = 100L;
+123456789.0.xorShift32([n n])
 .rescale
 .Greymap
 ~~~

@@ -8,30 +8,30 @@ It is a generalization of the logarithmic mean.
 _p=-1_ is the geometric mean:
 
 ```
->>> stolarskyMean(-1, 3, 5)
+>>> stolarskyMean(-1.0, 3.0, 5.0)
 3.87298
 
->>> [3 5].geometricMean
+>>> [3.0 5.0].geometricMean
 3.87298
 ```
 
 _p=2_ is the arithmetic mean:
 
 ```
->>> stolarskyMean(2, 3, 5)
-4
+>>> stolarskyMean(2.0, 3.0, 5.0)
+4.0
 
->>> [3 5].arithmeticMean
+>>> [3.0 5.0].arithmeticMean
 4
 ```
 
 _p⟶0_ is the logarithmic mean:
 
 ```
->>> stolarskyMean(0.00001, 3, 5)
+>>> stolarskyMean(0.00001, 3.0, 5.0)
 3.91523
 
->>> logarithmicMean(3, 5)
+>>> logarithmicMean(3.0, 5.0)
 3.91523
 ```
 

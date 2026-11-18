@@ -25,7 +25,7 @@ GeneralisedCircle : [Object, Store, Equal, Geometry] {
 
 	distanceFromOrigin { :self |
 		let [c, alpha, d] = self.assertIsLine.coefficientList;
-		(alpha.abs > 1E-12).if {
+		(alpha.abs > 1.0E-12).if {
 			d.abs / (2 * alpha.abs)
 		} {
 			Infinity
@@ -36,7 +36,7 @@ GeneralisedCircle : [Object, Store, Equal, Geometry] {
 		2
 	}
 
-	[generalisedCircleToCircle, asCircle] { :self |
+	[Circle, generalisedCircleToCircle] { :self |
 		let [c, alpha, _] = self.assertIsCircle.coefficientList;
 		let [a, b] = alpha.realImaginary;
 		Circle(
@@ -45,12 +45,12 @@ GeneralisedCircle : [Object, Store, Equal, Geometry] {
 		)
 	}
 
-	[generalisedCircleToLine, asLine] { :self |
+	[InfiniteLine, generalisedCircleToInfiniteLine] { :self |
 		let [a, b, c] = self.lineEquation;
 		InfiniteLine(a, b, c)
 	}
 
-	[generalisedCircleToPoint, asPoint] { :self |
+	[Point, generalisedCircleToPoint] { :self |
 		let [c, alpha, _] = self.assertIsPoint.coefficientList;
 		let [r, i] = alpha.realImaginary;
 		Point(
@@ -62,13 +62,13 @@ GeneralisedCircle : [Object, Store, Equal, Geometry] {
 		let [c, alpha, d] = self.coefficientList;
 		let [a, b] = alpha.realImaginary;
 		{ :x :y |
-			(c * (x.square + y.square)) + (2 * ((a * x) - (b * y))) + d
+			(c * (x.square + y.square)) + (2.0 * ((a * x) - (b * y))) + d
 		}
 	}
 
 	isCircle { :self |
 		self.isLine.not & {
-			self.discriminant > 1E-12
+			self.discriminant > 1.0E-12
 		}
 	}
 
@@ -85,15 +85,27 @@ GeneralisedCircle : [Object, Store, Equal, Geometry] {
 	lineEquation { :self |
 		let [_, alpha, d] = self.assertIsLine.coefficientList;
 		let [a, b] = alpha.realImaginary;
-		[a, -1 * b, d / 2]
+		[a, -1.0 * b, d / 2.0]
 	}
 
 }
 
 +Float {
 
-	GeneralisedCircle { :c :alpha :d |
+	uncheckedGeneralisedCircle { :c :alpha :d |
 		newGeneralisedCircle().initializeSlots(c, alpha, d)
+	}
+
+}
+
++[Float, Integer] {
+
+	GeneralisedCircle { :c :alpha :d |
+		uncheckedGeneralisedCircle(
+			Float(c),
+			alpha.assertIsComplex,
+			Float(d)
+		)
 	}
 
 }

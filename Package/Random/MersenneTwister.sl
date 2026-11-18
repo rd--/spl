@@ -24,7 +24,9 @@ MersenneTwister : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 +[Float, Integer] {
 
 	MersenneTwister { :self |
-		newMersenneTwister().initialize!(self)
+		newMersenneTwister().initialize!(
+			SmallInteger(self)
+		)
 	}
 
 	mt53RandomNumberGenerator { :self |

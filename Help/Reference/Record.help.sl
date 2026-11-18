@@ -25,7 +25,8 @@ Construct a `Record` from an association list:
 There is a literal syntax for records.
 
 ```
->>> (x: 3.141, y: 23).isRecord
+>>> (x: 3.141, y: 23.0)
+>>> .isRecord
 true
 
 >>> (:).isRecord

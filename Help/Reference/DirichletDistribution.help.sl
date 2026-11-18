@@ -20,21 +20,21 @@ let p = d.randomVariate(r, [10 ^ 2]);
 The beta distributions from which the variate process draws:
 
 ```
->>> DirichletDistribution([0 1 2 3])
+>>> DirichletDistribution([0.0 1.0 2.0 3.0])
 >>> .betaDistributions
 [
-	BetaDistribution(0, 1 + 2 + 3),
-	BetaDistribution(1, 2 + 3),
-	BetaDistribution(2, 3)
+	BetaDistribution(0.0, 1.0 + 2.0 + 3.0),
+	BetaDistribution(1.0, 2.0 + 3.0),
+	BetaDistribution(2.0, 3.0)
 ]
 ```
 
 Surface plot of `pdf`:
 
 ~~~spl svg=B
-let f/1 = DirichletDistribution([3 3 2]).pdf;
-(0 -- 1).surfacePlot { :x :y |
-	f([x y]) * 2
+let f/1 = DirichletDistribution([3.0 3.0 2.0]).pdf;
+(0.0 -- 1.0).surfacePlot { :x :y |
+	f([x y]) * 2.0
 }
 ~~~
 
@@ -43,7 +43,7 @@ let f/1 = DirichletDistribution([3 3 2]).pdf;
 Matrix plot of `pdf`:
 
 ~~~spl png=C
-let f/1 = DirichletDistribution([5 5 5]).pdf;
+let f/1 = DirichletDistribution([5.0 5.0 5.0]).pdf;
 let i = (0 -- 1).discretize(100);
 let m = { :x :y |
 	f([x y])

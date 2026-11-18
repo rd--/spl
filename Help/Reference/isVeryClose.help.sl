@@ -24,8 +24,8 @@ true
 Operates over vectors, matrices and arrays:
 
 ```
->>> [1 2 3].isVeryClose(
->>> 	[1 2 3] + 1/2.epsilon
+>>> [1.0 2.0 3.0].isVeryClose(
+>>> 	[1.0 2.0 3.0] + 1/2.epsilon
 >>> )
 true
 ```

@@ -18,9 +18,8 @@ Answer a `List` of `String` items giving the names of the parameters of the _n_-
 At a `MethodInformation` value:
 
 ```
->>> system
->>> .methodDictionary
->>> .atPath(['collect' 2 'List'])
+>>> let d = system.methodDictionary;
+>>> d['collect'][2.0]['List']
 >>> .information
 >>> .parameterNames
 ['self', 'aBlock/1']

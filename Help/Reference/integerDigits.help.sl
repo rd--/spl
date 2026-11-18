@@ -91,7 +91,7 @@ At `Integer`:
 Find the digits of 7 in different bases:
 
 ```
->>> 7.integerDigits(2:4)
+>>> 7L.integerDigits(2L:4L)
 [1 1 1; 2 1; 1 3]
 ```
 

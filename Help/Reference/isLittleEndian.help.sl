@@ -8,8 +8,8 @@ Answer `true` if `system` is Little-endian.
 >>> system.isLittleEndian
 true
 
->>> 1.unsigned32BitWordList
-[0 16b3FF00000]
+>>> 1.0.unsigned32BitWordList
+[0.0 16b3FF00000]
 ```
 
 * * *

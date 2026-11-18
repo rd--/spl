@@ -8,15 +8,15 @@ and a trait for integral numberic types.
 At `Float`:
 
 ```
->>> let x = 23;
+>>> let x = 23.0;
 >>> let y = Integer(x);
 >>> (y, x = y, x == y)
 (23L, true, false)
 
->>> let i = 2 ^ 23;
+>>> let i = 2.0 ^ 23.0;
 >>> let j = Integer(i);
 >>> (i, j, i = j, i == j, j.isInteger)
-(8388608, 8388608L, true, false, true)
+(8388608.0, 8388608L, true, false, true)
 ```
 
 At `NaN`:
@@ -174,10 +174,10 @@ true
 Non-identity with `Float`:
 
 ```
->>> 1 == 1L
+>>> 1.0 == 1L
 false
 
->>> 1 == 1
+>>> 1.0 == 1.0
 true
 
 >>> 1L == 1L

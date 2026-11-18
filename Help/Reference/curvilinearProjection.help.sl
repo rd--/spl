@@ -8,8 +8,8 @@ Curvilinear perspective is also called five-point perspective.
 Curvilinear projection, _z=r_:
 
 ~~~spl svg=A
-let r = 1;
-let i = (-1 -- 1).discretize(15);
+let r = 1.0;
+let i = (-1.0 -- 1.0).discretize(15);
 let z = r;
 { :x :y |
 	[x y z].curvilinearProjection(r)
@@ -21,8 +21,8 @@ let z = r;
 Curvilinear projection, _z>r_:
 
 ~~~spl svg=B
-let r = 1;
-let i = (-1 -- 1).discretize(15);
+let r = 1.0;
+let i = (-1.0 -- 1.0).discretize(15);
 let z = 2;
 { :x :y |
 	[x y z].curvilinearProjection
@@ -34,9 +34,9 @@ let z = 2;
 Curvilinear projection, _z<r_:
 
 ~~~spl svg=C
-let r = 1;
-let i = (-1 -- 1).discretize(15);
-let z = 1 / 3;
+let r = 1.0;
+let i = (-1.0 -- 1.0).discretize(15);
+let z = 1.0 / 3.0;
 { :x :y |
 	[x y z].curvilinearProjection
 }.table(i, i).catenate.PointSet

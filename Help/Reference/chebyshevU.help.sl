@@ -61,8 +61,8 @@ Evaluate at specific _x_:
 Plot the fifth degree polynomial over a subset of the reals:
 
 ~~~spl svg=A
-let p = 5.chebyshevU;
-(-1 -- 1).functionPlot { :x |
+let p = 5L.chebyshevU;
+(-1.0 -- 1.0).functionPlot { :x |
 	p[x]
 }
 ~~~
@@ -72,8 +72,8 @@ let p = 5.chebyshevU;
 Plot the tenth degree polynomial over a subset of the reals:
 
 ~~~spl svg=B
-let p = 10.chebyshevU;
-(-1 -- 1).functionPlot { :x |
+let p = 10L.chebyshevU;
+(-1.0 -- 1.0).functionPlot { :x |
 	p[x]
 }
 ~~~
@@ -83,8 +83,8 @@ let p = 10.chebyshevU;
 Plot the first five polynomial over a subset of the reals:
 
 ~~~spl svg=C
-let p = 0:4.collect(chebyshevU/1);
-(-1 -- 1).functionPlot(
+let p = 0L:4L.collect(chebyshevU/1);
+(-1.0 -- 1.0).functionPlot(
 	p.collect { :each |
 		{ :x |
 			each[x]

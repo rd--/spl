@@ -129,7 +129,7 @@ Svg : [Object] {
 
 }
 
-+Float {
++[Float, Integer] {
 
 	svgArcTo { :rx :ry :xAxisRotation :largeArcFlag :sweepFlag :x :y :precision |
 		'A % % % % % %,%'.format(

@@ -9,7 +9,7 @@ threads over lists,
 OEIS [A000688](https://oeis.org/A000688):
 
 ```
->>> 1:63.finiteAbelianGroupCount
+>>> 1L:63L.finiteAbelianGroupCount
 [
 	1 1 1 2 1 1 1 3 2 1 1 2 1 1 1 5 1 2 1 2
 	1 1 1 3 2 1 3 2 1 1 1 7 1 1 1 4 1 1 1 3

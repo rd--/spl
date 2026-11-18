@@ -11,8 +11,8 @@ Simulate a geometric Brownian motion process:
 ```
 >>> let r = Sfc32(567214);
 >>> GeometricBrownianMotionProcess(
->>> 	0, 1 / 3, 1 / 4
->>> ).randomFunction(r, [0 1 0.25], 1)
+>>> 	0.0, 1.0 / 3.0, 1.0 / 4.0
+>>> ).randomFunction(r, [0.0 1.0 0.25], 1)
 >>> .pathList[1]
 [
 	0.00 0.25000;
@@ -28,8 +28,8 @@ Simulate and plot a geometric Brownian motion process:
 ~~~spl svg=A
 let r = Sfc32(483152);
 GeometricBrownianMotionProcess(
-	0, 0.1, 2
-).randomFunction(r, [0 10 0.1], 1)
+	0.0, 0.1, 2.0
+).randomFunction(r, [0.0 10.0 0.1], 1)
 .linePlot
 ~~~
 
@@ -40,8 +40,8 @@ Simulate an ensemble of paths:
 ~~~spl svg=B
 let r = Sfc32(379582);
 GeometricBrownianMotionProcess(
-	0.3, 1, 1
-).randomFunction(r, [0 1 0.01], 4)
+	0.3, 1.0, 1.0
+).randomFunction(r, [0.0 1.0 0.01], 4)
 .linePlot
 ~~~
 
@@ -51,12 +51,12 @@ Compare different σ values:
 
 ~~~spl svg=C
 let r = Sfc32(675932);
-[0.8, 1 .. 1.8].collect { :sigma |
+[0.8, 1.0 .. 1.8].collect { :sigma |
 	GeometricBrownianMotionProcess(
-		1,
+		1.0,
 		sigma,
-		23
-	).randomFunction(r, [0 1 0.01], 1)
+		23.0
+	).randomFunction(r, [0.0 1.0 0.01], 1)
 	.pathList
 	.first
 }.linePlot

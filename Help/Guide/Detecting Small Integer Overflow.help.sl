@@ -8,11 +8,11 @@ Show _catastrophic cancellation_ in calculating floating point sum of squares,
 and compare to correct value obtained by the alternative factoring:
 
 ```
->>> let x = 1 + (2 ^ -29);
->>> let y = 1 + (2 ^ -30);
+>>> let x = 1.0 + (2.0 ^ -29.0);
+>>> let y = 1.0 + (2.0 ^ -30.0);
 >>> let a = x.square - y.square;
 >>> let b = (x + y) * (x - y);
->>> let c = (2 ^ -59) + (2 ^ -60);
+>>> let c = (2.0 ^ -59.0) + (2.0 ^ -60.0);
 >>> let d = a + c;
 >>> (a, b, c, d, a.isVeryClose(b))
 (

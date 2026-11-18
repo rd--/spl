@@ -4,6 +4,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	| real imaginary |
 
+	assertIsComplex { :self |
+		self
+	}
+
 	[Float, F, complexToFloat] { :self |
 		self.isRealValuedNumber.if {
 			Float(self.real)
@@ -536,23 +540,20 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 }
 
-+Integer {
++@ImplicitFloat {
+
+	Polar { :rho :phi |
+		Polar(Float(rho), phi)
+	}
 
 	[Complex, J] { :real :imaginary |
-		imaginary.isCollection.if {
-			imaginary.adaptToFractionAndApply(real, Complex/2)
-		} {
-			uncheckedComplex(
-				SmallInteger(real),
-				SmallInteger(imaginary)
-			)
-		}
+		Complex(Float(real), imaginary)
 	}
 
 	I { :self |
 		uncheckedComplex(
 			0.0,
-			SmallInteger(self)
+			Float(self)
 		)
 	}
 
@@ -561,6 +562,14 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 			aComplexNumber,
 			uncheckedComplex(Float(self), 0.0)
 		)
+	}
+
+}
+
++Integer {
+
+	GaussianInteger { :real :imaginary |
+		GaussianInteger(SmallInteger(real), imaginary)
 	}
 
 }
@@ -688,9 +697,9 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 }
 
-+Float {
++[Float, Integer] {
 
-	polyominoes { :n /*SmallInteger*/ |
+	polyominoes { :n SmallInteger |
 		let rot = { :p |
 			1I * p
 		};

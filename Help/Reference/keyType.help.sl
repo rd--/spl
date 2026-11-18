@@ -15,7 +15,7 @@ At `Record`:
 At `Map`:
 
 ```
->>> Map[1 -> 'x', 2 -> 'y', 3 -> 'z']
+>>> Map[1.0 -> 'x', 2.0 -> 'y', 3.0 -> 'z']
 >>> .keyType
 'Float'
 ```
@@ -23,7 +23,7 @@ At `Map`:
 A map that has keys of both `Float` and `Integer` has no key type:
 
 ```
->>> Map[1 -> 'x', 2L -> 'y'].keyType
+>>> Map[1.0 -> 'x', 2L -> 'y'].keyType
 nil
 ```
 

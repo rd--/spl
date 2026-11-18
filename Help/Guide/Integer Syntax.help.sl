@@ -3,7 +3,7 @@
 There are a two kinds of integer values:
 
 ```
->>> 23.isSmallInteger
+>>> 23.0.isSmallInteger
 true
 
 >>> 23L.isInteger
@@ -14,10 +14,10 @@ Small integer literals evaluate to the type `Float`,
 the predicate `isSmallInteger` is a refinement predicate over `isFloat`:
 
 ```
->>> 23.isFloat
+>>> 23.0.isFloat
 true
 
->>> 23.typeName
+>>> 23.0.typeName
 'Float'
 ```
 

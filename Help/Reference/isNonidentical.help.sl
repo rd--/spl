@@ -31,16 +31,16 @@ false
 Numbers in different representations are not identical but may be equal or similar to each other:
 
 ```
->>> 1D !== 1
+>>> 1D !== 1.0
 true
 
->>> 1D ~ 1
+>>> 1D ~ 1.0
 true
 
->>> 1L !== 1
+>>> 1L !== 1.0
 true
 
->>> 1L = 1
+>>> 1L = 1.0
 true
 ```
 

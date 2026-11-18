@@ -7,7 +7,7 @@ Answer the base-_b_ mantissa and exponent of _x_.
 At `Float`:
 
 ```
->>> (3.4 * 1E13).mantissaExponent(10)
+>>> (3.4 * 1.0E13).mantissaExponent(10)
 [0.34 14]
 
 >>> 456.1414.mantissaExponent(10)
@@ -17,15 +17,15 @@ At `Float`:
 At a small integer:
 
 ```
->>> 123451.mantissaExponent(10)
-[123451/1000000 6]
+>>> 123451.0.mantissaExponent(10)
+[0.123451 6L]
 ```
 
 Base two:
 
 ```
->>> 1027.mantissaExponent(2)
-[1027/2048 11]
+>>> 1027.0.mantissaExponent(2)
+[1027.0 / 2048.0, 11L]
 ```
 
 * * *

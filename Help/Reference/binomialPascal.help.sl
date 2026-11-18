@@ -96,8 +96,8 @@ Construct Pascal’s triangle:
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
-(-2 -- 4).functionPlot { :x |
-	binomialPascal(x, 3)
+(-2.0 -- 4.0).functionPlot { :x |
+	binomialPascal(x, 3.0)
 }
 ~~~
 

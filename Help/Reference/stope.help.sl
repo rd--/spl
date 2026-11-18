@@ -5,15 +5,15 @@
 Answer _x(x+p)(x+2p)…_ for _y_ terms.
 
 ```
->>> 5.stope(1, 3)
-210
+>>> 5L.stope(1L, 3L)
+210L
 ```
 
 Calculate the number of permutations of _x_ things taken _y_ at a time:
 
 ```
->>> 5.stope(-1, 3)
-60
+>>> 5L.stope(-1L, 3L)
+60L
 ```
 
 Calculate the _rising Pochhammer symbol (x)y_ as used in the hypergeometric function:

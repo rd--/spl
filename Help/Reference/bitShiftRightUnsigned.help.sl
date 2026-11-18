@@ -6,11 +6,11 @@ Implement unsigned right shift of _n_ by _k_ places.
 The operator form is `>>>`.
 
 ```
->>> -5 >> 2
--2
+>>> -5L >> 2L
+-2L
 
->>> -5 >>> 2
-1073741822
+>>> -5.0 >>> 2.0
+1073741822.0
 ```
 
 Show in binary notation:
@@ -19,7 +19,7 @@ Show in binary notation:
 >>> -2b0101 >> 2
 -2b0010
 
->>> -2b101 >>> 2
+>>> -2b101.F >>> 2.0
 2b00111111111111111111111111111110
 ```
 

@@ -69,10 +69,10 @@ Sfc32(789141)
 Avoid round-off errors using inverse complementary error function:
 
 ```
->>> (1 - 1E-100).inverseErf
+>>> (1.0 - 1.0E-100).inverseErf
 Infinity
 
->>> 1E-100.inverseErfc
+>>> 1.0E-100.inverseErfc
 15.0656
 ```
 

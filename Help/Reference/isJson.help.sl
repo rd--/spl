@@ -32,7 +32,8 @@ true
 A `Record` can be encoded if all of the items it holds can be:
 
 ```
->>> (x: 3.141, y: [23], z: 'z').isJson
+>>> (x: 3.141, y: [23.0], z: 'z')
+>>> .isJson
 true
 ```
 

@@ -635,8 +635,10 @@
 
 +List {
 
-	savitzkyGolayFilter { :y :m :w |
-		uncheckedSavitzkyGolayFilter(y, m, w).List
+	savitzkyGolayFilter { :y FloatList :m Float :w Float |
+		List(
+			uncheckedSavitzkyGolayFilter(y, m, w)
+		)
 	}
 
 	uncheckedSavitzkyGolayFilter { :y :m :w |
@@ -747,15 +749,21 @@
 +List {
 
 	bSplineFunction { :self :d |
-		let n = self.size;
+		let n = SmallInteger(self.size);
 		let m = n - d;
-		let k = List(d, 0) ++ [0 .. m] ++ List(d, m);
+		let k = List(d, 0.0) ++ [0.0 .. m] ++ List(d, m);
 		{ :t |
-			self.bSplineFunctionPrimitive(d, k, nil, t)
+			uncheckedBSplineFunction(
+				Float(self),
+				SmallInteger(d),
+				k,
+				nil,
+				t
+			)
 		}
 	}
 
-	bSplineFunctionPrimitive { :p :d :k :w :t |
+	uncheckedBSplineFunction { :p :d :k :w :t |
 		<primitive:
 		/* https://github.com/thibauts/b-spline/ */
 		let t = _t;
@@ -831,9 +839,9 @@
 
 +List {
 
-	cubicHermiteFunction { :self :tangents |
-		{ :t |
-			(t >= 1).if {
+	cubicHermiteFunction { :self FloatList :tangents FloatList |
+		{ :t Float |
+			(t >= 1.0).if {
 				self.last
 			} {
 				self.cubicHermiteFunctionPrimitive(tangents, nil, t)

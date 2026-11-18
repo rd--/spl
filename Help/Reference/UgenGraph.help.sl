@@ -9,7 +9,7 @@ This type can be encoded to the binary format understood by _scsynth_.
 ```
 >>> UgenGraph(
 >>> 	'sin',
->>> 	sinOsc(440, 0) * 0.1
+>>> 	sinOsc(440.0, 0.0) * 0.1
 >>> ).isUgenGraph
 true
 ```
@@ -27,8 +27,8 @@ Collect names of `LocalControl` and `ScUgen` values:
 >>> let g = UgenGraph(
 >>> 	'sin',
 >>> 	sinOsc(
->>> 		namedControl('freq', 440),
->>> 		0
+>>> 		namedControl('freq', 440.0),
+>>> 		0.0
 >>> 	) * 0.1
 >>> );
 >>> let c = g.constantList;

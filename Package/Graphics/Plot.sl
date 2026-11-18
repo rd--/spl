@@ -388,26 +388,26 @@ Plot : [Object] {
 	}
 
 	longitudinalWavePlot { :yCoordinates :displacement |
-		let w = 10;
-		let h = 2;
+		let w = 10L;
+		let h = 2L;
 		let k = yCoordinates.size;
 		let xIncrement = w / k;
-		let xEquilibrium = k.arithmeticProgression(0, xIncrement);
-		let xDisplacements = yCoordinates * displacement * (xIncrement / 2);
+		let xEquilibrium = k.arithmeticProgression(0.0, xIncrement);
+		let xDisplacements = yCoordinates * displacement * (xIncrement / 2.0);
 		let xCoordinates = xEquilibrium + xDisplacements;
 		[
 			xCoordinates.collect { :x |
-				Line[x 0; x h]
+				Line[x 0.0; x h]
 			}
 		].LineDrawing(
 			(
-				height: 35
+				height: 35L
 			)
 		)
 	}
 
 	longitudinalWavePlot { :yCoordinates |
-		longitudinalWavePlot(yCoordinates, 1)
+		longitudinalWavePlot(yCoordinates, 1.0)
 	}
 
 	matrixPlot { :self |

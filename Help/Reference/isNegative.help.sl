@@ -26,10 +26,10 @@ because zero and negative zero compare as equal,
 however it `isNegativeZero`:
 
 ```
->>> -0.isNegative
+>>> -0.0.isNegative
 false
 
->>> -0.isNegativeZero
+>>> -0.0.isNegativeZero
 true
 ```
 

@@ -155,11 +155,11 @@ A `List` is not a small integer:
 
 ```
 >>> {
->>> 	[1 2 3].isSmallInteger
+>>> 	[1.0 2.0 3.0].isSmallInteger
 >>> }.hasError
 true
 
->>> [1 2 3].allTrue(isSmallInteger/1)
+>>> [1.0 2.0 3.0].allTrue(isSmallInteger/1)
 true
 ```
 

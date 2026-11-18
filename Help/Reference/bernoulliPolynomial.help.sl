@@ -15,7 +15,9 @@ Plot the polynomial _B(3)_:
 
 ~~~spl svg=A
 let p = 3L.bernoulliPolynomial;
-(0 -- 1).functionPlot(p.unaryBlock)
+(0.0 -- 1.0).functionPlot(
+	p.unaryBlock
+)
 ~~~
 
 ![](Help/Image/bernoulliPolynomial-A.svg)

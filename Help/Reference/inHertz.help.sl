@@ -7,11 +7,11 @@ Answer a frequency in hertz from a frequency value _x_.
 At `Quantity`:
 
 ```
->>> let x = Frequency(5);
+>>> let x = Frequency(5.0);
 >>> (x, x.inHertz)
-(Quantity(5, 'hertz'), 5)
+(Quantity(5.0, 'hertz'), 5.0)
 
->>> let x = Time(1 / 5);
+>>> let x = Time(1.0 / 5.0);
 >>> (x, x.inHertz)
 (Quantity(0.2, 'second'), 5)
 ```
@@ -19,7 +19,9 @@ At `Quantity`:
 It is an error if _x_ is not a time value:
 
 ```
->>> { 5.inHertz }.hasError
+>>> {
+>>> 	5.0.inHertz
+>>> }.hasError
 true
 ```
 

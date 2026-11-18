@@ -111,7 +111,7 @@
 		]
 	}
 
-	methodLookupAtType { :self :methodName :arity :typeName |
+	methodLookupAtType { :self :methodName String :arity SmallInteger :typeName String |
 		self.methodDictionary[methodName][arity][typeName]
 	}
 

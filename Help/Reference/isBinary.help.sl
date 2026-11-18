@@ -34,7 +34,7 @@ true
 At `Integer`:
 
 ```
->>> 2_166_136_261.isBinary
+>>> 2_166_136_261.0.isBinary
 false
 
 >>> 2_166_136_261L.isBinary

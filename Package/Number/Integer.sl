@@ -1,6 +1,15 @@
 /* Requires: List Float String */
 
-Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, ImplicitFloat] {
+Integer! : [Object, Copy, Store, Equal, Compare, Binary, Number, ImplicitFloat] {
+
+	[isLessOrEqual, <=] { :self :operand |
+		<primitive:
+		if(sl.isInteger(_operand)) {
+			return _self <= _operand;
+		}
+		>
+		operand.adaptToIntegerAndApply(self, isLessOrEqual/2)
+	}
 
 	[Float, F, integerToFloat] { :self |
 		<primitive:
@@ -130,10 +139,6 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, ImplicitF
 		}
 	}
 
-	[encodeJson, floatToJson] { :self |
-		Float(self).uncheckedEncodeJson
-	}
-
 	floor { :self |
 		self
 	}
@@ -185,10 +190,14 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, ImplicitF
 	}
 
 	integerDigits { :self :radix |
-		radix.isBetween(2L, 36L).if {
-			self.abs.integerString(radix).characters.digitValue
+		radix.isIntegerValuedNumber.if {
+			radix.isBetween(2L, 36L).if {
+				self.abs.integerString(radix).characters.digitValue
+			} {
+				SmallInteger(self).integerDigits(radix)
+			}
 		} {
-			SmallInteger(self).integerDigits(radix)
+			radix.adaptToIntegerAndApply(self, integerDigits/2)
 		}
 	}
 
@@ -251,13 +260,15 @@ Integer! : [Object, Copy, Store, Json, Equal, Compare, Binary, Number, ImplicitF
 		}
 	}
 
-	[isEqual, =] { :self :anObject |
+	[isEqual, =] { :self :operand |
 		<primitive:
-		if (sl.isInteger(_anObject) || sl.isSmallInteger(_anObject)) {
-			return _self === BigInt(_anObject);
+		if (sl.isInteger(_operand) || sl.isSmallInteger(_operand)) {
+			return _self === BigInt(_operand);
 		};
 		>
-		anObject.adaptToIntegerAndApply(self, isEqual/2)
+		operand.isNumber & {
+			operand.adaptToIntegerAndApply(self, isEqual/2)
+		}
 	}
 
 	isEven { :self |

@@ -15,7 +15,7 @@ and initial state one,
 evolving for four steps:
 
 ```
->>> 2506.turingMachineFromNumber(2, 2)
+>>> 2506L.turingMachineFromNumber(2L, 2L)
 >>> .turingMachine([1, [; 0]], 4)
 [
 	1 3  0; 0 0 0 0:;
@@ -43,7 +43,7 @@ With initial state of two:
 A two-state, two-color machine:
 
 ~~~spl svg=A
-2506.turingMachineFromNumber(2, 2)
+2506L.turingMachineFromNumber(2L, 2L)
 .turingMachine([1, [; 0]], 30)
 .collect(last/1)
 .matrixPlot

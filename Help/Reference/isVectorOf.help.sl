@@ -6,7 +6,7 @@ Answers `true` if the list _v_ is a vector with the indicated element type _k_,
 else `false`.
 
 ```
->>> [1 2 3 4].isVectorOf('Float')
+>>> [1.0 2.0 3.0 4.0].isVectorOf('Float')
 true
 
 >>> [1/2 3/4 5/6].isVectorOf('Fraction')
@@ -25,7 +25,7 @@ true
 At `Range`:
 
 ```
->>> 1:9.isVectorOf('Float')
+>>> (1.0 .. 9.0).isVectorOf('Float')
 true
 ```
 

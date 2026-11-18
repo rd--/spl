@@ -49,7 +49,8 @@ Minimum and maximum values of matrix columns and rows:
 At `NaN`:
 
 ```
->>> [2 NaN 6 -5; 0 3 NaN 9].minMax
+>>> [2.0 NaN 6.0 -5.0; 0.0 3.0 NaN 9.0]
+>>> .minMax
 >>> .deleteMissing(2)
 [0 -5; 2 9]
 ```

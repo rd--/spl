@@ -25,14 +25,14 @@ Test an ensemble of paths for regularity:
 
 ```
 >>> let r = Sfc32(567132);
->>> PoissonProcess(5)
->>> .randomFunction(r, [1 10], 100)
+>>> PoissonProcess(5.0)
+>>> .randomFunction(r, [1.0 10.0], 100)
 >>> .isRegularlySampled
 false
 
 >>> let r = Sfc32(789123);
->>> BernoulliProcess(5)
->>> .randomFunction(r, [1 10], 100)
+>>> BernoulliProcess(5.0)
+>>> .randomFunction(r, [1.0 10.0], 100)
 >>> .isRegularlySampled
 true
 ```

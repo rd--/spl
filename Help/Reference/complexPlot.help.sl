@@ -52,7 +52,7 @@ At a saddle point:
 
 ~~~spl png=E
 [-2J-2 2J2].complexPlot { :z |
-	(z ^ 3) + 1
+	(z ^ 3.0) + 1.0
 }
 ~~~
 
@@ -62,7 +62,7 @@ The following plot shows multiple features of the Joukowski transformation:
 
 ~~~spl png=F
 [-2J-2 2J2].complexPlot { :z |
-	z + (1 / z)
+	z + (1.0 / z)
 }
 ~~~
 
@@ -74,9 +74,9 @@ and a saddle point:
 
 ~~~spl png=G
 [-2J-2 2J2].complexPlot { :z |
-	(10 * ((z ^ 2) + (2 * z) + 2))
+	(10.0 * ((z ^ 2.0) + (2.0 * z) + 2.0))
 	/
-	((z - 1) ^ 2)
+	((z - 1.0) ^ 2.0)
 }
 ~~~
 
@@ -85,7 +85,10 @@ and a saddle point:
 Plot complex functions of a complex variable:
 
 ~~~spl png=H
-[-3.J(-2.pi), 3.J(2.pi)].complexPlot { :z |
+[
+	-3.J(-2.pi),
+	3.J(2.pi)
+].complexPlot { :z |
 	z.cos
 }
 ~~~
@@ -147,11 +150,11 @@ Complex plot of _z³-1_:
 Contour plot of the absolute value of _z³-1_:
 
 ~~~spl svg=M
-let i = (-2 -- 2).discretize(50);
+let i = (-2.0 -- 2.0).discretize(50L);
 { :x :y |
 	let z = Complex(x, y);
-	((z ^ 3) - 1).abs
-}.contourPlot(i, i, [0.5 1 1.5])
+	((z ^ 3.0) - 1).abs
+}.contourPlot(i, i, [0.5 1.0 1.5])
 ~~~
 
 ![](Help/Image/complexPlot-M.svg)
@@ -159,10 +162,10 @@ let i = (-2 -- 2).discretize(50);
 Contour plot of the argument of _z³-1_:
 
 ~~~spl svg=N
-let i = (-2 -- 2).discretize(25);
+let i = (-2.0 -- 2.0).discretize(25L);
 { :x :y |
 	let z = Complex(x, y);
-	((z ^ 3) - 1).arg
+	((z ^ 3.0) - 1.0).arg
 }.contourPlot(i, i, [-1/2.pi 1/2.pi])
 ~~~
 

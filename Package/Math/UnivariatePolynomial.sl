@@ -425,12 +425,12 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		bellB(n).at(x)
 	}
 
-	cardanosAlgorithm { :a :b :c :d |
+	cardanosAlgorithm { :a Float :b Float :c Float :d Float |
+		uncheckedcardanosAlgorithm(a, b, c, d)
+	}
+
+	uncheckedcardanosAlgorithm { :a :b :c :d |
 		<primitive:
-		_a = sl.toFloat(_a);
-		_b = sl.toFloat(_b);
-		_c = sl.toFloat(_c);
-		_d = sl.toFloat(_d);
 		/* https://www.mosismath.com/Cardano/Cardano.html */
 		function xroot(a, x) {
 			const i = (a < 0) ? -1 : 1;

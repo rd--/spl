@@ -307,16 +307,16 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 	}
 
 	take { :self :limit |
-		let count = 1;
+		let count = 1L;
 		BlockStream {
 			(count > limit).if {
 				nil
 			} {
-				count := count + 1;
+				count := count + 1L;
 				self.next
 			}
 		} {
-			count := 1;
+			count := 1L;
 			self.reset!
 		}
 	}

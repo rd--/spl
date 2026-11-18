@@ -2,7 +2,7 @@ InfiniteLine : [Object, Store, Equal] {
 
 	| point vector |
 
-	asGeneralisedCircle { :self |
+	[GeneralisedCircle, infiniteLineToGeneralisedCircle] { :self |
 		let [a, b, c] = self.lineEquation;
 		GeneralisedCircle(0, Complex(a, -1 * b), 2 * c)
 	}
@@ -74,24 +74,24 @@ InfiniteLine : [Object, Store, Equal] {
 
 }
 
-+Float {
++[Float, Integer] {
 
 	InfiniteLine { :a :b :c |
-		(a = 0).if {
-			(b = 0).if {
+		(a = 0L).if {
+			(b = 0L).if {
 				[a b c].error('a=b=0')
 			} {
 				let y = c.- / b;
-				InfiniteLine([0 y; 1 y])
+				InfiniteLine([0L y; 1L y])
 			}
 		} {
-			(b = 0).if {
+			(b = 0L).if {
 				let x = c.- / a;
-				InfiniteLine([x 0; x 1])
+				InfiniteLine([x 0L; x 1L])
 			} {
 				let y1 = c.- / b;
 				let y2 = (c.- - a) / b;
-				InfiniteLine([0 y1; 1 y2])
+				InfiniteLine([0L y1; 1L y2])
 			}
 		}
 	}

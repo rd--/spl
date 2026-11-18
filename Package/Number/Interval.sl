@@ -16,7 +16,7 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	adaptToNumberAndApply { :self :operand :aBlock/2 |
+	[adaptToNumberAndApply, adaptToIntegerAndApply] { :self :operand :aBlock/2 |
 		aBlock(Interval(operand, operand), self)
 	}
 

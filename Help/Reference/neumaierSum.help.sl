@@ -6,9 +6,9 @@ Answer the `sum` of _n_ calculated using Neumaier’s variant of the _Kahan summ
 also known as compensated summation.
 
 ```
->>> let l = [1 1E20 1 -1E20];
+>>> let l = [1.0 1.0E20 1.0 -1.0E20];
 >>> (l.sum, l.neumaierSum)
-(0, 2)
+(0.0, 2.0)
 ```
 
 * * *

@@ -18,7 +18,7 @@ Plot cubic Hermite function in two dimensions:
 ~~~spl svg=A
 let p = [-1 0; 0 0; 1 0];
 let t = [1 1; 0 1; 1 1];
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	p.cubicHermiteFunction(t)
 )
 ~~~
@@ -30,7 +30,7 @@ Equal _p_ and _t_ except for central tangent:
 ~~~spl svg=B
 let p = [-1 0; 0 0; 1 0];
 let t = [1 1; 1 -1; 1 1];
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	p.cubicHermiteFunction(t)
 )
 ~~~

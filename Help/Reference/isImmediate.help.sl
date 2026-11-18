@@ -47,10 +47,10 @@ While both `Float` and `Integer` are considered immediate,
 there is subtle behaviour regarding `=` and `==`:
 
 ```
->>> (1 == 1L, 1L == 1)
+>>> (1.0 == 1L, 1L == 1.0)
 (false, false)
 
->>> (1 = 1L, 1L = 1)
+>>> (1.0 = 1L, 1L = 1.0)
 (true, true)
 
 >>> (1L = 1L, 1 = 1)

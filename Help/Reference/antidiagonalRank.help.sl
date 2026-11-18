@@ -9,7 +9,7 @@ First few terms:
 
 ```
 >>> antidiagonalRank/2
->>> .table(1:5, 1:5)
+>>> .table(1L:5L, 1L:5L)
 [
 	 1  2  4  7 11;
 	 3  5  8 12 17;
@@ -79,21 +79,21 @@ OEIS [A316588](https://oeis.org/A316588):
 
 ~~~spl svg=C oeis=A316588
 let k = [
-	1 -2; -1 2; -1 -2; 1 2;
-	2 -1; -2 1; -2 -1; 2 1
+	1L -2L; -1L 2L; -1L -2L; 1L 2L;
+	2L -1L; -2L 1L; -2L -1L; 2L 1L
 ];
-let v = IdentitySet[1];
+let v = IdentitySet[1L];
 { :n |
 	let c = n.antidiagonalUnrank;
 	let d = [c] + k;
-	let e = d.select { :i | i.min > 0 };
+	let e = d.select { :i | i.min > 0L };
 	let p = e.antidiagonalRank.sort!;
 	let m = p.detect { :i |
 		v.includes(i).not
 	};
 	v.add!(m);
 	m
-}.nestList(1, 115)
+}.nestList(1L, 115)
 .scatterPlot
 ~~~
 

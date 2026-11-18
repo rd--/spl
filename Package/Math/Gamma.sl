@@ -12,8 +12,8 @@
 
 	betaRegularized { :x :a :b |
 		/* https://codeplea.com/incomplete-beta-function-c */
-		let stop = 1E-8;
-		let tiny = 1E-30;
+		let stop = 1.0E-8;
+		let tiny = 1.0E-30;
 		(x < 0 | { x > 1 }).if {
 			Infinity
 		} {
@@ -149,7 +149,7 @@
 			let x = p_ln[0];
 			for(let i = p_ln.length - 1; i > 0; --i) x += p_ln[i] / (z + i);
 			const t = z + g_ln + 0.5;
-			return .5*Math.log(2*Math.PI)+(z+.5)*Math.log(t)-t+Math.log(x)-Math.log(z);
+			return 0.5*Math.log(2*Math.PI)+(z+.5)*Math.log(t)-t+Math.log(x)-Math.log(z);
 		}
 		function gamma (z) {
 			if (z < 0.5) {
@@ -195,41 +195,49 @@
 	}
 
 	incompleteGamma { :x :a |
-		(a < 0).if {
+		(a < 0.0).if {
 			'incompleteGamma: a must be real and nonnegative'.error
 		} {
-			(x = 0 & { a = 0 }).if {
-				[0, Infinity, 0]
+			(
+				x = 0.0 & {
+					a = 0.0
+				}
+			).if {
+				[0.0, Infinity, 0.0]
 			} {
-				(x = 0).if {
-					[0, a.gamma, 0]
+				(x = 0.0).if {
+					[0.0, a.gamma, 0.0]
 				} {
-					let xam = (x > 0).if {
+					let xam = (x > 0.0).if {
 						x.- + (a * x.log)
 					} {
 						'incompleteGamma: negative a'.error
 					};
-					(xam.abs > 700 | { a.abs > 170 } ).if {
+					(
+						xam.abs > 700.0 | {
+							a.abs > 170.0
+						}
+					).if {
 						'incompleteGamma: x or a too large'.error
 					} {
-						let gin = 0;
-						let gim = 0;
-						let gip = 0;
+						let gin = 0.0;
+						let gim = 0.0;
+						let gip = 0.0;
 						let ga = a.gamma;
-						(x = 0).if {
+						(x = 0.0).if {
 							gim := ga
 						} {
-							(x <= (1 + a)).if {
-								let s = 1 / a;
+							(x <= (1.0 + a)).if {
+								let s = 1.0 / a;
 								let r = s;
-								let k = 1;
+								let k = 1.0;
 								{
 									r := r * x / (a + k);
 									s := s + r;
-									k := k + 1
+									k := k + 1.0
 								}.doWhileTrue {
-									k <= 60 & {
-										let epsilon = 1E-15;
+									k <= 60.0 & {
+										let epsilon = 1.0E-15;
 										(r / s).abs > epsilon
 									}
 								};
@@ -237,13 +245,13 @@
 								gip := gin / ga;
 								gim := ga - gin
 							} {
-								let t0 = 0;
-								60.downToDo(1) { :k |
-									t0 := (k - a) / (1 + (k / (x + t0)))
+								let t0 = 0.0;
+								60.0.downToDo(1.0) { :k |
+									t0 := (k - a) / (1.0 + (k / (x + t0)))
 								};
 								gim := xam.exp / (x + t0);
 								gin := ga - gim;
-								gip := 1 - (gim / ga)
+								gip := 1.0 - (gim / ga)
 							};
 							[gin, gim, gip]
 						}
@@ -254,8 +262,7 @@
 	}
 
 	lanczosApproximation { :self |
-		let g = 7;
-		let n = 9;
+		let g = 7.0;
 		let p = [
 			0.99999999999980993,
 			676.5203681218851,
@@ -267,18 +274,18 @@
 			9.9843695780195716E-6,
 			1.5056327351493116E-7
 		];
-		let epsilon = 1E-07;
-		let z = Complex(self, 0);
+		let epsilon = 1.0E-7;
+		let z = Complex(self, 0.0);
 		(z.real < 0.5).if {
-			(1.pi / (sin(1.pi * z) * gamma(1 - z))).chop(epsilon)
+			(1.0.pi / (sin(1.0.pi * z) * gamma(1.0 - z))).chop(epsilon)
 		} {
 			let x = p[1];
-			z := z - 1;
+			z := z - 1.0;
 			2.toDo(p.size) { :i |
-				x := x + (p[i] / (z + i - 1))
+				x := x + (p[i] / (z + i - 1.0))
 			};
 			let t = z + g + 0.5;
-			(2.pi.sqrt * (t ^ (z + 0.5)) * exp(0 - t) * x).chop(epsilon)
+			(2.0.pi.sqrt * (t ^ (z + 0.5)) * exp(0.0 - t) * x).chop(epsilon)
 		}
 	}
 
@@ -337,7 +344,7 @@
 						c := c * (x / r);
 						pws := pws + c
 					}.doWhileTrue {
-						let epsilon = 1E-12;
+						let epsilon = 1.0E-12;
 						(c / pws) > epsilon
 					};
 					pws * ft / s
@@ -351,31 +358,35 @@
 	}
 
 	upperIncompleteGamma { :x :s :regularize |
-		(x <= 1.1 | { x <= s }).if {
+		(
+			x <= 1.1 | {
+				x <= s
+			}
+		).if {
 			regularize.if {
-				1 - lowerIncompleteGamma(x, s, regularize)
+				1.0 - lowerIncompleteGamma(x, s, regularize)
 			} {
 				gamma(s) - lowerIncompleteGamma(x, s, regularize)
 			}
 		} {
-			let f = 1 + x - s;
+			let f = 1.0 + x - s;
 			let c = f;
-			let d = 0;
-			let i = 1;
+			let d = 0.0;
+			let i = 1.0;
 			let chg = nil;
 			{
 				let a = i * (s - i);
-				let b = (i << 1) + 1 + x - s;
+				let b = (i << 1.0) + 1.0 + x - s;
 				d := b + (a * d);
 				c := b + (a / c);
-				d := 1 / d;
+				d := 1.0 / d;
 				chg := c * d;
 				f := f * chg;
-				i := i + 1
+				i := i + 1.0
 			}.doWhileTrue {
-				i < 10000 & {
-					let epsilon = 1E-12;
-					(chg - 1) > epsilon
+				i < 10000.0 & {
+					let epsilon = 1.0E-12;
+					(chg - 1.0) > epsilon
 				}
 			};
 			regularize.if {

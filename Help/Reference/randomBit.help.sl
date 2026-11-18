@@ -10,8 +10,8 @@ utilising the random number generator _r_.
 A random 3×9 matrix of bits, with equal probablity of being `zero` or `one`:
 
 ```
->>> let rng = Sfc32(2166136261);
->>> rng.randomBit(0.5, [3 9])
+>>> let r = Sfc32(2166136261);
+>>> r.randomBit(0.5, [3 9])
 [
 	1 1 0 0 0 0 0 1 1;
 	0 0 1 0 0 0 0 0 1;
@@ -22,7 +22,7 @@ A random 3×9 matrix of bits, with equal probablity of being `zero` or `one`:
 The same array using `seedRandom` to set the system random number generator:
 
 ```
->>> 2166136261.seedRandom;
+>>> 2166136261L.seedRandom;
 >>> system.randomBit(0.5, [3 9])
 [
 	1 1 0 0 0 0 0 1 1;

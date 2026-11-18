@@ -45,7 +45,7 @@ Parse `Record`:
 
 ```
 >>> '{"x":3.141,"y":23}'.parseJson
-(x: 3.141, y: 23)
+(x: 3.141, y: 23.0)
 ```
 
 If the input is not a valid Json `String` the else clause is evaluated,

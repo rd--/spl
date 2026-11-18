@@ -118,22 +118,22 @@ true
 Compare to `ieeeRemainder`:
 
 ```
->>> remainder(5.5, 2)
+>>> remainder(5.5, 2.0)
 1.5
 
->>> ieeeRemainder(5.5, 2)
+>>> ieeeRemainder(5.5, 2.0)
 -0.5
 
->>> remainder(5.1, 3)
+>>> remainder(5.1, 3.0)
 2.1
 
->>> ieeeRemainder(5.1, 3)
+>>> ieeeRemainder(5.1, 3.0)
 -0.9
 
->>> remainder(-5.1, 3)
+>>> remainder(-5.1, 3.0)
 -2.1
 
->>> ieeeRemainder(-5.1, 3)
+>>> ieeeRemainder(-5.1, 3.0)
 0.9
 ```
 

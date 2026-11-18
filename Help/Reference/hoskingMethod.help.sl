@@ -14,7 +14,7 @@ A _2^7_ place trace of fractional Brownian motion with _h_ of 0.9:
 
 ~~~spl svg=A
 Sfc32(278193)
-.hoskingMethod(1, 7, 0.9, true)
+.hoskingMethod(1.0, 7L, 0.9, true)
 .linePlot
 ~~~
 
@@ -24,7 +24,7 @@ The same trace of fractional Gaussian noise:
 
 ~~~spl svg=B
 Sfc32(278193)
-.hoskingMethod(1, 7, 0.9, false)
+.hoskingMethod(1.0, 7L, 0.9, false)
 .linePlot
 ~~~
 
@@ -35,7 +35,7 @@ the predicted value is `zero`:
 
 ```
 >>> Sfc32(378219)
->>> .hoskingMethod(1, 8, 0.5, false)
+>>> .hoskingMethod(1.0, 8L, 0.5, false)
 >>> .mean
 -0.0015106
 ```

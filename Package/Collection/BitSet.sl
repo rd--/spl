@@ -8,7 +8,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 		self.positionVector
 	}
 
-	String { :self |
+	[String, bitSetToString] { :self |
 		let ascii = ByteArray(self.capacity, 0L);
 		self.bitsWithIndexDo { :each :index |
 			ascii[index + 1L] := 48L + each

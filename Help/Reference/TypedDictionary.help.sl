@@ -28,7 +28,7 @@ If the keys are of an _immediate_ type, the underlying dictionary is a `Map`:
 
 ```
 >>> let d = TypedDictionary[
->>> 	1 -> 'x', 2 -> 'y', 3 -> 'z'
+>>> 	1L -> 'x', 2L -> 'y', 3L -> 'z'
 >>> ];
 >>> (
 >>> 	d.typeName,
@@ -41,10 +41,10 @@ If the keys are of an _immediate_ type, the underlying dictionary is a `Map`:
 >>> )
 (
 	'TypedDictionary',
-	'Float',
-	[1 2 3],
+	'Integer',
+	[1L 2L 3L],
 	['x' 'y' 'z'],
-	[1 -> 'x', 2 -> 'y', 3 -> 'z'],
+	[1L -> 'x', 2L -> 'y', 3L -> 'z'],
 	true,
 	'Map'
 )

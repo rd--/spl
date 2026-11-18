@@ -47,7 +47,7 @@ Ellipse : [Object, Equal, Geometry] {
 		let [x0, y0] = self.center;
 		let [a, b] = self.radii;
 		{ :x :y |
-			((x - x0).square / a.square) + ((y - y0).square / b.square) - 1
+			((x - x0).square / a.square) + ((y - y0).square / b.square) - 1.0
 		}
 	}
 

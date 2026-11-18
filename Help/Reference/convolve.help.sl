@@ -203,21 +203,23 @@ OEIS [A073739](https://oeis.org/A073739),
 OEIS [A073740](https://oeis.org/A073740):
 
 ~~~spl svg=E oeis=A073740
-let k = 150;
+let k = 150L;
 let a = Map { :n |
-	(n <= 2).if {
-		1
+	(n <= 2L).if {
+		1L
 	} {
 		n.isEven.if {
-			0
+			0L
 		} {
-			let m = n + 1;
-			(m / 2).prime - a[n - 2]
+			let m = n + 1L;
+			(m // 2L).prime - a[n - 2L]
 		}
 	}
 };
-let b = a[0 .. k];
-b.convolve(b).first(k + 1).scatterPlot.log
+let b = a[0L .. k];
+b.convolve(b)
+.first(k + 1L)
+.scatterPlot.log
 ~~~
 
 ![](Help/Image/convolve-E.svg)

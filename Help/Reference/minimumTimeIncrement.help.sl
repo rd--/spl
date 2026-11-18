@@ -29,8 +29,8 @@ Find the minimum time increments for a collection of paths:
 
 ```
 >>> let r = Sfc32(567132);
->>> PoissonProcess(3)
->>> .randomFunction(r, [1 100], 2)
+>>> PoissonProcess(3.0)
+>>> .randomFunction(r, [1.0 100.0], 2)
 >>> .minimumTimeIncrement
 [0.0022893 0.0011605]
 ```

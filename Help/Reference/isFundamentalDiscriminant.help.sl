@@ -8,7 +8,7 @@ Positive fundamental discriminants,
 OEIS [A003658](https://oeis.org/A003658):
 
 ```
->>> 1:65.select(
+>>> 1L:65L.select(
 >>> 	isFundamentalDiscriminant/1
 >>> )
 [
@@ -22,7 +22,7 @@ negated,
 OEIS [A003658](https://oeis.org/A003658):
 
 ```
->>> 1:95.-.select(
+>>> 1L:95L.-.select(
 >>> 	isFundamentalDiscriminant/1
 >>> ).-
 [
@@ -37,7 +37,7 @@ Positive fundamental discriminants,
 OEIS [A003658](https://oeis.org/A003658):
 
 ~~~spl svg=A oeis=A003658
-1:200.select(
+1L:200L.select(
 	isFundamentalDiscriminant/1
 ).discretePlot
 ~~~
@@ -49,7 +49,7 @@ negated,
 OEIS [A003657](https://oeis.org/A003657):
 
 ~~~spl svg=B oeis=A003657
-1:200.-.select(
+1L:200L.-.select(
 	isFundamentalDiscriminant/1
 ).-.discretePlot
 ~~~

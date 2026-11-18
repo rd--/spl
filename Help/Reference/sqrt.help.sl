@@ -8,10 +8,10 @@ Pythagoras’ constant,
 OEIS [A002193](https://oeis.org/A002193):
 
 ```
->>> 2.sqrt
+>>> 2.0.sqrt
 1.41421
 
->>> 2 ^ 1/2
+>>> 2.0 ^ (1.0 / 2.0)
 1.41421
 ```
 
@@ -19,39 +19,39 @@ Theodorus’ constant,
 OEIS [A002194](https://oeis.org/A002194):
 
 ```
->>> 3.sqrt
+>>> 3.0.sqrt
 1.73205
 
 >>> 265/153
-3.sqrt
+3.0.sqrt
 
 >>> 1351/780
-3.sqrt
+3.0.sqrt
 
->>> 3.sqrt / 2
+>>> 3.0.sqrt / 2.0
 0.866025
 ```
 
 Particular values:
 
 ```
->>> 5.sqrt
+>>> 5.0.sqrt
 2.23607
 
 >>> 161/72
-5.sqrt
+5.0.sqrt
 
->>> 6.sqrt
+>>> 6.0.sqrt
 2.44949
 
->>> 7.sqrt
+>>> 7.0.sqrt
 2.64575
 
->>> 200.sqrt
-10 * 2.sqrt
+>>> 200.0.sqrt
+10.0 * 2.0.sqrt
 
 >>> 0.5.sqrt
-2.sqrt / 2
+2.0.sqrt / 2.0
 
 >>> 4.41.sqrt
 2.1

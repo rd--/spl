@@ -40,10 +40,12 @@ SplitMix : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 }
 
-+Float {
++[Float, Integer] {
 
 	SplitMix { :self |
-		newSplitMix().initialize!(self)
+		newSplitMix().initialize!(
+			SmallInteger(self)
+		)
 	}
 
 }

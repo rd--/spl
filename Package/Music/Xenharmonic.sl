@@ -265,12 +265,12 @@
 
 }
 
-+Float {
++[Float, Integer] {
 
 	yunikSwiftConsonanceTable { :self :operand |
-		2.toCollect(self) { :n |
-			let m = (n / 2).ceiling;
-			Range(m, n - 1).select { :d |
+		2L.toCollect(self) { :n |
+			let m = (n / 2L).ceiling;
+			Range(m, n - 1L).select { :d |
 				d.isCoprime(n)
 			}.collect { :d |
 				(n / d)
@@ -281,14 +281,14 @@
 	}
 
 	yunikSwiftScaleMerit { :k |
-		let s = 1200 / k;
-		yunikSwiftConsonanceTable(21, 50).collect { :j |
-			1.to(k - 1).sum { :i |
+		let s = 1200L / k;
+		yunikSwiftConsonanceTable(21L, 50L).collect { :j |
+			1L.to(k - 1L).sum { :i |
 				let r = (s * i).centsToRatio;
 				(j.key.relativeChange(r).abs < 0.005).if {
 					j.value
 				} {
-					0
+					0.0
 				}
 			}
 		}.sum / k

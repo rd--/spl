@@ -213,7 +213,7 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 
 	[base16Decode, parseBase16] { :self |
 		self.base16DecodeInto(
-			ByteArray(self.size / 2, 0)
+			ByteArray(self.size // 2L, 0L)
 		)
 	}
 

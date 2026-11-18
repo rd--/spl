@@ -200,7 +200,11 @@
 		}
 	}
 
-	productLog { :self |
+	productLog { :self Float |
+		uncheckedProductLog(self)
+	}
+
+	uncheckedProductLog { :self |
 		<primitive:
 		/* https://github.com/howion/lambert-w-function */
 		function log1Exp(x) {

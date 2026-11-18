@@ -3,6 +3,7 @@ import { extras } from 'https://unpkg.com/ohm-js@17.1.0/dist/ohm.esm.js';
 
 // There is no separate "core" grammar.
 // Entries that are re-written (erased) by the simplifier are marked 'S'.
+// The core grammar is a strict subset of the Spl grammar.
 export const slGrammarDefinition: string = String.raw`
 Sl {
 
@@ -57,14 +58,14 @@ Sl {
 		| RecordAssignment // S
         | WorkspaceVariableAssignment // S
 	ScalarAssignment = varName ":=" Expression
-	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression
-	RecordAssignment = "(" NonemptyListOf<RecordInitializerItem, ","> ")" ":=" Expression
+	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression // S
+	RecordAssignment = "(" NonemptyListOf<RecordInitializerItem, ","> ")" ":=" Expression // S
     WorkspaceVariableAssignment = "workspace" "." varName ":=" Expression // S
-	BinaryExpression
+	BinaryExpression // S
 		= BinaryOperatorExpression // S
 		| BinaryOperatorWithAdverbExpression // S
-	BinaryOperatorExpression = Expression (operator Primary)+
-	BinaryOperatorWithAdverbExpression = Expression (operatorWithAdverb Primary)+
+	BinaryOperatorExpression = Expression (operator Primary)+ // S
+	BinaryOperatorWithAdverbExpression = Expression (operatorWithAdverb Primary)+ // S
 
 	Primary
 		= PutSyntax // S

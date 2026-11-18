@@ -14,7 +14,7 @@ Evaluate numerically:
 Threads over lists:
 
 ```
->>> [-1 1/4 0.5 1.6].squareWave
+>>> [-1.0 0.25 0.5 1.6].squareWave
 [1 1 -1 -1]
 
 >>> [0.4 1.2 3.6].squareWave
@@ -24,7 +24,7 @@ Threads over lists:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(squareWave/1)
+(-3.0 -- 3.0).functionPlot(squareWave/1)
 ~~~
 
 ![](Help/Image/squareWave-A.svg)

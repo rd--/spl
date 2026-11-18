@@ -18,16 +18,16 @@
 
 }
 
-+Float {
++[Float, Integer] {
 
 	turingMachineFromNumber { :n :s :k |
-		let p = n.integerDigits(2 * s * k, s * k).partition(k);
+		let p = n.integerDigits(2L * s * k, s * k).partition(k);
 		p.deepIndices.select { :i |
-			i.size = 2
+			i.size = 2L
 		}.collect { :i |
 			let e = p.atPath(i);
-			let a = [1, -1] * i + [0, k];
-			let b = [1, 1, 2] * e.quotient([2 * k, 2, 1]).mod([s, k, 2]) + [1, 0, -1];
+			let a = [1L, -1L] * i + [0L, k];
+			let b = [1L, 1L, 2L] * e.quotient([2L * k, 2L, 1L]).mod([s, k, 2L]) + [1L, 0L, -1L];
 			a -> b
 		}
 	}

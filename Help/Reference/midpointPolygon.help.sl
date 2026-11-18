@@ -66,12 +66,14 @@ let t = Triangle[0 0; 1 0; 0 1];
 
 ![](Help/Image/midpointPolygon-C.svg)
 
-Iteratively at `Polygon`, here a regular hexagon:
+Iteratively at `Polygon`,
+here a regular hexagon,
+this is Smithsons’ _Gyrostasis_ drawing (1968):
 
 ~~~spl svg=D
 midpointPolygon/1.nestList(
-	6.regularPolygon([0 0], 1, 0),
-	6
+	6.regularPolygon([0 0], 1, 1/6.pi),
+	11
 )
 ~~~
 
@@ -79,7 +81,7 @@ midpointPolygon/1.nestList(
 
 * * *
 
-See also: medialTriangle, midpoint
+See also: medialTriangle, midpoint, midpointTriangles
 
 Guides: Geometry Functions
 

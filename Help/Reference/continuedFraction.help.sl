@@ -65,10 +65,13 @@ At larger fraction:
 At `zero` and `one`:
 
 ```
->>> 0.continuedFraction
+>>> 0.0.continuedFraction
 [0]
 
->>> 1.continuedFraction
+>>> [0].fromContinuedFraction
+0
+
+>>> 1.0.continuedFraction
 [1]
 ```
 
@@ -319,7 +322,7 @@ OEIS [A003417](https://oeis.org/A003417):
 Examples of rational and irrational numbers:
 
 ```
->>> [123 12.3 1.23 0.123].collect { :n |
+>>> [123.0 12.3 1.23 0.123].collect { :n |
 >>> 	n.continuedFraction(6)
 >>> }
 [123; 12 3 3; 1 4 2 1 6 1; 0 8 7 1 2 5]
@@ -389,16 +392,6 @@ Threads over lists:
 	1 2 2 2 2 2 2 2 3 6 1 2 1 12;
 	1 2 2 2 2 2 2 2 2 2 6 1 2 4 1 1 2
 ]
-```
-
-At `zero`:
-
-```
->>> 0.continuedFraction
-[0]
-
-[0].fromContinuedFraction
-0
 ```
 
 At `Decimal`,

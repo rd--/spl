@@ -19,8 +19,8 @@ true
 >>> [1 2 3 4 5 6].isArray(1)
 true
 
->>> [1 2 3 4 5 6]
->>> .isArray(1, isSmallInteger/1)
+>>> [1.0 2.0 3.0 4.0 5.0 6.0]
+>>> .isArray(1, isFloat/1)
 true
 ```
 
@@ -33,8 +33,8 @@ true
 >>> [1 2 3; 4 5 6].isArray(2)
 true
 
->>> [1 2 3; 4 5 6]
->>> .isArray(2, isSmallInteger/1)
+>>> [1.0 2.0 3.0; 4.0 5.0 6.0]
+>>> .isArray(2, isFloat/1)
 true
 ```
 
@@ -47,8 +47,8 @@ true
 >>> [1 2; 3 4:; 5 6; 7 8].isArray(3)
 true
 
->>> [1 2; 3 4:; 5 6; 7 8]
->>> .isArray(3, isSmallInteger/1)
+>>> [1.0 2.0; 3.0 4.0:; 5.0 6.0; 7.0 8.0]
+>>> .isArray(3, isFloat/1)
 true
 ```
 

@@ -5,10 +5,10 @@
 Answer a `List` of the `Trait` names implemented by the `Type` _t_.
 
 ```
->>> 23.typeDefinition.name
+>>> 23.0.typeDefinition.name
 'Float'
 
->>> 23.typeDefinition
+>>> 23.0.typeDefinition
 >>> .traitNameList
 >>> .sort!
 [

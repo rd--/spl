@@ -20,7 +20,7 @@ Plot an interpolation over the specified _x_ range:
 ~~~spl svg=A
 let x = [0 0.1 0.5 1 2];
 let y = [0 0.3 0.6 -0.2 3];
-(0 -- 2).functionPlot(
+(0.0 -- 2.0).functionPlot(
 	x.cubicSplineInterpolator(y)
 )
 ~~~
@@ -44,7 +44,7 @@ Cubic spline impulse response:
 ~~~spl svg=C
 let x = [1 2 3 4 5];
 let y = [0 0 1 0 0];
-(1 -- 5).functionPlot(
+(1.0 -- 5.0).functionPlot(
 	x.cubicSplineInterpolator(y)
 )
 ~~~

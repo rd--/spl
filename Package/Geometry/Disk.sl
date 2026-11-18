@@ -2,12 +2,12 @@ Disk : [Object, Equal, Geometry] {
 
 	| center radius |
 
-	asCircle { :self |
+	[Circle, diskToCircle] { :self |
 		Circle(self.center, self.radius)
 	}
 
 	boundingBox { :self |
-		self.asCircle.boundingBox
+		Circle(self).boundingBox
 	}
 
 	dimension { :unused |
@@ -28,7 +28,7 @@ Disk : [Object, Equal, Geometry] {
 	}
 
 	svgFragment { :self :options |
-		self.asCircle.AnnotatedGeometry(
+		Circle(self).AnnotatedGeometry(
 			(
 				fillColour: RgbColour([0 0 0], 1)
 			)

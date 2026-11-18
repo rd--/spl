@@ -240,16 +240,16 @@ Maximal number of linearly independent smooth nowhere-zero vector fields on a _2
 OEIS [A053381](https://oeis.org/A053381):
 
 ~~~spl svg=H oeis=A053381
-1:102.collect { :n |
-	let n0 = 2 * n;
-	let b = 1:Infinity.detect { :unused |
-		n0 := n0 / 2;
-		n0.bitAnd(1) != 0
+1L:102L.collect { :n |
+	let n0 = 2L * n;
+	let b = 1L:Infinity.detect { :unused |
+		n0 := n0 // 2L;
+		n0.bitAnd(1L) != 0L
 	};
-	let c = b.bitAnd(3);
-	let d = (b - c) / 4;
-	let rho = (2 ^ c) + (8 * d);
-	rho - 1
+	let c = b.bitAnd(3L);
+	let d = (b - c) // 4L;
+	let rho = (2L ^ c) + (8L * d);
+	rho - 1L
 }.discretePlot
 ~~~
 

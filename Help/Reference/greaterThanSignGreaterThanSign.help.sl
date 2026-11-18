@@ -82,8 +82,8 @@ At `Integer`:
 Compare with `>>>` (unsigned right shift):
 
 ```
->>> -5 >>> 2
-1073741822
+>>> -5.0 >>> 2.0
+1073741822.0
 ```
 
 `>>` is also a syntax token used when writing `Documentation Tests`.

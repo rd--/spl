@@ -176,9 +176,9 @@ The prime powers _p^m_ where _m>=2_,
 OEIS [A025475](https://oeis.org/A025475):
 
 ```
->>> 1:256.select { :n |
+>>> 2L:256L.select { :n |
 >>> 	n.isPrime.not & {
->>> 		n % (n - n.eulerPhi) = 0
+>>> 		n % (n - n.eulerPhi) = 0L
 >>> 	}
 >>> }
 [

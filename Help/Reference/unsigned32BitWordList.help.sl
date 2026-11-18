@@ -6,13 +6,13 @@ Answer the two unsigned 32-bit words of the byte representation of the `Float` _
 The words are in machine order.
 
 ```
->>> 0.unsigned32BitWordList
+>>> 0.0.unsigned32BitWordList
 [0 0]
 
->>> 1.unsigned32BitWordList
+>>> 1.0.unsigned32BitWordList
 [0 16b3FF00000]
 
->>> 2.pi.unsigned32BitWordList
+>>> 2.0.pi.unsigned32BitWordList
 [1413754136 1075388923]
 ```
 

@@ -55,13 +55,13 @@ Map['x' -> 3, 'y' -> 2]
 
 ```
 >>> let m = Map();
->>> m[-0] := -0;
+>>> m[-0.0] := -0.0;
 >>> (
 >>> 	m.associations,
 >>> 	m.keys.first.isNegativeZero,
 >>> 	m.values.first.isNegativeZero
 >>> )
-([0 -> -0], false, true)
+([0.0 -> -0.0], false, true)
 ```
 
 At a `List` of `Association` values:

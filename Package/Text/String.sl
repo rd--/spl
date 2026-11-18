@@ -20,6 +20,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		IdentitySet(self.characters)
 	}
 
+	[String, identity] { :self |
+		self
+	}
+
 	abbreviateTo { :self :anInteger |
 		self.truncateTo(anInteger - 8) ++ '... &etc'
 	}
@@ -1245,12 +1249,12 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 +[Float, Integer] {
 
-	String { :self :letter |
+	repeatCharacter { :self :letter |
 		letter.assertIsCharacter;
 		letter.repeat(self)
 	}
 
-	String { :self |
+	emptyString { :self |
 		String(self, ' ')
 	}
 

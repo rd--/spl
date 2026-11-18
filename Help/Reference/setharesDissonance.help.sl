@@ -9,10 +9,10 @@ where _f_ are frequencies, in hertz and _u_ are amplitudes.
 Plot the Sethares dissonance function over one octave of a nine-partial harmonic series with the specified reference frequency:
 
 ~~~spl svg=A
-let f0 = 880;
+let f0 = 880.0;
 let h = { :x |
 	1:9.collect { :r |
-		[x * r, 1]
+		[x * r, 1.0]
 	}
 };
 let h1 = h(f0);
@@ -26,17 +26,17 @@ let h1 = h(f0);
 Calculate cents values of the minima of the dissonance function:
 
 ```
->>> let f0 = 880;
+>>> let f0 = 880.0;
 >>> let h = { :x |
 >>> 	1:9.collect { :r |
->>> 		[x * r, 1]
+>>> 		[x * r, 1.0]
 >>> 	}
 >>> };
 >>> let h1 = h(f0);
 >>> let x = 0:1200:2;
 >>> let i = x.centsToRatio.collect { :r |
 >>> 	let h2 = h(f0 * r);
->>> 	-1 * setharesDissonance(h1, h2)
+>>> 	-1.0 * setharesDissonance(h1, h2)
 >>> }.findPeaks.collect(first/1);
 >>> x.atAll(i)
 [

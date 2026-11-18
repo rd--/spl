@@ -90,7 +90,7 @@ Plot the binomial as a function of its parameter _n_:
 Plot the binomial as a function of its parameter _k_:
 
 ~~~spl svg=B
-(-1 -- 5).functionPlot(
+(-1.0 -- 5.0).functionPlot(
 	[1L 2L 3L 4L].collect { :n |
 		{ :k |
 			binomialGamma(n, k)

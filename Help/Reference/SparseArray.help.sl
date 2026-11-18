@@ -9,10 +9,10 @@ Construct a sparse matrix with values at only a few specified positions:
 
 ```
 >>> let s = SparseArray[
->>> 	[1 1] -> 1L,
->>> 	[2 2] -> 2L,
->>> 	[3 3] -> 3L,
->>> 	[1 3] -> 4L
+>>> 	[1L 1L] -> 1L,
+>>> 	[2L 2L] -> 2L,
+>>> 	[3L 3L] -> 3L,
+>>> 	[1L 3L] -> 4L
 >>> ];
 >>> (
 >>> 	s.linearIndexMap,
@@ -25,14 +25,14 @@ Construct a sparse matrix with values at only a few specified positions:
 >>> 	s.sum
 >>> )
 (
-	Map[1 1; 5 2; 9 3; 3 4],
-	[1 0 4; 0 2 0; 0 0 3],
-	[3 3],
-	2,
-	3,
+	Map[1L 1L; 5L 2L; 9L 3L; 3L 4L],
+	[1L 0L 4L; 0L 2L 0L; 0L 0L 3L],
+	[3L 3L],
+	2L,
+	3L,
 	true,
-	0,
-	10
+	0L,
+	10L
 )
 ```
 
@@ -40,37 +40,37 @@ Make a large sparse vector:
 
 ```
 >>> let s = SparseArray(
->>> 	1:10.collect { :i |
->>> 		[2 ^ i] -> 1
+>>> 	1L:10L.collect { :i |
+>>> 		[2L ^ i] -> 1L
 >>> 	}
 >>> );
->>> (s.shape, s.sum, s[4])
-([1024], 10, 1)
+>>> (s.shape, s.sum, s[4L])
+([1024L], 10L, 1L)
 ```
 
 Make a large sparse matrix:
 
 ```
 >>> let s = SparseArray(
->>> 	1:10.collect { :i |
->>> 		[2 ^ i, 3 ^ i + i] -> 1
+>>> 	1L:10L.collect { :i |
+>>> 		[2L ^ i, 3L ^ i + i] -> 1L
 >>> 	}
 >>> );
 >>> (s.shape, s.sum)
-([1024 59059], 10)
+([1024L 59059L], 10L)
 ```
 
 Construct a tridiagonal matrix using patterns for indices:
 
 ```
->>> let k = 5;
+>>> let k = 5L;
 >>> let t = { :i :j |
->>> 	((i - j).abs = 1).if {
->>> 		[[i j] -> 1, [i i] -> -2]
+>>> 	((i - j).abs = 1L).if {
+>>> 		[[i j] -> 1L, [i i] -> -2L]
 >>> 	} {
->>> 		[i i] -> -2
+>>> 		[i i] -> -2L
 >>> 	}
->>> }.table(1:k, 1:k);
+>>> }.table(1L:k, 1L:k);
 >>> let s = SparseArray(t.flatten);
 >>> (s.shape, s.normalArray, s.sum)
 (
@@ -89,10 +89,10 @@ Construct a tridiagonal matrix using patterns for indices:
 Make a sparse diagonal matrix:
 
 ```
->>> let k = 100;
+>>> let k = 100L;
 >>> let r = Sfc32(367814);
->>> let d = r.randomReal([0 1], [k]);
->>> let l = 1:k.collect { :i | [i i] -> d[i] };
+>>> let d = r.randomReal([0.0 1.0], [k]);
+>>> let l = 1L:k.collect { :i | [i i] -> d[i] };
 >>> let s = SparseArray(l);
 >>> (
 >>> 	s.shape,
@@ -101,8 +101,8 @@ Make a sparse diagonal matrix:
 >>> 	s.sum
 >>> )
 (
-	[100 100],
-	100,
+	[100L 100L],
+	100L,
 	47.556,
 	47.556
 )
@@ -111,8 +111,8 @@ Make a sparse diagonal matrix:
 Convert an ordinary matrix into a sparse matrix:
 
 ```
->>> let l = [1 0 0; 1 2 0; 1 2 3];
->>> let s = l.arrayToSparseArray(0);
+>>> let l = [1L 0L 0L; 1L 2L 0L; 1L 2L 3L];
+>>> let s = l.arrayToSparseArray(0L);
 >>> (
 >>> 	s.shape,
 >>> 	s.specifiedElementCount,

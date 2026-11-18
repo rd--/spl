@@ -350,6 +350,10 @@
 	}
 
 	heldKarpAlgorithm { :self |
+		uncheckedHeldKarpAlgorithm(Float(self))
+	}
+
+	uncheckedHeldKarpAlgorithm { :self |
 		<primitive:
 		const dist = _self;
 		const n = dist.length;
@@ -1273,7 +1277,7 @@
 		].catenate
 	}
 
-	thomasAlgorithm { :a :b :c :d :x :n |
+	uncheckedThomasAlgorithm { :a :b :c :d :x :n |
 		<primitive:
 		let a = _a, b = _b, c = _c, d = _d, x = _x, n = _n;
 		for (let i = 1; i < n; i++) {
@@ -1289,11 +1293,14 @@
 		>
 	}
 
-	thomasAlgorithm { :a :b :c :d |
-		let n = SmallInteger(a.size);
-		let x = List(n, nil);
-		thomasAlgorithm(a, b, c, d, x, n);
+	thomasAlgorithm { :a FloatList :b FloatList :c FloatList :d FloatList :x List :n SmallInteger |
+		uncheckedThomasAlgorithm(a, b, c, d, x, n);
 		x
+	}
+
+	thomasAlgorithm { :a :b :c :d |
+		let n = a.size;
+		thomasAlgorithm(a, b, c, d, List(n, nil), n)
 	}
 
 	toeplitzMatrix { :c :r |

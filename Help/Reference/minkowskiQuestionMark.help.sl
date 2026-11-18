@@ -21,7 +21,7 @@ At `Float`:
 /
 24019198012642645L
 
->>> 1.pi.minkowskiQuestionMark
+>>> 1.0.pi.minkowskiQuestionMark
 3.015624761581421
 
 >>> (13.sqrt - 7 / 6)
@@ -43,24 +43,24 @@ At `Fraction` answers a dyadic rational:
 true
 ```
 
-At `Integer`:
+At small integer:
 
 ```
->>> 1.minkowskiQuestionMark
+>>> 1.0.minkowskiQuestionMark
 1
 
->>> 2.minkowskiQuestionMark
+>>> 2.0.minkowskiQuestionMark
 2
 ```
 
 At `goldenRatio`:
 
 ```
->>> 1.goldenRatio
+>>> 1.0.goldenRatio
 >>> .minkowskiQuestionMark
 5/3
 
->>> (1.goldenRatio - 1)
+>>> (1.0.goldenRatio - 1.0)
 >>> .minkowskiQuestionMark
 2/3
 ```
@@ -68,9 +68,9 @@ At `goldenRatio`:
 Threads over lists:
 
 ```
->>> [0 0.5 2.sqrt]
+>>> [0.0 0.5 2.sqrt]
 >>> .minkowskiQuestionMark
-[0 0.5 7/5]
+[0.0 0.5 7/5]
 
 >>> ([1 2] / 3)
 >>> .minkowskiQuestionMark
@@ -84,19 +84,19 @@ Threads over lists:
 The question-mark function is continuous and monotonically increasing, so it has an inverse:
 
 ```
->>> (7 / 5)
+>>> (7.0 / 5.0)
 >>> .minkowskiQuestionMarkInverse
 2.sqrt
 
->>> (5 / 3)
+>>> (5.0 / 3.0)
 >>> .minkowskiQuestionMarkInverse
-1.goldenRatio
+1.0.goldenRatio
 
 >>> 3.015624761581421
 >>> .minkowskiQuestionMarkInverse
-1.pi
+1.0.pi
 
->>> (1 / 4)
+>>> (1.0 / 4.0)
 >>> .minkowskiQuestionMarkInverse
 1/3
 ```
@@ -107,15 +107,15 @@ one at approximately 0.42037,
 c.f. OEIS [A048819](https://oeis.org/A048819):
 
 ```
->>> [0 0.5 1 0.420372339423223]
+>>> [0.0 0.5 1.0 0.420372339423223]
 >>> .minkowskiQuestionMark
-[0 0.5 1 0.4203723394232]
+[0.0 0.5 1.0 0.4203723394232]
 ```
 
 Plot over the unit interval:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	minkowskiQuestionMark/1
 )
 ~~~
@@ -125,7 +125,7 @@ Plot over the unit interval:
 Plot difference from input:
 
 ~~~spl svg=B
-(0 -- 2).functionPlot { :x |
+(0.0 -- 2.0).functionPlot { :x |
 	x.minkowskiQuestionMark - x
 }
 ~~~
@@ -135,7 +135,7 @@ Plot difference from input:
 Plot from -2 to 2, _?(x)_ is surjective:
 
 ~~~spl svg=C
-(-2 -- 2).functionPlot(
+(-2.0 -- 2.0).functionPlot(
 	minkowskiQuestionMark/1
 )
 ~~~

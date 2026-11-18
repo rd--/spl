@@ -417,7 +417,7 @@
 		} {
 			let a = (x ^ p) - (y ^ p);
 			let b = p * (x - y);
-			let c = 1 / (p - 1);
+			let c = 1.0 / (p - 1);
 			(a / b) ^ c
 		}
 	}

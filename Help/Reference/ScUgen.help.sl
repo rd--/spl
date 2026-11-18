@@ -14,7 +14,7 @@ Accessors are:
 - `localControl`: `nil` unless a `LocalControl`, in which case the other fields are ignored
 
 ```
->>> let ugen = sinOsc(440, 0);
+>>> let ugen = sinOsc(440.0, 0.0);
 >>> let scUgen = ugen.scUgen;
 >>> (
 >>> 	scUgen.name,

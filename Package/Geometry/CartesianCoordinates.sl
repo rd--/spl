@@ -211,7 +211,7 @@ CartesianCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, C
 	}
 
 	curvilinearProjection { :self |
-		self.curvilinearProjection(1)
+		self.curvilinearProjection(1.0)
 	}
 
 }

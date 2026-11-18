@@ -10,7 +10,7 @@ Circle : [Object, Store, Equal, Geometry] {
 		self.radius.square.pi
 	}
 
-	asGeneralisedCircle { :self |
+	[GeneralisedCircle, circleToGeneralisedCircle] { :self |
 		let c = 1;
 		let [r, i] = self.center;
 		let alpha = Complex(r.negate, i);
@@ -69,7 +69,7 @@ Circle : [Object, Store, Equal, Geometry] {
 		let a = c1.radius;
 		let b = c2.radius;
 		let c = (c2.center - c1.center).norm;
-		(c.square - a.square - b.square) / (2 * a * b)
+		(c.square - a.square - b.square) / (2.0 * a * b)
 	}
 
 	inversiveDistanceDelta { :c1 :c2 |
@@ -322,16 +322,16 @@ UnitCircle : [Object] {
 
 }
 
-+Float {
++[Float, Integer] {
 
 	annularSteinerChain { :n :c :r |
 		let theta = 1.pi / n;
-		let rho = (r * theta.sin) / (1 - theta.sin);
+		let rho = (r * theta.sin) / (1.0 - theta.sin);
 		let rr = (theta.sec + theta.tan).square * r;
 		[
 			Circle(c, r),
 			Circle(c, rr),
-			n.circlePoints(c, r + rho, 0)
+			n.circlePoints(c, r + rho, 0.0)
 			.collect { :each |
 				Circle(each, rho)
 			}

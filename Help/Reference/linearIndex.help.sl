@@ -8,11 +8,11 @@ The indices are counted such that the rightmost index increments first.
 At vector:
 
 ```
->>> let shape = [3];
->>> [1; 2; 3].collect { :each |
+>>> let shape = [3L];
+>>> [1L; 2L; 3L].collect { :each |
 >>> 	shape.linearIndex(each)
 >>> }
-[1 2 3]
+[1L 2L 3L]
 ```
 
 At matrix:

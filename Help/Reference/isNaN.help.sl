@@ -11,7 +11,7 @@ true
 >>> Infinity.isNaN
 false
 
->>> (0 / 0).isNaN
+>>> (0.0 / 0.0).isNaN
 true
 ```
 

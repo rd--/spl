@@ -8,7 +8,7 @@ Plot the first few terms of the logistic map with _r=3.741_ and _a₀=0.00079_:
 
 ~~~spl svg=A
 logisticMap(3.741)
-.cobwebPlot(0.00079, 23)
+.cobwebPlot(0.00079, 23L)
 ~~~
 
 ![](Help/Image/cobwebPlot-A.svg)
@@ -16,8 +16,8 @@ logisticMap(3.741)
 With _r=4_:
 
 ~~~spl svg=B
-logisticMap(4)
-.cobwebPlot(0.00079, 23)
+logisticMap(4.0)
+.cobwebPlot(0.00079, 23L)
 ~~~
 
 ![](Help/Image/cobwebPlot-B.svg)

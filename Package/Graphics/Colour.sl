@@ -50,7 +50,7 @@
 			self.rgba
 		};
 		'#' ++ c.collect { :each |
-			(each * 255).round.byteHexString
+			(each * 255.0).round.byteHexString
 		}.stringCatenate
 	}
 
@@ -193,7 +193,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	initialize! { :self |
 		self.rgb := [0.0 0.0 0.0];
-		self.alpha := 1;
+		self.alpha := 1.0;
 		self
 	}
 
@@ -237,8 +237,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 +List {
 
 	Colour { :self |
-		self.atVectorOrElementwise { :each |
-			let a = each.Float;
+		self.atVectorOrElementwise { :a FloatList |
 			a.size.caseOf(
 				[
 					3 -> { RgbColour(a, 1.0) },
@@ -334,11 +333,11 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	cubeHelix { :start :rotations :hue :gamma |
 		{ :lambda |
-			lambda.isBetween(0, 1).if {
-				let phi = 2.pi * ((start / 3) + (rotations * lambda));
+			lambda.isBetween(0.0, 1.0).if {
+				let phi = 2.0.pi * ((start / 3.0) + (rotations * lambda));
 				let e = lambda ^ gamma;
-				let alpha = hue * e * (1 - e) / 2;
-				let m = [-0.14861 1.78277; -0.29227 -0.90649; 1.97294 0];
+				let alpha = hue * e * (1.0 - e) / 2.0;
+				let m = [-0.14861 1.78277; -0.29227 -0.90649; 1.97294 0.0];
 				e + (alpha * m.dot([phi.cos phi.sin]))
 			} {
 				lambda.error('cubeHelix: invalid input')
@@ -369,13 +368,13 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	lightnessCie { :y :yn |
 		let f = { :y :yn |
 			let yyn = y / yn;
-			(yyn > ((24 / 116) ^ 3)).if {
+			(yyn > ((24.0 / 116.0) ^ 3.0)).if {
 				yyn.cubeRoot
 			} {
 				((841 / 108) * yyn) + (16 / 116)
 			}
 		};
-		116 * f(y * 100, yn * 100) - 16
+		116.0 * f(y * 100.0, yn * 100.0) - 16.0
 	}
 
 	red { :alpha |
@@ -463,13 +462,13 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	hslToHsv { :self |
 		let [h, s, l] = self;
-		let v = l + (s * l.min(1 - l));
+		let v = l + (s * l.min(1.0 - l));
 		[
 			h,
-			(v = 0).if {
-				0
+			(v = 0.0).if {
+				0.0
 			} {
-				2 * (1 - (l / v))
+				2.0 * (1.0 - (l / v))
 			},
 			v
 		]
@@ -477,23 +476,23 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	hslToRgb { :self |
 		let [hUnit, s, l] = self;
-		let h = hUnit * 360;
+		let h = hUnit * 360.0;
 		let a = s * l.min(1 - l);
-		[0 8 4].collect { :n |
-			let k = (n + (h / 30)) % 12;
-			l - (a * -1.max([k - 3, 9 - k, 1].min))
+		[0.0 8.0 4.0].collect { :n |
+			let k = (n + (h / 30.0)) % 12.0;
+			l - (a * -1.0.max([k - 3.0, 9.0 - k, 1.0].min))
 		}
 	}
 
 	hsvToHsl { :self |
 		let [h, s, v] = self;
-		let l = v * (1 - (s / 2));
+		let l = v * (1.0 - (s / 2.0));
 		[
 			h,
-			[0 1].includes(l).if {
-				0
+			[0.0 1.0].includes(l).if {
+				0.0
 			} {
-				(v - l) / l.min(1 - l)
+				(v - l) / l.min(1.0 - l)
 			},
 			l
 		]
@@ -508,25 +507,25 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	}
 
 	isValidHsl { :self |
-		self.isBetween(0, 1).allTrue
+		self.isBetween(0.0, 1.0).allTrue
 	}
 
 	isValidHsv { :self |
-		self.isBetween(0, 1).allTrue
+		self.isBetween(0.0, 1.0).allTrue
 	}
 
 	isValidRgb { :self |
-		self.isBetween(0, 1).allTrue
+		self.isBetween(0.0, 1.0).allTrue
 	}
 
 	isValidRgba { :self |
-		self.isBetween(0, 1).allTrue
+		self.isBetween(0.0, 1.0).allTrue
 	}
 
 	jabToJch { :self |
 		let [l, a, b] = self;
 		let [c, h] = [a, b].toPolarCoordinates;
-		[l, c, h.radiansToDegrees % 360]
+		[l, c, h.radiansToDegrees % 360.0]
 	}
 
 	jchToJab { :self |
@@ -544,26 +543,26 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	labToXyz { :self :reference |
 		let [l, a, b] = self;
 		let [rx, ry, rz] = reference;
-		let delta = 6 / 29;
+		let delta = 6.0 / 29.0;
 		let epsilon = delta.cube;
 		let kappa = 8 / epsilon;
-		let fy = (l + 16) / 116;
-		let fx = (a / 500) + fy;
-		let fz = fy - (b / 200);
+		let fy = (l + 16.0) / 116.0;
+		let fx = (a / 500.0) + fy;
+		let fz = fy - (b / 200.0);
 		let fx3 = fx.cube;
 		let fz3 = fz.cube;
-		let x = (fx3 > epsilon).if { fx3 } { (116 * fx - 16) / kappa };
-		let y = (l > (kappa * epsilon)).if { ((l + 16) / 116).cube } { l / kappa };
-		let z = (fz3 > epsilon).if { fz3 } { (116 * fz - 16) / kappa };
+		let x = (fx3 > epsilon).if { fx3 } { (116.0 * fx - 16.0) / kappa };
+		let y = (l > (kappa * epsilon)).if { ((l + 16.0) / 116.0).cube } { l / kappa };
+		let z = (fz3 > epsilon).if { fz3 } { (116.0 * fz - 16.0) / kappa };
 		[
 			x * rx,
 			y * ry,
 			z * rz
-		] / 100
+		] / 100.0
 	}
 
 	labToXyz { :self |
-		let d65 = [95.0489, 100, 108.8840];
+		let d65 = [95.0489, 100.0, 108.8840];
 		self.labToXyz(d65)
 	}
 
@@ -582,22 +581,22 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	luvToXyz { :self :reference |
 		let [l, u, v] = self;
 		let [rx, ry, rz] = reference;
-		let epsilon = 216 / 24389;
-		let kappa = 24389 / 27;
-		let u0 = (4 * rx) / (rx + (15 * ry) + (3 * rz));
-		let v0 = (9 * ry) / (rx + (15 * ry) + (3 * rz));
-		let y = (l > (kappa * epsilon)).if { ((l + 16) / 116) ^ 3 } { l / kappa };
-		let a = (l = 0).if { 0 } { (((52 * l) / (u + (13 * l * u0))) - 1) / 3 };
-		let b = -5 * y;
-		let c = -1 / 3;
-		let d = (l = 0).if { 0 } { y * (((39 * l) / (v + (13 * l * v0))) - 5) };
+		let epsilon = 216.0 / 24389.0;
+		let kappa = 24389.0 / 27.0;
+		let u0 = (4.0 * rx) / (rx + (15.0 * ry) + (3.0 * rz));
+		let v0 = (9.0 * ry) / (rx + (15.0 * ry) + (3.0 * rz));
+		let y = (l > (kappa * epsilon)).if { ((l + 16.0) / 116.0) ^ 3.0 } { l / kappa };
+		let a = (l = 0.0).if { 0.0 } { (((52.0 * l) / (u + (13.0 * l * u0))) - 1.0) / 3.0 };
+		let b = -5.0 * y;
+		let c = -1.0 / 3.0;
+		let d = (l = 0.0).if { 0.0 } { y * (((39.0 * l) / (v + (13.0 * l * v0))) - 5.0) };
 		let x = (d - b) / (a - c);
 		let z = (x * a) + b;
 		[x y z]
 	}
 
 	luvToXyz { :self |
-		let d65 = [95.0489, 100, 108.8840];
+		let d65 = [95.0489, 100.0, 108.8840];
 		self.luvToXyz(d65)
 	}
 
@@ -619,7 +618,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	quilezGradient { :self |
 		let [a, b, c, d] = self;
 		{ :t |
-			a + (b * (2.pi * ((c * t) + d)).cos)
+			a + (b * (2.0.pi * ((c * t) + d)).cos)
 		}
 	}
 
@@ -648,13 +647,13 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 		let [r, y, b] = ryb;
 		[1 2 3].collect { :i |
 			[
-				colourTable['white'][i] * (1 - r) * (1 - b) * (1 - y),
-				colourTable['red'][i] * r * (1 - b) * (1 - y),
-				colourTable['blue'][i] * (1 - r) * b * (1 - y),
-				colourTable['violet'][i] * r * b * (1 - y),
-				colourTable['yellow'][i] * (1 - r) * (1 - b) * y,
-				colourTable['orange'][i] * r * (1 - b) * y,
-				colourTable['green'][i] * (1 - r) * b * y,
+				colourTable['white'][i] * (1.0 - r) * (1.0 - b) * (1.0 - y),
+				colourTable['red'][i] * r * (1.0 - b) * (1.0 - y),
+				colourTable['blue'][i] * (1.0 - r) * b * (1.0 - y),
+				colourTable['violet'][i] * r * b * (1.0 - y),
+				colourTable['yellow'][i] * (1.0 - r) * (1.0 - b) * y,
+				colourTable['orange'][i] * r * (1.0 - b) * y,
+				colourTable['green'][i] * (1.0 - r) * b * y,
 				colourTable['black'][i] * r * b * y
 			].sum
 		}
@@ -686,22 +685,22 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	uncheckedHsvToRgb { :self |
 		let [hue, saturation, brightness] = Float(self);
-		let s = saturation.min(1).max(0);
-		let v = brightness.min(1).max(0);
-		let h = (hue * 360) % 360;
-		let i = h // 60;
-		let f = (h % 60) / 60;
-		let p = (1 - s) * v;
-		let q = (1 - (s * f)) * v;
-		let t = (1 - (s * (1 - f))) * v;
+		let s = saturation.min(1.0).max(0.0);
+		let v = brightness.min(1.0).max(0.0);
+		let h = (hue * 360.0) % 360.0;
+		let i = h // 60.0;
+		let f = (h % 60.0) / 60.0;
+		let p = (1.0 - s) * v;
+		let q = (1.0 - (s * f)) * v;
+		let t = (1.0 - (s * (1.0 - f))) * v;
 		i.caseOf(
 			[
-				0 -> { [v, t, p] },
-				1 -> { [q, v, p] },
-				2 -> { [p, v, t] },
-				3 -> { [p, q, v] },
-				4 -> { [t, p, v] },
-				5 -> { [v, p, q] }
+				0L -> { [v, t, p] },
+				1L -> { [q, v, p] },
+				2L -> { [p, v, t] },
+				3L -> { [p, q, v] },
+				4L -> { [t, p, v] },
+				5L -> { [v, p, q] }
 			]
 		) {
 			self.unimplementedCase('hsvToRgb')
@@ -712,21 +711,21 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 		let [r, g, b] = Float(self);
 		let v = [r g b].max;
 		let c = v - [r g b].min;
-		let s = (v = 0).if { 0 } { c / v };
-		let h = (c = 0).if {
-			0
+		let s = (v = 0.0).if { 0.0 } { c / v };
+		let h = (c = 0.0).if {
+			0.0
 		} {
 			(v = r).if {
-				60 * ((g - b) / c % 6)
+				60.0 * ((g - b) / c % 6.0)
 			} {
 				(v = g).if {
-					60 * ((b - r) / c + 2)
+					60.0 * ((b - r) / c + 2.0)
 				} {
-					60 * ((r - g) / c + 4)
+					60.0 * ((r - g) / c + 4.0)
 				}
 			}
 		};
-		[h / 360, s, v]
+		[h / 360.0, s, v]
 	}
 
 	uncheckedSrgbDecode { :self |
@@ -739,13 +738,13 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	xyyToXyz { :self |
 		let [x, y1, y2] = self;
-		(y1 = 0).if {
-			[0 0 0]
+		(y1 = 0.0).if {
+			[0.0 0.0 0.0]
 		} {
 			[
 				(x * y2) / y1,
 				y2,
-				((1 - x - y1) * y2) / y1
+				((1.0 - x - y1) * y2) / y1
 			]
 		}
 	}
@@ -762,60 +761,60 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	xyzToLab { :self :reference |
 		let [x, y, z] = self;
 		let [rx, ry, rz] = reference;
-		let delta = 6 / 29;
+		let delta = 6.0 / 29.0;
 		let epsilon = delta.cube;
-		let kappa = 8 / epsilon;
+		let kappa = 8.0 / epsilon;
 		let f = { :tu |
-			let t = tu * 100;
+			let t = tu * 100.0;
 			(t > epsilon).if {
 				t.cubeRoot
 			} {
-				((kappa * t) + 16) / 116
+				((kappa * t) + 16.0) / 116.0
 			}
 		};
 		let fX = f(x / rx);
 		let fY = f(y / ry);
 		let fZ = f(z / rz);
 		[
-			(116 * fY) - 16,
-			500 * (fX - fY),
-			200 * (fY - fZ)
+			(116.0 * fY) - 16.0,
+			500.0 * (fX - fY),
+			200.0 * (fY - fZ)
 		]
 	}
 
 	xyzToLab { :self |
-		let d65 = [95.0489, 100, 108.8840];
+		let d65 = [95.0489, 100.0, 108.8840];
 		self.xyzToLab(d65)
 	}
 
 	xyzToLuv { :self :reference |
-		(self = [0 0 0]).if {
-			[0 0 0]
+		(self = [0.0 0.0 0.0]).if {
+			self
 		} {
 			let [x, y, z] = self;
 			let [rx, ry, rz] = reference;
-			let epsilon = 216 / 24389;
-			let kappa = 24389 / 27;
-			let yr = (y / ry) * 100;
-			let xyz = x + (15 * y) + (3 * z);
-			let rxryrz = rx + (15 * ry) + (3 * rz);
-			let u1 = (4 * x) / xyz;
-			let v1 = (9 * y) / xyz;
-			let ur = (4 * rx) / rxryrz;
-			let vr = (9 * ry) / rxryrz;
+			let epsilon = 216.0 / 24389.0;
+			let kappa = 24389.0 / 27.0;
+			let yr = (y / ry) * 100.0;
+			let xyz = x + (15.0 * y) + (3.0 * z);
+			let rxryrz = rx + (15.0 * ry) + (3.0 * rz);
+			let u1 = (4.0 * x) / xyz;
+			let v1 = (9.0 * y) / xyz;
+			let ur = (4.0 * rx) / rxryrz;
+			let vr = (9.0 * ry) / rxryrz;
 			let l = (yr > epsilon).if {
-				(116 * yr.cubeRoot) - 16
+				(116.0 * yr.cubeRoot) - 16.0
 			} {
 				kappa * yr
 			};
-			let u = 13 * l * (u1 - ur);
-			let v = 13 * l * (v1 - vr);
+			let u = 13.0 * l * (u1 - ur);
+			let v = 13.0 * l * (v1 - vr);
 			[l, u, v]
 		}
 	}
 
 	xyzToLuv { :self |
-		let d65 = [95.0489, 100, 108.8840];
+		let d65 = [95.0489, 100.0, 108.8840];
 		self.xyzToLuv(d65)
 	}
 
@@ -846,10 +845,10 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	xyzToXyy { :self |
 		let [x, y, z] = self;
 		let n = x + y + z;
-		(n = 0).if {
-			[1 1 1]
+		(n = 0.0).if {
+			[1.0 1.0 1.0]
 		} {
-			let m = 1 / n;
+			let m = 1.0 / n;
 			[x * m, y * m, y]
 		}
 	}
@@ -860,8 +859,8 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	isHexTriplet { :self |
 		self.beginsWith('#') & {
-			self.size = 7 | {
-				self.size = 9
+			self.size = 7L | {
+				self.size = 9L
 			}
 		}
 	}
@@ -921,17 +920,21 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 		self.isHexTriplet.ifFalse {
 			self.error('String>>parseHexTriplet: not hex triplet')
 		};
-		(k = 7 | { k = 9 }).if {
-			let r = self.copyFromTo(2, 3);
-			let g = self.copyFromTo(4, 5);
-			let b = self.copyFromTo(6, 7);
+		(
+			k = 7L | {
+				k = 9L
+			}
+		).if {
+			let r = self.copyFromTo(2L, 3L);
+			let g = self.copyFromTo(4L, 5L);
+			let b = self.copyFromTo(6L, 7L);
 			let f = { :x |
 				x.collect { :each |
-					each.parseSmallInteger(16) / 255
+					each.parseSmallInteger(16L) / 255.0
 				}
 			};
-			(k = 9).if {
-				let a = self.copyFromTo(8, 9);
+			(k = 9L).if {
+				let a = self.copyFromTo(8L, 9L);
 				f([r, g, b, a])
 			} {
 				f([r, g, b])
@@ -947,10 +950,10 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 
 	parseRgbTriplet { :self |
 		self.isRgbTriplet.if {
-			let c = self.copyFromTo(5, self.size - 1).splitOn(',');
-			c.size.isBetween(3, 4).if {
+			let c = self.copyFromTo(5L, self.size - 1L).splitOn(',');
+			c.size.isBetween(3L, 4L).if {
 				c.collect { :each |
-					each.parseSmallInteger(10) / 255
+					each.parseSmallInteger(10L) / 255.0
 				}
 			} {
 				self.error('String>>parseRgbTriplet: invalid triplet')
@@ -965,7 +968,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 +Nil {
 
 	Colour { :unused |
-		RgbColour([0 0 0], 0)
+		RgbColour([0.0 0.0 0.0], 0.0)
 	}
 
 }
@@ -1039,13 +1042,13 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	rybColourTable { :self |
 		self.cached('RybColourTable') {
 			(
-				white: [1 1 1],
-				red: [1 0 0],
-				yellow: [1 1 0],
+				white: [1.0 1.0 1.0],
+				red: [1.0 0.0 0.0],
+				yellow: [1.0 1.0 0.0],
 				blue: [0.163 0.373 0.6],
-				violet: [0.5 0 0.5],
+				violet: [0.5 0.0 0.5],
 				green: [0 0.66 0.2],
-				orange: [1 0.5 0],
+				orange: [1.0 0.5 0.0],
 				black: [0.2 0.094 0.0]
 			)
 		}
@@ -1070,7 +1073,7 @@ LibraryItem(
 	mimeType: 'application/json',
 	parser: { :libraryItem |
 		libraryItem.collect { :each |
-			each / 255
+			each / 255.0
 		}
 	}
 )
@@ -1094,7 +1097,7 @@ LibraryItem(
 	mimeType: 'application/json',
 	parser: { :libraryItem |
 		libraryItem.collect { :each |
-			each / 255
+			each / 255.0
 		}
 	}
 )

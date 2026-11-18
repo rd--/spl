@@ -603,7 +603,11 @@
 
 +List {
 
-	needlemanWunschAlgorithm { :a :b :c :o |
+	needlemanWunschAlgorithm { :a :b :c :o FloatList |
+		uncheckedNeedlemanWunschAlgorithm(a, b, c, o)
+	}
+
+	uncheckedNeedlemanWunschAlgorithm { :a :b :c :o |
 		<primitive:
 		/* https://gist.github.com/shinout/f19da7720d130f3925ac */
 		const s1 = _a;
@@ -675,7 +679,7 @@
 	}
 
 	needlemanWunschAlgorithm { :a :b :c |
-		needlemanWunschAlgorithm(a, b, c, [1, -1, -1])
+		needlemanWunschAlgorithm(a, b, c, [1.0, -1.0, -1.0])
 	}
 
 }

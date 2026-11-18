@@ -7,7 +7,7 @@ Answer a `List` of answers of `typeName` for each element of the collection _c_.
 At a heterogeneous `List`:
 
 ```
->>> [1 2/3 4J5 '6' 7L].elementTypes
+>>> [1.0 2/3 4J5 '6' 7L].elementTypes
 [
 	'Float'
 	'Fraction'
@@ -20,7 +20,10 @@ At a heterogeneous `List`:
 At a `Range`:
 
 ```
->>> 1:9.elementTypes
+>>> 1L:9L.elementTypes
+['Integer']
+
+>>> (1.0 .. 9.0).elementTypes
 ['Float']
 ```
 

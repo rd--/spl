@@ -114,6 +114,14 @@ No fractional part, rounding up:
 '12346'
 ```
 
+At `Integer`:
+
+```
+>>> 123_456_789L
+>>> .decimalStringToScale(3)
+'123456789.000'
+```
+
 * * *
 
 See also: decimalStringToPrecision, floatString, integerString, printString, radixString, storeString

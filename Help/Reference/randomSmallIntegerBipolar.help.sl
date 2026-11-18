@@ -10,7 +10,7 @@ Draw enough random numbers to form complete set:
 ```
 >>> let x = IdentitySet();
 >>> 99.timesRepeat {
->>> 	x.include!(3.randomSmallIntegerBipolar)
+>>> 	x.include!(3.0.randomSmallIntegerBipolar)
 >>> };
 >>> x
 (-3 .. 3).IdentitySet

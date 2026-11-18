@@ -143,7 +143,7 @@
 	}
 
 	bitLength { :self |
-		self.isBetween(-1, 0).if {
+		self.isBetween(-1L, 0L).if {
 			0L
 		} {
 			self.isPositive.if {
@@ -807,13 +807,15 @@
 	}
 
 	isFundamentalDiscriminant { :n |
-		n != 1 & {
-			n % 4 = 1 | {
-				let m = n % 16;
-				m = 8 | { m = 12 }
+		n != 1L & {
+			n % 4L = 1L | {
+				let m = n % 16L;
+				m = 8L | {
+					m = 12L
+				}
 			}
 		} & {
-			(n / (2 ^ n.integerExponent(2))).isSquareFree
+			(n // (2L ^ n.integerExponent(2L))).isSquareFree
 		}
 	}
 
@@ -1242,11 +1244,11 @@
 	}
 
 	negabinaryExpansion { :n |
-		let a = n.abs + 1;
-		let b = a.log(4) + 2;
-		let c = (4 ^ b.floor) - 1;
-		let d = c / 3 * 2;
-		(n + d).bitXor(d).integerDigits(2)
+		let a = n.abs + 1.0;
+		let b = a.log(4.0) + 2.0;
+		let c = (4.0 ^ b.floorFloat) - 1.0;
+		let d = c / 3.0 * 2.0;
+		(n + d).bitXor(d).integerDigits(2L)
 	}
 
 	numberDigit { :x :n :b |

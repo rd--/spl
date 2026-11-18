@@ -29,8 +29,8 @@ Draw the _2_ combination product set of _1 3 5 7 11_:
 
 ~~~spl svg=A
 RatioTuning(
-	[1 3 5 7 11]
-	.combinationProductSet(2)
+	[1L 3L 5L 7L 11L]
+	.combinationProductSet(2L)
 ).tuningLatticeGraph
 ~~~
 
@@ -40,8 +40,8 @@ Draw the _3_ combination product set of _1 3 5 7 11_:
 
 ~~~spl svg=B
 RatioTuning(
-	[1 3 5 7 11]
-	.combinationProductSet(3)
+	[1L 3L 5L 7L 11L]
+	.combinationProductSet(3L)
 ).tuningLatticeGraph
 ~~~
 

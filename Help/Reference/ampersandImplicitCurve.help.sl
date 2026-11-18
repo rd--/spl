@@ -9,7 +9,7 @@ Plot at `zero`:
 ~~~spl svg=A
 let i = (-1.5 -- 1.5).subdivide(100);
 ampersandImplicitCurve/2.
-contourPlot(i, i, [0])
+contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/ampersandImplicitCurve-A.svg)

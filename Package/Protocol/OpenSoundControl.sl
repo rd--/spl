@@ -4,7 +4,7 @@ OscParameter : [Object, Store] {
 
 	| typeLetter value |
 
-	OscParameter { :self |
+	[OscParameter, identity] { :self |
 		self
 	}
 
@@ -19,7 +19,7 @@ OscParameter : [Object, Store] {
 
 +ByteArray {
 
-	OscParameter { :self |
+	[OscParameter, byteArrayToOscParameter]  { :self |
 		OscParameter('b', self)
 	}
 
@@ -27,8 +27,8 @@ OscParameter : [Object, Store] {
 
 +Float {
 
-	OscParameter { :self |
-		self.isIntegerValuedNumber.if {
+	[OscParameter, floatToOscParameter] { :self |
+		self.isSmallIntegerValuedNumber.if {
 			OscParameter('i', self)
 		} {
 			OscParameter('f', self)
@@ -37,9 +37,17 @@ OscParameter : [Object, Store] {
 
 }
 
++Integer {
+
+	[OscParameter, integerToOscParameter] { :self |
+		OscParameter('i', SmallInteger(self))
+	}
+
+}
+
 +String {
 
-	OscParameter { :self |
+	[OscParameter, stringToOscParameter] { :self |
 		OscParameter('s', self)
 	}
 

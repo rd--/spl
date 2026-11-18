@@ -53,7 +53,7 @@ Zero of `arcCosh`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(1 -- 10).functionPlot(arcCosh/1)
+(1.0 -- 10.0).functionPlot(arcCosh/1)
 ~~~
 
 ![](Help/Image/arcCosh-A.svg)
@@ -69,7 +69,7 @@ Plot of complex `arcCosh` function:
 Polar plot:
 
 ~~~spl svg=C
-(1 -- 8.pi).polarPlot(arcCosh/1)
+(1.0 -- 8.pi).polarPlot(arcCosh/1)
 ~~~
 
 ![](Help/Image/arcCosh-C.svg)
@@ -77,10 +77,12 @@ Polar plot:
 Plot the real and imaginary parts:
 
 ~~~spl svg=D
-(-2 -- 2).functionPlot([
-	{ :x | x.arcCosh.real },
-	{ :x | x.arcCosh.imaginary }
-])
+(-2.0 -- 2.0).functionPlot(
+	[
+		{ :x | x.arcCosh.real },
+		{ :x | x.arcCosh.imaginary }
+	]
+)
 ~~~
 
 ![](Help/Image/arcCosh-D.svg)

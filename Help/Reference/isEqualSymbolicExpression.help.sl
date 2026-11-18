@@ -17,7 +17,7 @@ false
 >>> `*`.isEqualSymbolicExpression(3.141)
 false
 
->>> `x`.isEqualSymbolicExpression(`x` + 1)
+>>> `x`.isEqualSymbolicExpression(`x` + 1.0)
 false
 ```
 
@@ -31,7 +31,7 @@ false
 At `SymbolicExpression`:
 
 ```
->>> (`x` + 1).isEqualSymbolicExpression(`x`)
+>>> (`x` + 1.0).isEqualSymbolicExpression(`x`)
 false
 
 >>> (`x` * `x`).isEqualSymbolicExpression(`x` + `x`)
@@ -40,10 +40,12 @@ false
 >>> (`x` * `x`).isEqualSymbolicExpression(`x` * `x`)
 true
 
->>> (`x` + 1).isEqualSymbolicExpression(`x` + `y`)
+>>> (`x` + 1.0).isEqualSymbolicExpression(`x` + `y`)
 false
 ```
 
 * * *
 
 See also: Float, Symbol, SymbolicExpression, =, ==
+
+Guides: Symbolic Functions

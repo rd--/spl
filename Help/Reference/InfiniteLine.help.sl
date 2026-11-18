@@ -18,7 +18,7 @@ Infinite lines given two points:
 
 >>> InfiniteLine[2 0; 0 3]
 >>> .slopeInterceptForm
-[-1.5 3]
+[-3/2 3/1]
 ```
 
 The binary form answers an infinite line given a point and a vector:

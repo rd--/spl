@@ -7,25 +7,25 @@ Answer the circular `Arc` passing through the specified points.
 A circular arc passing through three points:
 
 ```
->>> [2.sqrt 0; 1 1; 0 2.sqrt]
+>>> [2.sqrt 0.0; 1.0 1.0; 0.0 2.sqrt]
 >>> .circularArcThrough
 Arc(
-	[0 0],
-	[2.sqrt 2.sqrt],
-	[0 1/2.pi]
+	[0.0 0.0],
+	[2.0.sqrt 2.0.sqrt],
+	[0.0 1/2.pi]
 )
 ```
 
 The arc begins at the first point, passes through the second point, and ends at the third point:
 
 ```
->>> let a = 1 / 2.sqrt;
->>> let b = a / 2;
->>> let c = (1/8 + (1 - b).square).sqrt;
->>> let d = 1 / (2 * 2.sqrt * (1 - b));
+>>> let a = 1.0 / 2.0.sqrt;
+>>> let b = a / 2.0;
+>>> let c = (1.0 / 8.0 + (1.0 - b).square).sqrt;
+>>> let d = 1.0 / (2.0 * 2.0.sqrt * (1.0 - b));
 >>> let e = d.arcTan;
->>> let f = 2.pi - e;
->>> [1 a; 0 1; 1 0]
+>>> let f = 2.0.pi - e;
+>>> [1.0 a; 0.0 1.0; 1.0 0.0]
 >>> .circularArcThrough
 Arc([b b], [c c], [e f])
 ```

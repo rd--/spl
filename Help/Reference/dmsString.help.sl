@@ -13,13 +13,15 @@ Answer a degrees-minutes-seconds string representing the angle θ, given in deci
 Canonicalize a Dms list:
 
 ```
->>> [11 -30 5].dmsString
+>>> [11 -30 5.0].dmsString
 '10°30′5.000″'
 ```
 
 * * *
 
 See also: GeodeticCoordinates, degree, dmsList, fromDms
+
+Guides: Printing Functions
 
 References:
 _Mathematica_

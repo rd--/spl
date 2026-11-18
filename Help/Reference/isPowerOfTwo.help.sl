@@ -40,7 +40,7 @@ Answers correctly for `Float` values that answer `false` for `isBinary`,
 but `true` for `isSmallInteger`:
 
 ```
->>> (2 ^ 35).isBinary
+>>> (2.0 ^ 35.0).isBinary
 false
 
 >>> (2 ^ 35).isPowerOfTwo

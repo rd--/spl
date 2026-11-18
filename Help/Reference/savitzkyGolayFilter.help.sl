@@ -7,8 +7,8 @@ Answer a Savitzky-Golay filter with polynomial order _m_ and window size _w_ app
 Filter a signal of nine places with polynomial order two and window size five:
 
 ```
->>> [2 2 5 2 1 0 1 4 9]
->>> .savitzkyGolayFilter(2, 5)
+>>> [2.0 2.0 5.0 2.0 1.0 0.0 1.0 4.0 9.0]
+>>> .savitzkyGolayFilter(2L, 5L)
 [
 	1.65714 3.17143
 	3.54286 2.85714
@@ -23,9 +23,9 @@ plot both the original and smoothed signals:
 
 ~~~spl svg=A
 let r = Sfc32(671425);
-let d = NormalDistribution(0, 1);
+let d = NormalDistribution(0.0, 1.0);
 let y = d.randomVariate(r, [34]);
-let f = y.savitzkyGolayFilter(3, 11);
+let f = y.savitzkyGolayFilter(3L, 11L);
 [y f].linePlot
 ~~~
 

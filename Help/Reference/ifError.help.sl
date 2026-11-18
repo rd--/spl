@@ -28,11 +28,11 @@ Evaluate a block that does not raise an error:
 3
 ```
 
-Divide by zero is not an error:
+Floating point divide by zero is not an error:
 
 ```
 >> {
->> 	0 / 0
+>> 	0.0 / 0.0
 >> }.ifError { :err | 0 }
 NaN
 ```

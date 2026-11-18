@@ -93,7 +93,7 @@ false
 >>> .List
 [1.0]
 
->>> IdentitySet[1 1L]
+>>> IdentitySet[1.0 1L]
 >>> .List
 [1.0 1L]
 

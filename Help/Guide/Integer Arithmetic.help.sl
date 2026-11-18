@@ -3,43 +3,43 @@
 Signed 32-bit integer multiplication:
 
 ```
->>> 16bFFFFFFF * 15
-4026531825
+>>> 16bFFFFFFF.F * 15.0
+4026531825.0
 
->>> i32Times(16bFFFFFFF, 15)
--268435471
+>>> i32Times(16bFFFFFFF.F, 15.0)
+-268435471.0
 ```
 
 Signed 32-bit integer addition:
 
 ```
->>> 2147483647 + 2
+>>> 2147483647.0 + 2.0
 2147483649
 
->>> i32Plus(2147483647, 2)
+>>> i32Plus(2147483647.0, 2.0)
 -2147483647
 ```
 
 Bitwise left-rotate of 32-bit integer:
 
 ```
->>> 1.i32BitRotateLeft(30)
-1073741824
+>>> 1.0.i32BitRotateLeft(30.0)
+1073741824.0
 
->>> 2 ^ 30
-1073741824
+>>> 2.0 ^ 30.0
+1073741824.0
 
->>> (2 ^ 30)
+>>> (2.0 ^ 30.0)
+>>> .i32BitRotateRight(30.0)
+1.0
+
+>>> (2.0 ^ 24.0 + 1.0)
 >>> .i32BitRotateRight(30)
-1
+67108868.0
 
->>> (2 ^ 24 + 1)
->>> .i32BitRotateRight(30)
-67108868
-
->>> 67108868
->>> .i32BitRotateLeft(30)
-2 ^ 24 + 1
+>>> 67108868.0
+>>> .i32BitRotateLeft(30.0)
+2.0 ^ 24.0 + 1.0
 ```
 
 * * *

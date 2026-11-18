@@ -25,14 +25,14 @@ Real numbers:
 At negative `zero` sign is negative zero:
 
 ```
->>> -0.sign.isNegativeZero
+>>> -0.0.sign.isNegativeZero
 true
 ```
 
 See also `signBit`:
 
 ```
->>> -0.signBit
+>>> -0.0.signBit
 true
 ```
 

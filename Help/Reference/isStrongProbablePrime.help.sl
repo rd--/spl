@@ -7,8 +7,8 @@ Answer `true` if _n_ is a strong probable prime.
 Find false positives up to _k_:
 
 ```
->>> let k = 25_000;
->>> 3:k:2.select { :n |
+>>> let k = 25_000.0;
+>>> (3.0 .. k; 2.0).select { :n |
 >>> 	n.isStrongProbablePrime & {
 >>> 		n.isPrime.not
 >>> 	}
@@ -19,8 +19,8 @@ Find false positives up to _k_:
 Find false negatives up to _k_:
 
 ```
->>> let k = 25_000;
->>> 3:k:2.select { :n |
+>>> let k = 25_000.0;
+>>> (3.0 .. k; 2.0).select { :n |
 >>> 	n.isStrongProbablePrime.not & {
 >>> 		n.isPrime
 >>> 	}
@@ -31,11 +31,11 @@ Find false negatives up to _k_:
 Time strong probable prime predicate:
 
 ~~~spl timing
-let k = 100_000;
+let k = 100_000.0;
 (
 	'Strong Probable',
 	{
-		3:k:2.select(
+		(3.0 .. k; 2.0).select(
 			isStrongProbablePrime/1
 		).size
 	}.timing
@@ -45,11 +45,11 @@ let k = 100_000;
 Time trial division prime predicate:
 
 ~~~spl timing
-let k = 100_000;
+let k = 100_000L;
 (
 	'Trial division',
 	{
-		3:k:2.select(
+		(3L .. k; 2L).select(
 			isPrimeTrialDivision/1
 		).size
 	}.timing
@@ -59,11 +59,11 @@ let k = 100_000;
 Time Lucas probable prime predicate:
 
 ~~~spl timing
-let k = 100_000;
+let k = 100_000L;
 (
 	'Lucas probable',
 	{
-		3:k:2.select(
+		(3L .. k; 2L).select(
 			isLucasProbablePrime/1
 		).size
 	}.timing
@@ -73,11 +73,11 @@ let k = 100_000;
 Time prime predicate:
 
 ~~~spl timing
-let k = 100_000;
+let k = 100_000L;
 (
 	'isPrime',
 	{
-		3:k:2.select(
+		(3L .. k; 2L).select(
 			isPrime/1
 		).size
 	}.timing

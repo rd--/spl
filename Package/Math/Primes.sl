@@ -1596,47 +1596,55 @@
 +[Float, Integer] {
 
 	isLucasProbablePrime { :n :d |
-		let p = 1;
-		let q = (1 - d) // 4;
-		let u = 0;
-		let v = 2;
-		let u2 = 1;
-		let v2 = 1;
-		let q2 = 2 * q;
+		let p = 1L;
+		let q = (1L - d) // 4L;
+		let u = 0L;
+		let v = 2L;
+		let u2 = 1L;
+		let v2 = 1L;
+		let q2 = 2L * q;
 		let bits = [];
-		let t = (n + 1) // 2;
-		let h = 1;
-		{ t > 0 }.whileTrue {
-			bits.add!(t % 2);
-			t := t // 2
+		let t = (n + 1L) // 2L;
+		let h = 1L;
+		{
+			t > 0L
+		}.whileTrue {
+			bits.add!(t % 2L);
+			t := t // 2L
 		};
-		{ h <= bits.size }.whileTrue {
+		{
+			h <= bits.size
+		}.whileTrue {
 			u2 := (u2 * v2) % n;
 			v2 := ((v2 * v2) - q2) % n;
-			(bits[h] = 1).ifTrue {
+			(bits[h] = 1L).ifTrue {
 				let uOld = u;
 				u := (u2 * v) + (u * v2);
-				(u % 2 = 0).ifFalse {
+				(u % 2L = 0L).ifFalse {
 					u := u + n
 				};
-				u := (u // 2) % n;
+				u := (u // 2L) % n;
 				v := (v2 * v) + (u2 * uOld * d);
-				(v % 2 = 0).ifFalse {
+				(v % 2L = 0L).ifFalse {
 					v := v + n
 				};
-				v := (v // 2) % n
+				v := (v // 2L) % n
 			};
 			(h < bits.size).ifTrue {
 				q := (q * q) % n;
 				q2 := q + q
 			};
-			h := h + 1
+			h := h + 1L
 		};
-		u = 0
+		u = 0L
 	}
 
 	isLucasProbablePrime { :n |
-		(n < 2 | { n.isEven }).if {
+		(
+			n < 2L | {
+				n.isEven
+			}
+		).if {
 			false
 		} {
 			let d = n.selfridgeMethodA;
@@ -1646,21 +1654,25 @@
 
 	selfridgeMethodA { :n |
 		withReturn { :return/1 |
-			let d = 5;
+			let d = 5L;
 			n.isPerfectSquare.ifTrue {
-				0.return
+				0L.return
 			};
-			1.toDo(1000) { :i |
+			1L.toDo(1000L) { :i |
 				let js = d.jacobiSymbol(n);
-				(js = 0 & { d.abs != n }).ifTrue {
-					0.return
+				(
+					js = 0L & {
+						d.abs != n
+					}
+				).ifTrue {
+					0L.return
 				};
-				(js = -1).ifTrue {
+				(js = -1L).ifTrue {
 					d.return
 				};
-				d := (d < 0).if { 2 - d } { 0 - (d + 2) }
+				d := (d < 0L).if { 2L - d } { 0L - (d + 2L) }
 			};
-			0
+			0L
 		}
 	}
 

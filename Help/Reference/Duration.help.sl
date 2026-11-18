@@ -94,7 +94,7 @@ At `Frequency`,
 answer the reciprocal:
 
 ```
->>> Frequency(100).Duration
+>>> Frequency(100.0).Duration
 Duration(0.01)
 ```
 
@@ -102,7 +102,7 @@ The inverse is `Frequency`:
 
 ```
 >>> Duration(0.01).Frequency
-Frequency(100)
+Frequency(100.0)
 ```
 
 Relation to `Quantity`:
@@ -114,7 +114,7 @@ Quantity(0.01, 'second')
 >>> Time(0.01).Duration
 Duration(0.01)
 
->>> Frequency(100).Duration
+>>> Frequency(100.0).Duration
 Duration(0.01)
 ```
 

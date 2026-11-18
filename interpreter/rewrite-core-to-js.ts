@@ -286,7 +286,7 @@ const asJs: ohm.ActionDict<string> = {
 		const iStr = i.sourceString;
 		const x = parseInt(rewrite.deleteUnderscores(iStr));
 		if (Number.isSafeInteger(x)) {
-			return `${sStr + x}`;
+			return `${sStr + x}n`;
 		} else {
 			throw new Error('smallIntegerLiteral: not small integer: ' + x);
 		}

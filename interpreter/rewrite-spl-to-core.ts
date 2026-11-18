@@ -462,13 +462,17 @@ const asSl: ohm.ActionDict<string> = {
 		return `${rewrite.rewriteInPlaceName(c1, cN, ip)}/${a.sourceString}`;
 	},
 	smallIntegerLiteral(s, i) {
-		return s.sourceString + i.sourceString;
+		const sStr = s.sourceString;
+		const iStr = i.sourceString;
+		return validateSign(sStr) + iStr;
 	},
 	recordKeyToken(n, _c) {
 		return n.sourceString;
 	},
 	largeIntegerLiteral(s, i, _l) {
-		return s.sourceString + rewrite.deleteUnderscores(i.sourceString) + 'L';
+		const sStr = s.sourceString;
+		const iStr = i.sourceString;
+		return validateSign(sStr) + rewrite.deleteUnderscores(iStr) + 'L';
 	},
 	lowercaseIdentifier(c1, cN, ip) {
 		return rewrite.rewriteInPlaceName(c1, cN, ip);

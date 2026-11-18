@@ -8,10 +8,10 @@ allows for correct 53-bit small integer math.
 The literal small integer syntax answers `Float` values:
 
 ```
->>> 23.isSmallInteger
+>>> 23.0.isSmallInteger
 true
 
->>> 23.isFloat
+>>> 23.0.isFloat
 true
 ```
 

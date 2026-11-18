@@ -15,7 +15,7 @@ Plot the burnside curve at _z=0_:
 
 ~~~spl svg=A
 let i = (-1.5 -- 1.5).subdivide(25);
-burnsideCurve/2.contourPlot(i, i, [0])
+burnsideCurve/2.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/burnsideCurve-A.svg)

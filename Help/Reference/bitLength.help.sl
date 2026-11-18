@@ -161,14 +161,14 @@ OEIS [A007306](https://oeis.org/A007306):
 
 ~~~spl svg=G oeis=A007306
 let a = Map { :n |
-	(n < 2).if {
-		1
+	(n < 2L).if {
+		1L
 	} {
-		let m = 2 ^ (n - 1).bitLength;
-		a[n - (m / 2)] + a[m - n + 1]
+		let m = 2L ^ (n - 1L).bitLength;
+		a[n - (m // 2L)] + a[m - n + 1L]
 	}
 };
-a[0 .. 260].scatterPlot
+a[0L .. 260L].scatterPlot
 ~~~
 
 ![](Help/Image/bitLength-G.svg)

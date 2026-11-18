@@ -206,9 +206,9 @@ Zeckendorf-Niven numbers,
 OEIS [A328208](https://oeis.org/A328208):
 
 ```
->>> 0:99.select { :n |
+>>> 0L:99L.select { :n |
 >>> 	let z = n.zeckendorfRepresentation;
->>> 	let m = z.occurrencesOf(1);
+>>> 	let m = z.occurrencesOf(1L);
 >>> 	n.divisible(m)
 >>> }
 [

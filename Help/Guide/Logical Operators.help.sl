@@ -34,5 +34,3 @@ false
 See also: &, &&, |, ||, allSatisfy, anySatisfy, bitAnd, bitOr, not
 
 Guides: Bitwise Functions, Boolean Functions, Comparison Functions
-
-Categories: Logic

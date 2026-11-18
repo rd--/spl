@@ -13,7 +13,7 @@ The `contentType` method at `Headers` can be used to get the 'Content-Type' fiel
 >>> let r = Response(
 >>> 	'Plain text',
 >>> 	(
->>> 		status: 200,
+>>> 		status: 200.0,
 >>> 		headers: (
 >>> 			'Content-Type': 'text/plain'
 >>> 		)

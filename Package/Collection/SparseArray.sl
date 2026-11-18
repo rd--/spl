@@ -39,7 +39,7 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 		let map = self.linearIndexMap;
 		map.includesKey(linearIndex).if {
 			map.at(
-				SmallInteger(linearIndex)
+				linearIndex
 			)
 		} {
 			self.unspecifiedValue
@@ -107,7 +107,7 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 		let map = self.linearIndexMap;
 		let zero = self.unspecifiedValue;
 		self.shape.iota.deepCollect { :each |
-			let index = SmallInteger(each);
+			let index = each;
 			map.includesKey(index).if {
 				map.at(index)
 			} {
@@ -194,9 +194,13 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 		let map = Map();
 		self.do { :each |
 			let index = each.key;
-			let linearIndex = index.isNumber.if { index } { shape.linearIndex(index) };
+			let linearIndex = index.isNumber.if {
+				index
+			} {
+				shape.linearIndex(index)
+			};
 			map.put!(
-				SmallInteger(linearIndex),
+				linearIndex,
 				each.value
 			)
 		};

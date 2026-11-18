@@ -35,7 +35,7 @@ A cubic Bézier curve:
 A symmetric cubic Bézier curve:
 
 ~~~spl svg=B
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	[0 0; 1 1; 2 -1; 3 0]
 	.bezierFunction
 )
@@ -46,7 +46,7 @@ A symmetric cubic Bézier curve:
 An arc:
 
 ~~~spl svg=C
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	[0 0; 1 1; 2 1; 3 0]
 	.bezierFunction
 )
@@ -57,8 +57,10 @@ An arc:
 A cubic Bézier curve in one dimension:
 
 ~~~spl svg=D
-(0 -- 1).discretize(64).collect(
-	[0 0.25 1.75 2].bezierFunction
+(0.0 -- 1.0).discretize(64)
+.collect(
+	[0.0 0.25 1.75 2.0]
+	.bezierFunction
 ).discretePlot
 ~~~
 
@@ -68,7 +70,8 @@ Plot the same one dimensional cubic Bézier curve in one dimension:
 
 ~~~spl svg=E
 let f/1 = [0 0.25 1.75 2].bezierFunction;
-(0 -- 1).discretize(64).collect { :mu |
+(0.0 -- 1.0).discretize(64)
+.collect { :mu |
 	let x = f(mu);
 	[x 0; x 1]
 }.Line

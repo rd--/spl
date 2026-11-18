@@ -130,22 +130,25 @@ even if the answer is a whole number:
 Division by `zero` may be `Infinity` or `NaN`:
 
 ```
->>> 5 / 0
-Infinity
+>>> (5.0 / 0.0, 5L / 0L, 5/0)
+(Infinity, Infinity, Infinity)
 
->>> -5 / 0
--Infinity
+>>> (-5.0 / 0.0, -5L / 0L, -5/0)
+(-Infinity, -Infinity, -Infinity)
 
->>> (0 / 0).isNaN
+>>> (0.0 / 0.0).isNaN
 true
+
+>>> 0L / 0L
+Infinity
 
 >>> (5J3 / 0).isNaN
 true
 
->>> 5/3 / 0
+>>> 5/3 / 0/1
 Infinity
 
->>> -5/3 / 0
+>>> -5/3 / 0/1
 -Infinity
 ```
 

@@ -6,28 +6,28 @@ Answer the upper incomplete gamma function,
 regularized unless _r_ is set to `false`.
 
 ```
->>> 1.5.upperIncompleteGamma(1)
+>>> 1.5.upperIncompleteGamma(1.0)
 0.22313
 
->>> 1.gammaRegularized(1.5)
+>>> 1.0.gammaRegularized(1.5)
 0.22313
 
->>> 1.5.upperIncompleteGamma(2)
+>>> 1.5.upperIncompleteGamma(2.0)
 0.557825
 
->>> 2.gammaRegularized(1.5)
+>>> 2.0.gammaRegularized(1.5)
 0.557825
 
->>> 3.3.upperIncompleteGamma(2)
+>>> 3.3.upperIncompleteGamma(2.0)
 0.158598
 
->>> 2.gammaRegularized(3.3)
+>>> 2.0.gammaRegularized(3.3)
 0.158598
 
->>> 0.22.upperIncompleteGamma(2 / 5)
+>>> 0.22.upperIncompleteGamma(2.0 / 5.0)
 0.421245
 
->>> (2 / 5).gammaRegularized(0.22)
+>>> (2.0 / 5.0).gammaRegularized(0.22)
 0.421245
 ```
 
@@ -35,10 +35,10 @@ The regularized upper incomplete gamma function is the `survivalFunction` of the
 it starts at 1 and monotonically decreases to 0:
 
 ```
->>> [0 0.5 1 10].collect { :x |
+>>> [0.0 0.5 1.0 10.0].collect { :x |
 >>> 	upperIncompleteGamma(x, 0.5)
 >>> }
-[1 0.3173 0.1573 0]
+[1.0 0.3173 0.1573 0.0]
 ```
 
 The regularized upper incomplete gamma function is equal to one minus the regularized lower incomplete gamma function:
@@ -48,7 +48,7 @@ The regularized upper incomplete gamma function is equal to one minus the regula
 >>> let x = 0.4;
 >>> (
 >>> 	x.upperIncompleteGamma(a),
->>> 	1 - x.lowerIncompleteGamma(a)
+>>> 	1.0 - x.lowerIncompleteGamma(a)
 >>> )
 (0.3711, 0.3711)
 ```
@@ -56,8 +56,8 @@ The regularized upper incomplete gamma function is equal to one minus the regula
 Plot regularized upper incomplete gamma function:
 
 ~~~spl svg=A
-(0 -- 10).functionPlot(
-	[0.5 1 1.5 2 5].collect { :a |
+(0.0 -- 10.0).functionPlot(
+	[0.5 1.0 1.5 2.0 5.0].collect { :a |
 		{ :x |
 			x.upperIncompleteGamma(a)
 		}

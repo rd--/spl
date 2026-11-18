@@ -102,8 +102,8 @@ let p = 10.chebyshevT;
 Plot the first five polynomial over a subset of the reals:
 
 ~~~spl svg=C
-let p = 0:4.collect(chebyshevT/1);
-(-1 -- 1).functionPlot(
+let p = 0L:4L.collect(chebyshevT/1);
+(-1.0 -- 1.0).functionPlot(
 	p.collect { :each |
 		{ :x |
 			each[x]

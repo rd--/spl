@@ -9,7 +9,7 @@ Lookup the `collect` method at `List`:
 ```
 >>> let m = system.methodLookupAtType(
 >>> 	'collect',
->>> 	2,
+>>> 	2.0,
 >>> 	'List'
 >>> );
 >>> let f/2 = m.block;
@@ -25,7 +25,7 @@ Lookup the `+` method at `Float`:
 ```
 >>> let m = system.methodLookupAtType(
 >>> 	'plusSign',
->>> 	2,
+>>> 	2.0,
 >>> 	'Float'
 >>> );
 >>> let f/2 = m.block;

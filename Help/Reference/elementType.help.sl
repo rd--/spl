@@ -8,7 +8,10 @@ else the answer of _f_, or `nil` in the unary case.
 At `Range`:
 
 ```
->>> 1:9.elementType
+>>> 1L:9L.elementType
+'Integer'
+
+>>> (1.0 .. 9.0).elementType
 'Float'
 ```
 
@@ -51,7 +54,8 @@ nil
 At `Record`:
 
 ```
->>> (x: 1, y: 2, z: 3).elementType
+>>> (x: 1.0, y: 2.0, z: 3.0)
+>>> .elementType
 'Float'
 ```
 
@@ -74,7 +78,7 @@ At empty list:
 At one element list:
 
 ```
->>> [23].elementType { 'Any' }
+>>> [23.0].elementType { 'Any' }
 'Float'
 ```
 

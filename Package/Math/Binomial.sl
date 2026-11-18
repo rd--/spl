@@ -393,7 +393,7 @@
 	}
 
 	pentagonalNumber { :n |
-		(3L * n.square - n) / 2L
+		(3L * n.square - n) // 2L
 	}
 
 	pyramidalNumber { :r |

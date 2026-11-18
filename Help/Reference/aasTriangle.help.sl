@@ -30,7 +30,7 @@ Varying an angle:
 
 ~~~spl svg=A
 (0.1, 0.14 .. 0.9).collect { :beta |
-	aasTriangle(1, 1 + beta, 1)
+	aasTriangle(1.0, 1.0 + beta, 1.0)
 }
 ~~~
 

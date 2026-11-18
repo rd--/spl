@@ -1082,11 +1082,11 @@ Graph : [Object, Graph] {
 
 	ringLatticeGraph { :n :k |
 		k.isEven.if {
-			let m = k / 2;
-			let v = [1 .. n];
+			let m = k // 2L;
+			let v = [1L .. n];
 			let e = v.collect { :i |
-				1.toCollect(m) { :j |
-					[i, (i + j).mod(n, 1)]
+				1L.toCollect(m) { :j |
+					[i, (i + j).mod(n, 1L)]
 				}
 			}.catenate;
 			Graph(v, e)

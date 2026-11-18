@@ -55,7 +55,7 @@ _k_ may be a collection:
 Evaluate for half-integer arguments:
 
 ```
->>> (9 / 2).trinomial(7 / 2)
+>>> (9.0 / 2.0).trinomial(7.0 / 2.0)
 26.869537
 ```
 

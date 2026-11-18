@@ -6,10 +6,10 @@ Answer the square-free part of _n_,
 the smallest positive number _m_ such that _n/m_ is a square.
 
 ```
->>> 60.squareFreePart
-15
+>>> 60L.squareFreePart
+15L
 
->>> (60 / 15).isPerfectSquare
+>>> (60L // 15L).isPerfectSquare
 true
 ```
 
@@ -18,7 +18,7 @@ threads over lists,
 OEIS [A007913](https://oeis.org/A007913):
 
 ```
->>> 1:77.squareFreePart
+>>> 1L:77L.squareFreePart
 [
 	 1  2  3  1  5  6  7  2  1 10
 	11  3 13 14 15  1 17  2 19  5
@@ -35,7 +35,8 @@ The square-free part of _n_,
 OEIS [A007913](https://oeis.org/A007913):
 
 ~~~spl svg=A oeis=A007913
-1:65.squareFreePart.discretePlot
+1L:65L.squareFreePart
+.discretePlot
 ~~~
 
 ![](Help/Image/squareFreePart-A.svg)

@@ -146,7 +146,7 @@
 		let products = combinations.collect(product/1);
 		let normalized = Fraction(products, products.min);
 		let reduced = normalized.octaveReduce;
-		reduced.nub.sort
+		reduced.nub(=).sort!
 	}
 
 	eulerFokkerGenus { :self |

@@ -5,7 +5,7 @@
 Answer the _n_-th pentagonal number.
 
 ```
->>> 23.pentagonalNumber
+>>> 23L.pentagonalNumber
 782
 ```
 
@@ -14,7 +14,7 @@ threads over lists,
 OEIS [A000326](https://oeis.org/A000326):
 
 ```
->>> 0:23.pentagonalNumber
+>>> 0L:23L.pentagonalNumber
 [
 	                  0
 	  1   5  12  22  35
@@ -35,8 +35,8 @@ A linear recurrence:
 One formulation:
 
 ```
->>> 0:22.collect { :z |
->>> 	1/2 * z * (3 * z - 1)
+>>> 0L:22L.collect { :z |
+>>> 	z * (3 * z - 1L) // 2L
 >>> }
 0:22.pentagonalNumber
 ```
@@ -46,8 +46,8 @@ also called the card house numbers,
 OEIS [A005449](https://oeis.org/A005449):
 
 ```
->>> 0:22.collect { :z |
->>> 	1/2 * z * (3 * z + 1)
+>>> 0L:22L.collect { :z |
+>>> 	z * (3L * z + 1L) // 2L
 >>> }
 [
 	  0   2   7  15  26
@@ -62,8 +62,8 @@ First differences of the second pentagonal numbers,
 OEIS [A016789](https://oeis.org/A016789):
 
 ```
->>> 0:15.collect { :z |
->>> 	1/2 * z * (3 * z + 1)
+>>> 0L:15L.collect { :z |
+>>> 	z * (3L * z + 1L) // 2L
 >>> }.differences
 [2 5 8 11 14 17 20 23 26 29 32 35 38 41 44]
 ```
@@ -72,8 +72,8 @@ Partial sums of the second pentagonal numbers,
 OEIS [A006002](https://oeis.org/A006002):
 
 ```
->>> 0:17.collect { :z |
->>> 	1/2 * z * (3 * z + 1)
+>>> 0L:17L.collect { :z |
+>>> 	z * (3L * z + 1L) // 2L
 >>> }.prefixSum
 [
 	0 2 9 24 50 90 147 224 324 450 605
@@ -92,19 +92,19 @@ Numbers that are not the sum of three pentagonal numbers,
 OEIS [A003679](https://oeis.org/A003679):
 
 ```
->>> let m = 12;
->>> let p = (0 .. m - 1).pentagonalNumber;
+>>> let m = 12L;
+>>> let p = (0L .. m - 1L).pentagonalNumber;
 >>> let q = IdentitySet();
->>> 1:m.do { :i |
->>> 	1:i.do { :j |
->>> 		1:j.do { :k |
+>>> 1L:m.do { :i |
+>>> 	1L:i.do { :j |
+>>> 		1L:j.do { :k |
 >>> 			q.include!(
 >>> 				p[i] + p[j] + p[k]
 >>> 			)
 >>> 		}
 >>> 	}
 >>> };
->>> 1:241.reject { :x |
+>>> 1L:241L.reject { :x |
 >>> 	q.includes(x)
 >>> }
 [

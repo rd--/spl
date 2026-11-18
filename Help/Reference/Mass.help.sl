@@ -7,9 +7,9 @@ It is also a specialized constructor method for `Quantity` values.
 The kilogram (_kg_) is the SI unit of mass.
 
 ```
->>> let m = Mass(1);
+>>> let m = Mass(1.0);
 >>> (m.isMass, m.unit, m.magnitude)
-(true, 'kilogram', 1)
+(true, 'kilogram', 1.0)
 ```
 
 * * *

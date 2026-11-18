@@ -742,16 +742,16 @@
 +[Float, Integer] {
 
 	antidiagonalRank { :y :x |
-		(x + y - 2) * (x + y - 1) / 2 + y
+		(x + y - 2L) * (x + y - 1L) // 2L + y
 	}
 
 	antidiagonalUnrank { :k |
-		(k - 1).antidiagonalUnrankZeroIndexed + 1
+		(k - 1L).antidiagonalUnrankZeroIndexed + 1L
 	}
 
 	antidiagonalUnrankZeroIndexed { :k |
-		let s = (((8 * k + 1).sqrt - 1) // 2);
-		let t = (s * (s + 1)) // 2;
+		let s = (((8L * k + 1L).sqrt - 1L) // 2L);
+		let t = (s * (s + 1L)) // 2L;
 		let r = k - t;
 		let c = s - r;
 		[r, c]
@@ -762,7 +762,7 @@
 	}
 
 	vedicSquare { :self |
-		let l = 1.to(self);
+		let l = 1L.to(self);
 		{ :i :j |
 			(i * j).positiveResidue(self)
 		}.table(l, l)
@@ -872,14 +872,14 @@
 	}
 
 	evoluteSpiralMatrix { :n |
-		[1 .. n ^ 2].permute(
+		[1L .. n ^ 2L].permute(
 			[
-				[n ^ 2 + 1] / 2,
+				[n ^ 2L + 1L] // 2,
 				{ :j :i |
-					let k = (-1 ^ j) * i;
+					let k = (-1L ^ j) * i;
 					List(j, k)
-				}.table(1.to(n), [-1, n])
-			].flatten.take(n ^ 2).accumulate
+				}.table(1L.to(n), [-1L, n])
+			].flatten.take(n ^ 2L).accumulate
 		).partition(n)
 	}
 

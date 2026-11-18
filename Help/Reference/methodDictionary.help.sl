@@ -53,7 +53,7 @@ and the entries are likewise dictionaries:
 
 ```
 >>> let d = system.methodDictionary;
->>> d['collect'][2].isDictionary
+>>> d['collect'][2.0].isDictionary
 true
 ```
 
@@ -62,7 +62,7 @@ and the entries are methods:
 
 ```
 >>> let d = system.methodDictionary;
->>> d['collect'][2]['List'].isMethod
+>>> d['collect'][2.0]['List'].isMethod
 true
 ```
 

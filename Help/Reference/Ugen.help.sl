@@ -5,14 +5,15 @@ A `Type` representing a unit generator, specifically an output port at a SuperCo
 Accessors are `scUgen` and `port`.
 
 ```
->>> sinOsc(440, 0).isUgen
+>>> sinOsc(440.0, 0.0).isUgen
 true
 ```
 
 Unit generator that have multiple outputs are represented as a `List` of `Ugen`:
 
 ```
->>> eqPan2(sinOsc(440, 0), 0).elementType
+>>> eqPan2(sinOsc(440.0, 0.0), 0.0)
+>>> .elementType
 'Ugen'
 ```
 

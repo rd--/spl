@@ -170,8 +170,9 @@ Polygon : [Object, Store, Equal, Geometry] {
 	}
 
 	triangulation { :self |
-		(self.embeddingDimension = 2).if {
-			self.vertexCoordinates.basicPolygonTriangulation
+		(self.embeddingDimension = 2L).if {
+			Float(self.vertexCoordinates)
+			.uncheckedPolygonTriangulation
 		} {
 			self.error('triangulation')
 		}
@@ -445,7 +446,7 @@ Polygon : [Object, Store, Equal, Geometry] {
 
 +List {
 
-	basicPolygonTriangulation { :self |
+	uncheckedPolygonTriangulation { :self |
 		<primitive:
 		/* https://github.com/mapbox/earcut/ */
 		const a = sl.earcut(_catenate_1(_self));

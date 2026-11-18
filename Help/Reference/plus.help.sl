@@ -58,11 +58,11 @@ Plus threads element-wise over lists:
 Plus at `Float` is not always associative:
 
 ```
->>> 1E20 + (-1E20 + 1)
-0
+>>> 1.0E20 + (-1.0E20 + 1.0)
+0.0
 
->>> (1E20 + -1E20) + 1
-1
+>>> (1.0E20 + -1.0E20) + 1.0
+1.0
 ```
 
 At `Symbol`:

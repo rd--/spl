@@ -97,23 +97,22 @@ The binary form answer either x₁ or x₂, whichever has the least magnitude:
 At `NaN` and `Infinity`:
 
 ```
->> min(1, NaN)
+>> min(1.0, NaN)
 NaN
 
->> min(NaN, 1)
+>> min(NaN, 1.0)
 NaN
 
->>> min(1, Infinity)
-1
+>>> min(1.0, Infinity)
+1.0
 
->>> min(Infinity, 1)
-1
+>>> min(Infinity, 1.0)
+1.0
 
-
->>> min(1, -Infinity)
+>>> min(1.0, -Infinity)
 -Infinity
 
->>> min(-Infinity, 1)
+>>> min(-Infinity, 1.0)
 -Infinity
 ```
 
@@ -123,8 +122,8 @@ The binary form allows vector operands:
 >>> [1 3 5].min([5 3 1])
 [1 3 1]
 
->>> 0.max(1.min([-0.2 -0.1 0.3 0.8 1 1.3]))
-[0 0 0.3 0.8 1 1]
+>>> 0.0.max(1.0.min([-0.2 -0.1 0.3 0.8 1.0 1.3]))
+[0.0 0.0 0.3 0.8 1.0 1.0]
 ```
 
 Not defined for `Complex` elements,

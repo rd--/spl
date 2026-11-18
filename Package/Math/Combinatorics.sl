@@ -404,7 +404,11 @@
 		}
 	}
 
-	necklaces { :n :k |
+	necklaces { :n SmallInteger :k SmallInteger |
+		uncheckedNecklaces(n, k)
+	}
+
+	uncheckedNecklaces { :n :k |
 		/* https://www.jasondavies.com/necklaces/necklaces.js */
 		<primitive:
 		function fkm(n, k) {

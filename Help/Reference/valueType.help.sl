@@ -8,7 +8,7 @@ else `nil`.
 At `Record`:
 
 ```
->>> let a = (x: 1, y: 2, z: 3);
+>>> let a = (x: 1.0, y: 2.0, z: 3.0);
 >>> (a.keyType, a.valueType, a.elementType)
 ('String', 'Float', 'Float')
 
@@ -19,11 +19,11 @@ nil
 At `Map`:
 
 ```
->>> let a = Map[1 -> 'x', 2 -> 'y', 3 -> 'z'];
+>>> let a = Map[1L -> 'x', 2L -> 'y', 3L -> 'z'];
 >>> (a.keyType, a.valueType, a.elementType)
-('Float', 'String', 'String')
+('Integer', 'String', 'String')
 
->>> Map[1 -> 2, 3 -> 4/5].valueType
+>>> Map[1L -> 2.0, 3L -> 4/5].valueType
 nil
 ```
 
@@ -34,7 +34,7 @@ At an association list:
 >>> (a.keyType, a.valueType, a.elementType)
 ('Fraction', 'String', 'Association')
 
->>> [1 -> 2, 3 -> 4/5].valueType
+>>> [1 -> 2L, 3 -> 4/5].valueType
 nil
 ```
 

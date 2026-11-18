@@ -22,12 +22,12 @@ The argument of `cot` is assumed to be in radians:
 >>> 1/6.pi.cot
 1.732
 
->>> 0.cot
+>>> 0.0.cot
 Infinity
 
->>> [-2.pi -1.pi 0 1.pi]
+>>> [-2.pi -1.pi 0.0 1.pi]
 >>> .cot
->>> .allSatisfy { :x |
+>>> .allTrue { :x |
 >>> 	x.abs > 1E15
 >>> }
 true
@@ -68,10 +68,10 @@ The continued fraction is highly regular,
 OEIS [A093178](https://oeis.org/A093178):
 
 ```
->>> 1.cot.continuedFraction(17)
+>>> 1.0.cot.continuedFraction(17)
 [0 1 1 1 3 1 5 1 7 1 9 1 11 1 13 1 15]
 
->>> 1.tan.continuedFraction(17)
+>>> 1.0.tan.continuedFraction(17)
 [1 1 1 3 1 5 1 7 1 9 1 11 1 13 1 15 1]
 
 >>> 0:16.collect { :n |

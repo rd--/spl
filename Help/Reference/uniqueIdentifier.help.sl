@@ -7,8 +7,8 @@ Identifiers are integers, and are unique only for the lifetime of `system`.
 
 ```
 >>> let k = system.uniqueIdentifier;
->>> k.isSmallInteger & { k >= 1 }
-true
+>>> (k.isInteger, k >= 1)
+(true, true)
 ```
 
 The generator is a simple counter:
@@ -16,7 +16,7 @@ The generator is a simple counter:
 ```
 >>> let p = system.uniqueIdentifier;
 >>> let q = system.uniqueIdentifier;
->>> p + 1 = q
+>>> p + 1L = q
 true
 ```
 

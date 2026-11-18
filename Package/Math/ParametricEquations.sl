@@ -97,8 +97,8 @@
 
 	cochleoid { :a |
 		{ :theta |
-			(theta = 0).if {
-				[1, 0]
+			(theta = 0.0).if {
+				[1.0, 0.0]
 			} {
 				let r = (a * theta.sin) / theta;
 				[r, theta].fromPolarCoordinates
@@ -125,7 +125,7 @@
 		{ :t |
 			[
 				r * (t - t.sin),
-				r * (1 - t.cos)
+				r * (1.0 - t.cos)
 			]
 		}
 	}
@@ -147,13 +147,13 @@
 
 	fernandezGuastiSquircle { :r :s |
 		{ :theta |
-			let a = r * 2.sqrt;
-			let b = s * (2 * theta).sin.abs;
-			let rho = b.isVeryClose(0).if {
+			let a = r * 2.0.sqrt;
+			let b = s * (2.0 * theta).sin.abs;
+			let rho = b.isVeryClose(0.0).if {
 				r
 			} {
-				let c = (1 - (s.square * (2 * theta).sin.square)).sqrt;
-				let d = (1 - c).sqrt;
+				let c = (1.0 - (s.square * (2.0 * theta).sin.square)).sqrt;
+				let d = (1.0 - c).sqrt;
 				(a / b) * d
 			};
 			[rho theta].fromPolarCoordinates
@@ -162,22 +162,22 @@
 
 	foliumOfDescartes { :a |
 		{ :theta |
-			let r = (3 * a * theta.sin * theta.cos) / (theta.sin.cube + theta.cos.cube);
+			let r = (3.0 * a * theta.sin * theta.cos) / (theta.sin.cube + theta.cos.cube);
 			[r, theta].fromPolarCoordinates
 		}
 	}
 
 	freethsNephroid { :a |
 		{ :theta |
-			let r = a * (1 + (2 * (0.5 * theta).sin));
+			let r = a * (1.0 + (2.0 * (0.5 * theta).sin));
 			[r, theta].fromPolarCoordinates
 		}
 	}
 
 	geocentricOrbitCurve { :r |
-		let a = r ^ 2/3;
+		let a = r ^ (2.0 / 3.0);
 		{ :t |
-			let b = t * 2.pi;
+			let b = t * 2.0.pi;
 			let c = b / r;
 			let x = b.sin + (a * c.sin);
 			let y = b.cos + (a * c.cos);
@@ -186,13 +186,13 @@
 	}
 
 	geocentricOrbitCurve { :tP :rP |
-		let a = 2.pi * (1 - (1 / tP));
+		let a = 2.0.pi * (1.0 - (1.0 / tP));
 		{ :t |
-			let r = (1 + (rP ^ 2) - (2 * rP * cos(a * t))).sqrt;
+			let r = (1.0 + (rP ^ 2.0) - (2.0 * rP * cos(a * t))).sqrt;
 			let b = (rP * sin(a * t)) / r;
-			let c = (1 + (r ^ 2) - (rP ^ 2)) / (2 * r);
-			let d = sin(2.pi * t);
-			let e = cos(2.pi * t);
+			let c = (1.0 + (r ^ 2.0) - (rP ^ 2.0)) / (2.0 * r);
+			let d = sin(2.0.pi * t);
+			let e = cos(2.0.pi * t);
 			let x = r * ((d * b) - (e * c));
 			let y = r * (0 - ((d * c) + (e * b)));
 			[x, y]
@@ -201,7 +201,7 @@
 
 	hippopede { :a :b |
 		{ :theta |
-			let r = 2 * (a - (b * (theta.sin ^ 2))).sqrt.real;
+			let r = 2.0 * (a - (b * (theta.sin ^ 2.0))).sqrt.real;
 			[r, theta].fromPolarCoordinates
 		}
 	}
@@ -223,9 +223,9 @@
 
 	lHospitalQuintic { :a |
 		{ :theta |
-			let u = (theta / 2).tan;
-			let x = (a / 2) * (u - ((u ^ 5) / 5));
-			let y = (a / 4) * (1 + u.square).square;
+			let u = (theta / 2.0).tan;
+			let x = (a / 2.0) * (u - ((u ^ 5.0) / 5.0));
+			let y = (a / 4.0) * (1.0 + u.square).square;
 			[x, y]
 		}
 	}
@@ -234,7 +234,7 @@
 		{ :theta |
 			/*let rho = a * (2 * theta).cos.sqrt;
 			[rho theta].fromPolarCoordinates*/
-			let u = 1 + theta.sin.square;
+			let u = 1.0 + theta.sin.square;
 			let x = (a * theta.cos) / u;
 			let y = (a * theta.sin * theta.cos) / u;
 			[x, y]
@@ -260,13 +260,13 @@
 		{ :t |
 			let p = ((m - n) * t).sin;
 			let x = (a * ((m + n) * t).sin) / p;
-			let y = (2 * a * (m * t).sin * (n * t).sin) / p;
+			let y = (2.0 * a * (m * t).sin * (n * t).sin) / p;
 			[x, y]
 		}
 	}
 
 	quadratrixOfHippias { :a |
-		let m = (2 * a) / 1.pi;
+		let m = (2.0 * a) / 1.0.pi;
 		{ :t |
 			[
 				m * t * t.cot,
@@ -277,11 +277,11 @@
 
 	reuleauxPolygonCurve { :n |
 		{ :theta |
-			let a = n * (theta - 1.pi) / 2.pi + 0.5;
-			let b = 2.pi * a.floor / n;
+			let a = n * (theta - 1.0.pi) / 2.0.pi + 0.5;
+			let b = 2.0.pi * a.floor / n;
 			let c = (theta - b).cos;
-			let d = 2 * (1.pi / n).cos;
-			let r = c + (1 + d + (c ^ 2)).sqrt;
+			let d = 2.0 * (1.0.pi / n).cos;
+			let r = c + (1.0 + d + (c ^ 2.0)).sqrt;
 			[r theta].fromPolarCoordinates
 		}
 	}
@@ -426,57 +426,57 @@
 +@Number {
 
 	ampersandImplicitCurve { :x :y |
-		(6 * (x ^ 4))
+		(6.0 * (x ^ 4.0))
 		+
-		(4 * (y ^ 4))
+		(4.0 * (y ^ 4.0))
 		-
-		(21 * (x ^ 3))
+		(21.0 * (x ^ 3.0))
 		+
-		(6 * (x ^ 2) * (y ^ 2))
+		(6.0 * (x ^ 2.0) * (y ^ 2.0))
 		+
-		(19 * (x ^ 2))
+		(19.0 * (x ^ 2.0))
 		-
-		(11 * x * (y ^ 2))
+		(11.0 * x * (y ^ 2.0))
 		-
-		(3 * (y ^ 2))
+		(3.0 * (y ^ 2.0))
 	}
 
 	bicuspidCurve { :a |
 		{ :x :y |
-			let p = (x ^ 2) - (a ^ 2);
-			let q = (x - a) ^ 2;
-			let r = ((y ^ 2) - (a ^ 2)) ^ 2;
+			let p = (x ^ 2.0) - (a ^ 2.0);
+			let q = (x - a) ^ 2.0;
+			let r = ((y ^ 2.0) - (a ^ 2.0)) ^ 2.0;
 			p * q + r
 		}
 	}
 
 	bowCurve { :x :y |
-		(x ^ 4) - ((x ^ 2) * y) + (y ^ 3)
+		(x ^ 4.0) - ((x ^ 2.0) * y) + (y ^ 3.0)
 	}
 
 	burnsideCurve { :x :y |
-		(y ^ 2) - (x * ((x ^ 4) - 1))
+		(y ^ 2.0) - (x * ((x ^ 4.0) - 1.0))
 	}
 
 	cassiniOval { :a :b |
 		{ :x :y |
-			(((x ^ 2) + (y ^ 2) + (a ^ 2)) ^ 2)
+			(((x ^ 2.0) + (y ^ 2.0) + (a ^ 2.0)) ^ 2.0)
 			-
-			(4 * (a ^ 2) * (x ^ 2))
+			(4.0 * (a ^ 2.0) * (x ^ 2.0))
 			-
-			(b ^ 4)
+			(b ^ 4.0)
 		}
 	}
 
 	ellipticCurve { :a :b |
 		{ :x :y |
-			(x ^ 3) + (a * x) + b - (y ^ 2)
+			(x ^ 3.0) + (a * x) + b - (y ^ 2.0)
 		}
 	}
 
 	spiricSection { :a :b :c |
 		{ :x :y |
-			(x.square + y.square - a.square + b.square + c.square).square - (4 * b.square * (x.square + c.square))
+			(x.square + y.square - a.square + b.square + c.square).square - (4.0 * b.square * (x.square + c.square))
 		}
 	}
 
@@ -489,16 +489,16 @@
 	}
 
 	stirrupCurve { :x :y |
-		let a = ((x ^ 2) - 1) ^ 2;
-		let b = (y - 1) * (y - 2) * (y + 5);
-		a - ((y ^ 2) * b)
+		let a = ((x ^ 2.0) - 1.0) ^ 2.0;
+		let b = (y - 1.0) * (y - 2.0) * (y + 5.0);
+		a - ((y ^ 2.0) * b)
 	}
 
 	trottCurve { :x :y |
-		let a = 144 * ((x ^ 4) + (y ^ 4));
-		let b = 225 * ((x ^ 2) + (y ^ 2));
-		let c = 350 * (x ^ 2) * (y ^ 2);
-		a - b + c + 81
+		let a = 144.0 * ((x ^ 4.0) + (y ^ 4.0));
+		let b = 225.0 * ((x ^ 2.0) + (y ^ 2.0));
+		let c = 350.0 * (x ^ 2.0) * (y ^ 2.0);
+		a - b + c + 81.0
 	}
 
 	wattsCurve { :a :b :c |

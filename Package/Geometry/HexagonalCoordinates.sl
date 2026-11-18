@@ -11,12 +11,12 @@ HexagonalCoordinates : [Object, Store, Equal] {
 
 	diagonalNeighbourVectors { :unused |
 		[
-			+2 -1 -1;
-			+1 -2 +1;
-			-1 -1 +2;
-			-2 +1 +1;
-			-1 +2 -1;
-			+1 +1 -2
+			+2L -1L -1L;
+			+1L -2L +1L;
+			-1L -1L +2L;
+			-2L +1L +1L;
+			-1L +2L -1L;
+			+1L +1L -2L
 		]
 	}
 
@@ -39,12 +39,12 @@ HexagonalCoordinates : [Object, Store, Equal] {
 
 	nearestNeighbourVectors { :unused |
 		[
-			+1 0 -1;
-			+1 -1 0;
-			0 -1 +1;
-			-1 0 +1;
-			-1 +1 0;
-			0 +1 -1
+			+1L 0L -1L;
+			+1L -1L 0L;
+			0L -1L +1L;
+			-1L 0L +1L;
+			-1L +1L 0L;
+			0L +1L -1L
 		]
 	}
 

@@ -244,23 +244,25 @@ OEIS [A048720](https://oeis.org/A048720):
 
 ~~~spl svg=G oeis=A048720
 let inverse = { :n |
-	(1 + (1 + (8 * n)).sqrt / 2).floor
+	(1.0 + (1.0 + (8.0 * n)).sqrt / 2.0).floor
 };
 let multiply = { :n :m |
-	let s = 0;
-	{ n > 0 }.whileTrue {
-		(1 = (n % 2)).ifTrue {
+	let s = 0.0;
+	{
+		n > 0.0
+	}.whileTrue {
+		(1.0 = (n % 2.0)).ifTrue {
 			s := s.bitXor(m)
 		};
-		n := (n / 2).floor;
-		m := m * 2
+		n := (n / 2.0).floor;
+		m := m * 2.0
 	};
 	s
 };
-0:250.collect { :n |
+(0.0 .. 250.0).collect { :n |
 	let i = n.inverse;
-	let a = (i - 1) * (i / 2 + 1) - n;
-	let b = n - ((i * (i - 1)) / 2);
+	let a = (i - 1.0) * (i / 2.0 + 1.0) - n;
+	let b = n - ((i * (i - 1.0)) / 2.0);
 	multiply(a, b)
 }.scatterPlot
 ~~~

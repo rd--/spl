@@ -10,18 +10,18 @@ the three argument form answers the lower incomplete gamma function.
 Evaluate regularized (upper incomplete) gamma function numerically:
 
 ```
->>> 1.gammaRegularized(1.5)
+>>> 1.0.gammaRegularized(1.5)
 0.22313
 
->>> 2.gammaRegularized(3.3)
+>>> 2.0.gammaRegularized(3.3)
 0.158598
 ```
 
 Plot regularized (upper incomplete) gamma function:
 
 ~~~spl svg=A
-(0 -- 3).functionPlot(
-	[1 2 3].collect { :a |
+(0.0 -- 3.0).functionPlot(
+	[1.0 2.0 3.0].collect { :a |
 		{ :z |
 			a.gammaRegularized(z)
 		}
@@ -34,10 +34,10 @@ Plot regularized (upper incomplete) gamma function:
 Plot regularized (lower incomplete) gamma function:
 
 ~~~spl svg=B
-(0 -- 10).functionPlot(
-	[0.5 1 1.5 2 5].collect { :a |
+(0.0 -- 10.0).functionPlot(
+	[0.5 1.0 1.5 2.0 5.0].collect { :a |
 		{ :x |
-			a.gammaRegularized(0, x)
+			a.gammaRegularized(0.0, x)
 		}
 	}
 )

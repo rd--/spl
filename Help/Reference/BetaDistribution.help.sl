@@ -7,12 +7,12 @@ A `Type` representing a beta distribution with shape parameters α and β.
 Probability density function:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
-	[0.25 2 4].collect { :beta |
+(0.0 -- 1.0).functionPlot(
+	[0.25 2.0 4.0].collect { :beta |
 		BetaDistribution(
-			2,
+			2.0,
 			beta
-		).pdf.clip(0, 3.5)
+		).pdf.clip(0.0, 3.5)
 	}
 )
 ~~~
@@ -22,12 +22,12 @@ Probability density function:
 The distribution is symmetrical:
 
 ~~~spl svg=B
-(0 -- 1).functionPlot(
-	[0.25 2 4].collect { :alpha |
+(0.0 -- 1.0).functionPlot(
+	[0.25 2.0 4.0].collect { :alpha |
 		BetaDistribution(
 			alpha,
 			1.5
-		).pdf.clip(0, 3)
+		).pdf.clip(0.0, 3.0)
 	}
 )
 ~~~
@@ -37,10 +37,10 @@ The distribution is symmetrical:
 Cumulative distribution function:
 
 ~~~spl svg=C
-(0 -- 1).functionPlot(
-	[0.25 2 4].collect { :beta |
+(0.0 -- 1.0).functionPlot(
+	[0.25 2.0 4.0].collect { :beta |
 		BetaDistribution(
-			2,
+			2.0,
 			beta
 		).cdf
 	}
@@ -53,8 +53,8 @@ Generate a sample of pseudo-random numbers from a beta distribution:
 
 ~~~spl svg=D
 let r = Sfc32(395472);
-BetaDistribution(3, 2.5)
-.randomVariate(r, [10 ^ 4])
+BetaDistribution(3.0, 2.5)
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 
@@ -65,9 +65,9 @@ the probability density is greatest near `zero` and `one`,
 the case where α=β=1/2 is equal to the standard arcsine distribution:
 
 ~~~spl svg=E
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	BetaDistribution(0.5, 0.5)
-	.pdf.clip(0, 4)
+	.pdf.clip(0.0, 4.0)
 )
 ~~~
 
@@ -76,8 +76,8 @@ the case where α=β=1/2 is equal to the standard arcsine distribution:
 When α and β are both equal to one the probability density function is uniformly `one`:
 
 ~~~spl svg=F
-(-1 -- 2).functionPlot(
-	BetaDistribution(1, 1)
+(-1.0 -- 2.0).functionPlot(
+	BetaDistribution(1.0, 1.0)
 	.pdf
 )
 ~~~
@@ -89,8 +89,8 @@ and vice-versa,
 the probability density function is linear:
 
 ~~~spl svg=G
-(0 -- 1).functionPlot(
-	BetaDistribution(1, 2).pdf
+(0.0 -- 1.0).functionPlot(
+	BetaDistribution(1.0, 2.0).pdf
 )
 ~~~
 
@@ -101,8 +101,9 @@ the mean is the midpoint if α=β,
 else it is skewed toward the lower values boundary:
 
 ~~~spl svg=H
-(0 -- 1).functionPlot(
-	[2 2; 3 4; 6 5; 7 7].collect { :each |
+(0.0 -- 1.0).functionPlot(
+	[2.0 2.0; 3.0 4.0; 6.0 5.0; 7.0 7.0]
+	.collect { :each |
 		let [alpha, beta] = each;
 		BetaDistribution(alpha, beta)
 		.pdf
@@ -116,8 +117,8 @@ Biased low:
 
 ~~~spl svg=I
 let r = Sfc32(791741);
-BetaDistribution(1 / 3, 3)
-.randomVariate(r, [99])
+BetaDistribution(1.0 / 3.0, 3.0)
+.randomVariate(r, [99L])
 .linePlot
 ~~~
 
@@ -127,8 +128,8 @@ Biased high:
 
 ~~~spl svg=J
 let r = Sfc32(231749);
-BetaDistribution(3, 1 / 3)
-.randomVariate(r, [99])
+BetaDistribution(3.0, 1.0 / 3.0)
+.randomVariate(r, [99L])
 .linePlot
 ~~~
 

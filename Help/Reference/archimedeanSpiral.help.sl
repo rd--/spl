@@ -1,15 +1,15 @@
 # archimedeanSpiral
 
-- _archimedeanSpiral(a=1, n)_
+- _archimedeanSpiral(a=1.0, n)_
 
 A family of spirals given by _r=aθ^1/n_.
 
 With _n=1_, called Archimedes’ spiral:
 
 ~~~spl svg=A
-(0 -- 9.pi).functionPlot(
+(0.0 -- 9.pi).functionPlot(
 	200,
-	archimedeanSpiral(1, 1)
+	archimedeanSpiral(1.0, 1.0)
 )
 ~~~
 
@@ -18,9 +18,9 @@ With _n=1_, called Archimedes’ spiral:
 With _n=2_, called Fermat’s spiral, or the parabolic spiral:
 
 ~~~spl svg=B
-(0 -- 9.pi).functionPlot(
+(0.0 -- 9.pi).functionPlot(
 	200,
-	archimedeanSpiral(1, 2)
+	archimedeanSpiral(1.0, 2.0)
 )
 ~~~
 
@@ -31,7 +31,7 @@ With _n=-1_, called the hyperbolic spiral, or the inverse spiral:
 ~~~spl svg=C
 (1.pi -- 9.pi).functionPlot(
 	200,
-	archimedeanSpiral(1, -1)
+	archimedeanSpiral(1.0, -1.0)
 )
 ~~~
 
@@ -42,7 +42,7 @@ With _n=-2_, called the lituus:
 ~~~spl svg=D
 (1/27.pi -- 9.pi).functionPlot(
 	200,
-	archimedeanSpiral(1, -2)
+	archimedeanSpiral(1.0, -2.0)
 )
 ~~~
 

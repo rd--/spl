@@ -11,20 +11,20 @@ The period (_T_) is the interval of time between events, the reciprocal of the f
 Make a `Quantity` value with unit _hertz_:
 
 ```
->>> let f = Frequency(1);
+>>> let f = Frequency(1.0);
 >>> (
 >>> 	f.isQuantity,
 >>> 	f.isFrequency,
 >>> 	f.unit,
 >>> 	f.magnitude
 >>> )
-(true, true, 'hertz', 1)
+(true, true, 'hertz', 1.0)
 ```
 
 Frequencies can be queried using prefixed unit names:
 
 ```
->>> Frequency(3000)
+>>> Frequency(3000.0)
 >>> .inKilohertz
 3
 ```
@@ -32,10 +32,10 @@ Frequencies can be queried using prefixed unit names:
 The `inHertz` method applied to `Frequency` and `Time` quantities:
 
 ```
->>> Frequency(440).inHertz
+>>> Frequency(440.0).inHertz
 440
 
->>> Time(1 / 440).inHertz
+>>> Time(1.0 / 440.0).inHertz
 440
 ```
 
@@ -48,39 +48,39 @@ A `Frequency` can be converted into a `Time` or a `Duration`,
 which gives the length of time of one cycle:
 
 ```
->>> Frequency(440).Time
-Time(1 / 440)
+>>> Frequency(440.0).Time
+Time(1.0 / 440.0)
 
->>> Frequency(440).Duration
-Duration(1 / 440)
+>>> Frequency(440.0).Duration
+Duration(1.0 / 440.0)
 ```
 
 The inverse:
 
 ```
 >>> Duration(0.01).Frequency
-Frequency(100)
+Frequency(100.0)
 
->>> Frequency(100).Duration
+>>> Frequency(100.0).Duration
 Duration(0.01)
 ```
 
 At `Frequency` is identity:
 
 ```
->>> let a = Frequency(100);
+>>> let a = Frequency(100.0);
 >>> let b = Frequency(a);
 >>> (a, a = b)
-(Quantity(100, 'hertz'), true)
+(Quantity(100.0, 'hertz'), true)
 ```
 
 Threads over lists:
 
 ```
->>> Frequency[1 10; 100 1000]
+>>> Frequency[1.0 10.0; 100.0 1000.0]
 [
-	1.hertz 1.decahertz;
-	1.hectohertz 1.kilohertz
+	1.0.hertz 1.0.decahertz;
+	1.0.hectohertz 1.0.kilohertz
 ]
 ```
 

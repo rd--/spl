@@ -11,9 +11,9 @@ The type letters are:
 - _s_: string
 
 ```
->>> OscParameter('i', 23)
+>>> OscParameter('i', 23.0)
 >>> .encodeRecord
-(type: 'i', value: 23)
+(type: 'i', value: 23.0)
 
 >>> OscParameter('f', 3.141)
 >>> .encodeRecord
@@ -31,9 +31,9 @@ The type letter _t_ can be inferred for numbers, strings and byte arrays.
 At `Integer`:
 
 ```
->>> OscParameter(23)
+>>> OscParameter(23L)
 >>> .encodeRecord
-(type: 'i', value: 23)
+(type: 'i', value: 23.0)
 ```
 
 At `Float`:

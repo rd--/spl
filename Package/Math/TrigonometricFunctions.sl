@@ -1,10 +1,10 @@
 +Float {
 
 	arcCos { :self |
-		self.isBetween(-1, 1).if {
+		self.isBetween(-1.0, 1.0).if {
 			self.uncheckedArcCos
 		} {
-			Complex(self, 0).arcCos
+			Complex(self, 0.0).arcCos
 		}
 	}
 
@@ -12,7 +12,7 @@
 		self.isZero.if {
 			Infinity
 		} {
-			Float(1 / self).arcSin
+			Float(1.0 / self).arcSin
 		}
 	}
 
@@ -20,15 +20,15 @@
 		self.isZero.if {
 			Infinity
 		} {
-			Float(1 / self).arcCos
+			Float(1.0 / self).arcCos
 		}
 	}
 
 	arcSin { :self |
-		self.isBetween(-1, 1).if {
+		self.isBetween(-1.0, 1.0).if {
 			self.uncheckedArcSin
 		} {
-			Complex(self, 0).arcSin
+			Complex(self, 0.0).arcSin
 		}
 	}
 
@@ -54,15 +54,15 @@
 	}
 
 	[cot, cotangent] { :self |
-		Float(1 / self.tan)
+		Float(1.0 / self.tan)
 	}
 
 	[csc, cosecant] { :self |
-		Float(1 / self.sin)
+		Float(1.0 / self.sin)
 	}
 
 	[sec, secant] { :self |
-		Float(1 / self.cos)
+		Float(1.0 / self.cos)
 	}
 
 	sin { :self |
@@ -86,28 +86,28 @@
 +Complex {
 
 	arcCos { :self |
-		(self.imaginary = 0).if {
-			(self.real.abs > 1).if {
+		(self.imaginary = 0.0).if {
+			(self.real.abs > 1.0).if {
 				Complex(
-					(self.real < 0).if {
-						1.pi
+					(self.real < 0.0).if {
+						1.0.pi
 					} {
-						0
+						0.0
 					},
 					self.real.copySign(self.real.abs.arcCosh)
 				)
 			} {
 				Complex(
 					self.real.arcCos,
-					0
+					0.0
 				)
 			}
 		} {
-			let tmp = self.absSquare - 1 / 2;
+			let tmp = (self.absSquare - 1.0) / 2.0;
 			let delta = tmp.square + self.imaginary.square;
 			let sh2y = tmp + delta.sqrt;
 			let shy = sh2y.sqrt;
-			let ch2y = 1 + sh2y;
+			let ch2y = 1.0 + sh2y;
 			let chy = ch2y.sqrt;
 			Complex(
 				(self.real / chy).arcCos,
@@ -129,8 +129,8 @@
 	}
 
 	arcSin { :self |
-		(self.imaginary = 0).if {
-			(self.real.abs > 1).if {
+		(self.imaginary = 0.0).if {
+			(self.real.abs > 1.0).if {
 				Complex(
 					0.5.pi * self.real.sign,
 					self.real.copySign(self.real.abs.arcCosh).negate
@@ -138,15 +138,15 @@
 			} {
 				Complex(
 					self.real.arcSin,
-					0
+					0.0
 				)
 			}
 		} {
-			let tmp = self.absSquare - 1 / 2;
+			let tmp = (self.absSquare) - 1.0 / 2.0;
 			let delta = tmp.square + self.imaginary.square;
 			let sh2y = tmp + delta.sqrt;
 			let shy = sh2y.sqrt;
-			let ch2y = 1 + sh2y;
+			let ch2y = 1.0 + sh2y;
 			let chy = ch2y.sqrt;
 			Complex(
 				(self.real / chy).arcSin,
@@ -158,25 +158,25 @@
 	arcTan { :self |
 		let r2 = self.absSquare;
 		Complex(
-			(1 - r2).arcTan(self.real * 2) / 2,
-			((r2 + (self.imaginary * 2) + 1) / (r2 - (self.imaginary * 2) + 1)).log / 4
+			(1.0 - r2).arcTan(self.real * 2.0) / 2.0,
+			((r2 + (self.imaginary * 2.0) + 1.0) / (r2 - (self.imaginary * 2.0) + 1.0)).log / 4.0
 		)
 	}
 
 	arcTan { :self :aNumber |
 		self.isZero.if {
 			aNumber.isZero.if {
-				Complex(0, 0)
+				Complex(0.0, 0.0)
 			} {
-				Complex(1.pi / aNumber.real.copySign(2), 0)
+				Complex(1.0.pi / aNumber.real.copySign(2.0), 0.0)
 			}
 		} {
 			let answer = (aNumber / self).arcTan;
-			(self.real < 0).if {
-				answer + 1.pi
+			(self.real < 0.0).if {
+				answer + 1.0.pi
 			} {
-				(answer.real > 1.pi).if {
-					answer - 2.pi
+				(answer.real > 1.0.pi).if {
+					answer - 2.0.pi
 				} {
 					answer
 				}
@@ -189,11 +189,11 @@
 	}
 
 	[csc, cosecant] { :self |
-		1 / self.sin
+		1.0 / self.sin
 	}
 
 	[sec, secant] { :self |
-		1 / self.cos
+		1.0 / self.cos
 	}
 
 	sin { :self |
@@ -209,7 +209,7 @@
 +[Float, Complex] {
 
 	[arcCot, arcCotangent] { :self |
-		(1 / self).arcTan
+		(1.0 / self).arcTan
 	}
 
 	[arcHarversine, inverseHaversine] { :self |
@@ -225,11 +225,11 @@
 +@Number {
 
 	cosDegrees { :self |
-		(90 - (180 + self % 360 - 180).abs).degreesToRadians.sin
+		(90.0 - (180.0 + self % 360.0 - 180.0).abs).degreesToRadians.sin
 	}
 
 	sinDegrees { :self |
-		(90 - self).cosDegrees
+		(90.0 - self).cosDegrees
 	}
 
 	sincHistorical { :self |
@@ -338,6 +338,14 @@
 
 +@ImplicitFloat {
 
+	[cot, cotangent] { :self |
+		Float(self).cot
+	}
+
+	inverseHaversine { :self |
+		Float(self).inverseHaversine
+	}
+
 	arcCos { :self |
 		Float(self).arcCos
 	}
@@ -399,23 +407,23 @@
 +[Float, Integer] {
 
 	cosDerivative { :self |
-		(self % 4).caseOf(
+		(self % 4L).caseOf(
 			[
-				0 -> { cos/1 },
-				1 -> { { :x | 0 - x.sin } },
-				2 -> { { :x | 0 - x.cos } },
-				3 -> { sin/1 }
+				0L -> { cos/1 },
+				1L -> { { :x | 0.0 - x.sin } },
+				2L -> { { :x | 0.0 - x.cos } },
+				3L -> { sin/1 }
 			]
 		)
 	}
 
 	sinDerivative { :self |
-		(self % 4).caseOf(
+		(self % 4L).caseOf(
 			[
-				0 -> { sin/1 },
-				1 -> { cos/1 },
-				2 -> { { :x | 0 - x.sin } },
-				3 -> { { :x | 0 - x.cos } }
+				0L -> { sin/1 },
+				1L -> { cos/1 },
+				2L -> { { :x | 0.0 - x.sin } },
+				3L -> { { :x | 0.0 - x.cos } }
 			]
 		)
 	}

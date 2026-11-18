@@ -10,11 +10,11 @@ else answer _c_ or _g()_.
 >>> [].ifEmpty { 1:9 }
 1:9
 
->>> let c = 0:8;
+>>> let c = 0L:8L;
 >>> c.ifEmpty { } {
->>> 	c + 1
+>>> 	c + 1L
 >>> }
-1:9
+1L:9L
 ```
 
 * * *

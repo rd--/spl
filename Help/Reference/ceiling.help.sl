@@ -181,7 +181,7 @@ sinOsc([m, m.ceiling].midiCps, 0) * 0.1
 Ceiling is a staircase function:
 
 ~~~spl svg=A
-(0 -- 7).functionPlot(ceiling/1)
+(0.0 -- 7.0).functionPlot(ceiling/1)
 ~~~
 
 ![](Help/Image/ceiling-A.svg)

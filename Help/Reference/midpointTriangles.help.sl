@@ -31,15 +31,15 @@ let t = p.midpointTriangles;
 
 ![](Help/Image/midpointTriangles-B.svg)
 
-The last midpoint triangle of succesive midpoint polygons of a six-regular polygon,
+Midpoint triangles of succesive midpoint polygons of a six-regular polygon,
 this is Smithsons’ _Gyrostasis_ drawing (1968):
 
 ~~~spl svg=C
-let p = 6.regularPolygon;
+let p = 6.regularPolygon([0 0], 1, 1/6.pi);
 midpointPolygon/1
-.nestList(p, 7)
-.collect { :x |
-	x.midpointTriangles.last
+.nestList(p, 10)
+.withCollect([4, 3 .. -6]) { :x :i |
+	x.midpointTriangles.atWrap(i)
 }
 ~~~
 

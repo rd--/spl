@@ -9,7 +9,7 @@ _k/2_ on each side.
 The _n=10_ and _k=4_ ring lattice graph:
 
 ```
->>> let g = ringLatticeGraph(10, 4);
+>>> let g = ringLatticeGraph(10L, 4L);
 >>> (g.edgeCount, g.vertexDegree)
 (20, [4 4 4 4 4 4 4 4 4 4])
 ```
@@ -17,7 +17,7 @@ The _n=10_ and _k=4_ ring lattice graph:
 The _n=10_ and _k=4_ ring lattice graph:
 
 ~~~spl svg=A
-ringLatticeGraph(10, 4)
+ringLatticeGraph(10L, 4L)
 .graphPlot
 ~~~
 
@@ -26,7 +26,7 @@ ringLatticeGraph(10, 4)
 Adjacency matrix of the _n=16_ and _k=4_ ring lattice graph:
 
 ~~~spl svg=B
-ringLatticeGraph(16, 4)
+ringLatticeGraph(16L, 4L)
 .adjacencyMatrix
 .matrixPlot
 ~~~
@@ -36,7 +36,7 @@ ringLatticeGraph(16, 4)
 The _k=2_ ring lattice graph is a cycle graph:
 
 ~~~spl svg=C
-ringLatticeGraph(10, 2)
+ringLatticeGraph(10L, 2L)
 .graphPlot
 ~~~
 

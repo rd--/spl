@@ -39,7 +39,7 @@ false
 Check if a value is `NaN`:
 
 ```
->>> (0 / 0).isNaN
+>>> (0.0 / 0.0).isNaN
 true
 ```
 
@@ -54,7 +54,7 @@ Complex `NaN` is reduced to NaN on construction:
 Divide by `zero`:
 
 ```
->> 0 / 0
+>> 0.0 / 0.0
 NaN
 ```
 

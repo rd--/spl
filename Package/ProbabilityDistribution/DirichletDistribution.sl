@@ -4,12 +4,12 @@ DirichletDistribution : [Object] {
 
 	betaDistributions { :self |
 		let alpha = self.alpha;
-		let k = alpha.size - 1;
+		let k = alpha.size - 1L;
 		let r = List(k, alpha.last);
-		(k - 1).downToDo(1) { :i |
-			r[i] := r[i + 1] + alpha[i + 1]
+		(k - 1L).downToDo(1L) { :i |
+			r[i] := r[i + 1L] + alpha[i + 1L]
 		};
-		1.to(k).collect { :i |
+		1L.to(k).collect { :i |
 			BetaDistribution(alpha[i], r[i])
 		}
 	}
@@ -19,12 +19,12 @@ DirichletDistribution : [Object] {
 		let k = alpha.size;
 		let b = alpha.gamma.product / alpha.sum.gamma;
 		{ :x |
-			(x.sum > 1).if {
-				0
+			(x.sum > 1.0).if {
+				0.0
 			} {
-				1.to(k - 1).collect { :i |
-					x[i] ^ (alpha[i] - 1)
-				}.product * ((1 - x.sum) ^ (alpha[k] - 1)) / b
+				1L.to(k - 1L).collect { :i |
+					x[i] ^ (alpha[i] - 1.0)
+				}.product * ((1.0 - x.sum) ^ (alpha[k] - 1.0)) / b
 			}
 		}
 	}
@@ -34,11 +34,11 @@ DirichletDistribution : [Object] {
 		let k = b.size;
 		{
 			let s = List(k, 0);
-			let z = 1;
-			1.toDo(k) { :i |
+			let z = 1.0;
+			1L.toDo(k) { :i |
 				let x = b[i].randomVariate(r, []);
 				s[i] := z * x;
-				z := z * (1 - x)
+				z := z * (1.0 - x)
 			};
 			s[k] := z;
 			s

@@ -99,7 +99,9 @@ Swish function equation:
 Swish function:
 
 ~~~svg=H
-(-5 -- 5).functionPlot(1.swishFunction)
+(-5.0 -- 5.0).functionPlot(
+	1.0.swishFunction
+)
 ~~~
 
 ![](Help/Image/Activation%20Functions-H.svg)

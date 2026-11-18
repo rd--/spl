@@ -8,7 +8,7 @@ This is a special case of the more general `bezierFunctionAt`.
 A cubic Bézier curve:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	[0 0; 1 1; 2 0; 3 2]
 	.cubicBezierFunctionAt(x)
 }
@@ -19,7 +19,7 @@ A cubic Bézier curve:
 A symmetric cubic Bézier curve:
 
 ~~~spl svg=B
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	[0 0; 1 1; 2 -1; 3 0]
 	.cubicBezierFunctionAt(x)
 }
@@ -30,7 +30,7 @@ A symmetric cubic Bézier curve:
 An arc:
 
 ~~~spl svg=C
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	[0 0; 1 1; 2 1; 3 0]
 	.cubicBezierFunctionAt(x)
 }

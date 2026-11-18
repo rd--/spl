@@ -8,7 +8,8 @@ colours are answered as _(r,g,b)_ triples.
 Count entries:
 
 ```
->>> system.colourCheckerChart.size
+>>> system.colourCheckerChart
+>>> .size
 24
 ```
 

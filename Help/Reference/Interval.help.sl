@@ -7,50 +7,50 @@ the lower and upper bounds respectively.
 Intervals are closed, they includes both end points.
 
 ```
->>> let i = Interval(0, 1);
+>>> let i = Interval(0.0, 1.0);
 >>> (
 >>> 	i.min,
 >>> 	i.max,
 >>> 	i.minMax,
->>> 	i.includes(0),
->>> 	i.includes(1)
+>>> 	i.includes(0.0),
+>>> 	i.includes(1.0)
 >>> )
-(0, 1, [0 1], true, true)
+(0.0, 1.0, [0.0 1.0], true, true)
 ```
 
 There are aliases `lowerBound`, `upperBound` and `endPoints`:
 
 ```
->>> let i = Interval(0, 1);
+>>> let i = Interval(0.0, 1.0);
 >>> (
 >>> 	i.lowerBound,
 >>> 	i.upperBound,
 >>> 	i.endPoints
 >>> )
-(0, 1, [0 1])
+(0.0, 1.0, [0.0 1.0])
 ```
 
 Use `+` to add intervals, getting an interval representing the result:
 
 ```
->>> (1 -- 6) + (0 -- 2)
+>>> (1.0 -- 6.0) + (0.0 -- 2.0)
 1 -- 8
 ```
 
 Squaring gives a non-negative interval:
 
 ```
->>> (-2 -- 5).square
-0 -- 25
+>>> (-2.0 -- 5.0).square
+0.0 -- 25.0
 ```
 
 Exact comparisons can be made with intervals:
 
 ```
->>> (5 -- 8) > 1.pi
+>>> (5.0 -- 8.0) > 1.0.pi
 true
 
->>> 3 < (4 -- 5)
+>>> 3.0 < (4.0 -- 5.0)
 true
 ```
 

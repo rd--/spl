@@ -1795,10 +1795,10 @@
 
 }
 
-+Float {
++[Float, Integer] {
 
 	runLengthTransform { :n :f/1 |
-		runLengthTransform(Range(0, n - 1, 1), f/1)
+		runLengthTransform(Range(0L, n - 1L, 1L), f/1)
 	}
 
 }

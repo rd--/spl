@@ -97,8 +97,8 @@ The binary form answers the base _b_ logarithm of the number _z_.
 >>> 1J0.log
 0
 
->>> 1.e.square.J(0).log / 1I * -2.pi.J(1)
-2.J(4.pi)
+>>> 1.0.e.square.J(0.0).log / 1.0I * -2.0.pi.J(1.0)
+2.0.J(4.pi)
 ```
 
 At branch cut:

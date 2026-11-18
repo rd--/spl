@@ -8,46 +8,46 @@ The operator form is `<<`.
 Left shift, towards most significant:
 
 ```
->>> 16.bitShiftLeft(3)
-128
+>>> 16L.bitShiftLeft(3L)
+128L
 
->>> 16 * (2 ^ 3)
-128
+>>> 16L * (2L ^ 3L)
+128L
 ```
 
 Shift three places to the left:
 
 ```
->>> 32.bitShiftLeft(3)
-256
+>>> 32L.bitShiftLeft(3L)
+256L
 
->>> 32 * (2 ^ 3)
-256
+>>> 32L * (2L ^ 3L)
+256L
 ```
 
 Shift seven places to the left:
 
 ```
->>> 32.bitShiftLeft(7)
-4096
+>>> 32L.bitShiftLeft(7L)
+4096L
 
->>> 32 * (2 ^ 7)
-4096
+>>> 32L * (2L ^ 7L)
+4096L
 ```
 
 At `Float` the integers are taken to be 32-bit signed integers:
 
 ```
->>> 1.bitShiftLeft(31)
--2147483648
+>>> 1.0.bitShiftLeft(31.0)
+-2147483648.0
 
->>> 1L.bitShiftLeft(31)
+>>> 1L.bitShiftLeft(31L)
 2147483648L
 
->>> 1.bitShiftLeft(32)
-1
+>>> 1.0.bitShiftLeft(32.0)
+1.0
 
->>> 1L.bitShiftLeft(32)
+>>> 1L.bitShiftLeft(32L)
 4294967296L
 ```
 
@@ -61,13 +61,13 @@ At `Float` the integers are taken to be 32-bit signed integers:
 `bitShiftLeft` automatically threads itself over lists:
 
 ```
->>> [1 2 4 16].bitShiftLeft(2)
+>>> [1L 2L 4L 16L].bitShiftLeft(2L)
 [4 8 16 64]
 
->>> [1 2 4 16] * (2 ^ 2)
+>>> [1L 2L 4L 16L] * (2L ^ 2L)
 [4 8 16 64]
 
->>> 1.bitShiftLeft(0:9)
+>>> 1L.bitShiftLeft(0L:9L)
 [1 2 4 8 16 32 64 128 256 512]
 ```
 
@@ -75,23 +75,23 @@ The operator form is `<<`,
 where supported `<<` is displayed as ≪:
 
 ```
->>> 32 << 7
+>>> 32L << 7L
 4096
 
->>> -2 << 31
-0
+>>> -2.0 << 31.0
+0.0
 
->>> -2L << 31
+>>> -2L << 31L
 -4294967296L
 ```
 
 At `Integer`:
 
 ```
->>> (1 << 31, 1L << 31)
+>>> (1.0 << 31.0, 1L << 31)
 (-2147483648, 2147483648L)
 
->>> 1L.bitShiftLeft(0:9)
+>>> 1L.bitShiftLeft(0L:9L)
 [1 2 4 8 16 32 64 128 256 512]
 ```
 

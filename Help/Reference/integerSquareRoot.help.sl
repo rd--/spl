@@ -107,7 +107,7 @@ At `zero`:
 Negative _n_:
 
 ```
->>> (-4.sqrt, -4.integerSquareRoot)
+>>> (-4.0.sqrt, -4.0.integerSquareRoot)
 (0J2, 0J2)
 
 >>> 0J2 ^ 2

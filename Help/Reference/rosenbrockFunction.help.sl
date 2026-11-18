@@ -7,17 +7,17 @@ Answer the Rosenbrock test function.
 At _a=1_ zero is at _(1,1)_:
 
 ```
->>> let f/1 = rosenbrockFunction(1, 100);
->>> f([1 1])
+>>> let f/1 = rosenbrockFunction(1.0, 100.0);
+>>> f([1.0 1.0])
 0
 ```
 
 Plot at _y=1_:
 
 ~~~spl svg=A
-let f/1 = rosenbrockFunction(1, 100);
+let f/1 = rosenbrockFunction(1.0, 100.0);
 (-1.4 -- 1.4).functionPlot { :x |
-	f([x 1])
+	f([x 1.0])
 }
 ~~~
 
@@ -26,9 +26,9 @@ let f/1 = rosenbrockFunction(1, 100);
 Plot at _x=1_:
 
 ~~~spl svg=B
-let f/1 = rosenbrockFunction(1, 100);
+let f/1 = rosenbrockFunction(1.0, 100.0);
 (0.5 -- 1.5).functionPlot { :y |
-	f([1 y])
+	f([1.0 y])
 }
 ~~~
 
@@ -38,9 +38,9 @@ Matrix plot, log scaled and rounded:
 
 ~~~spl png=C
 let k = 100;
-let x = (-2 -- 2).subdivide(k);
-let y = (-3 -- 3).subdivide(k);
-let f/1 = rosenbrockFunction(1, 100);
+let x = (-2.0 -- 2.0).subdivide(k);
+let y = (-3.0 -- 3.0).subdivide(k);
+let f/1 = rosenbrockFunction(1.0, 100.0);
 { :x :y |
 	f([x y])
 }.table(x, y)
@@ -56,12 +56,12 @@ Contour plot of sparse sampling:
 
 ~~~spl svg=D
 let k = 20;
-let x = (-2 -- 2).subdivide(k);
-let y = (-3 -- 3).subdivide(k);
-let f/1 = rosenbrockFunction(1, 100);
+let x = (-2.0 -- 2.0).subdivide(k);
+let y = (-3.0 -- 3.0).subdivide(k);
+let f/1 = rosenbrockFunction(1.0, 100.0);
 { :x :y |
 	f([x y])
-}.contourPlot(x, y, 10 ^ [0 .. 3])
+}.contourPlot(x, y, 10.0 ^ [0.0 .. 3.0])
 ~~~
 
 ![](Help/Image/rosenbrockFunction-D.svg)

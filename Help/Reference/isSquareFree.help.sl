@@ -89,19 +89,19 @@ true
 `moebiusMu` is zero for non-square-free integers:
 
 ```
->>> 12.isSquareFree
+>>> 12L.isSquareFree
 false
 
->>> 12.moebiusMu
-0
+>>> 12L.moebiusMu
+0L
 ```
 
 Numbers that are divisible by the square of an odd prime.
 OEIS [A038838](https://oeis.org/A038838):
 
 ```
->>> 1:99.reject { :n |
->>> 	(n / (2 ^ n.integerExponent(2)))
+>>> 1L:99L.reject { :n |
+>>> 	(n // (2L ^ n.integerExponent(2L)))
 >>> 	.isSquareFree
 >>> }
 [
@@ -114,8 +114,8 @@ Squarefree numbers multiplied by binary powers,
 OEIS [A122132](https://oeis.org/A122132):
 
 ```
->>> 1:35.select { :n |
->>> 	(n / (2 ^ n.integerExponent(2)))
+>>> 1L:35L.select { :n |
+>>> 	(n // (2L ^ n.integerExponent(2L)))
 >>> 	.isSquareFree
 >>> }
 [
@@ -130,7 +130,8 @@ Squarefree numbers,
 OEIS [A005117](https://oeis.org/A005117):
 
 ~~~spl svg=A oeis=A005117
-1:99.select(isSquareFree/1).linePlot
+1L:99L.select(isSquareFree/1)
+.linePlot
 ~~~
 
 ![](Help/Image/isSquareFree-A.svg)
@@ -139,7 +140,8 @@ Squareful numbers,
 OEIS [A013929](https://oeis.org/A013929):
 
 ~~~spl svg=B oeis=A013929
-1:99.reject(isSquareFree/1).linePlot
+1L:99L.reject(isSquareFree/1)
+.linePlot
 ~~~
 
 ![](Help/Image/isSquareFree-B.svg)
@@ -148,14 +150,14 @@ Least square-free _m>n_ with _gcd(m,n)>1_,
 OEIS [A071888](https://oeis.org/A071888):
 
 ~~~spl svg=C oeis=A071888
-2:85.collect { :n |
-	let m = n + 1;
+2L:85L.collect { :n |
+	let m = n + 1L;
 	{
 		m.isSquareFree & {
-			m.gcd(n) > 1
+			m.gcd(n) > 1L
 		}
 	}.whileFalse {
-		m := m + 1
+		m := m + 1L
 	};
 	m
 }.scatterPlot
@@ -167,7 +169,7 @@ First differences of sequence of nonsquarefree numbers,
 OEIS [A078147](https://oeis.org/A078147):
 
 ~~~spl svg=D oeis=A078147
-1:150.reject(isSquareFree/1)
+1L:150L.reject(isSquareFree/1)
 .differences.discretePlot
 ~~~
 
@@ -177,8 +179,8 @@ Second differences of sequence of nonsquarefree numbers,
 OEIS [A376593](https://oeis.org/A376593):
 
 ~~~spl svg=E oeis=A376593
-1:150.reject(isSquareFree/1)
-.differences(2).discretePlot
+1L:150L.reject(isSquareFree/1)
+.differences(2L).discretePlot
 ~~~
 
 ![](Help/Image/isSquareFree-E.svg)
@@ -187,7 +189,7 @@ The characteristic function of square free numbers,
 OEIS [A008966](https://oeis.org/A008966):
 
 ~~~spl svg=F oeis=A008966
-1:115.collect(
+1L:115L.collect(
 	isSquareFree/1
 ).boole.discretePlot
 ~~~
@@ -198,8 +200,8 @@ Numbers _k_ such that _3k_ is not squarefree,
 OEIS [A366288](https://oeis.org/A366288):
 
 ~~~spl svg=G oeis=A366288
-1:115.reject { :n |
-	(3 * n).isSquareFree
+1L:115L.reject { :n |
+	(3L * n).isSquareFree
 }.discretePlot
 ~~~
 

@@ -9,8 +9,8 @@ entries are either `zero` or `one`:
 
 ~~~spl svg=A
 let r = Sfc32(890143);
-BernoulliProcess(1 / 3)
-.randomFunction(r, [0 30], 1)
+BernoulliProcess(1.0 / 3.0)
+.randomFunction(r, [0.0 30.0], 1)
 .stepPlot
 ~~~
 
