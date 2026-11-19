@@ -79,6 +79,9 @@ At `Range`:
 ```
 >>> 1:9.concisePrintString
 '1:9'
+
+>>> 9:1:-1.concisePrintString
+'9:1:-1'
 ```
 
 At `Tuple`:

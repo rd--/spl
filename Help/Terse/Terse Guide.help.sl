@@ -250,8 +250,6 @@ Association('x', 1) = ('x' -> 1)
 let a = 'x' -> 1; [a.key, a.value] = ['x', 1] /* key and value accessors */
 ('x' -> 1).keyAndValue = ['x', 1] /* two element [key, value] array */
 ['x' -> 1, 'y' -> 2].collect(keyAndValue/1) = ['x' 1; 'y' 2]
-(23.0 -> 3.141).printString = '23.0 -> 3.141'
-(23.0 -> 3.141).storeString = 'Association(23.0, 3.141)'
 (1 -> '1').key = (1 -> 'one').key
 (1 -> '1').value != (1 -> 'one').value
 (1 -> '1') != (1 -> 'one')
@@ -393,9 +391,6 @@ let f = { :x :y | x := y; x }; f(1, 3) = 3 /* arguments are mutable */
 { 1 } !== { 1 } /* non-identity */
 { 1 } !== 1 /* non-identity */
 let f = { }; f/0 == f/0 /* identity */
-{ }.printString = 'a Block'
-{ :x | x }.printString = 'a Block'
-{ }.typeName = 'Block'
 { }.apply = nil /* empty block evaluates to nil */
 { let x = 1; nil }.apply = nil /* a block cannot end with a let binding */
 { let c = nil; let a = nil; c := [1]; a := { let a = nil; a := 4; a }.apply; { let a = nil; a := 2; c.add!(a); { let a = nil; a := 3; c.add!(a) }.apply }.apply; c.add!(a); c }.apply = [1, 2, 3, 4]
@@ -489,12 +484,6 @@ nil.isNil = true /* test if object is nil */
 false.boole = 0 /* boolean as bit, false is zero */
 true.boole = 1 /* boolean as bit, true is one */
 true.boole > false.boole /* boolean as integer, c.f. boole */
-true.printString = 'true' /* true print string */
-true.storeString = 'true' /* true store string */
-false.printString = 'false' /* false print string */
-false.storeString = 'false' /* false store string */
-true.typeName = 'Boolean' /* type of true is Boolean */
-false.typeName = 'Boolean' /* type of false is Boolean */
 true.isNumber.not /* true is not a number */
 true.isBoolean /* true is a Boolean */
 false.isBoolean /* false is a Boolean */
@@ -560,8 +549,6 @@ let a = ByteArray(8, 0); a.put!(1, 179) = 179 & { a.at(1) = 179 }
 { [-1].ByteArray }.hasError /* out of range element error */
 { ['1'].ByteArray }.hasError /* not a number element error */
 1:9.ByteArray.reverse = 9:1:-1.ByteArray
-1:3.ByteArray.printString = 'ByteArray([1.0, 2.0, 3.0])'
-1:3.ByteArray.storeString = 'ByteArray([1.0, 2.0, 3.0])'
 ByteArray(4, 0).base16Encode = '00000000'
 'text'.asciiByteArray[1] = 116 /* ByteArray subscript */
 let b = ByteArray(4, 0); b[1] := 15; b[3] := 240; b.base16Encode = '0F00F000'
@@ -1188,7 +1175,6 @@ let a = [9.0 .. 1.0; -1.0].Float64Array; a.sort!; a = [1.0 .. 9.0].Float64Array 
 { Float64Array(1, 0).put!(3, 'x') }.hasError /* out of bounds error */
 let a = Float64Array(1, 0); a.uncheckedPut!(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
 let a = Float64Array(1, 0); a.uncheckedPut!(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
-Float64Array[1.0 2.0 3.0].printString = 'Float64Array([1.0, 2.0, 3.0])'
 let a = Float64Array[1.0 2.0 3.0]; let c = a.copy; c[1] := 3.0; c != a & { List(c) = [3.0, 2.0, 3.0] } /* copy */
 ```
 
@@ -1275,8 +1261,6 @@ Fraction(3, 1) = 3/1
 -3/2.ceiling = -1
 3/2.floor = 1
 -3/2.floor = -2
-353/359.printString = '353/359' /* Fraction print string */
-59/61.storeString = '59/61' /* Fraction store string */
 4 / (2/3) = 6
 4 / (-2/3) = -6
 -4 / (-2/3) = 6
@@ -1464,9 +1448,6 @@ true == true & { false == false } /* boolean identity */
 ```
 system.includesPackage('Integer') /* integer package */
 1.isInteger = true /* integer predicate */
-123L.printString = '123L' /* integer print string */
-123L.storeString = '123L' /* integer store string */
--987654321L.printString = '-987654321L' /* negative integer print string */
 4 / 2 = 2 /* integer division with integer result */
 let n = 2; 3.timesRepeat { n := n * n }; n = 256 /* iteration */
 0:15.collect(hexDigitCharacter/1).stringJoin = '0123456789ABCDEF' /* integer to hex character */
@@ -1490,8 +1471,6 @@ let a = []; 5.toDo(1) { :each | a.add!(each) }; a = [] /* non-ascending sequence
 6.choose(3) = 20 /* n choose k */
 6.choose(3) = ((6 * 5 * 4) / (1 * 2 * 3))
 3.choose(6) = 0 /* if k is greater than n answer is zero */
-58909.printStringHexadecimal = '16bE61D' /* hexadecimal representation */
-58909.radixString(16) = '16bE61D' /* hexadecimal representation */
 let a = []; List(2, 1:3).tuplesDo { :each | a.add!(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
 let a = []; List(2, 1:3).tuplesDo { :each | a.add!(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
 let a = []; List(3, 1:2).tuplesDo { :each | a.add!(each.sum) }; a = [3 4 4 5 4 5 5 6]
@@ -1634,8 +1613,6 @@ let a = []; 1:9.selectThenDo(isEven/1) { :each | a.add!(each * 3) }; a = [6, 12,
 ```
 system.includesPackage('Integer') /* Integer package */
 23L.typeName = 'Integer' /* syntax for large integer literals */
-(2L ^ 53 - 1).square.printString = '81129638414606663681390495662081L'
-(2L ^ 37).square.storeString = '18889465931478580854784L'
 '324518553658426726783156020576256'.parseInteger.isInteger = true
 2971215073L.isPrime = true
 23L.factorial = 25852016738884976640000L /* factorial of Integer */
@@ -1663,7 +1640,6 @@ let x = (2L ^ 54L); x != (x - 1) /* large integers behave ordinarily */
 let n = 2L; n.copy == n /* copy is identity */
 23L.Float = 23 /* large integer to small float */
 let a = [9, 8 .. 1]; a[5L] = 5 /* large integers are valid indices */
-58909L.printStringHexadecimal = '16bE61D' /* hexadecimal representation */
 20L.factorial = 2432902008176640000L /* large integer factorial */
 7L << 23 = 58720256L /* left shift large integer */
 7L << 71 = 16528282690043758247936L /* left shift large integer */
@@ -1870,10 +1846,6 @@ let i = 1:3; let [x, y, z] = i; [z, y, x] = [3, 2, 1] /* sequence binding syntax
 let [x, y] = { let n = system.nextRandomFloat; [n, n] }.nullaryApply; x = y
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
-[1 .. 3].printString = '[1L, 2L, 3L]' /* array print string */
-[1 .. 3].storeString = '[1L, 2L, 3L]' /* array store string */
-[-1L, 2.0, 3.141].printString = '[-1L, 2.0, 3.141]' /* array print string */
-[-1L, 2.0, 3.141].storeString = '[-1L, 2.0, 3.141]' /* array store string */
 [1 .. 9].allButFirst = [2 .. 9] /* all but first element */
 [1 .. 9].allButFirst(7) = [8, 9] /* all but first k elements */
 { [].allButFirst }.hasError /* error if too few elements */
@@ -2208,14 +2180,6 @@ system.includesPackage('Number') /* package */
 2.718.truncate = 2 /* truncate to integer */
 2.718.round = 3 /* round to integer */
 2.718.round(0.01) = 2.72 /* round to a given precision */
-123456789.0.printStringWithCommas = '123,456,789'
-123456.789.printStringWithCommas = '123,456.789'
-13579.0.printStringWithCommas = '13,579'
-159.0.printStringWithCommas = '159'
--9876543210.0.printStringWithCommas = '-9,876,543,210'
--987654.321.printStringWithCommas = '-987,654.321'
--97.531.printStringWithCommas = '-97.531'
--951.0.printStringWithCommas = '-951'
 let i = 1; 1.toDo(5) { :each | i := i + each.square }; i = 56 /* iterate over numbers from start to end */
 let i = 1; 1.toByDo(5, 2) { :each | i := i + each.square }; i = 36 /* iterate over numbers from start to end by step */
 let i = 1; 1:3.do { :each | i := i + each.square }; i = 15 /* iterate over numbers from one to end */
@@ -2330,7 +2294,6 @@ PlanarCoordinates([-1, 1]).y!(3) = 3
 [-1, 1] * 9 = [-9, 9]
 [-1, 1] + 2 = [1, 3]
 2 * ([1, 1].-) * 2 = ([4, 4].-)
-PlanarCoordinates([-1.0, 1.0]).printString = 'PlanarCoordinates(-1.0, 1.0)'
 [1, 1].negate = [-1, -1] /* negation */
 0 - [1, 1] = [-1, -1] /* negation as subtraction from zero */
 let p = PlanarCoordinates(-1, 1); p.x := -3; p.y := 3; p = PlanarCoordinates(-3, 3) = true
@@ -2481,7 +2444,7 @@ let m = MersenneTwister(98765); m.nextRandomFloat * 10 = 0.88898599949636 /* ran
 let m = MersenneTwister(98765); m.nextRandomFloat * 100 = 8.8898599949636 /* random number in [0, 100) */
 let m = MersenneTwister(98765); m.randomSmallInteger([1 1000], []) = 89 /* random integer in [1, 1000] */
 let m = MersenneTwister(98765); m.randomSmallInteger([1 10000], []) = 889 /* random integer in [1, 10000] */
-let m = MersenneTwister(); let r = m.nextRandomFloat; r >= 0 & { r < 1 } /* seed from system clock */
+let m = MersenneTwister(); let r = m.nextRandomFloat; r >= 0.0 & { r < 1.0 } /* seed from system clock */
 MersenneTwister(123456).nextRandomFloat = 0.12696983303810094 /* test from standard tests */
 let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include!(m.randomSmallInteger([1 9], [])) }; s.minMax = [1, 9] /* check distribution */
 let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include!(m.randomSmallInteger([1 9], [])) }; s.List.sort! = [1 .. 9] /* check distribution */
@@ -2568,8 +2531,6 @@ Range(-2, 2, 1).collect(isEven/1) = [true, false, true, false, true]
 1:9.copyFromTo(3, 7) = 3:7 /* copy from start to end indices, inclusive */
 1:16.copyFromTo(1, 8) = 1:8 /* copy from start to end indices, inclusive */
 let i = 1; 1.to(9).do { :each | i := i + each }; i = 46
-Range(-1L, 1L, 1L).printString = 'Range(-1L, 1L, 1L, 3L)'
-Range(-1L, 1L, 1L).storeString = 'Range(-1L, 1L, 1L, 3L)'
 Range(1, 9, 1) = 1:9
 Range(1, 10, 3).size = 4
 Range(1, 10, 3).List = [1, 4, 7, 10]
@@ -2583,9 +2544,9 @@ let i = 1:9; i.first = i[1] /* one-indexed */
 let i = 1:9; i.last = i[9] /* one-indexed */
 1:6.sum = 21
 Range(-1, 1, 1).List = [-1, 0, 1]
-1.to(99).printString = 'Range(1, 99, 1, 99)'
-1:99.printString = 'Range(1, 99, 1, 99)'
-toBy(1, -1, -1).printString = 'Range(1, -1, -1, 3)'
+1.to(99) = Range(1, 99, 1)
+1:99 = Range(1, 99, 1)
+toBy(1, -1, -1) = Range(1, -1, -1)
 1.to(99).sum = 4950
 1.to(99).List.sum = 4950
 1:9.size = 9
@@ -2620,7 +2581,7 @@ Range(1, 6, 2).reverse.List = [5, 3, 1] /* start becomes last, not stop */
 3.to(5) = 3:5
 0.toBy(1, -1).size = 0 /* toBy may be empty */
 3.upOrDownTo(5) = 5.upOrDownTo(3).reverse
-let s = ''; (1, 3 .. 9).reverseDo { :x | s := s ++ x.printString }; s = '97531' /* do from end */
+let s = ''; (1, 3 .. 9).reverseDo { :x | s := s ++ x.integerString }; s = '97531' /* do from end */
 1:9 + 3 = 4:12 /* plus with a number answers a Range */
 1:9 - 2 = -1:7 /* minus with a number answers a Range */
 3 + 1:9 = [4 .. 12]
@@ -2648,8 +2609,6 @@ let n = 0; 1:5.permutationsDo { :each | n := n + 1 }; n = 120 /* interval permut
 (1, 3 .. 17).copyFromTo(3, 6) = (5, 7 .. 11) /* copy from start index to end index */
 (17, 15 .. 1).copyFromTo(3, 6) = (13, 11 .. 7) /* copy from start index to end index */
 (1, 3 .. 17).copyFromTo(6, 3).isEmpty /* if indices are out of order the interval is empty */
-9999:99999.concisePrintString = '9999:99999' /* consise printer */
-[9999 .. 99999].concisePrintString = 'a List (size: 90001)' /* consise printer */
 ```
 
 ## Remove -- collection trait
@@ -2737,8 +2696,6 @@ Record().hasEqualElements(Record()) /* key sequence and equality */
 ## Rectangle -- geometry type
 ```
 system.includesPackage('Rectangle') /* Rectangle package */
-Rectangle([0, 0], [1, 1]).printString = 'Rectangle([0, 0], [1, 1])'
-Rectangle([0, 0], [1, 1]).storeString = 'Rectangle([0, 0], [1, 1])'
 Rectangle([0, 0], [2, 2]).intersect(Rectangle([1, 1], [4, 4])) = Rectangle([1, 1], [2, 2])
 Rectangle([1, 1], [3, 3]).area = 4
 Rectangle([1, 1], [3, 3]).center = [2, 2]
@@ -2774,7 +2731,6 @@ RegularExpression('ab+c').isRegularExpression = true /* type predicate */
 RegularExpression('x.x').source = 'x.x' /* retrieve source */
 RegularExpression('x.x', 'g').flags = 'g' /* retreive flags */
 RegularExpression('x.x', 'g').isGlobal = true /* is global flag set */
-RegularExpression('x.x', 'g').printString = 'RegularExpression(\'x.x\', \'g\')' /* print string is contructor */
 RegularExpression('x.x', 'g').stringLiteral = '/x.x/g' /* a string indicating both source and flags */
 RegularExpression('ab*c').search('abc') = true /* predicate to determine if a string contains a match for a regular expression */
 RegularExpression('ab*c').search('-abc-') = true /* the entire string is not required to match */
@@ -2914,8 +2870,8 @@ let i = [4, 7 .. 13]; let p = i.permutations; p.size = i.size.factorial & { p.nu
 let i = [4, 7 .. 13]; i.permutations.allSatisfy { :e | e.sort.hasEqualElements(i) }
 let a = [1, 1, 3, 4]; a[2, 4, 3, 1] = [1, 4, 3, 1] /* atAll as permutation */
 [1, 9, 2, 8, 3, 7, 4, 6].pairsCollect { :i :j | i + j } = [10, 10, 10, 10]
-let s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).printString }; s = '10101010'
-let s = ''; [1 9 2 8 3 7 4 6].reverseDo { :i | s := s ++ i.printString }; s = '64738291' /* do from end */
+let s = ''; [1, 9, 2, 8, 3, 7, 4, 6].pairsDo { :i :j | s := s ++ (i + j).integerString }; s = '10101010'
+let s = ''; [1 9 2 8 3 7 4 6].reverseDo { :i | s := s ++ i.integerString }; s = '64738291' /* do from end */
 [1, 2, 2, 3, 3, 3, 4, 4, 4, 4].copyWithoutIdenticalElements = [1, 2, 3, 4] /* copy without duplicates, retain order */
 ([1, 3 .. 9] ++ [1, 3 .. 9] ++ [2, 4 .. 10] ++ [2, 4 .. 10]).copyWithoutIdenticalElements = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
 1:9.hasEqualElements(1:9) /* an array is not equal to an interval, but can have equal elements */
@@ -3112,7 +3068,7 @@ let s = 1:9.IdentitySet; let t = s.copy; let n = t.size; s.removeAll!; [s.size =
 let s = 1:4.IdentitySet; let t = 5:9; let u = s.union(t); u.size = (s.size + t.size) /* set union is not mutating */
 1:5.IdentitySet.ifAbsentAdd!(3) = false
 1:9.IdentitySet.select { :each | false } = [].IdentitySet /* select nothing */
-let s = IdentitySet(); s.includeAll!([4 / 2, 4, 2]); s.size = 2 /* 4 / 2 = 2 */
+let s = IdentitySet(); s.includeAll!([4.0 / 2.0, 4.0, 2.0]); s.size = 2 /* 4 / 2 = 2 */
 [1, 2, 3, 1, 4].IdentitySet = [1, 2, 3, 4, 3, 2, 1].IdentitySet = true
 [1 .. 6].union([4 .. 10]) = [1 .. 10]
 'hello'.characters.intersection('there'.characters) = 'he'.characters /* set intersection */
@@ -3222,13 +3178,11 @@ Infinity.isFinite = false /* Infinity is not finite */
 [-1000000000000000, -100, -5, -3, -2, -1, 0, 1].select(isPrime/1).isEmpty
 [17, 78901, 104729, 15485863, 2038074743].allSatisfy(isPrime/1)
 [561, 2821, 6601, 10585, 15841, 256, 29996224275831].noneSatisfy(isPrime/1) /* no primes here */
-1.00001.reduce = 1 /* round if number is close to an integer */
-1.5.reduce = 1.5 /* identity if number is not close to an integer */
+1.00001.integerChop(0.0001) = 1L /* round if number is close to an integer */
+1.5.integerChop = 1.5 /* identity if number is not close to an integer */
 let x = (2L ^ 54L); x != (x - 1L) /* large integers */
 let x = (2.0 ^ 54.0); x != (x - 1.0) = false /* large floats behave strangely */
-[-1, 0, 1].collect(printString/1) = ['-1', '0', '1']
-Infinity.printString = 'Infinity' /* Infinity prints as Infinity */
-(0 - Infinity).printString = '-Infinity'
+[-1, 0, 1].collect(integerString/1) = ['-1', '0', '1']
 1.pi.printString = '3.141592653589793'
 1.pi.storeString = '3.141592653589793'
 23.isInteger /* is a small float an integer */
@@ -3253,7 +3207,6 @@ let n = 23453456; (n * n).sqrt = n /* floating point square and square root */
 2 ^ [1.5, 2.4, 2.9, -2.2] ~ [2.82843 5.27803 7.46426 0.21764] /* non integer exponents */
 2.0 ^ 100.0 = 1267650600228229401496703205376.0 /* ieee precision */
 2L ^ 100L = 1267650600228229401496703205376L /* large integers */
-(1 / 2).printString = '0.5' /* division prints as floating point */
 1.0 = 1 /* there is no distinct integer type */
 [1, 1.4, 1.49999, 1.5, 1.50000001].round = [1, 1, 1, 2, 2] /* rounding */
 [14 / 10, 44534 / 100].round = [1, 445] /* rounding */
@@ -3391,7 +3344,7 @@ system.includesPackage('String') /* package */
 'x'.displayString = 'x' /* displayString at String is identity */
 'x'.displayString.size = 1
 'x'.printString.size = 3 /* printString is a quoted string */
-1.printString = '1' /* integer as string */
+1L.printString = '1L' /* integer as string */
 1.pi.printString = '3.141592653589793' /* float as string */
 'ascii'.asciiByteArray = [97, 115, 99, 105, 105].ByteArray
 '€'.utf8ByteArray = [226, 130, 172].ByteArray /* Utf-8 encoding of String as ByteArray */
@@ -3491,7 +3444,7 @@ let a = 'string'.characters; a.stringJoin = 'string'
 '𠮷'.characterList = ['𠮷'.Character]
 '𠮷'.codePointAt(1) = 134071 /* code point at index */
 '𠮷'.codePointAt(2) = 57271
-'𠮷'.codePointAt(3) = nil /* nil for out of range indices */
+{ '𠮷'.codePointAt(3) }.hasError = true /* error for out of range indices */
 '𠮷'.codePoints = [134071]
 '𠮷'.isInBasicMultilingualPlane = false
 '𠮷'.isWellFormed = true
@@ -3648,8 +3601,6 @@ var x, y, z; (x: x, y: y, z: z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [
 (:) = [].Record /* (:) the empty dictionary */
 (:) = Map().Record /* (:) the empty dictionary */
 (x: 1, y: 2) = ['x' -> 1, 'y' -> 2].Record /* dictionary literal syntax */
-(x: 1, y: 2).printString = '(x: 1, y: 2)' /* Record print string */
-(x: 1, y: 2).storeString = '(x: 1, y: 2)' /* Record print string */
 ```
 
 ## Syntax -- integer literals syntax
@@ -3829,9 +3780,9 @@ system.workspaceVariableDictionary.indexOf(2.pi) = 'twoPi' /* workspace is index
 ```
 system.methodDictionary.isDictionary = true
 system.methodDictionary['collect'].isDictionary = true
-system.methodDictionary['collect'][2].isDictionary = true
-system.methodDictionary['collect'][2]['List'].isMethod = true
-system.methodDictionary['collect'][2]['List'].information.isMethodInformation = true
+system.methodDictionary['collect'][2.0].isDictionary = true
+system.methodDictionary['collect'][2.0]['List'].isMethod = true
+system.methodDictionary['collect'][2.0]['List'].information.isMethodInformation = true
 system.methodDictionary.includesIndex('collect') = true
 system.allMethods.collect { :each | each.signature }.includes('@Do>>do/2') = true
 '@Do>>do/2'.parseMethodSignature = ['@Do', 'do/2']
@@ -3880,7 +3831,7 @@ let [t, r] = { system.absoluteTime }.repeatedTiming(0.01); t < 0.00001 & { r > 1
 system.traitDictionary.isDictionary = true
 system.traitDictionary.includesIndex('@Collection') = true
 system.traitTypes('@Collection').includes('List') = true
-system.methodTraits('atRandom/1').includesAll(['@Collection', '@Sequence']) = true
+system.methodTraits('sum/1').includesAll(['@Collection', '@Do']) = true
 system.methodTraits('sum/1') = ['@ArithmeticProgression', '@Do', '@Collection']
 system.traitTypes('@Object').includes('Float') = true
 system.traitLookup('@Object').methodDictionary.includesIndex('respondsTo/2') = true
@@ -3983,7 +3934,6 @@ let x = 1; let y = 2; x < y /* initialisers are written as name = value */
 ## TimeStamp -- temporal type
 ```
 system.includesPackage('TimeStamp') /* timestamp package */
-1676784053576.TimeStamp.printString = 'TimeStamp(1676784053576)' /* make TimeStamp from Number of seconds since unix epoch */
 1676784053.576.TimeStamp.dateAndTimeString = '2023-02-19T05:20:53.576Z' /* convert TimeStamp to ISO-8601 string */
 system.now.isTimeStamp = true /* get current time at system */
 system.now.dateAndTimeString.size = 24

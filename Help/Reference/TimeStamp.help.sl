@@ -75,6 +75,14 @@ The `System` method `now` gets the current time:
 true
 ```
 
+Print string:
+
+```
+>>> TimeStamp(1676784053576.0)
+>>> .printString
+'TimeStamp(1676784053576.0)'
+```
+
 * * *
 
 See also: Date, Duration, Time, TimeInterval, dateAndTimeString, now

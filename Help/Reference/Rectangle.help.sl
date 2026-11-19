@@ -146,6 +146,14 @@ as the enclosure of three squares:
 
 ![](Help/Image/Rectangle-F.svg)
 
+Print string:
+
+```
+>>> Rectangle([0.0, 0.0], [1.0, 1.0])
+>>> .printString
+'Rectangle([0.0, 0.0], [1.0, 1.0])'
+```
+
 * * *
 
 See also: Circle, Line, LineDrawing, Point, Polygon, Triangle, centeredRectangle, unitSquare, vertexCoordinates

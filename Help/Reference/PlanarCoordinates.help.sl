@@ -54,6 +54,13 @@ PlanarCoordinates(1, 2)
 true
 ```
 
+Print string:
+
+```
+>>> PlanarCoordinates(-1.0, 1.0).printString
+'PlanarCoordinates(-1.0, 1.0)'
+```
+
 * * *
 
 See also: CartesianCoordinates, Complex, Point, PolarCoordinates

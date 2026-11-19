@@ -5,36 +5,59 @@
 Answers the type name of the object _x_,
 the answer is a `String` value.
 
-The names of the primitive atomic types:
+At `Float`:
 
 ```
 >>> 3.141.typeName
 'Float'
+```
 
+At `Boolean`:
+
+```
 >>> true.typeName
 'Boolean'
 
+>>> false.typeName
+'Boolean'
+```
+
+At `Nil`:
+
+```
 >>> nil.typeName
 'Nil'
+```
 
+At `String`:
+
+```
 >>> 'x'.typeName
 'String'
 ```
 
-The names of the primitive collection types:
+At `List`:
 
 ```
 >>> [].typeName
 'List'
+```
 
+At `Record`:
+
+```
 >>> (:).typeName
 'Record'
+```
 
+At `Map`:
+
+```
 >>> Map().typeName
 'Map'
 ```
 
-The primitive behaviour type:
+At `Block`:
 
 ```
 >>> typeName/1.typeName

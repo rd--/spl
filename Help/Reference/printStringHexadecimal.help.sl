@@ -4,6 +4,9 @@
 
 Answer the hexadecimal notation of the integer _n_.
 
+The hexadecimal representation of 58909,
+hexadecimal digits are written in upper case:
+
 ```
 >>> 58909.printStringHexadecimal
 '16bE61D'

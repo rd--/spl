@@ -6,7 +6,7 @@ Run terse guide:
 system.splFileName('Help/Terse/Terse Guide.help.sl').fileUrl.terseGuideSummary(['verboseLevel': 0])
 ~~~
 
-Total => 3,512
+Total => 3,463
 
 Run terse guide to sound:
 

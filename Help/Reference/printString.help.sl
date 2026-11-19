@@ -19,13 +19,36 @@ At fractional `Float`:
 ```
 >>> 3.141.printString
 '3.141'
+
+(1 / 2).printString = '0.5' /* division prints as floating point */
+
 ```
 
-At `Integer`:
+At `Integer`,
+positive and negative values:
 
 ```
 >>> 254L.printString
 '254L'
+
+>>> -987654321L.printString
+'-987654321L'
+
+>>> 1E20.printString
+'100000000000000000000L'
+
+>>> (2L ^ 53L - 1L).square.printString
+'81129638414606663681390495662081L'
+```
+
+At `Fraction`:
+
+```
+>>> 23/7.printString
+'23/7'
+
+>>> (1L / 2L).printString
+'1/2'
 ```
 
 At `Complex`:
@@ -73,18 +96,14 @@ Infinities and non-numbers:
 >>> Infinity.printString
 'Infinity'
 
+>>> (0.0 - Infinity).printString
+'-Infinity'
+
 >>> -Infinity.printString
 '-Infinity'
 
 >>> NaN.printString
 'NaN'
-```
-
-At `Fraction`:
-
-```
->>> 2/3.printString
-'2/3'
 ```
 
 At `Residue`:
@@ -164,8 +183,14 @@ Character('x', 120L)
 At `List`:
 
 ```
->>> [1.0 .. 3.0].printString
+>>> [1.0, 2.0, 3.0].printString
 '[1.0, 2.0, 3.0]'
+
+>>> [1L, 2L, 3L].printString
+'[1L, 2L, 3L]'
+
+>>> [-1L, 2.0, 3.141].printString
+'[-1L, 2.0, 3.141]'
 ```
 
 At `Record`:
@@ -187,6 +212,37 @@ At `Range`:
 ```
 >>> Range(1L, 99L, 1L).printString
 'Range(1L, 99L, 1L, 99L)'
+
+>>> Range(-1L, 1L, 1L).printString
+'Range(-1L, 1L, 1L, 3L)'
+
+>>> Range(-1.0, 1.0, 1.0).printString
+'Range(-1.0, 1.0, 1.0, 3L)'
+```
+
+At `Block`:
+
+```
+>>> { }.printString
+'a Block'
+
+>>> { :x | x }.printString
+'a Block'
+```
+
+At `ByteArray`:
+
+```
+>>> ByteArray([1, 2, 3]).printString
+'ByteArray([1.0, 2.0, 3.0])'
+```
+
+At `Float64Array`:
+
+```
+>>> Float64Array([1.0, 2.0, 3.0])
+>>> .printString
+'Float64Array([1.0, 2.0, 3.0])'
 ```
 
 * * *

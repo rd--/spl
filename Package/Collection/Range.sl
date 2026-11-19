@@ -64,8 +64,8 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 			'%:%:%'.format(
 				[
 					aBlock(self.start),
-					aBlock(self.step),
-					aBlock(self.stop)
+					aBlock(self.stop),
+					aBlock(self.step)
 				]
 			)
 		}

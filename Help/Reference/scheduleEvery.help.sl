@@ -11,10 +11,10 @@ let t0 = system.absoluteTime;
 let k = {
 	let t = system.absoluteTime;
 	(t - t0).printLine
-}.scheduleEvery(1);
+}.scheduleEvery(1.0);
 {
 	k.cancel
-}.scheduleAfter(5)
+}.scheduleAfter(5.0)
 ~~~
 
 * * *

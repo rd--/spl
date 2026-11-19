@@ -35,6 +35,14 @@ At `RegularExpression` answers _x_:
 true
 ```
 
+Print string:
+
+```
+>> RegularExpression('x.x', 'g')
+>> .printString
+RegularExpression('x.x', 'g')
+```
+
 * * *
 
 See also: String, flags, hasIndices, isGlobal, matches, matchesRegularExpression, source
