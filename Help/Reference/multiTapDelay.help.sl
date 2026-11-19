@@ -2,7 +2,9 @@
 
 - _multiTapDelay(timesList, levelsList, in)_
 
-Multi tap delay line. The last delay time is the cycle length, and will coincide with the input signal.
+Multi tap delay line.
+The last delay time is the cycle length,
+and will coincide with the input signal.
 
 - timesList: an array of delay times in seconds.
 - levelsList: an array of amplitudes.

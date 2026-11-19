@@ -20,7 +20,7 @@ Slow envelope with slow trigger:
 
 ~~~spl syn=A
 let env = envGen(
-	impulse(1 / 9, 0),
+	impulse(1/9, 0),
 	1,
 	0,
 	1,

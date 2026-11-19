@@ -13,7 +13,7 @@ a list specifies two oscillators,
 one of the frequencies is specified as a `Integer`:
 
 ~~~spl syn=A
-sinOsc([200 201L], 0) * 0.25
+sinOsc([200 201], 0) * 0.25
 ~~~
 
 Modulate freq:

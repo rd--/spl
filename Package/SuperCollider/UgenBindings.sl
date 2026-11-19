@@ -464,7 +464,7 @@
 
 }
 
-+[List, Ugen, Float] {
++[List, Ugen, Float, Integer, Fraction] {
 
 	ampComp { :freq :root :exp |
 		<primitive: return sc.AmpComp(_freq, _root, _exp);>
@@ -980,7 +980,7 @@
 
 }
 
-+[Float, List] {
++[Float, Integer, Fraction, List] {
 
 	bufRd { :numChan :bufnum :phase :loop :interpolation |
 		<primitive: return sc.BufRd(_numChan, _bufnum, _phase, _loop, _interpolation);>
@@ -1052,7 +1052,7 @@
 
 }
 
-+[List, Float, Ugen] {
++[List, Float, Integer, Fraction, Ugen] {
 
 	analogFoldOsc { :freq :amp |
 		<primitive: return sc.AnalogFoldOsc(_freq, _amp);>
@@ -1216,7 +1216,7 @@
 
 }
 
-+[List, Float, Ugen] {
++[List, Float, Integer, Fraction, Ugen] {
 
 	expRandRange { :self :anObject |
 		<primitive: return sc.ExpRandRange(_self, _anObject);>
@@ -1559,12 +1559,17 @@
 	}
 
 	medianFilter { :in :r |
-		<primitive:
-		if(sl.isFloat(_r)) {
-			return sc.Median(_r * 2 + 1, _in);
+		r.isNumber.if {
+			uncheckedMedianFilter(in, Float(r))
+		} {
+			in.error('medianFilter: length not scalar', [r])
 		}
+	}
+
+	uncheckedMedianFilter { :in :r |
+		<primitive:
+		return sc.Median(_r * 2.0 + 1.0, _in);
 		>
-		in.error('medianFilter: length not scalar')
 	}
 
 	[modularDistance, modDif] { :x :y :mod |

@@ -285,7 +285,9 @@ ScSynth! : [Object] {
 +List {
 
 	localBuf { :self |
-		self.atVectorOrElementwise(uncheckedLocalBuf/1)
+		self.atVectorOrElementwise { :v |
+			Float(v).uncheckedLocalBuf
+		}
 	}
 
 	uncheckedLocalBuf { :self |

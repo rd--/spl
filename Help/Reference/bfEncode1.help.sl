@@ -22,7 +22,7 @@ let useMouse = false;
 let azimuth = useMouse.if {
 	mouseX(0, 2.pi, 0, 0.2)
 } {
-	lfSaw(1 / 4, 0)
+	lfSaw(0.25, 0)
 	.linLin(-1, 1, 0, 2.pi)
 };
 let rho = useMouse.if {
@@ -58,7 +58,7 @@ let useMouse = false;
 let azimuth = useMouse.if {
 	mouseX(0, 2.pi, 0, 0.2)
 } {
-	lfSaw(1 / 4, 0)
+	lfSaw(0.25, 0)
 	.linLin(-1, 1, 0, 2.pi)
 };
 let rho = useMouse.if {

@@ -11,7 +11,7 @@ biLinRand(sinOsc(0.1, 0)) * 0.1
 The below is only zero when _x_ is zero:
 
 ~~~spl syn=B
-let n = biLinRand(sinOsc(1 / 2, 0)) * 0.1;
+let n = biLinRand(sinOsc(0.5, 0)) * 0.1;
 n.abs - n
 ~~~
 

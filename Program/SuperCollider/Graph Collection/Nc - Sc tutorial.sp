@@ -37,9 +37,9 @@ let n = 9;
 /* tutorial 2.1 ; triangle */
 let n = 9;
 [0 .. n].collect { :i |
-	let harmonicnumber = 2 * i + 1;
-	let mult = (-1 ^ (harmonicnumber - 1 / 2)) * (1 / (harmonicnumber * harmonicnumber));
-	sinOsc(440 * harmonicnumber, 0) * mult
+	let harmonicNumber = 2 * i + 1;
+	let mult = (-1.0 ^ (harmonicNumber - 1 / 2)) * (1 / (harmonicNumber * harmonicNumber));
+	sinOsc(440 * harmonicNumber, 0) * mult
 }.sum / n
 
 /* tutorial 2.1 ; bell spectra */

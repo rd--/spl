@@ -1,10 +1,10 @@
 /* Requires: Ugen */
 
-+[List, Float, Ugen] {
++[List, Float, Integer, Ugen] {
 
 	blendXFade { :y1 :y2 :mu |
-		let signedMu = mu.linLin(0, 1, -1, 1);
-		xFade2(y1, y2, signedMu, 1)
+		let signedMu = mu.linLin(0.0, 1.0, -1.0, 1.0);
+		xFade2(y1, y2, signedMu, 1.0)
 	}
 
 	brownNoise { :mul :add |
@@ -61,18 +61,18 @@
 
 }
 
-+[List, Float, Ugen] {
++[List, Float, Integer, Ugen] {
 
 	audioOut { :channelsList |
-		out(0, channelsList)
+		out(0.0, channelsList)
 	}
 
 	cc { :index |
-		controlIn(1, 11000 + index - 1)
+		controlIn(1.0, 11000.0 + index - 1.0)
 	}
 
 	curveGen { :gate :levels :times :curves |
-		Env(levels, times, curves, nil, nil, 0).asEnvGen(gate)
+		Env(levels, times, curves, nil, nil, 0.0).asEnvGen(gate)
 	}
 
 	demandImpulseSequencer { :self :trig |
@@ -80,31 +80,31 @@
 	}
 
 	demandSequencer { :self :trig |
-		demand(trig, 0, dseq(Infinity, self))
+		demand(trig, 0.0, dseq(Infinity, self))
 	}
 
 	distances { :x :y :z :coordinateList |
-		wDistances(1, x, y, z, coordinateList)
+		wDistances(1.0, x, y, z, coordinateList)
 	}
 
 	durationSequencer { :self :dur |
-		duty(dur, 0, dseq(Infinity, self))
+		duty(dur, 0.0, dseq(Infinity, self))
 	}
 
 	envBreakPoint { :breakPointList :curves |
 		let n = breakPointList.size;
-		let m = n - 1;
+		let m = n - 1L;
 		Env(
-			1.toBy(n, 2).collect { :index |
+			1L.toBy(n, 2L).collect { :index |
 				breakPointList[index]
 			},
-			2.toBy(m, 2).collect { :index |
+			2L.toBy(m, 2L).collect { :index |
 				breakPointList[index]
 			}.differentiate,
 			curves,
 			nil,
 			nil,
-			0
+			0.0
 		)
 	}
 
@@ -113,15 +113,15 @@
 	}
 
 	eqBalance2 { :left :right :pos |
-		balance2(left, right, pos, 1)
+		balance2(left, right, pos, 1.0)
 	}
 
 	eqPan2 { :in :pos |
-		pan2(in, pos, 1)
+		pan2(in, pos, 1.0)
 	}
 
 	expRange { :self :lo :hi |
-		linExp(self, -1, 1, lo, hi)
+		linExp(self, -1.0, 1.0, lo, hi)
 	}
 
 	fm7Matrix { :ctlMatrix :modMatrix |
@@ -131,7 +131,7 @@
 	holdSequence { :inList :dur |
 		let gate = durationGate(dur);
 		let trig = trig1(gate, sampleDur());
-		let index = stepper(trig.kr, 1, 0, inList.size - 1, 1, 0);
+		let index = stepper(trig.kr, 1.0, 0.0, inList.size - 1.0, 1.0, 0.0);
 		latch(
 			selectT(index, inList), /* multiplexer */
 			trig
@@ -139,15 +139,15 @@
 	}
 
 	iRand0 { :self |
-		iRand(0, self)
+		iRand(0.0, self)
 	}
 
 	iRand1 { :self |
-		iRand(1, self)
+		iRand(1.0, self)
 	}
 
 	iRand2 { :self |
-		iRand(0 - self, self)
+		iRand(0.0 - self, self)
 	}
 
 	impulseSequencer { :self :trig |
@@ -155,12 +155,12 @@
 	}
 
 	kNearest { :numChannels :x :y :z :coordinateList |
-		wkNearest(numChannels, 1, x, y, z, coordinateList)
+		wkNearest(numChannels, 1.0, x, y, z, coordinateList)
 	}
 
 	linCurve { :self :inMin :inMax :outMin :outMax :curve |
 		let grow = curve.exp;
-		let a = outMax - outMin / (1 - grow);
+		let a = outMax - outMin / (1.0 - grow);
 		let b = outMin + a;
 		let scaled = (self.clip(inMin, inMax) - inMin) / (inMax - inMin);
 		let curvedResult = b - (a * (grow ^ scaled));
@@ -176,7 +176,7 @@
 	}
 
 	linGen { :gate :levels :times |
-		Env(levels, times, ['lin'], nil, nil, 0).asEnvGen(gate)
+		Env(levels, times, ['lin'], nil, nil, 0.0).asEnvGen(gate)
 	}
 
 	linLin { :self :srcLo :srcHi :dstLo :dstHi |
@@ -186,72 +186,76 @@
 	}
 
 	linRand0 { :self |
-		linRand(0, self, 1)
+		linRand(0, self, 1.0)
 	}
 
 	linRange { :self :lo :hi |
-		linLin(self, -1, 1, lo, hi)
+		linLin(self, -1.0, 1.0, lo, hi)
 	}
 
 	mouseX { :minval :maxval |
-		mouseX(minval, maxval, 0, 0.2)
+		mouseX(minval, maxval, 0.0, 0.2)
 	}
 
 	mouseY { :minval :maxval |
-		mouseY(minval, maxval, 0, 0.2)
+		mouseY(minval, maxval, 0.0, 0.2)
 	}
 
 	pulseDpw { :freq :width |
-		sawDpw(freq, 0) - sawDpw(freq, (width + width).wrap(-1, 1))
+		sawDpw(freq, 0.0)
+		- sawDpw(
+			freq,
+			(width + width).wrap(-1.0, 1.0)
+		)
 	}
 
 	rand0 { :self |
-		rand(0, self)
+		rand(0.0, self)
 	}
 
 	rand2 { :self |
-		rand(0 - self, self)
+		rand(0.0 - self, self)
 	}
 
 	selectXFocus { :which :array :focus :wrap |
 		wrap.if {
 			array.withIndexCollect { :input :index |
-				(1 - (modularDistance(which, index - 1, array.size) * focus)).max(0) * input
+				(1.0 - (modularDistance(which, index - 1.0, array.size) * focus)).max(0.0) * input
 			}.sum
 		} {
 			array.withIndexCollect { :input :index |
-				(1 - (absDif(which, index - 1) * focus)).max(0) * input
+				(1 - (absDif(which, index - 1.0) * focus)).max(0.0) * input
 			}
 		}
 	}
 
 	sequencer { :inList :trig |
 		selectT(
-			stepper(trig.kr, 1, 0, inList.size - 1, 1, 0),
+			stepper(trig.kr, 1.0, 0.0, inList.size - 1.0, 1.0, 0.0),
 			inList
 		) /* multiplexer */
 	}
 
 	silent { :numChannels |
-		(numChannels = 1).if {
-			dc(0)
+		(numChannels = 1L).if {
+			dc(0.0)
 		} {
-			List(numChannels, dc(0))
+			List(numChannels, dc(0.0))
 		}
 	}
 
 	smoothSaw { :freq :sharpness |
-		let p = lfSaw(freq, 0);
-		let w = 1 - (p.abs ^ (2 ^ sharpness));
+		let p = lfSaw(freq, 0.0);
+		let w = 1.0 - (p.abs ^ (2.0 ^ sharpness));
 		p * w
 	}
 
 	splayAz { :numChannels :inList :spread :level :width :center :orientation :levelComp |
-		let n = 1.max(inList.size);
-		let pos = (n = 1).if {
+		let n = 1L.max(inList.size);
+		let pos = (n = 1L).if {
 			center
 		} {
-			let normalizedSpread = spread * ((n - 1) / n);
+			let normalizedSpread = spread * ((n - 1.0) / n);
 			[
 				center - normalizedSpread,
 				center + normalizedSpread
@@ -267,20 +271,16 @@
 
 	tBufChoose { :tr :buf |
 		bufRd(
-			1,
+			1L,
 			buf,
-			tiRand(0, bufFrames(buf) - 1, tr),
-			0,
-			1 /* 1 = No Interpolation */
+			tiRand(0.0, bufFrames(buf) - 1.0, tr),
+			0.0,
+			1.0 /* 1 = No Interpolation */
 		)
 	}
 
 	tChoose { :tr :inList |
-		(
-			inList.elementType = 'Float' |  {
-				inList.isMatrixOf('Float')
-			}
-		).if {
+		inList.deepAllSatisfy(isScalar/1).if {
 			tBufChoose(tr, localBuf(inList))
 		} {
 			uncheckedTChoose(tr, inList)
@@ -288,7 +288,7 @@
 	}
 
 	tDurationSequencer { :self :dur |
-		tDuty(dur, 0, dseq(Infinity, self))
+		tDuty(dur, 0.0, dseq(Infinity, self))
 	}
 
 	tHoldSequence { :inList :dur |
@@ -296,8 +296,8 @@
 	}
 
 	tableWindow { :trig :dur :bufNum |
-		let phase = tLine(0, bufFrames(bufNum), dur, trig);
-		bufRd(1, bufNum, phase, 0, 4) /* 4 = Cubic Interpolation */
+		let phase = tLine(0.0, bufFrames(bufNum), dur, trig);
+		bufRd(1L, bufNum, phase, 0.0, 4.0) /* 4 = Cubic Interpolation */
 	}
 
 	tr { :self |
@@ -318,7 +318,7 @@
 
 }
 
-+[List, Float, Ugen] {
++[List, Float, Integer, Fraction, Ugen] {
 
 	Env { :levels :times :curves :releaseNode :loopNode :offset |
 		<primitive: return new sc.Env(_levels, _times, _curves, _releaseNode, _loopNode, _offset);>
@@ -401,10 +401,14 @@
 	}
 
 	line { :start :end :dur |
-		<primitive: return sc.Line(_start, _end, _dur, 0);>
+		<primitive: return sc.Line(_start, _end, _dur, 0.0);>
 	}
 
-	multiTapDelay { :timesList :levelsList :input |
+	multiTapDelay { :timesList FloatList :levelsList FloatList :input |
+		uncheckedMultiTapDelay(timesList, levelsList, input)
+	}
+
+	uncheckedMultiTapDelay { :timesList :levelsList :input |
 		<primitive: return sc.MultiTapDelay(_timesList, _levelsList, _input);>
 	}
 
@@ -503,7 +507,7 @@
 	}
 
 	xLine { :start :end :dur |
-		<primitive: return sc.XLine(_start, _end, _dur, 0);>
+		<primitive: return sc.XLine(_start, _end, _dur, 0.0);>
 	}
 
 }

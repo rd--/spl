@@ -23,7 +23,7 @@ let freq = mouseX(300, 15000, 1, 0.2);
 let osc = sinOsc(freq, 0) * 0.1;
 [
 	osc,
-	osc * ampComp(freq, 300, 1 / 3).kr
+	osc * ampComp(freq, 300, 1/3).kr
 ]
 ~~~
 
@@ -33,7 +33,7 @@ so the exponent can be tuned:
 
 ~~~spl syn=B
 let freq = mouseX(300, 15000, 1, 0.2);
-let mul = ampComp(freq, 300, 4 / 3).kr;
+let mul = ampComp(freq, 300, 4/3).kr;
 pulse(freq, 0.5) * mul * 0.1
 ~~~
 

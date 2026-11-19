@@ -1,5 +1,5 @@
 /* atan2 */
-let x = 10;
+let x = dc(10);
 let y = lfSaw(1 / 6, 0) * 100;
 let distance = hypotenuse(x, y);
 let amplitude = 40 / distance.square;
