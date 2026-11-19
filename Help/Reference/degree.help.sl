@@ -19,8 +19,8 @@ At `Float`:
 At `Interval`:
 
 ```
->>> (0 -- 90).degree
-(0 -- 1/2.pi)
+>>> (0.0 -- 90.0).degree
+(0.0 -- 1/2.pi)
 ```
 
 One degree is divided into sixty _arc minutes_,

@@ -87,9 +87,9 @@ Resample irregular time series:
 
 ~~~spl svg=D
 let r = Sfc32(567132);
-PoissonProcess(5)
-.randomFunction(r, [1 10], 1)
-.resample([[1, 1.2 .. 10]])
+PoissonProcess(5.0)
+.randomFunction(r, [1.0 10.0], 1L)
+.resample([[1.0, 1.2 .. 10.0]])
 .discretePlot
 ~~~
 
@@ -99,10 +99,10 @@ Resample multiple paths at equal times:
 
 ~~~spl svg=E
 let r = Sfc32(178314);
-PoissonProcess(5)
-.randomFunction(r, [1 10], 5)
+PoissonProcess(5.0)
+.randomFunction(r, [1.0 10.0], 5L)
 .resample(
-	List(5, [1, 1.2 .. 10])
+	List(5L, [1.0, 1.2 .. 10.0])
 ).scatterPlot
 ~~~
 

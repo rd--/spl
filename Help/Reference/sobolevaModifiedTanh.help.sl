@@ -7,7 +7,7 @@ The Soboleva modified hyperbolic tangent is a special sigmoid function based on 
 Effect of varying parameter _d_:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(
+(-3.0 -- 3.0).functionPlot(
 	[1 2 4 16].collect { :d |
 		sobolevaModifiedTanh(1, 1, 1, d)
 	}
@@ -19,7 +19,7 @@ Effect of varying parameter _d_:
 Effect of varying parameter _c_:
 
 ~~~spl svg=B
-(-3 -- 3).functionPlot(
+(-3.0 -- 3.0).functionPlot(
 	[1 2 4 16].collect { :c |
 		sobolevaModifiedTanh(1, 1, c, 1)
 	}
@@ -31,7 +31,7 @@ Effect of varying parameter _c_:
 Effect of varying parameter _b=d_:
 
 ~~~spl svg=C
-(-3 -- 3).functionPlot(
+(-3.0 -- 3.0).functionPlot(
 	[1 2 4 16].collect { :p |
 		sobolevaModifiedTanh(1, p, 1, p)
 	}
@@ -43,7 +43,7 @@ Effect of varying parameter _b=d_:
 Effect of varying parameters _c_ and _d_:
 
 ~~~spl svg=D
-(-3 -- 3).functionPlot(
+(-3.0 -- 3.0).functionPlot(
 	[1 1; 2 2; 2 8; 4 4; 8 2; 16 16]
 	.collect { :p |
 		let [c, d] = p;

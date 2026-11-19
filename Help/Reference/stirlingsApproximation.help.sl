@@ -31,7 +31,7 @@ Stirling’s approximation of !:
 Compare `factorial` and `stirlingsApproximation` for small _n_:
 
 ~~~spl svg=A
-(0 -- 3).functionPlot(
+(0.0 -- 3.0).functionPlot(
 	[
 		factorialOrGamma/1,
 		stirlingsApproximation/1

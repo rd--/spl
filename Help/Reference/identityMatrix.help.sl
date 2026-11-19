@@ -8,10 +8,10 @@ Answers the _n×n_ or _n×m_ matrix with ones on the main diagonal and zeroes el
 A 2×2 identity matrix:
 
 ```
->>> 2.identityMatrix
+>>> 2L.identityMatrix
 [
-	1 0;
-	0 1
+	1L 0L;
+	0L 1L
 ]
 ```
 

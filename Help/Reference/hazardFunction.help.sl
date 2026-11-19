@@ -10,16 +10,16 @@ The hazard function is the ratio of the probability density functionto the survi
 Calculate at specific value:
 
 ```
->>> WeibullDistribution(2, 5, 0)
->>> .hazardFunction(4)
+>>> WeibullDistribution(2.0, 5.0, 0.0)
+>>> .hazardFunction(4.0)
 8/25
 ```
 
 The hazard function for the Weibull distribution:
 
 ~~~spl svg=A
-(0.1 -- 3).functionPlot(
-	WeibullDistribution(1 / 2, 2, 0)
+(0.1 -- 3.0).functionPlot(
+	WeibullDistribution(1.0 / 2.0, 2.0, 0.0)
 	.hazardFunction
 )
 ~~~

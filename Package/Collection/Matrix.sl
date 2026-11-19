@@ -34,12 +34,12 @@
 	}
 
 	numberOfColumns { :self |
-		let [_, n] = self.dimensions(2);
+		let [_, n] = self.dimensions(2L);
 		n
 	}
 
 	numberOfRows { :self |
-		let [m, _] = self.dimensions(2);
+		let [m, _] = self.dimensions(2L);
 		m
 	}
 

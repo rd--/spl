@@ -8,11 +8,11 @@ Also known as a Pólya distribution.
 Probability mass function, varying α:
 
 ~~~spl svg=A
-(0 -- 19.5).functionPlot(
-	[0.5 1 3].collect { :alpha |
+(0.0 -- 19.5).functionPlot(
+	[0.5 1.0 3.0].collect { :alpha |
 		BetaBinomialDistribution(
-			alpha, 0.3, 20
-		).pdf.clip(0, 0.12)
+			alpha, 0.3, 20L
+		).pdf.clip(0.0, 0.12)
 	}
 )
 ~~~
@@ -22,11 +22,11 @@ Probability mass function, varying α:
 Probability mass function, varying β:
 
 ~~~spl svg=B
-(0 -- 19.5).functionPlot(
-	[0.5 2 3].collect { :beta |
+(0.0 -- 19.5).functionPlot(
+	[0.5 2.0 3.0].collect { :beta |
 		BetaBinomialDistribution(
-			1.2, beta, 20
-		).pdf.clip(0, 0.15)
+			1.2, beta, 20L
+		).pdf.clip(0.0, 0.15)
 	}
 )
 ~~~
@@ -37,8 +37,8 @@ Generate a sample of pseudo-random numbers from a beta binomial distribution:
 
 ~~~spl svg=C
 let r = Sfc32(359472);
-BetaBinomialDistribution(2, 3, 50)
-.randomVariate(r, [10 ^ 4])
+BetaBinomialDistribution(2.0, 3.0, 50L)
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 
@@ -47,9 +47,9 @@ BetaBinomialDistribution(2, 3, 50)
 Compare to `pdf`:
 
 ~~~spl svg=D
-(0 -- 50).functionPlot(
+(0.0 -- 50.0).functionPlot(
 	BetaBinomialDistribution(
-		2, 3, 50
+		2.0, 3.0, 50L
 	).pdf
 )
 ~~~
@@ -59,11 +59,11 @@ Compare to `pdf`:
 Four `pdf` functions:
 
 ~~~spl svg=E
-(0 -- 50).functionPlot(
-	[0.5 0.5; 3 0.5; 0.5 3; 3 3]
+(0.0 -- 50.0).functionPlot(
+	[0.5 0.5; 3.0 0.5; 0.5 3.0; 3.0 3.0]
 	.collect { :p |
 		BetaBinomialDistribution(
-			p[1], p[2], 50
+			p[1], p[2], 50L
 		).pdf
 	}
 )
@@ -80,8 +80,8 @@ Define the Pólya distribution:
 >>> 	)
 >>> };
 >>> let r = Sfc32(549327);
->>> polyaDistribution(1 / 3, 10 / 3, 10)
->>> .randomVariate(r, [10])
+>>> polyaDistribution(1.0 / 3.0, 10.0 / 3.0, 10L)
+>>> .randomVariate(r, [10L])
 [8 0 6 1 0 0 3 0 10 3]
 ```
 

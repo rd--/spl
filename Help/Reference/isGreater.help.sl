@@ -39,7 +39,18 @@ Element-wise at `List`:
 ]
 ```
 
-When the arguments to `>` are `boole`, it is the material non-implication `Boolean` function:
+At `NaN`:
+
+```
+>>> NaN > 1L
+false
+
+>>> 1L > NaN
+false
+```
+
+When the arguments to `>` are `boole`,
+it is the material non-implication `Boolean` function:
 
 ```
 >>> ([0 1] >.table [0 1]).boole

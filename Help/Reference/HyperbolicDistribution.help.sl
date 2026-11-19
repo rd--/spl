@@ -7,13 +7,13 @@ The hyperbolic distribution with location parameter μ, scale parameter δ, shap
 Probability density function, varying _β_:
 
 ~~~spl svg=A
-(-8 -- 8).functionPlot(
-	[-1.5 0 1].collect { :beta |
+(-8.0 -- 8.0).functionPlot(
+	[-1.5 0.0 1.0].collect { :beta |
 		HyperbolicDistribution(
-			2,
+			2.0,
 			beta,
-			3,
-			1
+			3.0,
+			1.0
 		).pdf
 	}
 )
@@ -24,13 +24,13 @@ Probability density function, varying _β_:
 Probability density function, varying _α_:
 
 ~~~spl svg=B
-(0 -- 10).functionPlot(
-	[2 3 4].collect { :alpha |
+(0.0 -- 10.0).functionPlot(
+	[2.0 3.0 4.0].collect { :alpha |
 		HyperbolicDistribution(
 			alpha,
 			1.5,
-			3,
-			1
+			3.0,
+			1.0
 		).pdf
 	}
 )

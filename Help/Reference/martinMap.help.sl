@@ -7,8 +7,8 @@ A function by Barry Martin.
 Martin map, _a=0.4,b=1,c=0_:
 
 ~~~spl svg=A
-martinMap(0.4, 1, 0)
-.nestList([0 0], 99)
+martinMap(0.4, 1.0, 0.0)
+.nestList([0.0 0.0], 99L)
 .scatterPlot
 ~~~
 
@@ -17,8 +17,8 @@ martinMap(0.4, 1, 0)
 Martin map, _a=-2,b=0.33,c=0.01_:
 
 ~~~spl svg=B
-martinMap(-2, -0.33, 0.01)
-.nestList([0 0], 99)
+martinMap(-2.0, -0.33, 0.01)
+.nestList([0.0 0.0], 99L)
 .scatterPlot
 ~~~
 
@@ -27,8 +27,8 @@ martinMap(-2, -0.33, 0.01)
 Martin map, _a=6,b=-1,c=3_:
 
 ~~~spl svg=C
-martinMap(6, -1, 3)
-.nestList([0 0], 99)
+martinMap(6.0, -1.0, 3.0)
+.nestList([0.0 0.0], 99L)
 .scatterPlot
 ~~~
 

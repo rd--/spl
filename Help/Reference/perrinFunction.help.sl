@@ -41,7 +41,7 @@ The first thirteen prime Perrin numbers:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-10 -- 10).functionPlot(
+(-10.0 -- 10.0).functionPlot(
 	perrinFunction/1
 )
 ~~~

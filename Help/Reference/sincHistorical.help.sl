@@ -41,7 +41,7 @@ The historical unnormalized sinc function:
 Single-slit diffraction pattern for a 4λ slit:
 
 ~~~spl svg=B
-(-1 -- 1).functionPlot { :x |
+(-1.0 -- 1.0).functionPlot { :x |
 	(
 		(4.pi * x)
 		/

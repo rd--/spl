@@ -10,7 +10,7 @@ Recamán’s sequence,
 OEIS [A005132](https://oeis.org/A005132):
 
 ```
->>> 71.recamanSequence
+>>> 71L.recamanSequence
 [
 	 0   1   3   6   2   7  13  20  12  21
 	11  22  10  23   9  24   8  25  43  62
@@ -28,7 +28,8 @@ line plot,
 OEIS [A005132](https://oeis.org/A005132):
 
 ~~~spl svg=A oeis=A005132
-300.recamanSequence.linePlot
+300L.recamanSequence
+.linePlot
 ~~~
 
 ![](Help/Image/recamanSequence-A.svg)
@@ -38,7 +39,8 @@ scatter plot,
 OEIS [A005132](https://oeis.org/A005132):
 
 ~~~spl svg=B oeis=A005132
-300.recamanSequence.scatterPlot
+300L.recamanSequence
+.scatterPlot
 ~~~
 
 ![](Help/Image/recamanSequence-B.svg)
@@ -47,18 +49,22 @@ Drawing connecting adjacent elements of Recamán’s sequence with arcs,
 radii are proportionate to distance:
 
 ~~~spl svg=C
-let n = 30;
+let n = 30L;
 let x = n.recamanSequence;
-2:n.collect { :i |
-	let a = x[i - 1];
+2L:n.collect { :i |
+	let a = x[i - 1L];
 	let b = x[i];
-	let c = (b - a) / 2;
+	let c = (b - a) / 2.0;
 	let r = c.abs;
 	let cx = a + c;
 	Arc(
-		[cx 0],
+		[cx 0.0],
 		[r r],
-		i.isEven.if { [0 1.pi] } { [1.pi 0] }
+		i.isEven.if {
+			[0.0 1.pi]
+		} {
+			[1.pi 0.0]
+		}
 	)
 }
 ~~~

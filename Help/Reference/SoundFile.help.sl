@@ -46,7 +46,7 @@ construct a SoundFile to hold it,
 and send the table to the synthesiser:
 
 ~~~spl scsynth
-let table = (0 -- 2.pi).discretize(128).sin;
+let table = (0.0 -- 2.pi).discretize(128).sin;
 let soundFile = SoundFile(
 	Float32Array(table),
 	1,

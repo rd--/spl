@@ -7,7 +7,7 @@ Answer the bifolium quartic plane curve.
 Bifolium quartic plane curve:
 
 ~~~spl svg=A
-(0 -- 1.pi).discretize(100, 1.bifolium).Line
+(0.0 -- 1.pi).discretize(100, 1.bifolium).Line
 ~~~
 
 ![](Help/Image/bifolium-A.svg)

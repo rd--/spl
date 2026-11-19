@@ -8,11 +8,11 @@ The Χ² distribution is a special case of the γ distribution.
 Probability density function:
 
 ~~~spl svg=A
-(0 -- 6).functionPlot(
-	[0.5 3 5].collect { :nu |
+(0.0 -- 6.0).functionPlot(
+	[0.5 3.0 5.0].collect { :nu |
 		ChiSquareDistribution(nu)
 		.pdf
-		.clip(0, 0.4)
+		.clip(0.0, 0.4)
 	}
 )
 ~~~
@@ -22,8 +22,8 @@ Probability density function:
 Cumulative distribution function:
 
 ~~~spl svg=B
-(0 -- 6).functionPlot(
-	[0.5 3 5].collect { :nu |
+(0.0 -- 6.0).functionPlot(
+	[0.5 3.0 5.0].collect { :nu |
 		ChiSquareDistribution(nu)
 		.cdf
 	}
@@ -36,8 +36,8 @@ Generate a sample of pseudo-random numbers:
 
 ~~~spl svg=C
 let r = Sfc32(731482);
-ChiSquareDistribution(3)
-.randomVariate(r, [10 ^ 4])
+ChiSquareDistribution(3.0)
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 

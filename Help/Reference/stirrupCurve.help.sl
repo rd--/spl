@@ -17,9 +17,9 @@ Evaluate symbolically:
 Plot the stirrup curve at _z=0_:
 
 ~~~spl svg=A
-let i = (-5 -- 5).subdivide(50);
+let i = (-5.0 -- 5.0).subdivide(50);
 stirrupCurve/2
-.contourPlot(i, i, [0])
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/stirrupCurve-A.svg)

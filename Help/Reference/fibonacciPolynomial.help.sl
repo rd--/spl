@@ -54,7 +54,7 @@ OEIS [A162515](https://oeis.org/A162515):
 Fibonacci polynomials:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	1:6.collect { :n |
 		n.fibonacciPolynomial
 		.unaryBlock

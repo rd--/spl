@@ -8,7 +8,8 @@ _x_-coordinates of diamond spiral,
 OEIS [A010751](https://oeis.org/A010751):
 
 ~~~spl svg=A oeis=A010751
-65.diamondSpiral.column(1)
+65L.diamondSpiral
+.column(1)
 .scatterPlot
 ~~~
 
@@ -18,7 +19,8 @@ _y_-coordinates of diamond spiral,
 OEIS [A305258](https://oeis.org/A305258):
 
 ~~~spl svg=B oeis=A305258
-65.diamondSpiral.column(2)
+65L.diamondSpiral
+.column(2)
 .scatterPlot
 ~~~
 
@@ -27,7 +29,8 @@ OEIS [A305258](https://oeis.org/A305258):
 Diamond spiral:
 
 ~~~spl svg=C
-65.diamondSpiral.pointLinePlot
+65L.diamondSpiral
+.pointLinePlot
 ~~~
 
 ![](Help/Image/diamondSpiral-C.svg)

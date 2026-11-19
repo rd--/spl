@@ -81,7 +81,7 @@ The integer part of a division is equal to the `quotient`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(integerPart/1)
+(-2.0 -- 2.0).functionPlot(integerPart/1)
 ~~~
 
 ![](Help/Image/integerPart-A.svg)
@@ -110,7 +110,7 @@ let f = { :x :n |
 Plot quantized quadratic function:
 
 ~~~spl svg=C
-(-3 -- 3).functionPlot { :x |
+(-3.0 -- 3.0).functionPlot { :x |
 	(x + x.square).integerPart
 }
 ~~~

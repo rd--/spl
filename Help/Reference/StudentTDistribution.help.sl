@@ -12,9 +12,9 @@ For _ν→∞_ the Student _t_ distribution becomes the standard normal distribu
 Probability density function with standard μ and σ:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(
-	[0.1 0.5 4].collect { :nu |
-		StudentTDistribution(0, 1, nu)
+(-5.0 -- 5.0).functionPlot(
+	[0.1 0.5 4.0].collect { :nu |
+		StudentTDistribution(0.0, 1.0, nu)
 		.pdf
 	}
 )
@@ -25,9 +25,9 @@ Probability density function with standard μ and σ:
 Cumulative distribution function with standard μ and σ:
 
 ~~~spl svg=B
-(-5 -- 5).functionPlot(
-	[0.1 0.5 4].collect { :nu |
-		StudentTDistribution(0, 1, nu)
+(-5.0 -- 5.0).functionPlot(
+	[0.1 0.5 4.0].collect { :nu |
+		StudentTDistribution(0.0, 1.0, nu)
 		.cdf
 	}
 )
@@ -38,9 +38,9 @@ Cumulative distribution function with standard μ and σ:
 Probability density function of a generalised Student _t_ distribution:
 
 ~~~spl svg=C
-(-5 -- 5).functionPlot(
-	[0.1 0.5 4].collect { :nu |
-		StudentTDistribution(1, 2, nu)
+(-5.0 -- 5.0).functionPlot(
+	[0.1 0.5 4.0].collect { :nu |
+		StudentTDistribution(1.0, 2.0, nu)
 		.pdf
 	}
 )
@@ -51,9 +51,9 @@ Probability density function of a generalised Student _t_ distribution:
 Cumulative distribution function of a generalised Student _t_ distribution:
 
 ~~~spl svg=D
-(-5 -- 5).functionPlot(
-	[0.1 0.5 4].collect { :nu |
-		StudentTDistribution(1, 2, nu)
+(-5.0 -- 5.0).functionPlot(
+	[0.1 0.5 4.0].collect { :nu |
+		StudentTDistribution(1.0, 2.0, nu)
 		.cdf
 	}
 )
@@ -65,8 +65,8 @@ Generate a sample of pseudorandom numbers from a Student _t_ distribution:
 
 ~~~spl svg=E
 let r = Sfc32(401039);
-StudentTDistribution(0, 1, 10)
-.randomVariate(r, [10 ^ 4])
+StudentTDistribution(0.0, 1.0, 10.0)
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 

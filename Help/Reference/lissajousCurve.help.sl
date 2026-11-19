@@ -7,7 +7,7 @@ Answer a `Block` implementing the Lissajous, or Bowditch, curve with the specifi
 With parameters _a=1,b=2_ (Lemniscate of Gerono):
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	lissajousCurve(1/2.pi, 1, 2)
 )
 ~~~
@@ -17,7 +17,7 @@ With parameters _a=1,b=2_ (Lemniscate of Gerono):
 With parameters _a=3,b=2_:
 
 ~~~spl svg=B
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	lissajousCurve(1/2.pi, 3, 2)
 )
 ~~~
@@ -27,7 +27,7 @@ With parameters _a=3,b=2_:
 With parameters _a=3,b=4_ (Lincoln Laboratory):
 
 ~~~spl svg=C
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	lissajousCurve(1/2.pi, 3, 4)
 )
 ~~~
@@ -37,7 +37,7 @@ With parameters _a=3,b=4_ (Lincoln Laboratory):
 With parameters _a=5,b=4_:
 
 ~~~spl svg=D
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	lissajousCurve(1/2.pi, 5, 4)
 )
 ~~~
@@ -47,7 +47,7 @@ With parameters _a=5,b=4_:
 With parameters _a=1,b=3_ (Australian Broadcasting Corporation):
 
 ~~~spl svg=E
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	lissajousCurve(1/2.pi, 1, 3)
 )
 ~~~
@@ -57,7 +57,7 @@ With parameters _a=1,b=3_ (Australian Broadcasting Corporation):
 With parameters _δ=3π/4,a=2,b=3_:
 
 ~~~spl svg=F
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	lissajousCurve(3/4.pi, 2, 3)
 )
 ~~~
@@ -68,7 +68,7 @@ With parameters _a=b=1_ and varying δ,
 plot a circle and two ellipses:
 
 ~~~spl svg=G
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	[1/4 1/2 3/4].collect { :n |
 		lissajousCurve(n.pi, 1, 1)
 	}

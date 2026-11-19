@@ -9,7 +9,7 @@ where the point is a distance _h_ from the center of the interior circle.
 A hypotrochoid, in this case _h=a_:
 
 ~~~spl svg=A
-(0 -- 6.pi).functionPlot(
+(0.0 -- 6.pi).functionPlot(
 	hypotrochoid(5, 3, 5)
 )
 ~~~
@@ -19,7 +19,7 @@ A hypotrochoid, in this case _h=a_:
 An ellipse, _a=2b_:
 
 ~~~spl svg=B
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	hypotrochoid(2, 1, 1 / 2)
 )
 ~~~
@@ -29,7 +29,7 @@ An ellipse, _a=2b_:
 A spirograph is a hypotrochoid, set _h_ as a proportion of _a_:
 
 ~~~spl svg=C
-(0 -- 4.pi).functionPlot(
+(0.0 -- 4.pi).functionPlot(
 	hypotrochoid(7, 2, 0.4 * 7)
 )
 ~~~

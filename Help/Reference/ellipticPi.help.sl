@@ -42,7 +42,7 @@ OEIS [A138498](http://oeis.org/A138498):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 0.95).functionPlot { :n |
+(0.0 -- 0.95).functionPlot { :n |
 	n.ellipticPi(0.6)
 }
 ~~~

@@ -28,7 +28,7 @@ The Jacobi elliptic function:
 ~~~spl svg=A
 let m = 1 / 3;
 let r = m.ellipticK * 2;
-(0 -- r).functionPlot { :x |
+(0.0 -- r).functionPlot { :x |
 	x.jacobiDn(m)
 }
 ~~~
@@ -38,7 +38,7 @@ let r = m.ellipticK * 2;
 Plot the Jacobi elliptic function for various _m_:
 
 ~~~spl svg=B
-(0 -- 8).functionPlot(
+(0.0 -- 8.0).functionPlot(
 	[0.3 0.6 1].collect { :m |
 		{ :x |
 			x.jacobiDn(m)
@@ -57,7 +57,7 @@ let g = 9.81;
 let phi = 1/2.pi;
 let a = (phi / 2).sin;
 let b = (g / l).sqrt;
-let t = (0 -- 10).subdivide(200);
+let t = (0.0 -- 10.0).subdivide(200);
 t.collect { :t |
 	let c = jacobiSn(t * b, a.square);
 	let d = jacobiDn(t * b, a.square);

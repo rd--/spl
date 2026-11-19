@@ -123,7 +123,7 @@ let b = InfiniteLine[-3 -2; 3 4];
 let c = b.polynomial;
 [
 	a,
-	(-5 -- 5).discretize(
+	(-5.0 -- 5.0).discretize(
 		9,
 		{ :x |
 			[x, c.at(x)]

@@ -278,20 +278,20 @@ BezierCurve : [Object, Equal, Cache, Geometry] {
 
 	cubicBezierFunctionAt { :self :x |
 		let [p1, p2, p3, p4] = self;
-		let u = 1 - x;
+		let u = 1.0 - x;
 		let x2 = x * x;
 		let x3 = x2 * x;
 		let u2 = u * u;
 		let u3 = u2 * u;
-		(p1 * u3) + (p2 * (3 * u2 * x)) + (p3 * (3 * u * x2)) + (p4 * x3)
+		(p1 * u3) + (p2 * (3.0 * u2 * x)) + (p3 * (3.0 * u * x2)) + (p4 * x3)
 	}
 
 	deCasteljausAlgorithm { :self :x |
-		(self.size = 1).if {
-			self[1]
+		(self.size = 1L).if {
+			self[1L]
 		} {
-			1.to(self.size - 1).collect { :i |
-				((1 - x) * self[i]) + (x * self[i + 1])
+			1L.to(self.size - 1L).collect { :i |
+				((1.0 - x) * self[i]) + (x * self[i + 1L])
 			}.deCasteljausAlgorithm(x)
 		}
 	}

@@ -56,8 +56,8 @@ Find divisors that occur in any of 10, 12, and 20:
 At `Interval`:
 
 ```
->>> (1 -- 3).union(3 -- 7)
-(1 -- 7)
+>>> (1.0 -- 3.0).union(3.0 -- 7.0)
+(1.0 -- 7.0)
 ```
 
 At `Multiset`:

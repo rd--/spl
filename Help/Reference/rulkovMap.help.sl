@@ -7,8 +7,8 @@ The Rulkov map is a two-dimensional iterated map used to model a biological neur
 Rulkov map with _α=4.035_ and _σ=-1_:
 
 ~~~spl png=A
-rulkovMap(4.035, 0.001, -1)
-.nestList([-1 -2.9], 2000)
+rulkovMap(4.035, 0.001, -1.0)
+.nestList([-1.0 -2.9], 2000L)
 .column(1)
 .denseScatterPlot
 ~~~
@@ -19,8 +19,8 @@ The shape of the nonlinear function _f_ for the type-B Rulkov map,
 where _α=6_ and _y=-3.93_:
 
 ~~~spl svg=B
-let f/2 = rulkovNonlinearFunction(6);
-(-3 -- 3).functionPlot { :x |
+let f/2 = rulkovNonlinearFunction(6.0);
+(-3.0 -- 3.0).functionPlot { :x |
 	f(x, -3.93)
 }
 ~~~

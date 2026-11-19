@@ -120,7 +120,7 @@ Complex number inputs:
 Plot over subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot { :z |
+(-5.0 -- 5.0).functionPlot { :z |
 	z.doubleFactorial.clip(-10, 15)
 }
 ~~~

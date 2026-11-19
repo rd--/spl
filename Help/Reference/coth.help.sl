@@ -43,7 +43,7 @@ Unique real fixed point:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-4 -- 4).functionPlot { :x |
+(-4.0 -- 4.0).functionPlot { :x |
 	x.coth.clip(-4, 4)
 }
 ~~~
@@ -53,7 +53,7 @@ Plot over a subset of the reals:
 Plot `coth` and `tanh`:
 
 ~~~spl svg=B
-(-3 -- 3).functionPlot(
+(-3.0 -- 3.0).functionPlot(
 	[
 		coth/1.clip(-5, 5),
 		tanh/1

@@ -8,7 +8,7 @@ Defined as the locus of points such that the product of distances from two fixed
 Lemniscate of Bernoulli:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	lemniscate(1)
 )
 ~~~

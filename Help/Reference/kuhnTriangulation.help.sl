@@ -9,7 +9,7 @@ of the _n_-dimensional unit square.
 In two dimensions divides a square into two triangles:
 
 ~~~spl svg=A
-2.kuhnTriangulation
+2L.kuhnTriangulation
 .collect(Triangle/1)
 ~~~
 
@@ -18,13 +18,13 @@ In two dimensions divides a square into two triangles:
 In three dimensions divides a cube into six tetrahedra:
 
 ~~~spl svg=B
-let k = 3.kuhnTriangulation;
-[1 .. 6].collect { :i |
+let k = 3L.kuhnTriangulation;
+[1L .. 6L].collect { :i |
 	Tetrahedron(k[i]).translate(
 		[
-			i % 2 * 2,
-			i % 2 + i * 0.75,
-			0
+			i % 2.0 * 2.0,
+			i % 2.0 + i * 0.75,
+			0.0
 		]
 	)
 }

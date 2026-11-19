@@ -158,13 +158,13 @@ At `Interval`,
 also called `lowerBound` and `infimum`:
 
 ```
->>> (1 -- 9).min
+>>> (1.0 -- 9.0).min
 1
 
->>> (1 -- 10).lowerBound
+>>> (1.0 -- 10.0).lowerBound
 1
 
->>> (1 -- 9).infimum
+>>> (1.0 -- 9.0).infimum
 1
 ```
 

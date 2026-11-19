@@ -20,8 +20,8 @@ At `Float`:
 At `Interval`:
 
 ```
->>> (0 -- 90).unitDegree
-(0 -- 0.25)
+>>> (0.0 -- 90.0).unitDegree
+(0.0 -- 0.25)
 ```
 
 * * *

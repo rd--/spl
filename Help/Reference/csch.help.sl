@@ -39,7 +39,7 @@ At `Complex`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot { :x |
+(-5.0 -- 5.0).functionPlot { :x |
 	x.csch.clip(-1.5, 1.5)
 }
 ~~~

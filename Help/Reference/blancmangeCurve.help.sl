@@ -30,7 +30,7 @@ Plot using the functional form of the curve:
 
 ~~~spl svg=B
 let k = 9;
-(0 -- 0.5).functionPlot { :x |
+(0.0 -- 0.5).functionPlot { :x |
 	let y = 1:k.collect { :n |
 		let s = { :a |
 			(a.round - a).abs

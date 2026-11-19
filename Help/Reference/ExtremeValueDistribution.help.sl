@@ -7,11 +7,11 @@ A `Type` representing an extreme value distribution distribution with location p
 Probability density function, varying α:
 
 ~~~spl svg=A
-(-8 -- 12).functionPlot(
-	[-3 0 4].collect { :alpha |
+(-8.0 -- 12.0).functionPlot(
+	[-3.0 0.0 4.0].collect { :alpha |
 		ExtremeValueDistribution(
 			alpha,
-			2
+			2.0
 		).pdf
 	}
 )
@@ -22,8 +22,8 @@ Probability density function, varying α:
 Probability density function, varying β:
 
 ~~~spl svg=B
-(-5 -- 10).functionPlot(
-	[1.5 2 3].collect { :beta |
+(-5.0 -- 10.0).functionPlot(
+	[1.5 2.0 3.0].collect { :beta |
 		ExtremeValueDistribution(
 			1.5,
 			beta
@@ -37,11 +37,11 @@ Probability density function, varying β:
 Cumulative distribution function, varying α:
 
 ~~~spl svg=C
-(-8 -- 12).functionPlot(
-	[-3 0 4].collect { :alpha |
+(-8.0 -- 12.0).functionPlot(
+	[-3.0 0.0 4.0].collect { :alpha |
 		ExtremeValueDistribution(
 			alpha,
-			2
+			2.0
 		).cdf
 	}
 )
@@ -52,8 +52,8 @@ Cumulative distribution function, varying α:
 Cumulative distribution function, varying β:
 
 ~~~spl svg=D
-(-5 -- 10).functionPlot(
-	[1.5 2 3].collect { :beta |
+(-5.0 -- 10.0).functionPlot(
+	[1.5 2.0 3.0].collect { :beta |
 		ExtremeValueDistribution(
 			1.5,
 			beta
@@ -68,8 +68,8 @@ Generate a sample of pseudorandom numbers:
 
 ~~~spl svg=E
 let r = Sfc32(389124);
-ExtremeValueDistribution(3, 2.5)
-.randomVariate(r, [10 ^ 4])
+ExtremeValueDistribution(3.0, 2.5)
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 

@@ -7,7 +7,7 @@ The arc sine distribution supported between x₁ and x₂.
 Probability density function, varying _x₂_:
 
 ~~~spl svg=A
-(-1 -- 4).functionPlot(
+(-1.0 -- 4.0).functionPlot(
 	[1 2 4].collect { :x2 |
 		ArcSinDistribution(
 			[-1, x2]
@@ -21,7 +21,7 @@ Probability density function, varying _x₂_:
 Cumulative distribution function, varying _σ_:
 
 ~~~spl svg=B
-(-1 -- 4).functionPlot(
+(-1.0 -- 4.0).functionPlot(
 	[1 2 4].collect { :x2 |
 		ArcSinDistribution(
 			[-1, x2]

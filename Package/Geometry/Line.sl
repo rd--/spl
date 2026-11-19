@@ -240,18 +240,18 @@ Line : [Object, Store, Equal, Geometry] {
 
 }
 
-+Float {
++[Float, Integer] {
 
 	spirangle { :n :m :center :radii :initialAngle |
 		let [radiusIncrement, initialRadial] = radii;
-		let thetaIncrement = 1.pi - ((n - 2).pi / n);
+		let thetaIncrement = 1.0.pi - ((n - 2.0).pi / n);
 		let r = initialRadial * radiusIncrement;
 		let theta = initialAngle;
 		let v = center + [r, theta].fromPolarCoordinates;
 		let vertexCoordinates = [v];
 		(m * n).timesRepeat {
 			r := r + radiusIncrement;
-			theta := (theta + thetaIncrement) % 2.pi;
+			theta := (theta + thetaIncrement) % 2.0.pi;
 			v := v + [r, theta].fromPolarCoordinates;
 			vertexCoordinates.add!(v)
 		};

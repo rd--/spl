@@ -24,7 +24,7 @@ In each case the plot is made as a ruled surface over the specified places.
 At `Interval`, which is implicitly discretized by `surfacePlot`:
 
 ~~~spl svg=A
-(-2 -- 2).surfacePlot { :x :y |
+(-2.0 -- 2.0).surfacePlot { :x :y |
 	let z = x * (0 - (x ^ 2) - (y ^ 2)).exp;
 	[x, y, z * 7]
 }
@@ -35,7 +35,7 @@ At `Interval`, which is implicitly discretized by `surfacePlot`:
 A `sin` and `cos` plot with dampened _z_:
 
 ~~~spl svg=B
-(-4 -- 4).surfacePlot { :x :y |
+(-4.0 -- 4.0).surfacePlot { :x :y |
 	let z = x.sin + y.cos;
 	[x, y, z * 4]
 }
@@ -46,11 +46,11 @@ A `sin` and `cos` plot with dampened _z_:
 A `sin` plot:
 
 ~~~spl svg=C
-(-7 -- 7).surfacePlot { :x :y |
-	let r = ((x ^ 2) + (y ^ 2)).sqrt;
-	let q = r + 1E-9;
+(-7.0 -- 7.0).surfacePlot { :x :y |
+	let r = ((x ^ 2.0) + (y ^ 2.0)).sqrt;
+	let q = r + 1.0E-9;
 	let z = q.sin / q;
-	[x, y, z * 17]
+	[x, y, z * 17.0]
 }
 ~~~
 
@@ -59,7 +59,7 @@ A `sin` plot:
 A `sin` and `cos` plot with dampened _z_:
 
 ~~~spl svg=D
-(-3 -- 3).surfacePlot { :x :y |
+(-3.0 -- 3.0).surfacePlot { :x :y |
 	let z = (y * x.sin) - (x * y.cos);
 	[x, y, z]
 }
@@ -70,7 +70,7 @@ A `sin` and `cos` plot with dampened _z_:
 A height plot:
 
 ~~~spl svg=E
-(-2 -- 2).surfacePlot { :x :y |
+(-2.0 -- 2.0).surfacePlot { :x :y |
 	let n = (x ^ 2) + (y ^ 2);
 	n * (0 - n).exp * 47
 }
@@ -97,8 +97,8 @@ A dilated half sphere:
 Dini’s surface:
 
 ~~~spl svg=G
-[0 4.pi; 2E-2 2].surfacePlot(
-	dinisSurface(1, 0.2)
+[0 4.pi; 2.0E-2 2].surfacePlot(
+	dinisSurface(1.0, 0.2)
 )
 ~~~
 
@@ -115,10 +115,10 @@ A pseudosphere:
 A one-dimensional potential energy equation plotted as the parameter λ is varied:
 
 ~~~spl svg=I
-[0 4; -2.5 2.5].surfacePlot { :lambda :x |
+[0.0 4.0; -2.5 2.5].surfacePlot { :lambda :x |
 	let a = 0.25 * (x ^ 4);
-	let c = ((2 * lambda) - 4) * x;
-	a - (x ^ 2) - c + 9
+	let c = ((2.0 * lambda) - 4.0) * x;
+	a - (x ^ 2.0) - c + 9.0
 }
 ~~~
 
@@ -127,7 +127,7 @@ A one-dimensional potential energy equation plotted as the parameter λ is varie
 Plot Möbius strip:
 
 ~~~spl svg=J
-[0 2.pi; -1 1].surfacePlot(
+[0.0 2.pi; -1.0 1.0].surfacePlot(
 	moebiusStrip(0.35)
 )
 ~~~
@@ -137,7 +137,7 @@ Plot Möbius strip:
 Plot one half of Plücker’s conoid:
 
 ~~~spl svg=K
-[0 1.pi; 0 1].surfacePlot(
+[0.0 1.pi; 0.0 1.0].surfacePlot(
 	pleuckersConoid(2)
 )
 ~~~
@@ -147,7 +147,7 @@ Plot one half of Plücker’s conoid:
 Plot a double cone:
 
 ~~~spl svg=L
-[0 2.pi; -1 1].surfacePlot { :theta :h |
+[0.0 2.pi; -1.0 1.0].surfacePlot { :theta :h |
 	let x = h * theta.cos;
 	let y = h * theta.sin;
 	let z = h;
@@ -161,7 +161,7 @@ Plot a torus:
 
 ~~~spl svg=M
 let f/2 = torus(2.5);
-(0 -- 2.pi).surfacePlot { :u :v |
+(0.0 -- 2.pi).surfacePlot { :u :v |
 	let [x, y, z] = f(u, v);
 	[x, z, y]
 }
@@ -182,8 +182,8 @@ Plot a catenoid:
 Plot a helicoid:
 
 ~~~spl svg=O
-[-1.pi 1.pi; -1 1].surfacePlot(
-	helicoid(1)
+[-1.pi 1.pi; -1.0 1.0].surfacePlot(
+	helicoid(1.0)
 )
 ~~~
 
@@ -223,7 +223,7 @@ Plot a hyperbolic paraboloid:
 Plot a maxima parabaloid:
 
 ~~~spl svg=S
-(-3 -- 3).surfacePlot { :x :y |
+(-3.0 -- 3.0).surfacePlot { :x :y |
 	[x * 1.5, y, 4 - (x.square + y.square)]
 }
 ~~~

@@ -8,28 +8,28 @@ Find the dimensions of a vector:
 
 ```
 >>> [1 2 3 4 5].dimensions
-[5]
+[5L]
 ```
 
 At the empty `List`:
 
 ```
 >>> [].dimensions
-[0]
+[0L]
 ```
 
 Find the dimensions of a matrix:
 
 ```
 >>> [1 2 3; 4 5 6].dimensions
-[2 3]
+[2L 3L]
 ```
 
 Count only dimensions at which an expression is not _ragged_:
 
 ```
 >>> [1 2 3; 4 5; 6].dimensions
-[3]
+[3L]
 ```
 
 Works with arrays of any depth:
@@ -37,10 +37,10 @@ Works with arrays of any depth:
 ```
 >>> [1 2; 3 4:; 5 6; 7 8]
 >>> .dimensions
-[2 2 2]
+[2L 2L 2L]
 
 >>> [[[[1, 2]]]].dimensions
-[1 1 1 2]
+[1L 1L 1L 2L]
 ```
 
 Answer dimensions only down to,
@@ -48,15 +48,15 @@ at most,
 level two:
 
 ```
->>> [[[[1, 2]]]].dimensions(2)
-[1 1]
+>>> [[[[1, 2]]]].dimensions(2L)
+[1L 1L]
 
->>> [1 2 3 4 5].dimensions(2)
-[5]
+>>> [1 2 3 4 5].dimensions(2L)
+[5L]
 
 >>> let x = [1 2; 3 4:; 5 6; 7 8];
->>> (x.dimensions, x.dimensions(2))
-([2 2 2], [2 2])
+>>> (x.dimensions, x.dimensions(2L))
+([2L 2L 2L], [2L 2L])
 ```
 
 Works with special array types, including `SparseArray` objects:
@@ -65,7 +65,7 @@ Works with special array types, including `SparseArray` objects:
 >>> [[[1, 2]]]
 >>> .arrayToSparseArray(0)
 >>> .dimensions
-[1 1 2]
+[1L 1L 2L]
 ```
 
 `dimensions` always returns a list,

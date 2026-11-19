@@ -9,10 +9,10 @@ therefore having size _n+1_.
 Subdivide the unit interval into 10 equal parts:
 
 ```
->>> 10.subdivide
-Range(0, 1, 1/10, 11)
+>>> 10L.subdivide
+Range(0/1, 1/1, 1/10, 11L)
 
->>> List(10.subdivide)
+>>> List(10L.subdivide)
 [
 	0/1 1/10 1/5 3/10 2/5
 	1/2 3/5 7/10 4/5 9/10
@@ -23,22 +23,22 @@ Range(0, 1, 1/10, 11)
 Subdivide the interval `zero` to `one` into 100 equal parts:
 
 ```
->>> (0 -- 1).subdivide(100)
-Range(0, 1, 1/100, 101)
+>>> (0.0 -- 1.0).subdivide(100L)
+Range(0.0, 1.0, 0.01, 101L)
 ```
 
 Subdivide the interval 0 to 10 into 5 equal parts:
 
 ```
->>> (0 -- 10).subdivide(5)
-Range(0, 10, 2, 6)
+>>> (0L -- 10L).subdivide(5L)
+Range(0L, 10L, 2/1, 6L)
 ```
 
 Subdivide the interval -1 to 1 into 8 equal parts:
 
 ```
->>> (-1 -- 1).subdivide(8)
-Range(-1, 1, 1/4, 9)
+>>> (-1.0 -- 1.0).subdivide(8)
+Range(-1.0, 1.0, 0.25, 9L)
 ```
 
 Subdivide the interval from `e` to `pi`:
@@ -52,29 +52,29 @@ Subdivide the interval from -π to π,
 note that the inferred size of the `Range` given by the calculated step size is not equal:
 
 ```
->>> (-1.pi -- 1.pi).subdivide(100)
-Range(-1.pi, 1.pi, 1/50.pi, 101)
+>>> (-1.pi -- 1.pi).subdivide(100L)
+Range(-1.pi, 1.pi, 1/50.pi, 101L)
 
 >>> Range(-1.pi, 1.pi, 1/50.pi).size
-100
+100L
 ```
 
 Subdivide the interval from `zero` to _2π_,
 note that the inferred size of the `Range` given by the calculated step size is not equal:
 
 ```
->>> (0 -- 2.pi).subdivide(100)
-Range(0, 2.pi, 1/50.pi, 101)
+>>> (0.0 -- 2.pi).subdivide(100L)
+Range(0.0, 2.pi, 1/50.pi, 101L)
 
->>> Range(0, 2.pi, 1/50.pi).size
-100
+>>> Range(0.0, 2.pi, 1/50.pi).size
+100L
 ```
 
 Compare `subdivide` and `Range Syntax`:
 
 ```
->>> (3 -- 11).subdivide(4)
-Range(3, 11, 2, 5)
+>>> (3L -- 11L).subdivide(4L)
+Range(3L, 11L, 2/1, 5L)
 
 >>> (3, 5 .. 11)
 Range(3, 11, 2, 5)
@@ -82,7 +82,7 @@ Range(3, 11, 2, 5)
 >>> [3, 5 .. 11]
 [3 5 7 9 11]
 
->>> (-1 -- 2).subdivide(5)
+>>> (-1.0 -- 2.0).subdivide(5)
 Range(-1, 2, 3/5, 6)
 
 >>> (-1, -0.4 .. 2)
@@ -95,17 +95,17 @@ Range(-1, 2, 0.6, 6)
 Compare `subdivide` and `discretize`:
 
 ```
->>> (1 -- 10).subdivide(9)
+>>> (1.0 -- 10.0).subdivide(9)
 Range(1, 10, 1, 10)
 
->>> (1 -- 10).discretize(10)
+>>> (1.0 -- 10.0).discretize(10)
 Range(1, 10, 1, 10)
 ```
 
 The last value is treated especially to avoid range errors:
 
 ```
->>> let r = (0 -- 2.pi).subdivide(100);
+>>> let r = (0.0 -- 2.pi).subdivide(100);
 >>> let l = List(r);
 >>> let a = 2.pi / 100;
 >>> let b = 99 * a;
@@ -126,7 +126,7 @@ in order to avoid a duplicate `zero`:
 
 ~~~spl svg=A
 let n = 256;
-(0 -- 2.pi)
+(0.0 -- 2.pi)
 .subdivide(n)
 .allButLast
 .sin

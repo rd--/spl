@@ -42,7 +42,7 @@ Evaluate at `Float`:
 Six smoothStep functions:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	[0 1 3 7 11 15].collect(
 		smoothStepFunction/1
 	)

@@ -28,7 +28,7 @@ Cumulative distribution function:
 Skewness:
 
 ~~~spl svg=C
-(0 -- 0.9).functionPlot { :p |
+(0.0 -- 0.9).functionPlot { :p |
 	GeometricDistribution(p).skewness
 }
 ~~~

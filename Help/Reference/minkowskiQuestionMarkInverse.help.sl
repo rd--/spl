@@ -16,7 +16,7 @@ The question-mark function is continuous and monotonically increasing, so it has
 Plot over the unit interval:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	minkowskiQuestionMarkInverse/1
 )
 ~~~
@@ -26,7 +26,7 @@ Plot over the unit interval:
 Plot difference from input:
 
 ~~~spl svg=B
-(0 -- 2).functionPlot { :x |
+(0.0 -- 2.0).functionPlot { :x |
 	let y = x.minkowskiQuestionMarkInverse;
 	y - x
 }
@@ -37,7 +37,7 @@ Plot difference from input:
 Plot from -2 to 2:
 
 ~~~spl svg=C
-(-2 -- 2).functionPlot(
+(-2.0 -- 2.0).functionPlot(
 	minkowskiQuestionMarkInverse/1
 )
 ~~~

@@ -19,7 +19,7 @@ The article depends on the first letter of the noun:
 >>> 'Object'.withIndefiniteArticle
 'an Object'
 
->>> (1 -- 9).typeName.withIndefiniteArticle
+>>> (1.0 -- 9.0).typeName.withIndefiniteArticle
 'an Interval'
 ```
 

@@ -36,7 +36,7 @@ let b = a.signedSqrt * 0.1;
 Ploto over subset of reals:
 
 ~~~spl svg=A
-(-7 -- 7).functionPlot(
+(-7.0 -- 7.0).functionPlot(
 	signedSqrt/1
 )
 ~~~

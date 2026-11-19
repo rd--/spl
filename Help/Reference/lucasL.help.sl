@@ -99,7 +99,7 @@ OEIS [A064723](https://oeis.org/A064723):
 Plot for various orders:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(
+(-2.0 -- 2.0).functionPlot(
 	1:4.collect { :n |
 		{ :x |
 			n.lucasL(x).min(14)

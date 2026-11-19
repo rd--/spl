@@ -8,10 +8,10 @@ Calculate volume,
 OEIS [A215447](https://oeis.org/A215447):
 
 ```
->>> let r = 1;
+>>> let r = 1.0;
 >>> let a = 0.75.ellipticK;
 >>> let b = 0.75.ellipticE;
->>> 2/3 * (a + (2 * b)) * r.cube
+>>> 2/3 * (a + (2.0 * b)) * r.cube
 3.052418
 ```
 

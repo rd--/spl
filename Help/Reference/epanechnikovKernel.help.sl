@@ -7,7 +7,7 @@ Answer the Epanechnikov kernel at _u_.
 Plot over _(-1, 1)_:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	epanechnikovKernel/1
 )
 ~~~

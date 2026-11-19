@@ -9,7 +9,7 @@ scaling the _y_ value by `log`.
 Plot a function with a logarithmically scaled _y_ axis:
 
 ~~~spl svg=A
-(1 -- 5).logPlot { :x |
+(1.0 -- 5.0).logPlot { :x |
 	x ^ x
 }
 ~~~
@@ -19,7 +19,7 @@ Plot a function with a logarithmically scaled _y_ axis:
 Plot several functions:
 
 ~~~spl svg=B
-(1 -- 5).logPlot(
+(1.0 -- 5.0).logPlot(
 	[
 		{ :x | x ^ x },
 		{ :x | x.exp },
@@ -33,7 +33,7 @@ Plot several functions:
 Plot _x²_ and _x⁴_:
 
 ~~~spl svg=C
-(0 -- 2.pi).logPlot(
+(0.0 -- 2.pi).logPlot(
 	[
 		{ :x | x ^ 2 },
 		{ :x | x ^ 4 }
@@ -46,7 +46,7 @@ Plot _x²_ and _x⁴_:
 Plot `abs` of `gamma` at higher resolution:
 
 ~~~spl svg=D
-(-5 -- 2).logPlot(300) { :x |
+(-5.0 -- 2.0).logPlot(300) { :x |
 	x.gamma.abs.clip(0, 150)
 }
 ~~~
@@ -56,7 +56,7 @@ Plot `abs` of `gamma` at higher resolution:
 `logPlot` if equivalent to `log` of `functionPlot`:
 
 ~~~spl svg=E
-(-5 -- 2).functionPlot(300) { :x |
+(-5.0 -- 2.0).functionPlot(300) { :x |
 	x.gamma.abs.clip(0, 150)
 }.log
 ~~~

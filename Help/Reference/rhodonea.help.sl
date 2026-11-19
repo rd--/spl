@@ -9,7 +9,7 @@ is a special case of the more general `hypotrochoid`.
 At _n=1_, a circle:
 
 ~~~spl svg=A
-(0 -- 1.pi).subdivide(100)
+(0.0 -- 1.pi).subdivide(100)
 .collect(rhodonea(1, 1))
 .Line
 ~~~
@@ -19,7 +19,7 @@ At _n=1_, a circle:
 At _n=2_, a quadrifolium, with period _2π_:
 
 ~~~spl svg=B
-(0 -- 2.pi).subdivide(100)
+(0.0 -- 2.pi).subdivide(100)
 .collect(rhodonea(1, 2))
 .Line
 ~~~
@@ -29,7 +29,7 @@ At _n=2_, a quadrifolium, with period _2π_:
 At _n=3_, a trifolium:
 
 ~~~spl svg=C
-(0 -- 1.pi).subdivide(100)
+(0.0 -- 1.pi).subdivide(100)
 .collect(rhodonea(1, 3))
 .Line
 ~~~
@@ -39,7 +39,7 @@ At _n=3_, a trifolium:
 At _n=1/3_, a limaçon trisectrix, with period _3π_:
 
 ~~~spl svg=D
-(0 -- 3.pi).subdivide(100)
+(0.0 -- 3.pi).subdivide(100)
 .collect(rhodonea(1, 1 / 3))
 .Line
 ~~~
@@ -49,7 +49,7 @@ At _n=1/3_, a limaçon trisectrix, with period _3π_:
 At _n=1/2_, a Dürer folium, with period _4π_:
 
 ~~~spl svg=E
-(0 -- 4.pi).subdivide(100)
+(0.0 -- 4.pi).subdivide(100)
 .collect(rhodonea(1, 1 / 2))
 .Line
 ~~~
@@ -59,7 +59,7 @@ At _n=1/2_, a Dürer folium, with period _4π_:
 At _n=2/3_, with period _6π_:
 
 ~~~spl svg=F
-(0 -- 6.pi).subdivide(100)
+(0.0 -- 6.pi).subdivide(100)
 .collect(rhodonea(1, 2 / 3))
 .Line
 ~~~
@@ -69,7 +69,7 @@ At _n=2/3_, with period _6π_:
 At _n=1/4_, with period _8π_:
 
 ~~~spl svg=G
-(0 -- 8.pi).subdivide(200)
+(0.0 -- 8.pi).subdivide(200)
 .collect(rhodonea(1, 1 / 4))
 .Line
 ~~~
@@ -79,7 +79,7 @@ At _n=1/4_, with period _8π_:
 At _n=3/5_, with period _5π_:
 
 ~~~spl svg=H
-(0 -- 5.pi).subdivide(200)
+(0.0 -- 5.pi).subdivide(200)
 .collect(rhodonea(1, 3 / 5))
 .Line
 ~~~
@@ -89,7 +89,7 @@ At _n=3/5_, with period _5π_:
 At _n=9/7_, with period _7π_:
 
 ~~~spl svg=I
-(0 -- 7.pi).subdivide(300)
+(0.0 -- 7.pi).subdivide(300)
 .collect(rhodonea(1, 9 / 7))
 .Line
 ~~~

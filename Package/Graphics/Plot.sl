@@ -278,7 +278,7 @@ Plot : [Object] {
 	}
 
 	complexPlot { :self :aBlock/1 |
-		let k = 100;
+		let k = 100L;
 		complexPlot(self, k, aBlock/1)
 	}
 
@@ -294,7 +294,7 @@ Plot : [Object] {
 		let i = (min.imaginary -- max.imaginary).subdivide(k);
 		{ :x :y |
 			let z = Complex(y, x);
-			colourFunction(aBlock(z).aspect / 2.pi + 0.5)
+			colourFunction(aBlock(z).aspect / 2.0.pi + 0.5)
 		}.table(i, r).reverse.Image
 	}
 
@@ -415,7 +415,10 @@ Plot : [Object] {
 	}
 
 	periodogramPlot { :self |
-		self.periodogramArray.take(self.size / 2).log.linePlot
+		self.periodogramArray
+		.take(self.size // 2)
+		.log
+		.linePlot
 	}
 
 	pianoRollPlot { :self |
@@ -567,16 +570,16 @@ Plot : [Object] {
 		let k = self.size;
 		let r = (0.025 * k).round;
 		let n = k.nextPowerOfTwo;
-		let d = self.padRight([n], 0);
-		let p = (d.fft / n).take(n / 2).absSquare;
-		p[1] := 0;
-		(p * 10).gaussianFilter(r).linePlot
+		let d = self.padRight([n], 0.0);
+		let p = (d.fft / n.F).take(n // 2).absSquare;
+		p[1] := 0.0;
+		(p * 10.0).gaussianFilter(r).linePlot
 	}
 
 	stackedListPlot { :self |
-		let level = self[1];
+		let level = self[1L];
 		let data = [level.copy];
-		2.toDo(self.size) { :i |
+		2L.toDo(self.size) { :i |
 			level := level + self[i];
 			data.add!(level.copy)
 		};
@@ -890,7 +893,8 @@ Plot : [Object] {
 		let [p, q] = v;
 		let [i, j] = m;
 		{ :a :b |
-			f(Complex(a, b)).realImaginary
+			let x = Complex(a, b);
+			f(x).realImaginary
 		}.carpetPlot(
 			[
 				(p.real -- q.real).discretize(i).List,
@@ -1389,7 +1393,7 @@ Plot : [Object] {
 	}
 }
 
-+Float {
++[Float, Integer] {
 
 	fareyDiagram { :n :kind |
 		kind.caseOf(
@@ -1401,52 +1405,51 @@ Plot : [Object] {
 
 	fareyDiagramSquare { :n |
 		let l = [];
-		let pt = { :x |
-			[
-				Float(x) * 100,
-				100 / Float(x.denominator)
-			]
-		};
-		2.toDo(n) { :i |
+		2L.toDo(n) { :i |
 			let f = i.fareySequence;
 			let k = f.size;
-			1.toDo(k) { :j |
+			1L.toDo(k) { :j |
 				(f[j].denominator = i).ifTrue {
 					let q = f[j];
-					let p = f[j - 1];
-					let r = f[j + 1];
-					let s = 1 / q.denominator;
-					l.add!(Line([q 0; q s]));
+					let p = f[j - 1L];
+					let r = f[j + 1L];
+					let s = q.denominator.reciprocal;
 					l.add!(
-						Line(
-							[
-								[p, 0],
-								[q, s],
-								[r, 0]
-							]
-						)
+						Line[
+							q 0/1;
+							q s
+						]
 					);
 					l.add!(
-						Line(
-							[
-								[p, 1 / p.denominator],
-								[q, 0],
-								[r, 1 / r.denominator]
-							]
-						)
+						Line[
+							p 0/1;
+							q s;
+							r 0/1
+						]
 					);
-					(p = 0).ifTrue {
-						l.add!(Line([0 1; q s]))
+					l.add!(
+						Line[
+							p p.denominator.reciprocal;
+							q 0/1;
+							r r.denominator.reciprocal
+						]
+					);
+					(p = 0/1).ifTrue {
+						l.add!(
+							Line([0/1 1/1; q s])
+						)
 					};
-					(r = 1).ifTrue {
-						l.add!(Line([q s; 1 1]))
+					(r = 1/1).ifTrue {
+						l.add!(
+							Line([q s; 1/1 1/1])
+						)
 					}
 				}
 			}
 		};
 		GeometryCollection(
 			[
-				Rectangle([0 0], [1 1]),
+				Rectangle([0/1 0/1], [1/1 1/1]),
 				l
 			]
 		)
@@ -1468,15 +1471,15 @@ Plot : [Object] {
 
 }
 
-+Float {
++[Float, Integer] {
 
 	spokePlot { :n :x |
-		let p = n.circlePoints([0 0], 1, 2/3.pi);
+		let p = n.circlePoints([0.0 0.0], 1.0, 2/3.pi);
 		[
-			Circle([0 0], 1),
+			Circle([0.0 0.0], 1.0),
 			PointCloud(p),
 			x.collect { :i |
-				Line([p.atWrap(n - i), [0 0]])
+				Line([p.atWrap(n - i), [0.0 0.0]])
 			}
 		].LineDrawing
 	}
@@ -1682,23 +1685,23 @@ Plot : [Object] {
 	bubbleChart { :self :options |
 		self.rank.caseOf(
 			[
-				2 -> { [self].uncheckedBubbleChart(options) },
-				3 -> { self.uncheckedBubbleChart(options) }
+				2L -> { [self].uncheckedBubbleChart(options) },
+				3L -> { self.uncheckedBubbleChart(options) }
 			]
 		)
 	}
 
 	pieChart { :self |
 		self.collect { :each |
-			[each, 1]
+			[each, 1L]
 		}.sectorChart
 	}
 
 	rectangleChart { :self :options |
 		self.rank.caseOf(
 			[
-				2 -> { [self].uncheckedRectangleChart(options) },
-				3 -> { self.uncheckedRectangleChart(options) }
+				2L -> { [self].uncheckedRectangleChart(options) },
+				3L -> { self.uncheckedRectangleChart(options) }
 			]
 		)
 	}
@@ -1711,20 +1714,24 @@ Plot : [Object] {
 	}
 
 	sectorChart { :dataSet |
-		let chartRadius = 100;
+		let chartRadius = 100.0;
 		let k = dataSet.size;
 		let [xData, yData] = dataSet.reverse.transpose;
-		let theta = xData.foldList(0, +) * (2.pi / xData.sum) + 1.pi;
+		let theta = xData.foldList(0.0, +) * (2.0.pi / xData.sum) + 1.0.pi;
 		let radius = yData * (chartRadius / yData.max);
 		let colourGradient = 'Mathematica'.namedColourGradient('Rainbow');
 		let colourList = colourGradient.resample(k).colourList; /* .inShuffle(2) */
-		1.toCollect(k) { :i |
+		1L.toCollect(k) { :i |
 			AnnotatedGeometry(
-				AnnulusSector([0, 0], [0, radius[i]], [theta[i], theta[i + 1]]),
+				AnnulusSector(
+					[0.0, 0.0],
+					[0.0, radius[i]],
+					[theta[i], theta[i + 1L]]
+				),
 				(
 					fillColour: RgbColour(
 						colourList[i],
-						1
+						1.0
 					)
 				)
 			)

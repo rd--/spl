@@ -9,9 +9,9 @@ _n_ tells the number of nodes along each edge.
 Plot for _1:5_:
 
 ~~~spl svg=A
-let i = (0 -- 1).subdivide(25);
-squareChladniPlateEquation(1, 5)
-.contourPlot(i, i, [0])
+let i = (0.0 -- 1.0).subdivide(25);
+squareChladniPlateEquation(1.0, 5.0)
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/squareChladniPlateEquation-A.svg)
@@ -19,9 +19,9 @@ squareChladniPlateEquation(1, 5)
 Plot for _2:5_:
 
 ~~~spl svg=B
-let i = (0 -- 1).subdivide(25);
-squareChladniPlateEquation(2, 5)
-.contourPlot(i, i, [0])
+let i = (0.0 -- 1.0).subdivide(25);
+squareChladniPlateEquation(2.0, 5.0)
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/squareChladniPlateEquation-B.svg)
@@ -29,9 +29,9 @@ squareChladniPlateEquation(2, 5)
 Plot for _3:5_:
 
 ~~~spl svg=C
-let i = (0 -- 1).subdivide(25);
-squareChladniPlateEquation(3, 5)
-.contourPlot(i, i, [0])
+let i = (0.0 -- 1.0).subdivide(25);
+squareChladniPlateEquation(3.0, 5.0)
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/squareChladniPlateEquation-C.svg)
@@ -39,9 +39,9 @@ squareChladniPlateEquation(3, 5)
 Plot for _4:5_:
 
 ~~~spl svg=D
-let i = (0 -- 1).subdivide(25);
-squareChladniPlateEquation(4, 5)
-.contourPlot(i, i, [0])
+let i = (0.0 -- 1.0).subdivide(25);
+squareChladniPlateEquation(4.0, 5.0)
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/squareChladniPlateEquation-D.svg)
@@ -49,9 +49,9 @@ squareChladniPlateEquation(4, 5)
 Plot for _1:4_:
 
 ~~~spl svg=E
-let i = (0 -- 1).subdivide(25);
-squareChladniPlateEquation(1, 4)
-.contourPlot(i, i, [0])
+let i = (0.0 -- 1.0).subdivide(25);
+squareChladniPlateEquation(1.0, 4.0)
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/squareChladniPlateEquation-E.svg)
@@ -59,9 +59,9 @@ squareChladniPlateEquation(1, 4)
 Plot for _2:4_:
 
 ~~~spl svg=F
-let i = (0 -- 1).subdivide(25);
-squareChladniPlateEquation(2, 4)
-.contourPlot(i, i, [0])
+let i = (0.0 -- 1.0).subdivide(25);
+squareChladniPlateEquation(2.0, 4.0)
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/squareChladniPlateEquation-F.svg)
@@ -69,9 +69,9 @@ squareChladniPlateEquation(2, 4)
 Plot for _2:7_:
 
 ~~~spl svg=G
-let i = (0 -- 1).subdivide(25);
-squareChladniPlateEquation(2, 7)
-.contourPlot(i, i, [0])
+let i = (0.0 -- 1.0).subdivide(25);
+squareChladniPlateEquation(2.0, 7.0)
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/squareChladniPlateEquation-G.svg)

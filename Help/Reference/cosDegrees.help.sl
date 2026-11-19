@@ -35,7 +35,7 @@ Cf. `degree`:
 Non-commensurate waves (quasiperiodic function):
 
 ~~~spl svg=A
-(0 -- (20 * 360)).functionPlot { :x |
+(0.0 -- (20 * 360)).functionPlot { :x |
 	x.cosDegrees + (x * 2.sqrt).cosDegrees
 }
 ~~~

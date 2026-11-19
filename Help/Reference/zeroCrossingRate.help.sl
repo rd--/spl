@@ -15,7 +15,7 @@ or from negative to zero to positive.
 Zero-crossing rate of `sin` signal:
 
 ```
->>> let x = (0 -- 24.5.pi).subdivide(96);
+>>> let x = (0.0 -- 24.5.pi).subdivide(96);
 >>> let y = x.sin;
 >>> (
 >>> 	y.zeroCrossingCount,

@@ -12,7 +12,7 @@ The ratio _1:1_ draws a circle,
 the radius depending on the initial phase difference:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	[0 1/2 3/4].pi.collect { :p |
 		rotaryHarmonographCurve(
 			[1 p 1 0]
@@ -26,7 +26,7 @@ the radius depending on the initial phase difference:
 The ratio _2:1_:
 
 ~~~spl svg=B
-(0 -- 2.pi).discretize(
+(0.0 -- 2.pi).discretize(
 	100,
 	rotaryHarmonographCurve(
 		[2 0 1 0]
@@ -39,7 +39,7 @@ The ratio _2:1_:
 The ratio _-2:1_:
 
 ~~~spl svg=C
-(0 -- 2.pi).discretize(
+(0.0 -- 2.pi).discretize(
 	100,
 	rotaryHarmonographCurve(
 		[-2 0 1 0]
@@ -52,7 +52,7 @@ The ratio _-2:1_:
 The ratio _3:2_:
 
 ~~~spl svg=D
-(0 -- 4.pi).discretize(
+(0.0 -- 4.pi).discretize(
 	100,
 	rotaryHarmonographCurve(
 		[3/2 0 1 0]
@@ -65,7 +65,7 @@ The ratio _3:2_:
 The ratio _-3:2_:
 
 ~~~spl svg=E
-(0 -- 4.pi).discretize(
+(0.0 -- 4.pi).discretize(
 	100,
 	rotaryHarmonographCurve(
 		[-3/2 0 1 0]
@@ -78,7 +78,7 @@ The ratio _-3:2_:
 A near unison:
 
 ~~~spl svg=F
-(0 -- 32.pi).discretize(
+(0.0 -- 32.pi).discretize(
 	400,
 	rotaryHarmonographCurve(
 		[1.05 0 1 0]
@@ -91,7 +91,7 @@ A near unison:
 A near octave, with damping:
 
 ~~~spl svg=G
-(0 -- 64.pi).discretize(
+(0.0 -- 64.pi).discretize(
 	800,
 	rotaryHarmonographCurve(
 		[0.505 2/3.pi 1 0.15]
@@ -104,7 +104,7 @@ A near octave, with damping:
 A near negated octave, with damping:
 
 ~~~spl svg=H
-(0 -- 64.pi).discretize(
+(0.0 -- 64.pi).discretize(
 	800,
 	rotaryHarmonographCurve(
 		[-0.505 2/3.pi 1 0.05]
@@ -117,7 +117,7 @@ A near negated octave, with damping:
 A near fifth, negated:
 
 ~~~spl svg=I
-(0 -- 64.pi).discretize(
+(0.0 -- 64.pi).discretize(
 	800,
 	rotaryHarmonographCurve(
 		[-1.515 0 1 0.35]
@@ -130,7 +130,7 @@ A near fifth, negated:
 A minor sixth:
 
 ~~~spl svg=J
-(0 -- 12.pi).discretize(
+(0.0 -- 12.pi).discretize(
 	800,
 	rotaryHarmonographCurve(
 		[8/5 0 1 0]

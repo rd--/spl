@@ -452,9 +452,9 @@
 	}
 
 	resample { :self :newSize |
-		let factor = (self.size - 1) / (newSize - 1).max(1);
-		0.to(newSize - 1).collect { :each |
-			self.atBlend(1 + (each * factor))
+		let factor = (self.size - 1L) / (newSize - 1L).max(1L);
+		0L.to(newSize - 1L).collect { :each |
+			self.atBlend(1L + (each * factor))
 		}
 	}
 
@@ -465,9 +465,9 @@
 	}
 
 	upsample { :self :anInteger |
-		let answer = List(self.size * anInteger, 0);
-		0.toDo(self.size - 1) { :each |
-			answer[(each * anInteger) + 1] := self[each + 1]
+		let answer = List(self.size * anInteger, self.anyOne.zero);
+		0L.toDo(self.size - 1L) { :each |
+			answer[(each * anInteger) + 1L] := self[each + 1L]
 		};
 		answer
 	}

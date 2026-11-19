@@ -38,7 +38,7 @@ A colour drawing of an 9×9 gradient matrix with the _hue_ parameter traversing 
 
 ~~~spl svg=B
 let n = 9;
-let i = (0 -- 1).discretize(n);
+let i = (0.0 -- 1.0).discretize(n);
 { :h :l |
 	[h, 0.5, l].hslToRgb
 }.table(i, i * 0.5 + 0.3).arrayPlot
@@ -50,7 +50,7 @@ An image of the same gradient matrix at higher resolution:
 
 ~~~spl png=C
 let n = 99;
-let i = (0 -- 1).subdivide(n);
+let i = (0.0 -- 1.0).subdivide(n);
 { :h :l |
 	[h, 0.5, l].hslToRgb
 }.table(i, i * 0.5 + 0.3).Image
@@ -67,7 +67,7 @@ and _l_ is _(0.2,0.8)_ along the _Y_-axis:
 	[h, 1, 1 - l].hslToRgb
 }.table(
 	(0.2 -- 0.8).discretize(75),
-	(0 -- 1).discretize(250)
+	(0.0 -- 1.0).discretize(250)
 ).Image
 ~~~
 

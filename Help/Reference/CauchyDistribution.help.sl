@@ -9,8 +9,8 @@ It is also the distribution of the ratio of two independent normally distributed
 Plot the `pdf` of the Cauchy distribution over a subset of the reals:
 
 ~~~spl svg=A
-(-7 -- 7).functionPlot(
-	CauchyDistribution(0, 2).pdf
+(-7.0 -- 7.0).functionPlot(
+	CauchyDistribution(0.0, 2.0).pdf
 )
 ~~~
 
@@ -19,8 +19,8 @@ Plot the `pdf` of the Cauchy distribution over a subset of the reals:
 Plot the `cdf` of the Cauchy distribution over a subset of the reals:
 
 ~~~spl svg=B
-(-7 -- 7).functionPlot(
-	CauchyDistribution(0, 2).cdf
+(-7.0 -- 7.0).functionPlot(
+	CauchyDistribution(0.0, 2.0).cdf
 )
 ~~~
 
@@ -30,9 +30,9 @@ Plot `quantileFunction` over a subset of the reals:
 
 ~~~spl svg=C
 (0.05 -- 0.95).functionPlot(
-	CauchyDistribution(10, 3.5)
+	CauchyDistribution(10.0, 3.5)
 	.quantileFunction
-	.clip(-30, 50)
+	.clip(-30.0, 50.0)
 )
 ~~~
 
@@ -42,8 +42,8 @@ Plot `randomVariate`, clamped to _(-1, 1)_:
 
 ~~~spl svg=D
 let r = Sfc32(14232);
-CauchyDistribution(0, 0.025)
-.randomVariate(r, 99)
+CauchyDistribution(0.0, 0.025)
+.randomVariate(r, 99L)
 .clip
 .linePlot
 ~~~
@@ -54,8 +54,8 @@ Two dimensional Cauchy noise:
 
 ~~~spl png=E
 let r = Sfc32(189040);
-CauchyDistribution(0, 0.025)
-.randomVariate(r, [100 100])
+CauchyDistribution(0.0, 0.025)
+.randomVariate(r, [100L 100L])
 .clip
 .rescale
 .Greymap
@@ -67,9 +67,9 @@ Generate a sample of pseudorandom numbers from a Cauchy distribution:
 
 ~~~spl svg=F
 let r = Sfc32(387041);
-CauchyDistribution(3, 2.5)
-.randomVariate(r, [10 ^ 4])
-.histogramPlot([-18 20 1])
+CauchyDistribution(3.0, 2.5)
+.randomVariate(r, [10L ^ 4L])
+.histogramPlot([-18.0 20.0 1.0])
 ~~~
 
 ![](Help/Image/CauchyDistribution-F.svg)
@@ -78,8 +78,8 @@ Plot unclamped random variate:
 
 ~~~spl svg=G
 let r = Sfc32(789413);
-CauchyDistribution(0, 1 / 9)
-.randomVariate(r, [99])
+CauchyDistribution(0.0, 1.0 / 9.0)
+.randomVariate(r, [99L])
 .linePlot
 ~~~
 
@@ -88,12 +88,12 @@ CauchyDistribution(0, 1 / 9)
 Plot a Lévy flight in two dimensions:
 
 ~~~spl svg=H
-let k = 750;
+let k = 750L;
 let r = Sfc32(768712);
-let d = CauchyDistribution(0, 1);
-let u = r.randomReal([0 2.pi], [k]);
+let d = CauchyDistribution(0.0, 1.0);
+let u = r.randomReal([0.0 2.pi], [k]);
 let v = d.randomVariate(r, [k]);
-u.anglePath(v, [0 0], 0).Line
+u.anglePath(v, [0.0 0.0], 0.0).Line
 ~~~
 
 ![](Help/Image/CauchyDistribution-H.svg)

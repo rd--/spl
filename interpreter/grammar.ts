@@ -240,8 +240,8 @@ Sl {
 	complexLiteral = integerOrFloatLiteral ("j" | "J") integerOrFloatLiteral // S
 	imaginaryLiteral = integerOrFloatLiteral ("i" | "I") // S
 	residueLiteral = integerLiteral ("z" | "Z") digit+ // S
-	fractionLiteral = plusOrMinus? digits ("/" | "R") digits // S
-	largeIntegerLiteral = plusOrMinus? decimalDigits "L" // S
+	fractionLiteral = plusOrMinus? digits ("/" | "r" | "R") digits // S
+	largeIntegerLiteral = plusOrMinus? decimalDigits ("l" | "L") // S
     radixDigit = digit | "A" | "B" | "C" | "D" | "E" | "F" // S
 	radixDigitOrUnderscore = radixDigit | "_" // S
 	radixDigits = radixDigit radixDigitOrUnderscore* // S

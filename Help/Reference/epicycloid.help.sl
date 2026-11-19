@@ -8,7 +8,7 @@ where the parameter _h_ is set to _b_.
 An epicycloid with one cusp is called a cardioid:
 
 ~~~spl svg=A
-(0 -- 2.pi).subdivide(100)
+(0.0 -- 2.pi).subdivide(100)
 .collect(epicycloid(1, 1))
 .Line
 ~~~
@@ -18,7 +18,7 @@ An epicycloid with one cusp is called a cardioid:
 An epicycloid with two cusps is called a nephroid:
 
 ~~~spl svg=B
-(0 -- 2.pi).subdivide(100)
+(0.0 -- 2.pi).subdivide(100)
 .collect(epicycloid(2, 1))
 .Line
 ~~~
@@ -28,7 +28,7 @@ An epicycloid with two cusps is called a nephroid:
 An epicycloid with five cusps is called a ranunculoid:
 
 ~~~spl svg=C
-(0 -- 2.pi).subdivide(100)
+(0.0 -- 2.pi).subdivide(100)
 .collect(epicycloid(5, 1))
 .Line
 ~~~
@@ -38,7 +38,7 @@ An epicycloid with five cusps is called a ranunculoid:
 An epicycloid with non-integer _a_ and period _4π_:
 
 ~~~spl svg=D
-(0 -- 4.pi).subdivide(200)
+(0.0 -- 4.pi).subdivide(200)
 .collect(epicycloid(11 / 2, 1))
 .Line
 ~~~

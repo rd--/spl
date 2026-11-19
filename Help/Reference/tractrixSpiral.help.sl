@@ -9,8 +9,8 @@ studied by Huygens and Varignon in 1704.
 Tractrix spiral:
 
 ~~~spl svg=A
-let f/1 = tractrixSpiral(1);
-(0 -- 1.5275.log).subdivide(500)
+let f/1 = tractrixSpiral(1.0);
+(0.0 -- 1.5275.log).subdivide(500L)
 .collect { :t |
 	f(t.exp)
 }.Line

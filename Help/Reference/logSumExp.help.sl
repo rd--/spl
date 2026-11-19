@@ -44,7 +44,7 @@ in the same way that `sum` of `log` is equal to `log` of `product`:
 Surface plot:
 
 ~~~spl svg=A
-(-2 -- 4).surfacePlot { :x :y |
+(-2.0 -- 4.0).surfacePlot { :x :y |
 	[x y].logSumExp * 3
 }
 ~~~
@@ -54,7 +54,7 @@ Surface plot:
 Matrix plot:
 
 ~~~spl svg=B
-let i = (-2 -- 4).discretize(12);
+let i = (-2.0 -- 4.0).discretize(12);
 { :a :b |
 	[a b].logSumExp
 }.table(i, i).matrixPlot
@@ -65,7 +65,7 @@ let i = (-2 -- 4).discretize(12);
 Compare to surface plot of `max`:
 
 ~~~spl svg=C
-(-2 -- 4).surfacePlot { :x :y |
+(-2.0 -- 4.0).surfacePlot { :x :y |
 	[x y].max * 3
 }
 ~~~

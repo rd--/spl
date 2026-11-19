@@ -83,7 +83,7 @@ OEIS [A093178](https://oeis.org/A093178):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot { :x |
+(-3.0 -- 3.0).functionPlot { :x |
 	x.cot.clip(-6, 6)
 }
 ~~~

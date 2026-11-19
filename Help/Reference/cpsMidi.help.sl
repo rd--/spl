@@ -60,7 +60,7 @@ each twelve steps is an octave:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(20 -- 1280).functionPlot(cpsMidi/1)
+(20.0 -- 1280.0).functionPlot(cpsMidi/1)
 ~~~
 
 ![](Help/Image/cpsMidi-A.svg)

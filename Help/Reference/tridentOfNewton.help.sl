@@ -18,7 +18,7 @@ Trident of Newton, all parameters `one`:
 Three tridents of Newton:
 
 ~~~spl svg=B
-(-3 -- 3).functionPlot(
+(-3.0 -- 3.0).functionPlot(
 	[
 		1 1 1 -1;
 		-1 -1 -1 1;

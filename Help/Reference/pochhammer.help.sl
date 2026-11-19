@@ -85,7 +85,7 @@ Plot over a subset of the complexes:
 Plot the Pochhammer function for various orders:
 
 ~~~spl svg=C
-(-4 -- 4).functionPlot(
+(-4.0 -- 4.0).functionPlot(
 	[1 2 3 4].collect { :n |
 		{ :a |
 			pochhammer(a, n)
@@ -100,7 +100,7 @@ Plot the Pochhammer function for various orders:
 Plot the Pochhammer function varying _a_:
 
 ~~~spl svg=D
-(-6 -- 2).functionPlot(
+(-6.0 -- 2.0).functionPlot(
 	[0 1 2 3 4].collect { :a |
 		{ :n |
 			pochhammer(a, n)

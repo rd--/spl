@@ -21,7 +21,7 @@ Threads over lists, zero at each end-point:
 Cosine window function:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(cosineWindow/1)
+(-1.0 -- 1.0).functionPlot(cosineWindow/1)
 ~~~
 
 ![](Help/Image/cosineWindow-A.svg)
@@ -29,7 +29,7 @@ Cosine window function:
 Shape of a cosine window using a specified parameter:
 
 ~~~spl svg=B
-(-1 -- 1).functionPlot { :x |
+(-1.0 -- 1.0).functionPlot { :x |
 	x.cosineWindow(3)
 }
 ~~~

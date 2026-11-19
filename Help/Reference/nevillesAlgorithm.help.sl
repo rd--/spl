@@ -25,7 +25,7 @@ Plot interpolation of an inflected line:
 
 ~~~spl svg=A
 let m = [1 0.75; 1.3 0.63; 1.5 0.55; 2 0.49];
-(1 -- 2).functionPlot { :x |
+(1.0 -- 2.0).functionPlot { :x |
 	let [y] = x.nevillesAlgorithm(m).last;
 	y
 }
@@ -37,7 +37,7 @@ Plot interpolation of a triangular signal:
 
 ~~~spl svg=B
 let m = [0 0; 1 1; 2 0; 3 -1; 4 0];
-(0 -- 4).functionPlot { :x |
+(0.0 -- 4.0).functionPlot { :x |
 	let [y] = x.nevillesAlgorithm(m).last;
 	[x, y]
 }

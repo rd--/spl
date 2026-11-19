@@ -26,7 +26,7 @@ Threads over lists:
 The unit step function:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(unitStep/1)
+(-1.0 -- 1.0).functionPlot(unitStep/1)
 ~~~
 
 ![](Help/Image/unitStep-A.svg)
@@ -34,7 +34,7 @@ The unit step function:
 The unit step function in two dimensions:
 
 ~~~spl svg=B
-(-1 -- 1).surfacePlot { :x :y |
+(-1.0 -- 1.0).surfacePlot { :x :y |
 	(x, y).unitStep * 23
 }
 ~~~
@@ -44,7 +44,7 @@ The unit step function in two dimensions:
 Generate a square wave:
 
 ~~~spl svg=C
-(0 -- 10).functionPlot { :x |
+(0.0 -- 10.0).functionPlot { :x |
 	x.pi.sin.unitStep
 }
 ~~~

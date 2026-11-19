@@ -10,8 +10,8 @@ The reciprocal distribution is also called the log-uniform distribution.
 Plot `pdf` over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 5).functionPlot(
-	ReciprocalDistribution(1, 4).pdf
+(0.0 -- 5.0).functionPlot(
+	ReciprocalDistribution(1.0, 4.0).pdf
 )
 ~~~
 
@@ -20,8 +20,8 @@ Plot `pdf` over a subset of the reals:
 Plot `cdf` over a subset of the reals:
 
 ~~~spl svg=B
-(0 -- 5).functionPlot(
-	ReciprocalDistribution(1, 4).cdf
+(0.0 -- 5.0).functionPlot(
+	ReciprocalDistribution(1.0, 4.0).cdf
 )
 ~~~
 
@@ -31,9 +31,9 @@ Plot histogram of `randomVariate`:
 
 ~~~spl svg=C
 let r = Sfc32(781932);
-ReciprocalDistribution(1, 4)
-.randomVariate(r, [10 ^ 4])
-.histogramPlot([0 5 0.25])
+ReciprocalDistribution(1.0, 4.0)
+.randomVariate(r, [10L ^ 4L])
+.histogramPlot([0.0 5.0 0.25])
 ~~~
 
 ![](Help/Image/ReciprocalDistribution-C.svg)
@@ -42,8 +42,8 @@ Plot histogram of `log` of `randomVariate`:
 
 ~~~spl svg=D
 let r = Sfc32(479318);
-ReciprocalDistribution(1, 4)
-.randomVariate(r, [10 ^ 4])
+ReciprocalDistribution(1.0, 4.0)
+.randomVariate(r, [10L ^ 4L])
 .log
 .histogramPlot
 ~~~

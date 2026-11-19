@@ -705,7 +705,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		};
 		let ref = { :p |
 			p.collect { :x |
-				x - (2 * x.real)
+				x - (2.0 * x.real)
 			}
 		};
 		let cyclic = { :p |
@@ -738,9 +738,9 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 			[[0J0]]
 		} {
 			let a = [];
-			let fig = (n - 1).polyominoes.collect { :f |
+			let fig = (n - 1.0).polyominoes.collect { :f |
 				f.collect { :x |
-					[f, x + 1, f, x + 1I, f, x - 1, f, x - 1I]
+					[f, x + 1.0, f, x + 1I, f, x - 1.0, f, x - 1I]
 				}
 			}.flatten.partition(n);
 			let f = fig.collect(canonical/1).unique(=).select { :x |

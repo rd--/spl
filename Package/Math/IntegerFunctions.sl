@@ -369,12 +369,12 @@
 	}
 
 	divisorSum { :self :aBlock/1 |
-		self.divisors.collect(aBlock/1).sum
+		self.divisors.sum(aBlock/1)
 	}
 
 	divisorSummatoryFunction { :x |
 		let u = x.isqrt;
-		2 * 1.to(u).sum { :k |
+		2L * 1L.to(u).sum { :k |
 			(x / k).floor
 		} - u.square
 	}
@@ -1500,10 +1500,10 @@
 	}
 
 	rudinShapiro { :n |
-		let b = n.integerDigits(2);
+		let b = n.integerDigits(2L);
 		let k = b.size;
-		-1 ^ 1.to(k - 1).sum { :i |
-			b[i] * b[i + 1]
+		-1L ^ 1L.to(k - 1L).sum { :i |
+			b[i] * b[i + 1L]
 		}
 	}
 
@@ -1582,7 +1582,7 @@
 	}
 
 	subdivide { :self |
-		Range(0, 1, Fraction(1, self))
+		Range(0/1, 1/1, Fraction(1L, self))
 	}
 
 	ternaryExpansion { :n |

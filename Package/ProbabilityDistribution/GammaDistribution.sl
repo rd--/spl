@@ -1,37 +1,37 @@
 +@RandomNumberGenerator {
 
 	chiSquareistribution { :self :nu |
-		self.gammaDistribution(nu / 2, 2)
+		self.gammaDistribution(nu / 2.0, 2.0)
 	}
 
 	gammaDistribution { :self :alpha :beta |
 		let a = nil;
 		let aFix = nil;
-		(alpha < 1).if {
-			a := alpha + 1;
-			aFix := self.nextRandomFloat ^ (1 / alpha)
+		(alpha < 1.0).if {
+			a := alpha + 1.0;
+			aFix := self.nextRandomFloat ^ (1.0 / alpha)
 		} {
 			a := alpha;
-			aFix := 1
+			aFix := 1.0
 		};
-		let d = a - (1 / 3);
-		let c = 1 / (9 * d).sqrt;
+		let d = a - (1.0 / 3.0);
+		let c = 1.0 / (9.0 * d).sqrt;
 		let u = nil;
 		let v = nil;
 		let x = nil;
 		{
 			{
-				x := self.normalDistribution(0, 1);
-				v := 1 + (c * x)
+				x := self.normalDistribution(0.0, 1.0);
+				v := 1.0 + (c * x)
 			}.doWhileTrue {
-				v <= 0
+				v <= 0.0
 			};
 			v := v * v * v;
 			x := x * x;
 			u := self.nextRandomFloat
 		}.doWhileTrue {
-			u >= (1 - (0.0331 * x * x)) | {
-				u.log >= ((0.5 * x) + (d * (1 - v + v.log)))
+			u >= (1.0 - (0.0331 * x * x)) | {
+				u.log >= ((0.5 * x) + (d * (1.0 - v + v.log)))
 			}
 		};
 		aFix * d * v * beta

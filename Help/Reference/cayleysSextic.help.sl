@@ -7,7 +7,7 @@ Curve studied by Maclaurin in 1718.
 Draw curve:
 
 ~~~spl svg=A
-(0 -- 1.pi).discretize(
+(0.0 -- 1.pi).discretize(
 	100,
 	cayleysSextic/1
 ).Line

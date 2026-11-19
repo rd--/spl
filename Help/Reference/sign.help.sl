@@ -162,7 +162,7 @@ Unary `*` is sometimes defined to be `sign`:
 Plot the `real` part of the `sign` function:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot { :x |
+(-3.0 -- 3.0).functionPlot { :x |
 	x.J(1).sign.real
 }
 ~~~
@@ -172,7 +172,7 @@ Plot the `real` part of the `sign` function:
 Plot the `imaginary` part of the `sign` function:
 
 ~~~spl svg=B
-(-3 -- 3).functionPlot { :x |
+(-3.0 -- 3.0).functionPlot { :x |
 	x.J(1).sign.imaginary
 }
 ~~~

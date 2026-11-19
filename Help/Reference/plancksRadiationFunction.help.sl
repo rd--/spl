@@ -33,7 +33,7 @@ Inflections:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 2).functionPlot(
+(0.0 -- 2.0).functionPlot(
 	plancksRadiationFunction/1
 )
 ~~~

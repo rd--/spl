@@ -76,7 +76,7 @@ Maclaurin series for calculating the `erf`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(erf/1)
+(-3.0 -- 3.0).functionPlot(erf/1)
 ~~~
 
 ![](Help/Image/erf-A.svg)
@@ -94,7 +94,7 @@ Plot a clothoid:
 Plot the cumulative distribution function of the normal distribution with μ=0 and σ=1:
 
 ~~~spl svg=C
-(-3 -- 3).functionPlot { :x |
+(-3.0 -- 3.0).functionPlot { :x |
 	(1 + erf(x / 2.sqrt)) / 2
 }
 ~~~
@@ -108,7 +108,7 @@ let t = 0.1;
 let a = 5;
 let k = 2;
 let b = 1;
-(-4 -- 6).functionPlot { :x |
+(-4.0 -- 6.0).functionPlot { :x |
 	(a / 2) * (erf((x - b) / sqrt(4 * k * t)))
 }
 ~~~

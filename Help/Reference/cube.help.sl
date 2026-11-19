@@ -142,7 +142,7 @@ OEIS [A000578](https://oeis.org/A000578):
 _x³_ plotted on a Cartesian plane:
 
 ~~~spl svg=C
-(-2 -- 2).functionPlot(cube/1)
+(-2.0 -- 2.0).functionPlot(cube/1)
 ~~~
 
 ![](Help/Image/cube-C.svg)

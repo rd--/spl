@@ -110,7 +110,7 @@ OEIS [A011039](https://oeis.org/A011039):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	[1 3 5 7].collect { :n |
 		{ :x |
 			x.nthRoot(n)
@@ -124,7 +124,7 @@ Plot over a subset of the reals:
 Plot a composition of `nthRoot`:
 
 ~~~spl svg=B
-(-5 -- 5).functionPlot { :x |
+(-5.0 -- 5.0).functionPlot { :x |
 	{ :n |
 		(1 + n).nthRoot(3)
 	}.iterate(x, 5)
@@ -136,7 +136,7 @@ Plot a composition of `nthRoot`:
 Polar plot:
 
 ~~~spl svg=C
-(0 -- 6.pi).polarPlot { :theta |
+(0.0 -- 6.pi).polarPlot { :theta |
 	theta.nthRoot(3)
 }
 ~~~

@@ -106,7 +106,7 @@ OEIS [A131503](https://oeis.org/A131503):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(cos/1)
+(0.0 -- 2.pi).functionPlot(cos/1)
 ~~~
 
 ![](Help/Image/cos-A.svg)
@@ -114,7 +114,7 @@ Plot over a subset of the reals:
 Increasing amplitude:
 
 ~~~spl svg=B
-(0 -- 16.pi).functionPlot { :u | u * u.cos }
+(0.0 -- 16.pi).functionPlot { :u | u * u.cos }
 ~~~
 
 ![](Help/Image/cos-B.svg)
@@ -122,7 +122,7 @@ Increasing amplitude:
 Noncommensurate waves (quasiperiodic function):
 
 ~~~spl svg=C
-(0 -- 16.pi).functionPlot { :x |
+(0.0 -- 16.pi).functionPlot { :x |
 	x.cos + (x * 2.sqrt).cos
 }
 ~~~
@@ -132,7 +132,7 @@ Noncommensurate waves (quasiperiodic function):
 Spiral:
 
 ~~~spl svg=D
-(0 -- 6.pi).subdivide(200).collect { :t |
+(0.0 -- 6.pi).subdivide(200).collect { :t |
 	[
 		t / 1.pi * t.cos,
 		t / 1.pi * t.sin
@@ -166,7 +166,7 @@ Chirp signal:
 Phase warping and amplitude modulation:
 
 ~~~spl svg=G
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	let p = 50 * (x ^ x);
 	let a = 1 / ((2 * x) + 1);
 	p.cos * a

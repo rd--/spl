@@ -7,10 +7,10 @@ Answer the implicit form of the trident of Newton.
 Plot at _z=0_:
 
 ~~~spl svg=A
-let i = (-10 -- 10).subdivide(100);
-[1 1 1 1]
+let i = (-10.0 -- 10.0).subdivide(100);
+[1.0 1.0 1.0 1.0]
 .tridentCurve
-.contourPlot(i, i, [0])
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/tridentCurve-A.svg)

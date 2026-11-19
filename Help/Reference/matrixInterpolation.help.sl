@@ -7,7 +7,7 @@ Answer a `Block` that will interpolate into the matrix _m_ using the interpolati
 Resample a 3×3 matrix to a 6×6 matrix:
 
 ```
->>> let i = (1 -- 3).discretize(6);
+>>> let i = (1.0 -- 3.0).discretize(6);
 >>> [1 2 3; 2 3 4; 3 4 5]
 >>> .matrixInterpolation(
 >>> 	bilinearInterpolation/6
@@ -26,8 +26,8 @@ Resample a 3×3 matrix to a 6×6 matrix:
 Resample a 2×3 matrix to a 4×7 matrix:
 
 ```
->>> let i = (1 -- 2).discretize(4);
->>> let j = (1 -- 3).discretize(7);
+>>> let i = (1.0 -- 2.0).discretize(4);
+>>> let j = (1.0 -- 3.0).discretize(7);
 >>> [1 2 3; 4 5 6]
 >>> .matrixInterpolation(
 >>> 	bilinearInterpolation/6
@@ -39,7 +39,7 @@ Resample a 2×3 matrix to a 4×7 matrix:
 Resample a 2×2 matrix to a 24×24 matrix and plot:
 
 ~~~spl svg=A
-let i = (1 -- 2).subdivide(23);
+let i = (1.0 -- 2.0).subdivide(23);
 [1 0.5; 0 1]
 .matrixInterpolation(
 	bilinearInterpolation/6

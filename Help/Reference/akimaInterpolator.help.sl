@@ -20,7 +20,7 @@ Plot an interpolation over the specified _x_ range:
 let x = [0 0.1 0.5 1 2];
 let y = [0 0.3 0.6 -0.2 3];
 let f/1 = x.akimaInterpolator(y);
-(0 -- 2).functionPlot(f/1)
+(0.0 -- 2.0).functionPlot(f/1)
 ~~~
 
 ![](Help/Image/akimaInterpolator-A.svg)

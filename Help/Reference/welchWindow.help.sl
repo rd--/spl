@@ -21,7 +21,7 @@ Threads over lists, zero at each end-point:
 The Welch window function:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(welchWindow/1)
+(-1.0 -- 1.0).functionPlot(welchWindow/1)
 ~~~
 
 ![](Help/Image/welchWindow-A.svg)
@@ -29,7 +29,7 @@ The Welch window function:
 Shape of a _Welch_ window using a specified parameter:
 
 ~~~spl svg=B
-(-1 -- 1).functionPlot { :x |
+(-1.0 -- 1.0).functionPlot { :x |
 	x.welchWindow(1.2)
 }
 ~~~

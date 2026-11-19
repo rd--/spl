@@ -7,8 +7,9 @@ Answer the implicit form of the elliptic curve, _x³+ax+b-y²=0_.
 Plot at _a=-2,b=-1_:
 
 ~~~spl svg=A
-let i = (-3 -- 3).subdivide(35);
-ellipticCurve(-2, -1).contourPlot(i, i, [0])
+let i = (-3.0 -- 3.0).subdivide(35);
+ellipticCurve(-2.0, -1.0)
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/ellipticCurve-A.svg)
@@ -16,8 +17,9 @@ ellipticCurve(-2, -1).contourPlot(i, i, [0])
 Plot at _a=-1,b=0_:
 
 ~~~spl svg=B
-let i = (-3 -- 3).subdivide(35);
-ellipticCurve(-1, 0).contourPlot(i, i, [0])
+let i = (-3.0 -- 3.0).subdivide(35);
+ellipticCurve(-1.0, 0.0)
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/ellipticCurve-B.svg)
@@ -25,8 +27,9 @@ ellipticCurve(-1, 0).contourPlot(i, i, [0])
 Plot at _a=0,b=1_:
 
 ~~~spl svg=C
-let i = (-3 -- 3).subdivide(35);
-ellipticCurve(0, 1).contourPlot(i, i, [0])
+let i = (-3.0 -- 3.0).subdivide(35);
+ellipticCurve(0.0, 1.0)
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/ellipticCurve-C.svg)
@@ -34,8 +37,9 @@ ellipticCurve(0, 1).contourPlot(i, i, [0])
 Plot at _a=1,b=2_:
 
 ~~~spl svg=D
-let i = (-3 -- 3).subdivide(35);
-ellipticCurve(1, 2).contourPlot(i, i, [0])
+let i = (-3.0 -- 3.0).subdivide(35);
+ellipticCurve(1.0, 2.0)
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/ellipticCurve-D.svg)
@@ -43,8 +47,9 @@ ellipticCurve(1, 2).contourPlot(i, i, [0])
 Plot at _a=-2,b=2_:
 
 ~~~spl svg=E
-let i = (-3 -- 3).subdivide(35);
-ellipticCurve(-2, 2).contourPlot(i, i, [0])
+let i = (-3.0 -- 3.0).subdivide(35);
+ellipticCurve(-2.0, 2.0)
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/ellipticCurve-E.svg)

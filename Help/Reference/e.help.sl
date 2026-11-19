@@ -87,7 +87,7 @@ OEIS [A000062](https://oeis.org/A000062):
 The graph of _eˣ_ has gradient `one` at `zero`:
 
 ~~~spl svg=A
-(-2 -- 1).functionPlot([
+(-2.0 -- 1.0).functionPlot([
 	{ :x | x + 1 },
 	{ :x | 1.e ^ x }
 ])

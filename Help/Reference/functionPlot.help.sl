@@ -13,7 +13,7 @@ plot each function atop the previous.
 Plot one cycle of the sine function:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(sin/1)
+(0.0 -- 2.pi).functionPlot(sin/1)
 ~~~
 
 ![](Help/Image/functionPlot-A.svg)
@@ -21,7 +21,7 @@ Plot one cycle of the sine function:
 Plot a `sin` function, defined as a block literal, over an interval:
 
 ~~~spl svg=B
-(0 -- 15).functionPlot { :x |
+(0.0 -- 15.0).functionPlot { :x |
 	2 * x.sin + x
 }
 ~~~
@@ -31,7 +31,7 @@ Plot a `sin` function, defined as a block literal, over an interval:
 Function with varying rate of change:
 
 ~~~spl svg=C
-(0 -- 2.pi).functionPlot { :x |
+(0.0 -- 2.pi).functionPlot { :x |
 	(15 * x.sin).sin
 }
 ~~~
@@ -41,7 +41,7 @@ Function with varying rate of change:
 Plot range selection:
 
 ~~~spl svg=D
-(-1 -- 1).functionPlot { :x |
+(-1.0 -- 1.0).functionPlot { :x |
 	(1 / x).clip(-10, 10)
 }
 ~~~
@@ -51,7 +51,7 @@ Plot range selection:
 Exclude non-real values:
 
 ~~~spl svg=E
-(-1 -- 1).functionPlot { :x |
+(-1.0 -- 1.0).functionPlot { :x |
 	let y = x.sqrt;
 	y.isComplex.if { 0 } { y }
 }
@@ -62,7 +62,7 @@ Exclude non-real values:
 Function with discontinuities:
 
 ~~~spl svg=F
-(0 -- 100).functionPlot { :x |
+(0.0 -- 100.0).functionPlot { :x |
 	x.sqrt.floor
 }
 ~~~
@@ -82,7 +82,7 @@ Focusing on areas of interest:
 Log plot:
 
 ~~~spl svg=H
-(-4 -- 8).functionPlot { :x |
+(-4.0 -- 8.0).functionPlot { :x |
 	x.gamma.abs.log
 }
 ~~~
@@ -92,7 +92,7 @@ Log plot:
 Zero crossings:
 
 ~~~spl svg=I
-(0 -- 20).functionPlot { :x |
+(0.0 -- 20.0).functionPlot { :x |
 	(2.sqrt * x).sin + x.sin
 }
 ~~~
@@ -138,7 +138,7 @@ Answering `Complex` values, plot _real_ and _imaginary_ parts as _x,y_,
 a spiral:
 
 ~~~spl svg=M
-(0 -- 1).functionPlot { :t |
+(0.0 -- 1.0).functionPlot { :t |
 	t * (2.pi * 1.i * t).exp
 }
 ~~~
@@ -172,7 +172,7 @@ where the _x_ parameter block is the identity.
 A `sin` function:
 
 ~~~spl svg=P
-(0 -- 5).functionPlot { :x |
+(0.0 -- 5.0).functionPlot { :x |
 	(x ^ 2).sin
 }
 ~~~
@@ -182,7 +182,7 @@ A `sin` function:
 The same `sin` function at `parametricPlot`:
 
 ~~~spl svg=Q
-(0 -- 5).parametricPlot { :u |
+(0.0 -- 5.0).parametricPlot { :u |
 	u
 } { :u |
 	(u ^ 2).sin
@@ -194,7 +194,7 @@ The same `sin` function at `parametricPlot`:
 Plot multiple functions:
 
 ~~~spl svg=R
-(0 -- 1.pi).functionPlot([
+(0.0 -- 1.pi).functionPlot([
 	{ :x | x.sin },
 	{ :x | (2 * x).sin },
 	{ :x | (3 * x).sin }
@@ -206,7 +206,7 @@ Plot multiple functions:
 Plot `sin` and `cos`:
 
 ~~~spl svg=S
-(0 -- 2.pi).functionPlot([sin/1, cos/1])
+(0.0 -- 2.pi).functionPlot([sin/1, cos/1])
 ~~~
 
 ![](Help/Image/functionPlot-S.svg)
@@ -214,7 +214,7 @@ Plot `sin` and `cos`:
 Plot two `sin` functions:
 
 ~~~spl svg=T
-(0 -- 3.pi).functionPlot([
+(0.0 -- 3.pi).functionPlot([
 	{ :x | x.sin + (x / 2) },
 	{ :x | x.sin + x }
 ])
@@ -225,7 +225,7 @@ Plot two `sin` functions:
 Trace over a sphere:
 
 ~~~spl svg=U
-(0 -- 1.pi).functionPlot { :t |
+(0.0 -- 1.pi).functionPlot { :t |
 	[
 		t.sin * (10 * t).cos,
 		t.sin * (10 * t).sin,
@@ -267,7 +267,7 @@ Plot a helix:
 ~~~spl svg=X
 let r = 2;
 let c = 1;
-(0 -- 3.pi).functionPlot { :t |
+(0.0 -- 3.pi).functionPlot { :t |
 	[r * t.cos, r * t.sin, c * t]
 }
 ~~~
@@ -277,7 +277,7 @@ let c = 1;
 Plot a trefoil knot:
 
 ~~~spl svg=Y
-(0 -- 2.pi).functionPlot { :t |
+(0.0 -- 2.pi).functionPlot { :t |
 	let x = t.sin + (2 * (2 * t).sin);
 	let y = t.cos - (2 * (2 * t).cos);
 	let z = 0 - (3 * t).sin;
@@ -292,7 +292,7 @@ Plot a (2,3)-torus knot:
 ~~~spl svg=Z
 let p = 2;
 let q = 3;
-(0 -- 2.pi).functionPlot { :t |
+(0.0 -- 2.pi).functionPlot { :t |
 	let r = p + (q * t).cos;
 	let x = r * (p * t).cos;
 	let y = r * (p * t).sin;

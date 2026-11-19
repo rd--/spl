@@ -25,13 +25,13 @@ At `Interval`,
 also called `upperBound` and `supremum`:
 
 ```
->>> (1 -- 9).max
+>>> (1.0 -- 9.0).max
 9
 
->>> (1 -- 9).upperBound
+>>> (1.0 -- 9.0).upperBound
 9
 
->>> (1 -- 9).supremum
+>>> (1.0 -- 9.0).supremum
 9
 ```
 

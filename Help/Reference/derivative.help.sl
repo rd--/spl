@@ -42,7 +42,7 @@ sin/1
 Plot derivatives of `sin`:
 
 ~~~spl svg=A
-(0 -- 3.pi).functionPlot(
+(0.0 -- 3.pi).functionPlot(
 	0:3.collect { :n |
 		sin/1.derivative(n)
 	}

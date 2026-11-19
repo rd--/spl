@@ -7,7 +7,7 @@ The superformula is a generalisation of the `Superellipse` proposed by Johan Gie
 A sixteen pointed snowflake like curve:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	superformulaCurve(
 		1, 1, 16, 0.5, 0.5, 16
 	)
@@ -19,7 +19,7 @@ A sixteen pointed snowflake like curve:
 A pinched rectangular curve:
 
 ~~~spl svg=B
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	superformulaCurve(
 		1, 1, 4, 0.5, 0.5, 4
 	)
@@ -31,7 +31,7 @@ A pinched rectangular curve:
 A seven pointed blob:
 
 ~~~spl svg=C
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	superformulaCurve(
 		1, 1, 7, 3, 4, 17
 	)

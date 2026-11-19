@@ -58,7 +58,7 @@ Evaluate symbolically:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(
+(-2.0 -- 2.0).functionPlot(
 	fibonacciClosedForm/1
 )
 ~~~

@@ -29,7 +29,7 @@ The area under the Bohman window:
 The Bohman window:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	bohmanWindow/1
 )
 ~~~

@@ -4,13 +4,14 @@
 
 Answer the _(x,y)_ Cartesian coordinates corresponding to the bipolar coordinates _(σ,τ)_,
 where σ is in _[0,2π)_ and τ is in _(-∞,∞)_.
+_a_ is a multiplier for _(x,y)_.
 
 A curve with constant τ in bipolar coordinates,
 is a circle in cartesian coordinates:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot { :sigma |
-	fromBipolarCoordinates(1, [sigma, 1])
+(0.0 -- 2.pi).functionPlot { :sigma |
+	fromBipolarCoordinates(1.0, [sigma, 1.0])
 }
 ~~~
 
@@ -21,8 +22,8 @@ is a circle in cartesian coordinates,
 note spacing of coordinates:
 
 ~~~spl svg=B
-(-7 -- 7).subdivide(100).collect { :tau |
-	fromBipolarCoordinates(1, [1, tau])
+(-7.0 -- 7.0).subdivide(100L).collect { :tau |
+	fromBipolarCoordinates(1.0, [1.0, tau])
 }.PointSet
 ~~~
 
@@ -31,11 +32,11 @@ note spacing of coordinates:
 Plot varying τ:
 
 ~~~spl svg=C
-(0 -- 2.pi).functionPlot(
-	[0.5, 0.75 .. 2].collect { :tau |
+(0.0 -- 2.pi).functionPlot(
+	[0.5, 0.75 .. 2.0].collect { :tau |
 		{ :sigma |
 			fromBipolarCoordinates(
-				1,
+				1.0,
 				[sigma, tau]
 			)
 		}
@@ -48,10 +49,10 @@ Plot varying τ:
 Plot varying σ:
 
 ~~~spl svg=D
-[0.75, 1 .. 2.5].collect { :sigma |
-	(-5 -- 5).subdivide(100).collect { :tau |
+[0.75, 1.0 .. 2.5].collect { :sigma |
+	(-5.0 -- 5.0).subdivide(100L).collect { :tau |
 		fromBipolarCoordinates(
-			1,
+			1.0,
 			[sigma, tau]
 		)
 	}.PointSet
@@ -63,15 +64,15 @@ Plot varying σ:
 Draw Apollonian circles:
 
 ~~~spl svg=E
-let k = 50;
-let n = 4;
+let k = 50L;
+let n = 4L;
 let c = { :x |
-	fromBipolarCoordinates(1, x)
+	fromBipolarCoordinates(1.0, x)
 };
 let sigmaCircles = { :i |
 	i.subdivide(n).collect { :sigma |
-		(-10 -- 10).subdivide(
-			k * 3
+		(-10.0 -- 10.0).subdivide(
+			k * 3L
 		).collect { :tau |
 			c([sigma, tau])
 		}
@@ -89,8 +90,8 @@ let tauCircles = { :i |
 [
 	sigmaCircles(0.5 -- 0.5.pi),
 	sigmaCircles(-0.5.pi -- -0.5),
-	tauCircles(0.5 -- 2),
-	tauCircles(-2 -- -0.5)
+	tauCircles(0.5 -- 2.0),
+	tauCircles(-2.0 -- -0.5)
 ].catenate.linePlot
 ~~~
 

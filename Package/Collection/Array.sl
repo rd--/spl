@@ -80,17 +80,23 @@
 	}
 
 	dimensions { :self :anInteger |
-		(anInteger < 1).if {
+		(anInteger < 1L).if {
 			[]
 		} {
 			let answer = [];
 			answer.add!(self.size);
-			(self.isNotEmpty & { self.allSatisfy(isSequence/1) }).ifTrue {
+			(
+				self.isNotEmpty & {
+					self.allSatisfy(isSequence/1)
+				}
+			).ifTrue {
 				let k = self.anyOne.size;
 				self.allSatisfy { :each |
 					each.size = k
 				}.ifTrue {
-					answer.addAll!(self.anyOne.dimensions(anInteger - 1))
+					answer.addAll!(
+						self.anyOne.dimensions(anInteger - 1L)
+					)
 				}
 			};
 			answer

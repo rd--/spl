@@ -84,7 +84,7 @@ C.f. `functionPlot`:
 Plot a trigonometric function:
 
 ~~~spl svg=G
-(-6 -- 6).subdivide(100).collect { :x |
+(-6.0 -- 6.0).subdivide(100).collect { :x |
 	1 / (4 * x.cos + 5)
 }.linePlot
 ~~~
@@ -94,7 +94,7 @@ Plot a trigonometric function:
 C.f. `functionPlot`:
 
 ~~~spl svg=H
-(-6 -- 6).functionPlot { :x |
+(-6.0 -- 6.0).functionPlot { :x |
 	1 / (4 * x.cos + 5)
 }
 ~~~

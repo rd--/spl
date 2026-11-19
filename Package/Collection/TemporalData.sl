@@ -55,7 +55,7 @@ TemporalData : [Object, Equal] {
 		let y = self.valueList;
 		(t.size = k).if {
 			TemporalData(
-				1.to(k).collect { :i |
+				1L.to(k).collect { :i |
 					t[i].collect(
 						linearInterpolator(x[i], y[i])
 					)

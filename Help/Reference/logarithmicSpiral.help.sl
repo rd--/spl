@@ -8,9 +8,9 @@ also known as the growth spiral or equiangular spiral.
 A line drawing:
 
 ~~~spl svg=A
-(0 -- 8.pi).discretize(
-	200,
-	logarithmicSpiral(1, 1/7)
+(0.0 -- 8.pi).discretize(
+	200L,
+	logarithmicSpiral(1.0, 1.0 / 7.0)
 ).Line
 ~~~
 
@@ -19,10 +19,10 @@ A line drawing:
 The golden spiral is a logarithmic spiral whose growth factor is φ:
 
 ~~~spl svg=B
-let b = 1.goldenRatio.log / 0.5.pi;
-(0 -- 8.pi).discretize(
-	200,
-	logarithmicSpiral(1, b)
+let b = 1.0.goldenRatio.log / 0.5.pi;
+(0.0 -- 8.pi).discretize(
+	200L,
+	logarithmicSpiral(1.0, b)
 ).Line
 ~~~
 

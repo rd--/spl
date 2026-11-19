@@ -207,10 +207,10 @@ let l = (0.25 -- 2.5).discretize(5);
 Plot using implicit equation:
 
 ~~~spl svg=L
-let i = (-1 -- 1).subdivide(35);
+let i = (-1.0 -- 1.0).subdivide(35);
 Circle([0 0], 1)
 .implicitEquation
-.contourPlot(i, i, [0])
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/Circle-L.svg)

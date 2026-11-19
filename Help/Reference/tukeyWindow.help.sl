@@ -23,7 +23,7 @@ Threads over lists, zero at each end-point:
 Plot, the unary forms sets α=2/3:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	tukeyWindow/1
 )
 ~~~
@@ -33,7 +33,7 @@ Plot, the unary forms sets α=2/3:
 Shape of a Tukey window using specified parameters:
 
 ~~~spl svg=B
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	[0 0.5 1].collect { :alpha |
 		{ :x |
 			x.tukeyWindow(alpha)

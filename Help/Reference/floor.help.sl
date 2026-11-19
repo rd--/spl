@@ -157,7 +157,7 @@ sinOsc([m m.floor].midiCps, 0) * 0.1
 Floor is a staircase function:
 
 ~~~spl svg=A
-(0 -- 8).functionPlot(floor/1)
+(0.0 -- 8.0).functionPlot(floor/1)
 ~~~
 
 ![](Help/Image/floor-A.svg)
@@ -165,7 +165,7 @@ Floor is a staircase function:
 The Gauss map over a subset of the reals:
 
 ~~~spl svg=B
-(-2 -- 2).discretize(250) { :x |
+(-2.0 -- 2.0).discretize(250) { :x |
 	(1 / x) - (1 / x).floor
 }.scatterPlot
 ~~~
@@ -179,7 +179,7 @@ The Gauss map over a subset of the complexes:
 	(z ~ 0J0).if {
 		z
 	} {
-		(1 / z) - (1 / z).floor
+		(1.0 / z) - (1.0 / z).floor
 	}
 }
 ~~~

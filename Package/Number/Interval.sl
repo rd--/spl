@@ -54,7 +54,7 @@ Interval : [Object, Store, Equal, Compare, Number] {
 	discretize { :self :size |
 		let start = self.min;
 		let stop = self.max;
-		let step = (stop - start) / (size - 1);
+		let step = (stop - start) / (size - 1L);
 		FiniteRange(start, stop, step, size)
 	}
 
@@ -63,10 +63,12 @@ Interval : [Object, Store, Equal, Compare, Number] {
 	}
 
 	findDivisions { :self :dx :n |
-		let step = ((self.max - self.min) / (n + 1)).roundUp(dx);
+		let step = ((self.max - self.min) / (n + 1L)).roundUp(dx);
 		let next = self.min.roundDown(dx);
 		let answer = [next];
-		{ next < self.max }.whileTrue {
+		{
+			next < self.max
+		}.whileTrue {
 			next := next + step;
 			answer.add!(next)
 		};

@@ -63,10 +63,10 @@ At `Interval`,
 also called `center` and `median` and `mean`:
 
 ```
->>> (10 -- 20).midpoint
+>>> (10.0 -- 20.0).midpoint
 15
 
->>> (10 -- 20).center
+>>> (10.0 -- 20.0).center
 15
 ```
 

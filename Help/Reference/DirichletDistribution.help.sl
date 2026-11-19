@@ -10,8 +10,8 @@ Two-dimensional random variate:
 
 ~~~spl svg=A
 let r = Sfc32(367823);
-let d = DirichletDistribution([2 3 2]);
-let p = d.randomVariate(r, [10 ^ 2]);
+let d = DirichletDistribution([2.0 3.0 2.0]);
+let p = d.randomVariate(r, [10L ^ 2L]);
 (p ++ [0 0; 1 1]).scatterPlot
 ~~~
 
@@ -44,7 +44,7 @@ Matrix plot of `pdf`:
 
 ~~~spl png=C
 let f/1 = DirichletDistribution([5.0 5.0 5.0]).pdf;
-let i = (0 -- 1).discretize(100);
+let i = (0.0 -- 1.0).discretize(100);
 let m = { :x :y |
 	f([x y])
 }.table(i, i).rescale;

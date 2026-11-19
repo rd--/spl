@@ -30,6 +30,14 @@
 		self.collect(Integer/1)
 	}
 
+	IntegerList { :self |
+		self.isList.if {
+			Integer(self)
+		} {
+			self.error('IntegerList')
+		}
+	}
+
 	Number { :self |
 		self.collect(Number/1)
 	}
@@ -144,7 +152,7 @@
 
 	clip { :self |
 		self.collect { :each |
-			each.clip(-1, 1)
+			each.clip(-1.0, 1.0)
 		}
 	}
 

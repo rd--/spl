@@ -20,7 +20,7 @@ Evaluate numerically:
 Plot in one dimension:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(
+(-2.0 -- 2.0).functionPlot(
 	heavisideLambda/1
 )
 ~~~
@@ -30,7 +30,7 @@ Plot in one dimension:
 Plot a function involving `heavisideLambda`:
 
 ~~~spl svg=B
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	x.tanh * (3 * x - 1).heavisideLambda
 }
 ~~~

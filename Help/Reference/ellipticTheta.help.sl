@@ -38,7 +38,7 @@ Value at `zero`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-6 -- 6).functionPlot { :x |
+(-6.0 -- 6.0).functionPlot { :x |
 	2.ellipticTheta(x, 1 / 3)
 }
 ~~~
@@ -48,7 +48,7 @@ Plot over a subset of the reals:
 Plot the elliptic θ function for various parameters:
 
 ~~~spl svg=B
-(-6 -- 6).functionPlot(
+(-6.0 -- 6.0).functionPlot(
 	[1 2 3 4].collect { :a |
 		{ :x |
 			a.ellipticTheta(x, 1 / 3)
@@ -62,7 +62,7 @@ Plot the elliptic θ function for various parameters:
 _θ(1,x,1/2)_ is not injective or surjective:
 
 ~~~spl svg=C
-(-6 -- 6).functionPlot { :x |
+(-6.0 -- 6.0).functionPlot { :x |
 	1.ellipticTheta(x, 1 / 2)
 }
 ~~~

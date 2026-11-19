@@ -111,7 +111,7 @@ true
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(arcTan/1)
+(-5.0 -- 5.0).functionPlot(arcTan/1)
 ~~~
 
 ![](Help/Image/arcTan-A.svg)
@@ -130,7 +130,7 @@ Threads over lists,
 the arc tangent of a cosine and sine wave is a sawtooth wave:
 
 ~~~spl svg=C
-let x = (0 -- 2.pi).subdivide(200);
+let x = (0.0 -- 2.pi).subdivide(200);
 let a = x.cos;
 let b = x.sin;
 let c = arcTan(a, b) / 1.pi;

@@ -29,7 +29,7 @@ it includes _t₁_ and excludes _t₂_.
 	t1,
 	t2,
 	Duration(60),
-	(1744060860 -- 1744060920),
+	(1744060860.0 -- 1744060920.0),
 	true,
 	false,
 	true

@@ -142,7 +142,7 @@ so that the answer retains the same shape as the input:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot([
+(-3.0 -- 3.0).functionPlot([
 	identity/1,
 	{ :each | each.round },
 	{ :each | each.rescale([-2 2]) }

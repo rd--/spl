@@ -75,11 +75,11 @@ at `List` retains duplicates and order:
 At `Interval`:
 
 ```
->>> (-2 -- 3).intersection(1 -- 4)
-(1 -- 3)
+>>> (-2.0 -- 3.0).intersection(1.0 -- 4.0)
+(1.0 -- 3.0)
 
->>> (1 -- 10).intersection(5 -- 15)
-(5 -- 10)
+>>> (1.0 -- 10.0).intersection(5.0 -- 15.0)
+(5.0 -- 10.0)
 ```
 
 At `Multiset`:

@@ -33,7 +33,7 @@ RgbColour([0.5, 0.5, 0.5], 1)
 Plot a 10×10 matrix of varying shades of grey and alpha:
 
 ~~~spl svg=A
-let i = (0 -- 1).subdivide(9);
+let i = (0.0 -- 1.0).subdivide(9);
 greyLevel/2
 .table(i, i)
 .rgba

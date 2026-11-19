@@ -7,7 +7,7 @@ A curve studied by Maria Agnesi in 1748.
 The witch of Agnesi curve:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(
+(-2.0 -- 2.0).functionPlot(
 	witchOfAgnesi(1)
 )
 ~~~
@@ -17,7 +17,7 @@ The witch of Agnesi curve:
 Draw with circle and bounding box:
 
 ~~~spl svg=B
-let t = (-4 -- 4).subdivide(100);
+let t = (-4.0 -- 4.0).subdivide(100);
 let c = t.collect(
 	witchOfAgnesi(1)
 );

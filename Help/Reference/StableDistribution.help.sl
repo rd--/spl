@@ -11,8 +11,8 @@ With α=2 and β=0 gives the normal distribution:
 
 ~~~spl svg=A
 let r = Sfc32(376812);
-StableDistribution(2, 0, 0, 1)
-.randomVariate(r, [10 ^ 4])
+StableDistribution(2.0, 0.0, 0, 1)
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 
@@ -22,10 +22,10 @@ With α=1 and β=0 gives the Cauchy distribution:
 
 ~~~spl svg=B
 let r = Sfc32(376812);
-StableDistribution(1, 0, 0, 1)
-.randomVariate(r, [10 ^ 4])
+StableDistribution(1.0, 0.0, 0.0, 1.0)
+.randomVariate(r, [10L ^ 4L])
 .select { :x |
-	x.isBetween(-5, 5)
+	x.isBetween(-5.0, 5.0)
 }.histogramPlot
 ~~~
 
@@ -35,10 +35,10 @@ With α=½ and β=0 gives the Lévy distribution:
 
 ~~~spl svg=C
 let r = Sfc32(376812);
-StableDistribution(0.5, 1, 0, 1)
-.randomVariate(r, [10 ^ 4])
+StableDistribution(0.5, 1.0, 0.0, 1.0)
+.randomVariate(r, [10L ^ 4L])
 .select { :x |
-	x.isBetween(0, 10)
+	x.isBetween(0.0, 10.0)
 }.histogramPlot
 ~~~
 
@@ -50,12 +50,12 @@ Map–Airy distribution:
 let r = Sfc32(376812);
 StableDistribution(
 	1.5,
-	-1,
-	0,
-	1 / ((2 ^ 1/3) * (3 ^ 2/3))
-).randomVariate(r, [10 ^ 4])
+	-1.0,
+	0.0,
+	1.0 / ((2.0 ^ 1/3) * (3.0 ^ 2/3))
+).randomVariate(r, [10L ^ 4L])
 .select { :x |
-	x.isBetween(-2, 2)
+	x.isBetween(-2.0, 2.0)
 }.histogramPlot
 ~~~
 
@@ -64,12 +64,12 @@ StableDistribution(
 Plot a Lévy flight in two dimensions:
 
 ~~~spl svg=E
-let k = 750;
+let k = 750L;
 let r = Sfc32(387612);
-let d = StableDistribution(1, 0, 0, 1);
-let u = r.randomReal([0 2.pi], [k]);
+let d = StableDistribution(1.0, 0.0, 0.0, 1.0);
+let u = r.randomReal([0.0 2.pi], [k]);
 let v = d.randomVariate(r, [k]);
-u.anglePath(v, [0 0], 0).Line
+u.anglePath(v, [0.0 0.0], 0.0).Line
 ~~~
 
 ![](Help/Image/StableDistribution-E.svg)

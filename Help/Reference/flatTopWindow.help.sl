@@ -14,7 +14,7 @@ Evaluate numerically:
 Plot flat-top window:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(flatTopWindow/1)
+(-1.0 -- 1.0).functionPlot(flatTopWindow/1)
 ~~~
 
 ![](Help/Image/flatTopWindow-A.svg)
@@ -22,7 +22,7 @@ Plot flat-top window:
 Translated and dilated flat-top window:
 
 ~~~spl svg=B
-(-1 -- 3).functionPlot { :x |
+(-1.0 -- 3.0).functionPlot { :x |
 	((x - 1) / 2).flatTopWindow
 }
 ~~~

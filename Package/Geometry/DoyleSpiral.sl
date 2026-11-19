@@ -1,43 +1,54 @@
-+Float {
++[Float, Integer] {
 
 	doyleSpiral { :p :q :l |
 		let [a, b, r] = doyleSpiralParameters(p, q);
 		let z = a;
 		let answer = [];
-		1.toDo(q) { :i |
-			answer.addAll!(doyleSpiralArm(r, z, a, l));
+		1L.toDo(q) { :i |
+			answer.addAll!(
+				doyleSpiralArm(r, z, a, l)
+			);
 			z := z * b
 		};
 		answer
 	}
 
 	doyleSpiralArm { :r :z :delta :limit |
-		let recipDelta = 1 / delta;
+		let recipDelta = 1.0 / delta;
 		let modDelta = delta.abs;
-		let modRecipDelta = 1 / modDelta;
+		let modRecipDelta = 1.0 / modDelta;
 		let [minD, maxD] = limit;
 		let q = z;
 		let modQ = q.abs;
 		let answer = [];
-		let count = 0;
-		{ modQ < maxD }.whileTrue {
-			answer.add!(Circle(q.realImaginary, modQ * r));
+		{
+			modQ < maxD
+		}.whileTrue {
+			answer.add!(
+				Circle(q.realImaginary, modQ * r)
+			);
 			q := q * delta;
-			modQ := modQ * modDelta;
-			count := count + 1
+			modQ := modQ * modDelta
 		};
 		q := z * recipDelta;
 		modQ := q.abs;
-		{ modQ > minD }.whileTrue {
-			answer.add!(Circle(q.realImaginary, modQ * r));
+		{
+			modQ > minD
+		}.whileTrue {
+			answer.add!(
+				Circle(q.realImaginary, modQ * r)
+			);
 			q := q * recipDelta;
-			modQ := modQ * modRecipDelta;
-			count := count + 1
+			modQ := modQ * modRecipDelta
 		};
 		answer
 	}
 
-	doyleSpiralParameters { :p :q |
+	doyleSpiralParameters { :p Float :q Float |
+		uncheckedDoyleSpiralParameters(p, q)
+	}
+
+	uncheckedDoyleSpiralParameters { :p :q |
 		<primitive:
 		/* https://gist.github.com/robinhouston/6096950 */
 		let p = _p;

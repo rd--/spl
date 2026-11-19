@@ -44,10 +44,10 @@ The inverse transform is `ifft`:
 Plot complete symmetrical spectrum of two sine tones:
 
 ~~~spl svg=A
-let n = 256;
-let p = (0 -- 2.pi).discretize(n);
+let n = 256L;
+let p = (0.0 -- 2.pi).discretize(n);
 let x = p.collect { :x |
-	(x * [23 47]).sin.sum / 2
+	(x * [23.0 47.0]).sin.sum / 2.0
 };
 (x.fft / n).abs.linePlot
 ~~~
@@ -57,14 +57,14 @@ let x = p.collect { :x |
 Plot half spectrum of two sine tones with added white noise:
 
 ~~~spl svg=B
-let n = 256;
-let m = n / 2;
-let p = (0 -- 2.pi).discretize(n);
+let n = 256L;
+let m = n // 2L;
+let p = (0.0 -- 2.pi).discretize(n);
 let x = p.collect { :x |
-	(x * [23 47]).sin.sum / 2
+	(x * [23.0 47.0]).sin.sum / 2.0
 };
 let r = Sfc32(378614);
-let y = r.randomReal([-1 1], [n]);
+let y = r.randomReal([-1.0 1.0], [n]);
 ((x + y).fft.first(m) / n).abs.linePlot
 ~~~
 
@@ -75,7 +75,7 @@ Plot 1/8 spectrum of five octaves of sine tones at increasing amplitudes:
 ~~~spl svg=C
 let n = 512;
 let m = n // 8;
-let x = (0 -- 0.5).discretize(n);
+let x = (0.0 -- 0.5).discretize(n);
 let y = x.collect { :t |
 	[1 .. 5].collect { :n |
 		n * (n * 10 * 2.pi * t).cos

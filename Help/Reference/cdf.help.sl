@@ -11,7 +11,7 @@ evaluated at _x_.
 Plot `cdf` for a standard normal distribution:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(
+(-3.0 -- 3.0).functionPlot(
 	NormalDistribution(0, 1).cdf
 )
 ~~~

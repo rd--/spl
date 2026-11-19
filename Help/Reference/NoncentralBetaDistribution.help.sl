@@ -9,8 +9,8 @@ Generate a sample of pseudo-random numbers:
 
 ~~~spl svg=A
 let r = Sfc32(879328);
-NoncentralBetaDistribution(3, 2.5, 20)
-.randomVariate(r, [10 ^ 4])
+NoncentralBetaDistribution(3.0, 2.5, 20.0)
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 

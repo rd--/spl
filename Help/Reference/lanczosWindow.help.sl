@@ -21,7 +21,7 @@ Threads over lists, zero at each end-point:
 The Lanczos window function:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(lanczosWindow/1)
+(-1.0 -- 1.0).functionPlot(lanczosWindow/1)
 ~~~
 
 ![](Help/Image/lanczosWindow-A.svg)
@@ -29,7 +29,7 @@ The Lanczos window function:
 Translated and dilated Lanczos window:
 
 ~~~spl svg=B
-(-1 -- 3).functionPlot { :x |
+(-1.0 -- 3.0).functionPlot { :x |
 	((x - 1) / 2).lanczosWindow
 }
 ~~~

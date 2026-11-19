@@ -162,7 +162,7 @@ OEIS [A094641](https://oeis.org/A094641):
 Plot the Euler gamma function:
 
 ~~~spl svg=A
-(-4 -- 4).functionPlot { :z |
+(-4.0 -- 4.0).functionPlot { :z |
 	z.gamma.clip(-10, 10)
 }
 ~~~
@@ -172,7 +172,7 @@ Plot the Euler gamma function:
 Plot γ with _γ + sin_, note intersection at positive integers:
 
 ~~~spl svg=B
-(-4 -- 4).functionPlot([
+(-4.0 -- 4.0).functionPlot([
 	{ :z | z.gamma.clip(-1, 5) },
 	{ :z | (z.gamma + z.pi.sin).clip(-1, 5) }
 ])

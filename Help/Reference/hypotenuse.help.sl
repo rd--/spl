@@ -65,7 +65,7 @@ delayL(
 The hypotenuse gives the distance of a point _(x,y)_ from the origin:
 
 ~~~spl png=A
-let i = (-1 -- 1).subdivide(99);
+let i = (-1.0 -- 1.0).subdivide(99);
 { :x :y |
 	x.hypotenuse(y)
 }.table(i, i).clip(0, 1).Greymap

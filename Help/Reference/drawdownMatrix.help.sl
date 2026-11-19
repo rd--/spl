@@ -135,12 +135,12 @@ drawdownMatrix(i1, m, i2)
 A pattern derived from interleaving the natural and the Fibonacci numbers:
 
 ~~~spl png=G
-let n = 24;
+let n = 24L;
 let i = [
-	1:n,
-	1:n.fibonacci.SmallInteger
-].interleave.mod(8, 1);
-let m = 8.identityMatrix.reverse;
+	1L:n,
+	1L:n.fibonacci
+].interleave.mod(8L, 1L);
+let m = 8L.identityMatrix.reverse;
 drawdownMatrix(i, m, i)
 .Bitmap(3)
 ~~~

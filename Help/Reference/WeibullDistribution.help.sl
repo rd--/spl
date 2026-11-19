@@ -10,9 +10,9 @@ and a location parameter μ.
 Probability density function, varying _alpha_:
 
 ~~~spl svg=A
-(0.05 -- 3).functionPlot(
-	[0.5 2 4].collect { :alpha |
-		WeibullDistribution(alpha, 1, 0)
+(0.05 -- 3.0).functionPlot(
+	[0.5 2.0 4.0].collect { :alpha |
+		WeibullDistribution(alpha, 1.0, 0.0)
 		.pdf
 	}
 )
@@ -23,9 +23,9 @@ Probability density function, varying _alpha_:
 Probability density function, varying _beta_:
 
 ~~~spl svg=B
-(0.05 -- 3).functionPlot(
-	[1 2 4].collect { :beta |
-		WeibullDistribution(2, beta, 0)
+(0.05 -- 3.0).functionPlot(
+	[1.0 2.0 4.0].collect { :beta |
+		WeibullDistribution(2.0, beta, 0.0)
 		.pdf
 	}
 )
@@ -36,9 +36,9 @@ Probability density function, varying _beta_:
 Probability density function, varying _mu_:
 
 ~~~spl svg=C
-(0 -- 6).functionPlot(
-	[-1.5 1 2].collect { :mu |
-		WeibullDistribution(3, 2, mu)
+(0.0 -- 6.0).functionPlot(
+	[-1.5 1.0 2.0].collect { :mu |
+		WeibullDistribution(3.0, 2.0, mu)
 		.pdf
 	}
 )
@@ -50,8 +50,8 @@ Generate a sample of pseudorandom numbers from a Weibull distribution and plot t
 
 ~~~spl svg=D
 let r = Sfc32(371513);
-WeibullDistribution(3.5, 2, 0)
-.randomVariate(r, [10 ^ 4])
+WeibullDistribution(3.5, 2.0, 0.0)
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 
@@ -61,8 +61,8 @@ Two dimensional Weibull noise:
 
 ~~~spl png=E
 let r = Sfc32(180513);
-WeibullDistribution(2.5, 1, 0)
-.randomVariate(r, [100 100])
+WeibullDistribution(2.5, 1.0, 0.0)
+.randomVariate(r, [100L 100L])
 .rescale
 .Greymap
 ~~~
@@ -73,8 +73,8 @@ Plot random variate:
 
 ~~~spl svg=F
 let r = Sfc32(391437);
-WeibullDistribution(3 / 4, 1, 0)
-.randomVariate(r, [99])
+WeibullDistribution(3.0 / 4.0, 1.0, 0.0)
+.randomVariate(r, [99L])
 .linePlot
 ~~~
 

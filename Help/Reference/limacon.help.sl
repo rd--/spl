@@ -8,7 +8,7 @@ also known as a limaçon of Pascal or Pascal’s snail.
 Plot at _b=1/2,3/2,5/2_:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	[0.5 1.5 2.5].collect { :b |
 		limacon(1, b)
 	}

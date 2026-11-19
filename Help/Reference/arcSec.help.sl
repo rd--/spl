@@ -76,7 +76,7 @@ Relation to `arcCos`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot { :x |
+(-5.0 -- 5.0).functionPlot { :x |
 	x.arcSec.real
 }
 ~~~

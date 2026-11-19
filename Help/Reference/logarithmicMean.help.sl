@@ -9,16 +9,16 @@ It is larger than the geometric mean and smaller than the arithmetic mean.
 Plot where _x=1_, comparing with arithmetic and geometric means:
 
 ~~~spl svg=A
-(1 -- 100).functionPlot(
+(1.0 -- 100.0).functionPlot(
 	[
 		{ :y |
-			[1 y].arithmeticMean
+			[1.0 y].arithmeticMean
 		},
 		{ :y |
-			1.logarithmicMean(y)
+			1.0.logarithmicMean(y)
 		},
 		{ :y |
-			[1 y].geometricMean
+			[1.0 y].geometricMean
 		}
 	]
 )

@@ -53,7 +53,7 @@ OEIS [A070769](https://oeis.org/A070769):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 10).functionPlot { :x |
+(0.0 -- 10.0).functionPlot { :x |
 	let y = x.logarithmicIntegral;
 	y.clip(-5, Infinity)
 }

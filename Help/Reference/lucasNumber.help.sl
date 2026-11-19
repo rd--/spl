@@ -120,7 +120,7 @@ OEIS [A117522](https://oeis.org/A117522):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(lucasNumber/1)
+(-5.0 -- 5.0).functionPlot(lucasNumber/1)
 ~~~
 
 ![](Help/Image/lucasNumber-A.svg)

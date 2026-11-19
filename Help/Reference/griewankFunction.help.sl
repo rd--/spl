@@ -27,7 +27,7 @@ Plot in one dimension at integer values:
 Plot in one dimension:
 
 ~~~spl svg=B
-(0 -- 50).functionPlot { :x |
+(0.0 -- 50.0).functionPlot { :x |
 	[x].griewankFunction
 }
 ~~~
@@ -47,7 +47,7 @@ Plot at integer points in two dimensions:
 Plot in two dimensions:
 
 ~~~spl png=D
-let c = (-100 -- 100).subdivide(100);
+let c = (-100.0 -- 100.0).subdivide(100);
 { :i :j |
 	[i j].griewankFunction
 }.table(c, c).rescale.Greymap

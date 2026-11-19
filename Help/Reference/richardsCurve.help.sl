@@ -19,7 +19,7 @@ Effect of varying parameter _a_,
 all other parameters are 1:
 
 ~~~spl svg=B
-(-6 -- 6).functionPlot(
+(-6.0 -- 6.0).functionPlot(
 	[-1 0 1 2].collect { :a |
 		richardsCurve(a, 1, 1, 1, 1, 1)
 	}
@@ -32,7 +32,7 @@ Effect of varying parameter _b_,
 _a=0_, all other parameters are one:
 
 ~~~spl svg=C
-(-6 -- 6).functionPlot(
+(-6.0 -- 6.0).functionPlot(
 	[0.1 0.5 1 2 5].collect { :b |
 		richardsCurve(0, 1, b, 1, 1, 1)
 	}
@@ -45,7 +45,7 @@ Effect of varying parameter _c_,
 _a=0_, all other parameters are one:
 
 ~~~spl svg=D
-(-6 -- 6).functionPlot(
+(-6.0 -- 6.0).functionPlot(
 	[0.1 0.5 1 2 5].collect { :c |
 		richardsCurve(0, 1, 1, 1, 1, c)
 	}
@@ -58,7 +58,7 @@ Effect of varying parameter _k_,
 _a=0_, all other parameters are one:
 
 ~~~spl svg=E
-(-6 -- 6).functionPlot(
+(-6.0 -- 6.0).functionPlot(
 	[0.1 0.5 1 2].collect { :k |
 		richardsCurve(0, k, 1, 1, 1, 1)
 	}
@@ -71,7 +71,7 @@ Effect of varying parameter _q_,
 _a=0_, all other parameters are one:
 
 ~~~spl svg=F
-(-6 -- 6).functionPlot(
+(-6.0 -- 6.0).functionPlot(
 	[0.1 0.5 1 2 5].collect { :q |
 		richardsCurve(0, 1, 1, 1, q, 1)
 	}
@@ -84,7 +84,7 @@ Effect of varying parameter ν,
 _a=0_, all other parameters are one:
 
 ~~~spl svg=G
-(-6 -- 6).functionPlot(
+(-6.0 -- 6.0).functionPlot(
 	[0.5 1 2].collect { :nu |
 		richardsCurve(0, 1, 1, nu, 1, 1)
 	}

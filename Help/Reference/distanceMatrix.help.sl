@@ -142,7 +142,7 @@ let m = { :x :y |
 Cross-recurrence plot of two trigonometric functions:
 
 ~~~spl png=B
-let x = (0 -- 25).discretize(100);
+let x = (0.0 -- 25.0).discretize(100);
 (x.sin.distanceMatrix(x.tan) < 0.2)
 .boole
 .Bitmap

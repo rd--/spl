@@ -53,7 +53,7 @@ Select entries from the Svg colour catalogue that are within 15Â° of yellow (60Â
 Plot Svg colours near yellow:
 
 ~~~spl svg=A
-let i = (45 -- 75).unitDegree;
+let i = (45.0 -- 75.0).unitDegree;
 system.svgColourDictionary
 .select { :c |
 	c.hue.isBetween(i)

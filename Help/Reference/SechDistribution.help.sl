@@ -7,10 +7,10 @@ The hyperbolic secant distribution with location parameter μ and scale paramete
 Probability density function, varying _σ_:
 
 ~~~spl svg=A
-(-1 -- 7).functionPlot(
-	[0.5 1 2].collect { :sigma |
+(-1.0 -- 7.0).functionPlot(
+	[0.5 1.0 2.0].collect { :sigma |
 		SechDistribution(
-			3, sigma
+			3.0, sigma
 		).pdf
 	}
 )
@@ -21,10 +21,10 @@ Probability density function, varying _σ_:
 Cumulative distribution function, varying _σ_:
 
 ~~~spl svg=B
-(-1 -- 7).functionPlot(
-	[0.5 1 2].collect { :sigma |
+(-1.0 -- 7.0).functionPlot(
+	[0.5 1.0 2.0].collect { :sigma |
 		SechDistribution(
-			3, sigma
+			3.0, sigma
 		).cdf
 	}
 )

@@ -7,13 +7,13 @@ Answer the implicit equation for Watt’s curve.
 Contour plot of Watts curve:
 
 ~~~spl svg=A
-let a = 1;
+let a = 1.0;
 let b = 2.sqrt;
-let c = 1;
-let z = 1.1 * ((b ^ 2) - ((a - c) ^ 2)).sqrt;
-let i = (z.- -- z).discretize(50);
+let c = 1.0;
+let z = 1.1 * ((b ^ 2.0) - ((a - c) ^ 2.0)).sqrt;
+let i = (z.- -- z).discretize(50L);
 wattsCurve(a, b, c)
-.contourPlot(i, i, [0])
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/wattsCurve-A.svg)

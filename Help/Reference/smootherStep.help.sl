@@ -28,7 +28,7 @@ Values larger than 1/2 do the opposite:
 SmootherStep function:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	smootherStep/1
 )
 ~~~
@@ -38,7 +38,7 @@ SmootherStep function:
 Plot `smoothStep` and `smootherStep` functions:
 
 ~~~spl svg=B
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	smoothStep/1,
 	smootherStep/1
 ])
@@ -49,7 +49,7 @@ Plot `smoothStep` and `smootherStep` functions:
 `smootherStep` is `smoothStepFunction` of two:
 
 ~~~spl svg=C
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	smootherStep/1,
 	smoothStepFunction(2)
 ])

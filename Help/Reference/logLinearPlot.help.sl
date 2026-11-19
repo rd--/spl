@@ -10,7 +10,7 @@ the _y_-axis has a linear scale.
 Plot the hyperbolic tangent function:
 
 ~~~spl svg=A
-(1 -- 100).logLinearPlot(tanh/1)
+(1.0 -- 100.0).logLinearPlot(tanh/1)
 ~~~
 
 ![](Help/Image/logLinearPlot-A.svg)

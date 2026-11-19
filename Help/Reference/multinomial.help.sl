@@ -69,7 +69,7 @@ OEIS [A005651](https://oeis.org/A005651):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-2 -- 4).functionPlot { :x |
+(-2.0 -- 4.0).functionPlot { :x |
 	[x 0.5 3].multinomial
 }
 ~~~

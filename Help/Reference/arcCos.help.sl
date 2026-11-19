@@ -96,7 +96,7 @@ Phyllotaxis pattern:
 Plot arch function:
 
 ~~~spl svg=D
-(-1 -- 1).functionPlot { :x |
+(-1.0 -- 1.0).functionPlot { :x |
 	x.square.arcCos / x.square.cos
 }
 ~~~

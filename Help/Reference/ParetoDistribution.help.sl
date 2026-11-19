@@ -7,14 +7,14 @@ A `Type` that represents a Pareto distribution with minimum value parameter _k_ 
 Probability density function:
 
 ~~~spl svg=A
-(3 -- 7).functionPlot(
+(3.0 -- 7.0).functionPlot(
 	[0.5 0.75 1.5].collect { :alpha |
 		let d = ParetoDistribution(
-			3,
+			3.0,
 			alpha
 		);
 		{ :x |
-			d.pdf(x).clip(0, 0.35)
+			d.pdf(x).clip(0.0, 0.35)
 		}
 	}
 )
@@ -25,10 +25,10 @@ Probability density function:
 Cumulative distribution function:
 
 ~~~spl svg=B
-(3 -- 7).functionPlot(
+(3.0 -- 7.0).functionPlot(
 	[0.5 0.75 1.5].collect { :alpha |
 		let d = ParetoDistribution(
-			3,
+			3.0,
 			alpha
 		);
 		{ :x |
@@ -44,9 +44,9 @@ Generate a sample of pseudorandom numbers from a Pareto distribution:
 
 ~~~spl svg=C
 let r = Sfc32(891314);
-ParetoDistribution(2, 5)
-.randomVariate(r, [10 ^ 4])
-.histogramPlot([2 6 0.2])
+ParetoDistribution(2.0, 5.0)
+.randomVariate(r, [10L ^ 4L])
+.histogramPlot([2.0 6.0 0.2])
 ~~~
 
 ![](Help/Image/ParetoDistribution-C.svg)
@@ -54,12 +54,12 @@ ParetoDistribution(2, 5)
 Plot a Lévy flight in two dimensions:
 
 ~~~spl svg=D
-let k = 1000;
+let k = 1000L;
 let r = Sfc32(376812);
-let d = ParetoDistribution(1, 1.5);
-let u = r.randomReal([0 2.pi], [k]);
+let d = ParetoDistribution(1.0, 1.5);
+let u = r.randomReal([0.0 2.pi], [k]);
 let v = d.randomVariate(r, [k]);
-u.anglePath(v, [0 0], 0).Line
+u.anglePath(v, [0.0 0.0], 0.0).Line
 ~~~
 
 ![](Help/Image/ParetoDistribution-D.svg)

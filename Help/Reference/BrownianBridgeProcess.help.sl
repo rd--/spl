@@ -8,8 +8,8 @@ Simulate a Brownian bridge process pinned at `zero` at both ends:
 
 ~~~spl svg=A
 let r = Sfc32(839357);
-BrownianBridgeProcess(1, [0 0], [1 0])
-.randomFunction(r, [0 1 0.01], 1)
+BrownianBridgeProcess(1.0, [0.0 0.0], [1.0 0.0])
+.randomFunction(r, [0.0 1.0 0.01], 1L)
 .linePlot
 ~~~
 
@@ -19,8 +19,8 @@ Simulate an ensemble of paths:
 
 ~~~spl svg=B
 let r = Sfc32(529721);
-BrownianBridgeProcess(1, [0 -1], [2 1])
-.randomFunction(r, [0 2 0.02], 3)
+BrownianBridgeProcess(1.0, [0.0 -1.0], [2.0 1.0])
+.randomFunction(r, [0.0 2.0 0.02], 3L)
 .linePlot
 ~~~
 

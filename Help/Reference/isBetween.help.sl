@@ -8,7 +8,7 @@ Answer `true` if _x_ is between (inclusively) _min_ and _max_, else `false`.
 Check that a number is included in an interval:
 
 ```
->>> 3.isBetween(1 -- 5)
+>>> 3.isBetween(1.0 -- 5.0)
 true
 
 >>> 3.isBetween([1 5])
@@ -18,14 +18,14 @@ true
 Threads over lists:
 
 ```
->>> [-1 0 1 2].isBetween(0 -- 1)
+>>> [-1 0 1 2].isBetween(0.0 -- 1.0)
 [false true true false]
 ```
 
 Use `includes` instead of `isBetween`:
 
 ```
->>> (1 -- 10).includes(7)
+>>> (1.0 -- 10.0).includes(7)
 true
 
 >>> 1:10.includes(7)
@@ -53,7 +53,7 @@ Threads over lists:
 Use `Interval` or `Range` and `includes` instead of `isBetween`:
 
 ```
->>> (1 -- 10).includes(7)
+>>> (1.0 -- 10.0).includes(7)
 true
 
 >>> 1:10.includes(7)

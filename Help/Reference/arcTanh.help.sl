@@ -50,7 +50,7 @@ Threads over lists:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot { :z |
+(-1.0 -- 1.0).functionPlot { :z |
 	z.arcTanh.clip(-3, 3)
 }
 ~~~

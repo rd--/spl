@@ -170,7 +170,7 @@ At `Symbol`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(exp/1)
+(-1.0 -- 1.0).functionPlot(exp/1)
 ~~~
 
 ![](Help/Image/exp-A.svg)
@@ -178,7 +178,7 @@ Plot over a subset of the reals:
 Plot `exp` alongside a Padé approximation:
 
 ~~~spl svg=B
-(-1 -- 1).functionPlot([
+(-1.0 -- 1.0).functionPlot([
 	exp/1,
 	expApproximation/1
 ])
@@ -222,7 +222,7 @@ shown for three values of shape parameter α:
 
 ~~~spl svg=E
 let k = 1.pi.sqrt;
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	[0.25 0.5 0.75].collect { :alpha |
 		let a = alpha.square;
 		let b = 2 / (alpha * k);
@@ -239,7 +239,7 @@ A Poisson probability distribution function used by Xenakis in _Achorripsis_,
 shown for three values of shape parameter λ:
 
 ~~~spl svg=F
-(0 -- 4).functionPlot(
+(0.0 -- 4.0).functionPlot(
 	[0.4 0.6 0.8].collect { :lambda |
 		let a = lambda.-.exp;
 		{ :k |

@@ -7,7 +7,7 @@ Answer the cycloid curve with radius _r_.
 The cycloid curve:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	cycloid(1)
 )
 ~~~
@@ -18,7 +18,7 @@ The cycloid curve,
 plot varying _r_:
 
 ~~~spl svg=B
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	(1 / [1 .. 5]).collect(cycloid/1)
 )
 ~~~
@@ -33,7 +33,7 @@ Drawing:
 	Line[0 0; 0 1],
 	Line[0 0; 2.pi 0],
 	Circle([1.pi 0], 1.pi),
-	(0 -- 2.pi).discretize(50,
+	(0.0 -- 2.pi).discretize(50,
 		cycloid(1)
 	).PointSet
 ]

@@ -39,7 +39,7 @@
 
 	hyperbolaCurve { :a :b |
 		{ :x :y |
-			(x.square / a.square) - (y.square / b.square) - 1
+			(x.square / a.square) - (y.square / b.square) - 1.0
 		}
 	}
 

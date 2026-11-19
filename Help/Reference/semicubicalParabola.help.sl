@@ -9,7 +9,7 @@ with equation _y²-a²x³=0_.
 Plot upper half of semicubical parabola:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	1.semicubicalParabola
 )
 ~~~

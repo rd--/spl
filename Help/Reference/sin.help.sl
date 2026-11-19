@@ -151,7 +151,7 @@ Almost integer:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(sin/1)
+(0.0 -- 2.pi).functionPlot(sin/1)
 ~~~
 
 ![](Help/Image/sin-A.svg)
@@ -159,7 +159,7 @@ Plot over a subset of the reals:
 Noncommensurate waves (quasiperiodic function):
 
 ~~~spl svg=B
-(0 -- 16.pi).functionPlot { :x |
+(0.0 -- 16.pi).functionPlot { :x |
 	x.sin + (x * 2.sqrt).sin
 }
 ~~~
@@ -190,7 +190,7 @@ Plot `sin` alongside a Padé approximation:
 Lissajous figure:
 
 ~~~spl svg=E
-(0 -- 2.pi).parametricPlot(
+(0.0 -- 2.pi).parametricPlot(
 	sin/1,
 	{ :x | (x * 2).sin }
 )
@@ -201,7 +201,7 @@ Lissajous figure:
 Approximate the almost nowhere differentiable Riemann–Weierstrass function:
 
 ~~~spl svg=F
-(0 -- 2.pi).functionPlot { :x |
+(0.0 -- 2.pi).functionPlot { :x |
 	1:12.collect { :j |
 		(j ^ 2 * x).sin / (j ^ 2)
 	}.sum
@@ -254,7 +254,7 @@ Plot with increasing density:
 Plot simple sine & cosine curve by R.Cabello:
 
 ~~~spl svg=K
-(0 -- 20.pi).functionPlot { :t |
+(0.0 -- 20.pi).functionPlot { :t |
 	[
 		sin(t * 0.7).sin,
 		cos(t * 0.3).cos,
@@ -299,7 +299,7 @@ OEIS [A320277](https://oeis.org/A320277):
 Interference pattern for pure tones at relative frequencies _480:477_:
 
 ~~~spl svg=O
-let x = (0 -- 16.pi).discretize(200);
+let x = (0.0 -- 16.pi).discretize(200);
 let a = (48.0 * x).sin;
 let b = (47.7 * x).sin;
 [a, b, (a + b) / 2].signalPlot
@@ -311,7 +311,7 @@ Plot _sin(x)/x_,
 the limit at _x=0_ is `one`:
 
 ~~~spl svg=P
-(-1 -- 1).functionPlot { :x |
+(-1.0 -- 1.0).functionPlot { :x |
 	x.sin / x
 }
 ~~~

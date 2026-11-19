@@ -8,7 +8,7 @@ Distortion with a perfectly linear region from -0.5 to +0.5.
 The soft clip function:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(softClip/1)
+(-1.0 -- 1.0).functionPlot(softClip/1)
 ~~~
 
 ![](Help/Image/softClip-A.svg)

@@ -10,8 +10,8 @@ Plot the frequency response of the Hamming window,
 in centered form with logarithmic scaling:
 
 ~~~spl svg=A
-51.hammingWindowTable
-.fftPlot(512, 'Centered', 'Logarithmic')
+51L.hammingWindowTable
+.fftPlot(512L, 'Centered', 'Logarithmic')
 ~~~
 
 ![](Help/Image/fftPlot-A.svg)
@@ -20,8 +20,8 @@ Plot the `fft` of a square wave,
 in half form with linear scaling:
 
 ~~~spl svg=B
-[0, 0.02 .. 1].squareWave
-.fftPlot(512, 'Half', 'Linear')
+[0.0, 0.02 .. 1.0].squareWave
+.fftPlot(512L, 'Half', 'Linear')
 ~~~
 
 ![](Help/Image/fftPlot-B.svg)

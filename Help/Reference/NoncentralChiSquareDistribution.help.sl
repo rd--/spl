@@ -9,8 +9,8 @@ Generate a sample of pseudo-random numbers:
 
 ~~~spl svg=A
 let r = Sfc32(287971);
-NoncentralChiSquareDistribution(5, 10)
-.randomVariate(r, [10 ^ 4])
+NoncentralChiSquareDistribution(5.0, 10.0)
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 

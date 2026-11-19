@@ -1,6 +1,10 @@
 +@RandomNumberGenerator {
 
-	poissonDiskSampling { :self :shape :radius :tries |
+	poissonDiskSampling { :self :shape FloatList :radius Float :tries SmallInteger |
+		uncheckedPoissonDiskSampling(self, shape, radius, tries)
+	}
+
+	uncheckedPoissonDiskSampling { :self :shape :radius :tries |
 		<primitive:
 		/* https://github.com/kchapelier/fast-2d-poisson-disk-sampling/ */
 		let shape = _shape;

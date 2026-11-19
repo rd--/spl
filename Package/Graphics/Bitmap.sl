@@ -74,7 +74,7 @@ Bitmap : [Object] {
 	}
 
 	Bitmap { :self |
-		Bitmap(self, 1)
+		Bitmap(self, 1L)
 	}
 
 }

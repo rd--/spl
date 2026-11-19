@@ -20,7 +20,7 @@ The binary form anwers a five argument block specialised to the specified _tensi
 Hermite impulse response, tension of negative three:
 
 ~~~spl svg=A
-(1 -- 5).functionPlot(
+(1.0 -- 5.0).functionPlot(
 	[0 0 1 0 0]
 	.listInterpolation(
 		hermiteInterpolation(-3, 0)
@@ -33,7 +33,7 @@ Hermite impulse response, tension of negative three:
 Hermite impulse response, tension of positive three:
 
 ~~~spl svg=B
-(1 -- 5).functionPlot(
+(1.0 -- 5.0).functionPlot(
 	[0 0 1 0 0]
 	.listInterpolation(
 		hermiteInterpolation(3, 0)
@@ -46,7 +46,7 @@ Hermite impulse response, tension of positive three:
 Hermite impulse response, tension of negative one and bias of two-thirds:
 
 ~~~spl svg=C
-(1 -- 5).functionPlot(
+(1.0 -- 5.0).functionPlot(
 	[0 0 1 0 0]
 	.listInterpolation(
 		hermiteInterpolation(-1, 2/3)

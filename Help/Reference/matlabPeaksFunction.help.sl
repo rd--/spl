@@ -7,7 +7,7 @@ Answer the _z_-coordinate of the Matlab _peaks_ function at _(x,y)_.
 Plot the function on a small mesh:
 
 ~~~spl svg=A
-(-3 -- 3).surfacePlot(4) { :x :y |
+(-3.0 -- 3.0).surfacePlot(4) { :x :y |
 	x.matlabPeaksFunction(y) * 0.4
 }
 ~~~

@@ -27,7 +27,7 @@ with out of gamut values clipped:
 
 ~~~spl svg=A
 let n = 9;
-let u = (-50 -- 50).discretize(n);
+let u = (-50.0 -- 50.0).discretize(n);
 { :i :j |
 	[50, i * 1.3, j]
 	.luvToXyz
@@ -46,7 +46,7 @@ where `Image` replaces out of gamut colours with _transparent_:
 
 ~~~spl png=B
 let n = 100;
-let u = (-100 -- 100).discretize(n);
+let u = (-100.0 -- 100.0).discretize(n);
 { :i :j |
 	[75, j, i]
 	.luvToXyz

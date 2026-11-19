@@ -69,7 +69,7 @@ At `Float`:
 Invert a bipolar sine signal and scale to be unipolar:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot { :x |
+(0.0 -- 2.pi).functionPlot { :x |
 	x.sin.linLin(-1, 1, 1, 0)
 }
 ~~~

@@ -18,7 +18,7 @@ At `Float`:
 At `Interval`:
 
 ```
->>> (1 -- 20).percent
+>>> (1.0 -- 20.0).percent
 (0.01 -- 0.2)
 ```
 

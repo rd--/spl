@@ -7,17 +7,18 @@ Implement the GoldsteinPrice test function.
 Minima:
 
 ```
->>> [0 -1].goldsteinPriceFunction
-3
+>>> [0L -1L].goldsteinPriceFunction
+3L
 ```
 
 Plot at half-integer points, log scaled:
 
 ~~~spl svg=A
-let i = (-2, -1.5 .. 2);
+let i = (-2L, -3/2 .. 2L);
 { :x :y |
 	[x y].goldsteinPriceFunction
-}.table(i, i).matrixPlot.logScale
+}.table(i, i)
+.matrixPlot.logScale
 ~~~
 
 ![](Help/Image/goldsteinPriceFunction-A.svg)
@@ -25,7 +26,7 @@ let i = (-2, -1.5 .. 2);
 Plot log scaled and rounded:
 
 ~~~spl png=B
-let c = (-2 -- 2).subdivide(100);
+let c = (-2.0 -- 2.0).subdivide(100L);
 { :i :j |
 	[i j].goldsteinPriceFunction
 }.table(c, c)

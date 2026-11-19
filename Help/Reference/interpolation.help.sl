@@ -11,7 +11,7 @@ _x_ is understood to be the integers from `one`:
 
 ~~~spl svg=A
 let y = [1 2 3 5 8 5];
-(1 -- 6).functionPlot(
+(1.0 -- 6.0).functionPlot(
 	y.interpolation
 )
 ~~~
@@ -22,7 +22,7 @@ Interpolate between points at arbitrary _(x, y)_ values:
 
 ~~~spl svg=B
 let p = [0 0; 0.1 0.3; 0.5 0.6; 1 -0.2; 2 3];
-(0 -- 2).functionPlot(
+(0.0 -- 2.0).functionPlot(
 	p.interpolation
 )
 ~~~
@@ -48,7 +48,7 @@ Interpolate the sequence of primes:
 ~~~spl svg=D
 let y = 30.primesList;
 let f/1 = y.interpolation('Akima');
-(2 -- 30).functionPlot { :n |
+(2.0 -- 30.0).functionPlot { :n |
 	f(n) - f(n - 1)
 }
 ~~~
@@ -58,7 +58,7 @@ let f/1 = y.interpolation('Akima');
 Interpolate a `TimeSeries`:
 
 ~~~spl svg=E
-(1 -- 5).functionPlot(
+(1.0 -- 5.0).functionPlot(
 	TimeSeries([4 1 3 2 5], [1 .. 5])
 	.interpolation('CubicSpline')
 )

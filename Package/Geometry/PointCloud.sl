@@ -2,16 +2,16 @@ PointCloud : [Object, Equal, Geometry] {
 
 	| vertexCoordinates |
 
-	asBitmap { :self :k |
+	[Bitmap, pointCloudToBitmap] { :self :k |
 		let p = self.vertexCoordinates;
 		let q = (p - [p.min]).rescale;
 		let i = (q * k).round;
 		let [w, h] = i.max;
 		let a = i.collect { :each |
 			let [x, y] = each;
-			[h - y, x] -> 1
+			[h - y, x] -> 1L
 		};
-		SparseArray(a, [h, w], 0).normalArray.Bitmap
+		SparseArray(a, [h, w], 0L).normalArray.Bitmap
 	}
 
 	boundingBox { :self |

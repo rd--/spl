@@ -5,39 +5,39 @@
 Answer _n_ × the silver ratio, _√2+1_, usually written as δs or λ or σ.
 
 ```
->>> 1.silverRatio
+>>> 1.0.silverRatio
 2.4142
 ```
 
 δs is the square root of two plus one:
 
 ```
->>> 1.silverRatio
+>>> 1.0.silverRatio
 2.sqrt + 1
 ```
 
 The silver ratio is the `metallicMean` of two:
 
 ```
->>> 2.metallicMean
+>>> 2.0.metallicMean
 2.4142
 ```
 
 The `reciprocal` of δs is its `fractionalPart`:
 
 ```
->>> 1.silverRatio.reciprocal
+>>> 1.0.silverRatio.reciprocal
 1.silverRatio.fractionalPart
 ```
 
 As a continued fraction:
 
 ```
->>> 1.silverRatio
+>>> 1.0.silverRatio
 >>> .continuedFraction(14)
 [2 2 2 2 2 2 2 2 2 2 2 2 2 2]
 
->>> 1.silverRatio.square
+>>> 1.0.silverRatio.square
 >>> .continuedFraction(14)
 [5 1 4 1 4 1 4 1 4 1 4 1 4 1]
 ```
@@ -45,33 +45,33 @@ As a continued fraction:
 The silver ratio is the limiting ratio of consecutive Pell numbers:
 
 ```
->>> 19.pellNumber / 18.pellNumber
-1.silverRatio
+>>> 19L.pellNumber / 18L.pellNumber
+1.0.silverRatio
 ```
 
 As the ⁠superstable fixed point of an iteration:
 
 ```
 >>> { :x |
->>> 	0.5 * (x.square + 1) / (x - 1)
+>>> 	0.5 * (x.square + 1) / (x - 1.0)
 >>> }.fixedPoint(2.5, ~)
-1.silverRatio
+1.0.silverRatio
 ```
 
 A silver triangle has height _δs/2_:
 
 ```
 >>> let a = 67.5.degree;
->>> let t = asaTriangle(a, 1, a);
+>>> let t = asaTriangle(a, 1.0, a);
 >>> let [_, _, h] = t.altitudes;
->>> h * 2
-1.silverRatio
+>>> h * 2.0
+1.0.silverRatio
 ```
 
 Draw silver rectangle:
 
 ~~~spl svg=A
-Rectangle[0 0; 1.silverRatio 1]
+Rectangle[0.0 0.0; 1.0.silverRatio 1.0]
 ~~~
 
 ![](Help/Image/silverRatio-A.svg)
@@ -80,7 +80,7 @@ Draw silver triangle:
 
 ~~~spl svg=B
 let a = 67.5.degree;
-asaTriangle(a, 1, a)
+asaTriangle(a, 1.0, a)
 ~~~
 
 ![](Help/Image/silverRatio-B.svg)
@@ -88,9 +88,9 @@ asaTriangle(a, 1, a)
 Silver rectangle and silver triangle in regular octagon:
 
 ~~~spl svg=C
-let p = 8.regularPolygon([0 0], 1, 1/8.pi);
+let p = 8L.regularPolygon([0.0 0.0], 1.0, 1/8.pi);
 let c = p.vertexCoordinates;
-let r = Polygon(c.atAll([8 1 4 5]));
+let r = Polygon(c.atAll([8L 1L 4L 5L]));
 let t = Triangle[c[6], c[7], [0 0]];
 LineDrawing[p r t]
 ~~~
@@ -100,10 +100,10 @@ LineDrawing[p r t]
 Silver spiral:
 
 ~~~spl svg=D
-let b = 1.silverRatio.log / 0.5.pi;
-(0 -- 8.pi).discretize(
+let b = 1.0.silverRatio.log / 0.5.pi;
+(0.0 -- 8.pi).discretize(
 	200,
-	logarithmicSpiral(1, b)
+	logarithmicSpiral(1.0, b)
 ).Line
 ~~~
 

@@ -71,7 +71,7 @@ c.f. OEIS [A095844](https://oeis.org/A095844) and [A095845](https://oeis.org/A09
 Plot over the unit interval:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(cantorStaircase/1)
+(0.0 -- 1.0).functionPlot(cantorStaircase/1)
 ~~~
 
 ![](Help/Image/cantorStaircase-A.svg)

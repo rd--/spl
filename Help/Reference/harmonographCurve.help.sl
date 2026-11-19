@@ -16,7 +16,7 @@ With frequency ratio one half,
 the Lemniscate of Gerono:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	harmonographCurve(
 		[1 0 2 0],
 		[1/2.pi 0 0 0],
@@ -32,7 +32,7 @@ With frequency ratio three quarters,
 the Lincoln Laboratory:
 
 ~~~spl svg=B
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	harmonographCurve(
 		[3 0 4 0],
 		[1/2.pi 0 0 0],
@@ -47,7 +47,7 @@ the Lincoln Laboratory:
 The Lincoln Laboratory curve with _d=1%_ and domain _0-8π_:
 
 ~~~spl svg=C
-(0 -- 8.pi).functionPlot(
+(0.0 -- 8.pi).functionPlot(
 	400,
 	harmonographCurve(
 		[3 0 4 0],
@@ -63,7 +63,7 @@ The Lincoln Laboratory curve with _d=1%_ and domain _0-8π_:
 Specifying all four parameters allows for distinct ratios at _x_ and _y_:
 
 ~~~spl svg=D
-(0 -- 54.pi).functionPlot(
+(0.0 -- 54.pi).functionPlot(
 	800,
 	harmonographCurve(
 		[1      1      1.0125 1.9875],
@@ -79,7 +79,7 @@ Specifying all four parameters allows for distinct ratios at _x_ and _y_:
 A near octave:
 
 ~~~spl svg=E
-(0 -- 48.pi).functionPlot(
+(0.0 -- 48.pi).functionPlot(
 	800,
 	harmonographCurve(
 		[1 0 2.0125 0],
@@ -95,7 +95,7 @@ A near octave:
 Near octaves:
 
 ~~~spl svg=F
-(0 -- 48.pi).functionPlot(
+(0.0 -- 48.pi).functionPlot(
 	800,
 	harmonographCurve(
 		[1      2.050 1    2.025],

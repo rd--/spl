@@ -7,7 +7,8 @@ A discrete dynamical system defined by a quadratic difference equation.
 Oscillator behavior:
 
 ```
->>> logisticMap(3.1).nestList(0.5, 15)
+>>> logisticMap(3.1)
+>>> .nestList(0.5, 15L)
 [
 	0.5000 0.7750 0.5406 0.7699
 	0.5492 0.7675 0.5532 0.7662
@@ -20,7 +21,7 @@ The logistic map at _r=3.6_:
 
 ~~~spl svg=A
 logisticMap(3.6)
-.nestList(0.5, 99)
+.nestList(0.5, 99L)
 .scatterPlot
 ~~~
 
@@ -30,7 +31,7 @@ The logistic map at _r=3.7_:
 
 ~~~spl svg=B
 logisticMap(3.7)
-.nestList(0.5, 99)
+.nestList(0.5, 99L)
 .scatterPlot
 ~~~
 
@@ -40,7 +41,7 @@ The logistic map at _r=3.9_:
 
 ~~~spl svg=C
 logisticMap(3.9)
-.nestList(0.5, 99)
+.nestList(0.5, 99L)
 .scatterPlot
 ~~~
 
@@ -50,7 +51,7 @@ Poincaré plot of the logistic map at _r=3.99_:
 
 ~~~spl svg=D
 logisticMap(3.99)
-.nestList(0.5, 99)
+.nestList(0.5, 99L)
 .poincarePlot
 ~~~
 
@@ -60,7 +61,7 @@ Laminar and burst behaviour of the logistic map at _r=3.828327_:
 
 ~~~spl svg=E
 logisticMap(3.828327)
-.nestList(0.5, 200)
+.nestList(0.5, 200L)
 .scatterPlot
 ~~~
 
@@ -69,8 +70,8 @@ logisticMap(3.828327)
 The logistic map at _r=-2_ and _a₀=0.31_:
 
 ~~~spl svg=F
-logisticMap(-2)
-.nestList(0.31, 50)
+logisticMap(-2.0)
+.nestList(0.31, 50L)
 .linePlot
 ~~~
 
@@ -80,8 +81,8 @@ The logistic map at at _r=-4_ and _a₀=0.42_,
 equivalent to the `tentMap` with _μ=1_:
 
 ~~~spl svg=G
-logisticMap(4)
-.nestList(0.42, 50)
+logisticMap(4.0)
+.nestList(0.42, 50L)
 .linePlot
 ~~~
 
@@ -91,7 +92,7 @@ Cobweb plot of the logistic map at _r=3.741_ and _a₀=0.00079_:
 
 ~~~spl svg=H
 logisticMap(3.741)
-.cobwebPlot(0.00079, 13)
+.cobwebPlot(0.00079, 13L)
 ~~~
 
 ![](Help/Image/logisticMap-H.svg)
@@ -99,7 +100,7 @@ logisticMap(3.741)
 A fragment of the bifurcation diagram of the logistic map:
 
 ~~~spl svg=I
-(3.55 -- 3.7).discretize(25) { :r |
+(3.55 -- 3.7).discretize(25L) { :r |
 	r.logisticMap
 	.nestList(0.5, 11)
 	.collect { :y |

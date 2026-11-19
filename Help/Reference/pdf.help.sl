@@ -10,7 +10,7 @@ Answer the probability density function for the distribution _d_ evaluated at _x
 Plot `pdf` for a standard normal distribution:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(
+(-5.0 -- 5.0).functionPlot(
 	NormalDistribution(0, 1).pdf
 )
 ~~~

@@ -25,18 +25,20 @@ Plot a 3×3 matrix:
 Plot a 10×10 matrix (see also _n = 100_):
 
 ~~~spl svg=B
-let n = 10;
+let n = 10L;
 { :i :j |
 	[
-		{ i = j } -> { 2 },
+		{ i = j } -> { 2L },
 		{
-			(i = (j + 1))
+			(i = (j + 1L))
 			||
-			(i = (j - 1))
-		} -> { -1 },
-		{ true } -> { 0 }
+			(i = (j - 1L))
+		} -> { -1L },
+		{ true } -> { 0L }
 	].which
-}.table(1:n, 1:n).inverse.matrixPlot
+}.table(1L:n, 1L:n)
+.inverseMatrix
+.matrixPlot
 ~~~
 
 ![](Help/Image/matrixPlot-B.svg)
@@ -58,7 +60,7 @@ Plot a table of values of five sine waves in random directions (see also _k = 10
 let r = Sfc32(31684);
 let n = r.randomReal([0 10], [5 2]);
 let k = 20;
-let i = (0 -- 2).subdivide(k);
+let i = (0.0 -- 2.0).subdivide(k);
 { :x :y |
 	n.collect { :each |
 		each.dot([x, y]).sin

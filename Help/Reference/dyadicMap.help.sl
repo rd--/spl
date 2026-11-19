@@ -10,7 +10,7 @@ where _β=2_.
 Plot small iteration count where _β=2_ and _x₀=0.11_:
 
 ~~~spl svg=A
-dyadicMap(2)
+dyadicMap(2.0)
 .nestList(0.11, 50)
 .linePlot
 ~~~
@@ -20,8 +20,8 @@ dyadicMap(2)
 Plot small iteration count where _β=2_ and _x₀=-3+π_:
 
 ~~~spl svg=B
-dyadicMap(2)
-.nestList(-3 + 1.pi, 50)
+dyadicMap(2.0)
+.nestList(-3.0 + 1.pi, 50)
 .linePlot
 ~~~
 

@@ -7,7 +7,7 @@ A Clelia curve, or Clélie, is a curve on a sphere named by Luigi Guido Grandi a
 Perspective drawing with _c=1/2_ and period _4π_:
 
 ~~~spl svg=A
-(0 -- 4.pi).functionPlot(
+(0.0 -- 4.pi).functionPlot(
 	cleliaCurve(1, 1 / 2)
 )
 ~~~
@@ -17,7 +17,7 @@ Perspective drawing with _c=1/2_ and period _4π_:
 With _c=7/6_ and period _12π_:
 
 ~~~spl svg=B
-(0 -- 12.pi).functionPlot(
+(0.0 -- 12.pi).functionPlot(
 	300,
 	cleliaCurve(1, 7 / 6)
 )
@@ -28,7 +28,7 @@ With _c=7/6_ and period _12π_:
 With _c=1_ and period _2π_ the trace is Viviani’s curve:
 
 ~~~spl svg=C
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	cleliaCurve(1, 1)
 )
 ~~~

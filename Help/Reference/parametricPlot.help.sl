@@ -7,7 +7,7 @@ Answer a parametric plot of a curve with _x_ and _y_ coordinates as function of 
 Plot a parametric curve:
 
 ~~~spl svg=A
-(0 -- 2.pi).parametricPlot(
+(0.0 -- 2.pi).parametricPlot(
 	{ :u | u.sin },
 	{ :u | (u * 2).sin }
 )
@@ -18,7 +18,7 @@ Plot a parametric curve:
 Circle:
 
 ~~~spl svg=B
-(0 -- 2.pi).parametricPlot(cos/1, sin/1)
+(0.0 -- 2.pi).parametricPlot(cos/1, sin/1)
 ~~~
 
 ![](Help/Image/parametricPlot-B.svg)
@@ -26,7 +26,7 @@ Circle:
 Undersampling:
 
 ~~~spl svg=C
-(0 -- 100).parametricPlot(
+(0.0 -- 100.0).parametricPlot(
 	{ :u | u * u.sin },
 	{ :u | u * u.cos }
 )
@@ -37,7 +37,7 @@ Undersampling:
 Lemniscate of Bernoulli:
 
 ~~~spl svg=D
-(0 -- 2.pi).parametricPlot(
+(0.0 -- 2.pi).parametricPlot(
 	{ :u |
 		u.cos / (1 + u.sin.square)
 	},
@@ -56,7 +56,7 @@ Specify subdivision of domain:
 ~~~spl svg=E
 let a = 3;
 let b = 3.25;
-(0 -- 8.pi).parametricPlot(400,
+(0.0 -- 8.pi).parametricPlot(400,
 	{ :t |
 		(a * b * t.cos) - (a * (b * t).cos)
 	},

@@ -24,26 +24,26 @@ false
 At `Interval`:
 
 ```
->>> (1 -- 5).includes(1.pi)
+>>> (1.0 -- 5.0).includes(1.pi)
 true
 
->>> (1 -- 5).includes(1)
+>>> (1.0 -- 5.0).includes(1)
 true
 
->>> (1 -- 5).includes(5)
+>>> (1.0 -- 5.0).includes(5)
 true
 
->>> (1 -- 5).includes(2.pi)
+>>> (1.0 -- 5.0).includes(2.pi)
 false
 ```
 
 Test whether one interval lies within another:
 
 ```
->>> (2 -- 5).includes(3 -- 4)
+>>> (2.0 -- 5.0).includes(3.0 -- 4.0)
 true
 
->>> (2 -- 5).includes(4 -- 6)
+>>> (2.0 -- 5.0).includes(4.0 -- 6.0)
 false
 ```
 

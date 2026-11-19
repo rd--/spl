@@ -15,7 +15,9 @@ an initial radial of nine,
 and iteration count of four:
 
 ~~~spl svg=A
-3.spirangle(4, [0 0], [1 9], 0)
+3L.spirangle(
+	4L, [0.0 0.0], [1.0 9.0], 0.0
+)
 ~~~
 
 ![](Help/Image/spirangle-A.svg)
@@ -23,7 +25,9 @@ and iteration count of four:
 Draw a four-angle spirangle, or square spiral, of six iterations:
 
 ~~~spl svg=B
-4.spirangle(6, [0 0], [1 4], 0)
+4.spirangle(
+	6, [0 0], [1 4], 0
+)
 ~~~
 
 ![](Help/Image/spirangle-B.svg)

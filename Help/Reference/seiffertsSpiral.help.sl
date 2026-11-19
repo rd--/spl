@@ -8,8 +8,8 @@ Plot with _m=0.8_:
 
 ~~~spl svg=A
 let m = 0.8;
-(0 -- 2.87.pi).functionPlot(
-	400,
+(0.0 -- 2.87.pi).functionPlot(
+	400L,
 	m.seiffertsSpiral
 )
 ~~~
@@ -20,9 +20,9 @@ The spiral will be closed if the following equation holds:
 
 ```
 >>> let m = 0.060584;
->>> let n = 1;
->>> let p = 4;
->>> m.ellipticK * m.sqrt * (2 / 1.pi)
+>>> let n = 1.0;
+>>> let p = 4.0;
+>>> m.ellipticK * m.sqrt * (2.0 / 1.0.pi)
 n / p
 ```
 
@@ -30,8 +30,8 @@ A closed spiral, _n=1_ and _p=4_:
 
 ~~~spl svg=B
 let m = 0.060584;
-(0 -- 8.pi).functionPlot(
-	400,
+(0.0 -- 8.pi).functionPlot(
+	400L,
 	m.seiffertsSpiral
 )
 ~~~
@@ -42,8 +42,8 @@ A closed spiral, _n=1_ and _p=1_:
 
 ~~~spl svg=C
 let m = 0.628415;
-(0 -- 2.5.pi).functionPlot(
-	400,
+(0.0 -- 2.5.pi).functionPlot(
+	400L,
 	m.seiffertsSpiral
 )
 ~~~
@@ -54,8 +54,8 @@ A closed spiral, _n=4_ and _p=1_:
 
 ~~~spl svg=D
 let m = 0.999944;
-(0 -- 8.pi).functionPlot(
-	400,
+(0.0 -- 8.pi).functionPlot(
+	400L,
 	m.seiffertsSpiral
 )
 ~~~
@@ -68,8 +68,8 @@ where _p=4_ and _n=1_:
 
 ~~~spl svg=E
 let m = 1.0000558096;
-(0 -- 4.pi).functionPlot(
-	400,
+(0.0 -- 4.0.pi).functionPlot(
+	400L,
 	m.seiffertsSpiral
 )
 ~~~
@@ -80,8 +80,8 @@ A closed spiral, _n=2_ and _p=3_:
 
 ~~~spl svg=F
 let m = 0.358;
-(0 -- 7.pi).functionPlot(
-	400,
+(0.0 -- 7.pi).functionPlot(
+	400L,
 	m.seiffertsSpiral
 )
 ~~~

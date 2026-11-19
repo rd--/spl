@@ -61,7 +61,7 @@ Find angles of the right triangle with sides 3, 4 and hypotenuse 5:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(arcCot/1)
+(-5.0 -- 5.0).functionPlot(arcCot/1)
 ~~~
 
 ![](Help/Image/arcCot-A.svg)

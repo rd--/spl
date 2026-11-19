@@ -1441,7 +1441,7 @@
 
 	decimalSelvageNumber { :z :d |
 		let n0 = 3L;
-		let a = List(d, 0);
+		let a = List(d, 0L);
 		a[1] := z[1];
 		a[2] := z[2];
 		a[3] := z[3];

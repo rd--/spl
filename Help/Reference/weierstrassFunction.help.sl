@@ -7,8 +7,8 @@ A pathological function that is continuous but differentiable only on a set of p
 Plot over the reals in _(-1,1)_ with _a=0.634_ and _b=9_:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot { :x |
-	weierstrassFunction(x, 0.634, 9, 100)
+(-1.0 -- 1.0).functionPlot { :x |
+	weierstrassFunction(x, 0.634, 9.0, 100L)
 }
 ~~~
 
@@ -19,7 +19,7 @@ Plot with varying _a_ and _b_:
 ~~~spl svg=B
 let a = [0.816 0.380 0.248];
 let b = [7 15 23];
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	[1 2 3].collect { :i |
 		{ :x |
 			weierstrassFunction(
@@ -36,12 +36,12 @@ Plot with varying _a_ and _b_:
 
 ~~~spl svg=C
 let a = [0.634 0.519 0.439 0.336 0.300];
-let b = [9 11 13 17 19];
-(-1 -- 1).functionPlot(
-	[1 .. 5].collect { :i |
+let b = [9.0 11.0 13.0 17.0 19.0];
+(-1.0 -- 1.0).functionPlot(
+	1L:5L.collect { :i |
 		{ :x |
 			weierstrassFunction(
-				x, a[i], b[i], 100
+				x, a[i], b[i], 100L
 			)
 		}
 	}

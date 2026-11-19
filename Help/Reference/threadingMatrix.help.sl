@@ -8,7 +8,7 @@ The threading matrix is specified in column order.
 In the matrix below the first entry says that warp one goes through the heddle in shaft eight:
 
 ~~~spl svg=A
-WeavingInformationFile (
+(
 	'WEAVING': (
 		'Treadles': 8,
 		'Shafts': 8
@@ -23,7 +23,9 @@ WeavingInformationFile (
 		'7': 2,
 		'8': 1
 	)
-).threadingMatrix.matrixPlot
+).WeavingInformationFile
+.threadingMatrix
+.matrixPlot
 ~~~
 
 ![](Help/Image/threadingMatrix-A.svg)

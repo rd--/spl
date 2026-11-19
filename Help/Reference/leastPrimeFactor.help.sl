@@ -130,7 +130,7 @@ log-scale plot,
 OEIS [A020639](https://oeis.org/A020639):
 
 ~~~spl svg=A oeis=A020639
-2:100.leastPrimeFactor
+2L:100L.leastPrimeFactor
 .scatterPlot.logScale
 ~~~
 
@@ -141,14 +141,14 @@ OEIS [A065338](https://oeis.org/A065338):
 
 ~~~spl svg=B oeis=A065338
 let a = Map { :n |
-	(n = 1).if {
-		1
+	(n = 1L).if {
+		1L
 	} {
 		let p = n.leastPrimeFactor;
-		(p % 4) * a[n / p]
+		(p % 4L) * a[n // p]
 	}
 };
-a[1 .. 65].discretePlot
+a[1L .. 65L].discretePlot
 ~~~
 
 ![](Help/Image/leastPrimeFactor-B.svg)
@@ -157,7 +157,7 @@ _π(L(n))_,
 OEIS [A055396](https://oeis.org/A055396):
 
 ~~~spl svg=C oeis=A055396
-1:85.leastPrimeFactor
+1L:85L.leastPrimeFactor
 .primePi
 .discretePlot
 ~~~
@@ -168,9 +168,9 @@ Number of times the smallest prime factor of _n_ is the smallest prime factor fo
 OEIS [A078898](https://oeis.org/A078898):
 
 ~~~spl svg=D oeis=A078898
-let m = 100;
-let l = 1:m.leastPrimeFactor;
-1:m.collect { :n |
+let m = 100L;
+let l = 1L:m.leastPrimeFactor;
+1L:m.collect { :n |
 	l.take(n).occurrencesOf(l[n])
 }.discretePlot
 ~~~
@@ -182,15 +182,15 @@ read by antidigaonals,
 OEIS [A083221](https://oeis.org/A083221):
 
 ~~~spl svg=E oeis=A083221
-let k = 12;
-let a = 1:k.collect { :n |
+let k = 12L;
+let a = 1L:k.collect { :n |
 	let p = n.prime;
 	Range(p, Infinity, p).detect(k) { :x |
 		x.leastPrimeFactor = p
 	}
 };
 let b = [];
-1:k.sum.antidiagonalIndicesDo { :i :j |
+1L:k.sum.antidiagonalIndicesDo { :i :j |
 	b.add!(a[i][j])
 };
 b.discretePlot
@@ -202,8 +202,8 @@ Maximum divisor of _n_,
 OEIS [A032742](https://oeis.org/A032742):
 
 ~~~spl svg=F oeis=A032742
-2:85.collect { :n |
-	n / n.leastPrimeFactor
+2L:85L.collect { :n |
+	n // n.leastPrimeFactor
 }.discretePlot
 ~~~
 
@@ -213,8 +213,8 @@ Largest difference between consecutive divisors of _n_,
 OEIS [A060681](https://oeis.org/A060681):
 
 ~~~spl svg=G oeis=A060681
-1:200.collect { :n |
-	n - (n / n.leastPrimeFactor)
+1L:200L.collect { :n |
+	n - (n // n.leastPrimeFactor)
 }.scatterPlot
 ~~~
 

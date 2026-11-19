@@ -12,7 +12,7 @@ Answer the unit triangle function on the interval _(-1,1)_.
 The unit triangle function:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(unitTriangle/1)
+(-2.0 -- 2.0).functionPlot(unitTriangle/1)
 ~~~
 
 ![](Help/Image/unitTriangle-A.svg)
@@ -20,7 +20,7 @@ The unit triangle function:
 The unit triangle function in two dimensions:
 
 ~~~spl svg=B
-(-1 -- 1).surfacePlot { :x :y |
+(-1.0 -- 1.0).surfacePlot { :x :y |
 	(x, y).unitTriangle * 23
 }
 ~~~

@@ -41,23 +41,25 @@ Nice numbers starting from integers:
 >>> .collect(
 >>> 	niceNumberAbove/1
 >>> )
-[7.5 15 25 50 75 100 100]
+[7.5 15.0 25.0 50.0 75.0 100.0 100.0]
 ```
 
 One is already a nice number:
 
 ```
 >>> 1.niceNumberAbove
-1
+1.0
 ```
 
 At `Fraction`:
 
 ```
 >>> 100/11.niceNumberAbove
-10
+10/1
 ```
 
 * * *
 
 See also: niceNumberNear
+
+Guides: Statistics Functions

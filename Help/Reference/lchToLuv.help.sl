@@ -24,7 +24,7 @@ out of gamut values are clipped:
 
 ~~~spl svg=A
 let n = 9;
-let u = (0 -- 1).discretize(n);
+let u = (0.0 -- 1.0).discretize(n);
 { :h :c |
 	[60, c * 70 + 30, h * 360]
 	.lchToLuv

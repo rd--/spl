@@ -19,7 +19,7 @@ Plot functional form:
 ~~~spl svg=B
 let a = 1;
 let b = 1;
-(-5 -- 5).functionPlot { :x |
+(-5.0 -- 5.0).functionPlot { :x |
 	let d = x.square + a.square;
 	let y = (a * b * x) / d;
 	[x, y]

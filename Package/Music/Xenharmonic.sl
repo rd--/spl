@@ -8,8 +8,8 @@
 		let dStar = 0.24;
 		let s1 = 0.0207;
 		let s2 = 18.96;
-		let c1 = 5;
-		let c2 = -5;
+		let c1 = 5.0;
+		let c2 = -5.0;
 		let s = dStar / ((s1 * min(f1, f2)) + s2);
 		let fDif = abs(f2 - f1);
 		let e1 = c1 * exp(a * s * fDif);
@@ -35,7 +35,7 @@
 
 	barlowDisharmonicity { :self |
 		self.isOne.if {
-			0
+			0/1
 		} {
 			1 / self.barlowHarmonicity
 		}
@@ -122,13 +122,13 @@
 
 	barlowIndigestibility { :p |
 		p.isOne.if {
-			0
+			0L
 		} {
 			p.isPrime.if {
-				(p - 1).square / p * 2
+				(p - 1L).square / p * 2L
 			} {
 				p.primeFactors.collect { :n |
-					(n - 1).square / n * 2
+					(n - 1L).square / n * 2L
 				}.sum
 			}
 		}
@@ -136,10 +136,10 @@
 
 	eulerGradusSuavitatis { :self |
 		self.isOne.if {
-			1
+			1L
 		} {
 			let factors = self.primeFactors;
-			factors.sum - factors.size + 1
+			factors.sum - factors.size + 1L
 		}
 	}
 

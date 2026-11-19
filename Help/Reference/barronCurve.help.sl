@@ -7,7 +7,7 @@ Answer the Barron curve, a generalisation of the `schlickBiasFunction` and `schl
 Plot curve reproducing Schlick’s gain function, varying _s_:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	[1/64 1/8 1 8 64].collect { :s |
 		barronCurve(s, 0.5)
 	}
@@ -19,7 +19,7 @@ Plot curve reproducing Schlick’s gain function, varying _s_:
 Plot curve reproducing Schlick’s bias function, varying _s_:
 
 ~~~spl svg=B
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	[1/64 1/8 1 8 64].collect { :s |
 		barronCurve(s, 0)
 	}

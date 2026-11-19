@@ -52,12 +52,14 @@ ColourGradient : [Object, Store] {
 
 	positionList { :self |
 		self.positionListOrNil.ifNil {
-			(0 -- 1).discretize(self.colourList.size)
+			(0.0 -- 1.0).discretize(
+				self.colourList.size
+			)
 		}
 	}
 
 	resample { :self :anInteger |
-		let p = (0 -- 1).discretize(anInteger);
+		let p = (0.0 -- 1.0).discretize(anInteger);
 		ColourGradient(
 			p.collect(self.unaryBlock),
 			nil
@@ -94,7 +96,9 @@ ColourGradient : [Object, Store] {
 	continuousColourGradient { :self |
 		ColourGradient(
 			self,
-			(0 -- 1).discretize(self.size).List
+			(0.0 -- 1.0).discretize(
+				self.size
+			).List
 		)
 	}
 
@@ -157,7 +161,7 @@ ColourGradient : [Object, Store] {
 
 }
 
-+Float {
++[Float, Integer] {
 
 	parula { :self |
 		system

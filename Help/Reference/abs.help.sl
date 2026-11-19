@@ -85,7 +85,7 @@ let z = o * 0.25 + 0.25;
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(abs/1)
+(-3.0 -- 3.0).functionPlot(abs/1)
 ~~~
 
 ![](Help/Image/abs-A.svg)
@@ -93,7 +93,7 @@ Plot over a subset of the reals:
 Plot _|1 + x|_:
 
 ~~~spl svg=B
-(-2 -- 4).functionPlot(abs/1)
+(-2.0 -- 4.0).functionPlot(abs/1)
 ~~~
 
 ![](Help/Image/abs-B.svg)

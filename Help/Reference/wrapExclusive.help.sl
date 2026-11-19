@@ -44,7 +44,7 @@ Wrap a real number between two values:
 Plot a sawtooth wave formed by wrapping a line:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	(x * 4).wrapExclusive(-1, 1)
 }
 ~~~

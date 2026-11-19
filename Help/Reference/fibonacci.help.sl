@@ -484,7 +484,7 @@ OEIS [A382910](https://oeis.org/A382910):
 Plot Fibonacci over a subset of the reals:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(fibonacci/1)
+(-2.0 -- 2.0).functionPlot(fibonacci/1)
 ~~~
 
 ![](Help/Image/fibonacci-A.svg)
@@ -525,7 +525,7 @@ OEIS [A002708](https://oeis.org/A002708):
 Log plot of positive and negative Fibonacci numbers:
 
 ~~~spl svg=E
-(-10 -- 10).functionPlot { :x |
+(-10.0 -- 10.0).functionPlot { :x |
 	(x.fibonacci.abs + 1).log
 }
 ~~~
@@ -545,7 +545,7 @@ Plot over a larger subset of the reals:
 Plot with _n=0.5_:
 
 ~~~spl svg=G
-(-10 -- 10).functionPlot { :x |
+(-10.0 -- 10.0).functionPlot { :x |
 	fibonacci(0.5, x)
 }
 ~~~
@@ -555,7 +555,7 @@ Plot with _n=0.5_:
 Plot the Fibonacci polynomial for various orders:
 
 ~~~spl svg=H
-(-2 -- 2).functionPlot(
+(-2.0 -- 2.0).functionPlot(
 	1:4.collect { :n |
 		{ :x |
 			fibonacci(n, x)
@@ -571,11 +571,11 @@ OEIS [A000119](https://oeis.org/A000119):
 
 ~~~spl svg=I oeis=A000119
 1L:150L.collect { :n |
-	let a = Polynomial(Dictionary[0L -> 1L, n -> n]);
+	let a = Polynomial(Map[0L -> 1L, n -> n]);
 	let m = 2L;
 	let f = m.fibonacci;
 	{ f <= n }.whileTrue {
-		a := a * Polynomial(Dictionary[0L -> 1L, f -> 1L]);
+		a := a * Polynomial(Map[0L -> 1L, f -> 1L]);
 		m := m + 1L;
 		f := m.fibonacci
 	};

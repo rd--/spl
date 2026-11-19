@@ -49,7 +49,7 @@ evaluate for _(x,y)_ lattice,
 draw when either is near `zero`:
 
 ~~~spl png=B
-let i = (-1 -- 1).subdivide(99);
+let i = (-1.0 -- 1.0).subdivide(99);
 { :x :y |
 	let e = 0.02;
 	(x.abs < e) | {

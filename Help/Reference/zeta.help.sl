@@ -183,7 +183,7 @@ OEIS [A013661](https://oeis.org/A013661):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-4 -- 4).functionPlot { :z |
+(-4.0 -- 4.0).functionPlot { :z |
 	zeta(z).clip(-3, 4)
 }
 ~~~

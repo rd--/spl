@@ -17,7 +17,7 @@ Construct a B-spline curve using a list of control points:
 
 ~~~spl svg=A
 let p = [1 1; 2 3; 3 -1; 4 1; 5 0];
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	p.bSplineFunction(3)
 )
 ~~~
@@ -29,7 +29,7 @@ Create a vector-valued function of dimension two:
 ~~~spl svg=B
 let r = Sfc32(728314);
 let p = r.randomReal([0 1], [10 2]);
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	p.bSplineFunction(3)
 )
 ~~~
@@ -41,7 +41,7 @@ Create a vector-valued function of dimension three:
 ~~~spl svg=C
 let r = Sfc32(831934);
 let p = r.randomReal([0 1], [10 3]);
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	p.bSplineFunction(3)
 )
 ~~~

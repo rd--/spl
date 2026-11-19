@@ -1160,7 +1160,7 @@ OEIS [A000169](https://oeis.org/A000169):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 5).functionPlot { :x |
+(0.0 -- 5.0).functionPlot { :x |
 	x ^ 3
 }
 ~~~
@@ -1170,7 +1170,7 @@ Plot over a subset of the reals:
 Plot the `sin` function raised to the first three powers:
 
 ~~~spl svg=B
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	[1 2 3].collect { :n |
 		{ :x |
 			x.sin ^ n
@@ -1195,7 +1195,7 @@ OEIS [A074704](https://oeis.org/A074704):
 _x_ raised to a scaled power of _x_:
 
 ~~~spl svg=D
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	x ^ (5 * x)
 }
 ~~~
@@ -1205,7 +1205,7 @@ _x_ raised to a scaled power of _x_:
 _x_ raised to a scaled power of _x_:
 
 ~~~spl svg=E
-(-4 -- 2).functionPlot { :x |
+(-4.0 -- 2.0).functionPlot { :x |
 	x.abs ^ x
 }
 ~~~
@@ -1337,7 +1337,7 @@ OEIS [A140756](https://oeis.org/A140756):
 Plot the imaginary part of _ik^ik_:
 
 ~~~spl svg=N
-(0 -- 6).functionPlot { :k |
+(0.0 -- 6.0).functionPlot { :k |
 	(k.I ^ k.I).imaginary
 }
 ~~~

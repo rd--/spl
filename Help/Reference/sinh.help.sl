@@ -81,7 +81,7 @@ OEIS [A173121](https://oeis.org/A173121):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-4 -- 4).functionPlot(sinh/1)
+(-4.0 -- 4.0).functionPlot(sinh/1)
 ~~~
 
 ![](Help/Image/sinh-A.svg)
@@ -89,7 +89,7 @@ Plot over a subset of the reals:
 Draw a hyperbola:
 
 ~~~spl svg=B
-(-1 -- 1).parametricPlot(sinh/1, cosh/1)
+(-1.0 -- 1.0).parametricPlot(sinh/1, cosh/1)
 ~~~
 
 ![](Help/Image/sinh-B.svg)
@@ -118,7 +118,7 @@ Plot _(1+sinh(x))/exp(x)_,
 the limit at _x=∞_ is one half:
 
 ~~~spl svg=E
-(0 -- 10).functionPlot { :x |
+(0.0 -- 10.0).functionPlot { :x |
 	(1 + x.sinh) / x.exp
 }
 ~~~

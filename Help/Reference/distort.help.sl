@@ -31,7 +31,7 @@ Distortion increases with amplitude:
 Plot over _(-1,1)_:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(distort/1)
+(-1.0 -- 1.0).functionPlot(distort/1)
 ~~~
 
 ![](Help/Image/distort-A.svg)

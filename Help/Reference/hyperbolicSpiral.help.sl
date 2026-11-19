@@ -8,7 +8,7 @@ Draw:
 
 ~~~spl svg=A
 (0.5 -- 6.pi).functionPlot(
-	1.hyperbolicSpiral
+	1.0.hyperbolicSpiral
 )
 ~~~
 

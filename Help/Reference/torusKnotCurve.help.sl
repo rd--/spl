@@ -9,7 +9,7 @@ discarding the _z_ coordinate:
 
 ~~~spl svg=A
 let f/1 = torusKnotCurve(4, 7);
-(0 -- 2.pi).functionPlot { :t |
+(0.0 -- 2.pi).functionPlot { :t |
 	let [x, y, _] = f(t);
 	[x, y]
 }

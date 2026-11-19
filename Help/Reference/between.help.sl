@@ -8,7 +8,7 @@ else `false`.
 
 ```
 >>> 0:6.collect(
->>> 	(1 -- 5).between
+>>> 	(1.0 -- 5.0).between
 >>> )
 [false true true true true true false]
 ```

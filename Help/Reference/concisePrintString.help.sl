@@ -67,8 +67,8 @@ At `Boolean`:
 At `Interval`:
 
 ```
->>> (1 -- 9).concisePrintString
-'(1 -- 9)'
+>>> (1.0 -- 9.0).concisePrintString
+'(1.0 -- 9.0)'
 ```
 
 At `Range`:

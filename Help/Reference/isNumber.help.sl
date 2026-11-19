@@ -95,7 +95,7 @@ true
 At `Interval`:
 
 ```
->>> (-2 -- 5).isNumber
+>>> (-2.0 -- 5.0).isNumber
 true
 ```
 

@@ -7,8 +7,8 @@ Implement the implicit equation of the Trott curve.
 The Trott curve, contour plot:
 
 ~~~spl svg=A
-let i = (-1 -- 1).discretize(50);
-trottCurve/2.contourPlot(i, i, [0])
+let i = (-1.0 -- 1.0).discretize(50L);
+trottCurve/2.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/trottCurve-A.svg)

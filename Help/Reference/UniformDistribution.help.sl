@@ -50,7 +50,7 @@ Cumulative distribution function at specific value:
 Plot `pdf` over a subset of the reals:
 
 ~~~spl svg=A
-(-1 -- 2).functionPlot(
+(-1.0 -- 2.0).functionPlot(
 	UniformDistribution[0 1].pdf
 )
 ~~~
@@ -60,7 +60,7 @@ Plot `pdf` over a subset of the reals:
 Plot `cdf` over a subset of the reals:
 
 ~~~spl svg=B
-(-1 -- 2).functionPlot(
+(-1.0 -- 2.0).functionPlot(
 	UniformDistribution[0 1].cdf
 )
 ~~~
@@ -129,7 +129,7 @@ UniformDistribution[
 Quantile function:
 
 ~~~spl svg=H
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	[1 3 5].collect { :max |
 		UniformDistribution[0 max]
 		.quantileFunction

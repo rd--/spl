@@ -7,7 +7,7 @@ The spherical trochoid is a generalisation of the `trochoid` to a spherical surf
 With _ω=1.4_, _q=a/b=15/5_ and _d=10_:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	sphericalTrochoid(1.4, 15, 5, 10)
 )
 ~~~

@@ -54,7 +54,7 @@ o.fold(-0.2, x)
 Plot a triangle wave formed by folding a line:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	(x * 4).fold(-1, 1)
 }
 ~~~

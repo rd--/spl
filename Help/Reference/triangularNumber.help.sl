@@ -175,7 +175,7 @@ OEIS [A010054](https://oeis.org/A010054):
 The reciprocals of triangular numbers produce a convergent series where the limit is two:
 
 ~~~spl svg=A
-1:47.triangularNumber
+1L:47L.triangularNumber
 .reciprocal
 .prefixSum
 .linePlot

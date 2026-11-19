@@ -7,7 +7,7 @@ Answer a diagram of the Farey sequence of order _n_.
 Diagram of sequence of order five:
 
 ~~~spl svg=A
-5.fareyDiagram('Square')
+5L.fareyDiagram('Square')
 ~~~
 
 ![](Help/Image/fareyDiagram-A.svg)

@@ -9,8 +9,8 @@ _h_ is the distance from _P_ to the center of the circle _C_.
 With three cusps and _P_ inside _C_:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
-	epitrochoid(3, 1, 1 / 2)
+(0.0 -- 2.pi).functionPlot(
+	epitrochoid(3.0, 1.0, 1.0 / 2.0)
 )
 ~~~
 
@@ -19,9 +19,9 @@ With three cusps and _P_ inside _C_:
 With five cusps and _P_ outside _C_:
 
 ~~~spl svg=B
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	300,
-	epitrochoid(5, 1, 7)
+	epitrochoid(5.0, 1.0, 7.0)
 )
 ~~~
 
@@ -30,9 +30,9 @@ With five cusps and _P_ outside _C_:
 With _c>a>b_:
 
 ~~~spl svg=C
-(0 -- 6.pi).functionPlot(
+(0.0 -- 6.pi).functionPlot(
 	400,
-	epitrochoid(1, 3 / 5, 6 / 5)
+	epitrochoid(1.0, 3.0 / 5.0, 6.0 / 5.0)
 )
 ~~~
 

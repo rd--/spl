@@ -13,8 +13,8 @@ Probability mass function,
 monotonically decreasing:
 
 ~~~spl svg=A
-(0 -- 3).functionPlot(
-	ExponentialDistribution(2).pdf
+(0.0 -- 3.0).functionPlot(
+	ExponentialDistribution(2.0).pdf
 )
 ~~~
 
@@ -23,8 +23,8 @@ monotonically decreasing:
 Cumulative distribution function:
 
 ~~~spl svg=B
-(0 -- 4).functionPlot(
-	ExponentialDistribution(2).cdf
+(0.0 -- 4.0).functionPlot(
+	ExponentialDistribution(2.0).cdf
 )
 ~~~
 
@@ -46,8 +46,8 @@ ExponentialDistribution(3.5)
 The `inverseCdf`, or percent point function:
 
 ~~~spl svg=D
-(0 -- 0.99).functionPlot(
-	ExponentialDistribution(2)
+(0.0 -- 0.99).functionPlot(
+	ExponentialDistribution(2.0)
 	.inverseCdf
 )
 ~~~
@@ -58,7 +58,7 @@ The `inverseSurvivalFunction`:
 
 ~~~spl svg=E
 (0.01 -- 1).functionPlot(
-	ExponentialDistribution(2)
+	ExponentialDistribution(2.0)
 	.inverseSurvivalFunction
 )
 ~~~
@@ -68,11 +68,11 @@ The `inverseSurvivalFunction`:
 Quantile function:
 
 ~~~spl svg=F
-(0 -- 1).functionPlot(
-	[0.5 1 3].collect { :lambda |
+(0.0 -- 1.0).functionPlot(
+	[0.5 1.0 3.0].collect { :lambda |
 		ExponentialDistribution(lambda)
 		.quantileFunction
-		.clip(0, 5)
+		.clip(0.0, 5.0)
 	}
 )
 ~~~
@@ -82,8 +82,8 @@ Quantile function:
 Compute `cdf` at specific value:
 
 ```
->>> ExponentialDistribution(1 / 3000)
->>> .cdf(2500)
+>>> ExponentialDistribution(1.0 / 3000.0)
+>>> .cdf(2500.0)
 0.565402
 ```
 

@@ -36,7 +36,7 @@ Undo modulo:
 Unwrap and offset a sawtooth wave:
 
 ~~~spl svg=A
-let a = (0 -- 4).discretize(100);
+let a = (0.0 -- 4.0).discretize(100);
 let b = a.sawtoothWave;
 let c = b.unwrapPhase(1);
 [b, c + 1].linePlot

@@ -20,7 +20,7 @@ let p = [
 	{ :x | x ^ 2 } <- { :x | x < 0 },
 	{ :x | x } <- { :x | x > 0 }
 ];
-(-2 -- 2).functionPlot(
+(-2.0 -- 2.0).functionPlot(
 	Piecewise(p).unaryBlock
 )
 ~~~
@@ -37,7 +37,7 @@ let p = [
 let f = { :x |
 	(x ^ 2).- / 100 + 1
 };
-(-10 -- 10).functionPlot(
+(-10.0 -- 10.0).functionPlot(
 	Piecewise(p, f/1).unaryBlock
 )
 ~~~
@@ -50,7 +50,7 @@ If values are not specified in a region, they are assumed to be zero:
 let p = [
 	{ :x | x.sqrt } <- { :x | x > 0 }
 ];
-(-2 -- 2).functionPlot(
+(-2.0 -- 2.0).functionPlot(
 	Piecewise(p).unaryBlock
 )
 ~~~
@@ -64,7 +64,7 @@ let p = [
 	{ :x | x.sqrt } <- { :x | x > 0 }
 ];
 let f = { :x | 1 };
-(-2 -- 2).functionPlot(
+(-2.0 -- 2.0).functionPlot(
 	Piecewise(p, f/1).unaryBlock
 )
 ~~~

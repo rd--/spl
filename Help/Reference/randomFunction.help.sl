@@ -13,8 +13,8 @@ Simulate an ensemble of twenty-three Wiener processes:
 
 ~~~spl svg=A
 let r = Sfc32(990914);
-WienerProcess(0, 0.5)
-.randomFunction(r, [0 1 0.05], 23)
+WienerProcess(0.0, 0.5)
+.randomFunction(r, [0.0 1.0 0.05], 23L)
 .linePlot
 ~~~
 

@@ -8,7 +8,7 @@ Draw the ampersand curve over _0,2π_ as a set of points,
 deleting missing values:
 
 ~~~spl svg=A
-(0 -- 2.pi)
+(0.0 -- 2.pi)
 .discretize(200, ampersandCurve/1)
 .deleteMissing
 .PointSet

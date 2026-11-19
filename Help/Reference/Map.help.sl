@@ -143,19 +143,19 @@ OEIS [A002487](https://oeis.org/A002487):
 
 ~~~spl svg=B oeis=A002487
 let a = Map { :n |
-	(n < 2).if {
+	(n < 2L).if {
 		n
 	} {
 		n.isEven.if {
-			a[n / 2]
+			a[n // 2L]
 		} {
-			a[(n - 1) / 2]
+			a[(n - 1L) // 2L]
 			+
-			a[(n + 1) / 2]
+			a[(n + 1L) // 2L]
 		}
 	}
 };
-a[0 .. 200].scatterPlot
+a[0L .. 200L].scatterPlot
 ~~~
 
 ![](Help/Image/Map-B.svg)

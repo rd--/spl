@@ -8,8 +8,8 @@ Line drawing:
 
 ~~~spl svg=A
 (-0.45.pi -- 0.45.pi).discretize(
-	500,
-	1.norwichSpiral
+	500L,
+	1.0.norwichSpiral
 ).Line
 ~~~
 

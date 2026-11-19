@@ -3,8 +3,8 @@
 	boxMullerTransform { :self |
 		let u = self.nextRandomFloat;
 		let v = self.nextRandomFloat;
-		let r = (-2 * u.log).sqrt;
-		let z = 2.pi * v;
+		let r = (-2.0 * u.log).sqrt;
+		let z = 2.0.pi * v;
 		[
 			r * z.sin,
 			r * z.cos
@@ -16,14 +16,14 @@
 		let v = nil;
 		let w = nil;
 		{
-			u := self.nextRandomFloat * 2 - 1;
-			v := self.nextRandomFloat * 2 - 1;
+			u := self.nextRandomFloat * 2.0 - 1.0;
+			v := self.nextRandomFloat * 2.0 - 1.0;
 			w := (u * u) + (v * v);
-			w >= 1
+			w >= 1.0
 		}.whileTrue;
 		[
-			u * (-2 * w.log / w).sqrt,
-			v * (-2 * w.log / w).sqrt
+			u * (-2.0 * w.log / w).sqrt,
+			v * (-2.0 * w.log / w).sqrt
 		]
 	}
 
@@ -31,7 +31,7 @@
 		/* Box-Muller */
 		let u = self.nextRandomFloat;
 		let v = self.nextRandomFloat;
-		let x = (-2 * u.log).sqrt * (2.pi * v).sin;
+		let x = (-2.0 * u.log).sqrt * (2.0.pi * v).sin;
 		(x * sigma) + mu
 	}
 
@@ -45,7 +45,7 @@ NormalDistribution : [Object, Equal, ProbabilityDistribution] {
 		let mu = self.mu;
 		let sigma = self.sigma;
 		{ :x |
-			0.5 * ((mu - x) / (2.sqrt * sigma)).erfc
+			0.5 * ((mu - x) / (2.0.sqrt * sigma)).erfc
 		}
 	}
 

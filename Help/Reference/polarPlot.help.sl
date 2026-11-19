@@ -12,7 +12,7 @@ generate a polar plot of a curve with radius r as a function _f_ of angle θ ove
 The polar plot of both sine and cosine over the domain _0,π_ is a circle:
 
 ~~~spl svg=A
-(0 -- 1.pi).polarPlot(cos/1)
+(0.0 -- 1.pi).polarPlot(cos/1)
 ~~~
 
 ![](Help/Image/polarPlot-A.svg)
@@ -21,7 +21,7 @@ The polar plot of a constant function over the domain _0,2π_ is also a circle,
 plot three concentric circles:
 
 ~~~spl svg=B
-(0 -- 2.pi).polarPlot(
+(0.0 -- 2.pi).polarPlot(
 	[1 2 3].collect(constant/1)
 )
 ~~~
@@ -31,7 +31,7 @@ plot three concentric circles:
 A knot:
 
 ~~~spl svg=C
-(0 -- 1.pi).polarPlot { :t |
+(0.0 -- 1.pi).polarPlot { :t |
 	(3 * t).sin * t
 }
 ~~~
@@ -41,7 +41,7 @@ A knot:
 An oscillation around a circle:
 
 ~~~spl svg=D
-(0 -- 2.pi).polarPlot([
+(0.0 -- 2.pi).polarPlot([
 	{ :t |
 		1
 	},
@@ -56,7 +56,7 @@ An oscillation around a circle:
 An Archimedean spiral:
 
 ~~~spl svg=E
-(0 -- 20).polarPlot { :t | t ^ (1 / 2) }
+(0.0 -- 20.0).polarPlot { :t | t ^ (1 / 2) }
 ~~~
 
 ![](Help/Image/polarPlot-E.svg)
@@ -64,7 +64,7 @@ An Archimedean spiral:
 Another Archimedean spiral:
 
 ~~~spl svg=F
-(0 -- 20).polarPlot { :t | t ^ 1 }
+(0.0 -- 20.0).polarPlot { :t | t ^ 1 }
 ~~~
 
 ![](Help/Image/polarPlot-F.svg)
@@ -72,7 +72,7 @@ Another Archimedean spiral:
 A circle, given as a `List` of polar coordinates:
 
 ~~~spl svg=G
-(0 -- 2.pi).discretize(99).collect { :each |
+(0.0 -- 2.pi).discretize(99).collect { :each |
 	[1, each]
 }.polarPlot
 ~~~
@@ -100,7 +100,7 @@ let r = k.prime;
 Plot the butterfly curve:
 
 ~~~spl svg=I
-(0 -- 12.pi).polarPlot(500) { :theta |
+(0.0 -- 12.pi).polarPlot(500) { :theta |
 	let a = theta.sin.exp;
 	let b = 2 * (4 * theta).cos;
 	let c = (1/24 * (2 * theta - 1.pi)).sin;
@@ -114,7 +114,7 @@ Plot using negative radius values,
 reflected through the origin:
 
 ~~~spl svg=J
-(0 -- 2.pi).discretize(100) { :theta |
+(0.0 -- 2.pi).discretize(100) { :theta |
 	let a = 2 * theta;
 	let rho = a.sin * a.cos;
 	[rho, theta]
@@ -137,7 +137,7 @@ Plot a Reuleaux triangle:
 
 ~~~spl svg=L
 let n = 3;
-(0 -- 2.pi).polarPlot { :theta |
+(0.0 -- 2.pi).polarPlot { :theta |
 	let a = n * (theta - 1.pi) / 2.pi + 1/2;
 	let b = 2.pi * a.floor / n;
 	let c = (theta - b).cos;
@@ -151,7 +151,7 @@ let n = 3;
 Plot the lima bean curve:
 
 ~~~spl svg=M
-(0 -- 2.pi).polarPlot { :theta |
+(0.0 -- 2.pi).polarPlot { :theta |
 	theta.sin.cube + theta.cos.cube
 }
 ~~~
@@ -161,7 +161,7 @@ Plot the lima bean curve:
 Plot `sin` plus `cos` of twice θ:
 
 ~~~spl svg=N
-(0 -- 2.pi).polarPlot { :theta |
+(0.0 -- 2.pi).polarPlot { :theta |
 	(2 * theta).sin + (2 * theta).cos
 }
 ~~~

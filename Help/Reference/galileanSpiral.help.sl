@@ -7,9 +7,9 @@ The Galilean spiral describes the trajectory of a point uniformly accelerated al
 Drawing with _b=-1_:
 
 ~~~spl svg=A
-(-10 -- 10).discretize(
-	100,
-	galileanSpiral(1, -1)
+(-10.0 -- 10.0).discretize(
+	100L,
+	galileanSpiral(1.0, -1.0)
 ).Line
 ~~~
 
@@ -18,9 +18,9 @@ Drawing with _b=-1_:
 Drawing with _b=1/8_:
 
 ~~~spl svg=B
-(-10 -- 10).discretize(
-	500,
-	galileanSpiral(1, 0.125)
+(-10.0 -- 10.0).discretize(
+	500L,
+	galileanSpiral(1.0, 0.125)
 ).Line
 ~~~
 

@@ -58,9 +58,9 @@ Supersilver spiral:
 
 ~~~spl svg=B
 let b = 1.supersilverRatio.log / 0.5.pi;
-(0 -- 8.pi).discretize(
+(0.0 -- 8.pi).discretize(
 	200,
-	logarithmicSpiral(1, b)
+	logarithmicSpiral(1.0, b)
 ).Line
 ~~~
 

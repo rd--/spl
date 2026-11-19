@@ -18,7 +18,7 @@ First-order Chebyshev, _x_:
 C.f. _x_:
 
 ~~~spl svg=B
-(-1 -- 1).functionPlot(identity/1)
+(-1.0 -- 1.0).functionPlot(identity/1)
 ~~~
 
 ![](Help/Image/gen03-B.svg)
@@ -35,7 +35,7 @@ let c = 2.chebyshevT.coefficientList;
 C.f. _2x^2-1_:
 
 ~~~spl svg=D
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	2.chebyshevT.unaryBlock
 )
 ~~~
@@ -54,7 +54,7 @@ let c = 3.chebyshevT.coefficientList;
 C.f. _4x^3-3x_:
 
 ~~~spl svg=F
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	3.chebyshevT.unaryBlock
 )
 ~~~
@@ -74,7 +74,7 @@ let c = 7.chebyshevT.coefficientList;
 C.f.:
 
 ~~~spl svg=H
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	7.chebyshevT.unaryBlock
 )
 ~~~

@@ -29,13 +29,13 @@ The polar coordinates of the axes of the ordinary Farish isometric projection:
 
 ```
 >>> AxonometricProjection(
->>> 	1/6.pi, 0, 1/6.pi,
->>> 	1, 1, 1
+>>> 	1/6.pi, 0.0, 1/6.pi,
+>>> 	1.0, 1.0, 1.0
 >>> ).polarCoordinates
 [
-	1 5/6.pi;
-	1 3/6.pi;
-	1 1/6.pi
+	1.0 5/6.pi;
+	1.0 3/6.pi;
+	1.0 1/6.pi
 ]
 ```
 
@@ -43,9 +43,9 @@ The unary form derives an `AxonometricProjection` value from the polar coordinat
 
 ```
 >>> AxonometricProjection[
->>> 	1 5/6.pi;
->>> 	1 3/6.pi;
->>> 	1 1/6.pi
+>>> 	1.0 5/6.pi;
+>>> 	1.0 3/6.pi;
+>>> 	1.0 1/6.pi
 >>> ]
 'Isometric'.namedAxonometricProjection
 ```
@@ -53,12 +53,12 @@ The unary form derives an `AxonometricProjection` value from the polar coordinat
 Project a cube as three horizontally adjacent squares:
 
 ~~~spl svg=A
-[0 0 0]
+[0.0 0.0 0.0]
 .unitCube
 .PerspectiveDrawing(
 	AxonometricProjection(
-		0, 0, 0,
-		2, 1, 1
+		0.0, 0.0, 0.0,
+		2.0, 1.0, 1.0
 	)
 )
 ~~~
@@ -72,8 +72,8 @@ Project a cube as three vertically adjacent squares:
 .unitCube
 .PerspectiveDrawing(
 	AxonometricProjection(
-		0, 0, 1/2.pi,
-		1, 2, 1
+		0.0, 0.0, 1/2.pi,
+		1.0, 2.0, 1.0
 	)
 )
 ~~~
@@ -90,8 +90,8 @@ and the cube is projected as a hexagon:
 .unitCube
 .PerspectiveDrawing(
 	AxonometricProjection(
-		1/6.pi, 0, 1/6.pi,
-		1, 1, 1
+		1/6.pi, 0.0, 1/6.pi,
+		1.0, 1.0, 1.0
 	)
 )
 ~~~
@@ -106,8 +106,8 @@ the planometric or military projection is given:
 .unitCube
 .PerspectiveDrawing(
 	AxonometricProjection(
-		1/4.pi, 0, 1/4.pi,
-		1, 1, 1
+		1/4.pi, 0.0, 1/4.pi,
+		1.0, 1.0, 1.0
 	)
 )
 ~~~
@@ -121,8 +121,8 @@ ISO 5456-3 (NEN 2536) gives the following dimetric projection for technical draw
 .unitCube
 .PerspectiveDrawing(
 	AxonometricProjection(
-		42.degree, 0, 7.degree,
-		1 / 2, 1, 1
+		42.degree, 0.0, 7.degree,
+		1.0 / 2.0, 1.0, 1.0
 	)
 )
 ~~~
@@ -136,8 +136,8 @@ The oblique projection given by Carlbom and Paciorek in Figure 3-11b:
 .unitCube
 .PerspectiveDrawing(
 	AxonometricProjection(
-		30.degree, 0, 0,
-		2 / 3, 1, 1
+		30.degree, 0.0, 0.0,
+		2.0 / 3.0, 1.0, 1.0
 	)
 )
 ~~~
@@ -151,8 +151,8 @@ A trimetric projection given by Carlbom and Paciorek in Figure 3-9:
 .unitCube
 .PerspectiveDrawing(
 	AxonometricProjection(
-		24.degree, 0, 17.degree,
-		3 / 4, 1, 7 / 8
+		24.degree, 0.0, 17.degree,
+		3.0 / 4.0, 1.0, 7.0 / 8.0
 	)
 )
 ~~~
@@ -166,8 +166,8 @@ The last oblique projection given by Carlbom and Paciorek in Figure 3-12:
 .unitCube
 .PerspectiveDrawing(
 	AxonometricProjection(
-		30.degree, 0, 0,
-		1 / 2, 1, 1
+		30.degree, 0.0, 0.0,
+		1.0 / 2.0, 1.0, 1.0
 	)
 )
 ~~~
@@ -181,9 +181,9 @@ Draw the standard _isometric_ projection of the unit cube:
 .unitCube
 .PerspectiveDrawing(
 	AxonometricProjection[
-		1 5/6.pi;
-		1 3/6.pi;
-		1 1/6.pi
+		1.0 5/6.pi;
+		1.0 3/6.pi;
+		1.0 1/6.pi
 	]
 )
 ~~~

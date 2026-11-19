@@ -20,7 +20,7 @@ Evaluate numerically:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(200, fresnelC/1)
+(-5.0 -- 5.0).functionPlot(200, fresnelC/1)
 ~~~
 
 ![](Help/Image/fresnelC-A.svg)
@@ -28,7 +28,7 @@ Plot over a subset of the reals:
 Intensity of a wave diffracted by a half-plane:
 
 ~~~spl svg=B
-(-2 -- 4).functionPlot { :d |
+(-2.0 -- 4.0).functionPlot { :d |
 	let a = 0.5 * ((d.fresnelS + 0.5) ^ 2);
 	let b = 0.5 * ((d.fresnelC + 0.5) ^ 2);
 	a + b
@@ -40,7 +40,7 @@ Intensity of a wave diffracted by a half-plane:
 Plot a Cornu, or Euler, spiral, also called a clothoid:
 
 ~~~spl svg=C
-(-4 -- 4).discretize(100) { :x |
+(-4.0 -- 4.0).discretize(100) { :x |
 	[x.fresnelC, x.fresnelS]
 }.Line
 ~~~
@@ -60,7 +60,7 @@ Plot _C(t)/S(t)_:
 Plot _S(t)/C(t)_:
 
 ~~~spl svg=E
-(1E-3 -- 5).functionPlot { :x |
+(0.001 -- 5.0).functionPlot { :x |
 	x.fresnelS / x.fresnelC
 }
 ~~~

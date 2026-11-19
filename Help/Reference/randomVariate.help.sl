@@ -9,8 +9,9 @@ Plot `randomVariate` of `CauchyDistribution`:
 
 ~~~spl svg=A
 let r = Sfc32(478912);
-let d = CauchyDistribution(0, 0.025);
-d.randomVariate(r, 99).clip.linePlot
+let d = CauchyDistribution(0.0, 0.025);
+d.randomVariate(r, 99L)
+.clip.linePlot
 ~~~
 
 ![](Help/Image/randomVariate-A.svg)

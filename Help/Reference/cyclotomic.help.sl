@@ -150,7 +150,7 @@ true
 Plot first few cyclotomic polynomials:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	2L:7L.collect { :n |
 		n.cyclotomic.unaryBlock
 	}

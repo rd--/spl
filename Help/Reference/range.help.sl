@@ -22,10 +22,10 @@ At `Interval`,
 also called `width`:
 
 ```
->>> (1 -- 20).range
+>>> (1.0 -- 20.0).range
 19
 
->>> (1 -- 20).width
+>>> (1.0 -- 20.0).width
 19
 ```
 

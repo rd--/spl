@@ -287,8 +287,8 @@ also called the ruler sequence,
 OEIS [A007814](https://oeis.org/A007814):
 
 ~~~spl svg=A oeis=A007814
-1:127.functionPlot { :n |
-	n.integerExponent(2)
+1L:127L.functionPlot { :n |
+	n.integerExponent(2L)
 }
 ~~~
 
@@ -299,12 +299,12 @@ terms at even indices are the sequence itself,
 OEIS [A110963](https://oeis.org/A110963):
 
 ~~~spl svg=B oeis=A110963
-1:100.collect { :n |
+1L:100L.collect { :n |
 	{ :x |
-		let a = x.integerExponent(2);
+		let a = x.integerExponent(2L);
 		let b = x.bitShiftRight(a);
-		(b + 1) / 2
-	}.iterate(n, 2)
+		(b + 1L) // 2L
+	}.iterate(n, 2L)
 }.scatterPlot
 ~~~
 
@@ -590,19 +590,19 @@ OEIS [A106831](https://oeis.org/A106831):
 
 ~~~spl svg=V oeis=A106831
 let a = Map { :n |
-	(n = 0).if {
-		1
+	(n = 0L).if {
+		1L
 	} {
 		n.isOdd.if {
-			2 * a[(n - 1) / 2]
+			2L * a[(n - 1L) // 2L]
 		} {
-			(2 + n.integerExponent(2))
+			(2L + n.integerExponent(2L))
 			*
-			a[n // 2]
+			a[n // 2L]
 		}
 	}
 };
-a[1 .. 250].scatterPlot.log
+a[1L .. 250L].scatterPlot.log
 ~~~
 
 ![](Help/Image/integerExponent-V.svg)
@@ -611,14 +611,16 @@ Value of _j_ in _n_-th number of form _4ⁱ7ʲ_,
 OEIS [A025666](https://oeis.org/A025666):
 
 ~~~spl svg=W oeis=A025666
-let n = 10 ^ 10;
-[0 .. n.log(4)].collect { :i |
-	[0 .. (n / (4 ^ i)).log(7)].collect { :j |
-		(4 ^ i) * (7 ^ j)
+let n = 10L ^ 10L;
+let m = n.log(4L).floor;
+[0L .. m].collect { :i |
+	let j = (n / (4L ^ i)).log(7L).floor;
+	[0L .. j].collect { :k |
+		(4L ^ i) * (7L ^ k)
 	}
 }.catenate
 .sort!
-.integerExponent(7)
+.integerExponent(7L)
 .scatterPlot
 ~~~
 

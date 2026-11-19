@@ -39,7 +39,7 @@ Plot over a subset of the reals:
 Polar plot:
 
 ~~~spl svg=B
-(0 -- 6.pi).polarPlot(lambertW/1)
+(0.0 -- 6.pi).polarPlot(lambertW/1)
 ~~~
 
 ![](Help/Image/lambertW-B.svg)

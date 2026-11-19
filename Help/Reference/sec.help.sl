@@ -49,8 +49,8 @@ Evaluate for complex arguments:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
-	sec/1.clip(-4, 4)
+(0.0 -- 2.pi).functionPlot(
+	sec/1.clip(-4.0, 4.0)
 )
 ~~~
 
@@ -61,7 +61,8 @@ Plot over a subset of the complex numbers:
 ~~~spl png=B
 let i = (-1.pi -- 1.pi).subdivide(100);
 { :y :x |
-	Complex(x, y).sec.abs.clip(0, 1)
+	Complex(x, y).sec.abs
+	.clip(0.0, 1.0)
 }.table(i, i).Greymap
 ~~~
 
@@ -70,8 +71,9 @@ let i = (-1.pi -- 1.pi).subdivide(100);
 Plot the sum of the `sec` and `tan` functions:
 
 ~~~spl svg=C
-(0 -- 4.pi).functionPlot { :x |
-	(x.sec + x.tan).clip(-9, 9)
+(0.0 -- 4.pi).functionPlot { :x |
+	(x.sec + x.tan)
+	.clip(-9.0, 9.0)
 }
 ~~~
 
@@ -80,9 +82,9 @@ Plot the sum of the `sec` and `tan` functions:
 Draw an epispiral:
 
 ~~~spl svg=D
-let a = 7;
-(0 -- 2.pi).polarPlot { :theta |
-	(a * theta).sec.clip(0, 1)
+let a = 7.0;
+(0.0 -- 2.pi).polarPlot { :theta |
+	(a * theta).sec.clip(0.0, 1.0)
 }
 ~~~
 
@@ -101,9 +103,10 @@ Draw a hyperbola:
 Plot `sec` at integer points:
 
 ~~~spl svg=F
+let i = (-20.0 .. 20.0);
 { :x :y |
 	(x * y).sec.abs.arcTan
-}.table(-20:20, -20:20).matrixPlot
+}.table(i, i).matrixPlot
 ~~~
 
 ![](Help/Image/sec-F.svg)

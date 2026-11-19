@@ -10,7 +10,7 @@ The period doubling sequence,
 OEIS [A096268](https://oeis.org/A096268):
 
 ```
->>> 105.periodDoublingSequence
+>>> 105L.periodDoublingSequence
 [
 	0 1 0 0 0 1 0 1 0 1 0 0 0 1 0 0
 	0 1 0 0 0 1 0 1 0 1 0 0 0 1 0 1
@@ -26,7 +26,7 @@ The complement of the period doubling sequence,
 OEIS [A035263](https://oeis.org/A035263):
 
 ```
->>> 1 - 105.periodDoublingSequence
+>>> 1L - 105L.periodDoublingSequence
 [
 	1 0 1 1 1 0 1 0 1 0 1 1 1 0 1 1
 	1 0 1 1 1 0 1 0 1 0 1 1 1 0 1 0
@@ -54,7 +54,8 @@ The period doubling sequence,
 OEIS [A096268](https://oeis.org/A096268):
 
 ~~~spl svg=A oeis=A096268
-115.periodDoublingSequence.discretePlot
+115L.periodDoublingSequence
+.discretePlot
 ~~~
 
 ![](Help/Image/periodDoublingSequence-A.svg)
@@ -65,13 +66,13 @@ OEIS [A073059](https://oeis.org/A073059):
 ~~~spl svg=B oeis=A073059
 let a = Map { :n |
 	[
-		{ n = 1 } -> { 0 },
-		{ n % 2 = 0 } -> { 0 },
-		{ n % 4 = 3 } -> { 1 },
-		{ true } -> { a[(n - 1) / 4] }
+		{ n = 1L } -> { 0L },
+		{ n % 2L = 0L } -> { 0L },
+		{ n % 4L = 3L } -> { 1L },
+		{ true } -> { a[(n - 1L) // 4] }
 	].which
 };
-a[1 .. 105].discretePlot
+a[1L .. 105L].discretePlot
 ~~~
 
 ![](Help/Image/periodDoublingSequence-B.svg)
@@ -82,12 +83,12 @@ OEIS [A098725](https://oeis.org/A098725):
 ~~~spl svg=C oeis=A098725
 let a = Map { :n |
 	[
-		{ n % 2 = 1 } -> { 1 },
-		{ n % 4 = 0 } -> { 0 },
-		{ true } -> { a[(n - 2) / 4 + 1] }
+		{ n % 2L = 1L } -> { 1L },
+		{ n % 4L = 0L } -> { 0L },
+		{ true } -> { a[(n - 2L) // 4L + 1L] }
 	].which
 };
-a[0 .. 101].discretePlot
+a[0L .. 101L].discretePlot
 ~~~
 
 ![](Help/Image/periodDoublingSequence-C.svg)
@@ -96,7 +97,7 @@ The complement of the period doubling sequence,
 OEIS [A035263](https://oeis.org/A035263):
 
 ~~~spl svg=D oeis=A035263
-(1 - 105.periodDoublingSequence)
+(1L - 105L.periodDoublingSequence)
 .discretePlot
 ~~~
 

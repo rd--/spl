@@ -8,9 +8,9 @@ with mode at _c_.
 Probability density function:
 
 ~~~spl svg=A
-(0 -- 4).functionPlot(
+(0.0 -- 4.0).functionPlot(
 	[0.5 2 3].collect { :c |
-		TriangularDistribution(0 -- 4, c)
+		TriangularDistribution(0.0 -- 4, c)
 		.pdf
 	}
 )
@@ -21,9 +21,9 @@ Probability density function:
 Cumulative distribution function:
 
 ~~~spl svg=B
-(0 -- 4).functionPlot(
+(0.0 -- 4.0).functionPlot(
 	[0.5 2 3].collect { :c |
-		TriangularDistribution(0 -- 4, c)
+		TriangularDistribution(0.0 -- 4, c)
 		.cdf
 	}
 )

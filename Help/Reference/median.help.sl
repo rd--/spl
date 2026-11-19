@@ -60,10 +60,10 @@ Note that `median` sorts the input sequence:
 Median of an `Interval`:
 
 ```
->>> (3 -- 9).median
+>>> (3.0 -- 9.0).median
 6
 
->>> (-3 -- 1).median
+>>> (-3.0 -- 1.0).median
 -1
 ```
 

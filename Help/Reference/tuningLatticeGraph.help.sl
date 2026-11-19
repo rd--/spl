@@ -145,12 +145,12 @@ RatioTuning(
 Tuning lattice graph of regular numbers within the octave double _(360,720)_:
 
 ~~~spl svg=H
-let n = 6.!;
+let n = 6L.!;
 RatioTuning(
-	(n / 2 .. n).select { :x |
-		x.isSmoothNumber(5)
+	(n // 2L .. n).select { :x |
+		x.isSmoothNumber(5L)
 	}.allButLast
-	.Fraction(360)
+	.Fraction(360L)
 ).tuningLatticeGraph
 ~~~
 

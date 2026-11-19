@@ -23,7 +23,7 @@ Evaluate numerically:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot { :q |
+(-1.0 -- 1.0).functionPlot { :q |
 	q.qPochhammer(q, 9)
 }
 ~~~

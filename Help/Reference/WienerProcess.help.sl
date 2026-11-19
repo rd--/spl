@@ -10,8 +10,8 @@ Simulate a Wiener process:
 
 ~~~spl svg=A
 let r = Sfc32(693718);
-WienerProcess(0, 0.5)
-.randomFunction(r, [0 1 0.01], 1)
+WienerProcess(0.0, 0.5)
+.randomFunction(r, [0.0 1.0 0.01], 1L)
 .linePlot
 ~~~
 
@@ -21,8 +21,8 @@ Simulate an ensemble of paths:
 
 ~~~spl svg=B
 let r = Sfc32(990914);
-WienerProcess(0, 0.5)
-.randomFunction(r, [0 1 0.01], 4)
+WienerProcess(0.0, 0.5)
+.randomFunction(r, [0.0 1.0 0.01], 4)
 .linePlot
 ~~~
 
@@ -32,8 +32,8 @@ Simulate a Wiener process in three dimensions:
 
 ~~~spl svg=C
 let r = Sfc32(990914);
-WienerProcess(0, 1)
-.randomFunction(r, [0 1 0.005], 3)
+WienerProcess(0.0, 1.0)
+.randomFunction(r, [0.0 1.0 0.005], 3L)
 .valueList
 .transpose
 .linePlot

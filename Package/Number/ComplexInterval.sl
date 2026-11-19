@@ -97,7 +97,7 @@ ComplexInterval : [Object, Store, Equal] {
 	}
 
 	subdivide { :self :n |
-		self.discretize(n + 1)
+		self.discretize(n + 1L)
 	}
 
 	[upperBound, supremum] { :self |

@@ -27,7 +27,7 @@ Evaluate numerically:
 Effect of varying parameter _a_:
 
 ~~~spl svg=A
-(-3 -- 6).functionPlot(
+(-3.0 -- 6.0).functionPlot(
 	[-0.5 1 0.5.e].collect { :a |
 		gompertzFunction(a, 1, 1)
 	}
@@ -39,7 +39,7 @@ Effect of varying parameter _a_:
 Effect of varying parameter _b_:
 
 ~~~spl svg=B
-(-3 -- 6).functionPlot(
+(-3.0 -- 6.0).functionPlot(
 	[4 1 0.25].collect { :b |
 		gompertzFunction(1, b, 1)
 	}
@@ -51,7 +51,7 @@ Effect of varying parameter _b_:
 Effect of varying parameter _c_:
 
 ~~~spl svg=C
-(-3 -- 6).functionPlot(
+(-3.0 -- 6.0).functionPlot(
 	[0.5 1 2].collect { :c |
 		gompertzFunction(1, 1, c)
 	}

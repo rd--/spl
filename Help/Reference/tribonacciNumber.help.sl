@@ -72,7 +72,7 @@ Period of Fibonacci three-step sequence modulo _n_,
 OEIS [A046738](https://oeis.org/A046738):
 
 ~~~spl svg=A oeis=A046738
-2:52.collect(
+2L:52L.collect(
 	tribonacciPisanoPeriod/1
 ).discretePlot
 ~~~
@@ -84,17 +84,17 @@ OEIS [A074364](https://oeis.org/A074364):
 
 ~~~spl svg=B oeis=A074364
 let a = Map { :n |
-	(n < 2).if {
+	(n < 2L).if {
 		n
 	} {
 		n.isEven.if {
-			a[n / 2]
+			a[n // 2L]
 		} {
-			a[n - 1] + a[n - 2] + a[n - 3]
+			a[n - 1L] + a[n - 2L] + a[n - 3L]
 		}
 	}
 };
-a[0 .. 150].scatterPlot.log
+a[0L .. 150L].scatterPlot.log
 ~~~
 
 ![](Help/Image/tribonacciNumber-B.svg)

@@ -72,7 +72,7 @@ true
 At `Interval`:
 
 ```
->>> (0 -- 1).isAtom
+>>> (0.0 -- 1.0).isAtom
 true
 ```
 

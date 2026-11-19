@@ -200,76 +200,76 @@ Polyhedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 
 }
 
-+Float {
++[Float, Integer] {
 
 	oloid { :nPolygons |
 		/* https://www.cs.cmu.edu/~kmcrane/Projects/ModelRepository/#oloid */
-		let n = nPolygons // 4 + 1;
+		let n = nPolygons / 4.0 + 1.0;
 		let v = [];
 		let f = [];
 		let index = { :i |
-			(i > 0).ifTrue {
-				i := i - 1
+			(i > 0.0).ifTrue {
+				i := i - 1.0
 			};
-			(i = (n * 4 - 2)).ifTrue {
-				i := i - 1
+			(i = (n * 4.0 - 2.0)).ifTrue {
+				i := i - 1.0
 			};
-			1 + i
+			1.0 + i
 		};
-		0.toDo(n - 1) { :i |
-			let s = i / (n - 1);
-			let t = 2/3.pi * ((3 * s) - (2 * (s ^ 1.5)));
+		0.0.toDo(n - 1.0) { :i |
+			let s = i / (n - 1.0);
+			let t = 2/3.pi * ((3.0 * s) - (2.0 * (s ^ 1.5)));
 			let a = [
 				t.sin,
 				t.cos.-,
-				0
+				0.0
 			];
 			let b = [
-				0,
-				1 / (1 + t.cos),
-				(1 + (2 * t.cos)).sqrt / (1 + t.cos)
+				0.0,
+				1.0 / (1.0 + t.cos),
+				(1.0 + (2.0 * t.cos)).sqrt / (1.0 + t.cos)
 			];
 			v.add!(a);
-			(i > 0).ifTrue {
-				v.add!(a * [-1, 1, 1])
+			(i > 0.0).ifTrue {
+				v.add!(a * [-1.0, 1.0, 1.0])
 			};
 			v.add!(b);
-			(i != (n - 1)).ifTrue {
-				v.add!(b * [1, 1, -1])
+			(i != (n - 1.0)).ifTrue {
+				v.add!(b * [1.0, 1.0, -1.0])
 			}
 		};
-		0.toDo(n - 2) { :i |
-			let j = i + 1;
+		0.0.toDo(n - 2.0) { :i |
+			let j = i + 1.0;
 			f.add!(
 				[
-					index(j * 4 + 0),
-					index(j * 4 + 2),
-					index(i * 4 + 2),
-					index(i * 4 + 0)
+					index(j * 4.0 + 0.0),
+					index(j * 4.0 + 2.0),
+					index(i * 4.0 + 2.0),
+					index(i * 4.0 + 0.0)
 				]
 			);
 			f.add!(
 				[
-					index(i * 4 + 0),
-					index(i * 4 + 3),
-					index(j * 4 + 3),
-					index(j * 4 + 0)
+					index(i * 4.0 + 0.0),
+					index(i * 4.0 + 3.0),
+					index(j * 4.0 + 3.0),
+					index(j * 4.0 + 0.0)
 				]
 			);
 			f.add!(
 				[
-					index(i * 4 + 1),
-					index(i * 4 + 2),
-					index(j * 4 + 2),
-					index(j * 4 + 1)
+					index(i * 4.0 + 1.0),
+					index(i * 4.0 + 2.0),
+					index(j * 4.0 + 2.0),
+					index(j * 4.0 + 1.0)
 				]
 			);
 			f.add!(
 				[
-					index(j * 4 + 1),
-					index(j * 4 + 3),
-					index(i * 4 + 3),
-					index(i * 4 + 1)
+					index(j * 4.0 + 1.0),
+					index(j * 4.0 + 3.0),
+					index(i * 4.0 + 3.0),
+					index(i * 4.0 + 1.0)
 				]
 			)
 		};

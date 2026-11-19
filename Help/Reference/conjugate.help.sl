@@ -101,7 +101,7 @@ Plot over a subset of the complex numbers:
 Plot the absolute value of  function:
 
 ~~~spl svg=B
-(-3 -- 3).functionPlot { :x |
+(-3.0 -- 3.0).functionPlot { :x |
 	x.J(1).abs.conjugate
 }
 ~~~

@@ -8,7 +8,7 @@ which should be of either three or five arguments.
 Linear interpolation:
 
 ~~~spl svg=A
-(1 -- 8).functionPlot(
+(1.0 -- 8.0).functionPlot(
 	[3.5 1.5 1.75 1.25 3.75 0 2.5 0.75]
 	.listInterpolation(
 		linearInterpolation/3
@@ -21,7 +21,7 @@ Linear interpolation:
 Cosine interpolation:
 
 ~~~spl svg=B
-(1 -- 8).functionPlot(
+(1.0 -- 8.0).functionPlot(
 	[3.5 1.5 1.75 1.25 3.75 0 2.5 0.75]
 	.listInterpolation(
 		cosineInterpolation/3
@@ -37,7 +37,7 @@ the leftmost and rightmost values are replicated.
 Cubic interpolation:
 
 ~~~spl svg=C
-(1 -- 8).functionPlot(
+(1.0 -- 8.0).functionPlot(
 	[3.5 1.5 1.75 1.25 3.75 0 2.5 0.75]
 	.listInterpolation(
 		cubicInterpolation/5
@@ -50,7 +50,7 @@ Cubic interpolation:
 Catmull-Rom interpolation:
 
 ~~~spl svg=D
-(1 -- 8).functionPlot(
+(1.0 -- 8.0).functionPlot(
 	[3.5 1.5 1.75 1.25 3.75 0 2.5 0.75]
 	.listInterpolation(
 		catmullRomInterpolation/5
@@ -63,7 +63,7 @@ Catmull-Rom interpolation:
 No interpolation, use next sample point:
 
 ~~~spl svg=E
-(1 -- 8).functionPlot(
+(1.0 -- 8.0).functionPlot(
 	[3.5 1.5 1.75 1.25 3.75 0 2.5 0.75]
 	.listInterpolation { :y1 :y2 :mu |
 		y2
@@ -76,7 +76,7 @@ No interpolation, use next sample point:
 No interpolation, use previous sample point:
 
 ~~~spl svg=F
-(1 -- 8).functionPlot(
+(1.0 -- 8.0).functionPlot(
 	[3.5 1.5 1.75 1.25 3.75 0 2.5 0.75]
 	.listInterpolation { :y1 :y2 :mu |
 		y1
@@ -89,7 +89,7 @@ No interpolation, use previous sample point:
 No interpolation, use nearest sample point:
 
 ~~~spl svg=G
-(1 -- 8).functionPlot(
+(1.0 -- 8.0).functionPlot(
 	[3.5 1.5 1.75 1.25 3.75 0 2.5 0.75]
 	.listInterpolation { :y1 :y2 :mu |
 		(mu < 0.5).if { y1 } { y2 }
@@ -102,9 +102,9 @@ No interpolation, use nearest sample point:
 Compare linear and Catmull-Rom interpolation using test data that connects multiple flat regions:
 
 ~~~spl svg=H
-let l = [-1 -1 -1 0 1 1 1];
+let l = [-1.0 -1.0 -1.0 0.0 1.0 1.0 1.0];
 let n = l.size;
-(1 -- n).functionPlot(
+(1.0 -- n).functionPlot(
 	[
 		linearInterpolation/3,
 		catmullRomInterpolation/5

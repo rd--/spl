@@ -37,7 +37,7 @@ Threads over lists:
 Plot curve:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	srgbEncode/1
 )
 ~~~
@@ -47,7 +47,7 @@ Plot curve:
 Inverse is `srgbDecode`:
 
 ~~~spl svg=B
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	x.srgbEncode.srgbDecode
 }
 ~~~

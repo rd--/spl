@@ -85,26 +85,26 @@ OEIS [A054786](https://oeis.org/A054786):
 
 ~~~spl svg=B oeis=A054786
 let a = Map { :n |
-	let m = n % 12;
+	let m = n % 12L;
 	[
-		{ [0 6].includes(m) } -> {
-			6 * a[n / 6]
+		{ [0L 6L].includes(m) } -> {
+			6L * a[n // 6L]
 		},
-		{ [1 3 8 10].includes(m) } -> {
-			n + 1
+		{ [1L 3L 8L 10L].includes(m) } -> {
+			n + 1L
 		},
-		{ [2 4 9 11].includes(m) } -> {
-			6 * n - 6
+		{ [2L 4L 9L 11L].includes(m) } -> {
+			6L * n - 6L
 		},
-		{ m = 5 } -> {
-			n + 1
+		{ m = 5L } -> {
+			n + 1L
 		},
-		{ m = 7 } -> {
-			6 * n - 12
+		{ m = 7L } -> {
+			6L * n - 12L
 		}
 	].which
 };
-a[1 .. 115].scatterPlot
+a[1L .. 115L].scatterPlot
 ~~~
 
 ![](Help/Image/which-B.svg)

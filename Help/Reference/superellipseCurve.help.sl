@@ -9,7 +9,7 @@ is a closed curve defined by an equation that allows for various shapes between 
 A four-armed star with concave sides:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	superellipseCurve(1, 1, 0.5)
 )
 ~~~
@@ -19,7 +19,7 @@ A four-armed star with concave sides:
 A rhombus:
 
 ~~~spl svg=B
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	superellipseCurve(1, 1, 1)
 )
 ~~~
@@ -29,7 +29,7 @@ A rhombus:
 A rhombus with with convex sides:
 
 ~~~spl svg=C
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	superellipseCurve(1, 1, 3 / 2)
 )
 ~~~
@@ -39,7 +39,7 @@ A rhombus with with convex sides:
 A circle:
 
 ~~~spl svg=D
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	superellipseCurve(1, 1, 2)
 )
 ~~~
@@ -49,7 +49,7 @@ A circle:
 A squircle:
 
 ~~~spl svg=E
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	superellipseCurve(1, 1, 4)
 )
 ~~~
@@ -61,7 +61,7 @@ Approximate path the geometric centroid of a rotating Reuleaux triangle:
 ~~~spl svg=F
 let a = 2 * 3.sqrt / 3 - 1;
 let r = 2.36185;
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	superellipseCurve(a, a, r)
 )
 ~~~

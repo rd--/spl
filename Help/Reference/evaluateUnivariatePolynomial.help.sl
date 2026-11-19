@@ -37,7 +37,7 @@ let c = [
 	0 -2816
 	0 1024
 ];
-(-1 -- 1).functionPlot { :x |
+(-1.0 -- 1.0).functionPlot { :x |
 	c.evaluateUnivariatePolynomial(x)
 }
 ~~~

@@ -146,7 +146,7 @@ A multiplication magic square, by Sayles in 1913:
 Plot a function:
 
 ~~~spl svg=A
-(1 -- 50).functionPlot { :i |
+(1.0 -- 50.0).functionPlot { :i |
 	let z = 2 + (i * 2.pi / 15).sin;
 	(11 / 12) ^ i * z
 }

@@ -10,10 +10,10 @@ A negative sign indicates a polarity to the upper tone.
 
 ```
 >>> 48/25.barlowHarmonicity
--0.05137
+-15/292
 
 >>> 3/2.barlowHarmonicity
-0.27272
+3/11
 
 >>> 1/1.barlowHarmonicity
 Infinity

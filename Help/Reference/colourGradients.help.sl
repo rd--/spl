@@ -96,7 +96,7 @@ The `unaryBlock` method of `ColourGradient` answers a one argument `Block` that 
 Use a resampled form of the _Pastel_ gradient from the _Mathematica_ collection to colour a plot of a sine function:
 
 ~~~spl png=F
-let i = (-2 -- 2).discretize(100);
+let i = (-2.0 -- 2.0).discretize(100);
 let f/1 = system
 .colourGradients['Mathematica']['Pastel']
 .ColourGradient

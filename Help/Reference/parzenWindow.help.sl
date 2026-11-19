@@ -14,7 +14,7 @@ Evaluate numerically:
 Plot Parzen window:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(parzenWindow/1)
+(-1.0 -- 1.0).functionPlot(parzenWindow/1)
 ~~~
 
 ![](Help/Image/parzenWindow-A.svg)
@@ -22,7 +22,7 @@ Plot Parzen window:
 Translated and dilated Parzen window:
 
 ~~~spl svg=B
-(-1 -- 3).functionPlot { :x |
+(-1.0 -- 3.0).functionPlot { :x |
 	((x - 1) / 2).parzenWindow
 }
 ~~~

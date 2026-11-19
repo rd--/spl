@@ -87,7 +87,7 @@ With fractional _x_:
 Plot the `nearest` of a list of numbers:
 
 ~~~spl svg=A
-(0 -- 10).functionPlot { :x |
+(0.0 -- 10.0).functionPlot { :x |
 	[1 3 4 7 8].nearest(x).first
 }
 ~~~

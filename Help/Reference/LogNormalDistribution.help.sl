@@ -8,8 +8,8 @@ Plot `randomVariate`:
 
 ~~~spl svg=A
 let r = Sfc32(789134);
-LogNormalDistribution(0, 1)
-.randomVariate(r, 99)
+LogNormalDistribution(0.0, 1.0)
+.randomVariate(r, 99L)
 .linePlot
 ~~~
 
@@ -19,8 +19,8 @@ Two dimensional log-normal noise:
 
 ~~~spl png=B
 let r = Sfc32(180513);
-LogNormalDistribution(0, 1 / 3)
-.randomVariate(r, [100 100])
+LogNormalDistribution(0.0, 1.0 / 3.0)
+.randomVariate(r, [100L 100L])
 .rescale
 .Greymap
 ~~~
@@ -30,11 +30,11 @@ LogNormalDistribution(0, 1 / 3)
 Probability density function, varying _mu_:
 
 ~~~spl svg=C
-(0 -- 4).functionPlot(
-	[-1 2 3].collect { :mu |
-		LogNormalDistribution(mu, 2)
+(0.0 -- 4.0).functionPlot(
+	[-1.0 2.0 3.0].collect { :mu |
+		LogNormalDistribution(mu, 2.0)
 		.pdf
-		.clip(0, 0.4)
+		.clip(0.0, 0.4)
 	}
 )
 ~~~
@@ -44,9 +44,9 @@ Probability density function, varying _mu_:
 Probability density function, varying _sigma_:
 
 ~~~spl svg=D
-(0 -- 4).functionPlot(
+(0.0 -- 4.0).functionPlot(
 	[0.5 0.75 1.5].collect { :sigma |
-		LogNormalDistribution(1, sigma)
+		LogNormalDistribution(1.0, sigma)
 		.pdf
 	}
 )
@@ -58,9 +58,9 @@ Generate a sample of pseudorandom numbers from a log normal distribution:
 
 ~~~spl svg=E
 let r = Sfc32(890412);
-LogNormalDistribution(2, 0.3)
-.randomVariate(r, [10 ^ 4])
-.histogramPlot([0 15 0.5])
+LogNormalDistribution(2.0, 0.3)
+.randomVariate(r, [10L ^ 4L])
+.histogramPlot([0.0 15.0 0.5])
 ~~~
 
 ![](Help/Image/LogNormalDistribution-E.svg)

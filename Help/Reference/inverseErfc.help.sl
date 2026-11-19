@@ -48,7 +48,7 @@ Threads over lists:
 Plot over range:
 
 ~~~spl svg=A
-(0 -- 2).functionPlot { :x |
+(0.0 -- 2.0).functionPlot { :x |
 	x.inverseErfc.clip(-2, 2)
 }
 ~~~

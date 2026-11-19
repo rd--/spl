@@ -196,7 +196,7 @@
 	}
 
 	clip { :self |
-		self.clip(-1, 1, -1, 1)
+		self.clip(-1.0, 1.0, -1.0, 1.0)
 	}
 
 	copySign { :self :aNumber |
@@ -688,11 +688,25 @@
 		}
 	}
 
+	niceFractionBy { :self :aBlock/2 |
+		let m = 10L ^ self.abs.log10.floor.negate;
+		let steps = [1/1 3/2 2/1 5/2 5/1 3/4 10/1];
+		let z = aBlock(steps, self * m);
+		z / m
+	}
+
 	niceNumberBy { :self :aBlock/2 |
-		let n = self;
-		let m = 10 ^ n.abs.log10.floor.negate;
-		let steps = [1 1.5 2 2.5 5 7.5 10]; /* [1 3/2 2 5/2 5 3/4 10] */
-		let z = aBlock(steps, n * m);
+		self.isFraction.if {
+			self.niceFractionBy(aBlock/2)
+		} {
+			self.niceFloatBy(aBlock/2)
+		}
+	}
+
+	niceFloatBy { :self :aBlock/2 |
+		let m = 10.0 ^ self.abs.log10.floorFloat.negate;
+		let steps = [1.0 1.5 2.0 2.5 5.0 7.5 10.0];
+		let z = aBlock(steps, self * m);
 		z / m
 	}
 

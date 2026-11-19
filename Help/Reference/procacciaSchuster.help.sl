@@ -7,8 +7,8 @@ Implement the finite difference equation proposed by I. Procaccia and H. Schuste
 First few terms with initial _x=0.6781_:
 
 ~~~spl svg=A
-1.procacciaSchuster
-.nestList(0.6781, 350)
+1.0.procacciaSchuster
+.nestList(0.6781, 350L)
 .linePlot
 ~~~
 
@@ -17,8 +17,8 @@ First few terms with initial _x=0.6781_:
 First few terms with initial _x=0.2314_:
 
 ~~~spl svg=B
-1.procacciaSchuster
-.nestList(0.2314, 350)
+1.0.procacciaSchuster
+.nestList(0.2314, 350L)
 .linePlot
 ~~~
 
@@ -27,8 +27,8 @@ First few terms with initial _x=0.2314_:
 Plot spectrum:
 
 ~~~spl svg=C
-1.procacciaSchuster
-.nestList(0.4171, 400)
+1.0.procacciaSchuster
+.nestList(0.4171, 400L)
 .spectralPlot
 ~~~
 

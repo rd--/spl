@@ -11,7 +11,7 @@ answer a plot of the surface obtained by rotating the parametric curve with _(x,
 Revolve a function curve around the _z_ axis:
 
 ~~~spl svg=A
-(0 -- 1).revolutionPlot { :t :theta |
+(0.0 -- 1.0).revolutionPlot { :t :theta |
 	((t ^ 4) - (t ^ 2)) * 7
 }
 ~~~
@@ -21,7 +21,7 @@ Revolve a function curve around the _z_ axis:
 Revolve a parametric curve around the _z_ axis:
 
 ~~~spl svg=B
-(0 -- 2.pi).revolutionPlot { :t |
+(0.0 -- 2.pi).revolutionPlot { :t |
 	[2 + t.cos, t.sin * 3.5]
 }
 ~~~
@@ -31,7 +31,7 @@ Revolve a parametric curve around the _z_ axis:
 A cylinder:
 
 ~~~spl svg=C
-(0 -- 1).revolutionPlot { :t |
+(0.0 -- 1.0).revolutionPlot { :t |
 	[1, t * 2.5]
 }
 ~~~
@@ -41,7 +41,7 @@ A cylinder:
 A cone:
 
 ~~~spl svg=D
-(0 -- 1).revolutionPlot { :t |
+(0.0 -- 1.0).revolutionPlot { :t |
 	[t, t * 2.5]
 }
 ~~~

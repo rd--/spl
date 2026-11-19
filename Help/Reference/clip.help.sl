@@ -28,7 +28,7 @@ clip number to indicated range:
 >>> -5/2.clip(-2, 2)
 -2
 
->>> -5/2.clip(-2 -- 2)
+>>> -5/2.clip(-2.0 -- 2.0)
 -2
 ```
 
@@ -87,7 +87,7 @@ o.clip(-0.07, 0.07)
 Plot the unit clip function over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(clip/1)
+(-3.0 -- 3.0).functionPlot(clip/1)
 ~~~
 
 ![](Help/Image/clip-A.svg)
@@ -95,7 +95,7 @@ Plot the unit clip function over a subset of the reals:
 Plot the composition of clip with a periodic function:
 
 ~~~spl svg=B
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	sin/1.clip(-0.5, 1)
 )
 ~~~

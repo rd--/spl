@@ -8,9 +8,9 @@ Power spectrum of a noisy dataset:
 
 ~~~spl svg=A
 let r = Sfc32(318642);
-let n = r.randomReal([-1 1], [128]);
-let s = 0:127.collect { :n |
-	(2 * (0.2.pi * n).sin) + (0.5.pi * n).sin
+let n = r.randomReal([-1.0 1.0], [128L]);
+let s = (0.0 .. 127.0).collect { :n |
+	(2.0 * (0.2.pi * n).sin) + (0.5.pi * n).sin
 };
 (s + n).periodogramPlot
 ~~~

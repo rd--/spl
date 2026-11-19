@@ -30,8 +30,8 @@ Local minima:
 Matrix plot, log scaled and rounded:
 
 ~~~spl png=A
-let k = 100;
-let i = (-6 -- 6).subdivide(k);
+let k = 100L;
+let i = (-6.0 -- 6.0).subdivide(k);
 himmelblausFunction/2
 .table(i, i)
 .log
@@ -45,10 +45,10 @@ himmelblausFunction/2
 Contour plot of sparse sampling:
 
 ~~~spl svg=B
-let k = 20;
-let i = (-6 -- 6).subdivide(k);
+let k = 20L;
+let i = (-6.0 -- 6.0).subdivide(k);
 himmelblausFunction/2
-.contourPlot(i, i, 10 ^ [-2 .. 3])
+.contourPlot(i, i, 10.0 ^ [-2.0 .. 3.0])
 ~~~
 
 ![](Help/Image/himmelblausFunction-B.svg)

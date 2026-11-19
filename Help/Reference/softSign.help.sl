@@ -15,7 +15,7 @@ Evaluate symbolically:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(softSign/1)
+(-3.0 -- 3.0).functionPlot(softSign/1)
 ~~~
 
 ![](Help/Image/softSign-A.svg)

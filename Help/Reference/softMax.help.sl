@@ -50,7 +50,7 @@ each row of the matrix is normalized:
 The softmax function:
 
 ~~~spl svg=A
-(-1 -- 1).discretize(100)
+(-1.0 -- 1.0).discretize(100)
 .softMax
 .linePlot
 ~~~

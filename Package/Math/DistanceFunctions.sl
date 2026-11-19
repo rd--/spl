@@ -184,12 +184,12 @@
 	}
 
 	minkowskiDistance { :p :u :v |
-		((u - v).abs ^ p).sum ^ (1 / p)
+		((u - v).abs ^ p).sum ^ (1.0 / p)
 	}
 
 	minkowskiDistance { :p |
 		{ :u :v |
-			((u - v).abs ^ p).sum ^ (1 / p)
+			((u - v).abs ^ p).sum ^ (1.0 / p)
 		}
 	}
 

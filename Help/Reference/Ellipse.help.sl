@@ -73,7 +73,7 @@ let x = 2.sqrt;
 let i = (x.- -- x).subdivide(35);
 Ellipse([0 0], [x 1])
 .implicitEquation
-.contourPlot(i, i, [0])
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/Ellipse-C.svg)

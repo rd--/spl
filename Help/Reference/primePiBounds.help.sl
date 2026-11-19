@@ -6,7 +6,7 @@ Answer an `Interval` giving an upper and lower bound for the value of `primePi` 
 
 ```
 >>> 99999.primePiBounds
-(7400 -- 13310)
+(7400.0 -- 13310.0)
 
 >>> 99999.primePi
 9592

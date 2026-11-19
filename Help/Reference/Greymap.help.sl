@@ -25,7 +25,7 @@ Plot a table of values of five sine waves in random directions:
 let r = Sfc32(31684);
 let n = r.randomReal([0 10], [5 2]);
 let k = 99;
-let i = (0 -- 5).subdivide(k);
+let i = (0.0 -- 5.0).subdivide(k);
 (
 	1 - { :x :y |
 		n.sum { :each |
@@ -62,7 +62,7 @@ let julia = { :c |
 		};
 		n
 	}.table(
-		(-1 -- 1).discretize(100),
+		(-1.0 -- 1.0).discretize(100),
 		(-1.5 -- 1.5).discretize(150)
 	)
 };
@@ -77,7 +77,7 @@ m
 Draw trigonometric function, rescaling:
 
 ~~~spl png=D
-let x = (-4 -- 4).discretize(200);
+let x = (-4.0 -- 4.0).discretize(200);
 { :i :j |
 	i + ((i ^ 2) + (j ^ 2)).sin
 }.table(x, x).rescale.Greymap
@@ -88,7 +88,7 @@ let x = (-4 -- 4).discretize(200);
 Aliasing patterns from sampling the `sin` function at large integer values (Kaplan 2005):
 
 ~~~spl png=E
-let i = (0 -- 143).discretize(200);
+let i = (0.0 -- 143.0).discretize(200);
 { :x :y |
 	(x.square + y.square).sin
 }.table(i, i).rescale.Greymap

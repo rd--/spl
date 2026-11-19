@@ -258,7 +258,7 @@ Plot the function over a subset of the reals
 round is a staircase function:
 
 ~~~spl svg=A
-(0 -- 7).functionPlot(round/1)
+(0.0 -- 7.0).functionPlot(round/1)
 ~~~
 
 ![](Help/Image/round-A.svg)
@@ -266,7 +266,7 @@ round is a staircase function:
 Plot _√x-⌊√x⌉_ over a subset of the reals:
 
 ~~~spl svg=B
-(0 -- 16).functionPlot { :x |
+(0.0 -- 16.0).functionPlot { :x |
 	let z = x.sqrt;
 	z - z.round
 }

@@ -12,7 +12,7 @@ The ratio _1:1_ draws a straight line or an ellipse or a circle,
 depending on the initial phase difference:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	[0 1/4 1/2 3/4 1].pi.collect { :p |
 		lateralHarmonographCurve(
 			[1 p 1 0]
@@ -26,7 +26,7 @@ depending on the initial phase difference:
 The ratio _2:1_:
 
 ~~~spl svg=B
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	[0 1/4 1/2 3/4 1].pi.collect { :p |
 		lateralHarmonographCurve(
 			[2 p 1 0]
@@ -40,7 +40,7 @@ The ratio _2:1_:
 The ratio _3:2_:
 
 ~~~spl svg=C
-(0 -- 4.pi).functionPlot(
+(0.0 -- 4.pi).functionPlot(
 	[0 1/4].pi.collect { :p |
 		lateralHarmonographCurve(
 			[1.5 p 1 0]
@@ -54,7 +54,7 @@ The ratio _3:2_:
 A near unison, with damping:
 
 ~~~spl svg=D
-(0 -- 64.pi).functionPlot(
+(0.0 -- 64.pi).functionPlot(
 	800,
 	lateralHarmonographCurve(
 		[1.035 1 1 0.35]
@@ -67,7 +67,7 @@ A near unison, with damping:
 A near octave, with damping:
 
 ~~~spl svg=E
-(0 -- 64.pi).functionPlot(
+(0.0 -- 64.pi).functionPlot(
 	800,
 	lateralHarmonographCurve(
 		[0.50135 1 1 0.5]
@@ -80,7 +80,7 @@ A near octave, with damping:
 A whole tone:
 
 ~~~spl svg=F
-(0 -- 16.pi).functionPlot(
+(0.0 -- 16.pi).functionPlot(
 	800,
 	lateralHarmonographCurve(
 		[9/8 0 1 0]

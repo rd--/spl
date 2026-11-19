@@ -7,12 +7,12 @@ Answer the discrete Fourier transform of _x_.
 Plot the discrete Fourier transform of a cosine signal:
 
 ~~~spl svg=A
-let n = 200;
-(0 -- 23.pi)
+let n = 200L;
+(0.0 -- 23.pi)
 .discretize(n)
 .cos
 .dft
-.take(n / 2)
+.take(n // 2)
 .abs
 .linePlot
 ~~~

@@ -8,7 +8,7 @@ studied earlier by Riemann.
 The Riemann function, _a=2_:
 
 ~~~spl svg=A
-(0 -- 1.pi).functionPlot(
+(0.0 -- 1.pi).functionPlot(
 	riemannFunction/1
 )
 ~~~
@@ -18,7 +18,7 @@ The Riemann function, _a=2_:
 The Riemann function _a_ of _2,3,4_:
 
 ~~~spl svg=B
-(0 -- 1.pi).functionPlot(
+(0.0 -- 1.pi).functionPlot(
 	[2 3 4].collect { :a |
 		{ :x |
 			riemannFunction(x, a, 100)

@@ -77,10 +77,11 @@ The twelve free five-polyominoes:
 
 ~~~spl svg=A
 polyominoes(5)
-.deepCollect(realImaginary/1)
-.plus(1)
+.deepCollect { :z |
+	z.realImaginary.L
+}.plus(1L)
 .collect { :p |
-	p.booleanSparseArray([5 5])
+	p.booleanSparseArray([5L 5L])
 	.normalArray
 }.catenate.transpose.arrayMesh
 ~~~

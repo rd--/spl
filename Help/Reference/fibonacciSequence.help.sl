@@ -226,15 +226,15 @@ OEIS [A109671](https://oeis.org/A109671):
 
 ~~~spl svg=C oeis=A109671
 let a = Map { :n |
-	(n = 1).if {
-		1
+	(n = 1L).if {
+		1L
 	} {
 		n.isEven.if {
-			a[n / 2]
+			a[n // 2L]
 		} {
-			let p = a[n - 2];
-			let q = a[(n - 1) / 2];
-			(p - q > 0).if {
+			let p = a[n - 2L];
+			let q = a[(n - 1L) // 2L];
+			(p - q > 0L).if {
 				p - q
 			} {
 				p + q
@@ -242,7 +242,7 @@ let a = Map { :n |
 		}
 	}
 };
-a[1 .. 150].scatterPlot
+a[1L .. 150L].scatterPlot
 ~~~
 
 ![](Help/Image/fibonacciSequence-C.svg)

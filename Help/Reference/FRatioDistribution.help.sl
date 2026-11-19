@@ -8,8 +8,8 @@ Generate a sample of pseudo-random numbers from an F-ratio distribution:
 
 ~~~spl svg=A
 let r = Sfc32(781241);
-FRatioDistribution(25, 50)
-.randomVariate(r, 10^4)
+FRatioDistribution(25.0, 50.0)
+.randomVariate(r, 10L ^ 4L)
 .histogramPlot
 ~~~
 

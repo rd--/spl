@@ -7,18 +7,18 @@ Implement the Rastrigin test function.
 Minima:
 
 ```
->>> [0].rastriginFunction
-0
+>>> [0.0].rastriginFunction
+0.0
 
->>> [0 0].rastriginFunction
-0
+>>> [0.0 0.0].rastriginFunction
+0.0
 ```
 
 Maxima:
 
 ```
 >>> let x = 4.52299366;
->>> 1:9.collect { :n |
+>>> 1L:9L.collect { :n |
 >>> 	List(n, x).rastriginFunction
 >>> }
 [
@@ -37,8 +37,8 @@ Maxima:
 Matrix plot:
 
 ~~~spl png=A
-let k = 100;
-let i = (-2 -- 2).subdivide(k);
+let k = 100L;
+let i = (-2.0 -- 2.0).subdivide(k);
 { :x :y |
 	rastriginFunction([x, y])
 }.table(i, i)
@@ -51,11 +51,11 @@ let i = (-2 -- 2).subdivide(k);
 Contour plot of sparse sampling:
 
 ~~~spl svg=B
-let k = 20;
+let k = 20L;
 let i = (-2.5 -- 2.5).subdivide(k);
 { :x :y |
 	rastriginFunction([x y])
-}.contourPlot(i, i, [5 15 30])
+}.contourPlot(i, i, [5.0 15.0 30.0])
 ~~~
 
 ![](Help/Image/rastriginFunction-B.svg)

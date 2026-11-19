@@ -11,7 +11,7 @@ Plot the vector field _(y,-x)_:
 ~~~spl svg=A
 { :x :y |
 	[y, 0 - x]
-}.vectorPlot(-3 -- 3, -3 -- 3)
+}.vectorPlot(-3.0 -- 3.0, -3.0 -- 3.0)
 ~~~
 
 ![](Help/Image/vectorPlot-A.svg)
@@ -21,7 +21,7 @@ Plot the vector field _(x+y,y-x)_:
 ~~~spl svg=B
 { :x :y |
 	[x + y, y - x]
-}.vectorPlot(-3 -- 3, -3 -- 3)
+}.vectorPlot(-3.0 -- 3.0, -3.0 -- 3.0)
 ~~~
 
 ![](Help/Image/vectorPlot-B.svg)
@@ -31,7 +31,7 @@ Plot the vector field _(y,x+y)_:
 ~~~spl svg=C
 { :x :y |
 	[y, x + y]
-}.vectorPlot(-3 -- 3, -3 -- 3)
+}.vectorPlot(-3.0 -- 3.0, -3.0 -- 3.0)
 ~~~
 
 ![](Help/Image/vectorPlot-C.svg)
@@ -41,7 +41,7 @@ Plot the vector field _(-1-x²+y,1+x-y²)_:
 ~~~spl svg=D
 { :x :y |
 	[-1 - (x ^ 2) + y, 1 + x - (y ^ 2)]
-}.vectorPlot(-3 -- 3, -3 -- 3)
+}.vectorPlot(-3.0 -- 3.0, -3.0 -- 3.0)
 ~~~
 
 ![](Help/Image/vectorPlot-D.svg)
@@ -51,7 +51,7 @@ Plot the vector field _(y²,x²-y²)_:
 ~~~spl svg=E
 { :x :y |
 	[y ^ 2, (x ^ 2) - (y ^ 2)]
-}.vectorPlot(-3 -- 3, -3 -- 3)
+}.vectorPlot(-3.0 -- 3.0, -3.0 -- 3.0)
 ~~~
 
 ![](Help/Image/vectorPlot-E.svg)
@@ -61,7 +61,7 @@ Plot the vector field _(x,y)_:
 ~~~spl svg=F
 { :x :y |
 	[x, y]
-}.vectorPlot(-3 -- 3, -3 -- 3)
+}.vectorPlot(-3.0 -- 3.0, -3.0 -- 3.0)
 ~~~
 
 ![](Help/Image/vectorPlot-F.svg)
@@ -75,7 +75,7 @@ Plot the vector field _(y-αx,-x-αy)_ where _α=(1-x²-y²)²_:
 		y - (x * a),
 		0 - x - (y * a)
 	]
-}.vectorPlot(-3 -- 3, -3 -- 3)
+}.vectorPlot(-3.0 -- 3.0, -3.0 -- 3.0)
 ~~~
 
 ![](Help/Image/vectorPlot-G.svg)
@@ -85,7 +85,7 @@ Plot the vector field _(1,y(1-y))_:
 ~~~spl svg=H
 { :x :y |
 	[1, y * (1 - y)]
-}.vectorPlot(0 -- 2, 0 -- 2)
+}.vectorPlot(0.0 -- 2.0, 0.0 -- 2.0)
 ~~~
 
 ![](Help/Image/vectorPlot-H.svg)

@@ -7,20 +7,20 @@ An area-preserving quadratic map by Michel Hénon.
 Plot Hénon area-preserving map:
 
 ~~~spl png=A
-let f/1 = henonAreaPreservingMap(-10);
+let f/1 = henonAreaPreservingMap(-10.0);
 Sfc32(789341)
-.randomReal([0 1], [43 2])
+.randomReal([0.0 1.0], [43L 2L])
 .collect { :v |
 	f/1
 	.iterate(v)
-	.next(43)
+	.next(43L)
 	.takeWhile { :each |
-		each.abs.max <= 1
+		each.abs.max <= 1.0
 	}
 }
 .catenate
 .PointCloud
-.asBitmap(100)
+.Bitmap(100.0)
 ~~~
 
 ![](Help/Image/henonAreaPreservingMap-A.png)

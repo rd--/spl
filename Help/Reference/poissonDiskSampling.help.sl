@@ -12,7 +12,7 @@ Draw circles centered at each sampled coordinate:
 
 ~~~spl svg=A
 Sfc32(3278194)
-.poissonDiskSampling([5 2], 0.2, 30)
+.poissonDiskSampling([5.0 2.0], 0.2, 30L)
 .Circle(0.1)
 ~~~
 
@@ -24,7 +24,7 @@ indicate the region sampled:
 ~~~spl svg=B
 let r = Sfc32(3278194);
 let c = r.poissonDiskSampling(
-	[5 2], 0.4, 30
+	[5.0 2.0], 0.4, 30L
 );
 [
 	Rectangle([0 0], [5 2]),

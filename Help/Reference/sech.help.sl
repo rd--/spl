@@ -46,7 +46,7 @@ At `List`:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(sech/1)
+(-5.0 -- 5.0).functionPlot(sech/1)
 ~~~
 
 ![](Help/Image/sech-A.svg)

@@ -325,7 +325,7 @@ given conversion period _n_:
 ~~~spl svg=E
 let m = 2;
 let n = 1;
-(1 -- 20).percent.functionPlot { :r |
+(1.0 -- 20.0).percent.functionPlot { :r |
 	m.log / (n * (1 + (r / n)).log)
 }
 ~~~
@@ -379,7 +379,7 @@ Log plot of the Naperian logarithm over a subset of the reals:
 let a = 10 ^ 7;
 let b = a - 1;
 let c = (a / b).log;
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	(a / x).log / c
 }.log
 ~~~

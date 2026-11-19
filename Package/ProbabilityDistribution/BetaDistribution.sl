@@ -1,8 +1,8 @@
 +@RandomNumberGenerator {
 
 	betaDistribution { :self :alpha :beta |
-		let x = self.gammaDistribution(alpha, 1);
-		let y = self.gammaDistribution(beta, 1);
+		let x = self.gammaDistribution(alpha, 1.0);
+		let y = self.gammaDistribution(beta, 1.0);
 		x / (x + y)
 	}
 
@@ -30,11 +30,11 @@ BetaDistribution : [Object, Store, Equal, ProbabilityDistribution] {
 		let alpha = self.alpha;
 		let beta = self.beta;
 		{ :x |
-			x.isBetween(0, 1).if {
+			x.isBetween(0.0, 1.0).if {
 				let b = (alpha.gamma * beta.gamma) / (alpha + beta).gamma;
-				((x ^ (alpha - 1)) * ((1 - x) ^ (beta - 1))) / b
+				((x ^ (alpha - 1.0)) * ((1.0 - x) ^ (beta - 1.0))) / b
 			} {
-				0
+				0.0
 			}
 		}
 	}

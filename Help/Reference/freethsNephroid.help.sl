@@ -7,7 +7,7 @@ Curve studied by Freeth in 1878.
 Line drawing:
 
 ~~~spl svg=A
-(0 -- 4.pi).discretize(
+(0.0 -- 4.pi).discretize(
 	200,
 	1.freethsNephroid
 ).Line

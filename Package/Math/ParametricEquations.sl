@@ -544,7 +544,7 @@
 		let [f1, f2, f3, f4] = f;
 		let [p1, p2, p3, p4] = p;
 		let [a1, a2, a3, a4] = a;
-		let [d1, d2, d3, d4] = d / 100;
+		let [d1, d2, d3, d4] = d / 100.0;
 		{ :t |
 			let x = (
 				(a1 * sin((t * f1) + p1) * (-1 * d1 * t).exp)
@@ -562,18 +562,28 @@
 
 	lateralHarmonographCurve { :self |
 		let [f, p, a, d] = self;
-		harmonographCurve([1 0 f 0], [0 0 p 0], [1 0 a 0], [d 0 d 0])
+		harmonographCurve(
+			[1.0 0.0 f 0.0],
+			[0.0 0.0 p 0.0],
+			[1.0 0.0 a 0.0],
+			[d   0.0 d 0.0]
+		)
 	}
 
 	rotaryHarmonographCurve { :self |
 		let [f, p, a, d] = self;
-		harmonographCurve([1 f 1 f], [0, p, 1/2.pi, p + 1/2.pi], [1 a 1 a], [d d d d])
+		harmonographCurve(
+			[1.0 f 1.0 f],
+			[0.0, p, 1/2.pi, p + 1/2.pi],
+			[1.0 a 1.0 a],
+			[d d d d]
+		)
 	}
 
 	tridentCurve { :self |
 		let [a, b, c, d] = self;
 		{ :x :y |
-			(x * y) + (a * (x ^ 3)) + (b * (x ^ 2)) + (c * x) - d
+			(x * y) + (a * (x ^ 3.0)) + (b * (x ^ 2.0)) + (c * x) - d
 		}
 	}
 

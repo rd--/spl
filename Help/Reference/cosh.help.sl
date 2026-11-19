@@ -76,7 +76,7 @@ OEIS [A010050](https://oeis.org/A010050):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-4 -- 4).functionPlot(cosh/1)
+(-4.0 -- 4.0).functionPlot(cosh/1)
 ~~~
 
 ![](Help/Image/cosh-A.svg)
@@ -119,7 +119,7 @@ Hyperbolic cosine function raised to different powers,
 log scale plot:
 
 ~~~spl svg=E
-(-3 -- 3).functionPlot(
+(-3.0 -- 3.0).functionPlot(
 	[1 2 3].collect { :n |
 		{ :x |
 			(x.cosh ^ n)
@@ -134,7 +134,7 @@ log scale plot:
 `cosh` and `sinh`:
 
 ~~~spl svg=F
-(-3 -- 3).functionPlot([cosh/1, sinh/1])
+(-3.0 -- 3.0).functionPlot([cosh/1, sinh/1])
 ~~~
 
 ![](Help/Image/cosh-F.svg)

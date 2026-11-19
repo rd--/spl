@@ -7,7 +7,7 @@ Answer the trifolium quartic plane curve.
 The trifolium quartic plane curve:
 
 ~~~spl svg=A
-(0 -- 1.pi).discretize(100, 1.trifolium).Line
+(0.0 -- 1.pi).discretize(100, 1.trifolium).Line
 ~~~
 
 ![](Help/Image/trifolium-A.svg)
@@ -15,7 +15,7 @@ The trifolium quartic plane curve:
 There is also a generalised form:
 
 ~~~spl svg=B
-(0 -- 1.pi).discretize(
+(0.0 -- 1.pi).discretize(
 	100,
 	trifolium(1, 3, 1 / 3)
 ).Line
@@ -26,7 +26,7 @@ There is also a generalised form:
 Alternate parameters:
 
 ~~~spl svg=C
-(0 -- 1.pi).discretize(
+(0.0 -- 1.pi).discretize(
 	100,
 	trifolium(2 / 3, -1, 3)
 ).Line

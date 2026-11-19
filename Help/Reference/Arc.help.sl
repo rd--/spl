@@ -135,7 +135,7 @@ Draw arcs between points on Farey sequences:
 Draw using parametric equation:
 
 ~~~spl svg=G
-(0 -- 1).discretize(
+(0.0 -- 1.0).discretize(
 	50,
 	Arc([0 0], [1/2.pi 1], [5/8.pi 8/5.pi])
 	.parametricEquation

@@ -16,7 +16,7 @@ Evaluate symbolically:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(1.swishFunction)
+(-5.0 -- 5.0).functionPlot(1.swishFunction)
 ~~~
 
 ![](Help/Image/swishFunction-A.svg)
@@ -24,7 +24,7 @@ Plot over a subset of the reals:
 Varying β:
 
 ~~~spl svg=B
-(-5 -- 5).functionPlot(
+(-5.0 -- 5.0).functionPlot(
 	[-0.25 0 0.75].collect { :beta |
 		beta.swishFunction
 	}

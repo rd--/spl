@@ -40,7 +40,7 @@ Threshold a matrix:
 Plot thresholding:
 
 ~~~spl svg=A
-let l = (-1 -- 1).subdivide(100);
+let l = (-1.0 -- 1.0).subdivide(100);
 l.threshold(0.3).linePlot
 ~~~
 

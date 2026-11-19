@@ -7,7 +7,7 @@ Answer the bicorn curve.
 The bicorn curve:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(bicorn(1))
+(0.0 -- 2.pi).functionPlot(bicorn(1))
 ~~~
 
 ![](Help/Image/bicorn-A.svg)

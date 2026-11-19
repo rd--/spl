@@ -35,7 +35,7 @@ Plot an interpolation over the specified _x_ range:
 ~~~spl svg=A
 let x = [0 0.1 0.5 1 2];
 let y = [0 0.3 0.6 -0.2 3];
-(0 -- 2).functionPlot(
+(0.0 -- 2.0).functionPlot(
 	x.linearInterpolator(y)
 )
 ~~~
@@ -59,7 +59,7 @@ Linear impulse response:
 ~~~spl svg=C
 let x = [1 2 3 4 5];
 let y = [0 0 1 0 0];
-(1 -- 5).functionPlot(
+(1.0 -- 5.0).functionPlot(
 	x.linearInterpolator(y)
 )
 ~~~
@@ -81,7 +81,7 @@ The same set linearly interpolated:
 ~~~spl svg=E
 let r = Sfc32(361782);
 let x = r.randomReal([0 2.pi], [64]).sort!;
-(0 -- 2.pi).discretize(64).collect(
+(0.0 -- 2.pi).discretize(64).collect(
 	x.linearInterpolator(x.sin)
 ).discretePlot
 ~~~

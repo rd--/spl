@@ -7,7 +7,7 @@ Answer a parametric curve for the degree-_n_ Reuleaux polygon.
 Plot a Reuleaux triangle:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	3.reuleauxPolygonCurve
 )
 ~~~
@@ -17,7 +17,7 @@ Plot a Reuleaux triangle:
 Plot a Reuleaux 5-polygon:
 
 ~~~spl svg=B
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	5.reuleauxPolygonCurve
 )
 ~~~

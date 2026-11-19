@@ -8,7 +8,7 @@ The divisor summatory function,
 OEIS [A006218](https://oeis.org/A006218):
 
 ```
->>> 0:39.collect(
+>>> 0L:39L.collect(
 >>> 	divisorSummatoryFunction/1
 >>> )
 [
@@ -28,7 +28,7 @@ Number of arithmetic subsequences of _[1..n]_ with length greater than one,
 OEIS [A078567](https://oeis.org/A078567):
 
 ```
->>> 0:12.collect(
+>>> 0L:12L.collect(
 >>> 	divisorSummatoryFunction/1
 >>> ).prefixSum
 [0 1 4 9 17 27 41 57 77 100 127 156 191]

@@ -408,18 +408,18 @@
 +Float {
 
 	riemannFunction { :x :a :n |
-		1.to(n).sum { :i |
+		1.0.to(n).sum { :i |
 			let j = i ^ a;
 			sin(j * x) / j
 		}
 	}
 
 	riemannFunction { :x |
-		x.riemannFunction(2, 100)
+		x.riemannFunction(2.0, 100.0)
 	}
 
 	weierstrassFunction { :x :a :b :n |
-		0.toCollect(n) { :i |
+		0.0.toCollect(n) { :i |
 			(a ^ i) * ((b ^ i) * x.pi).cos
 		}.sum
 	}

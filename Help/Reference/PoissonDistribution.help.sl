@@ -29,7 +29,7 @@ Generate a sample of pseudorandom numbers from a Poisson distribution:
 ~~~spl svg=C
 let r = Sfc32(891314);
 PoissonDistribution(3L)
-.randomVariate(r, [10 ^ 4])
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 
@@ -39,8 +39,8 @@ Step plot with small mean and variance:
 
 ~~~spl svg=D
 let r = Sfc32(36814);
-PoissonDistribution(1 / 9)
-.randomVariate(r, [99])
+PoissonDistribution(1.0 / 9.0)
+.randomVariate(r, [99L])
 .stepPlot
 ~~~
 

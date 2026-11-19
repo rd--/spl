@@ -137,7 +137,7 @@ and largest part at most _n_:
 Plot for _n={1,2,3}_ over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 2).functionPlot(
+(-3.0 -- 2.0).functionPlot(
 	[2 3 4].collect { :n |
 		qBinomial(n, 1).unaryBlock
 	}

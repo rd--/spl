@@ -9,7 +9,7 @@ An _astroid_,
 a 4-cusped hypocycloid also called a tetracuspid, cubocycloid, or paracycle:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	hypocycloid(4, 1)
 )
 ~~~
@@ -20,7 +20,7 @@ A _deltoid_,
 a 3-cusped hypocycloid, also called a tricuspoid:
 
 ~~~spl svg=B
-(0 -- 2.pi).subdivide(100).collect(
+(0.0 -- 2.pi).subdivide(100).collect(
 	hypocycloid(3, 1)
 ).Line
 ~~~
@@ -30,7 +30,7 @@ a 3-cusped hypocycloid, also called a tricuspoid:
 A hypocycloid with non-integer _a_:
 
 ~~~spl svg=C
-(0 -- 4.pi).functionPlot(
+(0.0 -- 4.pi).functionPlot(
 	hypocycloid(5.5, 1)
 )
 ~~~
@@ -59,7 +59,7 @@ let c = [0 0.25 0.5 0.75 1].pi.collect(
 Nested hypocycloids scaled to lie on the same circle:
 
 ~~~spl svg=E
-(0 -- 2.pi).functionPlot(200,
+(0.0 -- 2.pi).functionPlot(200,
 	[4 8 16 32].collect { :n |
 		hypocycloid(n, 1)
 		.composeRight { :x | x / n }

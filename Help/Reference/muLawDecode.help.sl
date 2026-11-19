@@ -15,7 +15,7 @@ Specific values:
 The continuous μ-law decoder:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(muLawDecode/1)
+(-1.0 -- 1.0).functionPlot(muLawDecode/1)
 ~~~
 
 ![](Help/Image/muLawDecode-A.svg)

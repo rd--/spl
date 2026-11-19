@@ -258,7 +258,7 @@ The quotient table of two integers:
 The quotient of a function:
 
 ~~~spl svg=C
-(0 -- 2).functionPlot { :x |
+(0.0 -- 2.0).functionPlot { :x |
 	(x ^ 2)
 	.quotient(x - 1)
 	.clip(-9, 9)

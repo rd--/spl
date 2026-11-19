@@ -4,16 +4,17 @@
 
 Answer the hypergeometric function _₂F₁(a,b;c;z)_.
 
-At `Float`:
+At `Float`,
+here with parameters given as `Fraction` and `Integer` values:
 
 ```
->>> let [a, b, c] = [1 / 2, 1 / 3, 2];
->>> let z = 1;
+>>> let [a, b, c] = [1/2, 1/3, 2/1];
+>>> let z = 1/1;
 >>> hypergeometric2F1(a, b, c, z)
 1.159594
 
->>> let [a, b, c] = [2, 3, 4];
->>> let z = 1 / 2;
+>>> let [a, b, c] = [2 3 4];
+>>> let z = 1/2;
 >>> hypergeometric2F1(a, b, c, z)
 2.728935
 
@@ -21,7 +22,7 @@ At `Float`:
 -0.5
 
 >>> hypergeometric2F1(
->>> 	-0.5, 1 / 3, 4 / 3, -1
+>>> 	-1/2, 1/3, 4/3, -1
 >>> )
 1.111448
 ```
@@ -29,7 +30,7 @@ At `Float`:
 At `Complex`:
 
 ```
->>> let [a, b, c] = [2J1, 0J-1, 3 / 4];
+>>> let [a, b, c] = [2J1, 0J-1, 3/4];
 >>> let z = 0.5J-0.5;
 >>> hypergeometric2F1(a, b, c, z)
 -0.972167J-0.181659
@@ -56,7 +57,7 @@ OEIS [A000108](https://oeis.org/A000108):
 >>> 		1 - n, -n, 2, 1
 >>> 	)
 >>> }
-0L:20.catalanNumber
+0L:20L.catalanNumber
 ```
 
 Motzkin numbers,
@@ -77,7 +78,7 @@ OEIS [A002426](https://oeis.org/A002426):
 ```
 >>> 0:11.collect { :n |
 >>> 	(3 ^ n) * hypergeometric2F1(
->>> 		0.5, -n, 1, 4/3
+>>> 		1/2, -n, 1, 4/3
 >>> 	)
 >>> }
 [1 1 3 7 19 51 141 393 1107 3139 8953 25653]
@@ -86,11 +87,11 @@ OEIS [A002426](https://oeis.org/A002426):
 Plot varying _z_ over a subset of the reals:
 
 ~~~spl svg=A
-let [a, b, c] = [1 / 3, 1 / 3, 2 / 3];
-(-1 -- 1).functionPlot { :z |
+let [a, b, c] = [1/3, 1/3, 2/3];
+(-1.0 -- 1.0).functionPlot { :z |
 	hypergeometric2F1(
 		a, b, c, z
-	).clip(0, 1.5)
+	).clip(0.0, 1.5)
 }
 ~~~
 
@@ -99,12 +100,12 @@ let [a, b, c] = [1 / 3, 1 / 3, 2 / 3];
 Plot varying _z_ for three distinct _c_:
 
 ~~~spl svg=B
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	[2 3 5].collect { :n |
 		{ :z |
 			hypergeometric2F1(
-				1, 0.5, n.sqrt, z
-			).clip(0, 2)
+				1, 1/2, n.sqrt, z
+			).clip(0.0, 2.0)
 		}
 	}
 )

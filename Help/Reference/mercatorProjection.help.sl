@@ -13,8 +13,8 @@ Lattice points under Mercator projection:
 { :phi :lambda |
 	[phi lambda].mercatorProjection
 }.table(
-	(-85 -- 85).degree.subdivide(8),
-	(-90 -- 90).degree.subdivide(16)
+	(-85.0 -- 85.0).degree.subdivide(8),
+	(-90.0 -- 90.0).degree.subdivide(16)
 ).catenate.PointCloud
 ~~~
 

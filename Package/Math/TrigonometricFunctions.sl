@@ -12,7 +12,7 @@
 		self.isZero.if {
 			Infinity
 		} {
-			Float(1.0 / self).arcSin
+			(1.0 / self).arcSin
 		}
 	}
 
@@ -20,7 +20,7 @@
 		self.isZero.if {
 			Infinity
 		} {
-			Float(1.0 / self).arcCos
+			(1.0 / self).arcCos
 		}
 	}
 
@@ -33,7 +33,9 @@
 	}
 
 	arcTan { :self |
-		<primitive: return Math.atan(_self)>
+		<primitive:
+		return Math.atan(_self)
+		>
 	}
 
 	arcTan { :self :operand |
@@ -50,35 +52,45 @@
 	}
 
 	cos { :self |
-		<primitive: return Math.cos(_self);>
+		<primitive:
+		return Math.cos(_self);
+		>
 	}
 
 	[cot, cotangent] { :self |
-		Float(1.0 / self.tan)
+		1.0 / self.tan
 	}
 
 	[csc, cosecant] { :self |
-		Float(1.0 / self.sin)
+		1.0 / self.sin
 	}
 
 	[sec, secant] { :self |
-		Float(1.0 / self.cos)
+		1.0 / self.cos
 	}
 
 	sin { :self |
-		<primitive: return Math.sin(_self)>
+		<primitive:
+		return Math.sin(_self)
+		>
 	}
 
 	tan { :self |
-		<primitive: return Math.tan(_self)>
+		<primitive:
+		return Math.tan(_self)
+		>
 	}
 
 	uncheckedArcCos { :self |
-		<primitive: return Math.acos(_self)>
+		<primitive:
+		return Math.acos(_self)
+		>
 	}
 
 	uncheckedArcSin { :self |
-		<primitive: return Math.asin(_self)>
+		<primitive:
+		return Math.asin(_self)
+		>
 	}
 
 }
@@ -337,6 +349,10 @@
 }
 
 +@ImplicitFloat {
+
+	[sec, secant] { :self |
+		Float(self).sec
+	}
 
 	[cot, cotangent] { :self |
 		Float(self).cot

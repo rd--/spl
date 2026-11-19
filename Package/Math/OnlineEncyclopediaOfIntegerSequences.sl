@@ -291,7 +291,7 @@
 
 }
 
-+Float {
++[Float, Integer] {
 
 	oeisA004001Terms { :k |
 		let a = Map { :n |

@@ -262,15 +262,17 @@ Number of transformation groups of order _n_,
 OEIS [A000113](https://oeis.org/A000113):
 
 ~~~spl svg=H oeis=A000113
+let psi = { :n |
+	n * n.divisorSum { :d |
+		d.moebiusMu ^ 2L / d
+	}
+};
 1L:135L.collect { :n |
 	let i = n.integerExponent(2L);
 	let j = n.integerExponent(3L);
-	let a = n.divisors.sum { :d |
-		d.moebiusMu ^ 2L // d
-	};
-	let b = 2L ^ 3L.min(i // 2L);
-	let c = 3L ^ (1L < j).boole;
-	n * a // (b * c)
+	let a = (i < 6L).if { (i / 2).floor } { 3L };
+	let b = (j > 1L).boole;
+	psi(n) / ((2L ^ a) * (3L ^ b))
 }.scatterPlot
 ~~~
 

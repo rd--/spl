@@ -14,7 +14,7 @@ are plotted horizontally aligned and vertically displaced from each other.
 Plot cosine, sawtooth, square and triangle signals:
 
 ~~~spl svg=A
-let x = [0, 0.02 .. 4];
+let x = [0.0, 0.02 .. 4.0];
 [
 	x.cosineWave,
 	x.sawtoothWave,
@@ -29,10 +29,10 @@ The sawtooth signal above is uni-polar,
 below it is scaled to be descending and bi-polar:
 
 ~~~spl svg=B
-let x = [0, 0.02 .. 3];
+let x = [0.0, 0.02 .. 3.0];
 [
 	x.cosineWave,
-	x.sawtoothWave * -2 + 0.5
+	x.sawtoothWave * -2.0 + 0.5
 ].signalPlot
 ~~~
 

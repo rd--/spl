@@ -7,10 +7,10 @@ The Meixner distribution with location parameter m, scale parameter a, skew para
 Probability density function, varying _b_:
 
 ~~~spl svg=A
-(-8 -- 8).functionPlot(
-	[-2 0 1.5].collect { :b |
+(-8.0 -- 8.0).functionPlot(
+	[-2.0 0.0 1.5].collect { :b |
 		MeixnerDistribution(
-			2, b, 0, 1
+			2.0, b, 0.0, 1.0
 		).pdf
 	}
 )
@@ -21,10 +21,10 @@ Probability density function, varying _b_:
 Probability density function, varying _d_:
 
 ~~~spl svg=B
-(-2 -- 6).functionPlot(
-	[0.5 1 2].collect { :d |
+(-2.0 -- 6.0).functionPlot(
+	[0.5 1.0 2.0].collect { :d |
 		MeixnerDistribution(
-			2, 1, 0, d
+			2.0, 1.0, 0.0, d
 		).pdf
 	}
 )

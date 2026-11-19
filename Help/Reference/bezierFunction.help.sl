@@ -24,7 +24,7 @@ Construct a Bézier curve using a list of control points and apply the function 
 A cubic Bézier curve:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	[0 0; 1 1; 2 0; 3 2]
 	.bezierFunction
 )

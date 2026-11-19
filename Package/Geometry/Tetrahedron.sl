@@ -23,34 +23,34 @@ Tetrahedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 
 	circumsphere { :self |
 		let v = self.vertexCoordinates;
-		let a = v.arrayPad([0 0; 0 1], 1).determinant;
+		let a = v.arrayPad([0.0 0.0; 0.0 1.0], 1.0).determinant;
 		let vSquareSum = v.square.collect { :each |
 			each.sum.enclose
 		};
-		let c = [vSquareSum, v].join(2);
-		let d = c.arrayPad([0 0; 0 1], 1);
+		let c = [vSquareSum, v].join(2.0);
+		let d = c.arrayPad([0.0 0.0; 0.0 1.0], 1.0);
 		let f = { :m :i |
 			d.submatrix(
-				4.iota,
-				5.iota.without!(i + 1)
+				4L.iota,
+				5L.iota.without!(i + 1L)
 			).determinant * m
 		};
-		let dx = f(1, 1);
-		let dy = f(-1, 2);
-		let dz = f(1, 3);
-		let r = (dx.square + dy.square + dz.square - (4 * a * c.determinant)).sqrt / (2 * a.abs);
+		let dx = f(1.0, 1L);
+		let dy = f(-1.0, 2L);
+		let dz = f(1.0, 3L);
+		let r = (dx.square + dy.square + dz.square - (4 * a * c.determinant)).sqrt / (2.0 * a.abs);
 		Sphere(
-			[dx dy dz] / (a * 2),
+			[dx dy dz] / (a * 2.0),
 			r
 		)
 	}
 
 	faceIndices { :unused |
 		[
-			2 3 4;
-			3 2 1;
-			4 1 2;
-			1 4 3
+			2L 3L 4L;
+			3L 2L 1L;
+			4L 1L 2L;
+			1L 4L 3L
 		]
 	}
 
@@ -88,8 +88,7 @@ Tetrahedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 +List {
 
 	Tetrahedron { :self |
-		let [m, n] = self.shape;
-		(m = 4 & { n = 3 }).if {
+		(self.shape = [4L, 3L]).if {
 			newTetrahedron().initializeSlots(self)
 		} {
 			self.error('Tetrahedron: invalid matrix')

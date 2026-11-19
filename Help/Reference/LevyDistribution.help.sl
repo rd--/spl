@@ -8,8 +8,8 @@ Plot `pdf` at varying _σ_:
 
 ~~~spl svg=A
 (0.01 -- 3).functionPlot(
-	[0.5 1 2 4 8].collect { :sigma |
-		LevyDistribution(0, sigma).pdf
+	[0.5 1.0 2.0 4.0 8.0].collect { :sigma |
+		LevyDistribution(0.0, sigma).pdf
 	}
 )
 ~~~
@@ -20,10 +20,10 @@ Generate a sample of pseudorandom numbers from a Lévy distribution:
 
 ~~~spl svg=B
 let r = Sfc32(376812);
-LevyDistribution(0, 2)
-.randomVariate(r, [10 ^ 4])
+LevyDistribution(0.0, 2.0)
+.randomVariate(r, [10L ^ 4L])
 .select { :x |
-	x.isBetween(0, 10)
+	x.isBetween(0.0, 10.0)
 }.histogramPlot
 ~~~
 

@@ -35,7 +35,7 @@ In the `List` case _mu_ may be a list:
 Plot the line that interpolates from _1_ to _3_:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	1.linearInterpolation(3, x)
 }
 ~~~
@@ -45,7 +45,7 @@ Plot the line that interpolates from _1_ to _3_:
 Plot the line that interpolates from _(1,3)_ to _(3,-1)_:
 
 ~~~spl svg=B
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	[1 3].linearInterpolation([3 -1], x)
 }
 ~~~
@@ -55,7 +55,7 @@ Plot the line that interpolates from _(1,3)_ to _(3,-1)_:
 Linear impulse response:
 
 ~~~spl svg=C
-(1 -- 5).functionPlot(
+(1.0 -- 5.0).functionPlot(
 	[0 0 1 0 0]
 	.listInterpolation(
 		linearInterpolation/3

@@ -98,8 +98,8 @@ The supergolden rectangle,
 partitiond into a unit square and two smaller supergolden rectangles:
 
 ~~~spl svg=A
-let psi = 1.supergoldenRatio;
-let y = psi ^ -3;
+let psi = 1.0.supergoldenRatio;
+let y = psi ^ -3.0;
 [
 	Rectangle([0, 0], [psi 1]),
 	Line([1 0; 1 1]),
@@ -112,10 +112,10 @@ let y = psi ^ -3;
 Supergolden spiral:
 
 ~~~spl svg=B
-let b = 1.supergoldenRatio.log / 0.5.pi;
-(0 -- 8.pi).discretize(
+let b = 1.0.supergoldenRatio.log / 0.5.pi;
+(0.0 -- 8.pi).discretize(
 	200,
-	logarithmicSpiral(1, b)
+	logarithmicSpiral(1.0, b)
 ).Line
 ~~~
 

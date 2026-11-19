@@ -7,7 +7,7 @@ Answer a relief plot of a matrix _m_ of height values.
 Plot a function:
 
 ~~~spl png=A
-let i = (-1 -- 1).discretize(100);
+let i = (-1.0 -- 1.0).discretize(100);
 { :x :y |
 	x.sin * y.sin
 }.table(i, i).reliefPlot
@@ -18,7 +18,7 @@ let i = (-1 -- 1).discretize(100);
 Plot trigonometric function:
 
 ~~~spl png=B
-let x = (-4 -- 4).discretize(100);
+let x = (-4.0 -- 4.0).discretize(100);
 { :i :j |
 	i + ((j ^ 2) + (3 * i)).sin
 }.table(x, x).reliefPlot

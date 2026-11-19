@@ -7,12 +7,12 @@ A `Type` representing a gamma distribution with shape parameter α and scale par
 Probability density function of a gamma distribution:
 
 ~~~spl svg=A
-(0 -- 20).functionPlot(
-	[1 4 6].collect { :alpha |
+(0.0 -- 20.0).functionPlot(
+	[1.0 4.0 6.0].collect { :alpha |
 		GammaDistribution(
 			alpha,
-			2
-		).pdf.clip(0, 0.2)
+			2.0
+		).pdf.clip(0.0, 0.2)
 	}
 )
 ~~~
@@ -22,11 +22,11 @@ Probability density function of a gamma distribution:
 Cumulative distribution function:
 
 ~~~spl svg=B
-(0 -- 20).functionPlot(
-	[1 4 6].collect { :alpha |
+(0.0 -- 20.0).functionPlot(
+	[1.0 4.0 6.0].collect { :alpha |
 		GammaDistribution(
 			alpha,
-			2
+			2.0
 		).cdf
 	}
 )
@@ -38,8 +38,8 @@ Generate a sample of pseudo-random numbers from a gamma distribution:
 
 ~~~spl svg=C
 let r = Sfc32(731482);
-GammaDistribution(3.5, 2)
-.randomVariate(r, [10 ^ 4])
+GammaDistribution(3.5, 2.0)
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 

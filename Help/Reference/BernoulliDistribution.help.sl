@@ -18,7 +18,7 @@ p
 Plot `pdf` over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	BernoulliDistribution(1 / 3).pdf
 )
 ~~~
@@ -28,7 +28,7 @@ Plot `pdf` over a subset of the reals:
 Plot `cdf` over a subset of the reals:
 
 ~~~spl svg=B
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	BernoulliDistribution(1 / 3).cdf
 )
 ~~~

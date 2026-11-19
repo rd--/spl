@@ -258,7 +258,7 @@ Polynomial of degree two, a parabola:
 
 ~~~spl svg=A
 let p = Polynomial[-2 -1 1];
-(-2 -- 3).functionPlot { :x |
+(-2.0 -- 3.0).functionPlot { :x |
 	p[x]
 }
 ~~~
@@ -269,7 +269,7 @@ Polynomial of degree three:
 
 ~~~spl svg=B
 let p = Polynomial[-8 -6 3 1];
-(-5 -- 3).functionPlot { :x |
+(-5.0 -- 3.0).functionPlot { :x |
 	p[x]
 }
 ~~~
@@ -293,7 +293,7 @@ Polynomial of degree six:
 let p = Polynomial[
 	720 -1764 1624 -735 175 -21 1
 ];
-(1 -- 6).functionPlot { :x |
+(1.0 -- 6.0).functionPlot { :x |
 	p[x]
 }
 ~~~
@@ -305,7 +305,7 @@ Polynomial of degree seven, in this case the seventh Chebyshev polynomial of the
 ~~~spl svg=E
 let c = [0 -7 0 56 0 -112 0 64];
 let p = Polynomial(c);
-(-1 -- 1).functionPlot { :x |
+(-1.0 -- 1.0).functionPlot { :x |
 	p[x]
 }
 ~~~
@@ -318,7 +318,7 @@ Sum of two polynomials of degrees seven and eleven:
 let p1 = 7.chebyshevT;
 let p2 = 11.chebyshevT;
 let p3 = p1 + p2;
-(-1 -- 1).functionPlot { :x |
+(-1.0 -- 1.0).functionPlot { :x |
 	p3[x]
 }
 ~~~

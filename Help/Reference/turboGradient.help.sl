@@ -8,7 +8,7 @@ Calculate and plot a thirty-two place approximation of the _Turbo_ colour gradie
 
 ~~~spl svg=A
 ColourGradient(
-	(0 -- 1).discretize(32).collect(
+	(0.0 -- 1.0).discretize(32).collect(
 		turboGradient/1
 	),
 	nil

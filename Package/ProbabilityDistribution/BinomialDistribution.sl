@@ -1,11 +1,11 @@
 +@RandomNumberGenerator {
 
 	binomialDistribution { :self :n :p |
-		let answer = 0;
+		let answer = 0L;
 		n.timesRepeat {
 			let u = self.nextRandomFloat;
 			(u < p).ifTrue {
-				answer := answer + 1
+				answer := answer + 1L
 			}
 		};
 		answer
@@ -21,8 +21,8 @@ BinomialDistribution : [Object, Equal, ProbabilityDistribution] {
 		let n = self.n;
 		let p = self.p;
 		{ :k |
-			0.to(k).collect { :i |
-				n.binomial(i) * (p ^ i) * ((1 - p) ^ (n - i))
+			0.0.to(k).collect { :i |
+				n.binomial(i) * (p ^ i) * ((1.0 - p) ^ (n - i))
 			}.sum
 		}
 	}
@@ -30,7 +30,7 @@ BinomialDistribution : [Object, Equal, ProbabilityDistribution] {
 	kurtosis { :self |
 		let n = self.n;
 		let p = self.p;
-		1 - (6 / n) + (1 / (n * p * (1 - p)))
+		1.0 - (6.0 / n) + (1.0 / (n * p * (1.0 - p)))
 	}
 
 	mean { :self |
@@ -41,7 +41,7 @@ BinomialDistribution : [Object, Equal, ProbabilityDistribution] {
 		let n = self.n;
 		let p = self.p;
 		{ :k |
-			n.binomial(k) * (p ^ k) * ((1 - p) ^ (n - k))
+			n.binomial(k) * (p ^ k) * ((1.0 - p) ^ (n - k))
 		}
 	}
 
@@ -56,16 +56,16 @@ BinomialDistribution : [Object, Equal, ProbabilityDistribution] {
 	skewness { :self |
 		let n = self.n;
 		let p = self.p;
-		(1 - (2 * p)) / (n * (1 - p) * p).sqrt
+		(1.0 - (2.0 * p)) / (n * (1.0 - p) * p).sqrt
 	}
 
 	standardDeviation { :self |
-		(self.n * self.p * (1 - self.p)).sqrt
+		(self.n * self.p * (1.0 - self.p)).sqrt
 	}
 
 }
 
-+[Float, Symbol] {
++[Float, Integer, Symbol] {
 
 	BinomialDistribution { :n :p |
 		newBinomialDistribution().initializeSlots(n, p)

@@ -24,7 +24,7 @@ _c_ of _1_ leaves _mu_ unscaled.
 Draw a gradient that places the red, green and blue components at equal phase distances:
 
 ~~~spl svg=A
-(0 -- 1).discretize(48).collect(
+(0.0 -- 1.0).discretize(48).collect(
 	[
 		0.50 0.50 0.50;
 		0.50 0.50 0.50;
@@ -39,7 +39,7 @@ Draw a gradient that places the red, green and blue components at equal phase di
 Draw a gradient that cycles red twice, green once and blue not at all:
 
 ~~~spl svg=B
-(0 -- 1).discretize(48).collect(
+(0.0 -- 1.0).discretize(48).collect(
 	[
 		0.50 0.50 0.50;
 		0.50 0.50 0.50;
@@ -55,7 +55,7 @@ Draw a gradient where green and blue are in phase,
 and red is scaled low and biased high:
 
 ~~~spl svg=C
-(0 -- 1).discretize(48).collect(
+(0.0 -- 1.0).discretize(48).collect(
 	[
 		0.80 0.50 0.40;
 		0.20 0.40 0.20;
@@ -71,7 +71,7 @@ An orange, magenta, blue gradient where the coefficients answer values outside o
 and are therefore clipped:
 
 ~~~spl svg=D
-(0 -- 1).discretize(48).collect(
+(0.0 -- 1.0).discretize(48).collect(
 	[
 		0.821 0.328 0.242;
 		0.659 0.481 0.896;
@@ -88,7 +88,7 @@ and are therefore clipped:
 A yellow, magenta, cyan gradient:
 
 ~~~spl svg=E
-(0 -- 1).discretize(48).collect(
+(0.0 -- 1.0).discretize(48).collect(
 	[
 		1.00 0.50 0.50;
 		0.50 0.50 0.50;

@@ -14,7 +14,7 @@ Evaluate numerically:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot { :z |
+(0.0 -- 1.0).functionPlot { :z |
 	z.betaRegularized(3, 1)
 	.clip(-20, 20)
 }
@@ -26,7 +26,7 @@ Plot over a subset of the reals,
 with varying _a_ and _b_:
 
 ~~~spl svg=B
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	[0.5 5; 1 3; 8 8; 3 1; 5 0.5].collect { :p |
 		let [a, b] = p;
 		{ :z |

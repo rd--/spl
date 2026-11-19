@@ -11,7 +11,7 @@ From equations by Robert Penner.
 Quadratic:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	'InQuadratic'.easingFunction,
 	'OutQuadratic'.easingFunction,
 	'InOutQuadratic'.easingFunction,
@@ -24,7 +24,7 @@ Quadratic:
 Cubic:
 
 ~~~spl svg=B
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	'InCubic'.easingFunction,
 	'OutCubic'.easingFunction,
 	'InOutCubic'.easingFunction,
@@ -37,7 +37,7 @@ Cubic:
 Quartic:
 
 ~~~spl svg=C
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	'InQuartic'.easingFunction,
 	'OutQuartic'.easingFunction,
 	'InOutQuartic'.easingFunction,
@@ -50,7 +50,7 @@ Quartic:
 Quintic:
 
 ~~~spl svg=D
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	'InQuintic'.easingFunction,
 	'OutQuintic'.easingFunction,
 	'InOutQuintic'.easingFunction,
@@ -63,7 +63,7 @@ Quintic:
 Sine:
 
 ~~~spl svg=E
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	'InSine'.easingFunction,
 	'OutSine'.easingFunction,
 	'InOutSine'.easingFunction,
@@ -76,7 +76,7 @@ Sine:
 Exponential:
 
 ~~~spl svg=F
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	'InExponential'.easingFunction,
 	'OutExponential'.easingFunction,
 	'InOutExponential'.easingFunction,
@@ -89,7 +89,7 @@ Exponential:
 Circular:
 
 ~~~spl svg=G
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	'InCircular'.easingFunction,
 	'OutCircular'.easingFunction,
 	'InOutCircular'.easingFunction,
@@ -102,7 +102,7 @@ Circular:
 Bounce:
 
 ~~~spl svg=H
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	'InBounce'.easingFunction,
 	'OutBounce'.easingFunction,
 	'InOutBounce'.easingFunction,
@@ -115,7 +115,7 @@ Bounce:
 Back:
 
 ~~~spl svg=I
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	'InBack'.easingFunction,
 	'OutBack'.easingFunction,
 	'InOutBack'.easingFunction,
@@ -128,7 +128,7 @@ Back:
 Elastic:
 
 ~~~spl svg=J
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	'InElastic'.easingFunction,
 	'OutElastic'.easingFunction,
 	'InOutElastic'.easingFunction,
@@ -141,7 +141,7 @@ Elastic:
 ArcTan:
 
 ~~~spl svg=K
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	'InArcTan'.easingFunction,
 	'OutArcTan'.easingFunction,
 	'InOutArcTan'.easingFunction

@@ -30,7 +30,7 @@ Threads over lists:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-4 -- 4).functionPlot(
+(-4.0 -- 4.0).functionPlot(
 	logisticSigmoid/1
 )
 ~~~
@@ -70,7 +70,7 @@ Polar plot with phi:
 Plot varying _k_:
 
 ~~~spl svg=C
-(-4 -- 4).functionPlot(
+(-4.0 -- 4.0).functionPlot(
 	[0.5 0.75 1 1.25 1.5].collect { :k |
 		logisticSigmoid(1, k, 0)
 	}
@@ -92,7 +92,7 @@ Plot over a subset of the complexes:
 Plot comparing to scale `tanh` function:
 
 ~~~spl svg=E
-(-4 -- 4).functionPlot(
+(-4.0 -- 4.0).functionPlot(
 	[
 		logisticSigmoid/1,
 		{ :x | x.tanh + 1 / 2 }

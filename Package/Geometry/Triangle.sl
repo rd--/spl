@@ -99,7 +99,7 @@ Triangle : [Object, Store, Equal, Geometry] {
 			self.fromTrilinearCoordinates([c / b, a / c, b / a]),
 			self.fromTrilinearCoordinates([b / c, c / a, a / b]),
 			self.triangleCentreL { :a :b :c |
-				a ^ -3
+				a ^ -3.0
 			}
 		]
 	}
@@ -272,22 +272,22 @@ Triangle : [Object, Store, Equal, Geometry] {
 	}
 
 	faceCount { :self |
-		1
+		1L
 	}
 
 	faceIndices { :self |
-		[[1 2 3]]
+		[[1L 2L 3L]]
 	}
 
 	farOutPoint { :self |
 		self.triangleCentreL { :a :b :c |
-			a * ((b ^ 4) + (c ^ 4) - (a ^ 4) - ((b ^ 2) * (c ^ 2)))
+			a * ((b ^ 4.0) + (c ^ 4.0) - (a ^ 4.0) - ((b ^ 2.0) * (c ^ 2.0)))
 		}
 	}
 
 	feuerbachPoint { :self |
 		self.triangleCentreA { :a :b :c |
-			1 - (b - c).cos
+			1.0 - (b - c).cos
 		}
 	}
 
@@ -854,29 +854,29 @@ Triangle : [Object, Store, Equal, Geometry] {
 		let x2 = a * alpha.csc * (alpha + beta).sin;
 		let x3 = a * alpha.cot * beta.sin;
 		let y3 = a * beta.sin;
-		Triangle([0 0; x2 0; x3 y3])
+		Triangle([0.0 0.0; x2 0; x3 y3])
 	}
 
 	asaTriangle { :alpha :c :beta |
 		let x = alpha.cos * (alpha + beta).csc * beta.sin;
 		let y = alpha.sin * (alpha + beta).csc * beta.sin;
-		Triangle([0 0], [c 0], [c * x, c * y])
+		Triangle([0.0 0.0], [c 0.0], [c * x, c * y])
 	}
 
 	sasTriangle { :a :gamma :b |
-		let x = ((a ^ 2) + (b ^ 2) - (2 * a * b * gamma.cos)).sqrt;
-		let y = ((b ^ 2) - (a * b * gamma.cos)) / x;
+		let x = ((a ^ 2.0) + (b ^ 2.0) - (2.0 * a * b * gamma.cos)).sqrt;
+		let y = ((b ^ 2.0) - (a * b * gamma.cos)) / x;
 		let z = (a * b * gamma.sin) / x;
-		Triangle([0 0; x 0; y z])
+		Triangle([0.0 0.0; x 0.0; y z])
 	}
 
 	sssTriangle { :a :b :c |
 		let z = a + b + c;
 		let m = [a, b, c].max;
 		(m < (z - m)).if {
-			let x = ((b ^ 2) + (c ^ 2) - (a ^ 2)) / (2 * c);
-			let y = ((a + b - c) * (a - b + c) * (b + c - a) * (a + b + c)).sqrt / (2 * c);
-			Triangle([0 0], [c 0], [x y])
+			let x = ((b ^ 2.0) + (c ^ 2.0) - (a ^ 2.0)) / (2.0 * c);
+			let y = ((a + b - c) * (a - b + c) * (b + c - a) * (a + b + c)).sqrt / (2.0 * c);
+			Triangle([0.0 0.0], [c 0.0], [x y])
 		} {
 			[a, b, c].error('sssTriangle: invalid triangle')
 		}

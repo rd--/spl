@@ -9,10 +9,10 @@ and scale parameter σ.
 Probability density function, varying alpha:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(
-	[-3 0.5 4].collect { :alpha |
+(-5.0 -- 5.0).functionPlot(
+	[-3.0 0.5 4.0].collect { :alpha |
 		SkewNormalDistribution(
-			0, 2, alpha
+			0.0, 2.0, alpha
 		).pdf
 	}
 )
@@ -24,8 +24,8 @@ Generate a sample of pseudorandom numbers from a skew normal distribution:
 
 ~~~spl svg=B
 let r = Sfc32(678123);
-SkewNormalDistribution(0, 2, 3)
-.randomVariate(r, 10^4)
+SkewNormalDistribution(0.0, 2.0, 3.0)
+.randomVariate(r, 10L ^ 4L)
 .histogramPlot
 ~~~
 

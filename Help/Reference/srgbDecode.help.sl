@@ -40,7 +40,7 @@ Threads over lists:
 Plot curve:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	srgbDecode/1
 )
 ~~~

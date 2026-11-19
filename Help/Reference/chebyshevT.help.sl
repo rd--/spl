@@ -81,7 +81,7 @@ Plot the fifth degree polynomial over a subset of the reals:
 
 ~~~spl svg=A
 let p = 5.chebyshevT;
-(-1 -- 1).functionPlot { :x |
+(-1.0 -- 1.0).functionPlot { :x |
 	p[x]
 }
 ~~~
@@ -92,7 +92,7 @@ Plot the tenth degree polynomial over a subset of the reals:
 
 ~~~spl svg=B
 let p = 10.chebyshevT;
-(-1 -- 1).functionPlot { :x |
+(-1.0 -- 1.0).functionPlot { :x |
 	p[x]
 }
 ~~~

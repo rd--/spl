@@ -36,7 +36,7 @@ let r = Sfc32(789314);
 Recurrence plot of a harmonic oscillation with two frequencies:
 
 ~~~spl png=C
-(0 -- 4.pi).subdivide(200).collect { :x |
+(0.0 -- 4.pi).subdivide(200).collect { :x |
 	(x * 3).sin + (x * 7).sin
 }.recurrenceMatrix(1, 1, 'Manhattan', 0.1)
 .Bitmap
@@ -48,7 +48,7 @@ Recurrence plot of a harmonic oscillation with two frequencies,
 without thesholding:
 
 ~~~spl png=D
-(0 -- 4.pi).subdivide(200).collect { :x |
+(0.0 -- 4.pi).subdivide(200).collect { :x |
 	(x * 0.7).sin + (x * 1.3).sin
 }.recurrenceMatrix(1, 1, 'Manhattan')
 .rescale.Greymap

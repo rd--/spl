@@ -57,10 +57,10 @@ true
 An interval _i_ is less than an interval _j_ if _⌈i_ is less than _⌊j_:
 
 ```
->>> ((2 -- 3) < (4 -- 5), 3 < 4)
+>>> ((2.0 -- 3.0) < (4.0 -- 5.0), 3 < 4)
 (true, true)
 
->>> ((1 -- 3) < (2 -- 3), 3 < 2)
+>>> ((1.0 -- 3.0) < (2.0 -- 3.0), 3 < 2)
 (false, false)
 ```
 
@@ -88,10 +88,10 @@ Use `min` and `max` to find end points of intervals:
 Use `includes` to determine if a point is in the interval (checking for containment):
 
 ```
->>> (2 -- 5).includes(1.pi)
+>>> (2.0 -- 5.0).includes(1.pi)
 true
 
->>> let i = (1 -- 5);
+>>> let i = (1.0 -- 5.0);
 >>> [3.2, 5, 1, 9].collect { :each |
 >>> 	i.includes(each)
 >>> }
@@ -106,18 +106,18 @@ true
 Use `union` to combine intervals:
 
 ```
->>> (1 -- 3).union(2 -- 4)
-(1 -- 4)
+>>> (1.0 -- 3.0).union(2.0 -- 4.0)
+(1.0 -- 4.0)
 
->>> (1 -- 9).union(3 -- 5)
-(1 -- 9)
+>>> (1.0 -- 9.0).union(3.0 -- 5.0)
+(1.0 -- 9.0)
 ```
 
 Cannot combine disjoint intervals:
 
 ```
 >>> {
->>> 	(-2 -- 0).union(1 -- 4)
+>>> 	(-2.0 -- 0.0).union(1.0 -- 4.0)
 >>> }.hasError
 true
 ```
@@ -125,8 +125,8 @@ true
 Use `intersection` to find where intervals overlap:
 
 ```
->>> (-2 -- 3).intersection(1 -- 4)
-(1 -- 3)
+>>> (-2.0 -- 3.0).intersection(1.0 -- 4.0)
+(1.0 -- 3.0)
 
 >>> (-2 -- 1.pi).intersection(1.e -- 4)
 (1.e -- 1.pi)
@@ -136,7 +136,7 @@ Cannot intersect disjoint intervals:
 
 ```
 >>> {
->>> 	(-2 -- 0).intersection(1 -- 4)
+>>> 	(-2.0 -- 0.0).intersection(1.0 -- 4.0)
 >>> }.hasError
 true
 ```
@@ -144,21 +144,21 @@ true
 It is an `error` if `min` exceeds `max`:
 
 ```
->>> { (1 -- 0) }.hasError
+>>> { (1.0 -- 0.0) }.hasError
 true
 ```
 
 `Interval` values can be converted to `Range` values using `discretize`:
 
 ```
->>> (1 -- 10).discretize(10).List
+>>> (1.0 -- 10.0).discretize(10).List
 [1 2 3 4 5 6 7 8 9 10]
 ```
 
 or `subdivide`:
 
 ```
->>> (1 -- 10).subdivide(9).List
+>>> (1.0 -- 10.0).subdivide(9).List
 [1 2 3 4 5 6 7 8 9 10]
 ```
 
@@ -191,7 +191,7 @@ Threads over lists:
 Sample a function uniformly on an interval:
 
 ~~~spl svg=A
-(0 -- 2.pi).subdivide(47).collect { :x |
+(0.0 -- 2.pi).subdivide(47).collect { :x |
 	(2 * x).sin - (3 * x).cos
 }.discretePlot
 ~~~

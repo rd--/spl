@@ -7,7 +7,7 @@ Answer the bifoliate quartic plane curve.
 The bifoliate quartic plane curve:
 
 ~~~spl svg=A
-(0 -- 1.pi).discretize(100, 1.bifoliate).Line
+(0.0 -- 1.pi).discretize(100, 1.bifoliate).Line
 ~~~
 
 ![](Help/Image/bifoliate-A.svg)

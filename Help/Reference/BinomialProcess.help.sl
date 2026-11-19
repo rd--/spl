@@ -9,8 +9,8 @@ Simulate a binomial process:
 
 ~~~spl svg=A
 let r = Sfc32(890143);
-BinomialProcess(1 / 3)
-.randomFunction(r, [0 50], 1)
+BinomialProcess(1.0 / 3.0)
+.randomFunction(r, [0.0 50.0], 1L)
 .discretePlot
 ~~~
 
@@ -20,8 +20,8 @@ Simulate an ensemble of paths:
 
 ~~~spl svg=B
 let r = Sfc32(890132);
-BinomialProcess(2 / 5)
-.randomFunction(r, [0 50], 4)
+BinomialProcess(2.0 / 5.0)
+.randomFunction(r, [0.0 50.0], 4L)
 .stepPlot
 ~~~
 

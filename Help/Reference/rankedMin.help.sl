@@ -45,7 +45,7 @@ The fourth largest of five numbers:
 Plot the second-largest function over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot { :x |
+(0.0 -- 2.pi).functionPlot { :x |
 	[0.5, x.cos, -0.5].rankedMin(2)
 }
 ~~~
@@ -55,7 +55,7 @@ Plot the second-largest function over a subset of the reals:
 Plot the second-largest function over a subset of the reals:
 
 ~~~spl svg=B
-(-5 -- 6).functionPlot { :x |
+(-5.0 -- 6.0).functionPlot { :x |
 	[x.sin, x.cos, x.exp].rankedMin(2)
 }
 ~~~
@@ -65,7 +65,7 @@ Plot the second-largest function over a subset of the reals:
 Plot the second-largest function over a subset of the reals:
 
 ~~~spl svg=C
-(0 -- 2.pi).functionPlot { :x |
+(0.0 -- 2.pi).functionPlot { :x |
 	[x.sin, x.cot, x.tan]
 	.rankedMin(2)
 }

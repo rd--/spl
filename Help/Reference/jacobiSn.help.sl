@@ -8,10 +8,10 @@ Answer the Jacobi elliptic function _sn(u|m)_.
 >>> jacobiSn(2.5, 0.5)
 0.890615
 
->>> jacobiSn(2, 1/3)
+>>> jacobiSn(2.0, 1.0 / 3.0)
 0.976309
 
->>> jacobiSn(2, 0.3)
+>>> jacobiSn(2.0, 0.3)
 0.971255
 ```
 
@@ -19,19 +19,19 @@ At _m=0_ and _m=1_:
 
 ```
 >>> let z = 0.65;
->>> (z.jacobiSn(0), z.jacobiSn(1))
+>>> (z.jacobiSn(0.0), z.jacobiSn(1.0))
 (z.sin, z.tanh)
 
->>> 1.ellipticKFukushima
+>>> 1.0.ellipticKFukushima
 Infinity
 ```
 
 The Jacobi elliptic function:
 
 ~~~spl svg=A
-let m = 1 / 3;
-let r = m.ellipticK * 4;
-(0 -- r).functionPlot { :x |
+let m = 1.0 / 3.0;
+let r = m.ellipticK * 4.0;
+(0.0 -- r).functionPlot { :x |
 	x.jacobiSn(m)
 }
 ~~~
@@ -43,15 +43,14 @@ Solution of the pendulum equation:
 ~~~spl svg=B
 let alpha = { :phi |
 	{ :t |
-		let p = sin(phi / 2);
-		let q = jacobiSn(t, p ^ 2);
-		2 * arcSin(p * q)
+		let p = sin(phi / 2.0);
+		let q = jacobiSn(t, p ^ 2.0);
+		2.0 * arcSin(p * q)
 	}
 };
-(0 -- 10).functionPlot(
-	[1 / 3, 1 / 2, 99 / 100].pi.collect(
-		alpha/1
-	)
+(0.0 -- 10.0).functionPlot(
+	[1.0 / 3.0, 1.0 / 2.0, 99.0 / 100.0]
+	.pi.collect(alpha/1)
 )
 ~~~
 
@@ -61,8 +60,8 @@ Plot the Jacobi elliptic function with `sin`:
 
 ~~~spl svg=C
 let m = 0.5.square;
-let p = 4 * m.ellipticK;
-(0 -- p).functionPlot(
+let p = 4.0 * m.ellipticK;
+(0.0 -- p).functionPlot(
 	[
 		{ :x | x.sin },
 		{ :x | x.jacobiSn(m) }

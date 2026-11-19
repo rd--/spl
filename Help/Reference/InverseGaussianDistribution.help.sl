@@ -8,8 +8,8 @@ Plot histogram of random variate:
 
 ~~~spl svg=A
 let r = Sfc32(267813);
-InverseGaussianDistribution(1, 5)
-.randomVariate(r, [10 ^ 4])
+InverseGaussianDistribution(1.0, 5.0)
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 

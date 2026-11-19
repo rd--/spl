@@ -22,7 +22,7 @@ Threads over lists, zero at each end-point:
 Shape of a Planck-taper window using specified parameters for ε:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	(1 / [10 3 2]).collect { :e |
 		{ :x |
 			x.planckTaperWindow(e)

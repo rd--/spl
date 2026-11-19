@@ -52,10 +52,11 @@ Plot over a subset of the reals:
 Draw csc at integer points:
 
 ~~~spl png=B
+let i = (-50.0 .. 50.0);
 (
 	{ :x :y |
 		(x * y).csc.abs.arcTan
-	}.table(-50:50, -50:50).abs / 2
+	}.table(i, i).abs / 2.0
 ).Greymap
 ~~~
 

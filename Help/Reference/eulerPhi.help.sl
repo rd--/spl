@@ -396,17 +396,17 @@ The degree of the classical modular polynomial,
 OEIS [A118778](https://oeis.org/A118778):
 
 ~~~spl svg=F oeis=A118778
-1:250.collect { :n |
-	let s = 0;
+1L:250L.collect { :n |
+	let s = 0L;
 	n.divisors.do { :a |
 		(a.square > n).ifTrue {
-			let b = gcd(a, n / a);
+			let b = gcd(a, n // a);
 			let c = eulerPhi(b) / b;
-			s := s + (2 * a * c)
+			s := s + (2L * a * c)
 		}
 	};
-	n.sqrt.isSmallInteger.ifTrue {
-		s := s + eulerPhi(n.sqrt)
+	n.isPerfectSquare.ifTrue {
+		s := s + eulerPhi(n.isqrt)
 	};
 	s
 }.scatterPlot
@@ -432,10 +432,10 @@ Smallest _x_ such that _x%φ(x)=n_,
 OEIS [A234642](https://oeis.org/A234642):
 
 ~~~spl svg=H oeis=A234642
-0:43.collect { :n |
-	let x = 0;
+0L:43L.collect { :n |
+	let x = 0L;
 	{
-		x := x + 1;
+		x := x + 1L;
 		x % x.eulerPhi = n
 	}.whileFalse;
 	x
@@ -511,12 +511,12 @@ _φ(m)*m^k*k!/n_ where _m=n/k_,
 OEIS [A047917](https://oeis.org/A047917):
 
 ~~~spl svg=N oeis=A047917
-1:11.triangularArray { :n :k |
+1L:11L.triangularArray { :n :k |
 	n.divisible(k).if {
-		let m = n / k;
+		let m = n // k;
 		m.eulerPhi * (m ^ k) * k.! / n
 	} {
-		0
+		0L
 	}
 }.catenate.discretePlot.log
 ~~~
@@ -538,14 +538,14 @@ _T(n,k)_ is _φ(n/k)_ if _k_ divides _n_ else zero,
 OEIS [A054523](https://oeis.org/A054523):
 
 ~~~spl svg=P oeis=A054523
-1:15.triangularArray { :n :k |
+1L:15L.triangularArray { :n :k |
 	(k = n).if {
-		1
+		1L
 	} {
 		n.divisible(k).if {
-			(n / k).eulerPhi
+			(n // k).eulerPhi
 		} {
-			0
+			0L
 		}
 	}
 }.catenate.discretePlot

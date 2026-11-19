@@ -87,7 +87,7 @@ let o = sinOsc(500, 0);
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-4 -- 4).functionPlot(tanh/1)
+(-4.0 -- 4.0).functionPlot(tanh/1)
 ~~~
 
 ![](Help/Image/tanh-A.svg)
@@ -118,7 +118,7 @@ Plot a nonlinear function:
 Plot a tractrix pursuit curve:
 
 ~~~spl svg=D
-(0 -- 4).functionPlot { :x |
+(0.0 -- 4.0).functionPlot { :x |
 	[x - x.tanh, x.sech]
 }
 ~~~

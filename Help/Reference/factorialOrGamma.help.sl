@@ -43,7 +43,7 @@ Evaluate at real values:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot { :x |
+(-5.0 -- 5.0).functionPlot { :x |
 	x.!.clip(-10, 10)
 }
 ~~~
@@ -53,8 +53,8 @@ Plot over a subset of the reals:
 Plot the volume of the unit hypersphere as a function of dimension:
 
 ~~~spl svg=B
-(0 -- 25).functionPlot { :n |
-	1.pi ^ (n / 2) / (n / 2).!
+(0.0 -- 25.0).functionPlot { :n |
+	1.0.pi ^ (n / 2.0) / (n / 2.0).!
 }
 ~~~
 

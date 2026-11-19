@@ -8,7 +8,7 @@ A Poincaré plot is also called a `lagPlot`.
 Poincaré plot of a harmonic oscillation with two frequencies:
 
 ~~~spl svg=A
-(0 -- 4.pi).subdivide(200).collect { :x |
+(0.0 -- 4.pi).subdivide(200).collect { :x |
 	(x * 3).sin + (x * 7).sin
 }.poincarePlot
 ~~~

@@ -74,7 +74,7 @@ Integer form of first few polynomials:
 Plot Legendre polynomials two through five:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	2L:5L.collect { :n |
 		n.legendreP.unaryBlock
 	}
@@ -86,7 +86,7 @@ Plot Legendre polynomials two through five:
 Generalised Lissajous figures:
 
 ~~~spl svg=B
-(-1 -- 1).parametricPlot(
+(-1.0 -- 1.0).parametricPlot(
 	400,
 	7L.legendreP.unaryBlock,
 	13L.legendreP.unaryBlock

@@ -60,6 +60,16 @@ true
 true
 ```
 
+At `NaN`:
+
+```
+>>> NaN < 1L
+false
+
+>>> 1L < NaN
+false
+```
+
 When the arguments to `<` are `boole`,
 it is the converse non-implication `Boolean` function:
 

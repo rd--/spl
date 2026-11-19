@@ -224,7 +224,7 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 		let [a, b] = zeroOne;
 		SparseArray(
 			indices.collect { :i |
-				i -> b
+				IntegerList(i) -> b
 			},
 			shape,
 			a

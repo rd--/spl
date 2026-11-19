@@ -250,7 +250,7 @@ TimeSeries(
 Plot linear interpolation function of time series:
 
 ~~~spl svg=C
-(1 -- 15).functionPlot(
+(1.0 -- 15.0).functionPlot(
 	TimeSeries(
 		[2 1 6 5 7 4],
 		[1 2 5 10 12 15]
@@ -263,7 +263,7 @@ Plot linear interpolation function of time series:
 Plot nearest-neighbour interpolation function of time series:
 
 ~~~spl svg=D
-(1 -- 15).functionPlot(
+(1.0 -- 15.0).functionPlot(
 	TimeSeries(
 		[2 1 6 5 7 4],
 		[1 2 5 10 12 15]
@@ -276,7 +276,7 @@ Plot nearest-neighbour interpolation function of time series:
 Plot cubic-spline interpolation function of time series:
 
 ~~~spl svg=E
-(1 -- 15).functionPlot(
+(1.0 -- 15.0).functionPlot(
 	TimeSeries(
 		[2 1 6 5 7 4],
 		[1 2 5 10 12 15]
@@ -289,7 +289,7 @@ Plot cubic-spline interpolation function of time series:
 Plot Akima interpolation function of time series:
 
 ~~~spl svg=F
-(1 -- 15).functionPlot(
+(1.0 -- 15.0).functionPlot(
 	TimeSeries(
 		[2 1 6 5 7 4],
 		[1 2 5 10 12 15]

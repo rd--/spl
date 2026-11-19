@@ -101,7 +101,9 @@ Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 +Void {
 
 	Sfc32 {
-		Sfc32(system.absoluteTime.sfc32State)
+		Sfc32(
+			system.absoluteTime.sfc32State
+		)
 	}
 
 }

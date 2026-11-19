@@ -8,7 +8,7 @@ At `UnivariatePolynomial`,
 answer a block that evaluates the polynomial:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	Polynomial(
 		[0 -7 0 56 0 -112 0 64]
 	).unaryBlock

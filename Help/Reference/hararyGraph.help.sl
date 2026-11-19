@@ -8,7 +8,8 @@ When _k_ or _n_ is even, _H(k, n)_ is a circulant graph.
 Even _k_ and even _n_:
 
 ~~~spl svg=A
-hararyGraph(4, 8).graphPlot
+hararyGraph(4L, 8L)
+.graphPlot
 ~~~
 
 ![](Help/Image/hararyGraph-A.svg)
@@ -16,7 +17,8 @@ hararyGraph(4, 8).graphPlot
 Even _k_ and odd _n_:
 
 ~~~spl svg=B
-hararyGraph(4, 7).graphPlot
+hararyGraph(4L, 7L)
+.graphPlot
 ~~~
 
 ![](Help/Image/hararyGraph-B.svg)
@@ -24,7 +26,8 @@ hararyGraph(4, 7).graphPlot
 Odd _k_ and even _n_:
 
 ~~~spl svg=C
-hararyGraph(3, 8).graphPlot
+hararyGraph(3L, 8L)
+.graphPlot
 ~~~
 
 ![](Help/Image/hararyGraph-C.svg)
@@ -32,7 +35,8 @@ hararyGraph(3, 8).graphPlot
 Odd _k_ and odd _n_:
 
 ~~~spl svg=D
-hararyGraph(3, 7).graphPlot
+hararyGraph(3L, 7L)
+.graphPlot
 ~~~
 
 ![](Help/Image/hararyGraph-D.svg)
@@ -40,7 +44,8 @@ hararyGraph(3, 7).graphPlot
 A wheel graph:
 
 ~~~spl svg=E
-hararyGraph(3, 5).graphPlot
+hararyGraph(3L, 5L)
+.graphPlot
 ~~~
 
 ![](Help/Image/hararyGraph-E.svg)
@@ -49,7 +54,8 @@ hararyGraph(3, 5).graphPlot
 the triangle graph:
 
 ~~~spl svg=F
-hararyGraph(2, 3).graphPlot
+hararyGraph(2L, 3L)
+.graphPlot
 ~~~
 
 ![](Help/Image/hararyGraph-F.svg)
@@ -57,7 +63,8 @@ hararyGraph(2, 3).graphPlot
 Tetrahedral graph:
 
 ~~~spl svg=G
-hararyGraph(3, 4).graphPlot
+hararyGraph(3L, 4L)
+.graphPlot
 ~~~
 
 ![](Help/Image/hararyGraph-G.svg)
@@ -66,7 +73,8 @@ _H(n - 1, n)_ is the complete graph _K(n)_,
 `completeGraph` is a special case of `hararyGraph`:
 
 ~~~spl svg=H
-hararyGraph(5, 6).graphPlot
+hararyGraph(5L, 6L)
+.graphPlot
 ~~~
 
 ![](Help/Image/hararyGraph-H.svg)

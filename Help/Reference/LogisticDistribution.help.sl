@@ -7,9 +7,9 @@ A `Type` representing a logistic distribution with mean Î¼ and scale parameter Î
 Probability density function:
 
 ~~~spl svg=A
-(-10 -- 10).functionPlot(
-	[-2 0 3].collect { :mu |
-		LogisticDistribution(mu, 2).pdf
+(-10.0 -- 10.0).functionPlot(
+	[-2.0 0.0 3.0].collect { :mu |
+		LogisticDistribution(mu, 2.0).pdf
 	}
 )
 ~~~
@@ -19,9 +19,9 @@ Probability density function:
 Cumulative distribution function:
 
 ~~~spl svg=B
-(-10 -- 10).functionPlot(
-	[-2 0 3].collect { :mu |
-		LogisticDistribution(mu, 2).cdf
+(-10.0 -- 10.0).functionPlot(
+	[-2.0 0.0 3.0].collect { :mu |
+		LogisticDistribution(mu, 2.0).cdf
 	}
 )
 ~~~
@@ -32,9 +32,9 @@ Generate a sample of pseudorandom numbers from a Laplace distribution:
 
 ~~~spl svg=C
 let r = Sfc32(380149);
-LogisticDistribution(3, 2.5)
-.randomVariate(r, [10 ^ 4])
-.histogramPlot([-15 20 1])
+LogisticDistribution(3.0, 2.5)
+.randomVariate(r, [10L ^ 4L])
+.histogramPlot([-15.0 20.0 1.0])
 ~~~
 
 ![](Help/Image/LogisticDistribution-C.svg)

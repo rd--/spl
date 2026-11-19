@@ -13,8 +13,8 @@ _z²_ is a conformal map:
 	z.square
 }.conformalPlot(
 	[0J0 1J1],
-	[5 5],
-	[25 25]
+	[5L 5L],
+	[25L 25L]
 )
 ~~~
 
@@ -25,7 +25,11 @@ _1/z_ is a conformal map:
 ~~~spl svg=B
 { :z |
 	1 / z
-}.conformalPlot([-2J-2 2J2], [6 6], [75 75])
+}.conformalPlot(
+	[-2J-2 2J2],
+	[6L 6L],
+	[75L 75L]
+)
 ~~~
 
 ![](Help/Image/conformalPlot-B.svg)
@@ -37,8 +41,8 @@ _cos(z)_ is a conformal map:
 	z.cos
 }.conformalPlot(
 	[0J0, 2.pi.J(1.pi)],
-	[6 6],
-	[50 50]
+	[6L 6L],
+	[50L 50L]
 )
 ~~~
 
@@ -51,8 +55,8 @@ _z³_ is a conformal map:
 	z.cube
 }.conformalPlot(
 	[0J0 2J2],
-	[7 7],
-	[25 25]
+	[7L 7L],
+	[25L 25L]
 )
 ~~~
 
@@ -65,8 +69,8 @@ _z+1/z_ is a conformal map:
 	z + (1 / z)
 }.conformalPlot(
 	[-3J-3 3J3],
-	[8 8],
-	[50 50]
+	[8L 8L],
+	[50L 50L]
 )
 ~~~
 
@@ -79,8 +83,8 @@ _z^3/2_:
 	z ^ (3 / 2)
 }.conformalPlot(
 	[0J0 1J1],
-	[15 15],
-	[25 25]
+	[15L 15L],
+	[25L 25L]
 )
 ~~~
 

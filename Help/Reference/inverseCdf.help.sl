@@ -43,7 +43,7 @@ by computing the upper and lower 2.5% values:
 Plot `inverseCdf` of `NormalDistribution`:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	NormalDistribution(0, 1)
 	.inverseCdf
 	.clip(-3, 3)

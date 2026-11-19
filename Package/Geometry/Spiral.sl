@@ -7,27 +7,6 @@
 		}
 	}
 
-	diamondSpiral { :self |
-		let f = { :n |
-			let m = (n + 1 << 3).integerSquareRoot + 1 >> 1;
-			(m.bitAnd(1) = 1).if {
-				n - (m.square >> 1)
-			} {
-				(m.square >> 1) - n
-			}
-		};
-		0.toCollect(self - 1) { :i |
-			(i < 1).if {
-				[0 0]
-			} {
-				let j = (((2 * i - 1).sqrt + 1) / 2).floor;
-				let x = f(i);
-				let y = f(i - j);
-				[x, y]
-			}
-		}
-	}
-
 	eulerSpiral { :theta |
 		[theta.fresnelC, theta.fresnelS]
 	}
@@ -64,7 +43,7 @@
 	norwichSpiral { :a |
 		{ :t |
 			let rho = a / t.cos.square;
-			let theta = t.tan - (2 * t);
+			let theta = t.tan - (2.0 * t);
 			[rho theta].fromPolarCoordinates
 		}
 	}
@@ -81,7 +60,7 @@
 
 	sinusoidalSpiral { :n :a |
 		{ :theta |
-			let r = (2 * (a ^ n) * (n * theta).cos).nthRoot(n);
+			let r = (2.0 * (a ^ n) * (n * theta).cos).nthRoot(n);
 			[r theta].fromPolarCoordinates
 		}
 	}
@@ -109,6 +88,27 @@
 }
 
 +[Float, Integer] {
+
+	diamondSpiral { :self |
+		let f = { :n |
+			let m = (n + 1L << 3L).integerSquareRoot + 1L >> 1L;
+			(m.bitAnd(1L) = 1L).if {
+				n - (m.square >> 1)
+			} {
+				(m.square >> 1L) - n
+			}
+		};
+		0L.toCollect(self - 1L) { :i |
+			(i < 1L).if {
+				[0L, 0L]
+			} {
+				let j = (((2L * i - 1L).sqrt + 1L) / 2L).floor;
+				let x = f(i);
+				let y = f(i - j);
+				[x, y]
+			}
+		}
+	}
 
 	triangularSpiral { :self |
 		let x = 0L.to(self - 1L).collect { :n |

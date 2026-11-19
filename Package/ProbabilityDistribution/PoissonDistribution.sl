@@ -1,13 +1,13 @@
 +@RandomNumberGenerator {
 
 	poissonDistribution { :self :mu |
-		let k = 0;
+		let k = 0L;
 		let r = self.nextRandomFloat;
 		let t = mu.negate.exp;
 		{
 			r > t
 		}.whileTrue {
-			k := k + 1;
+			k := k + 1L;
 			r := r * self.nextRandomFloat
 		};
 		k
@@ -21,15 +21,16 @@ PoissonDistribution : [Object, Equal, ProbabilityDistribution] {
 
 	cdf { :self |
 		let mu = self.mu;
+		let a = mu.-.exp;
 		{ :x |
-			0L.to(x).collect { :i |
-				(mu.-.exp * (mu ^ i)) / i.!
+			0.0.to(x).collect { :i |
+				(a * (mu ^ i)) / i.!
 			}.sum
 		}
 	}
 
 	kurtosis { :self |
-		3 + (1 / self.mu)
+		3.0 + (1.0 / self.mu)
 	}
 
 	mean { :self |
@@ -39,7 +40,7 @@ PoissonDistribution : [Object, Equal, ProbabilityDistribution] {
 	pdf { :self |
 		let mu = self.mu;
 		{ :x |
-			(x * mu.log - mu - (x + 1).logGamma).exp
+			(x * mu.log - mu - (x + 1.0).logGamma).exp
 		}
 	}
 
@@ -51,7 +52,7 @@ PoissonDistribution : [Object, Equal, ProbabilityDistribution] {
 	}
 
 	skewness { :self |
-		1 / self.mu.sqrt
+		1.0 / self.mu.sqrt
 	}
 
 	variance { :self |
@@ -60,7 +61,7 @@ PoissonDistribution : [Object, Equal, ProbabilityDistribution] {
 
 }
 
-+[Float, Integer, Symbol] {
++[Float, Integer, Fraction, Symbol] {
 
 	PoissonDistribution { :mu |
 		newPoissonDistribution().initializeSlots(mu)

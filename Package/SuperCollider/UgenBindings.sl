@@ -1588,27 +1588,27 @@
 +Ugen {
 
 	clip { :self |
-		self.clip(-1, 1)
+		self.clip(-1.0, 1.0)
 	}
 
 	fold { :self |
-		self.fold(-1, 1)
+		self.fold(-1.0, 1.0)
 	}
 
 	round { :self |
-		self.round(1)
+		self.round(1.0)
 	}
 
 	truncate { :self |
-		self.truncate(1)
+		self.truncate(1.0)
 	}
 
 	unitCps { :self |
-		(self * 100).midiCps
+		(self * 100.0).midiCps
 	}
 
 	wrap { :self |
-		self.wrap(-1, 1)
+		self.wrap(-1.0, 1.0)
 	}
 
 }

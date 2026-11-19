@@ -30,9 +30,9 @@ Compare paths for different values of process parameter:
 
 ~~~spl svg=C
 let r = Sfc32(890133);
-[0.6 1 3.5].collect { :mu |
+[0.6 1.0 3.5].collect { :mu |
 	PoissonProcess(mu)
-	.randomFunction(r, [0 20], 1)
+	.randomFunction(r, [0.0 20.0], 1L)
 	.pathList
 	.first
 }.stepPlot

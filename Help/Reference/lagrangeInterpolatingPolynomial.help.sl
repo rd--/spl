@@ -49,7 +49,7 @@ Plot interpolation over four points:
 ~~~spl svg=B
 let c = [-9 5; -4 2; -1 -2; 7 9];
 let p = c.lagrangeInterpolatingPolynomial;
-(-9 -- 7).functionPlot { :x |
+(-9.0 -- 7.0).functionPlot { :x |
 	p[x]
 }
 ~~~
@@ -63,7 +63,7 @@ let y = [0 0 0.05 0.15 0.6 1 0.6 0.15 0.05 0 0];
 let x = [-5 .. 5];
 let c = [x, y].transpose;
 let p = c.lagrangeInterpolatingPolynomial;
-(-5 -- 5).functionPlot { :x |
+(-5.0 -- 5.0).functionPlot { :x |
 	p[x]
 }
 ~~~

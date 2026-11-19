@@ -12,14 +12,14 @@ Generate and plot sample of pseudorandom vectors from a bivariate _t_ distributi
 ~~~spl svg=A
 let r = Sfc32(543275);
 MultivariateTDistribution(
-	[0 0],
-	[2 -1/3; -1/3 2/3],
-	5
+	[0.0 0.0],
+	[2/1 -1/3; -1/3 2/3].F,
+	5.0
 )
-.randomVariate(r, [500])
+.randomVariate(r, [500L])
 .densityHistogramPlot(
-	[-3 3 0.5],
-	[-3 3 0.5]
+	[-3.0 3.0 0.5],
+	[-3.0 3.0 0.5]
 )
 ~~~
 

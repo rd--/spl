@@ -7,8 +7,8 @@ A `Type` representing a binomial distribution with _n_ trials and success probab
 Probability mass function:
 
 ~~~spl svg=A
-1:36.collect(
-	BinomialDistribution(40, 0.5).pdf
+1L:36L.collect(
+	BinomialDistribution(40L, 0.5).pdf
 ).discretePlot
 ~~~
 
@@ -17,8 +17,8 @@ Probability mass function:
 Cumulative distribution function:
 
 ~~~spl svg=B
-1:36.collect(
-	BinomialDistribution(40, 0.5).cdf
+1L:36L.collect(
+	BinomialDistribution(40L, 0.5).cdf
 ).discretePlot
 ~~~
 
@@ -27,12 +27,12 @@ Cumulative distribution function:
 Skewness:
 
 ~~~spl svg=C
-(0 -- 1).functionPlot(
-	[1 2 5 20].collect { :n |
+(0.0 -- 1.0).functionPlot(
+	[1L 2L 5L 20L].collect { :n |
 		{ :p |
 			BinomialDistribution(n, p)
 			.skewness
-			.clip(-4, 4)
+			.clip(-4.0, 4.0)
 		}
 	}
 )
@@ -43,12 +43,12 @@ Skewness:
 Kurtosis:
 
 ~~~spl svg=D
-(0 -- 1).functionPlot(
-	[1 2 5 20].collect { :n |
+(0.0 -- 1.0).functionPlot(
+	[1L 2L 5L 20L].collect { :n |
 		{ :p |
 			BinomialDistribution(n, p)
 			.kurtosis
-			.clip(-1, 9)
+			.clip(-1.0, 9.0)
 		}
 	}
 )
@@ -60,8 +60,8 @@ Generate a sample of pseudo-random numbers from a binomial distribution:
 
 ~~~spl svg=E
 let r = Sfc32(801894);
-BinomialDistribution(10, 0.4)
-.randomVariate(r, [10 ^ 4])
+BinomialDistribution(10L, 0.4)
+.randomVariate(r, [10L ^ 4L])
 .histogramPlot
 ~~~
 

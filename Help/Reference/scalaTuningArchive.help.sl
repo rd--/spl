@@ -8,7 +8,7 @@ Count number of entries:
 
 ```
 >>> system.scalaTuningArchive.size
-5231
+5231L
 ```
 
 The keys are the names of the tunings,
@@ -30,7 +30,7 @@ Count the rational tunings:
 >>> .count { :each |
 >>> 	each.isRational
 >>> }
-2738
+2738L
 ```
 
 Count the tunings where the octave is non-standard:
@@ -39,9 +39,9 @@ Count the tunings where the octave is non-standard:
 >>> system
 >>> .scalaTuningArchive
 >>> .count { :each |
->>> 	each.octave != 2
+>>> 	each.octave != 2L
 >>> }
-806
+806L
 ```
 
 Look up an entry in the archive by name, and fetch the pitches as ratios:
@@ -52,7 +52,7 @@ Look up an entry in the archive by name, and fetch the pitches as ratios:
 >>> .at('wilson_class')
 >>> .ratios
 [
-	1 25/24 28/25 7/6 5/4 4/3 7/5
+	1/1 25/24 28/25 7/6 5/4 4/3 7/5
 	35/24 8/5 5/3 7/4 28/15
 ]
 ```

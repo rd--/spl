@@ -16,7 +16,7 @@ Calculate the arc length of a collection of lines:
 Complete graph with nine nodes:
 
 ~~~spl svg=A
-(0 -- 2.pi)
+(0.0 -- 2.pi)
 .subdivide(9)
 .allButLast
 .collect { :t |

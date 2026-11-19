@@ -25,11 +25,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 	}
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
-		self.isNaN.if {
-			NaN
-		} {
-			aBlock(Float(anInteger), self) /* SmallInteger */
-		}
+		aBlock(Float(anInteger), self)
 	}
 
 	assertIsFinite { :self :message |

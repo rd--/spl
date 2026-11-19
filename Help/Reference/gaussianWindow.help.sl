@@ -34,7 +34,7 @@ Threads over lists, zero outside of _(-½,½)_:
 Plot, the unary form sets σ to 0.3:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot(
+(-1.0 -- 1.0).functionPlot(
 	gaussianWindow/1
 )
 ~~~
@@ -44,7 +44,7 @@ Plot, the unary form sets σ to 0.3:
 Shape of a Gaussian window using a specified parameter:
 
 ~~~spl svg=B
-(-1 -- 1).functionPlot { :x |
+(-1.0 -- 1.0).functionPlot { :x |
 	x.gaussianWindow(0.2)
 }
 ~~~

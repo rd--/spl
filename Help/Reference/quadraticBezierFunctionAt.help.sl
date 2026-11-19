@@ -8,7 +8,7 @@ This is the method utilised by `bezierFunction` for quadratic Bézier curves.
 A quadratic Bézier curve:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	[0 0; 0 1; 1 1]
 	.quadraticBezierFunctionAt(x)
 }
@@ -19,7 +19,7 @@ A quadratic Bézier curve:
 A symmetric quadratic Bézier curve (an arc):
 
 ~~~spl svg=B
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	[0 0; 1 1; 2 0]
 	.quadraticBezierFunctionAt(x)
 }

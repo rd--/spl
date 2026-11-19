@@ -974,28 +974,32 @@ Graph : [Object, Graph] {
 
 	hararyGraphEdgeList { :k :n |
 		k.isEven.if {
-			let m = k / 2;
+			let m = k // 2L;
 			let e = [];
-			1.toDo(n) { :i |
-				1.toDo(m) { :j |
-					let z = (i + j).mod(n, 1);
+			1L.toDo(n) { :i |
+				1L.toDo(m) { :j |
+					let z = (i + j).mod(n, 1L);
 					e.add!([i, z])
 				}
 			};
 			e
 		} {
-			(k.isOdd & { n.isEven }).if {
-				let e = hararyGraphEdgeList(k - 1, n);
+			(
+				k.isOdd & {
+					n.isEven
+				}
+			).if {
+				let e = hararyGraphEdgeList(k - 1L, n);
 				let m = n // 2;
-				1.toDo(m) { :i |
+				1L.toDo(m) { :i |
 					e.add!([i, i + m])
 				};
 				e
 			} {
-				let e = hararyGraphEdgeList(k - 1, n);
+				let e = hararyGraphEdgeList(k - 1L, n);
 				let m = k // 2;
-				1.toDo((n - 1) / 2 + 1) { :i |
-					let z = (i + (n + 1 / 2)).mod(n, 1);
+				1L.toDo((n - 1L) // 2L + 1L) { :i |
+					let z = (i + (n + 1L // 2L)).mod(n, 1L);
 					e.add!([i, z])
 				};
 				e

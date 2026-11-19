@@ -360,7 +360,7 @@ OEIS [A073189](https://oeis.org/A073189):
 Plot square root over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 10).functionPlot(sqrt/1)
+(0.0 -- 10.0).functionPlot(sqrt/1)
 ~~~
 
 ![](Help/Image/sqrt-A.svg)
@@ -474,7 +474,7 @@ let n = 1:65;
 Polar plot:
 
 ~~~spl svg=K
-(0 -- 6.pi).polarPlot(sqrt/1)
+(0.0 -- 6.pi).polarPlot(sqrt/1)
 ~~~
 
 ![](Help/Image/sqrt-K.svg)

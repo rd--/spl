@@ -9,7 +9,7 @@ Line drawing:
 ~~~spl svg=A
 (-0.475.pi -- 0.475.pi).discretize(
 	500,
-	1.inverseNorwichSpiral
+	1.0.inverseNorwichSpiral
 ).Line
 ~~~
 

@@ -79,7 +79,7 @@ OEIS [A093178](https://oeis.org/A093178):
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot { :x |
+(0.0 -- 2.pi).functionPlot { :x |
 	x.tan.clip(-6, 6)
 }
 ~~~

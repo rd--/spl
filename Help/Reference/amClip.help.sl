@@ -21,7 +21,7 @@ whiteNoise().amClip(
 Two quadrant multiply:
 
 ~~~spl svg=A
-(0 -- 4.pi).functionPlot { :x |
+(0.0 -- 4.pi).functionPlot { :x |
 	amClip(1, x.sin)
 }
 ~~~

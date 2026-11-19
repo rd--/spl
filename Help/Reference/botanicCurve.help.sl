@@ -8,7 +8,7 @@ given by the polar equation _r=1+d·sin(cθ)_.
 With parameters _c=2/3,d=1_:
 
 ~~~spl svg=A
-(0 -- 6.pi).functionPlot(
+(0.0 -- 6.pi).functionPlot(
 	botanicCurve(2 / 3, 1)
 )
 ~~~
@@ -18,7 +18,7 @@ With parameters _c=2/3,d=1_:
 With parameters _c=2/3,d=2_:
 
 ~~~spl svg=B
-(0 -- 6.pi).functionPlot(
+(0.0 -- 6.pi).functionPlot(
 	botanicCurve(2 / 3, 2)
 )
 ~~~
@@ -28,7 +28,7 @@ With parameters _c=2/3,d=2_:
 With parameters _c=4,d=1/4_:
 
 ~~~spl svg=C
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	botanicCurve(4, 1 / 4)
 )
 ~~~
@@ -38,7 +38,7 @@ With parameters _c=4,d=1/4_:
 With parameters _c=1/2,d=2_, called Freeth’s nephroid:
 
 ~~~spl svg=D
-(0 -- 4.pi).subdivide(100)
+(0.0 -- 4.pi).subdivide(100)
 .collect(
 	botanicCurve(1 / 2, 2)
 ).Line
@@ -50,7 +50,7 @@ With parameter _c=1_ called the limaçon,
 and with _d=2_ called the limaçon trisectrix:
 
 ~~~spl svg=E
-(0 -- 2.pi).subdivide(100)
+(0.0 -- 2.pi).subdivide(100)
 .collect(
 	botanicCurve(1, 2)
 ).Line
@@ -61,7 +61,7 @@ and with _d=2_ called the limaçon trisectrix:
 With parameters _c=2,d=2_ called Ceva’s trisectrix:
 
 ~~~spl svg=F
-(0 -- 2.pi).subdivide(100)
+(0.0 -- 2.pi).subdivide(100)
 .collect(
 	botanicCurve(2, 2)
 ).Line

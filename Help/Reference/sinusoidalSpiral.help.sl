@@ -7,9 +7,9 @@ Curve studied by Maclaurin in 1718.
 At _n=1_, a circle:
 
 ~~~spl svg=A
-(0 -- 1.pi).discretize(
-	100,
-	sinusoidalSpiral(1, 1)
+(0.0 -- 1.pi).discretize(
+	100L,
+	sinusoidalSpiral(1.0, 1.0)
 ).Line
 ~~~
 
@@ -19,8 +19,8 @@ At _n=3_, the Kiepert curve:
 
 ~~~spl svg=B
 (0.pi -- 2.pi).discretize(
-	100,
-	sinusoidalSpiral(3, 1)
+	100L,
+	sinusoidalSpiral(3.0, 1.0)
 ).Line
 ~~~
 

@@ -20,7 +20,7 @@ the answer outside of _(0,2π)_ is as expected:
 Plot three ellipses, including a circle:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	[1 1; 1 1.5; 1.5 1].collect { :r |
 		ellipseCurve([0 0], r, 0)
 	}
@@ -32,7 +32,7 @@ Plot three ellipses, including a circle:
 Plot an ellipse through four rotatations:
 
 ~~~spl svg=B
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	[0, 0.25, 0.5, 0.75].pi.collect { :theta |
 		ellipseCurve([0 0], [1 1.pi], theta)
 	}
@@ -44,7 +44,7 @@ Plot an ellipse through four rotatations:
 Draw equidistant points:
 
 ~~~spl svg=C
-(0 -- 2.pi).discretize(
+(0.0 -- 2.pi).discretize(
 	75,
 	ellipseCurve([0 0], [1 1.75], -1/4.pi)
 ).PointSet

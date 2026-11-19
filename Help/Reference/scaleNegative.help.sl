@@ -17,7 +17,7 @@ sinOsc(500, 0)
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot { :x |
+(-1.0 -- 1.0).functionPlot { :x |
 	x.scaleNegative(0.85)
 }
 ~~~

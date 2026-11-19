@@ -7,7 +7,7 @@ Answer a `Block` that will generate the impulse response of a raised-cosine filt
 Plot raised cosine impulse response at three values of α:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot(
+(-5.0 -- 5.0).functionPlot(
 	[0.25 0.5 0.75].collect { :alpha |
 		raisedCosinePulse(alpha)
 	}

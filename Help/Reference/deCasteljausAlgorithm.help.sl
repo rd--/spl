@@ -11,7 +11,7 @@ using de Casteljaus algorithm.
 Draw a quadratic Bézier curve using de Casteljaus algorithm:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	[0 0; 1 1; 2 0]
 	.deCasteljausAlgorithm(x)
 }
@@ -22,7 +22,7 @@ Draw a quadratic Bézier curve using de Casteljaus algorithm:
 Draw a cubic Bézier curve:
 
 ~~~spl svg=B
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	[0 0; 1 1; 2 -1; 3 0]
 	.deCasteljausAlgorithm(x)
 }

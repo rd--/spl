@@ -36,7 +36,7 @@ Values larger than 1/2 do the opposite:
 SmoothStep function:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	smoothStep/1
 )
 ~~~
@@ -46,7 +46,7 @@ SmoothStep function:
 The `smoothStep` and `smootherStep` functions:
 
 ~~~spl svg=B
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	smoothStep/1,
 	smootherStep/1
 ])
@@ -57,7 +57,7 @@ The `smoothStep` and `smootherStep` functions:
 SmoothStep and inverse smoothStep functions:
 
 ~~~spl svg=C
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	smoothStep/1,
 	inverseSmoothStep/1
 ])
@@ -68,7 +68,7 @@ SmoothStep and inverse smoothStep functions:
 `smoothStep` is `smoothStepFunction` of `one`:
 
 ~~~spl svg=D
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	smoothStep/1,
 	smoothStepFunction(1)
 ])
@@ -79,7 +79,7 @@ SmoothStep and inverse smoothStep functions:
 `smootherStep` is `smoothStepFunction` of two:
 
 ~~~spl svg=E
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	smootherStep/1,
 	smoothStepFunction(2)
 ])
@@ -90,7 +90,7 @@ SmoothStep and inverse smoothStep functions:
 Four smoothStep functions:
 
 ~~~spl svg=F
-(0 -- 1).functionPlot(
+(0.0 -- 1.0).functionPlot(
 	[0 1 3 7].collect(
 		smoothStepFunction/1
 	)
@@ -102,7 +102,7 @@ Four smoothStep functions:
 SmoothStep of smoothStep function:
 
 ~~~spl svg=G
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	x.smoothStep.smoothStep
 }
 ~~~
@@ -112,7 +112,7 @@ SmoothStep of smoothStep function:
 Approximate `smoothStep` using `cos`:
 
 ~~~spl svg=H
-(0 -- 1).functionPlot([
+(0.0 -- 1.0).functionPlot([
 	smoothStep/1,
 	{ :x | 0.5 - (x.-.pi.cos * 0.5) }
 ])

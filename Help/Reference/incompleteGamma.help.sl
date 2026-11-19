@@ -38,7 +38,7 @@ it starts at 0 and monotonically increases to 1:
 Plot regularized lower incomplete gamma function:
 
 ~~~spl svg=A
-(0 -- 10).functionPlot(
+(0.0 -- 10.0).functionPlot(
 	[0.5 1 1.5 2 5].collect { :a |
 		{ :x |
 			x.incompleteGamma(a).last

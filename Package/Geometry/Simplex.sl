@@ -16,24 +16,24 @@ Simplex : [Object, Equal] {
 
 }
 
-+Float {
++[Float, Integer] {
 
 	kuhnTriangulation { :self |
 		let basisVector = { :n :m |
-			[1 .. n].collect { :each |
+			[1L .. n].collect { :each |
 				(each = m).boole
 			}
 		};
 		let simplexVector = { :p |
 			let k = p.size;
 			[
-				[List(k, 0)],
+				[List(k, 0L)],
 				p.collect { :each |
 					basisVector(k, each)
 				}
 			].catenate.prefixSum
 		};
-		[1 .. self].permutations.collect { :each |
+		[1L .. self].permutations.collect { :each |
 			each.simplexVector
 		}
 	}

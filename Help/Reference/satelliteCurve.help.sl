@@ -10,7 +10,7 @@ _k_ is the ratio of the rotational velocities of the point and the sphere.
 With _α=3/4π_ and _k=2_:
 
 ~~~spl svg=A
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	satelliteCurve(1, 0.75.pi, 2)
 )
 ~~~
@@ -20,7 +20,7 @@ With _α=3/4π_ and _k=2_:
 With _k=3_:
 
 ~~~spl svg=B
-(0 -- 2.pi).functionPlot(
+(0.0 -- 2.pi).functionPlot(
 	satelliteCurve(1, 0.75.pi, 3)
 )
 ~~~

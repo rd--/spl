@@ -7,7 +7,7 @@ Parametric curve studied by Ricatti in 1712, Euler in 1781, Sturm in 1857, and S
 Line drawing:
 
 ~~~spl svg=A
-(-1 -- 1).discretize(
+(-1.0 -- 1.0).discretize(
 	500,
 	1.tschirnhausenCubic
 ).Line

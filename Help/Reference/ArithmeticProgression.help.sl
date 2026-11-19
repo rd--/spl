@@ -46,7 +46,7 @@ When iterating the summation is subject to accumulating floating point errors.
 The last item is treated especially so that it will not be outside the specified range:
 
 ```
->>> let r = (1 -- 5).subdivide(100);
+>>> let r = (1.0 -- 5.0).subdivide(100);
 >>> (
 >>> 	r.size,
 >>> 	r.end,

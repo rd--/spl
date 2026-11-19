@@ -7,7 +7,7 @@ Answer the Heaviside theta function.
 Plot in one dimension:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(
+(-2.0 -- 2.0).functionPlot(
 	heavisideTheta/1
 )
 ~~~

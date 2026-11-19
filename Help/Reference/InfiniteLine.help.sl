@@ -67,10 +67,10 @@ UnivariatePolynomial([4 -2])
 Plot using implicit equation:
 
 ~~~spl svg=A
-let i = (-1 -- 1).subdivide(15);
+let i = (-1.0 -- 1.0).subdivide(15);
 InfiniteLine([0 0], [2/3 1])
 .implicitEquation
-.contourPlot(i, i, [0])
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/InfiniteLine-A.svg)

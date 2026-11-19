@@ -25,20 +25,20 @@ Odd _n_:
 Cannot discretize to one place:
 
 ```
->>> { (0 -- 1).discretize(1) }.hasError
+>>> { (0.0 -- 1.0).discretize(1) }.hasError
 true
 ```
 
 Even _n_:
 
 ```
->>> (0 -- 7).discretize(8).List
+>>> (0.0 -- 7.0).discretize(8).List
 [0 1 2 3 4 5 6 7]
 
->>> (0 -- 14).discretize(8).List
+>>> (0.0 -- 14.0).discretize(8).List
 [0 2 4 6 8 10 12 14]
 
->>> (0 -- 6).discretize(4).List
+>>> (0.0 -- 6.0).discretize(4).List
 [0 2 4 6]
 ```
 
@@ -48,19 +48,19 @@ due to precision errors,
 have an unexpected size:
 
 ```
->>> (0 -- 1).discretize(100)
+>>> (0.0 -- 1.0).discretize(100)
 Range(0, 1, 1 / 99, 100)
 
 >>> Range(0, 1, 1 / 99)
 Range(0, 1, 1 / 99, 99)
 
->>> (-1 -- 1).discretize(100)
+>>> (-1.0 -- 1.0).discretize(100)
 Range(-1, 1, 2 / 99, 100)
 
 >>> Range(-1, 1, 2 / 99)
 Range(-1, 1, 2 / 99, 99)
 
->>> (0 -- 4).discretize(100)
+>>> (0.0 -- 4.0).discretize(100)
 Range(0, 4, 4 / 99, 100)
 
 >>> Range(0, 4, 4 / 99)
@@ -70,17 +70,17 @@ Range(0, 4, 4 / 99, 99)
 In the ternary form apply the unary block _f_ to each element during construction.
 
 ```
->>> (0 -- 1).discretize(3, exp/1)
+>>> (0.0 -- 1.0).discretize(3, exp/1)
 [1 1.648721 2.718282]
 
->>> (0 -- 6).discretize(4, square/1)
+>>> (0.0 -- 6.0).discretize(4, square/1)
 [0 4 16 36]
 ```
 
 Plot `exp` function from `zero` to `five`:
 
 ~~~spl svg=A
-(0 -- 5)
+(0.0 -- 5.0)
 .discretize(99, exp/1)
 .linePlot
 ~~~
@@ -100,7 +100,7 @@ Plot `hannFunction`:
 Sample a function uniformly on an interval:
 
 ~~~spl svg=C
-(0 -- 2.pi)
+(0.0 -- 2.pi)
 .discretize(48) { :i |
 	(2 * i).sin - (3 * i).cos
 }.discretePlot
@@ -111,7 +111,7 @@ Sample a function uniformly on an interval:
 Plot the sine function:
 
 ~~~spl svg=D
-(0 -- 4.pi).discretize(100, sin/1).linePlot
+(0.0 -- 4.pi).discretize(100, sin/1).linePlot
 ~~~
 
 ![](Help/Image/discretize-D.svg)

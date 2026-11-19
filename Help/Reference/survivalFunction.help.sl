@@ -18,8 +18,8 @@ Calculate at specific value:
 A survival function for a continuous univariate distribution:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(
-	NormalDistribution(0, 1)
+(-3.0 -- 3.0).functionPlot(
+	NormalDistribution(0.0, 1.0)
 	.survivalFunction
 )
 ~~~
@@ -30,7 +30,7 @@ A survival function for a discrete univariate distribution:
 
 ~~~spl svg=B
 (-1 .. 10).collect(
-	GeometricDistribution(1 / 3)
+	GeometricDistribution(1.0 / 3.0)
 	.survivalFunction
 ).discretePlot
 ~~~

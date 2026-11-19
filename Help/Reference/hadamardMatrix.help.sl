@@ -179,7 +179,8 @@ OEIS [A228540](https://oeis.org/A228540):
 Matrix plot of the 16×16 Hadamard matrix:
 
 ~~~spl svg=A
-(16.hadamardMatrix + 1).matrixPlot
+(16L.hadamardMatrix + 1L)
+.matrixPlot
 ~~~
 
 ![](Help/Image/hadamardMatrix-A.svg)
@@ -187,7 +188,8 @@ Matrix plot of the 16×16 Hadamard matrix:
 Draw the 128×128 Hadamard matrix:
 
 ~~~spl png=B
-(128.hadamardMatrix + 1 / 2).Bitmap
+(128L.hadamardMatrix + 1L // 2L)
+.Bitmap
 ~~~
 
 ![](Help/Image/hadamardMatrix-B.png)
@@ -195,7 +197,8 @@ Draw the 128×128 Hadamard matrix:
 Signal plot of the 16×16 Hadamard matrix:
 
 ~~~spl svg=C
-16.hadamardMatrix.signalPlot
+16L.hadamardMatrix
+.signalPlot
 ~~~
 
 ![](Help/Image/hadamardMatrix-C.svg)

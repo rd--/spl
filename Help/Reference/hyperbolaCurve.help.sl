@@ -8,9 +8,9 @@ _x²/a²-y²/b²-1=0_.
 Plot unit hyperbola:
 
 ~~~spl svg=A
-let i = (-4 -- 4).subdivide(25);
-hyperbolaCurve(1, 1)
-.contourPlot(i, i, [0])
+let i = (-4.0 -- 4.0).subdivide(25L);
+hyperbolaCurve(1.0, 1.0)
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/hyperbolaCurve-A.svg)
@@ -18,10 +18,10 @@ hyperbolaCurve(1, 1)
 Plot conjugate hyperbola:
 
 ~~~spl svg=B
-let i = (-4 -- 4).subdivide(25);
-hyperbolaCurve(1, 1)
+let i = (-4.0 -- 4.0).subdivide(25L);
+hyperbolaCurve(1.0, 1.0)
 .swap
-.contourPlot(i, i, [0])
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/hyperbolaCurve-B.svg)
@@ -29,8 +29,8 @@ hyperbolaCurve(1, 1)
 Matrix plot of unit hyperbola:
 
 ~~~spl svg=C
-let i = (-4 -- 4).subdivide(12);
-hyperbolaCurve(1, 1)
+let i = (-4.0 -- 4.0).subdivide(12L);
+hyperbolaCurve(1.0, 1.0)
 .table(i, i)
 .matrixPlot
 ~~~
@@ -40,9 +40,9 @@ hyperbolaCurve(1, 1)
 Plot hyperbola with _b=2a_:
 
 ~~~spl svg=D
-let i = (-4 -- 4).subdivide(25);
-hyperbolaCurve(1, 2)
-.contourPlot(i, i, [0])
+let i = (-4.0 -- 4.0).subdivide(25L);
+hyperbolaCurve(1.0, 2.0)
+.contourPlot(i, i, [0.0])
 ~~~
 
 ![](Help/Image/hyperbolaCurve-D.svg)

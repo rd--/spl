@@ -21,10 +21,10 @@ WeibullDistribution : [Object, Equal, ProbabilityDistribution] {
 		let beta = self.beta;
 		let mu = self.mu;
 		{ :x |
-			(x >= 0).if {
-				1 - (((x - mu) / beta) ^ alpha).negate.exp
+			(x >= 0.0).if {
+				1.0 - (((x - mu) / beta) ^ alpha).negate.exp
 			} {
-				0
+				0.0
 			}
 		}
 	}
@@ -35,19 +35,23 @@ WeibullDistribution : [Object, Equal, ProbabilityDistribution] {
 		let mu = self.mu;
 		{ :x |
 			(x > mu).if {
-				(alpha * (((mu.- + x) / beta) ^ (-1 + alpha))) / beta
+				(alpha * (((mu.- + x) / beta) ^ (-1.0 + alpha))) / beta
 			} {
-				0
+				0.0
 			}
 		}
 	}
 
 	inverseCdf { :self |
 		{ :p |
-			(p > 0 & { p < 1 }).if {
-				self.mu + (self.beta * ((1 - p).log.- ^ (1 / self.alpha)))
+			(
+				p > 0.0 & {
+					p < 1.0
+				}
+			).if {
+				self.mu + (self.beta * ((1.0 - p).log.- ^ (1.0 / self.alpha)))
 			} {
-				(p <= 0).if {
+				(p <= 0.0).if {
 					self.mu
 				} {
 					Infinity
@@ -57,11 +61,11 @@ WeibullDistribution : [Object, Equal, ProbabilityDistribution] {
 	}
 
 	mean { :self |
-		self.beta * (1 + (1 / self.alpha)).gamma + self.mu
+		self.beta * (1.0 + (1.0 / self.alpha)).gamma + self.mu
 	}
 
 	median { :self |
-		self.beta * (2.log ^ (1 / self.alpha)) + self.mu
+		self.beta * (2.0.log ^ (1.0 / self.alpha)) + self.mu
 	}
 
 	pdf { :self |
@@ -72,7 +76,7 @@ WeibullDistribution : [Object, Equal, ProbabilityDistribution] {
 			(x >= mu).if {
 				(alpha / beta) * (((x - mu) / beta) ^ (alpha - 1)) * (((x - mu) / beta) ^ alpha).negate.exp
 			} {
-				0
+				0.0
 			}
 		}
 	}

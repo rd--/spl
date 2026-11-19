@@ -207,7 +207,7 @@
 	}
 
 	eigenvalues { :m |
-		m.eigenvalues(1E-15, 100)
+		m.eigenvalues(1.0E-15, 100)
 	}
 
 	frobeniusCompanionMatrix { :self |
@@ -292,7 +292,7 @@
 
 	gaussSeidelMethod { :a :b |
 		let x = List(a.size, 0);
-		let epsilon = 1E-9;
+		let epsilon = 1.0E-9;
 		let maximumIterations = 100;
 		a.gaussSeidelMethod(b, x, epsilon, maximumIterations)
 	}
@@ -866,7 +866,7 @@
 				};
 				self.swapWith!(i, r);
 				let d = self[r][lead];
-				(d.abs > 1E-10).ifTrue {
+				(d.abs > 1.0E-10).ifTrue {
 					self[r].collect! { :each |
 						each / d
 					}

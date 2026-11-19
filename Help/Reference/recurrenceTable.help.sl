@@ -8,8 +8,8 @@ Solve an initial-value problem for a first-order difference equation:
 
 ```
 >>> { :a :n |
->>> 	3 * a[n - 1]
->>> }.recurrenceTable([7], 10)
+>>> 	3L * a[n - 1L]
+>>> }.recurrenceTable([7L], 10L)
 [
 	   7     21     63    189    567
 	1701   5103  15309  45927 137781
@@ -20,8 +20,8 @@ Find the first few Fibonacci numbers:
 
 ```
 >>> { :a :n |
->>> 	a[n - 1] + a[n - 2]
->>> }.recurrenceTable([1 1], 10)
+>>> 	a[n - 1L] + a[n - 2L]
+>>> }.recurrenceTable([1L 1L], 10L)
 [1 1 2 3 5 8 13 21 34 55]
 ```
 
@@ -106,9 +106,9 @@ let p0 = [0.142857, 0.33];
 	let [x, y] = a[n - 1];
 	[
 		(0.7 * x) + y,
-		-0.7989995 + (x ^ 2)
+		-0.7989995 + (x ^ 2.0)
 	]
-}.recurrenceTable([p0], 250)
+}.recurrenceTable([p0], 250L)
 .scatterPlot
 ~~~
 
@@ -119,8 +119,8 @@ Study the behavior of the logistic equation:
 ~~~spl svg=B
 let r = 3.6;
 { :a :n |
-	r * a[n-1] * (1 - a[n - 1])
-}.recurrenceTable([1 / 3], 250)
+	r * a[n - 1] * (1.0 - a[n - 1])
+}.recurrenceTable([1.0 / 3.0], 250L)
 .scatterPlot
 ~~~
 

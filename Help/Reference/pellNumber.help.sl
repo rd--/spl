@@ -52,7 +52,7 @@ Pell numbers can be used to form Pythagorean triples:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-2 -- 2).functionPlot(pellNumber/1)
+(-2.0 -- 2.0).functionPlot(pellNumber/1)
 ~~~
 
 ![](Help/Image/pellNumber-A.svg)

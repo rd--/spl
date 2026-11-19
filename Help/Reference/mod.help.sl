@@ -1273,17 +1273,17 @@ OEIS [A088705](https://oeis.org/A088705):
 
 ~~~spl svg=L oeis=A088705
 let a = Map { :n |
-	(n < 1).if {
-		0
+	(n < 1L).if {
+		0L
 	} {
-		(n % 2 = 0).if {
-			a[n / 2] - 1
+		(n % 2L = 0L).if {
+			a[n // 2] - 1L
 		} {
-			1
+			1L
 		}
 	}
 };
-a[0 .. 127].discretePlot
+a[0L .. 127L].discretePlot
 ~~~
 
 ![](Help/Image/mod-L.svg)

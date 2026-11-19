@@ -8,7 +8,7 @@ This is the method utilised by `bezierFunction` for linear Bézier curves.
 A linear Bézier curve, a straight line:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot { :x |
+(0.0 -- 1.0).functionPlot { :x |
 	[0 1; 1 0]
 	.linearBezierFunctionAt(x)
 }

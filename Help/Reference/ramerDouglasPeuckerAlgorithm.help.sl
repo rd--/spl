@@ -9,7 +9,7 @@ the initial approximation has 100 places,
 the simplified form has 20 places:
 
 ~~~spl svg=A
-let x = (0 -- 4.pi).discretize(100);
+let x = (0.0 -- 4.pi).discretize(100);
 let l = x.collect { :each |
 	[each, each.sin * 4]
 };
@@ -22,7 +22,7 @@ let d = l.ramerDouglasPeuckerAlgorithm(0.1);
 The same `sin` approximation simplified to six places:
 
 ~~~spl svg=B
-let x = (0 -- 4.pi).discretize(100);
+let x = (0.0 -- 4.pi).discretize(100);
 let l = x.collect { :each |
 	[each, each.sin * 4]
 };

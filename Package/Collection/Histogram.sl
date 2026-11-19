@@ -80,7 +80,7 @@
 	}
 
 	histogramListFindDivisions { :self |
-		let k = self.size.sqrt.ceiling + self.anyOne.one;
+		let k = self.size.sqrt.ceiling + 1L;
 		let [min, max] = self.minMax;
 		(min -- max).findDivisions(k)
 	}

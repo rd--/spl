@@ -11,8 +11,8 @@ OEIS [A004001](https://oeis.org/A004001),
 OEIS [A051135](https://oeis.org/A051135):
 
 ~~~spl svg=A oeis=A051135
-let n = 55;
-let m = (n + 2) * 2;
+let n = 55L;
+let m = (n + 2L) * 2L;
 let a = 'A004001'.oeisTerms(m);
 let b = List(a.max, 0);
 a.do { :i |

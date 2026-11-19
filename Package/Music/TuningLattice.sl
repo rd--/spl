@@ -53,33 +53,33 @@
 
 	gradyTuningLatticeCoordinates { :m :n |
 		[
-			40 0;
-			0 40;
-			13 11;
-			-14 18;
-			-8 4;
-			-5 32;
-			7 25;
-			20 6
-		].first(n) / 40 * m
+			40L 0L;
+			0L 40L;
+			13L 11L;
+			-14L 18L;
+			-8L 4L;
+			-5L 32L;
+			7L 25L;
+			20L 6L
+		].first(n) / 40L * m
 	}
 
 	gradyTuningLatticeCoordinates { :m |
-		m.gradyTuningLatticeCoordinates(8)
+		m.gradyTuningLatticeCoordinates(8L)
 	}
 
 	wilsonTuningLatticeCoordinates { :m :n |
 		[
-			20 0;
-			0 20;
-			4 3;
-			-3 4;
-			-1 2
-		].first(n) / 20 * m
+			20L 0L;
+			0L 20L;
+			4L 3L;
+			-3L 4L;
+			-1L 2L
+		].first(n) / 20L * m
 	}
 
 	wilsonTuningLatticeCoordinates { :m |
-		m.wilsonTuningLatticeCoordinates(5)
+		m.wilsonTuningLatticeCoordinates(5L)
 	}
 
 }
@@ -121,7 +121,7 @@
 			(each * basisVector).sum
 		};
 		let graph = Graph(
-			[1 .. primesList.size],
+			[1L .. primesList.size],
 			edgeList
 		);
 		graph.vertexCoordinates := coordinateList;
@@ -131,9 +131,9 @@
 	tuningLatticeGraph { :self |
 		self.tuningLatticeGraph(
 			self.tuningLatticeDerivedPrimesVector(
-				[3 5 7 11 13 17 19 23]
+				[3L 5L 7L 11L 13L 17L 19L 23L]
 			),
-			1.gradyTuningLatticeCoordinates
+			1.0.gradyTuningLatticeCoordinates
 		)
 	}
 

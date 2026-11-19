@@ -74,7 +74,7 @@
 	}
 
 	erfAbramowitzStegun { :x |
-		(x >= 0).if {
+		(x >= 0.0).if {
 			let p = 0.47047;
 			let t = 1.0 / (1.0 + (p * x));
 			let a1 = 0.3480242 * t;
@@ -90,11 +90,15 @@
 		1.0 - x.erf
 	}
 
-	fresnel { :x :k :n |
+	fresnel { :x Float :k String :n Float |
+		uncheckedFresnel(x, k, n)
+	}
+
+	uncheckedFresnel { :x :k :n |
 		<primitive:
-		let x = sl.toFloat(_x);
-		let n = sl.toFloat(_n);
-		let f = (_k === 'C') ? Math.cos : Math.sin;
+		const x = _x;
+		const n = _n;
+		const f = (_k === 'C') ? Math.cos : Math.sin;
 		const pi = Math.PI;
 		const dx = x / n;
 		let sum = 0;
@@ -108,11 +112,11 @@
 	}
 
 	fresnelC { :z |
-		fresnel(z, 'C', 2000)
+		fresnel(z, 'C', 2000L)
 	}
 
 	fresnelS { :z |
-		fresnel(z, 'S', 2000)
+		fresnel(z, 'S', 2000L)
 	}
 
 	jacobianEllipticFunctions { :u :m |
@@ -313,20 +317,21 @@
 +[Float, Complex] {
 
 	hypergeometric2F1 { :a :b :c :z |
-		let tolerance = 1E-10;
-		let iterationLimit = 1000;
+		/* Not implemented directly at Fraction. */
+		let tolerance = 1.0E-10;
+		let iterationLimit = 1000.0;
 		let term = a * b * z / c;
-		let value = 1 + term;
-		let n = 1;
+		let value = 1.0 + term;
+		let n = 1.0;
 		{
 			term.abs > tolerance & {
 				n < iterationLimit
 			}
 		}.whileTrue {
-			a := a + 1;
-			b := b + 1;
-			c := c + 1;
-			n := n + 1;
+			a := a + 1.0;
+			b := b + 1.0;
+			c := c + 1.0;
+			n := n + 1.0;
 			term := term * (a * b * z / c / n);
 			value := value + term
 		};
@@ -466,22 +471,20 @@
 		dn
 	}
 
-	jacobiSn { :u :m |
+	jacobiSn { :u Float :m Float |
 		let modulo = { :v :d |
-			(v > 0).if {
+			(v > 0.0).if {
 				v % d
 			} {
 				d - (-v % d)
 			}
 		};
-		u := Float(u);
-		m := Float(m);
 		let r = jacobianEllipticFunctions(u, m);
 		let sn = r['sn'];
 		let k = m.ellipticKFukushima;
 		let n = modulo(u / k, 4);
-		(n >= 2).if {
-			sn * -1
+		(n >= 2.0).if {
+			sn * -1.0
 		} {
 			sn
 		}
@@ -493,20 +496,20 @@
 
 	fabiusFunction { :x :n |
 		let dyadicRationals = { :x :n |
-			let m = 2 ^ n;
-			0.toCollect((x * m).ceiling) { :k |
+			let m = 2L ^ n;
+			0L.toCollect((x * m).ceiling) { :k |
 				k / m
 			}
 		};
-		(2 ^ (n * (n + 1) / 2))
+		(2L ^ (n * (n + 1L) / 2L))
 		/
 		n.factorial
 		*
 		dyadicRationals(x, n).sum { :k |
 			(
-				-1 ^ digitSum(
-					Integer(k * (2 ^ n)),
-					2
+				-1L ^ digitSum(
+					Integer(k * (2L ^ n)),
+					2L
 				)
 			)
 			*

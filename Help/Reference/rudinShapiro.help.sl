@@ -9,14 +9,14 @@ the coefficients of the Shapiro polynomials.
 The sixth element of the Rudin–Shapiro sequence:
 
 ```
->>> 6.rudinShapiro
+>>> 6L.rudinShapiro
 -1
 ```
 
 The number 6 has an odd number of 11 sequences in its binary form:
 
 ```
->>> 6.integerDigits(2)
+>>> 6L.integerDigits(2L)
 [1 1 0]
 ```
 
@@ -24,7 +24,7 @@ The first few elements of the Rudin–Shapiro sequence,
 OEIS [A020985](http://oeis.org/A020985):
 
 ```
->>> 0:31.collect(rudinShapiro/1)
+>>> 0L:31L.collect(rudinShapiro/1)
 [
 	 1  1  1 -1  1  1 -1  1  1  1
 	 1 -1 -1 -1  1 -1  1  1  1 -1
@@ -44,10 +44,10 @@ Generate a Rudin–Shapiro curve:
 
 ~~~spl svg=A
 (
-	0:500.collect { :n |
+	0L:500L.collect { :n |
 		let a = n.rudinShapiro;
-		let b = (n + 1).rudinShapiro;
-		-1 ^ ((1 + (a * b)) / 2)
+		let b = (n + 1L).rudinShapiro;
+		-1.0 ^ ((1.0 + (a * b)) / 2.0)
 	} * 0.5.pi
 ).anglePath.Line
 ~~~
@@ -57,7 +57,7 @@ Generate a Rudin–Shapiro curve:
 Generate a path based on the Rudin–Shapiro sequence:
 
 ~~~spl svg=B
-(1:512.rudinShapiro * 2/5.pi)
+(1L:512L.rudinShapiro * 2/5.pi)
 .anglePath
 .Line
 ~~~
@@ -68,7 +68,7 @@ The Rudin–Shapiro sequence,
 OEIS [A020985](http://oeis.org/A020985):
 
 ~~~spl svg=C oeis=A020985
-0:85.collect(rudinShapiro/1)
+0L:85L.collect(rudinShapiro/1)
 .discretePlot
 ~~~
 

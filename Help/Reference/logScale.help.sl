@@ -34,7 +34,7 @@ Threads over lists:
 Plot positive half over _(0,100)_:
 
 ~~~spl svg=A
-(0 -- 100).functionPlot(logScale/1)
+(0.0 -- 100.0).functionPlot(logScale/1)
 ~~~
 
 ![](Help/Image/logScale-A.svg)
@@ -42,7 +42,7 @@ Plot positive half over _(0,100)_:
 Plot negative half over _(-1,0)_:
 
 ~~~spl svg=B
-(-1 -- 0).functionPlot(logScale/1)
+(-1.0 -- 0.0).functionPlot(logScale/1)
 ~~~
 
 ![](Help/Image/logScale-B.svg)
