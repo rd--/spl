@@ -281,16 +281,6 @@ const asJs: ohm.ActionDict<string> = {
 	lowercaseArityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
 		return `_${rewrite.rewriteInPlaceName(c1, cN, ip)}_${a.sourceString}`;
 	},
-	smallIntegerLiteral(s, i) {
-		const sStr = s.sourceString;
-		const iStr = i.sourceString;
-		const x = parseInt(rewrite.deleteUnderscores(iStr));
-		if (Number.isSafeInteger(x)) {
-			return `${sStr + x}n`;
-		} else {
-			throw new Error('smallIntegerLiteral: not small integer: ' + x);
-		}
-	},
 	largeIntegerLiteral(s, i, _l) {
 		const sT = s.sourceString;
 		let iT = rewrite.deleteLeadingZeroes(i.sourceString);

@@ -152,7 +152,8 @@ const asSl: ohm.ActionDict<string> = {
 			if (arg.length === 0) {
 				answer = `${name}(${answer})`;
 			} else {
-				answer = `${name}(${[answer].concat([arg])})`;
+				const pList = [answer].concat([arg]);
+				answer = `${name}(${pList})`;
 			}
 		}
 		return answer;
@@ -196,7 +197,7 @@ const asSl: ohm.ActionDict<string> = {
 		const namesArray = lhs.asIteration().children.map((c) => c.asSl);
 		const rhsListName = rewrite.genVarSym();
 		const slots = namesArray.map(
-			(name, index) => `${name} := at(${rhsListName}, ${index + 1})`,
+			(name, index) => `${name} := at(${rhsListName}, ${index + 1}L)`,
 		).join('; ');
 		return `nullaryApply({ let ${rhsListName} = ${rhs.asSl}; ${slots} })`;
 	},
@@ -207,9 +208,9 @@ const asSl: ohm.ActionDict<string> = {
 		const namesArray = lhs.asIteration().children.map((c) => c.asSl);
 		const rhsName = rewrite.genVarSym();
 		const slots = namesArray.map(
-			(name, index) => `let ${name} = at(${rhsName}, ${index + 1})`,
+			(name, index) => `let ${name} = at(${rhsName}, ${index + 1}L)`,
 		).join('; ');
-		return `${rhsName} = assertIsOfSize(${rhs.asSl}, ${namesArray.length}); ${slots}`;
+		return `${rhsName} = assertIsOfSize(${rhs.asSl}, ${namesArray.length}L); ${slots}`;
 	},
 	ListRangeFromToSyntax(_leftBracket, i, _dots, j, _rightBracket) {
 		return `listRange(${i.asSl}, ${j.asSl})`;
@@ -462,9 +463,14 @@ const asSl: ohm.ActionDict<string> = {
 		return `${rewrite.rewriteInPlaceName(c1, cN, ip)}/${a.sourceString}`;
 	},
 	smallIntegerLiteral(s, i) {
-		const sStr = s.sourceString;
-		const iStr = i.sourceString;
-		return validateSign(sStr) + iStr;
+		const sStr = validateSign(s.sourceString);
+		const iStr = rewrite.deleteUnderscores(i.sourceString);
+		const iValue = parseInt(sStr + iStr);
+		if (Number.isSafeInteger(iValue)) {
+			return `${sStr + iStr}L`;
+		} else {
+			throw new Error('smallIntegerLiteral: not small integer: ' + iValue);
+		}
 	},
 	recordKeyToken(n, _c) {
 		return n.sourceString;
@@ -501,22 +507,25 @@ const asSl: ohm.ActionDict<string> = {
 		const qualifiedOpName = `${opName}/2`;
 		return `${adverb.sourceString}(${qualifiedOpName})`;
 	},
-	operatorWithBinaryAdverb(op, _d, adverb, _l, parameter, _r) {
+	operatorWithBinaryAdverb(op, _fullStop, adverb, _leftParen, parameter, _rightParen) {
 		const opName = resolveMethodName(op.sourceString);
 		const qualifiedOpName = `${opName}/2`;
 		return `${adverb.sourceString}(${qualifiedOpName}, ${parameter.asSl})`;
 	},
-	radixIntegerLiteral(s, b, _b, i) {
-		const r = Number.parseInt(
-			s.sourceString + rewrite.deleteUnderscores(i.sourceString),
-			Number.parseInt(b.sourceString, 10),
+	radixIntegerLiteral(s, b, _letterB, i) {
+		const sStr = s.sourceString;
+		const bStr = b.sourceString;
+		const iStr = rewrite.deleteUnderscores(i.sourceString);
+		const iValue = Number.parseInt(
+			sStr + iStr,
+			Number.parseInt(bStr, 10),
 		);
-		if (Number.isNaN(r)) {
+		if (Number.isNaN(iValue)) {
 			throw new Error('radixIntegerLiteral: invalid literal');
 		}
-		return r.toString(10);
+		return `${iValue.toString(10)}L`;
 	},
-	rangeFromToByLiteral(start, _colon, end, _anotherColon, step) {
+	rangeFromToByLiteral(start, _firstColon, end, _secondColon, step) {
 		return `Range(${start.asSl}, ${end.asSl}, ${step.asSl})`;
 	},
 	rangeFromToLiteral(start, _colon, end) {

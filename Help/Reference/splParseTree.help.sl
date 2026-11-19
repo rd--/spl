@@ -73,8 +73,8 @@ At a `String` constant:
 At a `Number` constant:
 
 ```
->>> '23'.splParseTree[2]
-['SmallInteger', '23']
+>>> '23.0'.splParseTree[2]
+['Float', '23.0']
 
 >>> '-Infinity'.splParseTree[2]
 ['Float', '-Infinity']
@@ -89,26 +89,26 @@ At a `Number` constant:
 At a `List` expression:
 
 ```
->>> '[1, 2, 3]'.splParseTree[2]
+>>> '[1.0, 2.0, 3.0]'.splParseTree[2]
 [
 	'List',
-	['SmallInteger', '1'],
-	['SmallInteger', '2'],
-	['SmallInteger', '3']
+	['Float', '1.0'],
+	['Float', '2.0'],
+	['Float', '3.0']
 ]
 
->>> '[[1, 2], [3, 4]]'.splParseTree[2]
+>>> '[[1L, 2L], [3L, 4L]]'.splParseTree[2]
 [
 	'List',
 	[
 		'List',
-		['SmallInteger', '1'],
-		['SmallInteger', '2']
+		['Integer', '1L'],
+		['Integer', '2L']
 	],
 	[
 		'List',
-		['SmallInteger', '3'],
-		['SmallInteger', '4']
+		['Integer', '3L'],
+		['Integer', '4L']
 	]
 ]
 ```
@@ -118,7 +118,7 @@ the value is a `List` of the identifier that is assigned to,
 and the parse tree of the assigned expression:
 
 ```
->>> 'x := x + 1'.splParseTree[2]
+>>> 'x := x + 1L'.splParseTree[2]
 [
 	'Assignment',
 	['Identifier', 'x'],
@@ -126,7 +126,7 @@ and the parse tree of the assigned expression:
 		'Apply',
 		['Identifier', 'plusSign'],
 		['Identifier', 'x'],
-		['SmallInteger', '1']
+		['Integer', '1L']
 	]
 ]
 ```
@@ -202,14 +202,14 @@ the value is a `List` of the identifier that is being defined,
 and the parse tree of the expression it is assigned to:
 
 ```
->>> 'let x = 2.pi; x; y'.splParseTree[2]
+>>> 'let x = 2.0.pi; x; y'.splParseTree[2]
 [
 	'Let',
 	['Identifier', 'x'],
 	[
 		'Apply',
 		['Identifier', 'pi'],
-		['SmallInteger', '2']
+		['Float', '2.0']
 	]
 ]
 ```
@@ -258,13 +258,13 @@ any statements:
 Control strucures are ordinary applications with block arguments:
 
 ```
->>> 'x.if { 1 } { 0 }'.splParseTree[2]
+>>> 'x.if { 1.0 } { 0.0 }'.splParseTree[2]
 [
 	'Apply',
 	['Identifier', 'if'],
 	['Identifier', 'x'],
-	['Block', ['SmallInteger', '1']],
-	['Block', ['SmallInteger', '0']]
+	['Block', ['Float', '1.0']],
+	['Block', ['Float', '0.0']]
 ]
 ```
 

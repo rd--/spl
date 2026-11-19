@@ -8,11 +8,28 @@ This process is sometimes called _desugaring_.
 
 `nil`,
 `Boolean` literals,
+variable identifiers,
+arity qualified identifiers,
 and `List Syntax` expressions are not rewritten:
 
 ```
->> '[nil, true, false, []]'.splSimplify
-[nil, true, false, []]
+>>> 'nil'.splSimplify
+'nil'
+
+>>> 'true'.splSimplify
+'true'
+
+>>> 'false'.splSimplify
+'false'
+
+>>> 'x'.splSimplify
+'x'
+
+>>> 'f/1'.splSimplify
+'f/1'
+
+>>> '[x, y, z]'.splSimplify
+'[x, y, z]'
 ```
 
 `Float`,
@@ -20,9 +37,22 @@ and `List Syntax` expressions are not rewritten:
 `String` literals are not rewritten:
 
 ```
->> '[23, 3.141, 23L, \'23\']'.
->> splSimplify
-[23, 3.141, 23L, '23']
+>>> '3.141'.splSimplify
+'3.141'
+
+>>> '23L'.splSimplify
+'23L'
+
+>> 'x'.printString
+>> .splSimplify
+'x'
+```
+
+Small integer syntax is rewritten:
+
+```
+>>> '23'.splSimplify
+'23L'
 ```
 
 `Block` literals,
@@ -31,27 +61,34 @@ and `Apply Syntax`
 are not rewritten:
 
 ```
->> '{ :x | x := f(x); f(x) }'
->> .splSimplify
-{ :x | x := f(x); f(x) }
+>>> '{  }'.splSimplify
+'{  }'
 
->> '{  }'
->> .splSimplify
-{  }
+>>> '{ :x | x }'.splSimplify
+'{ :x | x }'
+
+>>> 'x := y'.splSimplify
+'x := y'
+
+>>> 'f(x)'.splSimplify
+'f(x)'
+
+>>> 'f(x, y)'.splSimplify
+'f(x, y)'
 ```
 
 `Let Syntax` is not rewritten:
 
 ```
->> 'let x = 23; x'.splSimplify
-let x = 23; x
+>>> 'let y = f(x); y'.splSimplify
+'let y = f(x); y'
 ```
 
 Negated variable references are rewritten in terms of `negate`:
 
 ```
->> 'let x = 23; -x'.splSimplify
-let x = 23; negate(x)
+>>> '-x'.splSimplify
+'negate(x)'
 ```
 
 `List Assignment Syntax` is rewritten as `Let Syntax` and `Assignment Syntax`:
@@ -85,39 +122,39 @@ true
 `Residue` literals are rewritten as `Apply Syntax`:
 
 ```
->> '3J4'.splSimplify
-Complex(3.0, 4.0)
+>>> '3J4'.splSimplify
+'Complex(3.0, 4.0)'
 
->> '3I'.splSimplify
-Complex(0.0, 3.0)
+>>> '3I'.splSimplify
+'Complex(0.0, 3.0)'
 
->> '3/4'.splSimplify
-Fraction(3L, 4L)
+>>> '3/4'.splSimplify
+'Fraction(3L, 4L)'
 
->> '-3/4'.splSimplify
-Fraction(-3L, 4L)
+>>> '-3/4'.splSimplify
+'Fraction(-3L, 4L)'
 
->> '1.0E3'.splSimplify
-times(1.0, power(10.0, 3.0))
+>>> '1.0E3'.splSimplify
+'times(1.0, power(10.0, 3.0))'
 
->> '1e3'.splSimplify
-times(1L, power(10L, 3L))
+>>> '1E3'.splSimplify
+'times(1L, power(10L, 3L))'
 
->> '3.141D'.splSimplify
-Decimal(Fraction(3141L, 1000L), 3L)
+>>> '3.141D'.splSimplify
+'Decimal(Fraction(3141L, 1000L), 3L)'
 
->> '5Z12'.splSimplify
-Residue(5L, 12L)
+>>> '5Z12'.splSimplify
+'Residue(5L, 12L)'
 ```
 
-`Radix Syntax` integer literals are rewritten as `Float` literals:
+`Radix Syntax` integer literals are rewritten as `Integer` literals:
 
 ```
->> '16bFF'.splSimplify
-255
+>>> '16bFF'.splSimplify
+'255L'
 
->> '-8b77'.splSimplify
--63
+>>> '-8b77'.splSimplify
+'-63L'
 ```
 
 `DoubleQuotedString` and `Symbol` literals are rewritten as `Apply Syntax` and `String` literals:
@@ -133,28 +170,28 @@ Symbol('q')
 `Record Syntax` is rewritten as `Apply Syntax` and `List Syntax`:
 
 ```
->> '(x: 1, y: 2)'.splSimplify
-Record([['x', 1], ['y', 2]])
+>> '(x: i, y: j)'.splSimplify
+Record([['x', i], ['y', j]])
 
->> '(:)'.splSimplify
-Record()
+>>> '(:)'.splSimplify
+'Record()'
 ```
 
 `List Constructor Syntax` is rewritten as `Apply Syntax` and `List Syntax`:
 
 ```
->> 'Map[x 1; y 2]'.splSimplify
-Map([[x, 1], [y, 2]])
+>>> 'Map[x i; y j]'.splSimplify
+'Map([[x, i], [y, j]])'
 
->> 'Map[]'.splSimplify
-Map([])
+>>> 'Map[]'.splSimplify
+'Map([])'
 ```
 
 `Tuple Syntax` is rewritten as `Apply Syntax` and `List Syntax`:
 
 ```
->> '(1, 2, 3)'.splSimplify
-Tuple([1, 2, 3])
+>>> '(x, y, z)'.splSimplify
+'Tuple([x, y, z])'
 ```
 
 All of the forms of `Range Syntax` are rewritten as `Apply Syntax`.
@@ -162,76 +199,79 @@ All of the forms of `Range Syntax` are rewritten as `Apply Syntax`.
 `Range Literal Syntax`:
 
 ```
->> '1:9'.splSimplify
-Range(1, 9)
+>> '1L:9L'.splSimplify
+Range(1L, 9L)
 
->> '1:9:2'.splSimplify
-Range(1, 9, 2)
+>> '1L:9L:2L'.splSimplify
+Range(1L, 9L, 2L)
 ```
 
 `Range` expressions:
 
 ```
->> '(1 .. 9)'.splSimplify
-Range(1, 9)
+>>> '(i .. j)'.splSimplify
+'Range(i, j)'
 
->> '(1, 3 .. 9)'.splSimplify
-thenTo(1, 3, 9)
+>>> '(i, j .. k)'.splSimplify
+'thenTo(i, j, k)'
 
->> '(1 .. 9; 2)'.splSimplify
-Range(1, 9, 2)
+>>> '(i .. j; k)'.splSimplify
+'Range(i, j, k)'
 ```
 
 List range expressions:
 
 ```
->> '[1 .. 9]'.splSimplify
-listRange(1, 9)
+>>> '[i .. j]'.splSimplify
+'listRange(i, j)'
 
->> '[1, 3 .. 9]'.splSimplify
-listThenTo(1, 3, 9)
+>>> '[i, j .. k]'.splSimplify
+'listThenTo(i, j, k)'
 
->> '[1 .. 9; 2]'.splSimplify
-listRange(1, 9, 2)
+>>> '[i .. j; k]'.splSimplify
+'listRange(i, j, k)'
 ```
 
 `Method Syntax` is rewritten as `Apply Syntax`:
 
 ```
->> '9.sqrt'.splSimplify
-sqrt(9)
+>>> 'x.f'.splSimplify
+'f(x)'
 
->> '-1.min(1)'.splSimplify
-min(-1,1)
+>> 'x.f(y)'.splSimplify
+f(x, y)
 
->> 'x.-'.splSimplify
-hyphenMinus(x)
+>> 'x.f(y, z)'.splSimplify
+f(x, y, z)
+
+>>> 'x.-'.splSimplify
+'hyphenMinus(x)'
 ```
 
 `Binary Operator Syntax` is rewritten as `Apply Syntax`:
 
 ```
->> '3 + 4'.splSimplify
-plusSign(3, 4)
+>>> 'x + y'.splSimplify
+'plusSign(x, y)'
 
->> '3 + 4 * 0.1'.splSimplify
-asterisk(plusSign(3, 4), 0.1)
+>>> 'x + y * z'.splSimplify
+'asterisk(plusSign(x, y), z)'
 
->> '(2 * x) + (3 * y)'.splSimplify
+>> '(n * x) + (m * y)'.splSimplify
 plusSign(
-  (asterisk(2, x)),
-  (asterisk(3, y))
+  (asterisk(n, x)),
+  (asterisk(m, y))
 )
 ```
 
 `Trailing Block Syntax` is rewritten as `Apply Syntax`:
 
 ```
->> 'f(x) { :i | i }'.splSimplify
-f(x, { :i | i })
+>>> 'f(x) { :i | i }'.splSimplify
+'f(x, { :i | i })'
 
->> 'x.f { :i | i }'.splSimplify
-f(x, { :i | i })
+>>> 'x.f { :i | i }'.splSimplify
+'f(x, { :i | i })'
 ```
 
 `Record Constructor Syntax` is rewritten as `Apply Syntax`:
@@ -244,62 +284,62 @@ F(Record([['k', v]]))
 `Dot Assignment Syntax` is rewritten as `Apply Syntax`:
 
 ```
->> 'p.x := 0'.splSimplify
-xMutateInPlace(p, 0)
+>>> 'p.x := y'.splSimplify
+'xMutateInPlace(p, y)'
 
->> 'p.q.x := a.b'.splSimplify
-xMutateInPlace(q(p), b(a))
+>>> 'p.q.x := a.b'.splSimplify
+'xMutateInPlace(q(p), b(a))'
 ```
 
 `At Syntax` is rewritten as `Apply Syntax`:
 
 ```
->> 'c[i + 1]'.splSimplify
-at(c, plusSign(i, 1))
+>>> 'c[i + j]'.splSimplify
+'at(c, plusSign(i, j))'
 ```
 
 `Put Syntax` is rewritten as `Apply Syntax`:
 
 ```
->> 'c[i] := x'.splSimplify
-put!(c, i, x)
+>>> 'c[i] := x'.splSimplify
+'put!(c, i, x)'
 ```
 
 `AtAll Syntax` is rewritten as `Apply Syntax`:
 
 ```
->> 'c[1 .. 9]'.splSimplify
-atAll(c, listRange(1, 9))
+>>> 'c[i .. j]'.splSimplify
+'atAll(c, listRange(i, j))'
 
->> 'c[i, j]'.splSimplify
-atAll(c, [i, j])
+>>> 'c[i, j]'.splSimplify
+'atAll(c, [i, j])'
 ```
 
 `Vector Syntax` is rewritten as `List Syntax`:
 
 ```
->> '[1 3 5 7]'.splSimplify
-[1, 3, 5, 7]
+>>> '[x y z]'.splSimplify
+'[x, y, z]'
 
->> '[x y.sqrt z]'.splSimplify
-[x, sqrt(y), z]
+>>> '[x.f y.g.h z]'.splSimplify
+'[f(x), h(g(y)), z]'
 ```
 
 `Matrix Syntax` is rewritten as `List Syntax`:
 
 ```
->> '[1 3; 5 7]'.splSimplify
-[[1, 3], [5, 7]]
+>>> '[a b; c d]'.splSimplify
+'[[a, b], [c, d]]'
 ```
 
 `Volume Syntax` is rewritten as `List Syntax`:
 
 ```
->> '[1 2; 3 4:; 5 6; 7 8]'.splSimplify
-[[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
+>>> '[a b; c d:; p q; r s]'.splSimplify
+'[[[a, b], [c, d]], [[p, q], [r, s]]]'
 ```
 
-Simplify `hypotenuse` function:
+Simplify the `hypotenuse` function:
 
 ```
 >> '{ :x :y | [x y].square.sum.sqrt }'

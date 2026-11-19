@@ -221,7 +221,7 @@ Sl {
 		| fractionLiteral // S
 		| largeIntegerLiteral
 		| radixIntegerLiteral // S
-		| smallIntegerLiteral
+		| smallIntegerLiteral // S
 		| infinityLiteral
 		| nanLiteral
 	rangeLiteral // S
