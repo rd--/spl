@@ -94,23 +94,6 @@
 		uncheckedFresnel(x, k, n)
 	}
 
-	uncheckedFresnel { :x :k :n |
-		<primitive:
-		const x = _x;
-		const n = _n;
-		const f = (_k === 'C') ? Math.cos : Math.sin;
-		const pi = Math.PI;
-		const dx = x / n;
-		let sum = 0;
-		for (let i = 0; i < n; i++) {
-			const t = i * dx;
-			const u = (i + 1) * dx;
-			sum += (f(pi * (t ** 2) / 2) + f(pi * (u ** 2) / 2)) / 2 * dx;
-		}
-		return sum;
-		>
-	}
-
 	fresnelC { :z |
 		fresnel(z, 'C', 2000L)
 	}
@@ -206,6 +189,23 @@
 
 	productLog { :self Float |
 		uncheckedProductLog(self)
+	}
+
+	uncheckedFresnel { :x :k :n |
+		<primitive:
+		const x = _x;
+		const n = _n;
+		const f = (_k === 'C') ? Math.cos : Math.sin;
+		const pi = Math.PI;
+		const dx = x / n;
+		let sum = 0;
+		for (let i = 0; i < n; i++) {
+			const t = i * dx;
+			const u = (i + 1) * dx;
+			sum += (f(pi * (t ** 2) / 2) + f(pi * (u ** 2) / 2)) / 2 * dx;
+		}
+		return sum;
+		>
 	}
 
 	uncheckedProductLog { :self |

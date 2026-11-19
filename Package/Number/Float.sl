@@ -2,10 +2,6 @@
 
 Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInteger] {
 
-	quotientFloat { :self :operand |
-		self.quotientBy(operand, truncateFloat/1)
-	}
-
 	[Float, F] { :self |
 		self
 	}
@@ -22,6 +18,10 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 		<primitive:
 		return Math.abs(_self)
 		>
+	}
+
+	adaptToFractionAndApply { :self :operand :aBlock/2 |
+		aBlock(Float(operand), self)
 	}
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
@@ -432,34 +432,6 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 
 	ieeeRemainder { :self :operand |
 		uncheckedIeeeRemainder(self, Float(operand))
-	}
-
-	uncheckedIeeeRemainder { :self :operand |
-		<primitive:
-		const dividend = _self;
-		const divisor = _operand;
-		if (Object.is(divisor, 0)
-			|| !Number.isFinite(dividend)
-			|| Number.isNaN(dividend)
-			|| Number.isNaN(divisor)
-		) {
-			return NaN;
-		}
-		if (!Number.isFinite(divisor)
-			|| Object.is(dividend, 0)
-		) {
-			return dividend;
-		}
-		const exactQuotient = dividend / divisor;
-		let roundedQuotient = Math.round(exactQuotient);
-		if (Math.abs(exactQuotient - roundedQuotient) === 0.5) {
-			if (roundedQuotient % 2 !== 0) {
-				roundedQuotient = roundedQuotient + (exactQuotient > roundedQuotient ? 1 : -1);
-			}
-		}
-		const remainder = dividend - (divisor * roundedQuotient);
-		return remainder;
-		>
 	}
 
 	ifNaN { :self :whenNaN/0 :whenNotNaN/1 |
@@ -876,6 +848,10 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 		}
 	}
 
+	quotientFloat { :self :operand |
+		self.quotientBy(operand, truncateFloat/1)
+	}
+
 	radixString { :self SmallInteger :radix SmallInteger |
 		(radix = 10L).if {
 			self.printString
@@ -1137,6 +1113,34 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 			).toUpperCase();
 		};
 		return _self.toString();
+		>
+	}
+
+	uncheckedIeeeRemainder { :self :operand |
+		<primitive:
+		const dividend = _self;
+		const divisor = _operand;
+		if (Object.is(divisor, 0)
+			|| !Number.isFinite(dividend)
+			|| Number.isNaN(dividend)
+			|| Number.isNaN(divisor)
+		) {
+			return NaN;
+		}
+		if (!Number.isFinite(divisor)
+			|| Object.is(dividend, 0)
+		) {
+			return dividend;
+		}
+		const exactQuotient = dividend / divisor;
+		let roundedQuotient = Math.round(exactQuotient);
+		if (Math.abs(exactQuotient - roundedQuotient) === 0.5) {
+			if (roundedQuotient % 2 !== 0) {
+				roundedQuotient = roundedQuotient + (exactQuotient > roundedQuotient ? 1 : -1);
+			}
+		}
+		const remainder = dividend - (divisor * roundedQuotient);
+		return remainder;
 		>
 	}
 

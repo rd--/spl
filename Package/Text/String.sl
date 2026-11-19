@@ -1249,11 +1249,6 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 +[Float, Integer] {
 
-	repeatCharacter { :self :letter |
-		letter.assertIsCharacter;
-		letter.repeat(self)
-	}
-
 	emptyString { :self |
 		String(self, ' ')
 	}
@@ -1277,6 +1272,11 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	isUtf16SurrogateCodePoint { :self |
 		/* 0xD800 = 55296, 0xDfFF = 57343 */
 		self.isBetween(55296, 57343)
+	}
+
+	repeatCharacter { :self :letter |
+		letter.assertIsCharacter;
+		letter.repeat(self)
 	}
 
 }

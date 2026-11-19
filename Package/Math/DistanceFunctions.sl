@@ -607,6 +607,10 @@
 		uncheckedNeedlemanWunschAlgorithm(a, b, c, o)
 	}
 
+	needlemanWunschAlgorithm { :a :b :c |
+		needlemanWunschAlgorithm(a, b, c, [1.0, -1.0, -1.0])
+	}
+
 	uncheckedNeedlemanWunschAlgorithm { :a :b :c :o |
 		<primitive:
 		/* https://gist.github.com/shinout/f19da7720d130f3925ac */
@@ -676,10 +680,6 @@
 			return v.reverse();
 		});
 		>
-	}
-
-	needlemanWunschAlgorithm { :a :b :c |
-		needlemanWunschAlgorithm(a, b, c, [1.0, -1.0, -1.0])
 	}
 
 }

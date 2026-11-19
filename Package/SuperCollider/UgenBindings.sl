@@ -1566,12 +1566,6 @@
 		}
 	}
 
-	uncheckedMedianFilter { :in :r |
-		<primitive:
-		return sc.Median(_r * 2.0 + 1.0, _in);
-		>
-	}
-
 	[modularDistance, modDif] { :x :y :mod |
 		<primitive: return sc.ModDif(_x, _y, _mod);>
 	}
@@ -1582,6 +1576,12 @@
 
 	[timesPlus, *+] { :in :mul :add |
 		<primitive: return sc.MulAdd(_in, _mul, _add);>
+	}
+
+	uncheckedMedianFilter { :in :r |
+		<primitive:
+		return sc.Median(_r * 2.0 + 1.0, _in);
+		>
 	}
 
 	wrap { :in :lo :hi |

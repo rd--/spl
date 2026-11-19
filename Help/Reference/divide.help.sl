@@ -80,18 +80,18 @@ even if answer is an integer:
 At `Integer`, with collection operand:
 
 ```
->>> 1L / 1:9
+>>> 1L / 1L:9L
 [1 1/2 1/3 1/4 1/5 1/6 1/7 1/8 1/9]
 ```
 
-At `Float` integers answers a `Fraction`:
+At `Float` withinteger values:
 
 ```
->>> [1 2 3] / 4
-[1/4 1/2 3/4]
+>>> [1.0 2.0 3.0] / 4.0
+[0.25 0.5 0.75]
 
->>> 1 / [2 3 4]
-[1/2 1/3 1/4]
+>>> 1.0 / [2.0 3.0 4.0]
+[0.5 0.3333 0.25]
 ```
 
 At `Complex` answers a `Complex`:

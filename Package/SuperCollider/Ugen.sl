@@ -1,5 +1,9 @@
 Ugen! : [Object, Number] {
 
+	adaptToFractionAndApply { :self :operand :aBlock/2 |
+		adaptToNumberAndApply(self, Float(operand), aBlock/2)
+	}
+
 	adaptToIntegerAndApply { :self :operand :aBlock/2 |
 		adaptToNumberAndApply(self, Float(operand), aBlock/2)
 	}
@@ -12,10 +16,6 @@ Ugen! : [Object, Number] {
 			'Ugen'
 		);
 		>
-	}
-
-	adaptToFractionAndApply { :self :operand :aBlock/2 |
-		adaptToNumberAndApply(self, Float(operand), aBlock/2)
 	}
 
 	isScalar { :self |

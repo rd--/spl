@@ -446,23 +446,6 @@ Polygon : [Object, Store, Equal, Geometry] {
 
 +List {
 
-	uncheckedPolygonTriangulation { :self |
-		<primitive:
-		/* https://github.com/mapbox/earcut/ */
-		const a = sl.earcut(_catenate_1(_self));
-		const n = a.length / 3;
-		const b = new Array(n);
-		for (let i = 0; i < n; i++) {
-			let c = new Array(3);
-			b[i] = c;
-			for (let j = 0; j < 3; j++) {
-				c[j] = a[(i * 3) + j] + 1;
-			}
-		}
-		return b;
-		>
-	}
-
 	cyclicPolygon { :self :o :r :thetaZero |
 		let k = self.size;
 		(k >= 3).if {
@@ -523,6 +506,23 @@ Polygon : [Object, Store, Equal, Geometry] {
 			cp1 := cp2
 		};
 		outputList
+	}
+
+	uncheckedPolygonTriangulation { :self |
+		<primitive:
+		/* https://github.com/mapbox/earcut/ */
+		const a = sl.earcut(_catenate_1(_self));
+		const n = a.length / 3;
+		const b = new Array(n);
+		for (let i = 0; i < n; i++) {
+			let c = new Array(3);
+			b[i] = c;
+			for (let j = 0; j < 3; j++) {
+				c[j] = a[(i * 3) + j] + 1;
+			}
+		}
+		return b;
+		>
 	}
 
 }

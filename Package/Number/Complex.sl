@@ -4,10 +4,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	| real imaginary |
 
-	assertIsComplex { :self |
-		self
-	}
-
 	[Float, F, complexToFloat] { :self |
 		self.isRealValuedNumber.if {
 			Float(self.real)
@@ -67,6 +63,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		} {
 			self.real.arcTan(self.imaginary)
 		}
+	}
+
+	assertIsComplex { :self |
+		self
 	}
 
 	ceiling { :self |
@@ -542,10 +542,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 +@ImplicitFloat {
 
-	Polar { :rho :phi |
-		Polar(Float(rho), phi)
-	}
-
 	[Complex, J] { :real :imaginary |
 		Complex(Float(real), imaginary)
 	}
@@ -555,6 +551,10 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 			0.0,
 			Float(self)
 		)
+	}
+
+	Polar { :rho :phi |
+		Polar(Float(rho), phi)
 	}
 
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |

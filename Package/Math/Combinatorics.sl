@@ -408,42 +408,6 @@
 		uncheckedNecklaces(n, k)
 	}
 
-	uncheckedNecklaces { :n :k |
-		/* https://www.jasondavies.com/necklaces/necklaces.js */
-		<primitive:
-		function fkm(n, k) {
-			let necklaces = [];
-			let a = [];
-			let i = -1;
-			let j = null;
-			while (++i < n) {
-				a[i] = 0;
-			}
-			necklaces.push(a.slice());
-			while (1) {
-				i = n;
-				while (--i >= 0) {
-					if (a[i] < k - 1) {
-						break;
-					}
-				}
-				if (i < 0) {
-					break;
-				}
-				a[j = i++]++;
-				while (++j < n) {
-					a[j] = a[j % i];
-				}
-				if (n % i === 0) {
-					necklaces.push(a.slice());
-				}
-			}
-			return necklaces;
-		};
-		return fkm(_n, _k)
-		>
-	}
-
 	polygonalNumber { :r |
 		{ :n |
 			n * (n * (r - 2L) - r + 4L) // 2L
@@ -576,6 +540,42 @@
 				(-1L ^ (k - i)) * binomial(k, i) * (i ^ n)
 			}
 		).round
+	}
+
+	uncheckedNecklaces { :n :k |
+		/* https://www.jasondavies.com/necklaces/necklaces.js */
+		<primitive:
+		function fkm(n, k) {
+			let necklaces = [];
+			let a = [];
+			let i = -1;
+			let j = null;
+			while (++i < n) {
+				a[i] = 0;
+			}
+			necklaces.push(a.slice());
+			while (1) {
+				i = n;
+				while (--i >= 0) {
+					if (a[i] < k - 1) {
+						break;
+					}
+				}
+				if (i < 0) {
+					break;
+				}
+				a[j = i++]++;
+				while (++j < n) {
+					a[j] = a[j % i];
+				}
+				if (n % i === 0) {
+					necklaces.push(a.slice());
+				}
+			}
+			return necklaces;
+		};
+		return fkm(_n, _k)
+		>
 	}
 
 	wedderburnEtheringtonNumbers { :self |

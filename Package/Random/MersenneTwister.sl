@@ -43,7 +43,9 @@ MersenneTwister : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 +Void {
 
 	MersenneTwister {
-		MersenneTwister(system.absoluteTime)
+		MersenneTwister(
+			system.absoluteTimeInMilliseconds
+		)
 	}
 
 }

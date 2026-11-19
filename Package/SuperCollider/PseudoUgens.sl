@@ -408,10 +408,6 @@
 		uncheckedMultiTapDelay(timesList, levelsList, input)
 	}
 
-	uncheckedMultiTapDelay { :timesList :levelsList :input |
-		<primitive: return sc.MultiTapDelay(_timesList, _levelsList, _input);>
-	}
-
 	osc1 { :buf :dur |
 		<primitive: return sc.Osc1(_buf, _dur);>
 	}
@@ -492,6 +488,10 @@
 
 	txLine { :start :end :dur :trig |
 		<primitive: return sc.TxLine(_start, _end, _dur, _trig);>
+	}
+
+	uncheckedMultiTapDelay { :timesList :levelsList :input |
+		<primitive: return sc.MultiTapDelay(_timesList, _levelsList, _input);>
 	}
 
 	uncheckedTChoose { :trig :array |

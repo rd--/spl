@@ -26,6 +26,15 @@ At `Fraction`:
 
 >>> 1L / 3/4
 4/3
+
+>>> 0/1.reciprocal
+Infinity
+
+>>> 1/1 / 0/1
+Infinity
+
+>>> 1L / 0/1
+Infinity
 ```
 
 At `Complex`:

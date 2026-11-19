@@ -110,20 +110,6 @@
 		}
 	}
 
-	triangularSpiral { :self |
-		let x = 0L.to(self - 1L).collect { :n |
-			let m = n.sqrt.ceiling;
-			(-1L ^ (m + 1L)) * (0L - m.square + m + n)
-		};
-		let y = 0L.to(self - 1L).collect { :n |
-			let m = n.sqrt;
-			let a = m * 0.max(2L * (m % 2L) - 2L);
-			let b = -2L * m * (m % -1L);
-			(a.min(b) + (-m / 2).ceiling).floor
-		};
-		[x, y].transpose
-	}
-
 	squareSpiral { :n :k |
 		k.caseOf(
 			[
@@ -241,6 +227,20 @@
 			};
 			(r - s.I) * (1.I ^ s)
 		}.realImaginary
+	}
+
+	triangularSpiral { :self |
+		let x = 0L.to(self - 1L).collect { :n |
+			let m = n.sqrt.ceiling;
+			(-1L ^ (m + 1L)) * (0L - m.square + m + n)
+		};
+		let y = 0L.to(self - 1L).collect { :n |
+			let m = n.sqrt;
+			let a = m * 0.max(2L * (m % 2L) - 2L);
+			let b = -2L * m * (m % -1L);
+			(a.min(b) + (-m / 2).ceiling).floor
+		};
+		[x, y].transpose
 	}
 
 }

@@ -429,6 +429,48 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		uncheckedcardanosAlgorithm(a, b, c, d)
 	}
 
+	chebyshevPolynomial { :self :kind |
+		self.caseOf(
+			[
+				0L -> { UnivariatePolynomial([1L]) },
+				1L -> { UnivariatePolynomial([0L kind]) }
+			]
+		) {
+			let n = self - 1L;
+			let a = UnivariatePolynomial([0L 2L]);
+			let b = chebyshevPolynomial(n, kind);
+			let c = chebyshevPolynomial(n - 1L, kind);
+			(a * b) - c
+		}
+	}
+
+	chebyshevT { :self |
+		self.chebyshevPolynomial(1L)
+	}
+
+	chebyshevT { :n :x |
+		n.chebyshevT.at(x)
+	}
+
+	chebyshevU { :self |
+		self.chebyshevPolynomial(2L)
+	}
+
+	quadraticEquationRoots { :a :b :c |
+		let d = sqrt((b ^ 2L) - (4L * a * c));
+		(0L < b).if {
+			[
+				(2L * c) / (0L - b - d),
+				(0L - b - d) / (2L * a)
+			]
+		} {
+			[
+				(0L - b + d) / (2L * a),
+				(2L * c) / (0L - b + d)
+			]
+		}
+	}
+
 	uncheckedcardanosAlgorithm { :a :b :c :d |
 		<primitive:
 		/* https://www.mosismath.com/Cardano/Cardano.html */
@@ -481,48 +523,6 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 			return [x1, x2, x3];
 		}
 		>
-	}
-
-	chebyshevPolynomial { :self :kind |
-		self.caseOf(
-			[
-				0L -> { UnivariatePolynomial([1L]) },
-				1L -> { UnivariatePolynomial([0L kind]) }
-			]
-		) {
-			let n = self - 1L;
-			let a = UnivariatePolynomial([0L 2L]);
-			let b = chebyshevPolynomial(n, kind);
-			let c = chebyshevPolynomial(n - 1L, kind);
-			(a * b) - c
-		}
-	}
-
-	chebyshevT { :self |
-		self.chebyshevPolynomial(1L)
-	}
-
-	chebyshevT { :n :x |
-		n.chebyshevT.at(x)
-	}
-
-	chebyshevU { :self |
-		self.chebyshevPolynomial(2L)
-	}
-
-	quadraticEquationRoots { :a :b :c |
-		let d = sqrt((b ^ 2L) - (4L * a * c));
-		(0L < b).if {
-			[
-				(2L * c) / (0L - b - d),
-				(0L - b - d) / (2L * a)
-			]
-		} {
-			[
-				(0L - b + d) / (2L * a),
-				(2L * c) / (0L - b + d)
-			]
-		}
 	}
 
 }

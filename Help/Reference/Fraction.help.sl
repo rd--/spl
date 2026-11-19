@@ -110,6 +110,9 @@ At `Fraction` is an alias for `divide`:
 ```
 >>> Fraction(3/4, 5/6)
 9/10
+
+>>> Fraction(3/4, 0.5)
+1.5
 ```
 
 In this system Fractions may be integers,
@@ -445,7 +448,7 @@ Sometimes `\` is defined as the operator form of `Fraction`:
 (1/3, [1/3 3/5 5/7])
 ```
 
-A `Fraction` multiplied by a `Float`,
+A `Fraction` meeting a `Float`,
 and vice-versa,
 answers a `Float`:
 
@@ -455,15 +458,21 @@ answers a `Float`:
 
 >>> 0.333 * 1/3
 0.111
+
+>>> 1/3 / 0.333
+1.001001
+
+>>> 0.333 / 1/3
+0.999
 ```
 
 `Fraction` at not-a-number values is not a number:
 
 ```
->> Fraction(NaN, 1)
+>> Fraction(NaN, 1L)
 NaN
 
->> Fraction(1, NaN)
+>> Fraction(1L, NaN)
 NaN
 
 >> Fraction(NaN, NaN)

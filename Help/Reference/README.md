@@ -6,7 +6,7 @@ Run documentation tests:
 { 'Help/Reference'.splFilePath.terseReferenceSummary(['verboseLevel': 0, 'pattern': '.*']) }.timing
 ~~~
 
-Total => 20,029 (200 seconds)
+Total => 20,043 (200 seconds)
 
 Note: Requires LibraryItems be at the interpreter cache, i.e.
 

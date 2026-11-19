@@ -682,10 +682,11 @@
 		self * -1
 	}
 
-	niceNumberAbove { :self |
-		self.niceNumberBy { :l :n |
-			l[l.bisect(n)]
-		}
+	niceFloatBy { :self :aBlock/2 |
+		let m = 10.0 ^ self.abs.log10.floorFloat.negate;
+		let steps = [1.0 1.5 2.0 2.5 5.0 7.5 10.0];
+		let z = aBlock(steps, self * m);
+		z / m
 	}
 
 	niceFractionBy { :self :aBlock/2 |
@@ -695,19 +696,18 @@
 		z / m
 	}
 
+	niceNumberAbove { :self |
+		self.niceNumberBy { :l :n |
+			l[l.bisect(n)]
+		}
+	}
+
 	niceNumberBy { :self :aBlock/2 |
 		self.isFraction.if {
 			self.niceFractionBy(aBlock/2)
 		} {
 			self.niceFloatBy(aBlock/2)
 		}
-	}
-
-	niceFloatBy { :self :aBlock/2 |
-		let m = 10.0 ^ self.abs.log10.floorFloat.negate;
-		let steps = [1.0 1.5 2.0 2.5 5.0 7.5 10.0];
-		let z = aBlock(steps, self * m);
-		z / m
 	}
 
 	niceNumberNear { :self |

@@ -2,15 +2,6 @@
 
 Integer! : [Object, Copy, Store, Equal, Compare, Binary, Number, ImplicitFloat] {
 
-	[isLessOrEqual, <=] { :self :operand |
-		<primitive:
-		if(sl.isInteger(_operand)) {
-			return _self <= _operand;
-		}
-		>
-		operand.adaptToIntegerAndApply(self, isLessOrEqual/2)
-	}
-
 	[Float, F, integerToFloat] { :self |
 		<primitive:
 		return Number(_self);
@@ -127,15 +118,15 @@ Integer! : [Object, Copy, Store, Equal, Compare, Binary, Number, ImplicitFloat] 
 		1L
 	}
 
-	[divide, /] { :self :anObject |
+	[divide, /] { :self :operand |
 		/* Model: SmallInteger | Integer */
-		anObject.isInteger.if {
+		operand.isInteger.if {
 			Fraction(
 				self,
-				anObject
+				operand
 			)
 		} {
-			anObject.adaptToIntegerAndApply(self, divide/2)
+			operand.adaptToIntegerAndApply(self, divide/2)
 		}
 	}
 
@@ -299,6 +290,15 @@ Integer! : [Object, Copy, Store, Equal, Compare, Binary, Number, ImplicitFloat] 
 		}
 		>
 		anObject.adaptToIntegerAndApply(self, isLess/2)
+	}
+
+	[isLessOrEqual, <=] { :self :operand |
+		<primitive:
+		if(sl.isInteger(_operand)) {
+			return _self <= _operand;
+		}
+		>
+		operand.adaptToIntegerAndApply(self, isLessOrEqual/2)
 	}
 
 	isLiteral { :unused |

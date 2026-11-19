@@ -68,7 +68,10 @@ At `Interval`:
 
 ```
 >>> (1.0 -- 9.0).concisePrintString
-'(1.0 -- 9.0)'
+'(1 -- 9)'
+
+>>> (1L -- 9L).concisePrintString
+'(1 -- 9)'
 ```
 
 At `Range`:

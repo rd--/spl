@@ -2,20 +2,20 @@ Circle : [Object, Store, Equal, Geometry] {
 
 	| center radius |
 
-	arcLength { :self |
-		self.circumference
-	}
-
-	area { :self |
-		self.radius.square.pi
-	}
-
 	[GeneralisedCircle, circleToGeneralisedCircle] { :self |
 		let c = 1;
 		let [r, i] = self.center;
 		let alpha = Complex(r.negate, i);
 		let d = alpha.abs.square - self.radius.square;
 		GeneralisedCircle(c, alpha, d)
+	}
+
+	arcLength { :self |
+		self.circumference
+	}
+
+	area { :self |
+		self.radius.square.pi
 	}
 
 	boundingBox { :self |

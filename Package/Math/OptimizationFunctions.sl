@@ -44,6 +44,10 @@
 		uncheckedNelderMeadMethod(f/1, x0, parameters)
 	}
 
+	nelderMeadMethod { :f/1 :x0 |
+		nelderMeadMethod(f/1, x0, Record())
+	}
+
 	uncheckedNelderMeadMethod { :f/1 :x0 :parameters |
 		/* https://github.com/benfred/fmin */
 		<primitive:
@@ -164,10 +168,6 @@
 		simplex.sort(sortOrder);
 		return { fx: simplex[0].fx, x: simplex[0] };
 		>
-	}
-
-	nelderMeadMethod { :f/1 :x0 |
-		nelderMeadMethod(f/1, x0, Record())
 	}
 
 }

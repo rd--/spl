@@ -350,18 +350,6 @@
 
 +@ImplicitFloat {
 
-	[sec, secant] { :self |
-		Float(self).sec
-	}
-
-	[cot, cotangent] { :self |
-		Float(self).cot
-	}
-
-	inverseHaversine { :self |
-		Float(self).inverseHaversine
-	}
-
 	arcCos { :self |
 		Float(self).arcCos
 	}
@@ -402,12 +390,24 @@
 		Float(self).cos
 	}
 
+	[cot, cotangent] { :self |
+		Float(self).cot
+	}
+
 	[csc, cosecant] { :self |
 		Float(self).cos
 	}
 
 	haversine { :self |
 		Float(self).haversine
+	}
+
+	inverseHaversine { :self |
+		Float(self).inverseHaversine
+	}
+
+	[sec, secant] { :self |
+		Float(self).sec
 	}
 
 	sin { :self |

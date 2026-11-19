@@ -114,18 +114,11 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 		}
 	}
 
-	[divide, /, Fraction] { :self :operand |
-		operand.isInteger.if {
-			self * uncheckedFraction(
-				1L,
-				Integer(operand)
-			)
+	[divide, Fraction, /] { :self :operand |
+		operand.isFraction.if {
+			self * operand.reciprocal
 		} {
-			operand.isFraction.if {
-				self * operand.reciprocal
-			} {
-				operand.adaptToFractionAndApply(self, divide/2)
-			}
+			operand.adaptToFractionAndApply(self, divide/2)
 		}
 	}
 
@@ -441,7 +434,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 	[plus, +] { :self :operand |
 		operand.isInteger.if {
 			uncheckedFraction(
-				self.numerator + (self.denominator * Integer(operand)),
+				self.numerator + (self.denominator * operand),
 				self.denominator
 			)
 		} {
@@ -467,9 +460,9 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 	}
 
 	[power, ^] { :self :operand |
-		operand.isInteger.if {
+		operand.isIntegerValuedNumber.if {
 			self.raisedToInteger(
-				operand
+				Integer(operand)
 			)
 		} {
 			operand.isFraction.if {
@@ -541,17 +534,15 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 	}
 
 	[reciprocal, /] { :self |
-		self.numerator.abs.isOne.if {
-			/* preference: answer proper integer */
-			uncheckedFraction(
-				self.denominator * self.numerator,
-				1L
-			)
+		let [a, b] = self.numeratorDenominator;
+		(a.abs = 1L).if {
+			uncheckedFraction(a * b, 1L)
 		} {
-			Fraction(
-				self.denominator,
-				self.numerator
-			)
+			(a = 0L).if {
+				Infinity
+			} {
+				Fraction(b, a)
+			}
 		}
 	}
 
@@ -636,7 +627,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 	}
 
 	[subtract, -] { :self :operand |
-		operand.isInteger.if {
+		operand.isIntegerValuedNumber.if {
 			uncheckedFraction(
 				self.numerator - (self.denominator * Integer(operand)),
 				self.denominator
@@ -674,34 +665,39 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 
 	[times, *] { :self :operand |
 		operand.isFraction.if {
-			let d1 = self.numerator.gcd(operand.denominator);
-			let d2 = self.denominator.gcd(operand.numerator);
-			let numerator = (self.numerator // d1) * (operand.numerator // d2);
-			(
-				d2 = self.denominator & {
-					d1 = operand.denominator
-				}
-			).if {
-				/* preference: answer proper integer */
-				uncheckedFraction(
-					numerator,
-					1L
-				)
-			} {
-				Fraction(
-					numerator,
-					(self.denominator // d2) * (operand.denominator // d1)
-				)
-			}
+			self.uncheckedTimes(operand)
 		} {
-			operand.isInteger.if {
+			operand.isIntegerValuedNumber.if {
 				Fraction(
-					self.numerator * operand,
+					self.numerator * Integer(operand),
 					self.denominator
 				)
 			} {
 				operand.adaptToFractionAndApply(self, times/2)
 			}
+		}
+	}
+
+	uncheckedTimes { :self :operand |
+		let [a, b] = self.numeratorDenominator;
+		let [c, d] = operand.numeratorDenominator;
+		let p = a.gcd(d);
+		let q = b.gcd(c);
+		let r = (a // p) * (c // q);
+		(
+			q = b & {
+				p = d
+			}
+		).if {
+			uncheckedFraction(
+				r,
+				1L
+			)
+		} {
+			uncheckedFraction(
+				r,
+				(b // q) * (d // p)
+			)
 		}
 	}
 
@@ -773,7 +769,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 		} {
 			denominator.adaptToIntegerAndApply(
 				numerator,
-				Fraction/2
+				divide/2
 			)
 		}
 	}
@@ -815,7 +811,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 	}
 
 	checkedFraction { :numerator :denominator |
-		denominator.isInteger.if {
+		denominator.isIntegerValuedInteger.if {
 			uncheckedFraction(
 				Integer(numerator),
 				Integer(denominator)
@@ -904,8 +900,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 +[Float, Integer] {
 
 	[rationalize, approximateFraction] { :self :epsilon |
-		self.isInteger.if {
-			Fraction(self, 1L)
+		self.isIntegerValuedNumber.if {
+			Fraction(Integer(self), 1L)
 		} {
 			let c = self.abs.continuedFraction(16);
 			let l = c.semiconvergents(epsilon);

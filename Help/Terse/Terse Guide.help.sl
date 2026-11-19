@@ -18,7 +18,7 @@ let r = ''; { r.add!('x') }.hasError
 [0 + 0, 1 + 0, 0 + 1, 1 + 1, -1 + 1, -1 + 2] = [0, 1, 1, 2, 0, 1] /* addition */
 [1 2 3] + [2 3 4] = [3 5 7] /* pointwise array addition */
 0.1 + [3 4 5] = [3.1 4.1 5.1] /* number array addition */
-1E20 + (-1E20 + 1) = 0 & { (1E20 + -1E20) + 1 = 1 } /* non-associative addition */
+1.0E20 + (-1.0E20 + 1.0) = 0.0 & { (1.0E20 + -1.0E20) + 1.0 = 1.0 } /* non-associative addition */
 ```
 
 ## Arithmetic -- expressions
@@ -181,7 +181,7 @@ let n = (0 -- 100).atRandom; (n >= 0) & { n < 100 } /* random number in (0, self
 1.infinity = Infinity /* Infinity is the literal for IEEE infinity, 1.infinity is a method, like 1.pi */
 3 / 0 = Infinity /* division by zero is infinity */
 -3 / 0 = -Infinity /* negative division by zero is negative infinity */
-(0 / 0).isNaN /* division of zero by zero is NaN */
+(0.0 / 0.0).isNaN /* division of zero by zero is NaN */
 1.isNaN.not /* one is a number */
 4 / 0:3 = [Infinity, 4, 2, 4 / 3] /* divide by zero is infinity */
 Infinity.sign = 1
@@ -205,10 +205,11 @@ let n = 10 ^ -9; 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
 let x = 15; let y = 4; (x // y) * y + (x \\ y) = x /* quotient by denominator + remainder = numerator */
 let x = 9; let y = 4; (x // y) * y + (x \\ y) = x /* // = quotient, \\ = remainder */
 -5:5.collect { :each | each.remainder(3) } = [-2 -1 -0 -2 -1 0 1 2 0 1 2]
-1E6 = 1000000 /* scientific notation, unit base, positive exponent */
-3E9 = (3 * (10 ^ 9)) /* scientific notation, integer base */
-23E-1 = 2.3 /* scientific notation, negative exponent */
-3.141E-1 = 0.3141 /* scientific notation, float base, negative exponent */
+1.0E6 = 1000000.0 /* scientific notation, unit base, positive exponent */
+3E9 = (3L * (10L^ 9L)) /* scientific notation, integer base */
+3.0E9 = (3.0 * (10.0 ^ 9.0)) /* scientific notation, integer base */
+23.0E-1 ~ 2.3 /* scientific notation, negative exponent */
+3.141E-1 ~ 0.3141 /* scientific notation, float base, negative exponent */
 0.1E-6 = 1E-7 /* scientific notation, equivalence */
 8.625 / 0.75 = 11.5 /* a number divided by a number less than zero */
 let x = 8.625; let y = 0.75; let q = x.quotient(y); let r = x.remainder(y); [q, r, x = (y * q + r)] = [11, 0.375, true]
@@ -333,7 +334,7 @@ BitSet([1, 3, 9], 10).with { :b | b.clearBitAt(3); b.List = [1, 9] } /* clearBit
 16.bitShiftRight(3) = 2 /* right shift (lower) */
 2.bitShift(3) = 16 /* left shift (higher) */
 16.bitShift(-3) = 2 /* right shift (lower) */
-1:4.select { :bit | 6.bitTest(bit) } = [2, 3] /* bit at position (0 | 1) [!Squeak] */
+1:4.select { :bit | 6.0.bitTest(bit) } = [2, 3] /* bit at position (0 | 1) [!Squeak] */
 2 << 3 = 16 /* left shift operator */
 16 >> 3 = 2 /* right shift operator */
 { 1.bitAnd(nil) }.hasError /* operand not adaptable to number */
@@ -404,7 +405,7 @@ withReturn { :return/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } }
 { 1.pi.assert { false } }.hasError /* raise an error if block does not evaluate to true */
 { true }.assert = nil /* assert that block evaluates to true, answers nil */
 { { false }.assert }.hasError /* raise an error if block does not evaluate to true */
-withReturn { :return/1 | { (9.0.atRandom > 7.0).ifTrue { true.return } }.repeatForever } /* repeat a block until it returns */
+withReturn { :return/1 | { ((0.0 -- 9.0).atRandom > 7.0).ifTrue { true.return } }.repeatForever } /* repeat a block until it returns */
 { 1.anUnknownMessage }.ifError { :err | err }.isError /* evaluate error block on error */
 let f = { let x = 0; { x := x + 1; x } }; let g = f/0.apply; [g.apply, g.apply] = [1, 2] /* closure */
 let f = { let x = 0; { x := x + 1; x } }; [f/0.apply.apply, f/0.apply.apply] = [1, 1] /* closures */
@@ -423,7 +424,7 @@ let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 &.parameterNames = ['self', 'aBlock/0'] /* answer names of method parameters */
 sinOsc/2.parameterNames = ['freq' 'phase'] /* answer names of method parameters */
 randomReal/3.parameterNames = ['self', 'range', 'shape'] /* answer names of method parameters */
-system.methodDictionary['at'][2]['Map'].information.parameterNames = ['self', 'key']
+system.methodDictionary['at'][2.0]['Map'].information.parameterNames = ['self', 'key']
 let c = []; let a = []; 1:3.do { :i | c.add! { a.add!(i) } }; c.do(apply/1); a = [1, 2, 3]
 let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] /* closure */
 { { }.deepCopy }.hasError /* blocks cannot be deep copied */
@@ -559,8 +560,8 @@ let a = ByteArray(8, 0); a.put!(1, 179) = 179 & { a.at(1) = 179 }
 { [-1].ByteArray }.hasError /* out of range element error */
 { ['1'].ByteArray }.hasError /* not a number element error */
 1:9.ByteArray.reverse = 9:1:-1.ByteArray
-1:3.ByteArray.printString = 'ByteArray([1, 2, 3])'
-1:3.ByteArray.storeString = 'ByteArray([1, 2, 3])'
+1:3.ByteArray.printString = 'ByteArray([1.0, 2.0, 3.0])'
+1:3.ByteArray.storeString = 'ByteArray([1.0, 2.0, 3.0])'
 ByteArray(4, 0).base16Encode = '00000000'
 'text'.asciiByteArray[1] = 116 /* ByteArray subscript */
 let b = ByteArray(4, 0); b[1] := 15; b[3] := 240; b.base16Encode = '0F00F000'
@@ -766,7 +767,7 @@ let d = (w: (x: (y: (z: 1)))); d.atPathPut!(['w', 'x', 'y', 'z'], -1); d['w']['x
 let a = []; [1, 2].cartesianProductDo([3, 4]) { :x :y | a.add!(x -> y) }; a = [1 -> 3, 1 -> 4, 2 -> 3, 2 -> 4]
 [1 2].cartesianProduct([3 4]) = [1 3; 1 4; 2 3; 2 4]
 [1 2].cartesianProduct([3 4 5]) = [1 3; 1 4; 1 5; 2 3; 2 4; 2 5]
-[1 2].elementType = 'Float'
+[1.0 2.0].elementType = 'Float'
 [1 2; 3 4; 5 6].elementType = 'List'
 ```
 
@@ -913,12 +914,12 @@ let z = 1 + 2I; z.abs ~ 2.2361 & { z.arg ~ 1.1071 } /* absolute value (modulus, 
 let n = (1 + 2I); n.reciprocal * n = 1 /* multiplicative inverse */
 (1 + 0I).isInteger = false /* a complex number is not an integer */
 (1 + 0I).isFraction = false /* a complex number is not a fraction */
-3/2.toComplex = Complex(3/2, 0) /* fraction as complex */
+Complex(3/2, 0/1) = 1.5J0.0 /* fraction as complex */
 0/1.i = Complex(0, 0/1) /* complex with integral real part and fractional imaginary part */
-3/2 + 0/1.i = 3/2.toComplex
-3/2.toComplex + 0/1.i = 3/2.toComplex /* add 0i to a complex number is identity */
-1.toComplex = Complex(1, 0) /* Complex is a monadic complex number constructor */
-1.i = Complex(0, 1) /* Complex is a monadic complex number constructor */
+3/2 + 0/1.i = 1.5J0
+Complex(3/2, 0) + 0/1.i = 1.5J0 /* add 0i to a complex number is identity */
+1.J(0) = Complex(1, 0) /* J is a complex number constructor */
+1.i = Complex(0, 1) /* i is a complex number constructor */
 (1 + -2I) + (3 + 4I) = (4 + 2I) /* i is a monadic complex number constructor */
 1.J(-2) + 3.J(4) = 4.J(2) /* j is the dyadic complex number constructor */
 1.J(-2) = Complex(1, -2) /* j is an alias for Complex */
@@ -998,15 +999,16 @@ true.boole = 1 /* boole */
 1.pi.rationalize(0.01) = 22/7 /* with epsilon */
 22/7.rationalize = 22/7 /* identity */
 23.rationalize = 23 /* identity */
-1.toComplex = Complex(1, 0) /* number to complex */
-1.i = Complex(0, 1) /* number to complex */
-(2 + 3I).toComplex = Complex(2, 3) /* identity */
+1.0.J(0) = 1J0 /* number to complex */
+1.i = 0J1 /* number to complex */
+2 + 3I = 2J3 /* identity */
 126.Character = '~'.Character /* integer to character */
 '~'.Character.isCharacter /* string to character */
 let c = '~'.Character; c.Character == c /* identity */
 let c = 126.Character; c.characterString = '~' /* character to string */
 '~'.displayString = '~' /* identity operation */
-23.printString = '23' /* Object>>printString (integral to string) */
+23.0.printString = '23.0' /* Object>>printString (integral to string) */
+23L.printString = '23L' /* Object>>printString (integral to string) */
 15.hexDigitCharacter = 'F' /* integral to hex character */
 { 16.hexDigitCharacter }.hasError /* error if out of range */
 'x'.Character = 120.Character /* string to character */
@@ -1148,7 +1150,7 @@ let f = { :t0 | let t1 = system.randomReal([0 2], []); f/1.scheduleAfterWith(t1,
 (29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).Duration.abs ~ 76.milliseconds.Duration
 -3.seconds.Duration.abs = 3.seconds.Duration /* absolute value */
 (3.minutes - 2.hours).Duration.abs = (1.hours + 57.minutes).Duration /* absolute value */
-(7 / 8).milliseconds.Duration.inSeconds = 7/8000 /* fractional duration */
+(7.0 / 8.0).milliseconds.Duration.inSeconds = 7/8000 /* fractional duration */
 2.minutes.Duration.inSeconds = 120 /* seconds of duration, or identity of number */
 ```
 
@@ -1179,16 +1181,15 @@ Float64Array(8, 0).at(1) = 0 /* at protocol, initialized to zero */
 Float64Array(8, 0).put!(1, 1.pi) = 1.pi /* put protocol, answer value put */
 let a = Float64Array(8, 0); a.put!(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
 let a = Float64Array(8, 0); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
-1:9.Float64Array.isFloat64Array = true /* interval as array */
-1:9.Float64Array.reverse = 9:1:-1.Float64Array /* reverse copy */
-let a = [1 .. 9].Float64Array; a.reverse!; a = 9:1:-1.Float64Array /* reverse in-place */
-let a = 9:1:-1.Float64Array; a.sort!; a = 1:9.Float64Array /* sort in-place */
+(1.0 .. 9.0).Float64Array.isFloat64Array = true /* interval as array */
+(1.0 .. 9.0).Float64Array.reverse = (9.0 .. 1.0; -1.0).Float64Array /* reverse copy */
+let a = [1.0 .. 9.0].Float64Array; a.reverse!; a = [9.0 .. 1.0; -1.0].Float64Array /* reverse in-place */
+let a = [9.0 .. 1.0; -1.0].Float64Array; a.sort!; a = [1.0 .. 9.0].Float64Array /* sort in-place */
 { Float64Array(1, 0).put!(3, 'x') }.hasError /* out of bounds error */
 let a = Float64Array(1, 0); a.uncheckedPut!(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
 let a = Float64Array(1, 0); a.uncheckedPut!(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
-1:3.Float64Array.printString = 'Float64Array([1, 2, 3])'
-1:3.Float64Array.storeString = 'Float64Array([1, 2, 3])'
-let a = 1:3.Float64Array; let c = a.copy; c[1] := 3; c != a & { c.List = [3, 2, 3] } /* copy */
+Float64Array[1.0 2.0 3.0].printString = 'Float64Array([1.0, 2.0, 3.0])'
+let a = Float64Array[1.0 2.0 3.0]; let c = a.copy; c[1] := 3.0; c != a & { List(c) = [3.0, 2.0, 3.0] } /* copy */
 ```
 
 ## Floating point
@@ -1387,7 +1388,7 @@ Fraction(-4, -12) = 1/3
 2/7 * (1.5 + 2I) ~ (0.4286 + 0.5714I)
 3/2 / (1 + 2I) ~ (3/10 - 3/5.I)
 1/2 + 2.i ~ (1/2 + 2/1.I)
-(1/2 + 1/2).isInteger /* fractions with unit denominators are integers */
+(1/2 + 1/2).isIntegerValuedNumber /* fractions with unit denominators are integers */
 1/2.fractionalPart = 1/2 /* the fractional part of a number between zero and one is identity */
 4/3.fractionalPart = 1/3 /* fraction math is exact */
 64/33.primeLimit = 11 /* the prime limit of a fraction is maximum of the limit of each part */
@@ -1463,9 +1464,9 @@ true == true & { false == false } /* boolean identity */
 ```
 system.includesPackage('Integer') /* integer package */
 1.isInteger = true /* integer predicate */
-123.printString = '123' /* integer print string */
-123.storeString = '123' /* integer store string */
--987654321.printString = '-987654321' /* negative integer print string */
+123L.printString = '123L' /* integer print string */
+123L.storeString = '123L' /* integer store string */
+-987654321L.printString = '-987654321L' /* negative integer print string */
 4 / 2 = 2 /* integer division with integer result */
 let n = 2; 3.timesRepeat { n := n * n }; n = 256 /* iteration */
 0:15.collect(hexDigitCharacter/1).stringJoin = '0123456789ABCDEF' /* integer to hex character */
@@ -1615,12 +1616,12 @@ let n = 0; 4.timesRepeat { n := n + 1 }; n = 4 /* times repeat loop (int) */
 let n = 0; -4.timesRepeat { n := nil }; n = 0 /* times repeat loop (zero or negative values are allowed) */
 let n = 0; 1.toDo(4) { :x | n := n + x }; n = 10 /* for loop (int) */
 let n = 0; 1.toDo(4) { :x | n := n + x }; n = 10 /* for loop (int) */
-let s = ''; 1.toDo(4) { :x | s := s ++ x.printString }; s = '1234' /* for loop (int) */
-let s = ''; 1:5.do { :x | s := s ++ x.printString }; s = '12345' /* for loop (interval) */
-let s = ''; 1.toDo(5) { :x | s := s ++ x.printString }; s = '12345' /* for loop (start & end indices) */
+let s = ''; 1.toDo(4) { :x | s := s ++ x.integerString }; s = '1234' /* for loop (int) */
+let s = ''; 1:5.do { :x | s := s ++ x.integerString }; s = '12345' /* for loop (interval) */
+let s = ''; 1.toDo(5) { :x | s := s ++ x.integerString }; s = '12345' /* for loop (start & end indices) */
 let s = ''; 1.toDo(0) { :x | 'error'.error }; s = '' /* for loop (end less than start) */
-let s = ''; 1:3.reverseDo { :x | s := s ++ x.printString }; s = '321' /* for loop (interval, reverse) */
-let s = ''; [1, 3, 5].do { :x | s := s ++ x.printString }; s = '135' /* for loop (collection) */
+let s = ''; 1:3.reverseDo { :x | s := s ++ x.integerString }; s = '321' /* for loop (interval, reverse) */
+let s = ''; [1, 3, 5].do { :x | s := s ++ x.integerString }; s = '135' /* for loop (collection) */
 let n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 /* while true loop */
 let n = 9; { n < 7 }.whileFalse { n := n - 1 }; n = 6 /* while false loop */
 10.timesRepeat { 1 } = nil /* timesRepeat answers nil */
@@ -1869,10 +1870,10 @@ let i = 1:3; let [x, y, z] = i; [z, y, x] = [3, 2, 1] /* sequence binding syntax
 let [x, y] = { let n = system.nextRandomFloat; [n, n] }.nullaryApply; x = y
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
-[1 .. 3].printString = '[1, 2, 3]' /* array print string */
-[1 .. 3].storeString = '[1, 2, 3]' /* array store string */
-[-1, 2.0, 3.141].printString = '[-1, 2, 3.141]' /* array print string */
-[-1, 2.0, 3.141].storeString = '[-1, 2, 3.141]' /* array store string */
+[1 .. 3].printString = '[1L, 2L, 3L]' /* array print string */
+[1 .. 3].storeString = '[1L, 2L, 3L]' /* array store string */
+[-1L, 2.0, 3.141].printString = '[-1L, 2.0, 3.141]' /* array print string */
+[-1L, 2.0, 3.141].storeString = '[-1L, 2.0, 3.141]' /* array store string */
 [1 .. 9].allButFirst = [2 .. 9] /* all but first element */
 [1 .. 9].allButFirst(7) = [8, 9] /* all but first k elements */
 { [].allButFirst }.hasError /* error if too few elements */
@@ -1888,8 +1889,8 @@ let a = List(1, nil); a[1].isNil = true /* array slots are initialised to nil */
 { let a = [1]; a[3] := 'x' }.hasError /* out of bound mutation is an error */
 [].newFrom(Range(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(isEven/1) = 4
-[nil, true, false, 3.141, 23, 'str'].encodeJson = '[null,true,false,3.141,23,"str"]' /* json encodings */
-'[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23, 'str'] /* json parsing */
+[nil, true, false, 3.141, 23.0, 'str'].encodeJson = '[null,true,false,3.141,23,"str"]' /* json encodings */
+'[null,true,false,3.141,23,"str"]'.parseJson = [nil, true, false, 3.141, 23.0, 'str'] /* json parsing */
 [1, 2, 3].select { :x | x > 1 } = [2, 3] /* select items in collection */
 [1 .. 9].select { :x | true } = [1 .. 9] /* select everything */
 [1 .. 9].select { :x | false } = [] /* select nothing */
@@ -2207,14 +2208,14 @@ system.includesPackage('Number') /* package */
 2.718.truncate = 2 /* truncate to integer */
 2.718.round = 3 /* round to integer */
 2.718.round(0.01) = 2.72 /* round to a given precision */
-123456789.printStringWithCommas = '123,456,789'
+123456789.0.printStringWithCommas = '123,456,789'
 123456.789.printStringWithCommas = '123,456.789'
-13579.printStringWithCommas = '13,579'
-159.printStringWithCommas = '159'
--9876543210.printStringWithCommas = '-9,876,543,210'
+13579.0.printStringWithCommas = '13,579'
+159.0.printStringWithCommas = '159'
+-9876543210.0.printStringWithCommas = '-9,876,543,210'
 -987654.321.printStringWithCommas = '-987,654.321'
 -97.531.printStringWithCommas = '-97.531'
--951.printStringWithCommas = '-951'
+-951.0.printStringWithCommas = '-951'
 let i = 1; 1.toDo(5) { :each | i := i + each.square }; i = 56 /* iterate over numbers from start to end */
 let i = 1; 1.toByDo(5, 2) { :each | i := i + each.square }; i = 36 /* iterate over numbers from start to end by step */
 let i = 1; 1:3.do { :each | i := i + each.square }; i = 15 /* iterate over numbers from one to end */
@@ -2329,7 +2330,7 @@ PlanarCoordinates([-1, 1]).y!(3) = 3
 [-1, 1] * 9 = [-9, 9]
 [-1, 1] + 2 = [1, 3]
 2 * ([1, 1].-) * 2 = ([4, 4].-)
-PlanarCoordinates([-1, 1]).printString = 'PlanarCoordinates(-1, 1)'
+PlanarCoordinates([-1.0, 1.0]).printString = 'PlanarCoordinates(-1.0, 1.0)'
 [1, 1].negate = [-1, -1] /* negation */
 0 - [1, 1] = [-1, -1] /* negation as subtraction from zero */
 let p = PlanarCoordinates(-1, 1); p.x := -3; p.y := 3; p = PlanarCoordinates(-3, 3) = true
@@ -2338,8 +2339,8 @@ let x = 3.141; let y = 23; let p = PlanarCoordinates([x, y]); p.x = x & { p.y = 
 [1 0; 1 1; 0 1; -1 1; -1 0; 0 -1].PlanarCoordinates.collect(phi/1) = (1.pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2]) /* phi = angle from (1,0) */
 PlanarCoordinates(200, 100).x = 200 /* x coordinate */
 PlanarCoordinates(200, 100).y = 100 /* y coordinate */
-0 - PlanarCoordinates([200 100]) = PlanarCoordinates([-200, -100]) /* negates x and y */
-(0 - PlanarCoordinates([200 100])).abs = PlanarCoordinates([200 100]) /* absolute value of x and y */
+0.0 - PlanarCoordinates([200 100]) = PlanarCoordinates([-200, -100]) /* negates x and y */
+(0.0 - PlanarCoordinates([200 100])).abs = PlanarCoordinates([200 100]) /* absolute value of x and y */
 PlanarCoordinates([200, 100]) + 1 = PlanarCoordinates([201, 101]) /* add scale to both x and y */
 PlanarCoordinates([200, 100]) - 1 = PlanarCoordinates([199, 99]) /* subtract scale from both x and y */
 PlanarCoordinates([200, 100]) * 2 = PlanarCoordinates([400, 200]) /* multiply x and y by scale */
@@ -2373,7 +2374,7 @@ PlanarCoordinates([1, 1]).normalize.norm ~ 1
 system.includesPackage('PlaneAngle') /* plane angle package */
 PlaneAngle(1.pi).typeName = 'Quantity' /* type of angle */
 PlaneAngle(1.pi).isPlaneAngle /* angle predicate */
-PlaneAngle(1).inDegrees ~ 57.296 /* radians to degrees */
+PlaneAngle(1.0).inDegrees ~ 57.296 /* radians to degrees */
 PlaneAngle(1.pi).inDegrees = 180 /* pi radians is 180 degrees */
 PlaneAngle(180.degree).inRadians = 1.pi /* 180 degrees is pi radians */
 PlaneAngle(1.pi) < PlaneAngle(360.degree) /* angles are magnitudes */
@@ -2567,8 +2568,8 @@ Range(-2, 2, 1).collect(isEven/1) = [true, false, true, false, true]
 1:9.copyFromTo(3, 7) = 3:7 /* copy from start to end indices, inclusive */
 1:16.copyFromTo(1, 8) = 1:8 /* copy from start to end indices, inclusive */
 let i = 1; 1.to(9).do { :each | i := i + each }; i = 46
-Range(-1, 1, 1).printString = 'Range(-1, 1, 1, 3)'
-Range(-1, 1, 1).storeString = 'Range(-1, 1, 1, 3)'
+Range(-1L, 1L, 1L).printString = 'Range(-1L, 1L, 1L, 3L)'
+Range(-1L, 1L, 1L).storeString = 'Range(-1L, 1L, 1L, 3L)'
 Range(1, 9, 1) = 1:9
 Range(1, 10, 3).size = 4
 Range(1, 10, 3).List = [1, 4, 7, 10]
@@ -2683,7 +2684,7 @@ let d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
 ['x' -> 1, 'y' -> 2].Record = (x: 1, y: 2) /* association array to record */
 ['x' -> 1, 'y' -> 2].Record['y'] = 2 /* association array to record */
 { Record().put!(1, 1) }.hasError
-(x: 3.141, y: 23).encodeJson = '{"x":3.141,"y":23}' /* records have a json encoding where values do */
+(x: 3.141, y: 23.0).encodeJson = '{"x":3.141,"y":23}' /* records have a json encoding where values do */
 '{"x":3.141,"y":23}'.parseJson = (x: 3.141, y: 23) /* parse json record */
 let d = (x: 1, y: 2); let i = 9; d.associationsDo { :each | i := i - each.value }; i = 6 /* iterate over associations */
 let d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
@@ -3170,7 +3171,7 @@ let total = 0; 9.timesRepeat { total := total + system.nextRandomFloat }; total 
 system.randomSmallInteger([1 9], []).isInteger = true
 system.randomReal([0 9], []).isInteger = false /* possible it could be an integer, but very unlikely */
 system.randomReal([0 1.pi], []).isInteger = false
-[3.141.encodeJson, 23.encodeJson] = ['3.141', '23'] /* numbers have json encodings */
+[3.141.encodeJson, 23.0.encodeJson] = ['3.141', '23'] /* numbers have json encodings */
 ['3.141', '23'].collect(parseJson/1) = [3.141, 23] /* parse json numbers */
 let r = nil; 1.toDo(5) { :each | r := each }; r = 5
 let r = nil; 1.to(0).do { :each | r := each }; r = nil
