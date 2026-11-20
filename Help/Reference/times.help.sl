@@ -51,6 +51,16 @@ even if the answer is a whole number:
 4/1
 ```
 
+A `Fraction` times a `Float` is a `Float`:
+
+```
+>>> 3/5 * 2.0
+1.2
+
+>>> 2.0 * 3/5
+1.2
+```
+
 Vector times matrix:
 
 ```

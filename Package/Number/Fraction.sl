@@ -460,9 +460,9 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 	}
 
 	[power, ^] { :self :operand |
-		operand.isIntegerValuedNumber.if {
+		operand.isInteger.if {
 			self.raisedToInteger(
-				Integer(operand)
+				operand
 			)
 		} {
 			operand.isFraction.if {
@@ -627,9 +627,9 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 	}
 
 	[subtract, -] { :self :operand |
-		operand.isIntegerValuedNumber.if {
+		operand.isInteger.if {
 			uncheckedFraction(
-				self.numerator - (self.denominator * Integer(operand)),
+				self.numerator - (self.denominator * operand),
 				self.denominator
 			)
 		} {
@@ -667,9 +667,9 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 		operand.isFraction.if {
 			self.uncheckedTimes(operand)
 		} {
-			operand.isIntegerValuedNumber.if {
+			operand.isInteger.if {
 				Fraction(
-					self.numerator * Integer(operand),
+					self.numerator * operand,
 					self.denominator
 				)
 			} {
@@ -808,18 +808,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 		Fraction(self, 1L)
 		.arithmeticDerivative
 		.Integer
-	}
-
-	checkedFraction { :numerator :denominator |
-		denominator.isIntegerValuedInteger.if {
-			uncheckedFraction(
-				Integer(numerator),
-				Integer(denominator)
-			)
-		} {
-			[numerator, denominator].error('checkedFraction')
-			/* denominator.adaptToNumberAndApply(numerator, Fraction/2) */
-		}
 	}
 
 	integerToFraction { :self |

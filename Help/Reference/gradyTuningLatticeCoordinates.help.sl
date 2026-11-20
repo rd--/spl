@@ -9,16 +9,16 @@ At _m=40_ the coordinate are integers.
 At _m=1_ the first two vectors are unit vectors.
 
 ```
->>> 1.0.gradyTuningLatticeCoordinates
+>>> 1L.gradyTuningLatticeCoordinates
 [
-	1 0;
-	0 1;
-	0.325 0.275;
-	-0.35 0.45;
-	-0.2 0.1;
-	-0.125 0.8;
-	0.175 0.625;
-	0.5 0.15
+	1/1 0/1;
+	0/1 1/1;
+	13/40 11/40;
+	-7/20 9/20;
+	-1/5 1/10;
+	-1/8 4/5;
+	7/40 5/8;
+	1/2 3/20
 ]
 ```
 
@@ -58,7 +58,7 @@ RatioTuning[
 	1/1 21/20 11/10 13/10 7/5 3/2 8/5
 ].tuningLatticeGraph(
 	[3L 5L 7L 11L 13L],
-	1.0.gradyTuningLatticeCoordinates
+	1L.gradyTuningLatticeCoordinates
 )
 ~~~
 
@@ -69,12 +69,12 @@ Draw points at each vertex of an _m×m_ _k_ dimensional grid:
 ~~~spl svg=B
 let m = 1L;
 let k = 8L;
-let v = 1.0.gradyTuningLatticeCoordinates(k);
+let v = 1L.gradyTuningLatticeCoordinates(k);
 List(k, [0L m]).coordinateBoundsArray(List(k, 1L))
 .flatten(k - 1L)
 .collect { :x |
 	(x * v).sum
-}.PointSet
+}.unique(=).PointSet
 ~~~
 
 ![](Help/Image/gradyTuningLatticeCoordinates-B.svg)

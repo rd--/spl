@@ -112,7 +112,8 @@ from Brackett spectrum of hydrogen,
 OEIS [A061041](https://oeis.org/A061041):
 
 ~~~spl svg=C oeis=A061041
-(Fraction(1, 16) - Fraction(1, 4:90 ^ 2))
+let n = 4L:90L;
+(1/16 - (1L / n.square))
 .numerator
 .discretePlot
 ~~~

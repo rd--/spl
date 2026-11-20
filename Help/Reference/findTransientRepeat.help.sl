@@ -98,11 +98,11 @@ The sum of the digits in the decimal expansion of _1/n_ up to the point where it
 OEIS [A048997](https://oeis.org/A048997):
 
 ~~~spl svg=B oeis=A048997
-Fraction(1, 1:75).collect { :n |
-	Decimal(n, 200)
+Fraction(1, 1L:75L).collect { :n |
+	Decimal(n, 200L)
 	.integerDigits
 	.allButLast
-	.findTransientRepeat(2)
+	.findTransientRepeat(2L)
 	.catenate
 	.sum
 }.scatterPlot

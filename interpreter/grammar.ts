@@ -21,7 +21,7 @@ Sl {
     MethodNameOrMethodNameList
 		= methodName
 		| MethodNameList
-	TypeDefinition = typeName "!"? TraitList "{" SlotDefinitions? (MethodNameOrMethodNameList Block)* "}"
+	TypeDefinition = typeName "!"? TraitList "{" SlotDefinitions? angleBracketedTraitOrTypeName? (MethodNameOrMethodNameList Block)* "}"
 	TypeExtension = "+" typeName "{" (MethodNameOrMethodNameList Block)* "}"
 	MethodDefinitions = "+" "[" NonemptyListOf<typeOrTraitName, ","> "]" "{" (MethodNameOrMethodNameList Block)* "}"
 	SlotDefinitions = ConciseSlotDefinitions | VerboseSlotDefinitions
@@ -158,6 +158,7 @@ Sl {
 	VolumeSyntaxItems = NonemptyListOf<MatrixSyntaxItems, ";">
     WorkspaceVariableReference = "workspace" "." varName
 
+    angleBracketedTraitOrTypeName = "<" (qualifiedTraitName | typeName) ">"
 	argumentName = ":" varNameOrUnused
 	unqualifiedIdentifier = letter letterOrDigit* "!"?
 	negatedIdentifier = "-" lowercaseIdentifier

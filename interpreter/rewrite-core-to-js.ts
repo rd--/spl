@@ -116,6 +116,7 @@ function makeTypeDefinition(
 	typeName: string,
 	traits: string,
 	instanceVariables: string,
+    uncheckedConstructorName: string | null,
 	methodNames: ohm.Node[],
 	methodBlocks: ohm.Node[],
 ): string {
@@ -245,12 +246,13 @@ const asJs: ohm.ActionDict<string> = {
 			(c) => `'@${c.sourceString}'`,
 		).join(', ');
 	},
-	TypeDefinition(n, h, t, _l, v, mn, mb, _r) {
+	TypeDefinition(n, h, t, _l, v, _, mn, mb, _r) {
 		return makeTypeDefinition(
 			h.sourceString === '!',
 			n.sourceString,
 			t.asJs,
 			v.asJs,
+			null,
 			mn.children,
 			mb.children,
 		);
