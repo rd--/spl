@@ -44,7 +44,9 @@ TemporalData : [Object, Equal] {
 	}
 
 	pathList { :self |
-		self.timeList.withCollect(self.valueList) { :i :j |
+		self.timeList.withCollect(
+			self.valueList
+		) { :i :j |
 			[i, j].transpose
 		}
 	}

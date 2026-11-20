@@ -1,7 +1,7 @@
 # TimeSeries
 
 - _TimeSeries([t₁ v₁; t₂ v₂ …])_
-- _TimeSeries(v, t)_
+- _TimeSeries([v₁ v₂ …], [t₁ t₂ …])_
 
 A `Type` representing a time series,
 specified either as a two-column matrix of _(time, value)_ pairs,

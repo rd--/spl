@@ -52,12 +52,10 @@ TimeSeries(
 Plot temporal data:
 
 ~~~spl svg=A
-TemporalData(
-	[
-		0 0; 0.25 0.75; 0.75 0; 1 0:;
-		0 0; 0.5 1; 1 0
-	]
-).linePlot
+TemporalData[
+	0 0; 0.25 0.75; 0.75 0; 1 0:;
+	0 0; 0.5 1; 1 0
+].linePlot
 ~~~
 
 ![](Help/Image/TemporalData-A.svg)
@@ -78,7 +76,10 @@ Create a collection of paths with equivalent times:
 let p = [2 1 6 5 7 4];
 let q = [4 7 5 6 1 2];
 let t = [1 2 5 10 12 15];
-TemporalData([p q], [t t]).linePlot
+TemporalData(
+	[p q],
+	[t t]
+).linePlot
 ~~~
 
 ![](Help/Image/TemporalData-C.svg)
