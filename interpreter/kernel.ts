@@ -838,10 +838,12 @@ export async function primitiveLoadPackageSequence(
 
 declare global {
 	var _system: System;
+	var _workspace: object;
 }
 
 export function assignGlobals() {
 	globalThis._system = system;
+	globalThis._workspace = {};
 }
 
 /* https://regex101.com/r/Awcj1k/1 */

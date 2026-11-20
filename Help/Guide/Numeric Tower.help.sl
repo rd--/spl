@@ -143,5 +143,5 @@ even when the answer is real and integer valued:
 
 * * *
 
-See also: Integer, Float, Fraction, Complex
+See also: Complex, Float, Fraction, Integer
 

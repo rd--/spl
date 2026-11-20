@@ -36,7 +36,6 @@
 - `Temporary Block Syntax`
 - `Trailing Block Syntax`
 - `Unary Operator Syntax`
-- `Workspace Variable Syntax`
 
 ## Accessing Syntax
 

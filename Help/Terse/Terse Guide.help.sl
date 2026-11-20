@@ -3769,11 +3769,10 @@ system.evaluateNotifying('') { :err | true } /* empty input likewise */
 ## System -- workspace variables
 ```
 system.isIndexable = false /* system is not indexable */
-system.workspaceVariableDictionary.isDictionary /* the system workspace is a dictionary */
-system.workspaceVariableDictionary.isRecord /* specifically, it is a record */
-workspace.twoPi := 2.pi; workspace.twoPi / 2 = 1.pi /* declare and then access a workspace variable */
-system.workspaceVariableDictionary.indices.includes('twoPi') /* workspace is indexable */
-system.workspaceVariableDictionary.indexOf(2.pi) = 'twoPi' /* workspace is indexable */
+workspace.isRecord /* the workspace is a record */
+workspace['twoPi'] := 2.pi; workspace['twoPi'] / 2 = 1.pi /* declare and then access a workspace variable */
+workspace.includesKey('twoPi') /* workspace is indexable */
+workspace.indexOf(2.pi) = 'twoPi' /* workspace is indexable */
 ```
 
 ## System -- methodDictionary

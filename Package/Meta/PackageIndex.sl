@@ -96,6 +96,7 @@
 	'Collection-WeightedData'
 	'Exception-Error'
 	'Exception-Missing'
+	'Geometry-AnnotatedGeometry'
 	'Geometry-Annulus'
 	'Geometry-Arc'
 	'Geometry-AxonometricProjection'

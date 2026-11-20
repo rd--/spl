@@ -181,12 +181,6 @@ const asSl: ohm.ActionDict<string> = {
 	FinalStatement(e) {
 		return e.asSl;
 	},
-	WorkspaceVariableAssignment(_workspace, _dot, varName, _colonEquals, expr) {
-		return `workspaceVariableAssignment!(system, '${varName.asSl}', ${expr.asSl})`;
-	},
-	WorkspaceVariableReference(_workspace, _dot, varName) {
-		return `workspaceVariableReference(system, '${varName.asSl}')`;
-	},
 	LetBinding(_let, tmp) {
 		return `let ${tmp.asSl}`;
 	},

@@ -303,7 +303,7 @@ Guides (A-Z):
 - `What is a Type`
 - `Why Spl`
 - `Window Functions`
-- `Workspace Variable Syntax`
+- `Workspace Variables`
 - `Writing Primitives`
 - `Xenharmonic Functions`
 

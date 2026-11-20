@@ -18,7 +18,7 @@ then right (_y_),
 then toward the front (_x_):
 
 ~~~spl svg=A
-workspace.perspectiveScene := [
+workspace['perspectiveScene'] := [
 	[	-2 -1 0;
 		+2 -1 0;
 		+2 +1 0;
@@ -32,11 +32,11 @@ workspace.perspectiveScene := [
 	].Line
 ].GeometryCollection;
 PerspectiveDrawing(
-	workspace.perspectiveScene,
+	workspace['perspectiveScene'],
 	AxonometricProjection[
-		-1/2 1/6.pi;
-		1 0;
-		1 1/2.pi
+		-0.5 1/6.pi;
+		1.0 0.0;
+		1.0 1/2.pi
 	]
 )
 ~~~
@@ -54,7 +54,7 @@ and the line _l_ first moves toward the back (_z_), then up (_y_), then right (_
 
 ~~~spl svg=B
 PerspectiveDrawing(
-	workspace.perspectiveScene,
+	workspace['perspectiveScene'],
 	AxonometricProjection[
 		1 0;
 		1 1/2.pi;
@@ -78,7 +78,7 @@ then rightward (_x_):
 
 ~~~spl svg=C
 PerspectiveDrawing(
-	workspace.perspectiveScene,
+	workspace['perspectiveScene'],
 	AxonometricProjection[
 		1 0;
 		1/2 1/6.pi;

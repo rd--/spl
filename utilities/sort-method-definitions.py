@@ -10,7 +10,7 @@ Check that each file follows the format:
 A "Definition block" is:
 
 1. "Definition header", begins [A-Z@+], ends " {", followed by blank line.
-2. Optional "Slot list", begins "\t| ", ends " |", followed by blank line.
+2. Optional "Slot list", begins "\t| ", ends " |" or ">", followed by blank line.
 3. Zero or more "Method blocks", separated by blank lines.
 
 A "Method block" is:
@@ -58,7 +58,7 @@ def is_library_item_start(line: str) -> bool:
 
 def is_slot_line(line: str) -> bool:
     stripped = line.rstrip("\n")
-    return stripped.startswith("\t| ") and stripped.endswith(" |")
+    return stripped.startswith("\t| ") and (stripped.endswith(" |") or stripped.endswith(">"))
 
 
 def get_method_sort_key_from_header(header_line: str) -> str:

@@ -78,7 +78,7 @@ Matrix33(1, 1, 1, 1, 0, 0, 0, 1, 0).inverse = Matrix33(0, 1, 0, 0, 0, 1, 1, -1, 
 
 ## SmallHours
 ```
-workspace.smallHours.helpFind('Collection')
+smallHours.helpFind('Collection')
 ```
 
 ## Cli

@@ -96,6 +96,7 @@
 
 	/* Geometry */
 	'Geometry' /* Trait */
+	'AnnotatedGeometry'
 	'Annulus'
 	'Arc'
 	'Ball'

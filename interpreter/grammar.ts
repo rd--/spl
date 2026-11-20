@@ -56,11 +56,9 @@ Sl {
 		= ScalarAssignment
 		| ListAssignment // S
 		| RecordAssignment // S
-        | WorkspaceVariableAssignment // S
 	ScalarAssignment = varName ":=" Expression
 	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression // S
 	RecordAssignment = "(" NonemptyListOf<RecordInitializerItem, ","> ")" ":=" Expression // S
-    WorkspaceVariableAssignment = "workspace" "." varName ":=" Expression // S
 	BinaryExpression // S
 		= BinaryOperatorExpression // S
 		| BinaryOperatorWithAdverbExpression // S
@@ -81,7 +79,6 @@ Sl {
 		| ApplyWithTrailingClosuresSyntax // S
 		| ApplySyntax
 		| EmptyListSyntax
-        | WorkspaceVariableReference // S
 		| reservedIdentifier
 		| literal
         | arityQualifiedIdentifier
@@ -156,7 +153,6 @@ Sl {
 	MatrixSyntaxItems = VectorSyntaxItem*
 	VolumeSyntax = "[" NonemptyListOf<VolumeSyntaxItems, ":;"> "]"
 	VolumeSyntaxItems = NonemptyListOf<MatrixSyntaxItems, ";">
-    WorkspaceVariableReference = "workspace" "." varName
 
     angleBracketedTraitOrTypeName = "<" (qualifiedTraitName | typeName) ">"
 	argumentName = ":" varNameOrUnused

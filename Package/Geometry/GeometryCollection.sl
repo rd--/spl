@@ -62,6 +62,10 @@ GeometryCollection : [Object, Equal, Geometry] {
 		)
 	}
 
+	drawing { :self |
+		GeometryCollection(self).drawing
+	}
+
 	lineCollection { :self |
 		self.collect(Line/1).GeometryCollection
 	}
