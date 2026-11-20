@@ -1,6 +1,6 @@
 Rectangle : [Object, Store, Equal, Geometry] {
 
-	| lowerLeft upperRight |
+	| lowerLeft upperRight | <List>
 
 	[Polygon, rectangleToPolygon] { :self |
 		self.vertexCoordinates.Polygon
@@ -305,7 +305,7 @@ Rectangle : [Object, Store, Equal, Geometry] {
 		(lowerLeft.rank > 1).if {
 			lowerLeft.withCollect(upperRight.nest, Rectangle/2)
 		} {
-			newRectangle().initializeSlots(lowerLeft, upperRight)
+			uncheckedRectangle(lowerLeft, upperRight)
 		}
 	}
 

@@ -1,6 +1,6 @@
 Parallelepiped : [Object, Geometry] {
 
-	| origin vectorList |
+	| origin vectorList | <List>
 
 	PerspectiveDrawing { :self |
 		self.Polyhedron.PerspectiveDrawing
@@ -59,7 +59,7 @@ Parallelepiped : [Object, Geometry] {
 	Parallelepiped { :origin :vectorList |
 		origin.assertIsOfSize(3);
 		vectorList.assertIsOfShape([3 3]);
-		newParallelepiped().initializeSlots(origin, vectorList)
+		uncheckedParallelepiped(origin, vectorList)
 	}
 
 }

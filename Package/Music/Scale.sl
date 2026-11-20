@@ -1,6 +1,6 @@
 Scale : [Object, Store] {
 
-	| intervals description startIndex |
+	| intervals description startIndex | <List>
 
 	LineDrawing { :self |
 		let i = [0] ++ self.intervals.prefixSum * 3;
@@ -164,7 +164,7 @@ Scale : [Object, Store] {
 +List {
 
 	Scale { :intervals :description :startIndex |
-		newScale().initializeSlots(intervals, description, startIndex)
+		uncheckedScale(intervals, description, startIndex)
 	}
 
 	Scale { :intervals :description |

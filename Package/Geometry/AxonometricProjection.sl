@@ -1,6 +1,6 @@
 AxonometricProjection : [Object, Equal] {
 
-	| xRadius xTheta yRadius yTheta zRadius zTheta |
+	| xRadius xTheta yRadius yTheta zRadius zTheta | <Float>
 
 	polarCoordinates { :self |
 		[
@@ -43,8 +43,7 @@ AxonometricProjection : [Object, Equal] {
 +Float {
 
 	AxonometricProjection { :gamma :beta :alpha :z :y :x |
-		newAxonometricProjection()
-		.initializeSlots(
+		uncheckedAxonometricProjection(
 			x, 1.pi - alpha,
 			y, 0.5.pi + beta,
 			z, gamma
@@ -57,8 +56,7 @@ AxonometricProjection : [Object, Equal] {
 
 	AxonometricProjection { :self |
 		let [x, y, z] = self;
-		newAxonometricProjection()
-		.initializeSlots(
+		uncheckedAxonometricProjection(
 			x[1], x[2],
 			y[1], y[2],
 			z[1], z[2]

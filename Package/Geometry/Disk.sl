@@ -1,6 +1,6 @@
 Disk : [Object, Equal, Geometry] {
 
-	| center radius |
+	| center radius | <List>
 
 	[Circle, diskToCircle] { :self |
 		Circle(self.center, self.radius)
@@ -43,7 +43,7 @@ Disk : [Object, Equal, Geometry] {
 		(center.rank > 1).if {
 			center.withCollect(radius.nest, Disk/2)
 		} {
-			newDisk().initializeSlots(center, radius)
+			uncheckedDisk(center, radius)
 		}
 	}
 

@@ -2,7 +2,7 @@
 
 CentsTuning : [Object, Store, Equal, Tuning] {
 
-	| name description cents octave |
+	| name description cents octave | <String>
 
 	approximateRatios { :self |
 		self.cents.collect(centsToRatio/1)
@@ -21,7 +21,7 @@ CentsTuning : [Object, Store, Equal, Tuning] {
 +String {
 
 	CentsTuning { :name :description :cents :octave |
-		newCentsTuning().initializeSlots(name, description, cents, octave)
+		uncheckedCentsTuning(name, description, cents, octave)
 	}
 
 }

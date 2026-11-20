@@ -1,6 +1,6 @@
 TimeSeries : [Object, Store, Equal, Do, At, Indices, Put, Collection] {
 
-	| values times |
+	| values times | <List>
 
 	akimaInterpolator { :self |
 		self.times.akimaInterpolator(
@@ -270,7 +270,7 @@ TimeSeries : [Object, Store, Equal, Do, At, Indices, Put, Collection] {
 	}
 
 	TimeSeries { :values :times |
-		newTimeSeries().initializeSlots(values, times)
+		uncheckedTimeSeries(values, times)
 	}
 
 }

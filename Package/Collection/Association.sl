@@ -2,7 +2,7 @@
 
 Association : [Object, Store, Copy, Equal, Compare] {
 
-	| key value |
+	| key value | <@Object>
 
 	compare { :self :anAssociation |
 		compareOn(self, anAssociation, key/1)
@@ -43,10 +43,6 @@ Association : [Object, Store, Copy, Equal, Compare] {
 
 	[reverseAssociation, <-] { :self :anObject |
 		Association(anObject, self)
-	}
-
-	uncheckedAssociation { :self :anObject |
-		newAssociation().initializeSlots(self, anObject)
 	}
 
 }

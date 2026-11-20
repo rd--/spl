@@ -423,17 +423,10 @@ export function extendTypeOrTraitWithMethod(
 	block: Function,
 	sourceCode: MethodSourceCode,
 ): Method {
-	if (isTraitName(typeOrTraitName)) {
-		return extendTraitWithMethod(
-			typeOrTraitName,
-			packageName,
-			name,
-			parameterNames,
-			block,
-			sourceCode,
-		);
-	}
-	return addMethodToExistingType(
+	const builderFunction = isTraitName(typeOrTraitName)
+		? extendTraitWithMethod
+		: addMethodToExistingType;
+	return builderFunction(
 		typeOrTraitName,
 		packageName,
 		name,
@@ -658,6 +651,7 @@ export function addType(
 	packageName: PackageName,
 	traitList: TraitName[],
 	slotNames: string[],
+    uncheckedConstructorName: string,
 ): void {
 	if (typeExists(typeName) && !preinstalledTypes.includes(typeName)) {
 		throw new Error(
@@ -670,18 +664,65 @@ export function addType(
 	const nilSlots = slotNames.map((each) => `${each}: null`).join(', ');
 	const defNewType = isHostType
 		? ''
-		: `sl.addMethodToExistingType('Void', '${packageName}', 'new${typeName}', [], function() { return {_splType: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
+		: `
+sl.addMethodToExistingType(
+	'Void',
+	'${packageName}',
+	'new${typeName}',
+	[],
+	function() {
+		return {_splType: '${typeName}', ${nilSlots} };
+	},
+	'<primitive: constructor>'
+)`;
 	const defInitializeSlots = isHostType
 		? ''
-		: `sl.addMethodToExistingType('${typeName}', '${packageName}', 'initializeSlots', ${
-			JSON.stringify(['self'].concat(slotNames))
-		}, function(anInstance, ${
-			slotNames.join(', ')
-		}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
-	const defPredicateFalse =
-		`sl.extendTraitWithMethod('@Object', '${packageName}', 'is${typeName}', ['self'], function(anObject) { return false; }, '<primitive: predicate>')`;
-	const defPredicateTrue =
-		`sl.addMethodToExistingType('${typeName}', '${packageName}', 'is${typeName}', ['self'], function(anInstance) { return true; }, '<primitive: predicate>')`;
+		: `
+sl.addMethodToExistingType(
+	'${typeName}',
+	'${packageName}',
+	'initializeSlots',
+	${JSON.stringify(['self'].concat(slotNames))},
+	function(anInstance, ${slotNames.join(', ')}) {
+		${initializeSlots};
+		return anInstance;
+	},
+	'<primitive: initializer>'
+)`;
+	const defUncheckedConstructor = (uncheckedConstructorName === '')
+		? ''
+		: `
+sl.extendTypeOrTraitWithMethod(
+	'${uncheckedConstructorName}',
+	'${packageName}',
+	'unchecked${typeName}',
+	${JSON.stringify(slotNames)},
+	function(${slotNames.join(', ')}) {
+		return _initializeSlots_${1 + slotNames.length}(
+			_new${typeName}_0(),
+			${slotNames.join(', ')}
+		);
+	},
+	'<primitive: unchecked constructor>'
+)`;
+	const defPredicateFalse = `
+sl.extendTraitWithMethod(
+	'@Object',
+	'${packageName}',
+	'is${typeName}',
+	['self'],
+	function(anObject) { return false; },
+	'<primitive: type predicate>'
+)`;
+	const defPredicateTrue = `
+sl.addMethodToExistingType(
+	'${typeName}',
+	'${packageName}',
+	'is${typeName}',
+	['self'],
+	function(anInstance) { return true; },
+	'<primitive: type predicate>'
+)`;
 	// console.debug(`addType: ${typeName}, ${packageName}, ${slotNames}`);
 	const methodDictionary = typeExists(typeName)
 		? system.typeDictionary.get(typeName)!.methodDictionary
@@ -691,21 +732,40 @@ export function addType(
 		new Type(typeName, packageName, traitList, slotNames, methodDictionary),
 	);
 	const defSlotAccess = slotNames.map(
-		(each) =>
-			`sl.addMethodToExistingType('${typeName}', '${packageName}', '${each}', ['self'], function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`,
+		(each) => `
+sl.addMethodToExistingType(
+	'${typeName}',
+	'${packageName}',
+	'${each}',
+	['self'],
+	function(anInstance) { return anInstance.${each} },
+	'<primitive: accessor>'
+);`,
 	).join('; ');
 	const defSlotMutate = slotNames.map(
-		(each) =>
-			`sl.addMethodToExistingType('${typeName}', '${packageName}', '${each}MutateInPlace', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`,
+		(each) => `
+sl.addMethodToExistingType(
+	'${typeName}',
+	'${packageName}',
+	'${each}MutateInPlace',
+	['self', 'anObject'],
+	function(anInstance, anObject) {
+		anInstance.${each} = anObject;
+		return anObject;
+	},
+	'<primitive: mutator>'
+);`,
 	).join('; ');
 	const allDef = [
 		defNewType,
 		defInitializeSlots,
+		defUncheckedConstructor,
 		defPredicateFalse,
 		defPredicateTrue,
 		defSlotAccess,
 		defSlotMutate,
 	].join(';');
+	// console.debug('addType', allDef);
 	// Never use direct eval!
 	eval?.(`"use strict"; ${allDef}`);
 }

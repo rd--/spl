@@ -1,6 +1,6 @@
 GeometryCollection : [Object, Equal, Geometry] {
 
-	| geometryList |
+	| geometryList | <List>
 
 	arcLength { :self |
 		self.geometryList.collect(arcLength/1).sum
@@ -57,7 +57,7 @@ GeometryCollection : [Object, Equal, Geometry] {
 +List {
 
 	GeometryCollection { :self |
-		newGeometryCollection().initializeSlots(
+		uncheckedGeometryCollection(
 			self.flatten
 		)
 	}

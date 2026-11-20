@@ -1,6 +1,6 @@
 Heap : [Object, Copy, Equal, Do, At, Add, Remove] {
 
-	| array sortBlock indexUpdateBlock |
+	| array sortBlock indexUpdateBlock | <List>
 
 	add! { :self :anObject |
 		self.array.add!(anObject);
@@ -212,7 +212,7 @@ Heap : [Object, Copy, Equal, Do, At, Add, Remove] {
 +[List, Range] {
 
 	Heap { :self :aBlock/2 |
-		let answer = newHeap().initializeSlots([], aBlock/2, nil);
+		let answer = uncheckedHeap([], aBlock/2, nil);
 		answer.addAll!(self);
 		answer
 	}

@@ -1,6 +1,6 @@
 BarycentricCoordinates : [Object, Equal] {
 
-	| coordinates |
+	| coordinates | <List>
 
 	CartesianCoordinates { :self :aSimplex |
 		CartesianCoordinates(
@@ -13,7 +13,7 @@ BarycentricCoordinates : [Object, Equal] {
 +List {
 
 	BarycentricCoordinates { :self |
-		newBarycentricCoordinates().initializeSlots(self)
+		uncheckedBarycentricCoordinates(self)
 	}
 
 	fromBarycentricCoordinates { :a :b :c |

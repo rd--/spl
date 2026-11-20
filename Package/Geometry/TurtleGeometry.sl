@@ -1,6 +1,6 @@
 TurtleGeometry : [Object, Equal, Store, Geometry] {
 
-	| instructionList |
+	| instructionList | <List>
 
 	addInstruction! { :self :opcode :argument |
 		self.instructionList.add!([opcode, argument]);
@@ -141,7 +141,7 @@ TurtleGeometry : [Object, Equal, Store, Geometry] {
 +Void {
 
 	TurtleGeometry {
-		newTurtleGeometry().initializeSlots([])
+		uncheckedTurtleGeometry([])
 	}
 
 }

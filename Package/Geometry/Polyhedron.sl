@@ -2,7 +2,7 @@
 
 Polyhedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 
-	| vertexCoordinates faceIndices |
+	| vertexCoordinates faceIndices | <List>
 
 	project { :self :projection |
 		PolygonMesh(
@@ -41,7 +41,7 @@ Polyhedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 	}
 
 	Polyhedron { :vertexCoordinates :faceIndices |
-		newPolyhedron().initializeSlots(vertexCoordinates, faceIndices)
+		uncheckedPolyhedron(vertexCoordinates, faceIndices)
 	}
 
 	unitCube { :center |

@@ -114,26 +114,28 @@ function makeMethodList(
 function makeTypeDefinition(
 	isHostType: boolean,
 	typeName: string,
-	traits: string,
-	instanceVariables: string,
-    uncheckedConstructorName: string | null,
+	traitNames: string,
+	slotNames: string,
+    uncheckedConstructorName: string,
 	methodNames: ohm.Node[],
 	methodBlocks: ohm.Node[],
 ): string {
-	const instanceVariablesList = instanceVariables.split(' ');
-	const traitList = traits.split(', ').filter((each) => each.length > 0);
+	const traitNameList = traitNames.split(', ').filter((each) => each.length > 0);
+	const slotNameList = slotNames.split(' ');
+	// console.debug('makeTypeDefinition', traitNameList, slotNameList, uncheckedConstructorName)
 	const addType = `
 sl.addType(
-\t${isHostType},
-\t'${typeName}',
-\t'${rewrite.rewriteContext.packageName}',
-\t[${traits}],
-\t[${instanceVariablesList}]
+	${isHostType},
+	'${typeName}',
+	'${rewrite.rewriteContext.packageName}',
+	[${traitNames}],
+	[${slotNameList}],
+	'${uncheckedConstructorName}'
 );`;
-	const copyTraits = traitList.map((traitName) => `
+	const copyTraits = traitNameList.map((traitName) => `
 sl.copyTraitMethodsToType(
-\t${traitName},
-\t'${typeName}'
+	${traitName},
+	'${typeName}'
 );`).join('\n');
 	const addMethods = makeMethodList(
 		'addMethodToExistingType',
@@ -246,13 +248,15 @@ const asJs: ohm.ActionDict<string> = {
 			(c) => `'@${c.sourceString}'`,
 		).join(', ');
 	},
-	TypeDefinition(n, h, t, _l, v, _, mn, mb, _r) {
+	TypeDefinition(n, h, t, _l, v, u, mn, mb, _r) {
+		const uStr = u.sourceString;
+		// console.debug('TypeDefinition', uStr, uStr === '');
 		return makeTypeDefinition(
 			h.sourceString === '!',
 			n.sourceString,
 			t.asJs,
 			v.asJs,
-			null,
+			uStr === '' ? '' : rewrite.dropFirstAndLastLetters(uStr),
 			mn.children,
 			mb.children,
 		);

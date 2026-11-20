@@ -43,9 +43,9 @@
 	'RunArray'
 	'SequenceAlignment'
 	'Sort'
-	'SortedSet'
-	'SparseArray'
 	'SortedList'
+	'SortedSet' /* SortedList */
+	'SparseArray'
 	'Stack'
 	'Table'
 	'TemporalData'

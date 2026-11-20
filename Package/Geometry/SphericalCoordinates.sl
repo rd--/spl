@@ -2,7 +2,7 @@
 
 SphericalCoordinates : [Object, Store, Equal] {
 
-	| coordinates |
+	| coordinates | <List>
 
 	CartesianCoordinates { :self |
 		CartesianCoordinates(
@@ -61,7 +61,7 @@ SphericalCoordinates : [Object, Store, Equal] {
 
 	SphericalCoordinates { :self |
 		let [r, theta, phi] = self;
-		newSphericalCoordinates().initializeSlots([r, theta, phi])
+		uncheckedSphericalCoordinates([r, theta, phi])
 	}
 
 }

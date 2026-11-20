@@ -1,13 +1,13 @@
 Box : [Object, Store, Equal] {
 
-	| contents |
+	| contents | <@Object>
 
 }
 
 +@Object {
 
 	Box { :self |
-		newBox().initializeSlots(self)
+		uncheckedBox(self)
 	}
 
 }

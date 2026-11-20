@@ -1,6 +1,6 @@
 BezierCurve : [Object, Equal, Cache, Geometry] {
 
-	| controlPoints splineDegree cache |
+	| controlPoints splineDegree cache | <List>
 
 	approximation { :self |
 		self.cached('approximation') {
@@ -140,7 +140,7 @@ BezierCurve : [Object, Equal, Cache, Geometry] {
 				BezierCurve(each, degree)
 			}
 		} {
-			newBezierCurve().initializeSlots(self, degree, Record())
+			uncheckedBezierCurve(self, degree, Record())
 		}
 	}
 

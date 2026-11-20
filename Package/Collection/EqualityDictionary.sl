@@ -1,6 +1,6 @@
 Dictionary : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, Remove, Dictionary] {
 
-	| keys values comparator |
+	| keys values comparator | <List>
 
 	atIfAbsent { :self :key :ifAbsent/0 |
 		let index = self.keys.indexOfBy(key, self.comparator);
@@ -53,7 +53,7 @@ Dictionary : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection,
 +Void {
 
 	[Dictionary, emptyDictionary] {
-		newDictionary().initializeSlots([], [], =)
+		uncheckedDictionary([], [], =)
 	}
 
 }

@@ -1,6 +1,6 @@
 Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, ImplicitInteger] {
 
-	| numerator denominator |
+	| numerator denominator | <Integer>
 
 	[Float, F, fractionToFloat] { :self |
 		Float(self.numerator)
@@ -822,17 +822,6 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 			Integer(self),
 			1L
 		]
-	}
-
-}
-
-+Integer {
-
-	uncheckedFraction { :numerator :denominator |
-		newFraction().initializeSlots(
-			numerator,
-			denominator
-		)
 	}
 
 }

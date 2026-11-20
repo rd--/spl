@@ -1,6 +1,6 @@
 TemporalData : [Object, Equal] {
 
-	| valueList timeList |
+	| valueList timeList | <List>
 
 	TimeSeries { :self |
 		let v = self.valueList;
@@ -96,7 +96,7 @@ TemporalData : [Object, Equal] {
 
 	TemporalData { :v :t |
 		(v.size = t.size).if {
-			newTemporalData().initializeSlots(v, t)
+			uncheckedTemporalData(v, t)
 		} {
 			[v, t].error('TemporalData: size mismatch')
 		}

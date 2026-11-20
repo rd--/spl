@@ -69,6 +69,10 @@ export function dropLastLetter(x: string): string {
 	return x.substring(0, x.length - 1);
 }
 
+export function dropFirstAndLastLetters(x: string): string {
+	return x.substring(1, x.length - 1);
+}
+
 export function simplifyIntegerDigits(x: string): string {
 	return deleteLeadingZeroes(
 		deleteUnderscores(x),

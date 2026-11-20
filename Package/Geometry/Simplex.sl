@@ -1,6 +1,6 @@
 Simplex : [Object, Equal] {
 
-	| coordinates |
+	| coordinates | <List>
 
 	content { :self |
 		self.coordinates.cayleyMengerDeterminant
@@ -11,7 +11,7 @@ Simplex : [Object, Equal] {
 +List {
 
 	Simplex { :self |
-		newSimplex().initializeSlots(self)
+		uncheckedSimplex(self)
 	}
 
 }

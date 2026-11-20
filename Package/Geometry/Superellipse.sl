@@ -1,6 +1,6 @@
 Superellipse : [Object, Equal, Geometry] {
 
-	| center a b n |
+	| center a b n | <List>
 
 	area { :self |
 		4 * self.a * self.b * (((1 + (1 / self.n)).gamma ^ 2) / (1 + (2 / self.n)).gamma)
@@ -28,7 +28,7 @@ Superellipse : [Object, Equal, Geometry] {
 +List {
 
 	Superellipse { :center :a :b :n |
-		newSuperellipse().initializeSlots(center, a, b, n)
+		uncheckedSuperellipse(center, a, b, n)
 	}
 
 }

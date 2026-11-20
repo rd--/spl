@@ -1,6 +1,6 @@
 Annulus : [Object, Store, Equal, Geometry] {
 
-	| center radii |
+	| center radii | <List>
 
 	area { :self |
 		let [r, bigR] = self.radii;
@@ -51,7 +51,7 @@ Annulus : [Object, Store, Equal, Geometry] {
 +List {
 
 	Annulus { :center :radii |
-		newAnnulus().initializeSlots(center, radii)
+		uncheckedAnnulus(center, radii)
 	}
 
 }

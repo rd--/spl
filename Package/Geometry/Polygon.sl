@@ -1,6 +1,6 @@
 Polygon : [Object, Store, Equal, Geometry] {
 
-	| vertexCoordinates |
+	| vertexCoordinates | <List>
 
 	arcLength { :self |
 		self.vertexCoordinates.polygonArcLength
@@ -198,7 +198,7 @@ Polygon : [Object, Store, Equal, Geometry] {
 		(self.depth > 3).if {
 			self.collect(Polygon/1)
 		} {
-			newPolygon().initializeSlots(self)
+			uncheckedPolygon(self)
 		}
 	}
 

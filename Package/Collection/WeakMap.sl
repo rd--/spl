@@ -1,11 +1,15 @@
 WeakMap! : [Object, At, Put] {
 
 	includesIndex { :self :key |
-		<primitive: return _self.has(_key);>
+		<primitive:
+		return _self.has(_key);
+		>
 	}
 
 	put! { :self :key :value |
-		<primitive: _self.set(_key, _value);>
+		<primitive:
+		_self.set(_key, _value);
+		>
 		value
 	}
 
@@ -18,7 +22,9 @@ WeakMap! : [Object, At, Put] {
 +Void {
 
 	WeakMap {
-		<primitive: return new WeakMap();>
+		<primitive:
+		return new WeakMap();
+		>
 	}
 
 }

@@ -1,6 +1,6 @@
 InfinitePlane : [Object, Store, Equal] {
 
-	| a b c d |
+	| a b c d | <@Number>
 
 	area { :self |
 		Infinity
@@ -64,7 +64,7 @@ InfinitePlane : [Object, Store, Equal] {
 +@Number {
 
 	InfinitePlane { :a :b :c :d |
-		newInfinitePlane().initializeSlots(a, b, c, d)
+		uncheckedInfinitePlane(a, b, c, d)
 	}
 
 }

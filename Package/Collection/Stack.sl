@@ -1,6 +1,8 @@
+/* Requires: LinkedList */
+
 Stack : [Object, Copy, Store, Equal] {
 
-	| linkedList |
+	| linkedList | <LinkedList>
 
 	errorEmptyStack { :self |
 		self.error('Stack is empty')
@@ -58,7 +60,7 @@ Stack : [Object, Copy, Store, Equal] {
 +Void {
 
 	Stack {
-		newStack().initializeSlots(LinkedList())
+		uncheckedStack(LinkedList())
 	}
 
 }

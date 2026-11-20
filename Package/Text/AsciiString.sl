@@ -1,6 +1,6 @@
 AsciiString : [Object, New, Store, Copy, Equal, Do, At, Indices, Put, Collection, Sequence] {
 
-	| byteArray |
+	| byteArray | <ByteArray>
 
 	[AsciiString, copyAsciiString] { :self |
 		self.copy
@@ -64,18 +64,12 @@ AsciiString : [Object, New, Store, Copy, Equal, Do, At, Indices, Put, Collection
 
 }
 
-+ByteArray {
-
-	[uncheckedAsciiString, uncheckedByteArrayToAsciiString] { :self |
-		newAsciiString().initializeSlots(self)
-	}
-
-}
-
 +[Float, Integer] {
 
 	zeroAsciiString { :self |
-		ByteArray(self, 0).uncheckedAsciiString
+		uncheckedAsciiString(
+			ByteArray(self, 0)
+		)
 	}
 
 }
@@ -83,7 +77,9 @@ AsciiString : [Object, New, Store, Copy, Equal, Do, At, Indices, Put, Collection
 +String {
 
 	[AsciiString, stringToAsciiString] { :self |
-		self.asciiByteArray.uncheckedAsciiString
+		uncheckedAsciiString(
+			self.asciiByteArray
+		)
 	}
 
 }

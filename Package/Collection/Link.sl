@@ -92,7 +92,7 @@
 
 Link : [Object, Copy, Store, Equal, Do, Collection, Link] {
 
-	| value nextLink |
+	| value nextLink | <@Object>
 
 	collect { :self :aBlock/1 |
 		let answer = nil;
@@ -136,10 +136,6 @@ Link : [Object, Copy, Store, Equal, Do, Collection, Link] {
 		} {
 			self.error('Link', [aLinkOrNil])
 		}
-	}
-
-	uncheckedLink { :self :aLinkOrNil |
-		newLink().initializeSlots(self, aLinkOrNil)
 	}
 
 }

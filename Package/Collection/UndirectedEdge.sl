@@ -1,6 +1,6 @@
 UndirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 
-	| vertexList |
+	| vertexList | <List>
 
 	[DirectedEdge, undirectedEdgeToDirectedEdge] { :self |
 		let [i, j] = self.vertexList;
@@ -96,7 +96,7 @@ UndirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 +[Float, Integer] {
 
 	[UndirectedEdge, ---] { :self :anInteger |
-		newUndirectedEdge().initializeSlots(
+		uncheckedUndirectedEdge(
 			[self, anInteger].sort!
 		)
 	}

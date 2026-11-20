@@ -2,7 +2,7 @@
 
 Markdown : [Object, Equal, Cache, Do] {
 
-	| source cache |
+	| source cache | <String>
 
 	[Tree, markdownToTree] { :self |
 		let items = [];
@@ -186,7 +186,7 @@ Markdown : [Object, Equal, Cache, Do] {
 +String {
 
 	Markdown { :self |
-		newMarkdown().initializeSlots(self, Record())
+		uncheckedMarkdown(self, Record())
 	}
 
 	isCodeFence { :self |

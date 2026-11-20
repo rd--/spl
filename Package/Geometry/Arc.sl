@@ -1,6 +1,6 @@
 Arc : [Object, Store, Equal, Geometry] {
 
-	| center radii angles |
+	| center radii angles | <List>
 
 	apothem { :self |
 		let a = self.chordLength;
@@ -157,7 +157,7 @@ Arc : [Object, Store, Equal, Geometry] {
 +List {
 
 	Arc { :center :radii :angles |
-		newArc().initializeSlots(center, radii, angles)
+		uncheckedArc(center, radii, angles)
 	}
 
 	circularArcThrough { :self |

@@ -1,6 +1,6 @@
 MemoizationTable : [Object, Do, Collection] {
 
-	| block table |
+	| block table | <Block>
 
 	at { :self :key |
 		self.table.atIfAbsent(key) {
@@ -49,7 +49,7 @@ MemoizationTable : [Object, Do, Collection] {
 	}
 
 	MemoizationTable { :self :table |
-		newMemoizationTable().initializeSlots(
+		uncheckedMemoizationTable(
 			self,
 			table
 		)

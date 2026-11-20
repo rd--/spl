@@ -1,6 +1,6 @@
 Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, Sequence, ArithmeticProgression] {
 
-	| start stop step size |
+	| start stop step size | <@Number>
 
 	[Range, identity] { :self |
 		self
@@ -166,7 +166,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 		start.isFinite.ifFalse {
 			start.error('@Number>>Range: start is not finite')
 		};
-		newRange().initializeSlots(start, stop, step, size)
+		uncheckedRange(start, stop, step, size)
 	}
 
 	[Range, to, toBy] { :start :stop :step |

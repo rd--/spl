@@ -1,6 +1,6 @@
 Circle : [Object, Store, Equal, Geometry] {
 
-	| center radius |
+	| center radius | <List>
 
 	[GeneralisedCircle, circleToGeneralisedCircle] { :self |
 		let c = 1;
@@ -169,10 +169,6 @@ Circle : [Object, Store, Equal, Geometry] {
 		self.size = 4 & {
 			(2 * self.square.sum) = self.sum.square
 		}
-	}
-
-	uncheckedCircle { :center :radius |
-		newCircle().initializeSlots(center, radius)
 	}
 
 	unitCircle { :center |

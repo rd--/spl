@@ -1,6 +1,6 @@
 CategoryDictionary : [Object] {
 
-	| domainDictionary |
+	| domainDictionary | <Record>
 
 	categoriesOf { :self :domain :entry |
 		let dictionary = self.domain(domain);
@@ -126,7 +126,7 @@ CategoryDictionary : [Object] {
 +Void {
 
 	CategoryDictionary {
-		newCategoryDictionary().initializeSlots(Record())
+		uncheckedCategoryDictionary(Record())
 	}
 
 }

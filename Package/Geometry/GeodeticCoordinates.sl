@@ -1,6 +1,6 @@
 GeodeticCoordinates : [Object, Equal] {
 
-	| coordinates |
+	| coordinates | <List>
 
 	elevation { :self |
 		self.coordinates[3]
@@ -35,7 +35,7 @@ GeodeticCoordinates : [Object, Equal] {
 		(c.size = 2).ifTrue {
 			c.addLast!(0)
 		};
-		newGeodeticCoordinates().initializeSlots(c)
+		uncheckedGeodeticCoordinates(c)
 	}
 
 }

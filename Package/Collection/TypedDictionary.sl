@@ -1,6 +1,6 @@
 TypedDictionary : [Object, Store, Equal, Do, At, Indices, Put, Collection, Dictionary] {
 
-	| keyType untypedDictionary |
+	| keyType untypedDictionary | <String>
 
 	atIfAbsent { :self :key :aBlock/0 |
 		self.untypedDictionary.atIfAbsent(
@@ -59,14 +59,6 @@ TypedDictionary : [Object, Store, Equal, Do, At, Indices, Put, Collection, Dicti
 
 	values { :self |
 		self.untypedDictionary.values
-	}
-
-}
-
-+String {
-
-	uncheckedTypedDictionary { :self :aDictionary |
-		newTypedDictionary().initializeSlots(self, aDictionary)
 	}
 
 }

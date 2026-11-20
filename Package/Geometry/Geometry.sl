@@ -52,7 +52,7 @@
 
 AnnotatedGeometry : [Object, Geometry] {
 
-	| geometry annotation |
+	| geometry annotation | <@Geometry>
 
 	boundingBox { :self |
 		self.geometry.boundingBox
@@ -105,7 +105,10 @@ AnnotatedGeometry : [Object, Geometry] {
 +@Geometry {
 
 	AnnotatedGeometry { :self :annotation |
-		newAnnotatedGeometry().initializeSlots(self, annotation)
+		uncheckedAnnotatedGeometry(
+			self,
+			annotation
+		)
 	}
 
 }

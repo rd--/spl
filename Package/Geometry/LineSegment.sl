@@ -1,6 +1,6 @@
 LineSegment : [Object, Equal] {
 
-	| u v |
+	| u v | <List>
 
 	arcLength { :self |
 		self.u.euclideanDistance(self.v)
@@ -66,7 +66,7 @@ LineSegment : [Object, Equal] {
 +List {
 
 	LineSegment { :u :v |
-		newLineSegment().initializeSlots(u, v)
+		uncheckedLineSegment(u, v)
 	}
 
 	LineSegment { :self |

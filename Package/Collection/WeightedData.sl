@@ -1,6 +1,6 @@
 WeightedData : [Object, Equal] {
 
-	| inputData weights |
+	| inputData weights | <List>
 
 	mean { :self |
 		let x = self.inputData;
@@ -66,7 +66,7 @@ WeightedData : [Object, Equal] {
 		} {
 			wSpecifier
 		};
-		newWeightedData().initializeSlots(x, w)
+		uncheckedWeightedData(x, w)
 	}
 
 }

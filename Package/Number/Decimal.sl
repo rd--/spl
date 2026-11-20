@@ -2,7 +2,7 @@
 
 Decimal : [Object, Store, Equal, Compare, Number] {
 
-	| decimalFraction scale |
+	| decimalFraction scale | <Fraction>
 
 	[Decimal, rescaleDecimal] { :self :scale |
 		Decimal(
@@ -396,13 +396,6 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 			Integer(defaultScale)
 		};
 		uncheckedDecimal(self, k)
-	}
-
-	uncheckedDecimal { :fraction :scale |
-		newDecimal().initializeSlots(
-			fraction,
-			scale
-		)
 	}
 
 }

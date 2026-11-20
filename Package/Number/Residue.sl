@@ -1,6 +1,6 @@
 Residue : [Object, Store, Equal, Compare, Number] {
 
-	| commonResidue modulus |
+	| commonResidue modulus | <Integer>
 
 	< { :self :aNumber |
 		self.commonResidue < self.assertIsCompatibleOperand(aNumber).commonResidue
@@ -112,14 +112,10 @@ Residue : [Object, Store, Equal, Compare, Number] {
 
 	Residue { :n :m |
 		m.isInteger.if {
-			uncheckedResidue(n, m)
+			uncheckedResidue(n % m, m)
 		} {
 			m.adaptToIntegerAndApply(n, Residue/2)
 		}
-	}
-
-	uncheckedResidue { :i :m |
-		newResidue().initializeSlots(i % m, m)
 	}
 
 }

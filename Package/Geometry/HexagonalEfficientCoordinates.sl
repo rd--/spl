@@ -1,6 +1,6 @@
 HexagonalEfficientCoordinates : [Object, Equal] {
 
-	| coordinates |
+	| coordinates | <List>
 
 	CartesianCoordinates { :self |
 		self
@@ -65,7 +65,7 @@ HexagonalEfficientCoordinates : [Object, Equal] {
 
 	HexagonalEfficientCoordinates { :self |
 		let [a, r, c] = self;
-		newHexagonalEfficientCoordinates().initializeSlots([a, r, c])
+		uncheckedHexagonalEfficientCoordinates([a, r, c])
 	}
 
 	fromHexagonalEfficientCoordinates { :self |

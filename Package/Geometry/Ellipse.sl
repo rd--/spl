@@ -1,6 +1,6 @@
 Ellipse : [Object, Equal, Geometry] {
 
-	| center radii |
+	| center radii | <List>
 
 	area { :self |
 		let [rx, ry] = self.radii;
@@ -112,7 +112,7 @@ Ellipse : [Object, Equal, Geometry] {
 			center.withCollect(radii, Ellipse/2)
 		} {
 			(radii.size = 2).if {
-				newEllipse().initializeSlots(center, radii)
+				uncheckedEllipse(center, radii)
 			} {
 				'Sequence>>Ellipse: invalid radii'.error
 			}

@@ -1,6 +1,8 @@
+/* Requires: Date */
+
 DateAndTime : [Object, Store, Equal, Compare] {
 
-	| hiddenRepresentation |
+	| hiddenRepresentation | <Date>
 
 	[Date, dateAndTimeToDate] { :self |
 		Date(
@@ -140,7 +142,7 @@ DateAndTime : [Object, Store, Equal, Compare] {
 +[Float, Integer] {
 
 	DateAndTime { :self |
-		newDateAndTime().initializeSlots(
+		uncheckedDateAndTime(
 			Float(self).primitiveDateAndTime
 		)
 	}

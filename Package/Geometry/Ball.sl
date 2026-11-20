@@ -1,6 +1,6 @@
 Ball : [Object, Equal, Geometry] {
 
-	| center radius |
+	| center radius | <List>
 
 	dimension { :self |
 		3
@@ -28,7 +28,7 @@ Ball : [Object, Equal, Geometry] {
 +List {
 
 	Ball { :center :radius |
-		newBall().initializeSlots(center, radius)
+		uncheckedBall(center, radius)
 	}
 
 }

@@ -1,6 +1,6 @@
 Line : [Object, Store, Equal, Geometry] {
 
-	| vertexCoordinates |
+	| vertexCoordinates | <List>
 
 	arcLength { :self |
 		let answer = 0;
@@ -119,7 +119,7 @@ Line : [Object, Store, Equal, Geometry] {
 		(self.rank > 2).if {
 			self.collect(Line/1)
 		} {
-			newLine().initializeSlots(self)
+			uncheckedLine(self)
 		}
 	}
 

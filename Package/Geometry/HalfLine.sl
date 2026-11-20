@@ -1,6 +1,6 @@
 HalfLine : [Object, Equal] {
 
-	| point vector |
+	| point vector | <List>
 
 	dimension { :self |
 		1
@@ -15,7 +15,7 @@ HalfLine : [Object, Equal] {
 +List {
 
 	HalfLine { :aPoint :aVector |
-		newHalfLine().initializeSlots(aPoint, aVector)
+		uncheckedHalfLine(aPoint, aVector)
 	}
 
 }

@@ -1,6 +1,6 @@
 QuantityArray : [Object, Store, Equal] {
 
-	| magnitudeArray unitOrUnitList |
+	| magnitudeArray unitOrUnitList | <List>
 
 	assertIsValid { :self |
 		(self.unitList.size = self.columnCount).if {
@@ -38,9 +38,10 @@ QuantityArray : [Object, Store, Equal] {
 +List {
 
 	QuantityArray { :magnitudeArray :unitOrUnitList |
-		newQuantityArray()
-		.initializeSlots(magnitudeArray, unitOrUnitList)
-		.assertIsValid
+		uncheckedQuantityArray(
+			magnitudeArray,
+			unitOrUnitList
+		).assertIsValid
 	}
 
 }

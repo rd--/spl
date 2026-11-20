@@ -1,6 +1,6 @@
 Parallelogram : [Object, Equal, Geometry] {
 
-	| origin vectorList |
+	| origin vectorList | <List>
 
 	Polygon { :self |
 		Polygon(self.vertexCoordinates)
@@ -51,7 +51,7 @@ Parallelogram : [Object, Equal, Geometry] {
 +List {
 
 	Parallelogram { :self :vectorList |
-		newParallelogram().initializeSlots(self, vectorList)
+		uncheckedParallelogram(self, vectorList)
 	}
 
 }

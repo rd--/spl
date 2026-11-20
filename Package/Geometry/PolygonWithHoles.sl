@@ -1,6 +1,6 @@
 PolygonWithHoles : [Object, Equal, Geometry] {
 
-	| outerVertexCoordinates innerVertexCoordinatesList |
+	| outerVertexCoordinates innerVertexCoordinatesList | <List>
 
 	area { :self |
 		let o = self.outerVertexCoordinates.shoelaceFormula;
@@ -49,7 +49,7 @@ PolygonWithHoles : [Object, Equal, Geometry] {
 +List {
 
 	PolygonWithHoles { :o :i |
-		newPolygonWithHoles().initializeSlots(o, i)
+		uncheckedPolygonWithHoles(o, i)
 	}
 
 }

@@ -1,6 +1,6 @@
 PolarCoordinates : [Object, Copy, Store, Equal] {
 
-	| rho phi |
+	| rho phi | <@Number>
 
 	[List, polarCoordinatesToList] { :self |
 		self.coordinates
@@ -40,7 +40,7 @@ PolarCoordinates : [Object, Copy, Store, Equal] {
 
 	PolarCoordinates { :rho :phi |
 		phi.isNumber.if {
-			newPolarCoordinates().initializeSlots(rho, phi)
+			uncheckedPolarCoordinates(rho, phi)
 		} {
 			phi.adaptToNumberAndApply(rho, PolarCoordinates/2)
 		}

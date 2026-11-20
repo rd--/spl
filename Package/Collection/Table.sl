@@ -1,6 +1,6 @@
 Table : [Object, Store, Equal] {
 
-	| cellMatrix columnLabels columnTypes |
+	| cellMatrix columnLabels columnTypes | <List>
 
 	atPath { :self :operand |
 		let [i, j] = operand;
@@ -95,7 +95,7 @@ Table : [Object, Store, Equal] {
 
 	Table { :self :columnLabels :columnTypes |
 		self.assertIsMatrix('Table');
-		newTable().initializeSlots(self, columnLabels, columnTypes)
+		uncheckedTable(self, columnLabels, columnTypes)
 	}
 
 	Table { :self :columnLabels |

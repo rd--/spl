@@ -2,7 +2,7 @@
 
 ScalaTuning : [Object, Tuning] {
 
-	| tuningRecord |
+	| tuningRecord | <Record>
 
 	RatioTuning { :self |
 		RatioTuning(self.ratios)
@@ -85,7 +85,7 @@ ScalaTuning : [Object, Tuning] {
 +Record {
 
 	ScalaTuning { :self |
-		newScalaTuning().initializeSlots(self)
+		uncheckedScalaTuning(self)
 	}
 
 }

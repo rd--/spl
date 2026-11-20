@@ -1,6 +1,6 @@
 DelaunayTriangulation : [Object] {
 
-	| vertexCoordinates triangulation |
+	| vertexCoordinates triangulation | <List>
 
 	LineDrawing { :self |
 		let v = self.vertexCoordinates;
@@ -172,10 +172,9 @@ DelaunayTriangulation : [Object] {
 				coordinateVector[index + 1] := y;
 				index := index + 2
 			};
-			newDelaunayTriangulation()
-			.initializeSlots(
+			uncheckedDelaunayTriangulation(
 				self,
-				coordinateVector.uncheckedDelaunayTriangulation
+				primitiveDelaunayTriangulation(coordinateVector)
 			)
 		} {
 			self.error('DelaunayTriangulation: not two column matrix')
@@ -202,8 +201,10 @@ DelaunayTriangulation : [Object] {
 
 +Float64Array {
 
-	uncheckedDelaunayTriangulation { :self |
-		<primitive: return new sl.Delaunator(_self);>
+	primitiveDelaunayTriangulation { :self |
+		<primitive:
+		return new sl.Delaunator(_self);
+		>
 	}
 
 }

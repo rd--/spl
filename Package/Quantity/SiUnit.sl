@@ -1,6 +1,6 @@
 SiUnit : [Object, Store, Equal] {
 
-	| name symbol quantity dimension |
+	| name symbol quantity dimension | <String>
 
 	assertIsValid { :self |
 		(
@@ -87,11 +87,6 @@ SiUnit : [Object, Store, Equal] {
 				whenAbsent()
 			}
 		}
-	}
-
-	uncheckedSiUnit { :name :symbol :quantity :dimension |
-		newSiUnit()
-		.initializeSlots(name, symbol, quantity, dimension)
 	}
 
 }

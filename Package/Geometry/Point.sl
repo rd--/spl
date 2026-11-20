@@ -2,7 +2,7 @@
 
 Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 
-	| coordinates |
+	| coordinates | <List>
 
 	boundingBox { :self |
 		{ self.coordinates } ! 2
@@ -63,7 +63,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 
 	Point { :self |
 		self.atVectorOrElementwise { :each |
-			newPoint().initializeSlots(each)
+			uncheckedPoint(each)
 		}
 	}
 

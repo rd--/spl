@@ -2,7 +2,7 @@
 
 BlockStream : [Object, Do, Iterator, Collection, Stream] {
 
-	| onNext onReset nextItem |
+	| onNext onReset nextItem | <Block>
 
 	next { :self |
 		let answer = self.peek;
@@ -31,7 +31,7 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 +Block {
 
 	BlockStream { :onNext :onReset |
-		newBlockStream().initializeSlots(onNext, onReset, nil)
+		uncheckedBlockStream(onNext, onReset, nil)
 	}
 
 	fixedPoint { :self/1 :anObject |

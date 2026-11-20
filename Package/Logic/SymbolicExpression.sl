@@ -215,7 +215,7 @@
 
 Symbol : [Object, Store, Number, SymbolicObject, SymbolicBoolean, SymbolicCompare, SymbolicNumber] {
 
-	| name |
+	| name | <String>
 
 	isEqualSymbolicExpression { :self :anObject |
 		self == anObject
@@ -248,7 +248,7 @@ Symbol : [Object, Store, Number, SymbolicObject, SymbolicBoolean, SymbolicCompar
 
 	Symbol { :self |
 		system.symbolDictionary.atIfAbsentPut!(self) {
-			newSymbol().initializeSlots(self)
+			uncheckedSymbol(self)
 		}
 	}
 

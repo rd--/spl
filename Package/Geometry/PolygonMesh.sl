@@ -70,7 +70,7 @@
 
 PolygonMesh : [Object, Store, Equal, Geometry, PolygonMesh] {
 
-	| vertexCoordinates faceIndices |
+	| vertexCoordinates faceIndices | <List>
 
 	canonicalForm { :self |
 		let v = self.vertexCoordinates;
@@ -103,7 +103,7 @@ PolygonMesh : [Object, Store, Equal, Geometry, PolygonMesh] {
 +List {
 
 	PolygonMesh { :vertexCoordinates :faceIndices |
-		newPolygonMesh().initializeSlots(vertexCoordinates, faceIndices)
+		uncheckedPolygonMesh(vertexCoordinates, faceIndices)
 	}
 
 }

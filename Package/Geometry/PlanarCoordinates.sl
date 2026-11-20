@@ -2,7 +2,7 @@
 
 PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, CartesianCoordinates] {
 
-	| x y |
+	| x y | <@Number>
 
 	PlanarCoordinates { :self |
 		self.copy
@@ -143,7 +143,7 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, Cart
 
 	PlanarCoordinates { :x :y |
 		y.isNumber.if {
-			newPlanarCoordinates().initializeSlots(x, y)
+			uncheckedPlanarCoordinates(x, y)
 		} {
 			y.adaptToNumberAndApply(x, PlanarCoordinates/2)
 		}

@@ -1,6 +1,6 @@
 Tree : [Object, Store, Equal, Do, At, Indices] {
 
-	| value subTrees |
+	| value subTrees | <@Object>
 
 	[Graph, treeToGraph] { :self |
 		let nodeId = 1;
@@ -269,7 +269,7 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 +@Object {
 
 	Tree { :value :subTrees |
-		newTree().initializeSlots(value, subTrees)
+		uncheckedTree(value, subTrees)
 	}
 
 }

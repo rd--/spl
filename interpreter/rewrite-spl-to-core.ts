@@ -369,9 +369,13 @@ const asSl: ohm.ActionDict<string> = {
 	TupleSyntax(_l, items, _r) {
 		return `Tuple([${rewrite.commaListSl(items.asIteration().children)}])`;
 	},
-	TypeDefinition(n, h, t, _l, v, _, mn, mb, _r) {
-		const begin =
-			`${n.sourceString}${h.sourceString} ${t.sourceString} { ${v.sourceString}`;
+	TypeDefinition(n, h, t, _l, v, u, mn, mb, _r) {
+		const nStr = n.sourceString;
+		const hStr = h.sourceString;
+		const tStr = t.sourceString;
+		const vStr = v.sourceString;
+		const uStr = u.sourceString;
+		const begin = `${nStr}${hStr} ${tStr} { ${vStr} ${uStr}`;
 		const middle = rewriteMethodListToCore(mn, mb);
 		const end = '}\n';
 		return [begin, middle, end].flat().join('\n');

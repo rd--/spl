@@ -2,7 +2,7 @@
 
 CylindricalCoordinates : [Object, Equal] {
 
-	| coordinates |
+	| coordinates | <List>
 
 	CartesianCoordinates { :self |
 		CartesianCoordinates(
@@ -54,7 +54,7 @@ CylindricalCoordinates : [Object, Equal] {
 	[CylindricalCoordinates, listToCylindricalCoordinates] { :self |
 		self.atVectorOrElementwise { :each |
 			let [rho, phi, z] = each;
-			newCylindricalCoordinates().initializeSlots(each)
+			uncheckedCylindricalCoordinates(each)
 		}
 	}
 

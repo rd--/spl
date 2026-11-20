@@ -2,7 +2,7 @@
 
 Tuple : [Object, Copy, Store, Equal] {
 
-	| collection |
+	| collection | <List>
 
 	[List, tupleToList] { :self |
 		self.collection.copy
@@ -55,7 +55,7 @@ Tuple : [Object, Copy, Store, Equal] {
 +List {
 
 	Tuple { :self |
-		newTuple().initializeSlots(self.copy)
+		uncheckedTuple(self.copy)
 	}
 
 }

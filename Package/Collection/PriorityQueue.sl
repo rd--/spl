@@ -70,7 +70,9 @@ PriorityQueue! : [Object] {
 +Void {
 
 	PriorityQueue {
-		<primitive: return new sl.PriorityQueue();>
+		<primitive:
+		return new sl.PriorityQueue();
+		>
 	}
 
 }

@@ -2,7 +2,7 @@
 
 Clock : [Object] {
 
-	| priorityQueue nextEntryTime existingDelay |
+	| priorityQueue nextEntryTime existingDelay | <PriorityQueue>
 
 	initialize! { :self |
 		self.initializeSlots(PriorityQueue(), nil, nil)
@@ -82,7 +82,7 @@ Clock : [Object] {
 +Void {
 
 	Clock {
-		newClock().initialize!
+		uncheckedClock(PriorityQueue(), nil, nil)
 	}
 
 }

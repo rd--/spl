@@ -2,7 +2,7 @@
 
 ResidueSet : [Object, New, Store, Equal, Do, Collection, Add, Remove] {
 
-	| commonResidueSet modulus |
+	| commonResidueSet modulus | <IdentitySet>
 
 	BitSet { :self |
 		BitSet(
@@ -106,7 +106,7 @@ ResidueSet : [Object, New, Store, Equal, Do, Collection, Add, Remove] {
 +@Collection {
 
 	ResidueSet { :self :modulus |
-		let r = newResidueSet().initializeSlots(
+		let r = uncheckedResidueSet(
 			IdentitySet(),
 			modulus
 		);

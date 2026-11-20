@@ -1,6 +1,6 @@
 RunArray : [Object, Equal, Store, At, Indices] {
 
-	| runLengths values cachedIndex cachedRun cachedOffset |
+	| runLengths values cachedIndex cachedRun cachedOffset | <List>
 
 	[IdentitySet, runArrayToIdentitySet] { :self |
 		IdentitySet(self.values)
@@ -210,7 +210,7 @@ RunArray : [Object, Equal, Store, At, Indices] {
 	}
 
 	RunArray { :self :values |
-		newRunArray().initializeSlots(self, values, nil, nil, nil)
+		uncheckedRunArray(self, values, nil, nil, nil)
 	}
 
 	associationListToRunArray { :self |

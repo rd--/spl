@@ -1,6 +1,6 @@
 ListView : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Collection, Sequence] {
 
-	| collection startIndex endIndex referenceIndex |
+	| collection startIndex endIndex referenceIndex | <List>
 
 	[List, listViewToList] { :self |
 		self
@@ -95,7 +95,7 @@ ListView : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Coll
 				}
 			}
 		).if {
-			newListView().initializeSlots(self, startIndex, endIndex, referenceIndex)
+			uncheckedListView(self, startIndex, endIndex, referenceIndex)
 		} {
 			self.error('ListView: invalid indices')
 		}

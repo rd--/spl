@@ -2,7 +2,7 @@
 
 Triangle : [Object, Store, Equal, Geometry] {
 
-	| vertexCoordinates |
+	| vertexCoordinates | <List>
 
 	[Polygon, triangleToPolygon] { :self |
 		(self.embeddingDimension = 2).if {
@@ -790,7 +790,7 @@ Triangle : [Object, Store, Equal, Geometry] {
 				self.isMatrix
 			}
 		).if {
-			newTriangle().initializeSlots(self)
+			uncheckedTriangle(self)
 		} {
 			self.error('Triangle: invalid matrix')
 		}

@@ -1,6 +1,6 @@
 EisensteinInteger : [Object, Store, Equal] {
 
-	| a b |
+	| a b | <Integer>
 
 	[absoluteValue, abs] { :self |
 		self.toComplex.abs
@@ -69,7 +69,10 @@ EisensteinInteger : [Object, Store, Equal] {
 
 	EisensteinInteger { :a :b |
 		b.isIntegerValuedNumber.if {
-			uncheckedEisensteinInteger(a, b)
+			uncheckedEisensteinInteger(
+				Integer(a),
+				Integer(b)
+			)
 		} {
 			b.adaptToIntegerAndApply(a, EisensteinInteger/2)
 		}
@@ -89,10 +92,6 @@ EisensteinInteger : [Object, Store, Equal] {
 			let n = (a * a) + (b * b) - (a * b);
 			n.isPrime
 		}
-	}
-
-	uncheckedEisensteinInteger { :a :b |
-		newEisensteinInteger().initializeSlots(a, b)
 	}
 
 }

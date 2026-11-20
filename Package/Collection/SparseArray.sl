@@ -1,6 +1,6 @@
 SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Sequence] {
 
-	| linearIndexMap shape unspecifiedValue |
+	| linearIndexMap shape unspecifiedValue | <Map>
 
 	arrayDepth { :self |
 		self.rank
@@ -179,7 +179,7 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 +Map {
 
 	SparseArray { :self :shape :unspecifiedValue |
-		newSparseArray().initializeSlots(
+		uncheckedSparseArray(
 			self,
 			shape,
 			unspecifiedValue

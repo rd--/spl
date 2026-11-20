@@ -2,7 +2,7 @@
 
 Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
-	| real imaginary |
+	| real imaginary | <Float>
 
 	[Float, F, complexToFloat] { :self |
 		self.isRealValuedNumber.if {
@@ -529,13 +529,6 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 	realToComplex { :self |
 		Complex(self, 0.0)
-	}
-
-	uncheckedComplex { :real :imaginary |
-		newComplex().initializeSlots(
-			real,
-			imaginary
-		)
 	}
 
 }

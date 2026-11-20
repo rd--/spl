@@ -1,6 +1,6 @@
 CalendarDuration : [Object, Store, Equal, Compare] {
 
-	| components |
+	| components | <List>
 
 	compare { :self :operand |
 		compareOn(self, operand, components/1)
@@ -48,10 +48,6 @@ CalendarDuration : [Object, Store, Equal, Compare] {
 				self.error('CalendarDuration: invalid components')
 			}
 		}
-	}
-
-	uncheckedCalendarDuration { :self |
-		newCalendarDuration().initializeSlots(self)
 	}
 
 }

@@ -1,6 +1,6 @@
 TimeStamp : [Object, Copy, Store, Equal, Compare] {
 
-	| absoluteTime |
+	| absoluteTime | <Float>
 
 	[Date, timeStampToDate] { :self |
 		Date(self.absoluteTime)
@@ -54,7 +54,7 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 +Float {
 
 	TimeStamp { :self |
-		newTimeStamp().initializeSlots(self)
+		uncheckedTimeStamp(self)
 	}
 
 }

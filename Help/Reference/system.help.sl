@@ -8,7 +8,7 @@
 >>> system
 >>> .methodDictionary
 >>> .size.round(25L)
-7300L
+7375L
 
 >>> system
 >>> .methodDictionary

@@ -1,6 +1,6 @@
 Html : [Object, Store, Equal] {
 
-	| htmlString |
+	| htmlString | <String>
 
 	HtmlElement { :self :document |
 		document.parseHtml(self.htmlString)
@@ -19,7 +19,7 @@ Html : [Object, Store, Equal] {
 +String {
 
 	Html { :self |
-		newHtml().initializeSlots(self)
+		uncheckedHtml(self)
 	}
 
 }

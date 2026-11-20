@@ -2,7 +2,7 @@
 
 DoubleQuotedString : [Object, Store, Equal] {
 
-	| unquotedString |
+	| unquotedString | <String>
 
 	printString { :self |
 		'"%"'.format([self.unquotedString])
@@ -13,7 +13,7 @@ DoubleQuotedString : [Object, Store, Equal] {
 +String {
 
 	DoubleQuotedString { :self |
-		newDoubleQuotedString().initializeSlots(self)
+		uncheckedDoubleQuotedString(self)
 	}
 
 }

@@ -1,6 +1,6 @@
 GeneralisedCircle : [Object, Store, Equal, Geometry] {
 
-	| c alpha d |
+	| c alpha d | <Float>
 
 	[Circle, generalisedCircleToCircle] { :self |
 		let [c, alpha, _] = self.assertIsCircle.coefficientList;
@@ -86,14 +86,6 @@ GeneralisedCircle : [Object, Store, Equal, Geometry] {
 		let [_, alpha, d] = self.assertIsLine.coefficientList;
 		let [a, b] = alpha.realImaginary;
 		[a, -1.0 * b, d / 2.0]
-	}
-
-}
-
-+Float {
-
-	uncheckedGeneralisedCircle { :c :alpha :d |
-		newGeneralisedCircle().initializeSlots(c, alpha, d)
 	}
 
 }

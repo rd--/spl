@@ -1,6 +1,6 @@
 Cone : [Object, Store, Equal, Geometry] {
 
-	| coordinates radius |
+	| coordinates radius | <List>
 
 	baseArea { :self |
 		let r = self.radius;
@@ -43,7 +43,7 @@ Cone : [Object, Store, Equal, Geometry] {
 +List {
 
 	Cone { :coordinates :radius |
-		newCone().initializeSlots(coordinates, radius)
+		uncheckedCone(coordinates, radius)
 	}
 
 }

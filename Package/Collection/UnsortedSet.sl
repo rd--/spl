@@ -1,6 +1,6 @@
 UnsortedSet : [Object, New, Store, Equal, Do, Collection, Add, Remove, Unordered, Set] {
 
-	| collection comparator |
+	| collection comparator | <List>
 
 	[List, unsortedSetToList] { :self |
 		self.collection.copy
@@ -64,7 +64,7 @@ UnsortedSet : [Object, New, Store, Equal, Do, Collection, Add, Remove, Unordered
 +Void {
 
 	UnsortedSet {
-		newUnsortedSet().initializeSlots([], =)
+		uncheckedUnsortedSet([], =)
 	}
 
 }

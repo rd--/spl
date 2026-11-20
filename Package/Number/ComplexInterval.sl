@@ -2,7 +2,7 @@
 
 ComplexInterval : [Object, Store, Equal] {
 
-	| lowerLeft upperRight |
+	| lowerLeft upperRight | <Complex>
 
 	atRandom { :self |
 		system.randomComplex([self.lowerLeft, self.upperRight], [])
@@ -122,10 +122,6 @@ ComplexInterval : [Object, Store, Equal] {
 
 	centeredComplexInterval { :center :range |
 		ComplexInterval(center - range, center + range)
-	}
-
-	uncheckedComplexInterval { :self :operand |
-		newComplexInterval().initializeSlots(self, operand)
 	}
 
 }

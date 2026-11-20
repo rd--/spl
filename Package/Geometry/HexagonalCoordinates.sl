@@ -1,6 +1,6 @@
 HexagonalCoordinates : [Object, Store, Equal] {
 
-	| coordinates |
+	| coordinates | <List>
 
 	CartesianCoordinates { :self |
 		self
@@ -90,7 +90,7 @@ HexagonalCoordinates : [Object, Store, Equal] {
 			self.addLast!(0 - self[1] - self[2])
 		};
 		(self.size = 3).if {
-			newHexagonalCoordinates().initializeSlots(self)
+			uncheckedHexagonalCoordinates(self)
 		} {
 			self.error('HexagonalCoordinates: invalid parameters')
 		}

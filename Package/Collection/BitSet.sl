@@ -2,7 +2,7 @@
 
 BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 
-	| bytes capacity tally |
+	| bytes capacity tally | <ByteArray>
 
 	[List, bitSetToList] { :self |
 		self.positionVector
@@ -225,7 +225,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 
 	BitSet { :capacity |
 		let byteCount = capacity.min(capacity // 8L + 1L);
-		newBitSet().initializeSlots(
+		uncheckedBitSet(
 			ByteArray(byteCount, 0L),
 			capacity,
 			0L
@@ -280,7 +280,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 		(self.size * 8L != capacity).if {
 			self.error('ByteArray>>BitSet: incorrect capacity')
 		} {
-			newBitSet().initializeSlots(
+			uncheckedBitSet(
 				self,
 				capacity,
 				self.bitCount

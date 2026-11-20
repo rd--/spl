@@ -1,6 +1,6 @@
 DirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 
-	| vertexList |
+	| vertexList | <List>
 
 	[Association, directedEdgeToAssociation] { :self |
 		let [from, to] = self.vertexList;
@@ -99,7 +99,7 @@ DirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 +[Float, Integer] {
 
 	[DirectedEdge, -->] { :self :anInteger |
-		newDirectedEdge().initializeSlots([self, anInteger])
+		uncheckedDirectedEdge([self, anInteger])
 	}
 
 }

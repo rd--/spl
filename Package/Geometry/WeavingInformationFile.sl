@@ -1,6 +1,6 @@
 WeavingInformationFile : [Object] {
 
-	| weavingRecord |
+	| weavingRecord | <Record>
 
 	drawdownMatrix { :self :m :n |
 		self.hasLiftplan.if {
@@ -127,7 +127,7 @@ WeavingInformationFile : [Object] {
 +Record {
 
 	WeavingInformationFile { :self |
-		newWeavingInformationFile().initializeSlots(self)
+		uncheckedWeavingInformationFile(self)
 	}
 
 }

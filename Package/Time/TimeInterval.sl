@@ -2,7 +2,7 @@
 
 TimeInterval : [Object, Store, Equal] {
 
-	| min max |
+	| min max | <TimeStamp>
 
 	absoluteTime { :self |
 		Interval(
@@ -33,7 +33,7 @@ TimeInterval : [Object, Store, Equal] {
 
 	TimeInterval { :self :operand |
 		operand.isTimeStamp.if {
-			newTimeInterval().initializeSlots(self, operand)
+			uncheckedTimeInterval(self, operand)
 		} {
 			operand.isDuration.if {
 				TimeInterval(self, self + operand)

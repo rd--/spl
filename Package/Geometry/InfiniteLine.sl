@@ -1,6 +1,6 @@
 InfiniteLine : [Object, Store, Equal] {
 
-	| point vector |
+	| point vector | <List>
 
 	[GeneralisedCircle, infiniteLineToGeneralisedCircle] { :self |
 		let [a, b, c] = self.lineEquation;
@@ -69,7 +69,7 @@ InfiniteLine : [Object, Store, Equal] {
 	}
 
 	InfiniteLine { :aPoint :aVector |
-		newInfiniteLine().initializeSlots(aPoint, aVector)
+		uncheckedInfiniteLine(aPoint, aVector)
 	}
 
 }

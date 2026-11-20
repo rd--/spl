@@ -111,7 +111,7 @@
 
 CartesianCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, CartesianCoordinates] {
 
-	| coordinates |
+	| coordinates | <List>
 
 	CartesianCoordinates { :self |
 		self
@@ -170,7 +170,7 @@ CartesianCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, C
 +List {
 
 	[CartesianCoordinates, listToCartesianCoordinates] { :self |
-		newCartesianCoordinates().initializeSlots(self)
+		uncheckedCartesianCoordinates(self)
 	}
 
 }

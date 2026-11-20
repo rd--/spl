@@ -1,6 +1,6 @@
 Sphere : [Object, Store, Equal, Geometry] {
 
-	| center radius |
+	| center radius | <List>
 
 	area { :self |
 		(self.radius.square * 4).pi
@@ -56,7 +56,7 @@ Sphere : [Object, Store, Equal, Geometry] {
 +List {
 
 	Sphere { :center :radius |
-		newSphere().initializeSlots(center, radius)
+		uncheckedSphere(center, radius)
 	}
 
 }

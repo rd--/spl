@@ -1,6 +1,6 @@
 SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collection, Add, Remove, Sequence] {
 
-	| collection sortBlock |
+	| collection sortBlock | <List>
 
 	[List, sortedListToList] { :self |
 		self.collection.copy
@@ -173,7 +173,7 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 +Void {
 
 	[SortedList, emptySortedList] {
-		newSortedList().initializeSlots([], precedes/2)
+		uncheckedSortedList([], precedes/2)
 	}
 
 }

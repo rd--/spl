@@ -1,8 +1,8 @@
 format:
-	deno fmt integer/*.js
+	deno fmt */*.js
 
 lint:
-	deno lint --rules-exclude=prefer-const integer/*.js
+	deno lint --rules-exclude=prefer-const */*.js
 
 clean:
-	rm -f integer/*.js
+	rm -f */*.js

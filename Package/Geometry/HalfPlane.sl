@@ -1,13 +1,13 @@
 HalfPlane : [Object, Equal] {
 
-	| p v w |
+	| p v w | <List>
 
 }
 
 +List {
 
 	HalfPlane { :p :v :w |
-		newHalfPlane().initializeSlots(p, v, w)
+		uncheckedHalfPlane(p, v, w)
 	}
 
 	dihedralAngle { :p :v |

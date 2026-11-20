@@ -1,8 +1,8 @@
-/* Requires: List */
+/* Requires: List, SortedList */
 
 SortedSet : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Set] {
 
-	| sortedList |
+	| sortedList | <SortedList>
 
 	[List, sortedSetToList] { :self |
 		self.sortedList.List
@@ -72,7 +72,7 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Set] 
 +Void {
 
 	SortedSet {
-		newSortedSet().initializeSlots(
+		uncheckedSortedSet(
 			SortedList([], precedes/2)
 		)
 	}

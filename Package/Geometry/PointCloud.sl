@@ -1,6 +1,6 @@
 PointCloud : [Object, Equal, Geometry] {
 
-	| vertexCoordinates |
+	| vertexCoordinates | <List>
 
 	[Bitmap, pointCloudToBitmap] { :self :k |
 		let p = self.vertexCoordinates;
@@ -39,7 +39,7 @@ PointCloud : [Object, Equal, Geometry] {
 +List {
 
 	PointCloud { :self |
-		newPointCloud().initializeSlots(self)
+		uncheckedPointCloud(self)
 	}
 
 	PointSet { :self |

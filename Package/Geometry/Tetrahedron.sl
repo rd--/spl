@@ -1,6 +1,6 @@
 Tetrahedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 
-	| vertexCoordinates |
+	| vertexCoordinates | <List>
 
 	PerspectiveDrawing { :self |
 		self.Polyhedron.PerspectiveDrawing
@@ -89,7 +89,7 @@ Tetrahedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 
 	Tetrahedron { :self |
 		(self.shape = [4L, 3L]).if {
-			newTetrahedron().initializeSlots(self)
+			uncheckedTetrahedron(self)
 		} {
 			self.error('Tetrahedron: invalid matrix')
 		}

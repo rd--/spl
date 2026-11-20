@@ -2,7 +2,7 @@
 
 RatioTuning : [Object, Store, Equal, Cache, Tuning] {
 
-	| name description ratios octave cache |
+	| name description ratios octave cache | <String>
 
 	cents { :self |
 		self.ratios.collect { :each |
@@ -92,7 +92,7 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] {
 				Fraction(each, ratios.first)
 			}
 		};
-		newRatioTuning().initializeSlots(self, description, ratios, octave, Record())
+		uncheckedRatioTuning(self, description, ratios, octave, Record())
 	}
 
 	RatioTuning { :name :description :ratiosOrIntegers :octave :primeLimit |

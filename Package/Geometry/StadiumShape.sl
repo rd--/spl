@@ -1,6 +1,6 @@
 StadiumShape : [Object, Equal, Geometry] {
 
-	| c r |
+	| c r | <List>
 
 	a { :self |
 		let [p, q] = self.c;
@@ -68,7 +68,7 @@ StadiumShape : [Object, Equal, Geometry] {
 +List {
 
 	StadiumShape { :c :r |
-		newStadiumShape().initializeSlots(c, r)
+		uncheckedStadiumShape(c, r)
 	}
 
 }

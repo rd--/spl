@@ -1,6 +1,6 @@
 Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unordered] {
 
-	| valuesAndCounts |
+	| valuesAndCounts | <@Dictionary>
 
 	[IdentitySet, multisetToIdentitySet] { :self |
 		IdentitySet(self.valuesAndCounts.keys)
@@ -227,7 +227,7 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 +@Dictionary {
 
 	[Multiset, dictionaryToMultiset] { :self |
-		newMultiset().initializeSlots(self)
+		uncheckedMultiset(self)
 	}
 
 	Multiset { :self :operand |

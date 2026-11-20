@@ -1,6 +1,6 @@
 Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneAngle, Time] {
 
-	| magnitude unit |
+	| magnitude unit | <@Number>
 
 	Frequency { :self |
 		Frequency(self.inHertz)
@@ -141,7 +141,7 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 +@Number {
 
 	Quantity { :magnitude :unit |
-		newQuantity().initializeSlots(magnitude, unit)
+		uncheckedQuantity(magnitude, unit)
 	}
 
 	hertz { :self |

@@ -2,7 +2,7 @@
 
 Quaternion : [Object, Store, Equal, Number] {
 
-	| components |
+	| components | <List>
 
 	[absoluteValue, abs] { :self |
 		self.absoluteValueSquare.sqrt
@@ -183,10 +183,6 @@ Quaternion : [Object, Store, Equal, Number] {
 			};
 			uncheckedQuaternion(each)
 		}
-	}
-
-	uncheckedQuaternion { :self |
-		newQuaternion().initializeSlots(self)
 	}
 
 }

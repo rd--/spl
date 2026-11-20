@@ -120,7 +120,7 @@
 
 Character : [Object, Copy, Store, Equal, Compare, Character] {
 
-	| characterString codePoint |
+	| characterString codePoint | <String>
 
 	Character { :self |
 		self
@@ -204,7 +204,7 @@ Character : [Object, Copy, Store, Equal, Compare, Character] {
 	Character { :self :codePoint |
 		self.isCharacter.if {
 			system.characterDictionary.atIfAbsentPut!(self) {
-				newCharacter().initializeSlots(
+				uncheckedCharacter(
 					self,
 					Integer(codePoint)
 				)
