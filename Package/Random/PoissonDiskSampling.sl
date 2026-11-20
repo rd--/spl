@@ -1,6 +1,6 @@
 +@RandomNumberGenerator {
 
-	poissonDiskSampling { :self :shape FloatList :radius Float :tries SmallInteger |
+	poissonDiskSampling { :self :shape FloatVector :radius Float :tries SmallInteger |
 		uncheckedPoissonDiskSampling(self, shape, radius, tries)
 	}
 

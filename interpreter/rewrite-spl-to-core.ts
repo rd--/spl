@@ -328,7 +328,7 @@ const asSl: ohm.ActionDict<string> = {
 			rhsDictionaryName,
 			keyVarNamesArray,
 		);
-		return `nullaryApply({ let ${rhsDictionaryName} = assertIsOfSize(${rhs.asSl}, ${keyVarNamesArray.length}); ${slots} })`;
+		return `nullaryApply({ let ${rhsDictionaryName} = assertIsOfSize(${rhs.asSl}, ${keyVarNamesArray.length}L); ${slots} })`;
 	},
 	RecordConstructorSyntax(typ, rcd) {
 		return `${typ.asSl}(${rcd.asSl})`;
@@ -343,7 +343,7 @@ const asSl: ohm.ActionDict<string> = {
 			rhsDictionaryName,
 			keyVarNamesArray,
 		);
-		return `${rhsDictionaryName} = assertIsOfSize(${rhs.asSl}, ${keyVarNamesArray.length}); ${slots}`;
+		return `${rhsDictionaryName} = assertIsOfSize(${rhs.asSl}, ${keyVarNamesArray.length}L); ${slots}`;
 	},
 	RecordKeyAssociation(lhs, rhs) {
 		return `['${lhs.asSl}', ${rhs.asSl}]`;
@@ -427,16 +427,17 @@ const asSl: ohm.ActionDict<string> = {
 		let kStr = k.sourceString;
 		const e = 10n ** BigInt(fStr.length);
 		const eStr = e.toString(10);
+		const uStr = rewrite.simplifyIntegerDigits(iStr + fStr);
 		if (kStr.length === 0) {
 			kStr = fStr.length;
 		}
-		return `Decimal(Fraction(${sStr}${iStr}${fStr}L, ${eStr}L), ${kStr}L)`;
+		return `Decimal(Fraction(${sStr}${uStr}L, ${eStr}L), ${kStr}L)`;
 	},
 	floatLiteral(s, i, _dot, f, _f) {
-		return s.sourceString +
-			rewrite.deleteLeadingZeroes(
-				rewrite.deleteUnderscores(i.sourceString),
-			) + '.' + f.sourceString;
+		const sStr = s.sourceString;
+		const iStr = rewrite.simplifyIntegerDigits(i.sourceString);
+		const fStr = f.sourceString;
+		return `${sStr}${iStr}.${fStr}`;
 	},
 	fractionLiteral(s, n, _s, d) {
 		return `Fraction(${
@@ -464,10 +465,11 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	smallIntegerLiteral(s, i) {
 		const sStr = validateSign(s.sourceString);
-		const iStr = rewrite.deleteUnderscores(i.sourceString);
+		const iStr = rewrite.simplifyIntegerDigits(i.sourceString);
 		const iValue = parseInt(sStr + iStr);
 		if (Number.isSafeInteger(iValue)) {
-			return `${sStr + iStr}L`;
+			/* SmallInteger: Integer | Float */
+			return `${sStr + iStr}.0`;
 		} else {
 			throw new Error('smallIntegerLiteral: not small integer: ' + iValue);
 		}
@@ -478,7 +480,7 @@ const asSl: ohm.ActionDict<string> = {
 	largeIntegerLiteral(s, i, _l) {
 		const sStr = s.sourceString;
 		const iStr = i.sourceString;
-		return validateSign(sStr) + rewrite.deleteUnderscores(iStr) + 'L';
+		return validateSign(sStr) + rewrite.simplifyIntegerDigits(iStr) + 'L';
 	},
 	lowercaseIdentifier(c1, cN, ip) {
 		return rewrite.rewriteInPlaceName(c1, cN, ip);
@@ -515,7 +517,7 @@ const asSl: ohm.ActionDict<string> = {
 	radixIntegerLiteral(s, b, _letterB, i) {
 		const sStr = s.sourceString;
 		const bStr = b.sourceString;
-		const iStr = rewrite.deleteUnderscores(i.sourceString);
+		const iStr = rewrite.simplifyIntegerDigits(i.sourceString);
 		const iValue = Number.parseInt(
 			sStr + iStr,
 			Number.parseInt(bStr, 10),

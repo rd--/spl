@@ -17,19 +17,19 @@ in a similar manner to the syntax for writing negated literals:
 This syntax is rewritten by the simplifier in terms of the `negate` method:
 
 ```
->> 'let x = -5; -x'.splSimplify
-let x = -5; negate(x)
+>>> '-x'.splSimplify
+'negate(x)'
 ```
 
-The negations is of the literal,
+The negation is of the identifier,
 to negate an expression use the `negate` method,
 or the unary `-` operator,
-which must be writte postfix:
+which need not be written postfix:
 
 ```
 >>> let x = -5;
->>> (-x.square, x.square.-)
-(25, -25)
+>>> (-x.square, x.square.-, -(square(x)))
+(25, -25, -25)
 ```
 
 There is a special syntax for naming the arity of a function:

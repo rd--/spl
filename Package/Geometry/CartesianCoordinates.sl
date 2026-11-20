@@ -22,7 +22,7 @@
 	}
 
 	dimension { :self |
-		0
+		0L
 	}
 
 	distance { :self :other |
@@ -50,7 +50,7 @@
 	}
 
 	isPlanar { :self |
-		self.coordinates.size = 2
+		self.coordinates.size = 2L
 	}
 
 	[negate, -] { :self |
@@ -74,37 +74,37 @@
 	}
 
 	x { :self |
-		self.coordinates.at(1)
+		self.coordinates.at(1L)
 	}
 
 	x! { :self :anObject |
-		self.coordinates.put!(1, anObject)
+		self.coordinates.put!(1L, anObject)
 	}
 
 	y { :self |
 		let v = self.coordinates;
-		(v.size < 2).if {
+		(v.size < 2L).if {
 			self.error('@CartesianCoordinates>>y: no y')
 		} {
-			v.at(2)
+			v.at(2L)
 		}
 	}
 
 	y! { :self :anObject |
-		self.coordinates.put!(2, anObject)
+		self.coordinates.put!(2L, anObject)
 	}
 
 	z { :self |
 		let v = self.coordinates;
-		(v.size < 3).if {
+		(v.size < 3L).if {
 			self.error('@CartesianCoordinates>>z: no z')
 		} {
-			v.at(3)
+			v.at(3L)
 		}
 	}
 
 	z! { :self :anObject |
-		self.coordinates.put!(3, anObject)
+		self.coordinates.put!(3L, anObject)
 	}
 
 }
@@ -120,9 +120,9 @@ CartesianCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, C
 	Record { :self |
 		self.size.caseOf(
 			[
-				2 -> { (x: self.x, y: self.y) },
-				3 -> { (x: self.x, y: self.y, z: self.z) },
-				4 -> { (x: self.x, y: self.y, z: self.z, w: self.w) }
+				2L -> { (x: self.x, y: self.y) },
+				3L -> { (x: self.x, y: self.y, z: self.z) },
+				4L -> { (x: self.x, y: self.y, z: self.z, w: self.w) }
 			]
 		) {
 			self.error('Record: not x,y or x,y,z or x,z,y,w')
@@ -138,7 +138,7 @@ CartesianCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, C
 	}
 
 	first { :self |
-		self.at(1)
+		self.at(1L)
 	}
 
 	postCopy { :self |
@@ -146,11 +146,11 @@ CartesianCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, C
 	}
 
 	second { :self |
-		self.at(2)
+		self.at(2L)
 	}
 
 	third { :self |
-		self.at(3)
+		self.at(3L)
 	}
 
 	xy { :self |
@@ -180,15 +180,15 @@ CartesianCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, C
 	[CartesianCoordinates, recordToCartesianCoordinates] { :self |
 		self.size.caseOf(
 			[
-				2 -> {
+				2L -> {
 					let (x: x, y: y) = self;
 					CartesianCoordinates([x y])
 				},
-				3 -> {
+				3L -> {
 					let (x: x, y: y, z: z) = self;
 					CartesianCoordinates([x y z])
 				},
-				4 -> {
+				4L -> {
 					let (x: x, y: y, z: z, w: w) = self;
 					CartesianCoordinates([x y z w])
 				}

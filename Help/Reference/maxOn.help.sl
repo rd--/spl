@@ -15,3 +15,5 @@ Answer which of _p_ or _q_ answers as `max` according to the block _f_.
 * * *
 
 See also: <, max, maximalBy, min, minOn
+
+Guides: Comparison Functions

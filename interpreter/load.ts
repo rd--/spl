@@ -20,7 +20,8 @@ export function resolveFileName(fileName: string): string {
 
 export function packageFileName(pkg: kernel.Package): string {
 	return pkg.preCompiled
-		? ('.cache/integer/' + pkg.name + '.js')
+		/* SmallInteger: Integer | Float */
+		? ('.cache/float/' + pkg.name + '.js')
 		: ('Package/' + pkg.url);
 }
 

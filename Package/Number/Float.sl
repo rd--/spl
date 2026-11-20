@@ -692,15 +692,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 			return Math.max(_self, _operand);
 		}
 		>
-		operand.isCollection.if {
-			operand.adaptToNumberAndApply(self, max/2)
-		} {
-			(self > operand).if {
-				self
-			} {
-				operand
-			}
-		}
+		maximum(operand, self)
 	}
 
 	[minimum, min] { :self :operand |
@@ -709,15 +701,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 			return Math.min(_self, _operand);
 		}
 		>
-		operand.isCollection.if {
-			operand.adaptToNumberAndApply(self, min/2)
-		} {
-			(self <= operand).if {
-				self
-			} {
-				operand
-			}
-		}
+		minimum(operand, self)
 	}
 
 	minkowskiQuestionMark { :x |
@@ -928,7 +912,9 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 
 	round { :self |
 		<primitive:
-		return Number.isFinite(_self) ? BigInt(Math.round(_self)) : _self;
+		return Number.isFinite(_self)
+		? BigInt(Math.round(_self))
+		: _self;
 		>
 	}
 
@@ -940,7 +926,7 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 
 	roundTiesEven { :n |
 		(n.fractionalPart.abs = 0.5).if {
-			2 * (n / 2.0).round
+			2L * (n / 2.0).round
 		} {
 			n.round
 		}

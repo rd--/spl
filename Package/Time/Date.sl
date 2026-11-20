@@ -143,13 +143,13 @@ Date! : [Object, Store, Equal, Compare] {
 
 +Float {
 
-	primitiveDate { :year :month :dayOfMonth |
+	uncheckedDate { :year :month :dayOfMonth |
 		<primitive:
 		const d = new Date(
 			Date.UTC(
 				_year,
-				sl.toFloat(_month) - 1,
-				sl.toFloat(_dayOfMonth),
+				_month - 1,
+				_dayOfMonth,
 				0,
 				0,
 				0,
@@ -166,9 +166,9 @@ Date! : [Object, Store, Equal, Compare] {
 +List {
 
 	[Date, listToDate] { :self |
-		self.atVectorOrElementwise { :each FloatList |
+		self.atVectorOrElementwise { :each FloatVector |
 			let [year, month, dayOfMonth] = each;
-			primitiveDate(year, month, dayOfMonth)
+			uncheckedDate(year, month, dayOfMonth)
 		}
 	}
 

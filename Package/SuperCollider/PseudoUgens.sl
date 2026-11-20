@@ -404,7 +404,7 @@
 		<primitive: return sc.Line(_start, _end, _dur, 0.0);>
 	}
 
-	multiTapDelay { :timesList FloatList :levelsList FloatList :input |
+	multiTapDelay { :timesList FloatVector :levelsList FloatVector :input |
 		uncheckedMultiTapDelay(timesList, levelsList, input)
 	}
 

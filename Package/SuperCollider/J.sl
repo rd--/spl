@@ -1,10 +1,10 @@
 +@Object {
 
 	bubble { :self :depth :levels |
-		(levels <= 1).if {
+		(levels <= 1L).if {
 			[self]
 		} {
-			[self.bubble(depth, levels - 1)]
+			[self.bubble(depth, levels - 1L)]
 		}
 	}
 
@@ -17,15 +17,15 @@
 +@Collection {
 
 	maxSizeAtDepth { :self :depth |
-		let maxSize = 0;
-		(depth = 1).if {
+		let maxSize = 0L;
+		(depth = 1L).if {
 			self.size
 		} {
 			self.do { :each |
 				let size = (each.isCollection).if {
-					each.maxSizeAtDepth(depth - 1)
+					each.maxSizeAtDepth(depth - 1L)
 				} {
-					1
+					1L
 				};
 				(size > maxSize).ifTrue {
 					maxSize := size
@@ -40,33 +40,33 @@
 +List {
 
 	bubble { :self :depth :levels |
-		(depth <= 0).if {
-			(levels <= 1).if {
+		(depth <= 0L).if {
+			(levels <= 1L).if {
 				[self]
 			} {
-				[self.bubble(depth, levels - 1)]
+				[self.bubble(depth, levels - 1L)]
 			}
 		} {
 			self.collect { :each |
-				each.bubble(depth - 1, levels)
+				each.bubble(depth - 1L, levels)
 			}
 		}
 	}
 
 	shapeIndices { :self |
 		self.collect { :each |
-			1.to(each)
+			1L.to(each)
 		}.tuples
 	}
 
 	shapeIndicesDo { :self :aBlock/1 |
 		self.collect { :each |
-			1.to(each)
+			1L.to(each)
 		}.tuplesDo(aBlock/1)
 	}
 
 	slice { :self :cuts |
-		(cuts.size = 0).if {
+		(cuts.size = 0L).if {
 			self.copy
 		} {
 			let firstCut = cuts.first;
@@ -75,8 +75,8 @@
 			} {
 				self.atAll(firstCut.nest)
 			};
-			(cuts.size = 1).if {
-				answer.unbubble(0, 1)
+			(cuts.size = 1L).if {
+				answer.unbubble(0L, 1L)
 			} {
 				cuts := cuts.allButFirst;
 				answer.collect { :each |
@@ -85,25 +85,25 @@
 					} {
 						each
 					}
-				}.unbubble(0, 1)
+				}.unbubble(0L, 1L)
 			}
 		}
 	}
 
 	unbubble { :self :depth :levels |
-		(depth <= 0).if {
-			(self.size > 1).if {
+		(depth <= 0L).if {
+			(self.size > 1L).if {
 				self
 			} {
-				(levels <= 1).if {
+				(levels <= 1L).if {
 					self.first
 				} {
-					self.first.unbubble(depth, levels - 1)
+					self.first.unbubble(depth, levels - 1L)
 				}
 			}
 		} {
 			self.collect { :each |
-				each.unbubble(depth - 1, 1)
+				each.unbubble(depth - 1L, 1L)
 			}
 		}
 	}

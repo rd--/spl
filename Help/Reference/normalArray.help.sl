@@ -7,7 +7,7 @@ Convert the object _x_ to a normal array from a special form.
 At `SparseArray` answers a normal dense list:
 
 ```
->>> SparseArray([[4] -> 'a', [9] -> 'b'])
+>>> SparseArray([[4L] -> 'a', [9L] -> 'b'])
 >>> .normalArray
 [0 0 0 'a' 0 0 0 0 'b']
 ```

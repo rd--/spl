@@ -381,8 +381,8 @@
 		self.binarySearchRightmost(anObject)
 	}
 
-	cartesianIndex { :shape :anInteger |
-		(anInteger - 1L).mixedRadixEncode(shape) + 1L
+	cartesianIndex { :shape IntegerVector :i Integer |
+		(i - 1L).mixedRadixEncode(shape) + 1L
 	}
 
 	[catenate, ++] { :self |
@@ -1803,8 +1803,8 @@
 		(c * v).sum
 	}
 
-	linearIndex { :shape :aList |
-		(aList - 1L).mixedRadixDecode(shape) + 1L
+	linearIndex { :shape IntegerVector :i IntegerVector |
+		(i - 1L).mixedRadixDecode(shape) + 1L
 	}
 
 	linearRecurrence { :kernel :init :n |

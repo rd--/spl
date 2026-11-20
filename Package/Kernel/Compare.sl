@@ -54,16 +54,10 @@
 	}
 
 	minBy { :self :operand :aBlock/2 |
-		operand.isCollection.if {
-			operand.adaptToCollectionAndApply([self]) { :p :q |
-				minBy(p, q, aBlock/2)
-			}
+		aBlock(self, operand).if {
+			self
 		} {
-			aBlock(self, operand).if {
-				self
-			} {
-				operand
-			}
+			operand
 		}
 	}
 

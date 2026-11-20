@@ -12,8 +12,8 @@ Rewrite rules:
 >> '(:)'.splSimplify
 Record()
 
->> '(p: 1, q: 2)'.splSimplify
-Record([['p', 1], ['q', 2]])
+>> '(a: x, b: y)'.splSimplify
+Record([['a', x], ['b', y]])
 ```
 
 List of associations:

@@ -34,7 +34,7 @@ and `List Syntax` expressions are not rewritten:
 
 `Float`,
 `Integer` and
-`String` literals are not rewritten:
+`String` literals are generally not rewritten:
 
 ```
 >>> '3.141'.splSimplify
@@ -46,6 +46,22 @@ and `List Syntax` expressions are not rewritten:
 >> 'x'.printString
 >> .splSimplify
 'x'
+```
+
+Underscores and leading zeroes are rewritten:
+
+```
+>>> '123_456_789L'.splSimplify
+'123456789L'
+
+>>> '123_456.789'.splSimplify
+'123456.789'
+
+>>> '000_000_000L'.splSimplify
+'0L'
+
+>>> '000_000.000'.splSimplify
+'0.000'
 ```
 
 Small integer syntax is rewritten:
@@ -142,6 +158,9 @@ true
 
 >>> '3.141D'.splSimplify
 'Decimal(Fraction(3141L, 1000L), 3L)'
+
+>>> '0.333D'.splSimplify
+'Decimal(Fraction(333L, 1000L), 3L)'
 
 >>> '5Z12'.splSimplify
 'Residue(5L, 12L)'

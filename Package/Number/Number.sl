@@ -661,8 +661,32 @@
 		(x / (1 - x)).log
 	}
 
+	[maximum, max] { :self :operand |
+		operand.isCollection.if {
+			operand.adaptToNumberAndApply(self, maximum/2)
+		} {
+			(self > operand).if {
+				self
+			} {
+				operand
+			}
+		}
+	}
+
 	metallicMean { :n |
 		(n + (n.square + 4).sqrt) / 2
+	}
+
+	[minimum, min] { :self :operand |
+		operand.isCollection.if {
+			operand.adaptToNumberAndApply(self, minimum/2)
+		} {
+			(self <= operand).if {
+				self
+			} {
+				operand
+			}
+		}
 	}
 
 	mixedFractionParts { :self |

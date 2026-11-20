@@ -47,8 +47,11 @@ The irregular iota of the irregular shape of the same array:
 ```
 >>> [0; 1 2; ; 3:; 4 5; 6]
 >>> .irregularShape
->>> .irregularIota(0)
-[0; 1 2; ; 3:; 4 5; 6]
+>>> .irregularIota(0L)
+[
+	0; 1 2; ; 3:;
+	4 5; 6
+]
 ```
 
 Another irregular array:
@@ -58,10 +61,11 @@ Another irregular array:
 >>> .irregularShape
 [7, [1 2]]
 
->>> [7, [1 2]].irregularIota(0)
+>>> [7L, [1L 2L]]
+>>> .irregularIota(0L)
 [0; 1 2; 3; 4 5; 6; 7 8; 9]
 
->>> [7, [1 2]]
+>>> [7L, [1L 2L]]
 >>> .irregularShapeIndices
 [
 	1 1;
@@ -73,24 +77,23 @@ Another irregular array:
 	7 1
 ]
 
-
->>> [6, [2 1]].irregularIota(0)
+>>> [6L, [2L 1L]].irregularIota(0)
 [0 1; 2; 3 4; 5; 6 7; 8]
 ```
 
 Regular irregular shapes:
 
 ```
->>> [2].irregularIota
+>>> [2L].irregularIota
 [1 2]
 
->>> [2, [2]].irregularIota
+>>> [2L, [2L]].irregularIota
 [1 2; 3 4]
 
->>> [2, [2], [[2]]].irregularIota
+>>> [2L, [2L], [[2L]]].irregularIota
 [1 2; 3 4:; 5 6; 7 8]
 
->>> [2, [2], [[2]], [[[2]]]].irregularIota
+>>> [2L, [2L], [[2L]], [[[2L]]]].irregularIota
 [
 	[
 		1 2;

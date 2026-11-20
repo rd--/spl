@@ -2,19 +2,23 @@
 
 	contourDetect { :self :delta |
 		let answer = [];
-		1.toDo(self.size) { :i |
-			let a = self.atPin(i - 1);
+		1L.toDo(self.size) { :i |
+			let a = self.atPin(i - 1L);
 			let b = self.at(i);
-			let c = self.atPin(i + 1);
+			let c = self.atPin(i + 1L);
 			(
 				(b.abs > delta).not | {
-					b > 0 & { a < 0 | { c < 0 } }
+					b > 0 & {
+						a < 0 | {
+							c < 0
+						}
+					}
 				}
 			).ifTrue {
-				answer.add!([i] -> 1)
+				answer.add!([i] -> 1L)
 			}
 		};
-		SparseArray(answer, [self.size], 0)
+		SparseArray(answer, [self.size], 0L)
 	}
 
 	contourDetect { :self |
@@ -24,16 +28,16 @@
 	crossingDetect { :self :delta |
 		let answer = [];
 		let p = self[1].sign;
-		2.toDo(self.size) { :i |
+		2L.toDo(self.size) { :i |
 			let q = self[i].sign;
 			q.isZero.ifFalse {
 				((p + q).abs > delta).ifFalse {
-					answer.add!([i] -> 1)
+					answer.add!([i] -> 1L)
 				};
 				p := q
 			}
 		};
-		SparseArray(answer, [self.size], 0)
+		SparseArray(answer, [self.size], 0L)
 	}
 
 	crossingDetect { :self |

@@ -40,7 +40,7 @@
 		x
 	}
 
-	nelderMeadMethod { :f/1 :x0 FloatList :parameters |
+	nelderMeadMethod { :f/1 :x0 FloatVector :parameters |
 		uncheckedNelderMeadMethod(f/1, x0, parameters)
 	}
 

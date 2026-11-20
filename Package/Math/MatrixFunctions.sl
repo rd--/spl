@@ -94,12 +94,12 @@
 		self.choleskyBanachiewiczAlgorithm
 	}
 
-	columnBinaryMatrix { :self |
+	columnBinaryMatrix { :self IntegerVector |
 		let k = self.size;
-		let c = [1 .. k].collect { :i |
-			[self[i], i] -> 1
+		let c = [1L .. k].collect { :i |
+			[self[i], i] -> 1L
 		};
-		SparseArray(c, [k, k], 0)
+		SparseArray(c, [k, k], 0L)
 	}
 
 	conjugateGradientMethod { :a :b :x :epsilon :n |
@@ -1222,7 +1222,7 @@
 		].catenate
 	}
 
-	thomasAlgorithm { :a FloatList :b FloatList :c FloatList :d FloatList :x List :n SmallInteger |
+	thomasAlgorithm { :a FloatVector :b FloatVector :c FloatVector :d FloatVector :x List :n SmallInteger |
 		uncheckedThomasAlgorithm(a, b, c, d, x, n);
 		x
 	}

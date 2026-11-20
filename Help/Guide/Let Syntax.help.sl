@@ -161,8 +161,8 @@ s + (0.2 * y)
 Let syntax is not rewritten by the simplifier:
 
 ```
->> 'let x = 1; x'.splSimplify
-let x = 1; x
+>>> 'let y = f(x); y'.splSimplify
+'let y = f(x); y'
 ```
 
 * * *

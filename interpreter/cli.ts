@@ -115,7 +115,8 @@ function pathWithoutAnyExtension(path: string): string {
 
 function cacheRewriteFile(slFileName: string): void {
 	const packageName = pathWithoutAnyExtension(pathBaseName(slFileName));
-	const jsFileName = '../.cache/integer/' + packageName + '.js';
+	/* SmallInteger: Integer | Float */
+	const jsFileName = '../.cache/float/' + packageName + '.js';
 	const slMtime = host.modificationTimeSync(slFileName);
 	const jsMtime = host.modificationTimeSync(jsFileName);
 	if (jsMtime < slMtime) {

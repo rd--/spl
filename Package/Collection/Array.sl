@@ -2,27 +2,51 @@
 
 +List {
 
+	FloatMatrix { :self |
+		self.isMatrix.if {
+			Float(self)
+		} {
+			self.error('FloatMatrix')
+		}
+	}
+
+	FloatVector { :self |
+		self.isVector.if {
+			Float(self)
+		} {
+			self.error('FloatVector')
+		}
+	}
+
+	IntegerVector { :self |
+		self.isVector.if {
+			Integer(self)
+		} {
+			self.error('IntegerVector')
+		}
+	}
+
 	arrayDepth { :self |
 		self.dimensions.size
 	}
 
 	arrayFlatten { :self |
 		self.isArray.if {
-			let [r, c, i, j] = self.shape.take(4);
+			let [r, c, i, j] = self.shape.take(4L);
 			let n = r * i;
 			let m = c * j;
-			let p = 1;
+			let p = 1L;
 			let answer = List(n, nil);
-			1.toDo(r) { :w |
-				1.toDo(i) { :x |
+			1L.toDo(r) { :w |
+				1L.toDo(i) { :x |
 					let row = List(m, nil);
-					let q = 1;
+					let q = 1L;
 					answer[p] := row;
-					p := p + 1;
-					1.toDo(c) { :y |
-						1.toDo(j) { :z |
+					p := p + 1L;
+					1L.toDo(c) { :y |
+						1L.toDo(j) { :z |
 							row[q] := self[w][y][x][z];
-							q := q + 1
+							q := q + 1L
 						}
 					}
 				}
@@ -42,10 +66,10 @@
 	centerArray { :self :operand :x |
 		operand.size.caseOf(
 			[
-				1 -> {
-					self.centerList(operand[1], x)
+				1L -> {
+					self.centerList(operand[1L], x)
 				},
-				2 -> {
+				2L -> {
 					self.centerMatrix(operand, x)
 				}
 			]
@@ -58,7 +82,7 @@
 	}
 
 	coordinateBoundingBoxArray { :bounds :steps |
-		bounds.coordinateBoundingBoxArray(steps, [0])
+		bounds.coordinateBoundingBoxArray(steps, [0L])
 	}
 
 	coordinateBoundsArray { :rangeList :stepList :offset |
@@ -69,7 +93,7 @@
 	}
 
 	coordinateBoundsArray { :rangeList :stepList |
-		coordinateBoundsArray(rangeList, stepList, [0])
+		coordinateBoundsArray(rangeList, stepList, [0L])
 	}
 
 	coordinateBoundsList { :rangeList :stepList :offset |
@@ -124,7 +148,7 @@
 			self
 		} {
 			let answer = [self.size];
-			1.toDo(self.depth - 2) { :i |
+			1L.toDo(self.depth - 2L) { :i |
 				answer.add!(
 					self.level([i]).collect { :each |
 						each.nest.size
@@ -136,24 +160,33 @@
 	}
 
 	irregularIota { :a :zero |
-		a
-		.irregularShapeIndices
-		.withIndexCollect { :i :j |
-			i -> (j - 1 + zero)
-		}.SparseArray(a.irregularShapeBoundingShape, nil)
-		.normalArray
+		irregularIotaArray(
+			Integer(a),
+			Integer(zero)
+		).normalArray
 		.deepDeleteMissing
 	}
 
 	irregularIota { :a |
-		a.irregularIota(1)
+		a.irregularIota(1L)
+	}
+
+	irregularIotaArray { :a :zero |
+		a
+		.irregularShapeIndices
+		.withIndexCollect { :i :j |
+			i -> (j - 1L + zero)
+		}.SparseArray(
+			a.irregularShapeBoundingShape,
+			nil
+		)
 	}
 
 	irregularShape { :a |
-		let b = [a.size] ++ 1.toCollect(a.depth - 2) { :i |
+		let b = [a.size] ++ 1L.toCollect(a.depth - 2L) { :i |
 			a.atLevelCollect([i], size/1)
 		};
-		b.atLevelCollect([0 .. b.depth - 2]) { :c |
+		b.atLevelCollect([0L .. b.depth - 2L]) { :c |
 			c.isList.if {
 				c.findRepeat
 			} {
@@ -163,7 +196,7 @@
 	}
 
 	irregularShapeBoundingShape { :a |
-		let n = a[1];
+		let n = a[1L];
 		let m = a.allButFirst.collect(deepMax/1);
 		[n] ++ m
 	}
@@ -175,7 +208,7 @@
 			let j = i.dropLast;
 			j.prefixes.withIndexCollect { :k :y |
 				let z = b.at(y).atPathWrap(k);
-				i[y + 1] <= z
+				i[y + 1L] <= z
 			}.allTrue
 		}
 	}
@@ -215,7 +248,7 @@
 	}
 
 	isFloatMatrix { :self |
-		self.arrayDepth = 2 & {
+		self.arrayDepth = 2L & {
 			self.deepAllSatisfy(isFloat/1)
 		}
 	}
@@ -225,11 +258,11 @@
 	}
 
 	isMatrix { :self :aBlock/1 |
-		self.isArray(2, aBlock/1)
+		self.isArray(2L, aBlock/1)
 	}
 
 	isMatrix { :self |
-		self.arrayDepth = 2
+		self.arrayDepth = 2L
 	}
 
 	isVector { :self :aBlock/1 |
@@ -245,7 +278,7 @@
 	}
 
 	ones { :self |
-		[1].reshape(self)
+		[1L].reshape(self)
 	}
 
 	padLeft { :self :aList :anObject |
@@ -253,19 +286,19 @@
 	}
 
 	padLeft { :self |
-		self.padLeft(self.impliedShape, 0)
+		self.padLeft(self.impliedShape, 0L)
 	}
 
 	padRight { :self :shape :anObject |
-		shape.includes(0).if {
+		shape.includes(0L).if {
 			[]
 		} {
-			let length = shape[1].abs;
-			let affixSize = (length - self.size).max(0);
+			let length = shape[1L].abs;
+			let affixSize = (length - self.size).max(0L);
 			let affix = List(affixSize, anObject);
 			let prefix = (length < self.size).if { self.first(length) } { self };
-			let result = shape[1].isNegative.if { affix ++ prefix } { prefix ++ affix };
-			(shape.size = 1).if {
+			let result = shape[1L].isNegative.if { affix ++ prefix } { prefix ++ affix };
+			(shape.size = 1L).if {
 				result
 			} {
 				let nextShape = shape.allButFirst;
@@ -277,7 +310,7 @@
 	}
 
 	padRight { :self |
-		self.padRight(self.impliedShape, 0)
+		self.padRight(self.impliedShape, 0L)
 	}
 
 	rank { :self |
@@ -285,10 +318,14 @@
 	}
 
 	rankUnchecked { :self |
-		(self.isEmpty | { self[1].isList.not }).if {
-			1
+		(
+			self.isEmpty | {
+				self[1L].isList.not
+			}
+		).if {
+			1L
 		} {
-			1 + self[1].rankUnchecked
+			1L + self[1L].rankUnchecked
 		}
 	}
 
@@ -297,10 +334,10 @@
 	}
 
 	recycle { :self :shape |
-		let result = 1.to(shape[1]).collect { :i |
+		let result = 1L.to(shape[1L]).collect { :i |
 			self.atWrap(i)
 		};
-		(shape.size = 1).if {
+		(shape.size = 1L).if {
 			result
 		} {
 			let nextShape = shape.allButFirst;
@@ -319,7 +356,7 @@
 		(shape = indices.collect(size/1)).if {
 			let i = indices.tuples;
 			let j = shape.collect { :n |
-				[1 .. n]
+				[1L .. n]
 			}.tuples;
 			i.withDo(j) { :p :q |
 				self.atPathPut!(p, subarray.atPath(q))
@@ -346,8 +383,8 @@
 	}
 
 	shapeOrNil { :self |
-		(self.size = 0).if {
-			[0]
+		(self.size = 0L).if {
+			[0L]
 		} {
 			let type = self.typeName;
 			let elementTypes = self.elementTypes;
@@ -355,7 +392,7 @@
 				each = type
 			}.if {
 				let elementShapes = self.collect(shape/1);
-				(elementShapes.nub.size = 1).if {
+				(elementShapes.nub(=).size = 1L).if {
 					[self.size] ++ elementShapes.first
 				} {
 					nil
@@ -372,9 +409,9 @@
 
 	shapeUnchecked { :self |
 		self.isEmpty.if {
-			[0]
+			[0L]
 		} {
-			let leftmost = self[1];
+			let leftmost = self[1L];
 			leftmost.isList.if {
 				[self.size] ++ leftmost.shapeUnchecked
 			} {
@@ -391,9 +428,9 @@
 
 	subarray { :self :indices |
 		let k = indices.size;
-		let i = indices[1];
+		let i = indices[1L];
 		let a = self.atAll(i);
-		(k = 1).if {
+		(k = 1L).if {
 			a
 		} {
 			let j = indices.allButFirst;
@@ -405,7 +442,7 @@
 
 	tensorProduct { :self |
 		self.isEmpty.if {
-			1
+			1L
 		} {
 			self.foldRight(outerProduct/2)
 		}
@@ -413,15 +450,15 @@
 
 	transposeTriangle { :a |
 		let k = a.size;
-		1.toCollect(k) { :c |
-			1.toCollect(k - c + 1) { :r |
+		1L.toCollect(k) { :c |
+			1L.toCollect(k - c + 1L) { :r |
 				a[r][c]
 			}
 		}
 	}
 
 	zeroes { :self |
-		[0].reshape(self)
+		[0L].reshape(self)
 	}
 
 }
@@ -432,9 +469,9 @@
 		self.isVector.if {
 			let [m, n] = z;
 			let k = self.size;
-			1.to(k + z.sum).collect { :i |
+			1L.to(k + z.sum).collect { :i |
 				let d = i - m;
-				d.isBetween(1, k).if {
+				d.isBetween(1L, k).if {
 					self[d]
 				} {
 					o
@@ -447,18 +484,18 @@
 				let p = m.sum + a;
 				let q = n.sum + b;
 				{ :i :j |
-					let d = i - m[1];
-					let e = j - n[1];
+					let d = i - m[1L];
+					let e = j - n[1L];
 					(
-						d.isBetween(1, a) & {
-							e.isBetween(1, b)
+						d.isBetween(1L, a) & {
+							e.isBetween(1L, b)
 						}
 					).if {
 						self[d][e]
 					} {
 						o
 					}
-				}.table(1.to(p), 1.to(q))
+				}.table(1L.to(p), 1L.to(q))
 			} {
 				self.error('arrayPad')
 			}
@@ -565,16 +602,16 @@
 	}
 
 	mooreNeighborhood { :dimensions :range |
-		let size = range * 2 + 1;
-		let length = (size ^ dimensions) - 1;
+		let size = range * 2L + 1L;
+		let length = (size ^ dimensions) - 1L;
 		let neighbors = [];
-		0.toDo(length - 1) { :i |
+		0L.toDo(length - 1L) { :i |
 			let neighbor = List(dimensions, nil);
-			let index = (i < (length / 2)).if { i } { i + 1 };
+			let index = (i < (length / 2L)).if { i } { i + 1L };
 			neighbors.add!(neighbor);
-			1.toDo(dimensions) { :d |
+			1L.toDo(dimensions) { :d |
 				let value = index % (size ^ d);
-				neighbor[d] := value / (size ^ (d - 1)) - range;
+				neighbor[d] := value / (size ^ (d - 1L)) - range;
 				index := index - value
 			}
 		};
@@ -582,19 +619,19 @@
 	}
 
 	vonNeumannNeighborhood { :dimensions :range |
-		let size = range * 2 + 1;
+		let size = range * 2L + 1L;
 		let iterations = size ^ dimensions;
-		let center = (iterations - 1) // 2;
+		let center = (iterations - 1L) // 2L;
 		let neighbors = [];
-		0.toDo(iterations - 1) { :i |
+		0L.toDo(iterations - 1L) { :i |
 			(i = center).ifFalse {
 				let neighbor = List(dimensions, nil);
-				let distance = 0;
+				let distance = 0L;
 				let remaining = i;
-				0.toDo(dimensions - 1) { :d |
-					let remainder = remaining % (size ^ (d + 1));
+				0L.toDo(dimensions - 1L) { :d |
+					let remainder = remaining % (size ^ (d + 1L));
 					let value = remainder // (size ^ d) - range;
-					neighbor[d + 1] := value;
+					neighbor[d + 1L] := value;
 					distance := distance + value.abs;
 					remaining :=  remaining - remainder
 				};
@@ -611,10 +648,10 @@
 +Block {
 
 	arrayReduce { :self/1 :anArray :anInteger |
-		(anInteger = 1).if {
+		(anInteger = 1L).if {
 			anArray.collect(self/1)
 		} {
-			(anInteger = 2).if {
+			(anInteger = 2L).if {
 				anArray.columnsCollect(self/1)
 			} {
 				self.error('Block>>arrayReduce: not implemented')
@@ -627,11 +664,11 @@
 +Range {
 
 	arrayDepth { :unused |
-		1
+		1L
 	}
 
 	dimensions { :self :k |
-		(k = 0).if {
+		(k = 0L).if {
 			[]
 		} {
 			[self.size]
@@ -647,7 +684,7 @@
 	}
 
 	rank { :self |
-		1
+		1L
 	}
 
 	shape { :self |
@@ -659,7 +696,7 @@
 +@Object {
 
 	arrayDepth { :self |
-		0
+		0L
 	}
 
 	dimensions { :self |
@@ -667,7 +704,7 @@
 	}
 
 	rank { :self |
-		0
+		0L
 	}
 
 	shape { :self |
@@ -701,7 +738,7 @@
 	}
 
 	triangularArrayDo { :self :aBlock/2 :k |
-		let a = self[1];
+		let a = self[1L];
 		self.do { :n |
 			a.toDo(max(a, n + k)) { :m |
 				aBlock(n, m)

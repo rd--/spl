@@ -223,8 +223,8 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 	booleanSparseArray { :indices :shape :zeroOne |
 		let [a, b] = zeroOne;
 		SparseArray(
-			indices.collect { :i |
-				IntegerList(i) -> b
+			indices.collect { :i IntegerVector |
+				i -> b
 			},
 			shape,
 			a

@@ -6,13 +6,25 @@ Answers the collection _x_ rescaled to the indicated range,
 taking as the domain the `min` and `max` items of the collection:
 
 ```
+>>> [-2/10 -1/10 4/10 9/10]
+>>> .normalizeRange([-1/1 1/1])
+[-1/1 -9/11 1/11 1/1]
+
 >>> [-0.2 -0.1 0.4 0.9]
->>> .normalizeRange([-1 1])
-[-1 -9/11 1/11 1]
+>>> .normalizeRange([-1.0 1.0])
+[-1.0 -0.818181 0.090909 1.0]
+```
+
+Compare to `rescale`:
+
+```
+>>> [-2/10 -1/10 4/10 9/10]
+>>> .rescale([-2/10 9/10], [-1/1 1/1])
+[-1/1 -9/11 1/11 1/1]
 
 >>> [-0.2 -0.1 0.4 0.9]
 >>> .rescale([-0.2 0.9], [-1 1])
-[-1 -9/11 1/11 1]
+[-1.0 -0.818181 0.090909 1.0]
 ```
 
 If the input has only one distinct value answer itself,

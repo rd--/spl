@@ -580,7 +580,10 @@
 	}
 
 	rescale { :self |
-		self.rescale([self.deepMin, self.deepMax], [0, 1])
+		self.rescale(
+			[self.deepMin, self.deepMax],
+			[0L, 1L]
+		)
 	}
 
 	selectDuplicates { :c :comparator/2 |

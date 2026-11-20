@@ -55,7 +55,7 @@ update-cache:
 	(cd Package; make)
 
 clear-cache:
-	rm -f .cache/*.js
+	rm -f .cache/*.js .cache/*/*.js
 
 check-method-spacing:
 	python3 utilities/check-method-spacing.py Package/*/*.sl

@@ -14,28 +14,12 @@
 		self.collect(Float/1)
 	}
 
-	FloatList { :self |
-		self.isList.if {
-			Float(self)
-		} {
-			self.error('FloatList')
-		}
-	}
-
 	I { :self |
 		self.collect(I/1)
 	}
 
 	Integer { :self |
 		self.collect(Integer/1)
-	}
-
-	IntegerList { :self |
-		self.isList.if {
-			Integer(self)
-		} {
-			self.error('IntegerList')
-		}
 	}
 
 	Number { :self |
@@ -854,7 +838,7 @@
 	}
 
 	rescale { :self :a |
-		self.collect(rescaleBlock(a, [0, 1]))
+		self.collect(rescaleBlock(a, [0L, 1L]))
 	}
 
 	riemannXi { :self |

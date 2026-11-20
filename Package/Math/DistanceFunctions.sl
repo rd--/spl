@@ -603,7 +603,7 @@
 
 +List {
 
-	needlemanWunschAlgorithm { :a :b :c :o FloatList |
+	needlemanWunschAlgorithm { :a :b :c :o FloatVector |
 		uncheckedNeedlemanWunschAlgorithm(a, b, c, o)
 	}
 

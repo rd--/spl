@@ -1907,7 +1907,7 @@
 
 	integerSequenceColumnSparseArray { :x :reverse |
 		let r = x.size;
-		let [m, n] = x.minMax.L;
+		let [m, n] = x.minMax;
 		let c = n - m + 1L;
 		1L.toCollect(r) { :i |
 			let j = reverse.if {
@@ -1919,7 +1919,7 @@
 		}.SparseArray([r, c], 0L)
 	}
 
-	integerSequenceMatrix { :v :kind |
+	integerSequenceMatrix { :v IntegerVector :kind String |
 		v.integerSequenceSparseArray(kind).normalArray
 	}
 

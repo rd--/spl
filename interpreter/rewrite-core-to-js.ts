@@ -281,10 +281,10 @@ const asJs: ohm.ActionDict<string> = {
 	lowercaseArityQualifiedIdentifier(c1, cN, ip, _solidus, a) {
 		return `_${rewrite.rewriteInPlaceName(c1, cN, ip)}_${a.sourceString}`;
 	},
-	largeIntegerLiteral(s, i, _l) {
-		const sT = s.sourceString;
-		let iT = rewrite.deleteLeadingZeroes(i.sourceString);
-		return `${sT}${iT}n`;
+	largeIntegerLiteral(s, i, _letterL) {
+		const sStr = s.sourceString;
+		let iStr = i.sourceString;
+		return `${sStr}${iStr}n`;
 	},
 	lowercaseIdentifier(c1, cN, ip) {
 		return `_${rewrite.rewriteInPlaceName(c1, cN, ip)}`;

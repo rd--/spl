@@ -7,11 +7,11 @@ Syntax for writing `Range` literals.
 Rewrite rules:
 
 ```
->> '1:n'.splSimplify
-Range(1, n)
+>>> '1L:n'.splSimplify
+'Range(1L, n)'
 
->> '1:n:-1'.splSimplify
-Range(1, n, -1)
+>>> '1L:n:-1L'.splSimplify
+'Range(1L, n, -1L)'
 ```
 
 α and β must be either small or large integer literals or identifiers,

@@ -178,7 +178,7 @@ Make a rank-4 sparse tensor with values at random positions:
 Create a list with a single nonzero element:
 
 ```
->>> SparseArray([[10] -> 1], [19], 0)
+>>> SparseArray([[10L] -> 1], [19L], 0)
 >>> .normalArray
 [
 	0 0 0 0 0 0 0 0 0
@@ -190,7 +190,7 @@ Create a list with a single nonzero element:
 Create a matrix with a single nonzero element:
 
 ```
->>> SparseArray([[3 3] -> 1], [5 5], 0)
+>>> SparseArray([[3L 3L] -> 1], [5L 5L], 0)
 >>> .normalArray
 [
 	0 0 0 0 0;
@@ -206,10 +206,12 @@ Create a matrix with a single nonzero element:
 
 ```
 >>> let l = [3 3].iota;
->>> let s = l.arrayToSparseArray(0);
+>>> let s = l.arrayToSparseArray(0L);
 >>> (
->>> 	l.at(2), s.at(2).normalArray,
->>> 	l.atPath([2 2]), s.atPath([2 2])
+>>> 	l.at(2),
+>>> 	s.at(2).normalArray,
+>>> 	l.atPath([2 2]),
+>>> 	s.atPath([2L 2L])
 >>> )
 ([4 5 6], [4 5 6], 5, 5)
 ```
@@ -250,7 +252,7 @@ and `nonZeroPositions` answers the indices of the specified values:
 Plot a list of rules:
 
 ~~~spl svg=A
-SparseArray([[1] -> 2, [10] -> 7, [3] -> 2])
+SparseArray([[1L] -> 2, [10L] -> 7, [3L] -> 2])
 .normalArray
 .linePlot
 ~~~

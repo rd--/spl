@@ -19,7 +19,7 @@ Decimal(Fraction(314L, 100L), 2L)
 Decimal(Fraction(314L, 100L), 3L)
 
 >> '0.1D3'.splSimplify
-Decimal(Fraction(01L, 10L), 3L)
+Decimal(Fraction(1L, 10L), 3L)
 ```
 
 Implicit scale:

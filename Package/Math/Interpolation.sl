@@ -621,12 +621,14 @@
 +String {
 
 	namedInterpolatorFunction { :self |
-		self.caseOf([
-			'Akima' -> { akimaInterpolator/2 },
-			'CubicSpline' -> { cubicSplineInterpolator/2 },
-			'Linear' -> { linearInterpolator/2 },
-			'NearestNeighbour' -> { nearestNeighbourInterpolator/2 }
-		]) {
+		self.caseOf(
+			[
+				'Akima' -> { akimaInterpolator/2 },
+				'CubicSpline' -> { cubicSplineInterpolator/2 },
+				'Linear' -> { linearInterpolator/2 },
+				'NearestNeighbour' -> { nearestNeighbourInterpolator/2 }
+			]
+		) {
 			self.error('interpolatorFunction: unknown method')
 		}
 	}
@@ -635,7 +637,7 @@
 
 +List {
 
-	savitzkyGolayFilter { :y FloatList :m Float :w Float |
+	savitzkyGolayFilter { :y FloatVector :m Float :w Float |
 		List(
 			uncheckedSavitzkyGolayFilter(y, m, w)
 		)
@@ -839,7 +841,7 @@
 
 +List {
 
-	cubicHermiteFunction { :self FloatList :tangents FloatList |
+	cubicHermiteFunction { :self FloatMatrix :tangents FloatMatrix |
 		{ :t Float |
 			(t >= 1.0).if {
 				self.last

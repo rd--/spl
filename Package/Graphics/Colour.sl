@@ -237,7 +237,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 +List {
 
 	Colour { :self |
-		self.atVectorOrElementwise { :a FloatList |
+		self.atVectorOrElementwise { :a FloatVector |
 			a.size.caseOf(
 				[
 					3 -> { RgbColour(a, 1.0) },

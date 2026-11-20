@@ -8,12 +8,12 @@ The answer is a `SparseArray` object.
 Generate a binary matrix of a Costas array:
 
 ```
->>> [2 1 3 4].columnBinaryMatrix
+>>> [2L 1L 3L 4L].columnBinaryMatrix
 SparseArray[
-	[2 1] -> 1,
-	[1 2] -> 1,
-	[3 3] -> 1,
-	[4 4] -> 1
+	[2L 1L] -> 1L,
+	[1L 2L] -> 1L,
+	[3L 3L] -> 1L,
+	[4L 4L] -> 1L
 ]
 
 >>> [2 1 3 4].columnBinaryMatrix

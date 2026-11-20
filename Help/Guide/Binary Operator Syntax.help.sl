@@ -5,8 +5,8 @@
 Rewrite rule:
 
 ```
->> '3 + 4'.splSimplify
-plusSign(3, 4)
+>>> 'x + y'.splSimplify
+'plusSign(x, y)'
 ```
 
 Binary operators are written _α + β_:
@@ -22,8 +22,8 @@ Binary operators associate to the left, _α + β * γ_ = _(α + β) * γ_:
 >>> 3 + 4 * 5
 35
 
->> '3 + 4 * 5'.splSimplify
-asterisk(plusSign(3, 4), 5)
+>>> 'x + y * z'.splSimplify
+'asterisk(plusSign(x, y), z)'
 ```
 
 Binary operators are grouped using parentheses:
@@ -32,8 +32,8 @@ Binary operators are grouped using parentheses:
 >>> 3 + (4 * 5)
 23
 
->> '3 + (4 * 5)'.splSimplify
-plusSign(3, (asterisk(4, 5)))
+>>> 'x + (y * z)'.splSimplify
+'plusSign(x, (asterisk(y, z)))'
 ```
 
 Binary operators have lower precedence than ordinary application,

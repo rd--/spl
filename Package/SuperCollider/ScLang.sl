@@ -35,12 +35,12 @@
 	}
 
 	powersetBitwise { :self |
-		let k = 1.bitShift(self.size) - 1;
-		0.toCollect(k) { :each |
-			let index = 0;
+		let k = 1L.bitShift(self.size) - 1L;
+		0L.toCollect(k) { :each |
+			let index = 0L;
 			self.select { :elem |
-				index := index + 1;
-				each.bitAt(index) = 1
+				index := index + 1L;
+				each.bitAt(index) = 1L
 			}
 		}
 	}
@@ -58,19 +58,19 @@
 	}
 
 	ampDb { :self |
-		self.log10 * 20
+		self.log10 * 20.0
 	}
 
 	[centsRatio, CentsRatio] { :self |
-		(self / 100).midiRatio
+		(self / 100.0).midiRatio
 	}
 
 	cpsMidi { :self |
-		(self / 440).log2 * 12 + 69
+		(self / 440.0).log2 * 12.0 + 69.0
 	}
 
 	[cpsOct, CpsOct] { :self |
-		(self / 440).log2 + 4.75
+		(self / 440.0).log2 + 4.75
 	}
 
 	curveLin { :self :inMin :inMax :outMin :outMax :curve |
@@ -93,7 +93,7 @@
 	}
 
 	dbAmp { :self |
-		10 ^ (self * 0.05)
+		10.0 ^ (self * 0.05)
 	}
 
 	difSqr { :self :aNumber |
@@ -101,7 +101,7 @@
 	}
 
 	distort { :self |
-		self / (1 + self.abs)
+		self / (1.0 + self.abs)
 	}
 
 	expExp { :self :inMin :inMax :outMin :outMax |
@@ -162,7 +162,7 @@
 	}
 
 	hypotenuseApproximate { :self :aNumber |
-		self.abs + aNumber.abs - ((2.sqrt - 1) * self.abs.min(aNumber.abs))
+		self.abs + aNumber.abs - ((2.0.sqrt - 1.0) * self.abs.min(aNumber.abs))
 	}
 
 	isExclusivelyBetween { :self :lo :hi |
@@ -226,11 +226,11 @@
 	}
 
 	midiCps { :self |
-		440 * (2 ^ ((self - 69) / 12))
+		440.0 * (2.0 ^ ((self - 69.0) / 12.0))
 	}
 
 	midiRatio { :self |
-		2 ^ (self / 12)
+		2.0 ^ (self / 12.0)
 	}
 
 	nextPowerOf { :self :base |
@@ -239,19 +239,19 @@
 	}
 
 	octCps { :self |
-		440 * (2 ^ (self - 4.75))
+		440.0 * (2.0 ^ (self - 4.75))
 	}
 
 	previousPowerOf { :self :base |
-		base ^ (self.log(base).ceiling - 1)
+		base ^ (self.log(base).ceiling - 1.0)
 	}
 
 	[ratioCents, RatioCents] { :self |
-		self.ratioMidi * 100
+		self.ratioMidi * 100.0
 	}
 
 	ratioMidi { :self |
-		12 * self.log2
+		12.0 * self.log2
 	}
 
 }
@@ -260,8 +260,8 @@
 
 	binaryDigits { :self :numDigits |
 		let answer = [];
-		0.toDo(numDigits - 1) { :i |
-			answer.addFirst!(self.bitShiftRight(i).bitAnd(1))
+		0L.toDo(numDigits - 1L) { :i |
+			answer.addFirst!(self.bitShiftRight(i).bitAnd(1L))
 		};
 		answer
 	}
@@ -291,7 +291,7 @@
 	}
 
 	obtain { :self :index :default |
-		(index = 1).if {
+		(index = 1L).if {
 			self
 		} {
 			default
@@ -299,7 +299,7 @@
 	}
 
 	sizeForExtending { :self |
-		1
+		1L
 	}
 
 }
@@ -313,9 +313,9 @@
 	}
 
 	atBlend { :self :index |
-		let indexMin = index.roundUp - 1;
+		let indexMin = index.roundUp - 1L;
 		self.atPin(indexMin).blend(
-			self.atPin(indexMin + 1),
+			self.atPin(indexMin + 1L),
 			(index - indexMin).abs
 		)
 	}
@@ -334,7 +334,7 @@
 				segment := []
 			}
 		};
-		(segment.size > 0).ifTrue {
+		(segment.size > 0L).ifTrue {
 			answer.add!(segment)
 		};
 		answer
@@ -345,11 +345,11 @@
 	}
 
 	differentiate { :self |
-		([0] ++ self).differences
+		([0L] ++ self).differences
 	}
 
 	extendTo { :self :size |
-		1.toAsCollect(size, self) { :index |
+		1L.toAsCollect(size, self) { :index |
 			self.atWrap(index)
 		}
 	}
@@ -375,16 +375,16 @@
 			(i > self.size).if {
 				self.size
 			} {
-				(i = 1).if {
+				(i = 1L).if {
 					i
 				} {
-					let a = self[i - 1];
+					let a = self[i - 1L];
 					let b = self[i];
 					let c = b - a;
-					(c = 0).if {
+					(c = 0L).if {
 						i
 					} {
-						((aNumber - a) / c) + i - 1
+						((aNumber - a) / c) + i - 1L
 					}
 				}
 			}
@@ -405,7 +405,7 @@
 
 	integrate { :self |
 		let answer = [];
-		let sum = 0;
+		let sum = 0L;
 		self.do { :each |
 			sum := sum + each;
 			answer.add!(sum)
@@ -452,7 +452,7 @@
 
 	multiChannelExpand { :self |
 		let k = self.collect(sizeForExtending/1).max;
-		1.toCollect(k) { :index |
+		1L.toCollect(k) { :index |
 			self.collect { :each |
 				each.atExtending(index)
 			}
@@ -470,50 +470,54 @@
 	pyramid { :self :patternType |
 		let answer = [];
 		let lastIndex = self.size;
-		(patternType = 1).ifTrue {
-			1.toDo(lastIndex) { :i |
-				answer.addAll!(self.copyFromTo(1, i))
-			}
-		};
-		(patternType = 2).ifTrue {
-			lastIndex.downToDo(1) { :i |
-				answer.addAll!(self.copyFromTo(i, lastIndex))
-			}
-		};
-		(patternType = 3).ifTrue {
-			lastIndex.downToDo(1) { :i |
-				answer.addAll!(self.copyFromTo(1, i))
-			}
-		};
-		(patternType = 4).ifTrue {
-			1.toDo(lastIndex) { :i |
-				answer.addAll!(self.copyFromTo(i, lastIndex))
-			}
-		};
-		(patternType = 5).ifTrue {
-			1.toDo(lastIndex) { :i |
-				answer.addAll!(self.copyFromTo(1, i))
-			};
-			(lastIndex - 1).toByDo(1, -1) { :i |
-				answer.addAll!(self.copyFromTo(1, i))
-			}
-		};
-		(patternType = 6).ifTrue {
-			lastIndex.toByDo(1, -1) { :i |
-				answer.addAll!(self.copyFromTo(i, lastIndex))
-			};
-			2.toDo(lastIndex) { :i |
-				answer.addAll!(self.copyFromTo(i, lastIndex))
-			}
-		};
-		(patternType = 7).ifTrue {
-			lastIndex.toByDo(1, -1) { :i |
-				answer.addAll!(self.copyFromTo(1, i))
-			};
-			2.toDo(lastIndex) { :i |
-				answer.addAll!(self.copyFromTo(1, i))
-			}
-		};
+		patternType.caseOf(
+			[
+				1L -> {
+					1L.toDo(lastIndex) { :i |
+						answer.addAll!(self.copyFromTo(1L, i))
+					}
+				},
+				2L -> {
+					lastIndex.downToDo(1L) { :i |
+						answer.addAll!(self.copyFromTo(i, lastIndex))
+					}
+				},
+				3L -> {
+					lastIndex.downToDo(1L) { :i |
+						answer.addAll!(self.copyFromTo(1L, i))
+					}
+				},
+				4L -> {
+					1L.toDo(lastIndex) { :i |
+						answer.addAll!(self.copyFromTo(i, lastIndex))
+					}
+				},
+				5L -> {
+					1L.toDo(lastIndex) { :i |
+						answer.addAll!(self.copyFromTo(1L, i))
+					};
+					(lastIndex - 1L).toByDo(1L, -1L) { :i |
+						answer.addAll!(self.copyFromTo(1L, i))
+					}
+				},
+				6L -> {
+					lastIndex.toByDo(1L, -1L) { :i |
+						answer.addAll!(self.copyFromTo(i, lastIndex))
+					};
+					2L.toDo(lastIndex) { :i |
+						answer.addAll!(self.copyFromTo(i, lastIndex))
+					}
+				},
+				7L -> {
+					lastIndex.toByDo(1L, -1L) { :i |
+						answer.addAll!(self.copyFromTo(1L, i))
+					};
+					2L.toDo(lastIndex) { :i |
+						answer.addAll!(self.copyFromTo(1L, i))
+					}
+				}
+			]
+		);
 		answer
 	}
 
@@ -523,9 +527,9 @@
 		} {
 			self.resample(size)
 		};
-		let b = a.integrate.normalizeRange([1 size]);
-		1.toCollect(size) { :index |
-			b.indexOfInBetween(index) - 1 / size
+		let b = a.integrate.normalizeRange([1L, size]);
+		1L.toCollect(size) { :index |
+			b.indexOfInBetween(index) - 1L / size
 		}
 	}
 
