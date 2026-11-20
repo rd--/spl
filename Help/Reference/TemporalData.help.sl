@@ -109,6 +109,34 @@ PoissonProcess(5.0)
 
 ![](Help/Image/TemporalData-E.svg)
 
+The note data for _Drawing for Gyrostasis_ (1968):
+
+~~~spl svg=F
+Url(
+	'json/Gyrostasis.json',
+	'https://rohandrape.net/uc/sp-id/'
+).fetchJson.then { :x |
+	TemporalData(x)
+	.scatterPlot
+}
+~~~
+
+![](Help/Image/TemporalData-F.svg)
+
+The note data for _Drawing for Asphalt on Eroded Cliff_ (1969):
+
+~~~spl png=G
+Url(
+	'json/Asphalt-on-Eroded-Cliff.json',
+	'https://rohandrape.net/uc/sp-id/'
+).fetchJson.then { :x |
+	TemporalData(x)
+	.denseScatterPlot
+}
+~~~
+
+![](Help/Image/TemporalData-G.png)
+
 * * *
 
 See also: TimeSeries

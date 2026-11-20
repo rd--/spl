@@ -69,6 +69,10 @@ TemporalData : [Object, Equal] {
 		}
 	}
 
+	denseScatterPlot { :self |
+		self.pathList.catenate.denseScatterPlot
+	}
+
 	scatterPlot { :self |
 		self.pathList.scatterPlot
 	}

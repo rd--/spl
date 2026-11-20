@@ -6,6 +6,9 @@ and the line _l_ moves in positive steps first along the _z_ axis,
 then the _y_ axis,
 then lastly the _x_ axis.
 
+The geometry is defined in the first drawing,
+and stored in a `workspace` variable for reference in subsequent drawings.
+
 One convention is that
 _x_ is back to front,
 _y_ is left to right, and
@@ -18,21 +21,21 @@ then right (_y_),
 then toward the front (_x_):
 
 ~~~spl svg=A
-workspace['perspectiveScene'] := [
-	[	-2 -1 0;
-		+2 -1 0;
-		+2 +1 0;
-		-2 +1 0
-	].Polygon,
-	[
-		0 0 0;
-		0 0 1;
-		0 1 1;
-		1 1 1
-	].Line
-].GeometryCollection;
-PerspectiveDrawing(
-	workspace['perspectiveScene'],
+(
+	workspace['perspectiveScene'] := [
+		[	-2 -1 0;
+			+2 -1 0;
+			+2 +1 0;
+			-2 +1 0
+		].Polygon,
+		[
+			0 0 0;
+			0 0 1;
+			0 1 1;
+			1 1 1
+		].Line
+	].GeometryCollection
+).PerspectiveDrawing(
 	AxonometricProjection[
 		-0.5 1/6.pi;
 		1.0 0.0;
@@ -56,8 +59,8 @@ and the line _l_ first moves toward the back (_z_), then up (_y_), then right (_
 PerspectiveDrawing(
 	workspace['perspectiveScene'],
 	AxonometricProjection[
-		1 0;
-		1 1/2.pi;
+		1.0 0.0;
+		1.0 1/2.pi;
 		1/2 1/6.pi
 	]
 )
@@ -80,9 +83,9 @@ then rightward (_x_):
 PerspectiveDrawing(
 	workspace['perspectiveScene'],
 	AxonometricProjection[
-		1 0;
+		1.0 0.0;
 		1/2 1/6.pi;
-		1 1/2.pi
+		1.0 1/2.pi
 	]
 )
 ~~~
