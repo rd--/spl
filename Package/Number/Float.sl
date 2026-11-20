@@ -939,8 +939,8 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 	}
 
 	roundTiesEven { :n |
-		(n.fractionalPart = 0.5).if {
-			2 * (n / 2).round
+		(n.fractionalPart.abs = 0.5).if {
+			2 * (n / 2.0).round
 		} {
 			n.round
 		}

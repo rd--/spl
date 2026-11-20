@@ -873,6 +873,10 @@
 		self.collect(roundTiesEven/1)
 	}
 
+	roundTowardsZero { :self |
+		self.collect(roundTowardsZero/1)
+	}
+
 	rudinShapiro { :self |
 		self.collect(rudinShapiro/1)
 	}
@@ -1242,8 +1246,12 @@
 		a + b + c + d
 	}
 
-	round { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, round/2)
+	round { :self :operand |
+		operand.adaptToCollectionAndApply(self, round/2)
+	}
+
+	roundTowardsZero { :self :operand |
+		operand.adaptToCollectionAndApply(self, roundTowardsZero/2)
 	}
 
 	scaleNegative { :self :operand |

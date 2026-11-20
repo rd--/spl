@@ -32,7 +32,7 @@ At `Float`:
 -0.45533
 ```
 
-Fractional part of a negative real number:
+Fractional part of a negative real number is negative:
 
 ```
 >>> -2.4.fractionalPart

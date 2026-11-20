@@ -47,6 +47,26 @@ Compare to `round`:
 -3
 ```
 
+Threads over lists:
+
+```
+>>> [-3 .. 3]
+>>> .roundTowardsZero(2)
+[-2, -2, 0, 0, 0, 2, 2]
+
+>>> [-1.5 .. 1.5; 0.5]
+>>> .roundTowardsZero
+[-1 -1 0 0 0 1 1]
+```
+
+Compare to `roundTiesEven`:
+
+```
+>>> [-1.5 .. 1.5; 0.5]
+>>> .roundTiesEven
+[-2 1 0 0 0 1 2]
+```
+
 * * *
 
 See also: ceiling, floor, round, roundDown, roundTiesEven, roundUp, truncate

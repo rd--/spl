@@ -672,7 +672,7 @@
 
 }
 
-+Float {
++[Float, Integer] {
 
 	geom { :self :start :grow |
 		self.geometricProgression(start, grow)

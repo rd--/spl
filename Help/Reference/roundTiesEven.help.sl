@@ -5,11 +5,15 @@
 Answer _n_ rounded,
 with half-way cases rounded to an even number.
 
+Threads over lists:
+
 ```
->>> [0.5 1.5 2.5].roundTiesEven
+>>> [0.5 1.5 2.5]
+>>> .roundTiesEven
 [0 2 2]
 
->>> [3.3 -3.3 3.5 4.5].roundTiesEven
+>>> [3.3 -3.3 3.5 4.5]
+>>> .roundTiesEven
 [3 -3 4 4]
 ```
 
