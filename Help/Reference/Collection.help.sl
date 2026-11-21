@@ -52,12 +52,12 @@ Types implementing `Collection`:
 [
 	'AsciiString'
 	'BitSet'
-	'FunctionStream'
 	'ByteArray'
 	'CollectionStream'
 	'Dictionary'
 	'Float32Array'
 	'Float64Array'
+	'FunctionStream'
 	'IdentitySet'
 	'Link'
 	'LinkedList'

@@ -412,7 +412,7 @@ let f = { 1:9.atRandom }; f/0.once = f/0.once & { f/0.once = f/0.once } /* the c
 let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 { 1 } ! 2 = [1 1] /* evaluate a function twice and collect the answers in an array */
 { '3' } ! 3 = ['3', '3', '3'] /* evaluate function indicated number of times and collect answers in an array */
-{ 1:9.atRandom }.!(9).allSatisfy(isInteger/1) /* evaluate a function n times and collect answers in an array */
+{ 1L:9L.atRandom }.!(9).allSatisfy(isInteger/1) /* evaluate a function n times and collect answers in an array */
 { '3' } ! 3 = ['3', '3', '3'] /* operator notation */
 ({ system.nextRandomFloat } ! 9).size = 9 /* the size of the answer is as requested */
 ({ system.nextRandomFloat } ! 3).allSatisfy(isNumber/1) = true
@@ -1214,7 +1214,7 @@ uncheckedFraction(4L, 6L) != 2/3 /* uncheckedFraction assumes fraction is normal
 4/3.isNegative.not /* is negative predicate */
 4/3.numerator = 4 /* numerator */
 2/3.raisedToInteger(5) = 32/243 /* fractions also can be exponentiated */
-2/3 ^ 5 = 32/243 /* fractions also can be exponentiated using infix operator */
+2/3 ^ 5L = 32/243 /* fractions also can be exponentiated using infix operator */
 2/3 ^ 3/4 ~ 0.737788 /* non integer exponents answer floatinput point values */
 9/5.reciprocal = 5/9 /* reciprocal, mutiplicative inverse */
 let n = 9/5; n.reciprocal * n = 1 /* mutiplicative inverse */
@@ -1321,8 +1321,7 @@ let n = system.unicodeFractionsTable.associations.collect(value/1); n = n.sort
 '4/3'.parseFraction = 4/3 /* parse fraction */
 '4/3'.parseFractionSeparatedBy('/') { } = 4/3 /* parse fraction given delimiter */
 { '4/3'.parseNumber = 4/3 }.hasError /* the fraction module does not modify parseNumber to parse fractions */
-let x = Fraction(2L ^ 55, 2); x != (x - 1) /* fractions of large small floats would behave strangely, enforce large integers  */
-let x = Fraction(2L ^ 55L, 2); x != (x - 1) /* fractions of large large integers behave ordinarily */
+let x = Fraction(2L ^ 55L, 2L); x != (x - 1L) /* fractions of large large integers behave ordinarily */
 2/3 != 3/4 /* unequal fractions */
 (2/3 == 2/3).not /* non-identical fractions (equal fractions need not be the same object) */
 2/3 !== 2/3 /* non-identical fractions */
@@ -1447,7 +1446,7 @@ true == true & { false == false } /* boolean identity */
 ## Integer -- numeric trait
 ```
 system.includesPackage('Integer') /* integer package */
-1.isInteger = true /* integer predicate */
+1L.isInteger = true /* integer predicate */
 4 / 2 = 2 /* integer division with integer result */
 let n = 2; 3.timesRepeat { n := n * n }; n = 256 /* iteration */
 0:15.collect(hexDigitCharacter/1).stringJoin = '0123456789ABCDEF' /* integer to hex character */
@@ -1464,8 +1463,8 @@ let a = []; 5.toDo(1) { :each | a.add!(each) }; a = [] /* non-ascending sequence
 256:511.collect { :each | each.digitAt(1) } = [0 .. 255]
 256:511.collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 1 }
 512:1023.collect { :each | each.digitAt(2) }.sortedElements(==) = [2 -> 256, 3 -> 256]
-[1, 8, 16, 24, 32L, 40L, 48L, 56L, 64L].collect { :each | (2 ^ each).digitLength } = [1 .. 9]
-(2 ^ 128L - 1).digitLength = 16
+[1, 8, 16, 24, 32L, 40L, 48L, 56L, 64L].collect { :each | (2L ^ each).digitLength } = [1 .. 9]
+(2L ^ 128L - 1L).digitLength = 16
 [64 226 1].ByteArray.fnv1aHash = 2230130162L
 (1 << 30) == 1073741824 /* equal integers are identical */
 6.choose(3) = 20 /* n choose k */
@@ -1622,12 +1621,12 @@ system.includesPackage('Integer') /* Integer package */
 6L / 8L = Fraction(3L, 4L)
 2 / 3L = Fraction(2L, 3L)
 4L / 2L = 2L /* reduced */
-let x = (2L ^ 54L); x != (x - 1) /* large integers behave ordinarily */
+let x = (2L ^ 54L); x != (x - 1L) /* large integers behave ordinarily */
 5L % 3L = 2L /* modulo */
 [10L % 5L, -4L % 3L, 4L % -3L, -4L % -3L] = [0L, 2L, -2L, -1L] /* modulo, negative operands */
 13L % 7L % 4L = 2L /* left assocative */
 13L + 1L % 7L = 0L /* equal precedence */
-(2L ^ 170 - 1).isPowerOfTwo = false /* Integer power of two test */
+(2L ^ 170L - 1L).isPowerOfTwo = false /* Integer power of two test */
 324518553658426726783156020576256L.isEven = true /* is large integer even */
 324518553658426726783156020576257L.isOdd = true /* is large integer odd */
 100L.factorial / 99L.factorial = 100L /* large integer factorial, c.f. small float */
@@ -2034,7 +2033,7 @@ let v = [2 2.8 -2 -2.8]; v.ceiling = -v.floor.negate /* ceiling is equal to nega
 1.5.floor = 1 /* floor (round down) */
 1.exp.log = 1 /* base e (natural) logarithm */
 1.2.isNumber = true /* is x a number */
-0.isInteger = true /* is x an integer */
+0L.isInteger = true /* is x an integer */
 3.isPositive = true /* is x > 0 */
 1.max(2) = 2 /* maximum */
 1.min(2) = 1 /* minimum */
@@ -2130,7 +2129,7 @@ let c = [1, 2, 3, 1]; c.Multiset(==) = c.histogramOf(==, identity/1)
 (x: 1, y: 2, z: 1).histogramOf(==) { :each | each } = [1, 2, 1].Multiset(==)
 (x: 1, y: 2, z: 1).values.histogramOf(==) { :each | each } = [1, 2, 1].Multiset(==)
 (x: 1, y: 2, z: 1).indices.histogramOf(==) { :each | each } = ['x', 'y', 'z'].Multiset(==)
-[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf(==) { :each | each.round } = [1, 2, 3, 2, 3, 1].Multiset(==)
+[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf(==) { :each | each.round } = [1L 2L 3L 2L 3L 1L].Multiset(==)
 [1, 3, 5].Multiset(==).select { :x | x > 1 } = [3, 5].Multiset(==)
 let b = [1, 2, 3, 2, 1].Multiset(==); b.removeAll!([1, 2, 3]); b = [2, 1].Multiset(==) /* only remove first instance */
 ```
@@ -3100,8 +3099,8 @@ system.includesPackage('Float') /* package */
 5.isByte = true
 -1.isByte = false
 { 'x'.isByte = false }.hasError
-3.isInteger /* three is an integer */
--1.isInteger = true /* negative integers are integers */
+3L.isInteger /* three is an integer */
+-1L.isInteger = true /* negative integers are integers */
 'x'.isNumber = false /* a string is not a number */
 3 + 4 = 7
 3 * 4 = 12
@@ -3123,7 +3122,7 @@ let total = 0; 9.timesRepeat { total := total + system.nextRandomFloat }; total 
 12345.truncate(600) = 12000
 13.isBetween(11, 14) = true /* is number between two numbers, inclusive */
 [1 .. 5].collect { :each | each.isBetween(2, 4) } = [false, true, true, true, false]
-1:9.atRandom.isInteger = true /* random number between 1 and 9 */
+1L:9L.atRandom.isInteger = true /* random number between 1 and 9 */
 system.randomSmallInteger([1 9], []).isInteger = true
 system.randomReal([0 9], []).isInteger = false /* possible it could be an integer, but very unlikely */
 system.randomReal([0 1.pi], []).isInteger = false
@@ -3185,7 +3184,7 @@ let x = (2.0 ^ 54.0); x != (x - 1.0) = false /* large floats behave strangely */
 [-1, 0, 1].collect(integerString/1) = ['-1', '0', '1']
 1.pi.printString = '3.141592653589793'
 1.pi.storeString = '3.141592653589793'
-23.isInteger /* is a small float an integer */
+23L.isInteger /* is a small float an integer */
 23.0.isSmallInteger /* is a small float a small integer */
 (2.0 ^ 53.0) = 9007199254740992.0 /* a small float that is an integer that is beyond the range of small integers */
 (2.0 ^ 53.0).isIeeeInteger /* is a small float an Ieee integer */
@@ -3605,12 +3604,12 @@ var x, y, z; (x: x, y: y, z: z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [
 
 ## Syntax -- integer literals syntax
 ```
-23.isInteger /* decimal integer literal */
+23L.isInteger /* decimal integer literal */
 2b10111 = 23 /* binary (base 2) integer literal */
 8b27 = 23 /* octal (base 8) integer literal */
 10b23 = 23 /* decimal (base 10) integer literal */
 16b17 = 23 /* hexadecimal (base 16) integer literal */
--23.isInteger /* negative decimal integer literal */
+-23L.isInteger /* negative decimal integer literal */
 -2b10111 = -23 /* negative binary (base 2) integer literal */
 -8b27 = -23 /* negative octal (base 8) integer literal */
 -10b23 = -23 /* negative decimal (base 10) integer literal */
@@ -3802,7 +3801,7 @@ system.doesTypeImplementMethod('List', 'species') = true
 system.methodPrintString('addInPlace').size >= 3
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
 system.methodLookupAtType('collect', 2, 'List').origin.name = 'List'
-system.methodLookupAtType('collect', 2, 'List').function.binaryApply([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
+system.methodLookupAtType('collect', 2, 'List').compiledFunction.binaryApply([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.methodLookupAtType('sum', 1, 'List') == system.methodLookupAtType('sum', 1, 'SortedSet')
 'sum/1'.parseQualifiedMethodName = ['sum', 1]
 ```
