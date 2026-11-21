@@ -12,15 +12,15 @@ Quaternion : [Object, Store, Equal, Number] {
 		self.components.square.sum
 	}
 
-	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
-		aBlock(
+	adaptToFractionAndApply { :self :aFraction :aFunction/2 |
+		aFunction(
 			Quaternion([aFraction, 0, 0, 0]),
 			self
 		)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		aBlock(
+	adaptToNumberAndApply { :self :aNumber :aFunction/2 |
+		aFunction(
 			Quaternion([aNumber, 0, 0, 0]),
 			self
 		)
@@ -53,12 +53,12 @@ Quaternion : [Object, Store, Equal, Number] {
 		}
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isNumber.if {
 			anObject.isQuaternion.if {
-				aBlock(self.components, anObject.components)
+				aFunction(self.components, anObject.components)
 			} {
-				anObject.adaptToQuaternionAndApply(self, aBlock/2)
+				anObject.adaptToQuaternionAndApply(self, aFunction/2)
 			}
 		} {
 			false
@@ -195,8 +195,8 @@ Quaternion : [Object, Store, Equal, Number] {
 		)
 	}
 
-	adaptToQuaternionAndApply { :self :aQuaternion :aBlock/2 |
-		aBlock(
+	adaptToQuaternionAndApply { :self :aQuaternion :aFunction/2 |
+		aFunction(
 			aQuaternion,
 			self.toQuaternion
 		)
@@ -215,9 +215,9 @@ Quaternion : [Object, Store, Equal, Number] {
 
 +@Collection {
 
-	adaptToQuaternionAndApply { :self :aQuaternion :aBlock/2 |
+	adaptToQuaternionAndApply { :self :aQuaternion :aFunction/2 |
 		self.collect { :each |
-			aQuaternion.aBlock(each)
+			aQuaternion.aFunction(each)
 		}
 	}
 

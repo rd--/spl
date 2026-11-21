@@ -14,4 +14,4 @@ An alias for `composeLeft`.
 
 See also: bindLeft, bindRight, composeLeft, composeRight
 
-Guides: Block Functions
+Guides: Function Functions

@@ -16,8 +16,8 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	[adaptToNumberAndApply, adaptToIntegerAndApply] { :self :operand :aBlock/2 |
-		aBlock(Interval(operand, operand), self)
+	[adaptToNumberAndApply, adaptToIntegerAndApply] { :self :operand :aFunction/2 |
+		aFunction(Interval(operand, operand), self)
 	}
 
 	atRandom { :self |
@@ -47,8 +47,8 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		self.literalPrintStringUsing(concisePrintString/1)
 	}
 
-	discretize { :self :size :aBlock/1 |
-		self.discretize(size).collect(aBlock/1)
+	discretize { :self :size :aFunction/1 |
+		self.discretize(size).collect(aFunction/1)
 	}
 
 	discretize { :self :size |
@@ -126,10 +126,10 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	isEqualBy { :self :operand :aBlock/2 |
+	isEqualBy { :self :operand :aFunction/2 |
 		operand.isInterval & {
-			aBlock(self.min, operand.min) & {
-				aBlock(self.max, operand.max)
+			aFunction(self.min, operand.min) & {
+				aFunction(self.max, operand.max)
 			}
 		}
 	}
@@ -148,11 +148,11 @@ Interval : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	literalPrintStringUsing { :self :aBlock/1 |
+	literalPrintStringUsing { :self :aFunction/1 |
 		'(% -- %)'.format(
 			[
-				aBlock(self.min),
-				aBlock(self.max)
+				aFunction(self.min),
+				aFunction(self.max)
 			]
 		)
 	}
@@ -297,8 +297,8 @@ Interval : [Object, Store, Equal, Compare, Number] {
 
 +[Float, Fraction, Integer] {
 
-	adaptToIntervalAndApply { :self :operand :aBlock/2 |
-		aBlock(operand, Interval(self, self))
+	adaptToIntervalAndApply { :self :operand :aFunction/2 |
+		aFunction(operand, Interval(self, self))
 	}
 
 	centeredInterval { :center :range |

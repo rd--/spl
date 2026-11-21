@@ -224,10 +224,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.collectInto!(codePoint/1, [])
 	}
 
-	collectInto! { :self :aBlock/1 :aCollection |
+	collectInto! { :self :aFunction/1 :aCollection |
 		self.primitiveCollectInto!(
 			{ :each |
-				aBlock(each.Character)
+				aFunction(each.Character)
 			},
 			[]
 		)
@@ -318,9 +318,9 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self
 	}
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		self.primitiveDo { :each |
-			aBlock(each)
+			aFunction(each)
 		}
 	}
 
@@ -405,13 +405,13 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
-	firstBracketedCommentIfAbsent { :self :open :close :aBlock/0 |
+	firstBracketedCommentIfAbsent { :self :open :close :aFunction/0 |
 		let start = self.findString(open);
 		let end = self.findString(close);
 		(start = 0 | {
 			end = 0
 		}).if {
-			aBlock()
+			aFunction()
 		} {
 			self.copyFromTo(start + open.size, end - 1)
 		}
@@ -423,8 +423,8 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
-	firstHsCommentIfAbsent { :self :aBlock/0 |
-		self.firstBracketedCommentIfAbsent('{-', '-}', aBlock/0)
+	firstHsCommentIfAbsent { :self :aFunction/0 |
+		self.firstBracketedCommentIfAbsent('{-', '-}', aFunction/0)
 	}
 
 	firstMlComment { :self |
@@ -433,8 +433,8 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
-	firstMlCommentIfAbsent { :self :aBlock/0 |
-		self.firstBracketedCommentIfAbsent('(*', '*)', aBlock/0)
+	firstMlCommentIfAbsent { :self :aFunction/0 |
+		self.firstBracketedCommentIfAbsent('(*', '*)', aFunction/0)
 	}
 
 	firstPliComment { :self |
@@ -443,8 +443,8 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
-	firstPliCommentIfAbsent { :self :aBlock/0 |
-		self.firstBracketedCommentIfAbsent('/*', '*/', aBlock/0)
+	firstPliCommentIfAbsent { :self :aFunction/0 |
+		self.firstBracketedCommentIfAbsent('/*', '*/', aFunction/0)
 	}
 
 	format { :self :arguments |
@@ -483,8 +483,8 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.asciiByteArray.base16Encode
 	}
 
-	includesBy { :self :letter :aBlock/2 |
-		self.characters.includesBy(letter.characterString, aBlock/2)
+	includesBy { :self :letter :aFunction/2 |
+		self.characters.includesBy(letter.characterString, aFunction/2)
 	}
 
 	indefiniteArticle { :self |
@@ -570,7 +570,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 	}
 
 	isImmediateTypeName { :self |
-		['Nil', 'Boolean', 'Block', 'Float', 'Integer', 'String']
+		['Nil', 'Boolean', 'Function', 'Float', 'Integer', 'String']
 		.includes(self)
 	}
 
@@ -805,16 +805,16 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		}
 	}
 
-	onCharacters { :self :aBlock/1 |
-		self.characters.aBlock.stringCatenate
+	onCharacters { :self :aFunction/1 |
+		self.characters.aFunction.stringCatenate
 	}
 
-	onCharactersList { :self :aBlock/1 |
-		self.characters.aBlock.collect(stringCatenate/1)
+	onCharactersList { :self :aFunction/1 |
+		self.characters.aFunction.collect(stringCatenate/1)
 	}
 
-	onCodePoints { :self :aBlock/1 |
-		self.codePoints.aBlock.fromCodePoints
+	onCodePoints { :self :aFunction/1 |
+		self.codePoints.aFunction.fromCodePoints
 	}
 
 	padLeft { :self :aList :aString |
@@ -890,17 +890,17 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.List.prefixes.collect(String/1)
 	}
 
-	primitiveCollectInto! { :self :aBlock/1 :aCollection |
+	primitiveCollectInto! { :self :aFunction/1 :aCollection |
 		self.primitiveDo { :each |
-			aCollection.add!(aBlock(each))
+			aCollection.add!(aFunction(each))
 		};
 		aCollection
 	}
 
-	primitiveDo { :self :aBlock/1 |
+	primitiveDo { :self :aFunction/1 |
 		<primitive:
 		for(const each of _self) {
-			_aBlock_1(each);
+			_aFunction_1(each);
 		};
 		>
 		nil
@@ -968,10 +968,10 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 		self.rotateLeft(anInteger.negate)
 	}
 
-	select { :self :aBlock/1 |
+	select { :self :aFunction/1 |
 		let list = [];
 		self.do { :each |
-			aBlock(each).ifTrue {
+			aFunction(each).ifTrue {
 				list.add!(each)
 			}
 		};
@@ -1423,7 +1423,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 }
 
-+Block {
++Function {
 
 	asciiStringBuilder { :self/1 |
 		let c = [];

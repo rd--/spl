@@ -2,7 +2,7 @@ Piecewise : [Object, Equal] {
 
 	| pieces defaultValue |
 
-	unaryBlock { :self |
+	unaryFunction { :self |
 		{ :x |
 			withReturn { :return/1 |
 				self.pieces.do { :each |

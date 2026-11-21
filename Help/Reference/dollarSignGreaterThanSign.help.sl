@@ -23,4 +23,4 @@ The name of this operator is `dollarSignGreaterThanSign`.
 
 See also: <$
 
-Guides: Apply Syntax, Binary Operators, Block Functions, Value Apply Syntax
+Guides: Apply Syntax, Binary Operators, Function Functions, Value Apply Syntax

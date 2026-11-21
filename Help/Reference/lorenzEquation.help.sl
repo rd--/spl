@@ -3,7 +3,7 @@
 - _lorenzEquation(rho, sigma, beta)_
 
 The Lorenz ordinary differential equation.
-Answers a two argument `Block`,
+Answers a two argument `Function`,
 accepting _t_ and _(x,y,z)_,
 and answering _(x′,y′,z′)_.
 

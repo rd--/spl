@@ -31,9 +31,9 @@ NumericArray : [Object, Store, Equal, Compare, Do, At, Indices, Put, Collection,
 		)
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		NumericArray(
-			self.array.collect(aBlock/1),
+			self.array.collect(aFunction/1),
 			self.shape
 		)
 	}
@@ -54,8 +54,8 @@ NumericArray : [Object, Store, Equal, Compare, Do, At, Indices, Put, Collection,
 		self.shape.take(anInteger)
 	}
 
-	do { :self :aBlock/1 |
-		self.array.do(aBlock/1)
+	do { :self :aFunction/1 |
+		self.array.do(aFunction/1)
 	}
 
 	elementType { :unused |
@@ -72,11 +72,11 @@ NumericArray : [Object, Store, Equal, Compare, Do, At, Indices, Put, Collection,
 		}
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isNumericArray & {
 			(self.shape = anObject.shape) & {
 				(self.storageType = anObject.storageType) & {
-					aBlock(self.array, anObject.array)
+					aFunction(self.array, anObject.array)
 				}
 			}
 		}
@@ -182,10 +182,10 @@ NumericArray : [Object, Store, Equal, Compare, Do, At, Indices, Put, Collection,
 		}
 	}
 
-	withCollect { :self :other :aBlock/2 |
+	withCollect { :self :other :aFunction/2 |
 		self.isCommensurate(other).if {
 			NumericArray(
-				self.array.withCollect(other.array, aBlock/2),
+				self.array.withCollect(other.array, aFunction/2),
 				self.shape
 			)
 		} {

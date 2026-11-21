@@ -2,7 +2,7 @@
 
 - _akimaInterpolator(x, y)_
 
-Answer a `Block` that computes a cubic spline interpolation for the data set given by _x_ and _y_ using the Akima algorithm.
+Answer a `Function` that computes a cubic spline interpolation for the data set given by _x_ and _y_ using the Akima algorithm.
 
 The value of the function at each of the input _x_ values equals the corresponding _y_ value:
 

@@ -5,7 +5,7 @@ BinomialProcess : [Object] {
 	Stream { :self :r |
 		let p = self.p;
 		let x = 0;
-		BlockStream {
+		FunctionStream {
 			x := x + (r.nextRandomFloat < p).boole
 		} {
 			x := 0

@@ -34,24 +34,24 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		)
 	}
 
-	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
-		aBlock(
+	adaptToFractionAndApply { :self :aFraction :aFunction/2 |
+		aFunction(
 			Decimal(aFraction, self.scale),
 			self
 		)
 	}
 
-	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
-		aBlock(
+	adaptToIntegerAndApply { :self :anInteger :aFunction/2 |
+		aFunction(
 			Decimal(anInteger, 0L),
 			self
 		)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
+	adaptToNumberAndApply { :self :aNumber :aFunction/2 |
 		/* Model: SmallInteger | Integer */
 		aNumber.isInteger.if {
-			aBlock(
+			aFunction(
 				Decimal(aNumber, 0L),
 				self
 			)
@@ -88,10 +88,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	divideDecimal { :self :operand :aBlock/2 |
+	divideDecimal { :self :operand :aFunction/2 |
 		Decimal(
 			self.decimalFraction / operand.decimalFraction,
-			aBlock(self.scale, operand.scale)
+			aFunction(self.scale, operand.scale)
 		)
 	}
 
@@ -126,12 +126,12 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		)
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isDecimal.if {
 			self.decimalFraction = anObject.decimalFraction
 		} {
 			anObject.isNumber.if {
-				anObject.adaptToDecimalAndApply(self, aBlock/2)
+				anObject.adaptToDecimalAndApply(self, aFunction/2)
 			} {
 				false
 			}
@@ -317,10 +317,10 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	timesDecimal { :self :operand :aBlock/2 |
+	timesDecimal { :self :operand :aFunction/2 |
 		Decimal(
 			self.decimalFraction * operand.decimalFraction,
-			aBlock(self.scale, operand.scale)
+			aFunction(self.scale, operand.scale)
 		)
 	}
 
@@ -377,8 +377,8 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	adaptToDecimalAndApply { :self :receiver :aBlock/2 |
-		aBlock(
+	adaptToDecimalAndApply { :self :receiver :aFunction/2 |
+		aFunction(
 			receiver,
 			Decimal(self, receiver.scale)
 		)
@@ -425,9 +425,9 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		}
 	}
 
-	adaptToDecimalAndApply { :self :receiver :aBlock/2 |
+	adaptToDecimalAndApply { :self :receiver :aFunction/2 |
 		/* Model: SmallInteger | Integer */
-		aBlock(
+		aFunction(
 			Float(receiver),
 			self
 		)
@@ -444,17 +444,17 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 		)
 	}
 
-	adaptToDecimalAndApply { :self :aNumber :aBlock/2 |
-		aBlock(aNumber, Decimal(self, 0L))
+	adaptToDecimalAndApply { :self :aNumber :aFunction/2 |
+		aFunction(aNumber, Decimal(self, 0L))
 	}
 
 }
 
 +@Collection {
 
-	adaptToDecimalAndApply { :self :operand :aBlock/2 |
+	adaptToDecimalAndApply { :self :operand :aFunction/2 |
 		self.collect { :each |
-			aBlock(operand, each)
+			aFunction(operand, each)
 		}
 	}
 

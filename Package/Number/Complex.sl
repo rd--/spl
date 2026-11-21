@@ -38,18 +38,18 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		(x * x) + (y * y)
 	}
 
-	[adaptToFractionAndApply, adaptToIntegerAndApply] { :self :operand :aBlock/2 |
-		aBlock(
+	[adaptToFractionAndApply, adaptToIntegerAndApply] { :self :operand :aFunction/2 |
+		aFunction(
 			Complex(Float(operand), 0.0),
 			self
 		)
 	}
 
-	adaptToNumberAndApply { :self :operand :aBlock/2 |
+	adaptToNumberAndApply { :self :operand :aFunction/2 |
 		operand.isNaN.if {
 			NaN
 		} {
-			aBlock(
+			aFunction(
 				Complex(Float(operand), 0.0),
 				self
 			)
@@ -217,14 +217,14 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isNumber.if {
 			anObject.isComplex.if {
-				aBlock(self.real, anObject.real) & {
-					aBlock(self.imaginary, anObject.imaginary)
+				aFunction(self.real, anObject.real) & {
+					aFunction(self.imaginary, anObject.imaginary)
 				}
 			} {
-				anObject.adaptToComplexAndApply(self, aBlock/2)
+				anObject.adaptToComplexAndApply(self, aFunction/2)
 			}
 		} {
 			false
@@ -501,11 +501,11 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		}
 	}
 
-	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
+	adaptToComplexAndApply { :self :aComplexNumber :aFunction/2 |
 		self.isNaN.if {
 			NaN
 		} {
-			aBlock(
+			aFunction(
 				aComplexNumber,
 				uncheckedComplex(self, 0.0)
 			)
@@ -550,8 +550,8 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 		Polar(Float(rho), phi)
 	}
 
-	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
-		aBlock(
+	adaptToComplexAndApply { :self :aComplexNumber :aFunction/2 |
+		aFunction(
 			aComplexNumber,
 			uncheckedComplex(Float(self), 0.0)
 		)
@@ -601,9 +601,9 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 +@Collection {
 
-	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
+	adaptToComplexAndApply { :self :aComplexNumber :aFunction/2 |
 		self.collect { :each |
-			aComplexNumber.aBlock(each)
+			aComplexNumber.aFunction(each)
 		}
 	}
 

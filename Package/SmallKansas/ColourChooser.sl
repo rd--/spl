@@ -46,7 +46,7 @@ ColourChooser : [Object, View] {
 
 }
 
-+Block {
++Function {
 
 	ColourChooser { :self |
 		RgbColour([0.5, 0.5, 0.5], 0.5).ColourChooser(self)

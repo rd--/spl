@@ -20,9 +20,9 @@ Integer! : [Object, Copy, Store, Equal, Compare, Binary, Number, ImplicitFloat] 
 		}
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
+	adaptToNumberAndApply { :self :aNumber :aFunction/2 |
 		/* Model: SmallInteger | Integer */
-		aBlock(aNumber, Float(self))
+		aFunction(aNumber, Float(self))
 	}
 
 	bitAnd { :self :operand |

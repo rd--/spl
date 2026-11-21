@@ -20,7 +20,7 @@ true
 
 See also: in, with
 
-Guides: Block Functions
+Guides: Function Functions
 
 References:
 _Kotlin_

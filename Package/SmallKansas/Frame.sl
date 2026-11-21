@@ -107,8 +107,8 @@ Frame : [Object, UserEventTarget] {
 		self.framePane.style.setProperty('top', y.printString ++ 'px', '')
 	}
 
-	onClose { :self :aBlock/1 |
-		self.addEventListener('close', aBlock/1);
+	onClose { :self :aFunction/1 |
+		self.addEventListener('close', aFunction/1);
 		self
 	}
 

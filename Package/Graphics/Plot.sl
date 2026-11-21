@@ -153,7 +153,7 @@ Plot : [Object] {
 			let p/1 = AxonometricProjection(
 				1/6.pi, 0, 0,
 				0.5, 1, 1
-			).unaryBlock;
+			).unaryFunction;
 			let r = [
 				-1 -1 0;
 				+1 -1 0;
@@ -273,28 +273,28 @@ Plot : [Object] {
 		self.flatten.realImaginary.scatterPlot
 	}
 
-	complexPlot { :self :k :aBlock/1 |
-		complexPlotBy(self, k, arg/1, aBlock/1)
+	complexPlot { :self :k :aFunction/1 |
+		complexPlotBy(self, k, arg/1, aFunction/1)
 	}
 
-	complexPlot { :self :aBlock/1 |
+	complexPlot { :self :aFunction/1 |
 		let k = 100L;
-		complexPlot(self, k, aBlock/1)
+		complexPlot(self, k, aFunction/1)
 	}
 
-	complexPlotBy { :self :k :aspect/1 :aBlock/1 |
+	complexPlotBy { :self :k :aspect/1 :aFunction/1 |
 		let [min, max] = self;
 		let colourFunction/1 = (
 			system
 			.colourGradients['Kovesi']['Cyclic-Mygbm-30-95-C78S25']
 			.ColourGradient
-			.unaryBlock
+			.unaryFunction
 		);
 		let r = (min.real -- max.real).subdivide(k);
 		let i = (min.imaginary -- max.imaginary).subdivide(k);
 		{ :x :y |
 			let z = Complex(y, x);
-			colourFunction(aBlock(z).aspect / 2.0.pi + 0.5)
+			colourFunction(aFunction(z).aspect / 2.0.pi + 0.5)
 		}.table(i, r).reverse.Image
 	}
 
@@ -533,12 +533,12 @@ Plot : [Object] {
 		self.typedSwitchingPlot('scatter')
 	}
 
-	segmentPlotData { :self :aBlock/1 |
+	segmentPlotData { :self :aFunction/1 |
 		let answer = [];
 		let segment = [];
 		self.do { :pre |
 			let [i, x] = pre; /* Missing values are already coerced to NaN */
-			let post = [i, aBlock(x)];
+			let post = [i, aFunction(x)];
 			post.allTrue(isFinite/1).not.if {
 				segment.isEmpty.ifFalse {
 					answer.add!(segment);
@@ -620,16 +620,16 @@ Plot : [Object] {
 		}
 	}
 
-	surfacePlot { :self :k :aBlock/2 |
+	surfacePlot { :self :k :aFunction/2 |
 		let [u, v] = self;
 		let [m, n] = k;
 		let i = (u.min -- u.max).subdivide(m);
 		let j = (v.min -- v.max).subdivide(n);
-		table(aBlock/2, i, j).surfacePlot
+		table(aFunction/2, i, j).surfacePlot
 	}
 
-	surfacePlot { :self :aBlock/2 |
-		self.surfacePlot([15 15], aBlock/2)
+	surfacePlot { :self :aFunction/2 |
+		self.surfacePlot([15 15], aFunction/2)
 	}
 
 	surfacePlot { :self |
@@ -734,14 +734,14 @@ Plot : [Object] {
 
 +@Collection {
 
-	discreteFunctionPlot { :domain :blockList |
-		domain.functionPlot(blockList, discretePlot/1)
+	discreteFunctionPlot { :domain :functionList |
+		domain.functionPlot(functionList, discretePlot/1)
 	}
 
-	functionPlot { :domain :blockList :plotter/1 |
-		blockList.nest.collect { :aBlock/1 |
+	functionPlot { :domain :functionList :plotter/1 |
+		functionList.nest.collect { :aFunction/1 |
 			domain.collect { :x |
-				let y = aBlock(x);
+				let y = aFunction(x);
 				[
 					{ y.isList } -> {
 						y
@@ -760,26 +760,26 @@ Plot : [Object] {
 		}.plotter
 	}
 
-	functionPlot { :domain :blockList |
-		domain.functionPlot(blockList, linePlot/1)
+	functionPlot { :domain :functionList |
+		domain.functionPlot(functionList, linePlot/1)
 	}
 
-	parametricPlot { :domain :xBlock/1 :yBlock/1 |
+	parametricPlot { :domain :xFunction/1 :yFunction/1 |
 		domain.collect { :u |
-			let x = xBlock(u);
-			let y = yBlock(u);
+			let x = xFunction(u);
+			let y = yFunction(u);
 			[x, y]
 		}.linePlot
 	}
 
 	polarPlot { :domain :anObject |
-		let blockList = anObject.nest.collect { :aBlock/1 |
+		let functionList = anObject.nest.collect { :aFunction/1 |
 			{ :t |
-				let r = aBlock(t);
+				let r = aFunction(t);
 				[r, t].fromPolarCoordinates
 			}
 		};
-		domain.functionPlot(blockList)
+		domain.functionPlot(functionList)
 	}
 
 }
@@ -801,9 +801,9 @@ Plot : [Object] {
 		let x = 0.toCollect(k - 1) { :i |
 			(a + (i * h)).exp
 		};
-		operand.nest.collect { :aBlock/1 |
+		operand.nest.collect { :aFunction/1 |
 			x.collect { :each |
-				aBlock(each)
+				aFunction(each)
 			}
 		}.linePlot
 	}
@@ -816,12 +816,12 @@ Plot : [Object] {
 		self.logPlot(100, operand)
 	}
 
-	parametricPlot { :self :divisions :xBlock/1 :yBlock/1 |
-		self.subdivide(divisions).parametricPlot(xBlock/1, yBlock/1)
+	parametricPlot { :self :divisions :xFunction/1 :yFunction/1 |
+		self.subdivide(divisions).parametricPlot(xFunction/1, yFunction/1)
 	}
 
-	parametricPlot { :self :xBlock/1 :yBlock/1 |
-		self.parametricPlot(100, xBlock/1, yBlock/1)
+	parametricPlot { :self :xFunction/1 :yFunction/1 |
+		self.parametricPlot(100, xFunction/1, yFunction/1)
 	}
 
 	polarPlot { :domain :divisions :anObject |
@@ -832,14 +832,14 @@ Plot : [Object] {
 		self.polarPlot(100, anObject)
 	}
 
-	surfacePlot { :self :k :aBlock/2 |
+	surfacePlot { :self :k :aFunction/2 |
 		let i = self.min;
 		let j = self.max;
-		[i j; i j].surfacePlot([k k], aBlock/2)
+		[i j; i j].surfacePlot([k k], aFunction/2)
 	}
 
-	surfacePlot { :self :aBlock/2 |
-		self.surfacePlot(15, aBlock/2)
+	surfacePlot { :self :aFunction/2 |
+		self.surfacePlot(15, aFunction/2)
 	}
 
 }
@@ -856,7 +856,7 @@ Plot : [Object] {
 
 }
 
-+Block {
++Function {
 
 	carpetPlot { :f/2 :v :n |
 		let [a, b] = v;
@@ -958,10 +958,10 @@ Plot : [Object] {
 
 +List {
 
-	vectorPlot { :self :aBlock/2 :scalar |
+	vectorPlot { :self :aFunction/2 :scalar |
 		self.collect { :xy |
 			let [x, y] = xy;
-			let uv = aBlock(x, y).normalize * scalar;
+			let uv = aFunction(x, y).normalize * scalar;
 			[
 				Point(xy + uv),
 				Line([xy - uv, xy + uv])
@@ -1043,35 +1043,35 @@ Plot : [Object] {
 
 +List {
 
-	sphericalPlot { :self :divisions :aBlock/2 |
+	sphericalPlot { :self :divisions :aFunction/2 |
 		self.surfacePlot(divisions) { :phi :theta |
-			let r = aBlock(theta, phi);
+			let r = aFunction(theta, phi);
 			[r theta phi].fromSphericalCoordinates
 		}
 	}
 
-	sphericalPlot { :self :aBlock/2 |
-		self.sphericalPlot([15 15], aBlock/2)
+	sphericalPlot { :self :aFunction/2 |
+		self.sphericalPlot([15 15], aFunction/2)
 	}
 
 }
 
 +List {
 
-	revolutionPlot { :self :divisions :aBlock |
+	revolutionPlot { :self :divisions :aFunction |
 		self.surfacePlot(
 			divisions,
-			aBlock.argumentCount.caseOf(
+			aFunction.argumentCount.caseOf(
 				[
 					1 -> {
-						let f/1 = aBlock;
+						let f/1 = aFunction;
 						{ :t :theta |
 							let [x, z] = f(t);
 							[x * theta.sin, x * theta.cos, z]
 						}
 					},
 					2 -> {
-						let f/2 = aBlock;
+						let f/2 = aFunction;
 						{ :rho :theta |
 							let z = f(rho, theta);
 							[rho, theta, z].fromCylindricalCoordinates
@@ -1082,20 +1082,20 @@ Plot : [Object] {
 		)
 	}
 
-	revolutionPlot { :self :aBlock |
-		self.revolutionPlot([15 15], aBlock)
+	revolutionPlot { :self :aFunction |
+		self.revolutionPlot([15 15], aFunction)
 	}
 
 }
 
 +Interval {
 
-	revolutionPlot { :self :divisions :aBlock |
-		[self, 0 -- 2.pi].revolutionPlot(divisions, aBlock)
+	revolutionPlot { :self :divisions :aFunction |
+		[self, 0 -- 2.pi].revolutionPlot(divisions, aFunction)
 	}
 
-	revolutionPlot { :self :aBlock |
-		self.revolutionPlot([15, 15], aBlock)
+	revolutionPlot { :self :aFunction |
+		self.revolutionPlot([15, 15], aFunction)
 	}
 
 }
@@ -1834,7 +1834,7 @@ Plot : [Object] {
 
 	colourMatrixPlot { :self |
 		let colourGradient = 'Mathematica'.namedColourGradient('Rainbow');
-		let colourFunction/1 = colourGradient.unaryBlock;
+		let colourFunction/1 = colourGradient.unaryFunction;
 		self.rescale.deepCollect(colourFunction/1).ColourGrid
 	}
 

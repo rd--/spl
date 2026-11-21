@@ -53,8 +53,8 @@
 		minBy(self, operand, isGreater/2)
 	}
 
-	minBy { :self :operand :aBlock/2 |
-		aBlock(self, operand).if {
+	minBy { :self :operand :aFunction/2 |
+		aFunction(self, operand).if {
 			self
 		} {
 			operand
@@ -108,16 +108,16 @@
 
 +@Object {
 
-	maxOn { :self :operand :aBlock/1 |
-		(aBlock(self) > aBlock(operand)).if {
+	maxOn { :self :operand :aFunction/1 |
+		(aFunction(self) > aFunction(operand)).if {
 			self
 		} {
 			operand
 		}
 	}
 
-	minOn { :self :operand :aBlock/1 |
-		(self.aBlock < operand.aBlock).if {
+	minOn { :self :operand :aFunction/1 |
+		(self.aFunction < operand.aFunction).if {
 			self
 		} {
 			operand

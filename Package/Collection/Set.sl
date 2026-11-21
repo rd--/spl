@@ -7,10 +7,10 @@
 		self.include!(anObject)
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		let answer = self.new;
 		self.do { :each |
-			answer.include!(aBlock(each))
+			answer.include!(aFunction(each))
 		};
 		answer
 	}
@@ -19,11 +19,11 @@
 		true
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isSet & {
 			self.size = anObject.size & {
 				self.allSatisfy { :each |
-					anObject.includesBy(each, aBlock/2)
+					anObject.includesBy(each, aFunction/2)
 				}
 			}
 		}
@@ -86,9 +86,9 @@
 
 +List {
 
-	setIntersection { :self :aBlock/2 |
+	setIntersection { :self :aFunction/2 |
 		self.collect { :x |
-			Set(x, aBlock/2)
+			Set(x, aFunction/2)
 		}.reduce(intersection/2)
 	}
 

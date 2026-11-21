@@ -39,7 +39,7 @@ Package! : [Object, Equal, Compare] {
 		answer.copyWithoutIdenticalElements
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		self == anObject
 	}
 

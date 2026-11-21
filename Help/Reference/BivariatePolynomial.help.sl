@@ -37,7 +37,7 @@ let i = (-1.0 -- 1.0).subdivide(20);
 Polynomial(
 	Sfc32(839724)
 	.randomReal([-1 1], [4 4])
-).binaryBlock.table(i, i)
+).binaryFunction.table(i, i)
 .matrixPlot
 ~~~
 

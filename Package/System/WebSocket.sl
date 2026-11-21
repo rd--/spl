@@ -39,23 +39,23 @@ WebSocket! : [Object, EventTarget] {
 		>
 	}
 
-	onClose { :self :aBlock/1 |
+	onClose { :self :aFunction/1 |
 		<primitive:
-		_self.onclose = _aBlock_1;
+		_self.onclose = _aFunction_1;
 		return _self;
 		>
 	}
 
-	onMessage { :self :aBlock/1 |
+	onMessage { :self :aFunction/1 |
 		<primitive:
-		_self.onmessage = _aBlock_1;
+		_self.onmessage = _aFunction_1;
 		return _self;
 		>
 	}
 
-	onOpen { :self :aBlock |
+	onOpen { :self :aFunction |
 		self.uncheckedOnOpen { :event |
-			aBlock.cull(event)
+			aFunction.cull(event)
 		}
 	}
 
@@ -77,9 +77,9 @@ WebSocket! : [Object, EventTarget] {
 		>
 	}
 
-	uncheckedOnOpen { :self :aBlock/1 |
+	uncheckedOnOpen { :self :aFunction/1 |
 		<primitive:
-		_self.onopen = _aBlock_1;
+		_self.onopen = _aFunction_1;
 		return _self;
 		>
 	}

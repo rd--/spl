@@ -5,7 +5,7 @@
 - _table(f/2, i, j)_
 - _table(f/3, i, j, k)_
 
-The unary form answers a `Block`,
+The unary form answers a `Function`,
 the binary form a `List`,
 the ternary form a _matrix_,
 the quaternary form a _volume_.
@@ -203,7 +203,7 @@ Construct a contour matrix (Polansky, 1992):
 ```
 
 The unary form is _adverbial_,
-it answers a Block that will apply the ternary form:
+it answers a Function that will apply the ternary form:
 
 ```
 >>> 1:3 *.table 1:5

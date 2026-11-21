@@ -106,19 +106,19 @@ LibraryItem : [Object] {
 		libraryItem
 	}
 
-	awaitLibraryItem { :self :name :aBlock/0 |
+	awaitLibraryItem { :self :name :aFunction/0 |
 		self.requestLibraryItem(name).thenElse { :unused |
-			aBlock()
+			aFunction()
 		} { :reason |
 			self.error('awaitLibraryItem: failure', [reason])
 		}
 	}
 
-	awaitLibraryItems { :self :names :aBlock/0 |
+	awaitLibraryItems { :self :names :aFunction/0 |
 		names.collect { :each |
 			self.requestLibraryItem(each)
 		}.allFulfilled.thenElse { :unused |
-			aBlock()
+			aFunction()
 		} { :reason |
 			self.error('awaitLibraryItems: failure', [reason])
 		}

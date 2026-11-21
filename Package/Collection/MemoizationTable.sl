@@ -1,10 +1,10 @@
 MemoizationTable : [Object, Do, Collection] {
 
-	| block table | <Block>
+	| memoizedFunction table | <Function>
 
 	at { :self :key |
 		self.table.atIfAbsent(key) {
-			let f/1 = self.block;
+			let f/1 = self.memoizedFunction;
 			let value = f(key);
 			self.table.put!(key, value);
 			value
@@ -22,8 +22,8 @@ MemoizationTable : [Object, Do, Collection] {
 		self.atAll(keys)
 	}
 
-	do { :self :aBlock/1 |
-		self.table.do(aBlock/1)
+	do { :self :aFunction/1 |
+		self.table.do(aFunction/1)
 	}
 
 	size { :self |
@@ -32,7 +32,7 @@ MemoizationTable : [Object, Do, Collection] {
 
 }
 
-+Block {
++Function {
 
 	Dictionary { :self |
 		MemoizationTable(

@@ -52,7 +52,7 @@ Types implementing `Collection`:
 [
 	'AsciiString'
 	'BitSet'
-	'BlockStream'
+	'FunctionStream'
 	'ByteArray'
 	'CollectionStream'
 	'Dictionary'

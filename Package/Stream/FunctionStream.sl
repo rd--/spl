@@ -1,8 +1,8 @@
 /* Requires: Iterator Stream */
 
-BlockStream : [Object, Do, Iterator, Collection, Stream] {
+FunctionStream : [Object, Do, Iterator, Collection, Stream] {
 
-	| onNext onReset nextItem | <Block>
+	| onNext onReset nextItem | <Function>
 
 	next { :self |
 		let answer = self.peek;
@@ -28,29 +28,29 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 
 }
 
-+Block {
++Function {
 
-	BlockStream { :onNext :onReset |
-		uncheckedBlockStream(onNext, onReset, nil)
+	FunctionStream { :onNext :onReset |
+		uncheckedFunctionStream(onNext, onReset, nil)
 	}
 
 	fixedPoint { :self/1 :anObject |
 		self/1.fixedPoint(anObject, ~)
 	}
 
-	fixedPoint { :self/1 :anObject :aBlock/2 |
-		self/1.fixedPointList(anObject, aBlock/2).last
+	fixedPoint { :self/1 :anObject :aFunction/2 |
+		self/1.fixedPointList(anObject, aFunction/2).last
 	}
 
 	fixedPointList { :self/1 :anObject |
 		self/1.fixedPointList(anObject, ~)
 	}
 
-	fixedPointList { :self/1 :anObject :aBlock/2 |
+	fixedPointList { :self/1 :anObject :aFunction/2 |
 		let previous = nil;
 		self/1.iterate(anObject).nextUntil { :each |
 			let continue = previous.isNotNil & {
-				aBlock(previous, each)
+				aFunction(previous, each)
 			};
 			previous := each;
 			continue
@@ -59,7 +59,7 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 
 	iterate { :self/1 :anObject |
 		let state = { anObject };
-		BlockStream {
+		FunctionStream {
 			let nextItem = state();
 			state/0 := { self(nextItem) };
 			nextItem
@@ -84,23 +84,23 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 		[answer, nextItem]
 	}
 
-	nestWhileList { :self/1 :anObject :aBlock/1 |
-		self/1.iterate(anObject).nextWhile(aBlock/1)
+	nestWhileList { :self/1 :anObject :aFunction/1 |
+		self/1.iterate(anObject).nextWhile(aFunction/1)
 	}
 
 }
 
 +@Stream {
 
-	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
+	adaptToNumberAndApply { :self :aNumber :aFunction/2 |
 		self.collect { :each |
-			aBlock(aNumber, each)
+			aFunction(aNumber, each)
 		}
 	}
 
-	adaptToStreamAndApply { :self :aStream :aBlock/2 |
+	adaptToStreamAndApply { :self :aStream :aFunction/2 |
 		let isAtEnd = false;
-		BlockStream {
+		FunctionStream {
 			isAtEnd.if {
 				nil
 			} {
@@ -112,7 +112,7 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 					isAtEnd := true;
 					nil
 				} {
-					aBlock(p, q)
+					aFunction(p, q)
 				}
 			}
 		} {
@@ -122,13 +122,13 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 		}
 	}
 
-	collect { :self :aBlock/1 |
-		BlockStream {
+	collect { :self :aFunction/1 |
+		FunctionStream {
 			let nextItem = self.next;
 			nextItem.isNil.if {
 				nil
 			} {
-				aBlock(nextItem)
+				aFunction(nextItem)
 			}
 		} {
 			self.reset!
@@ -136,7 +136,7 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 	}
 
 	[concatenation, ++] { :self :aStream |
-		BlockStream {
+		FunctionStream {
 			self.isAtEnd.if {
 				aStream.next
 			} {
@@ -149,7 +149,7 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 	}
 
 	cycle { :self |
-		BlockStream {
+		FunctionStream {
 			self.isAtEnd.ifTrue {
 				self.reset!
 			};
@@ -165,7 +165,7 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 
 	drop { :input :count |
 		input.next(count);
-		BlockStream {
+		FunctionStream {
 			input.next
 		} {
 			input.reset!;
@@ -176,7 +176,7 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 	duplicateEach { :input :repeats |
 		let remain = 1;
 		let nextItem = nil;
-		BlockStream {
+		FunctionStream {
 			remain := remain - 1;
 			(remain <= 0).ifTrue {
 				remain := repeats.next;
@@ -192,7 +192,7 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 
 	enumerate { :input |
 		let nextIndex = 1;
-		BlockStream {
+		FunctionStream {
 			let item = input.next;
 			item.isNil.if {
 				nil
@@ -219,9 +219,9 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 		self.scan(+)
 	}
 
-	reject { :self :aBlock/1 |
+	reject { :self :aFunction/1 |
 		self.select { :each |
-			aBlock(each).not
+			aFunction(each).not
 		}
 	}
 
@@ -239,7 +239,7 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 
 	repeat { :self :repeats |
 		let repeat = 1;
-		BlockStream {
+		FunctionStream {
 			let nextItem = self.next;
 			(
 				nextItem.isNil & {
@@ -265,9 +265,9 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 		self.round(1L)
 	}
 
-	scan { :input :aBlock/2 |
+	scan { :input :aFunction/2 |
 		let z1 = input.next;
-		BlockStream {
+		FunctionStream {
 			let z2 = input.next;
 			z1.isNil.if {
 				nil
@@ -276,7 +276,7 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 				z2.isNil.if {
 					z1 := nil
 				} {
-					z1 := aBlock(z1, z2)
+					z1 := aFunction(z1, z2)
 				};
 				answer
 			}
@@ -286,12 +286,12 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 		}
 	}
 
-	select { :self :aBlock/1 |
-		BlockStream {
+	select { :self :aFunction/1 |
+		FunctionStream {
 			let nextItem = self.next;
 			{
 				nextItem.isNil | {
-					aBlock(nextItem)
+					aFunction(nextItem)
 				}
 			}.whileFalse {
 				nextItem := self.next
@@ -308,7 +308,7 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 
 	take { :self :limit |
 		let count = 1L;
-		BlockStream {
+		FunctionStream {
 			(count > limit).if {
 				nil
 			} {
@@ -321,10 +321,10 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 		}
 	}
 
-	takeWhile { :self :aBlock/1 |
-		BlockStream {
+	takeWhile { :self :aFunction/1 |
+		FunctionStream {
 			let answer = self.next;
-			aBlock(answer).if {
+			aFunction(answer).if {
 				answer
 			} {
 				nil
@@ -338,8 +338,8 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 		anObject.adaptToStreamAndApply(self, *)
 	}
 
-	withCollect { :self :aStream :aBlock/2 |
-		BlockStream {
+	withCollect { :self :aStream :aFunction/2 |
+		FunctionStream {
 			let selfNext = self.next;
 			let aStreamNext = aStream.next;
 			(selfNext.isNil | {
@@ -347,7 +347,7 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 			}).if {
 				nil
 			} {
-				aBlock(selfNext, aStreamNext)
+				aFunction(selfNext, aStreamNext)
 			}
 		} {
 			self.reset!;
@@ -355,8 +355,8 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 		}
 	}
 
-	withWithCollect { :self :aStream :anotherStream :aBlock/3 |
-		BlockStream {
+	withWithCollect { :self :aStream :anotherStream :aFunction/3 |
+		FunctionStream {
 			let selfNext = self.next;
 			let aStreamNext = aStream.next;
 			let anotherStreamNext = anotherStream.next;
@@ -367,7 +367,7 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 			}).if {
 				nil
 			} {
-				aBlock(selfNext, aStreamNext, anotherStreamNext)
+				aFunction(selfNext, aStreamNext, anotherStreamNext)
 			}
 		} {
 			self.reset!;
@@ -380,9 +380,9 @@ BlockStream : [Object, Do, Iterator, Collection, Stream] {
 
 +@Number {
 
-	adaptToStreamAndApply { :self :aStream :aBlock/2 |
+	adaptToStreamAndApply { :self :aStream :aFunction/2 |
 		aStream.collect { :each |
-			aBlock(each, self)
+			aFunction(each, self)
 		}
 	}
 

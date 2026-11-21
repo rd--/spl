@@ -92,7 +92,7 @@ system
 
 ![](Help/Image/colourGradients-E.svg)
 
-The `unaryBlock` method of `ColourGradient` answers a one argument `Block` that reads the gradient at the indicated position.
+The `unaryFunction` method of `ColourGradient` answers a one argument `Function` that reads the gradient at the indicated position.
 Use a resampled form of the _Pastel_ gradient from the _Mathematica_ collection to colour a plot of a sine function:
 
 ~~~spl png=F
@@ -101,7 +101,7 @@ let f/1 = system
 .colourGradients['Mathematica']['Pastel']
 .ColourGradient
 .resample(16)
-.unaryBlock;
+.unaryFunction;
 { :x :y |
 	f((x.sin * y.sin) * 0.5 + 0.5)
 }.table(i, i).Image

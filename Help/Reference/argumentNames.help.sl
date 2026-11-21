@@ -24,12 +24,12 @@ At the block implementing a method:
 >>> 	'collect',
 >>> 	2.0,
 >>> 	'List'
->>> ).block.argumentNames
-['self' 'aBlock/1']
+>>> ).compiledFunction.argumentNames
+['self' 'aFunction/1']
 ```
 
 * * *
 
-See also: Block, argumentCount
+See also: Function, argumentCount
 
-Guides: Block Functions, Block Semantics, Reflection Functions
+Guides: Function Functions, Function Semantics, Reflection Functions

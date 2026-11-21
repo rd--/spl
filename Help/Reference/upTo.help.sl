@@ -20,7 +20,7 @@ If _x_ is not found and the end of the stream is encountered, the objects read a
 1:9
 ```
 
-At `BlockStream`:
+At `FunctionStream`:
 
 ```
 >>> let a = Stream[1 .. 11];

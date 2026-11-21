@@ -3,7 +3,7 @@
 - _x.f_
 - _x.f(y, …)_
 
-Apply the block _f_ to the arguments _x_, _y_ and so on.
+Apply the function _f_ to the arguments _x_, _y_ and so on.
 
 Rewrite rules:
 

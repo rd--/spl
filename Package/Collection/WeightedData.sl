@@ -61,7 +61,7 @@ WeightedData : [Object, Equal] {
 +List {
 
 	WeightedData { :x :wSpecifier |
-		let w = wSpecifier.isBlock.if {
+		let w = wSpecifier.isFunction.if {
 			x.collect(wSpecifier)
 		} {
 			wSpecifier

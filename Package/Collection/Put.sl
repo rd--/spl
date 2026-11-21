@@ -21,10 +21,10 @@
 		}
 	}
 
-	atModify! { :self :index :aBlock/1 :defaultValue |
+	atModify! { :self :index :aFunction/1 :defaultValue |
 		self.put!(
 			index,
-			aBlock(
+			aFunction(
 				self.atIfAbsent(index) {
 					defaultValue
 				}

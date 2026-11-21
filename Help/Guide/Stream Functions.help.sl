@@ -7,8 +7,8 @@ Traits:
 
 Types:
 
-- `BlockStream`
 - `CollectionStream`
+- `FunctionStream`
 
 Predicates:
 
@@ -44,7 +44,7 @@ Positionable Stream Functions:
 - `skip`
 - `upToPosition`
 
-Block Stream Functions:
+Function Stream Functions:
 
 - `iterate`
 

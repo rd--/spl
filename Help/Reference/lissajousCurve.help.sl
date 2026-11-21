@@ -2,7 +2,7 @@
 
 - _lissajousCurve(δ, a, b)_
 
-Answer a `Block` implementing the Lissajous, or Bowditch, curve with the specified parameters.
+Answer a `Function` implementing the Lissajous, or Bowditch, curve with the specified parameters.
 
 With parameters _a=1,b=2_ (Lemniscate of Gerono):
 

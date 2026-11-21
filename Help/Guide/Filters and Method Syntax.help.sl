@@ -5,7 +5,7 @@ trigger an envelope (`decay`),
 which shapes a noise generator (`pinkNoise`),
 which is then filtered (`bpf`) and
 echoed (`allpassN`).
-The _lfo_ block generates quadratic noise (`lfNoise2`),
+The _lfo_ function generates quadratic noise (`lfNoise2`),
 which in then scaled (`linLin`).
 
 ```

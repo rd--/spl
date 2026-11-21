@@ -5,7 +5,7 @@ The first, or _x_, coordinate of a point in a Cartesian coordinate system.
 [[1](https://en.wikipedia.org/wiki/Abscissa)]
 
 - _Adverb_:
-An adverb is a _block_ that modifies the behaviour of another block.
+An adverb is a _function_ that modifies the behaviour of another function.
 Cf: Operator Adverbs
 
 - _Answer_:
@@ -18,7 +18,7 @@ Abbreviated as _arb. unit_ or _p.d.u._
 [[1](https://en.wikipedia.org/wiki/Arbitrary_unit)]
 
 - _Argument_:
-A value that is supplied to a _block_ when it is evaluated,
+A value that is supplied to a _function_ when it is evaluated,
 also called a _parameter_ or an _input_.
 
 - _Arithmetic Progression_:
@@ -61,8 +61,8 @@ Cf: shape
 
 - _Behaviour_:
 The subset of objects that can be evaluated to perform a computation,
-ordinarily a _block_ or a _method_.
-Cf: Block, Method
+ordinarily a _function_ or a _method_.
+Cf: Function, Method
 
 - _Binary Function_:
 A _function_ of two _arguments_, such as _+_ or _min_.
@@ -82,13 +82,13 @@ Cf: Assignment Syntax, Let Syntax
 An _integer_ value that is either zero or one.
 Cf: boole
 
-- _Block_:
+- _Function_:
 The _behaviour_ type,
 also called a _function_ or a _procedure_ or a _verb_.
-Cf: Block
+Cf: Function
 
 - _Body_:
-The _sequence_ of _statements_ that define a _block_.
+The _sequence_ of _statements_ that define a _function_.
 
 - _Boolean_:
 A logic _type_ that has the values _true_ and _false_.
@@ -178,7 +178,7 @@ Cf: Fraction
 
 - _Function_:
 A _behaviour_, particularly one that answers equal values for equal inputs and has no _side effects_.
-Informally used to refer to _blocks_ and _procedures_.
+Informally used to refer to _functions_ and _procedures_.
 [[1](https://mathworld.wolfram.com/Function.html)]
 
 - _Geometric Progression_:
@@ -278,7 +278,7 @@ or any value in the system.
 Cf: Object
 
 - _Operand_:
-A value supplied to a _block_ when it is executed,
+A value supplied to a _function_ when it is executed,
 also called an _argument_ or a _parameter_.
 
 - _Operator_:
@@ -303,7 +303,7 @@ The rules for deciding the order of evaluation of parts of a program.
 An attribute of a number indicating the range of values that can be represented within its type.
 
 - _Predicate_:
-A _block_ that answers a _boolean_.
+A _function_ that answers a _boolean_.
 
 - _Prefix_:
 An infix that includes the first, or head, index-0 item.
@@ -406,7 +406,7 @@ A _Uniform Resource Locator_, the address of a unique resource on the internet.
 A method of representing _unicode_ character values as a sequence of bytes.
 
 - _Valence_:
-The number of arguments a _block_ can accept,
+The number of arguments a _function_ can accept,
 also called _arity_.
 Cf: argumentCount
 
@@ -422,7 +422,7 @@ Cf: isVector, Vector Syntax
 
 - _Verb_:
 A _behaviour_ object, as distinct from a _noun_ or _value_ object.
-Cf: Block
+Cf: Function
 
 - _Volume_:
 An _array_ of _rank_ three, or a three-dimensional array.

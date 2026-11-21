@@ -16,7 +16,7 @@ Plot the polynomial _B(3)_:
 ~~~spl svg=A
 let p = 3L.bernoulliPolynomial;
 (0.0 -- 1.0).functionPlot(
-	p.unaryBlock
+	p.unaryFunction
 )
 ~~~
 
@@ -27,7 +27,7 @@ Plot the polynomials _B(5)_ and _B(6)_:
 ~~~spl svg=B
 (-0.35 -- 1).functionPlot(
 	[5L 6L].collect { :n |
-		n.bernoulliPolynomial.unaryBlock
+		n.bernoulliPolynomial.unaryFunction
 	}
 )
 ~~~

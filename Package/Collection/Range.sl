@@ -18,11 +18,11 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 		Range(1L, 0L, 1L, 0L)
 	}
 
-	isEqualBy { :self :operand :aBlock/2 |
+	isEqualBy { :self :operand :aFunction/2 |
 		operand.isRange & {
-			aBlock(self.start, operand.start) & {
-				aBlock(self.stop, operand.stop) & {
-					aBlock(self.step, operand.step)
+			aFunction(self.start, operand.start) & {
+				aFunction(self.stop, operand.stop) & {
+					aFunction(self.step, operand.step)
 				}
 			}
 		}
@@ -48,7 +48,7 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 		}
 	}
 
-	literalPrintStringUsing { :self :aBlock/1 |
+	literalPrintStringUsing { :self :aFunction/1 |
 		(
 			self.step.isOne & {
 				self.isEmpty.not
@@ -56,16 +56,16 @@ Range : [Object, New, Copy, Store, Equal, Compare, Do, Collection, At, Indices, 
 		).if {
 			'%:%'.format(
 				[
-					aBlock(self.start),
-					aBlock(self.stop)
+					aFunction(self.start),
+					aFunction(self.stop)
 				]
 			)
 		} {
 			'%:%:%'.format(
 				[
-					aBlock(self.start),
-					aBlock(self.stop),
-					aBlock(self.step)
+					aFunction(self.start),
+					aFunction(self.stop),
+					aFunction(self.step)
 				]
 			)
 		}

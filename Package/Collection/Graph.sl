@@ -435,16 +435,16 @@
 		}.table(v, v)
 	}
 
-	labeledEdgeList { :self :aBlock/1|
+	labeledEdgeList { :self :aFunction/1|
 		self.edgeList.withCollect(
-			self.edgeLabels(aBlock/1),
+			self.edgeLabels(aFunction/1),
 			->
 		)
 	}
 
-	labeledVertexList { :self :aBlock/1|
+	labeledVertexList { :self :aFunction/1|
 		self.vertexList.withCollect(
-			self.vertexLabels(aBlock/1),
+			self.vertexLabels(aFunction/1),
 			->
 		)
 	}
@@ -619,14 +619,14 @@
 		answer
 	}
 
-	vertexInNeighboursDo { :self :vertex :aBlock/1 |
+	vertexInNeighboursDo { :self :vertex :aFunction/1 |
 		self.edgeList.do { :each |
 			(vertex = each[2]).ifTrue {
-				aBlock(each[1])
+				aFunction(each[1])
 			};
 			each.isUndirectedEdge.ifTrue {
 				(vertex = each[1]).ifTrue {
-					aBlock(each[2])
+					aFunction(each[2])
 				}
 			}
 		}
@@ -646,14 +646,14 @@
 		answer
 	}
 
-	vertexOutDo { :self :vertex :aBlock/1 |
+	vertexOutDo { :self :vertex :aFunction/1 |
 		self.edgeList.do { :each |
 			(vertex = each[1]).ifTrue {
-				aBlock(each[2])
+				aFunction(each[2])
 			};
 			each.isUndirectedEdge.ifTrue {
 				(vertex = each[2]).ifTrue {
-					aBlock(each[1])
+					aFunction(each[1])
 				}
 			}
 		}
@@ -694,9 +694,9 @@ Graph : [Object, Graph] {
 		self.properties['edgeLabels']
 	}
 
-	edgeLabels { :self :aBlock/1 |
+	edgeLabels { :self :aFunction/1 |
 		self.properties.atIfAbsent('edgeLabels') {
-			self.edgeList.collect(aBlock/1)
+			self.edgeList.collect(aFunction/1)
 		}
 	}
 
@@ -747,9 +747,9 @@ Graph : [Object, Graph] {
 		self
 	}
 
-	vertexLabels { :self :aBlock/1 |
+	vertexLabels { :self :aFunction/1 |
 		self.properties.atIfAbsent('vertexLabels') {
-			self.vertexList.collect(aBlock/1)
+			self.vertexList.collect(aFunction/1)
 		}
 	}
 
@@ -1178,7 +1178,7 @@ Graph : [Object, Graph] {
 
 }
 
-+Block {
++Function {
 
 	edgeCountGraph { :self/2 :isDirected :vertexList |
 		let edgeList = [];

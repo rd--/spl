@@ -141,8 +141,8 @@
 		}
 	}
 
-	eulerFokkerGenus { :self :aBlock/1 |
-		let combinations = self.subsets(aBlock/1);
+	eulerFokkerGenus { :self :aFunction/1 |
+		let combinations = self.subsets(aFunction/1);
 		let products = combinations.collect(product/1);
 		let normalized = Fraction(products, products.min);
 		let reduced = normalized.octaveReduce;

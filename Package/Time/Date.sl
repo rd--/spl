@@ -59,9 +59,9 @@ Date! : [Object, Store, Equal, Compare] {
 		(t1 - t2) / (24 * 60 * 60) + 1
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isDate & {
-			aBlock(self.absoluteTime, anObject.absoluteTime)
+			aFunction(self.absoluteTime, anObject.absoluteTime)
 		}
 	}
 

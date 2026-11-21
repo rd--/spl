@@ -60,15 +60,15 @@
 		self.methodDictionary[methodName].indices
 	}
 
-	methodDo { :self :aBlock/1 |
+	methodDo { :self :aFunction/1 |
 		self.traitDictionary.do { :aTrait |
 			aTrait.methodDictionary.do { :aMethod |
-				aMethod.aBlock
+				aMethod.aFunction
 			}
 		};
 		self.typeDictionary.do { :aType |
 			aType.methodDictionary.do { :aMethod |
-				aMethod.aBlock
+				aMethod.aFunction
 			}
 		}
 	}
@@ -294,9 +294,9 @@
 
 +@Object {
 
-	respondsTo { :self :aBlock |
+	respondsTo { :self :aFunction |
 		system.typeMethodDictionary(self.typeName).anySatisfy { :each |
-			each.qualifiedName = aBlock.name
+			each.qualifiedName = aFunction.name
 		}
 	}
 

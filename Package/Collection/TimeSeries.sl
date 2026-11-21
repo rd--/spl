@@ -16,9 +16,9 @@ TimeSeries : [Object, Store, Equal, Do, At, Indices, Put, Collection] {
 		answer
 	}
 
-	associationsDo { :self :aBlock/1 |
+	associationsDo { :self :aFunction/1 |
 		self.keysAndValuesDo { :t :v |
-			aBlock(t -> v)
+			aFunction(t -> v)
 		}
 	}
 
@@ -28,9 +28,9 @@ TimeSeries : [Object, Store, Equal, Do, At, Indices, Put, Collection] {
 		)
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		TimeSeries(
-			self.values.collect(aBlock/1),
+			self.values.collect(aFunction/1),
 			self.times
 		)
 	}
@@ -45,8 +45,8 @@ TimeSeries : [Object, Store, Equal, Do, At, Indices, Put, Collection] {
 		self.path.discretePlot
 	}
 
-	do { :self :aBlock/1 |
-		self.values.do(aBlock/1)
+	do { :self :aFunction/1 |
+		self.values.do(aFunction/1)
 	}
 
 	firstTime { :self |
@@ -76,12 +76,12 @@ TimeSeries : [Object, Store, Equal, Do, At, Indices, Put, Collection] {
 		self.times.isRegularlySpaced
 	}
 
-	keysAndValuesDo { :self :aBlock/2 |
-		self.times.withDo(self.values, aBlock/2)
+	keysAndValuesDo { :self :aFunction/2 |
+		self.times.withDo(self.values, aFunction/2)
 	}
 
-	keysDo { :self :aBlock/1 |
-		self.times.do(aBlock/1)
+	keysDo { :self :aFunction/1 |
+		self.times.do(aFunction/1)
 	}
 
 	lastTime { :self |
@@ -241,8 +241,8 @@ TimeSeries : [Object, Store, Equal, Do, At, Indices, Put, Collection] {
 		}
 	}
 
-	valuesDo { :self :aBlock/1 |
-		self.values.do(aBlock/1)
+	valuesDo { :self :aFunction/1 |
+		self.values.do(aFunction/1)
 	}
 
 	window { :self :startTime :endTime |

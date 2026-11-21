@@ -2,7 +2,7 @@
 
 `;` is a syntax token, it is not an operator.
 
-A semicolon separates statements in `Block Syntax`:
+A semicolon separates statements in `Function Syntax`:
 
 ```
 >>> let f = { let x = 2; x };
@@ -33,7 +33,7 @@ The name of this syntax token is `semicolon`.
 
 See also: ,, ., :
 
-Guides: Block Syntax, Matrix Syntax, Syntax Tokens
+Guides: Function Syntax, Matrix Syntax, Syntax Tokens
 
 Unicode: U+0003B ; Semicolon
 

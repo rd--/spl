@@ -11,7 +11,7 @@ The most common operators are + and - for incrementing and decrementing counters
 
 However the query operator ? is also interesting.
 
-The notation _p ?:= q_ initializes _p_ if it is nil, where _q_ must be a no-argument block.
+The notation _p ?:= q_ initializes _p_ if it is nil, where _q_ must be a no-argument function.
 
 ~~~spl experimental
 var x;

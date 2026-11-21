@@ -340,14 +340,14 @@ BitSet([1, 3, 9], 10).with { :b | b.clearBitAt(3); b.List = [1, 9] } /* clearBit
 0.bitAnd(0) = 0 /* and bits */
 ```
 
-## Block -- behaviour type
+## Function -- behaviour type
 ```
-system.includesPackage('Block') /* package */
-{ }.typeName = 'Block'
-typeName/1.typeName = 'Block'
+system.includesPackage('Function') /* package */
+{ }.typeName = 'Function'
+typeName/1.typeName = 'Function'
 let i = 1; { i < 5 }.whileTrue { i := i + 1 }; i = 5 /* mutate outer temporary */
 let i = 1; whileTrue { i < 5 } { i := i + 1 }; i = 5 /* trailing closure syntax */
-{ }.argumentCount = 0 /* block arity */
+{ }.argumentCount = 0 /* function arity */
 { :x | x }.argumentCount = 1
 { :i :j | i }.argumentCount = 2
 { :i :j :k | i }.argumentCount = 3
@@ -371,62 +371,62 @@ collect/2.swap.apply({ :x | x * x }, [3 5 7]) = [9 25 49] /* swap of collect is 
 { :x :y | x * y + y }.applyList([3.141, 23]) = 95.243
 { { :x | x }.applyList(0) }.hasError
 { { :x | x }.applyList([]) }.hasError
-9.with { :x | x.sqrt; -x } = -9 /* evaluate block with self and answer answer of block */
-9.also { :x | x.sqrt; -x } = 9 /* evaluate block with self and answer self */
+9.with { :x | x.sqrt; -x } = -9 /* evaluate function with self and answer answer of function */
+9.also { :x | x.sqrt; -x } = 9 /* evaluate function with self and answer self */
 let d = (c: 1); d.with { :x | x['c'] := 2; 0 } = 0 & { d = (c: 2) }
 let d = (c: 1); d.also { :x | x['c'] := 2; 0 } == d & { d = (c: 2) }
 let d = (c: 1); let r = d.with { :x | x['c'] := 2; 0 }; d = (c: 2) & { r = 0 }
 let d = (c: 1); let r = d.also { :x | x['c'] := 2; 0 }; d = (c: 2) & { r == d }
-let x = { }; x/0.isBlock /* blocks are objects and may be assigned to a variable */
+let x = { }; x/0.isFunction /* functions are objects and may be assigned to a variable */
 { nil; 1 }.apply = 1 /* value is last expression evaluated */
-{ { 1 }.apply }.apply = 1 /* blocks may be nested */
+{ { 1 }.apply }.apply = 1 /* functions may be nested */
 { :x | let y = x; y }.unaryApply(1) = 1 /* specification { arguments localvars expressions } */
-{ 'x' }.apply = 'x' /* simple block usage */
-{ :p1 :p2 | p1 ++ ' & ' ++ p2 }.binaryApply('x', 'y') = 'x & y' /* block with argument passing */
+{ 'x' }.apply = 'x' /* simple function usage */
+{ :p1 :p2 | p1 ++ ' & ' ++ p2 }.binaryApply('x', 'y') = 'x & y' /* function with argument passing */
 { :x | x + 1 }.argumentCount = 1 /* the number of arguments can be retrieved */
 { :x | x := nil }.unaryApply(42).isNil /* arguments are mutable */
 let f = { :x :y | x := y; x }; f(1, 3) = 3 /* arguments are mutable */
-{ } !== { } /* Block does not implement equality, non-identity */
+{ } !== { } /* Function does not implement equality, non-identity */
 ({ } == { }).not /* non-identity */
 { 1 } !== { 1 } /* non-identity */
 { 1 } !== 1 /* non-identity */
 let f = { }; f/0 == f/0 /* identity */
-{ }.apply = nil /* empty block evaluates to nil */
-{ let x = 1; nil }.apply = nil /* a block cannot end with a let binding */
+{ }.apply = nil /* empty function evaluates to nil */
+{ let x = 1; nil }.apply = nil /* a function cannot end with a let binding */
 { let c = nil; let a = nil; c := [1]; a := { let a = nil; a := 4; a }.apply; { let a = nil; a := 2; c.add!(a); { let a = nil; a := 3; c.add!(a) }.apply }.apply; c.add!(a); c }.apply = [1, 2, 3, 4]
 1.toDo(10) { :x | x } = nil /* answers nil */
 withReturn { :return/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.return } } } = 5 /* non-local return */
-1.pi.assert { true } = 1.pi /* assert that block evaluates to true, answers self */
-{ 1.pi.assert { false } }.hasError /* raise an error if block does not evaluate to true */
-{ true }.assert = nil /* assert that block evaluates to true, answers nil */
-{ { false }.assert }.hasError /* raise an error if block does not evaluate to true */
-withReturn { :return/1 | { ((0.0 -- 9.0).atRandom > 7.0).ifTrue { true.return } }.repeatForever } /* repeat a block until it returns */
-{ 1.anUnknownMessage }.ifError { :err | err }.isError /* evaluate error block on error */
+1.pi.assert { true } = 1.pi /* assert that function evaluates to true, answers self */
+{ 1.pi.assert { false } }.hasError /* raise an error if function does not evaluate to true */
+{ true }.assert = nil /* assert that function evaluates to true, answers nil */
+{ { false }.assert }.hasError /* raise an error if function does not evaluate to true */
+withReturn { :return/1 | { ((0.0 -- 9.0).atRandom > 7.0).ifTrue { true.return } }.repeatForever } /* repeat a function until it returns */
+{ 1.anUnknownMessage }.ifError { :err | err }.isError /* evaluate error function on error */
 let f = { let x = 0; { x := x + 1; x } }; let g = f/0.apply; [g.apply, g.apply] = [1, 2] /* closure */
 let f = { let x = 0; { x := x + 1; x } }; [f/0.apply.apply, f/0.apply.apply] = [1, 1] /* closures */
 let f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; 7:9.collect(f/1) = [5040, 40320, 362880]
-let f = { system.nextRandomFloat }; f/0.once = f/0.once /* evaluate block once and cache result */
+let f = { system.nextRandomFloat }; f/0.once = f/0.once /* evaluate function once and cache result */
 let f = { 1:9.atRandom }; f/0.once = f/0.once & { f/0.once = f/0.once } /* the cache is kept in a weak map */
 [3] # 2 = [3 3] /* answer an array of n places each having the same value */
 [3] # 2 = List(2, 3) /* constructor with fill value */
 let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
-{ 1 } ! 2 = [1 1] /* evaluate a block twice and collect the answers in an array */
-{ '3' } ! 3 = ['3', '3', '3'] /* evaluate block indicated number of times and collect answers in an array */
-{ 1:9.atRandom }.!(9).allSatisfy(isInteger/1) /* evaluate a block n times and collect answers in an array */
+{ 1 } ! 2 = [1 1] /* evaluate a function twice and collect the answers in an array */
+{ '3' } ! 3 = ['3', '3', '3'] /* evaluate function indicated number of times and collect answers in an array */
+{ 1:9.atRandom }.!(9).allSatisfy(isInteger/1) /* evaluate a function n times and collect answers in an array */
 { '3' } ! 3 = ['3', '3', '3'] /* operator notation */
 ({ system.nextRandomFloat } ! 9).size = 9 /* the size of the answer is as requested */
 ({ system.nextRandomFloat } ! 3).allSatisfy(isNumber/1) = true
-&.parameterNames = ['self', 'aBlock/0'] /* answer names of method parameters */
+&.parameterNames = ['self', 'aFunction/0'] /* answer names of method parameters */
 sinOsc/2.parameterNames = ['freq' 'phase'] /* answer names of method parameters */
 randomReal/3.parameterNames = ['self', 'range', 'shape'] /* answer names of method parameters */
 system.methodDictionary['at'][2.0]['Map'].information.parameterNames = ['self', 'key']
 let c = []; let a = []; 1:3.do { :i | c.add! { a.add!(i) } }; c.do(apply/1); a = [1, 2, 3]
 let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] /* closure */
-{ { }.deepCopy }.hasError /* blocks cannot be deep copied */
-let f = -.swap; f.binaryApply(3, 1) = -2 /* swap arguments of two argument block */
+{ { }.deepCopy }.hasError /* functions cannot be deep copied */
+let f = -.swap; f.binaryApply(3, 1) = -2 /* swap arguments of two argument function */
 1 -.swap 3 = 2 /* swap arguments at binary operator */
-let f/1 = constant(3); f(4) = 3 /* block that answers a constant */
-3.constant.apply(4) = 3 /* block that answers a constant */
+let f/1 = constant(3); f(4) = 3 /* function that answers a constant */
+3.constant.apply(4) = 3 /* function that answers a constant */
 42.constant.apply('hello') = 42
 1:4.collect(42.constant) = [42 42 42 42]
 { :x | x ^ 2 }.iterate(2, 3) = 256 /* iterate */
@@ -434,9 +434,9 @@ let x = 2; 3.timesRepeat { x := x ^ 2}; x = 256 /* timesRepeat loop */
 2 ^ 2 ^ 2 ^ 2 = 256 /* written out */
 ```
 
-## BlockStream -- stream type
+## FunctionStream -- stream type
 ```
-system.includesPackage('BlockStream') /* package */
+system.includesPackage('FunctionStream') /* package */
 ```
 
 ## Boolean -- logic type
@@ -491,10 +491,10 @@ true & { false } = false /* logical and (operator) */
 false & { false } = false
 true | { true } = true
 false | { true } = true /* logical or (operator) */
-{ true & false }.hasError /* & applies the rhs, which must be a block */
+{ true & false }.hasError /* & applies the rhs, which must be a function */
 true && true = true /* non-evaluating form of & (requires boolean operand) */
 { true && 'true' }.hasError /* it is an error if operand is not a boolean */
-{ false | false }.hasError /* | applies the rhs, which must be a block */
+{ false | false }.hasError /* | applies the rhs, which must be a function */
 false || true = true /* non-evaluating form of | (requires boolean operand) */
 { false || 'true' }.hasError /* it is an error if operand is not a boolean */
 [true.encodeJson, false.encodeJson] = ['true', 'false'] /* booleans have json encodings */
@@ -655,8 +655,8 @@ Clock().typeName = 'Clock' /* type of clock */
 Clock().isClock /* clock predicate */
 Clock().priorityQueue.isPriorityQueue /* priority queue of clock */
 Clock().priorityQueue.isEmpty /* priority queue is initially empty */
-let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | nil }; c.nextEntryTime <= (system.sessionTime + i)
-let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | t.printLine }; c.removeAll!; c.nextEntryTime = nil
+let c = Clock(); let i = 3; c.scheduleFunction(i) { :t | nil }; c.nextEntryTime <= (system.sessionTime + i)
+let c = Clock(); let i = 3; c.scheduleFunction(i) { :t | t.printLine }; c.removeAll!; c.nextEntryTime = nil
 ```
 
 ## Collection -- collection trait
@@ -704,18 +704,18 @@ let a = [1 .. 4]; let c = a.copyWith(5); a != c & { c = [1 .. 5] } /* copy with 
 let s = [1 .. 4].IdentitySet; let c = s.copyWith(5); s != c & { c = [1 .. 5].IdentitySet } /* copy with new element */
 { [1, 2].take(-1) }.hasError
 [].select { :each | each > 0 } = []
-[].ifEmpty { true } /* evaluate block if collection is empty */
+[].ifEmpty { true } /* evaluate function if collection is empty */
 [].ifEmpty { true } { false } /* evaluate first lock if collection is empty */
-[1].ifEmpty { false } { true } /* evaluate second block if collection is not empty */
-let c = [1]; c.ifEmpty { false } { c = [1] } /* evaluate second block if not empty */
-1:9.detectSum(square/1) = 285 /* apply block to each element and sum */
+[1].ifEmpty { false } { true } /* evaluate second function if collection is not empty */
+let c = [1]; c.ifEmpty { false } { c = [1] } /* evaluate second function if not empty */
+1:9.detectSum(square/1) = 285 /* apply function to each element and sum */
 1:9.collect(square/1).sum = 285
 let a = [1 .. 9]; a.removeAll!(3:7); a = [1, 2, 8, 9] /* remove all indicated elements */
 let a = [1, 2, 3, 2, 1]; let r = a.removeAll!([1, 2, 3]); [a, r] = [[2, 1], nil] /* answer nil, only remove first instance */
 { [1 .. 3].removeAll!(7:9) }.hasError /* it is an error if an element to be removed is not located */
 let a = [1 .. 3]; a.removeAllFoundIn!(7:9); a = [1 .. 3] /* unlike removeAll it is not an error if items are not found */
 let a = [1, 2, 3, 2, 1]; a.removeAllFoundIn!([2, 3]); a = [1, 2, 1] /* removes only first matching element */
-[1 .. 6].collect { :each | each * 2 } = [2, 4 .. 12] /* apply block at each element and answer like collection */
+[1 .. 6].collect { :each | each * 2 } = [2, 4 .. 12] /* apply function at each element and answer like collection */
 1:6.collect { :each | each * 2 } = [2, 4 .. 12] /* interval species is array */
 1:6.collect { :each | each * 2 } = [2, 4 .. 12] /* literal integer interval syntax */
 [2, -3, 4, -35, 4, -11].collect { :each | each.abs } = [2, 3, 4, 35, 4, 11]
@@ -723,7 +723,7 @@ let a = [1, 2, 3, 2, 1]; a.removeAllFoundIn!([2, 3]); a = [1, 2, 1] /* removes o
 1:100.injectInto(0) { :sum :each | sum + each } = 5050
 let a = [1 .. 5]; a.items = a & { a.items !== a } /* contents at list is equal but not identical */
 (1:9 / 3).round = [0, 1, 1, 1, 2, 2, 2, 3, 3] /* unary math operator at collection */
-[].collectThenDo { :each | 'error'.error } { :each | 'error'.error } = [] /* neither block is run for empty collections */
+[].collectThenDo { :each | 'error'.error } { :each | 'error'.error } = [] /* neither function is run for empty collections */
 let n = 0; 3:7.collectThenDo(square/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } /* collect then do */
 [].ifEmptyIfNotEmptyDo { true } { :x | x } = true /* branch on isEmpty */
 let c = 1:9; let a = 0; c.ifEmptyIfNotEmptyDo { false } { :x | a := a + (x ^ 3) }; a = 2025 /* branch on isEmpty */
@@ -929,9 +929,9 @@ Complex(3/2, 0) + 0/1.i = 1.5J0 /* add 0i to a complex number is identity */
 
 ## Conditional Statements
 ```
-true.ifTrue { 'T' } = 'T' /* if true then, answers answer of branch block or nil */
-true.ifFalse { 'F' } = nil /* if false then, answers answer of branch block or nil */
-true.if { 'T' } { 'F' } = 'T' /* if true then else if false then, answers answer of chose block */
+true.ifTrue { 'T' } = 'T' /* if true then, answers answer of branch function or nil */
+true.ifFalse { 'F' } = nil /* if false then, answers answer of branch function or nil */
+true.if { 'T' } { 'F' } = 'T' /* if true then else if false then, answers answer of chose function */
 let x = nil; true & { x := 1 }; x = 1 /* side effect on conditional and */
 let x = nil; false & { x := 1 }; x = nil /* no side effect on conditional and */
 let x = nil; true | { x := 1 }; x = nil /* no side effect on conditional or */
@@ -1152,8 +1152,8 @@ Error('Error message').messageText = 'Error message' /* an error has a message *
 { Error('Error message').signal }.hasError /* signal error */
 { 'Error message'.error }.hasError /* generate and signal an error */
 { Error('message').copy }.hasError /* cannot copy errors */
-let x = nil; { x := false }.ensure { x := true }; x /* ensure termination block is evaluated */
-let x = nil; { { ''.error }.ensure { x := true } }.ignoreError; x /* ensure termination block is evaluated */
+let x = nil; { x := false }.ensure { x := true }; x /* ensure termination function is evaluated */
+let x = nil; { { ''.error }.ensure { x := true } }.ignoreError; x /* ensure termination function is evaluated */
 ```
 
 ## Float64Array -- collection type
@@ -1834,9 +1834,9 @@ let a = [1 .. 9]; a.shuffle != a & { a = [1 .. 9] } /* copying shuffle */
 [9, 8 .. 1].includesAll([3 .. 7]) = true
 [5, 4 .. 3].includesAll([3 .. 7]) = false
 [].includesAll([3 .. 7]) = false
-negate/1.fill([5]) = [-1; -2; -3; -4; -5] /* fill array with answers of a block applied to each index */
-let r = Sfc32(12345); r.randomSmallInteger([1 9], 5) = [8, 5, 9, 9, 4] /* duplicate block */
-let r = Sfc32(12345); { r.randomSmallInteger([1 9], []) } ! 5 = [8, 5, 9, 9, 4] /* duplicate block */
+negate/1.fill([5]) = [-1; -2; -3; -4; -5] /* fill array with answers of a function applied to each index */
+let r = Sfc32(12345); r.randomSmallInteger([1 9], 5) = [8, 5, 9, 9, 4] /* duplicate function */
+let r = Sfc32(12345); { r.randomSmallInteger([1 9], []) } ! 5 = [8, 5, 9, 9, 4] /* duplicate function */
 List(5, nil).fillFromWith!(1:5, negate/1) = [-1, -2 .. -5]
 let a = List(5, nil); a.fillFromWith!([1, 3, 5, 7, 9], square/1); a = [1, 9, 25, 49, 81]
 let a = List(4, nil); [1, 3, 5, 7].collectInto!({ :each | each * each}, a); a = [1, 9, 25, 49]
@@ -1989,7 +1989,7 @@ let a = [5, 4 .. 1]; a[1, 5, 3] = [5 1 3] /* atAll operator */
 let a = [5, 4 .. 1]; a[2 .. 4] = [4 3 2] /* atAll operator */
 let a = [1, 1, 3, 4]; a[2, 4, 3, 1] = [1, 4, 3, 1] /* atAll operator */
 let a = [1 1 3 4]; a[2, 4, 3, 1] = [1 4 3 1] /* atAll operator */
-{ :i | i * 2 }.fill([4]) = [2; 4; 6; 8] /* fill list using block at indicies */
+{ :i | i * 2 }.fill([4]) = [2; 4; 6; 8] /* fill list using function at indicies */
 ```
 
 ## Map -- collection type
@@ -2210,7 +2210,7 @@ let z = ['a' -> { 1 + 1 }, 'b' -> { 2 + 2 }, 'c' -> { 3 + 3 } ]; 'b'.caseOf(z) =
 4/3.slotList = ['numerator' -> 4, 'denominator' -> 3]
 4/3.numerator = 4/3.uncheckedSlotRead('numerator') /* slot read */
 let n = 4/3; n.uncheckedSlotWrite('denominator', 5L); n = 4/5 /* slot write */
-1.pi.in { :x | x.round + 20 } = 23 /* evaluate block with object */
+1.pi.in { :x | x.round + 20 } = 23 /* evaluate function with object */
 { 1.pi.error('pi') }.hasError /* user error */
 ```
 
@@ -2366,7 +2366,7 @@ system.includesPackage('PrimitiveArray') /* package */
 let a = [1, 7, 3, 9, 5]; let b = a.sortBy! { :p :q | p >= q }; a = [9, 7 .. 1] & { a == b } /* sort using provided comparison, in-place */
 [1, 7, 3, 9, 5].sortBy! { :p :q | p >= q } = [9, 7 .. 1] /* sort using provided comparison, in-place answering array */
 [1, 7, 3, 9, 5].sort! = [1, 3 .. 9] /* sort using default comparison of <= */
-let a = [(x: 1, y: 9), (x: 9, y: 1)]; let b = a.sortOn! { :each | each['y'] }; a = [(x: 9, y: 1), (x: 1, y: 9)] & { b == a } /* sort using provided key block */
+let a = [(x: 1, y: 9), (x: 9, y: 1)]; let b = a.sortOn! { :each | each['y'] }; a = [(x: 9, y: 1), (x: 1, y: 9)] & { b == a } /* sort using provided key function */
 ```
 
 ## Promise -- scheduling type
@@ -2760,7 +2760,7 @@ RegularExpression('x|z', 'g').replaceAllWith('x y z', '-') = '- y -'
 'a-b:c'.stringSplitRegularExpression('-|:') = ['a', 'b', 'c'] /* split string at matching tokens */
 'x y z'.replaceRegularExpression('x|z', '-') = '- y z'
 'x y z'.replaceRegularExpression(RegularExpression('x|z', 'g'), '-') = '- y -'
-RegularExpression('x|z').replaceModifying('x y z', toUpperCase/1) = 'X y z' /* instead of a replacement string, allows for a block to process the match */
+RegularExpression('x|z').replaceModifying('x y z', toUpperCase/1) = 'X y z' /* instead of a replacement string, allows for a function to process the match */
 RegularExpression('x|z', 'g').replaceAllModifying('x y z', toUpperCase/1) = 'X y Z'
 'A short sentence of six words'.wordAtIndex(23) = 'six' /* get word looking backwards and forwards from index for non-word characters */
 ```
@@ -2999,7 +2999,7 @@ let x = [0 1]; x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] /* self cartesian pr
 1:10.median = 5.5 /* mean of two middle-most elements */
 1:11.median = 6 /* middle element */
 [1 3 5 7 9].isArithmeticProgression = true /* is arithmetic progression */
-[1 3 5 7 9].isArithmeticProgression(2, =) = true /* is arithmetic progression by step according to block */
+[1 3 5 7 9].isArithmeticProgression(2, =) = true /* is arithmetic progression by step according to function */
 ```
 
 ## Sequence arithmetic
@@ -3247,7 +3247,7 @@ SortedList().size = 0 /* query size */
 let a = SortedList(); a.add!(3); a.add!(1); a.add!(2); a.collection = [1 .. 3] /* add inserts items into sequence */
 let a = [3, 1].SortedList; a.add!(2); a.collection = [1 .. 3] /* sorted array from array */
 let a = [9, 8 .. 1].SortedList; a.collect { :x | 9 - x }; a.collection = [1 .. 9] /* collect into ordered collection */
-let a = [1 .. 9].SortedList(>); a.collection = [9, 8 .. 1] /* sorted array with specified sort block */
+let a = [1 .. 9].SortedList(>); a.collection = [9, 8 .. 1] /* sorted array with specified sort function */
 let a = [5 .. 9].SortedList(>); a.addAll!([1 .. 4]); a.collection = [9, 8 .. 1]
 [5, 2, 50, -10].SortedList.List = [-10, 2, 5, 50]
 'hello'.characters.SortedList.List = 'ehllo'.characters
@@ -3640,11 +3640,11 @@ var x, y, z; (x: x, y: y, z: z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [
 [9, 7 .. 1] = (9, 7 .. 1).List /* 9 to 1 by -2 */
 ```
 
-## Syntax -- block application
+## Syntax -- function application
 ```
-{ }.apply = nil /* apply no argument block */
-{ :n | n * n }.apply(23) = 529 /* apply one argument block */
-{ :p :q | p ++ q }.apply('x', 'y') = 'xy' /* apply two argument block */
+{ }.apply = nil /* apply no argument function */
+{ :n | n * n }.apply(23) = 529 /* apply one argument function */
+{ :p :q | p ++ q }.apply('x', 'y') = 'xy' /* apply two argument function */
 ```
 
 ## Syntax -- temporaries
@@ -3658,7 +3658,7 @@ let x = 1; let y = 2; [x, y] = [1, 2] /* let x = i, y = i; => | x = i, y = j; */
 let x = 1; let y = 2; let z = 3; [x, y, z] = [1, 2, 3] /* there can be multiple let (with initializer) sequences */
 ```
 
-## Syntax -- trailing blocks
+## Syntax -- trailing functions
 ```
 1.to(9).collect { :x | x * x }.last = 81
 1:9.collect { :x | x * x }.last = 81
@@ -3761,7 +3761,7 @@ let f = { { (0 -- 1).atRandom }.once(system, 'anotherUniqueKey') }; f() = f() & 
 ## System -- evaluate
 ```
 system.evaluate('3 + 4') = 7 /* evaluate a string */
-system.evaluateNotifying('7.notAMethod') { :unused | true } /* provide a block to receiver error notifications */
+system.evaluateNotifying('7.notAMethod') { :unused | true } /* provide a function to receiver error notifications */
 system.evaluateNotifying('a syntax error') { :unused | true } /* syntax errors likewise */
 system.evaluateNotifying('') { :err | true } /* empty input likewise */
 ```
@@ -3802,7 +3802,7 @@ system.doesTypeImplementMethod('List', 'species') = true
 system.methodPrintString('addInPlace').size >= 3
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
 system.methodLookupAtType('collect', 2, 'List').origin.name = 'List'
-system.methodLookupAtType('collect', 2, 'List').block.binaryApply([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
+system.methodLookupAtType('collect', 2, 'List').function.binaryApply([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.methodLookupAtType('sum', 1, 'List') == system.methodLookupAtType('sum', 1, 'SortedSet')
 'sum/1'.parseQualifiedMethodName = ['sum', 1]
 ```
@@ -4022,6 +4022,6 @@ WeakMap().typeName = 'WeakMap' /* type of weak map */
 WeakMap().isWeakMap /* weak map predicate */
 WeakMap().printString = 'a WeakMap' /* weak map print string */
 { WeakMap().size }.hasError /* the size of a weak map cannot be observed */
-let f = { system.nextRandomFloat }; f/0.once = f/0.once /* Block>>once caches output using a weak map */
+let f = { system.nextRandomFloat }; f/0.once = f/0.once /* Function>>once caches output using a weak map */
 system.cache['onceCache'].isWeakMap
 ```

@@ -2,9 +2,9 @@
 
 - _composeRight(f/1, g/1)_
 
-Compose the two unary Blocks _f_ and _g_ into one unary Block.
+Compose the two unary functions _f_ and _g_ into one unary function.
 
-The blocks are composed left to right,
+The functions are composed left to right,
 i.e. _f_ is applied first and _g_ second.
 
 ```
@@ -36,7 +36,7 @@ n
 
 See also: bindRight, bindRight, composeLeft
 
-Guides: Block Functions
+Guides: Function Functions
 
 References:
 _Mathematica_

@@ -1,8 +1,8 @@
 Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 
-	==> { :self :aBlock/0 |
+	==> { :self :aFunction/0 |
 		self.if {
-			aBlock()
+			aFunction()
 		} {
 			true
 		}
@@ -12,12 +12,12 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 		self
 	}
 
-	always { :self :aBlock/0 |
-		aBlock()
+	always { :self :aFunction/0 |
+		aFunction()
 	}
 
-	[and, &] { :self :aBlock/0 |
-		<primitive: return _self && _aBlock_0();>
+	[and, &] { :self :aFunction/0 |
+		<primitive: return _self && _aFunction_0();>
 	}
 
 	assertIsBoolean { :self |
@@ -76,7 +76,7 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 		p.not | { q() }
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		self == anObject
 	}
 
@@ -92,21 +92,21 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 		<primitive: return _self ? false : true;>
 	}
 
-	[notAnd, nand] { :self :aBlock/0 |
-		/* (self & { aBlock() } ).not */
+	[notAnd, nand] { :self :aFunction/0 |
+		/* (self & { aFunction() } ).not */
 		self.not | {
-			aBlock().not
+			aFunction().not
 		}
 	}
 
-	[notOr, nor] { :self :aBlock/0 |
+	[notOr, nor] { :self :aFunction/0 |
 		self.not & {
-			aBlock().not
+			aFunction().not
 		}
 	}
 
-	[or, |] { :self :aBlock/0 |
-		<primitive: return _self || _aBlock_0();>
+	[or, |] { :self :aFunction/0 |
+		<primitive: return _self || _aFunction_0();>
 	}
 
 	shallowCopy { :self |

@@ -11,12 +11,12 @@ Dictionary : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection,
 		}
 	}
 
-	keysAndValuesDo { :self :aBlock/2 |
+	keysAndValuesDo { :self :aFunction/2 |
 		let keys = self.keys;
 		let values = self.values;
 		let size = keys.size;
 		1.toDo(size) { :index |
-			aBlock(keys[index], values[index])
+			aFunction(keys[index], values[index])
 		}
 	}
 
@@ -96,7 +96,7 @@ Dictionary : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection,
 
 }
 
-+Block {
++Function {
 
 	comparatorToDictionary { :comparator/2 |
 		[

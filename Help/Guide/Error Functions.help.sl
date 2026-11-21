@@ -39,4 +39,4 @@ Asserting:
 
 * * *
 
-Guides: Assertion Functions, Block Functions, Control Functions, Error Handling
+Guides: Assertion Functions, Function Functions, Control Functions, Error Handling

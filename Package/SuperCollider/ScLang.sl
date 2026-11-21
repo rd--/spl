@@ -268,7 +268,7 @@
 
 }
 
-+Block {
++Function {
 
 	!* { :self :anInteger |
 		(self ! anInteger).product
@@ -541,12 +541,12 @@
 		self.shuffle
 	}
 
-	separate { :self :aBlock/2 |
+	separate { :self :aFunction/2 |
 		let answer = [];
 		let segment = [];
 		self.adjacentPairsDo { :a :b |
 			segment.add!(a);
-			aBlock(a, b).ifTrue {
+			aFunction(a, b).ifTrue {
 				answer.add!(segment);
 				segment := []
 			}
@@ -572,10 +572,10 @@
 		self.similarity(other, isEqual/2)
 	}
 
-	similarity { :self :other :equalityBlock/2 |
+	similarity { :self :other :equalityFunction/2 |
 		let maxDistance = self.size.max(other.size);
 		(maxDistance > 0).if {
-			1 - (self.levenshteinDistance(other, equalityBlock/2) / maxDistance)
+			1 - (self.levenshteinDistance(other, equalityFunction/2) / maxDistance)
 		} {
 			1
 		}
@@ -602,7 +602,7 @@
 		)
 	}
 
-	waveFill { :self :aBlock/3 :start :end |
+	waveFill { :self :aFunction/3 :start :end |
 		(self.size > 0).ifTrue {
 			let index = 1;
 			let parameter = start;
@@ -611,7 +611,7 @@
 			{
 				i <= size
 			}.whileTrue {
-				self[index] := aBlock(parameter, self[index], index);
+				self[index] := aFunction(parameter, self[index], index);
 				parameter := parameter + step;
 				index := index + 1
 			}
@@ -684,17 +684,11 @@
 
 }
 
-+Block {
++Function {
 
-	<> { :self/1 :aBlock/1 |
+	<> { :self/1 :aFunction/1 |
 		{ :x |
-			self(aBlock(x))
-		}
-	}
-
-	block { :self/1 |
-		withReturn { :return/1 |
-			self(return/1)
+			self(aFunction(x))
 		}
 	}
 

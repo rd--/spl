@@ -67,7 +67,7 @@ Plot the seven degree Bell polynomial over a subset of the reals:
 
 ~~~spl svg=A
 (-2 -- 0.75).functionPlot(
-	7.bellB.unaryBlock
+	7.bellB.unaryFunction
 )
 ~~~
 
@@ -79,7 +79,7 @@ Plot the first five polynomials over a subset of the reals:
 (-1.0 -- 1.0).functionPlot(
 	1L:5L.collect { :n |
 		n.bellB
-		.unaryBlock
+		.unaryFunction
 		.clip(-2.0, 3.0)
 	}
 )

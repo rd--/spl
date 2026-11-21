@@ -12,10 +12,10 @@ Association : [Object, Store, Copy, Equal, Compare] {
 		1 + self.value.depth
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isAssociation & {
 			self.key = anObject.key & {
-				aBlock(self.value, anObject.value)
+				aFunction(self.value, anObject.value)
 			}
 		}
 	}

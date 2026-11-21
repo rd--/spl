@@ -22,12 +22,6 @@ Guide/Benchmarking Functions.help.sl
 Guide/Binary Operators.help.sl
 Guide/Binary Operator Syntax.help.sl
 Guide/Bitwise Functions.help.sl
-Guide/Block Argument Annotation Syntax.help.sl
-Guide/Block Arity.help.sl
-Guide/Block Functions.help.sl
-Guide/Block Implementation.help.sl
-Guide/Block Semantics.help.sl
-Guide/Block Syntax.help.sl
 Guide/Bohlen-Pierce Scale.help.sl
 Guide/Boolean Functions.help.sl
 Guide/Categories and Categoriser.help.sl
@@ -43,8 +37,8 @@ Guide/Comparing Collections.help.sl
 Guide/Comparison Functions.help.sl
 Guide/Complex Number Functions.help.sl
 Guide/Complex Number Syntax.help.sl
-Guide/Control Blocks.help.sl
 Guide/Control Functions.help.sl
+Guide/Control Structures.help.sl
 Guide/Coordinate System Functions.help.sl
 Guide/Copying Functions.help.sl
 Guide/Csound Gen Routines.help.sl
@@ -104,7 +98,13 @@ Guide/Fourier Analysis Functions.help.sl
 Guide/Fraction Functions.help.sl
 Guide/Fractions and Decimals.help.sl
 Guide/Fraction Syntax.help.sl
+Guide/Function Argument Annotation Syntax.help.sl
+Guide/Function Arity.help.sl
+Guide/Function Functions.help.sl
 Guide/Function Guides.help.sl
+Guide/Function Implementation.help.sl
+Guide/Function Semantics.help.sl
+Guide/Function Syntax.help.sl
 Guide/Further Reading.help.sl
 Guide/Generic Functions.help.sl
 Guide/Geodetic Functions.help.sl
@@ -271,12 +271,12 @@ Guide/Syntax Tokens.help.sl
 Guide/System Dictionary.help.sl
 Guide/System Functions.help.sl
 Guide/System Variable.help.sl
-Guide/Temporary Block Syntax.help.sl
+Guide/Temporary Function Syntax.help.sl
 Guide/Text Functions.help.sl
 Guide/Texture Programs.help.sl
 Guide/Threading Over Lists.help.sl
 Guide/Time Series Functions.help.sl
-Guide/Trailing Block Syntax.help.sl
+Guide/Trailing Function Syntax.help.sl
 Guide/Tree Functions.help.sl
 Guide/Triangle Functions.help.sl
 Guide/Trigonometric Functions.help.sl
@@ -670,10 +670,8 @@ Reference/blend.help.sl
 Reference/blinnWyvillRaisedInvertedCosine.help.sl
 Reference/blip.help.sl
 Reference/blockDiagonalMatrix.help.sl
-Reference/Block.help.sl
 Reference/blockMap.help.sl
 Reference/blockSize.help.sl
-Reference/BlockStream.help.sl
 Reference/blomqvistBeta.help.sl
 Reference/bLowPass.help.sl
 Reference/blue.help.sl
@@ -1612,7 +1610,9 @@ Reference/fromTrilinearVertexMatrix.help.sl
 Reference/fSinOsc.help.sl
 Reference/fullStopFullStop.help.sl
 Reference/fullStop.help.sl
+Reference/Function.help.sl
 Reference/functionPlot.help.sl
+Reference/FunctionStream.help.sl
 Reference/fussCatalanNumber.help.sl
 Reference/galileanSpiral.help.sl
 Reference/gallPetersProjection.help.sl
@@ -2061,7 +2061,6 @@ Reference/isBitString.help.sl
 Reference/isBitVector.help.sl
 Reference/isBlank.help.sl
 Reference/isBlankLine.help.sl
-Reference/isBlock.help.sl
 Reference/isBlue.help.sl
 Reference/isBooleanString.help.sl
 Reference/isByte.help.sl
@@ -2128,6 +2127,7 @@ Reference/isFormFeed.help.sl
 Reference/isFraction.help.sl
 Reference/isFractionString.help.sl
 Reference/isFullReptendPrime.help.sl
+Reference/isFunction.help.sl
 Reference/isFundamentalDiscriminant.help.sl
 Reference/isGaussianInteger.help.sl
 Reference/isGaussianPrime.help.sl
@@ -3871,7 +3871,6 @@ Reference/solidusAsterisk.help.sl
 Reference/solidus.help.sl
 Reference/solidusSolidus.help.sl
 Reference/somosSequence.help.sl
-Reference/sortBlock.help.sl
 Reference/sortBy.help.sl
 Reference/sortByOn.help.sl
 Reference/sortComparing.help.sl
@@ -3879,6 +3878,7 @@ Reference/sortedCounts.help.sl
 Reference/sortedElements.help.sl
 Reference/SortedList.help.sl
 Reference/SortedSet.help.sl
+Reference/sortFunction.help.sl
 Reference/sort.help.sl
 Reference/sortingNumber.help.sl
 Reference/sortOn.help.sl
@@ -4267,8 +4267,8 @@ Reference/UgenGraph.help.sl
 Reference/Ugen.help.sl
 Reference/ulamSequence.help.sl
 Reference/umbilicTorus.help.sl
-Reference/unaryBlock.help.sl
 Reference/unaryExpansion.help.sl
+Reference/unaryFunction.help.sl
 Reference/uncheckedAt.help.sl
 Reference/uncheckedFraction.help.sl
 Reference/uncheckedPut.help.sl

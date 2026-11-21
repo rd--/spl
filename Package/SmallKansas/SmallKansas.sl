@@ -24,8 +24,8 @@ SmallKansas : [Object, Cache] {
 		frame
 	}
 
-	addFrameWithAnimator { :self :subject :event :delay :aBlock/0 |
-		let timerId = aBlock/0.scheduleEvery(delay);
+	addFrameWithAnimator { :self :subject :event :delay :aFunction/0 |
+		let timerId = aFunction/0.scheduleEvery(delay);
 		let frame = self.addFrame(subject, event);
 		frame.addEventListener('close') { :unusedEvent |
 			timerId.cancel
@@ -161,9 +161,9 @@ SmallKansas : [Object, Cache] {
 		self.frameSet.remove!(frame)
 	}
 
-	withMidiAccess { :self :aBlock/1 |
+	withMidiAccess { :self :aFunction/1 |
 		self.midiAccess.thenElse { :midiAccess |
-			aBlock(midiAccess)
+			aFunction(midiAccess)
 		} { :message |
 			self.warning('withMidiAccess: no midiAccess: ' + message)
 		}

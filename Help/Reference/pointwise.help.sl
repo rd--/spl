@@ -2,7 +2,7 @@
 
 - _pointwise(f/2, p/1, q/1)_
 
-Answer a unary `Block` over _x_ that implements _f(p(x),q(x))_.
+Answer a unary `Function` over _x_ that implements _f(p(x),q(x))_.
 
 Plot pointwise sum and product of `sin` and `log`:
 
@@ -19,4 +19,4 @@ Plot pointwise sum and product of `sin` and `log`:
 
 * * *
 
-See also: Block, bind, compose, constant
+See also: Function, bind, compose, constant

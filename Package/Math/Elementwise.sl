@@ -834,11 +834,11 @@
 	}
 
 	rescale { :self :a :b |
-		self.collect(rescaleBlock(a, b))
+		self.collect(rescaleFunction(a, b))
 	}
 
 	rescale { :self :a |
-		self.collect(rescaleBlock(a, [0L, 1L]))
+		self.collect(rescaleFunction(a, [0L, 1L]))
 	}
 
 	riemannXi { :self |
@@ -1270,7 +1270,7 @@
 
 +List {
 
-	atMatrixOrElementwise { :self :aBlock/1 |
+	atMatrixOrElementwise { :self :aFunction/1 |
 		self.isEmpty.if {
 			[]
 		} {
@@ -1278,10 +1278,10 @@
 				self.error('rank < 2')
 			} {
 				self.isMatrix.if {
-					aBlock(self)
+					aFunction(self)
 				} {
 					self.collect{ :each |
-						each.atMatrixOrElementwise(aBlock/1)
+						each.atMatrixOrElementwise(aFunction/1)
 					}
 				}
 			}
@@ -1292,15 +1292,15 @@
 
 +[List, Range] {
 
-	atVectorOrElementwise { :self :aBlock/1 |
+	atVectorOrElementwise { :self :aFunction/1 |
 		self.isEmpty.if {
 			self
 		} {
 			self.isVector.if {
-				aBlock(self)
+				aFunction(self)
 			} {
 				self.collect { :each |
-					each.atVectorOrElementwise(aBlock/1)
+					each.atVectorOrElementwise(aFunction/1)
 				}
 			}
 		}
@@ -1310,15 +1310,15 @@
 
 +@Collection {
 
-	atIntegerOrElementwise { :self :aBlock/1 |
+	atIntegerOrElementwise { :self :aFunction/1 |
 		self.collect { :each |
-			each.atIntegerOrElementwise(aBlock/1)
+			each.atIntegerOrElementwise(aFunction/1)
 		}
 	}
 
-	atNumberOrElementwise { :self :aBlock/1 |
+	atNumberOrElementwise { :self :aFunction/1 |
 		self.collect { :each |
-			each.atNumberOrElementwise(aBlock/1)
+			each.atNumberOrElementwise(aFunction/1)
 		}
 	}
 
@@ -1326,16 +1326,16 @@
 
 +[Float, Integer] {
 
-	atIntegerOrElementwise { :self :aBlock/1 |
-		aBlock(self)
+	atIntegerOrElementwise { :self :aFunction/1 |
+		aFunction(self)
 	}
 
 }
 
 +@Number {
 
-	atNumberOrElementwise { :self :aBlock/1 |
-		aBlock(self)
+	atNumberOrElementwise { :self :aFunction/1 |
+		aFunction(self)
 	}
 
 }

@@ -36,8 +36,8 @@
 	'Error'
 	'Meta'
 	'Nil'
-	'Block'
-	'Adverb' /* Block */
+	'Function'
+	'Adverb' /* Function */
 	'Promise'
 	'Request'
 	'Float'

@@ -27,23 +27,23 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, Cart
 		PlanarCoordinates(self.x.abs, self.y.abs)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
-		aBlock(PlanarCoordinates(aNumber, aNumber), self)
+	adaptToNumberAndApply { :self :aNumber :aFunction/2 |
+		aFunction(PlanarCoordinates(aNumber, aNumber), self)
 	}
 
-	applyBinaryOperator { :self :anObject :aBlock/2 |
+	applyBinaryOperator { :self :anObject :aFunction/2 |
 		anObject.isPlanarCoordinates.if {
 			PlanarCoordinates(
-				aBlock(self.x, anObject.x),
-				aBlock(self.y, anObject.y)
+				aFunction(self.x, anObject.x),
+				aFunction(self.y, anObject.y)
 			)
 		} {
-			anObject.adaptToPlanarCoordinatesAndApply(self, aBlock/2)
+			anObject.adaptToPlanarCoordinatesAndApply(self, aFunction/2)
 		}
 	}
 
-	applyUnaryOperator { :self :aBlock/1 |
-		PlanarCoordinates(aBlock(self.x), aBlock(self.y))
+	applyUnaryOperator { :self :aFunction/1 |
+		PlanarCoordinates(aFunction(self.x), aFunction(self.y))
 	}
 
 	coordinates { :self |
@@ -133,8 +133,8 @@ PlanarCoordinates : [Object, Copy, Store, Equal, Compare, At, Indices, Put, Cart
 
 +@Number {
 
-	adaptToPlanarCoordinatesAndApply { :self :operand :aBlock/2 |
-		aBlock(operand, PlanarCoordinates(self, self))
+	adaptToPlanarCoordinatesAndApply { :self :operand :aFunction/2 |
+		aFunction(operand, PlanarCoordinates(self, self))
 	}
 
 }

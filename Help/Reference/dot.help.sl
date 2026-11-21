@@ -425,7 +425,7 @@ The matrix product of a 4×3 and a 3×3 matrix is a 4×3 matrix:
 [5 4 3; 8 9 5; 6 5 3; 11 9 6]
 ```
 
-Implement the Block & Douthett weighting function for interval vectors:
+Implement the Function & Douthett weighting function for interval vectors:
 
 ```
 >>> let w = [-1 0 0 0 1 0];

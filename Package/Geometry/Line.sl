@@ -18,9 +18,9 @@ Line : [Object, Store, Equal, Geometry] {
 		self.vertexCoordinates.coordinateBoundingBox
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		Line(
-			self.vertexCoordinates.collect(aBlock/1)
+			self.vertexCoordinates.collect(aFunction/1)
 		)
 	}
 
@@ -72,7 +72,7 @@ Line : [Object, Store, Equal, Geometry] {
 
 	project { :self :projection |
 		Line(
-			self.vertexCoordinates.collect(projection.unaryBlock)
+			self.vertexCoordinates.collect(projection.unaryFunction)
 		)
 	}
 

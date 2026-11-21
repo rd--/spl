@@ -1,8 +1,8 @@
 # quotientBy
 
-- _quotientBy(aNumber, anotherNumber, aBlock/1)_
+- _quotientBy(i, j, f/1)_
 
-Integer quotient defined by division with rounding defered to _aBlock_.
+Integer quotient defined by division with rounding defered to _f_.
 
 ```
 >>> -8.quotientBy(7, truncate/1)

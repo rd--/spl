@@ -122,18 +122,18 @@ const asSl: ohm.ActionDict<string> = {
 		}
 		return left;
 	},
-	BlockWithAnnotations(_l, arg, prm, stm, _r) {
+	FunctionWithAnnotations(_l, arg, prm, stm, _r) {
 		const argSl = arg.asSl;
 		const vBar = (argSl === '') ? '' : ' | ';
 		const argRw = arg.argumentsWithTypeAnnotation;
 		return `{ ${argSl}${vBar}${prm.asSl}${argRw}${stm.asSl} }`;
 	},
-	BlockWithoutAnnotations(_l, arg, prm, stm, _r) {
+	FunctionWithoutAnnotations(_l, arg, prm, stm, _r) {
 		const argSl = arg.asSl;
 		const vBar = (argSl === '') ? '' : ' | ';
 		return `{ ${argSl}${vBar}${prm.asSl}${stm.asSl} }`;
 	},
-	BlockLiteralInitializer(name, _equals, blk) {
+	FunctionLiteralInitializer(name, _equals, blk) {
 		let nameStr = name.asSl;
 		if (isSplArityQualifiedName(nameStr)) {
 			return `${nameStr} = ${blk.asSl}`;
@@ -612,10 +612,10 @@ const parametersOf: ohm.ActionDict<string[]> = {
 			(each) => rewrite.dropFirstLetter(each.sourceString),
 		);
 	},
-	BlockWithAnnotations(_l, arg, _prm, _stm, _r) {
+	FunctionWithAnnotations(_l, arg, _prm, _stm, _r) {
 		return arg.parametersOf;
 	},
-	BlockWithoutAnnotations(_l, arg, _prm, _stm, _r) {
+	FunctionWithoutAnnotations(_l, arg, _prm, _stm, _r) {
 		return arg.parametersOf;
 	},
 	RecordInitializerItem(lhs, rhs) {

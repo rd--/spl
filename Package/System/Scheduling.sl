@@ -1,4 +1,4 @@
-+Block {
++Function {
 
 	scheduleAfter { :self/0 :delay |
 		<primitive:

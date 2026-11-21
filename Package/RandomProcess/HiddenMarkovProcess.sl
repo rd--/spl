@@ -7,7 +7,7 @@ HiddenMarkovProcess : [Object] {
 		let m = self.m.collect(AliasMethod/1);
 		let e = self.e.collect(AliasMethod/1);
 		let x = p0.nextRandom(r);
-		BlockStream {
+		FunctionStream {
 			let answer = e[x].nextRandom(r);
 			x := m[x].nextRandom(r);
 			answer

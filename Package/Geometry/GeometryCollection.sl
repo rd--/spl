@@ -20,9 +20,9 @@ GeometryCollection : [Object, Equal, Geometry] {
 		}.GeometryCollection
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		GeometryCollection(
-			self.geometryList.collect(aBlock/1)
+			self.geometryList.collect(aFunction/1)
 		)
 	}
 
@@ -38,10 +38,10 @@ GeometryCollection : [Object, Equal, Geometry] {
 	}
 
 	project { :self :projection |
-		let projectionBlock = projection.unaryBlock;
+		let projectionFunction = projection.unaryFunction;
 		GeometryCollection(
 			self.geometryList.collect { :each |
-				each.project(projectionBlock)
+				each.project(projectionFunction)
 			}
 		)
 	}

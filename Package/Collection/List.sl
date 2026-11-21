@@ -77,7 +77,7 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 
 	cycle { :self |
 		let i = 0;
-		BlockStream {
+		FunctionStream {
 			i := i + 1;
 			self.atWrap(i)
 		} {
@@ -111,11 +111,11 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		}
 	}
 
-	gather { :self :aBlock/2 |
+	gather { :self :aFunction/2 |
 		let answer = [];
 		self.do { :x |
 			let i = answer.detectIndex { :y |
-				aBlock(x, y.anyOne)
+				aFunction(x, y.anyOne)
 			};
 			i.ifNil {
 				answer.add!([x])
@@ -126,10 +126,10 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		answer
 	}
 
-	gatherBy { :self :aBlock/1 |
+	gatherBy { :self :aFunction/1 |
 		let a = [];
 		self.do { :x |
-			let k = aBlock(x);
+			let k = aFunction(x);
 			let i = a.detectIndex { :y |
 				k = y.key
 			};
@@ -197,30 +197,30 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		self.errorInvalidIndex('put!', index)
 	}
 
-	recordPositions { :self :aBlock/2 |
-		self.recordValuesAndPositions(aBlock/2).second
+	recordPositions { :self :aFunction/2 |
+		self.recordValuesAndPositions(aFunction/2).second
 	}
 
 	recordPositions { :self |
 		self.recordPositions(isGreater/2)
 	}
 
-	recordValues { :self :aBlock/2 |
-		self.recordValuesAndPositions(aBlock/2).first
+	recordValues { :self :aFunction/2 |
+		self.recordValuesAndPositions(aFunction/2).first
 	}
 
 	recordValues { :self |
 		self.recordValues(isGreater/2)
 	}
 
-	recordValuesAndPositions { :self :aBlock/2 |
+	recordValuesAndPositions { :self :aFunction/2 |
 		let k = self.size;
 		let m = self.first;
 		let r = [m];
 		let p = [1L];
 		2L.toDo(k) { :i |
 			let n = self[i];
-			aBlock(n, m).ifTrue {
+			aFunction(n, m).ifTrue {
 				m := n;
 				r.add!(m);
 				p.add!(i)
@@ -363,12 +363,12 @@ List! : [Object, New, Copy, Store, Equal, Compare, Json, Do, At, Indices, Put, C
 		self.sortOn!(value/1)
 	}
 
-	windowedReduce { :self :windowSize :aBlock/2 |
+	windowedReduce { :self :windowSize :aFunction/2 |
 		self.partition(windowSize.abs, 1).collect { :each |
 			windowSize.isNegative.ifTrue {
 				each.reverse!
 			};
-			each.foldRight(aBlock/2)
+			each.foldRight(aFunction/2)
 		}
 	}
 

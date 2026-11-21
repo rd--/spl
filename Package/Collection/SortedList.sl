@@ -1,6 +1,6 @@
 SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collection, Add, Remove, Sequence] {
 
-	| collection sortBlock | <List>
+	| collection sortFunction | <List>
 
 	[List, sortedListToList] { :self |
 		self.collection.copy
@@ -18,7 +18,7 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 	addAll! { :self :aCollection |
 		(aCollection.size > (self.collection.size // 3)).if {
 			self.collection.addAll!(aCollection);
-			self.collection.sortBy!(self.sortBlock)
+			self.collection.sortBy!(self.sortFunction)
 		} {
 			aCollection.do { :each |
 				self.add!(each)
@@ -31,11 +31,11 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 		self.collection.atIfAbsent(index, ifAbsent/0)
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		self
 		.collection
-		.collect(aBlock/1)
-		.SortedList(self.sortBlock)
+		.collect(aFunction/1)
+		.SortedList(self.sortFunction)
 	}
 
 	[concatenation, ++] { :self :aCollection |
@@ -44,17 +44,17 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 		answer
 	}
 
-	do { :self :aBlock/1 |
-		self.collection.do(aBlock/1)
+	do { :self :aFunction/1 |
+		self.collection.do(aFunction/1)
 	}
 
 	indexForInserting { :self :newObject |
 		let low = 1;
 		let high = self.collection.size;
-		let sortBlock/2 = self.sortBlock;
+		let sortFunction/2 = self.sortFunction;
 		let f = { :a :b |
 			a = b | {
-				sortBlock(a, b)
+				sortFunction(a, b)
 			}
 		};
 		let index = nil;
@@ -138,10 +138,10 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 		}
 	}
 
-	removeIfAbsent! { :self :oldObject :anExceptionBlock/0 |
+	removeIfAbsent! { :self :oldObject :anExceptionFunction/0 |
 		let i = self.indexOf(oldObject);
 		(i = 0).if {
-			anExceptionBlock()
+			anExceptionFunction()
 		} {
 			self.collection.removeAt!(i)
 		}
@@ -156,13 +156,13 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 	}
 
 	storeString { :self |
-		(self.sortBlock == precedes/2).if {
+		(self.sortFunction == precedes/2).if {
 			'SortedList(%)'.format([self.collection])
 		} {
 			'SortedList(%, %)'.format(
 				[
 					self.collection,
-					self.sortBlock.name
+					self.sortFunction.name
 				]
 			)
 		}
@@ -184,10 +184,10 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 		SortedList(self, precedes/2)
 	}
 
-	[SortedList, listToSortedList] { :self :sortBlock/2 |
+	[SortedList, listToSortedList] { :self :sortFunction/2 |
 		newSortedList().initializeSlots(
-			self.copy.sortBy!(sortBlock/2),
-			sortBlock/2
+			self.copy.sortBy!(sortFunction/2),
+			sortFunction/2
 		)
 	}
 
@@ -195,8 +195,8 @@ SortedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Collect
 
 +@Collection {
 
-	[SortedList, collectionToSortedList] { :self :sortBlock/2 |
-		SortedList(self.items, sortBlock/2)
+	[SortedList, collectionToSortedList] { :self :sortFunction/2 |
+		SortedList(self.items, sortFunction/2)
 	}
 
 	[SortedList, collectionToSortedList] { :self |

@@ -4,7 +4,7 @@
 
 A colour gradient function by Iñigo Quilez.
 Given a 4×3 matrix,
-answers a one argument `Block` that accepts a number in _(0,1)_,
+answers a one argument `Function` that accepts a number in _(0,1)_,
 and answers an _(r,g,b)_ triple, also in _(0,1)_.
 
 As μ runs from 0 to 1,

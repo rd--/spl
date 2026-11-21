@@ -58,7 +58,7 @@
 		answer
 	}
 
-	isLocalMinimaBy { :self :i :delta :aBlock/2 |
+	isLocalMinimaBy { :self :i :delta :aFunction/2 |
 		let n = self.size;
 		let y = self[i];
 		let y0 = y;
@@ -77,12 +77,12 @@
 			y1 := self[k];
 			k := k + 1
 		};
-		aBlock(y, y0) & { aBlock(y, y1) }
+		aFunction(y, y0) & { aFunction(y, y1) }
 	}
 
-	isLocalMinimaBy { :self :aBlock/2 |
+	isLocalMinimaBy { :self :aFunction/2 |
 		SparseArray(
-			self.localMinimaByIndices(aBlock/2).collect { :i |
+			self.localMinimaByIndices(aFunction/2).collect { :i |
 				[i] -> true
 			},
 			[self.size],
@@ -138,12 +138,12 @@
 
 +[List, ListView] {
 
-	findRepeat { :self :aBlock/2 |
+	findRepeat { :self :aFunction/2 |
 		let k = self.size;
 		withReturn { :return/1 |
 			1.toDo(k - 1) { :i |
 				i.to(k).allSatisfy { :j |
-					aBlock(self[j], self[j.mod(i, 1)])
+					aFunction(self[j], self[j.mod(i, 1)])
 				}.ifTrue {
 					self.copyFromTo(1, i).return
 				}
@@ -156,13 +156,13 @@
 		self.findRepeat(isEqual/2)
 	}
 
-	findTransientRepeat { :self :n :aBlock/2 |
+	findTransientRepeat { :self :n :aFunction/2 |
 		let k = self.size;
 		withReturn { :return/1 |
 			let m = k - (n * 2) + 1;
 			1.toDo(m) { :i |
 				let part = ListView(self, i, k, 1);
-				let repeat = part.findRepeat(aBlock/2);
+				let repeat = part.findRepeat(aFunction/2);
 				(
 					repeat !== part & {
 						(repeat.size * n) <= (k - i + 1)

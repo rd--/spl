@@ -10,7 +10,7 @@ In the ternary case the _x_ and _y_ domains can be specified equally as _i_,
 or separately as _u_ and _v_,
 and likewise the divisions as _n_ or _uₙ_ and _vₙ_.
 The divisions may be elided in which case they are set automatically.
-The `Block` _f_ answers the _z_ value at each _x,y_ place.
+The `Function` _f_ answers the _z_ value at each _x,y_ place.
 
 In the unary case,
 if _m_ is an _m×n_ array,

@@ -34,7 +34,7 @@ the number of arguments that must be used to evaluate the _n_-ary block _f_.
 
 See also: apply, argumentCount, argumentNames, cull
 
-Guides: Block Functions, Block Semantics
+Guides: Function Functions, Function Semantics
 
 References:
 _Smalltalk_

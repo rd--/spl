@@ -17,7 +17,7 @@ References to help topics are written in backticks, i.e. `Operator Syntax`.
 _Rationale_:
 At the `Simple Editor` help files are fetched from a remote server by _Url_.
 Having a simple and fixed rule for translating a topic name to a file name allows loading help files with a single _fetch_ request.
-_Reference_ files document entities within the system (types, blocks, variables &etc.).
+_Reference_ files document entities within the system (types, functions, variables &etc.).
 _Guide_ files are freely structured and are organised by cross-reference.
 
 * * *

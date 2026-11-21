@@ -224,18 +224,18 @@ any statements:
 
 ```
 >>> '{ }'.splParseTree[2]
-['Block']
+['Function']
 
 >>> '{ :x | x }'.splParseTree[2]
 [
-	'Block',
+	'Function',
 	['Arguments', ['Identifier', 'x']],
 	['Identifier', 'x']
 ]
 
 >>> '{ :x :y | let z = x * y; z}'.splParseTree[2]
 [
-	'Block',
+	'Function',
 	[
 		'Arguments',
 		['Identifier', 'x'],
@@ -263,8 +263,8 @@ Control strucures are ordinary applications with block arguments:
 	'Apply',
 	['Identifier', 'if'],
 	['Identifier', 'x'],
-	['Block', ['Float', '1.0']],
-	['Block', ['Float', '0.0']]
+	['Function', ['Float', '1.0']],
+	['Function', ['Float', '0.0']]
 ]
 ```
 

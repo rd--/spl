@@ -7,7 +7,7 @@ Rewrite rule:
 Syntax for the `atIfAbsentPut` protocol.
 Read the value at the index _k_ of the collection _c_, if it is absent evaluate _a_,
 writing that value to _k_ at _c_, and answering it.
-_a_ must be a literal block.
+_a_ must be a literal function.
 
 * * *
 

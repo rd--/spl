@@ -13,7 +13,7 @@ Keybindings are:
 
 Any ``` and >>> marks from _.help.sl_ files are removed from the region before sending.
 
-The function _spl-prettier_ can be used to show Ascii block and operator names using prettier Unicode forms.
+The function _spl-prettier_ can be used to show Ascii function and operator names using prettier Unicode forms.
 Some of the notations are:
 
 1. `:=` as ← and `::` as ·

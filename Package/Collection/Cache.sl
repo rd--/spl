@@ -58,11 +58,11 @@ Cache! : [Object] {
 		self.uncheckedPut!(validKey, validValue)
 	}
 
-	removeKeyIfAbsent! { :self :key :aBlock/0 |
+	removeKeyIfAbsent! { :self :key :aFunction/0 |
 		let validKey = self.validateKey(key);
 		self.uncheckedDelete(validKey).then { :answer |
 			answer.ifFalse {
-				aBlock()
+				aFunction()
 			}
 		}
 	}

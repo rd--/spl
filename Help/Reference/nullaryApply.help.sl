@@ -23,6 +23,6 @@ each aliased to an arity specific form.
 
 * * *
 
-See also: Block, apply, cull
+See also: Function, apply, cull
 
-Guides: Block Functions
+Guides: Function Functions

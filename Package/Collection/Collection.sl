@@ -9,9 +9,9 @@
 		)
 	}
 
-	[adaptToIntegerAndApply, adaptToNumberAndApply] { :self :operand :aBlock/2 |
+	[adaptToIntegerAndApply, adaptToNumberAndApply] { :self :operand :aFunction/2 |
 		self.collect { :each |
-			aBlock(operand, each)
+			aFunction(operand, each)
 		}
 	}
 
@@ -19,13 +19,13 @@
 		self.allEqualBy(isEqual/2)
 	}
 
-	allEqualBy { :self :aBlock/2 |
+	allEqualBy { :self :aFunction/2 |
 		self.isEmpty.if {
 			true
 		} {
 			let item = self.anyOne;
 			self.allSatisfy { :each |
-				aBlock(each, item)
+				aFunction(each, item)
 			}
 		}
 	}
@@ -40,9 +40,9 @@
 		self.anyAs(numberOfElements, self.species)
 	}
 
-	anyAs { :self :numberOfElements :aBlock/1 |
+	anyAs { :self :numberOfElements :aFunction/1 |
 		let index = 0;
-		let result = aBlock(numberOfElements);
+		let result = aFunction(numberOfElements);
 		withReturn { :return/1 |
 			result.fillFromWith!(self) { :each |
 				index := index + 1;
@@ -63,7 +63,7 @@
 		self
 	}
 
-	atLevelCollect { :self :level :aBlock/1 |
+	atLevelCollect { :self :level :aFunction/1 |
 		let levelPredicate/1 = level.isCollection.if {
 			{ :each | level.includes(each) }
 		} {
@@ -71,7 +71,7 @@
 		};
 		self.withLevelCollect { :each :thisLevel |
 			levelPredicate(thisLevel).if {
-				aBlock(each)
+				aFunction(each)
 			} {
 				each
 			}
@@ -86,37 +86,37 @@
 		self.size
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		let answer = self.new;
 		self.do { :each |
-			answer.add!(aBlock(each))
+			answer.add!(aFunction(each))
 		};
 		answer
 	}
 
-	collectCatenate { :self :aBlock/1 |
+	collectCatenate { :self :aFunction/1 |
 		let answer = self.new;
 		self.do { :each |
-			answer.addAll!(aBlock(each))
+			answer.addAll!(aFunction(each))
 		};
 		answer
 	}
 
-	collectInto! { :self :aBlock/1 :aCollection |
-		aCollection.fillFromWith!(self, aBlock/1)
+	collectInto! { :self :aFunction/1 :aCollection |
+		aCollection.fillFromWith!(self, aFunction/1)
 	}
 
-	collectThenDo { :self :collectBlock/1 :doBlock/1 |
-		let answer = self.collect(collectBlock/1);
-		answer.do(doBlock/1);
+	collectThenDo { :self :collectFunction/1 :doFunction/1 |
+		let answer = self.collect(collectFunction/1);
+		answer.do(doFunction/1);
 		answer
 	}
 
-	collectThenSelect { :self :collectBlock/1 :selectBlock/1 |
+	collectThenSelect { :self :collectFunction/1 :selectFunction/1 |
 		let answer = self.new;
 		self.do { :each |
-			let item = collectBlock(each);
-			selectBlock(item).ifTrue {
+			let item = collectFunction(each);
+			selectFunction(item).ifTrue {
 				answer.add!(item)
 			}
 		};
@@ -161,21 +161,21 @@
 		}
 	}
 
-	countsBy { :self :aBlock/1 |
-		self.groupBy(aBlock/1).collect(size/1)
+	countsBy { :self :aFunction/1 |
+		self.groupBy(aFunction/1).collect(size/1)
 	}
 
 	cubeRoot { :self |
 		self.collect(cubeRoot/1)
 	}
 
-	deepCollect { :self :aBlock/1 |
+	deepCollect { :self :aFunction/1 |
 		let type = self.typeName;
 		self.collect { :each |
 			(each.typeName = type).if {
-				each.deepCollect(aBlock/1)
+				each.deepCollect(aFunction/1)
 			} {
-				aBlock(each)
+				aFunction(each)
 			}
 		}
 	}
@@ -214,10 +214,10 @@
 		}
 	}
 
-	differenceAll { :self :aCollection :aBlock/2 |
+	differenceAll { :self :aCollection :aFunction/2 |
 		self.reject { :each |
 			aCollection.anySatisfy { :subCollection |
-				subCollection.includesBy(each, aBlock/2)
+				subCollection.includesBy(each, aFunction/2)
 			}
 		}
 	}
@@ -238,9 +238,9 @@
 		self.includes(anObject).not
 	}
 
-	[elementType, elementTypeIfAbsent] { :self :aBlock/0 |
+	[elementType, elementTypeIfAbsent] { :self :aFunction/0 |
 		self.isEmpty.if {
-			aBlock()
+			aFunction()
 		} {
 			let answer = self.anyOne.typeName;
 			self.allSatisfy { :each |
@@ -248,7 +248,7 @@
 			}.if {
 				answer
 			} {
-				aBlock()
+				aFunction()
 			}
 		}
 	}
@@ -311,10 +311,10 @@
 		}
 	}
 
-	groupBy { :self :keyBlock/1 |
+	groupBy { :self :keyFunction/1 |
 		let result = Map();
 		self.do { :each |
-			let key = keyBlock(each);
+			let key = keyFunction(each);
 			result.atIfAbsentPut!(key) {
 				[]
 			}.add!(each)
@@ -322,41 +322,41 @@
 		result
 	}
 
-	ifEmpty { :self :aBlock/0 |
+	ifEmpty { :self :aFunction/0 |
 		self.isEmpty.if {
-			aBlock()
+			aFunction()
 		} {
 			self
 		}
 	}
 
-	ifEmpty { :self :emptyBlock/0 :notEmptyBlock/0 |
+	ifEmpty { :self :emptyFunction/0 :notEmptyFunction/0 |
 		self.isEmpty.if {
-			emptyBlock()
+			emptyFunction()
 		} {
-			notEmptyBlock()
+			notEmptyFunction()
 		}
 	}
 
-	ifEmptyIfNotEmptyDo { :self :emptyBlock/0 :f/1 |
+	ifEmptyIfNotEmptyDo { :self :emptyFunction/0 :f/1 |
 		self.isEmpty.if {
-			emptyBlock()
+			emptyFunction()
 		} {
 			self.do(f/1)
 		}
 	}
 
-	ifNotEmpty { :self :notEmptyBlock/0 |
+	ifNotEmpty { :self :notEmptyFunction/0 |
 		self.isEmpty.ifFalse {
-			notEmptyBlock()
+			notEmptyFunction()
 		}
 	}
 
-	ifNotEmpty { :self :notEmptyBlock/0 :emptyBlock/0 |
+	ifNotEmpty { :self :notEmptyFunction/0 :emptyFunction/0 |
 		self.isEmpty.if {
-			emptyBlock()
+			emptyFunction()
 		} {
-			notEmptyBlock()
+			notEmptyFunction()
 		}
 	}
 
@@ -444,17 +444,17 @@
 		m + (self - m).exp.sum.log
 	}
 
-	maxIfEmpty { :self :aBlock/0 |
+	maxIfEmpty { :self :aFunction/0 |
 		self.ifEmpty {
-			aBlock()
+			aFunction()
 		} {
 			self.max
 		}
 	}
 
-	minIfEmpty { :self :aBlock/0 |
+	minIfEmpty { :self :aFunction/0 |
 		self.ifEmpty {
-			aBlock()
+			aFunction()
 		} {
 			self.min
 		}
@@ -522,7 +522,7 @@
 		answer
 	}
 
-	powerSetDo { :self :aBlock/1 |
+	powerSetDo { :self :aFunction/1 |
 		let size = 2 ^ self.size;
 		let powersOfTwo = 2 ^ 0.to(self.size - 1);
 		let list = self.List;
@@ -533,7 +533,7 @@
 					subset.include!(list[j])
 				}
 			};
-			aBlock(subset)
+			aFunction(subset)
 		}
 	}
 
@@ -573,9 +573,9 @@
 		}
 	}
 
-	reject { :self :aBlock/1 |
+	reject { :self :aFunction/1 |
 		self.select { :element |
-			aBlock(element).not
+			aFunction(element).not
 		}
 	}
 
@@ -593,10 +593,10 @@
 		}
 	}
 
-	subsets { :self :aBlock/1 |
+	subsets { :self :aFunction/1 |
 		let answer = [];
 		self.powerSetDo { :each |
-			aBlock(each).ifTrue {
+			aFunction(each).ifTrue {
 				answer.add!(each)
 			}
 		};
@@ -623,11 +623,11 @@
 		)
 	}
 
-	tally { :self :aBlock/2 |
+	tally { :self :aFunction/2 |
 		let answer = [];
 		self.do { :each |
 			answer.detectIndexIfFoundIfNone { :entry |
-				aBlock(entry[1], each)
+				aFunction(entry[1], each)
 			} { :index |
 				let entry = answer[index];
 				entry[2] := entry[2] + 1L
@@ -664,19 +664,19 @@
 		answer
 	}
 
-	withLevelCollect { :self :aBlock/2 :level |
+	withLevelCollect { :self :aFunction/2 :level |
 		let type = self.typeName;
 		self.collect { :each |
 			(each.typeName = type).if {
-				aBlock(each.withLevelCollect(aBlock/2, level + 1), level)
+				aFunction(each.withLevelCollect(aFunction/2, level + 1), level)
 			} {
-				aBlock(each, level)
+				aFunction(each, level)
 			}
 		}
 	}
 
-	withLevelCollect { :self :aBlock/2 |
-		aBlock(self.withLevelCollect(aBlock/2, 1), 0)
+	withLevelCollect { :self :aFunction/2 |
+		aFunction(self.withLevelCollect(aFunction/2, 1), 0)
 	}
 
 	zero { :self |

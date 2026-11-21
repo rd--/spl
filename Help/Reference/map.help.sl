@@ -5,7 +5,7 @@
 - _map(f/2, c₁, c₂)_
 - _map(f/3, c₁, c₂, c₃)_
 
-The unary form answers a `Block` that will apply the block _f_ element wise to two sequences.
+The unary form answers a `Function` that will apply the block _f_ element wise to two sequences.
 If the sequences are not of equal size the shorter will be recycled.
 This form is equivalent to `each`.
 
@@ -112,7 +112,7 @@ Negate integers that are prime:
 
 See also: array, collect, each, swap, table, withCollect, withWithCollect
 
-Guides: Block Functions, List Functions
+Guides: Function Functions, List Functions
 
 References:
 _Haskell_

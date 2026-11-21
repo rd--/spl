@@ -10,12 +10,12 @@ Temporaries are written using either `Var Syntax` or `Let Syntax`.
 
 Statements are separated by a semicolon (`;`).
 
-A valid program can be enclosed within braces to define a no-argument `Block`.
+A valid program can be enclosed within braces to define a no-argument `Function`.
 
 * * *
 
 See also: ;, let, var
 
-Guides: Block Syntax, Let Syntax, Var Syntax
+Guides: Function Syntax, Let Syntax, Var Syntax
 
 Categories: Syntax

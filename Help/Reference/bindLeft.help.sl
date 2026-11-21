@@ -2,7 +2,7 @@
 
 - _bindLeft(f/2, x)_
 
-Answer a unary `Block` that evaluates the binary block _f_ with the object _x_ bound to the first, or left, argument.
+Answer a unary `Function` that evaluates the binary block _f_ with the object _x_ bound to the first, or left, argument.
 
 ```
 >>> [1 .. 5].collect(+.bindLeft(4))
@@ -16,7 +16,7 @@ Answer a unary `Block` that evaluates the binary block _f_ with the object _x_ b
 
 See also: bind, bindRight, constant
 
-Guides: Block Functions
+Guides: Function Functions
 
 References:
 _Apl_

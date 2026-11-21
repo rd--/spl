@@ -63,10 +63,10 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 		'String'
 	}
 
-	keysAndValuesDo { :self :aBlock/2 |
+	keysAndValuesDo { :self :aFunction/2 |
 		<primitive:
 		Object.entries(_self).forEach(function(entry) {
-			_aBlock_2(entry[0], entry[1]);
+			_aFunction_2(entry[0], entry[1]);
 		});
 		>
 		nil
@@ -98,14 +98,14 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 		self.error('put!: key not a string', [aString.typeName])
 	}
 
-	removeKeyIfAbsent! { :self :key :aBlock |
+	removeKeyIfAbsent! { :self :key :aFunction |
 		<primitive:
 		if(Object.hasOwn(_self, _key)) {
 			const removed = _self[_key];
 			delete _self[_key];
 			return removed;
 		} else {
-			return _aBlock();
+			return _aFunction();
 		}
 		>
 	}
@@ -126,7 +126,7 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 		self.storeStringUsing(storeString/1)
 	}
 
-	storeStringUsing { :self :aBlock/1 |
+	storeStringUsing { :self :aFunction/1 |
 		let formatKey = { :k |
 			k.includes(' ').if {
 				k.storeString
@@ -137,7 +137,7 @@ Record! : [Object, New, Copy, Store, Equal, Json, Do, At, Indices, Put, Collecti
 		self.storeStringLiteral(
 			'(:)',
 			'(', ')',
-			formatKey/1, ': ', aBlock/1
+			formatKey/1, ': ', aFunction/1
 		)
 	}
 

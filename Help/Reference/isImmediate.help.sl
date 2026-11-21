@@ -8,7 +8,7 @@ one criteria for which is that an instance will compare `==` when it compares `=
 Immediate objects are suitable for inclusion in `Set` and `Multiset` of `==`,
 and for use as keys in `Map` (the identity dictionary).
 
-`Nil`, `Boolean`, `Integer`, `Float`, `String` and `Block` values are all immediate.
+`Nil`, `Boolean`, `Integer`, `Float`, `String` and `Function` values are all immediate.
 
 ```
 >>> [

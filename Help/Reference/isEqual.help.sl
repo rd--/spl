@@ -136,7 +136,7 @@ When the arguments to `=` are `boole`, it is the logical biconditional function:
 The `=` method is not implemented at `Object`.
 
 The unary form
-answers a `Block` that yields _x=y_ when applied to an expression _x_.
+answers a `Function` that yields _x=y_ when applied to an expression _x_.
 
 Check numeric equality:
 

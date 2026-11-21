@@ -2,7 +2,7 @@
 
 - _raisedCosinePulse(α)_
 
-Answer a `Block` that will generate the impulse response of a raised-cosine filter with parameter _α_.
+Answer a `Function` that will generate the impulse response of a raised-cosine filter with parameter _α_.
 
 Plot raised cosine impulse response at three values of α:
 

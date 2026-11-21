@@ -4,8 +4,8 @@ ColumnBrowser : [Object, View] {
 
 	| smallKansas browserPane columnsPane previewPane textEditor numberOfColumns columnLists statusPane statusText title |
 
-	addKeyBindings { :self :aBlock/1 |
-		self.textEditor.addKeyBindings(self.textEditor.aBlock)
+	addKeyBindings { :self :aFunction/1 |
+		self.textEditor.addKeyBindings(self.textEditor.aFunction)
 	}
 
 	columnEdited { :self :index :onChange/2 |
@@ -88,10 +88,10 @@ ColumnBrowser : [Object, View] {
 		self.createElements(mimeType, withFilter, withStatus, columnProportions, 6);
 		self.setColumnEntries(1, self.onChange([]));
 		self.setEventHandlers(onChange/2);
-		clientKeyBindings.isBlock.ifTrue {
+		clientKeyBindings.isFunction.ifTrue {
 			self.addKeyBindings(clientKeyBindings)
 		};
-		onAccept/1.isBlock.ifTrue {
+		onAccept/1.isFunction.ifTrue {
 			self.textEditor.addEventListener('accept') { :event |
 				event.detail.onAccept
 			}

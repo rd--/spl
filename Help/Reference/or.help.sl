@@ -69,7 +69,7 @@ Where supported `or` is displayed as ∨.
 _Note:_
 In Smalltalk the evaluting form is called _or:_ and the non-evaluating form _|_.
 In Sᴘʟ the names are `|` and `||`.
-Note that `|` is not displayed as ∨ because it is part of the `Block Syntax`.
+Note that `|` is not displayed as ∨ because it is part of the `Function Syntax`.
 
 * * *
 

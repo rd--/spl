@@ -1,6 +1,6 @@
-# Block Arity
+# Function Arity
 
-Blocks have a fixed arity, as in Smalltalk.
+Functions have a fixed arity, as in Smalltalk.
 There are no optional parameters or _rest_ arguments.
 
 ```
@@ -16,6 +16,6 @@ There are no optional parameters or _rest_ arguments.
 
 * * *
 
-See also: Block, argumentCount, cull
+See also: Function, argumentCount, cull
 
 Guides: Smalltalk Arity

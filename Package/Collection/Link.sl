@@ -28,9 +28,9 @@
 		answer
 	}
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		self.linksDo { :each |
-			aBlock(each.value)
+			aFunction(each.value)
 		}
 	}
 
@@ -50,7 +50,7 @@
 		}
 	}
 
-	linkAtIfAbsent { :self :index :errorBlock/0 |
+	linkAtIfAbsent { :self :index :errorFunction/0 |
 		let counter = 0;
 		withReturn { :return/1 |
 			self.linksDo { :link |
@@ -59,7 +59,7 @@
 					link.return
 				}
 			};
-			errorBlock()
+			errorFunction()
 		}
 	}
 
@@ -69,21 +69,21 @@
 		}
 	}
 
-	linkOfIfAbsent { :self :anObject :errorBlock/0 |
+	linkOfIfAbsent { :self :anObject :errorFunction/0 |
 		withReturn { :return/1 |
 			self.linksDo { :link |
 				(link.value = anObject).ifTrue {
 					link.return
 				}
 			};
-			errorBlock()
+			errorFunction()
 		}
 	}
 
-	linksDo { :self :aBlock/1 |
+	linksDo { :self :aFunction/1 |
 		let aLink = self;
 		{ aLink.isNil }.whileFalse {
-			aBlock(aLink);
+			aFunction(aLink);
 			aLink := aLink.nextLink
 		}
 	}
@@ -94,17 +94,17 @@ Link : [Object, Copy, Store, Equal, Do, Collection, Link] {
 
 	| value nextLink | <@Object>
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		let answer = nil;
 		self.do { :each |
-			answer := Link(aBlock(each), answer)
+			answer := Link(aFunction(each), answer)
 		};
 		answer.reverse
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isLink & {
-			aBlock(self.value, anObject.value) & {
+			aFunction(self.value, anObject.value) & {
 				self.nextLink = anObject.nextLink
 			}
 		}

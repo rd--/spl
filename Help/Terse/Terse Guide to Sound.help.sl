@@ -108,7 +108,7 @@ let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add!(a -> b) }; l.size = 8
 [3, 4, 1, 1].integrate = [3, 7, 8, 9]
 [3, 4, 1, 1].differentiate = [3, 1, -3, 0]
 [0, 3, 1].differentiate = [0, 3, -2]
-[1, 2, 4].separate { :a :b | (b - a) > 1 } = [[1, 2], [4]] /* separate using predicate block */
+[1, 2, 4].separate { :a :b | (b - a) > 1 } = [[1, 2], [4]] /* separate using predicate function */
 [1, 2, 4, 5, 7, 8].separate { :a :b | (b - a) > 1 } = [[1, 2], [4, 5], [7, 8]]
 [1, 3, 5].stutter(3) = [1, 1, 1, 3, 3, 3, 5, 5, 5]
 [1 .. 4].similarity([1 .. 4]) = 1 /* similarity based on Levenshtein distance (1 = equal) */
@@ -137,7 +137,7 @@ List'string'.clump(2).String = ['st' 'ri' 'ng']
 5.expExp(0.1, 10, 4.3, 100).round = 62 /* exponential to exponential mapping */
 5.linCurve(0, 10, -4.3, 100, -3).round = 81 /* linear to parametric curve mapping */
 5.curveLin(0, 10, -4.3, 100, -3).round = 18 /* parametric curve to liner mapping */
-{ :break/1 | 1:10.do { :index | (index = 5).ifTrue { 5.break } } }.block = 5 /* non-local return */
+{ :break/1 | 1:10.do { :index | (index = 5).ifTrue { 5.break } } }.withReturn = 5 /* non-local return (called `block` in SuperCollider */
 [10, 20, 30].obtain(3, nil) = 30 /* at or default value for out of range index */
 [10, 20].obtain(3, 30) = 30
 7.obtain(2, 1) = 1 /* obtain is defined at Object */

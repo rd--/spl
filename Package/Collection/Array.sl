@@ -1,4 +1,4 @@
-/* Requires: Block List Range */
+/* Requires: Function List Range */
 
 +List {
 
@@ -213,11 +213,11 @@
 		}
 	}
 
-	isArray { :self :depth :aBlock/1 |
+	isArray { :self :depth :aFunction/1 |
 		let rho = self.shapeOrNil;
 		rho.isNotNil & {
 			rho.size = depth & {
-				self.deepAllSatisfy(aBlock/1)
+				self.deepAllSatisfy(aFunction/1)
 			}
 		}
 	}
@@ -257,18 +257,18 @@
 		self.allSatisfy(isFloat/1)
 	}
 
-	isMatrix { :self :aBlock/1 |
-		self.isArray(2L, aBlock/1)
+	isMatrix { :self :aFunction/1 |
+		self.isArray(2L, aFunction/1)
 	}
 
 	isMatrix { :self |
 		self.arrayDepth = 2L
 	}
 
-	isVector { :self :aBlock/1 |
+	isVector { :self :aFunction/1 |
 		self.allSatisfy { :each |
 			each.isList.not & {
-				aBlock(each)
+				aFunction(each)
 			}
 		}
 	}
@@ -645,7 +645,7 @@
 
 }
 
-+Block {
++Function {
 
 	arrayReduce { :self/1 :anArray :anInteger |
 		(anInteger = 1L).if {
@@ -654,7 +654,7 @@
 			(anInteger = 2L).if {
 				anArray.columnsCollect(self/1)
 			} {
-				self.error('Block>>arrayReduce: not implemented')
+				self.error('arrayReduce: not implemented', [anInteger])
 			}
 		}
 	}
@@ -724,24 +724,24 @@
 		}
 	}
 
-	triangularArray { :self :aBlock/2 :k |
+	triangularArray { :self :aFunction/2 :k |
 		let a = self[1L];
 		self.collect { :n |
 			a.to(max(a, n + k)).collect { :m |
-				aBlock(n, m)
+				aFunction(n, m)
 			}
 		}
 	}
 
-	triangularArray { :self :aBlock/2 |
-		triangularArray(self, aBlock/2, 0L)
+	triangularArray { :self :aFunction/2 |
+		triangularArray(self, aFunction/2, 0L)
 	}
 
-	triangularArrayDo { :self :aBlock/2 :k |
+	triangularArrayDo { :self :aFunction/2 :k |
 		let a = self[1L];
 		self.do { :n |
 			a.toDo(max(a, n + k)) { :m |
-				aBlock(n, m)
+				aFunction(n, m)
 			}
 		}
 	}
@@ -758,10 +758,10 @@
 		}
 	}
 
-	triangularArray { :self :aBlock/2 |
+	triangularArray { :self :aFunction/2 |
 		let k = self.size;
 		1L.to(k).triangularArray { :i :j |
-			aBlock(self[i], self[j])
+			aFunction(self[i], self[j])
 		}
 	}
 

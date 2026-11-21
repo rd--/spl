@@ -6,7 +6,7 @@ RandomWalkProcess : [Object] {
 		let p = self.p;
 		let q = self.q;
 		let x = 0;
-		BlockStream {
+		FunctionStream {
 			let u = r.nextRandomFloat;
 			(u < p).if {
 				x := x + 1

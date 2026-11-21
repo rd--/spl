@@ -402,14 +402,14 @@
 		}
 	}
 
-	isDiagonallyDominantMatrix { :self :aBlock/2 |
+	isDiagonallyDominantMatrix { :self :aFunction/2 |
 		let [m, n] = self.shape;
 		1.to(m).allSatisfy { :i |
 			let x = self[i][i].abs;
 			let z = 1.to(n).collect { :j |
 				(j = i).if { 0 } { self[i][j].abs }
 			}.sum;
-			aBlock(x, z)
+			aFunction(x, z)
 		}
 	}
 
@@ -628,13 +628,13 @@
 		).determinant
 	}
 
-	minors { :self :anInteger :aBlock/1 |
+	minors { :self :anInteger :aFunction/1 |
 		let [m, n] = self.shape;
 		let p = 1.to(m).subsets { :x | x.size = anInteger };
 		let q = 1.to(n).subsets { :x | x.size = anInteger };
 		p.collect { :i |
 			q.collect { :j |
-				aBlock(self.submatrix(i, j))
+				aFunction(self.submatrix(i, j))
 			}
 		}
 	}
@@ -1242,14 +1242,14 @@
 		}.table(1.to(r.size), 1.to(c.size))
 	}
 
-	trace { :self :aBlock/1 |
+	trace { :self :aFunction/1 |
 		self.isVector.if {
-			aBlock(self)
+			aFunction(self)
 		} {
 			self.isArray.if {
 				let rank = self.rank;
 				let limit = self.shape.min;
-				aBlock(
+				aFunction(
 					1.to(limit).collect { :each |
 						self.atPath(List(rank, each))
 					}

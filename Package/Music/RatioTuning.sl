@@ -36,12 +36,12 @@ RatioTuning : [Object, Store, Equal, Cache, Tuning] {
 		}
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isRatioTuning & {
 			self.isEqualByAtNamedSlots(
 				anObject,
 				['name' 'description' 'ratios' 'octave'],
-				aBlock/2
+				aFunction/2
 			)
 		}
 	}

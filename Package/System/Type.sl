@@ -11,7 +11,7 @@ Type! : [Object, Equal] {
 	instanceOf { :self |
 		let void = system.typeLookup('Void');
 		let method = void.methodDictionary[self.constructorName];
-		let constructor/0 = method.block;
+		let constructor/0 = method.compiledFunction;
 		let instance = constructor();
 		instance.initialize!;
 		instance

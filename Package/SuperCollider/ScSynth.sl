@@ -240,7 +240,7 @@ ScSynth! : [Object] {
 
 }
 
-+Block {
++Function {
 
 	overlapTexture { :self :sustainTime :transitionTime :overlap |
 		self.overlapTextureList(sustainTime, transitionTime, overlap)
@@ -298,7 +298,7 @@ ScSynth! : [Object] {
 
 }
 
-+Block {
++Function {
 
 	!> { :self :anInteger |
 		mix(self ! anInteger)

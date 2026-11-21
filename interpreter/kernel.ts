@@ -29,7 +29,7 @@ type MethodSourceCode = string;
 type MethodOrigin = Trait | Type;
 
 type SplObject = object & { _splType: TypeName };
-type SplBlock = (...args: never) => unknown;
+type SplFunction = (...args: never) => unknown;
 
 type QualifiedMethodDictionary = Map<QualifiedMethodName, Method>;
 type TraitDictionary = Map<TraitName, Trait>;
@@ -110,7 +110,7 @@ export function splTypeName(anObject: unknown): TypeName {
 		case 'boolean':
 			return 'Boolean';
 		case 'function':
-			return 'Block';
+			return 'Function';
 		case 'number':
 			return 'Float';
 		case 'string':
@@ -152,10 +152,10 @@ export class MethodInformation {
 }
 
 export class Method {
-	block: Function;
+	compiledFunction: Function;
 	information: MethodInformation;
-	constructor(block: Function, information: MethodInformation) {
-		this.block = block;
+	constructor(compiledFunction: Function, information: MethodInformation) {
+		this.compiledFunction = compiledFunction;
 		this.information = information;
 	}
 	qualifiedName() {
@@ -253,8 +253,9 @@ export async function evaluatePackageArrayInSequence(pkgArray: Package[]) {
 	}
 }
 
-// Required if methods are added before type definition. This should all be cleared up.
-// Void is not an ordinary type, it names the place in the method table for no-argument blocks.
+// Required if methods are added before type definition.
+// This should all be cleared up.
+// Void is not an ordinary type, it names the place in the method table for no-argument functions.
 const preinstalledTypes = ['List', 'Float', 'Integer', 'String', 'Void'];
 
 export class System {
@@ -317,7 +318,7 @@ export function addMethodToExistingTrait(
 	packageName: PackageName,
 	methodName: MethodName,
 	parameterNames: ParameterNames,
-	block: Function,
+	compiledFunction: Function,
 	sourceCode: MethodSourceCode,
 ): Method {
 	// console.debug(`addMethodToExistingTrait: ${traitName}, ${packageName}, ${methodName}, ${parameterNames}`);
@@ -328,7 +329,7 @@ export function addMethodToExistingTrait(
 	}
 	const trait = getTrait(traitName);
 	const method = new Method(
-		block,
+		compiledFunction,
 		new MethodInformation(
 			methodName,
 			packageName,
@@ -375,13 +376,14 @@ export function typesImplementingTrait(traitName: TraitName): TypeName[] {
 	return answer;
 }
 
+// Attach argument names to function
 export function annotateFunction(
-	aBlock: SplBlock,
+	f: SplFunction,
 	argumentNames: string[],
-): SplBlock {
-	// console.debug(`annotateFunction: ${aBlock} ${argumentNames}`);
-	aBlock.argumentNames = argumentNames;
-	return aBlock;
+): SplFunction {
+	// console.debug(`annotateFunction: ${f} ${argumentNames}`);
+	f.argumentNames = argumentNames;
+	return f;
 }
 
 // CF. rewrite/makeMethodList
@@ -390,7 +392,7 @@ export function extendTraitWithMethod(
 	packageName: PackageName,
 	name: MethodName,
 	parameterNames: ParameterNames,
-	block: Function,
+	compiledFunction: Function,
 	sourceCode: MethodSourceCode,
 ): Method {
 	const method = addMethodToExistingTrait(
@@ -398,7 +400,7 @@ export function extendTraitWithMethod(
 		packageName,
 		name,
 		parameterNames,
-		block,
+		compiledFunction,
 		sourceCode,
 	);
 	typesImplementingTrait(traitName).forEach(
@@ -420,7 +422,7 @@ export function extendTypeOrTraitWithMethod(
 	packageName: PackageName,
 	name: MethodName,
 	parameterNames: ParameterNames,
-	block: Function,
+	compiledFunction: Function,
 	sourceCode: MethodSourceCode,
 ): Method {
 	const builderFunction = isTraitName(typeOrTraitName)
@@ -431,7 +433,7 @@ export function extendTypeOrTraitWithMethod(
 		packageName,
 		name,
 		parameterNames,
-		block,
+		compiledFunction,
 		sourceCode,
 	);
 }
@@ -467,7 +469,7 @@ export function applyGenericAt(
 	if (!genericMethod) {
 		throw new Error(`applyGenericAt: ${methodName}: lookup failed`);
 	}
-	return genericMethod.block.apply(null, parameterArray);
+	return genericMethod.compiledFunction.apply(null, parameterArray);
 }
 
 // The typeTable for zero arity methods always has exactly one entry, for Void.
@@ -481,7 +483,7 @@ export function dispatchVoid(
 	if (!voidMethod) {
 		throw new Error(`dispatchVoid: ${methodName}: method lookup failed`);
 	}
-	return voidMethod.block.apply(null, []);
+	return voidMethod.compiledFunction.apply(null, []);
 }
 
 // NB. methodName is for error reporting only.
@@ -501,7 +503,7 @@ export function dispatchByType(
 			`dispatchByType: no method "${qualifiedName}" for "${receiverType}"`,
 		);
 	}
-	return typeMethod.block.apply(null, parameterArray);
+	return typeMethod.compiledFunction.apply(null, parameterArray);
 }
 
 declare var globalThis: { [key: string]: unknown };
@@ -616,7 +618,7 @@ export function addMethodToExistingType(
 	packageName: PackageName,
 	methodName: MethodName,
 	parameterNames: ParameterNames,
-	block: Function,
+	compiledFunction: Function,
 	sourceCode: MethodSourceCode,
 ): Method {
 	// console.debug(`addMethod: ${typeName}, ${packageName}, ${methodName}, ${parameterNames}`);
@@ -627,7 +629,7 @@ export function addMethodToExistingType(
 	}
 	const typeValue = system.typeDictionary.get(typeName)!;
 	const method = new Method(
-		block,
+		compiledFunction,
 		new MethodInformation(
 			methodName,
 			packageName,
@@ -880,7 +882,7 @@ export function checkSmallIntegerOverflow(
 export function splArityCheck(f: Function, n: number, c: string): void {
 	// console.debug('splArityCheck', f, n, c);
 	if (typeof f !== 'function') {
-		throw new Error(`splArityCheck: not block: context=${c}`);
+		throw new Error(`splArityCheck: not function: context=${c}`);
 	}
 	const k = f.length;
 	if (k != n) {

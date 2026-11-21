@@ -1,6 +1,6 @@
 # Experimental Simple Method Arity
 
-The expression _sqrt(9)_ can be implemented by providing a variable arity block _sqrt_ that dynamically checks how many arguments it receives and dispatches to the appropriate place in the `Method Dictionary`.
+The expression _sqrt(9)_ can be implemented by providing a variable arity function _sqrt_ that dynamically checks how many arguments it receives and dispatches to the appropriate place in the `Method Dictionary`.
 
 ~~~spl experimental
 [9 16 25].collect(sqrt)
@@ -8,7 +8,7 @@ The expression _sqrt(9)_ can be implemented by providing a variable arity block 
 [3 4 5]
 ~~~
 
-It is one of the properties of the simple model that the blocks that implement the model are of a type that the model does not allow.
+It is one of the properties of the simple model that the functions that implement the model are of a type that the model does not allow.
 In this model _sqrt.arity_ is an error, and therefore _cull_ also.
 
 ~~~spl experimental

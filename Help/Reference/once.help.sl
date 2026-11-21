@@ -15,4 +15,4 @@ The ternary form is an idiom re-ordering the arguments to `cached`.
 
 See also: Cache, System, WeakMap, cached
 
-Guides: Block Functions, Control Functions
+Guides: Function Functions, Control Functions

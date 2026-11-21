@@ -2,7 +2,7 @@
 
 - _withCollectEqual([x₁ x₂ …], [y₁ y₂ …], f/2)_
 
-Answer a `Block` that will apply the block _f_ element wise to two sequences _x_ and _y_ of equal length.
+Answer a `Function` that will apply the block _f_ element wise to two sequences _x_ and _y_ of equal length.
 
 ```
 >>> ['1' '2' '3']
@@ -33,4 +33,4 @@ There is also an _adverbial_ form, currently called _e_:
 
 See also: withCollect
 
-Guides: Block Functions, Operator Adverbs
+Guides: Function Functions, Operator Adverbs

@@ -32,7 +32,7 @@ Let bindings may be interspersed with other statements:
 (9, 10)
 ```
 
-Initialising a value to a `Block` literal rewrites the bound name to its arity qualified form,
+Initialising a value to a `Function` literal rewrites the bound name to its arity qualified form,
 unless it is already arity qualified:
 
 ```
@@ -53,7 +53,7 @@ let f/1 = { :x | x }; f/1
 It is allowed to `let` bind a binary operator,
 if the binding is to an expression,
 or an _n_-ary operator,
-if the binding is to a block literal:
+if the binding is to a function literal:
 
 ```
 >>> let ^ = power/2;
@@ -169,4 +169,4 @@ Let syntax is not rewritten by the simplifier:
 
 See also: =, _, let
 
-Guides: List Assignment Syntax, Syntax Guides, Temporary Block Syntax
+Guides: List Assignment Syntax, Syntax Guides, Temporary Function Syntax

@@ -1,12 +1,12 @@
-# Trailing Block Syntax
+# Trailing Function Syntax
 
 - _f { p }_
 - _f(x, …) { p }_
 - _x.f { p } …_
 - _x.f(y, …) { p } …_
 
-Trailing block syntax allows any number of concluding _literal block_ arguments to be written outside the parameter list.
-This notation is particularly clear for control blocks such as _if_, _while_, _timesRepeat_ &etc.
+Trailing function syntax allows any number of concluding _literal function_ arguments to be written outside the parameter list.
+This notation is particularly clear for control functions such as _if_, _while_, _timesRepeat_ &etc.
 
 Rewrite rules:
 
@@ -44,7 +44,7 @@ g(f({ p }))
 
 * * *
 
-See also: Block
+See also: Function
 
 Guides: Experimental Trailing Record Syntax, Syntax Guides
 

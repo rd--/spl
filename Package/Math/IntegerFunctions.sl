@@ -167,7 +167,7 @@
 		k.bjorklundsAlgorithmDo(n) { :each | nil }
 	}
 
-	bjorklundsAlgorithmDo { :k :n :aBlock/1 |
+	bjorklundsAlgorithmDo { :k :n :aFunction/1 |
 		let s = 1L.toCollect(n) { :i |
 			(i <= k).if {
 				[1L]
@@ -177,7 +177,7 @@
 		};
 		let d = n - k;
 		let z = d;
-		aBlock(s);
+		aFunction(s);
 		n := k.max(d);
 		k := k.min(d);
 		{
@@ -189,7 +189,7 @@
 				s[i].addAll!(s[s.size - i + 1])
 			};
 			s.removeLast!(k);
-			aBlock(s);
+			aFunction(s);
 			z := z - k;
 			d := n - k;
 			n := k.max(d);
@@ -368,8 +368,8 @@
 		(self / operand).isPrime
 	}
 
-	divisorSum { :self :aBlock/1 |
-		self.divisors.sum(aBlock/1)
+	divisorSum { :self :aFunction/1 |
+		self.divisors.sum(aFunction/1)
 	}
 
 	divisorSummatoryFunction { :x |
@@ -609,14 +609,14 @@
 		answer
 	}
 
-	integerCompositionsDo { :n :kList :aBlock/1 |
+	integerCompositionsDo { :n :kList :aFunction/1 |
 		kList.do { :k |
-			n.integerCompositionsExactlyDo(k, aBlock/1)
+			n.integerCompositionsExactlyDo(k, aFunction/1)
 		}
 	}
 
-	integerCompositionsDo { :n :aBlock/1 |
-		integerCompositionsDo(n, 1L.to(n), aBlock/1)
+	integerCompositionsDo { :n :aFunction/1 |
+		integerCompositionsDo(n, 1L.to(n), aFunction/1)
 	}
 
 	integerCompositionsExactly { :n :k |
@@ -627,11 +627,11 @@
 		answer
 	}
 
-	integerCompositionsExactlyDo { :n :k :aBlock/1 |
+	integerCompositionsExactlyDo { :n :k :aFunction/1 |
 		(n < k).ifFalse {
 			let a = List(k, 1L);
 			a[k] := n - k + 1L;
-			aBlock(a);
+			aFunction(a);
 			{
 				a[1] = (n - k + 1L)
 			}.whileFalse {
@@ -645,7 +645,7 @@
 				a[last - 1] := a[last - 1] + 1L;
 				a[last] := 1L;
 				a[k] := z - 1L;
-				aBlock(a)
+				aFunction(a)
 			}
 		}
 	}
@@ -672,10 +672,10 @@
 		answer
 	}
 
-	integerCompositionsWeakExactlyDo { :n :k :aBlock/1 |
+	integerCompositionsWeakExactlyDo { :n :k :aFunction/1 |
 		let a = List(k, 0L);
 		a[k] := n;
-		aBlock(a);
+		aFunction(a);
 		{
 			a[1] = n
 		}.whileFalse {
@@ -689,7 +689,7 @@
 			a[last - 1] := a[last - 1] + 1L;
 			a[last] := 0L;
 			a[k] := z - 1L;
-			aBlock(a)
+			aFunction(a)
 		}
 	}
 
@@ -713,10 +713,10 @@
 		self.integerDigits(10L)
 	}
 
-	integerDigitsReverseDo { :self :base :numberOfDigits :aBlock/1 |
+	integerDigitsReverseDo { :self :base :numberOfDigits :aFunction/1 |
 		let x = self.abs;
 		numberOfDigits.timesRepeat {
-			aBlock(x % base);
+			aFunction(x % base);
 			x := x // base
 		}
 	}
@@ -1632,17 +1632,17 @@
 		}
 	}
 
-	timesRepeat { :self :aBlock/0 |
+	timesRepeat { :self :aFunction/0 |
 		let remaining = self;
 		{
 			remaining > 0
 		}.whileTrue {
-			aBlock();
+			aFunction();
 			remaining := remaining - 1
 		}
 	}
 
-	toCollect { :start :end :aBlock/1 |
+	toCollect { :start :end :aFunction/1 |
 		let size = end - start + 1L;
 		(size < 1L).if {
 			[]
@@ -1653,7 +1653,7 @@
 			{
 				i <= size
 			}.whileTrue {
-				answer[i] := aBlock(j);
+				answer[i] := aFunction(j);
 				i := i + 1L;
 				j := j + 1L
 			};

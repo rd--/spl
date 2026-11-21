@@ -646,7 +646,7 @@ OEIS [A001845](https://oeis.org/A001845):
 [1 7 25 63 129 231 377 575 833 1159]
 
 >>> 1:10.collect(
->>> 	Polynomial([-3 8 -6 4]).unaryBlock
+>>> 	Polynomial([-3 8 -6 4]).unaryFunction
 >>> ) / 3
 [1 7 25 63 129 231 377 575 833 1159]
 ```

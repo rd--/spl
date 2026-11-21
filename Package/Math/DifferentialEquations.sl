@@ -171,7 +171,7 @@
 
 }
 
-+Block {
++Function {
 
 	eulerMethod { :self/2 :y0 :x0 :x1 :h |
 		let x = x0;

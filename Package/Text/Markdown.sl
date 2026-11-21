@@ -41,7 +41,7 @@ Markdown : [Object, Equal, Cache, Do] {
 		answer
 	}
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		<primitive:
 		const walker = _parseTree_1(_self).walker();
 		let event = null;
@@ -88,7 +88,7 @@ Markdown : [Object, Equal, Cache, Do] {
 					case 'softbreak': item.type = 'softBreak'; break;
 					case 'thematic_break': item.type = 'thematicBreak'; break;
 				}
-				_aBlock_1(item);
+				_aFunction_1(item);
 			}
 		}
 		>
@@ -141,9 +141,9 @@ Markdown : [Object, Equal, Cache, Do] {
 		answer
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isMarkdown & {
-			aBlock(self.source, anObject.source)
+			aFunction(self.source, anObject.source)
 		}
 	}
 

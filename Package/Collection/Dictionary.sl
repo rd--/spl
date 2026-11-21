@@ -32,11 +32,11 @@
 		}
 	}
 
-	associationAtIfAbsent { :self :key :aBlock/0 |
+	associationAtIfAbsent { :self :key :aFunction/0 |
 		self.atIfPresentIfAbsent(key) { :value |
 			key -> value
 		} {
-			aBlock()
+			aFunction()
 		}
 	}
 
@@ -48,10 +48,10 @@
 		answer
 	}
 
-	associationsAllSatisfy { :self :aBlock/1 |
+	associationsAllSatisfy { :self :aFunction/1 |
 		withReturn { :return/1 |
 			self.associationsDo { :each |
-				aBlock(each).ifFalse {
+				aFunction(each).ifFalse {
 					false.return
 				}
 			};
@@ -59,16 +59,16 @@
 		}
 	}
 
-	associationsDo { :self :aBlock/1 |
+	associationsDo { :self :aFunction/1 |
 		self.keysAndValuesDo { :key :value |
-			aBlock(key -> value)
+			aFunction(key -> value)
 		}
 	}
 
-	associationsRemove! { :self :aBlock/1 |
+	associationsRemove! { :self :aFunction/1 |
 		let removals = [];
 		self.associationsDo { :each |
-			aBlock(each).ifTrue {
+			aFunction(each).ifTrue {
 				removals.add!(each.key)
 			}
 		};
@@ -78,10 +78,10 @@
 		removals
 	}
 
-	associationsSelect { :self :aBlock/1 |
+	associationsSelect { :self :aFunction/1 |
 		let answer = self.new;
 		self.associationsDo { :each |
-			each.aBlock.ifTrue {
+			each.aFunction.ifTrue {
 				answer.add!(each)
 			}
 		};
@@ -117,17 +117,17 @@
 		self.typeResponsibility('@Dictionary>>atIfAbsent')
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		let answer = self.new;
 		self.keysAndValuesDo { :key :value |
-			answer.add!(key -> aBlock(value))
+			answer.add!(key -> aFunction(value))
 		};
 		answer
 	}
 
-	collect! { :self :aBlock/1 |
+	collect! { :self :aFunction/1 |
 		self.keysDo { :key |
-			self[key] := aBlock(self[key])
+			self[key] := aFunction(self[key])
 		};
 		self
 	}
@@ -154,31 +154,31 @@
 		}
 	}
 
-	do { :self :aBlock/1 |
-		self.valuesDo(aBlock/1)
+	do { :self :aFunction/1 |
+		self.valuesDo(aFunction/1)
 	}
 
 	errorValueNotFound { :self |
 		self.error('Value not found')
 	}
 
-	fillFromWith! { :self :aCollection :aBlock/1 |
+	fillFromWith! { :self :aCollection :aFunction/1 |
 		aCollection.isDictionary.if {
 			aCollection.associationsDo { :association |
-				self[association.key] := aBlock(association.value)
+				self[association.key] := aFunction(association.value)
 			}
 		} {
 			aCollection.do { :element |
-				self.add!(aBlock(element))
+				self.add!(aFunction(element))
 			}
 		}
 	}
 
-	hasEqualElements { :self :aDictionary :aBlock/2 |
+	hasEqualElements { :self :aDictionary :aFunction/2 |
 		(self.size = aDictionary.size).if {
 			self.keys.allSatisfy { :key |
 				aDictionary.atIfPresentIfAbsent(key) { :value |
-					aBlock(self[key], value)
+					aFunction(self[key], value)
 				} {
 					false
 				}
@@ -241,9 +241,9 @@
 		true
 	}
 
-	isEqualBy { :self :aDictionary :aBlock/2 |
+	isEqualBy { :self :aDictionary :aFunction/2 |
 		self.typeName = aDictionary.typeName & {
-			self.hasEqualElements(aDictionary, aBlock/2)
+			self.hasEqualElements(aDictionary, aFunction/2)
 		}
 	}
 
@@ -253,21 +253,21 @@
 		}
 	}
 
-	keyAtValueIfAbsent { :self :value :exceptionBlock/0 |
+	keyAtValueIfAbsent { :self :value :exceptionFunction/0 |
 		withReturn { :return/1 |
 			self.associationsDo { :association |
 				(value = association.value).ifTrue {
 					association.key.return
 				}
 			};
-			exceptionBlock()
+			exceptionFunction()
 		}
 	}
 
-	keySelect { :self :aBlock/1 |
+	keySelect { :self :aFunction/1 |
 		let answer = self.new;
 		self.associationsDo { :each |
-			each.key.aBlock.ifTrue {
+			each.key.aFunction.ifTrue {
 				answer.add!(each.copy)
 			}
 		};
@@ -290,11 +290,11 @@
 		answer
 	}
 
-	keysAndEachValueDo { :self :aBlock/2 |
+	keysAndEachValueDo { :self :aFunction/2 |
 		self.keysAndValuesDo { :key :value |
 			value.isCollection.if {
 				value.do { :each |
-					aBlock(key, each)
+					aFunction(key, each)
 				}
 			} {
 				self.error('keysAndEachValueDo: value not a collection')
@@ -310,27 +310,27 @@
 		answer
 	}
 
-	keysAndValuesCollect { :self :aBlock/2 |
+	keysAndValuesCollect { :self :aFunction/2 |
 		let answer = self.new;
 		self.keysAndValuesDo { :key :value |
-			answer.add!(key -> aBlock(key, value))
+			answer.add!(key -> aFunction(key, value))
 		};
 		answer
 	}
 
-	keysAndValuesDo { :self :aBlock/2 |
+	keysAndValuesDo { :self :aFunction/2 |
 		self.typeResponsibility('@Dictionary>>keysAndValuesDo')
 	}
 
-	keysAndValuesRemove! { :self :keyAndValueBlock/2 |
+	keysAndValuesRemove! { :self :keyAndValueFunction/2 |
 		self.associationsRemove! { :each |
-			keyAndValueBlock(each.key, each.value)
+			keyAndValueFunction(each.key, each.value)
 		}
 	}
 
-	keysDo { :self :aBlock/1 |
+	keysDo { :self :aFunction/1 |
 		self.keysAndValuesDo { :key :value |
-			aBlock(key)
+			aFunction(key)
 		}
 	}
 
@@ -361,9 +361,9 @@
 		nil
 	}
 
-	removeAllSuchThat! { :self :aBlock/1 |
+	removeAllSuchThat! { :self :aFunction/1 |
 		self.associationsRemove! { :each |
-			aBlock(each.value)
+			aFunction(each.value)
 		}
 	}
 
@@ -399,7 +399,7 @@
 		}
 	}
 
-	removeIfAbsent! { :self :oldObject :anExceptionBlock/0 |
+	removeIfAbsent! { :self :oldObject :anExceptionFunction/0 |
 		self.shouldNotImplement('removeIfAbsent!')
 	}
 
@@ -413,10 +413,10 @@
 		}
 	}
 
-	select { :self :aBlock/1 |
+	select { :self :aFunction/1 |
 		let answer = self.new;
 		self.associationsDo { :each |
-			each.value.aBlock.ifTrue {
+			each.value.aFunction.ifTrue {
 				answer.add!(each.copy)
 			}
 		};
@@ -464,7 +464,7 @@
 		}
 	}
 
-	unaryBlock { :self |
+	unaryFunction { :self |
 		{ :key |
 			self.at(key)
 		}
@@ -478,15 +478,15 @@
 		self.values.elementType
 	}
 
-	valuesDo { :self :aBlock/1 |
+	valuesDo { :self :aFunction/1 |
 		self.keysAndValuesDo { :key :value |
-			aBlock(value)
+			aFunction(value)
 		}
 	}
 
-	withIndexCollect { :self :aBlock/2 |
+	withIndexCollect { :self :aFunction/2 |
 		self.keysAndValuesCollect { :key :value |
-			aBlock(value, key)
+			aFunction(value, key)
 		}
 	}
 
@@ -505,9 +505,9 @@
 		}
 	}
 
-	keyUnion { :self :blockOrDictionary |
+	keyUnion { :self :functionOrDictionary |
 		let keys = Set([], ==);
-		let aBlock/1 = blockOrDictionary.unaryBlock;
+		let aFunction/1 = functionOrDictionary.unaryFunction;
 		self.do { :each |
 			keys.includeAll!(each.keys)
 		};
@@ -515,7 +515,7 @@
 			let copy = each.copy;
 			keys.do { :key |
 				copy.includesKey(key).ifFalse {
-					copy.add!(key -> aBlock(key))
+					copy.add!(key -> aFunction(key))
 				}
 			};
 			copy
@@ -534,7 +534,7 @@
 		}
 	}
 
-	merge { :self :aBlock/1 |
+	merge { :self :aFunction/1 |
 		let keys = self.collect(keys/1).union;
 		let values = keys.collect { :key |
 			let list = [];
@@ -547,7 +547,7 @@
 		};
 		let answer = self.anyOne.new;
 		keys.withDo(values) { :key :value |
-			answer.add!(key -> aBlock(value))
+			answer.add!(key -> aFunction(value))
 		};
 		answer
 	}

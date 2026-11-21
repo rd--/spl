@@ -36,21 +36,21 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		self.linkAtIfAbsent(index, ifAbsent/0).value
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		let aLink = self.firstLink;
 		let answer = LinkedList();
 		{
 			aLink = nil
 		}.whileFalse {
-			answer.add!(aBlock(aLink.value));
+			answer.add!(aFunction(aLink.value));
 			aLink := aLink.nextLink
 		};
 		answer
 	}
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		self.ifNotEmpty {
-			self.firstLink.do(aBlock/1)
+			self.firstLink.do(aFunction/1)
 		}
 	}
 
@@ -70,11 +70,11 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		}
 	}
 
-	linkAtIfAbsent { :self :index :errorBlock/0 |
+	linkAtIfAbsent { :self :index :errorFunction/0 |
 		self.ifEmpty {
-			errorBlock()
+			errorFunction()
 		} {
-			self.firstLink.linkAtIfAbsent(index, errorBlock/0)
+			self.firstLink.linkAtIfAbsent(index, errorFunction/0)
 		}
 	}
 
@@ -86,17 +86,17 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		}
 	}
 
-	linkOfIfAbsent { :self :anObject :errorBlock/0 |
+	linkOfIfAbsent { :self :anObject :errorFunction/0 |
 		self.ifEmpty {
-			errorBlock()
+			errorFunction()
 		} {
-			self.firstLink.linkOfIfAbsent(anObject, errorBlock/0)
+			self.firstLink.linkOfIfAbsent(anObject, errorFunction/0)
 		}
 	}
 
-	linksDo { :self :aBlock/1 |
+	linksDo { :self :aFunction/1 |
 		self.ifNotEmpty {
-			self.firstLink.linksDo(aBlock/1)
+			self.firstLink.linksDo(aFunction/1)
 		}
 	}
 
@@ -154,9 +154,9 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		self.lastLink := nil
 	}
 
-	removeAllSuchThat! { :self :aBlock/1 |
+	removeAllSuchThat! { :self :aFunction/1 |
 		self.do { :each |
-			aBlock(each).ifTrue {
+			aFunction(each).ifTrue {
 				self.remove!(each)
 			}
 		}
@@ -174,10 +174,10 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		oldLink.value
 	}
 
-	removeIfAbsent! { :self :anObject :aBlock/0 |
-		let link = self.linkOfIfAbsent(anObject, aBlock/0);
+	removeIfAbsent! { :self :anObject :aFunction/0 |
+		let link = self.linkOfIfAbsent(anObject, aFunction/0);
 		self.removeLinkIfAbsent!(link) {
-			aBlock()
+			aFunction()
 		};
 		anObject
 	}
@@ -202,7 +202,7 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		oldLink.value
 	}
 
-	removeLinkIfAbsent! { :self :aLink :aBlock/0 |
+	removeLinkIfAbsent! { :self :aLink :aFunction/0 |
 		withReturn { :return/1 |
 			(aLink == self.firstLink).if {
 				self.firstLink := aLink.nextLink;
@@ -213,7 +213,7 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 				let tempLink = self.firstLink;
 				{
 					tempLink.ifNil {
-						aBlock().return
+						aFunction().return
 					};
 					tempLink.nextLink == aLink
 				}.whileFalse {
@@ -236,10 +236,10 @@ LinkedList : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 		answer
 	}
 
-	select { :self :aBlock/1 |
+	select { :self :aFunction/1 |
 		let answer = LinkedList();
 		self.do { :each |
-			each.aBlock.ifTrue {
+			each.aFunction.ifTrue {
 				answer.add!(each)
 			}
 		};

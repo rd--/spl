@@ -30,11 +30,11 @@ A variable is assigned to using `:=`:
 3.141
 ```
 
-`var` bindings must be placed at the start of a `Block` or program,
+`var` bindings must be placed at the start of a `Function` or program,
 immediately following any arguments.
 
 * * *
 
 See also: :=, let, nil
 
-Guides: Assignment Syntax, Block Syntax, Let Syntax, Program Syntax, Var Syntax
+Guides: Assignment Syntax, Function Syntax, Let Syntax, Program Syntax, Var Syntax

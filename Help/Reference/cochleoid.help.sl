@@ -2,7 +2,7 @@
 
 - _cochleoid(a)_
 
-Answer a `Block` implementing the cochleoid curve,
+Answer a `Function` implementing the cochleoid curve,
 a snail-shaped curve similar to a strophoid,
 given by the polar equation _r=asinθ/θ_.
 

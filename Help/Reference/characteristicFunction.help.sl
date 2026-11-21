@@ -33,7 +33,7 @@ Characteristic function of major scale:
 [0 2 4 5 7 9 11]
 ```
 
-At a `Block` _f_,
+At a `Function` _f_,
 answer the sequence with indices in _n:m_ where each place is `one` if _f(i)_ is `true` else `zero`.
 
 The characteristic function of even numbers,

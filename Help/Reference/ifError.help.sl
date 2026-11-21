@@ -41,7 +41,7 @@ NaN
 
 See also: Error, cull, hasError, isError
 
-Guides: Block Functions, Control Functions
+Guides: Function Functions, Control Functions
 
 References:
 _Mathematica_

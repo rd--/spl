@@ -2,7 +2,7 @@
 
 - _matrixInterpolation(n, f/6)_
 
-Answer a `Block` that will interpolate into the matrix _m_ using the interpolation function _f_.
+Answer a `Function` that will interpolate into the matrix _m_ using the interpolation function _f_.
 
 Resample a 3×3 matrix to a 6×6 matrix:
 

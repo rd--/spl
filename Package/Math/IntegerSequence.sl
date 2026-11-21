@@ -1725,7 +1725,7 @@
 
 }
 
-+Block {
++Function {
 
 	binomialTransform { :f/1 |
 		{ :n |
@@ -1891,9 +1891,9 @@
 		}
 	}
 
-	zeroIndexedListTransform { :self :aBlock/1 |
+	zeroIndexedListTransform { :self :aFunction/1 |
 		let n = self.size - 1L;
-		let f/1 = aBlock(
+		let f/1 = aFunction(
 			{ :i |
 				self[i + 1]
 			}
@@ -2014,7 +2014,7 @@
 
 }
 
-+Block {
++Function {
 
 	characteristicFunction { :f/1 :i |
 		i.collect { :n |

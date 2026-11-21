@@ -25,7 +25,6 @@ Types:
 
 - `Association`
 - `BitSet`
-- `BlockStream`
 - `Box`
 - `ByteArray`
 - `Cache`
@@ -34,6 +33,7 @@ Types:
 - `DirectedEdge`
 - `Float32Array`
 - `Float64Array`
+- `FunctionStream`
 - `Graph`
 - `Heap`
 - `IdentitySet`

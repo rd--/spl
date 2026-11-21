@@ -2,7 +2,7 @@
 
 - _linearInterpolator(x, y)_
 
-Answer a `Block` that computes a linear interpolation for the dataset given by _x_ and _y_.
+Answer a `Function` that computes a linear interpolation for the dataset given by _x_ and _y_.
 
 The value of the function at each of the input _x_ values equals the corresponding _y_ value:
 

@@ -25,11 +25,11 @@ Guides (A-Z):
 - `Binary Operator Syntax`
 - `Binary Operators`
 - `Bitwise Functions`
-- `Block Arity`
-- `Block Functions`
-- `Block Implementation`
-- `Block Semantics`
-- `Block Syntax`
+- `Function Arity`
+- `Function Functions`
+- `Function Implementation`
+- `Function Semantics`
+- `Function Syntax`
 - `Bohlen-Pierce Scale`
 - `Boolean Functions`
 - `Categories and Categoriser`
@@ -45,7 +45,7 @@ Guides (A-Z):
 - `Comparison Functions`
 - `Complex Number Functions`
 - `Complex Number Syntax`
-- `Control Blocks`
+- `Control Functions`
 - `Control Functions`
 - `Coordinate System Functions`
 - `Copying Functions`
@@ -94,7 +94,7 @@ Guides (A-Z):
 - `Experimental Tree Syntax`
 - `Experimental Value Apply Syntax`
 - `Feature Detection Functions`
-- `Fenced Code Blocks`
+- `Fenced Code Functions`
 - `File Extensions`
 - `File Functions`
 - `Filter Functions`
@@ -269,12 +269,12 @@ Guides (A-Z):
 - `System Dictionary`
 - `System Functions`
 - `System Variable`
-- `Temporary Block Syntax`
+- `Temporary Function Syntax`
 - `Text Functions`
 - `Texture Programs`
 - `Threading Over Lists`
 - `Time Series Functions`
-- `Trailing Block Syntax`
+- `Trailing Function Syntax`
 - `Tree Functions`
 - `Triangle Functions`
 - `Trigonometric Functions`
@@ -338,8 +338,8 @@ Reference (A-Z):
 - `Bitmap`
 - `BitSet`
 - `BivariatePolynomial`
-- `Block`
-- `BlockStream`
+- `Function`
+- `FunctionStream`
 - `Boolean`
 - `Box`
 - `BrownianBridgeProcess`
@@ -996,9 +996,9 @@ Reference (a-z):
 - `blend`
 - `blinnWyvillRaisedInvertedCosine`
 - `blip`
-- `blockDiagonalMatrix`
-- `blockMap`
-- `blockSize`
+- `functionDiagonalMatrix`
+- `functionMap`
+- `functionSize`
 - `blomqvistBeta`
 - `bLowPass`
 - `blue`
@@ -2262,7 +2262,7 @@ Reference (a-z):
 - `isBitVector`
 - `isBlank`
 - `isBlankLine`
-- `isBlock`
+- `isFunction`
 - `isBlue`
 - `isBooleanString`
 - `isByte`
@@ -3947,7 +3947,7 @@ Reference (a-z):
 - `solidusSolidus`
 - `somosSequence`
 - `sort`
-- `sortBlock`
+- `sortFunction`
 - `sortBy`
 - `sortByOn`
 - `sortComparing`
@@ -4290,7 +4290,7 @@ Reference (a-z):
 - `typeResponsibility`
 - `ulamSequence`
 - `umbilicTorus`
-- `unaryBlock`
+- `unaryFunction`
 - `unaryExpansion`
 - `uncheckedAt`
 - `uncheckedFraction`

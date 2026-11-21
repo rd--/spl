@@ -57,15 +57,15 @@ function makeMethod(
 	slProc: string,
 	typeOrTraitNameArray: string[],
 	methodName: ohm.Node,
-	methodBlock: ohm.Node,
+	methodFunction: ohm.Node,
 ): string {
-	const blkCoreSource = methodBlock.sourceString;
+	const blkCoreSource = methodFunction.sourceString;
 	const blkInitialSource = rewrite.rewriteContext.methodBodyInitialSourceTable
 		.get(
 			blkCoreSource,
 		);
-	const blkParameters = methodBlock.parametersOf;
-	const blkJs = methodBlock.asJs;
+	const blkParameters = methodFunction.parametersOf;
+	const blkJs = methodFunction.asJs;
 	const blkSrc = JSON.stringify(blkInitialSource);
 	return typeOrTraitNameArray.map(function (typeOrTraitName) {
 		return `sl.${slProc}(\n\t'${typeOrTraitName}',\n\t'${rewrite.rewriteContext.packageName}',\n\t'${methodName}',\n\t${
@@ -90,20 +90,20 @@ function makeMethodList(
 	slProc: string,
 	typeOrTraitNameArray: string[],
 	methodNames: ohm.Node[],
-	methodBlocks: ohm.Node[],
+	methodFunctions: ohm.Node[],
 ): string {
 	let methodList = '';
 	while (methodNames.length > 0) {
 		const methodNameList = extractMethodNameList(
 			methodNames.shift()!.child(0),
 		);
-		const methodBlock = methodBlocks.shift()!;
+		const methodFunction = methodFunctions.shift()!;
 		for (const methodName of methodNameList) {
 			const methodSource = makeMethod(
 				slProc,
 				typeOrTraitNameArray,
 				methodName,
-				methodBlock,
+				methodFunction,
 			);
 			methodList += methodSource;
 		}
@@ -118,7 +118,7 @@ function makeTypeDefinition(
 	slotNames: string,
     uncheckedConstructorName: string,
 	methodNames: ohm.Node[],
-	methodBlocks: ohm.Node[],
+	methodFunctions: ohm.Node[],
 ): string {
 	const traitNameList = traitNames.split(', ').filter((each) => each.length > 0);
 	const slotNameList = slotNames.split(' ');
@@ -141,7 +141,7 @@ sl.copyTraitMethodsToType(
 		'addMethodToExistingType',
 		[typeName],
 		methodNames,
-		methodBlocks,
+		methodFunctions,
 	);
 	return `${addType}\n\n${copyTraits}\n\n${addMethods}\n`;
 }
@@ -153,11 +153,11 @@ const asJs: ohm.ActionDict<string> = {
 	ArgumentsWithoutAnnotations(arg, _vb) {
 		return rewrite.commaListJs(arg.children);
 	},
-	BlockWithoutAnnotations(_l, arg, prm, stm, _r) {
+	FunctionWithoutAnnotations(_l, arg, prm, stm, _r) {
 		const argJs = arg.asJs;
 		const prmJs = prm.asJs;
 		const stmJs = stm.asJs;
-		const arityCheck = genArityChecks(argJs, 'Block definition: ' + argJs);
+		const arityCheck = genArityChecks(argJs, 'Function definition: ' + argJs);
 		return [
 			`sl.annotateFunction(function(${argJs}) {\n`,
 			arityCheck,
@@ -166,7 +166,7 @@ const asJs: ohm.ActionDict<string> = {
 			`}, ${JSON.stringify(arg.parametersOf)})`,
 		].join('');
 	},
-	BlockLiteralInitializer(name, _equals, blk) {
+	FunctionLiteralInitializer(name, _equals, blk) {
 		return arityCheckInitializer(name.asJs, blk.asJs);
 	},
 	ConciseSlotDefinitions(_l, slots, _r) {

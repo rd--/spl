@@ -2,29 +2,29 @@
 
 TextureProgram : [Object] {
 
-	| iterationCounter soundBlock envelopeBlock delayTimeBlock |
+	| iterationCounter soundFunction envelopeFunction delayTimeFunction |
 
 	play { :self |
 		{ :currentTime |
-			self.envelopeBlock.unaryApply(
-				self.soundBlock.cull(
+			self.envelopeFunction.unaryApply(
+				self.soundFunction.cull(
 					self.iterationCounter
 				)
 			).playAt(currentTime);
 			self.iterationCounter := self.iterationCounter + 1;
-			self.delayTimeBlock.nullaryApply
+			self.delayTimeFunction.nullaryApply
 		}.schedule
 	}
 
 }
 
-+Block {
++Function {
 
-	TextureProgram { :soundBlock/0 :envelopeBlock/1 :delayTime/0 |
+	TextureProgram { :soundFunction/0 :envelopeFunction/1 :delayTime/0 |
 		newTextureProgram().initializeSlots(
 			0,
-			soundBlock/0,
-			envelopeBlock/1,
+			soundFunction/0,
+			envelopeFunction/1,
 			delayTime/0
 		)
 	}
@@ -48,17 +48,17 @@ TextureProgram : [Object] {
 
 }
 
-+Block {
++Function {
 
 	overlapTextureProgram { :self :sustainTime :transitionTime :overlap |
 		let delayTime = (sustainTime + (transitionTime * 2)) / overlap;
-		let envelopeBlock = { :sound |
+		let envelopeFunction = { :sound |
 			sound.withOverlapEnvelope(
 				sustainTime,
 				transitionTime
 			)
 		};
-		TextureProgram(self, envelopeBlock/1, { delayTime })
+		TextureProgram(self, envelopeFunction/1, { delayTime })
 	}
 
 	playEvery { :self/1 :delayTime/0 :aClock |
@@ -83,7 +83,7 @@ TextureProgram : [Object] {
 
 +@At {
 
-	collectTextureProgram { :self :soundBlock/1 :delayTime/0 |
+	collectTextureProgram { :self :soundFunction/1 :delayTime/0 |
 		let index = 1;
 		let endIndex = self.size;
 		self.isEmpty.if {
@@ -91,7 +91,7 @@ TextureProgram : [Object] {
 		} {
 			TextureProgram(
 				{
-					let answer = soundBlock(self[index]);
+					let answer = soundFunction(self[index]);
 					index := index + 1;
 					answer
 				},

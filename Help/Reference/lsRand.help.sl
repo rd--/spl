@@ -21,10 +21,10 @@ The ternary form is equivalent to `take` _k_ of the binary form:
 IdentitySet[1 3 5 7 9]
 ```
 
-Can be implemented using `BlockStream` and `atRandom`:
+Can be implemented using `FunctionStream` and `atRandom`:
 
 ```
->>> BlockStream {
+>>> FunctionStream {
 >>> 	[1 3 5 7 9].atRandom
 >>> } {
 >>> }.take(99)
@@ -48,7 +48,7 @@ lsRand(
 
 * * *
 
-See also: BlockStream, atRandom, lsWhite, lsXRand
+See also: FunctionStream, atRandom, lsWhite, lsXRand
 
 Guides: Patterns and Streams
 

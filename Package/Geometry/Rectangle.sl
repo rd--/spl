@@ -140,10 +140,10 @@ Rectangle : [Object, Store, Equal, Geometry] {
 		}
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isRectangle & {
-			aBlock(self.lowerLeft, anObject.lowerLeft) & {
-				aBlock(self.upperRight, anObject.upperRight)
+			aFunction(self.lowerLeft, anObject.lowerLeft) & {
+				aFunction(self.upperRight, anObject.upperRight)
 			}
 		}
 	}

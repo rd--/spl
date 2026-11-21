@@ -1,8 +1,8 @@
-+Block {
++Function {
 
-	atop { :self/2 :aBlock/1 |
+	atop { :self/2 :aFunction/1 |
 		{ :anObject :anotherObject |
-			aBlock(self(anObject, anotherObject))
+			aFunction(self(anObject, anotherObject))
 		}
 	}
 
@@ -42,9 +42,9 @@
 		}
 	}
 
-	inner { :self/2 :aBlock/2 |
+	inner { :self/2 :aFunction/2 |
 		{ :p :q |
-			self/2.inner(p, q, aBlock/2)
+			self/2.inner(p, q, aFunction/2)
 		}
 	}
 
@@ -100,7 +100,7 @@
 
 	swap { :self/2 |
 		(self/2.argumentCount != 2).ifTrue {
-			'Block>>swap: not two argument block'.error
+			self/2.error('swap: not two argument function')
 		};
 		{ :alpha :beta |
 			self(beta, alpha)

@@ -6,7 +6,7 @@ DiscreteMarkovProcess : [Object] {
 		let p0 = AliasMethod(self.p0);
 		let m = self.m.collect(AliasMethod/1);
 		let x = p0.nextRandom(r);
-		BlockStream {
+		FunctionStream {
 			let h = x;
 			x := m[x].nextRandom(r);
 			h

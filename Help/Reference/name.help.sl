@@ -4,7 +4,7 @@
 
 Answer the name of the object _x_, if it has one.
 
-At `Block`:
+At `Function`:
 
 ```
 >>> +.name

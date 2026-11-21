@@ -44,7 +44,7 @@ An implementation of the recursive `factorial` function:
 
 * * *
 
-See also: Block
+See also: Function
 
 References:
 _W_

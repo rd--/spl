@@ -12,9 +12,9 @@ Stack : [Object, Copy, Store, Equal] {
 		self.linkedList.isEmpty
 	}
 
-	isEqualBy { :self :aStack :aBlock/2 |
+	isEqualBy { :self :aStack :aFunction/2 |
 		aStack.isStack & {
-			aBlock(self.linkedList, aStack.linkedList)
+			aFunction(self.linkedList, aStack.linkedList)
 		}
 	}
 

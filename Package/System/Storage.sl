@@ -43,11 +43,11 @@ Storage! : [Object, Collection, Dictionary] {
 		}
 	}
 
-	removeKeyIfAbsent! { :self :key :aBlock/0 |
+	removeKeyIfAbsent! { :self :key :aFunction/0 |
 		self.includesKey(key).if {
 			self.uncheckedRemoveKey(key)
 		} {
-			aBlock()
+			aFunction()
 		}
 	}
 

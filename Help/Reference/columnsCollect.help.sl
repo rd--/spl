@@ -1,8 +1,8 @@
 # columnsCollect
 
-- _columnsCollect(aMatrix, aBlock/1)_
+- _columnsCollect(m, f/1)_
 
-Apply _aBlock_ to each column of _aMatrix_ and collect the answer into a `List`.
+Apply _f_ to each column of the matrix _m_ and collect the answer into a `List`.
 
 ```
 >>> let m = [2 0 1; -1 1 0; -3 3 0];

@@ -21,30 +21,25 @@
 
 SplitMix : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
-	| seed block |
-
-	initialize! { :self :aNumber |
-		self.seed := aNumber;
-		self.reset!;
-		self
-	}
+	| seed generatorFunction | <Float>
 
 	nextRandomFloat { :self |
-		let f/0 = self.block;
+		let f/0 = self.generatorFunction;
 		f()
 	}
 
 	reset! { :self |
-		self.block := self.seed.splitMix32RandomNumberGenerator
+		self.generatorFunction := self.seed.splitMix32RandomNumberGenerator
 	}
 
 }
 
 +[Float, Integer] {
 
-	SplitMix { :self |
-		newSplitMix().initialize!(
-			SmallInteger(self)
+	SplitMix { :seed SmallInteger |
+		uncheckedSplitMix(
+			seed,
+			seed.splitMix32RandomNumberGenerator
 		)
 	}
 

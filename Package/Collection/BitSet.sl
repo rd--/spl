@@ -60,15 +60,15 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 		self.items(bitsDo/2)
 	}
 
-	bitsDo { :self :aBlock/1 |
+	bitsDo { :self :aFunction/1 |
 		self.indices.do { :index |
-			aBlock(self.bitAt(index))
+			aFunction(self.bitAt(index))
 		}
 	}
 
-	bitsWithIndexDo { :self :aBlock/2 |
+	bitsWithIndexDo { :self :aFunction/2 |
 		self.indices.do { :index |
-			aBlock(self.bitAt(index), index)
+			aFunction(self.bitAt(index), index)
 		}
 	}
 
@@ -152,7 +152,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 		self.items(positionsDo/2)
 	}
 
-	positionsDo { :self :aBlock/1 |
+	positionsDo { :self :aFunction/1 |
 		let remainingBits = self.tally;
 		let lowBits = system.lowBitPerByteTable;
 		1L.toDo(self.bytes.size) { :index |
@@ -161,7 +161,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 				(byte = 0L).ifFalse {
 					let byteOffset = index.bitShift(3L) - 9L;
 					{
-						aBlock(lowBits[byte] + byteOffset);
+						aFunction(lowBits[byte] + byteOffset);
 						remainingBits := remainingBits - 1L;
 						byte := byte.bitAnd(byte - 1L);
 						byte = 0L
@@ -185,11 +185,11 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 		nil
 	}
 
-	removeIfAbsent! { :self :anInteger :absentBlock/0 |
+	removeIfAbsent! { :self :anInteger :absentFunction/0 |
 		self.clearBitAt(anInteger).if {
 			anInteger
 		} {
-			absentBlock()
+			absentFunction()
 		}
 	}
 

@@ -158,10 +158,10 @@
 		}
 	}
 
-	columnsCollect { :self :aBlock/1 |
+	columnsCollect { :self :aFunction/1 |
 		let [m, n] = self.shape;
 		1.to(n).collect { :i |
-			aBlock(self.column(i))
+			aFunction(self.column(i))
 		}
 	}
 
@@ -174,13 +174,13 @@
 		}
 	}
 
-	designMatrix { :self :aBlock/1 |
+	designMatrix { :self :aFunction/1 |
 		let [m, n] = self.shape;
 		self.submatrix(
 			[1 .. m],
 			[1 .. n - 1]
 		).collect { :each |
-			[1] ++ aBlock(each)
+			[1] ++ aFunction(each)
 		}
 	}
 
@@ -553,13 +553,13 @@
 		}
 	}
 
-	condensedDistanceMatrix { :self :aBlock/2 |
+	condensedDistanceMatrix { :self :aFunction/2 |
 		let k = self.size;
 		let answer = [];
 		1.toDo(k - 1) { :i |
 			let row = [];
 			(i + 1).toDo(k) { :j |
-				row.add!(aBlock(self[i], self[j]))
+				row.add!(aFunction(self[i], self[j]))
 			};
 			answer.add!(row)
 		};
@@ -586,8 +586,8 @@
 		self.diagonalMatrix(0)
 	}
 
-	distanceMatrix { :u :v :aBlock/2 |
-		aBlock/2.table(u, v)
+	distanceMatrix { :u :v :aFunction/2 |
+		aFunction/2.table(u, v)
 	}
 
 	distanceMatrix { :u :v |
@@ -607,14 +607,14 @@
 		k / k.deepSum
 	}
 
-	helicalScanIndicesDo { :shape :step :aBlock/3 |
+	helicalScanIndicesDo { :shape :step :aFunction/3 |
 		let [r, c] = shape;
 		let [p, q] = step;
 		let i = 1;
 		let j = 1;
 		let k = 1;
 		(r * c).timesRepeat {
-			aBlock(i, j, k);
+			aFunction(i, j, k);
 			i := (i + p).mod(r, 1);
 			j := (j + q).mod(c, 1);
 			k := k + 1
@@ -795,13 +795,13 @@
 		answer
 	}
 
-	antidiagonalIndicesDo { :k :aBlock/2 |
+	antidiagonalIndicesDo { :k :aFunction/2 |
 		let m = 1L;
 		let n = 1L;
 		{
 			k > 0L
 		}.whileTrue {
-			aBlock(m, n);
+			aFunction(m, n);
 			k := k - 1L;
 			(n = 1).if {
 				n := m + 1L;

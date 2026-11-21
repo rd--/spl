@@ -1,7 +1,7 @@
 # Apply Syntax
 
-Ordinarily block and method application is written _f(x, …)_,
-where _f_ is the _unqualified name_ of the block or method,
+Ordinarily function and method application is written _f(x, …)_,
+where _f_ is the _unqualified name_ of the function or method,
 and _x…_ are the arguments.
 
 ```
@@ -68,7 +68,7 @@ No argument method application is written _f()_.
 7
 ```
 
-Bindings to blocks with the same name,
+Bindings to functions with the same name,
 in the same scope,
 with different arities,
 introduce distinct bindings:
@@ -82,7 +82,7 @@ introduce distinct bindings:
 
 * * *
 
-See also: Block, Method, (, ), .
+See also: Function, Method, (, ), .
 
 Guides: Method Syntax, Syntax Guides, Value Apply Syntax
 

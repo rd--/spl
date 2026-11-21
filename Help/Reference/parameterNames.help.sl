@@ -22,10 +22,10 @@ At a `MethodInformation` value:
 >>> d['collect'][2.0]['List']
 >>> .information
 >>> .parameterNames
-['self', 'aBlock/1']
+['self', 'aFunction/1']
 ```
 
-Note that literal `Block` values do not store their parameter names,
+Note that literal `Function` values do not store their parameter names,
 see instead `argumentNames`:
 
 ```
@@ -46,6 +46,6 @@ The parameter names reported can be for any one of the defined methods.
 
 * * *
 
-See also: Block, Method, argumentNames
+See also: Function, Method, argumentNames
 
-Guides: Block Functions, Reflection Functions
+Guides: Function Functions, Reflection Functions

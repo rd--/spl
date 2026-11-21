@@ -80,7 +80,7 @@ If any of the lists contains sublists,
 
 See also: adaptToCollectionAndApply, withCollect, withWithCollect
 
-Guides: Block Functions, Elementwise Functions
+Guides: Function Functions, Elementwise Functions
 
 References:
 _Mathematica_

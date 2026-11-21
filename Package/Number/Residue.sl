@@ -6,8 +6,8 @@ Residue : [Object, Store, Equal, Compare, Number] {
 		self.commonResidue < self.assertIsCompatibleOperand(aNumber).commonResidue
 	}
 
-	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
-		aBlock(
+	adaptToIntegerAndApply { :self :anInteger :aFunction/2 |
+		aFunction(
 			Residue(
 				Integer(anInteger),
 				self.modulus
@@ -16,11 +16,11 @@ Residue : [Object, Store, Equal, Compare, Number] {
 		)
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
+	adaptToNumberAndApply { :self :aNumber :aFunction/2 |
 		aNumber.isIntegerValuedNumber.if {
 			self.adaptToIntegerAndApply(
 				Integer(aNumber),
-				aBlock/2
+				aFunction/2
 			)
 		} {
 			self.error('Residue>>adaptToNumberAndApply: not an integer')
@@ -38,17 +38,17 @@ Residue : [Object, Store, Equal, Compare, Number] {
 		operand
 	}
 
-	binaryOperator { :self :aNumber :aBlock/2 |
+	binaryOperator { :self :aNumber :aFunction/2 |
 		aNumber.isResidue.if {
 			Residue(
-				aBlock(
+				aFunction(
 					self.commonResidue,
 					self.assertIsCompatibleOperand(aNumber).commonResidue
 				),
 				self.modulus
 			)
 		} {
-			aNumber.adaptToResidueAndApply(self, aBlock/2)
+			aNumber.adaptToResidueAndApply(self, aFunction/2)
 		}
 	}
 
@@ -141,9 +141,9 @@ Residue : [Object, Store, Equal, Compare, Number] {
 
 +@Collection {
 
-	adaptToResidueAndApply { :self :aResidue :aBlock/2 |
+	adaptToResidueAndApply { :self :aResidue :aFunction/2 |
 		self.collect { :each |
-			aBlock(aResidue, each)
+			aFunction(aResidue, each)
 		}
 	}
 
@@ -151,9 +151,9 @@ Residue : [Object, Store, Equal, Compare, Number] {
 
 +@Number {
 
-	adaptToResidueAndApply { :self :aResidue :aBlock/2 |
+	adaptToResidueAndApply { :self :aResidue :aFunction/2 |
 		self.isIntegerValuedNumber.if {
-			aBlock(
+			aFunction(
 				aResidue,
 				Residue(Integer(self), aResidue.modulus)
 			)

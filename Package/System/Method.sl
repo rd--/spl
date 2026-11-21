@@ -48,9 +48,9 @@ Method! : [Object, Equal] {
 		self.information.arity
 	}
 
-	block { :self |
+	compiledFunction { :self |
 		<primitive:
-		return _self.block;
+		return _self.compiledFunction;
 		>
 	}
 
@@ -112,7 +112,7 @@ Method! : [Object, Equal] {
 	}
 
 	pseudoSlotNameList { :self |
-		['block', 'information']
+		['compiledFunction', 'information']
 	}
 
 	qualifiedName { :self |

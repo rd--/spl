@@ -26,9 +26,9 @@ CategoryDictionary : [Object] {
 		).uncheckedIncludeAll!(entries)
 	}
 
-	categorizeDictionary { :self :domain :aBlock/1 :aDictionary |
+	categorizeDictionary { :self :domain :aFunction/1 :aDictionary |
 		aDictionary.withIndexDo { :value :key |
-			self.categorizeAll(domain, key, value.collect(aBlock/1))
+			self.categorizeAll(domain, key, value.collect(aFunction/1))
 		}
 	}
 

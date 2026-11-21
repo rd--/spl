@@ -110,16 +110,16 @@ TemporalData : [Object, Equal] {
 
 }
 
-+Block {
++Function {
 
-	regularTemporalData { :aBlock/1 :timeSpecificationList |
+	regularTemporalData { :aFunction/1 :timeSpecificationList |
 		TemporalData(
 			timeSpecificationList.collect { :timeSpecification |
 				let [tMin, tMax, tStep] = timeSpecification;
 				let timeList = [tMin, tMin + tStep .. tMax];
 				[
 					timeList,
-					aBlock(timeList)
+					aFunction(timeList)
 				].transpose
 			}
 		)

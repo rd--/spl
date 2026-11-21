@@ -18,11 +18,11 @@ Headers! : [Object] {
 		>
 	}
 
-	atIfAbsent { :self :name :aBlock/0 |
+	atIfAbsent { :self :name :aFunction/0 |
 		self.includesKey(name).if {
 			self[name]
 		} {
-			aBlock()
+			aFunction()
 		}
 	}
 

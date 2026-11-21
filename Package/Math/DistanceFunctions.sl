@@ -123,7 +123,7 @@
 		self.levenshteinDistance(other, isEqual/2)
 	}
 
-	levenshteinDistance { :self :other :equalityBlock/2 |
+	levenshteinDistance { :self :other :equalityFunction/2 |
 		(
 			self.isEmpty | {
 				other.isEmpty
@@ -137,7 +137,7 @@
 				matrix[1L] := xIndex - 1L;
 				1L.toDo(other.size) { :yIndex |
 					let upper = matrix[yIndex + 1L];
-					matrix[yIndex + 1L] := equalityBlock(self[xIndex], other[yIndex]).if {
+					matrix[yIndex + 1L] := equalityFunction(self[xIndex], other[yIndex]).if {
 						corner
 					} {
 						[upper, corner, matrix[yIndex]].min + 1L
@@ -312,13 +312,13 @@
 		self.atAll(indexList)
 	}
 
-	nearestBy { :self :anObject :aBlock/2 |
+	nearestBy { :self :anObject :aFunction/2 |
 		let distanceList = self.collect { :each |
-			aBlock(each, anObject)
+			aFunction(each, anObject)
 		};
 		let leastDistance = distanceList.min;
 		self.select { :each |
-			aBlock(each, anObject) = leastDistance
+			aFunction(each, anObject) = leastDistance
 		}
 	}
 

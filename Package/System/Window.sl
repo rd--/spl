@@ -58,9 +58,9 @@ Window! : [Object] {
 		['localStorage', 'location', 'name', 'navigator', 'sessionStorage']
 	}
 
-	requestAnimationFrame { :self :aBlock/1 |
+	requestAnimationFrame { :self :aFunction/1 |
 		<primitive:
-		return _self.requestAnimationFrame(_aBlock_1);
+		return _self.requestAnimationFrame(_aFunction_1);
 		>
 	}
 

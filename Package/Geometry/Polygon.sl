@@ -116,7 +116,7 @@ Polygon : [Object, Store, Equal, Geometry] {
 
 	project { :self :projection |
 		Polygon(
-			self.vertexCoordinates.collect(projection.unaryBlock)
+			self.vertexCoordinates.collect(projection.unaryFunction)
 		)
 	}
 

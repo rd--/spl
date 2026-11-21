@@ -1,6 +1,6 @@
 +@Sequence {
 
-	mergeFirstMiddleLastIntoBy { :self :first :middle :last :destination :sortBlock/2 |
+	mergeFirstMiddleLastIntoBy { :self :first :middle :last :destination :sortFunction/2 |
 		let i1 = first;
 		let i2 = middle + 1;
 		let val1 = self[i1];
@@ -11,7 +11,7 @@
 				i2 <= last
 			}
 		}.whileTrue {
-			sortBlock(val1, val2).if {
+			sortFunction(val1, val2).if {
 				out := out + 1;
 				i1 := i1 + 1;
 				destination[out] := val1;
@@ -34,15 +34,15 @@
 		self.copy.mergeSort!
 	}
 
-	mergeSort! { :self :sortBlock/2 |
-		self.mergeSortFromToBy(1, self.size, sortBlock/2)
+	mergeSort! { :self :sortFunction/2 |
+		self.mergeSortFromToBy(1, self.size, sortFunction/2)
 	}
 
 	mergeSort! { :self |
 		self.mergeSort!(isLess/2)
 	}
 
-	mergeSortFromToBy { :self :startIndex :stopIndex :sortBlock/2 |
+	mergeSortFromToBy { :self :startIndex :stopIndex :sortFunction/2 |
 		let size = self.size;
 		(
 			size <= 1 | {
@@ -60,12 +60,12 @@
 			(startIndex < stopIndex).ifFalse {
 				self.errorSubscriptBounds(startIndex)
 			};
-			self.copy.mergeSortFromToIntoBy(startIndex, stopIndex, self, sortBlock/2);
+			self.copy.mergeSortFromToIntoBy(startIndex, stopIndex, self, sortFunction/2);
 			self
 		}
 	}
 
-	mergeSortFromToIntoBy { :self :firstIndex :lastIndex :destination :sortBlock/2 |
+	mergeSortFromToIntoBy { :self :firstIndex :lastIndex :destination :sortFunction/2 |
 		let n = lastIndex - firstIndex;
 		(n <= 1).if {
 			(n = 0).if {
@@ -73,7 +73,7 @@
 			} {
 				let firstObject = self[firstIndex];
 				let lastObject = self[lastIndex];
-				sortBlock(firstObject, lastObject).if {
+				sortFunction(firstObject, lastObject).if {
 					destination[lastIndex] := lastObject;
 					destination[firstIndex] := firstObject
 				} {
@@ -84,20 +84,20 @@
 			}
 		} {
 			n := firstIndex + lastIndex // 2;
-			destination.mergeSortFromToIntoBy(firstIndex, n, self, sortBlock/2);
-			destination.mergeSortFromToIntoBy(n + 1, lastIndex, self, sortBlock/2);
-			self.mergeFirstMiddleLastIntoBy(firstIndex, n, lastIndex, destination, sortBlock/2)
+			destination.mergeSortFromToIntoBy(firstIndex, n, self, sortFunction/2);
+			destination.mergeSortFromToIntoBy(n + 1, lastIndex, self, sortFunction/2);
+			self.mergeFirstMiddleLastIntoBy(firstIndex, n, lastIndex, destination, sortFunction/2)
 		}
 	}
 
-	mergeSortWithIndices { :self :sortBlock/2 |
+	mergeSortWithIndices { :self :sortFunction/2 |
 		self.ifEmpty {
 			[]
 		} {
 			self.withIndexCollect { :each :index |
 				each -> index
 			}.mergeSort! { :p :q |
-				sortBlock(p.key, q.key)
+				sortFunction(p.key, q.key)
 			}
 		}
 	}
@@ -116,14 +116,14 @@
 		)
 	}
 
-	mergeSortWithMonitor { :self :left :right :monitorBlock/1 |
+	mergeSortWithMonitor { :self :left :right :monitorFunction/1 |
 		(left < right).ifTrue {
 			let middle = (left + right) // 2;
 			let i = left;
 			let endI = middle;
 			let j = middle + 1;
-			mergeSortWithMonitor(self, left, middle, monitorBlock/1);
-			mergeSortWithMonitor(self, middle + 1, right, monitorBlock/1);
+			mergeSortWithMonitor(self, left, middle, monitorFunction/1);
+			mergeSortWithMonitor(self, middle + 1, right, monitorFunction/1);
 			{ i <= endI & { j <= right } }.whileTrue {
 				(self[i] < self[j]).if {
 					i := i + 1
@@ -133,7 +133,7 @@
 						self[k + 1] := self[k]
 					};
 					self[i] := x;
-					monitorBlock(self);
+					monitorFunction(self);
 					i := i + 1;
 					endI := endI + 1;
 					j := j + 1
@@ -143,8 +143,8 @@
 		self
 	}
 
-	mergeSortWithMonitor { :self :monitorBlock/1 |
-		mergeSortWithMonitor(self, 1, self.size, monitorBlock/1)
+	mergeSortWithMonitor { :self :monitorFunction/1 |
+		mergeSortWithMonitor(self, 1, self.size, monitorFunction/1)
 	}
 
 }

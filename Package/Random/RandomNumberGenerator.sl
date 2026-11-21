@@ -1,5 +1,11 @@
 @RandomNumberGenerator {
 
+	initialize! { :self :seed |
+		self.seed := seed;
+		self.reset!;
+		self
+	}
+
 	isRandomNumberGenerator { :self |
 		true
 	}
@@ -145,7 +151,7 @@
 		self.randomReal([min, max + 1], shape).floor
 	}
 
-	randomSmallIntegerExcluding { :self :range :aBlock/1 :shape |
+	randomSmallIntegerExcluding { :self :range :aFunction/1 :shape |
 		let min = range.min;
 		let max = range.max;
 		{
@@ -153,7 +159,7 @@
 			{
 				x := (self.nextRandomFloat * (max + 1 - min) + min).floor
 			}.doWhileTrue {
-				aBlock(x)
+				aFunction(x)
 			};
 			x
 		} ! shape

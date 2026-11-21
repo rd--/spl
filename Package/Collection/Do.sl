@@ -6,10 +6,10 @@
 		}
 	}
 
-	[allFalse, noneSatisfy] { :self :aBlock/1 |
+	[allFalse, noneSatisfy] { :self :aFunction/1 |
 		withReturn { :return/1 |
 			self.do { :each |
-				each.aBlock.ifTrue {
+				each.aFunction.ifTrue {
 					false.return
 				}
 			};
@@ -21,10 +21,10 @@
 		self.allFalse(identity/1)
 	}
 
-	[allTrue, allSatisfy] { :self :aBlock/1 |
+	[allTrue, allSatisfy] { :self :aFunction/1 |
 		withReturn { :return/1 |
 			self.do { :each |
-				each.aBlock.ifFalse {
+				each.aFunction.ifFalse {
 					false.return
 				}
 			};
@@ -49,10 +49,10 @@
 		}
 	}
 
-	[anyTrue, anySatisfy] { :self :aBlock/1 |
+	[anyTrue, anySatisfy] { :self :aFunction/1 |
 		withReturn { :return/1 |
 			self.do { :each |
-				each.aBlock.ifTrue {
+				each.aFunction.ifTrue {
 					true.return
 				}
 			};
@@ -72,10 +72,10 @@
 		answer
 	}
 
-	cartesianProductDo { :self :operand :aBlock/2 |
+	cartesianProductDo { :self :operand :aFunction/2 |
 		self.do { :x |
 			operand.do { :y |
-				aBlock(x, y)
+				aFunction(x, y)
 			}
 		}
 	}
@@ -86,10 +86,10 @@
 		}
 	}
 
-	count { :self :aBlock/1 |
+	count { :self :aFunction/1 |
 		let answer = 0L;
 		self.do { :each |
-			aBlock(each).ifTrue {
+			aFunction(each).ifTrue {
 				answer := answer + 1L
 			}
 		};
@@ -102,9 +102,9 @@
 		}
 	}
 
-	countDistinct { :self :aBlock/2 |
+	countDistinct { :self :aFunction/2 |
 		let set = UnsortedSet();
-		set.comparator := aBlock/2;
+		set.comparator := aFunction/2;
 		self.do { :each |
 			set.include!(each)
 		};
@@ -133,10 +133,10 @@
 		}
 	}
 
-	[deepAllTrue, deepAllSatisfy] { :self :aBlock/1 |
+	[deepAllTrue, deepAllSatisfy] { :self :aFunction/1 |
 		withReturn { :return/1 |
 			self.deepDo { :each |
-				each.aBlock.ifFalse {
+				each.aFunction.ifFalse {
 					false.return
 				}
 			};
@@ -144,19 +144,19 @@
 		}
 	}
 
-	deepDo { :self :aBlock/1 |
+	deepDo { :self :aFunction/1 |
 		let type = self.typeName;
 		self.do { :each |
 			(each.typeName = type).if {
-				each.deepDo(aBlock/1)
+				each.deepDo(aFunction/1)
 			} {
-				aBlock(each)
+				aFunction(each)
 			}
 		}
 	}
 
-	deepInjectInto { :self :initialValue :aBlock/2 |
-		self.injectIntoBy(initialValue, aBlock/2, deepDo/2)
+	deepInjectInto { :self :initialValue :aFunction/2 |
+		self.injectIntoBy(initialValue, aFunction/2, deepDo/2)
 	}
 
 	deepMax { :self |
@@ -175,25 +175,25 @@
 		}
 	}
 
-	deepReduce { :self :aBlock/2 |
-		self.reduceBy(aBlock/2, deepDo/2)
+	deepReduce { :self :aFunction/2 |
+		self.reduceBy(aFunction/2, deepDo/2)
 	}
 
 	deepSum { :self |
 		self.deepReduce(+)
 	}
 
-	detect { :self :aBlock/1 |
-		self.detectIfNone(aBlock/1) {
+	detect { :self :aFunction/1 |
+		self.detectIfNone(aFunction/1) {
 			self.error('@Do>>detect: not found')
 		}
 	}
 
-	detect { :self :count :aBlock/1 |
+	detect { :self :count :aFunction/1 |
 		let answer = [];
 		withReturn { :return/1 |
 			self.do { :each |
-				aBlock(each).ifTrue {
+				aFunction(each).ifTrue {
 					answer.add!(each);
 					count := count - 1L;
 					(count < 1L).ifTrue {
@@ -205,40 +205,40 @@
 		}
 	}
 
-	detectIfFound { :self :aBlock/1 :foundBlock/1 |
-		self.detectIfFoundIfNone(aBlock/1, foundBlock/1) {
+	detectIfFound { :self :aFunction/1 :foundFunction/1 |
+		self.detectIfFoundIfNone(aFunction/1, foundFunction/1) {
 			nil
 		}
 	}
 
-	detectIfFoundIfNone { :self :aBlock/1 :foundBlock/1 :exceptionBlock/0 |
-		self.detectIfFoundIfNoneUsing(aBlock/1, foundBlock/1, exceptionBlock/0, do/2)
+	detectIfFoundIfNone { :self :aFunction/1 :foundFunction/1 :exceptionFunction/0 |
+		self.detectIfFoundIfNoneUsing(aFunction/1, foundFunction/1, exceptionFunction/0, do/2)
 	}
 
-	detectIfFoundIfNoneUsing { :self :aBlock/1 :foundBlock/1 :exceptionBlock/0 :doBlock/2 |
+	detectIfFoundIfNoneUsing { :self :aFunction/1 :foundFunction/1 :exceptionFunction/0 :doFunction/2 |
 		withReturn { :return/1 |
-			doBlock(self) { :each |
-				aBlock(each).ifTrue {
-					foundBlock(each).return
+			doFunction(self) { :each |
+				aFunction(each).ifTrue {
+					foundFunction(each).return
 				}
 			};
-			exceptionBlock()
+			exceptionFunction()
 		}
 	}
 
-	detectIfNone { :self :aBlock/1 :whenAbsent/0 |
-		self.detectIfFoundIfNone(aBlock/1, identity/1, whenAbsent/0)
+	detectIfNone { :self :aFunction/1 :whenAbsent/0 |
+		self.detectIfFoundIfNone(aFunction/1, identity/1, whenAbsent/0)
 	}
 
-	detectMax { :self :aBlock/1 |
+	detectMax { :self :aFunction/1 |
 		let maxElement = nil;
 		let maxValue = nil;
 		self.do { :each |
 			maxValue.ifNil {
 				maxElement := each;
-				maxValue := aBlock(each)
+				maxValue := aFunction(each)
 			} {
-				let nextValue = aBlock(each);
+				let nextValue = aFunction(each);
 				(nextValue > maxValue).ifTrue {
 					maxElement := each;
 					maxValue := nextValue
@@ -248,15 +248,15 @@
 		maxElement
 	}
 
-	detectMin { :self :aBlock/1 |
+	detectMin { :self :aFunction/1 |
 		let minElement = nil;
 		let minValue = nil;
 		self.do { :each |
 			minValue.ifNil {
 				minElement := each;
-				minValue := aBlock(each)
+				minValue := aFunction(each)
 			} {
-				let nextValue = aBlock(each);
+				let nextValue = aFunction(each);
 				(nextValue < minValue).ifTrue {
 					minElement := each;
 					minValue := nextValue
@@ -266,45 +266,45 @@
 		minElement
 	}
 
-	detectSum { :self :aBlock/1 |
+	detectSum { :self :aFunction/1 |
 		let sum = 0L;
 		self.do { :each |
-			sum := sum + aBlock(each)
+			sum := sum + aFunction(each)
 		};
 		sum
 	}
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		self.typeResponsibility('@Do>>do')
 	}
 
-	doSeparatedBy { :self :elementBlock/1 :separatorBlock/0 |
+	doSeparatedBy { :self :elementFunction/1 :separatorFunction/0 |
 		let beforeFirst = true;
 		self.do { :each |
 			beforeFirst.if {
 				beforeFirst := false
 			} {
-				separatorBlock()
+				separatorFunction()
 			};
-			elementBlock(each)
+			elementFunction(each)
 		}
 	}
 
-	doWithBreak { :self :aBlock/2 |
+	doWithBreak { :self :aFunction/2 |
 		withReturn { :return/1 |
 			let break = {
 				nil.return
 			};
 			self.do { :each |
-				aBlock(each, break/0)
+				aFunction(each, break/0)
 			}
 		}
 	}
 
-	doWithout { :self :aBlock/1 :anItem |
+	doWithout { :self :aFunction/1 :anItem |
 		self.do { :each |
 			(anItem = each).ifFalse {
-				aBlock(each)
+				aFunction(each)
 			}
 		}
 	}
@@ -356,9 +356,9 @@
 		}
 	}
 
-	includesBy { :self :anObject :aBlock/2 |
+	includesBy { :self :anObject :aFunction/2 |
 		self.anySatisfy { :each |
-			aBlock(each, anObject)
+			aFunction(each, anObject)
 		}
 	}
 
@@ -376,23 +376,23 @@
 		aCollection.includesAll(self)
 	}
 
-	injectInto { :self :initialValue :aBlock/2 |
-		self.injectIntoBy(initialValue, aBlock/2, do/2)
+	injectInto { :self :initialValue :aFunction/2 |
+		self.injectIntoBy(initialValue, aFunction/2, do/2)
 	}
 
-	injectIntoBy { :self :initialValue :aBlock/2 :doBlock/2 |
+	injectIntoBy { :self :initialValue :aFunction/2 :doFunction/2 |
 		let nextValue = initialValue;
-		doBlock(self) { :each |
-			nextValue := aBlock(nextValue, each)
+		doFunction(self) { :each |
+			nextValue := aFunction(nextValue, each)
 		};
 		nextValue
 	}
 
-	isDuplicateFree { :self :comparator/2 :aBlock/1 |
+	isDuplicateFree { :self :comparator/2 :aFunction/1 |
 		withReturn { :return/1 |
 			let items = comparator/2.comparatorToSetOrList;
 			self.do { :x |
-				let y = aBlock(x);
+				let y = aFunction(x);
 				items.includes(y).ifTrue {
 					false.return
 				};
@@ -420,9 +420,9 @@
 		aCollection.includesAll(self)
 	}
 
-	items { :self :aBlock/2 |
+	items { :self :aFunction/2 |
 		let answer = [];
-		aBlock(self) { :each |
+		aFunction(self) { :each |
 			answer.add!(each)
 		};
 		answer
@@ -438,10 +438,10 @@
 		}
 	}
 
-	levelBy { :self :aBlock/1 |
+	levelBy { :self :aFunction/1 |
 		let answer = [];
 		self.withLevelDo { :each :level |
-			aBlock(level).ifTrue {
+			aFunction(level).ifTrue {
 				answer.add!(each)
 			}
 		};
@@ -454,8 +454,8 @@
 		}
 	}
 
-	maximalBy { :self :aBlock/1 |
-		let z = self.collect(aBlock/1);
+	maximalBy { :self :aFunction/1 |
+		let z = self.collect(aFunction/1);
 		let i = z.indicesOf(z.max);
 		self.selectIndices(i)
 	}
@@ -464,9 +464,9 @@
 		self.reduce(max/2)
 	}
 
-	minBy { :self :aBlock/2 |
+	minBy { :self :aFunction/2 |
 		self.reduce { :p :q |
-			aBlock(p, q).if {
+			aFunction(p, q).if {
 				p
 			} {
 				q
@@ -480,8 +480,8 @@
 		}
 	}
 
-	minimalBy { :self :aBlock/1 |
-		let z = self.collect(aBlock/1);
+	minimalBy { :self :aFunction/1 |
+		let z = self.collect(aFunction/1);
 		let i = z.indicesOf(z.min);
 		self.selectIndices(i)
 	}
@@ -543,22 +543,22 @@
 		tally
 	}
 
-	oneSatisfies { :self :aBlock/1 |
-		self.count(aBlock/1) = 1L
+	oneSatisfies { :self :aFunction/1 |
+		self.count(aFunction/1) = 1L
 	}
 
 	[or, |] { :self |
 		self.anySatisfy(nullaryApply/1)
 	}
 
-	product { :self :aBlock/1 |
+	product { :self :aFunction/1 |
 		self.isEmpty.if {
 			1L
 		} {
-			let a = aBlock(self.first);
+			let a = aFunction(self.first);
 			let b = self.allButFirst;
 			b.injectInto(a) { :i :j |
-				i * aBlock(j)
+				i * aFunction(j)
 			}
 		}
 	}
@@ -575,39 +575,39 @@
 		self.max - self.min
 	}
 
-	reduce { :self :aBlock/2 |
-		self.reduceBy(aBlock/2, do/2)
+	reduce { :self :aFunction/2 |
+		self.reduceBy(aFunction/2, do/2)
 	}
 
-	reduceBy { :self :aBlock/2 :iterationBlock/2 |
+	reduceBy { :self :aFunction/2 :iterationFunction/2 |
 		let isFirst = true;
 		let nextValue = nil;
-		self.iterationBlock { :each |
+		self.iterationFunction { :each |
 			isFirst.if {
 				nextValue := each;
 				isFirst := false
 			} {
-				nextValue := aBlock(nextValue, each)
+				nextValue := aFunction(nextValue, each)
 			}
 		};
 		isFirst.ifTrue {
-			self.error('@Do>>reduceBy: empty collection')
+			self.error('reduceBy: empty collection')
 		};
 		nextValue
 	}
 
-	rejectThenDo { :self :rejectBlock/1 :doBlock/1 |
+	rejectThenDo { :self :rejectFunction/1 :doFunction/1 |
 		self.do { :each |
-			rejectBlock(each).ifFalse {
-				doBlock(each)
+			rejectFunction(each).ifFalse {
+				doFunction(each)
 			}
 		}
 	}
 
-	selectThenDo { :self :selectBlock/1 :doBlock/1 |
+	selectThenDo { :self :selectFunction/1 :doFunction/1 |
 		self.do { :each |
-			selectBlock(each).ifTrue {
-				doBlock(each)
+			selectFunction(each).ifTrue {
+				doFunction(each)
 			}
 		}
 	}
@@ -620,14 +620,14 @@
 		tally
 	}
 
-	sum { :self :aBlock/1 |
+	sum { :self :aFunction/1 |
 		self.isEmpty.if {
 			0L
 		} {
-			let a = aBlock(self.first);
+			let a = aFunction(self.first);
 			let b = self.allButFirst;
 			b.injectInto(a) { :i :j |
-				i + aBlock(j)
+				i + aFunction(j)
 			}
 		}
 	}
@@ -640,21 +640,21 @@
 		self.sum(square/1)
 	}
 
-	withLevelDo { :self :aBlock/2 :level |
+	withLevelDo { :self :aFunction/2 :level |
 		let type = self.typeName;
 		self.do { :each |
 			(each.typeName = type).if {
-				each.withLevelDo(aBlock/2, level + 1L);
-				aBlock(each, level)
+				each.withLevelDo(aFunction/2, level + 1L);
+				aFunction(each, level)
 			} {
-				aBlock(each, level)
+				aFunction(each, level)
 			}
 		}
 	}
 
-	withLevelDo { :self :aBlock/2 |
-		self.withLevelDo(aBlock/2, 1L);
-		aBlock(self, 0L);
+	withLevelDo { :self :aFunction/2 |
+		self.withLevelDo(aFunction/2, 1L);
+		aFunction(self, 0L);
 		nil
 	}
 

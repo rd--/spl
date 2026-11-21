@@ -38,8 +38,8 @@ ResidueSet : [Object, New, Store, Equal, Do, Collection, Add, Remove] {
 		BitSet(self).complement.ResidueSet
 	}
 
-	do { :self :aBlock/1 |
-		self.commonResidueSet.do(aBlock/1)
+	do { :self :aFunction/1 |
+		self.commonResidueSet.do(aFunction/1)
 	}
 
 	include! { :self :anInteger |

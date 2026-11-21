@@ -18,8 +18,8 @@ const asAst: ohm.ActionDict<SlAst> = {
 	Primitive(_l, s, _r) {
 		return ['Primitive', s.sourceString];
 	},
-	BlockWithoutAnnotations(_l, arg, prm, stm, _r) {
-		return ['Block'].concat(
+	FunctionWithoutAnnotations(_l, arg, prm, stm, _r) {
+		return ['Function'].concat(
 			[
 				arg.asAst,
 				prm.asAst,

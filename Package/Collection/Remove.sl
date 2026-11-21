@@ -42,15 +42,15 @@
 		aCollection
 	}
 
-	removeAllSuchThat! { :self :aBlock/1 |
+	removeAllSuchThat! { :self :aFunction/1 |
 		self.copy.do { :each |
-			aBlock(each).ifTrue {
+			aFunction(each).ifTrue {
 				self.remove!(each)
 			}
 		}
 	}
 
-	removeIfAbsent! { :self :oldObject :anExceptionBlock |
+	removeIfAbsent! { :self :oldObject :exceptionFunction |
 		self.typeResponsibility('@Remove>>removeIfAbsent!')
 	}
 

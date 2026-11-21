@@ -67,8 +67,8 @@ Assignment is indicated by ←:
 (𝒫 (≔ x nil) (← x 1) x)
 ```
 
-Blocks are indicated by 𝜆.
-Block arguments, if present, are indicated by 𝓐 at the first operand:
+Functions are indicated by 𝜆.
+Function arguments, if present, are indicated by 𝓐 at the first operand:
 
 ```
 >> '{ :x | { x } }'
@@ -84,7 +84,7 @@ Let bindings, if present, follow arguments:
 (𝒫 (𝜆 (𝓐 x) (≔ y x) y))
 ```
 
-Conditionals are ordinary blocks,
+Conditionals are ordinary functions,
 branches are manually delayed:
 
 ```

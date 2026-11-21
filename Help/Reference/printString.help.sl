@@ -220,14 +220,14 @@ At `Range`:
 'Range(-1.0, 1.0, 1.0, 3L)'
 ```
 
-At `Block`:
+At `Function`:
 
 ```
 >>> { }.printString
-'a Block'
+'a Function'
 
 >>> { :x | x }.printString
-'a Block'
+'a Function'
 ```
 
 At `ByteArray`:

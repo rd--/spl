@@ -52,9 +52,9 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 		)
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		SparseArray(
-			self.linearIndexMap.collect(aBlock/1),
+			self.linearIndexMap.collect(aFunction/1),
 			self.shape,
 			self.unspecifiedValue
 		)
@@ -72,8 +72,8 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 		self.shape
 	}
 
-	do { :self :aBlock/1 |
-		self.linearIndexMap.do(aBlock/1)
+	do { :self :aFunction/1 |
+		self.linearIndexMap.do(aFunction/1)
 	}
 
 	indices { :self |
@@ -145,7 +145,7 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 		)
 	}
 
-	withCollect { :self :other :aBlock/2 |
+	withCollect { :self :other :aFunction/2 |
 		(
 			self.rank != other.rank | {
 				self.unspecifiedValue != other.unspecifiedValue
@@ -157,7 +157,7 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 			let linearIndices = (self.linearIndices ++ other.linearIndices).nub.sort;
 			SparseArray(
 				linearIndices.collect { :i |
-					i -> aBlock(self.atLinear(i), other.atLinear(i))
+					i -> aFunction(self.atLinear(i), other.atLinear(i))
 				},
 				shape,
 				self.unspecifiedValue
@@ -165,9 +165,9 @@ SparseArray : [Object, Store, Equal, Compare, Do, At, Indices, Collection, Seque
 		}
 	}
 
-	withDeepIndexDo { :self :elementAndIndexBlock/2 |
+	withDeepIndexDo { :self :elementAndIndexFunction/2 |
 		self.linearIndexMap.keysAndValuesDo { :key :value |
-			elementAndIndexBlock(
+			elementAndIndexFunction(
 				self.shape.cartesianIndex(key),
 				value
 			)

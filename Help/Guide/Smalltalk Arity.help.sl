@@ -13,14 +13,14 @@ In Smalltalk _c max_ selects the maximum element from the collection _c_,
 and _p max: q_ selects the greater of the two values _p_ and _q_.
 The expression _p x_ reads the _x_ field of the _Point_ _p_,
 and _p x: 1_ mutates it.
-The expression _c sorted: f_ answers a copy of the collection _c_ sorted according to comparison block _f_,
+The expression _c sorted: f_ answers a copy of the collection _c_ sorted according to comparison function _f_,
 and _c sorted_ sorts according to _<=_.
 
-In Smalltalk blocks and methods have distinct application syntaxes.
-The block _square := [ :x | x * x ]_ is applied as _square value: 3_
+In Smalltalk functions and methods have distinct application syntaxes.
+The function _square := [ :x | x * x ]_ is applied as _square value: 3_
 The method _square_ is applied as _3 square_.
 
-Methods that require behaviours as arguments generally require blocks,
+Methods that require behaviours as arguments generally require functions,
 .e. _#(9 16 25) collect: [ :x | x sqrt ]_.
 By implementing _value: x_ at _Symbol_,
 as _x perform: self_,

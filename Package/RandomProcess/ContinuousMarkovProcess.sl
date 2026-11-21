@@ -8,7 +8,7 @@ ContinuousMarkovProcess : [Object] {
 		let h = self.transitionRateVector;
 		let t = t0;
 		let x = p0.nextRandom(r);
-		BlockStream {
+		FunctionStream {
 			let z = [t, x];
 			x := m[x].nextRandom(r);
 			t := t + r.exponentialDistribution(h[x]);

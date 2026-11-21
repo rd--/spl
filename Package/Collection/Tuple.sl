@@ -24,9 +24,9 @@ Tuple : [Object, Copy, Store, Equal] {
 		self.collection.indices
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isTuple & {
-			aBlock(self.collection, anObject.collection)
+			aFunction(self.collection, anObject.collection)
 		}
 	}
 
@@ -46,8 +46,8 @@ Tuple : [Object, Copy, Store, Equal] {
 		self.storeStringLiteral(storeString/1)
 	}
 
-	storeStringLiteral { :self :aBlock/1 |
-		'(' ++ self.collection.collect(aBlock/1).commaSeparated ++ ')'
+	storeStringLiteral { :self :aFunction/1 |
+		'(' ++ self.collection.collect(aFunction/1).commaSeparated ++ ')'
 	}
 
 }

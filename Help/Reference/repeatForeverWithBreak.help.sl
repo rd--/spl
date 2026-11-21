@@ -18,9 +18,9 @@ nil
 
 * * *
 
-See also: Block, repeatForever, whileFalse, whileTrue, withReturn
+See also: Function, repeatForever, whileFalse, whileTrue, withReturn
 
-Guides: Block Functions, Control Functions, Non-local Return
+Guides: Function Functions, Control Functions, Non-local Return
 
 References:
 _SuperCollider_

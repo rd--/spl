@@ -51,8 +51,8 @@ List of types implementing `Stream`:
 >>> .traitTypes('@Stream')
 >>> .sort!
 [
-	'BlockStream'
 	'CollectionStream'
+	'FunctionStream'
 	'LaggedFibonacci'
 	'LinearCongruential'
 	'MersenneTwister'
@@ -80,6 +80,6 @@ _Rationale_:
 
 * * *
 
-See also: BlockStream, CollectionStream, Iterator, reset
+See also: FunctionStream, CollectionStream, Iterator, reset
 
 Guides: Stream Functions

@@ -6,7 +6,7 @@ Rewrite rule:
 
 Syntax for the _atIfAbsent_ protocol.
 Read the value at the key _'k'_ from the collection _c_, if it is absent evaluate _a_.
-_a_ must be a literal block.
+_a_ must be a literal function.
 
 This is a form of _ternary syntax_, the operator _:?_ is also a part of `Experimental AtIfAbsent Syntax`.
 

@@ -268,7 +268,7 @@ JsonString : [Object, JsonValue] {
 
 JsonParser : [Object] {
 
-	| input index line column current captureBuffer captureStart exceptionBlock |
+	| input index line column current captureBuffer captureStart exceptionFunction |
 
 	endCapture { :self |
 		let captured = nil;
@@ -284,7 +284,7 @@ JsonParser : [Object] {
 	}
 
 	error { :self :message |
-		let f/1 = self.exceptionBlock;
+		let f/1 = self.exceptionFunction;
 		let e = ParseException(message, self.index, self.line, self.column);
 		f(e)
 	}

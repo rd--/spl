@@ -33,4 +33,4 @@ a.scatterPlot
 
 See also: do, repeatForeverWithBreak
 
-Guides: Block Functions, Control Functions, Non-local Return
+Guides: Function Functions, Control Functions, Non-local Return

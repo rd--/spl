@@ -6,7 +6,7 @@
 Entries are specified by the block _f_,
 calculated values are stored at the dictionary _d_.
 
-The `Block` methods `Dictionary` and `Map` construct memoization tables.
+The `Function` methods `Dictionary` and `Map` construct memoization tables.
 
 The table implements `at`, `atAll` and `atAllPath`,
 answering either the cached answer to a previous request,

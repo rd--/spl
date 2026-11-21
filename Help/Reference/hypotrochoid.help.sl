@@ -2,7 +2,7 @@
 
 - _hypotrochoid(a, b, h)_
 
-Answer a `Block` of one argument that traces a hypotrochoid,
+Answer a `Function` of one argument that traces a hypotrochoid,
 a roulette traced by a point attached to a circle of radius _b_ rolling around the inside of a fixed circle of radius _a_,
 where the point is a distance _h_ from the center of the interior circle.
 

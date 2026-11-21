@@ -1,6 +1,6 @@
 Thunk : [Object] {
 
-	| nullaryBlock result |
+	| nullaryFunction result |
 
 	[apply, nullaryApply] { :self |
 		self.force
@@ -8,8 +8,8 @@ Thunk : [Object] {
 
 	force { :self |
 		self.result.ifNil {
-			let answer = self.result := self.nullaryBlock.nullaryApply;
-			self.nullaryBlock := nil;
+			let answer = self.result := self.nullaryFunction.nullaryApply;
+			self.nullaryFunction := nil;
 			answer
 		}
 	}
@@ -20,7 +20,7 @@ Thunk : [Object] {
 
 }
 
-+Block {
++Function {
 
 	thunk { :self/0 |
 		(self/0.argumentCount = 0).ifFalse {

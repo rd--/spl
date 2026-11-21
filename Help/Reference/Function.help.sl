@@ -1,7 +1,7 @@
-# Block
+# Function
 
-`Block` is the behaviour type.
-Blocks have fixed arity and must be applied to the correct number of arguments.
+`Function` is the behaviour type.
+Functions have fixed arity and must be applied to the correct number of arguments.
 
 ```
 >>> let f = { true };
@@ -23,10 +23,10 @@ true
 81
 ```
 
-The predicate is `isBlock`:
+The predicate is `isFunction`:
 
 ```
->>> { }.isBlock
+>>> { }.isFunction
 true
 ```
 
@@ -56,7 +56,7 @@ The names of the arguments can be retrieved using `argumentNames`:
 ['x' 'y']
 ```
 
-Blocks can be tested for identity but not equality:
+Functions can be tested for identity but not equality:
 
 ```
 >>> let a = { :x | x * x };
@@ -77,9 +77,9 @@ Instead there is the delimited control method `withReturn`.
 
 * * *
 
-See also: apply, argumentCount, isBlock, withReturn
+See also: apply, argumentCount, isFunction, withReturn
 
-Guides: Apply Syntax, Block Functions, Block Semantics, Block Syntax, Value Apply Syntax
+Guides: Apply Syntax, Function Functions, Function Semantics, Function Syntax, Value Apply Syntax
 
 References:
 _Smalltalk_

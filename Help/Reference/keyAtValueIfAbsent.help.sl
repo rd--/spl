@@ -1,9 +1,9 @@
 # keyAtValueIfAbsent
 
-- _keyAtValueIfAbsent(aDictionary, value, aBlock/0)_
+- _keyAtValueIfAbsent(d, x, f/0)_
 
-Answer the key that is the external name for the argument _value_ in _aDictionary_.
-If there is none, evaluate and answer _aBlock_.
+Answer the key that is the external name for the argument value _x_ in the dictionary _d_.
+If there is none, evaluate and answer _f_.
 
 ```
 >>> (x: 1, y: 2, z: 3)

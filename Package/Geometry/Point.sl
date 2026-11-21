@@ -33,7 +33,7 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 	}
 
 	project { :self :projection |
-		let f/1 = projection.unaryBlock;
+		let f/1 = projection.unaryFunction;
 		Point(
 			f(self.coordinates)
 		)

@@ -1,17 +1,17 @@
 Ugen! : [Object, Number] {
 
-	adaptToFractionAndApply { :self :operand :aBlock/2 |
-		adaptToNumberAndApply(self, Float(operand), aBlock/2)
+	adaptToFractionAndApply { :self :operand :aFunction/2 |
+		adaptToNumberAndApply(self, Float(operand), aFunction/2)
 	}
 
-	adaptToIntegerAndApply { :self :operand :aBlock/2 |
-		adaptToNumberAndApply(self, Float(operand), aBlock/2)
+	adaptToIntegerAndApply { :self :operand :aFunction/2 |
+		adaptToNumberAndApply(self, Float(operand), aFunction/2)
 	}
 
-	adaptToNumberAndApply { :self :operand :aBlock/2 |
+	adaptToNumberAndApply { :self :operand :aFunction/2 |
 		<primitive:
 		return sl.applyGenericAt(
-			sl.nameWithoutArity(_aBlock_2.name),
+			sl.nameWithoutArity(_aFunction_2.name),
 			[_operand, _self],
 			'Ugen'
 		);

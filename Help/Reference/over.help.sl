@@ -3,7 +3,7 @@
 - _over(f/2, f/1)_
 - _over(c₁, c₂)_
 
-Answer a `Block` that applies the unary block _f_ to pre-processes the arguments of the binary block _g_.
+Answer a `Function` that applies the unary block _f_ to pre-processes the arguments of the binary block _g_.
 
 The pointwise maxima of the negation of two lists:
 
@@ -43,7 +43,7 @@ RgbColour([1/3 2/3 0], 3/4)
 
 See also: atop
 
-Guides: Block Functions, Operator Adverbs
+Guides: Function Functions, Operator Adverbs
 
 References:
 _Apl_

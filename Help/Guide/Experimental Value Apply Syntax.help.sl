@@ -3,8 +3,8 @@
 - _f . ()_
 - _f . (x, ...)_
 
-This is the primitive `Block` application syntax.
-_f_ must be a `Block` value,
+This is the primitive `Function` application syntax.
+_f_ must be a `Function` value,
 it is applied to the arguments given within the parentheses.
 
 A full stop separates the _procedure_ from the _parameter list_ in `Value Apply Syntax`:
@@ -36,7 +36,7 @@ List/0 . ()
 []
 ~~~
 
-No argument `Block`:
+No argument `Function`:
 
 ~~~spl experimental
 { } . ()
@@ -44,7 +44,7 @@ No argument `Block`:
 nil
 ~~~
 
-One argument `Block`:
+One argument `Function`:
 
 ~~~spl experimental
 { :n | n * n } . (23)
@@ -52,7 +52,7 @@ One argument `Block`:
 529
 ~~~
 
-Two argument `Block`:
+Two argument `Function`:
 
 ~~~spl experimental
 { :p :q | p ++ q } . ('x', 'y')
@@ -60,7 +60,7 @@ Two argument `Block`:
 'xy'
 ~~~
 
-Methods are blocks:
+Methods are functions:
 
 ~~~spl experimental
 sqrt/1 . (529)
@@ -68,7 +68,7 @@ sqrt/1 . (529)
 23
 ~~~
 
-Operators are blocks:
+Operators are functions:
 
 ~~~spl experimental
 ^ . (23, 2)
@@ -78,7 +78,7 @@ Operators are blocks:
 
 * * *
 
-See also: Block, .
+See also: Function, .
 
 Guides: Apply Syntax, Method Syntax
 

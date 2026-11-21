@@ -70,10 +70,10 @@ Quantity : [Object, Copy, Store, Equal, Compare, Frequency, Length, Mass, PlaneA
 		}
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isQuantity & {
 			self.unit = anObject.unit & {
-				aBlock(self.magnitude, anObject.magnitude)
+				aFunction(self.magnitude, anObject.magnitude)
 			}
 		}
 	}

@@ -1,10 +1,10 @@
 @MidiMap {
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		<primitive:
 		_self.forEach(
 			function(item) {
-				return _aBlock_1(item);
+				return _aFunction_1(item);
 			}
 		);
 		>
@@ -83,8 +83,8 @@ MIDIAccess! : [Object, EventTarget] {
 		<primitive: return _self.inputs;>
 	}
 
-	onstatechange { :self :aBlock |
-		<primitive: return _self.onstatechange = _aBlock;>
+	onstatechange { :self :aFunction |
+		<primitive: return _self.onstatechange = _aFunction;>
 	}
 
 	outputs { :self |
@@ -127,8 +127,8 @@ MIDIConnectionEvent! : [Object, Event] {
 
 MIDIInput! : [Object, EventTarget, MidiPort] {
 
-	onMidiMessage { :self :aBlock |
-		<primitive: return _self.onmidimessage = _aBlock;>
+	onMidiMessage { :self :aFunction |
+		<primitive: return _self.onmidimessage = _aFunction;>
 	}
 
 }

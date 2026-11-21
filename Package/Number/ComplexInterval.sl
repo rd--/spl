@@ -40,9 +40,9 @@ ComplexInterval : [Object, Store, Equal] {
 		self.literalPrintStringUsing(concisePrintString/1)
 	}
 
-	discretize { :self :size :aBlock/1 |
+	discretize { :self :size :aFunction/1 |
 		self.discretize(size).collect { :each |
-			each.collect(aBlock/1)
+			each.collect(aFunction/1)
 		}
 	}
 
@@ -65,10 +65,10 @@ ComplexInterval : [Object, Store, Equal] {
 		operand.isBetweenUsing(self.lowerLeft, self.upperRight, precedesOrEqual/2)
 	}
 
-	isEqualBy { :self :operand :aBlock/2 |
+	isEqualBy { :self :operand :aFunction/2 |
 		operand.isComplexInterval & {
-			aBlock(self.lowerLeft, operand.lowerLeft) & {
-				aBlock(self.upperRight, operand.upperRight)
+			aFunction(self.lowerLeft, operand.lowerLeft) & {
+				aFunction(self.upperRight, operand.upperRight)
 			}
 		}
 	}
@@ -79,11 +79,11 @@ ComplexInterval : [Object, Store, Equal] {
 		}
 	}
 
-	literalPrintStringUsing { :self :aBlock/1 |
+	literalPrintStringUsing { :self :aFunction/1 |
 		'(% -- %)'.format(
 			[
-				aBlock(self.lowerLeft),
-				aBlock(self.upperRight)
+				aFunction(self.lowerLeft),
+				aFunction(self.upperRight)
 			]
 		)
 	}
@@ -116,8 +116,8 @@ ComplexInterval : [Object, Store, Equal] {
 		}
 	}
 
-	adaptToComplexIntervalAndApply { :self :operand :aBlock/2 |
-		aBlock(operand, ComplexInterval(self, self))
+	adaptToComplexIntervalAndApply { :self :operand :aFunction/2 |
+		aFunction(operand, ComplexInterval(self, self))
 	}
 
 	centeredComplexInterval { :center :range |

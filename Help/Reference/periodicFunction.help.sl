@@ -2,7 +2,7 @@
 
 - _periodicFunction([x₁ x₂ …], d=1)_
 
-Answer a `Block` of one argument,
+Answer a `Function` of one argument,
 an index,
 that periodically indexes the sequence _x_.
 _d_ specifies the reference index, and is ordinarily one.

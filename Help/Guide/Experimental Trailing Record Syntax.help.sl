@@ -31,6 +31,6 @@ The second form allows eliding double parentheses:
 
 See also: Dictionary, Record
 
-Guides: Apply Syntax, Method Syntax, Trailing Block Syntax
+Guides: Apply Syntax, Method Syntax, Trailing Function Syntax
 
 Categories: Syntax

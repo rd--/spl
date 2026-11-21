@@ -11,7 +11,7 @@ When _resolved_ the `Promise` holds a _value_ which is the answer.
 When _rejected_ the `Promise` holds a _reason_ explaining why it did not resolve.
 A `Promise` that is no longer pending is _settled_.
 
-In the `Block` case, answer a `Promise` tied to the execution of the two-argument block _f_,
+In the `Function` case, answer a `Promise` tied to the execution of the two-argument block _f_,
 which recieves two blocks, _resolve/1_ and _reject/1_, as arguments.
 When _f_ runs either _resolve_ or _reject_ the answer `Promise` is resolved or rejected.
 

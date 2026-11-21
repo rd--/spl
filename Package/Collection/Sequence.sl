@@ -6,9 +6,9 @@
 		self ++.each aList
 	}
 
-	adaptToCollectionAndApply { :self :anObject :aBlock/2 |
+	adaptToCollectionAndApply { :self :anObject :aFunction/2 |
 		anObject.isSequence.if {
-			anObject.withCollect(self, aBlock/2)
+			anObject.withCollect(self, aFunction/2)
 		} {
 			self.error('@Sequence: only sequenceable collections may be processed elementwise')
 		}
@@ -20,31 +20,31 @@
 		}
 	}
 
-	adjacentPairsAllSatisfy { :self :aBlock/2 |
+	adjacentPairsAllSatisfy { :self :aFunction/2 |
 		1L.to(self.size - 1L).allSatisfy { :i |
-			aBlock(self[i], self[i + 1L])
+			aFunction(self[i], self[i + 1L])
 		}
 	}
 
-	adjacentPairsCollect { :self :aBlock/2 |
+	adjacentPairsCollect { :self :aFunction/2 |
 		let answer = self.new(self.size - 1);
 		let index = 1;
 		self.adjacentPairsDo { :p :q |
-			answer[index] := aBlock(p, q);
+			answer[index] := aFunction(p, q);
 			index := index + 1
 		};
 		answer
 	}
 
-	adjacentPairsDo { :self :aBlock/2 |
+	adjacentPairsDo { :self :aFunction/2 |
 		1.toDo(self.size - 1) { :i |
-			aBlock(self[i], self[i + 1])
+			aFunction(self[i], self[i + 1])
 		}
 	}
 
-	adjacentTriplesDo { :self :aBlock/3 |
+	adjacentTriplesDo { :self :aFunction/3 |
 		1.toDo(self.size - 2) { :i |
-			aBlock(self[i], self[i + 1], self[i + 2])
+			aFunction(self[i], self[i + 1], self[i + 2])
 		}
 	}
 
@@ -54,14 +54,14 @@
 		}
 	}
 
-	afterIfAbsent { :self :target :exceptionBlock/0 |
+	afterIfAbsent { :self :target :exceptionFunction/0 |
 		let index = self.indexOf(target);
 		(
 			index = 0 | {
 				index = self.size
 			}
 		).if {
-			exceptionBlock()
+			exceptionFunction()
 		} {
 			self[index + 1]
 		}
@@ -75,9 +75,9 @@
 		self.copyFromTo(1 + n, self.size - n)
 	}
 
-	allButFirstDo { :self :aBlock/1 |
+	allButFirstDo { :self :aFunction/1 |
 		(1 + 1).toDo(self.size) { :index |
-			aBlock(self[index])
+			aFunction(self[index])
 		}
 	}
 
@@ -89,9 +89,9 @@
 		self.copyFromTo(1, self.size - n)
 	}
 
-	allButLastDo { :self :aBlock/1 |
+	allButLastDo { :self :aFunction/1 |
 		1.toDo(self.size - 1) { :index |
-			aBlock(self[index])
+			aFunction(self[index])
 		}
 	}
 
@@ -128,20 +128,20 @@
 		}
 	}
 
-	asDigitsAtInDo { :self :anInteger :aCollection :aBlock/1 |
+	asDigitsAtInDo { :self :anInteger :aCollection :aFunction/1 |
 		self.do { :each |
 			aCollection[anInteger] := each;
 			(anInteger = aCollection.size).if {
-				aBlock(aCollection)
+				aFunction(aCollection)
 			} {
-				self.asDigitsAtInDo(anInteger + 1, aCollection, aBlock/1)
+				self.asDigitsAtInDo(anInteger + 1, aCollection, aFunction/1)
 			}
 		}
 	}
 
-	asDigitsToPowerDo { :self :anInteger :aBlock/1 |
+	asDigitsToPowerDo { :self :anInteger :aFunction/1 |
 		let aCollection = List(anInteger, nil);
-		self.asDigitsAtInDo(1, aCollection, aBlock/1)
+		self.asDigitsAtInDo(1, aCollection, aFunction/1)
 	}
 
 	assertShape { :self :shape |
@@ -194,11 +194,11 @@
 		self.atAllUsing(indexList, atSymmetrical/2)
 	}
 
-	atAllUsing { :self :indexList :aBlock/2 |
+	atAllUsing { :self :indexList :aFunction/2 |
 		indexList.atVectorOrElementwise { :indexList |
 			indexList.collectInto!(
 				{ :i |
-					aBlock(self, i)
+					aFunction(self, i)
 				},
 				self.newOfSize(indexList.size)
 			)
@@ -253,15 +253,15 @@
 		}
 	}
 
-	atUsing { :self :operand :aBlock/1 |
+	atUsing { :self :operand :aFunction/1 |
 		operand.isCollection.if {
 			let answer = self.newOfSize(operand.size);
 			operand.indicesDo { :each |
-				answer[each] := aBlock(operand.at(each))
+				answer[each] := aFunction(operand.at(each))
 			};
 			answer
 		} {
-			aBlock(self, operand)
+			aFunction(self, operand)
 		}
 	}
 
@@ -276,10 +276,10 @@
 		}
 	}
 
-	beforeIfAbsent { :self :target :exceptionBlock/0 |
+	beforeIfAbsent { :self :target :exceptionFunction/0 |
 		let index = self.indexOf(target);
 		(index < 2).if {
-			exceptionBlock()
+			exceptionFunction()
 		} {
 			self[index - 1]
 		}
@@ -313,9 +313,9 @@
 		n.fromDigits(2L)
 	}
 
-	binaryDetectIndex { :self :aBlock/1 |
+	binaryDetectIndex { :self :aFunction/1 |
 		self.size.binaryDetectIndex { :i |
-			aBlock(self[i])
+			aFunction(self[i])
 		}
 	}
 
@@ -437,17 +437,17 @@
 		q % p
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		let answer = self.newOfSize(self.size);
 		self.indicesDo { :index |
-			answer[index] := aBlock(self[index])
+			answer[index] := aFunction(self[index])
 		};
 		answer
 	}
 
-	collect! { :self :aBlock/1 |
+	collect! { :self :aFunction/1 |
 		self.indicesDo { :index |
-			self[index] := aBlock(self[index])
+			self[index] := aFunction(self[index])
 		};
 		self
 	}
@@ -592,24 +592,24 @@
 		n.fromDigits(10L)
 	}
 
-	deepReplace! { :self :aBlock/1 |
+	deepReplace! { :self :aFunction/1 |
 		self.indicesDo { :index |
 			let entry = self[index];
 			entry.isSequence.if {
-				entry.deepReplace!(aBlock/1)
+				entry.deepReplace!(aFunction/1)
 			} {
-				self[index] := aBlock(entry)
+				self[index] := aFunction(entry)
 			}
 		}
 	}
 
-	deleteAdjacentDuplicates { :self :aBlock/2 |
+	deleteAdjacentDuplicates { :self :aFunction/2 |
 		self.isEmpty.if {
 			[]
 		} {
 			let answer = [self.first];
 			self.adjacentPairsDo { :i :j |
-				aBlock(i, j).ifFalse {
+				aFunction(i, j).ifFalse {
 					answer.add!(j)
 				}
 			};
@@ -667,11 +667,11 @@
 		}
 	}
 
-	detectEquispacedTriple { :self :aBlock/3 |
+	detectEquispacedTriple { :self :aFunction/3 |
 		withReturn { :return/1 |
 			self.size.equispacedTriplesDo { :i :j :k |
 				let [p, q, r] = self.atAll([i, j, k]);
-				aBlock(p, q, r).ifTrue {
+				aFunction(p, q, r).ifTrue {
 					[p, q, r].return
 				}
 			};
@@ -717,14 +717,14 @@
 		answer
 	}
 
-	detectLast { :self :aBlock/1 |
-		self.detectLastIfFoundIfNone(aBlock/1, identity/1) {
+	detectLast { :self :aFunction/1 |
+		self.detectLastIfFoundIfNone(aFunction/1, identity/1) {
 			self.error('detectLast')
 		}
 	}
 
-	detectLastIfFoundIfNone { :self :aBlock/1 :foundBlock/1 :exceptionBlock/0 |
-		self.detectIfFoundIfNoneUsing(aBlock/1, foundBlock/1, exceptionBlock/0, reverseDo/2)
+	detectLastIfFoundIfNone { :self :aFunction/1 :foundFunction/1 :exceptionFunction/0 |
+		self.detectIfFoundIfNoneUsing(aFunction/1, foundFunction/1, exceptionFunction/0, reverseDo/2)
 	}
 
 	detectLastIndex { :self :predicate/1 |
@@ -772,9 +772,9 @@
 		}
 	}
 
-	differencesBy { :self :aBlock/2 |
+	differencesBy { :self :aFunction/2 |
 		self.adjacentPairsCollect { :i :j |
-			aBlock(j, i)
+			aFunction(j, i)
 		}
 	}
 
@@ -788,25 +788,25 @@
 		a / (4 * h.square)
 	}
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		self.indicesDo { :index |
-			aBlock(self[index])
+			aFunction(self[index])
 		}
 	}
 
-	doSeparatedBy { :self :elementBlock/1 :separatorBlock/0 |
+	doSeparatedBy { :self :elementFunction/1 :separatorFunction/0 |
 		self.indicesDo { :index |
 			(index = 1).ifFalse {
-				separatorBlock()
+				separatorFunction()
 			};
-			elementBlock(self[index])
+			elementFunction(self[index])
 		}
 	}
 
-	doWithout { :self :aBlock/1 :anItem |
+	doWithout { :self :aFunction/1 :anItem |
 		self.indicesDo { :index |
 			(anItem = self[index]).ifFalse {
-				aBlock(self[index])
+				aFunction(self[index])
 			}
 		}
 	}
@@ -853,9 +853,9 @@
 		self.dropLast(1L)
 	}
 
-	dropWhile { :self :aBlock/1 |
+	dropWhile { :self :aFunction/1 |
 		self.detectIndexIfFoundIfNone { :each |
-			each.aBlock.not
+			each.aFunction.not
 		} { :i |
 			self.copyFromTo(i, self.size)
 		} {
@@ -985,47 +985,47 @@
 		self
 	}
 
-	fillFromWith! { :self :aCollection :aBlock/1 |
+	fillFromWith! { :self :aCollection :aFunction/1 |
 		let index = 1;
 		aCollection.do { :each |
-			self[index] := aBlock(each);
+			self[index] := aFunction(each);
 			index := index + 1
 		};
 		self
 	}
 
-	findBinary { :self :aBlock/1 |
-		self.findBinaryDoIfNone(aBlock/1) { :found |
+	findBinary { :self :aFunction/1 |
+		self.findBinaryDoIfNone(aFunction/1) { :found |
 			found
 		} {
 			self.error('@Sequence>>findBinary: not found')
 		}
 	}
 
-	findBinaryDoIfNone { :self :aBlock/1 :actionBlock/1 :exceptionBlock |
-		self.findBinaryIndexDoIfNone(aBlock/1) { :foundIndex |
-			actionBlock(self[foundIndex])
+	findBinaryDoIfNone { :self :aFunction/1 :actionFunction/1 :exceptionFunction |
+		self.findBinaryIndexDoIfNone(aFunction/1) { :foundIndex |
+			actionFunction(self[foundIndex])
 		} { :previousIndex :nextIndex |
-			exceptionBlock.cull(
+			exceptionFunction.cull(
 				(previousIndex > 0).ifTrue { self[previousIndex] },
 				(nextIndex <= self.size).ifTrue { self[nextIndex] }
 			)
 		}
 	}
 
-	findBinaryIfNone { :self :aBlock/1 :exceptionBlock |
-		self.findBinaryDoIfNone(aBlock/1, { :found | found }, exceptionBlock)
+	findBinaryIfNone { :self :aFunction/1 :exceptionFunction |
+		self.findBinaryDoIfNone(aFunction/1, { :found | found }, exceptionFunction)
 	}
 
-	findBinaryIndex { :self :aBlock/1 |
-		self.findBinaryIndexDoIfNone(aBlock/1) { :found |
+	findBinaryIndex { :self :aFunction/1 |
+		self.findBinaryIndexDoIfNone(aFunction/1) { :found |
 			found
 		} {
 			self.error('@Sequence>>findBinaryIndex: not found')
 		}
 	}
 
-	findBinaryIndexDoIfNone { :self :aBlock/1 :actionBlock/1 :exceptionBlock |
+	findBinaryIndexDoIfNone { :self :aFunction/1 :actionFunction/1 :exceptionFunction |
 		let low = 1;
 		let high = self.size;
 		withReturn { :return/1 |
@@ -1033,32 +1033,32 @@
 				high < low
 			}.whileFalse {
 				let index = high + low // 2;
-				let test = aBlock(self[index]);
+				let test = aFunction(self[index]);
 				(test < 0).if {
 					high := index - 1
 				} {
 					(0 < test).if {
 						low := index + 1
 					} {
-						actionBlock(index).return
+						actionFunction(index).return
 					}
 				}
 			};
-			exceptionBlock.cull(high, low)
+			exceptionFunction.cull(high, low)
 		}
 	}
 
-	findBinaryIndexIfNone { :self :aBlock/1 :exceptionBlock |
-		self.findBinaryIndexDoIfNone(aBlock/1, { :found | found }, exceptionBlock)
+	findBinaryIndexIfNone { :self :aFunction/1 :exceptionFunction |
+		self.findBinaryIndexDoIfNone(aFunction/1, { :found | found }, exceptionFunction)
 	}
 
-	findLast { :self :aBlock/1 |
+	findLast { :self :aFunction/1 |
 		let index = self.size + 1;
 		withReturn { :return/1 |
 			{
 				(index := index - 1) >= 1
 			}.whileTrue {
-				aBlock(self[index]).ifTrue {
+				aFunction(self[index]).ifTrue {
 					index.return
 				}
 			};
@@ -1129,43 +1129,43 @@
 		}
 	}
 
-	foldLeft { :self :aBlock/2 |
-		self.foldLeftPrefix(self.size, aBlock/2)
+	foldLeft { :self :aFunction/2 |
+		self.foldLeftPrefix(self.size, aFunction/2)
 	}
 
-	foldLeftPrefix { :self :count :aBlock/2 |
+	foldLeftPrefix { :self :count :aFunction/2 |
 		self.ifEmpty {
 			self.errorEmptyCollection
 		} {
 			let answer = self[1];
 			2.toDo(self.size) { :index |
-				answer := aBlock(answer, self[index])
+				answer := aFunction(answer, self[index])
 			};
 			answer
 		}
 	}
 
-	foldList { :self :anObject :aBlock/2 |
+	foldList { :self :anObject :aFunction/2 |
 		let answer = [anObject];
 		let accumulator = anObject;
 		self.do { :each |
-			accumulator := aBlock(accumulator, each);
+			accumulator := aFunction(accumulator, each);
 			answer.add!(accumulator)
 		};
 		answer
 	}
 
-	foldRight { :self :aBlock/2 |
-		self.foldRightPrefix(self.size, aBlock/2)
+	foldRight { :self :aFunction/2 |
+		self.foldRightPrefix(self.size, aFunction/2)
 	}
 
-	foldRightPrefix { :self :count :aBlock/2 |
+	foldRightPrefix { :self :count :aFunction/2 |
 		self.ifEmpty {
 			self.errorEmptyCollection
 		} {
 			let answer = self[count];
 			(count - 1).toByDo(1, -1) { :index |
-				answer := aBlock(self[index], answer)
+				answer := aFunction(self[index], answer)
 			};
 			answer
 		}
@@ -1235,15 +1235,15 @@
 		self.fromDigits(10L)
 	}
 
-	fromToDo { :self :start :stop :aBlock/1 |
+	fromToDo { :self :start :stop :aFunction/1 |
 		start.toDo(stop) { :index |
-			aBlock(self[index])
+			aFunction(self[index])
 		}
 	}
 
-	fromToIndicesAndValuesDo { :self :start :stop :aBlock/2 |
+	fromToIndicesAndValuesDo { :self :start :stop :aFunction/2 |
 		start.toDo(stop) { :index |
-			aBlock(index, self[index])
+			aFunction(index, self[index])
 		}
 	}
 
@@ -1286,13 +1286,13 @@
 		} / h
 	}
 
-	groupsDo { :self :aBlock |
-		let argumentCount = aBlock.argumentCount;
+	groupsDo { :self :aFunction |
+		let argumentCount = aFunction.argumentCount;
 		argumentCount.caseOf(
 			[
-				0 -> { self.error('groupsDo: At least one block argument expected') },
-				1 -> { self.do(aBlock) },
-				2 -> { self.pairsDo(aBlock) }
+				0 -> { self.error('groupsDo: At least one function argument expected') },
+				1 -> { self.do(aFunction) },
+				2 -> { self.pairsDo(aFunction) }
 			]
 		) {
 			let argumentList = List(argumentCount, nil);
@@ -1307,7 +1307,7 @@
 					self,
 					index
 				);
-				aBlock.applyList(argumentList);
+				aFunction.applyList(argumentList);
 				index := index + argumentCount
 			}
 		}
@@ -1322,7 +1322,7 @@
 		}
 	}
 
-	hasEqualElements { :self :otherCollection :aBlock/2 |
+	hasEqualElements { :self :otherCollection :aFunction/2 |
 		(
 			otherCollection.isSequence & {
 				self.size = otherCollection.size
@@ -1330,7 +1330,7 @@
 		).if {
 			withReturn { :return/1 |
 				self.indicesDo { :index |
-					aBlock(self[index], otherCollection[index]).ifFalse {
+					aFunction(self[index], otherCollection[index]).ifFalse {
 						false.return
 					}
 				};
@@ -1376,23 +1376,23 @@
 		self.indexOfStartingAtBy(anElement, 1L, isEqual/2)
 	}
 
-	indexOfBy { :self :anElement :aBlock/2 |
-		self.indexOfStartingAtBy(anElement, 1L, aBlock/2)
+	indexOfBy { :self :anElement :aFunction/2 |
+		self.indexOfStartingAtBy(anElement, 1L, aFunction/2)
 	}
 
-	indexOfIfAbsent { :self :anElement :exceptionBlock/0 |
+	indexOfIfAbsent { :self :anElement :exceptionFunction/0 |
 		let index = self.indexOfStartingAtBy(anElement, 1L, isEqual/2);
 		(index = 0L).if {
-			exceptionBlock()
+			exceptionFunction()
 		} {
 			index
 		}
 	}
 
-	indexOfStartingAtBy { :self :anElement :start :aBlock/2 |
+	indexOfStartingAtBy { :self :anElement :start :aFunction/2 |
 		withReturn { :return/1 |
 			start.toDo(self.size) { :index |
-				aBlock(self[index], anElement).ifTrue {
+				aFunction(self[index], anElement).ifTrue {
 					index.return
 				}
 			};
@@ -1412,21 +1412,21 @@
 		1L.to(self.size)
 	}
 
-	indicesAndValuesDo { :self :aBlock/2 |
+	indicesAndValuesDo { :self :aFunction/2 |
 		self.withIndexDo { :each :index |
-			aBlock(index, each)
+			aFunction(index, each)
 		}
 	}
 
-	indicesDo { :self :aBlock/1 |
-		1L.toDo(self.size, aBlock/1);
+	indicesDo { :self :aFunction/1 |
+		1L.toDo(self.size, aFunction/1);
 		nil
 	}
 
-	injectInto { :self :anObject :aBlock/2 |
+	injectInto { :self :anObject :aFunction/2 |
 		let answer = anObject;
 		self.indicesDo { :index |
-			answer := aBlock(answer, self[index])
+			answer := aFunction(answer, self[index])
 		};
 		answer
 	}
@@ -1468,13 +1468,13 @@
 		}
 	}
 
-	isArithmeticProgression { :self :aNumber :aBlock/2 |
+	isArithmeticProgression { :self :aNumber :aFunction/2 |
 		(self.size <= 1).if {
 			true
 		} {
 			withReturn { :return/1 |
 				self.adjacentPairsDo { :a :b |
-					aBlock(b - a, aNumber).ifFalse {
+					aFunction(b - a, aNumber).ifFalse {
 						false.return
 					}
 				};
@@ -1503,10 +1503,10 @@
 		self.isEqualBy(anObject, isClose/2)
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		(self == anObject) | {
 			(self.typeName = anObject.typeName) & {
-				self.hasEqualElements(anObject, aBlock/2)
+				self.hasEqualElements(anObject, aFunction/2)
 			}
 		}
 	}
@@ -1519,13 +1519,13 @@
 		}
 	}
 
-	isGeometricProgressionBy { :self :aNumber :aBlock/2 |
+	isGeometricProgressionBy { :self :aNumber :aFunction/2 |
 		(self.size <= 1).if {
 			true
 		} {
 			withReturn { :return/1 |
 				self.adjacentPairsDo { :a :b |
-					aBlock(b / a, aNumber).ifFalse {
+					aFunction(b / a, aNumber).ifFalse {
 						false.return
 					}
 				};
@@ -1698,10 +1698,10 @@
 		self.lastIndexOfStartingAt(anElement, self.size)
 	}
 
-	lastIndexOfIfAbsent { :self :anElement :exceptionBlock/0 |
+	lastIndexOfIfAbsent { :self :anElement :exceptionFunction/0 |
 		let index = self.lastIndexOfStartingAt(anElement, self.size);
 		(index = 0).if {
-			exceptionBlock()
+			exceptionFunction()
 		} {
 			index
 		}
@@ -1718,10 +1718,10 @@
 		}
 	}
 
-	lastIndexOfStartingAtIfAbsent { :self :anElement :lastIndex :exceptionBlock/0 |
+	lastIndexOfStartingAtIfAbsent { :self :anElement :lastIndex :exceptionFunction/0 |
 		let index = self.lastIndexOfStartingAt(anElement, lastIndex);
 		(index = 0).if {
-			exceptionBlock()
+			exceptionFunction()
 		} {
 			index
 		}
@@ -1826,7 +1826,7 @@
 		answer
 	}
 
-	lyndonWordsDo { :alphabet :n :aBlock/1 |
+	lyndonWordsDo { :alphabet :n :aFunction/1 |
 		let nextWord = { :w |
 			let k = (n // w.size) + 1;
 			let x = ({ w } ! k).catenate.first(n);
@@ -1849,7 +1849,7 @@
 				w.size <= n
 			}
 		}.whileTrue {
-			aBlock(w);
+			aFunction(w);
 			w := nextWord(w)
 		}
 	}
@@ -1907,10 +1907,10 @@
 		self.minimumDifferenceBy(identity/1)
 	}
 
-	minimumDifferenceBy { :self :aBlock/1 |
+	minimumDifferenceBy { :self :aFunction/1 |
 		let answer = Infinity;
 		self.adjacentPairsDo { :p :q |
-			answer := answer.min(aBlock(q) - aBlock(p))
+			answer := answer.min(aFunction(q) - aFunction(p))
 		};
 		answer
 	}
@@ -2022,15 +2022,15 @@
 		}
 	}
 
-	pairsCollect { :self :aBlock/2 |
+	pairsCollect { :self :aFunction/2 |
 		1.to(self.size // 2).collect { :index |
-			aBlock(self[2 * index - 1], self[2 * index])
+			aFunction(self[2 * index - 1], self[2 * index])
 		}
 	}
 
-	pairsDo { :self :aBlock/2 |
+	pairsDo { :self :aFunction/2 |
 		1.toDo(self.size // 2) { :index |
-			aBlock(self[2 * index - 1], self[2 * index])
+			aFunction(self[2 * index - 1], self[2 * index])
 		}
 	}
 
@@ -2076,23 +2076,23 @@
 		self.partition(windowSize, windowSize)
 	}
 
-	partitionCollect { :self :windowSize :stepSize :aBlock/1 |
+	partitionCollect { :self :windowSize :stepSize :aFunction/1 |
 		let answer = [];
 		self.partitionDo(windowSize, stepSize) { :each |
-			answer.add!(aBlock(each))
+			answer.add!(aFunction(each))
 		};
 		answer
 	}
 
-	partitionDo { :self :windowSize :stepSize :aBlock/1 |
+	partitionDo { :self :windowSize :stepSize :aFunction/1 |
 		(windowSize <= self.size).ifTrue {
 			(windowSize = 0).if {
-				aBlock([])
+				aFunction([])
 			} {
 				let answer = List(windowSize, nil);
 				1.toByDo(self.size - windowSize + 1, stepSize) { :index |
 					self.copyFromToInto(index, index + windowSize - 1, answer);
-					aBlock(answer)
+					aFunction(answer)
 				}
 			}
 		};
@@ -2158,9 +2158,9 @@
 		answer
 	}
 
-	prefixesDo { :self :aBlock/1 |
+	prefixesDo { :self :aFunction/1 |
 		1.toDo(self.size) { :each |
-			aBlock(self.copyFromTo(1, each))
+			aFunction(self.copyFromTo(1, each))
 		}
 	}
 
@@ -2236,7 +2236,7 @@
 		self
 	}
 
-	replicate { :items :counts :aBlock/1 |
+	replicate { :items :counts :aFunction/1 |
 		let k = items.size;
 		counts.isIntegerValuedNumber.ifTrue {
 			counts := List(k, counts)
@@ -2248,7 +2248,7 @@
 			let answer = items.newOfSize(answerSize);
 			let answerIndex = 1;
 			1.toDo(items.size) { :index |
-				let entry = aBlock(items[index]);
+				let entry = aFunction(items[index]);
 				counts[index].timesRepeat {
 					answer[answerIndex] := entry;
 					answerIndex := answerIndex + 1
@@ -2282,18 +2282,18 @@
 		self.reverse(1L)
 	}
 
-	reverseDo { :self :aBlock/1 |
+	reverseDo { :self :aFunction/1 |
 		self.size.toByDo(1L, -1L) { :index |
-			aBlock(self[index])
+			aFunction(self[index])
 		}
 	}
 
-	reverseWithDo { :self :aList :aBlock/2 |
+	reverseWithDo { :self :aList :aFunction/2 |
 		(self.size != aList.size).if {
 			self.error('@Sequence>> reverseWithDo: unequal size')
 		} {
 			self.size.toByDo(1L, -1L) { :index |
-				aBlock(self[index], aList[index])
+				aFunction(self[index], aList[index])
 			}
 		}
 	}
@@ -2384,7 +2384,7 @@
 		}
 	}
 
-	scanLeft { :self :aBlock/2 :x0 :i0 |
+	scanLeft { :self :aFunction/2 :x0 :i0 |
 		self.ifEmpty {
 			self.copy
 		} {
@@ -2392,36 +2392,36 @@
 			let nextItem = x0;
 			answer[1] := nextItem;
 			1L.toDo(self.size - 1L) { :index |
-				nextItem := aBlock(nextItem, self[index + i0]);
+				nextItem := aFunction(nextItem, self[index + i0]);
 				answer[index + 1L] := nextItem
 			};
 			answer
 		}
 	}
 
-	[scanLeft, scan] { :self :aBlock/2 :x0 |
-		self.scanLeft(aBlock/2, x0, 0L)
+	[scanLeft, scan] { :self :aFunction/2 :x0 |
+		self.scanLeft(aFunction/2, x0, 0L)
 	}
 
-	[scanLeft, scan] { :self :aBlock/2 |
+	[scanLeft, scan] { :self :aFunction/2 |
 		self.ifEmpty {
 			self.copy
 		} {
-			self.scanLeft(aBlock/2, self[1L], 1L)
+			self.scanLeft(aFunction/2, self[1L], 1L)
 		}
 	}
 
-	scanLeftAssociatingRight { :self :aBlock/2 |
+	scanLeftAssociatingRight { :self :aFunction/2 |
 		self.ifEmpty {
 			self.copy
 		} {
 			1L.to(self.size).collect { :each |
-				self.foldRightPrefix(each, aBlock/2)
+				self.foldRightPrefix(each, aFunction/2)
 			}
 		}
 	}
 
-	scanRight { :self :aBlock/2 |
+	scanRight { :self :aFunction/2 |
 		self.ifEmpty {
 			self.copy
 		} {
@@ -2429,7 +2429,7 @@
 			let nextItem = self[self.size];
 			answer[self.size] := nextItem;
 			(self.size - 1).toByDo(1, -1) { :index |
-				nextItem := aBlock(self[index], nextItem);
+				nextItem := aFunction(self[index], nextItem);
 				answer[index] := nextItem
 			};
 			answer
@@ -2448,10 +2448,10 @@
 		self[self.size - 1]
 	}
 
-	select { :self :aBlock/1 |
+	select { :self :aFunction/1 |
 		let answer = [];
 		self.indicesDo { :index |
-			aBlock(self[index]).ifTrue {
+			aFunction(self[index]).ifTrue {
 				answer.add!(self[index])
 			}
 		};
@@ -2571,7 +2571,7 @@
 		z.softMax(1)
 	}
 
-	split { :self :aBlock/2 |
+	split { :self :aFunction/2 |
 		self.ifEmpty {
 			[]
 		} {
@@ -2580,7 +2580,7 @@
 			let previous = self.first;
 			2.toDo(self.size) { :index |
 				let nextItem = self[index];
-				aBlock(previous, nextItem).ifFalse {
+				aFunction(previous, nextItem).ifFalse {
 					answer.add!(self.copyFromTo(startIndex, index - 1));
 					startIndex := index
 				};
@@ -2605,17 +2605,17 @@
 		answer
 	}
 
-	splitOnDo { :self :aCollection :aBlock/1 |
+	splitOnDo { :self :aCollection :aFunction/1 |
 		let lastIndex = 1;
 		let nextIndex = nil;
 		{
 			nextIndex := self.indexOfSubstringStartingAt(aCollection, lastIndex);
 			nextIndex = 0
 		}.whileFalse {
-			aBlock(self.copyFromTo(lastIndex, nextIndex - 1));
+			aFunction(self.copyFromTo(lastIndex, nextIndex - 1));
 			lastIndex := nextIndex + aCollection.size
 		};
-		aBlock(self.copyFromTo(lastIndex, self.size))
+		aFunction(self.copyFromTo(lastIndex, self.size))
 	}
 
 	splitPlaces { :self :counts |
@@ -2656,17 +2656,17 @@
 		answer
 	}
 
-	suffixesDo { :self :aBlock/1 |
+	suffixesDo { :self :aFunction/1 |
 		let size = self.size;
 		1.toDo(size) { :each |
-			aBlock(self.copyFromTo(each, size))
+			aFunction(self.copyFromTo(each, size))
 		}
 	}
 
 	suffixesStream { :self |
 		let n = self.size;
 		let i = 0;
-		BlockStream {
+		FunctionStream {
 			i := i + 1;
 			(i <= n).if {
 				self.copyFromTo(i, n)
@@ -2770,9 +2770,9 @@
 		answer
 	}
 
-	takeWhile { :self :aBlock/1 |
+	takeWhile { :self :aFunction/1 |
 		self.detectIndexIfFoundIfNone { :each |
-			each.aBlock.not
+			each.aFunction.not
 		} { :i |
 			self.copyFromTo(1, i - 1)
 		} {
@@ -2850,15 +2850,15 @@
 		self.tuples.reshape(shape)
 	}
 
-	tuplesCollect { :self :aBlock/1 |
+	tuplesCollect { :self :aFunction/1 |
 		let answer = [];
 		self.tuplesDo { :each |
-			answer.add!(each.aBlock)
+			answer.add!(each.aFunction)
 		};
 		answer
 	}
 
-	tuplesDo { :self :aBlock/1 |
+	tuplesDo { :self :aFunction/1 |
 		let tupleCount = self.collect(size/1).product;
 		let tuple = self.new(self.size);
 		1.toDo(tupleCount) { :i |
@@ -2868,11 +2868,11 @@
 				tuple[j] := fromSequence[k % fromSequence.size + 1];
 				k := k // fromSequence.size
 			};
-			aBlock(tuple)
+			aFunction(tuple)
 		}
 	}
 
-	unaryBlock { :self |
+	unaryFunction { :self |
 		{ :index |
 			self.at(index)
 		}
@@ -2882,19 +2882,19 @@
 		self.nub(comparator/2).sort!
 	}
 
-	uniqueElements { :self :aBlock/2 |
+	uniqueElements { :self :aFunction/2 |
 		self.withIndexCollect { :p :i |
 			let seen = [];
 			self.withIndexDo { :q :j |
 				(i != j).ifTrue {
 					q.do { :each |
-						seen.includesBy(each, aBlock/2).ifFalse {
+						seen.includesBy(each, aFunction/2).ifFalse {
 							seen.add!(each)
 						}
 					}
 				}
 			};
-			p.difference(seen).nub(aBlock/2)
+			p.difference(seen).nub(aFunction/2)
 		}
 	}
 
@@ -2915,115 +2915,115 @@
 		}
 	}
 
-	withCollect { :self :aSequence :aBlock/2 |
-		self.withCollectWrapping(aSequence, aBlock/2)
+	withCollect { :self :aSequence :aFunction/2 |
+		self.withCollectWrapping(aSequence, aFunction/2)
 	}
 
-	withCollect! { :self :otherCollection :aBlock/2 |
+	withCollect! { :self :otherCollection :aFunction/2 |
 		self.isOfSameSizeCheck(otherCollection);
 		self.indicesDo { :index |
-			self[index] := aBlock(self[index], otherCollection[index])
+			self[index] := aFunction(self[index], otherCollection[index])
 		}
 	}
 
-	withCollectCrossed { :self :aList :aBlock/2 |
+	withCollectCrossed { :self :aList :aFunction/2 |
 		let answer = self.new(self.size * aList.size);
 		let nextIndex = 1;
 		self.do { :leftItem |
 			aList.do { :rightItem |
-				answer[nextIndex] := aBlock(leftItem, rightItem);
+				answer[nextIndex] := aFunction(leftItem, rightItem);
 				nextIndex := nextIndex + 1
 			}
 		};
 		answer
 	}
 
-	withCollectEqual { :self :aList :aBlock/2 |
+	withCollectEqual { :self :aList :aFunction/2 |
 		self.isOfSameSizeCheck(aList);
 		1.toAsCollect(self.size, self) { :index |
-			aBlock(self[index], aList[index])
+			aFunction(self[index], aList[index])
 		}
 	}
 
-	withCollectFolding { :self :aCollection :aBlock/2 |
+	withCollectFolding { :self :aCollection :aFunction/2 |
 		let maximumSize = self.size.max(aCollection.size);
 		1.toAsCollect(maximumSize, self) { :index |
-			aBlock(self.atFold(index), aCollection.atFold(index))
+			aFunction(self.atFold(index), aCollection.atFold(index))
 		}
 	}
 
-	withCollectOrAdaptTo { :self :anObject :aBlock/2 |
+	withCollectOrAdaptTo { :self :anObject :aFunction/2 |
 		(anObject.isCollection & {
 			anObject.isSequence
 		}).if {
-			self.withCollect(anObject, aBlock/2)
+			self.withCollect(anObject, aFunction/2)
 		} {
-			anObject.adaptToCollectionAndApply(self, aBlock/2)
+			anObject.adaptToCollectionAndApply(self, aFunction/2)
 		}
 	}
 
-	withCollectOuter { :self :aList :aBlock/2 |
-		aBlock/2.outer(self, aList)
+	withCollectOuter { :self :aList :aFunction/2 |
+		aFunction/2.outer(self, aList)
 	}
 
-	withCollectTable { :self :aList :aBlock/2 |
+	withCollectTable { :self :aList :aFunction/2 |
 		self.collect { :each |
-			aBlock(each, aList)
+			aFunction(each, aList)
 		}
 	}
 
-	withCollectTruncating { :self :aList :aBlock/2 |
+	withCollectTruncating { :self :aList :aFunction/2 |
 		(self.size < aList.size).if {
-			self.withCollect(aList.take(self.size), aBlock/2)
+			self.withCollect(aList.take(self.size), aFunction/2)
 		} {
-			self.take(aList.size).withCollect(aList, aBlock/2)
+			self.take(aList.size).withCollect(aList, aFunction/2)
 		}
 	}
 
-	withCollectWrapping { :self :aList :aBlock/2 |
+	withCollectWrapping { :self :aList :aFunction/2 |
 		let maximumSize = self.size.max(aList.size);
 		1L.toAsCollect(maximumSize, self) { :index |
-			aBlock(
+			aFunction(
 				self.atWrap(index),
 				aList.atWrap(index)
 			)
 		}
 	}
 
-	withDo { :self :otherCollection :twoArgBlock/2 |
+	withDo { :self :otherCollection :twoArgFunction/2 |
 		self.isOfSameSizeCheck(otherCollection);
 		self.indicesDo { :index |
-			twoArgBlock(self[index], otherCollection[index])
+			twoArgFunction(self[index], otherCollection[index])
 		}
 	}
 
-	withIndexCollect { :self :elementAndIndexBlock/2 |
+	withIndexCollect { :self :elementAndIndexFunction/2 |
 		let answer = self.newOfSize(self.size);
 		self.indicesDo { :index |
-			answer[index] := elementAndIndexBlock(self[index], index)
+			answer[index] := elementAndIndexFunction(self[index], index)
 		};
 		answer
 	}
 
-	withIndexCollect! { :self :aBlock/2 |
+	withIndexCollect! { :self :aFunction/2 |
 		self.indicesDo { :index |
-			self[index] := aBlock(self[index], index)
+			self[index] := aFunction(self[index], index)
 		};
 		self
 	}
 
-	withWithCollect { :self :aSequence :anotherSequence :aBlock/3 |
+	withWithCollect { :self :aSequence :anotherSequence :aFunction/3 |
 		let maximumSize = [self, aSequence, anotherSequence].collect(size/1).max;
 		1.toAsCollect(maximumSize, self) { :index |
-			aBlock(self.atWrap(index), aSequence.atWrap(index), anotherSequence.atWrap(index))
+			aFunction(self.atWrap(index), aSequence.atWrap(index), anotherSequence.atWrap(index))
 		}
 	}
 
-	withWithDo { :self :aList :anotherList :aBlock/3 |
+	withWithDo { :self :aList :anotherList :aFunction/3 |
 		self.isOfSameSizeCheck(aList);
 		self.isOfSameSizeCheck(anotherList);
 		self.indicesDo { :index |
-			aBlock(self[index], aList[index], anotherList[index])
+			aFunction(self[index], aList[index], anotherList[index])
 		}
 	}
 
@@ -3059,11 +3059,11 @@
 		}
 	}
 
-	withoutTrailing { :self :aBlock/1 |
+	withoutTrailing { :self :aFunction/1 |
 		let n = self.size;
 		{
 			n >= 2 & {
-				aBlock(self[n])
+				aFunction(self[n])
 			}
 		}.whileTrue {
 			n := n - 1
@@ -3079,13 +3079,13 @@
 
 +@Sequence {
 
-	applyBinaryMathOperator! { :self :anObject :aBlock/2 |
+	applyBinaryMathOperator! { :self :anObject :aFunction/2 |
 		anObject.isNumber.if {
 			self.collect! { :each |
-				aBlock(each, anObject)
+				aFunction(each, anObject)
 			}
 		} {
-			self.withCollect!(anObject, aBlock/2)
+			self.withCollect!(anObject, aFunction/2)
 		}
 	}
 
@@ -3109,7 +3109,7 @@
 
 +[Float, Integer] {
 
-	binaryDetectIndex { :self :aBlock/1 |
+	binaryDetectIndex { :self :aFunction/1 |
 		withReturn { :return/1 |
 			let low = 1;
 			let high = self;
@@ -3117,7 +3117,7 @@
 				low <= high
 			}.whileTrue {
 				let mid = (low + high) // 2;
-				aBlock(mid).if {
+				aFunction(mid).if {
 					high := mid - 1
 				} {
 					low := mid + 1
@@ -3135,13 +3135,13 @@
 		answer
 	}
 
-	equispacedTriplesDo { :self :aBlock/3 |
+	equispacedTriplesDo { :self :aFunction/3 |
 		1.toDo(self // 2) { :m |
 			let n = self - (2 * m);
 			1.toDo(n) { :i |
 				let j = i + m;
 				let k = i + (2 * m);
-				aBlock(i, j, k)
+				aFunction(i, j, k)
 			}
 		}
 	}
@@ -3154,11 +3154,11 @@
 		operand.atSymmetrical(self)
 	}
 
-	toAsCollect { :self :stop :model :aBlock/1 |
+	toAsCollect { :self :stop :model :aFunction/1 |
 		let answerSize = stop - self + 1L;
 		let answer = model.newOfSize(answerSize);
 		1L.toDo(answerSize) { :index |
-			answer[index] := aBlock(index + self - 1L)
+			answer[index] := aFunction(index + self - 1L)
 		};
 		answer
 	}

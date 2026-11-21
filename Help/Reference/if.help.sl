@@ -9,7 +9,7 @@ Note that the branches are evaluated using `nullaryApply`,
 and therefore _must_ be no-argument blocks.
 
 Ordinarily _whenTrue_ and _whenFalse_ are literal no-argument blocks.
-`Trailing Block Syntax` provides an idiomatic notation for writing such conditionals.
+`Trailing Function Syntax` provides an idiomatic notation for writing such conditionals.
 The standard libraries write if conditions as:
 
 ```

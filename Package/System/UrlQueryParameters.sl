@@ -39,9 +39,9 @@ URLSearchParams! : [Object, Do, UrlQueryParameters] {
 		>
 	}
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		self.keysAndValuesDo { :unusedKey :value |
-			aBlock(value)
+			aFunction(value)
 		}
 	}
 
@@ -71,11 +71,11 @@ URLSearchParams! : [Object, Do, UrlQueryParameters] {
 		true
 	}
 
-	keysAndValuesDo { :self :aBlock/2 |
+	keysAndValuesDo { :self :aFunction/2 |
 		<primitive:
 		_self.forEach(
 			function(value, key, _myself) {
-				_aBlock_2(key, value);
+				_aFunction_2(key, value);
 			}
 		);
 		>

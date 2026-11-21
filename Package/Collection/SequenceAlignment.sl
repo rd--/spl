@@ -51,7 +51,7 @@
 		}
 	}
 
-	increasingSubsequenceList { :self :aBlock/2 |
+	increasingSubsequenceList { :self :aFunction/2 |
 		(self.size < 2).if {
 			[self]
 		} {
@@ -59,7 +59,7 @@
 				remaining.isEmpty.if {
 					[done]
 				} {
-					aBlock(done.last, remaining.first).if {
+					aFunction(done.last, remaining.first).if {
 						increasing(
 							done ++ [remaining.first],
 							remaining.allButFirst
@@ -280,7 +280,7 @@
 		answer
 	}
 
-	orderedSubstrings { :self :aBlock/2 |
+	orderedSubstrings { :self :aFunction/2 |
 		self.isEmpty.if {
 			[]
 		} {
@@ -288,7 +288,7 @@
 			let run = [self.first];
 			2.toDo(self.size) { :i |
 				let item = self[i];
-				aBlock(self[i - 1], item).if {
+				aFunction(self[i - 1], item).if {
 					run.add!(item)
 				} {
 					answer.add!(run.copy);
@@ -330,13 +330,13 @@
 		self.subsequences(true.constant)
 	}
 
-	subsequencesDo { :self :aBlock/1 |
+	subsequencesDo { :self :aFunction/1 |
 		self.isEmpty.if {
 			[]
 		} {
 			let k = self.size;
 			[1 .. k].powerSetDo { :each |
-				aBlock(self.atAll(each))
+				aFunction(self.atAll(each))
 			}
 		}
 	}
@@ -355,9 +355,9 @@
 		self.substrings(true.constant)
 	}
 
-	substringsDo { :self :aBlock/1 |
+	substringsDo { :self :aFunction/1 |
 		0.toDo(self.size) { :each |
-			self.partitionDo(each, 1, aBlock/1)
+			self.partitionDo(each, 1, aFunction/1)
 		}
 	}
 

@@ -66,11 +66,11 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		}
 	}
 
-	evaluateNotifying { :self :aString :aBlock/1 |
+	evaluateNotifying { :self :aString :aFunction/1 |
 		{
 			self.evaluateOrSignalError(aString)
 		}.ifError { :err |
-			aBlock(err)
+			aFunction(err)
 		}
 	}
 
@@ -337,9 +337,9 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		Url('https://rohandrape.net/sw/spl/' ++ aString)
 	}
 
-	timing { :self :aBlock/0 |
+	timing { :self :aFunction/0 |
 		let beginTime = self.sessionTime;
-		let answer = aBlock();
+		let answer = aFunction();
 		let endTime = self.sessionTime;
 		[endTime - beginTime, answer]
 	}
@@ -376,7 +376,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 }
 
-+Block {
++Function {
 
 	once { :self/0 |
 		let cache = system.cached('onceCache') {
@@ -393,7 +393,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 }
 
-+Block {
++Function {
 
 	repeatedTiming { :self/0 :interval |
 		let timeList = [];
@@ -527,7 +527,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 					'Assignment' -> {
 						SymbolicExpression('←', p.collect(f/1))
 					},
-					'Block' -> {
+					'Function' -> {
 						SymbolicExpression('𝜆', p.collect(f/1))
 					},
 					'Identifier' -> {

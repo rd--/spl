@@ -59,7 +59,7 @@ Unary `!!` is `doubleFactorial`:
 ```
 
 Unary operators are defined in the same manner as binary operators,
-binding to blocks of one rather than two arguments.
+binding to functions of one rather than two arguments.
 
 * * *
 

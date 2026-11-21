@@ -29,6 +29,6 @@ true
 
 See also: also, with
 
-Guides: Block Functions
+Guides: Function Functions
 
 Categories: Accessing, Behaviour

@@ -14,13 +14,13 @@
 		}
 	}
 
-	blend { :y1 :y2 :mu :aBlock/3 |
+	blend { :y1 :y2 :mu :aFunction/3 |
 		mu.isList.if {
 			mu.collect { :each |
-				y1.blend(y2, each, aBlock/3)
+				y1.blend(y2, each, aFunction/3)
 			}
 		} {
-			aBlock(y1, y2, mu)
+			aFunction(y1, y2, mu)
 		}
 	}
 
@@ -290,25 +290,25 @@
 		}
 	}
 
-	listInterpolation { :self :aBlock |
-		aBlock.argumentCount.caseOf(
+	listInterpolation { :self :aFunction |
+		aFunction.argumentCount.caseOf(
 			[
-				3 -> { listInterpolationTernary(self, aBlock) },
-				5 -> { listInterpolationQuinary(self, aBlock) }
+				3 -> { listInterpolationTernary(self, aFunction) },
+				5 -> { listInterpolationQuinary(self, aFunction) }
 			]
 		) {
-			self.error('listInterpolation: not 3- or 5- argument block')
+			self.error('listInterpolation: not 3- or 5- argument function')
 		}
 	}
 
-	listInterpolationQuinary { :self :aBlock/5 |
+	listInterpolationQuinary { :self :aFunction/5 |
 		let k = self.size;
 		{ :x |
 			let i = x.integerPart;
 			(i = k).if {
 				self.last
 			} {
-				aBlock(
+				aFunction(
 					self[(i - 1).max(1)],
 					self[i],
 					self[i + 1],
@@ -319,14 +319,14 @@
 		}
 	}
 
-	listInterpolationTernary { :self :aBlock/3 |
+	listInterpolationTernary { :self :aFunction/3 |
 		let k = self.size;
 		{ :x |
 			let i = x.integerPart;
 			(i = k).if {
 				self.last
 			} {
-				aBlock(
+				aFunction(
 					self[i],
 					self[i + 1],
 					x.fractionalPart
@@ -335,14 +335,14 @@
 		}
 	}
 
-	matrixInterpolation { :self :aBlock/6 |
+	matrixInterpolation { :self :aFunction/6 |
 		let [m, n] = [self.numberOfRows, self.numberOfColumns];
 		{ :x :y |
 			let i1 = x.integerPart;
 			let j1 = y.integerPart;
 			let i2 = m.min(i1 + 1);
 			let j2 = n.min(j1 + 1);
-			aBlock(
+			aFunction(
 				self[i1][j1],
 				self[i2][j1],
 				self[i1][j2],
@@ -390,7 +390,7 @@
 		}
 	}
 
-	volumeInterpolation { :self :aBlock/11 |
+	volumeInterpolation { :self :aFunction/11 |
 		let [m, n, o] = self.shape;
 		{ :x :y :z |
 			let i1 = x.integerPart;
@@ -399,7 +399,7 @@
 			let i2 = m.min(i1 + 1);
 			let j2 = n.min(j1 + 1);
 			let k2 = o.min(k1 + 1);
-			aBlock(
+			aFunction(
 				self[i1][j1][k1],
 				self[i2][j1][k1],
 				self[i1][j2][k1],

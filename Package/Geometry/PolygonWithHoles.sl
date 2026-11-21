@@ -25,7 +25,7 @@ PolygonWithHoles : [Object, Equal, Geometry] {
 	}
 
 	project { :self :projection |
-		let f/1 = projection.unaryBlock;
+		let f/1 = projection.unaryFunction;
 		PolygonWithHoles(
 			self.outerVertexCoordinates.collect(f/1),
 			self.innerVertexCoordinatesList.collect { :each |

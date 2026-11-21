@@ -11,7 +11,7 @@ Access an element at a specified index:
 - `at`
 
 Access an element at a specified index,
-providing guard blocks:
+providing guard functions:
 
 - `atIfAbsent`
 - `atIfPresent`

@@ -4,7 +4,7 @@ BernoulliProcess : [Object] {
 
 	Stream { :self :r |
 		let p = self.p;
-		BlockStream {
+		FunctionStream {
 			(r.nextRandomFloat < p).boole
 		} {
 		}

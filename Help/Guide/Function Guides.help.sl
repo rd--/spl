@@ -5,7 +5,7 @@
 - `Asynchronous Functions`
 - `Benchmarking Functions`
 - `Bitwise Functions`
-- `Block Functions`
+- `Function Functions`
 - `Boolean Functions`
 - `Chaotic Functions`
 - `Circle Functions`

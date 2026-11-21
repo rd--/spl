@@ -6,7 +6,7 @@ PoissonProcess : [Object] {
 		let mu = self.mu;
 		let t = t0;
 		let k = 0;
-		BlockStream {
+		FunctionStream {
 			let answer = [t, k];
 			t := t + r.exponentialDistribution(mu);
 			k := k + 1;

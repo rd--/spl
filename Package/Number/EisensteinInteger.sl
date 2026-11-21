@@ -6,8 +6,8 @@ EisensteinInteger : [Object, Store, Equal] {
 		self.toComplex.abs
 	}
 
-	adaptToComplexAndApply { :self :aComplexNumber :aBlock/2 |
-		aBlock(
+	adaptToComplexAndApply { :self :aComplexNumber :aFunction/2 |
+		aFunction(
 			aComplexNumber,
 			self.eisensteinIntegerToComplex
 		)

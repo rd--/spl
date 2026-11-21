@@ -45,9 +45,9 @@ Matrix33 : [Object, Equal] {
 		self
 	}
 
-	isEqualBy { :self :aMatrix :aBlock/2 |
+	isEqualBy { :self :aMatrix :aFunction/2 |
 		aMatrix.isMatrix33 & {
-			aBlock(self.elements, aMatrix.elements)
+			aFunction(self.elements, aMatrix.elements)
 		}
 	}
 

@@ -1,17 +1,17 @@
-# sortBlock
+# sortFunction
 
-- _sortBlock([x₁ x₂ …])_
+- _sortFunction([x₁ x₂ …])_
 
-Answer the sort block of the sorted list _x_.
+Answer the sort function of the sorted list _x_.
 
 ```
 >>> SortedList[1 3 5 7 9]
->>> .sortBlock
+>>> .sortFunction
 >>> .name
 'precedes/2'
 
 >>> SortedList([1 3 5 7 9], <)
->>> .sortBlock
+>>> .sortFunction
 >>> .operatorName
 '<'
 ```

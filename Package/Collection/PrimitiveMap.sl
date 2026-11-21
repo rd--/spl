@@ -23,14 +23,14 @@
 		<primitive: return _self.has(_key);>
 	}
 
-	removeKeyIfAbsent! { :self :key :aBlock/0 |
+	removeKeyIfAbsent! { :self :key :aFunction/0 |
 		<primitive:
 		if(_self.has(_key)) {
 			const removed = _self.get(_key);
 			_self.delete(_key);
 			return removed;
 		} else {
-			return _aBlock_0();
+			return _aFunction_0();
 		}
 		>
 	}

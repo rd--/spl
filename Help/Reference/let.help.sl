@@ -30,7 +30,7 @@ Let bound values are mutable:
 -0.36651
 ```
 
-`let` bindings must be placed in sequence at the start of a `Block` or program,
+`let` bindings must be placed in sequence at the start of a `Function` or program,
 immediately following any argument names.
 
 `let` bindings may not be interspersed with statements,
@@ -65,7 +65,7 @@ true
 
 See also: =, var
 
-Guides: Block Syntax, Let Syntax, Program Syntax, Var Syntax
+Guides: Function Syntax, Let Syntax, Program Syntax, Var Syntax
 
 References:
 _Mathematica_

@@ -54,11 +54,11 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		self.subTrees.atIfAbsent(index, ifAbsent/0)
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		Tree(
-			aBlock(self.value),
+			aFunction(self.value),
 			self.subTrees.collect { :each |
-				each.collect(aBlock/1)
+				each.collect(aFunction/1)
 			}
 		)
 	}
@@ -71,15 +71,15 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		answer
 	}
 
-	deepWithIndicesDo { :self :aBlock/2 |
-		self.deepWithIndicesDoStartingAt([], aBlock/2)
+	deepWithIndicesDo { :self :aFunction/2 |
+		self.deepWithIndicesDoStartingAt([], aFunction/2)
 	}
 
-	deepWithIndicesDoStartingAt { :self :i :aBlock/2 |
+	deepWithIndicesDoStartingAt { :self :i :aFunction/2 |
 		self.subTrees.withIndexDo { :each :j |
 			let index = i ++ [j];
-			aBlock(each, index);
-			each.deepWithIndicesDoStartingAt(index, aBlock/2)
+			aFunction(each, index);
+			each.deepWithIndicesDoStartingAt(index, aFunction/2)
 		}
 	}
 
@@ -97,10 +97,10 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		}
 	}
 
-	do { :self :aBlock/1 |
-		aBlock(self);
+	do { :self :aFunction/1 |
+		aFunction(self);
 		self.subTrees.do { :each |
-			each.do(aBlock/1)
+			each.do(aFunction/1)
 		}
 	}
 
@@ -130,10 +130,10 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		}
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isTree & {
-			aBlock(self.value, anObject.value) & {
-				isEqualBy(self.subTrees, anObject.subTrees, aBlock/2)
+			aFunction(self.value, anObject.value) & {
+				isEqualBy(self.subTrees, anObject.subTrees, aFunction/2)
 			}
 		}
 	}
@@ -168,20 +168,20 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		answer
 	}
 
-	leavesDo { :self :aBlock/1 |
+	leavesDo { :self :aFunction/1 |
 		self.do { :each |
 			each.isLeaf.ifTrue {
-				aBlock(each.value)
+				aFunction(each.value)
 			}
 		}
 	}
 
-	levelOrderDo { :self :aBlock/1 |
+	levelOrderDo { :self :aFunction/1 |
 		self.subTrees.do { :each |
-			aBlock(each)
+			aFunction(each)
 		};
 		self.subTrees.do { :each |
-			each.levelOrderDo(aBlock/1)
+			each.levelOrderDo(aFunction/1)
 		}
 	}
 
@@ -212,11 +212,11 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		}
 	}
 
-	postOrderDo { :self :aBlock/1 |
+	postOrderDo { :self :aFunction/1 |
 		self.subTrees.do { :each |
-			each.postOrderDo(aBlock/1)
+			each.postOrderDo(aFunction/1)
 		};
-		aBlock(self)
+		aFunction(self)
 	}
 
 	postOrderValues { :self |
@@ -227,11 +227,11 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		answer
 	}
 
-	reverseDo { :self :aBlock/1 |
+	reverseDo { :self :aFunction/1 |
 		self.subTrees.reverseDo { :each |
-			each.reverseDo(aBlock/1)
+			each.reverseDo(aFunction/1)
 		};
-		aBlock(self);
+		aFunction(self);
 		nil
 	}
 
@@ -251,16 +251,16 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		answer
 	}
 
-	withLevelDo { :self :aBlock/2 :level |
+	withLevelDo { :self :aFunction/2 :level |
 		self.subTrees.do { :each |
-			each.withLevelDo(aBlock/2, level + 1);
-			aBlock(each, level)
+			each.withLevelDo(aFunction/2, level + 1);
+			aFunction(each, level)
 		}
 	}
 
-	withLevelDo { :self :aBlock/2 |
-		self.withLevelDo(aBlock/2, 1);
-		aBlock(self, 0);
+	withLevelDo { :self :aFunction/2 |
+		self.withLevelDo(aFunction/2, 1);
+		aFunction(self, 0);
 		nil
 	}
 
@@ -405,15 +405,15 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 		n.sternBrocotTree(1/1)
 	}
 
-	unfoldTree { :anInteger :anObject :aBlock/1 |
+	unfoldTree { :anInteger :anObject :aFunction/1 |
 		(anInteger <= 1).if {
 			Tree(anObject, [])
 		} {
-			let children = aBlock(anObject);
+			let children = aFunction(anObject);
 			Tree(
 				anObject,
 				children.collect { :each |
-					(anInteger - 1).unfoldTree(each, aBlock/1)
+					(anInteger - 1).unfoldTree(each, aFunction/1)
 				}
 			)
 		}
@@ -436,26 +436,26 @@ Tree : [Object, Store, Equal, Do, At, Indices] {
 
 }
 
-+Block {
++Function {
 
-	nestTree { :aBlock/1 :aTree :depth |
+	nestTree { :aFunction/1 :aTree :depth |
 		(depth = 0).if {
 			aTree
 		} {
 			aTree.isLeaf.if {
 				Tree(
 					aTree.value,
-					aBlock(aTree.value).collect { :each |
+					aFunction(aTree.value).collect { :each |
 						Tree(each, [])
 					}
 				)
 			} {
 				nestTree(
-					aBlock/1,
+					aFunction/1,
 					Tree(
 						aTree.value,
 						aTree.subTrees.collect { :each |
-							nestTree(aBlock/1, each, 1)
+							nestTree(aFunction/1, each, 1)
 						}
 					),
 					depth - 1

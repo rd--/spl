@@ -23,12 +23,12 @@ Types implementing `Do`:
 [
 	'AsciiString'
 	'BitSet'
-	'BlockStream'
 	'ByteArray'
 	'CollectionStream'
 	'Dictionary'
 	'Float32Array'
 	'Float64Array'
+	'FunctionStream'
 	'Heap'
 	'IdentitySet'
 	'Link'

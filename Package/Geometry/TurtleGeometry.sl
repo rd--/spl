@@ -35,9 +35,9 @@ TurtleGeometry : [Object, Equal, Store, Geometry] {
 		2
 	}
 
-	forEach { :self :aCollection :aBlock/2 |
+	forEach { :self :aCollection :aFunction/2 |
 		aCollection.do { :each |
-			aBlock(self, each)
+			aFunction(self, each)
 		};
 		self
 	}
@@ -116,9 +116,9 @@ TurtleGeometry : [Object, Equal, Store, Geometry] {
 		self.addInstruction!('Pen', false)
 	}
 
-	repeat { :self :count :aBlock/1 |
+	repeat { :self :count :aFunction/1 |
 		count.timesRepeat {
-			aBlock(self)
+			aFunction(self)
 		};
 		self
 	}

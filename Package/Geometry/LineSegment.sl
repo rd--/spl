@@ -42,7 +42,7 @@ LineSegment : [Object, Equal] {
 	}
 
 	project { :self :projection |
-		let f/1 = projection.unaryBlock;
+		let f/1 = projection.unaryFunction;
 		LineSegment(
 			f(self.u),
 			f(self.v)

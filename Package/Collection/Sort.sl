@@ -1,4 +1,4 @@
-+Block {
++Function {
 
 	compareOn { :f/1 |
 		{ :a :b |
@@ -51,8 +51,8 @@
 		countingSort(input, identity/1, input.max)
 	}
 
-	heapSort { :self :sortBlock/2 |
-		let h = Heap(self, sortBlock/2);
+	heapSort { :self :sortFunction/2 |
+		let h = Heap(self, sortFunction/2);
 		let l = [];
 		let k = self.size;
 		k.timesRepeat {
@@ -69,9 +69,9 @@
 		self.copyList.sort!
 	}
 
-	sort { :self :sortBlock/2 |
+	sort { :self :sortFunction/2 |
 		self.copyList.sort!(
-			sortBlock/2
+			sortFunction/2
 		)
 	}
 
@@ -121,15 +121,15 @@
 		self.isSortedBetween(1, self.size)
 	}
 
-	[isSorted, isSortedBy] { :self :aBlock/2 |
-		self.isSortedByBetween(aBlock/2, 1, self.size)
+	[isSorted, isSortedBy] { :self :aFunction/2 |
+		self.isSortedByBetween(aFunction/2, 1, self.size)
 	}
 
 	isSortedBetween { :self :startIndex :endIndex |
 		self.isSortedByBetween(precedesOrEqual/2, startIndex, endIndex)
 	}
 
-	isSortedByBetween { :self :aBlock/2 :startIndex :endIndex |
+	isSortedByBetween { :self :aFunction/2 :startIndex :endIndex |
 		(endIndex <= startIndex).if {
 			true
 		} {
@@ -137,7 +137,7 @@
 			withReturn { :return/1 |
 				(startIndex + 1).toDo(endIndex) { :index |
 					let element = self[index];
-					aBlock(previousElement, element).ifFalse {
+					aFunction(previousElement, element).ifFalse {
 						false.return
 					};
 					previousElement := element
@@ -177,8 +177,8 @@
 		}.reverse
 	}
 
-	ordering { :self :aBlock/2 |
-		self.sortWithIndices(aBlock/2).collect(value/1)
+	ordering { :self :aFunction/2 |
+		self.sortWithIndices(aFunction/2).collect(value/1)
 	}
 
 	ordering { :self |
@@ -231,8 +231,8 @@
 		self.sortBy!(succeeds/2)
 	}
 
-	sort { :self :sortBlock/2 |
-		self.copyList.sort!(sortBlock/2)
+	sort { :self :sortFunction/2 |
+		self.copyList.sort!(sortFunction/2)
 	}
 
 	sort { :self |
@@ -245,13 +245,13 @@
 		)
 	}
 
-	sortComparingEach! { :self :blockList |
-		let n = blockList.size;
+	sortComparingEach! { :self :functionList |
+		let n = functionList.size;
 		self.sortComparing! { :a :b |
 			let answer = 0;
 			let index = 1;
 			{ answer = 0 & { index <= n } }.whileTrue {
-				let f/2 = blockList[index];
+				let f/2 = functionList[index];
 				let c = f(a, b);
 				index := index + 1;
 				answer := c
@@ -260,22 +260,22 @@
 		}
 	}
 
-	sortOn { :self :keyBlock/1 |
-		self.copy.sortOn!(keyBlock/1)
+	sortOn { :self :keyFunction/1 |
+		self.copy.sortOn!(keyFunction/1)
 	}
 
-	sortOn! { :self :keyBlock/1 |
-		self.sortByOn!(precedes/2, keyBlock/1)
+	sortOn! { :self :keyFunction/1 |
+		self.sortByOn!(precedes/2, keyFunction/1)
 	}
 
-	sortWithIndices { :self :sortBlock/2 |
+	sortWithIndices { :self :sortFunction/2 |
 		self.ifEmpty {
 			[]
 		} {
 			self.withIndexCollect { :each :index |
 				each -> index
 			}.sort! { :p :q |
-				sortBlock(p.key, q.key)
+				sortFunction(p.key, q.key)
 			}
 		}
 	}
@@ -474,8 +474,8 @@
 		self.copy.bubbleSort!
 	}
 
-	bubbleSort! { :self :sortBlock/2 |
-		self.bubbleSortWithMonitor(sortBlock/2, nil.constant)
+	bubbleSort! { :self :sortFunction/2 |
+		self.bubbleSortWithMonitor(sortFunction/2, nil.constant)
 	}
 
 	bubbleSort! { :self |
@@ -488,15 +488,15 @@
 		)
 	}
 
-	bubbleSortWithMonitor { :self :sortBlock/2 :monitorBlock/1 |
+	bubbleSortWithMonitor { :self :sortFunction/2 :monitorFunction/1 |
 		let n = self.size - 1;
 		let isSorted = false;
 		{ isSorted }.whileFalse {
 			let t = 1;
 			1.toDo(n) { :j |
-				sortBlock(self[j + 1], self[j]).ifTrue {
+				sortFunction(self[j + 1], self[j]).ifTrue {
 					self.swapWith!(j, j + 1);
-					monitorBlock(self);
+					monitorFunction(self);
 					t := j
 				}
 			};
@@ -506,8 +506,8 @@
 		self
 	}
 
-	bubbleSortWithMonitor { :self :monitorBlock/1 |
-		self.bubbleSortWithMonitor(isLess/2, monitorBlock/1)
+	bubbleSortWithMonitor { :self :monitorFunction/1 |
+		self.bubbleSortWithMonitor(isLess/2, monitorFunction/1)
 	}
 
 }
@@ -518,8 +518,8 @@
 		self.copy.insertionSort!
 	}
 
-	insertionSort! { :self :sortBlock/2 |
-		self.insertionSortWithMonitor(sortBlock/2, nil.constant)
+	insertionSort! { :self :sortFunction/2 |
+		self.insertionSortWithMonitor(sortFunction/2, nil.constant)
 	}
 
 	insertionSort! { :self |
@@ -532,22 +532,22 @@
 		)
 	}
 
-	insertionSortWithMonitor { :self :sortBlock/2 :monitorBlock/1 |
+	insertionSortWithMonitor { :self :sortFunction/2 :monitorFunction/1 |
 		let n = self.size;
 		2.toDo(n) { :i |
 			1.toDo(i) { :j |
-				sortBlock(self[i], self[j]).ifTrue {
+				sortFunction(self[i], self[j]).ifTrue {
 					let x = self.removeAt!(i);
 					self.insertAt!(x, j);
-					monitorBlock(self)
+					monitorFunction(self)
 				}
 			}
 		};
 		self
 	}
 
-	insertionSortWithMonitor { :self :monitorBlock/1 |
-		self.insertionSortWithMonitor(isLess/2, monitorBlock/1)
+	insertionSortWithMonitor { :self :monitorFunction/1 |
+		self.insertionSortWithMonitor(isLess/2, monitorFunction/1)
 	}
 
 }
@@ -558,8 +558,8 @@
 		self.copy.shellSort!
 	}
 
-	shellSort! { :self :t :sortBlock/2 |
-		self.shellSortWithMonitor(t, sortBlock/2, nil.constant)
+	shellSort! { :self :t :sortFunction/2 |
+		self.shellSortWithMonitor(t, sortFunction/2, nil.constant)
 	}
 
 	shellSort! { :self |
@@ -578,7 +578,7 @@
 		self.shellSortMatrix([5, 3, 1])
 	}
 
-	shellSortWithMonitor { :self :t :sortBlock/2 :monitorBlock/1 |
+	shellSortWithMonitor { :self :t :sortFunction/2 :monitorFunction/1 |
 		let n = self.size;
 		t.do { :h |
 			(h + 1).toDo(n) { :j |
@@ -586,10 +586,10 @@
 				let r = self[j];
 				let continue = true;
 				{ continue & { i > 0 } }.whileTrue {
-					sortBlock(r, self[i]).if {
+					sortFunction(r, self[i]).if {
 						self.swapWith!(i, i + h);
 						i := i - h;
-						monitorBlock(self)
+						monitorFunction(self)
 					} {
 						continue := false
 					}
@@ -600,12 +600,12 @@
 		self
 	}
 
-	shellSortWithMonitor { :self :t :monitorBlock/1 |
-		self.shellSortWithMonitor(t, isLess/2, monitorBlock/1)
+	shellSortWithMonitor { :self :t :monitorFunction/1 |
+		self.shellSortWithMonitor(t, isLess/2, monitorFunction/1)
 	}
 
-	shellSortWithMonitor { :self :monitorBlock/1 |
-		self.shellSortWithMonitor([5, 3, 1], isLess/2, monitorBlock/1)
+	shellSortWithMonitor { :self :monitorFunction/1 |
+		self.shellSortWithMonitor([5, 3, 1], isLess/2, monitorFunction/1)
 	}
 
 }
@@ -616,8 +616,8 @@
 		self.copy.combSort!
 	}
 
-	combSort! { :self :sortBlock/2 |
-		self.combSortWithMonitor(sortBlock/2, nil.constant)
+	combSort! { :self :sortFunction/2 |
+		self.combSortWithMonitor(sortFunction/2, nil.constant)
 	}
 
 	combSort! { :self |
@@ -630,7 +630,7 @@
 		)
 	}
 
-	combSortWithMonitor { :self :sortBlock/2 :monitorBlock/1 |
+	combSortWithMonitor { :self :sortFunction/2 :monitorFunction/1 |
 		let n = self.size;
 		let gap = n;
 		let continue = true;
@@ -638,9 +638,9 @@
 			let swaps = false;
 			gap := (gap / 1.25).floor;
 			1.toDo(n - gap) { :i |
-				sortBlock(self[i + gap], self[i]).ifTrue {
+				sortFunction(self[i + gap], self[i]).ifTrue {
 					self.swapWith!(i, i + gap);
-					monitorBlock(self);
+					monitorFunction(self);
 					swaps := true
 				}
 			};
@@ -651,8 +651,8 @@
 		self
 	}
 
-	combSortWithMonitor { :self :monitorBlock/1 |
-		self.combSortWithMonitor(isLess/2, monitorBlock/1)
+	combSortWithMonitor { :self :monitorFunction/1 |
+		self.combSortWithMonitor(isLess/2, monitorFunction/1)
 	}
 
 }
@@ -673,13 +673,13 @@
 		)
 	}
 
-	selectionSortWithMonitor { :self :monitorBlock/1 |
+	selectionSortWithMonitor { :self :monitorFunction/1 |
 		let n = self.size;
 		n.toByDo(1, -1) { :j |
 			let m = self.indexOf(self.maxFromTo(1, j));
 			(m != j).ifTrue {
 				self.swapWith!(j, m);
-				monitorBlock(self)
+				monitorFunction(self)
 			}
 		};
 		self
@@ -703,7 +703,7 @@
 		)
 	}
 
-	cycleSortWithMonitor { :self :monitorBlock/1 |
+	cycleSortWithMonitor { :self :monitorFunction/1 |
 		self.isPermutationList.ifFalse {
 			self.error('cycleSort: not permutation list')
 		};
@@ -715,12 +715,12 @@
 				{ continue }.whileTrue {
 					let x = self[n];
 					self[n] := (n != i).if { y } { nil } ;
-					monitorBlock(self);
+					monitorFunction(self);
 					y := x;
 					n := y;
 					(n = i).ifTrue {
 						self[n] := y;
-						monitorBlock(self);
+						monitorFunction(self);
 						continue := false
 					}
 				}
@@ -733,38 +733,38 @@
 
 +List {
 
-	bitonicMergeWithMonitor { :a :low :count :direction :sortBlock/2 :monitorBlock/1 |
+	bitonicMergeWithMonitor { :a :low :count :direction :sortFunction/2 :monitorFunction/1 |
 		(count > 1L).ifTrue {
 			let k = count // 2L;
 			low.toDo(low + k - 1L) { :i |
 				(
 					direction = 1L & {
-						sortBlock(a[i + k], a[i])
+						sortFunction(a[i + k], a[i])
 					} | {
 						direction = 0L & {
-							sortBlock(a[i], a[i + k])
+							sortFunction(a[i], a[i + k])
 						}
 					}
 				).ifTrue {
 					a.swapWith!(i, i + k);
-					monitorBlock(a)
+					monitorFunction(a)
 				}
 			};
-			bitonicMergeWithMonitor(a, low, k, direction, sortBlock/2, monitorBlock/1);
-			bitonicMergeWithMonitor(a, low + k, k, direction, sortBlock/2, monitorBlock/1)
+			bitonicMergeWithMonitor(a, low, k, direction, sortFunction/2, monitorFunction/1);
+			bitonicMergeWithMonitor(a, low + k, k, direction, sortFunction/2, monitorFunction/1)
 		}
 	}
 
-	bitonicSort { :self :sortBlock/2 |
-		self.copy.bitonicSort!(sortBlock/2)
+	bitonicSort { :self :sortFunction/2 |
+		self.copy.bitonicSort!(sortFunction/2)
 	}
 
 	bitonicSort { :self |
 		self.copy.bitonicSort!
 	}
 
-	bitonicSort! { :self :sortBlock/2 |
-		self.bitonicSortWithMonitor(sortBlock/2, nil.constant)
+	bitonicSort! { :self :sortFunction/2 |
+		self.bitonicSortWithMonitor(sortFunction/2, nil.constant)
 	}
 
 	bitonicSort! { :self |
@@ -777,27 +777,27 @@
 		)
 	}
 
-	bitonicSortWithMonitor { :a :low :count :direction :sortBlock/2 :monitorBlock/1 |
+	bitonicSortWithMonitor { :a :low :count :direction :sortFunction/2 :monitorFunction/1 |
 		(count > 1L).ifTrue {
 			let k = count // 2L;
-			bitonicSortWithMonitor(a, low, k, 1L, sortBlock/2, monitorBlock/1);
-			bitonicSortWithMonitor(a, low + k, k, 0L, sortBlock/2, monitorBlock/1);
-			bitonicMergeWithMonitor(a, low, count, direction, sortBlock/2, monitorBlock/1)
+			bitonicSortWithMonitor(a, low, k, 1L, sortFunction/2, monitorFunction/1);
+			bitonicSortWithMonitor(a, low + k, k, 0L, sortFunction/2, monitorFunction/1);
+			bitonicMergeWithMonitor(a, low, count, direction, sortFunction/2, monitorFunction/1)
 		}
 	}
 
-	bitonicSortWithMonitor { :a :sortBlock/2 :monitorBlock/1 |
+	bitonicSortWithMonitor { :a :sortFunction/2 :monitorFunction/1 |
 		let n = a.size;
 		n.isPowerOfTwo.if {
-			bitonicSortWithMonitor(a, 1L, a.size, 1L, sortBlock/2, monitorBlock/1);
+			bitonicSortWithMonitor(a, 1L, a.size, 1L, sortFunction/2, monitorFunction/1);
 			a
 		} {
 			a.error('bitonicSort: size must be power of two')
 		}
 	}
 
-	bitonicSortWithMonitor { :self :monitorBlock/1 |
-		self.bitonicSortWithMonitor(isLess/2, monitorBlock/1)
+	bitonicSortWithMonitor { :self :monitorFunction/1 |
+		self.bitonicSortWithMonitor(isLess/2, monitorFunction/1)
 	}
 
 }
@@ -818,7 +818,7 @@
 		)
 	}
 
-	radixSortWithMonitor { :self :monitorBlock/1 |
+	radixSortWithMonitor { :self :monitorFunction/1 |
 		let shift = 1;
 		{ self.isSorted }.whileFalse {
 			let zeroes = [];
@@ -835,11 +835,11 @@
 				(zeroes ++ o ++ ones).withIndexDo { :each :index |
 					self[index] := each
 				};
-				monitorBlock(self);
+				monitorFunction(self);
 				continue := self.isSorted.not
 			};
 			continue.ifTrue {
-				monitorBlock(self);
+				monitorFunction(self);
 				shift := shift << 1
 			}
 		};
@@ -854,8 +854,8 @@
 		self.copy.oddEvenSort!
 	}
 
-	oddEvenSort! { :self :sortBlock/2 |
-		self.oddEvenSortWithMonitor(sortBlock/2, nil.constant)
+	oddEvenSort! { :self :sortFunction/2 |
+		self.oddEvenSortWithMonitor(sortFunction/2, nil.constant)
 	}
 
 	oddEvenSort! { :self |
@@ -868,16 +868,16 @@
 		)
 	}
 
-	oddEvenSortWithMonitor { :self :sortBlock/2 :monitorBlock/1 |
+	oddEvenSortWithMonitor { :self :sortFunction/2 :monitorFunction/1 |
 		let n = self.size;
 		let isSorted = false;
 		{ isSorted }.whileFalse {
 			isSorted := true;
 			1.toDo(2) { :j |
 				j.toByDo(n - 1, 2) { :i |
-					sortBlock(self[i + 1], self[i]).ifTrue {
+					sortFunction(self[i + 1], self[i]).ifTrue {
 						self.swapWith!(i, i + 1);
-						monitorBlock(self);
+						monitorFunction(self);
 						isSorted := false
 					}
 				}
@@ -886,8 +886,8 @@
 		self
 	}
 
-	oddEvenSortWithMonitor { :self :monitorBlock/1 |
-		self.oddEvenSortWithMonitor(isLess/2, monitorBlock/1)
+	oddEvenSortWithMonitor { :self :monitorFunction/1 |
+		self.oddEvenSortWithMonitor(isLess/2, monitorFunction/1)
 	}
 
 }
@@ -898,8 +898,8 @@
 		self.copy.gnomeSort!
 	}
 
-	gnomeSort! { :self :sortBlock/2 |
-		self.gnomeSortWithMonitor(sortBlock/2, nil.constant)
+	gnomeSort! { :self :sortFunction/2 |
+		self.gnomeSortWithMonitor(sortFunction/2, nil.constant)
 	}
 
 	gnomeSort! { :self |
@@ -912,27 +912,27 @@
 		)
 	}
 
-	gnomeSortWithMonitor { :self :sortBlock/2 :monitorBlock/1 |
+	gnomeSortWithMonitor { :self :sortFunction/2 :monitorFunction/1 |
 		let n = self.size;
 		let i = 1;
 		{ i <= n }.whileTrue {
 			(
 				i = 1 | {
-					sortBlock(self[i], self[i - 1]).not
+					sortFunction(self[i], self[i - 1]).not
 				}
 			).if {
 				i := i + 1
 			} {
 				self.swapWith!(i, i - 1);
-				monitorBlock(self);
+				monitorFunction(self);
 				i := i - 1
 			}
 		};
 		self
 	}
 
-	gnomeSortWithMonitor { :self :monitorBlock/1 |
-		self.gnomeSortWithMonitor(isLess/2, monitorBlock/1)
+	gnomeSortWithMonitor { :self :monitorFunction/1 |
+		self.gnomeSortWithMonitor(isLess/2, monitorFunction/1)
 	}
 
 }
@@ -943,8 +943,8 @@
 		self.copy.shuffleSort!
 	}
 
-	shuffleSort! { :self :sortBlock/2 |
-		self.shuffleSortWithMonitor(sortBlock/2, nil.constant)
+	shuffleSort! { :self :sortFunction/2 |
+		self.shuffleSortWithMonitor(sortFunction/2, nil.constant)
 	}
 
 	shuffleSort! { :self |
@@ -957,16 +957,16 @@
 		)
 	}
 
-	shuffleSortWithMonitor { :self :sortBlock/2 :monitorBlock/1 |
+	shuffleSortWithMonitor { :self :sortFunction/2 :monitorFunction/1 |
 		let begin = 1;
 		let end = self.size - 1;
 		let finished = false;
 		{ finished }.whileFalse {
 			finished := true;
 			begin.toDo(end) { :i |
-				sortBlock(self[i + 1], self[i]).ifTrue {
+				sortFunction(self[i + 1], self[i]).ifTrue {
 					self.swapWith!(i, i + 1);
-					monitorBlock(self);
+					monitorFunction(self);
 					finished := false
 				}
 			};
@@ -974,9 +974,9 @@
 				finished := true;
 				end := end - 1;
 				end.downToDo(begin) { :i |
-					sortBlock(self[i + 1], self[i]).ifTrue {
+					sortFunction(self[i + 1], self[i]).ifTrue {
 						self.swapWith!(i, i + 1);
-						monitorBlock(self);
+						monitorFunction(self);
 						finished := false
 					}
 				}
@@ -986,8 +986,8 @@
 		self
 	}
 
-	shuffleSortWithMonitor { :self :monitorBlock/1 |
-		self.shuffleSortWithMonitor(isLess/2, monitorBlock/1)
+	shuffleSortWithMonitor { :self :monitorFunction/1 |
+		self.shuffleSortWithMonitor(isLess/2, monitorFunction/1)
 	}
 
 }

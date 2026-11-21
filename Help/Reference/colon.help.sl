@@ -2,7 +2,7 @@
 
 `:` is a syntax token, it is not an operator.
 
-A colon prefix indicates argument names in `Block Syntax`:
+A colon prefix indicates argument names in `Function Syntax`:
 
 ```
 >>> let f = { :i | i * i };
@@ -37,7 +37,7 @@ The name of this syntax token is `colon`.
 
 See also: ,, ., :;, :=, ;
 
-Guides: Block Syntax, Infix Method Syntax, Range Syntax, Record Syntax, Syntax Tokens, Type Definition Syntax
+Guides: Function Syntax, Infix Method Syntax, Range Syntax, Record Syntax, Syntax Tokens, Type Definition Syntax
 
 References:
 _Mathworks_

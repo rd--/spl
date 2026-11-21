@@ -26,9 +26,9 @@ AsciiString : [Object, New, Store, Copy, Equal, Do, At, Indices, Put, Collection
 		self.byteArray.List
 	}
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		self.byteArray.do { :each |
-			aBlock(each.Character)
+			aFunction(each.Character)
 		}
 	}
 

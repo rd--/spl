@@ -24,7 +24,7 @@ The _with_ methods in Smalltalk are all class methods and do not translate to Sp
 
 See also: also, in, unaryApply
 
-Guides: Block Functions
+Guides: Function Functions
 
 References:
 _Kotlin_

@@ -756,11 +756,11 @@
 		c.copyFromTo(1,	b)
 	}
 
-	primesUpToDo { :self :aBlock/1 |
+	primesUpToDo { :self :aFunction/1 |
 		let k = self.nextPrime.indexOfPrime - 1L;
 		let primesList = system.cachedPrimesListExtendedToIndex(k);
 		1L.toDo(k) { :index |
-			aBlock(primesList[index])
+			aFunction(primesList[index])
 		}
 	}
 
@@ -794,7 +794,7 @@
 		p
 	}
 
-	sieveOfAtkinDo { :limit :aBlock/1 |
+	sieveOfAtkinDo { :limit :aFunction/1 |
 		let a = List(limit + 1, false);
 		let k = limit.integerSquareRoot;
 		(limit > 2).ifTrue {
@@ -828,7 +828,7 @@
 		};
 		2.toDo(limit) { :i |
 			a[i].ifTrue {
-				aBlock(i)
+				aFunction(i)
 			}
 		};
 		nil
@@ -842,13 +842,13 @@
 		answer
 	}
 
-	sieveOfEratosthenesDo { :self :aBlock/1 |
+	sieveOfEratosthenesDo { :self :aFunction/1 |
 		let size = self;
 		let flags = List(size, true);
 		2.toDo(size) { :i |
 			flags[i - 1].ifTrue {
 				let k = i + i;
-				aBlock(i);
+				aFunction(i);
 				{
 					k <= size
 				}.whileTrue {
@@ -969,7 +969,7 @@
 		p
 	}
 
-	wheelSieveDo { :limit :aBlock/1 |
+	wheelSieveDo { :limit :aFunction/1 |
 		(limit >= 2L).ifTrue {
 			let c = List(limit + 1L, false);
 			let k = 9L;
@@ -1021,12 +1021,12 @@
 				};
 				p2 := p1 * p1
 			};
-			aBlock(2L);
+			aFunction(2L);
 			{
 				j <= limit
 			}.whileTrue {
 				c[j + 1L].ifFalse {
-					aBlock(j)
+					aFunction(j)
 				};
 				j := j + 2L
 			};

@@ -33,7 +33,7 @@ true
 
 See also: Error, ifError, ignoreError, signal
 
-Guides: Block Functions, Control Functions, Error Functions
+Guides: Function Functions, Control Functions, Error Functions
 
 References:
 _Mathematica_

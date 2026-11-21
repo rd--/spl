@@ -41,9 +41,9 @@ There is an unchecked form:
 
 * * *
 
-See also: Block, List, apply, cull
+See also: Function, List, apply, cull
 
-Guides: Block Functions
+Guides: Function Functions
 
 References:
 _Lisp_

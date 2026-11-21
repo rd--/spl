@@ -18,7 +18,7 @@ The following `Trait` packages are considered to be part of the _Kernel_ and do 
 The following `Type` packages are considered to be part of the _Kernel_ and do not need to be required:
 
 - `Association`
-- `Block`
+- `Function`
 - `Boolean`
 - `Error`
 - `List`

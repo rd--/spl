@@ -1,8 +1,8 @@
 # Value Protocol
 
 In Smalltalk,
-`Block` and `Association` implement `value`, in particular _value/1_, directly.
-In Sᴘʟ _Block>>value_ is called `apply`, and the monomorphic _value/1_ is called `nullaryApply`:
+`Function` and `Association` implement `value`, in particular _value/1_, directly.
+In Sᴘʟ _Function>>value_ is called `apply`, and the monomorphic _value/1_ is called `nullaryApply`:
 
 ```
 >>> { 1 }.apply
@@ -26,16 +26,16 @@ true
 This protocol allows writing methods that will accept either evaluated or delayed arguments.
 
 In cases where this is not the behaviour wanted,
-a `Block` can be required by using a direct form of _apply_ notation,
+a `Function` can be required by using a direct form of _apply_ notation,
 or the `nullaryApply` method.
 
-The Sᴘʟ standard library mostly requires block arguments be blocks,
+The Sᴘʟ standard library mostly requires function arguments be functions,
 see for instance `&` and `|`.
 
 Sᴘʟ does not implement the value protocol.
 
 * * *
 
-See also: Association, Block, apply, blockNullaryApply, value
+See also: Association, Function, apply, nullaryApply, value
 
 Guides: Apply Syntax, Value Apply Syntax

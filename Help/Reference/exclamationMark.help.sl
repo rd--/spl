@@ -17,7 +17,7 @@ Note that the answer is an `Integer`:
 true
 ```
 
-The binary case at `Block` is the operator form of `duplicate`:
+The binary case at `Function` is the operator form of `duplicate`:
 
 ```
 >>> { 1 } ! [2 3]

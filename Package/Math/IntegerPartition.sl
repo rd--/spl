@@ -65,7 +65,7 @@
 		answer
 	}
 
-	integerPartitionsAscendingDo { :self :aBlock/1 |
+	integerPartitionsAscendingDo { :self :aFunction/1 |
 		let n = self;
 		let a = List(n, 0L);
 		let k = 2L;
@@ -88,22 +88,22 @@
 			}.whileTrue {
 				a[k] := x;
 				a[l] := y;
-				aBlock(a.copyFromTo(1, l));
+				aFunction(a.copyFromTo(1, l));
 				x := x + 1L;
 				y := y - 1L
 			};
 			y := y + x - 1L;
 			a[k] := y + 1L;
-			aBlock(a.copyFromTo(1, k))
+			aFunction(a.copyFromTo(1, k))
 		}
 	}
 
-	integerPartitionsDescendingDo { :self :aBlock/1 |
+	integerPartitionsDescendingDo { :self :aFunction/1 |
 		let n = self;
 		let d = List(n, 1L);
 		let k = 1L;
 		d[1] := n;
-		aBlock(d.copyFromTo(1, 1));
+		aFunction(d.copyFromTo(1, 1));
 		{
 			k != n
 		}.whileTrue {
@@ -125,7 +125,7 @@
 				k := k + 1L
 			};
 			d[k] := nPrime;
-			aBlock(d.copyFromTo(1, k))
+			aFunction(d.copyFromTo(1, k))
 		}
 	}
 

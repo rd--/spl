@@ -17,7 +17,7 @@ Set([1, 2, 3])
 The empty `Set`,
 _{| |}_,
 note that the space character is required,
-the expression `{||}` is parsed as a `Block` answering the binary operator `||`:
+the expression `{||}` is parsed as a `Function` answering the binary operator `||`:
 
 ```
 >>> let x = Set[];

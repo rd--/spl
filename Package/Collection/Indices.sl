@@ -21,10 +21,10 @@
 		anObject
 	}
 
-	deepIndices { :self :aBlock/1 |
+	deepIndices { :self :aFunction/1 |
 		let answer = [];
 		self.deepIndicesStartingAtDo([]) { :each :index |
-			aBlock(each).ifTrue {
+			aFunction(each).ifTrue {
 				answer.add!(index)
 			}
 		};
@@ -45,14 +45,14 @@
 		answer
 	}
 
-	deepIndicesStartingAtDo { :self :startIndex :aBlock/2 |
+	deepIndicesStartingAtDo { :self :startIndex :aFunction/2 |
 		let type = self.typeName;
 		self.withIndexDo { :each :index |
 			let here = startIndex ++ [index];
 			(each.typeName = type).if {
-				each.deepIndicesStartingAtDo(here, aBlock/2)
+				each.deepIndicesStartingAtDo(here, aFunction/2)
 			} {
-				aBlock(each, here)
+				aFunction(each, here)
 			}
 		}
 	}
@@ -79,14 +79,14 @@
 		}
 	}
 
-	indexOfIfAbsent { :self :anObject :aBlock/0 |
+	indexOfIfAbsent { :self :anObject :aFunction/0 |
 		withReturn { :return/1 |
 			self.indicesDo { :index |
 				(self[index] = anObject).ifTrue {
 					index.return
 				}
 			};
-			aBlock()
+			aFunction()
 		}
 	}
 
@@ -94,18 +94,18 @@
 		self.typeResponsibility('@Indices>>indices')
 	}
 
-	indices { :self :aBlock/1 |
+	indices { :self :aFunction/1 |
 		let answer = [];
 		self.withIndexDo { :each :index |
-			aBlock(each).ifTrue {
+			aFunction(each).ifTrue {
 				answer.add!(index)
 			}
 		};
 		answer
 	}
 
-	indicesDo { :self :aBlock/1 |
-		self.indices.do(aBlock/1);
+	indicesDo { :self :aFunction/1 |
+		self.indices.do(aFunction/1);
 		nil
 	}
 
@@ -149,15 +149,15 @@
 		}
 	}
 
-	withDeepIndexDo { :self :elementAndIndexBlock/2 |
+	withDeepIndexDo { :self :elementAndIndexFunction/2 |
 		self.deepIndices.do { :index |
-			elementAndIndexBlock(self.atPath(index), index)
+			elementAndIndexFunction(self.atPath(index), index)
 		}
 	}
 
-	withIndexDo { :self :elementAndIndexBlock/2 |
+	withIndexDo { :self :elementAndIndexFunction/2 |
 		self.indicesDo { :index |
-			elementAndIndexBlock(self[index], index)
+			elementAndIndexFunction(self[index], index)
 		}
 	}
 

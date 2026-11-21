@@ -55,7 +55,7 @@ LinearCongruential : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 		let [a, m] = p;
 		s0.isCoprime(m).if {
 			let s = s0;
-			BlockStream {
+			FunctionStream {
 				let x = s;
 				s := (a * x) % m;
 				x / m

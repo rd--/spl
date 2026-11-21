@@ -32,8 +32,8 @@ List of types implementing `Iterator`:
 >>> .sort!
 [
 	'AliasMethod'
-	'BlockStream'
 	'CollectionStream'
+	'FunctionStream'
 	'LaggedFibonacci'
 	'LinearCongruential'
 	'MersenneTwister'

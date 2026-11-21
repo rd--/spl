@@ -4,16 +4,16 @@
 		self.storeString
 	}
 
-	storeString { :self :aBlock/1 |
-		self.storeStringAsInitializeSlots(aBlock/1)
+	storeString { :self :aFunction/1 |
+		self.storeStringAsInitializeSlots(aFunction/1)
 	}
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}
 
-	storeStringAsInitializeSlots { :self :aBlock/1 |
-		self.storeStringNamedSlots(self.slotNameList, aBlock/1)
+	storeStringAsInitializeSlots { :self :aFunction/1 |
+		self.storeStringNamedSlots(self.slotNameList, aFunction/1)
 	}
 
 	storeStringAsInitializeSlots { :self |
@@ -26,14 +26,14 @@
 		)
 	}
 
-	storeStringNamedSlots { :self :slotNameList :aBlock/1 |
+	storeStringNamedSlots { :self :slotNameList :aFunction/1 |
 		let slotValueList = slotNameList.collect { :each |
 			self.uncheckedSlotRead(each)
 		};
 		'%(%)'.format(
 			[
 				self.typeName,
-				slotValueList.collect(aBlock/1).commaSeparated
+				slotValueList.collect(aFunction/1).commaSeparated
 			]
 		)
 	}

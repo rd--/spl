@@ -1,10 +1,10 @@
 # Arity Model
 
-The lexical structure of block application,
+The lexical structure of function application,
 _f(...)_,
 and method definition,
 _f { ... | ...}_,
-and `let` binding of block literals,
+and `let` binding of function literals,
 _let f = { ... | ...}_,
 all tell the arity of _f_.
 
@@ -22,19 +22,19 @@ In this model _f/n_ is the syntax for writing the name of a method.
 [3 4 5]
 ```
 
-This rewriting rule is also applied to local literal block definitions.
+This rewriting rule is also applied to local literal function definitions.
 Writing _let f = { :x | x + 1 };_ defines the local variable _f/1_.
-Note that this rule only applies to literal blocks, it is a lexical rewriting.
+Note that this rule only applies to literal functions, it is a lexical rewriting.
 
 However re-writing restricts how the application syntax can be used.
 In particular it cannot be used to apply a name that was not defined using one of these two mechanisms.
 
-This arises for all higher order blocks.
+This arises for all higher order functions.
 This is an additional rule that must be learned, making the language less simple.
 If efficiency is a concern the higher order case is important to optimise.
 
 In this model _cull_ can be applied at methods,
-since the method block is of fixed arity:
+since the method function is of fixed arity:
 
 ```
 >>> sqrt/1.cull(9, 25)

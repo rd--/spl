@@ -7,7 +7,7 @@ Methods have the fields:
 - `arity`: the required number of arguments
 - `name`: the unqualified method name
 - `origin`: the type or trait where the method is defined
-- `block`: the compiled implementation of the method
+- `compiledFunction`: the compiled implementation of the method
 - `sourceCode`: the definition of the method
 
 The `methodDictionary` is reflected in the `System` type:
@@ -34,7 +34,7 @@ true
 >>> 	2,
 >>> 	'List'
 >>> );
->>> let f/2 = m.block;
+>>> let f/2 = m.compiledFunction;
 >>> (
 >>> 	m.isMethod,
 >>> 	m.origin.name,

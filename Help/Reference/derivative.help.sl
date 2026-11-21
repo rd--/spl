@@ -53,7 +53,7 @@ Plot derivatives of `sin`:
 
 * * *
 
-See also: Block, cos, sin
+See also: Function, cos, sin
 
 References:
 _Mathematica_

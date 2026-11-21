@@ -3,7 +3,7 @@
 - _duffingEquation(gamma, delta, omega)_
 
 The Duffing equation, a non-linear second-order differential equation.
-Answers a two argument `Block`,
+Answers a two argument `Function`,
 accepting _t_ and _(x,y)_,
 and answering _(x′,y′)_.
 

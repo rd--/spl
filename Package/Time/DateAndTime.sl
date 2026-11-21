@@ -77,9 +77,9 @@ DateAndTime : [Object, Store, Equal, Compare] {
 		>
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isDateAndTime & {
-			aBlock(self.absoluteTime, anObject.absoluteTime)
+			aFunction(self.absoluteTime, anObject.absoluteTime)
 		}
 	}
 

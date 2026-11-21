@@ -52,12 +52,12 @@
 		].stringCatenate.Url
 	}
 
-	withNaturalEarthData { :self :aBlock/1 |
+	withNaturalEarthData { :self :aFunction/1 |
 		self
 		.naturalEarthUrl
 		.fetchJson
 		.then { :data |
-			aBlock(GeoJson(data))
+			aFunction(GeoJson(data))
 		}
 	}
 

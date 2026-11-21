@@ -2,7 +2,7 @@
 
 - _atop(f/2, g/1)_
 
-Answer a `Block` that applies the unary block _g_ to post-processes the result of the binary block _f_.
+Answer a `Function` that applies the unary block _g_ to post-processes the result of the binary block _f_.
 
 The negation of the pointwise maximum of two lists:
 

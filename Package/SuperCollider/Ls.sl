@@ -1,4 +1,4 @@
-/* Requires: BlockStream */
+/* Requires: FunctionStream */
 
 +@Object {
 
@@ -11,7 +11,7 @@
 	}
 
 	lsForever { :anObject |
-		BlockStream {
+		FunctionStream {
 			anObject
 		} {
 		}
@@ -23,21 +23,21 @@
 
 }
 
-+Block {
++Function {
 
-	lsUnfold { :aBlock/1 :start |
+	lsUnfold { :aFunction/1 :start |
 		let nextItem = start;
-		BlockStream {
+		FunctionStream {
 			let answer = nextItem;
-			nextItem := aBlock(nextItem);
+			nextItem := aFunction(nextItem);
 			answer
 		} {
 			nextItem := start
 		}
 	}
 
-	lsUnfold { :aBlock/1 :start :length |
-		lsUnfold(aBlock/1, start).take(length)
+	lsUnfold { :aFunction/1 :start :length |
+		lsUnfold(aFunction/1, start).take(length)
 	}
 
 }
@@ -85,7 +85,7 @@
 	lsCat { :list |
 		let index = 1;
 		list.collect!(lsOnce/1);
-		BlockStream {
+		FunctionStream {
 			(index > list.size).if {
 				nil
 			} {
@@ -113,7 +113,7 @@
 	lsLace { :list |
 		let index = 1;
 		list.collect!(lsForever/1);
-		BlockStream {
+		FunctionStream {
 			let nextItem = list[index].next;
 			(index >= list.size).if {
 				index := 1
@@ -134,7 +134,7 @@
 	lsPermutations { :list |
 		let local = list.copy;
 		let nextItem = local;
-		BlockStream {
+		FunctionStream {
 			let answer = nextItem.copy;
 			nextItem := local.nextPermutationLexicographic!;
 			answer
@@ -144,7 +144,7 @@
 	}
 
 	lsRand { :list :randomNumberGenerator |
-		BlockStream {
+		FunctionStream {
 			list.randomChoice(randomNumberGenerator, [])
 		} {
 		}
@@ -166,7 +166,7 @@
 		list.collect!(lsOnce/1);
 		which := lsForever(which);
 		let index = which.next;
-		BlockStream {
+		FunctionStream {
 			let nextItem = list[index].next;
 			nextItem.ifNil {
 				list[index].reset!;
@@ -183,7 +183,7 @@
 	lsSwitch1 { :list :which |
 		list.collect!(lsForever/1);
 		which := lsForever(which);
-		BlockStream {
+		FunctionStream {
 			list[which.next].next
 		} {
 			list.do(reset!/1);
@@ -194,7 +194,7 @@
 	lsTuple { :list :repeats |
 		let count = repeats;
 		list.collect!(lsOnce/1);
-		BlockStream {
+		FunctionStream {
 			(count <= 0).if {
 				nil
 			} {
@@ -232,14 +232,14 @@
 		lsScan(input, +)
 	}
 
-	lsAdjacent { :input :aBlock/2 |
+	lsAdjacent { :input :aFunction/2 |
 		let previousItem = input.next;
-		BlockStream {
+		FunctionStream {
 			let nextItem = input.next;
 			nextItem.isNil.if {
 				nil
 			} {
-				let answer = aBlock(previousItem, nextItem);
+				let answer = aFunction(previousItem, nextItem);
 				previousItem := nextItem;
 				answer
 			}
@@ -251,7 +251,7 @@
 
 	lsClump { :input :size |
 		size := lsForever(size);
-		BlockStream {
+		FunctionStream {
 			let answer = input.nextOrUpToEnd(size.next);
 			answer.isEmpty.if {
 				nil
@@ -266,7 +266,7 @@
 
 	lsClutch { :input :latch :initialValue |
 		let previous = initialValue;
-		BlockStream {
+		FunctionStream {
 			latch.next.Boolean.ifTrue {
 				previous := input.next
 			};
@@ -277,8 +277,8 @@
 		}
 	}
 
-	lsCollect { :self :aBlock/1 |
-		self.collect(aBlock/1)
+	lsCollect { :self :aFunction/1 |
+		self.collect(aFunction/1)
 	}
 
 	lsConstant { :self |
@@ -297,8 +297,8 @@
 		input.duplicateEach(lsForever(repeats))
 	}
 
-	lsFold { :input :aBlock/2 |
-		lsLast(lsScan(input, aBlock/2))
+	lsFold { :input :aFunction/2 |
+		lsLast(lsScan(input, aFunction/2))
 	}
 
 	lsForever { :input |
@@ -329,8 +329,8 @@
 		self.removeSuccesiveDuplicates
 	}
 
-	lsScan { :input :aBlock/2 |
-		input.scan(aBlock/2)
+	lsScan { :input :aFunction/2 |
+		input.scan(aFunction/2)
 	}
 
 	lsSlidingWindows { :input :windowSize :stepSize |
@@ -338,7 +338,7 @@
 		let require = windowSize - overlap;
 		let skipSize = (stepSize - windowSize).max(0);
 		let window = input.next(overlap);
-		BlockStream {
+		FunctionStream {
 			let current = input.nextOrUpToEnd(require);
 			(current.size != require).if {
 				nil
@@ -429,7 +429,7 @@
 	lsBind { :self |
 		let isAtEnd = false;
 		self.collect!(lsConstant/1);
-		BlockStream {
+		FunctionStream {
 			isAtEnd.if {
 				nil
 			} {
@@ -456,7 +456,7 @@
 		high := lsConstant(high);
 		p1 := lsConstant(p1);
 		p2 := lsConstant(p2);
-		BlockStream {
+		FunctionStream {
 			let lhs = low.next;
 			let rhs = high.next;
 			randomNumberGenerator.betaDistribution(p1.next, p2.next) * (rhs - lhs) + lhs
@@ -478,14 +478,14 @@
 		).take(length)
 	}
 
-	lsBrownUsing { :low :high :step :randomNumberGenerator :aBlock/3 |
+	lsBrownUsing { :low :high :step :randomNumberGenerator :aFunction/3 |
 		low := lsConstant(low);
 		high := lsConstant(high);
 		step := lsConstant(step);
-		let nextItem = aBlock(randomNumberGenerator, [low.next, high.next], []);
+		let nextItem = aFunction(randomNumberGenerator, [low.next, high.next], []);
 		low.withWithCollect(high, step) { :low :high :step |
 			let answer = nextItem;
-			nextItem := (nextItem + aBlock(randomNumberGenerator, [step.negate, step], [])).fold(low, high);
+			nextItem := (nextItem + aFunction(randomNumberGenerator, [step.negate, step], [])).fold(low, high);
 			answer
 		}
 	}

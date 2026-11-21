@@ -3,7 +3,7 @@
 [
 	'Behaviour-Adverb'
 	'Behaviour-Apl'
-	'Behaviour-Block'
+	'Behaviour-Function'
 	'Behaviour-HashFunction'
 	'Behaviour-Piecewise'
 	'Behaviour-Prototype'
@@ -383,8 +383,8 @@
 	'SmallKansas-Workspace'
 	'SmallKansas-WorldMenu'
 	'Sound-Wavetable'
-	'Stream-BlockStream'
 	'Stream-CollectionStream'
+	'Stream-FunctionStream'
 	'Stream-Iterator'
 	'Stream-Stream'
 	'SuperCollider-ContinuousEvent'

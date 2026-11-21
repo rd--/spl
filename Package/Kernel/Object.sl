@@ -4,16 +4,16 @@
 		self.typeName.withIndefiniteArticle
 	}
 
-	assert { :self :aString :aBlock/0 |
-		aBlock().if {
+	assert { :self :aString :aFunction/0 |
+		aFunction().if {
 			self
 		} {
 			self.error('Assertion failed', [aString])
 		}
 	}
 
-	assert { :self :aBlock/0 |
-		self.assert('*unknown context*', aBlock/0)
+	assert { :self :aFunction/0 |
+		self.assert('*unknown context*', aFunction/0)
 	}
 
 	caseOf { :self :aCollection :otherwise/0 |
@@ -170,12 +170,12 @@
 	}
 
 	perform { :self :aString |
-		let f/1 = system.methodLookupAtType(aString, 1, self.typeName).block;
+		let f/1 = system.methodLookupAtType(aString, 1, self.typeName).compiledFunction;
 		f(self)
 	}
 
 	perform { :self :aString :aValue |
-		let f/2 = system.methodLookupAtType(aString, 2, self.typeName).block;
+		let f/2 = system.methodLookupAtType(aString, 2, self.typeName).compiledFunction;
 		f(self, aValue)
 	}
 
@@ -243,8 +243,8 @@
 		}
 	}
 
-	then { :self :aBlock/1 |
-		self.aBlock
+	then { :self :aFunction/1 |
+		self.aFunction
 	}
 
 	typeDefinition { :self |

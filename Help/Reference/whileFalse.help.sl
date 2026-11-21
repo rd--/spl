@@ -6,7 +6,7 @@ Conditional evaluation.
 Evaluate the action block _f_ as long as the value of the condition block _c_ is `false`.
 Answers `nil`.
 
-Ordinarily _c_ and _f_ are literal no-argument blocks written using `Trailing Block Syntax`.
+Ordinarily _c_ and _f_ are literal no-argument blocks written using `Trailing Function Syntax`.
 
 A counter:
 

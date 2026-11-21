@@ -1,12 +1,12 @@
-# BlockStream
+# FunctionStream
 
-- _BlockStream(nextBlock/0, resetBlock/0)_
+- _FunctionStream(next/0, reset/0)_
 
-`BlockStream` is a `Type` that implements the `Iterator` and `Stream` traits.
+`FunctionStream` is a `Type` that implements the `Iterator` and `Stream` traits.
 
 ```
 >>> let n = 1;
->>> let s = BlockStream {
+>>> let s = FunctionStream {
 >>> 	let r = n;
 >>> 	n := n + 2;
 >>> 	r
@@ -22,10 +22,10 @@
 )
 ```
 
-`BlockStream` provides a simple model for many kinds of streams,
+`FunctionStream` provides a simple model for many kinds of streams,
 with the restriction that the stream cannot be copied.
 
-`BlockStream` implements `collect`, `reject` and `select`,
+`FunctionStream` implements `collect`, `reject` and `select`,
 as well as the _adapt-to_ protocol and the usual math operators.
 
 * * *

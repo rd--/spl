@@ -174,12 +174,12 @@ HelpFile : [Object, Equal, Cache] {
 		self.helpPrograms.select(isImageProgram/1)
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isHelp & {
 			self.isEqualByAtNamedSlots(
 				anObject,
 				['origin' 'source'],
-				aBlock/2
+				aFunction/2
 			)
 		}
 	}
@@ -198,13 +198,13 @@ HelpFile : [Object, Equal, Cache] {
 		}
 	}
 
-	linesFromWhile { :self :index :aBlock/2 |
+	linesFromWhile { :self :index :aFunction/2 |
 		let lines = self.lines;
 		let limit = lines.size;
 		let answer = [];
 		{
 			index <= limit & {
-				aBlock(lines[index], index)
+				aFunction(lines[index], index)
 			}
 		}.whileTrue {
 			answer.add!(lines[index]);
@@ -438,7 +438,7 @@ HelpFile : [Object, Equal, Cache] {
 		}
 	}
 
-	helpFilesDo { :self :kind :pattern :verboseLevel :aBlock/1 |
+	helpFilesDo { :self :kind :pattern :verboseLevel :aFunction/1 |
 		let directoryName = self.splFileName('Help/' ++ kind);
 		self
 		.readDirectoryFileNames(directoryName)
@@ -456,7 +456,7 @@ HelpFile : [Object, Equal, Cache] {
 			(verboseLevel > 0).ifTrue {
 				each.printLine
 			};
-			aBlock(help)
+			aFunction(help)
 		}
 	}
 
@@ -517,9 +517,9 @@ HelpFile : [Object, Equal, Cache] {
 		}
 	}
 
-	helpProgramDictionary { :self :aBlock/1 |
+	helpProgramDictionary { :self :aFunction/1 |
 		self.helpProgramDictionary.collect { :each |
-			each.select(aBlock/1)
+			each.select(aFunction/1)
 		}.select(isNotEmpty/1)
 	}
 
@@ -529,22 +529,22 @@ HelpFile : [Object, Equal, Cache] {
 		}
 	}
 
-	helpProgramTable { :self :aBlock/1 |
+	helpProgramTable { :self :aFunction/1 |
 		self.helpProgramTable.select { :each |
-			aBlock(each[2])
+			aFunction(each[2])
 		}
 	}
 
-	helpProgramsDo { :self :aBlock/1 |
+	helpProgramsDo { :self :aFunction/1 |
 		self.helpFiles('Reference').do { :helpFile |
-			helpFile.helpPrograms.do(aBlock/1)
+			helpFile.helpPrograms.do(aFunction/1)
 		}
 	}
 
-	helpProgramsSelect { :self :aBlock/1 |
+	helpProgramsSelect { :self :aFunction/1 |
 		let answer = [];
 		self.helpProgramsDo { :each |
-			aBlock(each).ifTrue {
+			aFunction(each).ifTrue {
 				answer.add!(each)
 			}
 		};

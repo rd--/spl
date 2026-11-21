@@ -1,6 +1,6 @@
 /* Requires: Object */
 
-Block! : [Object, Equal] {
+Function! : [Object, Equal] {
 
 	[apply, nullaryApply] { :self/0 |
 		self()
@@ -51,21 +51,21 @@ Block! : [Object, Equal] {
 		>
 	}
 
-	array { :aBlock :shape |
+	array { :aFunction :shape |
 		shape.size.caseOf(
 			[
-				1 -> { aBlock.table(1.to(shape[1])) },
-				2 -> { aBlock.table(1.to(shape[1]), 1.to(shape[2])) },
-				3 -> { aBlock.table(1.to(shape[1]), 1.to(shape[2]), 1.to(shape[3])) }
+				1 -> { aFunction.table(1.to(shape[1])) },
+				2 -> { aFunction.table(1.to(shape[1]), 1.to(shape[2])) },
+				3 -> { aFunction.table(1.to(shape[1]), 1.to(shape[2]), 1.to(shape[3])) }
 			]
 		) {
-			aBlock.error('array: not vector or matrix or volume')
+			aFunction.error('array: not vector or matrix or volume')
 		}
 	}
 
-	arrayFilter { :aBlock/1 :aList :anInteger |
+	arrayFilter { :aFunction/1 :aList :anInteger |
 		1.to(aList.size).collect { :i |
-			aBlock(aList.copyFromToPin(i - anInteger, i + anInteger))
+			aFunction(aList.copyFromToPin(i - anInteger, i + anInteger))
 		}
 	}
 
@@ -74,44 +74,44 @@ Block! : [Object, Equal] {
 		nil
 	}
 
-	binaryBlock { :self |
+	binaryFunction { :self |
 		(self.argumentCount = 2).if {
 			self
 		} {
-			self.error('binaryBlock: not binary')
+			self.error('binaryFunction: not binary fcuntion')
 		}
 	}
 
-	blockMap { :aBlock/1 :aList :n :d |
+	blockMap { :aFunction/1 :aList :n :d |
 		let answer = [];
 		let index = 1;
 		1.toBy(aList.size - n + 1, d).collect { :i |
-			answer.add!(aBlock(aList.copyFromTo(i, i + n - 1)))
+			answer.add!(aFunction(aList.copyFromTo(i, i + n - 1)))
 		};
 		answer
 	}
 
-	clip { :aBlock/1 :min :max :vMin :vMax |
+	clip { :aFunction/1 :min :max :vMin :vMax |
 		{ :x |
-			aBlock(x).clip(min, max, vMin, vMax)
+			aFunction(x).clip(min, max, vMin, vMax)
 		}
 	}
 
-	clip { :aBlock/1 :min :max |
+	clip { :aFunction/1 :min :max |
 		{ :x |
-			aBlock(x).clip(min, max)
+			aFunction(x).clip(min, max)
 		}
 	}
 
-	[composeLeft, compose] { :self/1 :aBlock/1 |
+	[composeLeft, compose] { :self/1 :aFunction/1 |
 		{ :anObject |
-			self(aBlock(anObject))
+			self(aFunction(anObject))
 		}
 	}
 
-	composeRight { :self/1 :aBlock/1 |
+	composeRight { :self/1 :aFunction/1 |
 		{ :anObject |
-			aBlock(self(anObject))
+			aFunction(self(anObject))
 		}
 	}
 
@@ -211,20 +211,20 @@ Block! : [Object, Equal] {
 		i/1
 	}
 
-	doWhileFalse { :self/0 :conditionBlock/0 |
+	doWhileFalse { :self/0 :conditionFunction/0 |
 		let answer = nil;
 		{
 			answer := self();
-			conditionBlock()
+			conditionFunction()
 		}.whileFalse;
 		answer
 	}
 
-	doWhileTrue { :self/0 :conditionBlock/0 |
+	doWhileTrue { :self/0 :conditionFunction/0 |
 		let answer = nil;
 		{
 			answer := self();
-			conditionBlock()
+			conditionFunction()
 		}.whileTrue;
 		answer
 	}
@@ -279,25 +279,25 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	ensure { :self :aBlock/0 |
+	ensure { :self :aFunction/0 |
 		<primitive:
 		let returnValue;
 		try {
 			returnValue = _self();
 		} finally {
-			_aBlock_0();
+			_aFunction_0();
 		};
 		return returnValue;
 		>
 	}
 
-	fill { :aBlock/1 :shape |
+	fill { :aFunction/1 :shape |
 		shape.isEmpty.if {
-			aBlock(0)
+			aFunction(0)
 		} {
 			let answer = shape.constantArray(nil);
 			shape.shapeIndicesDo { :index |
-				answer.atPathPut!(index, aBlock(index))
+				answer.atPathPut!(index, aFunction(index))
 			};
 			answer
 		}
@@ -337,13 +337,13 @@ Block! : [Object, Equal] {
 		answer
 	}
 
-	ifError { :self/0 :errorHandlerBlock/1 |
+	ifError { :self/0 :errorHandlerFunction/1 |
 		<primitive:
 		try {
 			return _self_0();
 		} catch (caughtValue) {
 			if(caughtValue instanceof Error) {
-				return _errorHandlerBlock_1(caughtValue)
+				return _errorHandlerFunction_1(caughtValue)
 			} {
 				throw caughtValue;
 			}
@@ -368,7 +368,7 @@ Block! : [Object, Equal] {
 						h(p, each).reduce(g/2)
 					}
 				} {
-					'Block>>inner: q not vector or matrix'.error
+					f/2.error('inner: q not vector or matrix', [p, q])
 				}
 			}
 		} {
@@ -383,17 +383,17 @@ Block! : [Object, Equal] {
 							inner(f/2, each, q, g/2)
 						}
 					} {
-						'Block>>inner: argument not vector or matrix'.error
+						f/2.error('inner: not vector or matrix', [p, q])
 					}
 				}
 			} {
-				'Block>>inner: p not vector or matrix'.error
+				f/2.error('inner: p not vector or matrix', [p, q])
 			}
 		}
 	}
 
 	[isEqual, =] { :self :anObject |
-		anObject.isBlock.ifTrue {
+		anObject.isFunction.ifTrue {
 			self.shouldNotImplement('equal')
 		};
 		false
@@ -521,18 +521,18 @@ Block! : [Object, Equal] {
 		>
 	}
 
-	neighbourhoodMap { :aBlock/2 :x :r |
+	neighbourhoodMap { :aFunction/2 :x :r |
 		let n = x.size;
 		1.to(n).collect { :i |
 			let j = (i - r).max(1);
 			let k = (i + r).min(n);
-			aBlock(x.copyFromTo(j, k), i)
+			aFunction(x.copyFromTo(j, k), i)
 		}
 	}
 
-	nestWhile { :self/1 :anObject :aBlock/1 |
+	nestWhile { :self/1 :anObject :aFunction/1 |
 		{
-			aBlock(anObject)
+			aFunction(anObject)
 		}.whileTrue {
 			anObject := self(anObject)
 		};
@@ -575,14 +575,14 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	sortBlockToTypeCheckedCompareBlock { :sortBlock/2 |
+	sortFunctionToTypeCheckedCompareFunction { :sortFunction/2 |
 		<primitive:
 		return function(p, q) {
-			const c = _sortBlock_2(p, q);
+			const c = _sortFunction_2(p, q);
 			if (typeof c === 'boolean') {
 				return c ? -1 : 1;
 			} {
-				throw new Error('Non-boolean sort block');
+				throw new Error('Non-boolean sort function');
 			}
 		};
 		>
@@ -620,32 +620,32 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	ternaryBlock { :self |
+	ternaryFunction { :self |
 		(self.argumentCount = 3).if {
 			self
 		} {
-			self.error('ternaryBlock: not ternary')
+			self.error('ternaryFunction: not ternary')
 		}
 	}
 
-	typeCheckedCompareBlock { :compareBlock/2 |
+	typeCheckedCompareFunction { :compareFunction/2 |
 		<primitive:
 		return function(p, q) {
-			const c = sl.toFloat(_compareBlock_2(p, q));
+			const c = sl.toFloat(_compareFunction_2(p, q));
 			if (c === -1 || c === 0 || c === 1) {
 				return c;
 			} {
-				throw new Error('Non-ternary compare block', [p, q, c]);
+				throw new Error('Non-ternary compare function', [p, q, c]);
 			}
 		};
 		>
 	}
 
-	unaryBlock { :self |
+	unaryFunction { :self |
 		(self.argumentCount = 1).if {
 			self
 		} {
-			self.error('unaryBlock: not unary')
+			self.error('unaryFunction: not unary')
 		}
 	}
 
@@ -668,20 +668,20 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	whileFalse { :self/0 :aBlock/0 |
+	whileFalse { :self/0 :aFunction/0 |
 		<primitive:
 		while(!_self_0()) {
-			_aBlock_0();
+			_aFunction_0();
 		};
 		>
 		nil
 	}
 
-	whileNil { :self/0 :aBlock/0 |
+	whileNil { :self/0 :aFunction/0 |
 		{
 			self().isNil
 		}.whileTrue {
-			aBlock()
+			aFunction()
 		}
 	}
 
@@ -693,10 +693,10 @@ Block! : [Object, Equal] {
 		}
 	}
 
-	whileTrue { :self/0 :aBlock/0 |
+	whileTrue { :self/0 :aFunction/0 |
 		<primitive:
 		while(_self_0()) {
-			_aBlock_0();
+			_aFunction_0();
 		};
 		>
 		nil
@@ -704,11 +704,11 @@ Block! : [Object, Equal] {
 
 	withReturn { :self/1 |
 		<primitive:
-		const returnBlock = function(returnValue) {
+		const returnFunction = function(returnValue) {
 			throw returnValue;
 		};
 		try {
-			return _self_1(returnBlock);
+			return _self_1(returnFunction);
 		} catch (returnedValue) {
 			if(returnedValue instanceof Error) {
 				throw returnedValue;
@@ -740,13 +740,13 @@ Block! : [Object, Equal] {
 
 +@Object {
 
-	also { :self :aBlock/1 |
-		aBlock(self);
+	also { :self :aFunction/1 |
+		aFunction(self);
 		self
 	}
 
-	[in, with] { :self :aBlock/1 |
-		aBlock(self)
+	[in, with] { :self :aFunction/1 |
+		aFunction(self)
 	}
 
 }
@@ -755,15 +755,15 @@ Block! : [Object, Equal] {
 
 	comap { :self |
 		{ :operand |
-			self.collect { :aBlock/1 |
-				aBlock(operand)
+			self.collect { :aFunction/1 |
+				aFunction(operand)
 			}
 		}
 	}
 
 	comap { :self :operand |
-		self.collect { :aBlock/1 |
-			aBlock(operand)
+		self.collect { :aFunction/1 |
+			aFunction(operand)
 		}
 	}
 
@@ -777,7 +777,7 @@ Block! : [Object, Equal] {
 
 }
 
-+Block {
++Function {
 
 	predicateAnd { :self/1 :operand/1 |
 		{ :anObject |
@@ -807,23 +807,23 @@ Block! : [Object, Equal] {
 
 	predicateAnd { :self |
 		{ :anObject |
-			self.allSatisfy { :aBlock/1 |
-				aBlock(anObject)
+			self.allSatisfy { :aFunction/1 |
+				aFunction(anObject)
 			}
 		}
 	}
 
 	predicateOr { :self |
 		{ :anObject |
-			self.anySatisfy { :aBlock/1 |
-				aBlock(anObject)
+			self.anySatisfy { :aFunction/1 |
+				aFunction(anObject)
 			}
 		}
 	}
 
 }
 
-+Block {
++Function {
 
 	derivative { :f/1 :n |
 		(n = 0).if {
@@ -852,7 +852,7 @@ Block! : [Object, Equal] {
 
 }
 
-+Block {
++Function {
 
 	isStandardComparator { :self |
 		self == == | {

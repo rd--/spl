@@ -53,7 +53,7 @@ zero:
 true
 ```
 
-`Block`s can be compared for identity,
+`Function`s can be compared for identity,
 including the block `==`:
 
 ```

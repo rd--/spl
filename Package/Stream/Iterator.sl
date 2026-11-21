@@ -16,12 +16,12 @@
 		self.next(numberOfElements)
 	}
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		let each = self.next;
 		{
 			each.isNil
 		}.whileFalse {
-			aBlock(each);
+			aFunction(each);
 			each := self.next
 		}
 	}
@@ -69,10 +69,10 @@
 		}
 	}
 
-	nextSatisfy { :self :aBlock/1 |
+	nextSatisfy { :self :aFunction/1 |
 		withReturn { :return/1 |
 			self.do { :each |
-				aBlock(each).ifTrue {
+				aFunction(each).ifTrue {
 					each.return
 				}
 			};
@@ -80,20 +80,20 @@
 		}
 	}
 
-	nextUntil { :self :aBlock/1 |
+	nextUntil { :self :aFunction/1 |
 		self.nextWhile { :each |
-			each.aBlock.not
+			each.aFunction.not
 		}
 	}
 
-	nextWhile { :self :aBlock/1 |
+	nextWhile { :self :aFunction/1 |
 		let answer = [];
 		let next = nil;
 		{
 			next := self.next;
 			answer.addLast!(next)
 		}.doWhileTrue {
-			next.aBlock
+			next.aFunction
 		};
 		answer
 	}

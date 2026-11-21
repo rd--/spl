@@ -19,9 +19,9 @@ Reader methods have one argument, writer methods have two arguments.
 
 The expression below adds a type for representing pitch as an _(octave, pitchClass)_ tuple,
 with a methods _midi_ and _cps_.
-Note that methods are ordinary blocks and must declare their arguments.
+Note that methods are ordinary functions and must declare their arguments.
 In some contexts the convention of naming the receiver _self_ is followed.
-Note also that slot access is mediated by the reader blocks, even for methods associated with the type.
+Note also that slot access is mediated by the reader functions, even for methods associated with the type.
 
 ~~~spl definition
 OctPc : [Object] { | octave pitchClass |
@@ -52,7 +52,7 @@ sinOsc(OctPc(4, 9).cps, 0) * 0.1
 ~~~
 
 _Rationale:_
-The _constructor_ and _initializer_ are distinct because there is no rule for deciding what type or trait a combined block should be instantiated at.
+The _constructor_ and _initializer_ are distinct because there is no rule for deciding what type or trait a combined function should be instantiated at.
 In the model provided the _constructor_ is defined at _Void_ and the _initializer_ is defined at the new type.
 
 * * *

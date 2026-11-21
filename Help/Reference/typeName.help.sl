@@ -57,11 +57,11 @@ At `Map`:
 'Map'
 ```
 
-At `Block`:
+At `Function`:
 
 ```
 >>> typeName/1.typeName
-'Block'
+'Function'
 ```
 
 The type specifier is a string value:

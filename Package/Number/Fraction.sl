@@ -34,8 +34,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 		SmallInteger(Integer(self))
 	}
 
-	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
-		aBlock(
+	adaptToIntegerAndApply { :self :anInteger :aFunction/2 |
+		aFunction(
 			uncheckedFraction(
 				Integer(anInteger),
 				1L
@@ -44,9 +44,9 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 		)
 	}
 
-	adaptToNumberAndApply { :self :operand :aBlock/2 |
+	adaptToNumberAndApply { :self :operand :aFunction/2 |
 		/* Model: SmallInteger | Integer */
-		aBlock(
+		aFunction(
 			operand,
 			Float(self)
 		)
@@ -186,14 +186,14 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 		self.denominator.isPowerOfTwo
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isNumber.if {
 			anObject.isFraction.if {
 				self.numerator = anObject.numerator & {
 					self.denominator = anObject.denominator
 				}
 			} {
-				anObject.adaptToFractionAndApply(self, aBlock/2)
+				anObject.adaptToFractionAndApply(self, aFunction/2)
 			}
 		} {
 			false
@@ -223,9 +223,9 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 		self.denominator.isOne
 	}
 
-	isIntegerValuedNumberAnd { :self :aBlock/1 |
+	isIntegerValuedNumberAnd { :self :aFunction/1 |
 		self.denominator.isOne & {
-			aBlock(self.numerator)
+			aFunction(self.numerator)
 		}
 	}
 
@@ -774,8 +774,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 		}
 	}
 
-	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
-		aBlock(
+	adaptToFractionAndApply { :self :aFraction :aFunction/2 |
+		aFunction(
 			aFraction,
 			uncheckedFraction(self, 1L)
 		)
@@ -793,8 +793,8 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 		}
 	}
 
-	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
-		aBlock(
+	adaptToFractionAndApply { :self :aFraction :aFunction/2 |
+		aFunction(
 			Float(aFraction),
 			self
 		)
@@ -836,9 +836,9 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 
 +@Collection {
 
-	adaptToFractionAndApply { :self :aFraction :aBlock/2 |
+	adaptToFractionAndApply { :self :aFraction :aFunction/2 |
 		self.collect { :each |
-			aBlock(aFraction, each)
+			aFunction(aFraction, each)
 		}
 	}
 
@@ -864,9 +864,9 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 
 +Float {
 
-	adaptToFractionAndApply { :self :operand :aBlock/2 |
+	adaptToFractionAndApply { :self :operand :aFunction/2 |
 		/* Model: SmallInteger | Integer */
-		aBlock(
+		aFunction(
 			Float(operand),
 			self
 		)

@@ -9,14 +9,14 @@ The four primitive immediate types are `Nil`, `Boolean`, `Float` and `String`.
 - _3.141_ ⇒ `Float`
 - _'xyz'_ ⇒ `String`
 
-The `Block Syntax` is similar to Smalltalk,
+The `Function Syntax` is similar to Smalltalk,
 with braces replacing brackets,
 semicolons replacing full stops,
 and _var_ replacing _|_.
 
-- _{ e; ... }_ ⇒ `Block` (with expressions _e_)
-- _{ :a ...| e; ... }_ ⇒ `Block` (with arguments _a_)
-- _{ :a ...| var t, ...; e; ... }_ ⇒ `Block` (with temporary variables _t_)
+- _{ e; ... }_ ⇒ `Function` (with expressions _e_)
+- _{ :a ...| e; ... }_ ⇒ `Function` (with arguments _a_)
+- _{ :a ...| var t, ...; e; ... }_ ⇒ `Function` (with temporary variables _t_)
 
 There is no literal _List_ syntax (as in Smalltalk) however there is a list expression syntax.
 

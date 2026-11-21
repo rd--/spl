@@ -20,7 +20,7 @@ It is a part of `Program Syntax`.
 (1, 3)
 ```
 
-Defining functions using `let` bindings to a literal block binds the arity qualified name:
+Defining functions using `let` bindings to a literal function binds the arity qualified name:
 
 ```
 >>> let f = { :x |
@@ -30,7 +30,7 @@ Defining functions using `let` bindings to a literal block binds the arity quali
 23
 ```
 
-This is distinct from binding a literal block to an existing identifier defined using `var`:
+This is distinct from binding a literal function to an existing identifier defined using `var`:
 
 ```
 >>> var f;
@@ -45,6 +45,6 @@ This is distinct from binding a literal block to an existing identifier defined 
 
 See also: nil, var
 
-Guides: Block Syntax, Let Syntax, Program Syntax, Syntax Guides
+Guides: Function Syntax, Let Syntax, Program Syntax, Syntax Guides
 
 Categories: Syntax

@@ -2,30 +2,25 @@
 
 MersenneTwister : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
-	| seed block |
-
-	initialize! { :self :aNumber |
-		self.seed := aNumber;
-		self.reset!;
-		self
-	}
+	| seed generatorFunction | <Float>
 
 	nextRandomFloat { :self |
-		let f/0 = self.block;
+		let f/0 = self.generatorFunction;
 		f()
 	}
 
 	reset! { :self |
-		self.block := self.seed.mt53RandomNumberGenerator
+		self.generatorFunction := self.seed.mt53RandomNumberGenerator
 	}
 
 }
 
 +[Float, Integer] {
 
-	MersenneTwister { :self |
-		newMersenneTwister().initialize!(
-			SmallInteger(self)
+	MersenneTwister { :seed SmallInteger |
+		uncheckedMersenneTwister(
+			seed,
+			seed.mt53RandomNumberGenerator
 		)
 	}
 

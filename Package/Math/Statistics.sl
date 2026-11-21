@@ -4,13 +4,13 @@
 		self.sum / self.size
 	}
 
-	centralFeature { :self :aBlock/2 |
+	centralFeature { :self :aFunction/2 |
 		let n = self.size;
 		let m = Infinity;
 		let k = 0;
 		1.toDo(n) { :i |
 			let d = 1.to(n).collect { :j |
-				aBlock(self[i], self[j])
+				aFunction(self[i], self[j])
 			}.sum;
 			(d < m).ifTrue {
 				m := d;
@@ -67,8 +67,8 @@
 		self.sum / self.size
 	}
 
-	meanDeviation { :self :aBlock/1 |
-		(self - aBlock(self)).abs.mean
+	meanDeviation { :self :aFunction/1 |
+		(self - aFunction(self)).abs.mean
 	}
 
 	meanDeviation { :self |
@@ -320,17 +320,17 @@
 		}
 	}
 
-	standardize { :self :meanBlock/1 :deviationBlock/1 |
-		let deviation = deviationBlock(self);
+	standardize { :self :meanFunction/1 :deviationFunction/1 |
+		let deviation = deviationFunction(self);
 		(deviation = 0).if {
 			self.error('@Sequence>>standardize: deviation = 0?')
 		} {
-			(self - meanBlock(self)) / deviation
+			(self - meanFunction(self)) / deviation
 		}
 	}
 
-	standardize { :self :meanBlock/1 |
-		self.standardize(meanBlock/1, standardDeviation/1)
+	standardize { :self :meanFunction/1 |
+		self.standardize(meanFunction/1, standardDeviation/1)
 	}
 
 	standardize { :self |

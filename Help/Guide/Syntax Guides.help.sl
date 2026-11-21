@@ -3,7 +3,7 @@
 ## Core Syntax
 
 - `Assignment Syntax`
-- `Block Syntax`
+- `Function Syntax`
 - `Identifier Syntax`
 - `List Syntax`
 - `Literals Syntax`
@@ -17,7 +17,7 @@
 - `Apply Syntax`
 - `Arity Syntax`
 - `Binary Operator Syntax`
-- `Block Argument Annotation Syntax`
+- `Function Argument Annotation Syntax`
 - `Comment Syntax`
 - `Dot Assignment Syntax`
 - `Let Syntax`
@@ -33,8 +33,8 @@
 - `Record Syntax`
 - `Slot Assignment Syntax`
 - `String Constructor Syntax`
-- `Temporary Block Syntax`
-- `Trailing Block Syntax`
+- `Temporary Function Syntax`
+- `Trailing Function Syntax`
 - `Unary Operator Syntax`
 
 ## Accessing Syntax

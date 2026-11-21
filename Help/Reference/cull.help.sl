@@ -65,6 +65,6 @@ true
 
 * * *
 
-See also: Block, apply, argumentCount
+See also: Function, apply, argumentCount
 
-Guides: Block Functions, Block Semantics
+Guides: Function Functions, Function Semantics

@@ -1,6 +1,6 @@
-# Block Semantics
+# Function Semantics
 
-`Block` has the semantics of Smalltalk’s _BlockClosure_, which is a form of Scheme’s _lambda_.
+`Function` has the semantics of Smalltalk’s _FunctionClosure_, which is a form of Scheme’s _lambda_.
 
 > _Semantics:_
 > A lambda expression evaluates to a procedure.
@@ -13,17 +13,17 @@
 > The result of the last expression in the body will be returned as the result of the procedure call.
 > (Rees and Clinger 1986, p. 7)
 
-Blocks have fixed arity, they must be applied to the number of arguments they require.
+Functions have fixed arity, they must be applied to the number of arguments they require.
 
 Temporary variables are initialised to _nil_.
 
-The `argumentCount` method reports the arity of a block.
+The `argumentCount` method reports the arity of a function.
 
-The `cull` method (as in Smalltalk) selectively applies a block to fewer arguments,
+The `cull` method (as in Smalltalk) selectively applies a function to fewer arguments,
 using  `argumentCount` to ignore excess parameters.
 
 * * *
 
-See also: Block, apply, argumentCount, cull
+See also: Function, apply, argumentCount, cull
 
-Guides: Block Syntax
+Guides: Function Syntax

@@ -3,7 +3,7 @@
 - _f/1 @* g/1_
 - _c₁ @* c₂_
 
-Sometimes define at `Block` as the operator (infix) form of `compose`:
+Sometimes define at `Function` as the operator (infix) form of `compose`:
 
 ```
 >>> let @* = compose/2;
@@ -27,6 +27,6 @@ The name of this operator is `commercialAtAsterisk`.
 
 See also: @, @>
 
-Guides: Binary Operators, Block Functions
+Guides: Binary Operators, Function Functions
 
 Categories: Accessing

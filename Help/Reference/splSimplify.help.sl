@@ -71,7 +71,7 @@ Small integer syntax is rewritten:
 '23L'
 ```
 
-`Block` literals,
+`Function` literals,
 `Assignment Syntax`,
 and `Apply Syntax`
 are not rewritten:
@@ -283,7 +283,7 @@ plusSign(
 )
 ```
 
-`Trailing Block Syntax` is rewritten as `Apply Syntax`:
+`Trailing Function Syntax` is rewritten as `Apply Syntax`:
 
 ```
 >>> 'f(x) { :i | i }'.splSimplify

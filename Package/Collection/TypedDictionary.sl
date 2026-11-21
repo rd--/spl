@@ -2,31 +2,31 @@ TypedDictionary : [Object, Store, Equal, Do, At, Indices, Put, Collection, Dicti
 
 	| keyType untypedDictionary | <String>
 
-	atIfAbsent { :self :key :aBlock/0 |
+	atIfAbsent { :self :key :aFunction/0 |
 		self.untypedDictionary.atIfAbsent(
 			self.typeCheckKey(key),
-			aBlock/0
+			aFunction/0
 		)
 	}
 
-	collect { :self :aBlock/1 |
-		self.untypedDictionary.collect(aBlock/1)
+	collect { :self :aFunction/1 |
+		self.untypedDictionary.collect(aFunction/1)
 	}
 
 	comparator { :self |
 		self.untypedDictionary.comparator
 	}
 
-	do { :self :aBlock/1 |
-		self.untypedDictionary.do(aBlock/1)
+	do { :self :aFunction/1 |
+		self.untypedDictionary.do(aFunction/1)
 	}
 
 	[indices, keys] { :self |
 		self.untypedDictionary.indices
 	}
 
-	keysAndValuesDo { :self :aBlock/2 |
-		self.untypedDictionary.keysAndValuesDo(aBlock/2)
+	keysAndValuesDo { :self :aFunction/2 |
+		self.untypedDictionary.keysAndValuesDo(aFunction/2)
 	}
 
 	put! { :self :key :value |

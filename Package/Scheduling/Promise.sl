@@ -1,15 +1,15 @@
 Promise! : [Object] {
 
-	finally { :self :aBlock/0 |
-		<primitive: return _self.finally(_aBlock_0);>
+	finally { :self :aFunction/0 |
+		<primitive: return _self.finally(_aFunction_0);>
 	}
 
-	onRejection { :self :aBlock/1 |
-		<primitive: return _self.catch(_aBlock_1);>
+	onRejection { :self :aFunction/1 |
+		<primitive: return _self.catch(_aFunction_1);>
 	}
 
-	then { :self :aBlock/1 |
-		<primitive: return _self.then(_aBlock_1);>
+	then { :self :aFunction/1 |
+		<primitive: return _self.then(_aFunction_1);>
 	}
 
 	thenElse { :self :onResolve/1 :onReject/1 |
@@ -18,7 +18,7 @@ Promise! : [Object] {
 
 }
 
-+Block {
++Function {
 
 	Promise { :self/2 |
 		<primitive: return new Promise(_self_2);>

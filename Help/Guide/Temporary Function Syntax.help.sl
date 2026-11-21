@@ -1,19 +1,19 @@
-# Temporary Block Syntax
+# Temporary Function Syntax
 
-In the case where a temporary variable is `let` bound to a literal block,
+In the case where a temporary variable is `let` bound to a literal function,
 the system appends the appropriate arity qualifier to the bound name.
 
-This allows the defined block to be applied using `Apply Syntax`:
+This allows the defined function to be applied using `Apply Syntax`:
 
 ```
 >>> let f = { :x |
 >>> 	x * x * x
 >>> };
->>> (f(3), f/1.isBlock)
+>>> (f(3), f/1.isFunction)
 (27, true)
 ```
 
-To refer to the block by name the qualifier must be written:
+To refer to the function by name the qualifier must be written:
 
 ```
 >>> let f = { :x |

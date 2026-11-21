@@ -12,7 +12,7 @@ Answer a block that applies the block _f_ with the arguments reversed.
 2
 ```
 
-It is an error if _aBlock_ is not binary:
+It is an error if _f_ is not binary:
 
 ```
 >>> { {}.swap }.hasError
@@ -24,9 +24,9 @@ true
 
 * * *
 
-See also: Block
+See also: Function
 
-Guides: Block Arity, Block Functions, Operator Adverbs
+Guides: Function Arity, Function Functions, Operator Adverbs
 
 References:
 _Apl_

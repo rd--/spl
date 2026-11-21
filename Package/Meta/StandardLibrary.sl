@@ -225,7 +225,7 @@
 	/* Stream */
 	'Iterator'
 	'Stream'
-	'BlockStream'
+	'FunctionStream'
 	'CollectionStream'
 
 	/* Random */

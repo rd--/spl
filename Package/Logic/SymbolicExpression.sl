@@ -28,8 +28,8 @@
 
 @SymbolicBoolean {
 
-	& { :self :aBlock/0 |
-		'and'.symbolicPrimitive([self, aBlock()])
+	& { :self :aFunction/0 |
+		'and'.symbolicPrimitive([self, aFunction()])
 	}
 
 	if { :self :whenTrue/0 :whenFalse/0 |
@@ -40,8 +40,8 @@
 		'not'.symbolicPrimitive([self])
 	}
 
-	[or, |] { :self :aBlock/0 |
-		'or'.symbolicPrimitive([self, aBlock()])
+	[or, |] { :self :aFunction/0 |
+		'or'.symbolicPrimitive([self, aFunction()])
 	}
 
 }
@@ -80,9 +80,9 @@
 		'abs'.symbolicPrimitive([self])
 	}
 
-	[adaptToIntegerAndApply, adaptToNumberAndApply] { :self :receiver :aBlock/2 |
+	[adaptToIntegerAndApply, adaptToNumberAndApply] { :self :receiver :aFunction/2 |
 		SymbolicExpression(
-			aBlock/2.unqualifiedName,
+			aFunction/2.unqualifiedName,
 			[receiver, self]
 		).simplifyConstantMath
 	}
@@ -271,11 +271,11 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 		)
 	}
 
-	commonSubexpressions { :self :aBlock/2 |
+	commonSubexpressions { :self :aFunction/2 |
 		let all = UnsortedSet();
 		let common = UnsortedSet();
-		all.comparator := aBlock/2;
-		common.comparator := aBlock/2;
+		all.comparator := aFunction/2;
+		common.comparator := aFunction/2;
 		self.do { :each |
 			each.isSymbolicExpression.ifTrue {
 				all.includes(each).if {
@@ -288,18 +288,18 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 		common.List
 	}
 
-	do { :self :aBlock/1 |
-		aBlock(self);
+	do { :self :aFunction/1 |
+		aFunction(self);
 		self.operator.isSymbolicExpression.if {
-			self.operator.do(aBlock/1)
+			self.operator.do(aFunction/1)
 		} {
-			aBlock(self.operator)
+			aFunction(self.operator)
 		};
 		self.operands.do { :each |
 			each.isSymbolicExpression.if {
-				each.do(aBlock/1)
+				each.do(aFunction/1)
 			} {
-				aBlock(each)
+				aFunction(each)
 			}
 		}
 	}
@@ -412,13 +412,13 @@ SymbolicExpression : [Object, Store, Number, SymbolicObject, SymbolicBoolean, Sy
 
 }
 
-+Block {
++Function {
 
 	SymbolicExpression { :self :parameterNames |
 		(self.argumentCount = parameterNames.size).if {
 			self.applyList(parameterNames.collect(Symbol/1))
 		} {
-			self.error('Block>>SymbolicExpression: arity error')
+			self.error('SymbolicExpression: arity error', [parameterNames])
 		}
 	}
 

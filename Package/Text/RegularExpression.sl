@@ -26,10 +26,10 @@ RegExp! : [Object, Store, Equal] {
 		>
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		anObject.isRegularExpression & {
-			aBlock(self.source, anObject.source) & {
-				aBlock(self.flags, anObject.flags)
+			aFunction(self.source, anObject.source) & {
+				aFunction(self.flags, anObject.flags)
 			}
 		}
 	}
@@ -67,10 +67,10 @@ RegExp! : [Object, Store, Equal] {
 		['flags', 'isGlobal', 'hasIndices', 'source']
 	}
 
-	replaceAllModifying { :self :aString :aBlock/1 |
+	replaceAllModifying { :self :aString :aFunction/1 |
 		aString.assertIsString;
 		self.uncheckedReplaceAllWith(aString) { :match :offset :string |
-			aBlock(match)
+			aFunction(match)
 		}
 	}
 
@@ -80,10 +80,10 @@ RegExp! : [Object, Store, Equal] {
 		self.uncheckedReplaceAllWith(aString, replacementString)
 	}
 
-	replaceModifying { :self :aString :aBlock/1 |
+	replaceModifying { :self :aString :aFunction/1 |
 		aString.assertIsString;
 		self.uncheckedReplaceWith(aString) { :match :offset :string |
-			aBlock(match)
+			aFunction(match)
 		}
 	}
 

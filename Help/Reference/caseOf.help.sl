@@ -3,7 +3,7 @@
 - _caseOf(x, [y₁ → f₁, y₂ → f₂, …], o/0)_
 
 Compare _x_ to each _y_ in turn,
-evaluating the corresponding `Block` _f_ associated with the first item that matches.
+evaluating the corresponding `Function` _f_ associated with the first item that matches.
 
 The keys of the associations, _y_, are values that are to be compared with _x_ using `=`.
 The values of the associations are blocks to be evaluated when a case matches.

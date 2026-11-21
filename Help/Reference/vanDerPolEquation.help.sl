@@ -3,7 +3,7 @@
 - _vanDerPolEquation(mu)_
 
 The van der Pol equation, a second-order ordinary differential equation.
-Answers a two argument `Block`,
+Answers a two argument `Function`,
 accepting _t_ and _(x,y)_,
 and answering _(x′,y′)_.
 

@@ -19,7 +19,7 @@ true
 ```
 
 `operator` answers the operator of the expression.
-The `operator` is retained as the `unqualifiedName` of the `Block`:
+The `operator` is retained as the `unqualifiedName` of the `Function`:
 
 ```
 >>> (`x` = `y`).operator.isSymbol
@@ -189,7 +189,7 @@ x
 ```
 
 Apply the block _f_ to symbols with names specified in the list _x_.
-At one argument `Block`:
+At one argument `Function`:
 
 ```
 >> { :x |
@@ -198,7 +198,7 @@ At one argument `Block`:
 (^ (/ x 3) 2)
 ```
 
-At two argument `Block`,
+At two argument `Function`,
 with unicode symbols:
 
 ```
@@ -243,6 +243,6 @@ Plot the `Graph` of the `Tree` of a `SymbolicExpression`:
 
 * * *
 
-See also: Block, Symbol, commonSubexpressions, isEqualSymbolicExpression, name, printString, recogniseSymbolicExpression
+See also: Function, Symbol, commonSubexpressions, isEqualSymbolicExpression, name, printString, recogniseSymbolicExpression
 
 Guides: Symbolic Functions

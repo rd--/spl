@@ -30,10 +30,10 @@ ListView : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Coll
 		ListView(self, from, to, self.referenceIndex)
 	}
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		let items = self.collection;
 		self.startIndex.toDo(self.endIndex) { :index |
-			aBlock(items[index])
+			aFunction(items[index])
 		}
 	}
 
@@ -50,11 +50,11 @@ ListView : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Coll
 		}
 	}
 
-	indexOfIfAbsent { :self :anObject :aBlock/0 |
+	indexOfIfAbsent { :self :anObject :aFunction/0 |
 		self.indices.detectIfNone { :i |
 			self.at(i) = anObject
 		} {
-			aBlock()
+			aFunction()
 		}
 	}
 

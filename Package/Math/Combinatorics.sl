@@ -765,18 +765,18 @@
 		answer
 	}
 
-	combinationsAtATimeDo { :self :kk :aBlock/1 |
+	combinationsAtATimeDo { :self :kk :aFunction/1 |
 		let aCollection = List(kk, nil);
-		self.combinationsAtInAfterDo(1, aCollection, 0, aBlock/1)
+		self.combinationsAtInAfterDo(1, aCollection, 0, aFunction/1)
 	}
 
-	combinationsAtInAfterDo { :self :j :aCollection :n :aBlock/1 |
+	combinationsAtInAfterDo { :self :j :aCollection :n :aFunction/1 |
 		(n + 1).toDo(self.size) { :index |
 			aCollection[j] := self[index];
 			(j = aCollection.size).if {
-				aBlock(aCollection)
+				aFunction(aCollection)
 			} {
-				self.combinationsAtInAfterDo(j + 1, aCollection, index, aBlock/1)
+				self.combinationsAtInAfterDo(j + 1, aCollection, index, aFunction/1)
 			}
 		}
 	}

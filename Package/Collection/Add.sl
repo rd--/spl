@@ -24,8 +24,8 @@
 		anObject
 	}
 
-	addIfNotPresentBy! { :self :anObject :aBlock/2 |
-		self.includesBy(anObject, aBlock/2).ifFalse {
+	addIfNotPresentBy! { :self :anObject :aFunction/2 |
+		self.includesBy(anObject, aFunction/2).ifFalse {
 			self.add!(anObject)
 		};
 		anObject
@@ -61,9 +61,9 @@
 		self
 	}
 
-	fillFromWith! { :self :aCollection :aBlock/1 |
+	fillFromWith! { :self :aCollection :aFunction/1 |
 		aCollection.do { :each |
-			self.add!(aBlock(each))
+			self.add!(aFunction(each))
 		}
 	}
 
@@ -98,20 +98,20 @@
 		answer
 	}
 
-	select { :self :aBlock/1 |
+	select { :self :aFunction/1 |
 		let answer = self.new;
 		self.do { :each |
-			aBlock(each).ifTrue {
+			aFunction(each).ifTrue {
 				answer.include!(each)
 			}
 		};
 		answer
 	}
 
-	selectThenCollect { :self :selectBlock/1 :collectBlock/1 |
+	selectThenCollect { :self :selectFunction/1 :collectFunction/1 |
 		let answer = self.new;
-		self.selectThenDo(selectBlock/1) { :each |
-			answer.add!(collectBlock(each))
+		self.selectThenDo(selectFunction/1) { :each |
+			answer.add!(collectFunction(each))
 		};
 		answer
 	}

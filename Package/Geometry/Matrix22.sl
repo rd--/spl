@@ -38,12 +38,12 @@ Matrix22 : [Object, Equal] {
 		)
 	}
 
-	isEqualBy { :self :aMatrix :aBlock/2 |
+	isEqualBy { :self :aMatrix :aFunction/2 |
 		aMatrix.isMatrix22 & {
-			aBlock(self.a, aMatrix.a) & {
-				aBlock(self.b, aMatrix.b) & {
-					aBlock(self.c, aMatrix.c) & {
-						aBlock(self.d, aMatrix.d)
+			aFunction(self.a, aMatrix.a) & {
+				aFunction(self.b, aMatrix.b) & {
+					aFunction(self.c, aMatrix.c) & {
+						aFunction(self.d, aMatrix.d)
 					}
 				}
 			}

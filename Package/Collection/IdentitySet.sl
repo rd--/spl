@@ -8,11 +8,11 @@ IdentitySet! : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Un
 		>
 	}
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		<primitive:
 		_self.forEach(
 			function(item, _unusedKey, _unusedSet) {
-				_aBlock_1(item);
+				_aFunction_1(item);
 			}
 		);
 		>
@@ -43,13 +43,13 @@ IdentitySet! : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Un
 		nil
 	}
 
-	removeIfAbsent! { :self :anObject :aBlock/0 |
+	removeIfAbsent! { :self :anObject :aFunction/0 |
 		<primitive:
 		if(_self.has(_anObject)) {
 			_self.delete(_anObject);
 			return _anObject;
 		} else {
-			return _aBlock_0();
+			return _aFunction_0();
 		}
 		>
 	}

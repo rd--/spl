@@ -36,7 +36,7 @@ C.f. _2x^2-1_:
 
 ~~~spl svg=D
 (-1.0 -- 1.0).functionPlot(
-	2.chebyshevT.unaryBlock
+	2.chebyshevT.unaryFunction
 )
 ~~~
 
@@ -55,7 +55,7 @@ C.f. _4x^3-3x_:
 
 ~~~spl svg=F
 (-1.0 -- 1.0).functionPlot(
-	3.chebyshevT.unaryBlock
+	3.chebyshevT.unaryFunction
 )
 ~~~
 
@@ -75,7 +75,7 @@ C.f.:
 
 ~~~spl svg=H
 (-1.0 -- 1.0).functionPlot(
-	7.chebyshevT.unaryBlock
+	7.chebyshevT.unaryFunction
 )
 ~~~
 

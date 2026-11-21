@@ -61,7 +61,7 @@ ColourGradient : [Object, Store] {
 	resample { :self :anInteger |
 		let p = (0.0 -- 1.0).discretize(anInteger);
 		ColourGradient(
-			p.collect(self.unaryBlock),
+			p.collect(self.unaryFunction),
 			nil
 		)
 	}
@@ -74,7 +74,7 @@ ColourGradient : [Object, Store] {
 		}
 	}
 
-	unaryBlock { :self |
+	unaryFunction { :self |
 		self.positionList.linearInterpolator(
 			self.colourList
 		)
@@ -122,11 +122,11 @@ ColourGradient : [Object, Store] {
 +String {
 
 	namedColourFunction { :collectionName :paletteName |
-		namedColourGradient(collectionName, paletteName).unaryBlock
+		namedColourGradient(collectionName, paletteName).unaryFunction
 	}
 
 	namedColourFunction { :self |
-		self.namedColourGradient.unaryBlock
+		self.namedColourGradient.unaryFunction
 	}
 
 	namedColourGradient { :collectionName :paletteName |

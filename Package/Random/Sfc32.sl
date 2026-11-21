@@ -2,36 +2,30 @@
 
 Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
-	| seed block | <List>
-
-	initialize! { :self :anObject |
-		self.seed := anObject.sfc32State;
-		self.reset!;
-		self
-	}
+	| seed generatorFunction | <List>
 
 	nextRandomFloat { :self |
-		let f/0 = self.block;
+		let f/0 = self.generatorFunction;
 		f()
 	}
 
 	reset! { :self |
-		self.block := self.seed.sfc32RandomNumberGeneratorBlock
+		self.generatorFunction := self.seed.sfc32State.sfc32RandomNumberGenerator
 	}
 
 }
 
 +List {
 
-	Sfc32 { :self |
-		let seed = self.sfc32State;
+	Sfc32 { :seed |
+		seed := seed.sfc32State;
 		uncheckedSfc32(
 			seed,
-			seed.sfc32RandomNumberGeneratorBlock
+			seed.sfc32RandomNumberGenerator
 		)
 	}
 
-	sfc32RandomNumberGeneratorBlock { :self |
+	sfc32RandomNumberGenerator { :self |
 		self.sfc32State.uncheckedSfc32RandomNumberGenerator
 	}
 

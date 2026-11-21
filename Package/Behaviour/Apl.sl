@@ -101,13 +101,13 @@
 		[self.size]
 	}
 
-	withCollect { :self :aString :aBlock/2 |
-		self.characters.withCollect(aString.characters, aBlock/2)
+	withCollect { :self :aString :aFunction/2 |
+		self.characters.withCollect(aString.characters, aFunction/2)
 	}
 
 }
 
-+Block {
++Function {
 
 	fork { :g/2 :f/1 :h/1 |
 		{ :x |

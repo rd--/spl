@@ -4,15 +4,15 @@
 It is not an operator.
 `{` begins a block that is subsequently ended by `}`.
 
-`Block Syntax`:
+`Function Syntax`:
 
 ```
 >>> { 3.141 }
->>> .isBlock
+>>> .isFunction
 true
 ```
 
-`Trailing Block Syntax`:
+`Trailing Function Syntax`:
 
 ```
 >>> 1:9.product { :x | x * 2 + 1 }
@@ -25,4 +25,4 @@ The name of this syntax token is `leftCurlyBracket`.
 
 See also: leftParenthesis, leftSquareBracket, rightCurlyBracket
 
-Guides: Block Syntax, Syntax Tokens, Trailing Block Syntax
+Guides: Function Syntax, Syntax Tokens, Trailing Function Syntax

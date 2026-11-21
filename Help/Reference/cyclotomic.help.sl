@@ -108,7 +108,7 @@ Central polygonal numbers,
 OEIS [A002061](https://oeis.org/A002061):
 
 ```
->>> 0:13.collect(6L.cyclotomic.unaryBlock)
+>>> 0:13.collect(6L.cyclotomic.unaryFunction)
 [1 1 3 7 13 21 31 43 57 73 91 111 133 157]
 ```
 
@@ -152,7 +152,7 @@ Plot first few cyclotomic polynomials:
 ~~~spl svg=A
 (-1.0 -- 1.0).functionPlot(
 	2L:7L.collect { :n |
-		n.cyclotomic.unaryBlock
+		n.cyclotomic.unaryFunction
 	}
 )
 ~~~

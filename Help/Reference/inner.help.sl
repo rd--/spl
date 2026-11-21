@@ -93,7 +93,7 @@ Evaluate symbolically:
 ]
 ```
 
-The binary form is _adverbial_, it answers a `Block` that will perform _inner(f, α, β, g)_.
+The binary form is _adverbial_, it answers a `Function` that will perform _inner(f, α, β, g)_.
 
 ```
 >>> [1 1] *.inner(+) [-1 1]

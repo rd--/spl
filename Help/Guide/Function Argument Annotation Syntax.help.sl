@@ -1,7 +1,7 @@
-# Block Argument Annotation Syntax
+# Function Argument Annotation Syntax
 
-This syntax allows arguments to blocks _x,y…_ to be annotated with an upper-case identifier _T,U…_.
-The annotation is applied to the argument before the block body proper.
+This syntax allows arguments to functions _x,y…_ to be annotated with an upper-case identifier _T,U…_.
+The annotation is applied to the argument before the function body proper.
 Not all arguments need have annotations.
 
 Rewrite rules:
@@ -22,4 +22,4 @@ Rewrite rules:
 
 * * *
 
-Guides: Block Syntax, Syntax Guides
+Guides: Function Syntax, Syntax Guides

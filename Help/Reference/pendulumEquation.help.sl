@@ -4,7 +4,7 @@
 
 Model a damped, driven pendulum.
 The pendulum equation is a non-linear second-order differential equation.
-Answers a two argument `Block`,
+Answers a two argument `Function`,
 accepting _t_ and _(θ₁,θ₂)_,
 and answering _(θ₁′,θ₂′)_.
 

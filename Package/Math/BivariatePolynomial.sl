@@ -2,7 +2,7 @@ BivariatePolynomial : [Object, Copy, Store, Equal] {
 
 	| coefficientMatrix |
 
-	binaryBlock { :self |
+	binaryFunction { :self |
 		let m = self.coefficientMatrix;
 		{ :x :y |
 			m.evaluateBivariatePolynomial(x, y)
@@ -17,9 +17,9 @@ BivariatePolynomial : [Object, Copy, Store, Equal] {
 		self.coefficientMatrix.evaluateBivariatePolynomial(x, y)
 	}
 
-	isEqualBy { :self :operand :aBlock/2 |
+	isEqualBy { :self :operand :aFunction/2 |
 		operand.isBivariatePolynomial & {
-			aBlock(self.coefficientMatrix, operand.coefficientMatrix)
+			aFunction(self.coefficientMatrix, operand.coefficientMatrix)
 		}
 	}
 

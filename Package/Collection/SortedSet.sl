@@ -17,14 +17,14 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Set] 
 		}
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		SortedSet(
-			self.sortedList.collect(aBlock/1)
+			self.sortedList.collect(aFunction/1)
 		)
 	}
 
-	do { :self :aBlock/1 |
-		self.sortedList.do(aBlock/1)
+	do { :self :aFunction/1 |
+		self.sortedList.do(aFunction/1)
 	}
 
 	include! { :self :anObject |
@@ -43,8 +43,8 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Set] 
 		self.sortedList.removeAll!
 	}
 
-	removeIfAbsent! { :self :anObject :aBlock/0 |
-		self.sortedList.removeIfAbsent!(anObject, aBlock/0)
+	removeIfAbsent! { :self :anObject :aFunction/0 |
+		self.sortedList.removeIfAbsent!(anObject, aFunction/0)
 	}
 
 	size { :self |
@@ -110,7 +110,7 @@ SortedSet : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Set] 
 
 }
 
-+Block {
++Function {
 
 	comparatorToSet { :comparator/2 |
 		[

@@ -6,7 +6,7 @@ The name of this token is `colonSolidus`.
 
 * * *
 
-See also: Block
+See also: Function
 
 Guides: Arity Notation, Arity Syntax
 

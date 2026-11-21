@@ -48,7 +48,7 @@
 		)
 	}
 
-	terseReferenceSummaryDo { :directoryName :options :testName :aBlock/2 |
+	terseReferenceSummaryDo { :directoryName :options :testName :aFunction/2 |
 		let totalTestCount = 0;
 		let totalPassCount = 0;
 		let totalErrorCount = 0;
@@ -66,7 +66,7 @@
 			(verboseLevel > 0).ifTrue {
 				(helpFile.originName, helpFile.name).printLine
 			};
-			let [testCount, passCount, errorCount] = aBlock(helpFile, options);
+			let [testCount, passCount, errorCount] = aFunction(helpFile, options);
 			(verboseLevel > 0).ifTrue {
 				'	Pass % of %'.format([passCount, testCount]).printLine
 			};

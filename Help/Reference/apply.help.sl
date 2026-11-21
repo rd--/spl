@@ -69,14 +69,14 @@ It is an `error` if there are too many arguments:
 true
 ```
 
-There is a _non-strict_ mode of the compiler that will elide arity checks at `Block` evaluations.
+There is a _non-strict_ mode of the compiler that will elide arity checks at `Function` evaluations.
 This mode is off by default.
 
 * * *
 
-See also: Association, Block, $, also, applyWithReturn, cull, identity, in, nullaryApply, with
+See also: Association, Function, $, also, applyWithReturn, cull, identity, in, nullaryApply, with
 
-Guides: Block Functions, Dictionary Functions
+Guides: Function Functions, Dictionary Functions
 
 References:
 _Smalltalk_

@@ -4,7 +4,7 @@
 
 `cubeHelix` is a colour mapping that degrades gracefully to greyscale without losing information,
 making it useful for continuous colour scales in scientific drawings that may be printed in greyscale.
-Answers a one argument `Block` that implements the specified gradient function.
+Answers a one argument `Function` that implements the specified gradient function.
 
 A cube helix gradient:
 

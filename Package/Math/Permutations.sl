@@ -20,12 +20,12 @@ Permutation : [Object, Store, Equal] {
 		}
 	}
 
-	ascents { :self :aBlock/2 |
+	ascents { :self :aFunction/2 |
 		let p = self.list;
 		let k = p.size;
 		let answer = [];
 		1L.toDo(k - 1L) { :i |
-			aBlock(p[i], p[i + 1L]).ifTrue {
+			aFunction(p[i], p[i + 1L]).ifTrue {
 				answer.add!(i)
 			}
 		};
@@ -318,7 +318,7 @@ Permutation : [Object, Store, Equal] {
 		answer
 	}
 
-	reducedWordsDo { :self :aBlock/1 |
+	reducedWordsDo { :self :aFunction/1 |
 		let f = { :p |
 			let isIdentity = true;
 			1L.toDo(p.size - 1L) { :d |
@@ -328,13 +328,13 @@ Permutation : [Object, Store, Equal] {
 					p.swapWith!(d, e);
 					p.Permutation.reducedWordsDo { :x |
 						x.add!(d);
-						aBlock(x)
+						aFunction(x)
 					};
 					p.swapWith!(d, e)
 				}
 			};
 			isIdentity.ifTrue {
-				aBlock([])
+				aFunction([])
 			}
 		};
 		f(self.list)
@@ -366,8 +366,8 @@ Permutation : [Object, Store, Equal] {
 		answer
 	}
 
-	runs { :self :aBlock/2 |
-		self.list.orderedSubstrings(aBlock/2)
+	runs { :self :aFunction/2 |
+		self.list.orderedSubstrings(aFunction/2)
 	}
 
 	runs { :self |
@@ -564,13 +564,13 @@ Permutation : [Object, Store, Equal] {
 		answer
 	}
 
-	lexicographicPermutationsDo { :self :aBlock/1 |
+	lexicographicPermutationsDo { :self :aFunction/1 |
 		let list = self.copy.sort;
 		let continue = true;
 		{
 			continue
 		}.whileTrue {
-			continue := aBlock(list);
+			continue := aFunction(list);
 			continue.ifTrue {
 				let next = list.nextPermutationLexicographic!;
 				continue := next.isNotNil
@@ -590,7 +590,7 @@ Permutation : [Object, Store, Equal] {
 		answer
 	}
 
-	minimumChangePermutationsDo { :self :aBlock/1 |
+	minimumChangePermutationsDo { :self :aFunction/1 |
 		let a = self.copy;
 		let n = a.size;
 		let c = List(n, 1L);
@@ -600,7 +600,7 @@ Permutation : [Object, Store, Equal] {
 			a[i] := a[j];
 			a[j] := t
 		};
-		aBlock(a);
+		aFunction(a);
 		{
 			i <= n
 		}.whileTrue {
@@ -610,7 +610,7 @@ Permutation : [Object, Store, Equal] {
 				} {
 					swap(c[i], i)
 				};
-				aBlock(a);
+				aFunction(a);
 				c[i] := c[i] + 1L;
 				i := 2L
 			} {
@@ -889,18 +889,18 @@ Permutation : [Object, Store, Equal] {
 		}.collectCatenate(permutations/1)
 	}
 
-	permutationsDo { :self :aBlock/1 |
-		self.copy.permutationsStartingAtDo(1L, aBlock/1)
+	permutationsDo { :self :aFunction/1 |
+		self.copy.permutationsStartingAtDo(1L, aFunction/1)
 	}
 
-	permutationsStartingAtDo { :self :anInteger :aBlock/1 |
+	permutationsStartingAtDo { :self :anInteger :aFunction/1 |
 		(anInteger > self.size).ifFalse {
 			(anInteger = self.size).if {
-				aBlock(self)
+				aFunction(self)
 			} {
 				anInteger.toDo(self.size) { :index |
 					self.swapWith!(anInteger, index);
-					self.permutationsStartingAtDo(anInteger + 1L, aBlock/1);
+					self.permutationsStartingAtDo(anInteger + 1L, aFunction/1);
 					self.swapWith!(anInteger, index)
 				}
 			}
@@ -920,7 +920,7 @@ Permutation : [Object, Store, Equal] {
 		answer
 	}
 
-	[plainChangesDo, steinhausJohnsonTrotterDo] { :self :aBlock/1 |
+	[plainChangesDo, steinhausJohnsonTrotterDo] { :self :aFunction/1 |
 		let p = self.copy;
 		let q = self.copy;
 		let n = p.size;
@@ -934,7 +934,7 @@ Permutation : [Object, Store, Equal] {
 		};
 		let perm = { :i |
 			(i > n).if {
-				aBlock(p)
+				aFunction(p)
 			} {
 				perm(i + 1L);
 				(i - 1L).timesRepeat {
@@ -1006,8 +1006,8 @@ Permutation : [Object, Store, Equal] {
 
 +@ArithmeticProgression {
 
-	permutationsDo { :self :aBlock/1 |
-		self.List.permutationsDo(aBlock/1)
+	permutationsDo { :self :aFunction/1 |
+		self.List.permutationsDo(aFunction/1)
 	}
 
 }

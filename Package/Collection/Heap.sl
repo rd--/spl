@@ -1,6 +1,6 @@
 Heap : [Object, Copy, Equal, Do, At, Add, Remove] {
 
-	| array sortBlock indexUpdateBlock | <List>
+	| array sortFunction indexUpdateFunction | <List>
 
 	add! { :self :anObject |
 		self.array.add!(anObject);
@@ -28,14 +28,14 @@ Heap : [Object, Copy, Equal, Do, At, Add, Remove] {
 	}
 
 	compareItems { :self :anItem :anotherItem |
-		let sortBlock/2 = self.sortBlock.ifNil {
+		let sortFunction/2 = self.sortFunction.ifNil {
 			precedes/2
 		};
-		sortBlock(anItem, anotherItem)
+		sortFunction(anItem, anotherItem)
 	}
 
-	do { :self :aBlock/1 |
-		self.array.do(aBlock/1)
+	do { :self :aFunction/1 |
+		self.array.do(aFunction/1)
 	}
 
 	downHeap { :self :anIndex |
@@ -76,8 +76,8 @@ Heap : [Object, Copy, Equal, Do, At, Add, Remove] {
 	}
 
 	indexUpdate { :self :anObject :anIndex |
-		self.indexUpdateBlock.ifNotNil {
-			let f/2 = self.indexUpdateBlock;
+		self.indexUpdateFunction.ifNotNil {
+			let f/2 = self.indexUpdateFunction;
 			f(anObject, anIndex)
 		}
 	}
@@ -86,14 +86,14 @@ Heap : [Object, Copy, Equal, Do, At, Add, Remove] {
 		self.size = 0L
 	}
 
-	isEqualBy { :self :anObject :aBlock/2 |
+	isEqualBy { :self :anObject :aFunction/2 |
 		self == anObject | {
 			anObject.isHeap & {
 				anObject.size = self.size & {
-					anObject.sortBlock == self.sortBlock & {
-						self.array.sort(self.sortBlock).isEqualBy(
-							anObject.array.sort(self.sortBlock),
-							aBlock/2
+					anObject.sortFunction == self.sortFunction & {
+						self.array.sort(self.sortFunction).isEqualBy(
+							anObject.array.sort(self.sortFunction),
+							aFunction/2
 						)
 					}
 				}
@@ -141,7 +141,7 @@ Heap : [Object, Copy, Equal, Do, At, Add, Remove] {
 		self.removeAt!(1L)
 	}
 
-	removeIfAbsent! { :self :oldObject :aBlock/0 |
+	removeIfAbsent! { :self :oldObject :aFunction/0 |
 		let array = self.array;
 		withReturn { :return/1 |
 			1L.toDo(self.size) { :i |
@@ -149,7 +149,7 @@ Heap : [Object, Copy, Equal, Do, At, Add, Remove] {
 					self.uncheckedRemoveAt(i).return
 				}
 			};
-			aBlock()
+			aFunction()
 		}
 	}
 
@@ -211,8 +211,8 @@ Heap : [Object, Copy, Equal, Do, At, Add, Remove] {
 
 +[List, Range] {
 
-	Heap { :self :aBlock/2 |
-		let answer = uncheckedHeap([], aBlock/2, nil);
+	Heap { :self :aFunction/2 |
+		let answer = uncheckedHeap([], aFunction/2, nil);
 		answer.addAll!(self);
 		answer
 	}

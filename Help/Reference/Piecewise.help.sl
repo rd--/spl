@@ -4,12 +4,12 @@
 
 A `Type` that represents a piecewise function with values given by pieces _p_,
 a sequence of _(predicate -> function)_ associations.
-The _predicate_ Blocks are typically inequalities such as _{ :x | x < 0 }_.
-The _predicate_ Blocks are evaluated in turn, until one of them answers true.
-The answer is the answer of the corresponding _function_ Block.
+The _predicate_ functions are typically inequalities such as _{ :x | x < 0 }_.
+The _predicate_ functions are evaluated in turn, until one of them answers true.
+The answer is the answer of the corresponding _function_.
 Answers _f_ of the input value if none of the conditions apply.
 The default value for _f_ is _0.constant_.
-The method `unaryBlock` answers a unary block that will evaluate the specified function.
+The method `unaryFunction` answers a unary function that will evaluate the specified function.
 
 Plot a piecewise function with different pieces below and above zero,
 writing the `Associations` using `<-`,
@@ -21,7 +21,7 @@ let p = [
 	{ :x | x } <- { :x | x > 0 }
 ];
 (-2.0 -- 2.0).functionPlot(
-	Piecewise(p).unaryBlock
+	Piecewise(p).unaryFunction
 )
 ~~~
 
@@ -38,7 +38,7 @@ let f = { :x |
 	(x ^ 2).- / 100 + 1
 };
 (-10.0 -- 10.0).functionPlot(
-	Piecewise(p, f/1).unaryBlock
+	Piecewise(p, f/1).unaryFunction
 )
 ~~~
 
@@ -51,7 +51,7 @@ let p = [
 	{ :x | x.sqrt } <- { :x | x > 0 }
 ];
 (-2.0 -- 2.0).functionPlot(
-	Piecewise(p).unaryBlock
+	Piecewise(p).unaryFunction
 )
 ~~~
 
@@ -65,7 +65,7 @@ let p = [
 ];
 let f = { :x | 1 };
 (-2.0 -- 2.0).functionPlot(
-	Piecewise(p, f/1).unaryBlock
+	Piecewise(p, f/1).unaryFunction
 )
 ~~~
 
@@ -73,7 +73,7 @@ let f = { :x | 1 };
 
 * * *
 
-See also: Block, unaryBlock
+See also: Function, unaryFunction
 
 References:
 _Mathematica_

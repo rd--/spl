@@ -87,7 +87,7 @@ Compute a moving average with runs of three elements:
 
 See also: adjacentPairsCollect, arrayFilter, map, movingMap, partition
 
-Guides: Block Functions
+Guides: Function Functions
 
 References:
 _Mathematica_

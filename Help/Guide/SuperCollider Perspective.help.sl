@@ -3,7 +3,7 @@
 There is no end of line comment syntax,
 `//` is the quotient operator.
 
-Block arguments are written as in Smalltalk.
+Function arguments are written as in Smalltalk.
 Arguments are written with a colon (`:`) prefix,
 immediately following the opening brace,
 and are terminated by a vertical bar (`|`),

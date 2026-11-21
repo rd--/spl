@@ -54,9 +54,9 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		self.euclideanAlgorithm(operand).monicPolynomial
 	}
 
-	isEqualBy { :self :operand :aBlock/2 |
+	isEqualBy { :self :operand :aFunction/2 |
 		operand.isUnivariatePolynomial & {
-			aBlock(self.coefficientList, operand.coefficientList)
+			aFunction(self.coefficientList, operand.coefficientList)
 		}
 	}
 
@@ -229,7 +229,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 		}
 	}
 
-	unaryBlock { :self |
+	unaryFunction { :self |
 		let c = self.coefficientList;
 		{ :x |
 			c.evaluateUnivariatePolynomial(x)

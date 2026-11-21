@@ -12,7 +12,7 @@ Lookup the `collect` method at `List`:
 >>> 	2.0,
 >>> 	'List'
 >>> );
->>> let f/2 = m.block;
+>>> let f/2 = m.compiledFunction;
 >>> (
 >>> 	m.isMethod,
 >>> 	f([4 9 16], sqrt/1)
@@ -28,7 +28,7 @@ Lookup the `+` method at `Float`:
 >>> 	2.0,
 >>> 	'Float'
 >>> );
->>> let f/2 = m.block;
+>>> let f/2 = m.compiledFunction;
 >>> (
 >>> 	m.operatorTokenOrQualifiedName,
 >>> 	f(3, 4)

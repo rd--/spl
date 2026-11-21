@@ -36,9 +36,9 @@
 		self.absoluteValue.square
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aBlock/2 |
+	adaptToCollectionAndApply { :self :aCollection :aFunction/2 |
 		aCollection.collect { :each |
-			aBlock(each, self)
+			aFunction(each, self)
 		}
 	}
 
@@ -279,8 +279,8 @@
 		self * 2L
 	}
 
-	downToDo { :self :anInteger :aBlock/1 |
-		self.toByDo(anInteger, -1L, aBlock/1)
+	downToDo { :self :anInteger :aFunction/1 |
+		self.toByDo(anInteger, -1L, aFunction/1)
 	}
 
 	egyptianFraction { :x :n |
@@ -471,17 +471,17 @@
 		self.isBetweenUsing(min, max, <=)
 	}
 
-	isBetweenUsing { :self :interval :aBlock/2 |
+	isBetweenUsing { :self :interval :aFunction/2 |
 		self.isBetweenUsing(
 			interval.min,
 			interval.max,
-			aBlock/2
+			aFunction/2
 		)
 	}
 
-	isBetweenUsing { :self :min :max :aBlock/2 |
-		aBlock(min, self) & {
-			aBlock(self, max)
+	isBetweenUsing { :self :min :max :aFunction/2 |
+		aFunction(min, self) & {
+			aFunction(self, max)
 		}
 	}
 
@@ -706,17 +706,17 @@
 		self * -1
 	}
 
-	niceFloatBy { :self :aBlock/2 |
+	niceFloatBy { :self :aFunction/2 |
 		let m = 10.0 ^ self.abs.log10.floorFloat.negate;
 		let steps = [1.0 1.5 2.0 2.5 5.0 7.5 10.0];
-		let z = aBlock(steps, self * m);
+		let z = aFunction(steps, self * m);
 		z / m
 	}
 
-	niceFractionBy { :self :aBlock/2 |
+	niceFractionBy { :self :aFunction/2 |
 		let m = 10L ^ self.abs.log10.floor.negate;
 		let steps = [1/1 3/2 2/1 5/2 5/1 3/4 10/1];
-		let z = aBlock(steps, self * m);
+		let z = aFunction(steps, self * m);
 		z / m
 	}
 
@@ -726,11 +726,11 @@
 		}
 	}
 
-	niceNumberBy { :self :aBlock/2 |
+	niceNumberBy { :self :aFunction/2 |
 		self.isFraction.if {
-			self.niceFractionBy(aBlock/2)
+			self.niceFractionBy(aFunction/2)
 		} {
-			self.niceFloatBy(aBlock/2)
+			self.niceFloatBy(aFunction/2)
 		}
 	}
 
@@ -866,16 +866,16 @@
 		self.quotientBy(aNumber, truncate/1)
 	}
 
-	quotientBy { :self :aNumber :aBlock/1 |
+	quotientBy { :self :aNumber :aFunction/1 |
 		aNumber.isNumber.if {
 			aNumber.isZero.if {
 				'@Number>>quotient: divideByZero'.error
 			} {
-				aBlock(self / aNumber)
+				aFunction(self / aNumber)
 			}
 		} {
 			aNumber.adaptToNumberAndApply(self) { :a :b |
-				a.quotientBy(b, aBlock/1)
+				a.quotientBy(b, aFunction/1)
 			}
 		}
 	}
@@ -961,8 +961,8 @@
 		self.remainderBy(aNumber, truncate/1)
 	}
 
-	remainderBy { :self :aNumber :aBlock/1 |
-		self - (self.quotientBy(aNumber, aBlock/1) * aNumber)
+	remainderBy { :self :aNumber :aFunction/1 |
+		self - (self.quotientBy(aNumber, aFunction/1) * aNumber)
 	}
 
 	rescale { :self :a |
@@ -1156,7 +1156,7 @@
 		(i * j) + k
 	}
 
-	toByDo { :self :stop :step :aBlock/1 |
+	toByDo { :self :stop :step :aFunction/1 |
 		step.isZero.if {
 			'@Number>>toByDo: step must be non-zero'.error
 		} {
@@ -1165,38 +1165,38 @@
 				{
 					stop <= nextValue
 				}.whileTrue {
-					aBlock(nextValue);
+					aFunction(nextValue);
 					nextValue := nextValue + step
 				}
 			} {
 				{
 					stop >= nextValue
 				}.whileTrue {
-					aBlock(nextValue);
+					aFunction(nextValue);
 					nextValue := nextValue + step
 				}
 			}
 		}
 	}
 
-	toDo { :self :end :aBlock/1 |
+	toDo { :self :end :aFunction/1 |
 		let index = self;
 		{
 			index <= end
 		}.whileTrue {
-			aBlock(index);
+			aFunction(index);
 			index := index + 1L
 		}
 	}
 
-	toDoWithBreak { :self :end :aBlock/2 |
+	toDoWithBreak { :self :end :aFunction/2 |
 		let index = self;
 		withReturn { :return/1 |
 			let break = { return(nil) };
 			{
 				index <= end
 			}.whileTrue {
-				aBlock(index, break/0);
+				aFunction(index, break/0);
 				index := index + 1L
 			}
 		};
@@ -1267,9 +1267,9 @@
 		}
 	}
 
-	upOrDownToDo { :self :end :aBlock/1 |
+	upOrDownToDo { :self :end :aFunction/1 |
 		let step = (end < self).if { -1 } { 1 };
-		self.toByDo(end, step, aBlock/1)
+		self.toByDo(end, step, aFunction/1)
 	}
 
 	wrap { :self :low :high |
@@ -1319,7 +1319,7 @@
 		(base ^ e).sum
 	}
 
-	rescaleBlock { :a :b |
+	rescaleFunction { :a :b |
 		let [min, max] = a;
 		let [yMin, yMax] = b;
 		{ :x |

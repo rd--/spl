@@ -4,13 +4,13 @@
 		self.collect(identity/1)
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aBlock/2 |
-		aBlock(aCollection, List(self))
+	adaptToCollectionAndApply { :self :aCollection :aFunction/2 |
+		aFunction(aCollection, List(self))
 	}
 
-	adaptToNumberAndApply { :self :aNumber :aBlock/2 |
+	adaptToNumberAndApply { :self :aNumber :aFunction/2 |
 		self.collect { :each |
-			aBlock(aNumber, each)
+			aFunction(aNumber, each)
 		}
 	}
 
@@ -35,11 +35,11 @@
 		}
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		let result = List(self.size, nil);
 		let index = 1L;
 		self.do { :nextValue |
-			result[index] := aBlock(nextValue);
+			result[index] := aFunction(nextValue);
 			index := index + 1L
 		};
 		result
@@ -61,19 +61,19 @@
 		}
 	}
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		let nextValue = self.start;
 		let count = self.size;
 		let stepSize = self.step;
 		{
 			count > 1L
 		}.whileTrue {
-			aBlock(nextValue);
+			aFunction(nextValue);
 			nextValue := nextValue + stepSize;
 			count := count - 1L
 		};
 		(count > 0L).ifTrue {
-			aBlock(self.end)
+			aFunction(self.end)
 		};
 		nil
 	}
@@ -99,8 +99,8 @@
 		}
 	}
 
-	isArithmeticProgression { :self :aNumber :aBlock/2 |
-		aBlock(self.step, aNumber)
+	isArithmeticProgression { :self :aNumber :aFunction/2 |
+		aFunction(self.step, aNumber)
 	}
 
 	isArithmeticProgression { :self |
@@ -157,19 +157,19 @@
 		min(self.start, self.end)
 	}
 
-	reverseDo { :self :aBlock/1 |
+	reverseDo { :self :aFunction/1 |
 		let nextValue = self.end;
 		let count = self.size;
 		let stepSize = self.step.negate;
 		{
 			count > 1L
 		}.whileTrue {
-			aBlock(nextValue);
+			aFunction(nextValue);
 			nextValue := nextValue + stepSize;
 			count := count - 1L
 		};
 		(count > 0L).ifTrue {
-			aBlock(self.start)
+			aFunction(self.start)
 		};
 		nil
 	}
@@ -200,7 +200,7 @@
 		self.step * (index - 1L) + self.start
 	}
 
-	withIndexDo { :self :aBlock/2 |
+	withIndexDo { :self :aFunction/2 |
 		let nextValue = self.start;
 		let nextIndex = 1L;
 		let endIndex = self.size;
@@ -208,11 +208,11 @@
 		{
 			nextIndex < endIndex
 		}.whileTrue {
-			aBlock(nextValue, nextIndex);
+			aFunction(nextValue, nextIndex);
 			nextValue := nextValue + stepSize;
 			nextIndex := nextIndex + 1L
 		};
-		aBlock(self.end, endIndex);
+		aFunction(self.end, endIndex);
 		nil
 	}
 

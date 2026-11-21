@@ -1,8 +1,8 @@
 # lsScan
 
-- _lsScan(input, aBlock/2)_
+- _lsScan(s, f/2)_
 
-A stream that accumulates the succesive applications of _aBlock_ to the elements of _input_.
+A stream that accumulates the succesive applications of _f_ to the elements of the input stream _s_.
 Can be used to calculate the prefix sum and product.
 
 ```

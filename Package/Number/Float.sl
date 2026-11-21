@@ -20,12 +20,12 @@ Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInt
 		>
 	}
 
-	adaptToFractionAndApply { :self :operand :aBlock/2 |
-		aBlock(Float(operand), self)
+	adaptToFractionAndApply { :self :operand :aFunction/2 |
+		aFunction(Float(operand), self)
 	}
 
-	adaptToIntegerAndApply { :self :anInteger :aBlock/2 |
-		aBlock(Float(anInteger), self)
+	adaptToIntegerAndApply { :self :anInteger :aFunction/2 |
+		aFunction(Float(anInteger), self)
 	}
 
 	assertIsFinite { :self :message |

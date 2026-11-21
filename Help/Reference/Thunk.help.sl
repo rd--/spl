@@ -16,7 +16,7 @@
 (2, 2, 2)
 ```
 
-The `memoize` method has the same function but answers a `Block` value:
+The `memoize` method has the same function but answers a `Function` value:
 
 ```
 >>> let x = 1;
@@ -29,4 +29,4 @@ The `memoize` method has the same function but answers a `Block` value:
 
 See also: memoize
 
-Guides: Block Functions
+Guides: Function Functions

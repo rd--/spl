@@ -1,6 +1,6 @@
-# Block Syntax
+# Function Syntax
 
-The `Block` syntax follows Smalltalk’s.
+The `Function` syntax follows Smalltalk’s.
 
 Curly brackets (`{` and `}`) replace square brackets (`[` and `]`),
 and semicolons (`;`) replace periods (`.`).
@@ -9,30 +9,30 @@ The general form is:
 
 > _{ arguments? temporaries? statements? }_
 
-A no argument block that returns a random real number between -1.0 and 1.0 can be written:
+A no argument function that returns a random real number between -1.0 and 1.0 can be written:
 
 > _{ (-1.0 -- 1.0).atRandom }_
 
 Arguments are written with a colon (`:`) prefix directly following the open brace and are terminated by a vertical bar (`|`).
 
-The one argument block to square a number is written:
+The one argument function to square a number is written:
 
 > _{ :n | n * n }_
 
-The two argument sum of squares block is written:
+The two argument sum of squares function is written:
 
 > _{ :x :y | (x * x) + (y * y) }_
 
 Temporaries are written using a `var` keyword, statements are separated by semi-colons.
 
-A one argument block that returns two random numbers, the second constrained by the first, is written
+A one argument function that returns two random numbers, the second constrained by the first, is written
 
 > _{ :n | var i, j; i := (0 -- n).atRandom; j := (0 -- i).atRandom; [i, j] }_
 
-There is no return operator, the value of a block is the value of the last statement.
+There is no return operator, the value of a function is the value of the last statement.
 
 _Subtleties:_
-If _p.q_ is a block,
+If _p.q_ is a function,
 it must be applied as _(p.q).unaryApply(r)_,
 which can also be written _p.q.apply(r)_.
 _p.q(r)_ is _q(p, r)_, not _(q(p))(r)_.
@@ -41,4 +41,4 @@ _p.q(r)_ is _q(p, r)_, not _(q(p))(r)_.
 
 See also: :, ;, {, |, }, let, var
 
-Guides: Apply Syntax, Block Semantics, Let Syntax, Temporary Block Syntax
+Guides: Apply Syntax, Function Semantics, Let Syntax, Temporary Function Syntax

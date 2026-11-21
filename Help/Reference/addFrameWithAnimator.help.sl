@@ -1,6 +1,6 @@
 # addFrameWithAnimator
 
-- _addFrameWithAnimator(sk, subject, event, delay, aBlock/0)_
+- _addFrameWithAnimator(sk, subject, event, delay, f/0)_
 
 Add a `Frame`, with an animator, to `SmallKansas` _sk_.
 

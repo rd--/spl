@@ -7,7 +7,7 @@ Evaluate the action block _f_ as long as the value of the condition block _c_ is
 In the unary case, simply evaluate _c_ repeatedly as long as it answers `true`.
 Answers `nil`.
 
-Ordinarily _c_ and _f_ are literal no-argument blocks written using `Trailing Block Syntax`.
+Ordinarily _c_ and _f_ are literal no-argument blocks written using `Trailing Function Syntax`.
 
 Calculate an initial subsequence of the Fibonacci series,
 the sum of two elements defines the next:

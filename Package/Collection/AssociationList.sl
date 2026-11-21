@@ -14,8 +14,8 @@
 		self.assertIsAssociationList
 	}
 
-	associationsDo { :self :aBlock/1 |
-		self.assertIsAssociationList.do(aBlock/1)
+	associationsDo { :self :aFunction/1 |
+		self.assertIsAssociationList.do(aFunction/1)
 	}
 
 	includesKey { :self :key |
@@ -26,9 +26,9 @@
 		self.allSatisfy(isAssociation/1)
 	}
 
-	keySelect { :self :aBlock/1 |
+	keySelect { :self :aFunction/1 |
 		self.assertIsAssociationList.select { :each |
-			aBlock(each.key)
+			aFunction(each.key)
 		}
 	}
 
@@ -48,16 +48,16 @@
 		.collect(keyAndValue/1)
 	}
 
-	keysAndValuesDo { :self :aBlock/2 |
+	keysAndValuesDo { :self :aFunction/2 |
 		self
 		.assertIsAssociationList
 		.do { :each |
-			aBlock(each.key, each.value)
+			aFunction(each.key, each.value)
 		}
 	}
 
-	keysDo { :self :aBlock/1 |
-		self.keys.do(aBlock/1)
+	keysDo { :self :aFunction/1 |
+		self.keys.do(aFunction/1)
 	}
 
 	valueType { :self |
@@ -68,8 +68,8 @@
 		self.assertIsAssociationList.collect(value/1)
 	}
 
-	valuesDo { :self :aBlock/1 |
-		self.values.do(aBlock/1)
+	valuesDo { :self :aFunction/1 |
+		self.values.do(aFunction/1)
 	}
 
 }

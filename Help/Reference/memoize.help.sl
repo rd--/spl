@@ -2,7 +2,7 @@
 
 - _memoize(f/n, requireImmediate)_
 
-Answer an _n_ argument `Block` that memoizes the _n_-ary block _f_,
+Answer an _n_ argument `Function` that memoizes the _n_-ary block _f_,
 using a `Map` if _requireImmediate_ is `true`,
 else a `Dictionary`.
 Implemented for _n=0,1,2_.
@@ -90,9 +90,9 @@ let r = Sfc32(673821);
 
 * * *
 
-See also: Block, cached, fibonacci
+See also: Function, cached, fibonacci
 
-Guides: Block Functions, Dictionary Functions
+Guides: Function Functions, Dictionary Functions
 
 References:
 _OEIS_

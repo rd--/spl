@@ -2,9 +2,9 @@
 
 - _composeLeft(f/1, g/1)_
 
-Compose the two unary Blocks _f_ and _g_ into one unary Block.
+Compose the two unary functions _f_ and _g_ into one unary function.
 
-The blocks are composed right to left,
+The functions are composed right to left,
 i.e. _g_ is applied first and _f_ second.
 
 ```
@@ -69,7 +69,7 @@ At `List`:
 
 See also: bindLeft, bindRight, composeRight
 
-Guides: Block Functions
+Guides: Function Functions
 
 References:
 _Apl_

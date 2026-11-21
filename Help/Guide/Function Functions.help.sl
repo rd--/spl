@@ -1,12 +1,12 @@
-# Block Functions
+# Function Functions
 
 Types:
 
-- `Block`
+- `Function`
 
 Predicates:
 
-- `isBlock`
+- `isFunction`
 - `isLiteral`
 
 Accessors:
@@ -27,9 +27,9 @@ Adverbs:
 
 Converting:
 
-- `binaryBlock`
-- `ternaryBlock`
-- `unaryBlock`
+- `binaryFunction`
+- `ternaryFunction`
+- `unaryFunction`
 
 Evaluation:
 
@@ -65,7 +65,7 @@ Memoization:
 
 Collection Functions:
 
-- `blockMap`
+- `functionMap`
 - `elementwise`
 - `map`
 
@@ -80,4 +80,4 @@ Exceptions:
 
 * * *
 
-Guides: Block Semantics, Block Syntax, Control Functions, Non-local Return, Reflection Functions, Value Apply Syntax, Value Protocol
+Guides: Function Semantics, Function Syntax, Control Functions, Non-local Return, Reflection Functions, Value Apply Syntax, Value Protocol

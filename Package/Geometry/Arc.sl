@@ -74,7 +74,7 @@ Arc : [Object, Store, Equal, Geometry] {
 	parametricEquation { :self |
 		let [a, b] = self.angles;
 		let c = (a < b).if { b } { b + 2.pi };
-		let f/1 = rescaleBlock([0, 1], [a, c]);
+		let f/1 = rescaleFunction([0, 1], [a, c]);
 		let g/1 = ellipseCurve(self.center, self.radii, 0);
 		{ :theta |
 			g(f(theta))

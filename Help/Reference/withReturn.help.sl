@@ -49,9 +49,9 @@ i.e. _spl-insert-non-local-return (C-c C-r)_ in Emacs.
 
 * * *
 
-See also: Block, apply, repeatForever
+See also: Function, apply, repeatForever
 
-Guides: Block Functions, Control Functions, Non-local Return
+Guides: Function Functions, Control Functions, Non-local Return
 
 References:
 _SuperCollider_

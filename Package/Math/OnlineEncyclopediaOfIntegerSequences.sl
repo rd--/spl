@@ -530,8 +530,8 @@ OeisEntry : [Object, Store, Equal, OeisSequence] {
 		}
 	}
 
-	isEqualBy { :self :operand :aBlock/2 |
-		aBlock(self.identifier, operand.identifier)
+	isEqualBy { :self :operand :aFunction/2 |
+		aFunction(self.identifier, operand.identifier)
 	}
 
 	keywords { :self |
@@ -564,13 +564,13 @@ OeisEntry : [Object, Store, Equal, OeisSequence] {
 		'OeisEntry(%)'.format([self.identifier.storeString])
 	}
 
-	then { :self :aBlock/1 |
-		self.fetch.then(aBlock/1)
+	then { :self :aFunction/1 |
+		self.fetch.then(aFunction/1)
 	}
 
-	withData { :self :aBlock/1 |
+	withData { :self :aFunction/1 |
 		self.fetchEntryRecord.then { :e |
-			aBlock(e.data)
+			aFunction(e.data)
 		}
 	}
 

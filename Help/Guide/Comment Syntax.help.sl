@@ -21,7 +21,7 @@ are `(*` and `*)`.
 
 The Haskell prefix token is `--` (also used for Ada and Lua) and the bracket tokens are `{-` and `-}`.
 The Haskell comment token `{-` disallows `{-}`,
-however the ordinary notation for blocks includes spaces,
+however the ordinary notation for functions includes spaces,
 and `{ - }` is allowed.
 In Sᴘʟ lines often begin with `{` to open a block, and end with `}` to close a block,
 which makes Haskell comments confusing, especially where there is not colour distinction.

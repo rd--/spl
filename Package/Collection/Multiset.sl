@@ -62,10 +62,10 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 		}
 	}
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		self.valuesAndCounts.associationsDo { :each |
 			each.value.timesRepeat {
-				aBlock(each.key)
+				aFunction(each.key)
 			}
 		}
 	}
@@ -172,11 +172,11 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 		tally
 	}
 
-	sortedCounts { :self :aBlock/2 |
+	sortedCounts { :self :aFunction/2 |
 		self
 		.valuesAndCounts
 		.associationsSwapped
-		.sortBy!(aBlock/2)
+		.sortBy!(aFunction/2)
 	}
 
 	sortedCounts { :self |
@@ -260,7 +260,7 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 
 }
 
-+Block {
++Function {
 
 	comparatorToMultiset { :comparator/2 |
 		Multiset(
@@ -285,9 +285,9 @@ Multiset : [Object, New, Copy, Store, Equal, Do, Collection, Add, Remove, Unorde
 		Multiset(self, =)
 	}
 
-	histogramOf { :self :comparator/2 :aBlock/1 |
+	histogramOf { :self :comparator/2 :aFunction/1 |
 		let answer = comparatorToMultiset(comparator/2);
-		self.collectInto!(aBlock/1, answer);
+		self.collectInto!(aFunction/1, answer);
 		answer
 	}
 

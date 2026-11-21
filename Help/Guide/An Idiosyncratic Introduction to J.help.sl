@@ -408,7 +408,7 @@ is that one can then apply matrix operations to it, such as matrix inverse:
 ## Prefix
 
 Prefix can be implemented as a unary adverb,
-applying a unary block to the prefixes of the argument:
+applying a unary function to the prefixes of the argument:
 
 ```
 >>> 1:7.prefixes

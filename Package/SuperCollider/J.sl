@@ -59,10 +59,10 @@
 		}.tuples
 	}
 
-	shapeIndicesDo { :self :aBlock/1 |
+	shapeIndicesDo { :self :aFunction/1 |
 		self.collect { :each |
 			1L.to(each)
-		}.tuplesDo(aBlock/1)
+		}.tuplesDo(aFunction/1)
 	}
 
 	slice { :self :cuts |

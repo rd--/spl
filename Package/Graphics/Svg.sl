@@ -77,7 +77,7 @@ Svg : [Object] {
 
 }
 
-+Block {
++Function {
 
 	scaledSvgFragments { :self/1 :height :boundingCoordinates |
 		let actualBoundingBox = boundingCoordinates.Rectangle;

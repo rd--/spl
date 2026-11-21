@@ -2,7 +2,7 @@
 
 - _each(f/n)_
 
-Answer a `Block` that will either apply the unary block _f_ to one argument using `collect`,
+Answer a `Function` that will either apply the unary block _f_ to one argument using `collect`,
 or will apply the binary block _f_ to two arguments using `withCollect`.
 
 At unary _f_:

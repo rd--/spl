@@ -21,13 +21,13 @@ The name of this operator and syntax token is `verticalLine`:
 ```
 
 `|` is both an operator and a syntax token.
-As a syntax token `|` separates the parameter list from the body in `Block Syntax`.
+As a syntax token `|` separates the parameter list from the body in `Function Syntax`.
 It also encloses and slot names in `Type Definition Syntax`.
 
 _Note:_
 In Smalltalk the evaluting form is called _or:_ and the non-evaluating form _|_.
 In Sᴘʟ the names are `|` and `||`.
-Note that `|` is never displayed as ∨ because it is part of the `Block Syntax`.
+Note that `|` is never displayed as ∨ because it is part of the `Function Syntax`.
 
 * * *
 

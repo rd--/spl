@@ -21,15 +21,15 @@ Sl {
     MethodNameOrMethodNameList
 		= methodName
 		| MethodNameList
-	TypeDefinition = typeName "!"? TraitList "{" SlotDefinitions? angleBracketedTraitOrTypeName? (MethodNameOrMethodNameList Block)* "}"
-	TypeExtension = "+" typeName "{" (MethodNameOrMethodNameList Block)* "}"
-	MethodDefinitions = "+" "[" NonemptyListOf<typeOrTraitName, ","> "]" "{" (MethodNameOrMethodNameList Block)* "}"
+	TypeDefinition = typeName "!"? TraitList "{" SlotDefinitions? angleBracketedTraitOrTypeName? (MethodNameOrMethodNameList Function)* "}"
+	TypeExtension = "+" typeName "{" (MethodNameOrMethodNameList Function)* "}"
+	MethodDefinitions = "+" "[" NonemptyListOf<typeOrTraitName, ","> "]" "{" (MethodNameOrMethodNameList Function)* "}"
 	SlotDefinitions = ConciseSlotDefinitions | VerboseSlotDefinitions
 	ConciseSlotDefinitions = "|" slotName+ "|"
 	VerboseSlotDefinitions = ("slot" slotName ";")+
 	TraitList = ":" "[" ListOf<unqualifiedTraitName, ","> "]"
-	TraitExtension = "+" qualifiedTraitName "{" (MethodNameOrMethodNameList Block)* "}"
-	TraitDefinition = qualifiedTraitName "{" (MethodNameOrMethodNameList Block)* "}"
+	TraitExtension = "+" qualifiedTraitName "{" (MethodNameOrMethodNameList Function)* "}"
+	TraitDefinition = qualifiedTraitName "{" (MethodNameOrMethodNameList Function)* "}"
 	LibraryItem
 		= LibraryItemLiteral // S
 		| LibraryItemExpression
@@ -37,11 +37,11 @@ Sl {
 	LibraryItemExpression = "LibraryItem" ApplySyntax
 	Program = VarDeclaration? ListOf<(LetBinding | Expression), ";"> // VarDeclaration retained for blksc3 only
 	Initializer =
-		| BlockLiteralInitializer // S* (Simplifier adds arity qualifier)
+		| FunctionLiteralInitializer // S* (Simplifier adds arity qualifier)
 		| ExpressionInitializer
 		| RecordInitializer // S
 		| ListInitializer // S
-	BlockLiteralInitializer = (varNameOrUnused | operatorBound) "=" Block ~("." | operator)
+	FunctionLiteralInitializer = (varNameOrUnused | operatorBound) "=" Function ~("." | operator)
 	ExpressionInitializer = (varNameOrUnused | operatorFree) "=" Expression
 	RecordInitializer = "(" NonemptyListOf<RecordInitializerItem, ","> ")" "=" Expression
 	ListInitializer = "[" NonemptyListOf<varNameOrUnused, ","> "]" "=" Expression
@@ -72,7 +72,7 @@ Sl {
 		| DotExpressionWithTrailingClosuresSyntax // S
 		| DotExpressionWithAssignmentSyntax // S
 		| DotExpression // S
-		| Block
+		| Function
 		| ListConstructorSyntax // S
 		| RecordConstructorSyntax // S
 		| StringConstructorSyntax // S
@@ -105,21 +105,21 @@ Sl {
 	ParameterList = "(" ListOf<Expression, ","> ")"
 	NonEmptyParameterList = "(" NonemptyListOf<Expression, ","> ")"
 
-	DotExpressionWithTrailingClosuresSyntax = Primary "." selectorName NonEmptyParameterList? Block+
+	DotExpressionWithTrailingClosuresSyntax = Primary "." selectorName NonEmptyParameterList? Function+
 	DotExpressionWithAssignmentSyntax = Primary "." selectorName ":=" Expression
 	DotExpression = Primary ("." (selectorName | operatorBound) ~("{" | ":=") NonEmptyParameterList? ~("{" | "("))+
 
-    Block = BlockWithoutAnnotations | BlockWithAnnotations
-	BlockWithoutAnnotations = "{" ArgumentsWithoutAnnotations? Primitive? Statements? "}"
+    Function = FunctionWithoutAnnotations | FunctionWithAnnotations
+	FunctionWithoutAnnotations = "{" ArgumentsWithoutAnnotations? Primitive? Statements? "}"
 	ArgumentsWithoutAnnotations = argumentName+ "|"
-	BlockWithAnnotations = "{" ArgumentsWithAnnotations? Primitive? Statements? "}" // S
+	FunctionWithAnnotations = "{" ArgumentsWithAnnotations? Primitive? Statements? "}" // S
     ArgumentsWithAnnotations = (argumentName uppercaseIdentifier?)+ "|" // S
 	Primitive = "<primitive:" primitiveCharacter* ">"
 	Statements = NonFinalStatement* FinalStatement
 	NonFinalStatement = (LetBinding | Expression) ";"
 	FinalStatement = Expression
 
-	ApplyWithTrailingClosuresSyntax = selectorName NonEmptyParameterList? Block+
+	ApplyWithTrailingClosuresSyntax = selectorName NonEmptyParameterList? Function+
 	ApplySyntax = (selectorName | operatorBound) ParameterList
     ListConstructorSyntax = typeName (EmptyListSyntax | VectorSyntax | MatrixSyntax | VolumeSyntax | NonEmptyListSyntax | ListRangeSyntax)
     RecordConstructorSyntax = methodName NonEmptyRecordSyntax
@@ -284,7 +284,7 @@ export function slParseToAst(str: string) {
 	return extras.toAST(slGrammar.match(str));
 }
 
-export function slBlockArity(str: string): number {
+export function slFunctionArity(str: string): number {
 	const arg = slParseToAst(str)[1][0][0];
 	return arg === null ? 0 : arg.length;
 }
@@ -292,5 +292,5 @@ export function slBlockArity(str: string): number {
 /*
 import * as sl from './grammar.ts'
 sl.slParseToAst('3 + 4')
-sl.slBlockArity('{ :i :j | i + 1 * j }') === 2
+sl.slFunctionArity('{ :i :j | i + 1 * j }') === 2
 */

@@ -16,7 +16,7 @@ An alias for `bindLeft`.
 
 See also: bindLeft, bindRight, constant
 
-Guides: Block Functions
+Guides: Function Functions
 
 References:
 _Apl_

@@ -4,22 +4,22 @@
 		self.copy.quickSort!
 	}
 
-	quickSort! { :self :sortBlock/2 |
-		self.quickSortFromToBy(1, self.size, sortBlock/2)
+	quickSort! { :self :sortFunction/2 |
+		self.quickSortFromToBy(1, self.size, sortFunction/2)
 	}
 
 	quickSort! { :self |
 		self.quickSort!(isLess/2)
 	}
 
-	quickSortFromToBy { :self :from :to :sortBlock/2 |
+	quickSortFromToBy { :self :from :to :sortFunction/2 |
 		withReturn { :return/1 |
 			let i = from;
 			let j = to;
 			{
 				let di = self[i];
 				let dj = self[j];
-				sortBlock(di, dj).ifFalse {
+				sortFunction(di, dj).ifFalse {
 					self[i] := dj;
 					self[j] := di;
 					let tmp = dj;
@@ -32,8 +32,8 @@
 				};
 				let ij = i + j // 2;
 				let dij = self[ij];
-				sortBlock(di, dij).if {
-					sortBlock(dij, dj).ifFalse {
+				sortFunction(di, dij).if {
+					sortFunction(dij, dj).ifFalse {
 						self[j] := dij;
 						self[ij] := dj;
 						dij := dj;
@@ -54,13 +54,13 @@
 					{
 						l := l - 1;
 						k <= l & {
-							sortBlock(dij, self[l])
+							sortFunction(dij, self[l])
 						}
 					}.whileTrue;
 					{
 						k := k + 1;
 						k <= l & {
-							sortBlock(self[k], dij)
+							sortFunction(self[k], dij)
 						}
 					}.whileTrue;
 					k <= l
@@ -72,10 +72,10 @@
 				(i < l).if {
 					(k < j).if {
 						(l - i < (j - k)).if {
-							self.quickSortFromToBy(i, l, sortBlock/2);
+							self.quickSortFromToBy(i, l, sortFunction/2);
 							i := k
 						} {
-							self.quickSortFromToBy(k, j, sortBlock/2);
+							self.quickSortFromToBy(k, j, sortFunction/2);
 							j := l
 						}
 					} {
@@ -100,7 +100,7 @@
 		self.quickSortHoareWithMonitor(nil.constant)
 	}
 
-	quickSortHoareWithMonitor { :self :l :r :monitorBlock/1 |
+	quickSortHoareWithMonitor { :self :l :r :monitorFunction/1 |
 		let partition = { :s :l :r |
 			let pivot = s[l];
 			let i = l - 1;
@@ -121,21 +121,21 @@
 					continue := false
 				} {
 					s.swapWith!(i, j);
-					monitorBlock(s)
+					monitorFunction(s)
 				}
 			};
 			j
 		};
 		(l < r & { l >= 1 & { r >= 1 } }).ifTrue {
 			let p = partition(self, l, r);
-			quickSortHoareWithMonitor(self, l, p, monitorBlock/1);
-			quickSortHoareWithMonitor(self, p + 1, r, monitorBlock/1)
+			quickSortHoareWithMonitor(self, l, p, monitorFunction/1);
+			quickSortHoareWithMonitor(self, p + 1, r, monitorFunction/1)
 		};
 		self
 	}
 
-	quickSortHoareWithMonitor { :self :monitorBlock/1 |
-		self.quickSortHoareWithMonitor(1, self.size, monitorBlock/1)
+	quickSortHoareWithMonitor { :self :monitorFunction/1 |
+		self.quickSortHoareWithMonitor(1, self.size, monitorFunction/1)
 	}
 
 	quickSortMatrix { :self |

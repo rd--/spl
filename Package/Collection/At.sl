@@ -55,13 +55,13 @@
 		self.atPathUsing(path, at/2)
 	}
 
-	atPathUsing { :self :path :aBlock/2 |
+	atPathUsing { :self :path :aFunction/2 |
 		let item = self;
 		path.ifEmpty {
 			self.errorInvalidIndex('atPathUsing', path)
 		} {
 			path.do { :index |
-				item := aBlock(item, index)
+				item := aFunction(item, index)
 			};
 			item
 		}

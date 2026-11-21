@@ -16,11 +16,11 @@ Map! : [Object, New, Copy, Store, Equal, Do, At, Indices, Put, Collection, Add, 
 		>
 	}
 
-	keysAndValuesDo { :self :aBlock/2 |
+	keysAndValuesDo { :self :aFunction/2 |
 		<primitive:
 		_self.forEach(
 			function(value, key, _unusedMap) {
-				_aBlock_2(key, value);
+				_aFunction_2(key, value);
 			}
 		);
 		>

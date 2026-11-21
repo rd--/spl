@@ -3,7 +3,7 @@
 - _rosslerEquation(a, b, c)_
 
 The Rössler ordinary differential equation.
-Answers a two argument `Block`,
+Answers a two argument `Function`,
 accepting _t_ and _(x,y,z)_,
 and answering _(x′,y′,z′)_.
 

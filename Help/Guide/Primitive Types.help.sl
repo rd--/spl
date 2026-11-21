@@ -2,7 +2,7 @@
 
 The primitive types are:
 
-- `Block`
+- `Function`
 - `Boolean`
 - `List`
 - `Map`

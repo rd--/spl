@@ -2,7 +2,7 @@
 
 - _constant(x, n=1)_
 
-Answer an _n_-ary `Block` that always answers the object _x_,
+Answer an _n_-ary `Function` that always answers the object _x_,
 ignoring the _n_ argument values.
 Implemented for _n=0,1,2_.
 
@@ -19,7 +19,7 @@ Implemented for _n=0,1,2_.
 ```
 
 Construct a zero-argument block that answers a constant value,
-ordinarily it is simpler to type the `Block` syntax directly:
+ordinarily it is simpler to type the `Function` syntax directly:
 
 ```
 >>> 42.constant(0) ! 4
@@ -44,7 +44,7 @@ Construct a two-argument block that answers a constant value:
 
 See also: bindLeft, bindRight, memoize
 
-Guides: Block Functions
+Guides: Function Functions
 
 References:
 _Apl_

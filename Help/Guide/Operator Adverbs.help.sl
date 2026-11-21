@@ -2,7 +2,7 @@
 
 - _x ▯.f y_
 
-Adverbs are methods at `Block`.
+Adverbs are methods at `Function`.
 
 Rewrite rules:
 
@@ -60,7 +60,7 @@ The _t_ adverb is the only form that changes the `rank` of the input sequence:
 
 ## J
 
-To start, note that _verbs_ (i.e. Blocks) in J can apply to several data items at once.
+To start, note that _verbs_ (i.e. Functions) in J can apply to several data items at once.
 Indeed, the basic datatype is an array, and J verbs are designed to apply to arrays.
 For example, the following adds two lists of numbers:
 
@@ -105,7 +105,7 @@ Make a flattened list of associations:
 
 * * *
 
-Guides: Block Functions, Operator Syntax, Syntax Guides
+Guides: Function Functions, Operator Syntax, Syntax Guides
 
 References:
 _J_

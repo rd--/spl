@@ -1,7 +1,7 @@
 # Arity Notation
 
 Sᴘʟ is arity strict,
-meaning that each `Block` and `Method` must be called with the correct number of formal parameters.
+meaning that each `Function` and `Method` must be called with the correct number of formal parameters.
 
 ```
 >>> let f = { :x | x * x };
@@ -16,7 +16,7 @@ true
 ```
 
 The system inserts arity checks when arity qualified names are introduced,
-either as `let` bindings or as `Block` arguments.
+either as `let` bindings or as `Function` arguments.
 
 ```
 >>> let f/1 = sqrt/1;
@@ -38,4 +38,4 @@ true
 
 * * *
 
-See also: Block, Method, /
+See also: Function, Method, /

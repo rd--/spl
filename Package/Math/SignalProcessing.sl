@@ -64,7 +64,7 @@
 
 }
 
-+Block {
++Function {
 
 	recurrenceTable { :self/2 :i :n |
 		let r = i.copy;

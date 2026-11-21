@@ -1,8 +1,8 @@
 # lsAdjacent
 
-- _lsAdjacent(input, aBlock/2)_
+- _lsAdjacent(s, f/2)_
 
-Apply _aBlock_ to adjacent items of the _input_ stream
+Apply _f_ to adjacent items of the input stream _s_.
 
 Sum of adjacent items, one and two, then two and three, then three and four and so on:
 

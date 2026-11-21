@@ -18,9 +18,9 @@ TimeStamp : [Object, Copy, Store, Equal, Compare] {
 		DateAndTime(self).dateAndTimeString
 	}
 
-	isEqualBy { :self :aTimeStamp :aBlock/2 |
+	isEqualBy { :self :aTimeStamp :aFunction/2 |
 		aTimeStamp.isTimeStamp & {
-			aBlock(self.absoluteTime, aTimeStamp.absoluteTime)
+			aFunction(self.absoluteTime, aTimeStamp.absoluteTime)
 		}
 	}
 

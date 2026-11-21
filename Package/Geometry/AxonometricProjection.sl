@@ -30,7 +30,7 @@ AxonometricProjection : [Object, Equal] {
 		]
 	}
 
-	unaryBlock { :self |
+	unaryFunction { :self |
 		let matrix = self.transformationMatrix;
 		{ :aVector |
 			let [x, y, _] = matrix.dot(aVector);

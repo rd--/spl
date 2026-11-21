@@ -12,57 +12,57 @@
 		ifAbsent()
 	}
 
-	collect { :self :aBlock/1 |
+	collect { :self :aFunction/1 |
 		<primitive:
-		if(_aBlock_1 instanceof Function) {
+		if(_aFunction_1 instanceof Function) {
 			return _self.map(
 				function(element, _unusedIndex, _unusedArray) {
-					return _aBlock_1(element);
+					return _aFunction_1(element);
 				}
 			);
 		}
 		>
-		self.error('@collect: not a block')
+		self.error('collect: not a function')
 	}
 
-	detectIfFoundIfNone { :self :aBlock/1 :whenFound/1 :whenNone/0 |
+	detectIfFoundIfNone { :self :aFunction/1 :whenFound/1 :whenNone/0 |
 		<primitive:
 		const item = _self.find(
 			function(element) {
-				return _aBlock_1(element);
+				return _aFunction_1(element);
 			}
 		);
 		return (item !== undefined) ? _whenFound_1(item) : _whenNone_0();
 		>
 	}
 
-	do { :self :aBlock/1 |
+	do { :self :aFunction/1 |
 		<primitive:
 		_self.forEach(
 			function(item, _unusedIndex, _unusedArray) {
-				return _aBlock_1(item)
+				return _aFunction_1(item)
 			}
 		);
 		>
 		nil
 	}
 
-	findFirst { :self :aBlock/1 |
+	findFirst { :self :aFunction/1 |
 		<primitive:
 		const index = _self.findIndex(
 			function(element) {
-				return _aBlock_1(element);
+				return _aFunction_1(element);
 			}
 		);
 		return sl.toInteger(index + 1);
 		>
 	}
 
-	findFirstElement { :self :aBlock/1 |
+	findFirstElement { :self :aFunction/1 |
 		<primitive:
 		const item = _self.find(
 			function(element) {
-				return _aBlock_1(element);
+				return _aFunction_1(element);
 			}
 		);
 		return (item === undefined) ? null : item;
@@ -99,17 +99,17 @@
 		>
 	}
 
-	select { :self :aBlock/1 |
+	select { :self :aFunction/1 |
 		<primitive:
-		if(_aBlock_1 instanceof Function) {
+		if(_aFunction_1 instanceof Function) {
 			return _self.filter(
 				function(element, _unusedIndex, _unusedArray) {
-					return _aBlock_1(element);
+					return _aFunction_1(element);
 				}
 			);
 		}
 		>
-		self.error('@select: not a block')
+		self.error('select: not a function')
 	}
 
 	size { :self |
@@ -118,37 +118,37 @@
 		>
 	}
 
-	[sort, sortBy] { :self :sortBlock/2 |
+	[sort, sortBy] { :self :sortFunction/2 |
 		self.uncheckedSortComparing(
-			sortBlockToTypeCheckedCompareBlock(sortBlock/2)
+			sortFunctionToTypeCheckedCompareFunction(sortFunction/2)
 		)
 	}
 
-	[sort!, sortBy!] { :self :sortBlock/2 |
+	[sort!, sortBy!] { :self :sortFunction/2 |
 		self.uncheckedSortComparing!(
-			sortBlockToTypeCheckedCompareBlock(sortBlock/2)
+			sortFunctionToTypeCheckedCompareFunction(sortFunction/2)
 		)
 	}
 
-	[sort!, sortByOn!] { :self :sortBlock/2 :keyBlock/1 |
+	[sort!, sortByOn!] { :self :sortFunction/2 :keyFunction/1 |
 		<primitive:
 		return _self.sort(
 			function(p, q) {
-				return _sortBlock_2(_keyBlock_1(p), _keyBlock_1(q)) ? -1 : 1
+				return _sortFunction_2(_keyFunction_1(p), _keyFunction_1(q)) ? -1 : 1
 			}
 		);
 		>
 	}
 
-	sortComparing { :self :compareBlock/2 |
+	sortComparing { :self :compareFunction/2 |
 		self.uncheckedSortComparing(
-			typeCheckedCompareBlock(compareBlock/2)
+			typeCheckedCompareFunction(compareFunction/2)
 		)
 	}
 
-	sortComparing! { :self :compareBlock/2 |
+	sortComparing! { :self :compareFunction/2 |
 		self.uncheckedSortComparing!(
-			typeCheckedCompareBlock(compareBlock/2)
+			typeCheckedCompareFunction(compareFunction/2)
 		)
 	}
 
@@ -178,15 +178,15 @@
 		>
 	}
 
-	uncheckedSortComparing { :self :compareBlock/2 |
+	uncheckedSortComparing { :self :compareFunction/2 |
 		<primitive:
-		return _self.toSorted(_compareBlock_2);
+		return _self.toSorted(_compareFunction_2);
 		>
 	}
 
-	uncheckedSortComparing! { :self :compareBlock/2 |
+	uncheckedSortComparing! { :self :compareFunction/2 |
 		<primitive:
-		return _self.sort(_compareBlock_2);
+		return _self.sort(_compareFunction_2);
 		>
 	}
 
@@ -202,7 +202,7 @@
 		self.storeStringUsing(storeString/1)
 	}
 
-	storeStringUsing { :self :aBlock/1 |
+	storeStringUsing { :self :aFunction/1 |
 		'%(%)'.format(
 			[
 				self.typeName,

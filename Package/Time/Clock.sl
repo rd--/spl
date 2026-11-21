@@ -17,11 +17,11 @@ Clock : [Object] {
 		self.existingDelay := nil
 	}
 
-	scheduleBlock { :self :deltaTime :aBlock/1 |
+	scheduleFunction { :self :deltaTime :aFunction/1 |
 		let currentTime = system.sessionTime;
 		let scheduledTime = currentTime + deltaTime;
 		let wakeupTime = self.nextEntryTime;
-		self.priorityQueue.pushWithPriority!(aBlock/1, scheduledTime);
+		self.priorityQueue.pushWithPriority!(aFunction/1, scheduledTime);
 		(
 			wakeupTime = nil | {
 				scheduledTime < wakeupTime
@@ -37,11 +37,11 @@ Clock : [Object] {
 		}
 	}
 
-	scheduleBlockInjecting { :self :deltaTime :anObject :aBlock/2 |
-		self.scheduleBlock(deltaTime) { :currentTime |
-			let reply = aBlock(currentTime, anObject);
+	scheduleFunctionInjecting { :self :deltaTime :anObject :aFunction/2 |
+		self.scheduleFunction(deltaTime) { :currentTime |
+			let reply = aFunction(currentTime, anObject);
 			reply.ifNotNil {
-				self.scheduleBlockInjecting(reply[1], reply[2], aBlock/2)
+				self.scheduleFunctionInjecting(reply[1], reply[2], aFunction/2)
 			};
 			nil
 		}
@@ -56,11 +56,11 @@ Clock : [Object] {
 				frontOfQueueTime <= currentTime
 			}
 		}.whileTrue {
-			let activityBlock/1 = queue.pop!;
-			let rescheduleAfter = activityBlock(scheduledTime);
+			let activityFunction/1 = queue.pop!;
+			let rescheduleAfter = activityFunction(scheduledTime);
 			rescheduleAfter.ifNotNil {
 				self.priorityQueue.pushWithPriority!(
-					activityBlock/1,
+					activityFunction/1,
 					scheduledTime + rescheduleAfter
 				)
 			};
@@ -97,7 +97,7 @@ Clock : [Object] {
 
 }
 
-+Block {
++Function {
 
 	recurseEvery { :self/2 :anObject :delayTime/0 :aClock |
 		{ :currentTime :inputValue |
@@ -131,7 +131,7 @@ Clock : [Object] {
 	}
 
 	schedule { :self/1 :deltaTime :aClock |
-		aClock.scheduleBlock(deltaTime, self/1)
+		aClock.scheduleFunction(deltaTime, self/1)
 	}
 
 	schedule { :self/1 :deltaTime |
@@ -143,7 +143,7 @@ Clock : [Object] {
 	}
 
 	scheduleInjecting { :self/2 :anObject :deltaTime :aClock |
-		aClock.scheduleBlockInjecting(deltaTime, anObject, self/2)
+		aClock.scheduleFunctionInjecting(deltaTime, anObject, self/2)
 	}
 
 	scheduleInjecting { :self/2 :anObject :deltaTime |

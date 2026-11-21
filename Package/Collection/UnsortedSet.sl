@@ -6,8 +6,8 @@ UnsortedSet : [Object, New, Store, Equal, Do, Collection, Add, Remove, Unordered
 		self.collection.copy
 	}
 
-	do { :self :aBlock/1 |
-		self.collection.do(aBlock/1)
+	do { :self :aFunction/1 |
+		self.collection.do(aFunction/1)
 	}
 
 	include! { :self :anObject |
@@ -26,14 +26,14 @@ UnsortedSet : [Object, New, Store, Equal, Do, Collection, Add, Remove, Unordered
 		self.collection.removeAll!
 	}
 
-	removeIfAbsent! { :self :anObject :aBlock/0 |
+	removeIfAbsent! { :self :anObject :aFunction/0 |
 		let f/2 = self.comparator;
 		self.collection.detectIndexIfFoundIfNone { :item |
 			f(item, anObject)
 		} { :index |
 			self.collection.removeAt!(index)
 		} {
-			aBlock()
+			aFunction()
 		}
 	}
 
@@ -79,17 +79,17 @@ UnsortedSet : [Object, New, Store, Equal, Do, Collection, Add, Remove, Unordered
 		[self, aCollection].unionBy(=)
 	}
 
-	unionBy { :self :aBlock/2 |
+	unionBy { :self :aFunction/2 |
 		let set = UnsortedSet();
-		set.comparator := aBlock/2;
+		set.comparator := aFunction/2;
 		self.do { :each |
 			set.includeAll!(each)
 		};
 		set.List
 	}
 
-	unionBy { :self :aCollection :aBlock/2 |
-		[self, aCollection].unionBy(aBlock/2)
+	unionBy { :self :aCollection :aFunction/2 |
+		[self, aCollection].unionBy(aFunction/2)
 	}
 
 }
