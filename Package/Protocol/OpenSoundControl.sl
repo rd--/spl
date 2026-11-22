@@ -2,7 +2,7 @@
 
 OscParameter : [Object, Store] {
 
-	| typeLetter value |
+	| typeLetter value | <String>
 
 	[OscParameter, identity] { :self |
 		self
@@ -52,14 +52,14 @@ OscParameter : [Object, Store] {
 	}
 
 	OscParameter { :self :anObject |
-		newOscParameter().initializeSlots(self, anObject)
+		uncheckedOscParameter(self, anObject)
 	}
 
 }
 
 OscMessage : [Object, Store] {
 
-	| address parameterList |
+	| address parameterList | <String>
 
 	encode { :self |
 		self.encodeRecord.basicEncodeOscMessage
@@ -77,9 +77,11 @@ OscMessage : [Object, Store] {
 +String {
 
 	OscMessage { :self :parameterList |
-		newOscMessage().initializeSlots(
+		uncheckedOscMessage(
 			self,
-			parameterList.collect(OscParameter/1)
+			parameterList.collect(
+				OscParameter/1
+			)
 		)
 	}
 
@@ -87,7 +89,7 @@ OscMessage : [Object, Store] {
 
 OscBundle : [Object, Store] {
 
-	| time messageList |
+	| time messageList | <Float>
 
 	encode { :self |
 		self.encodeRecord.basicEncodeOscBundle
@@ -105,7 +107,7 @@ OscBundle : [Object, Store] {
 +Float {
 
 	OscBundle { :self :messageList |
-		newOscBundle().initializeSlots(self, messageList)
+		uncheckedOscBundle(self, messageList)
 	}
 
 }
@@ -113,11 +115,15 @@ OscBundle : [Object, Store] {
 +Record {
 
 	basicEncodeOscBundle { :self |
-		<primitive: return osc.writeBundle(_self, { metadata: true });>
+		<primitive:
+		return osc.writeBundle(_self, { metadata: true });
+		>
 	}
 
 	basicEncodeOscMessage { :self |
-		<primitive: return osc.writeMessage(_self, { metadata: true });>
+		<primitive:
+		return osc.writeMessage(_self, { metadata: true });
+		>
 	}
 
 }

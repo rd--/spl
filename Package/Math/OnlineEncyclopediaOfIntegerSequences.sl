@@ -471,7 +471,7 @@
 
 OeisEntry : [Object, Store, Equal, OeisSequence] {
 
-	| identifier entryRecord bFileCache |
+	| identifier entryRecord bFileCache | <String>
 
 	bFileData { :self |
 		let bFileData = self.bFileCache;
@@ -580,7 +580,7 @@ OeisEntry : [Object, Store, Equal, OeisSequence] {
 
 	OeisEntry { :self |
 		system.oeisEntries.atIfAbsentPut!(self) {
-			newOeisEntry().initializeSlots(self, nil, nil)
+			uncheckedOeisEntry(self, nil, nil)
 		}
 	}
 
@@ -588,7 +588,7 @@ OeisEntry : [Object, Store, Equal, OeisSequence] {
 
 OeisSequenceFile : [Object, Equal, OeisSequence] {
 
-	| identifier sequenceFileLines |
+	| identifier sequenceFileLines | <String>
 
 	author { :self |
 		self.uniqueField('%A')
@@ -648,8 +648,7 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 +String {
 
 	OeisSequenceFile { :self :directoryName |
-		newOeisSequenceFile()
-		.initializeSlots(
+		uncheckedOeisSequenceFile(
 			self,
 			OeisEntry(self).readSequenceFile(directoryName).lines
 		)

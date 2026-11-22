@@ -1,6 +1,6 @@
 UnivariatePolynomial : [Object, Copy, Store, Equal] {
 
-	| coefficientList |
+	| coefficientList | <List>
 
 	assertIsNormal { :self |
 		self.isNormal.ifFalse {
@@ -241,7 +241,7 @@ UnivariatePolynomial : [Object, Copy, Store, Equal] {
 +List {
 
 	UnivariatePolynomial { :self |
-		newUnivariatePolynomial().initializeSlots(self).normalize
+		uncheckedUnivariatePolynomial(self).normalize
 	}
 
 	discriminant { :self |

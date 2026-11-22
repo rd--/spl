@@ -2,7 +2,7 @@
 
 Svg : [Object] {
 
-	| svgString |
+	| svgString | <String>
 
 	drawing { :self |
 		self
@@ -26,7 +26,7 @@ Svg : [Object] {
 +String {
 
 	Svg { :self |
-		newSvg().initializeSlots(self)
+		uncheckedSvg(self)
 	}
 
 }

@@ -1,6 +1,6 @@
 DyckWord : [Object, Store] {
 
-	| word tokens |
+	| word tokens | <List>
 
 	binaryExpansion { :self |
 		let [a, b] = self.tokens;
@@ -154,7 +154,7 @@ DyckWord : [Object, Store] {
 
 	DyckWord { :word :tokens |
 		word.isDyckWord(tokens).if {
-			newDyckWord().initializeSlots(word, tokens)
+			uncheckedDyckWord(word, tokens)
 		} {
 			word.error('DyckWord: invalid word')
 		}

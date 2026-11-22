@@ -1,8 +1,8 @@
 Permutation : [Object, Store, Equal] {
 
-	| cycles degree |
+	| cycles degree | <List>
 
-	Permutation { :self |
+	[Permutation, identity] { :self |
 		self
 	}
 
@@ -439,10 +439,10 @@ Permutation : [Object, Store, Equal] {
 		)
 	}
 
-	uncheckedCyclesToPermutation { :self :degree |
-		newPermutation().initializeSlots(
-			Integer(self),
-			Integer(degree)
+	uncheckedCyclesToPermutation { :self IntegerList :degree Integer |
+		uncheckedPermutation(
+			self,
+			degree
 		)
 	}
 

@@ -12,8 +12,8 @@ Simulate a Cox–Ingersoll–Ross process:
 
 ~~~spl svg=A
 let r = Sfc32(319812);
-CoxIngersollRossProcess(0.3, 0.5, 1, 2)
-.randomFunction(r, [0 1 0.01], 1)
+CoxIngersollRossProcess(0.3, 0.5, 1.0, 2.0)
+.randomFunction(r, [0.0 1.0 0.01], 1L)
 .linePlot
 ~~~
 
@@ -23,8 +23,8 @@ Simulate an ensemble of random paths for a Cox–Ingersoll–Ross process:
 
 ~~~spl svg=B
 let r = Sfc32(189732);
-CoxIngersollRossProcess(0.3, 0.5, 1, 2)
-.randomFunction(r, [0 1 0.01], 3)
+CoxIngersollRossProcess(0.3, 0.5, 1.0, 2.0)
+.randomFunction(r, [0.0 1.0 0.01], 3L)
 .linePlot
 ~~~
 

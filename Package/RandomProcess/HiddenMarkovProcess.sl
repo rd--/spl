@@ -1,6 +1,6 @@
 HiddenMarkovProcess : [Object] {
 
-	| p0 m e |
+	| p0 m e | <List>
 
 	Stream { :self :r |
 		let p0 = AliasMethod(self.p0);
@@ -56,7 +56,7 @@ HiddenMarkovProcess : [Object] {
 +List {
 
 	HiddenMarkovProcess { :p0 :m :e |
-		newHiddenMarkovProcess().initializeSlots(p0, m, e)
+		uncheckedHiddenMarkovProcess(p0, m, e)
 	}
 
 }

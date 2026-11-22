@@ -2,7 +2,7 @@
 
 SuperColliderProgramIndex : [Object] {
 
-	| programList |
+	| programList | <List>
 
 	[Tree, superColliderProgramIndexToTree] { :self |
 		Tree(
@@ -61,7 +61,7 @@ SuperColliderProgramIndex : [Object] {
 +List {
 
 	SuperColliderProgramIndex { :self |
-		newSuperColliderProgramIndex().initializeSlots(self)
+		uncheckedSuperColliderProgramIndex(self)
 	}
 
 }

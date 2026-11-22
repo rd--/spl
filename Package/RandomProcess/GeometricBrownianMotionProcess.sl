@@ -1,6 +1,6 @@
 GeometricBrownianMotionProcess : [Object] {
 
-	| mu sigma x0 |
+	| mu sigma x0 | <Float>
 
 	randomFunction { :self :r :t :n |
 		let a = { :y | self.mu * y };
@@ -18,7 +18,7 @@ GeometricBrownianMotionProcess : [Object] {
 +Float {
 
 	GeometricBrownianMotionProcess { :mu :sigma :x0 |
-		newGeometricBrownianMotionProcess().initializeSlots(mu, sigma, x0)
+		uncheckedGeometricBrownianMotionProcess(mu, sigma, x0)
 	}
 
 }

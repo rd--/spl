@@ -1,6 +1,6 @@
 HelpProgram : [Object] {
 
-	| topic language commentary annotations programText |
+	| topic language commentary annotations programText | <String>
 
 	annotation { :self :key |
 		self.annotations.at(key)
@@ -127,8 +127,7 @@ HelpProgram : [Object] {
 +String {
 
 	HelpProgram { :topic :language :commentary :annotations :programText |
-		newHelpProgram()
-		.initializeSlots(topic, language, commentary, annotations, programText)
+		uncheckedHelpProgram(topic, language, commentary, annotations, programText)
 	}
 
 }

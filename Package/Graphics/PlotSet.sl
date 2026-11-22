@@ -1,6 +1,6 @@
 PlotSet : [Object] {
 
-	| plotMatrix |
+	| plotMatrix | <List>
 
 	drawing { :self |
 		let plotMatrix = self.plotMatrix;
@@ -51,7 +51,7 @@ PlotSet : [Object] {
 +List {
 
 	PlotSet { :self |
-		newPlotSet().initializeSlots(self)
+		uncheckedPlotSet(self)
 	}
 
 	PlotSet { :self :shape |

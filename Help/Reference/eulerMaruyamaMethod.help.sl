@@ -11,14 +11,14 @@ and _y0_ is the initial value.
 Simulate an Ornstein–Uhlenbeck process:
 
 ~~~spl svg=A
-let mu = 0;
+let mu = 0.0;
 let sigma = 0.1;
 let theta = 0.3;
 let r = Sfc32(678134);
 let a = { :y :t | theta * (mu - y) };
 let b = { :y :t | sigma };
-let t = [0 10 0.1];
-let y0 = 1;
+let t = [0.0 10.0 0.1];
+let y0 = 1.0;
 eulerMaruyamaMethod(r, a/2, b/2, t, y0)
 .transpose
 .linePlot
@@ -29,13 +29,13 @@ eulerMaruyamaMethod(r, a/2, b/2, t, y0)
 Simulate a geometric brownian motion process:
 
 ~~~spl svg=B
-let mu = 0;
+let mu = 0.0;
 let sigma = 0.1;
 let r = Sfc32(317892);
 let a = { :y :t | mu * y };
 let b = { :y :t | sigma * y };
-let t = [0 10 0.1];
-let y0 = 2;
+let t = [0.0 10.0 0.1];
+let y0 = 2.0;
 eulerMaruyamaMethod(r, a/2, b/2, t, y0)
 .transpose
 .linePlot
@@ -48,10 +48,10 @@ Simulate a brownian bridge process:
 ~~~spl svg=C
 Sfc32(529721)
 .eulerMaruyamaMethod(
-	{ :y :t | (1 - y) / (2 - t) },
-	{ :y :t | 1 },
-	[0 2 0.01],
-	-1
+	{ :y :t | (1.0 - y) / (2.0 - t) },
+	{ :y :t | 1.0 },
+	[0.0 2.0 0.01],
+	-1.0
 ).transpose.linePlot
 ~~~
 

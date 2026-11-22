@@ -10,9 +10,14 @@ The distribution is given as a sequence of probability values that `sum` to `one
 >>> let w = [0.25 0.3 0.1 0.2 0.15];
 >>> let m = AliasMethod(w);
 >>> let r = Sfc32(1372);
->>> let d = { m.nextRandom(r) } ! 1000;
+>>> let d = {
+>>> 	m.nextRandom(r)
+>>> } ! 1000;
 >>> let a = d.sortedElements(==);
->>> (->.zipWith(1L:5L, w * 1000), a)
+>>> (
+>>> 	->.zipWith(1L:5L, w * 1000),
+>>> 	a
+>>> )
 (
 	[
 		1 -> 250,

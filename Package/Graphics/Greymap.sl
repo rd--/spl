@@ -1,6 +1,6 @@
 Greymap : [Object] {
 
-	| greyMatrix |
+	| greyMatrix | <List>
 
 	drawing { :self |
 		self
@@ -58,7 +58,7 @@ Greymap : [Object] {
 
 	Greymap { :self |
 		self.isMatrix.if {
-			newGreymap().initializeSlots(self)
+			uncheckedGreymap(self)
 		} {
 			self.error('Greymap: not matrix')
 		}

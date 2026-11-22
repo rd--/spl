@@ -2,7 +2,7 @@
 
 TextureProgram : [Object] {
 
-	| iterationCounter soundFunction envelopeFunction delayTimeFunction |
+	| iterationCounter soundFunction envelopeFunction delayTimeFunction | <Integer>
 
 	play { :self |
 		{ :currentTime |
@@ -11,7 +11,7 @@ TextureProgram : [Object] {
 					self.iterationCounter
 				)
 			).playAt(currentTime);
-			self.iterationCounter := self.iterationCounter + 1;
+			self.iterationCounter := self.iterationCounter + 1L;
 			self.delayTimeFunction.nullaryApply
 		}.schedule
 	}
@@ -21,8 +21,8 @@ TextureProgram : [Object] {
 +Function {
 
 	TextureProgram { :soundFunction/0 :envelopeFunction/1 :delayTime/0 |
-		newTextureProgram().initializeSlots(
-			0,
+		uncheckedTextureProgram(
+			0L,
 			soundFunction/0,
 			envelopeFunction/1,
 			delayTime/0

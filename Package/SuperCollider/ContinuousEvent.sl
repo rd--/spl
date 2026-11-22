@@ -1,6 +1,6 @@
 ContinuousEvent : [Object] {
 
-	| signalList |
+	| signalList | <List>
 
 	[List, continuousEventToList] { :self |
 		self.signalList.copy
@@ -44,7 +44,7 @@ ContinuousEvent : [Object] {
 
 	ContinuousEvent { :self |
 		self.assertIsOfSize(8);
-		newContinuousEvent().initializeSlots(self.kr) /* control rate? */
+		uncheckedContinuousEvent(self.kr) /* control rate? */
 	}
 
 }

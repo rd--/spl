@@ -1,6 +1,6 @@
 DocumentationTest : [Object, Store, Equal] {
 
-	| prefix program expectedAnswer |
+	| prefix program expectedAnswer | <String>
 
 	evaluate { :self |
 		let result = {
@@ -99,7 +99,7 @@ DocumentationTest : [Object, Store, Equal] {
 +String {
 
 	DocumentationTest { :prefix :program :expectedAnswer |
-		newDocumentationTest().initializeSlots(prefix, program, expectedAnswer)
+		uncheckedDocumentationTest(prefix, program, expectedAnswer)
 	}
 
 	isDocumentationTestString { :self |

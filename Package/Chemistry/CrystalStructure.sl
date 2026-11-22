@@ -2,7 +2,7 @@
 
 CrystalStructure : [Object] {
 
-	| name description vertexCount edges vertexLabels vertexCoordinates |
+	| name description vertexCount edges vertexLabels vertexCoordinates | <String>
 
 	[Graph, crystalStructureToGraph] { :self |
 		let answer = Graph(
@@ -43,7 +43,7 @@ CrystalStructure : [Object] {
 +Record {
 
 	asCrystalStructure { :self |
-		newCrystalStructure().initializeSlots(
+		uncheckedCrystalStructure(
 			self['name'],
 			self['description'],
 			self['vertexLabels'].size,

@@ -1,6 +1,6 @@
 ColourGradient : [Object, Store] {
 
-	| colourList positionListOrNil |
+	| colourList positionList | <List>
 
 	drawing { :self |
 		let w = 300;
@@ -33,28 +33,14 @@ ColourGradient : [Object, Store] {
 	}
 
 	isEquallySpaced { :self |
-		self.positionListOrNil.isNil | {
-			let p = self.positionList;
-			p.isArithmeticProgression(p[2] - p[1], ~)
-		}
+		let p = self.positionList;
+		p.isArithmeticProgression(p[2] - p[1], ~)
 	}
 
 	isValid { :self |
 		let [m, n] = self.colourList.shape;
-		(n = 3) & {
-			self.positionListOrNil.ifNil {
-				true
-			} { :p |
-				p.size = m
-			}
-		}
-	}
-
-	positionList { :self |
-		self.positionListOrNil.ifNil {
-			(0.0 -- 1.0).discretize(
-				self.colourList.size
-			)
+		n = 3 & {
+			self.positionList.size = m
 		}
 	}
 
@@ -84,8 +70,15 @@ ColourGradient : [Object, Store] {
 
 +List {
 
-	ColourGradient { :self :aList |
-		newColourGradient().initializeSlots(self, aList)
+	ColourGradient { :self :positionListOrNil |
+		uncheckedColourGradient(
+			self,
+			positionListOrNil.ifNil {
+				(0.0 -- 1.0).discretize(
+					self.size
+				)
+			}
+		)
 	}
 
 	ColourGradient { :self |

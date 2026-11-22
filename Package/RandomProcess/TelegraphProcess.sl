@@ -1,6 +1,6 @@
 TelegraphProcess : [Object] {
 
-	| mu |
+	| mu | <Float>
 
 	randomFunction { :self :r :t :n |
 		let mu = self.mu;
@@ -30,7 +30,7 @@ TelegraphProcess : [Object] {
 +Float {
 
 	TelegraphProcess { :mu |
-		newTelegraphProcess().initializeSlots(mu)
+		uncheckedTelegraphProcess(mu)
 	}
 
 }

@@ -1,6 +1,6 @@
 BivariatePolynomial : [Object, Copy, Store, Equal] {
 
-	| coefficientMatrix |
+	| coefficientMatrix | <List>
 
 	binaryFunction { :self |
 		let m = self.coefficientMatrix;
@@ -36,7 +36,7 @@ BivariatePolynomial : [Object, Copy, Store, Equal] {
 +List {
 
 	BivariatePolynomial { :self |
-		newBivariatePolynomial().initializeSlots(self)
+		uncheckedBivariatePolynomial(self)
 	}
 
 	evaluateBivariatePolynomial { :coefficientMatrix :x :y |

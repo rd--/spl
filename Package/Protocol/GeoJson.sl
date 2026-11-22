@@ -1,6 +1,6 @@
 GeoJson : [Object, Store] {
 
-	| jsonRecord |
+	| jsonRecord | <Record>
 
 	Record { :self |
 		self.jsonRecord.copy
@@ -212,7 +212,7 @@ GeoJson : [Object, Store] {
 +Record {
 
 	GeoJson { :self |
-		newGeoJson().initializeSlots(self)
+		uncheckedGeoJson(self)
 	}
 
 }

@@ -1,6 +1,6 @@
 WienerProcess : [Object] {
 
-	| mu sigma |
+	| mu sigma | <Float>
 
 	randomFunction { :self :r :t :n |
 		let mu = self.mu;
@@ -9,7 +9,7 @@ WienerProcess : [Object] {
 		let b = { :y :t | sigma };
 		TemporalData(
 			{
-				r.eulerMaruyamaMethod(a/2, b/2, t, 0).transpose
+				r.eulerMaruyamaMethod(a/2, b/2, t, 0.0).transpose
 			} ! n
 		)
 	}
@@ -18,8 +18,8 @@ WienerProcess : [Object] {
 
 +Float {
 
-	WienerProcess { :mu :sigma |
-		newWienerProcess().initializeSlots(mu, sigma)
+	WienerProcess { :mu :sigma Float |
+		uncheckedWienerProcess(mu, sigma)
 	}
 
 }

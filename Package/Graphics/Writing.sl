@@ -1,6 +1,6 @@
 Writing : [Object, Geometry] {
 
-	| string lowerLeft |
+	| string lowerLeft | <String>
 
 	boundingBox { :self |
 		[
@@ -35,7 +35,7 @@ Writing : [Object, Geometry] {
 +String {
 
 	Writing { :self :lowerLeft |
-		newWriting().initializeSlots(self, lowerLeft)
+		uncheckedWriting(self, lowerLeft)
 	}
 
 }

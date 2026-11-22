@@ -1,6 +1,6 @@
 GrayCode : [Object, Equal] {
 
-	| sequence alphabet |
+	| sequence alphabet | <List>
 
 	isBeckettGrayCode { :self |
 		self.sequence.isBeckettGrayCode
@@ -23,7 +23,7 @@ GrayCode : [Object, Equal] {
 +List {
 
 	GrayCode { :sequence :alphabet |
-		newGrayCode().initializeSlots(sequence, alphabet)
+		uncheckedGrayCode(sequence, alphabet)
 	}
 
 	GrayCode { :self |

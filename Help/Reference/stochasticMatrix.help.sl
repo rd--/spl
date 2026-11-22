@@ -15,15 +15,15 @@ The stochastic matrix of two sequences of uniformly distributed random integers:
 >>> (o, o.stochasticMatrix)
 (
 	[
-		3 5 1 5 3 2 4 3 1 2;
-		3 2 1 5 2 3 3 3 3 2
+		3L 5L 1L 5L 3L 2L 4L 3L 1L 2L;
+		3L 2L 1L 5L 2L 3L 3L 3L 3L 2L
 	],
 	[
-		0   1/3 0   0   2/3;
-		1/3 0   1/3 1/3 0;
-		1/8 3/8 3/8 0   1/8;
-		0   0   1   0   0;
-		1/3 1/3 1/3 0   0
+		0/1 1/3 0/1 0/1 2/3;
+		1/3 0/1 1/3 1/3 0/1;
+		1/8 3/8 3/8 0/1 1/8;
+		0/1 0/1 1/1 0/1 0/1;
+		1/3 1/3 1/3 0/1 0/1
 	]
 )
 ```
@@ -33,7 +33,8 @@ The stochastic matrix of two sequences of uniformly distributed random integers:
 ~~~spl svg=A
 let r = Sfc32(167821);
 let o = r.randomSmallInteger([1 20], [2 100]);
-o.stochasticMatrix.matrixPlot
+o.stochasticMatrix
+.matrixPlot
 ~~~
 
 ![](Help/Image/stochasticMatrix-A.svg)

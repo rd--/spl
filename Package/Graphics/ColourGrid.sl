@@ -1,8 +1,8 @@
 ColourGrid : [Object] {
 
-	| colourMatrix |
+	| colourMatrix | <List>
 
-	LineDrawing { :self |
+	[LineDrawing, colourGridToLineDrawing] { :self |
 		let matrix = self.colourMatrix;
 		let [height, width] = self.shape;
 		let cellSize = self.cellSize;
@@ -97,7 +97,7 @@ ColourGrid : [Object] {
 +List {
 
 	ColourGrid { :self |
-		newColourGrid().initializeSlots(self)
+		uncheckedColourGrid(self)
 	}
 
 }

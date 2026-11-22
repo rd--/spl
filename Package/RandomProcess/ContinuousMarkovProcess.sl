@@ -1,6 +1,6 @@
 ContinuousMarkovProcess : [Object] {
 
-	| p0 q |
+	| p0 q | <List>
 
 	Stream { :self :r :t0 |
 		let p0 = AliasMethod(self.p0);
@@ -58,7 +58,7 @@ ContinuousMarkovProcess : [Object] {
 +List {
 
 	ContinuousMarkovProcess { :p0 :q |
-		newContinuousMarkovProcess().initializeSlots(p0, q)
+		uncheckedContinuousMarkovProcess(p0, q)
 	}
 
 	ContinuousMarkovProcess { :p0 :m :mu |

@@ -2,7 +2,7 @@
 
 CollectionStream : [Object, Copy, Equal, Do, Iterator, Collection, Stream] {
 
-	| collection positionIndex readLimit |
+	| collection positionIndex readLimit | <@Sequence>
 
 	back! { :self |
 		(self.position = 0).ifTrue {
@@ -170,8 +170,7 @@ CollectionStream : [Object, Copy, Equal, Do, Iterator, Collection, Stream] {
 +[List, Range] {
 
 	[CollectionStream] { :self |
-		newCollectionStream()
-		.initializeSlots(
+		uncheckedCollectionStream(
 			self,
 			0,
 			self.size

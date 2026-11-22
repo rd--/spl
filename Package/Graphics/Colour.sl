@@ -189,7 +189,7 @@
 
 RgbColour : [Object, Copy, Store, Equal, Colour] {
 
-	| rgb alpha |
+	| rgb alpha | <List>
 
 	initialize! { :self |
 		self.rgb := [0.0 0.0 0.0];
@@ -263,7 +263,7 @@ RgbColour : [Object, Copy, Store, Equal, Colour] {
 	RgbColour { :self :alpha |
 		self.atVectorOrElementwise { :v |
 			let [r, g, b] = v;
-			newRgbColour().initializeSlots([r, g, b], alpha)
+			uncheckedRgbColour([r, g, b], alpha)
 		}
 	}
 

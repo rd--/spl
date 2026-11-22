@@ -1,6 +1,6 @@
 BrownianBridgeProcess : [Object] {
 
-	| sigma start end |
+	| sigma start end | <Float>
 
 	randomFunction { :self :r :t :n |
 		let sigma = self.sigma;
@@ -27,8 +27,8 @@ BrownianBridgeProcess : [Object] {
 
 +Float {
 
-	BrownianBridgeProcess { :sigma :start :end |
-		newBrownianBridgeProcess().initializeSlots(sigma, start, end)
+	BrownianBridgeProcess { :sigma :start FloatVector :end FloatVector |
+		uncheckedBrownianBridgeProcess(sigma, start, end)
 	}
 
 }

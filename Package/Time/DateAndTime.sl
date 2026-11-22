@@ -186,11 +186,17 @@ DateAndTime : [Object, Store, Equal, Compare] {
 +List {
 
 	[DateAndTime, listToDateAndTime] { :self |
-		self.atVectorOrElementwise { :aList |
-			let floatList = Float(aList);
-			let [year, month, dayOfMonth, hour, minute, second] = floatList;
+		self.atVectorOrElementwise { :each FloatVector |
+			let [year, month, dayOfMonth, hour, minute, second] = each;
 			newDateAndTime().initializeSlots(
-				primitiveDateAndTime(year, month, dayOfMonth, hour, minute, second)
+				primitiveDateAndTime(
+					year,
+					month,
+					dayOfMonth,
+					hour,
+					minute,
+					second
+				)
 			)
 		}
 	}

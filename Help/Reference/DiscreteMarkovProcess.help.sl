@@ -12,8 +12,12 @@ Define a discrete Markov process:
 let r = Sfc32(673814);
 DiscreteMarkovProcess(
 	[1 0 0],
-	[0 0.5 0.5; 0.5 0 0.5; 0.5 0.5 0]
-).randomFunction(r, [0 10], 1)
+	[
+		0.0 0.5 0.5;
+		0.5 0.0 0.5;
+		0.5 0.5 0.0
+	]
+).randomFunction(r, [0 10], 1L)
 .discretePlot
 ~~~
 
@@ -28,12 +32,12 @@ let r = Sfc32(791479);
 DiscreteMarkovProcess(
 	[0 0 1 0],
 	[
-		0.5 0.5 0 0;
-		0.5 0.5 0 0;
+		0.5  0.5  0.0  0.0;
+		0.5  0.5  0.0  0.0;
 		0.25 0.25 0.25 0.25;
-		0 0 0 1
+		0.0  0.0  0.0  1.0
 	]
-).randomFunction(r, [0 12], 5)
+).randomFunction(r, [0.0 12.0], 5L)
 .linePlot
 ~~~
 

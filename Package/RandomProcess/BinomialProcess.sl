@@ -1,6 +1,6 @@
 BinomialProcess : [Object] {
 
-	| p |
+	| p | <Float>
 
 	Stream { :self :r |
 		let p = self.p;
@@ -13,7 +13,7 @@ BinomialProcess : [Object] {
 	}
 
 	randomFunction { :self :r :t :n |
-		self.Stream(r).valueSeriesRandomFunction(t, n)
+		Stream(self, r).valueSeriesRandomFunction(t, n)
 	}
 
 }
@@ -21,7 +21,7 @@ BinomialProcess : [Object] {
 +Float {
 
 	BinomialProcess { :p |
-		newBinomialProcess().initializeSlots(p)
+		uncheckedBinomialProcess(p)
 	}
 
 }

@@ -1,6 +1,6 @@
 Bitmap : [Object] {
 
-	| bitMatrix scale |
+	| bitMatrix scale | <List>
 
 	drawing { :self |
 		self
@@ -67,7 +67,7 @@ Bitmap : [Object] {
 
 	Bitmap { :self :scale |
 		self.isMatrix.if {
-			newBitmap().initializeSlots(self, scale)
+			uncheckedBitmap(self, scale)
 		} {
 			self.error('Bitmap: not matrix')
 		}

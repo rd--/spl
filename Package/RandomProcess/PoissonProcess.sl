@@ -1,6 +1,6 @@
 PoissonProcess : [Object] {
 
-	| mu |
+	| mu | <Float>
 
 	Stream { :self :r :t0 |
 		let mu = self.mu;
@@ -27,7 +27,7 @@ PoissonProcess : [Object] {
 +Float {
 
 	PoissonProcess { :mu |
-		newPoissonProcess().initializeSlots(mu)
+		uncheckedPoissonProcess(mu)
 	}
 
 }

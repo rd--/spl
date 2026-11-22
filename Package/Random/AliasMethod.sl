@@ -1,6 +1,6 @@
 AliasMethod : [Object, Store, Equal, Iterator] {
 
-	| alias probability |
+	| alias probability | <List>
 
 	next { :self |
 		self.nextRandom(system)
@@ -61,7 +61,7 @@ AliasMethod : [Object, Store, Equal, Iterator] {
 		}.whileFalse {
 			probability[large.removeLast!] := 1.0
 		};
-		newAliasMethod().initializeSlots(alias, probability)
+		uncheckedAliasMethod(alias, probability)
 	}
 
 }

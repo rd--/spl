@@ -1,36 +1,36 @@
 RandomWalkProcess : [Object] {
 
-	| p q |
+	| p q | <Float>
 
 	Stream { :self :r |
 		let p = self.p;
 		let q = self.q;
-		let x = 0;
+		let x = 0.0;
 		FunctionStream {
 			let u = r.nextRandomFloat;
 			(u < p).if {
-				x := x + 1
+				x := x + 1.0
 			} {
 				(u < (p + q)).ifTrue {
-					x := x - 1
+					x := x - 1.0
 				}
 			};
 			x
 		} {
-			x := 0
+			x := 0.0
 		}
 	}
 
 	randomFunction { :self :r :t :n |
-		self.Stream(r).valueSeriesRandomFunction(t, n)
+		Stream(self, r).valueSeriesRandomFunction(t, n)
 	}
 
 }
 
 +Float {
 
-	RandomWalkProcess { :p :q |
-		newRandomWalkProcess().initializeSlots(p, q)
+	RandomWalkProcess { :p :q Float |
+		uncheckedRandomWalkProcess(p, q)
 	}
 
 }

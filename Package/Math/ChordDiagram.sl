@@ -1,6 +1,6 @@
 ChordDiagram : [Object, Store] {
 
-	| lengthVector |
+	| lengthVector | <List>
 
 	[Graph, chordDiagramToGraph] { :self |
 		Graph(
@@ -62,7 +62,7 @@ ChordDiagram : [Object, Store] {
 	}
 
 	lengthVectorToChordDiagram { :self |
-		newChordDiagram().initializeSlots(self)
+		uncheckedChordDiagram(self)
 	}
 
 }

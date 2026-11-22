@@ -1,6 +1,6 @@
 ColourPalette : [Object, Store] {
 
-	| colourList |
+	| colourList | <List>
 
 	at { :self :index |
 		self.colourList.at(index)
@@ -62,7 +62,7 @@ ColourPalette : [Object, Store] {
 +List {
 
 	ColourPalette { :self |
-		newColourPalette().initializeSlots(self)
+		uncheckedColourPalette(self)
 	}
 
 }

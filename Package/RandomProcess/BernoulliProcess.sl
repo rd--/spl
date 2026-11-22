@@ -1,12 +1,13 @@
 BernoulliProcess : [Object] {
 
-	| p |
+	| p | <Float>
 
 	Stream { :self :r |
 		let p = self.p;
 		FunctionStream {
 			(r.nextRandomFloat < p).boole
 		} {
+			nil
 		}
 	}
 
@@ -19,7 +20,7 @@ BernoulliProcess : [Object] {
 +Float {
 
 	BernoulliProcess { :p |
-		newBernoulliProcess().initializeSlots(p)
+		uncheckedBernoulliProcess(p)
 	}
 
 }

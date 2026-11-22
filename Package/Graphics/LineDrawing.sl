@@ -1,6 +1,6 @@
 LineDrawing : [Object] {
 
-	| geometryList metadata |
+	| geometryList metadata | <List>
 
 	LineDrawing { :self |
 		self
@@ -70,7 +70,7 @@ LineDrawing : [Object] {
 	}
 
 	LineDrawing { :self :options |
-		newLineDrawing().initializeSlots(
+		uncheckedLineDrawing(
 			self.flatten,
 			options
 		)

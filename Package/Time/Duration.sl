@@ -1,6 +1,6 @@
 Duration : [Object, Store, Equal, Compare] {
 
-	| magnitude |
+	| magnitude | <@Number>
 
 	Duration { :self |
 		self
@@ -65,7 +65,7 @@ Duration : [Object, Store, Equal, Compare] {
 +[Float, Integer, Fraction] {
 
 	Duration { :self |
-		newDuration().initializeSlots(self)
+		uncheckedDuration(self)
 	}
 
 	Duration { :d :h :m :s |

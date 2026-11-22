@@ -1,6 +1,6 @@
 PerspectiveDrawing : [Object] {
 
-	| geometryList metadata |
+	| geometryList metadata | <List>
 
 	LineDrawing { :self |
 		let projection = self.metadata['projection'];
@@ -21,14 +21,15 @@ PerspectiveDrawing : [Object] {
 +List {
 
 	PerspectiveDrawing { :self :options |
-		newPerspectiveDrawing().initializeSlots(
+		uncheckedPerspectiveDrawing(
 			self.flatten,
 			options
 		)
 	}
 
 	PerspectiveDrawing { :self |
-		self.PerspectiveDrawing(
+		PerspectiveDrawing(
+			self,
 			(
 				projection: AxonometricProjection(
 					1/6.pi, 0, 0,

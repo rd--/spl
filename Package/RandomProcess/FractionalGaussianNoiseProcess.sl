@@ -1,6 +1,6 @@
 FractionalGaussianNoiseProcess : [Object] {
 
-	| mu sigma h |
+	| mu sigma h | <Float>
 
 	randomFunction { :self :r :t :n |
 		r.hoskingMethodRandomFunction(self.h, false, t, n)
@@ -11,7 +11,7 @@ FractionalGaussianNoiseProcess : [Object] {
 +Float {
 
 	FractionalGaussianNoiseProcess { :h |
-		newFractionalGaussianNoiseProcess().initializeSlots(0, 1, h)
+		uncheckedFractionalGaussianNoiseProcess(0.0, 1.0, h)
 	}
 
 }

@@ -1,6 +1,6 @@
 Image : [Object] {
 
-	| imageArray |
+	| imageArray | <List>
 
 	drawing { :self |
 		self
@@ -59,7 +59,7 @@ Image : [Object] {
 
 	Image { :self |
 		self.isArray.if {
-			newImage().initializeSlots(self)
+			uncheckedImage(self)
 		} {
 			self.error('Image: not array')
 		}

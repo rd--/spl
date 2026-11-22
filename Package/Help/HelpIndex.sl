@@ -1,6 +1,6 @@
 HelpIndex : [Object] {
 
-	| helpFileList |
+	| helpFileList | <List>
 
 	fetch { :self :path |
 		path.ifNotNil {
@@ -52,7 +52,7 @@ HelpIndex : [Object] {
 +List {
 
 	HelpIndex { :self |
-		newHelpIndex().initializeSlots(self)
+		uncheckedHelpIndex(self)
 	}
 
 }

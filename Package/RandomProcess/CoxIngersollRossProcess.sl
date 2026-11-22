@@ -1,6 +1,6 @@
 CoxIngersollRossProcess : [Object] {
 
-	| mu sigma theta x0 |
+	| mu sigma theta x0 | <Float>
 
 	randomFunction { :self :r :t :n |
 		let mu = self.mu;
@@ -20,8 +20,8 @@ CoxIngersollRossProcess : [Object] {
 
 +Float {
 
-	CoxIngersollRossProcess { :mu :sigma :theta :x0 |
-		newCoxIngersollRossProcess().initializeSlots(mu, sigma, theta, x0)
+	CoxIngersollRossProcess { :mu :sigma Float :theta Float :x0 Float |
+		uncheckedCoxIngersollRossProcess(mu, sigma, theta, x0)
 	}
 
 }

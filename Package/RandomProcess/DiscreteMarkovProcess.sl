@@ -1,10 +1,12 @@
 DiscreteMarkovProcess : [Object] {
 
-	| p0 m |
+	| p0 m | <List>
 
 	Stream { :self :r |
 		let p0 = AliasMethod(self.p0);
-		let m = self.m.collect(AliasMethod/1);
+		let m = self.m.collect(
+			AliasMethod/1
+		);
 		let x = p0.nextRandom(r);
 		FunctionStream {
 			let h = x;
@@ -16,7 +18,7 @@ DiscreteMarkovProcess : [Object] {
 	}
 
 	randomFunction { :self :r :t :n |
-		self.Stream(r).valueSeriesRandomFunction(t, n)
+		Stream(self, r).valueSeriesRandomFunction(t, n)
 	}
 
 }
@@ -24,7 +26,7 @@ DiscreteMarkovProcess : [Object] {
 +List {
 
 	DiscreteMarkovProcess { :p0 :m |
-		newDiscreteMarkovProcess().initializeSlots(p0, m)
+		uncheckedDiscreteMarkovProcess(p0, m)
 	}
 
 }
@@ -34,11 +36,11 @@ DiscreteMarkovProcess : [Object] {
 	stochasticMatrix { :self |
 		let stateList = self.catenate.nub.sort;
 		let k = stateList.size;
-		(stateList = [1 .. k]).if {
+		(stateList = [1L .. k]).if {
 			let m = [k, k].zeroMatrix;
 			self.do { :each |
 				each.adjacentPairsDo { :i :j |
-					m[i][j] := m[i][j] + 1
+					m[i][j] := m[i][j] + 1L
 				}
 			};
 			m / m.collect(sum/1)

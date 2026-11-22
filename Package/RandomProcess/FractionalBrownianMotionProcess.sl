@@ -1,6 +1,6 @@
 FractionalBrownianMotionProcess : [Object] {
 
-	| mu sigma h |
+	| mu sigma h | <Float>
 
 	randomFunction { :self :r :t :n |
 		r.hoskingMethodRandomFunction(self.h, true, t, n)
@@ -11,7 +11,7 @@ FractionalBrownianMotionProcess : [Object] {
 +Float {
 
 	FractionalBrownianMotionProcess { :h |
-		newFractionalBrownianMotionProcess().initializeSlots(0, 1, h)
+		uncheckedFractionalBrownianMotionProcess(0.0, 1.0, h)
 	}
 
 }
