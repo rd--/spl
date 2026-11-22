@@ -303,7 +303,7 @@
 				a[a[n - 1L]] + a[n - a[n - 1L]]
 			}
 		};
-		a[1L .. kL]
+		a[1L .. k]
 	}
 
 	oeisA051135Terms { :k |

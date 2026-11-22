@@ -10,7 +10,7 @@ answer a block that evaluates the polynomial:
 ~~~spl svg=A
 (-1.0 -- 1.0).functionPlot(
 	Polynomial(
-		[0 -7 0 56 0 -112 0 64]
+		[0L -7L 0L 56L 0L -112L 0L 64L]
 	).unaryFunction
 )
 ~~~
