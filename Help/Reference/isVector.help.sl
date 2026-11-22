@@ -19,6 +19,13 @@ true
 true
 ```
 
+At empty list:
+
+```
+>>> [].isVector
+true
+```
+
 Note that in this interpretation,
 a _matrix_ (and array of dimensions two) is _not_ a vector:
 

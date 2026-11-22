@@ -266,7 +266,7 @@
 	}
 
 	isVector { :self :aFunction/1 |
-		self.allSatisfy { :each |
+		self.allTrue { :each |
 			each.isList.not & {
 				aFunction(each)
 			}
@@ -274,7 +274,7 @@
 	}
 
 	isVector { :self |
-		self.noneSatisfy(isList/1)
+		self.allFalse(isList/1)
 	}
 
 	ones { :self |

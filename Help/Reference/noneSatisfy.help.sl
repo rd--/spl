@@ -16,6 +16,13 @@ true
 false
 ```
 
+At empty list always answers `true`:
+
+```
+>>> [].noneSatisfy(isOdd/1)
+true
+```
+
 At `Record`:
 
 ```
@@ -25,7 +32,7 @@ false
 
 * * *
 
-See also: allSatisfy, anySatisfy
+See also: allFalse, allSatisfy, anySatisfy, noneTrue
 
 Guides: Boolean Functions, Predicate Functions
 

@@ -6,7 +6,7 @@
 		}
 	}
 
-	[allFalse, noneSatisfy] { :self :aFunction/1 |
+	[allFalse, noneTrue, noneSatisfy] { :self :aFunction/1 |
 		withReturn { :return/1 |
 			self.do { :each |
 				each.aFunction.ifTrue {

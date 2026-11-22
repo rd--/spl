@@ -47,7 +47,8 @@ Adjugate for an integer matrix:
 The identity matrix is its own adjugate:
 
 ```
->>> 4.identityMatrix.adjugate
+>>> 4.identityMatrix
+>>> .adjugate
 [
 	1 0 0 0;
 	0 1 0 0;

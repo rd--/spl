@@ -439,10 +439,10 @@ Permutation : [Object, Store, Equal] {
 		)
 	}
 
-	uncheckedCyclesToPermutation { :self IntegerList :degree Integer |
+	uncheckedCyclesToPermutation { :self :degree |
 		uncheckedPermutation(
-			self,
-			degree
+			self.collect(IntegerVector/1),
+			Integer(degree)
 		)
 	}
 

@@ -1,7 +1,7 @@
 +List {
 
 	adjugate { :self |
-		self.inverse * self.determinant
+		self.inverseMatrix * self.determinant
 	}
 
 	antiTranspose { :self |
