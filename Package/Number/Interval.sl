@@ -2,7 +2,7 @@
 
 Interval : [Object, Store, Equal, Compare, Number] {
 
-	| min max |
+	| min max | <@Number>
 
 	[absoluteValue, abs] { :self |
 		(self.min >= 0).if {
@@ -307,10 +307,6 @@ Interval : [Object, Store, Equal, Compare, Number] {
 
 	numberToInterval { :self |
 		Interval(self, self)
-	}
-
-	uncheckedInterval { :self :operand |
-		newInterval().initializeSlots(self, operand)
 	}
 
 }
