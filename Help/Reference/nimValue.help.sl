@@ -47,10 +47,10 @@ All positions _x,x,x,x_ and _x,x,y,y_ are also safe:
 Find safe positions:
 
 ```
->>> [1 .. 7].subsets { :x |
->>> 	x.size = 3
+>>> [1L .. 7L].subsets { :x |
+>>> 	x.size = 3L
 >>> }.select { :p |
->>> 	p.nimValue = 0
+>>> 	p.nimValue = 0L
 >>> }.lexicographicSort
 [
 	1 2 3;

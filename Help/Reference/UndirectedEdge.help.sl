@@ -11,22 +11,22 @@ to represent a two-way rule expressing exchange or correspondence of α and β.
 Make an undirected edge:
 
 ```
->>> UndirectedEdge(1, 2)
-1 --- 2
+>>> UndirectedEdge(1L, 2L)
+1L --- 2L
 ```
 
 Vertex list:
 
 ```
->>> (1 --- 2).vertexList
-[1 2]
+>>> (1L --- 2L).vertexList
+[1L 2L]
 ```
 
 The vertices are sorted by construction:
 
 ```
->>> UndirectedEdge(2, 1)
-1 --- 2
+>>> UndirectedEdge(2L, 1L)
+1L --- 2L
 ```
 
 `Edge` at `List` answers a `UndirectedEdge`:

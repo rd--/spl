@@ -1,9 +1,9 @@
-+[Float, Integer] {
++Float {
 
 	ellipticKFukushima { :m |
 		/* https://observablehq.com/@dan-reznik/jacobi-elliptic-functions */
 		<primitive:
-		const m = sl.toFloat(_m);
+		const m = _m;
 		const D1 = 1.0 / 16.0, D2 = 1.0 / 32.0, D3 = 21.0 / 1024.0;
 		const D4 = 31.0 / 2048.0, D5 = 6257.0 / 524288.0, D6 = 10293.0 / 1048576.0;
 		const PIINV = 0.318309886;
@@ -340,35 +340,39 @@
 
 }
 
-+[Float, Integer, Fraction] {
++[Float, @ImplicitFloat] {
 
-	ellipticE { :m |
+	ellipticE { :m Float |
 		/* https://github.com/duetosymmetry/elliptic-integrals-js */
-		(m >= 1).if {
-			(m = 1).if {
-				1
+		(m >= 1.0).if {
+			(m = 1.0).if {
+				1.0
 			} {
 				m.error('ellipticE: invalid m')
 			}
 		} {
-			let i = 0;
-			let limit = 50;
-			let kPrime = (1 - m).sqrt;
-			let a0 = m.one;
+			let i = 0.0;
+			let limit = 50.0;
+			let kPrime = (1.0 - m).sqrt;
+			let a0 = 1.0;
 			let g0 = kPrime;
 			let aN = a0;
 			let gN = g0;
 			let t = 0.25;
-			let partialSum = 1 - (0.5 * m);
-			{ aN.isVeryClose(gN).not & { i < limit } }.whileTrue {
+			let partialSum = 1.0 - (0.5 * m);
+			{
+				aN.isVeryClose(gN).not & {
+					i < limit
+				}
+			}.whileTrue {
 				let d = aN - gN;
 				partialSum := partialSum - (t * d * d);
-				t := t * 2;
+				t := t * 2.0;
 				a0 := 0.5 * (aN + gN);
 				g0 := (aN * gN).sqrt;
 				aN := a0;
 				gN := g0;
-				i := i + 1
+				i := i + 1.0
 			};
 			(i = limit).ifTrue {
 				m.warning('ellipticE: did not converge')
@@ -377,72 +381,78 @@
 		}
 	}
 
-	ellipticK { :m |
-		1.pi / (2 * arithmeticGeometricMean(1, (1 - m).sqrt))
+	ellipticK { :m Float |
+		1.0.pi / (2.0 * arithmeticGeometricMean(1.0, (1.0 - m).sqrt))
 	}
 
-	ellipticNomeQ { :m |
-		(-1.pi * (1 - m).ellipticK / m.ellipticK).exp
+	ellipticNomeQ { :m Float |
+		(-1.0.pi * (1.0 - m).ellipticK / m.ellipticK).exp
 	}
 
-	ellipticPi { :n :m |
+	ellipticPi { :n Float :m Float |
 		/* https://github.com/duetosymmetry/elliptic-integrals-js */
-		let i = 0;
-		let limit = 50;
-		let kPrime = (1 - m).sqrt;
-		let a0 = 1;
+		let i = 0.0;
+		let limit = 50.0;
+		let kPrime = (1.0 - m).sqrt;
+		let a0 = 1.0;
 		let g0 = kPrime;
-		let zeta0 = 0;
+		let zeta0 = 0.0;
 		let aN = a0;
 		let gN = g0;
-		let deltaN = (1 - n) / kPrime;
-		let epsilon = n / (1 - n);
+		let deltaN = (1.0 - n) / kPrime;
+		let epsilon = n / (1.0 - n);
 		let zetaN = zeta0;
-		{ aN.isVeryClose(gN).not | { deltaN.isVeryClose(1).not } & { i < limit } }.whileTrue {
+		{
+			aN.isVeryClose(gN).not | {
+				deltaN.isVeryClose(1.0).not
+			} & {
+				i < limit
+			}
+		}.whileTrue {
 			zeta0 := 0.5 * (epsilon + zetaN);
-			epsilon := (deltaN * epsilon + zetaN) / (1 + deltaN);
+			epsilon := (deltaN * epsilon + zetaN) / (1.0 + deltaN);
 			zetaN := zeta0;
 			a0 := 0.5 * (aN + gN);
 			g0 := (aN *gN).sqrt;
 			aN := a0;
 			gN := g0;
-			deltaN := 0.25 * gN / aN * (2 + deltaN + (1 / deltaN));
-			i := i + 1
+			deltaN := 0.25 * gN / aN * (2.0 + deltaN + (1.0 / deltaN));
+			i := i + 1.0
 		};
 		(i = limit).ifTrue {
 			[n, m].warning("ellipticPi: did not converge")
 		};
-		0.5.pi / aN * (1 + zetaN)
+		0.5.pi / aN * (1.0 + zetaN)
 	}
 
-	ellipticTheta { :a :u :q :k |
+	ellipticTheta { :a SmallInteger :u :q :k |
 		a.caseOf(
 			[
-				1 -> {
-					2 * Range(0, k).sum { :n |
-						(-1 ^ n)
+				1.0 -> {
+					2.0 * Range(0.0, k).sum { :n |
+						(-1.0 ^ n)
 						*
-						(q ^ ((n + 0.5) ^ 2))
+						(q ^ ((n + 0.5) ^ 2.0))
 						*
-						((2 * n + 1) * u).sin
+						((2.0 * n + 1.0) * u).sin
 					}
 				},
-				2 -> {
-					2 * Range(0, k).sum { :n |
-						(q ^ ((n + 0.5) ^ 2)) * ((2 * n + 1) * u).cos
+				2.0 -> {
+					2.0 * Range(0.0, k).sum { :n |
+						(q ^ ((n + 0.5) ^ 2.0)) * ((2.0 * n + 1.0) * u).cos
 					}
 				},
-				3 -> {
-					1 + (
-						2 * Range(1, k + 1).sum { :n |
-							(q ^ (n ^ 2)) * (2 * n * u).cos
+				3.0 -> {
+					1.0 + (
+						2.0 * Range(1.0, k + 1.0).sum { :n |
+							(q ^ (n ^ 2.0)) * (2.0 * n * u).cos
 						}
 					)
 				},
-				4 -> {
-					1 + (
-						2 * Range(1, k + 1).sum { :n |
-							(-1 ^ n) * (q ^ (n ^ 2)) * (2 * n * u).cos
+				4.0 -> {
+					1.0 + (
+						2.0 * Range(1.0, k + 1.0).sum { :n |
+							(-1.0 ^ n) * (q ^ (n ^ 2.0)) * (2.0 * n * u).cos
 						}
 					)
 				}
@@ -450,22 +460,18 @@
 		)
 	}
 
-	ellipticTheta { :a :u :q |
-		let k = 4;
+	ellipticTheta { :a SmallInteger :u :q |
+		let k = 4.0;
 		ellipticTheta(a, u, q, k)
 	}
 
-	jacobiCn { :u :m |
-		u := Float(u);
-		m := Float(m);
+	jacobiCn { :u Float :m Float |
 		let r = jacobianEllipticFunctions(u, m);
 		let cn = r['cn'];
 		cn
 	}
 
-	jacobiDn { :u :m |
-		u := Float(u);
-		m := Float(m);
+	jacobiDn { :u Float :m Float |
 		let r = jacobianEllipticFunctions(u, m);
 		let dn = r['dn'];
 		dn
@@ -482,7 +488,7 @@
 		let r = jacobianEllipticFunctions(u, m);
 		let sn = r['sn'];
 		let k = m.ellipticKFukushima;
-		let n = modulo(u / k, 4);
+		let n = modulo(u / k, 4.0);
 		(n >= 2.0).if {
 			sn * -1.0
 		} {
@@ -492,23 +498,23 @@
 
 }
 
-+[Float, Fraction, Integer] {
++[Float, @ImplicitFloat] {
 
-	fabiusFunction { :x :n |
+	fabiusFunction { :x Float :n Integer |
 		let dyadicRationals = { :x :n |
 			let m = 2L ^ n;
 			0L.toCollect((x * m).ceiling) { :k |
 				k / m
 			}
 		};
-		(2L ^ (n * (n + 1L) / 2L))
+		(2 ^ (n * (n + 1) / 2))
 		/
 		n.factorial
 		*
 		dyadicRationals(x, n).sum { :k |
 			(
 				-1L ^ digitSum(
-					Integer(k * (2L ^ n)),
+					(k * (2L ^ n)).round,
 					2L
 				)
 			)

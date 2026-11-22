@@ -18,7 +18,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	turingMachineFromNumber { :n :s :k |
 		let p = n.integerDigits(2L * s * k, s * k).partition(k);

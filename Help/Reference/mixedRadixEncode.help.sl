@@ -13,12 +13,12 @@ Mixed radix counting systems are common in calendrical calculations.
 >>> (10L * 9L * 6L) + (5L * 6L) + 1L
 571
 
->>> let b = [15 10 5];
->>> 534.mixedRadixEncode(b)
-[10 6 4]
+>>> let b = [15L 10L 5L];
+>>> 534.5.mixedRadixEncode(b)
+[10L 6L 4.5]
 
->>> (10 * 10 * 5) + (6 * 5) + 4
-534
+>>> (10L * 10L * 5L) + (6L * 5L) + 4.5
+534.5
 
 >>> let b = [17 15 11];
 >>> 1084.mixedRadixEncode(b)

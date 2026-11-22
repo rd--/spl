@@ -90,8 +90,8 @@ GrayCode : [Object, Equal] {
 	grayCodeFromTransitionSequence { :self |
 		self.min.caseOf(
 			[
-				0 -> { (self + 1).grayCodeFromTransitionSequence },
-				1 -> { self.grayCodeFromOneIndexedTransitionSequence }
+				0L -> { (self + 1L).grayCodeFromTransitionSequence },
+				1L -> { self.grayCodeFromOneIndexedTransitionSequence }
 			]
 		)
 	}
@@ -166,55 +166,63 @@ GrayCode : [Object, Equal] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	savageWinklerAlgorithm { :n |
-		(n < 0).ifTrue {
+		(n < 0L).ifTrue {
 			n.error('savageWinklerAlgorithm')
 		};
-		0.to(n - 1).collect { :j |
+		0L.to(n - 1L).collect { :j |
 			savageWinklerAlgorithmSubpath(n, j)
 		}.catenate
 	}
 
 	savageWinklerAlgorithmSubpath { :n :j |
-		let pi = { :n |
-			(n <= 1).if {
-				[1]
+		let piFunction = { :n |
+			(n <= 1L).if {
+				[1L]
 			} {
-				let x = pi(n - 1) ++ [n];
+				let x = piFunction(n - 1L) ++ [n];
 				let y = x.atAll(x);
-				let z = y.rotateRight(1);
+				let z = y.rotateRight(1L);
 				z
 			}
 		};
 		let p = { :n :j :reverse |
-			(n = 1 & { j = 0 }).if {
+			(
+				n = 1L & {
+					j = 0L
+				}
+			).if {
 				reverse.not.if {
-					[0; 1]
+					[0L; 1L]
 				} {
-					[1; 0]
+					[1L; 0L]
 				}
 			} {
-				(j >= 0 & { j < n }).if {
+				(
+					j >= 0L & {
+						j < n
+					}
+				).if {
 					let r = [];
-					let o = pi(n - 1);
+					let o = piFunction(n - 1L);
 					reverse.not.if {
-						p(n - 1, j - 1, false).do { :x |
-							let t = [1] ++ x.atAll(o);
+						p(n - 1L, j - 1L, false).do { :x |
+							let t = [1L] ++ x.atAll(o);
 							r.add!(t)
 						};
-						p(n - 1, j, false).do { :x |
-							let t = [0] ++ x;
+						p(n - 1L, j, false).do { :x |
+							let t = [0L] ++ x;
 							r.add!(t)
 						}
 					} {
-						p(n - 1, j, true).do { :x |
-							let t = [0] ++ x;
+						p(n - 1L, j, true).do { :x |
+							let t = [0L] ++ x;
 							r.add!(t)
 						};
-						p(n - 1, j - 1, true).do { :x |
-							let t = [1] ++ x.atAll(o);
+						p(n - 1L, j - 1L, true).do { :x |
+							let t = [1L] ++ x.atAll(o);
 							r.add!(t)
 						}
 					};
@@ -233,11 +241,11 @@ GrayCode : [Object, Equal] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	binaryReflectedGrayCode { :n |
-		0.to((2 ^ n) - 1).collect { :i |
-			i.grayEncode.integerDigits(2, n)
+		0L.to((2L ^ n) - 1L).collect { :i |
+			i.grayEncode.integerDigits(2L, n)
 		}
 	}
 
@@ -256,31 +264,41 @@ GrayCode : [Object, Equal] {
 	mixedRadixGrayCodeDo { :bases :receive/2 |
 		/* https://www.socs.uoguelph.ca/~sawada/papers/RSG.pdf */
 		let n = bases.size;
-		let word = List(n, 0);
-		let focus = [1 .. n + 1];
-		let start = List(n, 0);
+		let word = List(n, 0L);
+		let focus = [1L .. n + 1L];
+		let start = List(n, 0L);
 		receive(word, nil);
-		{ focus[1] <= n }.whileTrue {
-			let index = focus[1];
-			focus[1] := 1;
+		{
+			focus[1L] <= n
+		}.whileTrue {
+			let index = focus[1L];
+			focus[1L] := 1L;
 			(word[index] = start[index]).if {
-				(bases[index] = 2 & { start[index] = 1 }).if {
-					word[index] := 0
+				(
+					bases[index] = 2L & {
+						start[index] = 1L
+					}
+				).if {
+					word[index] := 0L
 				} {
-					word[index] := bases[index] - 1
+					word[index] := bases[index] - 1L
 				}
 			} {
-				(word[index] = 2 & { start[index] = 1}).if {
-					word[index] := word[index] - 2
+				(
+					word[index] = 2L & {
+						start[index] = 1L
+					}
+				).if {
+					word[index] := word[index] - 2L
 				} {
-					word[index] := word[index] - 1
+					word[index] := word[index] - 1L
 				}
 			};
 			receive(word, index);
-			(word[index] = (1 - start[index])).ifTrue {
+			(word[index] = (1L - start[index])).ifTrue {
 				start[index] := word[index];
-				focus[index] := focus[index + 1];
-				focus[index + 1] := index + 1
+				focus[index] := focus[index + 1L];
+				focus[index + 1L] := index + 1L
 			}
 		}
 	}

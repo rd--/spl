@@ -26,7 +26,7 @@ A rhombus:
 
 ![](Help/Image/superellipseCurve-B.svg)
 
-A rhombus with with convex sides:
+A rhombus with convex sides:
 
 ~~~spl svg=C
 (0.0 -- 2.pi).functionPlot(

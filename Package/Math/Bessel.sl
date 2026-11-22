@@ -1,37 +1,8 @@
-+[Float, Integer] {
-
-	besselJ { :n :x |
-		x.isCollection.if {
-			x.collect { :each |
-				n.besselJ(each)
-			}
-		} {
-			uncheckedBesselJ(n, Float(x))
-			/*
-			(n = 0).if {
-				besselJ0(x)
-			} {
-				(n = 1).if {
-					besselJ1(x)
-				} {
-					(n = 2).if {
-						(x = 0).if {
-							0
-						} {
-							2 * besselJ1(x) / x - besselJ0(x)
-						}
-					} {
-						n.error('besselJ: only defined for n=0, n=1 and n=2')
-					}
-				}
-			}
-			*/
-		}
-	}
++[Integer, @SmallInteger] {
 
 }
 
-+[Float, Integer] {
++Float {
 
 	besselAsympt0 { :x |
 		let xsq = 64.0 / (x * x);
@@ -97,7 +68,7 @@
 		[p2 / q2, 8 * p3 / q3 / x]
 	}
 
-	besselI { :n :x |
+	uncheckedBesselI { :n :x |
 		<primitive:
 		/* https://git.sheetjs.com/SheetJS/bessel */
 		function horner(arr, v) { let z = 0; for(let i = 0; i < arr.length; ++i) z = v * z + arr[i]; return z; }
@@ -135,7 +106,7 @@
 			ret *= besseli(x, 0) / bi;
 			return x < 0 && (n%2) ? -ret : ret;
 		};
-		return besseli(sl.toFloat(_x), sl.toFloat(_n));
+		return besseli(_x, _n);
 		>
 	}
 
@@ -201,7 +172,7 @@
 		}
 	}
 
-	besselK { :n :z |
+	uncheckedBesselK { :n :z |
 		<primitive:
 		/* https://git.sheetjs.com/SheetJS/bessel */
 		const horner = function(arr, v) { let z = 0; for(let i = 0; i < arr.length; ++i) z = v * z + arr[i]; return z; }
@@ -247,11 +218,11 @@
 				return bessel_iter(x, n, b0, b1, sign);
 			};
 		}
-		return bessel_wrap(bessel0, bessel1, 'BESSELK', 2, 1)(sl.toFloat(_z), sl.toFloat(_n));
+		return bessel_wrap(bessel0, bessel1, 'BESSELK', 2, 1)(_z, _n);
 		>
 	}
 
-	besselY { :n :z |
+	uncheckedBesselY { :n :z |
 		<primitive:
 		/* https://git.sheetjs.com/SheetJS/bessel */
 		const horner = function(arr, v) { let z = 0; for(let i = 0; i < arr.length; ++i) z = v * z + arr[i]; return z; }
@@ -318,7 +289,7 @@
 				return bessel_iter(x, n, b0, b1, sign);
 			};
 		}
-		return bessel_wrap(bessel0, bessel1, 'BESSELY', 1, -1)(sl.toFloat(_z), sl.toFloat(_n));
+		return bessel_wrap(bessel0, bessel1, 'BESSELY', 1, -1)(_z, _n);
 		>
 	}
 
@@ -412,8 +383,34 @@
 			}
 			return ret;
 		};
-		return besselj(sl.toFloat(_x), sl.toFloat(_n));
+		return besselj(_x, _n);
 		>
+	}
+
+}
+
++[Integer, @SmallInteger] {
+
+	besselI { :n SmallInteger :x Float |
+		uncheckedBesselI(n, x)
+	}
+
+	besselJ { :n SmallInteger :x |
+		x.isCollection.if {
+			x.collect { :each |
+				n.besselJ(each)
+			}
+		} {
+			uncheckedBesselJ(n, Float(x))
+		}
+	}
+
+	besselK { :n SmallInteger :x Float |
+		uncheckedBesselK(n, x)
+	}
+
+	besselY { :n SmallInteger :x Float |
+		uncheckedBesselY(n, x)
 	}
 
 }

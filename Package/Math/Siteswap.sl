@@ -55,7 +55,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	siteswapStateAllowedTransitions { :sigma :h |
 		sigma.integerDigits(2L, h)

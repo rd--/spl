@@ -7,7 +7,7 @@ Answer the sequence of length _n_ obtained by iterating the linear recurrence wi
 Solve an initial-value problem for a first-order difference equation with kernel _(-3, 1)_:
 
 ```
->>> linearRecurrence([-3 1], [7 2], 10)
+>>> linearRecurrence([-3L 1L], [7L 2L], 10L)
 [7 2 1 -1 4 -13 43 -142 469 -1549]
 ```
 
@@ -16,14 +16,18 @@ also Erv Wilson’s Meru 1,
 OEIS [A000045](http://oeis.org/A000045):
 
 ```
->>> linearRecurrence([1 1], [1 1], 13)
+>>> linearRecurrence([1L 1L], [1L 1L], 13L)
 [1 1 2 3 5 8 13 21 34 55 89 144 233]
 ```
 
 `linearRecurrence` works if _i_ is a matrix:
 
 ```
->>> linearRecurrence([1 1], [1 2; 2 1], 10)
+>>> linearRecurrence(
+>>> 	[1L 1L],
+>>> 	[1L 2L; 2L 1L],
+>>> 	10L
+>>> )
 [
 	1 2; 2 1; 3 3; 5 4; 8 7; 13 11;
 	21 18; 34 29; 55 47; 89 76

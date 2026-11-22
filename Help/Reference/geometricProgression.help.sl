@@ -71,6 +71,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GeometricSequence.html)
 [2](https://mathworld.wolfram.com/CommonRatio.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Integer.html#-geom),
 _W_
 [1](https://en.wikipedia.org/wiki/Geometric_progression)
 

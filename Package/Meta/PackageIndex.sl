@@ -261,6 +261,7 @@
 	'Number-Quaternion'
 	'Number-Real'
 	'Number-Residue'
+	'Number-SmallInteger'
 	'ProbabilityDistribution-ArcSinDistribution'
 	'ProbabilityDistribution-BernoulliDistribution'
 	'ProbabilityDistribution-BetaBinomialDistribution'

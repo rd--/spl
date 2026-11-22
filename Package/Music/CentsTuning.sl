@@ -26,7 +26,7 @@ CentsTuning : [Object, Store, Equal, Tuning] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	equalTemperamentTuning { :self |
 		let step = 1200.0 / self;

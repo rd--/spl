@@ -7,21 +7,21 @@ Answer the modified Bessel function of the second kind _Kn(z)_.
 Evaluate at specific real values:
 
 ```
->>> 0.besselK(0.53)
+>>> 0L.besselK(0.53)
 0.87656
 
->>> 0.besselK(4)
+>>> 0L.besselK(4)
 0.0111597
 
->>> 1.besselK(4)
+>>> 1L.besselK(4)
 0.0124835
 ```
 
 Plot _K0_ over a subset of the reals:
 
 ~~~spl svg=A
-(0.5 -- 3).functionPlot { :x |
-	0.besselK(x)
+(0.5 -- 3.0).functionPlot { :x |
+	0L.besselK(x)
 }
 ~~~
 

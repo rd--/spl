@@ -1,6 +1,6 @@
 /* Requires: RegularExpression String */
 
-Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInteger] {
+Float! : [Object, Copy, Store, Json, Equal, Compare, Number, Binary, ImplicitInteger, SmallInteger] {
 
 	[Float, F] { :self |
 		self

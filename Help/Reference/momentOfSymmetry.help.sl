@@ -1,6 +1,7 @@
 # momentOfSymmetry
 
-- _momentOfSymmetry(g, p, k=∞)_
+- _momentOfSymmetry(g, p, k=24)_
+- _momentOfSymmetry(g/p)_
 
 Answer the sequence of moment of symmetry scales specified by generator _g_ and period _p_.
 The sequence ends when the next step would have only one interval size,
@@ -10,7 +11,7 @@ or when the maximum depth _k_ is reached.
 The diatonic scale is the last item in the _5/12_ sequence:
 
 ```
->>> 5.momentOfSymmetry(12)
+>>> 5/12.momentOfSymmetry
 [
 	5 7;
 	5 5 2;
@@ -22,8 +23,8 @@ The diatonic scale is the last item in the _5/12_ sequence:
 Each of the scales given is a moment of symmetry scale:
 
 ```
->>> 5.momentOfSymmetry(12)
->>> .allSatisfy { :each |
+>>> 5/12.momentOfSymmetry
+>>> .allTrue { :each |
 >>> 	Scale(each)
 >>> 	.isMomentOfSymmetry
 >>> }
@@ -33,7 +34,7 @@ true
 The size of the scale at each step:
 
 ```
->>> 5.momentOfSymmetry(12)
+>>> 5/12.momentOfSymmetry
 >>> .collect(size/1)
 [2 3 5 7]
 ```
@@ -41,7 +42,7 @@ The size of the scale at each step:
 The symmetrical generator is _7/12_:
 
 ```
->>> 7.momentOfSymmetry(12)
+>>> 7/12.momentOfSymmetry
 [
 	7 5;
 	2 5 5;
@@ -53,7 +54,7 @@ The symmetrical generator is _7/12_:
 The interval pairs only of the _41/58_ sequence:
 
 ```
->>> 41.momentOfSymmetry(58)
+>>> 41/58.momentOfSymmetry
 >>> .collect(nub/1)
 [
 	41 17;
@@ -70,41 +71,41 @@ The interval pairs only of the _41/58_ sequence:
 The fifth level of the _41/58_ sequence:
 
 ```
->>> 41.momentOfSymmetry(58).at(5)
+>>> 41/58.momentOfSymmetry.at(5L)
 [7 7 7 3 7 7 3 7 7 3]
 ```
 
 The fifth level of the _17/41_ sequence:
 
 ```
->>> 17.momentOfSymmetry(41).at(5)
+>>> 17/41.momentOfSymmetry.at(5L)
 [3 3 4 3 4 3 3 4 3 4 3 4]
 ```
 
 _6L1s_ and _1L6s_ scales:
 
 ```
->>> 11.momentOfSymmetry(13).last
+>>> 11/13.momentOfSymmetry.last
 [1 2 2 2 2 2 2]
 
->>> 1.momentOfSymmetry(7).last
+>>> 1/7.momentOfSymmetry.last
 [1 1 1 1 1 2]
 ```
 
 _5L2s_ and _2L5s_ scales:
 
 ```
->>> 7.momentOfSymmetry(12).last
+>>> 7/12.momentOfSymmetry.last
 [2 2 2 1 2 2 1]
 
->>> 4.momentOfSymmetry(9).last
+>>> 4/9.momentOfSymmetry.last
 [2 1 1 2 1 1 1]
 ```
 
 The interval pairs only of the _22/49_ sequence:
 
 ```
->>> 22.momentOfSymmetry(49)
+>>> 24/49.momentOfSymmetry
 >>> .collect(nub/1)
 [
 	22 27;
@@ -118,10 +119,18 @@ The interval pairs only of the _22/49_ sequence:
 ]
 ```
 
-The _58.33/100_ sequence, rounded:
+The _58⅓/100_ sequence, rounded:
 
 ```
->>> 58.3333.momentOfSymmetry(100)
+>>> momentOfSymmetry(175/3, 100/1)
+[
+	175/3 125/3;
+	 50/3 125/3 125/3;
+	 50/3  50/3  25/1 50/3 25/1;
+	 50/3  50/3  50/3 25/3 50/3 50/3 25/3
+]
+
+>>> momentOfSymmetry(175/3, 100/1)
 >>> .round
 [
 	58 42;
@@ -135,7 +144,7 @@ The `prefixSum` of each scale tells the pitches of the scale,
 concluding with the period:
 
 ```
->>> 5.momentOfSymmetry(12)
+>>> 5/12.momentOfSymmetry
 >>> .collect(prefixSum/1)
 [
 	5 12;
@@ -148,7 +157,7 @@ concluding with the period:
 `nubCumulatively` indicates which pitches are introduced at each level:
 
 ```
->>> 5.momentOfSymmetry(12)
+>>> 5/12.momentOfSymmetry
 >>> .collect(prefixSum/1)
 >>> .nubCumulatively(==)
 [5 12; 10; 3 8; 1 6]
@@ -160,7 +169,7 @@ and equivalently the period,
 points upwards and intervals increase clockwise:
 
 ~~~spl svg=A
-7.momentOfSymmetry(12)
+7/12.momentOfSymmetry
 .horogramDrawing
 ~~~
 
@@ -171,7 +180,7 @@ considered to a depth of nine places:
 
 ~~~spl svg=B
 1/5.phiWeightedMediant(3/14)
-.momentOfSymmetry(1, 9)
+.momentOfSymmetry(1.0, 9L)
 .horogramDrawing
 ~~~
 
@@ -186,7 +195,7 @@ let appendOuterRing = { :mos |
 	let k = (period / leastStep).round;
 	mos ++ [List(k, leastStep)]
 };
-7.momentOfSymmetry(12)
+7/12.momentOfSymmetry
 .appendOuterRing
 .horogramDrawing
 ~~~
@@ -200,7 +209,7 @@ which is at the right,
 and rows are descending:
 
 ~~~spl svg=D
-7.momentOfSymmetry(12)
+7/12.momentOfSymmetry
 .rectangularHorogramDrawing
 ~~~
 
@@ -210,7 +219,7 @@ A rectangular drawing of the same phi-weighted mediant scale as above:
 
 ~~~spl svg=E
 1/5.phiWeightedMediant(3/14)
-.momentOfSymmetry(1, 9)
+.momentOfSymmetry(1.0, 9L)
 .rectangularHorogramDrawing
 ~~~
 
@@ -220,7 +229,7 @@ A rectangular drawing of the same phi-weighted mediant scale as above:
 Requires that the scale have only integer step sizes:
 
 ~~~spl html=F
-7.momentOfSymmetry(12)
+7/12.momentOfSymmetry
 .horogramTable
 ~~~
 

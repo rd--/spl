@@ -84,7 +84,7 @@ Sfc32 : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	Sfc32 { :self |
 		Sfc32(self.sfc32State)

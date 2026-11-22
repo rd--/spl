@@ -893,50 +893,52 @@ Triangle : [Object, Store, Equal, Geometry] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	kimberlingCenter { :n |
 		{ :t |
-			n.caseOf([
-				1 -> { t.incenter },
-				2 -> { t.centroid },
-				3 -> { t.circumcenter },
-				4 -> { t.orthocenter },
-				5 -> { t.ninePointCenter },
-				6 -> { t.symmedianPoint },
-				7 -> { t.gergonnePoint },
-				8 -> { t.nagelPoint },
-				9 -> { t.mittenpunkt },
-				10 -> { t.spiekerCenter },
-				11 -> { t.feuerbachPoint },
-				12 -> {
-					t.triangleCentreA { :a :b :c |
-						1 + (b - c).cos
-					}
-				},
-				13 -> { t.firstFermatPoint },
-				14 -> { t.secondFermatPoint },
-				15 -> { t.firstIsodynamicPoint },
-				16 -> { t.secondIsodynamicPoint },
-				17 -> { t.firstNapoleonPoint },
-				18 -> { t.secondNapoleonPoint },
-				19 -> { t.clawsonPoint },
-				20 -> { t.deLongchampsPoint },
-				21 -> { t.schifflerPoint },
-				22 -> { t.exeterPoint },
-				23 -> { t.farOutPoint },
-				30 -> { t.eulerInfinityPoint },
-				39 -> { t.brocardMidpoint },
-				40 -> { t.bevanPoint },
-				175 -> { t.isoperimetricPoint },
-				176 -> { t.equalDetourPoint },
-				182 -> {
-					t.triangleCentreL { :a :b :c |
-						((a.square * (b.square + c.square)) + (2 * b.square * c.square) - (a ^ 4)) / (b * c)
-					}
-				},
-				187 -> { t.schouteCenter }
-			]) {
+			n.caseOf(
+				[
+					1L -> { t.incenter },
+					2L -> { t.centroid },
+					3L -> { t.circumcenter },
+					4L -> { t.orthocenter },
+					5L -> { t.ninePointCenter },
+					6L -> { t.symmedianPoint },
+					7L -> { t.gergonnePoint },
+					8L -> { t.nagelPoint },
+					9L -> { t.mittenpunkt },
+					10L -> { t.spiekerCenter },
+					11L -> { t.feuerbachPoint },
+					12L -> {
+						t.triangleCentreA { :a :b :c |
+							1 + (b - c).cos
+						}
+					},
+					13L -> { t.firstFermatPoint },
+					14L -> { t.secondFermatPoint },
+					15L -> { t.firstIsodynamicPoint },
+					16L -> { t.secondIsodynamicPoint },
+					17L -> { t.firstNapoleonPoint },
+					18L -> { t.secondNapoleonPoint },
+					19L -> { t.clawsonPoint },
+					20L -> { t.deLongchampsPoint },
+					21L -> { t.schifflerPoint },
+					22L -> { t.exeterPoint },
+					23L -> { t.farOutPoint },
+					30L -> { t.eulerInfinityPoint },
+					39L -> { t.brocardMidpoint },
+					40L -> { t.bevanPoint },
+					175L -> { t.isoperimetricPoint },
+					176L -> { t.equalDetourPoint },
+					182L -> {
+						t.triangleCentreL { :a :b :c |
+							((a.square * (b.square + c.square)) + (2 * b.square * c.square) - (a ^ 4)) / (b * c)
+						}
+					},
+					187L -> { t.schouteCenter }
+				]
+			) {
 				n.error('kimberlingCenter: unknown n')
 			}
 		}

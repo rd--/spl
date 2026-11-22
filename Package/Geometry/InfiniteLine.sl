@@ -74,7 +74,7 @@ InfiniteLine : [Object, Store, Equal] {
 
 }
 
-+[Float, Integer] {
++[Float, @ImplicitFloat] {
 
 	InfiniteLine { :a :b :c |
 		(a = 0L).if {

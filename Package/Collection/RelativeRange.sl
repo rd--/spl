@@ -36,7 +36,7 @@ RelativeRange : [Object, New, Store, Equal, Compare] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	RelativeRange { :start :stop :step |
 		(

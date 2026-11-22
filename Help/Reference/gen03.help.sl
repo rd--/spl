@@ -10,7 +10,8 @@ with specified coefficients _c_.
 First-order Chebyshev, _x_:
 
 ~~~spl svg=A
-129.gen03(-1, 1, [0 1]).linePlot
+129L.gen03(-1.0, 1.0, [0.0 1.0])
+.linePlot
 ~~~
 
 ![](Help/Image/gen03-A.svg)
@@ -26,8 +27,8 @@ C.f. _x_:
 Second-order Chebyshev, _2x^2-1_:
 
 ~~~spl svg=C
-let c = 2.chebyshevT.coefficientList;
-129.gen03(-1, 1, c).linePlot
+let c = 2L.chebyshevT.coefficientList;
+129L.gen03(-1.0, 1.0, c).linePlot
 ~~~
 
 ![](Help/Image/gen03-C.svg)
@@ -36,7 +37,7 @@ C.f. _2x^2-1_:
 
 ~~~spl svg=D
 (-1.0 -- 1.0).functionPlot(
-	2.chebyshevT.unaryFunction
+	2L.chebyshevT.unaryFunction
 )
 ~~~
 
@@ -45,8 +46,8 @@ C.f. _2x^2-1_:
 Third-order Chebyshev, _4x^3 - 3x_:
 
 ~~~spl svg=E
-let c = 3.chebyshevT.coefficientList;
-129.gen03(-1, 1, c).linePlot
+let c = 3L.chebyshevT.coefficientList;
+129L.gen03(-1.0, 1.0, c).linePlot
 ~~~
 
 ![](Help/Image/gen03-E.svg)
@@ -55,7 +56,7 @@ C.f. _4x^3-3x_:
 
 ~~~spl svg=F
 (-1.0 -- 1.0).functionPlot(
-	3.chebyshevT.unaryFunction
+	3L.chebyshevT.unaryFunction
 )
 ~~~
 
@@ -65,8 +66,8 @@ Seventh-order Chebyshev,
 _64x^7 - 112x^5 + 56x^3 - 7x_:
 
 ~~~spl svg=G
-let c = 7.chebyshevT.coefficientList;
-129.gen03(-1, 1, c).linePlot
+let c = 7L.chebyshevT.coefficientList;
+129L.gen03(-1.0, 1.0, c).linePlot
 ~~~
 
 ![](Help/Image/gen03-G.svg)
@@ -75,7 +76,7 @@ C.f.:
 
 ~~~spl svg=H
 (-1.0 -- 1.0).functionPlot(
-	7.chebyshevT.unaryFunction
+	7L.chebyshevT.unaryFunction
 )
 ~~~
 
@@ -84,7 +85,8 @@ C.f.:
 A 4th order polynomial function:
 
 ~~~spl svg=I
-129.gen03(-1, 1, [5 4 3 2 2 1]).linePlot
+let c = [5 4 3 2 2 1];
+129L.gen03(-1.0, 1.0, c).linePlot
 ~~~
 
 ![](Help/Image/gen03-I.svg)

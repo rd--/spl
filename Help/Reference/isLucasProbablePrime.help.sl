@@ -8,7 +8,7 @@ Find false positives and false negatives up to _k_,
 OEIS [A217120](https://oeis.org/A217120):
 
 ```
->>> let k = 2000;
+>>> let k = 2_000;
 >>> let a = [];
 >>> let b = [];
 >>> 3:k:2.do { :n |

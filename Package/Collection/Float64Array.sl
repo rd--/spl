@@ -26,7 +26,7 @@ Float64Array! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put,
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	[Float64Array, constantFloat64Array] { :n :x |
 		<primitive:

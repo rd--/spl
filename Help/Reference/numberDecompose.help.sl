@@ -12,9 +12,9 @@ Decompose an amount of money in different denominations:
 
 ```
 >>> let x = 598.32;
->>> let u = [100 50 20 10 5 2 1];
+>>> let u = [100L 50L 20L 10L 5L 2L 1L];
 >>> x.numberDecompose(u)
-[5 1 2 0 1 1 1.32]
+[5L 1L 2L 0L 1L 1L 1.32]
 ```
 
 Decompose an amount of seconds in days, hours, minutes, and seconds:

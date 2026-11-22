@@ -8,7 +8,7 @@ having _s_ states and _k_ colors.
 Generate the list of rules corresponding to 2-state, 2-color machine 2506:
 
 ```
->>> 2506.turingMachineFromNumber(2, 2)
+>>> 2506L.turingMachineFromNumber(2L, 2L)
 [
 	[1 1] -> [2 0 -1],
 	[1 0] -> [2 1 1],
@@ -20,7 +20,7 @@ Generate the list of rules corresponding to 2-state, 2-color machine 2506:
 Generate the rule representation of a simple universal Turing machine:
 
 ```
->>> 596440.turingMachineFromNumber(2, 3)
+>>> 596440L.turingMachineFromNumber(2L, 3L)
 [
 	[1 2] -> [1 1 -1],
 	[1 1] -> [1 2 -1],
@@ -34,7 +34,7 @@ Generate the rule representation of a simple universal Turing machine:
 Generate the rule representation of a 3-state, 2-color machine:
 
 ```
->>> 2139050.turingMachineFromNumber(3, 2)
+>>> 2139050L.turingMachineFromNumber(3L, 2L)
 [
 	[1 1] -> [3 0 -1],
 	[1 0] -> [2 1 1],
@@ -48,7 +48,7 @@ Generate the rule representation of a 3-state, 2-color machine:
 Generate the rule representation of a 2-state, 2-color machine:
 
 ```
->>> 3932.turingMachineFromNumber(2, 2)
+>>> 3932L.turingMachineFromNumber(2L, 2L)
 [
 	[1 1] -> [2 1 1],
 	[1 0] -> [2 0 1],

@@ -7,7 +7,7 @@ Answer a list of _(x,y)_ coordinate pairs of a hexagonal spiral with _n_ sides s
 Points on the first four sides of the spiral:
 
 ```
->>> 4.hexagonalSpiralPoints
+>>> 4L.hexagonalSpiralPoints
 [
 	[ 0, 0],
 	[ 1, 3.sqrt] / 2,
@@ -21,7 +21,7 @@ The number of points in the first n sides,
 OEIS [A001399](https://oeis.org/A001399):
 
 ```
->>> 0:20.collect { :n |
+>>> 0L:20L.collect { :n |
 >>> 	n.hexagonalSpiralPoints.size
 >>> }
 [
@@ -30,8 +30,8 @@ OEIS [A001399](https://oeis.org/A001399):
 	48
 ]
 
->>> 1:21.collect { :n |
->>> 	round((n + 3) ^ 2 / 12)
+>>> 1L:21L.collect { :n |
+>>> 	round((n + 3L) ^ 2L / 12L)
 >>> }
 [
 	 1  2  3  4  5  7  8 10 12 14
@@ -43,7 +43,7 @@ OEIS [A001399](https://oeis.org/A001399):
 Plot first nine turns of the spiral:
 
 ~~~spl svg=A
-(9 * 6).hexagonalSpiralPoints
+(9L * 6L).hexagonalSpiralPoints
 .PointSet
 ~~~
 
@@ -52,7 +52,7 @@ Plot first nine turns of the spiral:
 Plot the points at prime indices on the first twenty-three turns of the spiral:
 
 ~~~spl svg=B
-let h = (23 * 6).hexagonalSpiralPoints;
+let h = (23L * 6L).hexagonalSpiralPoints;
 let k = h.size;
 let p = k.primesUpTo;
 h.atAll(p).PointSet
@@ -63,7 +63,7 @@ h.atAll(p).PointSet
 The same diagram for lucky numbers:
 
 ~~~spl svg=C
-let h = (23 * 6).hexagonalSpiralPoints;
+let h = (23L * 6L).hexagonalSpiralPoints;
 let k = h.size;
 let p = k.luckyNumbers;
 h.atAll(p).PointSet

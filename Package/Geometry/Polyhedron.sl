@@ -111,10 +111,10 @@ Polyhedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 	unitIcosahedron { :center |
 		Polyhedron(
 			[
-				0 0 -0.951057;
-				0 0 0.951057;
-				-0.850651 0 -0.425325;
-				0.850651 0 0.425325;
+				0.0 0.0 -0.951057;
+				0.0 0.0 0.951057;
+				-0.850651 0.0 -0.425325;
+				0.850651 0.0 0.425325;
 				0.688191 -0.5 -0.425325;
 				0.688191 0.5 -0.425325;
 				-0.688191 -0.5 0.425325;
@@ -152,13 +152,13 @@ Polyhedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 	unitOctahedron { :center |
 		Polyhedron(
 			[
-				-1 0  0;
-				0  1  0;
-				0  0 -1;
-				0  0  1;
-				0 -1  0;
-				1  0  0
-			] * 0.707107 + center,
+				-1.0 0.0  0.0;
+				0.0  1.0  0.0;
+				0.0  0.0 -1.0;
+				0.0  0.0  1.0;
+				0.0 -1.0  0.0;
+				1.0  0.0  0.0
+			] * 2.0.sqrt * 0.5 + center,
 			[
 				4 5 6;
 				4 6 2;
@@ -173,36 +173,36 @@ Polyhedron : [Object, Store, Equal, Geometry, PolygonMesh] {
 	}
 
 	unitTetrahedron { :center |
-		let a = 1;
-		let halfA = a / 2;
-		let negativeHalfA = 0 - halfA;
-		let x = 1/3 * 3.sqrt * a;
-		let r = 1/12 * 6.sqrt * a;
-		let negativeR = 0 - r;
-		let capitalR = 1/4 * 6.sqrt * a;
-		let d = 1/6 * 3.sqrt * a;
-		let negativeD = 0 - d;
+		let a = 1.0;
+		let halfA = a / 2.0;
+		let negativeHalfA = 0.0 - halfA;
+		let x = 3.0.sqrt * a / 3.0;
+		let r = 6.0.sqrt * a / 12.0;
+		let negativeR = 0.0 - r;
+		let capitalR = 6.0.sqrt * a / 4.0;
+		let d = 3.0.sqrt * a / 6.0;
+		let negativeD = 0.0 - d;
 		Polyhedron(
 			[
-				0 0 capitalR;
+				0.0 0.0 capitalR;
 				negativeD negativeHalfA negativeR;
 				negativeD halfA negativeR;
-				x 0 negativeR
+				x 0.0 negativeR
 			] + center,
 			[
-				2 3 4;
-				3 2 1;
-				4 1 2;
-				1 4 3
+				2L 3L 4L;
+				3L 2L 1L;
+				4L 1L 2L;
+				1L 4L 3L
 			]
 		)
 	}
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
-	oloid { :nPolygons |
+	oloid { :nPolygons SmallInteger |
 		/* https://www.cs.cmu.edu/~kmcrane/Projects/ModelRepository/#oloid */
 		let n = nPolygons / 4.0 + 1.0;
 		let v = [];

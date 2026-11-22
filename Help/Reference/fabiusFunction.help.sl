@@ -6,18 +6,18 @@ Answer the Fabius function at _x_,
 to a precision decided by _n_.
 
 ```
->>> fabiusFunction(0L, 8L)
-0/1
+>>> fabiusFunction(0.0, 8L)
+0.0
 
->>> fabiusFunction(1L, 8L)
-1/1
+>>> fabiusFunction(1.0, 8L)
+1.0
 
->>> fabiusFunction(3L, 8L)
--1/1
+>>> fabiusFunction(3.0, 8L)
+-1.0
 
 >>> fabiusFunction(3/16, 8L)
->>> .round(1/100)
-1/50
+>>> .round(0.01)
+0.02
 
 >>> fabiusFunction(1.pi, 8L)
 >>> .round(0.01)
@@ -28,8 +28,8 @@ to a precision decided by _n_.
 0.15
 
 >>> fabiusFunction(2/3, 8)
->>> .round(1/100)
-41/50
+>>> .round(0.01)
+0.82
 
 >>> fabiusFunction(0.775, 8L)
 >>> .round(0.01)
@@ -39,11 +39,11 @@ to a precision decided by _n_.
 Threads over lists:
 
 ```
->>> [0 2 4].fabiusFunction(8L)
-[0 0 0]
+>>> [0.0 2.0 4.0].fabiusFunction(8L)
+[0.0 0.0 0.0]
 
->>> [1 3 5].fabiusFunction(8L)
-[1 -1 -1]
+>>> [1.0 3.0 5.0].fabiusFunction(8L)
+[1.0 -1.0 -1.0]
 ```
 
 Plot over _(0,1)_:
@@ -65,6 +65,16 @@ Plot over _(0,10)_:
 ~~~
 
 ![](Help/Image/fabiusFunction-B.svg)
+
+Plot over _(0,2)_:
+
+~~~spl svg=C
+(0.0 -- 2.0).functionPlot { :x |
+	x.fabiusFunction(6L)
+}
+~~~
+
+![](Help/Image/fabiusFunction-C.svg)
 
 * * *
 

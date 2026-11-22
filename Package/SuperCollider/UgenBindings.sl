@@ -464,7 +464,7 @@
 
 }
 
-+[List, Ugen, Float, Integer, Fraction] {
++[Float, Fraction, Integer, List, Ugen] {
 
 	ampComp { :freq :root :exp |
 		<primitive: return sc.AmpComp(_freq, _root, _exp);>
@@ -980,7 +980,7 @@
 
 }
 
-+[Float, Integer, Fraction, List] {
++[Float, Fraction, Integer, List] {
 
 	bufRd { :numChan :bufnum :phase :loop :interpolation |
 		<primitive: return sc.BufRd(_numChan, _bufnum, _phase, _loop, _interpolation);>
@@ -1052,7 +1052,7 @@
 
 }
 
-+[List, Float, Integer, Fraction, Ugen] {
++[Float, Fraction, Integer, List, Ugen] {
 
 	analogFoldOsc { :freq :amp |
 		<primitive: return sc.AnalogFoldOsc(_freq, _amp);>
@@ -1216,7 +1216,7 @@
 
 }
 
-+[List, Float, Integer, Fraction, Ugen] {
++[Float, Fraction, Integer, List, Ugen] {
 
 	expRandRange { :self :anObject |
 		<primitive: return sc.ExpRandRange(_self, _anObject);>

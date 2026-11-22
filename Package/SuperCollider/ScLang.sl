@@ -256,7 +256,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	binaryDigits { :self :numDigits |
 		let answer = [];
@@ -672,14 +672,6 @@
 		<primitive:
 		return sc.clump(_self, sl.toFloat(_groupSize));
 		>
-	}
-
-}
-
-+[Float, Integer] {
-
-	geom { :self :start :grow |
-		self.geometricProgression(start, grow)
 	}
 
 }

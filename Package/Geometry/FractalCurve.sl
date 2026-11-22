@@ -28,19 +28,20 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	blancmangeCurve { :d |
-		let k = 2 ^ d;
-		let b = List(k + 1, nil);
-		b[0 + 1] := 0;
-		b[k + 1] := 0;
-		d.toByDo(1, -1) { :n |
-			0.toByDo(k - 1, 2 ^ n) { :m |
-				let i = m + (2 ^ (n - 1)) + 1;
-				let j = m + 1;
-				let k = m + (2 ^ n) + 1;
-				b[i] := (2 ^ n) + (0.5 * (b[j] + b[k]))
+		let k = 2L ^ d;
+		let b = List(k + 1L, nil);
+		b[0L + 1L] := 0L;
+		b[k + 1L] := 0L;
+		d.toByDo(1L, -1L) { :n |
+			0L.toByDo(k - 1L, 2L ^ n) { :m |
+				let i = m + (2L ^ (n - 1L)) + 1L;
+				let j = m + 1L;
+				let k = m + (2L ^ n) + 1L;
+				let c = b[j] + b[k];
+				b[i] := (2L ^ n) + (c // 2L)
 			}
 		};
 		b
@@ -48,10 +49,10 @@
 
 	cantorDust { :self |
 		[
-			0 -> [0 0 0; 0 0 0; 0 0 0],
-			1 -> [1 0 1; 0 0 0; 1 0 1]
+			0L -> [0L 0L 0L; 0L 0L 0L; 0L 0L 0L],
+			1L -> [1L 0L 1L; 0L 0L 0L; 1L 0L 1L]
 		]
-		.substitutionSystem([[1]], self)
+		.substitutionSystem([[1L]], self)
 		.last
 	}
 
@@ -60,7 +61,7 @@
 			[
 				'A' -> {
 					'F'.simpleLindenmayerSystem(
-						[1/2.pi -1/2.pi],
+						[1/2.pi, -1/2.pi],
 						[
 							'F' -> 'F',
 							'X' -> 'X+YF+',
@@ -73,22 +74,22 @@
 				'B' -> {
 					let a = { :x |
 						x ++ x.i.reverse
-					}.iterate([1], self);
-					([0] ++ a.prefixSum).realImaginary
+					}.iterate([1.0], self);
+					([0.0] ++ a.prefixSum).realImaginary
 				}
 			]
 		)
 	}
 
 	fibonacciCurve { :self |
-		let p = [0 0];
+		let p = [0.0, 0.0];
 		let answer = [p];
 		let theta = 1/2.pi;
-		1.toDo(self) { :n |
+		1L.toDo(self) { :n |
 			let m = n.fibonacciWord;
 			p := p + theta.angleVector;
 			answer.add!(p);
-			(m = 0).ifTrue {
+			(m = 0L).ifTrue {
 				let delta = n.isEven.if { -1/2.pi } { 1/2.pi };
 				theta := theta + delta
 			}

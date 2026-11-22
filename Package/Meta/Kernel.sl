@@ -11,6 +11,7 @@
 	'Number'
 	'ImplicitFloat'
 	'ImplicitInteger'
+	'SmallInteger'
 	'RandomNumberGenerator'
 	'Store'
 	'Binary' /* > Cache */

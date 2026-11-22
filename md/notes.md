@@ -818,3 +818,27 @@ system.window.fetchByteArray('./png/os.512.png').then { :aByteArray |
 - FULLWIDTH RIGHT WHITE PARENTHESIS (U+FF60, Pe): ｠
 - HALFWIDTH LEFT CORNER BRACKET (U+FF62, Ps): ｢
 - HALFWIDTH RIGHT CORNER BRACKET (U+FF63, Pe): ｣
+
+Vulgar Fractions
+
+¼	Vulgar Fraction One Quarter	&#188;	&#x00BC;
+½	Vulgar Fraction One Half	&#189;	&#x00BD;
+¾	Vulgar Fraction Three Quarters	&#190;	&#x00BE;
+⁄	Fraction Slash	&#8260;	&#x2044;
+⅐	Vulgar Fraction One Seventh	&#8528;	&#x2150;
+⅑	Vulgar Fraction One Ninth	&#8529;	&#x2151;
+⅒	Vulgar Fraction One Tenth	&#8530;	&#x2152;
+⅓	Vulgar Fraction One Third	&#8531;	&#x2153;
+⅔	Vulgar Fraction Two Thirds	&#8532;	&#x2154;
+⅕	Vulgar Fraction One Fifth	&#8533;	&#x2155;
+⅖	Vulgar Fraction Two Fifths	&#8534;	&#x2156;
+⅗	Vulgar Fraction Three Fifths	&#8535;	&#x2157;
+⅘	Vulgar Fraction Four Fifths	&#8536;	&#x2158;
+⅙	Vulgar Fraction One Sixth	&#8537;	&#x2159;
+⅚	Vulgar Fraction Five Sixths	&#8538;	&#x215A;
+⅛	Vulgar Fraction One Eighth	&#8539;	&#x215B;
+⅜	Vulgar Fraction Three Eighths	&#8540;	&#x215C;
+⅝	Vulgar Fraction Five Eighths	&#8541;	&#x215D;
+⅞	Vulgar Fraction Seven Eighths	&#8542;	&#x215E;
+⅟	Fraction Numerator One	&#8543;	&#x215F;
+↉	Vulgar Fraction Zero Thirds	&#8585;	&#x2189

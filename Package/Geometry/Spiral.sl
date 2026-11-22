@@ -87,7 +87,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	diamondSpiral { :self |
 		let f = { :n |

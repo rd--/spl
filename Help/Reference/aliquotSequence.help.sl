@@ -8,28 +8,28 @@ to at most _k_ places.
 A sequence that ends at `one`:
 
 ```
->>> 10.aliquotSequence
+>>> 10L.aliquotSequence
 [10 8 7 1]
 ```
 
 A perfect number has a repeating aliquot sequence of period one:
 
 ```
->>> 6.aliquotSequence
+>>> 6L.aliquotSequence
 [6]
 ```
 
 An amicable number has a repeating aliquot sequence of period two:
 
 ```
->>> 220.aliquotSequence
+>>> 220L.aliquotSequence
 [220 284]
 ```
 
 Aspiring numbers are eventually periodic:
 
 ```
->>> 95.aliquotSequence
+>>> 95L.aliquotSequence
 [95 25 6]
 ```
 
@@ -39,10 +39,10 @@ OEIS [A072891](https://oeis.org/A072891) and
 OEIS [A072890](https://oeis.org/A072890):
 
 ```
->>> 12496.aliquotSequence
+>>> 12496L.aliquotSequence
 [12496 14288 15472 14536 14264]
 
->>> 14316.aliquotSequence(5)
+>>> 14316L.aliquotSequence(5L)
 [14316 19116 31704 47616 83328]
 ```
 
@@ -50,7 +50,7 @@ Aliquot sequences that do not reach one,
 threads over lists:
 
 ```
->>> [6 25 28].aliquotSequence
+>>> [6L 25L 28L].aliquotSequence
 [6; 25 6; 28]
 ```
 
@@ -58,8 +58,8 @@ Aliquot sequences that reach one,
 OEIS [A032451](https://oeis.org/A032451):
 
 ```
->>> 1:32.aliquotSequence
->>> .select { :x | x.last = 1 }
+>>> 1L:32L.aliquotSequence
+>>> .select { :x | x.last = 1L }
 [
 	1;
 	2 1;
@@ -98,7 +98,7 @@ The length of the aliquot sequences,
 OEIS [A044050](https://oeis.org/A044050):
 
 ```
->>> 1:50.collect { :n |
+>>> 1L:50L.collect { :n |
 >>> 	n.aliquotSequence.size
 >>> }
 [
@@ -114,7 +114,7 @@ The Aliquot sequence starting at 12,
 OEIS [A143090](https://oeis.org/A143090):
 
 ```
->>> 12.aliquotSequence
+>>> 12L.aliquotSequence
 [12 16 15 9 4 3 1]
 ```
 
@@ -122,7 +122,7 @@ The Aliquot sequence starting at 30,
 OEIS [A008885](https://oeis.org/A008885):
 
 ```
->>> 30.aliquotSequence
+>>> 30L.aliquotSequence
 [
 	30 42 54 66 78 90 144 259 45 33
 	15 9 4 3 1
@@ -133,7 +133,7 @@ The Aliquot sequence starting at 38,
 OEIS [A143721](https://oeis.org/A143721):
 
 ```
->>> 38.aliquotSequence
+>>> 38L.aliquotSequence
 [38 22 14 10 8 7 1]
 ```
 
@@ -141,7 +141,7 @@ The Aliquot sequence starting at 62,
 OEIS [A143733](https://oeis.org/A143733):
 
 ```
->>> 62.aliquotSequence
+>>> 62L.aliquotSequence
 [62 34 20 22 14 10 8 7 1]
 ```
 
@@ -150,10 +150,10 @@ OEIS [A063769](https://oeis.org/A063769):
 
 ```
 >>> [
->>> 	25 95 119 143 417
->>> 	445 565 608 650 652
->>> 	675 685 783 790 909
->>> 	913
+>>> 	25L 95L 119L 143L 417L
+>>> 	445L 565L 608L 650L 652L
+>>> 	675L 685L 783L 790L 909L
+>>> 	913L
 >>> ].collect(aliquotSequence/1)
 [
 	25 6;
@@ -183,7 +183,7 @@ the Aliquot sequence starting at 276,
 OEIS [A008892](https://oeis.org/A008892):
 
 ```
->>> 276.aliquotSequence(11)
+>>> 276L.aliquotSequence(11L)
 [
 	 276  396  696 1104 1872
 	3770 3790 3050 2716 2772
@@ -195,7 +195,7 @@ The length of the aliquot sequences,
 OEIS [A044050](https://oeis.org/A044050):
 
 ~~~spl svg=A oeis=A044050
-1:85.collect { :n |
+1L:85L.collect { :n |
 	n.aliquotSequence.size
 }.discretePlot
 ~~~
@@ -206,7 +206,8 @@ The Aliquot sequence starting at 276,
 OEIS [A008892](https://oeis.org/A008892):
 
 ~~~spl svg=B oeis=A008892
-276.aliquotSequence(23).stepPlot.log
+276L.aliquotSequence(23L)
+.stepPlot.log
 ~~~
 
 ![](Help/Image/aliquotSequence-B.svg)
@@ -215,8 +216,8 @@ The aliquot sequences up to twenty three that reach one,
 OEIS [A032451](https://oeis.org/A032451):
 
 ~~~spl svg=C oeis=A032451
-1:23.aliquotSequence
-.select { :x | x.last = 1 }
+1L:23L.aliquotSequence
+.select { :x | x.last = 1L }
 .catenate.discretePlot
 ~~~
 
@@ -226,8 +227,8 @@ The aliquot sequences up to sixty that reach one,
 OEIS [A032451](https://oeis.org/A032451):
 
 ~~~spl svg=D oeis=A032451
-1:60.aliquotSequence
-.select { :x | x.last = 1 }
+1L:60L.aliquotSequence
+.select { :x | x.last = 1L }
 .catenate.scatterPlot.log
 ~~~
 

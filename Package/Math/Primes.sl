@@ -1,6 +1,6 @@
 /* Requires: Cache Collection Fraction Integer */
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	assertIsPrime { :self |
 		self.assert {
@@ -9,10 +9,10 @@
 	}
 
 	carmichaelLambda { :n |
-		(n > 0).if {
+		(n > 0L).if {
 			let e = n.eulerPhi;
 			(
-				[1 2 4].includes(n) | {
+				[1L 2L 4L].includes(n) | {
 					n.isOdd & {
 						n.isPrimePower
 					}
@@ -20,8 +20,8 @@
 			).if {
 				e
 			} {
-				n.log(2).isIntegerValuedNumber.if {
-					e / 2
+				n.log(2L).isIntegerValuedNumber.if {
+					e / 2L
 				} {
 					n.factorInteger.collect { :x |
 						(x[1] ^ x[2]).carmichaelLambda
@@ -34,10 +34,10 @@
 	}
 
 	compositePi { :n |
-		1.toCollect(n) { :i |
+		1L.toCollect(n) { :i |
 			{ :x |
-				i + x.primePi + 1
-			}.fixedPoint(i + i.primePi + 1)
+				i + x.primePi + 1L
+			}.fixedPoint(i + i.primePi + 1L)
 		}.select { :x |
 			x <= n
 		}.size
@@ -60,7 +60,7 @@
 	}
 
 	euclidNumber { :n |
-		1 + n.primorial
+		1L + n.primorial
 	}
 
 	factorInteger { :self |
@@ -1304,7 +1304,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	erdosTuranConstruction { :n |
 		(
@@ -1312,8 +1312,8 @@
 				n.isPrime
 			}
 		).if {
-			0.toCollect(n - 1) { :k |
-				(2 * n * k) + k.powerMod(2, n)
+			0L.toCollect(n - 1L) { :k |
+				(2L * n * k) + k.powerMod(2L, n)
 			}
 		} {
 			n.error('erdosTuranConstruction: not odd prime')
@@ -1321,13 +1321,13 @@
 	}
 
 	isStrongProbablePrime { :n :b |
-		let d = n - 1;
-		let s = 0;
+		let d = n - 1L;
+		let s = 0L;
 		{
-			d.bitAnd(1) = 0
+			d.bitAnd(1L) = 0L
 		}.whileTrue {
-			s := s + 1;
-			d := d.bitShiftRightUnsigned(1)
+			s := s + 1L;
+			d := d.bitShiftRightUnsigned(1L) /* I32 */
 		};
 		withReturn { :return/1 |
 			let x = powerMod(b, d, n);
@@ -1424,18 +1424,18 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	ellipticCurveOverFiniteField { :a :b :q |
-		let p = UnivariatePolynomial([b, a, 0, 1]);
+		let p = UnivariatePolynomial([b, a, 0L, 1L]);
 		let c = [];
-		0.to(q - 1).collect { :x |
+		0L.to(q - 1L).collect { :x |
 			let a = p.at(x);
 			let l = legendreSymbol(a, q);
-			(l = 0).ifTrue {
-				c.add!([x, 0])
+			(l = 0L).ifTrue {
+				c.add!([x, 0L])
 			};
-			(l = 1).ifTrue {
+			(l = 1L).ifTrue {
 				let r = tonelliShanksAlgorithm(a, q);
 				let s = q - r;
 				let i = r.min(s);
@@ -1461,7 +1461,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	primeBounds { :n |
 		(n.primeLowerBound -- n.primeUpperBound)
@@ -1483,7 +1483,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	primePiBounds { :x |
 		(x.primePiLowerBound -- x.primePiUpperBound)
@@ -1491,13 +1491,13 @@
 
 	primePiLowerBound { :x |
 		[
-			{ x > 55 } -> { x / (x.log + 2) }
+			{ x > 55.0 } -> { x / (x.log + 2.0) }
 		].which
 	}
 
 	primePiUpperBound { :x |
 		[
-			{ x > 55 } -> { x / (x.log - 4) }
+			{ x > 55.0 } -> { x / (x.log - 4.0) }
 		].which
 	}
 
@@ -1593,7 +1593,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	isLucasProbablePrime { :n :d |
 		let p = 1L;

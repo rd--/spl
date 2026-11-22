@@ -420,7 +420,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	cosDerivative { :self |
 		(self % 4L).caseOf(

@@ -217,7 +217,7 @@ Scale : [Object, Store] {
 
 }
 
-+[Float, Integer] {
++@Number {
 
 	momentOfSymmetry { :generator :period :maxDepth |
 		let i = generator;
@@ -316,6 +316,14 @@ Scale : [Object, Store] {
 			}
 		};
 		answer
+	}
+
+}
+
++Fraction {
+
+	momentOfSymmetry { :self |
+		momentOfSymmetry(self.numerator, self.denominator)
 	}
 
 }

@@ -1,4 +1,4 @@
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	decimalSelvageNumber { :k :d |
 		k.caseOf(
@@ -60,8 +60,8 @@
 +Float {
 
 	kimberlingFractalSequence { :r :k |
-		1.toCollect(k) { :n |
-			let x = (Range(1, n) * r).fractionalPart;
+		1L.toCollect(k) { :n |
+			let x = (Range(1L, n) * r).fractionalPart;
 			let y = x.sort;
 			y.collect { :z |
 				x.indexOf(z)
@@ -71,21 +71,21 @@
 
 }
 
-+[Float, Integer, Fraction] {
++[Float, Fraction, Integer] {
 
 	cantorStaircase { :x :n |
 		let f = { :x :n |
-			(n = 0).if {
+			(n = 0L).if {
 				x
 			} {
-				let y = 3 * x;
-				(y < 1).if {
-					f(y, n - 1) / 2
+				let y = 3L * x;
+				(y < 1L).if {
+					f(y, n - 1L) / 2L
 				} {
 					(y < 2).if {
 						1/2
 					} {
-						1/2 + (f(y - 2, n - 1) / 2)
+						1/2 + (f(y - 2L, n - 1L) / 2L)
 					}
 				}
 			}
@@ -94,31 +94,31 @@
 	}
 
 	cantorStaircase { :x |
-		x.cantorStaircase(12)
+		x.cantorStaircase(12L)
 	}
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	aliquotSequence { :n :k |
 		let a = n;
 		let b = a.aliquotSum;
 		let r = [a];
-		let i = 1;
+		let i = 1L;
 		{
 			i < k & {
 				b != n & {
 					r.includes(b).not & {
-						a > 1
+						a > 1L
 					}
 				}
 			}
 		}.whileTrue {
 			r.add!(b);
-			i := i + 1;
+			i := i + 1L;
 			a := b;
-			(a > 0).ifTrue {
+			(a > 0L).ifTrue {
 				b := a.aliquotSum
 			}
 		};
@@ -126,19 +126,19 @@
 	}
 
 	aliquotSequence { :n |
-		aliquotSequence(n, 21)
+		aliquotSequence(n, 21L)
 	}
 
-	arshonsSequence { :n :i |
+	arshonsSequence { :n :i IntegerVector |
 		let oddRules = [
-			[1, [1, 2, 3]],
-			[2, [2, 3, 1]],
-			[3, [3, 1, 2]]
+			[1L, [1L, 2L, 3L]],
+			[2L, [2L, 3L, 1L]],
+			[3L, [3L, 1L, 2L]]
 		].Map;
 		let evenRules = oddRules.collect(reverse/1);
 		{ :w |
 			let k = w.size;
-			1.toCollect(k) { :n |
+			1L.toCollect(k) { :n |
 				let e = w[n];
 				n.isOdd.if {
 					oddRules.at(e)
@@ -146,11 +146,11 @@
 					evenRules.at(e)
 				}
 			}.catenate
-		}.iterate(i, n - 1)
+		}.iterate(i, n - 1L)
 	}
 
 	arshonsSequence { :n |
-		n.arshonsSequence([1])
+		n.arshonsSequence([1L])
 	}
 
 	baumSweetSequence { :n |
@@ -175,7 +175,7 @@
 	}
 
 	beattySequence { :n :theta |
-		(1.to(n) * theta).floor
+		(1L.to(n) * theta).floor
 	}
 
 	bernoulliNumber { :k |
@@ -1560,22 +1560,22 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	faurePermutation { :n |
-		(n = 1).if {
-			[0]
+		(n = 1L).if {
+			[0L]
 		} {
 			n.isEven.if {
-				let a = 2 * (n // 2).faurePermutation;
-				let b = a + 1;
+				let a = 2L * (n // 2).faurePermutation;
+				let b = a + 1L;
 				a ++ b
 			} {
-				let a = (n - 1).faurePermutation;
-				let b = (n - 1) // 2;
+				let a = (n - 1L).faurePermutation;
+				let b = (n - 1L) // 2L;
 				let c = a.collect { :x |
 					(x >= b).if {
-						x + 1
+						x + 1L
 					} {
 						x
 					}
@@ -1586,14 +1586,14 @@
 	}
 
 	kroneckerSequence { :alpha :n |
-		(0.to(n - 1) * alpha) % 1
+		(0L.to(n - 1L) * alpha) % 1L
 	}
 
 	kroneckerSequence { :alpha :n :k0 |
 		let s = List(n, nil);
-		s[1] := k0;
-		2.toDo(n) { :i |
-			s[i] := (s[i - 1] + alpha) % 1
+		s[1L] := k0;
+		2L.toDo(n) { :i |
+			s[i] := (s[i - 1L] + alpha) % 1L
 		};
 		s
 	}
@@ -1601,7 +1601,7 @@
 	signatureSequence { :theta :n :p :q |
 		{ :i :j |
 			[i + (j * theta), i]
-		}.table(1.to(p), 1.to(q))
+		}.table(1L.to(p), 1L.to(q))
 		.catenate
 		.sortOn!(first/1)
 		.collect(second/1)
@@ -1609,13 +1609,13 @@
 	}
 
 	signatureSequence { :theta :n |
-		let m = n.isqrt + 1;
+		let m = n.isqrt + 1L;
 		let s = [];
 		let z = s;
 		{
 			s := { :i :j |
 				[i, i + (j * theta)]
-			}.table(1.to(m), 1.to(m))
+			}.table(1L.to(m), 1L.to(m))
 			.catenate
 			.sortOn!(second/1)
 			.collect(first/1)
@@ -1623,7 +1623,7 @@
 			s != z
 		}.whileTrue {
 			z := s;
-			m := 2 * m
+			m := 2L * m
 		};
 		s
 	}
@@ -1632,13 +1632,17 @@
 		let word = i;
 		let answer = [word];
 		let rules = r.Map;
-		let j = 2;
-		{ word.size >= m & { j <= k } }.whileTrue {
+		let j = 2L;
+		{
+			word.size >= m & {
+				j <= k
+			}
+		}.whileTrue {
 			let initial = word.first;
 			let suffix = word.allButFirst(m);
 			word := suffix ++ rules.at(initial);
 			answer.add!(word);
-			j := j + 1
+			j := j + 1L
 		};
 		answer
 	}
@@ -1648,7 +1652,7 @@
 +List {
 
 	isMarkovTriple { :self |
-		self.square.sum = (3 * self.product)
+		self.square.sum = (3L * self.product)
 	}
 
 	markovTripleNeighbours { :self |
@@ -1662,15 +1666,15 @@
 
 	nextMarkovTriple { :self |
 		let [x, y, z] = self;
-		[x, y, 3 * x * y - z].sort
+		[x, y, 3L * x * y - z].sort
 	}
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	isMarkovNumber { :self |
-		let u = 100.markovNumberSequence;
+		let u = 100L.markovNumberSequence;
 		(self > u.max).if {
 			self.unimplementedCase('isMarkovNumber')
 		} {
@@ -1680,7 +1684,7 @@
 
 	lagrangeNumber { :n |
 		let m = n.markovNumber;
-		(9 - (4 / m.square)).sqrt
+		(9.0 - (4.0 / m.square)).sqrt
 	}
 
 	markovNumber { :self |
@@ -1688,15 +1692,15 @@
 	}
 
 	markovNumberGenerator { :k |
-		let m = SortedList([1]);
+		let m = SortedList([1L]);
 		k.timesRepeat {
-			1.toDo(m.size) { :i |
-				1.toDo(i) { :j |
+			1L.toDo(m.size) { :i |
+				1L.toDo(i) { :j |
 					let x = m[i];
 					let y = m[j];
-					let a = (3 * x * y + sqrt((-4 * (x ^ 2)) - (4 * (y ^ 2)) + (9 * (x ^ 2) * (y ^ 2)))) / 2;
+					let a = (3.0 * x * y + sqrt((-4.0 * (x ^ 2.0)) - (4.0 * (y ^ 2.0)) + (9.0 * (x ^ 2.0) * (y ^ 2.0)))) / 2.0;
 					a.isIntegerValuedNumber.ifTrue {
-						m.addIfNotPresent!(a)
+						m.addIfNotPresent!(a.L)
 					}
 				}
 			}
@@ -1706,12 +1710,12 @@
 
 	markovNumberSequence { :self |
 		/* https://oeis.org/A002559/b002559.txt */
-		[1, 2, 5, 13, 29, 34, 89, 169, 194, 233, 433, 610, 985, 1325, 1597, 2897, 4181, 5741, 6466, 7561, 9077, 10946, 14701, 28657, 33461, 37666, 43261, 51641, 62210, 75025, 96557, 135137, 195025, 196418, 294685, 426389, 499393, 514229, 646018, 925765, 1136689, 1278818, 1346269, 1441889, 1686049, 2012674, 2423525, 2922509, 3276509, 3524578, 4400489, 6625109, 7453378, 8399329, 9227465, 9647009, 11485154, 13782649, 16609837, 16964653, 20031170, 21531778, 24157817, 38613965, 43484701, 48928105, 63245986, 78442645, 94418953, 111242465, 137295677, 144059117, 165580141, 205272962, 225058681, 253191266, 285018617, 298045301, 321534781, 375981346, 433494437, 447626321, 537169541, 576298801, 647072098, 780291637, 941038565, 981277621, 1134903170, 1311738121, 1405695061, 1475706146, 1873012681, 2151239746, 2561077037, 2971215073, 3057250481, 3778847945, 4434764269, 4801489937].first(self)
+		Integer[1, 2, 5, 13, 29, 34, 89, 169, 194, 233, 433, 610, 985, 1325, 1597, 2897, 4181, 5741, 6466, 7561, 9077, 10946, 14701, 28657, 33461, 37666, 43261, 51641, 62210, 75025, 96557, 135137, 195025, 196418, 294685, 426389, 499393, 514229, 646018, 925765, 1136689, 1278818, 1346269, 1441889, 1686049, 2012674, 2423525, 2922509, 3276509, 3524578, 4400489, 6625109, 7453378, 8399329, 9227465, 9647009, 11485154, 13782649, 16609837, 16964653, 20031170, 21531778, 24157817, 38613965, 43484701, 48928105, 63245986, 78442645, 94418953, 111242465, 137295677, 144059117, 165580141, 205272962, 225058681, 253191266, 285018617, 298045301, 321534781, 375981346, 433494437, 447626321, 537169541, 576298801, 647072098, 780291637, 941038565, 981277621, 1134903170, 1311738121, 1405695061, 1475706146, 1873012681, 2151239746, 2561077037, 2971215073, 3057250481, 3778847945, 4434764269, 4801489937].first(self)
 	}
 
 	markovNumberTree { :n |
 		n.unfoldTree(
-			[1 1 1],
+			[1L 1L 1L],
 			{ :triple |
 				let k = triple.sum;
 				triple
@@ -1729,20 +1733,20 @@
 
 	binomialTransform { :f/1 |
 		{ :n |
-			0.to(n).sum { :k |
+			0L.to(n).sum { :k |
 				binomial(n, k) * f(k)
 			}
 		}
 	}
 
 	dispersionArray { :f/1 :shape |
-		let [m, n] = shape - 1;
+		let [m, n] = shape - 1L;
 		let g = { :x |
 			let y = x.nub.sort;
 			let k = y.size;
 			{ :i |
-				i + 1
-			}.nestWhile(1) { :i |
+				i + 1L
+			}.nestWhile(1L) { :i |
 				i <= k & {
 					y[i] <= i
 				}
@@ -1788,14 +1792,14 @@
 	runLengthTransform { :x :f/1 |
 		x.collect { :n |
 			n.binaryExpansion
-			.runLengthsOf(1)
+			.runLengthsOf(1L)
 			.collect(f/1).product
 		}
 	}
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	runLengthTransform { :n :f/1 |
 		runLengthTransform(Range(0L, n - 1L, 1L), f/1)
@@ -2060,7 +2064,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	langtonsAntPath { :n :c :b :d |
 		let steps = [1L 0L; 0L 1L; -1L 0L; 0L -1L];
@@ -2088,14 +2092,14 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	cantorPairingFunction { :x :y |
 		x.square + x + (2L * x * y) + (3L * y) + y.square // 2L
 	}
 
 	inverseCantorPairingFunction { :z |
-		let w = ((((8 * z) + 1).sqrt - 1) / 2).floor.L;
+		let w = ((((8.0 * z) + 1.0).sqrt - 1.0) / 2.0).floor.L;
 		let t = (w.square + w) // 2L;
 		let y = z - t;
 		let x = w - y;
@@ -2108,7 +2112,7 @@
 		(z - n < m).if {
 			[z - n, m]
 		} {
-			[m, n + (2 * m) - z]
+			[m, n + (2L * m) - z]
 		}
 	}
 
@@ -2176,7 +2180,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	rationalOrderingFibonacci { :self |
 		{ :r |

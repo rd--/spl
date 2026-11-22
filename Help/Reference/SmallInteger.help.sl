@@ -4,7 +4,7 @@
 
 Answer the `Float` that is equal to the number _x_,
 which must be an integer value.
-`SmallInteger` is a pseudo-type,
+`SmallInteger` is a trait and a pseudo-type,
 it has a pseudo-type predicate `isSmallInteger`.
 
 At `Float`:
@@ -128,6 +128,26 @@ which is not an `Integer`:
 
 >>> 11L / 4L
 11/4
+```
+
+`SmallInteger` is a `Trait`:
+
+```
+>>> system
+>>> .traitDictionary['@SmallInteger']
+>>> .isTrait
+true
+```
+
+Types implementing `SmallInteger`:
+
+```
+>>> system
+>>> .traitTypes('@SmallInteger')
+>>> .sort!
+[
+	'Float'
+]
 ```
 
 _Rationale_:

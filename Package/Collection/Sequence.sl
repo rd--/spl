@@ -3107,7 +3107,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	binaryDetectIndex { :self :aFunction/1 |
 		withReturn { :return/1 |

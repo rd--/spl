@@ -1,4 +1,4 @@
-+[Float, Integer] {
++[Float, @ImplicitFloat] {
 
 	beta { :self :aNumber |
 		aNumber.isCollection.if {

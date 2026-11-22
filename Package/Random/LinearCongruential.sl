@@ -2,17 +2,10 @@
 
 LinearCongruential : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
-	| parameters seed state |
-
-	initialize! { :self :parameters :seed |
-		self.parameters := parameters;
-		self.seed := seed;
-		self.reset!;
-		self
-	}
+	| parameters seed state | <List>
 
 	modulus { :self |
-		self.parameters.at(3)
+		self.parameters.at(3L)
 	}
 
 	nextRandomFloat { :self |
@@ -33,16 +26,16 @@ LinearCongruential : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 +List {
 
 	LinearCongruential { :parameters :seed |
-		newLinearCongruential().initialize!(parameters, seed)
+		uncheckedLinearCongruential(parameters, seed, seed)
 	}
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	numericalRecipesLinearCongruential { :self |
 		LinearCongruential(
-			[3877, 29573, 139968],
+			[3877L, 29573L, 139968L],
 			self
 		)
 	}
@@ -74,7 +67,7 @@ LinearCongruential : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 	linearCongruential { :self :n :shape |
 		let k = shape.product;
 		self.linearCongruentialFunction
-		.nestList(n, k - 1)
+		.nestList(n, k - 1L)
 		.reshape(shape)
 	}
 

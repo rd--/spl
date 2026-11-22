@@ -8,30 +8,30 @@ the elliptic analogs of the exponential function.
 Evaluate numerically:
 
 ```
->>> 1.ellipticTheta(2, 1 / 3)
+>>> 1L.ellipticTheta(2, 1/3)
 1.42788
 
->>> 2.ellipticTheta(5, 1 / 2)
+>>> 2L.ellipticTheta(5, 1/2)
 0.183328
 
->>> 3.ellipticTheta(0.4, 0.5)
+>>> 3L.ellipticTheta(0.4, 0.5)
 1.69015
 
->>> 3.ellipticTheta(1 / 4, 1 / 3)
+>>> 3L.ellipticTheta(1/4, 1/3)
 1.59840
 ```
 
 Complex number inputs:
 
 ```
->>> 3.ellipticTheta(0.4J1, 0J0.5)
+>>> 3L.ellipticTheta(0.4J1, 0J0.5)
 3.9884J-1.36744
 ```
 
 Value at `zero`:
 
 ```
->>> 1.ellipticTheta(0, 0)
+>>> 1L.ellipticTheta(0, 0)
 0
 ```
 
@@ -39,7 +39,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-6.0 -- 6.0).functionPlot { :x |
-	2.ellipticTheta(x, 1 / 3)
+	2L.ellipticTheta(x, 1/3)
 }
 ~~~
 
@@ -49,9 +49,9 @@ Plot the elliptic θ function for various parameters:
 
 ~~~spl svg=B
 (-6.0 -- 6.0).functionPlot(
-	[1 2 3 4].collect { :a |
+	[1L .. 4L].collect { :a |
 		{ :x |
-			a.ellipticTheta(x, 1 / 3)
+			a.ellipticTheta(x, 1/3)
 		}
 	}
 )
@@ -63,7 +63,7 @@ _θ(1,x,1/2)_ is not injective or surjective:
 
 ~~~spl svg=C
 (-6.0 -- 6.0).functionPlot { :x |
-	1.ellipticTheta(x, 1 / 2)
+	1L.ellipticTheta(x, 1/2)
 }
 ~~~
 
@@ -73,7 +73,7 @@ Plot θ function near the unit circle in the complex q plane:
 
 ~~~spl svg=D
 (-1.pi -- 1.pi).functionPlot { :theta |
-	1.ellipticTheta(0.5, 0.9 * theta.I.exp).real
+	1L.ellipticTheta(0.5, 0.9 * theta.I.exp).real
 }
 ~~~
 
@@ -83,7 +83,7 @@ Plot θ function near the unit circle in the complex q plane:
 
 ~~~spl svg=E
 (-1.pi -- 1.pi).functionPlot { :theta |
-	1.ellipticTheta(0.5, 0.97 * theta.I.exp).real
+	1L.ellipticTheta(0.5, 0.97 * theta.I.exp).real
 }
 ~~~
 

@@ -7,11 +7,11 @@ Answer the Euler beta function.
 At specific exact values:
 
 ```
->>> 5.beta(4)
-(1 / 280)
+>>> 5.0.beta(4.0)
+1/280
 
->>> (5 / 2).beta(7 / 2)
-(3.pi / 256)
+>>> 5/2.beta(7/2)
+3.pi / 256
 ```
 
 At specific real values:
@@ -30,14 +30,14 @@ At specific real values:
 Threads elementwise over lists:
 
 ```
->>> 2.beta(2:5)
+>>> 2L.beta(2L:5L)
 [6 12 20 30]./
 ```
 
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0.025 -- 3).functionPlot { :x |
+(0.025 -- 3.0).functionPlot { :x |
 	0.5.beta(x)
 }
 ~~~

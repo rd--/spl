@@ -1,13 +1,6 @@
 LaggedFibonacci : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
-	| parameters seed state |
-
-	initialize! { :self :parameters :seed |
-		self.parameters := parameters;
-		self.seed := seed;
-		self.reset!;
-		self
-	}
+	| parameters seed state | <List>
 
 	modulus { :self |
 		self.parameters.at(3)
@@ -48,11 +41,13 @@ LaggedFibonacci : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	LaggedFibonacci { :s :r :k :m |
 		let p = [s, r, Integer(m)];
-		newLaggedFibonacci().initialize!(p, k)
+		let g = uncheckedLaggedFibonacci(p, k, nil);
+		g.reset!;
+		g
 	}
 
 	LaggedFibonacci { :s :r :k |

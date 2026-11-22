@@ -1,6 +1,6 @@
 /* Requires: Ugen */
 
-+[List, Float, Integer, Ugen] {
++[Float, Integer, List, Ugen] {
 
 	blendXFade { :y1 :y2 :mu |
 		let signedMu = mu.linLin(0.0, 1.0, -1.0, 1.0);
@@ -61,7 +61,7 @@
 
 }
 
-+[List, Float, Integer, Ugen] {
++[Float, Integer, List, Ugen] {
 
 	audioOut { :channelsList |
 		out(0.0, channelsList)
@@ -318,7 +318,7 @@
 
 }
 
-+[List, Float, Integer, Fraction, Ugen] {
++[Float, Fraction, Integer, List, Ugen] {
 
 	Env { :levels :times :curves :releaseNode :loopNode :offset |
 		<primitive: return new sc.Env(_levels, _times, _curves, _releaseNode, _loopNode, _offset);>

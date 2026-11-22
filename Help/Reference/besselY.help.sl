@@ -7,18 +7,18 @@ Answer the Bessel function of the second kind.
 Evaluate numerically:
 
 ```
->>> 0.besselY(2.5)
+>>> 0L.besselY(2.5)
 0.498070
 
->>> 0.besselY(1)
+>>> 0L.besselY(1)
 0.088257
 ```
 
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0.1 -- 15).functionPlot { :z |
-	0.besselY(z)
+(0.1 -- 15.0).functionPlot { :z |
+	0L.besselY(z)
 }
 ~~~
 

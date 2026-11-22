@@ -1,19 +1,22 @@
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	factorialExpansion { :self |
-		let k = 1;
-		{ self > k.! }.whileTrue {
-			k := k + 1
+		let k = 1L;
+		{
+			self > k.!
+		}.whileTrue {
+			k := k + 1L
 		};
 		self.numberDecompose(
-			Range(k, 1, -1).!
+			Range(k, 1L, -1L).!
 		).withoutLeadingZeroes
+		.IntegerVector
 	}
 
 	factorialNumberSystemDecode { :self |
 		let d = self.integerDigits.reverse;
 		let n = d.size;
-		(d * [1 .. n].!).sum
+		(d * [1L .. n].!).sum
 	}
 
 	factorialNumberSystemEncode { :self |

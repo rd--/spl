@@ -580,7 +580,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	antidiagonalArray { :n :f/2 |
 		1L.toCollect(n) { :i |

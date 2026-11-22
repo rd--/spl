@@ -7,7 +7,7 @@ Answer a mixed radix gray code given the list of bases _b_.
 Mixed radix gray code of three places:
 
 ```
->>> [2 3 4].mixedRadixGrayCode
+>>> [2L 3L 4L].mixedRadixGrayCode
 [
 	0 0 0;
 	1 0 0;
@@ -35,10 +35,10 @@ Mixed radix gray code of three places:
 	0 0 1
 ]
 
->>> [2 3 4].product
+>>> [2L 3L 4L].product
 24
 
->>> [2 3 4].mixedRadixGrayCode
+>>> [2L 3L 4L].mixedRadixGrayCode
 >>> .isCyclicGrayCode
 true
 ```
@@ -46,7 +46,7 @@ true
 Matrix plot of _2,3,4_ mixed radix Gray code:
 
 ~~~spl svg=A
-[2 3 4].mixedRadixGrayCode
+[2L 3L 4L].mixedRadixGrayCode
 .transpose
 .matrixPlot
 ~~~
@@ -56,7 +56,7 @@ Matrix plot of _2,3,4_ mixed radix Gray code:
 Matrix plot of _5,3,2_ mixed radix Gray code:
 
 ~~~spl svg=B
-[5 3 2].mixedRadixGrayCode
+[5L 3L 2L].mixedRadixGrayCode
 .transpose
 .matrixPlot
 ~~~

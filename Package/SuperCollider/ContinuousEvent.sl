@@ -80,32 +80,32 @@ ContinuousEvent : [Object] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	voicer { :part :voice :voiceFunction/1 |
-		1.toCollect(voice) { :each |
+		1L.toCollect(voice) { :each |
 			let bus = part.voicerVoiceAddress(each);
 			voiceFunction(
 				ContinuousEvent(
-					controlIn(8, bus)
+					controlIn(8L, bus)
 				)
 			)
 		}
 	}
 
 	voicerVoiceAddress { :part :voice |
-		let addrZero = 13000;
-		let maxEventParam = 10;
-		let maxVoices = 24;
-		addrZero + (part - 1 * maxVoices * maxEventParam) + (voice - 1 * maxEventParam)
+		let addrZero = 13000L;
+		let maxEventParam = 10L;
+		let maxVoices = 24L;
+		addrZero + (part - 1L * maxVoices * maxEventParam) + (voice - 1L * maxEventParam)
 	}
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	voiceWriter { :part :numVoices :voiceFunction/0 |
-		1.toCollect(numVoices) { :voice |
+		1L.toCollect(numVoices) { :voice |
 			controlOut(
 				part.voicerVoiceAddress(voice),
 				ContinuousEvent(
@@ -117,7 +117,7 @@ ContinuousEvent : [Object] {
 
 }
 
-+[Float, Integer, List] {
++[Integer, @SmallInteger, List] {
 
 	keyDown { :voiceNumber |
 		<primitive: return sc.KeyDown(_voiceNumber);>

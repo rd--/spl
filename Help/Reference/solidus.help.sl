@@ -71,6 +71,7 @@ Guides: Arithmetic Functions, Arity Syntax, Binary Operators, Comment Syntax, Fr
 Unicode:
 U+0002F / Solidus,
 U+00B0 ⧸ Big Solidus,
-U+00F7 ÷ Division Sign
+U+00F7 ÷ Division Sign,
+U+2044 ⁄ Fraction Slash
 
 Categories: Math, Operator

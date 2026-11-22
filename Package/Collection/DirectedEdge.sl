@@ -30,7 +30,7 @@ DirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 	}
 
 	head { :self |
-		self.vertexList.at(2)
+		self.vertexList.at(2L)
 	}
 
 	includes { :self :vertex |
@@ -38,7 +38,7 @@ DirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 	}
 
 	indices { :unused |
-		[1, 2]
+		[1L, 2L]
 	}
 
 	isDirected { :unused |
@@ -70,7 +70,7 @@ DirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 
 	printString { :self |
 		let [i, j] = self.vertexList;
-		'% --> %'.format([i, j])
+		'% --> %'.format([i.printString, j.printString])
 	}
 
 	rename { :self :aDictionary |
@@ -79,11 +79,11 @@ DirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 	}
 
 	size { :unused |
-		2
+		2L
 	}
 
 	tail { :self |
-		self.vertexList.at(1)
+		self.vertexList.at(1L)
 	}
 
 }
@@ -96,9 +96,9 @@ DirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
-	[DirectedEdge, -->] { :self :anInteger |
+	[DirectedEdge, -->] { :self Integer :anInteger Integer |
 		uncheckedDirectedEdge([self, anInteger])
 	}
 

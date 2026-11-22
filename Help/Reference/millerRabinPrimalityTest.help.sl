@@ -8,17 +8,17 @@ It is based on the properties of strong pseudoprimes.
 At `Float`:
 
 ```
->>> [1 .. 30].select { :n |
->>> 	n.millerRabinPrimalityTest(10)
+>>> [1.0 .. 30.0].select { :n |
+>>> 	n.millerRabinPrimalityTest(10.0)
 >>> }
-[2 3 5 7 11 13 17 19 23 29]
+[2.0 3.0 5.0 7.0 11.0 13.0 17.0 19.0 23.0 29.0]
 ```
 
 At `Integer`:
 
 ```
 >>> [1L .. 131L].select { :n |
->>> 	n.millerRabinPrimalityTest(10)
+>>> 	n.millerRabinPrimalityTest(10L)
 >>> }
 [
 	  2   3   5   7  11
@@ -31,7 +31,7 @@ At `Integer`:
 ]
 
 >>> [827L .. 999L].select { :n |
->>> 	n.millerRabinPrimalityTest(10)
+>>> 	n.millerRabinPrimalityTest(10L)
 >>> }
 [
 	827 829 839 853 857
@@ -42,7 +42,8 @@ At `Integer`:
 ]
 ```
 
-The number _2^(2^7)+1_ is not a Fermat prime, & requires `millerRabinPrimalityTest`:
+The number _2^(2^7)+1_ is not a Fermat prime,
+& requires `millerRabinPrimalityTest`:
 
 ```
 >>> let n = (2L ^ (2L ^ 7L) + 1L);
@@ -58,7 +59,7 @@ Can overflow the `Integer` type even for moderate queries:
 ```
 >>> {
 >>> 	304250263527281L
->>> 	.millerRabinPrimalityTest(10)
+>>> 	.millerRabinPrimalityTest(10L)
 >>> }.hasError
 true
 ```

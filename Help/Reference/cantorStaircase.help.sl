@@ -9,39 +9,39 @@ a continuous but not absolutely continuous function on _[0,1]_.
 >>> 1/3.cantorStaircase
 1/2
 
->>> 0.3.cantorStaircase(3)
-0.3875
+>>> 3/10.cantorStaircase(3L)
+31/80
 
->>> 0.1.cantorStaircase(0)
-0.1
+>>> 1/10.cantorStaircase(0L)
+1/10
 
->>> 0.29.cantorStaircase(4)
+>>> 29/100.cantorStaircase(4L)
 3/8
 
->>> 0.11.cantorStaircase(5)
-0.2415625
+>>> 11/100.cantorStaircase(5L)
+773/3200
 
->>> 1/3.cantorStaircase(2)
+>>> 1/3.cantorStaircase(2L)
 1/2
 
->>> 0.76.cantorStaircase(4)
+>>> 19/25.cantorStaircase(4L)
 11/16
 
->>> 0.cantorStaircase(1)
-0
+>>> 0L.cantorStaircase(1L)
+0/1
 
->>> 15/17.cantorStaircase(2)
+>>> 15/17.cantorStaircase(2L)
 3/4
 
->>> (1 / 2.sqrt).cantorStaircase(3)
+>>> (1.0 / 2.sqrt).cantorStaircase(3.0)
 5/8
 ```
 
 Threads elementwise over lists:
 
 ```
->>> (0:9 / 9).cantorStaircase
-[0 1/4 1/4 1/2 1/2 1/2 1/2 3/4 3/4 1]
+>>> (0L:9L / 9L).cantorStaircase
+[0/1 1/4 1/4 1/2 1/2 1/2 1/2 3/4 3/4 1/1]
 ```
 
 The integrals of the n-th powers of the Cantor function,
@@ -50,20 +50,20 @@ c.f. OEIS [A095844](https://oeis.org/A095844) and [A095845](https://oeis.org/A09
 ```
 >>> let f = { :n |
 >>> 	n.caseOf([
->>> 		0 -> { 1 },
->>> 		1 -> { 1/2 }
+>>> 		0L -> { 1/1 },
+>>> 		1L -> { 1/2 }
 >>> 	]) {
->>> 		let a = 1 / (3 * (2 ^ n) - 2);
->>> 		let b = [1 .. n - 1];
->>> 		let c = 2 + b.collect { :k |
+>>> 		let a = 1L / (3L * (2L ^ n) - 2L);
+>>> 		let b = [1L .. n - 1L];
+>>> 		let c = 2L + b.collect { :k |
 >>> 			n.binomial(k) * f(k)
 >>> 		}.sum;
 >>> 		a * c
 >>> 	}
 >>> };
->>> 0:7.collect(f/1)
+>>> 0L:7L.collect(f/1)
 [
-	1 1/2 3/10 1/5 33/230 5/46
+	1/1 1/2 3/10 1/5 33/230 5/46
 	75/874 611/8740
 ]
 ```
@@ -71,7 +71,9 @@ c.f. OEIS [A095844](https://oeis.org/A095844) and [A095845](https://oeis.org/A09
 Plot over the unit interval:
 
 ~~~spl svg=A
-(0.0 -- 1.0).functionPlot(cantorStaircase/1)
+(0.0 -- 1.0).functionPlot(
+	cantorStaircase/1
+)
 ~~~
 
 ![](Help/Image/cantorStaircase-A.svg)

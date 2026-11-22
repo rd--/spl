@@ -14,13 +14,13 @@ The sequence of all indispensability values for a prime number is a permutation 
 
 ```
 >>> let f = { :k |
->>> 	1:k.collect { :each |
+>>> 	1L:k.collect { :each |
 >>> 		k.barlowBasicIndispensability(
 >>> 			each
 >>> 		)
 >>> 	}
 >>> };
->>> [2 3 5 7 11 13 17 19 23].collect(f/1)
+>>> [2L 3L 5L 7L 11L 13L 17L 19L 23L].collect(f/1)
 [
 	1 0
 	;

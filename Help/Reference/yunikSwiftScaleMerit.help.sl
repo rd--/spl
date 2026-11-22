@@ -7,21 +7,21 @@ Answer the Yunik-Swift scale merit score for the _k_-place equal tempered scale.
 The Yunik-Swift merit score of the 12-EDO scale:
 
 ```
->>> 12.yunikSwiftScaleMerit
+>>> 12L.yunikSwiftScaleMerit
 0.09293
 ```
 
 The Yunik-Swift merit scores of the 19-EDO scales:
 
 ```
->>> 19.yunikSwiftScaleMerit
+>>> 19L.yunikSwiftScaleMerit
 0.13386
 ```
 
 Other EDO scales with relatively high merit scores:
 
 ```
->>> [41 46 31 17 34 22 53]
+>>> [41L 46L 31L 17L 34L 22L 53L]
 >>> .collect(yunikSwiftScaleMerit/1)
 [
 	0.11590
@@ -37,7 +37,7 @@ Other EDO scales with relatively high merit scores:
 Plot merit scores for scales up to 60-EDO:
 
 ~~~spl svg=A
-2:60.collect(
+2L:60L.collect(
 	yunikSwiftScaleMerit/1
 ).linePlot
 ~~~
@@ -48,7 +48,7 @@ Note that the paper gives a higher value for 31-EDO than the algorithm implement
 however the description of the algorithm is unclear as to exactly how the relative difference is calculated:
 
 ```
->>> 31.yunikSwiftScaleMerit
+>>> 31L.yunikSwiftScaleMerit
 0.10779
 ```
 

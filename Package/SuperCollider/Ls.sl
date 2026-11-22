@@ -42,7 +42,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	lsFin { :count :input |
 		input.take(count)

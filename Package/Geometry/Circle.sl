@@ -318,10 +318,10 @@ UnitCircle : [Object] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	annularSteinerChain { :n :c :r |
-		let theta = 1.pi / n;
+		let theta = 1.0.pi / n;
 		let rho = (r * theta.sin) / (1.0 - theta.sin);
 		let rr = (theta.sec + theta.tan).square * r;
 		[

@@ -112,12 +112,10 @@ Date! : [Object, Store, Equal, Compare] {
 
 }
 
-+[Float, Integer] {
++[Float, @ImplicitFloat] {
 
-	[Date, absoluteTimeToDate] { :self |
-		<primitive:
-		return new Date(sl.toFloat(_self) * 1000);
-		>
+	[Date, absoluteTimeToDate] { :self Float |
+		self.uncheckedDate
 	}
 
 	Date { :year :month :dayOfMonth |
@@ -142,6 +140,12 @@ Date! : [Object, Store, Equal, Compare] {
 }
 
 +Float {
+
+	uncheckedDate { :secondsFromEpoch |
+		<primitive:
+		return new Date(sl.toFloat(_secondsFromEpoch) * 1000.0);
+		>
+	}
 
 	uncheckedDate { :year :month :dayOfMonth |
 		<primitive:
@@ -212,7 +216,7 @@ Date! : [Object, Store, Equal, Compare] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	gregorianToJulianDay { :year :month :day |
 		/* https://www.fourmilab.ch/documents/calendar/calendar.js */

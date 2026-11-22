@@ -1434,25 +1434,25 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	exchangeMatrix { :self |
 		let answer = [self, self].zeroMatrix;
-		1.toDo(self) { :each |
-			answer[self - each + 1][each] := 1
+		1L.toDo(self) { :each |
+			answer[self - each + 1L][each] := 1L
 		};
 		answer
 	}
 
 	hadamardMatrix { :n |
-		(n = 0).if {
-			[1]
+		(n = 0L).if {
+			[1L]
 		} {
-			(n = 2).if {
-				[1 1; 1 -1]
+			(n = 2L).if {
+				[1L 1L; 1L -1L]
 			} {
 				n.isPowerOfTwo.if {
-					[1 1; 1 -1].kroneckerProduct(
+					[1L 1L; 1L -1L].kroneckerProduct(
 						(n // 2).hadamardMatrix
 					)
 				} {
@@ -1471,7 +1471,7 @@
 	}
 
 	pascalMatrix { :n :l |
-		let m = 0.to(n - 1);
+		let m = 0L.to(n - 1L);
 		l.caseOf(
 			[
 				'LowerTriangular' -> { integerBinomial/2 },
@@ -1490,7 +1490,7 @@
 	}
 
 	walshFunction { :n :m |
-		(2 ^ n).walshMatrix.at(m)
+		(2L ^ n).walshMatrix.at(m)
 	}
 
 	walshMatrix { :n |
@@ -1505,7 +1505,7 @@
 +@Number {
 
 	reflectionMatrix { :self |
-		let n = 2 * self;
+		let n = 2.0 * self;
 		[
 			[n.cos, n.sin],
 			[n.sin, n.cos.negate]
@@ -1513,29 +1513,31 @@
 	}
 
 	rotationMatrix { :self :vector |
-		vector.caseOf([
-			[1 0 0] -> {
-				[
-					[1,0,0],
-					[0,self.cos,0 - self.sin],
-					[0,self.sin,self.cos]
-				]
-			},
-			[0 1 0] -> {
-				[
-					[self.cos,0,self.sin],
-					[0,1,0],
-					[0 - self.sin,0,self.cos]
-				]
-			},
-			[0 0 1] -> {
-				[
-					[self.cos,0 - self.sin,0],
-					[self.sin,self.cos,0],
-					[0,0,1]
-				]
-			}
-		]) {
+		vector.caseOf(
+			[
+				[1.0 0.0 0.0] -> {
+					[
+						[1.0, 0.0, 0.0],
+						[0.0, self.cos, 0.0 - self.sin],
+						[0.0, self.sin, self.cos]
+					]
+				},
+				[0.0 1.0 0.0] -> {
+					[
+						[self.cos, 0.0, self.sin],
+						[0.0, 1.0, 0.0],
+						[0.0 - self.sin, 0.0, self.cos]
+					]
+				},
+				[0.0 0.0 1.0] -> {
+					[
+						[self.cos, 0.0 - self.sin, 0.0],
+						[self.sin, self.cos, 0.0],
+						[0.0, 0.0, 1.0]
+					]
+				}
+			]
+		) {
 			self.error('rotationMatrix: vector not axis aligned')
 		}
 	}

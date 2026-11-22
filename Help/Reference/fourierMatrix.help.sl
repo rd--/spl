@@ -24,7 +24,8 @@ Answer the _n×n_ square Fourier matrix.
 Fourier matrices are unitary, that is the inverse is equal to the conjugate transpose:
 
 ```
->>> 4.fourierMatrix.isUnitaryMatrix
+>>> 4.fourierMatrix
+>>> .isUnitaryMatrix
 true
 ```
 
@@ -86,7 +87,9 @@ Multiplying the Fourier matrix by a vector calculates the Fourier transform:
 Plot the imaginary part of the 24×24 Fourier matrix:
 
 ~~~spl svg=A
-24.fourierMatrix.imaginary.matrixPlot
+24.fourierMatrix
+.imaginary
+.matrixPlot
 ~~~
 
 ![](Help/Image/fourierMatrix-A.svg)
@@ -94,7 +97,9 @@ Plot the imaginary part of the 24×24 Fourier matrix:
 Plot the imaginary part of the 25×25 Fourier matrix:
 
 ~~~spl svg=B
-25.fourierMatrix.imaginary.matrixPlot
+25.fourierMatrix
+.imaginary
+.matrixPlot
 ~~~
 
 ![](Help/Image/fourierMatrix-B.svg)

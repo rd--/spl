@@ -1122,22 +1122,22 @@ Plot : [Object] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	residueDesignPlot { :m :n |
-		let p = m.circlePoints([0 0], 1, 0.5.pi);
-		let i = [0 .. m - 1];
+		let p = m.circlePoints([0.0 0.0], 1.0, 0.5.pi);
+		let i = [0L .. m - 1L];
 		let j = (i * n) % m;
 		let l = [];
-		1.toDo(m) { :k |
+		1L.toDo(m) { :k |
 			let a = i[k];
 			let b = j[k];
 			(a = b).ifFalse {
-				l.add!(Line([p[a + 1], p[b + 1]]))
+				l.add!(Line([p[a + 1L], p[b + 1L]]))
 			}
 		};
 		[
-			Circle([0 0], 1),
+			Circle([0.0 0.0], 1.0),
 			PointCloud(p),
 			l
 		].LineDrawing
@@ -1393,7 +1393,7 @@ Plot : [Object] {
 	}
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	fareyDiagram { :n :kind |
 		kind.caseOf(
@@ -1471,7 +1471,7 @@ Plot : [Object] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	spokePlot { :n :x |
 		let p = n.circlePoints([0.0 0.0], 1.0, 2/3.pi);

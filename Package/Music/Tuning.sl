@@ -120,7 +120,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	oddLimitSet { :self |
 		let n = 1L.toBy(self, 2L);

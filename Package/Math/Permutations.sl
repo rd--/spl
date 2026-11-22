@@ -1007,18 +1007,18 @@ Permutation : [Object, Store, Equal] {
 +@ArithmeticProgression {
 
 	permutationsDo { :self :aFunction/1 |
-		self.List.permutationsDo(aFunction/1)
+		List(self).permutationsDo(aFunction/1)
 	}
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	bitReversalPermutation { :k |
 		let n = 2L ^ k - 1L;
 		0L.toCollect(n) { :i |
 			i.bitReverse(k)
-		} + 1
+		} + 1L
 	}
 
 	heapsAlgorithm { :self |
@@ -1067,8 +1067,8 @@ Permutation : [Object, Store, Equal] {
 	}
 
 	reversalPermutation { :n :b |
-		[0L .. b ^ n - 1].collect { :i |
-			i.integerReverse(b, n) + 1
+		[0L .. b ^ n - 1L].collect { :i |
+			i.integerReverse(b, n) + 1L
 		}
 	}
 

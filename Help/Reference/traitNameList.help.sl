@@ -20,6 +20,7 @@ Answer a `List` of the `Trait` names implemented by the `Type` _t_.
 	'@Json'
 	'@Number'
 	'@Object'
+	'@SmallInteger'
 	'@Store'
 ]
 ```

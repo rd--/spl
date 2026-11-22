@@ -154,7 +154,7 @@ ColourGradient : [Object, Store] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	parula { :self |
 		system

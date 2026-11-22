@@ -1,9 +1,9 @@
 /* Requires: List String */
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	additivePersistence { :x :b |
-		x.digitalRootSet(b, sum/1).second.size - 1
+		x.digitalRootSet(b, sum/1).second.size - 1L
 	}
 
 	aliquotSum { :n |
@@ -11,7 +11,7 @@
 	}
 
 	alternatingBitSum { :self |
-		self.integerDigits(2)
+		self.integerDigits(2L)
 		.reverse
 		.alternatingSum
 	}
@@ -79,14 +79,14 @@
 
 	balancedTernaryDigits { :self |
 		let f = { :n |
-			(n = 0).if {
+			(n = 0L).if {
 				[]
 			} {
-				(n % 3).caseOf(
+				(n % 3L).caseOf(
 					[
-						0 -> { [0] ++ f(n // 3) },
-						1 -> { [1] ++ f(n // 3) },
-						2 -> { [-1] ++ f((n + 1) // 3) }
+						0L -> { [0L] ++ f(n // 3L) },
+						1L -> { [1L] ++ f(n // 3L) },
+						2L -> { [-1L] ++ f((n + 1L) // 3L) }
 					]
 				)
 			}
@@ -95,8 +95,8 @@
 	}
 
 	bernsteinBasis { :d :n :x |
-		x := x.clip(0, 1);
-		d.binomial(n) * (x ^ n) * ((1 - x) ^ (d - n))
+		x := x.clip(0L, 1L);
+		d.binomial(n) * (x ^ n) * ((1L - x) ^ (d - n))
 	}
 
 	binaryExpansion { :n :k |
@@ -109,9 +109,9 @@
 
 	binaryExponents { :self |
 		let answer = [];
-		1.toDo(self.bitLength) { :index |
-			(self.bitAt(index) = 1).ifTrue {
-				answer.add!(index - 1)
+		1L.toDo(self.bitLength) { :index |
+			(self.bitAt(index) = 1L).ifTrue {
+				answer.add!(index - 1L)
 			}
 		};
 		answer
@@ -1815,7 +1815,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	digitAt { :self :n |
 		let value = Integer(self);
@@ -1949,7 +1949,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	figurateNumber { :self :k |
 		let f/1 = k.figurateNumber;
@@ -1975,11 +1975,11 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
-	akiyamaTanigawaNumber { :n :m |
+	akiyamaTanigawaNumber { :n Integer :m Integer |
 		let f/2 = system.akiyamaTanigawaFunction;
-		f(Integer(n), Integer(m))
+		f(n, m)
 	}
 
 }

@@ -94,12 +94,12 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	bernoulliTriangle { :self |
 		let m = self - 1L;
-		0.to(m).triangularArray { :n :k |
-			0.to(k).collect { :p |
+		0L.to(m).triangularArray { :n :k |
+			0L.to(k).collect { :p |
 				n.binomial(p)
 			}.sum
 		}

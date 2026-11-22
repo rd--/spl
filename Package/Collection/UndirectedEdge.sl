@@ -44,7 +44,7 @@ UndirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 	}
 
 	indices { :unused |
-		[1, 2]
+		[1L, 2L]
 	}
 
 	isDirected { :unused |
@@ -70,7 +70,7 @@ UndirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 
 	printString { :self |
 		let [i, j] = self.vertexList;
-		'% --- %'.format([i, j])
+		'% --- %'.format([i.printString, j.printString])
 	}
 
 	rename { :self :aDictionary |
@@ -79,7 +79,7 @@ UndirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 	}
 
 	size { :unused |
-		2
+		2L
 	}
 
 }
@@ -93,9 +93,9 @@ UndirectedEdge : [Object, Store, Equal, Compare, At, Indices] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
-	[UndirectedEdge, ---] { :self :anInteger |
+	[UndirectedEdge, ---] { :self Integer :anInteger Integer |
 		uncheckedUndirectedEdge(
 			[self, anInteger].sort!
 		)

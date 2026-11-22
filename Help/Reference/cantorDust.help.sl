@@ -7,7 +7,8 @@ Answer a binary matrix representing the _n_-th step Cantor dust.
 Drawing of the 2nd step of the Cantor dust:
 
 ~~~spl svg=A
-2.cantorDust.matrixPlot
+2L.cantorDust
+.matrixPlot
 ~~~
 
 ![](Help/Image/cantorDust-A.svg)
@@ -15,7 +16,8 @@ Drawing of the 2nd step of the Cantor dust:
 Drawing of the 4th step of the Cantor dust:
 
 ~~~spl png=B
-4.cantorDust.Bitmap
+4L.cantorDust
+.Bitmap
 ~~~
 
 ![](Help/Image/cantorDust-B.png)

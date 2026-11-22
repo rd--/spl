@@ -335,30 +335,30 @@ Point : [Object, Store, Equal, Geometry, CartesianCoordinates] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	circlePoints { :n :o :r :theta |
-		let m = 2.pi / n;
-		0.to(n - 1).collect { :i |
+		let m = 2.0.pi / n;
+		0.0.to(n - 1.0).collect { :i |
 			o + [r, theta + (i * m)].fromPolarCoordinates
 		}
 	}
 
 	circlePoints { :n :o :r |
-		let theta = (1 / n).pi - (1 / 2).pi;
+		let theta = (1.0 / n).pi - 0.5.pi;
 		n.circlePoints(o, r, theta)
 	}
 
 	hexagonalSpiralPoints { :n |
-		let m = n // 6 + 1;
-		let l = 0.toCollect(m) { :i |
-			i + [1 1 1 1 2 1]
+		let m = n // 6L + 1L;
+		let l = 0L.toCollect(m) { :i |
+			i + [1L 1L 1L 1L 2L 1L]
 		}.catenate.first(n);
 		let a = l.collect { :i |
-			[60.degree] ++ List(i - 1, 0)
+			[60.degree] ++ List(i - 1L, 0.0)
 		}.catenate;
-		let d = List(a.size, 1);
-		anglePath(a, d, [0 0], 0)
+		let d = List(a.size, 1.0);
+		anglePath(a, d, [0.0 0.0], 0.0)
 	}
 
 	spherePoints { :n :r |

@@ -92,11 +92,11 @@ ResidueSet : [Object, New, Store, Equal, Do, Collection, Add, Remove] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	leastResidueSystem { :modulus |
 		ResidueSet(
-			0.to(modulus - 1),
+			0L.to(modulus - 1L),
 			modulus
 		)
 	}

@@ -449,7 +449,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 	format { :self :arguments |
 		let parts = self.splitOn('%');
-		(arguments.size + 1 = parts.size).if {
+		(arguments.size + 1L = parts.size).if {
 			parts.riffle(
 				arguments.collect(displayString/1)
 			).stringCatenate
@@ -460,14 +460,14 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 	fromRomanNumeral { :self |
 		(self = 'N').if {
-			0
+			0L
 		} {
-			let value = 0;
-			let v1 = 0;
-			let v2 = 0;
+			let value = 0L;
+			let v1 = 0L;
+			let v2 = 0L;
 			let letters = 'IVXLCDM'.asciiByteArray;
 			self.asciiByteArray.reverseDo { :each |
-				v1 := [1, 5, 10, 50, 100, 500, 1000].at(letters.indexOf(each));
+				v1 := [1L, 5L, 10L, 50L, 100L, 500L, 1000L].at(letters.indexOf(each));
 				(v1 >= v2).if {
 					value := value + v1
 				} {
@@ -1247,7 +1247,7 @@ String! : [Object, Copy, Store, Equal, Compare, Json, Do, At, Indices, Character
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	emptyString { :self |
 		String(self, ' ')

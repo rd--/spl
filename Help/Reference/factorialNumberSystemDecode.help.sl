@@ -7,18 +7,18 @@ Decode the integer _n_ from the factorial number system.
 Decode _34101_:
 
 ```
->>> 34101.factorialNumberSystemDecode
-463
+>>> 34101L.factorialNumberSystemDecode
+463L
 
->>> ([3 4 1 0 1] * [5 4 3 2 1].!).sum
-463
+>>> ([3L 4L 1L 0L 1L] * [5L 4L 3L 2L 1L].!).sum
+463L
 ```
 
 The inverse is `factorialNumberSystemEncode`:
 
 ```
->>> 463.factorialNumberSystemEncode
-34101
+>>> 463L.factorialNumberSystemEncode
+34101L
 ```
 
 * * *

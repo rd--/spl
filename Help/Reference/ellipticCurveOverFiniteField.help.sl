@@ -5,17 +5,17 @@
 Answer the elliptic curve _y²=x³+ax+b_ over the finite field _Fq_.
 
 ```
->>> ellipticCurveOverFiniteField(1, 1, 7)
-[0 1; 0 6; 2 2; 2 5]
+>>> ellipticCurveOverFiniteField(1L, 1L, 7L)
+[0L 1L; 0L 6L; 2L 2L; 2L 5L]
 
->>> ellipticCurveOverFiniteField(3, 0, 7)
+>>> ellipticCurveOverFiniteField(3L, 0L, 7L)
 [0 0; 1 2; 1 5; 2 0; 3 1; 3 6; 5 0]
 ```
 
 Plot for _a=-1,b=0,q=61_:
 
 ~~~spl svg=A
-ellipticCurveOverFiniteField(-1, 0, 61)
+ellipticCurveOverFiniteField(-1L, 0L, 61L)
 .scatterPlot
 ~~~
 
@@ -24,7 +24,7 @@ ellipticCurveOverFiniteField(-1, 0, 61)
 Plot for _a=-1,b=0,q=71_:
 
 ~~~spl svg=B
-ellipticCurveOverFiniteField(-1, 0, 71)
+ellipticCurveOverFiniteField(-1L, 0L, 71L)
 .scatterPlot
 ~~~
 
@@ -33,7 +33,7 @@ ellipticCurveOverFiniteField(-1, 0, 71)
 Plot for _a=-1,b=0,q=89_:
 
 ~~~spl svg=C
-ellipticCurveOverFiniteField(-1, 0, 89)
+ellipticCurveOverFiniteField(-1L, 0L, 89L)
 .scatterPlot
 ~~~
 
@@ -42,7 +42,7 @@ ellipticCurveOverFiniteField(-1, 0, 89)
 Plot for _a=-7,b=10,q=487_:
 
 ~~~spl svg=D
-ellipticCurveOverFiniteField(-7, 10, 487)
+ellipticCurveOverFiniteField(-7L, 10L, 487L)
 .scatterPlot
 ~~~
 

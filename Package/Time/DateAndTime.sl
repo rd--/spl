@@ -139,17 +139,21 @@ DateAndTime : [Object, Store, Equal, Compare] {
 
 }
 
-+[Float, Integer] {
-
-	DateAndTime { :self |
-		uncheckedDateAndTime(
-			Float(self).primitiveDateAndTime
-		)
-	}
++[Integer, @SmallInteger] {
 
 	DateAndTime { :year :month :dayOfMonth :hour :minute :second |
 		DateAndTime(
 			[year, month, dayOfMonth, hour, minute, second]
+		)
+	}
+
+}
+
++[Float, @ImplicitFloat] {
+
+	DateAndTime { :self Float |
+		uncheckedDateAndTime(
+			self.primitiveDateAndTime
 		)
 	}
 

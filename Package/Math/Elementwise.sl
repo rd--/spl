@@ -1324,7 +1324,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	atIntegerOrElementwise { :self :aFunction/1 |
 		aFunction(self)

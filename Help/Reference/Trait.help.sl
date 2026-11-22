@@ -98,6 +98,7 @@ The list of system traits:
 	'@Remove'
 	'@Sequence'
 	'@Set'
+	'@SmallInteger'
 	'@Store'
 	'@Stream'
 	'@SymbolicBoolean'

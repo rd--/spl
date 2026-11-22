@@ -151,7 +151,7 @@ WeavingInformationFile : [Object] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	parseWeavingInformationFileIntegerList { :self |
 		self.isZero.if {

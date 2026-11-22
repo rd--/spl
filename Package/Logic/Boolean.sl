@@ -135,13 +135,13 @@ Boolean! : [Object, Copy, Store, Equal, Compare, Json] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	Boolean { :self |
-		(self = 0).if {
+		(self = 0L).if {
 			false
 		} {
-			(self = 1).if {
+			(self = 1L).if {
 				true
 			} {
 				self.error('Boolean: not 0 or 1')

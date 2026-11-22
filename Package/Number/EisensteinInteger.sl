@@ -65,7 +65,7 @@ EisensteinInteger : [Object, Store, Equal] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	EisensteinInteger { :a :b |
 		b.isIntegerValuedNumber.if {
@@ -78,16 +78,24 @@ EisensteinInteger : [Object, Store, Equal] {
 		}
 	}
 
-	eisensteinOmega { :n |
+	eisensteinOmega { :n Integer |
 		/* let omega = (-1 + (0J1 * 3.sqrt)) / 2; */
 		let omega = -0.5J0.8660254037844386;
 		n * omega
 	}
 
-	isEisensteinPrime { :a :b |
-		(a = 0 | { b = 0 | { a = b } }).if {
+	isEisensteinPrime { :a Integer :b Integer |
+		(
+			a = 0 | {
+				b = 0 | {
+					a = b
+				}
+			}
+		).if {
 			let c = a.abs.max(b.abs);
-			c.isPrime & { c % 3 = 2 }
+			c.isPrime & {
+				c % 3L = 2L
+			}
 		} {
 			let n = (a * a) + (b * b) - (a * b);
 			n.isPrime

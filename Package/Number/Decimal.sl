@@ -24,7 +24,9 @@ Decimal : [Object, Store, Equal, Compare, Number] {
 	}
 
 	[SmallInteger, decimalToSmallInteger] { :self |
-		SmallInteger(Integer(self))
+		SmallInteger(
+			Integer(self)
+		)
 	}
 
 	[absoluteValue, abs] { :self |

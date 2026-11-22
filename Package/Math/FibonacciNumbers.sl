@@ -1,4 +1,4 @@
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	dualZeckendorfRepresentation { :n |
 		(n = 0L).if {
@@ -88,12 +88,12 @@
 	}
 
 	fibonacciClosedForm { :n :x |
-		let a = (4 + x.square).sqrt;
+		let a = (4.0 + x.square).sqrt;
 		let b = x + a;
-		let c = 2 ^ (0 - n);
-		let d = 2 ^ n;
+		let c = 2.0 ^ (0.0 - n);
+		let d = 2.0 ^ n;
 		let e = b ^ n;
-		let f = b ^ (0 - n);
+		let f = b ^ (0.0 - n);
 		let g = n.pi.cos;
 		let r = ((c * e) - (d * f * g)) / a;
 		(
@@ -108,14 +108,14 @@
 	}
 
 	fibonacciClosedForm { :n |
-		let phi = 1.goldenRatio;
-		let r = ((phi ^ n) - (n.pi.cos * (phi ^ n.-))) / 5.sqrt;
+		let phi = 1.0.goldenRatio;
+		let r = ((phi ^ n) - (n.pi.cos * (phi ^ n.-))) / 5.0.sqrt;
 		r
 	}
 
 	lucasL { :n :x |
-		let a = (x.square + 4).sqrt;
-		(2L ^ -n)
+		let a = (x.square + 4.0).sqrt;
+		(2.0 ^ -n)
 		*
 		(
 			((x - a) ^ n)
@@ -125,20 +125,20 @@
 	}
 
 	lucasL { :n |
-		n.lucasL(1L)
+		n.lucasL(1.0)
 	}
 
 	lucasNumber { :self |
-		let phi = 1.goldenRatio;
+		let phi = 1.0.goldenRatio;
 		(phi ^ self) + (self.pi.cos * (phi ^ self.negate))
 	}
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	binetsFormula { :n |
-		let z = 5.sqrt;
+		let z = 5.0.sqrt;
 		((1.0 + z) ^ n) - ((1.0 - z) ^ n) / ((2.0 ^ n) * z)
 	}
 
@@ -416,7 +416,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	pisanoPeriod { :n |
 		n.isPrime.if {

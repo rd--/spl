@@ -67,7 +67,7 @@ ChordDiagram : [Object, Store] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	chordDiagramCount { :n |
 		(n = 0L).if {

@@ -169,26 +169,26 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
-	dirichletKernel { :n |
+	dirichletKernel { :n Float |
 		{ :x |
 			((n + 0.5) * x).sin / (x * 0.5).sin
 		}
 	}
 
-	fejerKernel { :n |
+	fejerKernel { :n Float |
 		{ :x |
-			x.isVeryClose(0).if {
+			x.isVeryClose(0.0).if {
 				n
 			} {
-				((1 - (n * x).cos) / (1 - x.cos)) / n
+				((1.0 - (n * x).cos) / (1.0 - x.cos)) / n
 			}
 		}
 	}
 
 	fejerKernelDirichlet { :n |
-		let d = 0.to(n - 1).collect(dirichletKernel/1);
+		let d = 0L.to(n - 1L).collect(dirichletKernel/1);
 		{ :x |
 			d.collect { :each/1 |
 				each(x)
@@ -199,17 +199,17 @@
 	fftFrequencies { :n :d |
 		n.isEven.if {
 			let m = n // 2;
-			([0 .. m - 1] ++ [0 - m .. -1]) / (d * n)
+			([0L .. m - 1L] ++ [0L - m .. -1L]) / (d * n)
 		} {
-			let m = (n - 1) // 2;
-			([0 .. m] ++ [0 - m .. -1]) / (d * n)
+			let m = (n - 1L) // 2;
+			([0L .. m] ++ [0L - m .. -1L]) / (d * n)
 		}
 	}
 
 	fourierMatrix { :n |
-		let m = 1 / n.sqrt;
+		let m = 1.0 / n.sqrt;
 		let omega = 1.e ^ (2.pi * 0J1 / n);
-		let l = 0.to(n - 1);
+		let l = 0.0.to(n - 1.0);
 		{ :i :j |
 			m * (omega ^ (i * j))
 		}.table(l, l)
@@ -217,8 +217,8 @@
 
 	fourierMatrix { :n :p |
 		let [a, b] = p;
-		let m = 1 / (n ^ ((1 - a) / 2));
-		let v = [0 .. n - 1] * (2I.pi * b) / n;
+		let m = 1.0 / (n ^ ((1.0 - a) / 2.0));
+		let v = [0.0 .. n - 1.0] * (2I.pi * b) / n;
 		v.exp.vandermondeMatrix * m
 	}
 
@@ -227,20 +227,20 @@
 			x.isBetween(-a, a).if {
 				x.sincNormalized * (x / a).sincNormalized
 			} {
-				0
+				0.0
 			}
 		}
 	}
 
 	lanczosKernelSin { :a |
 		{ :x |
-			(x = 0).if {
-				1
+			(x = 0.0).if {
+				1.0
 			} {
 				x.isBetween(a.-, a).if {
 					(a * x.pi.sin * (x.pi / a).sin) / (1.pi.square * x.square)
 				} {
-					0
+					0.0
 				}
 			}
 		}

@@ -64,7 +64,7 @@ AsciiString : [Object, New, Store, Copy, Equal, Do, At, Indices, Put, Collection
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	zeroAsciiString { :self |
 		uncheckedAsciiString(

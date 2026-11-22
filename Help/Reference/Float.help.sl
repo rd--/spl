@@ -189,6 +189,7 @@ List traits implemented by `Float`:
 	'@Json'
 	'@Number'
 	'@Object'
+	'@SmallInteger'
 	'@Store'
 ]
 ```

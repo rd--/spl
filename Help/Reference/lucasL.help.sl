@@ -7,8 +7,8 @@ Answer Lucas number _Lₙ(x)_.
 Values at fixed points:
 
 ```
->>> 1:5.collect { :x |
->>> 	10.lucasL(x)
+>>> 1L:5L.collect { :x |
+>>> 	10L.lucasL(x)
 >>> }
 [123 6726 154451 1860498 14250627]
 ```

@@ -690,7 +690,7 @@ Complex : [Object, Copy, Store, Equal, Compare, Number] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	polyominoes { :n SmallInteger |
 		let rot = { :p |

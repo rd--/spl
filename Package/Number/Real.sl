@@ -39,7 +39,7 @@
 
 }
 
-+[Fraction, Float, Integer] {
++[Float, Fraction, Integer] {
 
 	numberExpand { :self :base |
 		let i = self.abs.truncate;

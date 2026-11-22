@@ -1,4 +1,4 @@
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	integerPartitionUnrank { :n :method |
 		method.caseOf(
@@ -25,14 +25,16 @@
 
 	integerPartitionUnrankKarttunenAscending { :n |
 		let p = [];
-		let b = n % 2;
-		let i = 1;
-		{ n != 0 }.whileTrue {
-			n := n >> 1;
-			((n % 2) = b).if {
-				i := i + 1
+		let b = n % 2L;
+		let i = 1L;
+		{
+			n != 0L
+		}.whileTrue {
+			n := n >> 1L;
+			((n % 2L) = b).if {
+				i := i + 1L
 			} {
-				b := n % 2;
+				b := n % 2L;
 				p.add!(i)
 			}
 		};

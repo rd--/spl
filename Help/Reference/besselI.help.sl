@@ -14,8 +14,8 @@ Evaluate numerically:
 Continued fraction with arithmetic progression terms:
 
 ```
->>> let p = 1.besselI(2.0);
->>> let q = 2.besselI(2.0);
+>>> let p = 1L.besselI(2.0);
+>>> let q = 2L.besselI(2.0);
 >>> (p / q).continuedFraction(6L)
 [2 3 4 5 6 7]
 ```
@@ -24,7 +24,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-3.0 -- 3.0).functionPlot { :x |
-	0.besselI(x)
+	0L.besselI(x)
 }
 ~~~
 

@@ -1,30 +1,4 @@
-+Float {
-
-	nimMultiplication { :x :y |
-		y.isIntegerValuedNumber.if {
-			nimMultiplication(
-				Integer(x),
-				Integer(y)
-			).normalInteger
-		} {
-			y.adaptToIntegerAndApply(
-				x,
-				nimMultiplication/2
-			)
-		}
-	}
-
-}
-
 +Integer {
-
-	nimMultiplication { :x :y |
-		y.isInteger.if {
-			uncheckedNimMultiplication(x, Integer(y))
-		} {
-			y.adaptToIntegerAndApply(x, nimMultiplication/2)
-		}
-	}
 
 	uncheckedNimMultiplication { :x :y |
 		/* https://www.math.ucla.edu/~tom/NimProd.html */
@@ -58,22 +32,30 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
+
+	nimMultiplication { :x Integer :y |
+		y.isIntegerValuedNumber.if {
+			uncheckedNimMultiplication(x, Integer(y))
+		} {
+			y.adaptToIntegerAndApply(x, nimMultiplication/2)
+		}
+	}
 
 	nimPower { :n :k |
-		let v = 1;
+		let v = 1L;
 		let p = n;
-		let i = 0;
+		let i = 0L;
 		{ :break/0 |
-			(k.bitAt(i + 1) = 1).ifTrue {
-				k := k - (2 ^ i);
+			(k.bitAt(i + 1L) = 1).ifTrue {
+				k := k - (2L ^ i);
 				v := v.nimMultiplication(p)
 			};
-			(k = 0).ifTrue {
+			(k = 0L).ifTrue {
 				break()
 			};
 			p := p.nimMultiplication(p);
-			i := i + 1
+			i := i + 1L
 		}.repeatForeverWithBreak;
 		v
 	}
@@ -81,7 +63,7 @@
 	nimPowerNaive { :n :k |
 		{ :x |
 			nimMultiplication(x, n)
-		}.iterate(1, k)
+		}.iterate(1L, k)
 	}
 
 	nimSquare { :x |
@@ -89,9 +71,9 @@
 	}
 
 	nimSquareRoot { :x |
-		let a = Dictionary { :n |
-			(n = 0).if {
-				0
+		let a = Map { :n |
+			(n = 0L).if {
+				0L
 			} {
 				let m = bitXor(n, nimSquare(n));
 				bitXor(n, a[m])
@@ -107,9 +89,9 @@
 	nimValue { :self |
 		let k = self.collect(bitLength/1).max;
 		let b = self.collect { :each |
-			each.integerDigits(2, k)
+			each.integerDigits(2L, k)
 		};
-		(b.sum % 2).fromDigits(2)
+		(b.sum % 2L).fromDigits(2L)
 	}
 
 }

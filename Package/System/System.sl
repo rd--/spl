@@ -420,7 +420,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 }
 
-+[Float, Integer, String] {
++[Integer, @SmallInteger, String] {
 
 	seedRandom { :self |
 		system.seedRandom(self)

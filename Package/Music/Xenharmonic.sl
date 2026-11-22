@@ -118,7 +118,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	barlowIndigestibility { :p |
 		p.isOne.if {
@@ -250,7 +250,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	tonalityDiamond { :self |
 		let n = [1L, 3L .. self];
@@ -265,7 +265,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	yunikSwiftConsonanceTable { :self :operand |
 		2L.toCollect(self) { :n |

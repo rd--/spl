@@ -1,20 +1,20 @@
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	oeisA001317 { :n |
 		{ :x |
-			x.bitXor(x.bitShiftLeft(1))
-		}.iterate(1, n)
+			x.bitXor(x.bitShiftLeft(1L))
+		}.iterate(1L, n)
 	}
 
 	oeisA003961 { :n |
-		(n = 1).if {
-			1
+		(n = 1L).if {
+			1L
 		} {
 			n.isPrime.if {
-				(n.primePi + 1).prime
+				(n.primePi + 1L).prime
 			} {
 				n.factorInteger.product { :x |
-					oeisA003961(x[1]) ^ x[2]
+					oeisA003961(x[1L]) ^ x[2L]
 				}
 			}
 		}
@@ -22,16 +22,16 @@
 
 	oeisA004718 { :n |
 		let b = n.binaryExpansion.reverse;
-		let z = 0;
-		let [p, q] = [0, 0];
+		let z = 0L;
+		let [p, q] = [0L, 0L];
 		b.do { :i |
-			(i = 0).if {
-				z := z + 1
+			(i = 0L).if {
+				z := z + 1L
 			} {
 				z.isEven.if {
-					p := p + 1
+					p := p + 1L
 				} {
-					q := q + 1
+					q := q + 1L
 				}
 			}
 		};
@@ -39,15 +39,15 @@
 	}
 
 	oeisA005940 { :n |
-		(n - 1).doudnaSequenceFunction
+		(n - 1L).doudnaSequenceFunction
 	}
 
 	oeisA007814 { :n |
-		n.integerExponent(2)
+		n.integerExponent(2L)
 	}
 
 	oeisA007949 { :n |
-		n.integerExponent(3)
+		n.integerExponent(3L)
 	}
 
 	oeisA014486 { :n |
@@ -55,114 +55,114 @@
 	}
 
 	oeisA020652 { :n |
-		let c = 1;
-		let j = 1;
-		let k = 2;
+		let c = 1L;
+		let j = 1L;
+		let k = 2L;
 		{
 			c < n
 		}.whileTrue {
-			k := k + 1;
+			k := k + 1L;
 			c := c + k.eulerPhi
 		};
 		c := c - k.eulerPhi;
 		{
 			c < n
 		}.whileTrue {
-			(j.gcd(k) = 1).ifTrue {
-				c := c + 1
+			(j.gcd(k) = 1L).ifTrue {
+				c := c + 1L
 			};
-			j := j + 1
+			j := j + 1L
 		};
-		(j - 1)
+		j - 1L
 	}
 
 	oeisA020653 { :n |
-		let c = 0;
-		let k = 2;
-		let j = 1;
+		let c = 0L;
+		let k = 2L;
+		let j = 1L;
 		{
 			c < n
 		}.whileTrue {
 			c := c + k.eulerPhi;
-			k := k + 1
+			k := k + 1L
 		};
-		c := c - (k - 1).eulerPhi;
+		c := c - (k - 1L).eulerPhi;
 		{
 			c < n
 		}.whileTrue {
-			(j.gcd(k - 1) = 1).ifTrue {
-				c := c + 1
+			(j.gcd(k - 1L) = 1L).ifTrue {
+				c := c + 1L
 			};
-			j := j + 1
+			j := j + 1L
 		};
-		(k - j)
+		k - j
 	}
 
 	oeisA036044 { :n |
-		(1 - n.binaryExpansion)
+		(1L - n.binaryExpansion)
 		.reverse
-		.fromDigits(2)
+		.fromDigits(2L)
 	}
 
 	oeisA038567 { :n |
-		let k = 0;
+		let k = 0L;
 		{
-			1.to(k).eulerPhi.sum <= n
+			1L.to(k).eulerPhi.sum <= n
 		}.whileTrue {
-			k := k + 1
+			k := k + 1L
 		};
 		k
 	}
 
 	oeisA038568 { :n |
-		let c = 1;
-		let k = 2;
-		let j = 1;
+		let c = 1L;
+		let k = 2L;
+		let j = 1L;
 		{
 			c < n
 		}.whileTrue {
-			c := c + (2 * k.eulerPhi);
-			k := k + 1
+			c := c + (2L * k.eulerPhi);
+			k := k + 1L
 		};
-		c := c - (2 * (k - 1).eulerPhi);
+		c := c - (2L * (k - 1L).eulerPhi);
 		{
 			c < n
 		}.whileTrue {
-			(j.gcd(k - 1) = 1).ifTrue {
-				c := c + 2
+			(j.gcd(k - 1L) = 1L).ifTrue {
+				c := c + 2L
 			};
-			j := j + 1
+			j := j + 1L
 		};
 		(c > n).if {
-			(j - 1)
+			j - 1L
 		} {
-			(k - 1)
+			k - 1L
 		}
 	}
 
 	oeisA038569 { :n |
-		let c = 1;
-		let k = 2;
-		let j = 1;
+		let c = 1L;
+		let k = 2L;
+		let j = 1L;
 		{
 			c <= n
 		}.whileTrue {
-			c := c + (2 * k.eulerPhi);
-			k := k + 1
+			c := c + (2L * k.eulerPhi);
+			k := k + 1L
 		};
-		c := c - (2 * (k - 1).eulerPhi);
+		c := c - (2L * (k - 1L).eulerPhi);
 		{
 			c <= n
 		}.whileTrue {
-			(j.gcd(k - 1) = 1).ifTrue {
-				c := c + 2
+			(j.gcd(k - 1L) = 1L).ifTrue {
+				c := c + 2L
 			};
-			j := j + 1
+			j := j + 1L
 		};
-		(c > (n + 1)).if {
-			(k - 1)
+		(c > (n + 1L)).if {
+			k - 1L
 		} {
-			(j - 1)
+			j - 1L
 		}
 	}
 
@@ -174,36 +174,38 @@
 		n.isDyckWord.if {
 			n.catalanRank
 		} {
-			0
+			0L
 		}
 	}
 
 	oeisA085198 { :n |
-		let s = 0;
-		let h = 1;
-		let i = 2;
-		let fi = 1;
-		{ n != 0 }.whileTrue {
+		let s = 0L;
+		let h = 1L;
+		let i = 2L;
+		let fi = 1L;
+		{
+			n != 0L
+		}.whileTrue {
 			n.isOdd.if {
-				n := (n - 1) / 2;
-				h := h - 1
+				n := (n - 1L) // 2L;
+				h := h - 1L
 			} {
-				n := n / 2;
+				n := n // 2L;
 				s := s + (h * fi);
-				h := h + 1;
+				h := h + 1L;
 				fi := fi * i;
-				i := i + 1
+				i := i + 1L
 			}
 		};
 		s
 	}
 
 	oeisA101369 { :n |
-		let m = 2.sqrt;
+		let m = 2.0.sqrt;
 		n.isEven.if {
-			n + (n / m - (1 / m)).floor
+			n + (n / m - (1.0 / m)).floor
 		} {
-			1 + (n / m).floor
+			1L + (n / m).floor
 		}
 	}
 
@@ -212,7 +214,7 @@
 			List(f[2], f[1].primePi)
 		}.catenate;
 		let m = p.max;
-		1.to(m).product { :i |
+		1L.to(m).product { :i |
 			p.sum { :j |
 				(j >= i).boole
 			}.prime
@@ -221,14 +223,14 @@
 
 	oeisA343029 { :n |
 		let b = n.binaryExpansion.reverse;
-		let z = 0;
-		let p = 0;
+		let z = 0L;
+		let p = 0L;
 		b.do { :i |
-			(i = 0).if {
-				z := z + 1
+			(iL = 0).if {
+				z := z + 1L
 			} {
 				z.isEven.ifTrue {
-					p := p + 1
+					p := p + 1L
 				}
 			}
 		};
@@ -237,14 +239,14 @@
 
 	oeisA343030 { :n |
 		let b = n.binaryExpansion.reverse;
-		let z = 0;
-		let q = 0;
+		let z = 0L;
+		let q = 0L;
 		b.do { :i |
-			(i = 0).if {
-				z := z + 1
+			(i = 0L).if {
+				z := z + 1L
 			} {
 				z.isOdd.ifTrue {
-					q := q + 1
+					q := q + 1L
 				}
 			}
 		};
@@ -291,45 +293,45 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	oeisA004001Terms { :k |
 		let a = Map { :n |
-			(n <= 2).if {
-				1
+			(n <= 2L).if {
+				1L
 			} {
-				a[a[n - 1]] + a[n - a[n - 1]]
+				a[a[n - 1L]] + a[n - a[n - 1L]]
 			}
 		};
-		a[1 .. k]
+		a[1L .. kL]
 	}
 
 	oeisA051135Terms { :k |
-		let m = (k + 2) * 2;
+		let m = (k + 2L) * 2L;
 		let a = m.oeisA004001Terms;
-		(k + 1 > a.max).if {
+		(k + 1L > a.max).if {
 			k.error('oeisA051135Terms')
 		} {
-			let b = List(a.max, 0);
+			let b = List(a.max, 0L);
 			a.do { :i |
-				b[i] := b[i] + 1
+				b[i] := b[i] + 1L
 			};
 			b.first(k)
 		}
 	}
 
 	oeisA306246Terms { :m |
-		let o = List(m, 0);
+		let o = List(m, 0L);
 		let p = nil;
 		let q = nil;
-		1.toCollect(m) { :n |
-			let v = (n <= 2).if {
+		1L.toCollect(m) { :n |
+			let v = (n <= 2L).if {
 				n
 			} {
 				q + p
 			};
 			q := p;
-			p := o[1 + v] := o[1 + v] + 1;
+			p := o[1L + v] := o[1L + v] + 1L;
 			v
 		}
 	}
@@ -483,13 +485,13 @@ OeisEntry : [Object, Store, Equal, OeisSequence] {
 	bFileIsValid { :self |
 		let data = self.bFileData;
 		let k = data.size;
-		let indices = data.column(1);
+		let indices = data.column(1L);
 		let i = self.subscriptOfFirstTerm;
-		indices = [i .. i + k - 1]
+		indices = [i .. i + k - 1L]
 	}
 
 	bFileSequence { :self |
-		self.bFileData.column(2)
+		self.bFileData.column(2L)
 	}
 
 	dataText { :self |
@@ -606,7 +608,7 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 		self.sequenceFileLines.select { :each |
 			each.beginsWith(prefix)
 		}.collect { :each |
-			each.drop(11)
+			each.drop(11L)
 		}
 	}
 
@@ -635,8 +637,8 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 		let e = self.field(code);
 		e.size.caseOf(
 			[
-				0 -> { nil },
-				1 -> { e[1] }
+				0L -> { nil },
+				1L -> { e[1L] }
 			]
 		) {
 			self.error('uniqueFieldOrNil')
@@ -667,9 +669,9 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 
 	isOeisIdentifier { :self |
 		let c = self.characters;
-		c.size = 7 & {
-			c[1] = 'A' & {
-				2.to(7).allSatisfy { :i |
+		c.size = 7L & {
+			c[1L] = 'A' & {
+				2L.to(7L).allSatisfy { :i |
 					c[i].isDigit
 				}
 			}
@@ -694,14 +696,14 @@ OeisSequenceFile : [Object, Equal, OeisSequence] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	OeisEntry { :self |
 		OeisEntry(self.oeisIdentifier)
 	}
 
 	oeisIdentifier { :self |
-		'A' ++ self.integerString.padLeft([6], '0')
+		'A' ++ self.integerString.padLeft([6L], '0')
 	}
 
 }

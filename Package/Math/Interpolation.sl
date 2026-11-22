@@ -1,4 +1,4 @@
-+[Float, Integer, Fraction, List] {
++[Float, @ImplicitFloat, List] {
 
 	bilinearInterpolation { :q11 :q21 :q12 :q22 :mu1 :mu2 |
 		linearInterpolation(
@@ -35,8 +35,8 @@
 	}
 
 	cosineInterpolation { :y1 :y2 :mu |
-		let x = (1 - mu.pi.cos) / 2;
-		(y1 * (1 - x)) + (y2 * x)
+		let x = (1.0 - mu.pi.cos) / 2.0;
+		(y1 * (1.0 - x)) + (y2 * x)
 	}
 
 	cubicInterpolation { :y0 :y1 :y2 :y3 :mu |
@@ -66,17 +66,17 @@
 	hermiteInterpolation { :y0 :y1 :y2 :y3 :mu :tension :bias |
 		let mu2 = mu * mu;
 		let mu3 = mu2 * mu;
-		let m0 = ((y1 - y0) * (1 + bias) * (1 - tension) / 2) + ((y2 - y1) * (1 - bias) * (1 - tension) / 2);
-		let m1 = ((y2 - y1) * (1 + bias) * (1 - tension) / 2) + ((y3 - y2) * (1 - bias) * (1 - tension) / 2);
-		let a0 = (2 * mu3) - (3 * mu2) + 1;
-		let a1 = mu3 - (2 * mu2) + mu;
+		let m0 = ((y1 - y0) * (1.0 + bias) * (1.0 - tension) / 2.0) + ((y2 - y1) * (1.0 - bias) * (1.0 - tension) / 2.0);
+		let m1 = ((y2 - y1) * (1.0 + bias) * (1.0 - tension) / 2.0) + ((y3 - y2) * (1.0 - bias) * (1.0 - tension) / 2.0);
+		let a0 = (2.0 * mu3) - (3.0 * mu2) + 1.0;
+		let a1 = mu3 - (2.0 * mu2) + mu;
 		let a2 = mu3 - mu2;
-		let a3 = (-2 * mu3) + (3 * mu2);
+		let a3 = (-2.0 * mu3) + (3.0 * mu2);
 		(a0 * y1) + (a1 * m0) + (a2 * m1) + (a3 * y2)
 	}
 
 	linearInterpolation { :y1 :y2 :mu |
-		(y1 * (1 - mu)) + (y2 * mu)
+		(y1 * (1.0 - mu)) + (y2 * mu)
 	}
 
 	trilinearInterpolation { :c000 :c100 :c010 :c110 :c001 :c101 :c011 :c111 :mu1 :mu2 :mu3 |

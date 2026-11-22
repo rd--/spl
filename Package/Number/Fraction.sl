@@ -802,24 +802,24 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
-	arithmeticDerivative { :self |
-		Fraction(self, 1L)
+	arithmeticDerivative { :self Integer |
+		uncheckedFraction(self, 1L)
 		.arithmeticDerivative
 		.Integer
 	}
 
-	integerToFraction { :self |
+	integerToFraction { :self Integer |
 		uncheckedFraction(
-			Integer(self),
+			self,
 			1L
 		)
 	}
 
-	numeratorDenominator { :self |
+	numeratorDenominator { :self Integer |
 		[
-			Integer(self),
+			self,
 			1L
 		]
 	}
@@ -878,9 +878,9 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 
 	[rationalize, approximateFraction] { :self :epsilon |
 		self.isIntegerValuedNumber.if {
-			Fraction(Integer(self), 1L)
+			uncheckedFraction(Integer(self), 1L)
 		} {
-			let c = self.abs.continuedFraction(16);
+			let c = self.abs.continuedFraction(16L);
 			let l = c.semiconvergents(epsilon);
 			withReturn { :return/1 |
 				l.do { :r |
@@ -894,7 +894,7 @@ Fraction : [Object, Store, Copy, Equal, Compare, Number, ImplicitFloat, Implicit
 	}
 
 	rationalize { :self |
-		self.rationalize(1E-5)
+		self.rationalize(1.0E-5)
 	}
 
 }

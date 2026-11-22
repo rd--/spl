@@ -7,7 +7,7 @@ Answer the _n_-bit Savage-Winkler monotonic Gray code.
 The five-bit Savage-Winkler monotonic Gray code:
 
 ```
->>> 5.savageWinklerAlgorithm
+>>> 5L.savageWinklerAlgorithm
 [
 	0 0 0 0 0;
 	0 0 0 0 1;
@@ -47,7 +47,7 @@ The five-bit Savage-Winkler monotonic Gray code:
 The six-bit Savage-Winkler monotonic Gray code:
 
 ```
->>> 6.savageWinklerAlgorithm
+>>> 6L.savageWinklerAlgorithm
 [
 	0 0 0 0 0 0;
 	0 0 0 0 0 1;
@@ -119,7 +119,7 @@ The six-bit Savage-Winkler monotonic Gray code:
 Plot the five-bit Savage-Winkler monotonic Gray code:
 
 ~~~spl svg=A
-5.savageWinklerAlgorithm
+5L.savageWinklerAlgorithm
 .transpose
 .matrixPlot
 ~~~
@@ -129,7 +129,7 @@ Plot the five-bit Savage-Winkler monotonic Gray code:
 Plot the six-bit Savage-Winkler monotonic Gray code:
 
 ~~~spl svg=B
-6.savageWinklerAlgorithm
+6L.savageWinklerAlgorithm
 .transpose
 .matrixPlot
 ~~~
@@ -139,7 +139,7 @@ Plot the six-bit Savage-Winkler monotonic Gray code:
 Plot the seven-bit Savage-Winkler monotonic Gray code:
 
 ~~~spl png=C
-7.savageWinklerAlgorithm
+7L.savageWinklerAlgorithm
 .transpose
 .Bitmap
 ~~~

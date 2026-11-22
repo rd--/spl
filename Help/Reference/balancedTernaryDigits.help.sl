@@ -5,7 +5,7 @@
 Answer a `List` of the balanced ternary digits of the integer _n_.
 
 ```
->>> 0:23.collect { :n |
+>>> 0L:23L.collect { :n |
 >>> 	let d = n.balancedTernaryDigits;
 >>> 	n -> d
 >>> }
@@ -40,10 +40,10 @@ Answer a `List` of the balanced ternary digits of the integer _n_.
 `fromDigits` will convert from balanced ternary digits:
 
 ```
->>> [0 .. 23]
+>>> [0L .. 23L]
 >>> .balancedTernaryDigits
 >>> .collect { :n |
->>> 	n.fromDigits(3)
+>>> 	n.fromDigits(3L)
 >>> }
 [0 .. 23]
 ```
@@ -51,7 +51,7 @@ Answer a `List` of the balanced ternary digits of the integer _n_.
 Matrix plot of first few terms:
 
 ~~~spl svg=A
-0:26.balancedTernaryDigits
+0L:26L.balancedTernaryDigits
 .padLeft
 .transpose
 .rescale
@@ -63,7 +63,7 @@ Matrix plot of first few terms:
 Compare to equivalent ternary plot:
 
 ~~~spl svg=B
-0:26.integerDigits(3)
+0L:26L.integerDigits(3L)
 .padLeft
 .transpose
 .rescale
@@ -75,6 +75,8 @@ Compare to equivalent ternary plot:
 * * *
 
 See also: fromDigits, integerDigits
+
+Guides: Integer Functions
 
 References:
 _W_

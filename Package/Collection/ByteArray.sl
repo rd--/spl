@@ -155,7 +155,7 @@ ByteArray! : [Object, New, Copy, Store, Equal, Compare, Do, At, Indices, Put, Co
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	[ByteArray, constantByteArray] { :n :x |
 		x.isByte.ifFalse {

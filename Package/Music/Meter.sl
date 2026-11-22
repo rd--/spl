@@ -1,17 +1,17 @@
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	barlowBasicIndispensability { :p :n |
 		p.isPrime.if {
-			(p = 2).if {
+			(p = 2L).if {
 				p - n
 			} {
-				(p - 1 = n).if {
-					(p / 4).integerPart
+				(p - 1L = n).if {
+					(p / 4L).integerPart
 				} {
-					let s = (p - 1).primeFactors.sort!(isGreater/2);
+					let s = (p - 1L).primeFactors.sort!(isGreater/2);
 					let m = n - (n / p).integerPart;
 					let q = barlowIndispensability(s, m);
-					(q + (2 * ((q + 1) / p).sqrt)).integerPart
+					(q + (2L * ((q + 1L) / p).sqrt)).integerPart
 				}
 			}
 		} {

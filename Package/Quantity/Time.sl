@@ -53,9 +53,9 @@
 
 }
 
-+[Float, Integer, Fraction] {
++[Float, @ImplicitFloat] {
 
-	Time { :self |
+	Time { :self Float |
 		Quantity(self, 'second')
 	}
 
@@ -90,7 +90,7 @@
 	}
 }
 
-+[Float, Integer] {
++[Float, @ImplicitFloat] {
 
 	anomalisticMonths { :self |
 		(self * 27.554551).days
@@ -101,15 +101,15 @@
 	}
 
 	centiseconds { :self |
-		(self * 10).milliseconds
+		(self * 10.0).milliseconds
 	}
 
 	days { :self |
-		(self * 24).hours
+		(self * 24.0).hours
 	}
 
 	hours { :self |
-		(self * 60).minutes
+		(self * 60.0).minutes
 	}
 
 	julianYears { :self |
@@ -117,11 +117,11 @@
 	}
 
 	milliseconds { :self |
-		(self / 1000).seconds
+		(self / 1000.0).seconds
 	}
 
 	minutes { :self |
-		(self * 60).seconds
+		(self * 60.0).seconds
 	}
 
 	siderealDays { :self |
@@ -149,7 +149,7 @@
 	}
 
 	weeks { :self |
-		(self * 7).days
+		(self * 7.0).days
 	}
 
 }

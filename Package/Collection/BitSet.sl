@@ -221,7 +221,7 @@ BitSet : [Object, Copy, Store, Equal, Do, Collection, Add, Remove] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	BitSet { :capacity |
 		let byteCount = capacity.min(capacity // 8L + 1L);

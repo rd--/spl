@@ -34,7 +34,7 @@ SplitMix : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	SplitMix { :seed SmallInteger |
 		uncheckedSplitMix(

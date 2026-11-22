@@ -240,7 +240,7 @@ Line : [Object, Store, Equal, Geometry] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	spirangle { :n :m :center :radii :initialAngle |
 		let [radiusIncrement, initialRadial] = radii;
@@ -260,9 +260,9 @@ Line : [Object, Store, Equal, Geometry] {
 
 }
 
-+[Float, Integer] {
++[Float, @ImplicitFloat] {
 
-	cohenSutherlandAlgorithm { :x0 :y0 :x1 :y1 :xMin :yMin :xMax :yMax |
+	cohenSutherlandAlgorithm { :x0 Float :y0 Float :x1 Float :y1 Float :xMin Float :yMin Float :xMax Float :yMax Float |
 		let inside = 2b0000;
 		let left = 2b0001;
 		let right = 2b0010;

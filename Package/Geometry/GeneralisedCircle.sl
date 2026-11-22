@@ -90,7 +90,7 @@ GeneralisedCircle : [Object, Store, Equal, Geometry] {
 
 }
 
-+[Float, Integer] {
++[Float, @ImplicitFloat] {
 
 	GeneralisedCircle { :c :alpha :d |
 		uncheckedGeneralisedCircle(

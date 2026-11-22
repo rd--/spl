@@ -23,9 +23,9 @@ DyckWord : [Object, Store] {
 		let n = w.size;
 		let e = [];
 		let h = self.heightList;
-		1.toDo(n) { :i |
+		1L.toDo(n) { :i |
 			(w[i] = a).ifTrue {
-				let j = h.indexOfStartingAtBy(h[i], i + 1, isEqual/2) - 1;
+				let j = h.indexOfStartingAtBy(h[i], i + 1L, isEqual/2) - 1L;
 				e.add!([i, j])
 			}
 		};
@@ -42,17 +42,17 @@ DyckWord : [Object, Store] {
 
 	heightList { :self |
 		let [a, b] = self.tokens;
-		let h = 0;
+		let h = 0L;
 		let answer = [h];
 		self.word.do { :each |
-			h := (each = a).if { h + 1 } { h - 1 };
+			h := (each = a).if { h + 1L } { h - 1L };
 			answer.add!(h)
 		};
 		answer
 	}
 
 	integer { :self |
-		self.binaryExpansion.fromDigits(2)
+		self.binaryExpansion.fromDigits(2L)
 	}
 
 	length { :self |
@@ -74,14 +74,14 @@ DyckWord : [Object, Store] {
 	noncrossingSetPartition { :self |
 		let n = self.length;
 		let b = self.binaryExpansion;
-		let i = 1;
+		let i = 1L;
 		let j = true;
 		let u = [];
 		let r = [[]];
 		b.do { :x |
-			(x = 1).if {
+			(x = 1L).if {
 				u.add!(i);
-				i := i + 1;
+				i := i + 1L;
 				j.ifFalse {
 					r.add!([]);
 					j := true
@@ -96,7 +96,7 @@ DyckWord : [Object, Store] {
 
 	parenthesization { :self |
 		self.binaryExpansion.collect { :each |
-			(each = 1).if { '(' } { ')' }
+			(each = 1L).if { '(' } { ')' }
 		}.stringJoin
 	}
 
@@ -113,9 +113,9 @@ DyckWord : [Object, Store] {
 		let h = self.heightList;
 		let b = self.binaryExpansion;
 		let s = [];
-		1.toDo(n - 1) { :i |
-			(b[i] = 1).ifTrue {
-				s.add!(h[i] + 1)
+		1L.toDo(n - 1L) { :i |
+			(b[i] = 1L).ifTrue {
+				s.add!(h[i] + 1L)
 			}
 		};
 		s
@@ -129,15 +129,15 @@ DyckWord : [Object, Store] {
 		let w = self.binaryExpansion;
 		let s = [Tree(nil, [])];
 		w.do { :x |
-			(x = 1).if {
+			(x = 1L).if {
 				let t = Tree(nil, []);
-				s[1].subTrees.addLast!(t);
+				s[1L].subTrees.addLast!(t);
 				s.addFirst!(t)
 			} {
 				s.removeFirst!
 			}
 		};
-		s[1]
+		s[1L]
 	}
 
 	treePlot { :self |
@@ -145,7 +145,7 @@ DyckWord : [Object, Store] {
 	}
 
 	vertexList { :self |
-		[1 .. self.word.size]
+		[1L .. self.word.size]
 	}
 
 }
@@ -178,24 +178,30 @@ DyckWord : [Object, Store] {
 		n.isEven & {
 			Set(self, ==) = Set(tokens, ==) & {
 				let [a, b] = tokens;
-				let k = 0;
-				let h = 0;
-				{ k < n & { h >= 0 } }.whileTrue {
-					k := k + 1;
-					h := (self[k] = a).if { h + 1 } { h - 1 }
+				let k = 0L;
+				let h = 0L;
+				{
+					k < n & {
+						h >= 0L
+					}
+				}.whileTrue {
+					k := k + 1L;
+					h := (self[k] = a).if { h + 1L } { h - 1L }
 				};
-				k = n & { h = 0 }
+				k = n & {
+					h = 0L
+				}
 			}
 		}
 	}
 
 	isDyckWord { :self |
-		self.isDyckWord([1 0])
+		self.isDyckWord([1L 0L])
 	}
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	dyckWords { :t :letters |
 		let r = [];
@@ -206,29 +212,31 @@ DyckWord : [Object, Store] {
 	}
 
 	dyckWords { :self |
-		self.dyckWords([1 0])
+		self.dyckWords([1L 0L])
 	}
 
 	dyckWordsDo { :t :letters :visit/1 |
 		let [one, zero] = letters;
-		let n = 2 * t;
+		let n = 2L * t;
 		let b = List(t, one) ++ List(t, zero);
 		let x = t;
 		let y = t;
 		visit(b);
-		{ x < (n - 1) }.whileTrue {
+		{
+			x < (n - 1L)
+		}.whileTrue {
 			b[x] := zero;
 			b[y] := one;
-			x := x + 1;
-			y := y + 1;
+			x := x + 1L;
+			y := y + 1L;
 			(b[x] = zero).ifTrue {
-				(x >= ((2 * y) - 2)).if {
-					x := x + 1
+				(x >= ((2L * y) - 2L)).if {
+					x := x + 1L
 				} {
 					b[x] := one;
 					b[2] := zero;
-					x := 3;
-					y := 2
+					x := 3L;
+					y := 2L
 				}
 			};
 			visit(b)
@@ -238,8 +246,8 @@ DyckWord : [Object, Store] {
 	dyckWordsRecursiveAlgorithm { :n :letters |
 		let [a, b] = letters;
 		let f = { :x :i :n0 :n1 |
-			let d0 = { f(x ++ [a], i + 1, n0 + 1, n1) };
-			let d1 = { f(x ++ [b], i + 1, n0, n1 + 1) };
+			let d0 = { f(x ++ [a], i + 1L, n0 + 1L, n1) };
+			let d1 = { f(x ++ [b], i + 1L, n0, n1 + 1L) };
 			((n0 < n) && (n1 < n) && (n0 > n1)).if {
 				d0() ++ d1()
 			} {
@@ -261,20 +269,22 @@ DyckWord : [Object, Store] {
 				}
 			}
 		};
-		f([a], 1, 1, 0)
+		f([a], 1L, 1L, 0L)
 	}
 
 	isDyckWord { :n |
 		withReturn { :return/1 |
-			let l = 0;
-			{ n > 0 }.whileTrue {
-				l := l + (-1 ^ n);
-				(l < 0).ifTrue {
+			let l = 0L;
+			{
+				n > 0L
+			}.whileTrue {
+				l := l + (-1L ^ n);
+				(l < 0L).ifTrue {
 					false.return
 				};
-				n := n // 2
+				n := n // 2L
 			};
-			(l > 0).not
+			(l > 0L).not
 		}
 	}
 

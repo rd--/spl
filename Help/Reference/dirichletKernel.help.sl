@@ -8,7 +8,7 @@ Plot kernels for _n_ of one, three and five:
 
 ~~~spl svg=A
 (-1.pi -- 1.pi).functionPlot(
-	[1 3 5].collect(
+	[1L 3L 5L].collect(
 		dirichletKernel/1
 	)
 )

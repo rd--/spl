@@ -215,7 +215,7 @@
 
 	graphComplement { :self |
 		let m = self.adjacencyMatrix;
-		(1 - m.size.identityMatrix - m).adjacencyGraph
+		(1L - m.size.identityMatrix - m).adjacencyGraph
 	}
 
 	graphDistance { :g :s :t |
@@ -776,17 +776,17 @@ Graph : [Object, Graph] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	balancedCayleyTree { :n :k |
-		let gapList = [1] ++ 0.toCollect(k - 1) { :i |
-			n * ((n - 1) ^ i)
+		let gapList = [1L] ++ 0L.toCollect(k - 1L) { :i |
+			n * ((n - 1L) ^ i)
 		};
-		let startList = ([0] ++ gapList).prefixSum + 1;
-		let v = [1 .. gapList.sum];
+		let startList = ([0L] ++ gapList).prefixSum + 1L;
+		let v = [1L .. gapList.sum];
 		let e = [];
-		1.toDo(k) { :i |
-			let count = (i = 1).if { n } { n - 1 };
+		1L.toDo(k) { :i |
+			let count = (i = 1L).if { n } { n - 1L };
 			let start = startList[i];
 			let gap = gapList[i];
 			let begin = start;
@@ -794,51 +794,53 @@ Graph : [Object, Graph] {
 			gap.timesRepeat {
 				count.timesRepeat {
 					e.add!(begin --- end);
-					end := end + 1
+					end := end + 1L
 				};
-				begin := begin + 1
+				begin := begin + 1L
 			}
 		};
 		Graph(v, e)
 	}
 
 	bookGraph { :self |
-		(self + 1).starGraph
+		(self + 1L).starGraph
 		.graphProduct(
-			2.pathGraph
+			2L.pathGraph
 		)
 	}
 
 	cayleyTree { :n :k |
-		let v = [1 .. n + 1];
-		let e = 2.toCollect(n + 1) { :i |
-			1 --- i
+		let v = [1L .. n + 1L];
+		let e = 2L.toCollect(n + 1L) { :i |
+			1L --- i
 		};
-		{ k > 1 }.whileTrue {
+		{
+			k > 1L
+		}.whileTrue {
 			let i = v.last;
-			1.toDo(n - 1) { :j |
+			1L.toDo(n - 1L) { :j |
 				v.add!(i + j);
 				e.add!(i --- (i + j))
 			};
-			k := k - 1
+			k := k - 1L
 		};
 		Graph(v, e)
 	}
 
 	circulantGraph { :self :aList |
 		let e = [];
-		1.toDo(self) { :i |
+		1L.toDo(self) { :i |
 			aList.do { :j |
-				e.add!([i, (i - j).mod(self, 1)]);
-				e.add!([i, (i + j).mod(self, 1)])
+				e.add!([i, (i - j).mod(self, 1L)]);
+				e.add!([i, (i + j).mod(self, 1L)])
 			}
 		};
-		e.Graph.simpleGraph
+		Graph(e).simpleGraph
 	}
 
 	completeBipartiteGraph { :self :anInteger |
-		let u = 1.to(self);
-		let v = (self + 1).to(self + anInteger);
+		let u = 1L.to(self);
+		let v = (self + 1L).to(self + anInteger);
 		let e = [];
 		u.do { :i |
 			e.addAll!(
@@ -852,14 +854,14 @@ Graph : [Object, Graph] {
 
 	completeGraph { :self |
 		let edgeList = [];
-		1.toDo(self) { :i |
+		1L.toDo(self) { :i |
 			edgeList.addAll!(
-				(i + 1).to(self).collect { :j |
+				(i + 1L).to(self).collect { :j |
 					[i, j]
 				}
 			)
 		};
-		Graph([1 .. self], edgeList)
+		Graph([1L .. self], edgeList)
 	}
 
 	completeGraphDrawing { :self :radius |
@@ -871,12 +873,12 @@ Graph : [Object, Graph] {
 	}
 
 	crownGraph { :n |
-		let a = [1 .. n];
+		let a = [1L .. n];
 		let b = a + n;
 		let v = a ++ b;
 		let e = [];
-		1.toDo(n) { :i |
-			1.toDo(n) { :j |
+		1L.toDo(n) { :i |
+			1L.toDo(n) { :j |
 				(i != j).ifTrue {
 					e.add!(a[i] --- b[j])
 				}
@@ -886,35 +888,35 @@ Graph : [Object, Graph] {
 	}
 
 	cubeGraph { :self |
-		let k = 2 ^ self;
-		let m = (k - 1).integerLength(2);
-		let n = 0.toCollect(k - 1) { :each |
-			each.integerDigits(2).padLeft([m], 0)
+		let k = 2L ^ self;
+		let m = (k - 1L).integerLength(2);
+		let n = 0L.toCollect(k - 1L) { :each |
+			each.integerDigits(2L).padLeft([m], 0L)
 		};
 		let e = [];
-		1.toDo(k) { :i |
+		1L.toDo(k) { :i |
 			i.toDo(k) { :j |
 				let d = n[i].hammingDistance(n[j]);
-				(d = 1).ifTrue {
+				(d = 1L).ifTrue {
 					e.add!([i, j])
 				}
 			}
 		};
-		e.Graph
+		Graph(e)
 	}
 
 	cycleGraph { :self |
-		1.toCollect(self) { :each |
-			[each, each % self + 1]
+		1L.toCollect(self) { :each |
+			[each, each % self + 1L]
 		}.Graph
 	}
 
 	cyclotomicGraph { :p |
 		p.isPrime.if {
-			let v = [1 .. p];
+			let v = [1L .. p];
 			let e = [];
-			1.toCollect(p - 1) { :i |
-				(i + 1).toCollect(p) { :j |
+			1L.toCollect(p - 1L) { :i |
+				(i + 1L).toCollect(p) { :j |
 					isCubicResidue(j - i, p).ifTrue {
 						e.add!(i --- j)
 					}
@@ -927,12 +929,12 @@ Graph : [Object, Graph] {
 	}
 
 	deBruijnGraph { :m :n |
-		let o = n - 1;
+		let o = n - 1L;
 		let k = m ^ n;
-		let s = 0.toCollect(k - 1) { :i |
+		let s = 0L.toCollect(k - 1L) { :i |
 			i.integerDigits(m, n)
 		};
-		let v = [1 .. k];
+		let v = [1L .. k];
 		let e = [];
 		let withLabels = false;
 		[v, v].tuplesDo { :each |
@@ -945,7 +947,7 @@ Graph : [Object, Graph] {
 		let g = Graph(v, e);
 		withLabels.ifTrue {
 			g.vertexLabels := s.collect { :each |
-				each.collect(displayString/1).stringCatenate
+				each.collect(integerString/1).stringCatenate
 			}
 		};
 		g
@@ -953,14 +955,14 @@ Graph : [Object, Graph] {
 
 	hammingGraph { :d :q |
 		let k = q ^ d;
-		let s = [1 .. q].tuples(d);
-		let v = [1 .. k];
+		let s = [1L .. q].tuples(d);
+		let v = [1L .. k];
 		let e = [];
-		1.toDo(k) { :i |
-			(i + 1).toDo(k) { :j |
+		1L.toDo(k) { :i |
+			(i + 1L).toDo(k) { :j |
 				let p = s[i];
 				let q = s[j];
-				(p.hammingDistance(q) = 1).ifTrue {
+				(p.hammingDistance(q) = 1L).ifTrue {
 					e.add!([i, j])
 				}
 			}
@@ -1008,7 +1010,8 @@ Graph : [Object, Graph] {
 	}
 
 	kingGraph { :m :n |
-		m.pathGraph
+		m
+		.pathGraph
 		.graphProduct(
 			n.pathGraph,
 			'Normal'
@@ -1020,20 +1023,20 @@ Graph : [Object, Graph] {
 	}
 
 	knightGraph { :m :n |
-		let d = 5.sqrt;
+		let d = 5.0.sqrt;
 		let c = { :i :j |
 			[i, j]
-		}.table(1.to(m), 1.to(n)).catenate;
+		}.table(1L.to(m), 1L.to(n)).catenate;
 		let e = [];
-		1.toDo(m * n) { :i |
-			(i + 1).toDo(m * n) { :j |
+		1L.toDo(m * n) { :i |
+			(i + 1L).toDo(m * n) { :j |
 				euclideanDistance(c[i], c[j])
 				.isVeryClose(d).ifTrue {
 					e.add!(i --- j)
 				}
 			}
 		};
-		let g = Graph([1 .. m * n], e);
+		let g = Graph([1L .. m * n], e);
 		g.vertexCoordinates := c;
 		g
 	}
@@ -1043,10 +1046,10 @@ Graph : [Object, Graph] {
 	}
 
 	paleyGraph { :p |
-		let v = [1 .. p];
+		let v = [1L .. p];
 		let e = [];
-		1.toCollect(p - 1) { :i |
-			(i + 1).toCollect(p) { :j |
+		1L.toCollect(p - 1L) { :i |
+			(i + 1L).toCollect(p) { :j |
 				isQuadraticResidue(j - i, p).ifTrue {
 					e.add!(i --- j)
 				}
@@ -1056,18 +1059,18 @@ Graph : [Object, Graph] {
 	}
 
 	pathGraph { :self |
-		1.toCollect(self - 1) { :each |
-			[each, each + 1]
+		1L.toCollect(self - 1L) { :each |
+			[each, each + 1L]
 		}.Graph
 	}
 
 	petersenGraph { :n :k |
-		(k < (n / 2)).if {
-			let u = [1 .. n];
-			let v = [n + 1 .. n + n];
-			let e = 1.toCollect(n) { :i |
-				let a = (i + 1).mod(n, 1);
-				let b = (i + k).mod(n, 1);
+		(k < (n / 2L)).if {
+			let u = [1L .. n];
+			let v = [n + 1L .. n + n];
+			let e = 1L.toCollect(n) { :i |
+				let a = (i + 1L).mod(n, 1L);
+				let b = (i + k).mod(n, 1L);
 				[
 					[u[i], u[a]],
 					[u[i], v[i]],
@@ -1081,7 +1084,7 @@ Graph : [Object, Graph] {
 	}
 
 	prismGraph { :n |
-		petersenGraph(n, 1)
+		petersenGraph(n, 1L)
 	}
 
 	ringLatticeGraph { :n :k |
@@ -1111,27 +1114,26 @@ Graph : [Object, Graph] {
 	}
 
 	stackedBookGraph { :m :n |
-		(m + 1).starGraph
-		.graphProduct(
+		(m + 1L).starGraph.graphProduct(
 			n.pathGraph
 		)
 	}
 
 	starGraph { :self |
-		2.toCollect(self) { :each |
-			[1, each]
+		2L.toCollect(self) { :each |
+			[1L, each]
 		}.Graph
 	}
 
 	wheelGraph { :self |
-		(self < 4).if {
+		(self < 4L).if {
 			self.error('Integer>>wheelGraph: n < 4')
 		} {
-			let cycle = 2.toCollect(self) { :each |
-				[each, (each = self).if { 2 } { each + 1 }]
+			let cycle = 2L.toCollect(self) { :each |
+				[each, (each = self).if { 2L } { each + 1L }]
 			};
-			let star = 2.toCollect(self) { :each |
-				[1, each]
+			let star = 2L.toCollect(self) { :each |
+				[1L, each]
 			};
 			(cycle ++ star).Graph
 		}
@@ -1158,13 +1160,13 @@ Graph : [Object, Graph] {
 	gridGraph { :shape |
 		let k = shape.product;
 		let v = k.iota;
-		let c = 1.toCollect(k) { :i |
+		let c = 1L.toCollect(k) { :i |
 			shape.cartesianIndex(i)
 		};
 		let e = [];
-		1.toDo(k) { :i |
-			(i + 1).toDo(k) { :j |
-				((c[j] - c[i]).abs.sum = 1).ifTrue {
+		1L.toDo(k) { :i |
+			(i + 1L).toDo(k) { :j |
+				((c[j] - c[i]).abs.sum = 1L).ifTrue {
 					e.add!([i, j])
 				}
 			}
@@ -1173,7 +1175,11 @@ Graph : [Object, Graph] {
 	}
 
 	torusGraph { :self |
-		self.collect(cycleGraph/1).reduce(graphProduct/2)
+		self.collect(
+			cycleGraph/1
+		).reduce(
+			graphProduct/2
+		)
 	}
 
 }
@@ -1193,8 +1199,8 @@ Graph : [Object, Graph] {
 				}
 			}
 		};
-		1.toDo(k) { :i |
-			1.toDo(k) { :j |
+		1L.toDo(k) { :i |
+			1L.toDo(k) { :j |
 				let n = self(v[i], v[j]);
 				n.timesRepeat {
 					addEdge(i, j)
@@ -1327,10 +1333,10 @@ Graph : [Object, Graph] {
 +@RandomNumberGenerator {
 
 	randomBernoulliGraph { :r :n :p |
-		let v = [1 .. n];
+		let v = [1L .. n];
 		let e = [];
-		1.toDo(n - 1) { :i |
-			(i + 1).toDo(n) { :j |
+		1L.toDo(n - 1L) { :i |
+			(i + 1L).toDo(n) { :j |
 				(r.nextRandomFloat < p).ifTrue {
 					e.add!([i, j])
 				}
@@ -1340,13 +1346,19 @@ Graph : [Object, Graph] {
 	}
 
 	randomUniformGraph { :r :n :m |
-		let v = [1 .. n];
+		let v = [1L .. n];
 		let e = [];
-		{ e.size < m }.whileTrue {
-			let a = r.nextRandomSmallInteger(1, n);
-			let b = r.nextRandomSmallInteger(1, n);
+		{
+			e.size < m
+		}.whileTrue {
+			let a = r.nextRandomSmallInteger(1L, n);
+			let b = r.nextRandomSmallInteger(1L, n);
 			let c = [a, b].sort;
-			(a != b & { e.includes(c).not }).ifTrue {
+			(
+				a != b & {
+					e.includes(c).not
+				}
+			).ifTrue {
 				e.add!(c)
 			}
 		};
@@ -1355,16 +1367,16 @@ Graph : [Object, Graph] {
 
 	wattsStrogatzModel { :r :n :k :beta |
 		let m = k / 2;
-		let v = [1 .. n];
+		let v = [1L .. n];
 		let e = [];
 		v.do { :i |
-			1.toDo(m) { :j |
+			1L.toDo(m) { :j |
 				let x = r.randomBoolean(beta, []).if {
 					let z = nil;
 					{
 						z.isNil
 					}.whileTrue {
-						let y = r.randomSmallInteger([1 n], []);
+						let y = r.randomSmallInteger([1L n], []);
 						z := i --- y;
 						(
 							z.isSelfLoop | {
@@ -1378,7 +1390,7 @@ Graph : [Object, Graph] {
 					};
 					z
 				} {
-					i --- (i + j).mod(n, 1)
+					i --- (i + j).mod(n, 1L)
 				};
 				e.add!(x)
 			}

@@ -1,6 +1,6 @@
 Duration : [Object, Store, Equal, Compare] {
 
-	| magnitude | <@Number>
+	| magnitude | <Float>
 
 	Duration { :self |
 		self
@@ -62,9 +62,9 @@ Duration : [Object, Store, Equal, Compare] {
 
 }
 
-+[Float, Integer, Fraction] {
++[Float, @ImplicitFloat] {
 
-	Duration { :self |
+	Duration { :self Float |
 		uncheckedDuration(self)
 	}
 

@@ -1,4 +1,4 @@
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	bellNumber { :self |
 		(self < 0L).if {
@@ -802,7 +802,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	deBruijnSequenceCount { :k :n |
 		(k.factorial ^ (k ^ (n - 1L))) // (k ^ n)

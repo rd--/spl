@@ -193,7 +193,7 @@
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	milkShuffleIndices { :n |
 		let m = n // 2;

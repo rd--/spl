@@ -15,7 +15,7 @@ MersenneTwister : [Object, Equal, Iterator, RandomNumberGenerator, Stream] {
 
 }
 
-+[Float, Integer] {
++[Integer, @SmallInteger] {
 
 	MersenneTwister { :seed SmallInteger |
 		uncheckedMersenneTwister(

@@ -2,7 +2,7 @@
 
 - _LinearCongruential([a c m], s)_
 
-Answer a pseudo random number generator with with
+Answer a pseudo random number generator with
 multiplier _a_,
 increment _c_,
 modulus _m_ and

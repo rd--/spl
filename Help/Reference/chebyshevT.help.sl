@@ -10,10 +10,10 @@ Coefficients for the first few Chebyshev polynomials of the first kind,
 OEIS [A008310](https://oeis.org/A008310):
 
 ```
->>> 0:12.collect { :n |
+>>> 0L:12L.collect { :n |
 >>> 	let p = n.chebyshevT;
 >>> 	let c = p.coefficientList;
->>> 	c.without!(0)
+>>> 	c.without!(0L)
 >>> }
 [
 	1;
@@ -35,13 +35,13 @@ OEIS [A008310](https://oeis.org/A008310):
 Evaluate at specific _x_:
 
 ```
->>> 2.chebyshevT(3)
-17
+>>> 2L.chebyshevT(3L)
+17L
 
->>> 2.chebyshevT.atAll([3, 5])
-[17 49]
+>>> 2L.chebyshevT.atAll([3L 5L])
+[17L 49L]
 
->>> 5.chebyshevT.atAll(
+>>> 5L.chebyshevT.atAll(
 >>> 	[1/6 1/4 1/3 1/2 2/3 3/4]
 >>> )
 [
@@ -49,10 +49,10 @@ Evaluate at specific _x_:
 	1/2 -118/243 -57/64
 ]
 
->>> 12.chebyshevT.at(2.5)
-73180801
+>>> 12L.chebyshevT.at(5/2)
+73180801/1
 
->>> 0:3.collect { :n |
+>>> 0L:3L.collect { :n |
 >>> 	n.chebyshevT.at(1/2.pi)
 >>> }
 [
@@ -68,8 +68,8 @@ OEIS [A009116](https://oeis.org/A009116):
 
 ```
 >>> let x = -1 / 2.sqrt;
->>> 0:15.collect { :n |
->>> 	2 ^ (n / 2) * n.chebyshevT(x)
+>>> 0L:15L.collect { :n |
+>>> 	2.0 ^ (n / 2.0) * n.chebyshevT(x)
 >>> }
 [1 -1 0 2 -4 4 0 -8 16 -16 0 32 -64 64 0 -128]
 

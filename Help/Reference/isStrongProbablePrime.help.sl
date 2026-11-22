@@ -7,19 +7,19 @@ Answer `true` if _n_ is a strong probable prime.
 Find false positives up to _k_:
 
 ```
->>> let k = 25_000.0;
+>>> let k = 5_000.0;
 >>> (3.0 .. k; 2.0).select { :n |
 >>> 	n.isStrongProbablePrime & {
 >>> 		n.isPrime.not
 >>> 	}
 >>> }
-[2047 3277 4033 4681 8321 15841]
+[2047 3277 4033 4681]
 ```
 
 Find false negatives up to _k_:
 
 ```
->>> let k = 25_000.0;
+>>> let k = 5_000.0;
 >>> (3.0 .. k; 2.0).select { :n |
 >>> 	n.isStrongProbablePrime.not & {
 >>> 		n.isPrime
